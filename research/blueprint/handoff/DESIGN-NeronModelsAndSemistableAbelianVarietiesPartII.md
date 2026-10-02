@@ -1,498 +1,367 @@
-# DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII — explicit finite normalization
+# #3378: explicit projective quadratic pinching — 2 October 2026
 
-ChatGPT — gpt-20261002-atlas-b73e. Refs #3378. Date: 2026-10-02.
-Claim 5959742577 was confirmed by bot comment 5959745101; the issue was reread after confirmation.
+**Partial mathematical checkpoint, not a completed blueprint or Lean implementation.** Agent: ChatGPT Pro — cp-20261002-sr-c72e81. Job: DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII. Claim comment 5960141363; winning-claim confirmation 5960144999. Publication parent: `420d642c046a3f3931a40e7897d077d0c3b952c9`.
 
-This is a **handoff-only partial research checkpoint**. It does not change the packet, roadmap,
-reader or suggested file, and it does not mark a stage complete. The predecessor's complete
-handoff, its native proof archives and its validation receipts remain available at
-[the merged predecessor a2d1c01](https://github.com/CBirkbeck/tauceti-explorer/blob/a2d1c01c977d6bb058b27f5774d4964f4b12a799/research/blueprint/handoff/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII.md).
-Those earlier checks are historical; they were not rerun here.
+This handoff continues the merged affine-normalization checkpoint, PR #5843. Its complete proofs of the two-generator presentation, syzygies, localization, integral closure, quotient module, nonflatness and duality, together with its reproducible program and all remaining obligations, are preserved in the [previous handoff at the publication parent](https://github.com/CBirkbeck/tauceti-explorer/blob/420d642c046a3f3931a40e7897d077d0c3b952c9/research/blueprint/handoff/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII.md).
 
-The work below discharges the **written affine algebra argument** requested by the predecessor:
-finite generation, a complete module presentation, localization, common fraction field and
-integral closure. It also gives explicit duality and nonflatness tests. Converting these
-arguments into native signatures/proofs and declaration-sized packet additions remains work.
-The existing G.1/quadratic-pinch-normalization statement and all 182 existing node objects are
-unchanged. No new node, API, test, planet or baseline record is claimed to be integrated.
+**Only this handoff changes.** The canonical roadmap, packet, reader and suggested file retain their contents and statuses: the reader's 182 declarations, seven partial stages, 78 source routes, 21 source findings, reserved Ferrand key, requests and planets are not rewritten or marked complete. The older packet summary still says 163 declarations; this is inherited stale summary text, not a new count or a reason to delete nodes. The mathematical continuation below has not yet been integrated into those four canonical files. There is no Lean code in this handoff.
 
-## 1. Fixed objects and existing owners
+The new contribution is an explicit projective realization of the one-component quadratic pinch, with both charts and their inverses, its normalization and conductor, the actual coherent-cohomology quotient, and a direct bridge to the existing Weierstrass point-count convention. The point-count bridge does not depend on completing scheme foundations. The geometric proof is a specialized calculation; no second Ferrand construction, general normalization theory, arithmetic-genus definition or point-count carrier is proposed.
 
-Let k be any field and let B=k[t], q=t²+at+b, A=k+qB as the **existing native subalgebra** of B.
-Write U=q and V=tq in A. Let epsilon:A→k be the existing constant-remainder algebra map, and
-m=ker(epsilon)=qB, regarded as an ideal of A. All scalar actions use the actual inclusion A→B.
-There is no separability, irreducibility, perfectness or characteristic restriction.
+## 1. Fixed objects, signs and existing owners
 
-The predecessor supplies the precise affine presentation
+Let k be any field and let a,b belong to k. Put
 
-    A = k[U,V]/(F),       F=V²+aUV+bU²−U³,
+    B = k[t],       q(t) = t^2 + a t + b,
+    A = k + q B,    E = B/(q),       L = E/k,
+    F(U,V) = V^2 + a U V + b U^2 - U^3.
 
-where the equality denotes its canonical substitution algebra equivalence, not a new choice
-of coordinates. It also supplies the actual conductor qB and the quadratic normal forms.
-This checkpoint uses those maps, not an abstract isomorphic ring with an unspecified embedding.
-The full general Ferrand scheme/algebraic-space construction is not repeated. The scheme
-normalization functor, projective pinching, curve cohomology and genus-one model interfaces
-retain their existing owners and outstanding requests.
+Here A is the existing native `QuadraticPinch.algebra`, not a new abstract ring with prescribed invariants. L is the quotient of k-vector spaces by the constant subspace; it is not a quotient ring. The existing presentation is A ≅ k[U,V]/(F), U ↦ q, V ↦ tq. Its residue map epsilon:A→k has kernel m=qB=(U,V), and the conductor of A⊂B is qB. These are the precise predecessor inputs.
 
-## 2. A two-generator A-module surjection
+Let C be the projective plane cubic, with homogeneous coordinates [U:V:Z], defined by
 
-Every f∈B has a unique form P(q)+tQ(q), P,Q∈k[Z]. For existence, divide successively by the
-monic quadratic q: each remainder has form c+dt, so collecting the successive c's and d's
-produces P and Q. For uniqueness, a nonzero P(q) has even degree and a nonzero tQ(q) odd degree;
-their leading terms cannot cancel. Zero summands are handled separately.
+    Fh(U,V,Z) = V^2 Z + a U V Z + b U^2 Z - U^3 = 0.
 
-Since P(q),Q(q)∈A, the **actual** A-linear map
+This is the projective equation of the existing Weierstrass datum with coefficient tuple
 
-    pi:A²→B,       pi(r,s)=r+ts
+    (a1,a2,a3,a4,a6) = (a,-b,0,0,0).
 
-is surjective. Therefore B is finite over A, generated by 1,t. This does not say those two
-vectors are an A-basis. The relation U·t−V·1=0 is nontrivial, since q is nonzero.
+The sign of a2 is **minus** b. Its discriminant is zero. It is a proper curve of arithmetic genus one, not a smooth elliptic curve and not, by itself, a regular generic curve of the roadmap's genus-one-fibration definition.
 
-The two-generator assertion can also be read directly from t²=U−at−b. Induction on the power
-of t gives the same span, without assuming finite generation of A over k. Thus the finite
-normalization statement does not require a general excellence/Nagata finiteness theorem.
+Write P=[0:0:1] for the pinched point and O=[0:1:0] for the point at infinity. On P1 use homogeneous coordinates [S:T] and set Q(S,T)=S^2+aST+bT^2. General scheme/Proj/coherent-cohomology interfaces stay with SchemeAndStackFoundations:SF.3 and StableReduction Layers 1–2. The reserved owner `NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts` and all its nonradicial cases remain unchanged.
 
-## 3. Exact syzygies, with signs fixed
+## 2. Point parametrization independent of scheme infrastructure
 
-Set L=−U²+aV+bU and consider the actual A-linear matrix map
+The affine equation is y^2+a x y+b x^2=x^3. If x=0, the field property gives y=0. If x≠0, set t=y/x and divide the equation by x^2. This gives q(t)=x, hence y=tq(t). Conversely, every t with q(t)≠0 gives the nonsingular affine solution (q(t),tq(t)), and y/x recovers t. Consequently there is an actual bijection
 
-    N = [ −V   L ] .
-        [  U   V ]
+    {affine equation solutions} ≅ {t in k : q(t) ≠ 0} disjoint-union {P}.
 
-The columns (-V,U) and (L,V) are killed by pi, because V=tU and
-L+tV=q(−q+at+b+t²)=0.
+The maps, not just the dimensions or cardinalities, are specified here. The inverse sends P=(0,0) to the exceptional summand; on the other summand it is y/x. No division is attempted at P, and no separability hypothesis is needed. The coordinate proof also identifies all non-P affine solutions with the open D(q) of the normalization.
 
-The following implication is the substantive converse. For s∈A,
+Over a finite field of cardinality Q0, let r be the number of **distinct field roots** of q. The native defining equation in the pinned Tau Ceti `PointCount.lean` is
 
-    ts∈A  if and only if  s∈qB.
+    W.pointCount = Nat.card {affine equation solutions} + 1.
 
-Indeed write s=c+qh. The remainder of ts modulo q is ct. A member of A has scalar remainder,
-so comparison of the coefficients of 1 and t in B/(q) forces c=0. Conversely qB is an ideal
-of B and is contained in A.
+The final one is O, and the singular point P is already in the solution subtype. Thus a subtraction-free natural-number target is
 
-Now suppose pi(r,s)=0. Then r=−ts and the preceding criterion gives s=qh for some h∈B.
-Write h=x+ty with x,y∈A by section 2. Consequently
+    W.pointCount + r = Q0 + 2.                              (PC)
 
-    (r,s)=x(-V,U)+y(L,V)=N(x,y).
+Equivalently W.pointCount=Q0+2-r. The built integer-valued `frobeniusTrace` therefore equals r-1. These are comparisons with existing definitions, not new definitions of either invariant. In contrast, Mathlib's nonsingular-point group omits P, and has one fewer point. The built `pointCount_eq_card_point` theorem requires `IsElliptic` and cannot be applied to this singular equation.
 
-This proves **ker(pi)=im(N)**, not merely that both columns are relations. The induced
-A-linear equivalence coker(N)→B sends the classes of (1,0),(0,1) to 1,t. Its inverse sends
-P(q)+tQ(q) to [(P(q),Q(q))]; the syzygy calculation proves independence of the representing pair.
+For k=F2, the coefficient pairs (a,b)=(1,0),(1,1),(0,0) give counts 2,4,3 respectively, and the corresponding integer defects are 1,-1,0. The value r counts distinct roots, so the double root of t^2 contributes one, not two.
 
-Integration contract: this is a specialized presentation of the existing normalization module.
-The generic matrix-to-linear-map, range, module quotient and first-isomorphism constructions
-must be imported. Suggested API: evaluation on any pair; the two generator equations;
-uniqueness among A-linear maps with those two values. Tests include the zero pair, both basis
-pairs, the two relation columns, and the minus sign in characteristic three.
+This is a useful first native integration target: construct the displayed subtype equivalence, its forward/inverse evaluation API, and prove (PC) using finite-subtype cardinalities and the already built point-count defining equation. It needs field algebra and finite counting, not a new Scheme carrier or an imported theorem saying that the desired point count holds.
 
-## 4. Periodic exactness without a hidden regularity assumption
+## 3. The actual projective normalization morphism
 
-Before passing to A, form the same matrix over S=k[U,V]. Direct multiplication gives
+Define
 
-    N²=F I₂,       (N transpose)²=F I₂.
+    nu:P1 → C,        [S:T] ↦ [T Q(S,T) : S Q(S,T) : T^3].    (N)
 
-The polynomial F is monic of degree two in V over k[U], hence multiplication by F on S² is
-injective. This ambient regularity, not regularity of the singular quotient A, supplies exactness.
+These are three sections of O(3). They have no simultaneous zero: if T is nonzero, T^3 is nonzero; if T=0, S is nonzero and SQ=S^3 is nonzero. The same argument in homogeneous prime ideals proves the generating-open condition for the scheme morphism, not merely its assertion on k-rational points. Substitution gives
 
-If a vector z in A² is killed by N, choose a lift z_tilde∈S². There is w∈S² such that
-N z_tilde=F w. Multiplying by N and using N²=F I gives F z_tilde=F Nw. Cancel F in S² to obtain
-z_tilde=Nw. Reducing modulo F gives z∈im(N). The reverse inclusion is N²=0 in A. Repeat the
-identical argument for the transpose. Thus
+    Fh(TQ,SQ,T^3) = T^3 Q^2 (S^2+aST+bT^2-Q) = 0.
 
-    ker(N)=im(N),       ker(N transpose)=im(N transpose)
+Thus the morphism factors through the actual closed cubic subscheme.
 
-in the actual quotient. Along with section 3 this gives the free resolution
+### 3.1 The finite chart
 
-    ... → A² --N→ A² --N→ A² --pi→ B → 0.
+The inverse image of D(Z) is D(T). Set t=S/T. The coordinate map is exactly
 
-No assertion is made for arbitrary matrices in an arbitrary receiving ring just because their
-product vanishes. The lift and cancellation argument uses the actual principal quotient S/(F).
-No general matrix-factorization/MCM equivalence is reconstructed here.
+    U/Z ↦ q(t),       V/Z ↦ t q(t),
 
-## 5. Localization and the actual common fraction field
+so D(Z)∩C is Spec A, and the map from Spec B is the existing finite affine normalization. This identifies the map with the predecessor, rather than inventing a second normalization with unspecified comparison.
 
-The inclusion defines A[1/U]→B[1/q]. An explicit inverse on fractions is
+### 3.2 The infinity chart and an explicit inverse
 
-    f/q^n  ↦  (qf)/U^(n+1).
+On D(V) put u=U/V and z=Z/V. Its coordinate ring is
 
-Its numerator qf belongs to A. Well-definedness follows either by the localization universal
-property or by cross multiplication: equality of two fractions over B gives the same equality
-of the displayed A numerators after multiplication by an additional power of q. Both rings
-embed in k(t), so equality can be checked there. Addition and multiplication are the ordinary
-fraction laws. The composites fix all fractions. In particular t is the image of V/U.
+    D = k[u,z]/(z h(u)-u^3),       h(u)=1+a u+b u^2.
 
-More explicitly, the canonical injection Frac(A)→k(t) is surjective: for f,g∈k[t] with g≠0,
+Define polynomials
 
-    f/g = (qf)/(qg),       qf,qg∈A,       qg≠0.
+    e(u)=1-a u+(a^2-b)u^2,
+    c(u)=a^3-2ab+(a^2 b-b^2)u.
 
-This proves equality of the fraction fields respecting the original inclusions. It does not
-identify unrelated fraction-field carriers by fiat. The generic rank of B over A is one,
-although two module generators are needed at the pinched point.
+Direct expansion gives h e=1+u^3 c, so in D
 
-## 6. Integral closure, not just a finite birational map
+    h(e-z c)=1.
 
-By section 2, every element of B is integral over A. Conversely, let z∈k(t) be integral over A.
-The same monic equation, with its coefficients included in B, makes z integral over B.
-The polynomial ring k[t] is a unique factorization domain and hence is integrally closed in k(t),
-so z∈B. Therefore the integral closure of A in its actual fraction field is exactly the image
-of B, and A→B is its finite normalization.
+In particular h is a unit, without assuming u is a unit. The homomorphisms
 
-The normality of B alone would not prove this without the common fraction field and integral
-extension. All three statements have been supplied separately. The conclusion applies also to
-a repeated-root or inseparable quadratic: no assertion that the target is nodal follows from
-normality of B. Scheme-level transportation through the existing Spec/normalization interfaces
-remains a separate encoding task; the projective curve and its cohomology are not constructed here.
+    D → k[u,1/h],       u ↦ u,       z ↦ u^3/h,
+    k[u,1/h] → D,       u ↦ u,       1/h ↦ e-z c
 
-## 7. The quotient module and the conductor fibre
+are inverse: the first composition is immediate on u and 1/h; the other sends z to u^3(e-zc)=zh(e-zc)=z. These identities hold in characteristics two and three as well.
 
-Define beta:B→k to be the coefficient of t in the degree-less-than-two remainder modulo q.
-Give k its A-action through epsilon. If r∈A, its remainder is the scalar epsilon(r), so
+The inverse image nu^-1(D(V)) is D(SQ). There S is nonzero; setting u=T/S identifies it with Spec k[u,1/h]. The pullback in (N) sends z to u^3/h. Thus nu is an isomorphism on this whole chart. At O we have u=z=0, and the inverse point on P1 is [1:0]. The partial derivative dFh/dZ equals one at O, so infinity is smooth.
 
-    beta(rf)=epsilon(r) beta(f).
+### 3.3 Cover, integrality and normalization
 
-Thus beta is an A-linear map, surjective because beta(t)=1, with kernel exactly A. This proves
-0→A→B→k→0 as A-modules and the canonical module identification B/A≃k. This is **not** a quotient
-ring: A contains 1 and is not an ideal of B. Beta(1)=0 and beta(t²)=−a are useful sign/type tests.
-Do not confuse beta with epsilon: their domains and values on 1 differ.
+D(Z) and D(V) cover C: a homogeneous prime containing Z and V would contain U^3, hence U, contrary to the irrelevant-ideal condition. The two chart rings are domains, and their intersection is nonempty, as witnessed by the common rational function field. Their union is therefore reduced and irreducible. Repeating the same computation over every field extension K/k proves that C is geometrically integral. Do not replace this argument by nonemptiness of the intersection's k-points: that intersection can have no F2-point.
 
-Section 2 gives m=qB=(U,V) as an ideal of A, and mB=qB in B. Hence
+On the target affine cover, nu is respectively the finite map A⊂B and an isomorphism. Hence nu is finite. Its dense open D(U) on the first chart is an isomorphism by the predecessor's localization calculation. Since P1 is normal, this finite birational morphism is the normalization. In particular it is surjective, but it need not be surjective on k-rational points: the nonsplit conductor point P has no rational preimage.
 
-    B tensor_A k ≃ B/(q),       dim_k(B tensor_A k)=2.
+The equation realizes C as a closed subscheme of P2, so C is projective and proper. This proves the specialized projective step directly; it does not rely on the incorrect implication that every topological quotient of a proper space is a proper scheme, nor on a generic projective-normalization theorem without its hypotheses.
 
-The fibre is its actual quadratic algebra, not a chosen set of two points. A separable split
-quadratic yields k×k, a repeated linear factor yields the dual numbers after translation, and
-an irreducible quadratic yields its degree-two residue field, which need not be separable.
-Separability only enters the geometric branch interpretation. These affine algebra statements
-do not assert the global point counts or curve-cohomology comparisons of G.1.
+## 4. The full conductor and the Ferrand comparison
 
-## 8. Nonflatness and all positive Tor groups
+The predecessor identifies the conductor on D(Z) as m=qB⊂A. On D(V), nu is an isomorphism, so the conductor is the unit ideal. These local ideals agree on the overlap, giving exactly the closed point i:Spec k→C at P. Its inverse image is the **scheme** Spec E, since
 
-Every entry of N lies in m. Tensoring the resolution of section 4 with k=A/m therefore makes
-every differential zero. With the displayed free bases this gives
+    B tensor_A k = B/mB = B/(q).
 
-    Tor_i^A(B,k) ≃ k²    for every i≥0.
+This retains the double point when q has a repeated root. No replacement of E by its reduction is permitted. Infinity does not belong to this fiber because Q(1,0)=1.
 
-In degree zero this is the quadratic conductor fibre. Every positive-degree group is nonzero,
-so B is not flat over A; the same argument applies after localizing at m. These are deductions
-from the written exact resolution, not claims that Python computed derived functors or Lean
-certified a resolution.
+The diagram E→P1, E→Spec k, P1→C, Spec k→C is cartesian and is the Ferrand geometric and categorical pushout. To see the comparison with the existing general owner, check its scheme existence hypothesis: all of E is contained in the affine open D(T) of P1. The source map E→P1 is closed and E→Spec k is finite. On that affine open, its ring pullback is exactly A=k+qB; off E the complement is unchanged, and the infinity chart above gives the same gluing. Uniqueness of the existing pushout identifies the constructed scheme with C and identifies its sheaf fiber-product map. This is a consumer of `G.0/global-existence` and the reserved key, not a new general pushout node.
 
-There is also a direct tensor witness that does not rely on naming Tor. The injection m→A
-fails to remain injective after tensoring with B: the element
+For the repeated-root algebra E, do not apply `G.1/quadratic-point-proper-pushout` as currently stated: that theorem's input E is a **field extension**. The applicable owner here is the general finite closed pinching theorem, with the affine-neighborhood condition verified as above. The separable irreducible case specializes to the existing single-field-point theorem.
 
-    z=U tensor t − V tensor 1   in m tensor_A B
+## 5. Coherent cohomology with its actual quotient map
 
-maps to Ut−V=0. It is nonzero. Indeed m²=q²B, and dividing by q identifies m/m² with B/(q),
-with basis [U],[V] corresponding to 1,t. The image of z in
+On Spec A the map B→L is reduction modulo q followed by quotient by constants. Its kernel is A, it is surjective, and it is A-linear when A acts on L through epsilon:A→k. This is the predecessor's quotient-module map, intrinsically expressed without a basis. On the complementary infinity chart its target is zero. Gluing gives the actual exact sequence of coherent O_C-modules
 
-    (m/m²) tensor_k (B/(q))
+    0 → O_C → nu_* O_P1 → i_* L → 0.                        (H)
 
-has coordinates (0,1,−1,0) in the basis [U]⊗1,[U]⊗t,[V]⊗1,[V]⊗t. This vector is nonzero in
-every characteristic. This is a discriminating test for any proposed normalization-module
-API that mistakes two generators for a free basis or finite normalization for a flat map.
+The maps on the overlap agree because the support of L is P, outside D(V). Exactness is checked on the two affine charts. Finiteness of nu implies that nu_*O_P1 is coherent and that its higher direct images vanish. The latter is the standard affine-morphism theorem; it is not true because nu is flat, and the predecessor explicitly shows its failure of flatness at P.
 
-## 9. Canonical dual, bidual and Ext boundary
+Use H^0(P1,O)=k and H^1(P1,O)=0. In the long exact sequence of (H), the map k→L is zero, since a constant is zero modulo constants. Thus the structure map identifies H^0(C,O_C) with k, and the connecting map gives a natural k-linear isomorphism
 
-Evaluation at 1 identifies Hom_A(B,A) with m. To prove surjectivity and the exact image, take
-h:B→A A-linear and set r=h(1). Because qt=V∈A,
+    delta:L = E/k → H^1(C,O_C).
 
-    q h(t)=h(qt)=V h(1).
+The quotient has dimension one, so p_a(C)=1. The coordinate t supplies the basis [t] of E/k; composing with it gives a displayed k-basis of H^1. That basis depends on the chosen coordinate and is not an intrinsic trivialization invariant under every change of coordinate. The original `quadratic-pinch-i1-genus` statement's natural E/k comparison is retained.
 
-Cancel the nonzero q in B to obtain h(t)=tr. Section 3 then forces r∈m. Section 2 implies
-h(f)=rf for every f∈B. Conversely every r∈m=qB multiplies B into A. Thus the correspondence
-is canonical, and the map B→Hom_A(B,A) sending b to multiplication by qb is an A-linear
-isomorphism. Its values on 1,t are qb,qbt, not b,bt in general.
+For every field extension K/k, tensoring the affine maps is exact, q stays monic quadratic, and all equations and both charts base-change to the identical construction over K. Hence nu_K is its normalization by the same proof. Applying (H) over K and the naturality of its connecting map gives the actual H^0 and H^1 field-base-change isomorphisms. This proves compatibility in this explicit family; it does not assert that normalization commutes with arbitrary base change for all schemes.
 
-The actual bidual evaluation is an isomorphism as well. Under Hom_A(B,A)≃qB, an element of
-the bidual is an A-linear functional lambda:qB→A. Compose with B→qB, f↦qf; by the preceding
-paragraph the result is f↦sf with s∈qB. Write s=qb uniquely. Then lambda(qf)=qbf, which is
-exactly evaluation at b on the multiplication functional associated with qf. This proves
-surjectivity, injectivity and agreement with the canonical bidual map, not just an abstract
-isomorphism of modules.
+## 6. Nodes, cusps and the imperfect-field boundary
 
-Applying Hom_A(-,A) to the resolution gives differentials N transpose. Their exactness from
-section 4 implies Ext_A^i(B,A)=0 for i>0. This contrast with the nonzero Tor groups is part
-of the boundary: reflexivity and these dual exactness statements do not imply flatness.
-Generic Hom, tensor, Ext/Tor and matrix constructions are imports, not new owners assigned
-by this checkpoint. Any packet nodes for these derived consequences must name the real
-supplier/native carriers; this handoff introduces no fabricated Lean interfaces.
+Outside P the normalization is an isomorphism to an open of P1, so C is smooth there. At P the completed equation has no linear term and has nonzero quadratic term V^2+aUV+bU^2. Its local dimension is one and its cotangent dimension is two, hence P is singular. The unique singular **point** need not be a reduced singular closed subscheme.
 
-## 10. Checked evidence and precise reading boundary
+If q is separable, over a splitting field its two roots r0,s0 are distinct. In the complete one-variable ring, Hensel lifting gives roots rho(U),sigma(U) of X^2+aX+b-U, with residues r0,s0. Then
 
-Personally read in this continuation: the full issue, confirmed claim, latest predecessor
-handoff; the current seven stage contracts; and the existing G.1 residue, generation,
-presentation, conductor and normalization statements and proof routes. The full 182-node
-packet, all 78 source routes, all reviewed audit rows and two complete upstream documents
-were **not** re-audited here. The inherited audit receipts retain their attribution.
+    F = (V-U rho(U))(V-U sigma(U)).
 
-Fresh primary source reading:
+The linear part of the two displayed factors has determinant s0-r0, a unit. Solving degree by degree therefore gives an invertible formal coordinate change, identifying the completed local ring with kbar[[X,Y]]/(XY). This is the existing StableReduction nodal criterion applied to an explicit chart, not a new definition of a node. A split q gives two rational branches; an irreducible separable q gives two conjugate branches. In characteristic two, the separability condition is a≠0.
 
-- [Schröer, arXiv:2004.07025](https://arxiv.org/pdf/2004.07025), third revised version,
-  19 July 2022, §3, printed pp10–11: the one- and two-component conductor-square discussion,
-  the length-two algebra and the split/cuspidal/field cases. Parsed text was available;
-  repeated screenshot attempts and a PDF download failed. No visual table/diagram verification
-  or fresh PDF hash is claimed. The calculations in sections 2–9 are authored deductions for
-  the source-motivated affine model, not quotations of numbered theorems in this paper.
-- [Stacks 0ECH](https://stacks.math.columbia.edu/tag/0ECH): Situation37.67.1,
-  Lemma37.67.2 and Proposition37.67.3 with proofs. The affine-neighborhood hypothesis for
-  schematic global pinching remains essential. This does not finish its transitive source closure.
+If q=(t-r0)^2 over an extension, the change W=V-r0U gives F=W^2-U^3. This is the cusp, including characteristics two and three. Over an imperfect field, a quadratic **field** conductor is not enough to conclude that the curve is nodal: over k=F2(s), q=t^2-s is irreducible (the valuation of s is odd) but purely inseparable. After adjoining a square root of s, the curve is the cusp just computed. This preserves, rather than erases, the imperfect-field form in `small-conductor-classification`.
 
-Fresh positive pinned-library reads:
+A useful scheme-level boundary test is the characteristic-two cusp. Its Jacobian ideal is (U^2), and its singular closed subscheme has coordinate ring k[U,V]/(U^2,V^2), of length four. It still has only one geometric point. In characteristic three the cusp's Jacobian quotient is k[U]/(U^3). A predicate using only the number of singular points would miss the unramified-singular-locus distinction required by the nodal owner. The finite point-enumeration program below does not certify these nonreduced scheme statements; the displayed ideal computations are the mathematical justification.
 
-- [RationalRoot.lean at the exact Mathlib pin](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Polynomial/RationalRoot.lean),
-  full file: UniqueFactorizationMonoid.integer_of_integral and instIsIntegrallyClosed,
-  including the CommRing/domain/UFD/field/fraction-ring hypotheses. Blob30f454c62e1b3680503cb4ad2914c2e197804719.
-- [IntegralClosure/Algebra/Basic.lean at the pin](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/IntegralClosure/Algebra/Basic.lean),
-  lines1–210: IsIntegral.of_finite, Algebra.IsIntegral.of_finite and
-  RingHom.Finite.to_isIntegral, with the actual scalar structures and module-finiteness premise.
-  Blob5fa755efb488d857cb37ee6f19dd693b2089a41c.
+## 7. Finite-extension counts and their scope
 
-These are focused positive checks, not a whole-library absence claim. The polynomial UFD,
-localization/fraction-ring, module-presentation and homological native adapters still need their
-individual source/index audit when integrating the proof. Tau Ceti's pin is unchanged.
+Over F_Q0, all quadratic field extensions are separable. The three cases of (PC) are:
 
-## 11. Regressions actually run
+    two roots (split node):          #C(F_Q0) = Q0,
+    no roots (nonsplit node):        #C(F_Q0) = Q0+2,
+    one double root (cusp):          #C(F_Q0) = Q0+1.
 
-The standard-library Python program below was executed successfully. It uses exact polynomial
-coefficient tuples modulo 2,3,5, **without quotienting by an artificial t-degree truncation**.
-It enumerates all inputs of degree<7 over F₂, degree<5 over F₃, and degree<4 over F₅, for every
-monic quadratic over each field. It constructs witnesses rather than merely compares counts.
+For n≥1, the split and cusp counts over F_(Q0^n) are Q0^n and Q0^n+1. In the nonsplit case, the two roots are in F_(Q0^n) exactly when n is even, so
 
-Results: 38 quadratic models; 18,324 each of generator decompositions, constructed syzygies,
-converse tests, quotient linearity tests, localization cross products and dual-generator tests;
-76 ambient matrix factorizations (including transposes); 76 augmentation relations;
-76 cotangent-basis checks; 114 quotient boundary checks; 38 nonflat-witness vectors;
-two wrong-relation falsifiers and one unlocalized-isomorphism falsifier.
+    #C(F_(Q0^n)) = Q0^n + 1 - (-1)^n.                       (EXT)
 
-These finite computations do not prove the unbounded statements, a scheme theorem, integral
-closure, all-degree Tor or a Lean declaration. The written proofs supply those mathematical
-arguments separately. Neither the blueprint checker nor the complete dependency-graph checker
-was run. Lean and Lake are unavailable; no installation, build, cache or server was attempted.
-The prior native/atlas checks in the predecessor are not fresh checks of this work.
+This is also the geometric replacement formula #P1(K)-#E(K)+1, but the direct affine bijection of section 2 already proves it without a scheme-rational-point comparison theorem. To consume it in the original fiber node, one must still identify the actual fiber reduction with this C. Field-valued points kill nilpotents, but that does not prove such an identification.
 
-Script SHA256: 1350e96a15026c7bbcdc9080476db5120f18b6d0b0df54c90b7f30fc5f950bdf.
-Output SHA256 (stdout JSON, including its final newline):
-ca1190ef5f94c7b310a35646d9dfc84df588542774b4980a5e8e703032c47a58.
-Extract the code fence below with its final newline and run it with Python3.
+Equation (EXT) supplies the one-component part of the existing `G.1/quadratic-extension-counts` contract. That node also includes I2, whose two-component incidence and cohomology maps are different; it is **not** marked complete here. None of the global surface hypotheses in `count-15` through `count-18` is removed. No classification of all genus-one fibers, regular models or rational elliptic surfaces is inferred from this family of cubics.
 
-## 12. Resume and integration checklist
+## 8. Integration worklist and acceptance requirements
 
-Preserve the existing native A_q, residue, presentation, conductor, node IDs and reserved Ferrand
-key. Split the finite-normalization node only by adding genuinely specialized helpers: the
-A-linear two-generator surjection; the t-times-membership criterion; its complete syzygies;
-the canonical module quotient equivalence; ambient monic factorization and exactness;
-localization with its inverse; the common fraction field; and the integral-closure equality.
-The existing source statement is unchanged. Do not insert a second generic matrix-factorization,
-normalization, Hom or cohomology theory. Promote each API used as a dependency to its own node.
+Reuse `G.1/quadratic-pinch-algebra`, `-relation`, `-residue`, `-presentation`, `-conductor` and `-normalization`. The geometric consumer endpoints already exist as `G.1/quadratic-pinch-i1-genus`, `-splitting`, `G.1/quadratic-extension-counts`, `G.1/nonsplit-i1` and `G.1/count-16`. Do not create duplicate endpoints under this checkpoint's headings.
 
-For each new construction include generator/evaluation/uniqueness APIs and at least three
-actual unit tests. Beta and epsilon need different names and domains. The homological
-discussion is not a substitute for the finite normalization target: its concrete
-nonflatness witness is an acceptance test, while any desired full Tor/Ext nodes require precise
-supplier contracts. No scope expansion or ownership approval is made here.
+The declaration-sized specialized helpers still to integrate, in dependency order, are: the affine-solution subtype equivalence and its evaluation laws; the native point-count balance; the explicit infinity-chart algebra equivalence and its two inverse laws; the projective morphism (N) with its two chart formulas; the affine cover and finite-birational-normal comparison; the conductor subscheme comparison; the sheaf quotient map and exactness; the connecting-map cohomology isomorphism and its coordinate/base-change comparisons. Give each construction its own API and at least three typed acceptance examples in the allowed suggested file. Register only genuinely missing helpers, after checking the current pinned libraries and supplier contracts. The general Proj, normalization, coherent pushforward, cohomology and Ferrand theorems remain imports from their existing owners.
 
-The original packet, reader and suggested file could not be safely patched through this run's
-full-content-only interface without reconstructing their large contents. Accordingly the proof
-is preserved here, not falsely reported as a packet update. Integrate it with the required
-native signatures, run the indexed packet and whole dependency checks, and record separately
-whether the exact pinned Lean sketch elaborates. All projective, branch/cohomological,
-base-change, general Ferrand-space, DVR and surface-classification gaps in the predecessor
-remain open. In particular no completion or projective normalization is inferred from the
-affine algebra calculation.
+Required acceptance cases include: split q=t^2+t over F2, nonsplit q=t^2+t+1 over F2, and q=t^2; the nonsplit example after extension to F4 and F8; infinity O and its inverse [1:0]; the actual nonreduced conductor E for the cusp; the inseparable field example over F2(s); and the mismatch between projective point count and the nonsingular-point group. For the chart construction, h=1 in the cusp case must give z=u^3 and the ordinary affine-line chart, not require u to be invertible. The general affine point equivalence must exclude q(t)=0 rather than making division by zero a default value.
 
-## Reproducible exact polynomial program
+The next native proof to write is (PC) via the explicit subtype equivalence. It is independent of the unimplemented projective/cohomological interfaces. Then integrate the projective and sheaf strand into packet, reader and suggested file together, preserving all inherited nodes. Run the indexed blueprint checker and whole dependency/assembler checks, and record exact results. Until that integration, all canonical implementation and coverage statuses remain unchanged.
+
+The predecessor's specialized affine normalization/homological helpers still need canonical integration. The full two-component construction, general Ferrand-space interfaces, DVR/model comparisons, source-route closure and all surface-classification stages remain open. No supplier request, source-error verdict, ownership decision or reserved ID is changed by this handoff.
+
+## 9. Fresh source and validation receipts
+
+Read on 2 October 2026:
+
+- [Schröer, arXiv:2004.07025v3](https://arxiv.org/pdf/2004.07025v3), third revised version dated 19 July 2022, section 3, printed pages 10–11. The conductor diagrams on page 10 and the Proposition 3.2 table on page 11 were inspected in successful rendered screenshots in this run; earlier failed screenshot attempts do not prevent that later verification. Only the one-component pinching/count application is supplied here. No claim of a fresh full-paper read or a new published correction is made.
+- [Stacks 0ECH](https://stacks.math.columbia.edu/tag/0ECH), Situation 37.67.1, Lemma 37.67.2 and Proposition 37.67.3 including proofs, and the stated separatedness/finite-type consequences. The precise affine-neighborhood hypothesis was checked for E⊂D(T), and the affine ring pullback and cartesian tensor quotient were read. The projective polynomial and its explicit chart inverse above are this checkpoint's calculation, not attributed verbatim to that source.
+- [Stacks 01XS](https://stacks.math.columbia.edu/tag/01XS), Lemmas 30.8.1–2 and their Cech-complex proof and base-change comparison; use only the P1, O specialization here. [Stacks 01XC](https://stacks.math.columbia.edu/tag/01XC) and [02KG](https://stacks.math.columbia.edu/tag/02KG), affine higher-direct-image vanishing and affine pushforward/base change. These are supplier mathematics, not newly built Lean declarations.
+- The pinned Tau Ceti file `TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean` at `f790474821cf4256814db967cb154e7af3d0c369`, blob `a1c0db6d278c1ea94d09778b0826d67106bd7a5a`: the actual definitions and proofs of `pointCount_def`, `pointCount_eq_card_point`, `frobeniusTrace_def`, including the ellipticity hypothesis of the group-cardinality comparison.
+- The actual existing G.1 reader contracts listed above, the current seven-stage roadmap, the packet baseline header and the previous handoff. Nearby upstream reading covered the conventions and relevant foundational sections of `content/tau-ceti/StableReduction/README.md` and `content/tau-ceti/EllipticCurves/README.md`; in particular their normalization/coherent ownership and equation-versus-scheme distinction. This is not a fresh audit of every stage, routed item or API. The browser fetch of `data/library-coverage.json` returned empty text despite a blob SHA; no fresh full-library-audit claim is made.
+
+**No Lean compilation was performed.** There is no existing pinned build in this environment, and available memory is below the WORKERS minimum. No installation, Lake invocation, cache download, large build or language server was attempted. The mathematical proof and executable checks are not a substitute for elaborating the canonical suggested file. The indexed blueprint checker and actual assembler were not run locally; their earlier receipts are historical, and the canonical inputs to them are unchanged.
+
+The independent executable check below enumerates the actual projective equation, rather than assigning it the predicted count. It ran 259 coefficient/field models, tested 44,089 candidate projective points and 3,090 normalization source points, and also checked every nonzero-V point against the explicit chart inverse. The fields are F2,F3,F5,F7,F11, F4,F8,F9,F27,F25. Coefficients a,b range over the prime subfield in each extension test. There are **132,079 passing assertions**: 115,533 field-implementation sanity assertions and 16,546 curve/map/count assertions. The sanity assertions are not represented as additional geometric examples.
+
+Script SHA-256: `c5ca830260f2389c362b635b72ddde749ec21d3d669aaf75ecfebdc76600c938`. Extract the exact code fence, retaining its terminal newline, to a disk-backed Python file and run Python 3. It prints its own source hash and complete JSON receipt. It writes no repository data. These tests certify neither scheme-level normalization, nilpotent conductor structure, arbitrary-field statements nor coherent cohomology; those have their separate mathematical arguments above.
+
+## 10. Reproducible program
 
 ```python
-"""Exact bounded polynomial regressions; no quotient truncation or proof claims."""
-from itertools import product
+#!/usr/bin/env python3
+"""Exact projective cubic regressions, not a scheme/cohomology or Lean proof."""
+from __future__ import annotations
 from collections import Counter
+from hashlib import sha256
+from itertools import product
+import json
 from pathlib import Path
-import hashlib, json
 
 
-def norm(f, p):
-    f = [x % p for x in f]
-    while f and f[-1] == 0:
-        f.pop()
-    return tuple(f)
+class Field:
+    """Fp[x]/(modulus), elements encoded by base-p coefficient digits."""
+    def __init__(self, p: int, modulus: tuple[int, ...]) -> None:
+        assert modulus[-1] == 1
+        self.p, self.n = p, len(modulus) - 1
+        self.q = p ** self.n
+        self.elements = range(self.q)
+        self.digits = [tuple((x // p ** i) % p for i in range(self.n))
+                       for x in self.elements]
+        self.plus = [[self.encode([(u + v) % p for u, v in
+                                  zip(self.digits[x], self.digits[y])])
+                      for y in self.elements] for x in self.elements]
+        self.times = []
+        for x in self.elements:
+            row = []
+            for y in self.elements:
+                coeff = [0] * (2 * self.n - 1)
+                for i, u in enumerate(self.digits[x]):
+                    for j, v in enumerate(self.digits[y]):
+                        coeff[i + j] = (coeff[i + j] + u * v) % p
+                for d in range(len(coeff) - 1, self.n - 1, -1):
+                    lead = coeff[d]
+                    for j, c in enumerate(modulus):
+                        coeff[d - self.n + j] = (coeff[d - self.n + j] - lead * c) % p
+                row.append(self.encode(coeff[:self.n]))
+            self.times.append(row)
+        self.negative = [next(y for y in self.elements if self.plus[x][y] == 0)
+                         for x in self.elements]
+        # Existence of every inverse also rejects reducible chosen moduli.
+        self.inverse = [0] + [next(y for y in self.elements if self.times[x][y] == 1)
+                              for x in range(1, self.q)]
+
+    def encode(self, coeff: list[int]) -> int:
+        return sum(c * self.p ** i for i, c in enumerate(coeff))
+
+    def add(self, *xs: int) -> int:
+        out = 0
+        for x in xs:
+            out = self.plus[out][x]
+        return out
+
+    def mul(self, *xs: int) -> int:
+        out = 1
+        for x in xs:
+            out = self.times[out][x]
+        return out
+
+    def neg(self, x: int) -> int:
+        return self.negative[x]
+
+    def canonical(self, xs: tuple[int, ...]) -> tuple[int, ...]:
+        first = next(x for x in xs if x)
+        return tuple(self.mul(x, self.inverse[first]) for x in xs)
 
 
-def add(f, g, p):
-    return norm([(f[i] if i < len(f) else 0) +
-                 (g[i] if i < len(g) else 0)
-                 for i in range(max(len(f), len(g)))], p)
+def main() -> None:
+    checks = Counter()
+
+    def verify(condition: bool, label: str, context: object = None) -> None:
+        if not condition:
+            raise AssertionError((label, context))
+        checks[label] += 1
+
+    fields = [Field(p, (0, 1)) for p in (2, 3, 5, 7, 11)]
+    fields += [Field(2, (1, 1, 1)), Field(2, (1, 1, 0, 1)),
+               Field(3, (1, 0, 1)), Field(3, (1, 2, 0, 1)),
+               Field(5, (2, 0, 1))]
+    models = 0
+    point_candidates = 0
+    normalization_points = 0
+    counts_by_field = {}
+    for f in fields:
+        add, mul, neg = f.add, f.mul, f.neg
+        for x, y, z in product(f.elements, repeat=3):
+            verify(add(add(x, y), z) == add(x, add(y, z)), 'field_add_associative')
+            verify(mul(mul(x, y), z) == mul(x, mul(y, z)), 'field_mul_associative')
+            verify(mul(x, add(y, z)) == add(mul(x, y), mul(x, z)), 'field_distributive')
+        for x in f.elements:
+            verify(add(x, neg(x)) == 0 and mul(x, 1) == x, 'field_identity_inverse')
+            if x:
+                verify(mul(x, f.inverse[x]) == 1, 'field_nonzero_inverse')
+        p1 = [(1, t) for t in f.elements] + [(0, 1)]
+        p2 = [(1, y, z) for y, z in product(f.elements, repeat=2)]
+        p2 += [(0, 1, z) for z in f.elements] + [(0, 0, 1)]
+        node, infinity = (0, 0, 1), (0, 1, 0)
+        field_counts = Counter()
+        for a, b in product(range(f.p), repeat=2):
+            models += 1
+            context = (f.p, f.n, a, b)
+
+            def equation(u: int, v: int, z: int) -> int:
+                return add(mul(v, v, z), mul(a, u, v, z), mul(b, u, u, z),
+                           neg(mul(u, u, u)))
+
+            def normalize(s: int, t: int) -> tuple[int, ...]:
+                qt = add(mul(s, s), mul(a, s, t), mul(b, t, t))
+                coords = (mul(t, qt), mul(s, qt), mul(t, t, t))
+                verify(any(coords), 'normalization_no_basepoint', context)
+                return f.canonical(coords)
+
+            curve = {p for p in p2 if equation(*p) == 0}
+            point_candidates += len(p2)
+            fibers = Counter(normalize(*p) for p in p1)
+            normalization_points += len(p1)
+            verify(set(fibers) <= curve, 'normalization_lands_on_curve', context)
+            roots = [t for t in f.elements if add(mul(t, t), mul(a, t), b) == 0]
+            verify(fibers[node] == len(roots), 'actual_conductor_fiber', context)
+            verify(all(fibers[p] == 1 for p in curve if p != node),
+                   'normalization_bijection_off_conductor', context)
+            verify(fibers[infinity] == 1, 'single_infinity_preimage', context)
+            singular = set()
+            for u, v, z in curve:
+                grad = (add(mul(a, v, z), mul(2 % f.p, b, u, z), neg(mul(3 % f.p, u, u))),
+                        add(mul(2 % f.p, v, z), mul(a, u, z)),
+                        add(mul(v, v), mul(a, u, v), mul(b, u, u)))
+                if not any(grad):
+                    singular.add((u, v, z))
+                if v:
+                    h_u, h_z = mul(u, f.inverse[v]), mul(z, f.inverse[v])
+                    h = add(1, mul(a, h_u), mul(b, h_u, h_u))
+                    e = add(1, neg(mul(a, h_u)), mul(add(mul(a, a), neg(b)), h_u, h_u))
+                    c = add(mul(a, a, a), neg(mul(2 % f.p, a, b)),
+                            mul(add(mul(a, a, b), neg(mul(b, b))), h_u))
+                    verify(h != 0 and mul(h_z, h) == mul(h_u, h_u, h_u),
+                           'infinity_chart_equation', context)
+                    verify(mul(h, add(e, neg(mul(h_z, c)))) == 1,
+                           'explicit_chart_inverse_identity', context)
+                    verify(normalize(1, h_u) == (u, v, z), 'infinity_chart_inverse', context)
+            verify(singular == {node}, 'unique_singular_point', context)
+            verify(len(curve) == f.q + 2 - len(roots), 'projective_count', context)
+            affine_count = sum(equation(x, y, 1) == 0 for x, y in product(f.elements, repeat=2))
+            verify(len(curve) == affine_count + 1, 'native_pointCount_convention', context)
+            verify(len(curve - singular) == affine_count, 'nonsingular_group_one_less', context)
+            verify(f.q + 1 - len(curve) == len(roots) - 1, 'native_trace_convention', context)
+            base_roots = sum((t * t + a * t + b) % f.p == 0 for t in range(f.p))
+            predicted_roots = (2 if f.n % 2 == 0 else 0) if base_roots == 0 else base_roots
+            verify(len(roots) == predicted_roots, 'odd_even_extension_roots', context)
+            expected = f.q + 1 - (-1) ** f.n if base_roots == 0 else f.q + 2 - base_roots
+            verify(len(curve) == expected, 'odd_even_extension_count', context)
+            discriminant = add(mul(a, a), neg(mul(4 % f.p, b)))
+            verify((discriminant == 0) == (len(roots) == 1), 'finite_field_cusp_boundary', context)
+            field_counts[f'{base_roots}_base_roots'] += 1
+        counts_by_field[f'F{f.q}'] = dict(sorted(field_counts.items()))
+    receipt = {
+        'agent': 'ChatGPT Pro — cp-20261002-sr-c72e81',
+        'scope': 'actual projective point enumeration, normalization fibers and chart identities',
+        'models': models,
+        'projective_point_candidates': point_candidates,
+        'normalization_source_points': normalization_points,
+        'checks_by_kind': dict(sorted(checks.items())),
+        'assertions': sum(checks.values()),
+        'models_by_field_and_base_root_count': counts_by_field,
+        'source_sha256': sha256(Path(__file__).read_bytes()).hexdigest(),
+        'lean_compiled': False,
+        'warning': 'No scheme-theoretic normalization or cohomology theorem is certified by finite tests.'
+    }
+    print(json.dumps(receipt, indent=2))
 
 
-def neg(f, p):
-    return norm([-x for x in f], p)
-
-
-def sub(f, g, p):
-    return add(f, neg(g, p), p)
-
-
-def mul(f, g, p):
-    if not f or not g:
-        return ()
-    out = [0] * (len(f) + len(g) - 1)
-    for i, x in enumerate(f):
-        for j, y in enumerate(g):
-            out[i+j] += x*y
-    return norm(out, p)
-
-
-def power(f, n, p):
-    out = (1,)
-    for _ in range(n):
-        out = mul(out, f, p)
-    return out
-
-
-def divmonic(f, q, p):
-    assert q and q[-1] == 1
-    r = norm(f, p)
-    d = len(q)-1
-    out = [0] * max(0, len(r)-d)
-    while r and len(r) >= len(q):
-        n = len(r)-len(q)
-        c = r[-1]
-        out[n] = c
-        r = sub(r, (0,)*n + tuple(c*x for x in q), p)
-    return norm(out, p), r
-
-
-def compose(f, q, p):
-    out = ()
-    for c in reversed(f):
-        out = add(mul(out, q, p), norm((c,), p), p)
-    return out
-
-
-def coordinates(f, q, p):
-    """Construct f=P(q)+t Q(q) by repeated monic division."""
-    P, Q = [], []
-    while f:
-        f, r = divmonic(f, q, p)
-        P.append(r[0] if r else 0)
-        Q.append(r[1] if len(r)>1 else 0)
-    return norm(P, p), norm(Q, p)
-
-
-def rem1(f, q, p):
-    r = divmonic(f, q, p)[1]
-    return r[1] if len(r)>1 else 0
-
-
-def mvadd(f, g, p):
-    h = dict(f)
-    for e, c in g.items():
-        h[e] = (h.get(e, 0)+c) % p
-    return {e:c % p for e,c in h.items() if c % p}
-
-
-def mvneg(f, p):
-    return {e:(-c) % p for e,c in f.items() if c % p}
-
-
-def mvmul(f, g, p):
-    h = {}
-    for (i,j),c in f.items():
-        for (r,s),d in g.items():
-            e = (i+r,j+s)
-            h[e] = (h.get(e,0)+c*d) % p
-    return {e:c for e,c in h.items() if c}
-
-
-def matrix_square(M, p):
-    return [[mvadd(mvmul(M[i][0],M[0][j],p),
-                   mvmul(M[i][1],M[1][j],p),p)
-             for j in range(2)] for i in range(2)]
-
-
-counts = Counter()
-T = (0,1)
-for p, width in ((2,7),(3,5),(5,4)):
-    for a,b in product(range(p),repeat=2):
-        q = (b,a,1)
-        U, V = q, mul(T,q,p)
-        L = add(add(neg(mul(U,U,p),p),mul((a,),V,p),p),mul((b,),U,p),p)
-        counts['quadratic_models'] += 1
-        # Identities in the unquotiented bivariate polynomial ring.
-        u,v = {(1,0):1},{(0,1):1}
-        ell = {(2,0):p-1,(0,1):a,(1,0):b}
-        F = {(0,2):1,(1,1):a,(2,0):b,(3,0):p-1}
-        F = {e:c for e,c in F.items() if c}
-        N = [[mvneg(v,p),ell],[u,v]]
-        assert matrix_square(N,p) == [[F,{}],[{},F]]
-        Nt = [[N[j][i] for j in range(2)] for i in range(2)]
-        assert matrix_square(Nt,p) == [[F,{}],[{},F]]
-        counts['ambient_factorizations'] += 2
-        assert add(neg(V,p),mul(T,U,p),p) == ()
-        assert add(L,mul(T,V,p),p) == ()
-        counts['augmentation_relations'] += 2
-        assert divmonic(T,q,p)[1] == T
-        assert rem1(power(T,2,p),q,p) == (-a) % p
-        assert rem1((1,),q,p) == 0
-        counts['quotient_boundary_tests'] += 3
-        # Actual basis coordinates in (m/m^2) tensor_k (B/qB).
-        tensor_witness = (0,1,(-1) % p,0)
-        assert any(tensor_witness)
-        assert sub(mul(U,T,p),V,p) == ()
-        counts['nonflat_witness_models'] += 1
-        # m/m^2 coordinates: dividing qh by q identifies it with h modulo q.
-        for h in ((1,),T):
-            z = mul(q,h,p)
-            quotient,remainder = divmonic(z,q,p)
-            assert not remainder and divmonic(quotient,q,p)[1] == h
-            assert len(divmonic(z,mul(q,q,p),p)[1]) <= 4
-            counts['cotangent_basis_checks'] += 1
-        for coeffs in product(range(p),repeat=width):
-            f = norm(coeffs,p)
-            P,Q = coordinates(f,q,p)
-            x,y = compose(P,q,p),compose(Q,q,p)
-            assert rem1(x,q,p) == rem1(y,q,p) == 0
-            assert add(x,mul(T,y,p),p) == f
-            counts['module_generator_decompositions'] += 1
-            # Complete syzygy construction for every tested arbitrary h=f.
-            s = mul(q,f,p)
-            r = neg(mul(T,s,p),p)
-            nx = add(neg(mul(V,x,p),p),mul(L,y,p),p)
-            ny = add(mul(U,x,p),mul(V,y,p),p)
-            assert (nx,ny) == (r,s)
-            assert rem1(r,q,p) == rem1(s,q,p) == 0
-            counts['constructed_syzygies'] += 1
-            # The converse criterion uses no normality or root-splitting premise.
-            criterion = rem1(f,q,p)==0 and rem1(mul(T,f,p),q,p)==0
-            assert criterion == (divmonic(f,q,p)[1] == ())
-            counts['syzygy_converse_tests'] += 1
-            c = sum(coeffs) % p
-            scalar = add((c,),mul(q,add(f,T,p),p),p)
-            assert rem1(mul(scalar,f,p),q,p) == c*rem1(f,q,p) % p
-            counts['module_quotient_linearity_tests'] += 1
-            n = len(f) % 3
-            # The inverse localization formula (qf)/q^(n+1)=f/q^n.
-            assert mul(mul(q,f,p),power(q,n,p),p) == mul(f,power(q,n+1,p),p)
-            counts['localization_cross_products'] += 1
-            # Evaluation of the canonical dual generator, h(f)=qf.
-            assert rem1(s,q,p) == 0
-            assert mul(scalar,s,p) == mul(q,mul(scalar,f,p),p)
-            counts['dual_generator_tests'] += 1
-
-# The sign and cubic term matter, even though ambient identities specialize.
-p,a,b=3,1,1
-q=(b,a,1); u=q; v=mul(T,q,p)
-wrong=add(add(mul(v,v,p),neg(mul((a,),mul(u,v,p),p),p),p),
-          sub(mul((b,),mul(u,u,p),p),power(u,3,p),p),p)
-assert wrong != ()
-assert add(add(mul(v,v,p),mul((a,),mul(u,v,p),p),p),
-           mul((b,),mul(u,u,p),p),p) == power(u,3,p) != ()
-counts['incorrect_relation_falsifiers'] = 2
-# A normalization is not an isomorphism before localization: t has nonconstant remainder.
-assert rem1(T,(0,0,1),2) == 1
-counts['global_isomorphism_falsifiers'] = 1
-
-result = dict(sorted(counts.items()))
-result['scope'] = 'Bounded exact polynomial computations only; no Lean, schemes, or all-degree Tor proof.'
-result['script_sha256'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
-print(json.dumps(result,indent=2,sort_keys=True))
+if __name__ == '__main__':
+    main()
 ```

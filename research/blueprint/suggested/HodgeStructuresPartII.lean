@@ -1262,3 +1262,98 @@ For an integrable twisted Higgs field with Q finite locally free and its actual 
 Hypotheses: A commutative ringed Grothendieck site (C,J,O). E is finite locally free and Q is finite locally free, possibly Ω¹⊗T with T invertible. All maps, tensor powers and algebra objects are sheaves, with restriction-compatible local formulas. θ:E→E⊗Q is O-linear. Integrability is required only for the symmetric-action comparison, not for the ordered-coordinate lemma. No characteristic, reducedness, basis or nilpotence condition is built into θ. Local finite bases are used on trivializing covers; no tensor of global sections is identified with sections of a sheaf tensor. θ∧θ=0 and N>0. ε is the actual degree-zero augmentation of the symmetric sheaf algebra; annihilation is an equality of action maps, not an arbitrary stored predicate.
 Missing inputs: EnhancedDerivedSheaves:E1 actual sheaf symmetric/endomorphism/augmentation quotient, ordered tensor powers and restriction/descent coherence. No arbitrary Proposition carrier stands in for these maps.
 -/
+
+/- Native module/coefficient naturality continuation: seven promoted lemmas and seven acceptance examples. All submitted bodies are planning admissions. -/
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+variable {R E F Q P : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+variable [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
+
+-- node: HodgeStructuresPartII:H.0/affine-ordered-step-natural
+lemma affineOrderedStep_natural (θ : E →ₗ[R] E ⊗[R] Q)
+    (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ) (n : ℕ) :
+    (affineOrderedStep ψ n).comp (TensorProduct.map f (PiTensorProduct.map (fun _ : Fin n => u))) =
+      (TensorProduct.map f (PiTensorProduct.map (fun _ : Fin (n+1) => u))).comp
+        (affineOrderedStep θ n) := sorry
+
+-- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-natural
+lemma affineOrderedIterate_natural (θ : E →ₗ[R] E ⊗[R] Q)
+    (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ) (n : ℕ) :
+    (affineOrderedIterate ψ n).comp f =
+      (TensorProduct.map f (PiTensorProduct.map (fun _ : Fin n => u))).comp
+        (affineOrderedIterate θ n) := sorry
+
+-- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-mono
+lemma affineOrderedIterate_mono (θ : E →ₗ[R] E ⊗[R] Q) {n m : ℕ}
+    (hnm : n ≤ m) (hzero : affineOrderedIterate θ n = 0) :
+    affineOrderedIterate θ m = 0 := sorry
+
+-- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-surjective
+lemma affineOrderedIterate_zero_of_surjective (θ : E →ₗ[R] E ⊗[R] Q)
+    (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ) (hf : Function.Surjective f)
+    (n : ℕ) (hz : affineOrderedIterate θ n = 0) : affineOrderedIterate ψ n = 0 := sorry
+
+-- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-equiv
+lemma affineOrderedIterate_equiv_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
+    (ψ : F →ₗ[R] F ⊗[R] P) (f : E ≃ₗ[R] F) (u : Q ≃ₗ[R] P)
+    (h : ψ.comp f.toLinearMap = (TensorProduct.map f.toLinearMap u.toLinearMap).comp θ)
+    (n : ℕ) : affineOrderedIterate ψ n = 0 ↔ affineOrderedIterate θ n = 0 := sorry
+
+-- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-one
+lemma affineOrderedIterate_one (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineOrderedIterate θ 1 =
+      (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
+        (PiTensorProduct.subsingletonEquiv (R := R) (s := fun _ : Fin 1 => Q) 0).symm.toLinearMap).comp θ := sorry
+
+-- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-two
+lemma affineOrderedIterate_two (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineOrderedIterate θ 2 =
+      (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
+        ((TensorProduct.congr
+          (PiTensorProduct.subsingletonEquiv (R := R) (s := fun _ : Fin 1 => Q) 0).symm
+          (PiTensorProduct.subsingletonEquiv (R := R) (s := fun _ : Fin 1 => Q) 0).symm).trans
+            (TensorPower.mulEquiv (n := 1) (m := 1))).toLinearMap).comp
+              (affineOrderedSquare θ) := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_natural_unit
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] P)
+    (f : E →ₗ[R] F) (u : Q →ₗ[R] P) :
+    (affineOrderedIterate ψ 0).comp f =
+      (TensorProduct.map f (PiTensorProduct.map (fun _ : Fin 0 => u))).comp
+        (affineOrderedIterate θ 0) := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_coefficient_quotient
+example (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) (n : ℕ)
+    (hz : affineOrderedIterate θ n = 0) :
+    affineOrderedIterate ((TensorProduct.map (LinearMap.id : E →ₗ[R] E) u).comp θ) n = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_chart_identity
+example (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    affineOrderedIterate θ n = 0 ↔ affineOrderedIterate θ n = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_bound_two_to_five
+example (θ : E →ₗ[R] E ⊗[R] Q) (hz : affineOrderedIterate θ 2 = 0) :
+    affineOrderedIterate θ 5 = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_one_zero_iff
+example (θ : E →ₗ[R] E ⊗[R] Q) : affineOrderedIterate θ 1 = 0 ↔ θ = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_two_zero_iff
+example (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineOrderedIterate θ 2 = 0 ↔ affineOrderedSquare θ = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_characteristic_two_nonreflection
+example :
+    let θ := (TensorProduct.rid (ZMod 2) (ZMod 2)).symm.toLinearMap
+    let ψ : ZMod 2 →ₗ[ZMod 2] ZMod 2 ⊗[ZMod 2] ZMod 2 := 0
+    let u : ZMod 2 →ₗ[ZMod 2] ZMod 2 := 0
+    ψ.comp (LinearMap.id : ZMod 2 →ₗ[ZMod 2] ZMod 2) =
+        (TensorProduct.map (LinearMap.id : ZMod 2 →ₗ[ZMod 2] ZMod 2) u).comp θ ∧
+      affineOrderedIterate ψ 1 = 0 ∧ affineOrderedIterate θ 1 ≠ 0 := sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle

@@ -32,6 +32,9 @@ packet entries and prototype ledgers. The complete file is checked using an
 existing pinned Mathlib build. The fifteen elementary proof bodies and nine
 proved examples belong to the historical revision cef4c2085eddbf723e9050f7d4924924d593a0e3.
 Current suggested bodies are admitted sketches under PROTOCOL section 13.
+The canonical ε:J→ₗ[R]R and K:R→ₗ[A]R are named on the inherited carriers.
+Their actual native proofs and 16 examples survive in immutable 5e2a9a938035;
+this complete sketch is checked separately and does not certify geometry.
 The current exact-file receipt and separate canonical splitting proof archive are distinguished
 in the handoff; their elaboration
 does not certify those proofs or provide geometric supplier types.
@@ -375,9 +378,44 @@ theorem cokernelIdealUnique
     (hf : ∀ z : Fin 2 → R₀, (f (Submodule.Quotient.mk z) : R₀) = c₀ * z 0 - d₀ * z 1) : e = f := by
   sorry
 
+
+-- Native dual-generator and correction interfaces; admitted under PROTOCOL §13.
+lemma sectionPolynomialFree : Module.Free (Polynomial A) R₀ := sorry
+
+lemma sectionRelation : c₀ * b₀ + d₀ * a₀ = 0 := sorry
+
+lemma dualGenerator_divisibility (j : J₀) : ∃ z : R₀, d₀ * z = b₀ * (j : R₀) := sorry
+
+noncomputable def dualGenerator : D₀ := sorry
+
+lemma dualGenerator_spec (j : J₀) :
+    d₀ * dualGenerator A γ δ s t j = b₀ * (j : R₀) := sorry
+
+lemma sectionFirst_mem : c₀ ∈ J₀ := sorry
+
+lemma sectionSecond_mem : d₀ ∈ J₀ := sorry
+
+noncomputable def dualCorrectionMap : R₀ →ₗ[A] R₀ := sorry
+
+lemma dualCorrectionMap_apply (r : R₀) :
+    dualCorrectionMap A γ δ s t r =
+      dualGenerator A γ δ s t (sectionProjection A γ δ s t r) := sorry
+
+lemma dualCorrectionMap_spec (r : R₀) :
+    d₀ * dualCorrectionMap A γ δ s t r = b₀ * (r - ι₀ (sectionEval A γ δ s t r)) := sorry
+
+lemma dualCorrectionMap_product (r z : R₀) :
+    dualCorrectionMap A γ δ s t (r*z) = r * dualCorrectionMap A γ δ s t z +
+      ι₀ (sectionEval A γ δ s t z) * dualCorrectionMap A γ δ s t r := sorry
+
+lemma dualCorrectionMap_values :
+    dualCorrectionMap A γ δ s t c₀ = -a₀ ∧ dualCorrectionMap A γ δ s t d₀ = b₀ := sorry
+
+lemma dualCorrectionMap_coefficient (z : A) : dualCorrectionMap A γ δ s t (ι₀ z) = 0 := sorry
+
 theorem dualGeneratorValues (ε : D₀)
     (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) :
-    ε ⟨c₀, by sorry⟩ = -a₀ ∧ ε ⟨d₀, Ideal.subset_span (Set.mem_insert_of_mem _ (Set.mem_singleton d₀))⟩ = b₀ := by
+    ε ⟨c₀, sectionFirst_mem A γ δ s t⟩ = -a₀ ∧ ε ⟨d₀, sectionSecond_mem A γ δ s t⟩ = b₀ := by
   sorry
 
 theorem dualGeneratorUnique (ε η : D₀)
@@ -784,6 +822,30 @@ example : e (Submodule.Quotient.mk (fun i => if i = 0 then 0 else 1)) ⟨d₀, I
 example (j : J₀) : e (Submodule.Quotient.mk (0 : Fin 2 → R₀)) j = 0 := sorry
 end DualCokernelTests
 end DualGeneratorTests
+
+-- NodeSectionFactorization.PolynomialModel.dualGenerator.canonicalNonreduced
+example :
+    let u := AdjoinRoot.root (polynomial (ZMod 4) 0 0 1 0)
+    dualGenerator (ZMod 4) 0 0 1 0
+      ⟨AdjoinRoot.of (polynomial (ZMod 4) 0 0 1 0) Polynomial.X -
+        coefficientHom (ZMod 4) 0 0 1 0 0, sectionSecond_mem (ZMod 4) 0 0 1 0⟩ = u+1 := sorry
+
+-- NodeSectionFactorization.PolynomialModel.dualGenerator.canonicalSignThree
+example :
+    let u := AdjoinRoot.root (polynomial (ZMod 3) 1 0 0 0)
+    dualGenerator (ZMod 3) 1 0 0 0
+      ⟨u - coefficientHom (ZMod 3) 1 0 0 0 0, sectionFirst_mem (ZMod 3) 1 0 0 0⟩ = -u ∧
+      dualGenerator (ZMod 3) 1 0 0 0
+        ⟨AdjoinRoot.of (polynomial (ZMod 3) 1 0 0 0) Polynomial.X -
+          coefficientHom (ZMod 3) 1 0 0 0 0, sectionSecond_mem (ZMod 3) 1 0 0 0⟩ = u ∧ u ≠ -u := sorry
+
+-- NodeSectionFactorization.PolynomialModel.dualCorrectionMap.canonicalCharacteristicTwo
+example :
+    let u := AdjoinRoot.root (polynomial (ZMod 2) 1 0 0 0)
+    dualCorrectionMap (ZMod 2) 1 0 0 0 u = u := sorry
+
+-- NodeSectionFactorization.PolynomialModel.dualCorrectionMap.canonicalProduct
+example (r : R₀) : dualCorrectionMap A γ δ s t (r*d₀) = r*b₀ := sorry
 
 section CorrectionTests
 variable (K : R₀ →ₗ[A] R₀)

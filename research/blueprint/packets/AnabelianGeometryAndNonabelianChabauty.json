@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "Partial NC.0/NC.3 continuation: retain the reserved étale K(π,1) interface and all inherited source inventories; add the actual invariant-coset projection, connecting map, initial invariant-group exactness and quotient-level boundary fibres. No stage is closed or implementation claimed. The NC.0 continuation adds the direct finite-étale cohomological criterion, transfer to every finite cover, componentwise finite-étale invariance and two-cover coefficient dévissage with a separate constant-prime-field criterion. These extend the retained constant-coefficient criterion to prime-supported finite coefficients on connected noetherian schemes; the raw-homotopy equivalence retains its separate narrower scope. All stages and supplier proof leaves remain open. The characteristic-zero smooth-curve proof is now split into connected prime-degree covers, degree-two prime and prime-power killing, the geometric all-cover criterion, geometric killing-cover descent and separable-closure invariance. The curve theorem uses this cohomological route rather than raw homotopy. Generic curve, Picard/Kummer and limit interfaces are supplier requests, not completed foundations. The characteristic-zero product theorem retains its public statement and reserved owner, with three explicit finitary proof assemblies for finite positive-degree families, arbitrary product-cover classes and binary geometric closure. This discrete-descent checkpoint integrates the native one-fibre subgroup, compact normal-open killing, normal-coset/invariant-value and same-stage gauge-witness lemmas, plus simultaneous killing of finite varying-coefficient families. Quotient construction, pointed-set inflation/neutral-fibre exactness, colimits and the geometric degree-one dictionary remain open.",
+  "summary": "Partial NC.0/NC.3 continuation: retain the reserved étale K(π,1) interface and all inherited source inventories; add the actual invariant-coset projection, connecting map, initial invariant-group exactness and quotient-level boundary fibres. No stage is closed or implementation claimed. The NC.0 continuation adds the direct finite-étale cohomological criterion, transfer to every finite cover, componentwise finite-étale invariance and two-cover coefficient dévissage with a separate constant-prime-field criterion. These extend the retained constant-coefficient criterion to prime-supported finite coefficients on connected noetherian schemes; the raw-homotopy equivalence retains its separate narrower scope. All stages and supplier proof leaves remain open. The characteristic-zero smooth-curve proof is now split into connected prime-degree covers, degree-two prime and prime-power killing, the geometric all-cover criterion, geometric killing-cover descent and separable-closure invariance. The curve theorem uses this cohomological route rather than raw homotopy. Generic curve, Picard/Kummer and limit interfaces are supplier requests, not completed foundations. The characteristic-zero product theorem retains its public statement and reserved owner, with three explicit finitary proof assemblies for finite positive-degree families, arbitrary product-cover classes and binary geometric closure. This discrete-descent checkpoint integrates the native one-fibre subgroup, compact normal-open killing, normal-coset/invariant-value and same-stage gauge-witness lemmas, plus simultaneous killing of finite varying-coefficient families. Quotient construction, pointed-set inflation/neutral-fibre exactness, colimits and the geometric degree-one dictionary remain open. This continuation completes actual normal-quotient cocycle descent/inflation and their inverse identities, using the already implemented native quotient action on U^N. The general cocycle-level equivalence and exact fixed gauge witnesses need neither compactness nor discreteness. The actual nonabelian H¹ map/injectivity/neutral fibre, finite-quotient transitions/colimits and canonical comparison to TauCeti's additive descent remain unfinished.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -569,6 +569,76 @@
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "provides": "Membership in the native automorphism-action fixed subgroup is equivalent to every scalar fixing the member.",
         "checked": "Complete pinned statement and relevant ambient hypotheses read2026-10-02 by Codex codex-J6LwjP; exact native positive reuse, not a whole-library absence assertion."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.descendZ1",
+        "kind": "def",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean",
+        "provides": "Existing additive, commutative-coefficient cocycle descent to the native fixed additive subgroup. This is positive nearest prior art, not a nonabelian supplier. No duplicate additive theory is planned.",
+        "checked": "Actual declaration and ambient hypotheses read at the exact pinned TauCeti f790474821cf4256814db967cb154e7af3d0c369; exact name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.coe_descendZ1_apply_mk",
+        "kind": "theorem",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean",
+        "provides": "The existing additive descent computes on a quotient representative as the original additive cocycle.",
+        "checked": "Actual declaration and ambient hypotheses read at the exact pinned TauCeti f790474821cf4256814db967cb154e7af3d0c369; exact name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.explicitInfl1_descendZ1",
+        "kind": "theorem",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean",
+        "provides": "Existing additive H¹ class recovery after descent; not a theorem for the generic nonabelian pointed set.",
+        "checked": "Actual declaration and ambient hypotheses read at the exact pinned TauCeti f790474821cf4256814db967cb154e7af3d0c369; exact name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.induction_on",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/Coset/Defs.lean",
+        "provides": "Native induction on every coset element using representatives.",
+        "checked": "Actual declaration and ambient hypotheses read at the exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:MulAction.coe_quotient_smul_fixedPoints",
+        "kind": "lemma",
+        "module": "Mathlib/GroupTheory/GroupAction/OfQuotient.lean",
+        "provides": "The existing quotient action of G/N on native N-fixed points evaluates on a representative exactly as the existing G-action. The surrounding pinned file supplies the automorphism-action instance on FixedPoints.subgroup N U; it is baseline, not a new planning node.",
+        "checked": "Actual declaration and ambient hypotheses read at the exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:coe_smul_fixedPoints_of_normal",
+        "kind": "lemma",
+        "module": "Mathlib/GroupTheory/GroupAction/SubMulAction.lean",
+        "provides": "The existing action of G on the fixed-point subtype agrees after coercion with the original action on U; normality ensures stability.",
+        "checked": "Actual declaration and ambient hypotheses read at the exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.eq_one_iff",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "For a normal subgroup, the native quotient class of g is1 exactly when g belongs to N.",
+        "checked": "Actual declaration and ambient hypotheses read at the exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.mk_mul",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "For a normal subgroup, the native quotient of a product equals the product of quotient representatives.",
+        "checked": "Actual declaration and ambient hypotheses read at the exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.isQuotientMap_mk",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Group/Quotient.lean",
+        "provides": "The native projection from G to its coset type with quotient topology is a quotient map, without normality, closedness or compactness assumptions.",
+        "checked": "Actual declaration and ambient hypotheses read at the exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Topology.IsQuotientMap.continuous_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Maps/Basic.lean",
+        "provides": "A function on a quotient is continuous exactly when its composite with the given quotient map is continuous.",
+        "checked": "Actual declaration and ambient hypotheses read at the exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact name confirmed in the pinned declaration index."
       }
     ]
   },
@@ -728,6 +798,20 @@
       "readSections": [
         "Freshly read Lemma 59.97.9 and its complete printed proof; the canonical map in 59.97.8 and its reduction to 59.97.7. Transitive finiteness/base-change and generic field-complex proof closure remain supplier obligations."
       ]
+    },
+    {
+      "id": "poonen-a71f92-quotient-descent",
+      "authors": "Bjorn Poonen",
+      "title": "Rational points on varieties",
+      "url": "https://math.mit.edu/~poonen/papers/Qpoints.pdf",
+      "read": "2026-10-02",
+      "edition": "Author-hosted unofficial version, GSM 186 (2017); SHA256 42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579",
+      "readingScope": "Fresh parsed Definition1.3.14 and full Proposition1.3.15 with proof (printedpp.11–12; PDFpp.25–26). Not a whole-book reading. Screenshot of PDFp.25 returned no viewable image; no visual collation claimed.",
+      "match": "The printed direct-limit reduction motivates the continuing cocycle descent programme. The exact general normal-subgroup nonabelian descent/inflation and gauge proofs are derived here on native pinned quotient/fixed-point carriers, not claimed to be printed Poonen results.",
+      "readSections": [
+        "§1.3.5 Definition1.3.14 and full Proposition1.3.15 including proof, printedpp.11–12 (PDFpages25–26)"
+      ],
+      "sha256": "42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579"
     }
   ],
   "nodes": [
@@ -4269,6 +4353,469 @@
           "statement": "Specializing the actual varying-coefficient family theorem to Fin1 and one c gives its pointwise normal-open killing conclusion."
         }
       ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-descent",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Descent of a cocycle to the native quotient",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.descend",
+      "statement": "For a normal subgroup N of G and a continuous nonabelian cocycle c with c(n)=1 for every n∈N, construct the actual continuous cocycle d:G/N→U^N with d([g])=c(g). Here U^N is Mathlib FixedPoints.subgroup N U with its existing quotient automorphism action and subspace topology; G/N has the existing quotient topology. Neither compactness, openness of N, discreteness nor finiteness of U is required.",
+      "hypotheses": [
+        "G and U are groups endowed with topologies; G acts on U by group automorphisms. c is the actual existing Z¹ cocycle, continuous with ordered law c(gh)=c(g)(g•c(h)); no invented cocycle or cohomology carrier is used.",
+        "N is an arbitrary normal subgroup. Descent requires c(n)=1 for every n∈N. Compactness, closedness/openness of N, finiteness/discreteness of U, and continuity of the action or group operations are not needed for these cocycle-level maps. All generic H¹/topological-action and colimit assertions stay separate."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-right-cosets",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-values-invariants",
+        "mathlib:MulAction.coe_quotient_smul_fixedPoints",
+        "mathlib:coe_smul_fixedPoints_of_normal",
+        "mathlib:QuotientGroup.leftRel_apply",
+        "mathlib:QuotientGroup.isQuotientMap_mk",
+        "mathlib:Topology.IsQuotientMap.continuous_iff",
+        "mathlib:QuotientGroup.induction_on",
+        "mathlib:QuotientGroup.mk_mul"
+      ],
+      "proofSteps": [
+        "The existing quotient action on the existing fixed-point subgroup is native baseline, not a new planned action.",
+        "Send g to the actual subtype element c(g)∈U^N. The native coset relation a⁻¹b∈N and right-coset constancy prove representative independence, so use the ordinary native quotient lift, not a quotient homomorphism lift of the nonhomomorphic c.",
+        "The quotient-map continuity criterion reduces continuity to the original continuous c valued in the native subtype. Quotient induction on both arguments proves the ordered cocycle law using the actual representative action."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-a71f92-quotient-descent",
+          "locator": "§1.3.5, Definition1.3.14 and full Proposition1.3.15 proof, printedpp.11–12",
+          "match": "Printed degree-one convention/direct-limit motivation; the exact normal-subgroup cocycle-level proof is derived, using the pinned native APIs and the existing actual cocycle lemmas, rather than attributed as a numbered source theorem.",
+          "excerpt": "by taking a direct limit"
+        }
+      ],
+      "acceptance": [
+        "For a normal subgroup N of G and a continuous nonabelian cocycle c with c(n)=1 for every n∈N, construct the actual continuous cocycle d:G/N→U^N with d([g])=c(g). Here U^N is Mathlib FixedPoints.subgroup N U with its existing quotient automorphism action and subspace topology; G/N has the existing quotient topology. Neither compactness, openness of N, discreteness nor finiteness of U is required."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.descend"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descend_apply",
+          "role": "simp",
+          "statement": "For every g, inclusion into U sends descended c([g]) to c(g)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descend_unique",
+          "role": "extensionality",
+          "statement": "Any actual quotient cocycle with the prescribed included value on every representative equals descent."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descend_one",
+          "role": "simp",
+          "statement": "Descending the actual trivial cocycle gives the actual trivial quotient cocycle."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descend_proof_independent",
+          "role": "compatibility",
+          "statement": "The actual descended cocycle is independent of the proof that c is trivial on N."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.inflate_descend",
+          "role": "compatibility",
+          "statement": "Inflating the descended actual cocycle recovers c."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descend_gauge_iff",
+          "role": "compatibility",
+          "statement": "Global gauge witnesses between c and d trivial on N are exactly N-fixed quotient gauge witnesses."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descend.test_one",
+          "kind": "degenerate",
+          "statement": "The descent of the actual trivial cocycle is the actual quotient trivial cocycle."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descend.test_representative",
+          "kind": "compatibility",
+          "statement": "For n∈N, the actual descended values at [gn] and [g] agree in U^N."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descend.test_proper_invariants",
+          "kind": "non-example",
+          "statement": "For native ConjAct S₃ acting on S₃ and N=G, the transposition(01) is not in U^N: conjugation by(12) changes it. The native coefficient target cannot be replaced by all U."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+          "how": "Supplies the actual quotient-cocycle input and exact recovery required by the open nonabelian H¹ inflation/restriction and finite-quotient colimit construction; does not close those class-level interfaces."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-gauge",
+          "how": "Retains the native quotient action on the genuine fixed subgroup and computes on representatives, so the exact N-fixed gauge witnesses can be compared."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-unique",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Uniqueness of actual quotient cocycle descent",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.descend_unique",
+      "statement": "Under the descent hypotheses, any actual cocycle d:G/N→U^N whose value at [g], included in U, is c(g) for every g equals the constructed descent. Equality is in the existing cocycle type, not merely equality of classes.",
+      "hypotheses": [
+        "G and U are groups endowed with topologies; G acts on U by group automorphisms. c is the actual existing Z¹ cocycle, continuous with ordered law c(gh)=c(g)(g•c(h)); no invented cocycle or cohomology carrier is used.",
+        "N is an arbitrary normal subgroup. Descent requires c(n)=1 for every n∈N. Compactness, closedness/openness of N, finiteness/discreteness of U, and continuity of the action or group operations are not needed for these cocycle-level maps. All generic H¹/topological-action and colimit assertions stay separate."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-descent",
+        "mathlib:QuotientGroup.induction_on"
+      ],
+      "proofSteps": [
+        "Apply cocycle extensionality; lift each quotient element to a representative by native quotient induction and apply subtype extensionality to the given value equality."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-a71f92-quotient-descent",
+          "locator": "§1.3.5, Definition1.3.14 and full Proposition1.3.15 proof, printedpp.11–12",
+          "match": "Printed degree-one convention/direct-limit motivation; the exact normal-subgroup cocycle-level proof is derived, using the pinned native APIs and the existing actual cocycle lemmas, rather than attributed as a numbered source theorem.",
+          "excerpt": "by taking a direct limit"
+        }
+      ],
+      "acceptance": [
+        "Under the descent hypotheses, any actual cocycle d:G/N→U^N whose value at [g], included in U, is c(g) for every g equals the constructed descent. Equality is in the existing cocycle type, not merely equality of classes."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.descend_unique"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Inflation of actual quotient cocycles",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.inflate",
+      "statement": "For any normal N≤G and any continuous cocycle d:G/N→U^N with the existing quotient action, construct its inflation c:G→U by c(g)=d([g]) included in U. It is continuous, satisfies the ordered cocycle law, and is identically1 on N. No H¹ pointed-set map is asserted.",
+      "hypotheses": [
+        "G and U are groups endowed with topologies; G acts on U by group automorphisms. c is the actual existing Z¹ cocycle, continuous with ordered law c(gh)=c(g)(g•c(h)); no invented cocycle or cohomology carrier is used.",
+        "N is an arbitrary normal subgroup. Descent requires c(n)=1 for every n∈N. Compactness, closedness/openness of N, finiteness/discreteness of U, and continuity of the action or group operations are not needed for these cocycle-level maps. All generic H¹/topological-action and colimit assertions stay separate."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-map-one",
+        "mathlib:MulAction.coe_quotient_smul_fixedPoints",
+        "mathlib:coe_smul_fixedPoints_of_normal",
+        "mathlib:QuotientGroup.continuous_mk",
+        "mathlib:QuotientGroup.eq_one_iff",
+        "mathlib:QuotientGroup.mk_mul"
+      ],
+      "proofSteps": [
+        "Compose the continuous native projection G→G/N, the actual continuous d and native subgroup inclusion U^N→U.",
+        "The quotient multiplication/action representative formulas turn d's ordered cocycle law into the ordered G-law after applying subgroup inclusion.",
+        "For n∈N the quotient class is1, and d(1)=1; no coefficient action on all U is forced to factor through G/N."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-a71f92-quotient-descent",
+          "locator": "§1.3.5, Definition1.3.14 and full Proposition1.3.15 proof, printedpp.11–12",
+          "match": "Printed degree-one convention/direct-limit motivation; the exact normal-subgroup cocycle-level proof is derived, using the pinned native APIs and the existing actual cocycle lemmas, rather than attributed as a numbered source theorem.",
+          "excerpt": "by taking a direct limit"
+        }
+      ],
+      "acceptance": [
+        "For any normal N≤G and any continuous cocycle d:G/N→U^N with the existing quotient action, construct its inflation c:G→U by c(g)=d([g]) included in U. It is continuous, satisfies the ordered cocycle law, and is identically1 on N. No H¹ pointed-set map is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.inflate"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.inflate_apply",
+          "role": "simp",
+          "statement": "At g the inflated cocycle is inclusion of d([g]) from the actual fixed subgroup."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.inflate_trivialOn",
+          "role": "characterisation",
+          "statement": "Every inflated cocycle is identically1 on N."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.inflate_one",
+          "role": "simp",
+          "statement": "Inflation sends the actual quotient trivial cocycle to the actual G-trivial cocycle."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descend_inflate",
+          "role": "compatibility",
+          "statement": "Descending inflation recovers every actual quotient cocycle."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.inflate_injective",
+          "role": "extensionality",
+          "statement": "Inflation is injective on actual cocycles, using native quotient representatives; no H¹ injectivity is asserted."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.inflate.test_one",
+          "kind": "degenerate",
+          "statement": "Inflation preserves the actual trivial cocycle."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.inflate.test_native_projection",
+          "kind": "compatibility",
+          "statement": "Inflation evaluates as the actual d composed with the native quotient projection and subgroup inclusion."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.inflate.test_subgroup",
+          "kind": "compatibility",
+          "statement": "At any actual n∈N the inflated cocycle is1; no arbitrary chosen quotient representative is used."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+          "how": "Supplies the actual quotient-cocycle input and exact recovery required by the open nonabelian H¹ inflation/restriction and finite-quotient colimit construction; does not close those class-level interfaces."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-gauge",
+          "how": "Retains the native quotient action on the genuine fixed subgroup and computes on representatives, so the exact N-fixed gauge witnesses can be compared."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/inflate-descended-cocycle",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Recovery after quotient descent",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.inflate_descend",
+      "statement": "For c trivial on normal N, inflating its actual descent recovers c exactly in Z¹(G,U).",
+      "hypotheses": [
+        "G and U are groups endowed with topologies; G acts on U by group automorphisms. c is the actual existing Z¹ cocycle, continuous with ordered law c(gh)=c(g)(g•c(h)); no invented cocycle or cohomology carrier is used.",
+        "N is an arbitrary normal subgroup. Descent requires c(n)=1 for every n∈N. Compactness, closedness/openness of N, finiteness/discreteness of U, and continuity of the action or group operations are not needed for these cocycle-level maps. All generic H¹/topological-action and colimit assertions stay separate."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-descent",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation"
+      ],
+      "proofSteps": [
+        "Cocycle extensionality and the actual quotient-lift computation at [g] make the equality pointwise definitional."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-a71f92-quotient-descent",
+          "locator": "§1.3.5, Definition1.3.14 and full Proposition1.3.15 proof, printedpp.11–12",
+          "match": "Printed degree-one convention/direct-limit motivation; the exact normal-subgroup cocycle-level proof is derived, using the pinned native APIs and the existing actual cocycle lemmas, rather than attributed as a numbered source theorem.",
+          "excerpt": "by taking a direct limit"
+        }
+      ],
+      "acceptance": [
+        "For c trivial on normal N, inflating its actual descent recovers c exactly in Z¹(G,U)."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.inflate_descend"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/descend-inflated-cocycle",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Recovery after cocycle inflation",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.descend_inflate",
+      "statement": "For every actual d∈Z¹(G/N,U^N), descend its inflation using the proved triviality on N; the result equals d in Z¹(G/N,U^N).",
+      "hypotheses": [
+        "G and U are groups endowed with topologies; G acts on U by group automorphisms. c is the actual existing Z¹ cocycle, continuous with ordered law c(gh)=c(g)(g•c(h)); no invented cocycle or cohomology carrier is used.",
+        "N is an arbitrary normal subgroup. Descent requires c(n)=1 for every n∈N. Compactness, closedness/openness of N, finiteness/discreteness of U, and continuity of the action or group operations are not needed for these cocycle-level maps. All generic H¹/topological-action and colimit assertions stay separate."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-unique",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation"
+      ],
+      "proofSteps": [
+        "Use uniqueness of descent and the pointwise inflation formula on every native representative."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-a71f92-quotient-descent",
+          "locator": "§1.3.5, Definition1.3.14 and full Proposition1.3.15 proof, printedpp.11–12",
+          "match": "Printed degree-one convention/direct-limit motivation; the exact normal-subgroup cocycle-level proof is derived, using the pinned native APIs and the existing actual cocycle lemmas, rather than attributed as a numbered source theorem.",
+          "excerpt": "by taking a direct limit"
+        }
+      ],
+      "acceptance": [
+        "For every actual d∈Z¹(G/N,U^N), descend its inflation using the proved triviality on N; the result equals d in Z¹(G/N,U^N)."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.descend_inflate"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-equivalence",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Equivalence of actual cocycle spaces",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.descendEquiv",
+      "statement": "For any normal N≤G, the subtype of actual continuous G-cocycles trivial on N is equivalent to Z¹(G/N,U^N). Forward map is descent and inverse is inflation together with its proved triviality on N; both inverse identities hold. This is a cocycle-level equivalence, not a full H¹ equivalence.",
+      "hypotheses": [
+        "G and U are groups endowed with topologies; G acts on U by group automorphisms. c is the actual existing Z¹ cocycle, continuous with ordered law c(gh)=c(g)(g•c(h)); no invented cocycle or cohomology carrier is used.",
+        "N is an arbitrary normal subgroup. Descent requires c(n)=1 for every n∈N. Compactness, closedness/openness of N, finiteness/discreteness of U, and continuity of the action or group operations are not needed for these cocycle-level maps. All generic H¹/topological-action and colimit assertions stay separate."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/inflate-descended-cocycle",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/descend-inflated-cocycle"
+      ],
+      "proofSteps": [
+        "Package the two existing actual cocycle maps and their inverse identities in native Equiv. Subtype extensionality removes only the proof of triviality, not the genuine condition."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-a71f92-quotient-descent",
+          "locator": "§1.3.5, Definition1.3.14 and full Proposition1.3.15 proof, printedpp.11–12",
+          "match": "Printed degree-one convention/direct-limit motivation; the exact normal-subgroup cocycle-level proof is derived, using the pinned native APIs and the existing actual cocycle lemmas, rather than attributed as a numbered source theorem.",
+          "excerpt": "by taking a direct limit"
+        }
+      ],
+      "acceptance": [
+        "For any normal N≤G, the subtype of actual continuous G-cocycles trivial on N is equivalent to Z¹(G/N,U^N). Forward map is descent and inverse is inflation together with its proved triviality on N; both inverse identities hold. This is a cocycle-level equivalence, not a full H¹ equivalence."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.descendEquiv"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descendEquiv_apply",
+          "role": "simp",
+          "statement": "The forward equivalence is the actual descent of the cocycle component using its stored proof of triviality."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descendEquiv_symm_apply",
+          "role": "simp",
+          "statement": "The inverse equivalence has actual cocycle component inflate d."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descendEquiv_left_inv",
+          "role": "extensionality",
+          "statement": "The inverse after forward is equality in the genuine subtype of actual cocycles trivial on N."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descendEquiv_right_inv",
+          "role": "extensionality",
+          "statement": "Forward after inverse is equality in the actual quotient cocycle type."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descendEquiv_one",
+          "role": "simp",
+          "statement": "The equivalence sends the actual trivial cocycle with its triviality proof to the actual quotient trivial cocycle."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descendEquiv.test_left_inverse",
+          "kind": "compatibility",
+          "statement": "The actual subtype element c is recovered by inverse after forward, including independence of its proof of triviality."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descendEquiv.test_right_inverse",
+          "kind": "compatibility",
+          "statement": "Every actual quotient cocycle d is recovered by forward after inverse."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descendEquiv.test_proof_irrelevance",
+          "kind": "degenerate",
+          "statement": "For one actual cocycle and two triviality proofs, the forward equivalence gives the identical descended cocycle."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+          "how": "Supplies the actual quotient-cocycle input and exact recovery required by the open nonabelian H¹ inflation/restriction and finite-quotient colimit construction; does not close those class-level interfaces."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-gauge",
+          "how": "Retains the native quotient action on the genuine fixed subgroup and computes on representatives, so the exact N-fixed gauge witnesses can be compared."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-gauge",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Exact N-fixed gauge witnesses after descent",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.descend_gauge_iff",
+      "statement": "For continuous cocycles c,d both trivial on normal N, there exists x∈U with d(g)=x c(g)(g•x)⁻¹ for all g if and only if there exists x∈U^N with descended d(q)=x descended c(q)(q•x)⁻¹ for every q∈G/N. No refinement of N or H¹ quotient construction is used.",
+      "hypotheses": [
+        "G and U are groups endowed with topologies; G acts on U by group automorphisms. c is the actual existing Z¹ cocycle, continuous with ordered law c(gh)=c(g)(g•c(h)); no invented cocycle or cohomology carrier is used.",
+        "N is an arbitrary normal subgroup. Descent requires c(n)=1 for every n∈N. Compactness, closedness/openness of N, finiteness/discreteness of U, and continuity of the action or group operations are not needed for these cocycle-level maps. All generic H¹/topological-action and colimit assertions stay separate."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-descent",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-witness-fixed",
+        "mathlib:FixedPoints.mem_subgroup",
+        "mathlib:MulAction.coe_quotient_smul_fixedPoints",
+        "mathlib:coe_smul_fixedPoints_of_normal",
+        "mathlib:QuotientGroup.induction_on"
+      ],
+      "proofSteps": [
+        "The inherited actual gauge-witness lemma proves any global witness x is N-fixed from triviality of both cocycles.",
+        "Package x in the native fixed subgroup and prove the quotient gauge equation by native quotient induction, subtype extensionality and the representative action.",
+        "Conversely, evaluate the quotient equation at [g] and apply the native subgroup inclusion. This establishes the pointwise witness bridge but does not define quotient H¹ inflation."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-a71f92-quotient-descent",
+          "locator": "§1.3.5, Definition1.3.14 and full Proposition1.3.15 proof, printedpp.11–12",
+          "match": "Printed degree-one convention/direct-limit motivation; the exact normal-subgroup cocycle-level proof is derived, using the pinned native APIs and the existing actual cocycle lemmas, rather than attributed as a numbered source theorem.",
+          "excerpt": "by taking a direct limit"
+        }
+      ],
+      "acceptance": [
+        "For continuous cocycles c,d both trivial on normal N, there exists x∈U with d(g)=x c(g)(g•x)⁻¹ for all g if and only if there exists x∈U^N with descended d(q)=x descended c(q)(q•x)⁻¹ for every q∈G/N. No refinement of N or H¹ quotient construction is used."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.descend_gauge_iff"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -4450,7 +4997,7 @@
         "Local conditions and Selmer varieties: unramified and crystalline conditions (Kim 2009 §3, Lemma 5: the image of H⁰(G_v, U(B_cr ⊗ R)/U(R)) → H¹(G_v, U(R))), bad-place conditions, the global Selmer variety, and dimension calculations; depth-one agreement with the Kummer map and Selmer group of the Jacobian (HeightsRationalPointsAndObstructions RP.1) and a nontrivial depth-two obstruction.",
         "Inflation–restriction for nonabelian H¹ (Serre, Galois Cohomology I §5.8), not in a freely readable source consulted here.",
         "The invariant-coset projection, actual connecting map and initial H⁰ exactness are now outlined with native carriers. Split continuous-cocycles, functoriality and central-extension and complete every inherited omitted API/test. Representability, local conditions, Selmer varieties and all recorded source-proof gaps remain open; no stage is closed.",
-        "Complete native quotient G/N-action on imported U^N and actual cocycle descent/uniqueness, quotient H¹ inflation with same-stage injectivity and image=neutral restriction fibre, reverse-inclusion transitions and the discrete compact filtered colimit. The native one-fibre, normal-open killing, invariance and witness/family preliminaries are now separately prototyped. Do not apply discrete killing to the original general unipotent coefficient topologies."
+        "The native quotient action on U^N is imported, and actual normal-subgroup cocycle descent/inflation, their equivalence and exact N-fixed gauge witnesses are now separately prototyped. Construct the actual H¹ pointed-set inflation and prove same-stage injectivity/image=neutral restriction fibre; then reverse-inclusion transitions and compact-discrete filtered-colimit bijection. Establish the exact comparison with the native additive TauCeti descent through genuine cocycle conversion, not an arbitrary assumed bridge. Do not apply discrete killing to general unipotent coefficient topologies."
       ]
     },
     {
@@ -4575,7 +5122,7 @@
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.3"
       ],
-      "detail": "The inherited exact-sequence ID is now one inclusion-kernel theorem, with six new nodes separating connecting construction/image/change, triviality, fixed-orbit fibres and normal exactness. All twenty prior IDs survive. continuous-cocycles, functoriality and central-extension still bundle independent declarations and need granular continuation; inherited omitted APIs/tests remain open. Twisting needs its target repointed at [c]. The promoted identity/inverse APIs and discrete one-fibre/killing lemmas are now declaration-sized and separately prototyped. D2 quotient action and actual quotient cocycle, D3 H¹ inflation map/injectivity, D4 neutral-fibre equality and D5 transition/colimit remain distinct missing interfaces. The pointwise gauge-witness theorem does not close them. Geometric degree-one G1 remains with existing IG.0/SF.2 requests and must not introduce an NC.3→NC.0 stage cycle."
+      "detail": "The inherited exact-sequence ID is now one inclusion-kernel theorem, with six new nodes separating connecting construction/image/change, triviality, fixed-orbit fibres and normal exactness. All twenty prior IDs survive. continuous-cocycles, functoriality and central-extension still bundle independent declarations and need granular continuation; inherited omitted APIs/tests remain open. Twisting needs its target repointed at [c]. The promoted identity/inverse APIs and discrete one-fibre/killing lemmas are now declaration-sized and separately prototyped. D2 quotient action and actual quotient cocycle, D3 H¹ inflation map/injectivity, D4 neutral-fibre equality and D5 transition/colimit remain distinct missing interfaces. The pointwise gauge-witness theorem does not close them. Geometric degree-one G1 remains with existing IG.0/SF.2 requests and must not introduce an NC.3→NC.0 stage cycle. Current continuation: D2 actual quotient cocycles and their inverse equivalence are now supplied for arbitrary normal N; exact N-fixed quotient gauge witnesses are established. D3 actual H¹ inflation/injectivity, D4 neutral-fibre exactness and D5 colimits remain open. Native TauCeti additive descendZ1 is positive prior art; its canonical cocycle-conversion comparison and the full-file TauCeti build remain unverified."
     }
   ],
   "sourceIssues": [],
@@ -5491,10 +6038,10 @@
     "submittedMathlibCheck": {
       "freeGB": 66,
       "exit": 0,
-      "elapsed": 4.0,
+      "elapsed": 4,
       "errors": 0,
       "warnings": 112,
-      "timeSeconds": 4.0,
+      "timeSeconds": 4,
       "maximumRSSKiB": 3512112,
       "examples": 50
     },
@@ -5543,5 +6090,83 @@
       "scopePreserved": true,
       "nativeInheritedTypeCorrections": true
     }
+  },
+  "quotientCocycleContinuation": {
+    "agent": "Codex — codex-a71f92",
+    "date": "2026-10-02",
+    "base": "804df52206c95795837fda47eb802cd55d9a1d1b",
+    "publicationBase": "ca90231203e7a46dda900c23269053a78f3f929e",
+    "claim": 5960047412,
+    "botConfirmation": 5960049306,
+    "addedNodes": 7,
+    "preservedNodeObjects": 62,
+    "preservedStatements": 62,
+    "proofCommit": "c584042364b9d867c12929bda16c59766a0afcaf",
+    "priorProofCommit": "7244a1e04a8dd65f6fabb2614cf1070cd1a99d4e",
+    "fullFileCompiled": false,
+    "native": {
+      "sourceSha256": "301b64014da2e7819d4734dd0d116cbd5d92ffcf1fba377427e8ea087ae1f59b",
+      "normalizedLeanOutputSha256": "59f546ce8f7977b334a01381145c48335d2773213d92247d2750edd14b86480a",
+      "lines": 442,
+      "examples": 17,
+      "errors": 0,
+      "warnings": 0,
+      "admissionWarnings": 0,
+      "kernelAudits": 19,
+      "admissionDependencies": false,
+      "maximumRSSKiB": 3462660,
+      "elapsed": "0:02.69",
+      "exit": 0
+    },
+    "submittedMathlib": {
+      "sourceSha256": "5121e8d1ad9f55a7317ddd1a94a8631e827c89746ee300782962d2e15e104ffe",
+      "normalizedLeanOutputSha256": "ec7deee6c684ff7021426b7a5ab2e4d75dbe5fe351baf8e48bb0adde7f7f6f34",
+      "lines": 1298,
+      "examples": 59,
+      "errors": 0,
+      "warnings": 140,
+      "admissionWarnings": 140,
+      "kernelAudits": 0,
+      "admissionDependencies": false,
+      "maximumRSSKiB": 3496976,
+      "elapsed": "0:05.21",
+      "exit": 0
+    },
+    "projection": {
+      "indexedChecker": "pass",
+      "actualIntake": "pass",
+      "base": "ca90231203e7a46dda900c23269053a78f3f929e",
+      "preservedStatements": 62,
+      "unchangedNodes": 62,
+      "addedNodes": 7,
+      "kinds": {
+        "definition": 3,
+        "lemma": 28,
+        "comparison": 6,
+        "construction": 8,
+        "theorem": 24
+      },
+      "api": 72,
+      "tests": 59,
+      "baseline": 89,
+      "planets": 11,
+      "gaps": 9,
+      "requests": 16,
+      "ownDeclarationEdges": 133,
+      "stageVertices": 2967,
+      "stageEdges": 8655,
+      "reachableDependencyVertices": 176,
+      "reachableDeclarations": 69,
+      "requiredStagePairs": 20,
+      "requiredStagePairsReachable": 20,
+      "combinedVertices": 3076,
+      "combinedEdges": 8893,
+      "allDAGs": "acyclic",
+      "pendingLinks": [],
+      "ownSkippedLinks": [],
+      "otherSkips": "unchanged",
+      "newStageEdges": 0
+    },
+    "remaining": "Actual H¹ inflation/injectivity/neutral-fibre exactness, transitions/colimit and canonical additive cocycle conversion remain open. Every broader source/geometric/stage/reserved-key frontier is preserved."
   }
 }
