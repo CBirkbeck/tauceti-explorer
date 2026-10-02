@@ -1,522 +1,707 @@
-# BP-DeformationAndDerivedPatchingAlgebra--P7: associated graded-module continuation
-
-Codex — `codex-5ebb6f`, 2 October 2026. Refs #551. Base e9e1cc1;
-claim 5954554136 confirmed by 5954557251. This continues merged #5770.
-All eight stages remain open and every mathematical implementation unchecked.
-
-Eleven new R03.3 nodes specify the native adic Rees-module quotient,
-coefficient denominator, homogeneous map/kernel, piece inclusion, action of
-the same graded ring, finite expansion, direct-sum comparison, degree-zero
-generation, finite generation for finite M, and explicit M=A specialization.
-Native Rees carriers and quotient scalar descent are reused.
-
-Totals: 72 nodes, 83 API entries, 67 definition/construction tests plus four
-inherited lemma tests, 92 native examples, thirteen planets, 157 baseline
-references, fourteen gaps and two unchanged requests. All 61 inherited node
-objects, 140 baseline prefix entries, key-definition boundary, requests,
-source issues and historical receipts are preserved. R03.3 keeps six planets.
-
-Fresh reads: complete Stacks 00K4 mathematics, Definition 10.70.1 in 052P,
-and named pinned declaration passages. Their hashes and exact read scopes
-are in the packet and reader Section 12. Nine finite models pass 12,344
-assertions, including nonfree residue modules and a nonprincipal ideal.
-
-The full Mathlib-only suggested file compiles at the exact pin: zero errors,
-203 admitted-proof warnings, no others, 14.412 seconds. Indexed checker,
-intake, preservation, native/reader parity, DAG, hashes and read-only actual
-atlas assembly pass. File/log hashes are in Section 12.
-
-Resume at the graded-interface registration and Stacks 10.58.7 induction;
-then degree/dimension and remaining multiplicity comparisons. Every original
-paper-route, derived and patching obligation remains required.
-
----
-
-## Historical checkpoint receipts
-
-# BP-DeformationAndDerivedPatchingAlgebra--P7: adic graded-ring continuation
-
-Codex — session `codex-J6LwjP`, 2 October 2026. Refs #551.
-Base `45c222b`. Claim 5953539073 confirmed by bot 5953543825;
-the reread issue body is unchanged. This continues the merged #5763 checkpoint.
-All eight stages remain open and every implementation unchecked.
-
-Nine new R03.3 nodes use the native Rees quotient to plan the ordinary adic
-graded ring, the coefficient-ideal criterion, monomial map and its kernel,
-native piece inclusion, homogeneous multiplication, bijective finite expansion,
-direct-sum comparison and degree-one generation. Totals: 61 nodes (32 lemmas,
-fourteen theorems, eight definitions, seven constructions), 69 API entries,
-55 definition/construction tests plus four inherited lemma acceptance tests,
-80 native examples, thirteen planets, 140 baseline references, fourteen gaps
-and two unchanged requests. R03.3 has six planets. No stage is closed.
-
-All 52 inherited node objects are unchanged as JSON values, as are the 119
-baseline prefix objects, reserved multiplicity boundary, both requests and
-source issues. Earlier source/errata and compilation receipts remain history.
-The intrinsic/ambient dimension distinction and every remaining routed-paper
-and patching obligation are retained. The graded polynomial is still not
-supplied; cumulative polynomiality remains conditional on its tail input.
-
-Use the actual native ring Rees(q)/(q Rees(q)), with its A/q scalar map. The
-coefficient criterion is q^(n+1), not q^n. For arbitrary q, finite polynomial
-expansion and scalar-sum induction identify that ideal; no finite-generation
-premise is hidden. The direct sum has finite support and is compared with this
-same quotient ring, with products in degree n+m. Degree-one generation uses
-all of q; a finite list needs q.FG. For Z/4,q=(2), the degree-one class of 2
-is nonzero and square-zero, distinguishing the graded ring from its residue
-ring. Zero and unit ideals are included.
-
-The native Rees algebra and its generation/Noetherianity already exist and
-are baseline imports. Fresh inspection also confirms the native filtered Rees
-module in Ideal.Filtration.submodule, stable adic filtration, degree-zero
-generation and finiteness. Do not construct these again. The open module gap
-now asks for the coefficient quotient comparison, action of this same graded
-ring, A/q scalar towers and passage of native generation/finiteness to the
-quotient. For M=A, explicitly compare q^n·top_A with the ideal subtype q^n.
-Generic filtered/stable-category Rees theory stays with DD.1; the increasing
-Tau Ceti word-filtration graded ring is not this decreasing adic supplier.
-
-Fresh input inspection covers all eight AUDIT-17 entries, the three applicable
-accepted RS-08 narrowing decisions and 53 touching RS-08 links, the original
-roadmap and atlas extract/touching edges, the current ModularCurves
-coefficient overlap, the full reserved multiplicity brief and the integrated
-depth/Auslander–Buchsbaum supplier. Complete JacobianChallenge and
-Multiquadratic upstream documents were read earlier in this continuous
-worker session. No independent review or fresh full rereading of every
-inherited paper is claimed.
-
-Fresh primary reading: complete mathematical statements/proofs of Stacks
-00K4 (§10.59); complete Definition 10.70.1 in 052P. The quotient comparison
-is an explicit derivation from the two displayed graded/Rees objects, not
-an attributed verbatim theorem. HTML SHA-256 receipts:
-
-- 00K4: `e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932`.
-- 052P: `709ee80c7830e0c429fee54d1df78efaabbd6c6ef4dbdc00220f5a77c80d83bd`.
-
-Twenty-one new Mathlib statements/constructors were read with ambient
-hypotheses at the exact pin. ReesAlgebra was read in full; Filtration was
-read at the recorded carrier/generation/finiteness passages. Selected ideal,
-quotient, direct-sum, monomial and linear-equivalence declarations have
-individual pinned source hashes in the packet. Ownership/name screens found
-no competing ordinary general q-adic construction to import. This is a
-scoped search, not an exhaustive absence claim or expert agreement.
-
-Validation:
-
-- Indexed blueprint checker: zero errors and zero warnings. Intake accepts
-  the four deliverables; whitespace check passes.
-- Exact inherited-node/baseline/request/boundary preservation, new
-  packet/reader/native marker/API/test parity, source hashes, pinned baseline
-  source hashes and the six-planets limit pass.
-- Full Mathlib-only suggested file compiles using Lean v4.34.0-rc2 and the
-  existing exact-pinned Mathlib build: zero errors, 173 admitted-proof warnings,
-  zero other warnings, 80 examples, 4.74 seconds. Source SHA-256:
-  `a786472e8c80e240a6bd845b13cb2c6ffd31faebd827a72da7a8a339065e2229`.
-  Log SHA-256:
-  `ece5900dd8515593608876f0ab545a968768e4b8e9ee36d60c92ab74996f8ee8`.
-  Memory exceeded the WORKERS minimum. No Tau Ceti imports or combined-build
-  claim, project, cache download, dependency build or language server.
-- Exact finite cyclic-ring models: 35 pairs, 7,184 Rees elements and
-  coefficient-ideal checks, 7,345 homogeneous products, 1,113 quotient products
-  and 35 degree-one-generation checks. The nonprincipal ideal (x,y) in
-  F2[x,y]/(x,y)^2 has 100 additional checks, including both surviving degree-one
-  classes and their zero products. These use degree≤2 truncations; homogeneous
-  products are checked only when their degree sum is ≤2. They are not proofs
-  of infinite graded decomposition, Noetherianity, module action or Hilbert–Serre.
-  Result SHA-256:
-  `1f0ee2e8bc5ce6da7b9f23257a13ae52fd21c459ab4c45591fa034c8ab9667e6`.
-- Actual atlas assembly adds only this in-memory partial overlay through
-  normal promoted loading and decomposition trimming, preserving accepted
-  R03.6. The roadmap has 114 declarations and nineteen planets, including
-  this packet's 61/thirteen. Zero pending/skipped links; no new external
-  required edge. The stage graph has 3,003 vertices and 8,623 edges, acyclic.
-  Adding this packet and its reachable declaration closure (62 declarations,
-  including the inherited integrated depth node) gives 3,052 vertices and
-  8,768 edges, also acyclic. This does not certify all unrelated promoted
-  declarations globally. No atlas/shared data was written or promoted.
+# BP-DeformationAndDerivedPatchingAlgebra--P7: Hilbert–Serre proof checkpoint
+
+Agent: ChatGPT Pro — `gpt6astra-20261002-c84f2a`. Refs #551.
+2 October 2026. Claim 5955649599 was confirmed by bot 5955652371;
+the issue was reread after confirmation. Publication base:
+`27ae2a7daec09365d1ea5abc8a5148ce445ae429`.
+
+**Partial source-proof checkpoint, not a completed blueprint or formalisation.**
+Only this handoff changes. The canonical packet, reader and suggested file
+are unchanged. Their inherited counts remain 72 nodes, 83 API entries,
+67 definition/construction tests plus four lemma tests, 92 native examples,
+13 planets, 157 baseline references, 14 gaps and two requests. These are
+inherited inventory counts, not new implementation or validation claims.
+Every existing ID, source route, source finding, reserved multiplicity
+boundary and partial/not_read/unchecked status remains in the canonical files.
+
+The complete preceding accumulated handoff, including the associated-graded
+module construction and historical compilation receipts, is archived at
+[the immutable publication base](https://github.com/CBirkbeck/tauceti-explorer/blob/27ae2a7daec09365d1ea5abc8a5148ce445ae429/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md).
+This current receipt replaces that accumulation, not its canonical mathematics.
+
+## 1. What this checkpoint supplies
+
+A degree-one **kernel/cokernel induction** supplies the missing eventual
+polynomial of the graded quotient lengths. It does not assume a regular
+generator. It constructs the integration constant explicitly, supplies the
+input to the existing cumulative-polynomial theorem, and gives a separate
+formal-series numerator proof. It also specifies how to register the existing
+Rees quotients using native graded interfaces, without constructing another
+associated-graded carrier.
+
+The argument is an alternate elementary proof of the length-valued case of
+Stacks 10.58.7. The source first removes power torsion; here the single-step
+kernel and cokernel are both modules over the smaller graded ring. This is
+not an alleged error in the source and not a new general K-theory programme.
+The recorded torsion-stabilisation route can be replaced for this consumer
+once these refinements are integrated; it must not remain a spurious required
+gap in that same proof.
+
+## 2. Precise setting
+
+Let A be a commutative Noetherian ring. Let S be a nonnegatively graded
+commutative A-algebra with degree-zero identification S_0=A, generated over A
+by a specified finite list x_1,...,x_r in S_1. The list need not be minimal;
+zero or redundant entries are allowed. Let M be a finitely generated graded
+S-module, nonnegatively graded for the formulas below. Assume each M_n has
+finite A-length. This last assumption is automatic when A is Artinian.
+
+Put h_M(n)=length_A(M_n), as a nonnegative integer after proving its length
+is finite. Put M_n=0 and h_M(n)=0 for n<0 only when using integer-indexed
+formulas. In a native natural-indexed implementation use n to n+1 and handle
+degree zero separately; natural subtraction must not simulate negative indices.
+
+For a finite Z-graded module the finite homogeneous generator argument below
+provides a lower bound. Shift that bound to zero and translate the resulting
+polynomial. A two-sided infinite product of components is never substituted
+for the direct sum.
+
+S is Noetherian: it is a quotient of A[X_1,...,X_r]. No infinite residue-field,
+field, domain, regularity, reducedness, completeness or nonzero-module premise
+is used. The zero ring/module cases are permitted. No degree-equals-dimension
+claim is included in this theorem.
+
+## 3. Finite homogeneous generators and finite components
+
+Take finitely many S-generators m_j. Replace them by all their homogeneous
+components. This is a finite set because each element has finite homogeneous
+support. The new components generate M: their S-span contains each original
+m_j, hence is all of M. Denote their degrees by d_j.
+
+For a homogeneous element of M_n, express it using these generators, express
+the scalar coefficients as polynomials in the x_i, and project to degree n.
+It is an A-linear combination of
+
+    x_1^a_1 ... x_r^a_r m_j,  with a_i>=0 and sum a_i+d_j=n.
+
+There are finitely many such monomials for fixed n. Therefore M_n is a finite
+A-module. This proves finite length when A is Artinian, without identifying
+length with dimension over a residue field. For r=0, only the finitely many
+degrees d_j can survive. In particular h_M is eventually zero, although M may
+have nonzero finite length.
+
+The generic Hilbert basis theorem, finite generation and finite-length
+calculus are inputs, not new local substitutes. The existing adic degree-one
+and degree-zero generation plans give this data in the application below.
+
+## 4. The kernel and cokernel, including their gradings
+
+Assume r>0 and write x=x_r. On the underlying S-module, multiplication by x is
+an S-linear endomorphism mu_x. It raises degree by one; it is not a
+degree-preserving endomorphism of the displayed grading.
 
-Resume:
+Use the actual native kernel and quotient:
 
-1. Discharge the coefficient-ideal, kernel and finite-expansion proofs and
-   transport the native ring grading/interfaces through the canonical
-   direct-sum comparison. Do not introduce a rival carrier.
-2. Use the native stable adic Rees-module carrier. Prove its q-coefficient
-   denominator, native degree-quotient comparison and action of this same
-   quotient ring, with quotient scalar towers and compatibility for M=A.
-   Descend the already built degree-zero generation and finiteness.
-3. Source-decompose the graded Hilbert–Serre induction: torsion stabilization,
-   nilpotent filtration, shifted degree-one multiplication exact sequences
-   and induction on generators. Supply Q,N to the inherited conditional
-   cumulative-polynomial theorem; do not assume Q exists.
-4. Preserve and continue positivity/integrality, degree/dimension,
-   Artin–Rees, localization, completion/geometric comparisons and the
-   regular-local-domain proof. Keep the reserved general multiplicity ID.
-5. Refine the inherited depth/Auslander–Buchsbaum compound supplier to
-   declarations before complete promotion. It resolves in the source registry
-   and is retained in closure, but the partial layer replacement does not
-   render it as a stage. Retain exact ModularCurves 4D and R02.1 imports.
-6. Continue all P7–P9, coefficient, deformation, point and patching worklists
-   in the dated handoffs below. No omitted paper route is discharged by this
-   affine ring comparison. Independent review must assess mathematical
-   proofs, source adapters and retained source issues.
+    K=ker(mu_x)=(0:_M x),   I=range(mu_x)=xM,   Q=M/I,   B=S/(x).
 
-Durable results are in the four deliverables. Scratch is deleted after
-publication; no private source/log path is needed to resume. Remote checks
-are inspected after publication, not preclaimed here.
+K and I are homogeneous. Indeed, writing m=sum m_n, the elements x m_n lie in
+distinct degrees n+1. If x m=0, every x m_n=0. The degree-n component of x m
+is x m_(n-1), so projections preserve I as well. Consequently Q has the
+quotient grading; its component is
 
----
+    Q_n = M_n / x M_(n-1),
 
-## Earlier dated handoff receipts
+through the actual quotient projection, not an unrelated isomorphic module.
+K_n is the kernel of M_n -> M_(n+1). At n=0, xM has zero component, so Q_0=M_0.
 
-The following reports describe their dated checkpoints. Their counts,
-no-compilation statements and resume directions are historical.
+Both K and Q are killed by x, and hence carry B-module structures by scalar
+descent. For K, this is the annihilator condition itself; for Q, x m maps to
+zero. S-linearity and commutativity show the whole ideal (x) kills each module.
+The quotient action is characterized by [s]m=sm. Their gradings are compatible
+with this action. As (x) has no degree-zero part, B_0=A, and B is generated by
+the images of x_1,...,x_(r-1).
 
-# BP-DeformationAndDerivedPatchingAlgebra--P7: cumulative-length continuation
+K is finite over S because S is Noetherian and M is finite; Q is finite as a
+quotient. The same finite lists generate over B: every coefficient s can be
+replaced by [s]. Thus both are finite graded modules over a ring with one
+fewer designated degree-one generators. Their components have finite
+A-length as submodules and quotients of the finite-length M_n. This is the
+induction step's finiteness input, not an assumption that K is free.
 
-Codex — session `codex-a71f92`, 2 October 2026. Refs #551.
-Status: partial checkpoint; all eight scoped stages remain open.
+## 5. The exact degreewise sequence and the signed recurrence
 
-## Current continuation
+For n>=0 there is an exact sequence
 
-Adds eight R03.3 nodes on native graded quotient lengths, one adic transition length step, cumulative extended and finite-natural length identities, finite graded lengths, a normalized rational summation polynomial, its evaluation, and cumulative polynomiality conditional on a graded polynomial tail. The native inclusion and transition maps are reused; no quotient carrier, quotient-ring action or Bernoulli theory is reconstructed.
+    0 -> K_n -> M_n --x--> M_(n+1) -> Q_(n+1) -> 0.
 
-The initial-segment correction is explicit. For a graded sequence beginning 1,2 and then constantly 1, the cumulative polynomial is T+2, not T+1. Infinite extended lengths are retained until finiteness is justified. Length exactness does not assume splitting, as the ℤ/4 transition demonstrates.
+To use native short exactness, factor the middle map through its image I_(n+1).
+The two short exact sequences are
 
-The cumulative-existence consumer's proof route and prerequisite list are refined. Forty-three of the forty-four inherited nodes are byte-for-byte unchanged as JSON values. All forty-four IDs, the reserved general multiplicity ID, 99 baseline records, source records/issues, historical compilation receipts and supplier requests are preserved. Two gap groups are narrowed, not removed. The remaining associated-graded ring/module structure and graded numerical-polynomial induction still prevent polynomial existence from being certified. Degree/dimension, Artin–Rees, localization, comparison, depth, P7, deformation and patching worklists remain active.
+    0 -> K_n -> M_n -> I_(n+1) -> 0,
+    0 -> I_(n+1) -> M_(n+1) -> Q_(n+1) -> 0.
 
-Totals: 52 nodes (28 lemmas, 13 theorems, 8 definitions, 3 constructions), 57 API items, 43 definition/construction unit tests and 4 inherited lemma acceptance tests, 12 planets, 119 baseline references, 14 gap groups, 2 requests. Every implementation is unchecked.
+The inclusions are injective, the quotient/image maps are surjective, and the
+image/kernel equalities follow from the definitions and the homogeneous
+comparison in Section 4. Apply Module.length_eq_add_of_exact twice. Only after
+all four lengths are finite, cast into Z and cancel the shared image length:
 
-## Fresh inspection
+    h_M(n+1)-h_M(n) = h_Q(n+1)-h_K(n).                 (HS)
 
-Read the claimed issue and bot confirmation, all applicable audit entries and relevant accepted RS-08 ownership/narrowing decisions, the scoped roadmap extract and touching link-map overlap. The upstream GrothendieckEulerForms and Multiquadratic documents were read, alongside WORKERS, PROTOCOL, expansion PROTOCOL and UPSTREAM_GUIDE.
+Equivalently, for integer n>=1, Delta h_M(n)=h_Q(n)-h_K(n-1).
+Neither the endomorphism mu_x nor a chosen component map is asserted
+injective. No short exact sequence is assumed split, and truncated natural
+subtraction is not used. This supplies the source proof's missing numerical
+input without a separate largest-power-torsion construction.
 
-Fresh baseline statements are the 20 appended references, at the exact Mathlib pin, with their ambient parameters. Read the native quotient inclusions/transitions, quotient kernels/surjectivity, exact length and injected length bound, quotient-ring action/tower, finite conversion, Bernoulli power-sum proof and polynomial coefficient expansion. Also inspected the native Rees algebra and its generation/finiteness interface, and the Tau Ceti increasing word-filtration associated graded: the latter is not the needed decreasing adic supplier. Neither inspection certifies the missing associated-graded comparison.
+## 6. Constructing the eventual polynomial, not assuming one
 
-Reread Stacks 00K4's graded/cumulative formulas, ideal-of-definition variant and full polynomiality proof, and all of Lemma 00JZ. Downloaded HTML SHA-256 values match the retained source records: `e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932` and `9e111a9d48c6a3bb8ede444e6f7e92c4b4bd0ec28898427bea06b1da4e6dccf8`. New pinned-source records identify precise read scopes. Existing paper-version/errata receipts are inherited and not independently reviewed.
+Induct on the length r of the specified generator list, simultaneously for
+all S and M with that list length. Section 3 supplies r=0, with polynomial zero.
+For r>0, apply the induction hypothesis over B to K and Q. Write their rational
+tail polynomials as P_K and P_Q, valid from N_K and N_Q respectively. Define
 
-Ownership vocabulary was screened across packets, roadmap definitions, atlas extracts and upstream documents. The other Bernoulli uses are native arithmetic in their own consumers; no generic Bernoulli construction is replanned. Open Mathlib PR searches and indexed Zulip/archive searches found no specific competing antidifference-adapter design; these are scoped searches, not an exhaustive absence claim. No new cross-roadmap prerequisite is added.
+    D(T)=P_Q(T)-P_K(T-1),
+    N=max(1,N_Q,N_K+1).
 
-## Validation
+Then (HS) gives h_M(n)-h_M(n-1)=D(n) for every n>=N.
+Use the packet's existing normalized rational summation polynomial S(D),
+characterized by S(D)(-1)=0 and S(D)(n)-S(D)(n-1)=D(n). Set
 
-Validated at immutable main `db3ca082e002ce257f8f12d6e518681b12279872`, after confirming all four issue files were unchanged since the claim. The shared worktree was not edited.
+    P_M(T)=S(D)(T)+h_M(N-1)-S(D)(N-1).               (ANCHOR)
 
-The actual indexed `check_blueprint.check` reports 0 errors and 0 warnings. The actual intake file checks accept all four deliverables. Preservation, packet/reader/native-signature/API/test parity, source hash and literal excerpt, whitespace and six-planets-per-layer checks pass. There are 68 Lean examples, 13 more than the inherited file: eight definition/construction tests and five acceptance examples.
+Its value at N-1 is h_M(N-1). Induction on n using (HS) proves
+P_M(n)=h_M(n) for every n>=N-1. This formula supplies both P_M and a valid
+threshold; an arbitrary constant of integration would not suffice.
 
-The actual `build.assemble` projection runs in memory through normal promoted-blueprint loading and decomposition trimming, adding only this checkpoint and preserving the accepted R03.6 part. Its complete stage DAG has 2951 vertices and 8623 edges and is acyclic. No projected links are skipped. The reachable declaration closure has 162 vertices and is acyclic; every new dependency was also checked for a return path. The integrated depth/Auslander–Buchsbaum supplier is retained in declaration closure even though the partial overlay does not render it as a stage.
+The degree bound is also obtained by induction. For r=1, K and Q have
+zero tails, so D=0 and P_M is constant. For r>=2 their polynomial degrees are
+at most r-2; translation and subtraction do not increase that bound, and
+antidifference increases it by at most one. Thus deg(P_M)<=r-1 for r>0,
+with the usual bottom degree for the zero polynomial. For r=0, P_M=0.
+This is a generator-count bound, NOT dim(M) or dim(A).
 
-Exact rational/Bernoulli and finite cyclic-length models perform 10,809 checks. They cover the polynomial summation and forward difference, normalization at −1, finite initial corrections including negative corrections, constant cumulative polynomials for zero tails, and the nonsplit ℤ/4 length transition. These computations are acceptance checks, not proofs of the general nodes or Lean elaboration.
+Uniqueness is equality of rational polynomials agreeing on an infinite tail
+of distinct rational natural-number casts. The current packet already names
+Polynomial.eq_of_infinite_eval_eq for this purpose.
 
-Current coverage is partial for P7, R03.3 and R03.4, and not_read for P8, P9, R03.1, R03.2 and R03.5. The packet itself is partial; no stage or implementation is certified complete.
-
-Changed suggested-file SHA-256: `12e49ccce7db3396b531561fb82afb00bb954600ac2a47f1ae5a1485d0266dfe`. **Not compiled**: the inspected pinned source trees have no existing build. No Lake project, cache/library build or language server was started. The inherited successful receipt for the previous file does not cover the current signatures.
-
-## Resume
-
-Start with the remaining associated-graded ring/module structure and finiteness gap. Reuse the native degree pieces and quotient-ring action and inspect the existing Rees algebra route before designing direct-sum multiplication. Then split the graded Hilbert–Serre induction, giving actual torsion stabilization, nilpotent filtration and shifted exact sequences. Supply the graded polynomial Q,N to the new conditional theorem rather than asserting them as library facts.
-
-Retain the separate positivity and finite-difference integrality chains, the intrinsic/ambient dimension distinction and reserved general multiplicity node. The inherited depth/Auslander–Buchsbaum node still needs declaration-sized refinement; normal layer replacement does not render that integrated prerequisite as a stage, although it resolves in the source registry. Preserve it in closure work. No stage is closed by this partial overlay.
-
-All durable mathematics and validation receipts are in the four deliverables. Job scratch is removed after durable PR verification; no background process is left running.
-
----
-
-## Earlier dated handoff receipts
-
-The handoff below is retained as historical documentation. Its “current” totals, resume instructions and compilation report describe that earlier file, not this continuation.
-
-# BP-DeformationAndDerivedPatchingAlgebra--P7: positivity continuation
-
-Codex — session `codex-rtOQ9t`, 2 October 2026. Refs #551.
-Current status: partial checkpoint; all eight scoped stages remain open.
-The earlier workers' dated handoffs below are historical receipts.
-
-## Current continuation
-
-Four new R03.3 lemmas separate rational natural-tail sign, positive finite adic quotient lengths, nonzero cumulative polynomial and its positive leading coefficient. The degree and intrinsic-positive-integer nodes now consume that chain. Positive constants and dimension-zero modules are included. Finite generation, module nontriviality and finite extended length are explicit. No degree/dimension theorem is used to prove polynomial nonvanishing.
-
-The removed gap is precisely “Positivity from an eventually nonnegative polynomial”. Its written deduction is now complete **conditional on the existing eventual-polynomial construction**. Associated-graded construction, cumulative identity, numerical-polynomial existence, degree/dimension, Artin–Rees, localization lengths and geometric comparisons remain open. No stage or implementation is certified closed.
-
-Current totals: 44 nodes (24 lemmas, 11 theorems, 7 definitions, 2 constructions), 44 API items, 35 definition/construction unit tests, 11 planets, 99 baseline references, 14 gap groups and 2 requests. Four additional lemma acceptance examples have full native Lean forms. All 40 prior IDs, the reserved multiplicity node, 87 baseline records, prior coverage/source receipts and requests are retained. Only the two consumer nodes' hypotheses/proof/prerequisites change; 38 earlier nodes are identical.
-
-## Fresh inspection and checks
-
-Read all eight applicable AUDIT-17 entries, the relevant accepted RS-08 decisions, the complete GrothendieckEulerForms and Multiquadratic upstream documents, the actual roadmap extract and touching stage edges, and the ModularCurves coefficient-category overlap. Read the twelve added Mathlib statements with their ambient parameters at the exact pin. Read Stacks 00DV in full and 00K4 at the selected conventions/definition/leading-coefficient locators. The three new packet source records preserve URLs, selected read scope and download hashes. The earlier 87 baseline receipts are inherited, not freshly recertified.
-
-Indexed packet validation: 0 errors, 0 warnings. Intake: 4 files, 0 problems. Whitespace checks pass. Only the four issue deliverables changed. Preservation and packet/reader/native-form parity checks pass. Both new downloaded-source hashes match. Exact rational checks cover 3/2 as a positive constant, X²−100X (negative at 1, factored natural tail at 100), the zero-polynomial failure, and positive nonintegral leading coefficient 1/3. These are acceptance computations, not general theorem proofs or Lean elaboration.
-
-The actual `build.assemble` projection, with this packet added in memory through normal promotion/decomposition trimming, preserves the accepted R03.6 packet. Its complete projected stage DAG has 3035 vertices and 8622 edges and is acyclic. Combining that graph with all current packet declaration dependencies and their inherited integrated input gives 3069 vertices and 8680 edges, also acyclic. The roadmap has 97 declarations and 17 planets including R03.6; this packet contributes 44 and 11. No projected links are skipped. All four new nodes use only this packet and pinned baseline declarations, so there are no new external-stage links to project.
-
-Projection limitation retained from the earlier checkpoint: `R03.3/free-of-maximal-depth-regular-local` still imports the registered integrated node `R03.3/depth-auslander-buchsbaum-and-dimension-bounds`. It resolves in the source registry and is included in the declaration closure, but normal layer replacement does not render it as a stage. Its declaration-sized refinement must be carried into the eventual complete packet. Do not mistake the partial overlay for a complete promotion. No unrelated unsubmitted packet was added to this projection.
-
-Changed suggested-file SHA-256: `80778912c877da216c7460218fec001741a11ff86fa05da61bc9673e9fee5b56`. **Not compiled**: no existing combined pinned build was available. No Lake project, cache/library build or language server was started. The older successful receipt for SHA-256 `fc04c0a556f75d6164a6db08ff5fa3f86e0a3b651cb1dfd0b1dea8454b5557fc` covers only the preceding file. All mathematical implementations remain unchecked.
-
-## Resume
-
-Continue the associated-graded/module-to-series construction and cumulative length identity, then numerical-polynomial existence and the degree/dimension/Artin–Rees chain. Retain the separate finite-difference integrality proof and its eventual threshold. Carry forward and split the inherited depth/Auslander–Buchsbaum node. The P7, deformation, point and patching worklists below remain active. The general reserved multiplicity ID and intrinsic/ambient dimension distinction must be preserved.
-
-All durable mathematics and validation receipts are in the deliverables. Job scratch is deleted after opening the PR. No background process was started.
-
----
-
-# BP-DeformationAndDerivedPatchingAlgebra--P7: Hilbert–Samuel continuation
-
-Codex — session `codex-a71f92`, 2 October 2026. Refs #551.
-Status: partial checkpoint; all eight stages remain open.
-
-## New work
-
-Preserves all nine prior nodes, their API/tests, original baseline declarations,
-coverage, requests, gaps, source receipts and historical elaboration report.
-Adds fourteen R03.3 nodes: four definition/construction nodes, seven lemmas
-and three theorems. They plan the reserved general module multiplicity once,
-with 19 API entries, 16 discriminating tests and three new planets.
-The combined packet has 23 nodes, 24 API entries, 20 unit tests, five planets,
-62 baseline references, eleven gap groups and two existing requests.
-Everything remains implementationStatus unchecked.
-
-The main reserved id is
-`DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity`.
-It is planned with gaps, not certified closed. Definition is through the
-actual eventual cumulative quotient-length polynomial. Intrinsic dimension
-and ambient dimension are separate, with dimension-indexed additivity.
-The raw length stays in ℕ∞ until finiteness is proved; the zero-module
-support dimension remains bottom.
-
-Source reads: Stacks §10.59 mathematical proofs, 10.58.7, 10.52.8, 10.58.5,
-10.62.6 and §43.15 at the stated locators, all with source URLs and downloaded
-HTML hashes in the packet. Selected IKM arXiv v3 Theorem 9.2/its multiplicity
-proof paragraph and Huneke–Yao's introductory unmixedness definition are
-recorded with PDF hashes. No whole-paper or publisher-edition collation claim.
-
-## Hypothesis clarification for the maintainer
-
-The out-of-scope key brief conflates formal equidimensionality and
-unmixedness in its Nagata sample API. The complete ring
-k[[x,y]]/(xy,y²) has a unique one-dimensional minimal component but its
-associated prime Ann(y)=m has dimension zero. It has multiplicity one
-without regularity. Use every associated prime of the completion in the
-unmixedness hypothesis, as in the Huneke–Yao definition. The key-definition
-data file is unchanged; this is not an alleged published-source erratum.
-
-## Verification
-
-The actual check_blueprint.py and intake file rules ran read-only from Git
-tree 7ec04d9c5af7f5501e7e699d168b512e5c2fe444, with an overlay of these four
-deliverables and the pinned declaration index: 0 errors, 0 warnings; all
-four intake file-rule checks passed. Historical nodes/baseline records,
-sources, gaps, requests and baselineCoverage are preserved exactly.
-All fourteen new declaration signatures, 19 API names and 16 labeled example
-statements agree with the packet and reader. All new prerequisite edges were
-screened against the complete integrated/blueprint node graph; no new cycle.
-Literal excerpts and source HTML hashes pass. Exact rational finite
-differences through degree five, forty-one monomial truncations, the initial
-embedded-prime exception, ideal-power shifts and mixed-dimension additivity
-checks pass. Whitespace checks pass. Finite model checks are not
-formal-series proofs. GitHub submission/intake results are reported in the
-PR conversation after publication, not preclaimed here.
-
-No new Lean compilation: no existing build at both required pins was found.
-No project, cache download, library build or language server was started.
-The earlier worker's successful elaboration receipt covers the older file
-only. New formal-series tests explicitly retain the unresolved local/Noetherian
-instance hypotheses. The associativity signature exposes finite-prime and
-quotient-ideal adapter data; these adapters still need proof.
-
-## Exact continuation order
-
-1. Inspect pinned associated-graded carriers/APIs; construct actual gr_q(A),
-   gr_q(M), degree-one generation, Noetherianity and finite generation.
-2. Prove the cumulative filtration identity and decompose the inspected
-   graded Hilbert–Serre induction and integer-valued antidifference.
-3. Read Stacks 10.60.9, which this continuation did not read. Prove the
-   degree/dimension bridge, finite-colength leading-term invariance,
-   Artin–Rees induced-filtration comparisons and the finite-length branch.
-4. Inspect/prove the polynomial-tail positivity lemma and the finite
-   top-dimensional-support/localization length adapter.
-5. Prove completion invariance, plane-curve order comparisons and their
-   characteristic-qualified examples, regular-local multiplicity, Nagata's
-   unmixed converse, and parameter-ideal/Cohen–Macaulay comparisons.
-6. Retain the regular-local-domain gap and all original R03.3 depth/support
-   work. Preserve RS-08's ModularCurves 4D and ArithmeticGaloisDuality R02.1
-   imports. P7–P9 and R03.1–R03.5 keep every original source-route obligation
-   from the full issue; none is discharged by the new multiplicity strand.
-7. Elaborate all new suggested signatures only in an already available
-   build at both exact pins, respecting WORKERS memory/time limits.
-
-All durable results are in the four deliverables. Job scratch is recoverably
-removed after publication and remote-body verification; downloaded source
-receipts remain in the packet. No local scratch path is required to resume.
-
----
-
-## Preserved earlier handoff
-
-# BP-DeformationAndDerivedPatchingAlgebra--P7: R03.3 catenarity and regular-local freeness
-
-Claude Code — session `cc-39fac3`, 28 September 2026. Refs #551. **Status: partial checkpoint.** The eight-stage part (P7–P9, R03.1–R03.5) remains open.
-
-This continues the ChatGPT Pro checkpoint #3101. Its handoff, covering the R03.4 characteristic-zero-point refinement and the prime-filtration baseline, is kept [at the #3101 merge](https://github.com/CBirkbeck/tauceti-explorer/blob/7c389e1ff9fb56351da1e84fcfb66074f2769538/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md). Everything recorded there is unchanged unless stated below.
-
-## What this checkpoint adds
-
-Layer R03.6 (PR #3317) requested two statements from R03.3 that the integrated depth node does not export. RS-08 assigns both to R03.3: it keeps "explicit catenarity hypotheses" and "Cohen–Macaulay modules over a regular local base", to be proved compatible with ModularCurves 4D. Four nodes now supply them:
-
-1. **`R03.3/catenary`** (definition `Ring.IsCatenary`; Stacks 00NI; planet "Catenary rings").
-   - Chains of primes between p ⊆ q are bounded, and all saturated chains, whose steps are `⋖` in `PrimeSpectrum R`, have equal length.
-   - Five API items: isomorphism invariance, quotients (00NK), localizations (00NJ), dimension ≤ 1, and the characterisation below.
-   - Four unit tests: a field; ℤ; k[x, y], which pins *saturated*; and Nagata's non-catenary ring (02JE), which pins equal length.
-2. **`R03.3/catenary-iff-dimension-function`** (Stacks 0ECF). A Noetherian local A is catenary iff dim A/p = dim A/q + 1 for every p ⋖ q.
-   - The right side is exactly R03.6's hypothesis `hcat`.
-   - The direct chain proof uses `ringKrullDim_quotient`, finiteness of dimension and `RelSeries.insertNth`.
-   - Acceptance: a semilocal counterexample for the local hypothesis, and a catenary but non-equidimensional ring.
-3. **`R03.3/regular-local-cohen-macaulay`** (Stacks 00NQ). A minimal generating set of m in a regular local ring is a regular sequence.
-   - The proof inducts on the dimension, using the pinned `ringKrullDim_quotient_span_singleton_succ_eq_ringKrullDim_of_mem_nonZeroDivisors` and `isRegularLocalRing_iff`.
-4. **`R03.3/free-of-maximal-depth-regular-local`** (Stacks 00NT; the case e = d of 00O7). A finite module with an M-regular sequence in m of length dim A over a regular local A is free.
-   - Proof: Auslander–Buchsbaum with finite global dimension (the integrated node `R03.3/depth-auslander-buchsbaum-and-dimension-bounds`), node 3 for depth A, then `Module.Flat.of_projective` and `Module.free_of_flat_of_isLocalRing`.
-   - The hypotheses are exactly R03.6's regular-sequence form.
-   - Acceptance: the regular and depth hypotheses are both needed, and the result recovers 4D's miracle flatness instead of restating it (RS-08 compatibility).
-
-**New gap:** regular local rings are domains (Stacks 00NP, via gr_m ≅ κ[X₁, …, X_d], 00NO). This is needed by node 3. It is not in the pinned Mathlib and no layer plans it; it is generic local algebra for R03.3.
-
-**For R03.6:** once this merges, R03.6 can replace its two requests to `DeformationAndDerivedPatchingAlgebra:R03.3` with these node ids:
-- `free-of-maximal-depth-regular-local` for `patching-free-conclusion` and `patching-kernel-equals-ideal`;
-- `catenary-iff-dimension-function` for `nearly-faithful-lift-from-special-fibre`.
-
-## Prototype
-
-- **Fix:** the suggested file did not compile. The prime-filtration induction wrapper failed with "failed to elaborate eliminator, motive is not type correct". It now passes `(motive := motive)` to the `elab_as_elim` lemma.
-- **Additions:** a section with the definition, four API signatures, the lemma signatures, four catenary unit tests and one acceptance example (dual numbers).
-- **Compilation:** the file was compiled at the pins with the v4.34.0-rc2 `lean` against the prebuilt Mathlib 082e2d3 oleans, one compile with at least 20 GB free and no lake. The result is 0 errors, placeholder-proof warnings only. Every new declaration elaborated, and so did the R03.4 intermediate-field signatures the previous handoff worried about.
-
-## Sources read
-
-- Stacks §10.105 (Definition 10.105.1 and Lemmas 10.105.2–10.105.10 with the proof of 0ECF).
-- Stacks §10.106 (Lemmas 10.106.1–10.106.8 with the proofs of 00NQ and 00NT).
-- Stacks Proposition 10.110.1 (00O7) and its cited 00NG.
-- Stacks §10.119 (02JE, Nagata's example).
-- The ModularCurves 4D layer text (its local-algebra list, to confirm that it does not own Cohen–Macaulayness or domain-ness of regular local rings).
-- The RS-08 R03.3 decision.
-- The pinned Mathlib statements of every new baseline reference.
-
-## Checks
-
-- `scripts/check_blueprint.py` with the pinned declaration index: 0 errors, 0 warnings.
-- `research/blueprint/intake.py check-files`: no problems.
-
-## Remaining (unchanged, except R03.3)
-
-- Every other stage keeps the worklist in its coverage record.
-- **R03.3 still needs:**
-  - the domain property above;
-  - the reconciliation of the integrated depth, Auslander–Buchsbaum, complete-intersection, dimension and support node into declaration-sized nodes;
-  - the import of the ModularCurves 4D local statements.
-
-
----
-
-## P7 continuation — Codex, codex-J6LwjP, 2 October 2026
-
-Refs #551. Partial checkpoint: all eight stages remain open and every new
-implementation remains unchecked. The earlier handoffs above are historical
-receipts; this section records the current combined deliverables.
-
-### Done
-
-Preserves the previous 23 nodes and 62 baseline declarations exactly. Adds
-17 P7 nodes: three concrete predicates, unit-pivot cancellation, minimal
-representatives, residual homotopy equality, termwise uniqueness, residual
-ranks, the three-term middle-exactness splitting theorem, perfect-to-pseudo
-coherence, residual perfectness, pseudo-coherent residual Nakayama, residual
-contraction, finite tail approximation, finite-perfect filtered-colimit Hom,
-functorial lower-bounded target replacement, and the uniformly lower-bounded
-pseudo-coherent Hom comparison. The packet totals 40 nodes, 44 API entries,
-35 labeled tests, 11 planets (six on P7), 87 baseline declarations, 15 gap
-groups and two unchanged requests. The reserved multiplicity key is retained.
-
-Finite-free results use arbitrary commutative local rings. Cancellation uses
-units, finite-degree stabilization of descending pivots, and locally finite
-identity disks. The three-term theorem assumes composition zero and middle
-exactness after residue change; it does not assume endpoint exactness. The
-Hom comparison works on actual diagrams of complexes, uses a common lower
-bound, and uses a brutal finite approximation at a−1 rather than smart
-truncation of the source. Smart truncation is used functorially on the targets.
-No coherent chain-level Hecke action is inferred from derived factorization.
-
-Read the full applicable AUDIT-17 records and accepted RS-08 DDPA decisions,
-the original roadmap and full integrated P7 node. Read the actual pinned
-statements used for K-projectivity, homotopies, coefficient change, residue
-splittings, smart/brutal truncation, cohomology classes, complex colimits and
-ModuleCat AB5. Tau Ceti's existing linear Hom complex is imported as a planned
-proof input, not reconstructed. Reviewed generic Milnor/ML ownership stays
-with ArithmeticGaloisDuality R02.1; ModularCurves 4D imports retain their exact
-local regularity/completion hypotheses.
-
-Primary sources read: full statements and proofs at Stacks tags 00MT, 0BCC,
-0F9V, 0BC9, 0BCA, 0BCB, 0657, the selected full 064N definition/padding proof,
-and the complete 0G8W filtered-colimit proof. Stable tags are definitive: the
-current online numbering differs from the January 2026 book. Read the
-Boxer–Pilloni author PDF p.17 and pp.21–22, including Lemmas 2.6.6–2.6.7.
-The 65-page November 2025 PDF has SHA-256
-`af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6`.
-Publisher endpoint returned HTML, so no publisher-version collation is
-claimed. Accepted E26/E33 extraction findings are imported as prior reviewed
-findings; sourceIssues remains empty and this is not their independent review.
-
-### Validation
-
-The standard blueprint checker with the pinned declaration index reports
-0 errors and 0 warnings. Finite executable checks verify 26,200 unit-pivot
-identities over Z/4, Z/8 and Z/9 and 1,056 two-differential complexes over Z/4
-with exact middle residue sequence, including actual exactness and summands.
-Negative checks retain nonunit cancellation failure, the nonfree-endpoint
-counterexample and homotopies that differ before residue change. These are
-finite model checks, not proofs of the general statements.
-
-The complete suggested Lean file elaborates with Lean v4.34.0-rc2 against
-already existing Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 oleans:
-exit 0 in 2.42 seconds, zero errors, 112 placeholder-proof warnings and no
-other warnings. The final file SHA-256 is
-`fc04c0a556f75d6164a6db08ff5fa3f86e0a3b651cb1dfd0b1dea8454b5557fc`;
-the successful log SHA-256 is
-`cdf94dd96ac75bd1738cdfa484309140dabdfe437f3daf4d8e395d8ccd1a55e1`.
-No Tau Ceti module is imported; its baseline declarations were source-checked
-at f790474821cf4256814db967cb154e7af3d0c369. This is no certification of a
-combined library build or of mathematical implementation. The existing
-multiplicity associativity signature now supplies the canonical quotient-local
-instance using IsLocalRing.of_surjective'; no additional mathematical premise
-was added. Redundant DVR local-ring instance arguments were removed.
-
-A first Lake-wrapper attempt fetched source dependency clones because that
-wrapper did not recognize the parent build's dependency layout; it performed
-no library build and failed on Batteries. Those newly fetched directories were
-removed. Subsequent checks invoked one Lean process directly with existing
-compiled dependency paths, checking available memory (78 GB on final run) and
-a 20-minute timeout. No project, library build, cache download or language
-server was created, and no Lean process remains running.
-
-### Resume in this order
-
-1. Construct and verify the identity/zero brutal-truncation inclusion and
-   natural Hom-complex comparison used by the four new affine nodes. Implement
-   finite-projective Hom/AB5 comparisons and functorial smart truncations.
-2. Turn descending local cancellation and its locally finite disk decomposition
-   into actual constructions. Prove the rank/shift transports omitted from the
-   suggested signatures, with zero terms and unbounded negative tails tested.
-3. Build restricted derived base change via bounded above projective/K-flat
-   representatives, including resolution independence. Only then state the
-   omitted derived-object residual Nakayama signature; the representative-level
-   statement already has an honest suggested signature.
-4. Decompose triangle/summand closure, Tor-amplitude interval and spectral
-   sequence statements, and local stable comparison/descent. The lifting
-   sources' cited homotopy-lifting proofs still require direct verification.
-5. Treat Pilloni's completed infinite-rank R^(I) minimal complexes separately;
-   they are not ordinary products R^I or the finite-free objects planned here.
-   Retain derived-completion and inverse-limit hypotheses and lim¹ terms.
-6. Continue the earlier multiplicity, depth, deformation, derived-action,
-   characteristic-zero-point and patching worklists above. P7–P9 and
-   R03.1–R03.5 remain partial/not_read; no omitted paper route is discharged.
-7. Apply scheme/six-functor/solid applications through their existing supplier,
-   not by claiming the affine Hom theorem proves globalization.
-
-All durable results and receipts are in the four deliverables. Scratch is
-removed after the PR opens; no local file path is needed to resume.
+The binomial-basis alternative is explicit: if
+D(T)=sum a_i binom(T,i), then an antidifference is
+sum a_i binom(T+1,i+1); add the anchor constant in (ANCHOR).
+No new Bernoulli or general abelian-group numerical-polynomial type is needed.
+
+## 7. Independent formal-series form and its limitations
+
+For an N-graded M, put H_M(t)=sum_(n>=0) h_M(n)t^n in Z[[t]]. This is a
+formal power series, not an analytic series and not a finite Laurent sum.
+Since Q_0=M_0, the degree-zero coefficient and (HS) give the exact identity
+
+    (1-t)H_M(t)=H_Q(t)-t H_K(t).
+
+The same r-induction proves existence of P(t) in Z[t] with
+
+    (1-t)^r H_M(t)=P(t).
+
+For r=0 the finite-support h_M itself is P. For r>0, if P_Q and P_K are
+numerators with denominator exponent r-1 for the two smaller-ring modules,
+the numerator is exactly P_Q-t P_K. It can have negative coefficients and
+cancellation. It is not a sequence of dimensions, and r need not be minimal.
+
+Writing P=sum p_j t^j, the exact coefficient formula is
+
+    h_M(n)=sum_(j<=n) p_j binom(n-j+r-1,r-1),         r>0.
+
+Once n>=deg P, the summation range is fixed and this is a rational polynomial
+in n; use the polynomial binomial convention there. Multiplying H_M by
+1/(1-t) gives the cumulative series P/(1-t)^(r+1). For a Z-graded module,
+first shift to the nonnegative case; otherwise its numerator may be Laurent.
+
+This independent route verifies signs and thresholds in (ANCHOR). It does
+not replace the chosen native cumulative theorem or add a new formal-series
+carrier. A canonical integration should choose the recurrence proof first;
+register the formal-series statement only where its actual uses justify it.
+
+## 8. Applying this to the existing adic quotients
+
+Let (R,m) be Noetherian local, q an ideal with radical m, and L a finite
+R-module. Use exactly the existing carriers
+
+    S=gr_q(R),   M=gr_q(L),   A=R/q,
+    S_n=q^n/q^(n+1),   M_n=q^n L/q^(n+1)L.
+
+The canonical packet represents these by its native Rees ring/module
+quotients and compares them with direct sums. It already plans degree-one
+generation of S and degree-zero generation/finiteness of M. q is finitely
+generated because R is Noetherian. R/q is Artinian: a power of m is contained
+in q, and the existing finite-adic-quotient-length argument applies to R/q.
+It is the degree-zero ring R/q that is Artinian; S usually is not.
+
+After proving and registering the graded comparisons in Section 9, all the
+hypotheses of Section 6 hold. Length restriction along R -> R/q identifies
+h_M(n) with the existing graded Hilbert function phi(q,L,n). Finiteness is
+proved before any extended-length toNat conversion.
+
+Thus supply Q=P_M and its threshold to the EXISTING node
+`DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-polynomial-from-graded-tail`.
+Its initial-segment correction gives
+
+    P_HS(T)=S(Q)(T)+sum_(i<N0)(phi(i)-Q(i)),
+
+where N0 is a valid tail threshold for Q. Therefore
+P_HS(n)=length_R(L/q^(n+1)L) for n>=N0. The exact-sequence and antidifference
+nodes already in the packet are used, not duplicated.
+
+This replaces the graded-polynomial-existence gap in the source proof of
+`DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial`.
+It does not prove deg(P_HS)=dim(L), associativity of multiplicity, completion
+invariance, Nagata's criterion, a regular-local-domain theorem, or any
+patching/deformation/derived result. Intrinsic dim(L) and ambient dim(R)
+normalisations remain separate, as the reserved definition requires.
+
+## 9. Native interfaces and a declaration-sized integration plan
+
+Use the existing image submodules of the adic component inclusions. The
+previous finite-expansion equivalences give a unique finite decomposition
+into those images. The previous homogeneous multiplication gives
+S_i S_j subset S_(i+j), and the degree-zero unit is the class of 1.
+These are the fields of the native GradedRing/GradedAlgebra structure.
+GradedAlgebra.ofAlgHom can package the existing inverse finite-expansion map
+once its algebra-map and two generator identities are proved. This is an
+instance/compatibility proof on the SAME Rees quotient, not another ring.
+For the module, use the images of its existing component inclusions, the
+same finite decomposition, and the previous homogeneous scalar formula.
+Register DirectSum.Decomposition and SetLike.GradedSMul; the existing
+GradedModule.linearEquiv then supplies the bundled internal/external comparison.
+
+The following are proposed refinement suffixes under R03.3, NOT registered
+new nodes or claimed compiled declarations in this checkpoint:
+
+1. **adic-ring-grading-registration.** Establish the native grading on the
+   existing quotient from its finite expansion and homogeneous products.
+   Tests: degree zero contains the unit; the positive degree-one class of 2
+   over Z/4,q=(2) survives; its square has degree two and is zero.
+2. **adic-module-grading-registration.** Establish decomposition and graded
+   action for the existing module, with the same scalar tower. Tests: L=R
+   agrees with the ring action; L=R/q has only degree zero; q=0 retains L
+   in degree zero. Do not claim these comparisons are definitional.
+3. **finite-homogeneous-generators.** The finite set of homogeneous components
+   of a finite generating set spans. Proof: Section 3. Needs native finite
+   decomposition and submodule-span lemmas, not a new finite-generation type.
+4. **finite-standard-graded-pieces.** The displayed degree-n monomials span
+   over A. Proof: homogeneous projection plus finite exponent enumeration.
+   Finite length follows under Artinian A or is retained as an explicit
+   degreewise hypothesis in the more general Noetherian-A theorem.
+5. **degree-one-kernel-homogeneous.** K is the native kernel, with components
+   ker(M_n -> M_(n+1)). Proof: uniqueness of homogeneous decomposition.
+6. **degree-one-quotient-components.** Q is the native quotient with the exact
+   component projection M_n -> Q_n and kernel x M_(n-1). Prove degree zero
+   separately; keep a genuine graded quotient, not an ungraded isomorphism.
+7. **degree-one-smaller-ring-finiteness.** K and Q have the native S/(x)
+   action, are finite, and have compatible gradings and finite A-length
+   pieces. The ring has r-1 generators. Use Noetherianity for K, scalar
+   descent for both, and the same finite generating lists.
+8. **degree-one-piece-exactness.** The two actual short exact sequences through
+   the image in Section 5. This names the inclusion, image and quotient maps.
+9. **degree-one-length-recurrence.** Equation (HS), with integer subtraction
+   only after the extended lengths are proved finite. Inputs: item 8 and
+   native length additivity, not an assumed Euler characteristic.
+10. **standard-graded-zero-generator-tail.** A finite homogeneous module over
+    its degree-zero ring has finite degree support; the eventual polynomial
+    is zero, even when the module itself is nonzero.
+11. **standard-graded-length-polynomial.** The r-induction, actual polynomial
+    (ANCHOR), threshold, uniqueness and generator-count degree bound. Split
+    the threshold/degree corollaries at canonical integration if required;
+    use the existing rational summation operation.
+12. **hilbert-samuel-graded-tail.** Instantiate item 11 on the existing native
+    Rees quotients after items 1–2; export Q,N to the existing cumulative node.
+
+Items 5–9 are separate because homogeneity, scalar descent, finite generation,
+exactness and signed length cancellation are distinct formal obligations.
+The only structural prerequisite is the already owned R03.3 algebra.
+The displayed plan has no backward edge: registration/finite generators ->
+components -> kernel/quotient -> exactness/length -> induction -> adic tail ->
+existing cumulative polynomial. Induction on r is theorem recursion, not a
+cycle between declaration dependencies. No whole-atlas graph check was run.
+There are already six R03.3 planets; this checkpoint adds none.
+
+Freshly checked native declarations at Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174`:
+
+- `GradedRing`, `GradedAlgebra.ofAlgHom`, `DirectSum.decomposeRingEquiv` and
+  `DirectSum.decomposeAlgEquiv`, in RingTheory/GradedAlgebra/Basic.lean,
+  lines 1–210, blob `153d00659bf66d9f0b481d90ec2accbb8245f541`.
+- `GradedModule.isModule`, `GradedModule.linearEquiv`, and the underlying
+  graded action constructions, in Algebra/Module/GradedModule.lean,
+  read through the end, blob `6bcc7226f18fe22f5bf7554ddf931e8a0c763f06`.
+- `Submodule.IsHomogeneous`, its mem_iff, and `HomogeneousSubmodule`, in
+  RingTheory/GradedAlgebra/Homogeneous/Submodule.lean, read through the end,
+  blob `e2bf93cc440b078227149a7f3fc4f615f02574fe`.
+- `IsNoetherian.noetherian`, `isNoetherian_submodule'`, and the chain
+  stabilisation interface, in RingTheory/Noetherian/Defs.lean, lines 1–180,
+  blob `b7f258dc8bb1cb4b0e6a7d00ee2b9d7f616f7331`.
+- `Module.length`, `length_ne_top_iff`, `length_eq_of_surjective`,
+  `length_eq_add_of_exact` and the injective/surjective bounds, in
+  RingTheory/Length.lean, lines 1–260,
+  blob `b67e6b42e767a11203b9b12e6d3cc50c71c82ad8`.
+- `Module.IsTorsionBySet.module`, `.mk_smul`, `.isScalarTower` and
+  `.semilinearMap`, in Algebra/Module/Torsion/Basic.lean, lines 540–615,
+  blob `dfa54a53e844ab9233c068126bc5554b0cc02ed3`.
+
+These readings establish the signatures and their scope, not the uncompiled
+compatibility proofs. In particular HomogeneousSubmodule's existence does
+not by itself construct every quotient grading used above.
+
+## 10. Discriminating examples
+
+For S=k[x,y] and M=S/(x^2,xy), with both variables of degree one,
+
+    h_M = 1,2,1,1,1,...;
+    h_K = 0,2,1,1,1,... for K=(0:_M x);
+    h_Q = 1,1,1,1,... for Q=M/xM=k[y].
+
+At n=1 in (HS), the equality is -1=1-2. A kernel-free recurrence gives 1
+instead of -1, and natural subtraction gives 0 instead of -1. As a module
+with two ring generators its numerator is 1-2t^2+t^3 over (1-t)^2.
+The cumulative tail is n+2 for n>=1; its extrapolated value 2 at n=0 is
+not the actual first value 1. This is the embedded-component pattern already
+used by the reserved multiplicity tests, with the variables interchanged.
+
+For k[x]/(x^a), the graded tail is zero but the cumulative tail is the
+nonzero constant a. For k[x] whose module generator is placed in degree 3,
+the graded tail is 1 but the cumulative tail is n-2, not n+1.
+
+For A=Z/4, A[x] has component A-length 2; (A/2)[x] has component length 1
+although it is not a free A-module. The proof requires neither free graded
+pieces nor a choice of coefficient field.
+
+If deg x=2 in k[x], h(n) is 1 for even n and 0 for odd n. A polynomial
+agreeing with this tail would be 1 on infinitely many points and 0 on
+infinitely many other points, impossible. Positive grading without degree-one
+generation gives only a quasipolynomial in general.
+
+Finite generation of M is essential as well: take a graded k-vector space
+with M_n=k^(2^n) and let x act as zero. It is a graded module over standard
+k[x], every piece is finite, but its Hilbert function 2^n is not an eventual
+polynomial. Its k-th backward difference is 2^(n-k), never zero for n>=k.
+
+## 11. Reading, ownership and validation boundary
+
+Primary sources personally read in this continuation:
+
+- [Stacks 00JV](https://stacks.math.columbia.edu/tag/00JV), the mathematical
+  statements/proofs of Section 10.58, especially 10.58.1–7 and the
+  nonstandard-grading warning 10.58.8.
+- [Stacks 00K1](https://stacks.math.columbia.edu/tag/00K1), Proposition
+  10.58.7 and its complete printed proof, compared with the alternate
+  length-valued kernel/cokernel proof above.
+- [Stacks 00K4](https://stacks.math.columbia.edu/tag/00K4), the graded and
+  cumulative definitions, ideal-of-definition/finite-length passage, and
+  Proposition 10.59.5 with its proof; the neighbouring Artin–Rees formulas
+  were read but their remaining formal proof chain is not closed here.
+
+These were inspected as live HTML text; no downloaded-byte hash or fresh
+whole-paper erratum audit is claimed. No new source error is alleged.
+The characteristic-zero, automorphic and other paper-route receipts in the
+canonical packet remain historical, not freshly certified here.
+
+Read the current handoff and relevant canonical nodes/gaps, the roadmap's
+stage extract, reviewed AUDIT-17 report and the relevant R03.3 audit row
+with its neighbours, and accepted REV-RS-08 with the applicable ownership
+instructions. Read GrothendieckEulerForms' scope, graded/K0/Euler development
+and worked examples, and Multiquadratic's document for upstream style.
+Searches for HilbertSerre and native homogeneous quotients were scoped leads,
+not an exhaustive absence claim. No existing upstream roadmap is modified.
+General categorical Grothendieck groups remain with their upstream owner;
+this length proof does not reconstruct them. Generic derived Rees, Milnor
+and completion contracts remain with their recorded owners. R03.6 and every
+other part of this roadmap are untouched.
+
+Executed exact checks: **151 monomial-module models, 24,317 assertions**.
+They use coefficient rings Z/(p^e), e=1,2,3, with 0–3 degree-one variables,
+coefficient torsion, shifts, zero modules and monomial relations. Length
+coefficients are computed directly from the monomial quotient; Hilbert
+numerators use independent inclusion–exclusion. The actual finite cyclic
+coefficient maps were also checked for p=2,3,5.
+
+Highlights: 2,185 four-term length identities; 531 degrees rejecting an
+omitted kernel; 1,495 independent reconstructions of (ANCHOR) using the two
+smaller-ring modules; 2,869 exact series and 2,869 cumulative-series checks;
+72 models with signed numerators; 24 negative first differences; and
+64 checks each rejecting weighted-grading and non-finitely-generated
+substitutes. The full counters and standalone reproduction program follow.
+Finite tests support the examples; they do not prove the general theorem,
+construct arbitrary graded quotient types, or validate Lean elaboration.
+
+Program SHA-256:
+`c73c4ee301bcf97bdf715905a826fb38bae65efd12336d5962ab719a2378dd6b`.
+JSON output SHA-256:
+`b486e799696f88e504466f67ca76427cdb6deb3e0fa6cbc0f32b6d9174e7bdcb`.
+
+**Lean was not compiled.** The session had about 3 GB available memory,
+below WORKERS' 20 GB threshold, and no existing pinned build. No project,
+cache download, library build or language server was started. The standard
+blueprint checker and atlas assembly were not run locally; the canonical
+packet was not edited. Submission CI is a separate mechanical check, not a
+mathematical review. The predecessor's successful compilation applies only
+to its exact historical suggested file.
+
+## 12. Resume
+
+Integrate the twelve proposed refinements into the canonical packet, reader
+and native suggested file, preserving all existing IDs and counts correctly.
+First certify the native grading registration and component quotients, then
+the smaller-ring finite modules and exact sequences. Supply the resulting
+Q,N to the existing cumulative node and remove only the now-redundant
+power-torsion proof obligation from that chosen route. Elaborate at an
+existing pinned build and run the indexed checker and actual atlas projection.
+Do not mark the source-level proof or these finite tests as Lean completion.
+
+The degree/dimension and Artin–Rees comparison, multiplicity normalisations,
+localisation/associativity, completion/geometric tests, regular-local-domain
+chain, and every coefficient/derived/patching and routed-paper obligation
+remain. The reserved general Hilbert–Samuel node stays with this owner.
+No additional source finding, supplier request or planet is introduced.
+
+## 13. Exact-model reproduction
+
+Run this standalone Python 3 program. It uses only the standard library.
+
+```python
+"""Exact regressions for graded Hilbert--Serre; not proofs or Lean checks.
+Only Python's standard library is used. No repository files are read or written.
+"""
+from collections import Counter
+from fractions import Fraction
+from itertools import combinations
+from math import comb
+from random import Random
+import json
+
+COUNTS = Counter()
+RNG = Random(551)
+
+def check(name, condition):
+    if not condition:
+        raise AssertionError(name)
+    COUNTS[name] += 1
+
+def exponents(r, degree):
+    if degree < 0:
+        return []
+    if r == 0:
+        return [()] if degree == 0 else []
+    if r == 1:
+        return [(degree,)]
+    return [(i,) + rest for i in range(degree + 1)
+            for rest in exponents(r - 1, degree - i)]
+
+def divides(v, u):
+    return all(a <= b for a, b in zip(v, u))
+
+def coefficient_length(u, e, generators):
+    # The coefficient of x^u is A/(p^a), of A-length a; A has length e.
+    return min([e] + [a for a, v in generators if divides(v, u)])
+
+def monomial_numerator(r, e, generators, shift=0):
+    # Decompose lengths into e residue-field layers. For layer j, monomials
+    # divisible by a generator with coefficient p^a, a <= j, are forbidden.
+    # Inclusion--exclusion on monomial multiples gives the exact numerator.
+    out = Counter()
+    for j in range(e):
+        gs = list(set(v for a, v in generators if a <= j))
+        for size in range(len(gs) + 1):
+            for sub in combinations(gs, size):
+                lcm = tuple(max((v[i] for v in sub), default=0)
+                            for i in range(r))
+                out[sum(lcm) + shift] += (-1) ** size
+    return {n: c for n, c in out.items() if c}
+
+def series_from_numerator(P, denominator_power, n):
+    if denominator_power == 0:
+        return P.get(n, 0)
+    return sum(c * comb(n - j + denominator_power - 1,
+                        denominator_power - 1)
+               for j, c in P.items() if n >= j)
+
+def binomial_polynomial_value(x, k):
+    out = Fraction(1)
+    for i in range(k):
+        out *= Fraction(x - i, i + 1)
+    return out
+
+def tail_value(P, r, n):
+    if r == 0:
+        return Fraction(0)
+    return sum((Fraction(c) * binomial_polynomial_value(n - j + r - 1, r - 1)
+                for j, c in P.items()), Fraction(0))
+
+models = []
+# Explicit examples: embedded component; nilpotence; non-field coefficients;
+# positive grading shifts; zero module; redundant/zero generator relations.
+models.extend([
+    (2, 1, [(0, (2, 0)), (0, (1, 1))], 0, "embedded"),
+    (1, 1, [(0, (5,))], 0, "nilpotent"),
+    (1, 2, [(1, (0,))], 0, "residue_over_length_two"),
+    (1, 2, [], 0, "free_over_length_two"),
+    (1, 1, [], 3, "shift_three"),
+    (2, 3, [(0, (0, 0))], 0, "zero"),
+    (3, 2, [(1, (1, 0, 0)), (0, (0, 2, 0)), (1, (0, 0, 2))], 2, "mixed"),
+])
+for r in range(4):
+    for e in range(1, 4):
+        for case in range(12):
+            gs = [(RNG.randrange(e), tuple(RNG.randrange(3) for _ in range(r)))
+                  for _ in range(RNG.randrange(5))]
+            models.append((r, e, gs, RNG.randrange(5), f"random_{r}_{e}_{case}"))
+
+nonzero_kernels = 0
+negative_differences = 0
+negative_numerators = 0
+for r, e, gs, shift, name in models:
+    P = monomial_numerator(r, e, gs, shift)
+    degreeP = max(P, default=-1)
+    upper = max(18, degreeP + r + 6, shift + 8)
+    h = [sum(coefficient_length(u, e, gs) for u in exponents(r, n - shift))
+         for n in range(upper + 1)]
+    Q = []
+    K = []
+    for n in range(upper + 1):
+        if r == 0:
+            continue
+        # Kernel at source degree n: each coefficient map is the surjection
+        # Z/p^l(u) -> Z/p^l(u+e0), so its kernel length is the difference.
+        kval = 0
+        qval = 0
+        for u in exponents(r, n - shift):
+            v = (u[0] + 1,) + u[1:]
+            kval += coefficient_length(u, e, gs) - coefficient_length(v, e, gs)
+            if u[0] == 0:
+                qval += coefficient_length(u, e, gs)
+        K.append(kval)
+        Q.append(qval)
+        previous = h[n - 1] if n else 0
+        previousK = K[n - 1] if n else 0
+        check("four_term_length_identity", h[n] - previous == Q[n] - previousK)
+        if previousK:
+            nonzero_kernels += 1
+            check("omitted_kernel_rejected", h[n] - previous != Q[n])
+        negative_differences += int(h[n] - previous < 0)
+    cumulative = 0
+    for n in range(upper + 1):
+        cumulative += h[n]
+        check("exact_hilbert_series", h[n] == series_from_numerator(P, r, n))
+        check("exact_cumulative_series", cumulative == series_from_numerator(P, r + 1, n))
+        # Coefficient multiplication by (1-t)^r agrees with P before truncation.
+        convolution = sum((-1) ** i * comb(r, i) * (h[n - i] if n >= i else 0)
+                          for i in range(r + 1))
+        check("numerator_convolution", convolution == P.get(n, 0))
+        if n >= max(0, degreeP + 1):
+            check("graded_tail_polynomial", Fraction(h[n]) == tail_value(P, r, n))
+            check("cumulative_tail_polynomial", Fraction(cumulative) == tail_value(P, r + 1, n))
+    negative_numerators += int(any(c < 0 for c in P.values()))
+    # r-th backward difference of the graded tail is zero, including r=0.
+    start = max(0, degreeP + r + 1)
+    for n in range(start, upper + 1):
+        check("degree_bound_difference", sum((-1) ** i * comb(r, i) * h[n-i]
+                                              for i in range(r+1)) == 0)
+
+# Published-convention regressions on the embedded-component model.
+r, e, gs, shift, _ = models[0]
+h = [sum(coefficient_length(u, e, gs) for u in exponents(r, n)) for n in range(12)]
+check("embedded_hilbert_values", h == [1, 2] + [1] * 10)
+check("embedded_numerator", monomial_numerator(r, e, gs) == {0: 1, 2: -2, 3: 1})
+for n in range(1, 12):
+    check("initial_segment_correction", sum(h[:n+1]) == n + 2)
+check("tail_not_value_at_zero", Fraction(0 + 2) != h[0])
+# Nat subtraction silently loses the negative difference at n=2.
+check("natural_subtraction_rejected", h[2] - h[1] == -1 and max(0, h[2] - h[1]) != -1)
+# A variable of degree two has alternating Hilbert function, not a polynomial tail.
+for order in range(1, 9):
+    for n in range(order, order + 8):
+        difference = sum((-1) ** i * comb(order, i) * int((n - i) % 2 == 0)
+                         for i in range(order + 1))
+        check("weighted_grading_not_polynomial", difference != 0)
+# Finite-difference integration in the binomial basis, with an arbitrary tail anchor.
+for case in range(100):
+    a = [RNG.randrange(-5, 6) for _ in range(RNG.randrange(1, 6))]
+    anchor = RNG.randrange(0, 6)
+    initial = RNG.randrange(-8, 9)
+    def d(n):
+        return sum((Fraction(c) * binomial_polynomial_value(n, i)
+                    for i, c in enumerate(a)), Fraction(0))
+    def integral(n):
+        return sum((Fraction(c) * binomial_polynomial_value(n+1, i+1)
+                    for i, c in enumerate(a)), Fraction(0))
+    expected = Fraction(initial)
+    for n in range(anchor, anchor + 14):
+        if n > anchor:
+            expected += d(n)
+        check("binomial_antidifference", integral(n) - integral(n-1) == d(n))
+        check("anchored_recurrence_solution", initial + integral(n) - integral(anchor) == expected)
+
+# Independently reconstruct the induction's smaller-ring numerator and anchored
+# polynomial, instead of merely comparing the final Hilbert series.
+def divide_one_minus_t(P):
+    running = 0
+    answer = {}
+    for n in range(max(P, default=-1) + 1):
+        running += P.get(n, 0)
+        if running:
+            answer[n] = running
+    check("kernel_numerator_divisibility", running == 0)
+    return answer
+
+for r, e, gs, shift, name in models:
+    if r == 0:
+        continue
+    P = monomial_numerator(r, e, gs, shift)
+    colon = [(a, (max(0, v[0]-1),) + v[1:]) for a, v in gs]
+    Pc = monomial_numerator(r, e, colon, shift)
+    difference = {n: P.get(n, 0)-Pc.get(n, 0) for n in set(P) | set(Pc)}
+    difference = {n: c for n, c in difference.items() if c}
+    PK = divide_one_minus_t(difference)
+    PQ = monomial_numerator(r-1, e, [(a, v[1:]) for a, v in gs if v[0] == 0], shift)
+    def D(n):
+        return tail_value(PQ, r-1, n) - tail_value(PK, r-1, n-1)
+    # Newton forward differences at 0 give the binomial-basis coefficients.
+    vals = [D(i) for i in range(max(1, r-1))]
+    coeff = []
+    while vals:
+        coeff.append(vals[0])
+        vals = [vals[i+1]-vals[i] for i in range(len(vals)-1)]
+    def antidifference(n):
+        return sum((a*binomial_polynomial_value(n+1, i+1)
+                    for i, a in enumerate(coeff)), Fraction(0))
+    N = max(1, max(PQ, default=-1)+1, max(PK, default=-1)+2)
+    anchor = sum(coefficient_length(u, e, gs) for u in exponents(r, N-1-shift))
+    for n in range(N-1, N+12):
+        hn = sum(coefficient_length(u, e, gs) for u in exponents(r, n-shift))
+        predicted = antidifference(n) + anchor - antidifference(N-1)
+        check("actual_kernel_cokernel_induction", Fraction(hn) == predicted)
+        kval = sum(coefficient_length(u, e, gs) -
+                   coefficient_length((u[0]+1,)+u[1:], e, gs)
+                   for u in exponents(r, n-shift))
+        check("kernel_smaller_ring_series", kval == series_from_numerator(PK, r-1, n))
+
+# Check the cyclic coefficient-map oracle by actual finite sets, not log ranks.
+for p in [2, 3, 5]:
+    for a in range(4):
+        for b in range(a+1):
+            source = list(range(p**a))
+            image = {x % (p**b) for x in source}
+            kernel = [x for x in source if x % (p**b) == 0]
+            check("cyclic_coefficient_surjection", len(image) == p**b)
+            check("cyclic_coefficient_kernel", len(kernel) == p**(a-b))
+            check("cyclic_coefficient_length", p**a == len(kernel)*len(image))
+
+# Dropping finite generation also fails: let all positive-degree elements act
+# trivially on a graded k-vector space with dim M_n=2^n.
+for order in range(1, 9):
+    for n in range(order, order+8):
+        difference = sum((-1)**i * comb(order, i) * 2**(n-i)
+                         for i in range(order+1))
+        check("infinite_module_generation_rejected", difference == 2**(n-order) != 0)
+
+result = {
+    "seed": 551,
+    "models": len(models),
+    "coefficient_rings": "Z/(p^e), e=1,2,3; lengths independent of p",
+    "variables": [0, 1, 2, 3],
+    "nonzero_kernel_degrees": nonzero_kernels,
+    "negative_first_differences": negative_differences,
+    "models_with_negative_numerator_coefficients": negative_numerators,
+    "checks": dict(COUNTS),
+    "total_assertions": sum(COUNTS.values()),
+    "scope": "Exact finite-degree monomial/length and rational-polynomial regressions, not a proof of the general graded-module theorem or Lean elaboration"
+}
+print(json.dumps(result, sort_keys=True, indent=2))
+```
