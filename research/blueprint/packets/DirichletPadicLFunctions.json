@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Sixteen L3 nodes construct actual injective Tate maps into the source parity quotients, prove their exact images and annihilation by2, and detect a nonzero ordinary degree-zero Tate class. All1,953predecessor nodes and1,221baseline records remain whole.",
+  "summary": "Sixteen L3 nodes construct actual parity descent maps, identify their kernels and images, and state the source torsion argument under its explicit original-module torsion-free premise. All1,969predecessor nodes and1,224baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -8582,6 +8582,20 @@
         "module": "Mathlib/Algebra/Module/Submodule/LinearMap.lean",
         "provides": "The actual integer-linear embedding of a native submodule into its ambient module, with underlying function Subtype.val.",
         "checked": "Full statement and construction read2October2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: LinearAlgebra/Quotient/Basic106–130,214–244 and Algebra/Module/Submodule/LinearMap65–110. Quotient/Defs38–82 was read for the actual additive quotient carrier; the existing generated additive QuotientGroup.eq_one_iff at GroupTheory/QuotientGroup/Defs112–124 was reread."
+      },
+      {
+        "ref": "mathlib:IsAddTorsionFree",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Group/Monoid.lean",
+        "provides": "Native additive torsion-free predicate: multiplication by every nonzero natural number is injective on the given additive monoid. It is an explicit hypothesis on the original Q, not a proved instance in this checkpoint.",
+        "checked": "Full statement and proof read2October2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Algebra/Group/Monoid493–540 explicitly defines IsAddTorsionFree, and Algebra/Group/Torsion15–105 includes the exact to_additive nsmul_eq_zero_iff_right declaration and its nonzero-natural premise. Existing quotient lift, evaluation and surjectivity statements were reread in GroupTheory/QuotientGroup/Defs72–112,234–265."
+      },
+      {
+        "ref": "mathlib:pow_eq_one_iff_left",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/Torsion.lean",
+        "provides": "The indexed multiplicative theorem generates nsmul_eq_zero_iff_right: in an additively torsion-free monoid, for nonzero n, n times a is zero if and only if a is zero.",
+        "checked": "Full statement and proof read2October2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Algebra/Group/Monoid493–540 explicitly defines IsAddTorsionFree, and Algebra/Group/Torsion15–105 includes the exact to_additive nsmul_eq_zero_iff_right declaration and its nonzero-natural premise. Existing quotient lift, evaluation and surjectivity statements were reread in GroupTheory/QuotientGroup/Defs72–112,234–265."
       }
     ]
   },
@@ -128006,6 +128020,924 @@
       "acceptance": [
         "For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual odd parity descent operator",
+      "kind": "construction",
+      "statement": "Construct an integer-linear map from the original odd quotient Q/im(d_odd) back to Q, sending the original quotient class of z to d_even(z).",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "Use the previously proved equality of the original parity relation subgroup with the actual parity-operator image.",
+        "Every relation is killed by the opposite parity operator because the already proved opposite composite is zero.",
+        "Apply the native additive quotient lift to this actual operator and this explicit kernel containment.",
+        "Reinterpret the resulting actual additive homomorphism as an integer-linear map without changing its carrier or values."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-relations",
+        "DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-range",
+        "DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-even-after-odd",
+        "mathlib:QuotientGroup.lift",
+        "mathlib:AddMonoidHom.toIntLinearMap"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertOddParityDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.odd_descent_signed_pair",
+          "kind": "computation",
+          "statement": "The odd descent sends the original odd quotient class[1] to[4]-[1] in the integer module on ZMod5, retaining its order and sign."
+        },
+        {
+          "name": "SuggestedKubertParityDescentTests.odd_descent_nonzero_fixed_class_in_kernel",
+          "kind": "non-example",
+          "statement": "The nonzero odd class of the fixed zero-labelled generator lies in the descent kernel. The map is not injective."
+        },
+        {
+          "name": "SuggestedKubertParityDescentTests.odd_descent_opposite_pair_sign",
+          "kind": "compatibility",
+          "statement": "The odd classes[4] and-[1] coincide, and their descended values are negatives, as required by the original odd relation."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ],
+      "api": [
+        {
+          "name": "kubertOddParityDescent_of",
+          "role": "compatibility",
+          "statement": "For every actual z in Q, the odd descent of its source parity class is exactly d_even(z)."
+        },
+        {
+          "name": "kubertOddParityDescent_point",
+          "role": "compatibility",
+          "statement": "On the original point generator[a], odd descent gives [-a]−[a] inside the actual original distribution quotient Q."
+        },
+        {
+          "name": "kubertOddParityDescent_tate",
+          "role": "compatibility",
+          "statement": "For every native degree-zero Tate class, applying its actual source parity embedding followed by odd descent gives zero in Q."
+        },
+        {
+          "name": "kubertOddParityDescent_kernel",
+          "role": "compatibility",
+          "statement": "As actual integer submodules of the original odd quotient, the kernel of odd descent equals the image of the constructed degree-zero Tate embedding."
+        },
+        {
+          "name": "kubertOddParityDescent_range",
+          "role": "compatibility",
+          "statement": "The image of odd descent equals the actual integer-linear image of d_even on Q."
+        },
+        {
+          "name": "kubertOddParityDescent_unique",
+          "role": "compatibility",
+          "statement": "Any integer-linear map from the original odd quotient to Q whose value on the source class of every z is d_even(z) equals the constructed descent map."
+        },
+        {
+          "name": "kubertOddParityDescent_torsion_mem_tate_range",
+          "role": "compatibility",
+          "statement": "Assume explicitly that the original distribution quotient Q is additively torsion-free. If n is a nonzero natural number and an actual odd quotient class y satisfies n y=0, then y belongs to the actual image of the degree-zero Tate embedding."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert200, Corollary4.15(iii) torsion argument",
+          "how": "Provides the actual map used to apply the original-module torsion-free hypothesis to an annihilated source parity class."
+        },
+        {
+          "where": "The concrete low-degree Tate and parity comparison",
+          "how": "Identifies the image of the original injective Tate map as an actual kernel, retaining every sign, representative and coefficient."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The odd descent evaluates on every original representative",
+      "kind": "lemma",
+      "statement": "For every actual z in Q, the odd descent of its source parity class is exactly d_even(z).",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "The native quotient lift retains the original map on each actual quotient representative.",
+        "Integer-linear reinterpretation preserves that underlying function."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent",
+        "mathlib:QuotientGroup.lift_mk"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertOddParityDescent_of"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.oddParityDescent_of_typed_api",
+          "kind": "compatibility",
+          "statement": "For every actual z in Q, the odd descent of its source parity class is exactly d_even(z)."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent-point",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The odd descent retains the point-label formula",
+      "kind": "lemma",
+      "statement": "On the original point generator[a], odd descent gives [-a]−[a] inside the actual original distribution quotient Q.",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "Evaluate descent on the actual original quotient representative.",
+        "Apply the existing parity-operator point formula with the appropriate sign."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent-of",
+        "DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertOddParityDescent_point"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.oddParityDescent_point_typed_api",
+          "kind": "compatibility",
+          "statement": "On the original point generator[a], odd descent gives [-a]−[a] inside the actual original distribution quotient Q."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent-tate",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The odd descent kills the actual Tate image",
+      "kind": "lemma",
+      "statement": "For every native degree-zero Tate class, applying its actual source parity embedding followed by odd descent gives zero in Q.",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "Use actual representative-map surjectivity to choose a kernel representative of the native Tate class.",
+        "Use the actual Tate embedding representative formula and descent evaluation.",
+        "The representative belongs to the kernel of this exact opposite parity operator."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent-of",
+        "DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class-surjective",
+        "DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity-class"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertOddParityDescent_tate"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.oddParityDescent_tate_typed_api",
+          "kind": "compatibility",
+          "statement": "For every native degree-zero Tate class, applying its actual source parity embedding followed by odd descent gives zero in Q."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent-kernel",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The odd descent kernel is exactly the native Tate image",
+      "kind": "lemma",
+      "statement": "As actual integer submodules of the original odd quotient, the kernel of odd descent equals the image of the constructed degree-zero Tate embedding.",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "Apply submodule extensionality and the established Tate-image representative criterion.",
+        "For a source quotient element killed by descent, choose any original quotient representative. Its descent equation is exactly the condition that this representative belongs to the opposite parity kernel.",
+        "Conversely, a representative in that kernel is killed by descent using the evaluation formula.",
+        "Both directions use actual carriers and explicit representatives; no exactness property is assumed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent-of",
+        "DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity-range",
+        "mathlib:QuotientGroup.mk'_surjective",
+        "mathlib:LinearMap.ker",
+        "mathlib:LinearMap.range"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertOddParityDescent_kernel"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.oddParityDescent_kernel_typed_api",
+          "kind": "compatibility",
+          "statement": "As actual integer submodules of the original odd quotient, the kernel of odd descent equals the image of the constructed degree-zero Tate embedding."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent-range",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The odd descent image is the original operator image",
+      "kind": "lemma",
+      "statement": "The image of odd descent equals the actual integer-linear image of d_even on Q.",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "For any descent output, choose an original representative of its input parity quotient class and evaluate.",
+        "Every opposite-operator output is obtained by descending the actual quotient class of its original input."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent-of",
+        "mathlib:QuotientGroup.mk'_surjective",
+        "mathlib:LinearMap.range"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertOddParityDescent_range"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.oddParityDescent_range_typed_api",
+          "kind": "compatibility",
+          "statement": "The image of odd descent equals the actual integer-linear image of d_even on Q."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The original representative formula determines odd descent",
+      "kind": "lemma",
+      "statement": "Any integer-linear map from the original odd quotient to Q whose value on the source class of every z is d_even(z) equals the constructed descent map.",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "Apply linear-map extensionality to an actual source quotient input.",
+        "Choose an original representative using native quotient surjectivity.",
+        "The supplied evaluation and the constructed evaluation agree on that representative."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent-of",
+        "mathlib:QuotientGroup.mk'_surjective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertOddParityDescent_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.oddParityDescent_unique_typed_api",
+          "kind": "compatibility",
+          "statement": "Any integer-linear map from the original odd quotient to Q whose value on the source class of every z is d_even(z) equals the constructed descent map."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent-torsion-mem-tate-range",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Torsion in the odd quotient lies in the Tate image under the source premise",
+      "kind": "lemma",
+      "statement": "Assume explicitly that the original distribution quotient Q is additively torsion-free. If n is a nonzero natural number and an actual odd quotient class y satisfies n y=0, then y belongs to the actual image of the degree-zero Tate embedding.",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "Use the proved descent-kernel equality to reduce the desired membership to descent(y)=0.",
+        "Linearity sends the equation n y=0 to n descent(y)=0 in the original Q.",
+        "The native torsion-free cancellation theorem for the stated nonzero n yields descent(y)=0.",
+        "The torsion-free premise is an explicit mathematical hypothesis; the source freeness proof and its actual distribution instantiation are not asserted here."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent-kernel",
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent",
+        "mathlib:IsAddTorsionFree",
+        "mathlib:pow_eq_one_iff_left"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertOddParityDescent_torsion_mem_tate_range"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.oddParityDescent_torsion_mem_tate_range_typed_api",
+          "kind": "compatibility",
+          "statement": "Assume explicitly that the original distribution quotient Q is additively torsion-free. If n is a nonzero natural number and an actual odd quotient class y satisfies n y=0, then y belongs to the actual image of the degree-zero Tate embedding."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual even parity descent operator",
+      "kind": "construction",
+      "statement": "Construct an integer-linear map from the original even quotient Q/im(d_even) back to Q, sending the original quotient class of z to d_odd(z).",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "Use the previously proved equality of the original parity relation subgroup with the actual parity-operator image.",
+        "Every relation is killed by the opposite parity operator because the already proved opposite composite is zero.",
+        "Apply the native additive quotient lift to this actual operator and this explicit kernel containment.",
+        "Reinterpret the resulting actual additive homomorphism as an integer-linear map without changing its carrier or values."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-relations",
+        "DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-range",
+        "DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-odd-after-even",
+        "mathlib:QuotientGroup.lift",
+        "mathlib:AddMonoidHom.toIntLinearMap"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertEvenParityDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.even_descent_full_norm_pair",
+          "kind": "computation",
+          "statement": "The even descent sends the actual even class[1] to the full norm[4]+[1], retaining both points."
+        },
+        {
+          "name": "SuggestedKubertParityDescentTests.even_descent_doubles_fixed_generator",
+          "kind": "non-example",
+          "statement": "The even descent sends the zero-labelled generator to twice itself, which is nonzero in the original empty-relation integer module. A fixed point is not silently removed."
+        },
+        {
+          "name": "SuggestedKubertParityDescentTests.even_descent_injective_free_permutation_case",
+          "kind": "characterisation",
+          "statement": "For the actual free integer permutation module on ZMod5, the even quotient maps injectively into the original module under its full norm descent."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ],
+      "api": [
+        {
+          "name": "kubertEvenParityDescent_of",
+          "role": "compatibility",
+          "statement": "For every actual z in Q, the even descent of its source parity class is exactly d_odd(z)."
+        },
+        {
+          "name": "kubertEvenParityDescent_point",
+          "role": "compatibility",
+          "statement": "On the original point generator[a], even descent gives [-a]+[a] inside the actual original distribution quotient Q."
+        },
+        {
+          "name": "kubertEvenParityDescent_tate",
+          "role": "compatibility",
+          "statement": "For every native degree-minus-one Tate class, applying its actual source parity embedding followed by even descent gives zero in Q."
+        },
+        {
+          "name": "kubertEvenParityDescent_kernel",
+          "role": "compatibility",
+          "statement": "As actual integer submodules of the original even quotient, the kernel of even descent equals the image of the constructed degree-minus-one Tate embedding."
+        },
+        {
+          "name": "kubertEvenParityDescent_range",
+          "role": "compatibility",
+          "statement": "The image of even descent equals the actual integer-linear image of d_odd on Q."
+        },
+        {
+          "name": "kubertEvenParityDescent_unique",
+          "role": "compatibility",
+          "statement": "Any integer-linear map from the original even quotient to Q whose value on the source class of every z is d_odd(z) equals the constructed descent map."
+        },
+        {
+          "name": "kubertEvenParityDescent_torsion_mem_tate_range",
+          "role": "compatibility",
+          "statement": "Assume explicitly that the original distribution quotient Q is additively torsion-free. If n is a nonzero natural number and an actual even quotient class y satisfies n y=0, then y belongs to the actual image of the degree-minus-one Tate embedding."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert200, Corollary4.15(iii) torsion argument",
+          "how": "Provides the actual map used to apply the original-module torsion-free hypothesis to an annihilated source parity class."
+        },
+        {
+          "where": "The concrete low-degree Tate and parity comparison",
+          "how": "Identifies the image of the original injective Tate map as an actual kernel, retaining every sign, representative and coefficient."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The even descent evaluates on every original representative",
+      "kind": "lemma",
+      "statement": "For every actual z in Q, the even descent of its source parity class is exactly d_odd(z).",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "The native quotient lift retains the original map on each actual quotient representative.",
+        "Integer-linear reinterpretation preserves that underlying function."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent",
+        "mathlib:QuotientGroup.lift_mk"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertEvenParityDescent_of"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.evenParityDescent_of_typed_api",
+          "kind": "compatibility",
+          "statement": "For every actual z in Q, the even descent of its source parity class is exactly d_odd(z)."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent-point",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The even descent retains the point-label formula",
+      "kind": "lemma",
+      "statement": "On the original point generator[a], even descent gives [-a]+[a] inside the actual original distribution quotient Q.",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "Evaluate descent on the actual original quotient representative.",
+        "Apply the existing parity-operator point formula with the appropriate sign."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent-of",
+        "DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertEvenParityDescent_point"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.evenParityDescent_point_typed_api",
+          "kind": "compatibility",
+          "statement": "On the original point generator[a], even descent gives [-a]+[a] inside the actual original distribution quotient Q."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent-tate",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The even descent kills the actual Tate image",
+      "kind": "lemma",
+      "statement": "For every native degree-minus-one Tate class, applying its actual source parity embedding followed by even descent gives zero in Q.",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "Use actual representative-map surjectivity to choose a kernel representative of the native Tate class.",
+        "Use the actual Tate embedding representative formula and descent evaluation.",
+        "The representative belongs to the kernel of this exact opposite parity operator."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent-of",
+        "DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class-surjective",
+        "DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity-class"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertEvenParityDescent_tate"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.evenParityDescent_tate_typed_api",
+          "kind": "compatibility",
+          "statement": "For every native degree-minus-one Tate class, applying its actual source parity embedding followed by even descent gives zero in Q."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent-kernel",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The even descent kernel is exactly the native Tate image",
+      "kind": "lemma",
+      "statement": "As actual integer submodules of the original even quotient, the kernel of even descent equals the image of the constructed degree-minus-one Tate embedding.",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "Apply submodule extensionality and the established Tate-image representative criterion.",
+        "For a source quotient element killed by descent, choose any original quotient representative. Its descent equation is exactly the condition that this representative belongs to the opposite parity kernel.",
+        "Conversely, a representative in that kernel is killed by descent using the evaluation formula.",
+        "Both directions use actual carriers and explicit representatives; no exactness property is assumed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent-of",
+        "DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity-range",
+        "mathlib:QuotientGroup.mk'_surjective",
+        "mathlib:LinearMap.ker",
+        "mathlib:LinearMap.range"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertEvenParityDescent_kernel"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.evenParityDescent_kernel_typed_api",
+          "kind": "compatibility",
+          "statement": "As actual integer submodules of the original even quotient, the kernel of even descent equals the image of the constructed degree-minus-one Tate embedding."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent-range",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The even descent image is the original operator image",
+      "kind": "lemma",
+      "statement": "The image of even descent equals the actual integer-linear image of d_odd on Q.",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "For any descent output, choose an original representative of its input parity quotient class and evaluate.",
+        "Every opposite-operator output is obtained by descending the actual quotient class of its original input."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent-of",
+        "mathlib:QuotientGroup.mk'_surjective",
+        "mathlib:LinearMap.range"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertEvenParityDescent_range"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.evenParityDescent_range_typed_api",
+          "kind": "compatibility",
+          "statement": "The image of even descent equals the actual integer-linear image of d_odd on Q."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The original representative formula determines even descent",
+      "kind": "lemma",
+      "statement": "Any integer-linear map from the original even quotient to Q whose value on the source class of every z is d_odd(z) equals the constructed descent map.",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "Apply linear-map extensionality to an actual source quotient input.",
+        "Choose an original representative using native quotient surjectivity.",
+        "The supplied evaluation and the constructed evaluation agree on that representative."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent-of",
+        "mathlib:QuotientGroup.mk'_surjective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertEvenParityDescent_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.evenParityDescent_unique_typed_api",
+          "kind": "compatibility",
+          "statement": "Any integer-linear map from the original even quotient to Q whose value on the source class of every z is d_odd(z) equals the constructed descent map."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent-torsion-mem-tate-range",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Torsion in the even quotient lies in the Tate image under the source premise",
+      "kind": "lemma",
+      "statement": "Assume explicitly that the original distribution quotient Q is additively torsion-free. If n is a nonzero natural number and an actual even quotient class y satisfies n y=0, then y belongs to the actual image of the degree-minus-one Tate embedding.",
+      "hypotheses": [
+        "Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary positive-multiplier set S and natural weight w, with actual finite multiplication-root fibers.",
+        "Retain the original source even and odd parity quotients. Write d_even=j−identity and d_odd=j+identity for the actual operators on Q. The odd quotient descends d_even, and the even quotient descends d_odd.",
+        "Use the previously constructed actual native Tate embeddings: degree0 into the odd quotient and degree−1 into the even quotient. All descent, evaluation, image and kernel statements are unconditional.",
+        "Only the two named torsion-membership lemmas add the explicit native IsAddTorsionFree hypothesis on the original Q and a nonzero natural annihilator n. This checkpoint does not prove that hypothesis for an ordinary or weighted distribution quotient. Source freeness, rank and full torsion classification remain open."
+      ],
+      "proofSteps": [
+        "Use the proved descent-kernel equality to reduce the desired membership to descent(y)=0.",
+        "Linearity sends the equation n y=0 to n descent(y)=0 in the original Q.",
+        "The native torsion-free cancellation theorem for the stated nonzero n yields descent(y)=0.",
+        "The torsion-free premise is an explicit mathematical hypothesis; the source freeness proof and its actual distribution instantiation are not asserted here."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent-kernel",
+        "DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent",
+        "mathlib:IsAddTorsionFree",
+        "mathlib:pow_eq_one_iff_left"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParityDescent",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertEvenParityDescent_torsion_mem_tate_range"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199–200, source parity quotients and Corollary4.15(iii), especially the step using torsion-freeness of the original module;179–182 retain the actual distribution carrier.",
+          "excerpt": "as an element",
+          "match": "Makes the complementary-operator argument into actual maps on the original parity quotients, proves their kernels are precisely the native Tate images, and states the source torsion argument with its exact original-module torsion-freeness premise. It neither assumes an exact-sequence package nor claims that source freeness has been supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertParityDescentTests.evenParityDescent_torsion_mem_tate_range_typed_api",
+          "kind": "compatibility",
+          "statement": "Assume explicitly that the original distribution quotient Q is additively torsion-free. If n is a nonzero natural number and an actual even quotient class y satisfies n y=0, then y belongs to the actual image of the degree-minus-one Tate embedding."
+        }
+      ],
+      "acceptance": [
+        "In the actual empty-relation integer permutation module on ZMod5, odd descent sends[1] to[4]−[1] and kills the nonzero fixed class[0]; even descent sends[1] to[4]+[1], doubles the nonzero fixed generator and is injective. Every kernel/image assertion uses the actual previously constructed Tate embedding. The torsion-membership consequences retain the explicit torsion-free hypothesis on the original module."
+      ]
     }
   ],
   "requests": [
@@ -128152,7 +129084,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual native degree-zero and degree-minus-one Tate groups now embed injectively into the original odd and even parity quotients, respectively, with exact representative and image criteria; both groups and their images are killed by2. The actual ordinary degree-zero Tate group is nontrivial, detected by the original zero-labelled generator and its modulo2 indicator. Next identify these images with all torsion under explicitly proved torsion-freeness hypotheses for the original distribution module, and then supply the source freeness input and native degree1/−1 convention. Generic Tate periodicity already exists and must be reused. Source character components, lower rank, general-degree coordinates and fiber counts, unramified-ring identification and internal/global equality remain open.",
+        "Actual opposite parity operators now descend to the original even and odd quotients, with exact point and representative formulas, uniqueness, images and kernels equal to the native Tate images. Under the explicit additional premise that the original Q is torsion-free, every annihilated source parity class belongs to its corresponding Tate image. The source ordinary distribution freeness hypothesis has not been established here. Next assemble the actual conditional torsion-subgroup and ZMod2 comparisons through existing native torsion APIs, retaining this premise, and then supply the separate source freeness and degree1/−1 periodicity inputs. Character components, lower rank, general-degree coordinates and fiber counts, unramified-ring identification and internal/global equality remain open.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -128184,7 +129116,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual native degree-zero and degree-minus-one Tate groups now embed injectively into the original odd and even parity quotients, respectively, with exact representative and image criteria; both groups and their images are killed by2. The actual ordinary degree-zero Tate group is nontrivial, detected by the original zero-labelled generator and its modulo2 indicator. Next identify these images with all torsion under explicitly proved torsion-freeness hypotheses for the original distribution module, and then supply the source freeness input and native degree1/−1 convention. Generic Tate periodicity already exists and must be reused. Source character components, lower rank, general-degree coordinates and fiber counts, unramified-ring identification and internal/global equality remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "Actual opposite parity operators now descend to the original even and odd quotients, with exact point and representative formulas, uniqueness, images and kernels equal to the native Tate images. Under the explicit additional premise that the original Q is torsion-free, every annihilated source parity class belongs to its corresponding Tate image. The source ordinary distribution freeness hypothesis has not been established here. Next assemble the actual conditional torsion-subgroup and ZMod2 comparisons through existing native torsion APIs, retaining this premise, and then supply the separate source freeness and degree1/−1 periodicity inputs. Character components, lower rank, general-degree coordinates and fiber counts, unramified-ring identification and internal/global equality remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -128735,24 +129667,24 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All26source findings and seven source versions remain whole; no new finding or independent review verdict is added. The actual source-quotient embeddings, two-torsion and ordinary Tate nontriviality are established blueprint routes. Equality with all source torsion and the source freeness and rank inputs remain open.",
+    "sourceIssues": "All26source findings and seven source versions remain whole; no new finding or independent review verdict is added. Actual parity descent and kernel/image identities are established blueprint routes. The torsion-membership lemmas retain the explicit unproved-for-this-module source torsion-free premise, and no stage is closed.",
     "validation": {
-      "nodes": 1969,
+      "nodes": 1985,
       "kinds": {
         "definition": 22,
-        "lemma": 1163,
-        "construction": 218,
+        "lemma": 1177,
+        "construction": 220,
         "theorem": 359,
         "comparison": 207
       },
-      "api": 1379,
-      "packetTests": 3528,
-      "definitionConstructionTests": 924,
-      "typedExamples": 3531,
+      "api": 1393,
+      "packetTests": 3548,
+      "definitionConstructionTests": 930,
+      "typedExamples": 3551,
       "planets": 24,
-      "baseline": 1224,
-      "preservedWholeNodes": 1953,
-      "preservedBaseline": 1221,
+      "baseline": 1226,
+      "preservedWholeNodes": 1969,
+      "preservedBaseline": 1224,
       "preservedSourceIssues": 26,
       "newSourceIssues": 0,
       "newNodes": 16,
@@ -128761,10 +129693,10 @@
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 2231,
-      "dependencyEdges": 9184,
+      "reachableNodes": 2247,
+      "dependencyEdges": 9236,
       "acyclic": true,
-      "baselineLeaves": 1392,
+      "baselineLeaves": 1394,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -128779,7 +129711,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 1003988,
+      "readerWords": 1011230,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -128805,8 +129737,8 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 160,
-      "scratchCompleteLemmas": 1284,
+      "scratchCompleteDefinitions": 162,
+      "scratchCompleteLemmas": 1298,
       "scratchMathlibModules": 3280,
       "scratchTauModules": 8,
       "scratchErrors": 0,
@@ -128815,22 +129747,22 @@
       "finiteControls": {
         "cyclicGroups": 48,
         "integerVectors": 13720,
-        "zeroDegreeImageChecks": 707,
-        "negativeDegreeImageChecks": 80,
-        "fixedNonzeroTwoTorsion": 72,
-        "oddQuotientNonSurjectivityControls": 552,
-        "evenQuotientNonSurjectivityControls": 72,
-        "fullRootZeroIndicatorChecks": 14112
+        "oddKernelImageChecks": 13720,
+        "evenKernelImageChecks": 13720,
+        "boundaryInvarianceChecks": 27440,
+        "pointDescentChecks": 2352,
+        "fixedPointNonzeroControls": 72,
+        "torsionFreeHypothesisControls": 2
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "cad60e608769abd72180d5f537d3a02891e11a9c90098fbd6da4333a4f62a634",
+        "sourceSha256": "16a38cfe87513985a3e41726a3eea2f30e38e737033ac7a33fb24b4ec08024ab",
         "modules": 3910,
-        "warnings": 5845,
+        "warnings": 5881,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,845 expected placeholder warnings across 3,910 pinned source modules. It includes all 16 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cad60e608769abd72180d5f537d3a02891e11a9c90098fbd6da4333a4f62a634.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,881 expected placeholder warnings across 3,910 pinned source modules. It includes all 16 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 16a38cfe87513985a3e41726a3eea2f30e38e737033ac7a33fb24b4ec08024ab.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -128840,7 +129772,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "b5225d48bd1311f9346320a31fb1ac75c513f9f9cb8a87dcc0ae30d7daac8f0d",
+      "sha256": "09b3e89e42a1563cb8981dd2f119c37aba7e20735727529b8062a0db7ed11d23",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -128855,11 +129787,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1284,
+        "completeLemmas": 1298,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "e4132fbb9dc8f0e17ed00b7d60d0dce30394514153de0f748a98648bc55016e9"
+        "sha256": "b92fbb65472b8848631570b6b6ca0870fd5b3cb0662cb9b3000b6538f9235d96"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -129007,17 +129939,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "cad60e608769abd72180d5f537d3a02891e11a9c90098fbd6da4333a4f62a634",
+        "sourceSha256": "16a38cfe87513985a3e41726a3eea2f30e38e737033ac7a33fb24b4ec08024ab",
         "modules": 3910,
-        "warnings": 5845,
+        "warnings": 5881,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,845 expected placeholder warnings across 3,910 pinned source modules. It includes all 16 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cad60e608769abd72180d5f537d3a02891e11a9c90098fbd6da4333a4f62a634.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,881 expected placeholder warnings across 3,910 pinned source modules. It includes all 16 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 16a38cfe87513985a3e41726a3eea2f30e38e737033ac7a33fb24b4ec08024ab.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "b2d2c8f3db38d7e5e9d0259e7dae9a270e13e167",
+      "base": "5e6d1a74bcc2b5d5e8af19f4442a951c2d59356d",
       "unchangedInputs": 79,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -141292,6 +142224,55 @@
         "warnings": 5845,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 5,845 expected placeholder warnings across 3,910 pinned source modules. It includes all 16 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cad60e608769abd72180d5f537d3a02891e11a9c90098fbd6da4333a4f62a634.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertParityDescent": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5753,
+      "previousHead": "5f6f961f1266d63ed5a47f261dd4c6ad1395a31a",
+      "previousMerge": "2295b931c664922d5e8c3f407e59a42b6b572601",
+      "preservedWholeNodes": 1969,
+      "preservedBaseline": 1224,
+      "preservedFindings": 26,
+      "newNodes": 16,
+      "reading": "Kubert published199–200 Corollary4.15(iii) and E25 retain the original source quotient and its use of original-module torsion-freeness. The native additive quotient lift and generated cancellation theorem were read in full. The exact additive torsion-free class is separately indexed, and the conditional consequences do not assert a source instance. Existing native torsion submodules and torsionBy ZMod-module APIs were inspected for the next comparison; these generic objects will not be replanned.",
+      "boundary": "Actual opposite parity operators now descend to the original even and odd quotients, with exact point and representative formulas, uniqueness, images and kernels equal to the native Tate images. Under the explicit additional premise that the original Q is torsion-free, every annihilated source parity class belongs to its corresponding Tate image. The source ordinary distribution freeness hypothesis has not been established here. Next assemble the actual conditional torsion-subgroup and ZMod2 comparisons through existing native torsion APIs, retaining this premise, and then supply the separate source freeness and degree1/−1 periodicity inputs. Character components, lower rank, general-degree coordinates and fiber counts, unramified-ring identification and internal/global equality remain open.",
+      "inputBase": "5e6d1a74bcc2b5d5e8af19f4442a951c2d59356d",
+      "sourceBoundary": "All26source findings and seven source versions remain whole; no new finding or independent review verdict is added. Actual parity descent and kernel/image identities are established blueprint routes. The torsion-membership lemmas retain the explicit unproved-for-this-module source torsion-free premise, and no stage is closed.",
+      "publication": {
+        "base": "5e6d1a74bcc2b5d5e8af19f4442a951c2d59356d",
+        "unchangedInputs": 79,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "cyclicGroups": 48,
+        "integerVectors": 13720,
+        "oddKernelImageChecks": 13720,
+        "evenKernelImageChecks": 13720,
+        "boundaryInvarianceChecks": 27440,
+        "pointDescentChecks": 2352,
+        "fixedPointNonzeroControls": 72,
+        "torsionFreeHypothesisControls": 2
+      },
+      "numericalMethod": "Exact integer controls for cyclic point groups of orders1–48: all{-1,0,1} coefficient vectors through order8,97 deterministic signed vectors for larger orders, and every basis point. Odd/even quotient coordinates independently verify the actual descent kernels, invariance under the full opposite boundary and the fixed-point factor2. An auxiliary coefficient module Z/3 with trivial involution explicitly shows that the torsion-free premise cannot be removed from the general coefficient-module argument; it is not asserted to be a distribution quotient. No floating-point calculation or general source freeness proof is claimed.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "16a38cfe87513985a3e41726a3eea2f30e38e737033ac7a33fb24b4ec08024ab",
+        "modules": 3910,
+        "warnings": 5881,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 5,881 expected placeholder warnings across 3,910 pinned source modules. It includes all 16 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 16a38cfe87513985a3e41726a3eea2f30e38e737033ac7a33fb24b4ec08024ab.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
