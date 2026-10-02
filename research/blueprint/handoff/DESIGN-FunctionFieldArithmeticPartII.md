@@ -1,3 +1,485 @@
+# FunctionFieldArithmeticPartII — specified native determinant checkpoint
+
+Worker: Codex — codex-a71f92. Date: 2026-10-02. Refs #3403.
+Claim [5961550379](https://github.com/CBirkbeck/tauceti-explorer/issues/3403#issuecomment-5961550379) won, confirmed by bot [5961552101](https://github.com/CBirkbeck/tauceti-explorer/issues/3403#issuecomment-5961552101).
+The whole issue was read before and after confirmation. Mathematical base: f42b014ff60edba2c55eafd7f1e4adaade676b83.
+Publication validation base: db0fce2ffbccc7e02eb25d9b6856a4e3dc50d48d. No own deliverable, governing protocol, reviewed library-audit or key-definition input changed between those bases.
+
+This is a partial research checkpoint. Five additional lemma nodes expose the exact root-comparison determinant proof; thirteen new baseline entries import existing generic infrastructure. There are 163 unchecked nodes: 9 definitions, 27 constructions, 81 lemmas, 35 theorems, 10 comparisons and 1 application. The packet has 117 API records, 119 required definition/construction tests and 142 total tests, 39 planets and 131 baseline entries. All ten stages remain partial, with eight gaps and thirteen requests. The complete geometric roadmap, its source extraction and its full suggested file remain unfinished.
+
+## Mathematical result and preservation
+
+Keep the actual native root algebra B=A[x]/(xⁿ−f), modeled by AdjoinRoot, the Hopf algebra H=A[Multiplicative(ZMod n)] and the coaction-induced comparison Θ:B⊗_A B→H⊗_A B. Source and target use the inherited pair-indexed coordinate equivalences. No replacement algebra, arbitrary endomorphism, pointwise action or reduced branch fiber is introduced.
+
+For every commutative A, f∈A and positive natural n, the specified matrix has entry M_(r,c)=f^⌊(c₁+c₂)/n⌋ when r₁=c₁ and r₂=(c₁+c₂) mod n, and zero otherwise. Put E=n(n−1)/2 in natural numbers. Its determinant is (−1)^((n−1)E) f^E.
+
+The five new RS.0 proof leaves are coefficientPermutation_rows, coefficientPermutation_sign, weight_exponent, weight_product and matrix_reindex. The row permutation is σ(i,j)=(i,i+j mod n). Its sign is the product of the row-shift signs (−1)^((n−1)i); the sum of the actual finite row values is E. The floor exponent is exactly the wrapping indicator, and the existing wrapping_card counts that subtype. Reindex the diagonal matrix by σ inverse on its first index; consume the pinned determinant-permutation, diagonal and inverse-sign formulas. Cast the integer-unit sign into A only after computing it.
+
+No invertibility of n or f, nonzero-ring condition, integral-domain assumption, cancellation or division by two in A is used. The eleven new tests include sign at n=2 and n=3, wrapping/nonwrapping exponents, a regular nonunit weight product over Z, the actual wrapped matrix entry, determinant at n=1 and n=3 over arbitrary A, the zero ring, and n=2 in characteristic two. The n=3 determinant f³ catches the tempting incorrect sign (−1)^E.
+
+All 158 inherited node statements, hypotheses, API, sources, acceptances and statuses are preserved; 157 whole node objects are unchanged. Only the old determinant node gains the exposed proof/prerequisites and four tests. The roadmap definition is byte-for-byte unchanged. Removing this worker's single continuation section leaves the inherited reader byte-for-byte unchanged. Source inventories, source versions/findings, both source routes, reserved root-stack owner, thirteen requests, eight gaps, restructurings and 39 planets are retained. Generic finite permutations, counting, products and determinant infrastructure are imported rather than duplicated.
+
+## Reading and baseline boundary
+
+Fresh reading covered the whole issue twice, complete incoming handoff and ten-stage roadmap, all 158 inherited mathematical statements and hypotheses, the complete reserved root-stack contract, reviewed FA.0–FA.7 library audit and REV-AUDIT-20, relevant parent stage descriptions, the complete statement/proof of [Stacks Lemma 59.28.3](https://stacks.math.columbia.edu/tag/040N), and all thirteen new indexed Mathlib declaration statements with their relevant ambient hypotheses. The two nearby upstream documents read in this continuous worker session were StableReduction and JacobianChallenge; this continuation does not claim a new complete reading of other upstream documents.
+
+The Stacks citation motivates the positive-exponent unit root chart. The determinant lemmas are explicitly authored deductions in the specified native coordinates, not a printed Stacks determinant theorem or an extension of its étale statement to nonunits. The current root-generator definition was inspected in TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Basic.lean at the Tau Ceti pin. Bounded helper searches inspected the relevant algebra/geometry, permutation and linear-algebra areas; no whole-library absence claim is made.
+
+Historical whole-paper readings, source-version collation, errata and source-coverage receipts in the packet and predecessor handoff are preserved as historical evidence, not newly certified. In particular, this worker did not freshly read the complete TV17/YZ/AGV/B24/AV bibliography, perform a new complete supplier-carrier audit, or re-run historical arithmetic/source regression sweeps. The complete inherited native proof extraction was freshly rechecked after integrating the determinant.
+
+Exact pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. New indexed leaves are Equiv.prodCongrRight, finCycle, finCycle_eq_finRotate_iterate, sign_finRotate, Equiv.Perm.sign_prodCongrRight, Equiv.Perm.sign_symm, Finset.prod_pow_eq_pow_sum, Finset.prod_filter, Finset.sum_range_id, Matrix.det_permute, Matrix.det_diagonal, Nat.add_div_eq_of_add_mod_lt and Nat.add_div_eq_of_le_mod_add_mod. The two indexed Mathlib natural-addition division formulas discharge the actual exponent split; an unindexed core lemma is not mislabeled as a baseline citation.
+
+The eight relevant pinned Mathlib file hashes are:
+
+```json
+{
+  "Mathlib/Logic/Equiv/Prod.lean": "f39e6eccbabfdd20664ddc80919332cae0c387c058df85acaddc306fa1adcfdb",
+  "Mathlib/Logic/Equiv/Fin/Rotate.lean": "efc770513d77602e3ac7d496622bf03f5bbdba4fd5cc18e21df3ca5241685eaa",
+  "Mathlib/GroupTheory/Perm/Fin.lean": "f433715abb71c95af324945da54c85f58715ca625c66a0e61d1a521d2f15f447",
+  "Mathlib/GroupTheory/Perm/Sign.lean": "b0cfeebd1b9db78f1dc8e96c36ed9c0eb4de808ad2f292cec8d71ff807981bb6",
+  "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean": "273036de3d36eda43082685a3ebc998900735e96c3f4b18f1546b39a4f765af0",
+  "Mathlib/Algebra/BigOperators/Intervals.lean": "840fec2dceee97d7ddc878f68528aa28e30d1a298029dbb4f270e99a226e048a",
+  "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean": "870291a8544ad9297e0c17f3531bea11607a1f0d83b775b13a31981777c30f2e",
+  "Mathlib/Data/Nat/ModEq.lean": "832785951f3a2f46747c891a3b2b64808e3f76f8e45ec76f2fffa2cd87da5417"
+}
+```
+
+## Checks and exact source receipts
+
+The complete separate actual-body Mathlib-native extraction passed at the exact pin: 1716 lines, 62 proved examples, 42 axiom audits, zero errors, zero warnings and zero admissions. Its previously sole determinant admission now has a proof; no proof audit depends on sorryAx. Runtime 10.50 seconds; maximum RSS 3225104 KiB.
+
+The admitted extraction reconstructed from the submitted head passed: 946 lines, the same 62 examples, zero errors and exactly 142 expected admission warnings, with no other warnings. Runtime 4.30 seconds; maximum RSS 3110952 KiB. This validates only the native extraction, not all 142 packet tests or the full geometric file.
+
+The complete submitted suggested file is 1964 lines and was NOT COMPILED. Read-only checks show the existing exact-pin build lacks both .lake/build/lib/lean/TauCeti/AlgebraicGeometry/LineBundle/TensorProduct.olean and .lake/build/lib/lean/TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Basic.olean. No new project, Lake setup/update, cache download, build or language server was started. One Lean process ran at a time, under a 1200-second timeout, with 57 and 58 GiB available before the respective successful runs. No Lean process remains.
+
+Diagnostics normalization replaces the absolute invoked source name with Native.lean or Sketch.lean, removes only the RESOURCE footer and retains the final newline. SHA-256 receipts:
+
+```json
+{
+  "Native.lean": {
+    "sourceSha256": "d40ac61960c10d4640c4ecaa3204968021303cdcdd7dedc4ef4b0b81835938e7",
+    "diagnosticsSha256": "00a7feab16652440b2ba73a10c130de0c9ed4bdd302b1f67a473f8d602d448b9",
+    "lines": 1716,
+    "examples": 62,
+    "audits": 42,
+    "errors": 0,
+    "warnings": 0,
+    "admittedWarnings": 0,
+    "resource": "RESOURCE elapsed=0:10.50 maxRSSKiB=3225104 exit=0",
+    "availableGiB": 57
+  },
+  "Sketch.lean": {
+    "sourceSha256": "c688fbc69edc77647a553185633a2a5cc9838fd7c7beaa0f62ba793450b83f01",
+    "diagnosticsSha256": "04378787efef2558b4ff9e2c0676ff007b14f46345ef2101f420db149a6893c8",
+    "lines": 946,
+    "examples": 62,
+    "audits": 0,
+    "errors": 0,
+    "warnings": 142,
+    "admittedWarnings": 142,
+    "resource": "RESOURCE elapsed=0:04.30 maxRSSKiB=3110952 exit=0",
+    "availableGiB": 58
+  },
+  "head": {
+    "sourceSha256": "3a82b8adc32b6800787b266b918aba0d3ac4a531817a1202d58ad68300f31c58",
+    "lines": 1964
+  }
+}
+```
+
+The actual indexed packet checker reports zero errors and zero warnings. Actual immutable-tree intake and assembler functions pass. Dependency graphs are acyclic, all 54 required supplier-stage pairs are reachable, there are no own pending/skipped links or new stage edges, and other roadmap skipped links are unchanged. The freshly validated publication projection gives:
+
+```json
+{
+  "indexedChecker": "pass",
+  "actualIntake": "pass",
+  "actualAssembler": "pass",
+  "base": "db0fce2ffbccc7e02eb25d9b6856a4e3dc50d48d",
+  "preservedStatements": 158,
+  "unchangedNodes": 157,
+  "addedNodes": 5,
+  "kinds": {
+    "construction": 27,
+    "definition": 9,
+    "comparison": 10,
+    "lemma": 81,
+    "theorem": 35,
+    "application": 1
+  },
+  "api": 117,
+  "tests": 142,
+  "baseline": 131,
+  "planets": 39,
+  "gaps": 8,
+  "requests": 13,
+  "ownDeclarationEdges": 337,
+  "stageVertices": 3005,
+  "stageEdges": 8723,
+  "reachableDependencyVertices": 520,
+  "reachableDeclarations": 214,
+  "requiredStagePairs": 54,
+  "requiredStagePairsReachable": 54,
+  "combinedVertices": 3231,
+  "combinedEdges": 9435,
+  "allDAGs": "acyclic",
+  "pendingLinks": [],
+  "ownSkippedLinks": [],
+  "otherSkips": "unchanged",
+  "newStageEdges": 0,
+  "scriptSha256": "4f1addef913ba15e020fae643f82cdf662cd28af96230ea95d1f6fa580a08919"
+}
+```
+
+## Durable public reconstruction
+
+The public ancestor [6df00ac8cb82d19130a90b5d1ea473e803fd8eae](https://github.com/CBirkbeck/tauceti-explorer/blob/6df00ac8cb82d19130a90b5d1ea473e803fd8eae/research/blueprint/suggested/FunctionFieldArithmeticPartII.lean) changes only the issue's suggested-file path. Its first parent is the mathematical base and its additional parent retains predecessor archive fdc057a53800a1937f36f157aa7636a94611b5a9. The final PR commit retains this archive as an additional parent. The archive blob is 6ed1965cb92b979ffb2124af521bd6849b8bca16.
+
+The archive contains the exact submitted head followed by the complete checked native body inside unique BEGIN/END ARCHIVED CHECKED ROOT DETERMINANT markers. The final suggested deliverable contains the proposed admitted signatures, not the archived proof body. Public fetch and read-only git reconstruction were byte-checked. Six helper/determinant signatures and eleven new test statements agree after whitespace normalization.
+
+Credit: the inherited native prototype retains work by Codex workers codex-5ebb6f, rtOQ9t, J6LwjP and codex-a71f92. The root-generator expansion follows Tau Ceti contributors' pinned Apache-2.0 source. This proof evidence is not an implementation claim for Tau Ceti; every planned status remains unchecked.
+
+Recovery script SHA-256: 434b2983c4cc2675c239c6f43c2a08b01e707b95c1542459af5982564520880e. Save the following as recover.py in your own scratch; set TAUCETI_REPO to an existing clone containing the public archive. It only reads and prints the receipt. Its reconstructed head/native/sketch strings are the exact sources used for the recorded checks.
+
+```python
+"""Verify public-ancestor reconstruction without writing files."""
+import hashlib,json,os,re,subprocess
+from pathlib import Path
+REPO=Path(os.environ["TAUCETI_REPO"])
+ARCHIVE="6df00ac8cb82d19130a90b5d1ea473e803fd8eae"
+PATH="research/blueprint/suggested/FunctionFieldArithmeticPartII.lean"
+s=subprocess.check_output(["git","show",ARCHIVE+":"+PATH],cwd=REPO).decode()
+head=s.split("\n/-\nPublic verification archive, authored by Codex — codex-a71f92.\n",1)[0]
+native=s.split("BEGIN ARCHIVED CHECKED ROOT DETERMINANT\n",1)[1].split("END ARCHIVED CHECKED ROOT DETERMINANT\n",1)[0]
+imports="\n".join(l for l in head.splitlines() if l.startswith("import Mathlib"))
+initial=head[head.index("abbrev AffineRing (f : A)"):head.index("-- TauCeti.RootStack.affineCoaction.nativePoint")]
+one=head[head.index("-- TauCeti.RootStack.affineCoaction.test_one"):head.index("-- TauCeti.RootStack.affineCoaction.test_sign")]
+comparison=head[head.index("section AffineTorsorComparison"):head.index("-- Native acceptance computations")]
+extra=head[head.index("-- Native acceptance computations"):]
+sketch=imports+"\nnoncomputable section\nuniverse u\nnamespace TauCeti.RootStack\nvariable {A : Type u} [CommRing A]\nopen scoped TensorProduct\n"+initial+one+comparison+extra
+sketch=sketch.replace("TauCeti.RootsOfUnityGroup.generator n","Multiplicative.ofAdd (1 : ZMod n)")
+wanted={"head":"3a82b8adc32b6800787b266b918aba0d3ac4a531817a1202d58ad68300f31c58",
+"native":"d40ac61960c10d4640c4ecaa3204968021303cdcdd7dedc4ef4b0b81835938e7",
+"sketch":"c688fbc69edc77647a553185633a2a5cc9838fd7c7beaa0f62ba793450b83f01"}
+texts={"head":head,"native":native,"sketch":sketch}
+for key,content in texts.items():
+    assert hashlib.sha256(content.encode()).hexdigest()==wanted[key],key
+def normalized(s):return " ".join(s.split())
+for name in ["coefficientPermutation_rows","coefficientPermutation_sign","weight_exponent","weight_product","matrix_reindex","determinant"]:
+    pattern=r"^(?:lemma|theorem) affineTorsorComparison\."+name+r"\b([\s\S]*?) := by\b"
+    assert normalized(re.search(pattern,head,re.M)[1])==normalized(re.search(pattern,native,re.M)[1]),name
+names=["coefficientPermutation_rows.test_wrap","coefficientPermutation_sign.test_two","coefficientPermutation_sign.test_three","weight_exponent.test_wrap","weight_exponent.test_nonwrap","weight_product.test_nonunit","matrix_reindex.test_weight","determinant.test_exponent_one","determinant.test_three","determinant.test_zero_ring","determinant.test_wild"]
+for name in names:
+    h=head.split("-- TauCeti.RootStack.affineTorsorComparison."+name+"\n",1)[1].split(" := by",1)[0]
+    n=native.split("-- affineTorsorComparison."+name+"\n",1)[1].split(" := by",1)[0]
+    assert normalized(h)==normalized(n),name
+assert not re.search(r"\bsorry\b",native)
+assert len(re.findall(r"^#print axioms ",native,re.M))==42
+assert len(re.findall(r"^example\b",native,re.M))==62
+assert len(re.findall(r"^example\b",sketch,re.M))==62
+print(json.dumps({"archive":ARCHIVE,"sha256":wanted,"signatureParity":6,"testParity":11,"nativeExamples":62,"nativeAudits":42,"sketchExamples":62,"reconstructed":True},ensure_ascii=False))
+```
+
+## Portable read-only checker recipe
+
+Save the following two scripts as immutable_view.py and verify.py in your own scratch alongside packet.json, reader.md, FunctionFieldArithmeticPartII.lean, handoff.md, roadmap.json, Native.lean, Sketch.lean, native.log and sketch.log. These are the four submitted deliverables, unchanged roadmap, recovered sources and fresh exact-pin diagnostics, respectively. Set TAUCETI_REPO to your existing atlas clone and TAUCETI_BASELINE to the supplied declaration index. Run with PYTHONDONTWRITEBYTECODE=1. F2_VALIDATE_BASE selects the immutable publication projection; the default is the mathematical base. The recipe never writes inside the shared repository and imports the actual checker, intake rules and assembler rather than replacing their logic.
+
+Loader SHA-256: 384708dc8bb7c1ab07bdbdabae0d08979f5297cf6c190902e660cb38011e9552.
+
+```python
+"""Read the immutable audit tree without creating a repository snapshot."""
+import fnmatch
+import importlib.abc
+import importlib.util
+import io
+from pathlib import Path
+import subprocess
+import sys
+
+import os
+REPO = Path(os.environ.get('TAUCETI_REPO', str(Path.cwd())))
+BASE = os.environ.get('F2_VALIDATE_BASE', 'f42b014ff60edba2c55eafd7f1e4adaade676b83')
+TRACKED = set(subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=REPO, text=True).splitlines())
+CACHE = {}
+READS = set()
+ORIGINAL = {name: getattr(Path, name) for name in ('read_text', 'read_bytes', 'exists', 'is_file', 'is_dir', 'glob', 'rglob', 'open', 'write_text', 'write_bytes')}
+
+def relative(path):
+    try:
+        return str(path.relative_to(REPO))
+    except ValueError:
+        return None
+
+def blob(key):
+    if key not in TRACKED:
+        raise FileNotFoundError(key)
+    READS.add(key)
+    if key not in CACHE:
+        CACHE[key] = subprocess.check_output(['git', 'show', BASE + ':' + key], cwd=REPO)
+    return CACHE[key]
+
+def read_text(path, encoding=None, errors=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['read_text'](path, encoding=encoding, errors=errors)
+    return blob(key).decode(encoding or 'utf-8', errors or 'strict')
+
+def read_bytes(path):
+    key = relative(path)
+    return ORIGINAL['read_bytes'](path) if key is None else blob(key)
+
+def is_file(path):
+    key = relative(path)
+    return ORIGINAL['is_file'](path) if key is None else key in TRACKED
+
+def is_dir(path):
+    key = relative(path)
+    return ORIGINAL['is_dir'](path) if key is None else any(s.startswith(key.rstrip('/') + '/') for s in TRACKED) or key == '.'
+
+def exists(path):
+    key = relative(path)
+    return ORIGINAL['exists'](path) if key is None else is_file(path) or is_dir(path)
+
+def glob(path, pattern, recursive=False):
+    key = relative(path)
+    if key is None:
+        yield from ORIGINAL['rglob' if recursive else 'glob'](path, pattern)
+        return
+    prefix = '' if key == '.' else key.rstrip('/') + '/'
+    for candidate in sorted(TRACKED):
+        if not candidate.startswith(prefix):
+            continue
+        tail = candidate[len(prefix):]
+        if fnmatch.fnmatch(tail, pattern) and (recursive or '/' not in tail):
+            yield REPO / candidate
+
+def open_path(path, mode='r', buffering=-1, encoding=None, errors=None, newline=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['open'](path, mode, buffering, encoding, errors, newline)
+    if mode not in ('r', 'rb'):
+        raise PermissionError('audit tree is read-only')
+    return io.BytesIO(blob(key)) if mode == 'rb' else io.StringIO(blob(key).decode(encoding or 'utf-8', errors or 'strict'))
+
+def write_text(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_text'](path, *args, **kwargs)
+
+def write_bytes(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_bytes'](path, *args, **kwargs)
+
+class Loader(importlib.abc.Loader):
+    def __init__(self, key):
+        self.key = key
+    def create_module(self, spec):
+        return None
+    def exec_module(self, module):
+        module.__file__ = str(REPO / self.key)
+        exec(compile(blob(self.key), module.__file__, 'exec'), module.__dict__)
+
+class Finder(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        key = 'scripts/' + fullname + '.py'
+        if '.' not in fullname and key in TRACKED:
+            return importlib.util.spec_from_loader(fullname, Loader(key))
+
+def install():
+    for name, function in [('read_text', read_text), ('read_bytes', read_bytes), ('exists', exists), ('is_file', is_file), ('is_dir', is_dir), ('glob', glob), ('rglob', lambda path, pattern: glob(path, pattern, True)), ('open', open_path), ('write_text', write_text), ('write_bytes', write_bytes)]:
+        setattr(Path, name, function)
+    sys.meta_path.insert(0, Finder())
+
+
+```
+
+Validator SHA-256: 4f1addef913ba15e020fae643f82cdf662cd28af96230ea95d1f6fa580a08919.
+
+```python
+"""Validate the candidate using actual immutable-tree checker, intake and atlas code."""
+import ast,hashlib,json,re
+from collections import Counter,defaultdict
+from pathlib import Path
+import immutable_view as git_view
+HERE=Path(__file__).resolve().parent
+STEM="FunctionFieldArithmeticPartII";RID="FunctionFieldArithmeticPartII"
+FILES={"research/blueprint/packets/"+STEM+".json":"packet.json",
+"research/blueprint/readmes/"+STEM+".md":"reader.md",
+"research/blueprint/suggested/"+STEM+".lean":STEM+".lean",
+"research/blueprint/handoff/DESIGN-"+STEM+".md":"handoff.md"}
+orig=json.loads(git_view.blob(next(iter(FILES))))
+roadpath="research/blueprint/roadmaps/"+STEM+".json"
+origroad=json.loads(git_view.blob(roadpath))
+origreader=git_view.blob("research/blueprint/readmes/"+STEM+".md").decode()
+FILES[roadpath]="roadmap.json"
+for dst,name in FILES.items():git_view.CACHE[dst]=(HERE/name).read_bytes()
+git_view.install()
+import check_blueprint
+errors,warnings,summary=check_blueprint.check(git_view.REPO/next(iter(FILES)),
+check_blueprint.load_index(Path(__import__("os").environ["TAUCETI_BASELINE"])),check_blueprint.world())
+print(json.dumps({"checker":summary,"errors":errors,"warnings":warnings}),flush=True)
+assert not errors and not warnings,(errors,warnings)
+p=json.loads((HERE/"packet.json").read_text());reader=(HERE/"reader.md").read_text();lean=(HERE/(STEM+".lean")).read_text()
+old={n["id"]:n for n in orig["nodes"]};new={n["id"]:n for n in p["nodes"]}
+assert len(old)==158 and len(new)==163 and set(old)<=set(new)
+for nid,n in old.items():
+    for key in ("id","kind","statement","hypotheses","acceptance","sources","implementationStatus","uses"):
+        assert n.get(key)==new[nid].get(key),(nid,key)
+    assert new[nid].get("api",[])[:len(n.get("api",[]))]==n.get("api",[]),nid
+    assert new[nid].get("tests",[])[:len(n.get("tests",[]))]==n.get("tests",[]),nid
+unchanged=sum(n==new[nid] for nid,n in old.items())
+assert unchanged==157,unchanged
+for k in ["requests","gaps","sourceIssues","scope","upstreamNotes","sourceCoverage","sourceVersions","auditEvidence","continuationBoundary","continuationCorrections","restructure"]:
+    assert orig[k]==p[k],k
+assert p["baseline"]["declarations"][:118]==orig["baseline"]["declarations"]
+assert p["sources"]==orig["sources"]
+assert p["continuationHistory"][:-1]==orig["continuationHistory"]
+addition_start=reader.index("\n## RS.0 continuation — specified determinant dependencies")
+addition_end=reader.index("Full-file elaboration still requires the actual geometric/TauCeti imports.",addition_start)+len("Full-file elaboration still requires the actual geometric/TauCeti imports.\n")
+assert reader[:addition_start]+reader[addition_end:]==origreader
+assert json.loads((HERE/"roadmap.json").read_text())==origroad
+assert p["status"]=="partial" and all(n["implementationStatus"]=="unchecked" for n in new.values())
+for nid,n in new.items():
+    if nid in old:continue
+    assert n["statement"] in reader and n["declarationName"].rsplit(".",1)[1] in lean,nid
+    for a in n.get("api",[]):
+        assert a["name"] in reader and a["statement"] in reader
+        assert re.search(r"^(?:lemma|theorem|def|noncomputable def) "+re.escape(a["name"].rsplit(".",1)[1])+r"\b",lean,re.M),a["name"]
+    for t in n.get("tests",[]):assert t["statement"] in reader and t["name"] in lean,t["name"]
+for nid,n in new.items():
+    for a in n.get("api",[]):assert a["name"].rsplit(".",1)[-1] in lean,a["name"]
+    for t in n.get("tests",[]):
+        assert t["name"] in lean or (t["name"].startswith("TauCeti.RootStack.") and
+            re.search(r"^-- "+re.escape(t["name"].removeprefix("TauCeti.RootStack."))+r"(?:[: ]|$)",lean,re.M)),t["name"]
+assert not re.search(r"\bsorry\b",(HERE/"packet.json").read_text()+reader)
+assert not re.search(r"^(?:axiom|opaque)\s|:\s*True\b",lean[lean.index("/- BEGIN NATIVE ROOT DETERMINANT DEPENDENCIES -/"):],re.M)
+assert Counter(c["status"] for c in p["coverage"])=={"partial":10}
+tree=ast.parse(git_view.blob("research/blueprint/intake.py").decode())
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {"ALLOWED","PRIVATE"} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name=="file_problems"]
+env={"json":json,"re":re};exec(compile(ast.Module(body=picked,type_ignores=[]),"actual-intake", "exec"),env)
+problems=[v for dst,name in FILES.items() for v in env["file_problems"](dst,(HERE/name).read_text())]
+assert not problems,problems
+for name in FILES.values():
+    s=(HERE/name).read_text();assert not re.search(r"[ \t]+$",s,re.M),name
+    assert not re.search(r"/(?:home|Users)/[^/\s]+/",s),name
+native=(HERE/"Native.lean").read_text();log=(HERE/"native.log").read_text()
+sketch=(HERE/"Sketch.lean").read_text()
+assert log.count("depends on axioms:")==42 and "sorryAx" not in log and "error:" not in log and "warning:" not in log
+assert not re.search(r"\bsorry\b",native)
+slog=(HERE/"sketch.log").read_text()
+assert "error:" not in slog and slog.count("warning:")==slog.count("warning: declaration uses")==142
+assert len(re.findall(r"^example\b",native,re.M))==62 and len(re.findall(r"^example\b",sketch,re.M))==62
+assert hashlib.sha256(native.encode()).hexdigest()=="d40ac61960c10d4640c4ecaa3204968021303cdcdd7dedc4ef4b0b81835938e7"
+assert hashlib.sha256(sketch.encode()).hexdigest()=="c688fbc69edc77647a553185633a2a5cc9838fd7c7beaa0f62ba793450b83f01"
+def acyclic(g,roots):
+    colors={}
+    def visit(v):
+        assert colors.get(v)!=1,("cycle",v)
+        if colors.get(v)==2:return
+        colors[v]=1
+        for w in g[v]:visit(w)
+        colors[v]=2
+    for v in list(roots):visit(v)
+    return set(colors)
+import build
+normal=build.load_promoted
+def assemble(packet,definition):
+    def candidate(*args,**kw):
+        packets,docs,defs=normal(*args,**kw)
+        return ([(name,q) for name,q in packets if q.get("roadmapId")!=RID]+[(RID,packet)],
+            {**docs,RID:"research/blueprint/readmes/"+RID+".md"},
+            [x for x in defs if x.get("id")!=RID]+[definition])
+    build.load_promoted=candidate
+    return build.assemble(require_distances=False)
+baseline,_=assemble(orig,origroad)
+atlas,_=assemble(p,json.loads((HERE/"roadmap.json").read_text()))
+g=defaultdict(set)
+for e in atlas["stageEdges"]:g[e["source"]].add(e["target"])
+vertices={s["id"] for s in atlas["stages"]};acyclic(g,vertices)
+row=next(r for r in atlas["roadmaps"] if r["id"]==RID)
+assert row["blueprint"]["declarations"]==163 and row["blueprint"]["planets"]==39,row["blueprint"]
+assert not row.get("pendingLinks") and not row["blueprint"].get("skippedLinks")
+assert {(e["source"],e["target"]) for e in atlas["stageEdges"]}=={(e["source"],e["target"]) for e in baseline["stageEdges"]},"new stage edges"
+before={r["id"]:r for r in baseline["roadmaps"]}
+for r in atlas["roadmaps"]:
+    if r["id"]==RID:continue
+    assert r.get("blueprint",{}).get("skippedLinks",[])==before[r["id"]].get("blueprint",{}).get("skippedLinks",[]),r["id"]
+req=defaultdict(set)
+for e in atlas["stageEdges"]:req[e["target"]].add(e["source"])
+for folder in ["data/decompositions","research/blueprint/packets"]:
+    for path in (git_view.REPO/folder).glob("*.json"):
+        q=json.loads(path.read_text())
+        for n in q.get("nodes",[]):req[n["id"]].update(n.get("prerequisites",[])+n.get("upstreamPrerequisites",[]))
+        for request in q.get("requests",[]):
+            for target in request.get("neededBy",[]):req[target].add(request["supplier"])
+reachable=acyclic(req,list(new))
+allnodes=dict(new)
+for folder in ["data/decompositions","data/blueprints","research/blueprint/packets"]:
+    for path in (git_view.REPO/folder).glob("*.json"):
+        for n in json.loads(path.read_text()).get("nodes",[]):allnodes.setdefault(n["id"],n)
+used=set(new);todo=list(new)
+while todo:
+    v=todo.pop()
+    for d in allnodes[v].get("prerequisites",[]):
+        if d in allnodes and d not in used:used.add(d);todo.append(d)
+def stage_of(v):
+    seen=set()
+    while v in allnodes and v not in seen:
+        seen.add(v);v=allnodes[v].get("parentStageId")
+    return v
+roadmap=json.loads((HERE/"roadmap.json").read_text())
+stagePairs={(d,RID+":"+s["key"]) for s in roadmap["stages"] for d in s.get("requires",[])}
+stagePairs.update((s,stage_of(n["id"])) for n in new.values() for s in n["prerequisites"]
+    if s in vertices and s not in allnodes and s!=stage_of(n["id"]))
+stagePairs.update((q["supplier"],stage_of(v)) for q in p["requests"] for v in q["neededBy"]
+    if q["supplier"]!=stage_of(v))
+def reaches(source,target):
+    seen=set();todo=[source]
+    while todo:
+        v=todo.pop()
+        if v==target:return True
+        if v in seen:continue
+        seen.add(v);todo.extend(g[v])
+    return False
+assert all(reaches(s,t) for s,t in stagePairs),[p for p in stagePairs if not reaches(*p)]
+ownEdges=sum(sum(v in new for v in n["prerequisites"]) for n in new.values())
+combined=defaultdict(set)
+for e in atlas["stageEdges"]:combined[e["target"]].add(e["source"])
+for v in used:
+    n=allnodes[v]
+    if n.get("parentStageId"):combined[v].add(n["parentStageId"])
+    for d in n.get("prerequisites",[]):
+        if d in vertices or d in used:combined[v].add(d)
+for q in p["requests"]:
+    for v in q["neededBy"]:combined[v].add(q["supplier"])
+combinedVertices=vertices|used|set(combined)|{v for ds in combined.values() for v in ds}
+acyclic(combined,combinedVertices)
+receipt={"indexedChecker":"pass","actualIntake":"pass","actualAssembler":"pass","base":git_view.BASE,
+"preservedStatements":158,"unchangedNodes":unchanged,"addedNodes":5,
+"kinds":Counter(n["kind"] for n in p["nodes"]),"api":sum(len(n.get("api",[])) for n in p["nodes"]),
+"tests":sum(len(n.get("tests",[])) for n in p["nodes"]),"baseline":len(p["baseline"]["declarations"]),"planets":39,
+"gaps":len(p["gaps"]),"requests":len(p["requests"]),"ownDeclarationEdges":ownEdges,
+"stageVertices":len(vertices),"stageEdges":len(atlas["stageEdges"]),
+"reachableDependencyVertices":len(reachable),"reachableDeclarations":len(used),
+"requiredStagePairs":len(stagePairs),"requiredStagePairsReachable":len(stagePairs),
+"combinedVertices":len(combinedVertices),"combinedEdges":sum(map(len,combined.values())),
+"allDAGs":"acyclic","pendingLinks":[],"ownSkippedLinks":[],"otherSkips":"unchanged","newStageEdges":0,
+"scriptSha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+print(json.dumps(receipt,ensure_ascii=False),flush=True)
+```
+
+## Where to resume
+
+Start with the preserved geometric-carrier and normalized-coframe gaps and the exact supplier requests. Retain the full nilpotent branch fiber, positive root exponent, fpqc infinite tower and independent Abdurrahman–Venkatesh symplectic route in its existing split proposal. Read each missing supplier/source passage before discharging it; do not infer closure from the native determinant or successful graph checks. Do not duplicate generic tensor, permutation, determinant or field-rank infrastructure. All remaining coverage entries already name their precise unresolved work.
+
+Own scratch sources and logs are recoverably removed after the PR is opened; the archive, hashes and recipes above preserve the checkpoint. No submitted job is unclaimed manually.
+
+---
+
+## Complete predecessor handoff, preserved verbatim
+
+The following is historical evidence and worklist. Its assertion that the determinant was the sole native admission describes the predecessor, not this checkpoint.
+
 # FunctionFieldArithmeticPartII — native zero-section ranks checkpoint
 
 Worker: Codex — codex-5ebb6f. Date:2026-10-02. Issue3403; claim5960931694, confirming bot5960933964. The whole issue was read before and after the winning confirmation. Branch codex-5ebb6f-function-fields-next1; base404db35ccec72b9ceabd108108d2ba8fa0762b2c.
