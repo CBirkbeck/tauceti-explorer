@@ -689,7 +689,7 @@ Put W={(i,j):i+j≥n}, L={(i,k):k<i}, and E=n(n−1)/2. Source kernel coordinate
 
 Injectivity is equivalent to n=1 or injectivity of multiplication by f. Surjectivity and bijectivity are equivalent to n=1 or f being a unit. Thus Z,n=2,f=2 gives an injective non-surjective map. A nonzero nilpotent parameter is different: over Z/4, f=2 kills the nonzero tensor 2(x⊗x). Coefficient change preserves the displayed matrix, but Z→F₂ shows that it does not preserve kernels.
 
-For a unit v, put X=x⊗1, Y=1⊗x. Then Y⁻¹=1⊗v⁻¹x^(n−1), χ=XY⁻¹, and χⁿ=1. The existing native μ_n points equivalence gives H→B⊗B taking e_1 to χ. Tensoring with the right inclusion constructs the inverse of Θ. No inverse of n is used; for F₂,n=2,f=1 it is still an isomorphism even though x−1 is a nonzero nilpotent.
+For a specified unit v, promote the actual comparison Θ to E_v using its sharp bijectivity criterion and Mathlib’s algebra-equivalence constructor. In B the root has inverse v⁻¹x^(n−1). Evaluate Θ on x⊗(v⁻¹x^(n−1)) to obtain e_1⊗1; the inverse-evaluation law therefore gives that specified preimage. The right factor is unchanged. Multiplicativity extends this to every character tensor. No inverse of n is used; for F₂,n=2,f=1 it is an isomorphism even though x−1 is a nonzero nilpotent.
 
 The determinant in the specified pair bases is (−1)^((n−1)E)f^E. The sign comes from row block i, an ith cyclic rotation, and the E wrapping columns carry the f weights. At f=0 over any field the surviving nonwrapping columns have distinct unit pivots, giving range dimension n(n+1)/2 and kernel dimension E.
 
@@ -1040,17 +1040,17 @@ Hypotheses:
 
 Construction or proof:
 
-1. Put X=x⊗1 and Y=1⊗x in B⊗B. Since Yⁿ=v, its explicit inverse is 1⊗v⁻¹x^(n−1). Thus χ=XY⁻¹ is a unit with χⁿ=1.
-2. Use the existing native μ_n points equivalence to obtain the A-algebra map H→B⊗B taking e_1 to χ. Tensor-lift it with b↦1⊗b.
-3. Check the two composites on X,Y and on e_1⊗1,1⊗x using the pure-tensor formula. Quotient and tensor extensionality and cyclic character generation give identity. No polynomial-quotient identification of H is assumed and no inverse of n is used.
+1. Take the specified promoted comparison equivalence E_v.
+2. Its forward-map identity and the two native inverse evaluation lemmas give the existing conjunction verbatim. The sharp bijectivity theorem fixes the actual comparison; no generic group-scheme points map or inverse of n is required.
 
-Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-tmul, FunctionFieldArithmeticPartII:RS.0/affine-torsor-bijective, FunctionFieldArithmeticPartII:RS.0/affine-coaction-weight, FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:AdjoinRoot.algHom_ext, mathlib:Algebra.TensorProduct.lift, tauceti:TauCeti.RootsOfUnityGroup.pointsMulEquiv, tauceti:TauCeti.RootsOfUnityGroup.pointsMulEquiv_symm_apply_single_generator.
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-equivalence, FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-forward, FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-character, FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-right.
 
 - TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
 
 Acceptance:
 
 - The inverse is fixed by its generator formulas, rather than an unrelated abstract algebra equivalence.
+- The separate exact-pin native extraction checks this statement and all four formerly admitted inherited examples with no admission dependency. This remains evidence for an unchecked plan, not full-file or geometric certification.
 
 Sources: TV17 §3.1 pp.14–16, finite P=N grading and chart; [Stacks Tag 040N](https://stacks.math.columbia.edu/tag/040N), the unit-parameter finite-free cover. The coordinate calculations are derived here, not asserted to be printed standalone theorems in either source.
 
@@ -4145,7 +4145,7 @@ Needed by: FunctionFieldArithmeticPartII:RS.2/factorial-root-limit, FunctionFiel
 
 ### Remaining work by stage
 
-- FunctionFieldArithmeticPartII:RS.0 (partial): Resolve JAC-A’s actual tensor-section/unit coordinate and pullback contracts. Implement and elaborate the five native root-coordinate comparison nodes and full-file signatures at the exact pins. The separate native proof extraction checks the weighted table, sharp scalar criteria and now the specified native module kernel/cokernel equivalences with their forward and inverse formulas. Complete the unit inverse, determinant, field ranks and four inherited examples (branch-kernel, wild-unit nilpotent, nonflat kernel change and the older full Z/8 singleton-coordinate equivalence example); then geometric suppliers and full-file elaboration. Nine additional actual module-coordinate examples are proved in the separate prototype. Neither the whole Tau Ceti file nor this partial packet is certified.
+- FunctionFieldArithmeticPartII:RS.0 (partial): Resolve JAC-A’s actual tensor-section/unit coordinate and pullback contracts. Implement and elaborate the five native root-coordinate comparison nodes and full-file signatures at the exact pins. The separate native proof extraction now checks the unit inverse, all four inherited direct examples and five unit-chart examples, as well as the preceding weighted table and specified module kernel/cokernel maps. Complete the determinant sign and field ranks, then native geometric suppliers and full-file elaboration. No geometric or implementation closure is claimed.
 - FunctionFieldArithmeticPartII:RS.1 (partial): Resolve supplier contract STACK-GEOM.; Resolve supplier contract JAC-A.; Resolve recorded gap LEAN-GEOMETRY.; Complete the imported arbitrary-QCoh fpqc equivalence and its tensor/unit comparisons before root-fpqc-descent closes.; Resolve the D0 ordinary quotient, R09.4 algebraicity and R09.5 coarse contracts under the accepted ownership boundary.
 - FunctionFieldArithmeticPartII:RS.2 (partial): Resolve supplier contract STACK-GEOM.; Resolve supplier contract JAC-A.; Resolve recorded gap LEAN-GEOMETRY.; Complete the native finite affine transition, iterated quotient, finite-free basis and faithful-flatness proofs.; Complete TOWER-AFF, KUMMER-FINITE and TOWER-TYPING. Infinite torsors and H1 use fpqc; finite Kummer remains fppf. Preserve the roots-of2 counterexample.; Finish coherent factorial reindexing, infinite affine quotient and finite-stage injectivity/surjectivity on Kummer classes; neither set limits nor field points replace these comparisons.
 - FunctionFieldArithmeticPartII:GC.0 (partial): Resolve supplier contract STACK-GEOM.; Resolve supplier contract CURVE-GEOM.; Resolve recorded gap LEAN-GEOMETRY.
@@ -4701,12 +4701,176 @@ Acceptance: The equivalence keeps the actual module quotient and the full A/(f);
 
 Sources: [Talpo–Vistoli §3.1 pp14–16](https://arxiv.org/pdf/1410.1164v2) and [Stacks040N](https://stacks.math.columbia.edu/tag/040N), finite root-chart action and positive-exponent unit cover. These module-coordinate statements are explicit native algebra derivations using the named baseline and packet inputs.
 
-### Evidence and remaining obligations
+### Module-coordinate checkpoint provenance
 
-The separate [actual proof archive](https://github.com/CBirkbeck/tauceti-explorer/blob/6a5d51f50e6e1ca391411bee278a025fee3cbc4f/research/blueprint/suggested/FunctionFieldArithmeticPartII.lean), combined with the immutable predecessor’s actual coordinate/coaction proofs as detailed in the handoff, checks the fifteen audited native declarations without admission axioms and proves all nine additional examples. The native extraction has1,176 lines,32 examples,0 errors,7 admitted-body warnings and0 other warnings. Twenty-eight examples have actual proofs. Three older assertions (unit inverse, determinant, field ranks) and four older examples remain admitted.
+The preceding module-coordinate checkpoint and its receipts are preserved in the immutable handoff linked below. The current unit-chart continuation extends those proofs; its proof and admitted-signature checks are separate.
 
-The nine examples include empty wrapping/lower index sets at n=1, nonreduced annihilator coefficients over Z/4, the nilpotent branch chart over any field, the actual upper/lower target residue formulas, a nonzero integer cokernel class and a Z/8 cokernel class with2z≠0 and4z=0. The latter supplements the older unproved full singleton-coordinate equivalence example; it does not claim that older example has been discharged.
+## Native unit-chart comparison continuation
 
-The proposed suggested bodies remain admitted under PROTOCOL13, and their check is a distinct receipt recorded in the handoff. Required compiled Tau Ceti imports remain unavailable, so the complete suggested file is uncompiled. All143 nodes stay unchecked, all ten stages stay partial, and all eight gaps/thirteen supplier requests remain. Continue the unit inverse, determinant sign, field ranks, four inherited examples and native geometric/infinite-tower closure. Historical whole-paper reading and arithmetic regressions retain their predecessor attribution.
+For A a commutative ring, n≥1 and a specified unit v, let B=A[x]/(xⁿ−v) and H=A[Multiplicative(ZMod n)], and retain the actual coaction-induced comparison Θ. The specified E_v is the existing algebra equivalence obtained from this actual map’s proved bijectivity. Its inverse sends e_1⊗1 to x⊗(v⁻¹x^(n−1)) and fixes1⊗b for every b. Multiplication and character powers give the inverse on every e_i⊗b, for all natural i including i≥n. This supports working with the unit-open chart without constructing a replacement group or quotient carrier.
 
-The current admitted native sketch has631 lines,32 examples,0 errors,89 admitted-body warnings and0 other warnings. Its extraction hash is a737bd7ecca5698ac8186bd79931e0ddccab61f0766cac8607918d635e322a17. The read-only actual atlas projection is acyclic at3,056 stage vertices/8,723 edges and143 own declarations/302 edges. With194 reachable declarations and supplier-request edges it has3,211 vertices/9,380 edges; all54 required stage pairs are reachable. Own skipped links are empty, unrelated skipped lists and stage edges match the control. See the handoff for source hashes and exact reproduction.
+The earlier existential unit-inverse statement is unchanged and now follows from these specified maps. All143 inherited mathematical statements, the reserved root-stack key, both paper routes,39 planets, eight gaps and thirteen supplier requests are preserved. The construction uses only native algebra infrastructure; it supplies no geometric root stack, descent theorem or closure claim.
+
+### Inverse of a unit-chart root
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-root-unit-inverse. lemma. Native name: TauCeti.RootStack.affineRoot.unit_mul_inverse.
+
+For any commutative A, v∈A× and n≥1, the native root x of B=A[T]/(Tⁿ−v) satisfies x(v⁻¹x^(n−1))=1 in B; the coefficient v⁻¹ uses the algebra map A→B.
+
+Hypotheses:
+
+- A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption.
+
+Construction or proof:
+
+1. Commute the inverse coefficient past x and combine x·x^(n−1)=xⁿ, using n≥1.
+2. Use the native root relation and the unit inverse equation under the coefficient algebra map.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-root-relation.
+
+Acceptance:
+
+- At n=1 the root is v, so the formula retains v⁻¹; the same identity holds in the zero ring and arbitrary characteristic.
+
+Sources: [Stacks Tag040N](https://stacks.math.columbia.edu/tag/040N), Lemma59.28.3, unit-parameter cover, and TV17 §3.1, finite chart action. These passages motivate the native calculation; the explicit inverse formulas are derived using the listed algebra prerequisites.
+
+### Specified unit-chart comparison equivalence
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-equivalence. construction. Native name: TauCeti.RootStack.affineTorsorComparison.unitEquiv.
+
+For any commutative A, specified unit v∈A× and n≥1, define E_v:B⊗_A B≃ₐ[A]H⊗_A B by promoting the actual native comparison Θ_v with the proved bijectivity criterion. Its forward algebra map is exactly Θ_v; the inverse is thereby specified, rather than chosen up to an unrelated equivalence.
+
+Hypotheses:
+
+- A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption.
+
+Construction or proof:
+
+1. A specified unit satisfies the unit alternative in the native sharp bijectivity criterion.
+2. Promote that actual algebra homomorphism using the existing algebra-equivalence constructor; import generic equivalence laws.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-bijective, mathlib:AlgEquiv.ofBijective.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-inverse — Supplies a specified equivalence, with inverse generator and right-factor evaluations, for the existing existential contract.
+- FunctionFieldArithmeticPartII:RS.1/affine-chart — The unit-open action comparison calculation supports the quotient-chart specialization; it supplies no geometric carrier or stack descent theorem.
+
+API:
+
+- TauCeti.RootStack.affineTorsorComparison.unitEquiv_toAlgHom (compatibility): The forward algebra homomorphism of E_v is exactly Θ_v.
+- TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_character (simp): E_v⁻¹(e_1⊗1)=x⊗(v⁻¹x^(n−1)).
+- TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_right (simp): For every b∈B, E_v⁻¹(1⊗b)=1⊗b.
+- TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_character_tmul (projection): For every natural i and b∈B, E_v⁻¹(e_i⊗b)=x^i⊗((v⁻¹x^(n−1))^i b), with the character index reduced modulo n. Use actual algebra equivalence laws for additivity and inverse identities.
+
+Unit tests:
+
+- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_one (degenerate): For n=1 and any specified unit v, E_v⁻¹(e_1⊗1)=1; the cyclic character is the unit.
+- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_wild (computation): For A=F₂,v=1,n=2, E_v⁻¹(e_1⊗1)=x⊗x; no invertibility of2 is needed.
+- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_coefficient (computation): For A=F₅,v=2 with inverse3 and n=2, E_v⁻¹(e_1⊗1)=x⊗(3x). Dropping the inverse coefficient fails this value.
+- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_zero_ring (degenerate): Over a subsingleton commutative coefficient ring, the actual inverse sends every target tensor to zero.
+- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_right_factor (compatibility): For every A,v,n and b∈B, the actual inverse fixes the specified right factor: E_v⁻¹(1⊗b)=1⊗b.
+
+Acceptance:
+
+- No inverse of n is used. The actual zero-ring and wild unit charts are included.
+
+Sources: [Stacks Tag040N](https://stacks.math.columbia.edu/tag/040N), Lemma59.28.3, unit-parameter cover, and TV17 §3.1, finite chart action. These passages motivate the native calculation; the explicit inverse formulas are derived using the listed algebra prerequisites.
+
+### Unit-chart forward comparison
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-forward. lemma. Native name: TauCeti.RootStack.affineTorsorComparison.unitEquiv_toAlgHom.
+
+The forward A-algebra homomorphism of the specified unit-chart E_v is exactly Θ_v.
+
+Hypotheses:
+
+- A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption.
+
+Construction or proof:
+
+1. Use the native promoted-equivalence forward-map identity.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-equivalence, mathlib:AlgEquiv.toAlgHom_ofBijective.
+
+Acceptance:
+
+- Every source tensor is mapped by the original coaction-induced comparison.
+
+Sources: [Stacks Tag040N](https://stacks.math.columbia.edu/tag/040N), Lemma59.28.3, unit-parameter cover, and TV17 §3.1, finite chart action. These passages motivate the native calculation; the explicit inverse formulas are derived using the listed algebra prerequisites.
+
+### Unit-chart inverse character
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-character. lemma. Native name: TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_character.
+
+E_v⁻¹(e_1⊗1)=x⊗(v⁻¹x^(n−1)) in the actual source algebra.
+
+Hypotheses:
+
+- A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption.
+
+Construction or proof:
+
+1. Apply the native inverse-evaluation criterion and evaluate Θ on this proposed preimage through the pure-tensor and coaction-root formulas.
+2. Multiply the second factors using the proved native unit-root inverse identity; the image is exactly e_1⊗1.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-forward, FunctionFieldArithmeticPartII:RS.0/affine-torsor-tmul, FunctionFieldArithmeticPartII:RS.0/affine-coaction-root, FunctionFieldArithmeticPartII:RS.0/affine-root-unit-inverse, mathlib:AlgEquiv.symm_apply_eq, mathlib:AlgEquiv.ofBijective_apply, mathlib:Algebra.TensorProduct.tmul_mul_tmul.
+
+Acceptance:
+
+- The coefficient v⁻¹ is present, including for v=2 over F₅.
+
+Sources: [Stacks Tag040N](https://stacks.math.columbia.edu/tag/040N), Lemma59.28.3, unit-parameter cover, and TV17 §3.1, finite chart action. These passages motivate the native calculation; the explicit inverse formulas are derived using the listed algebra prerequisites.
+
+### Unit-chart inverse right factor
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-right. lemma. Native name: TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_right.
+
+For every b∈B, E_v⁻¹(1⊗b)=1⊗b.
+
+Hypotheses:
+
+- A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption.
+
+Construction or proof:
+
+1. The original pure-tensor formula at1⊗b uses δ(1)=1 and gives exactly1⊗b.
+2. Use the native inverse-evaluation criterion and the forward-map equality.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-forward, FunctionFieldArithmeticPartII:RS.0/affine-torsor-tmul, FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:AlgEquiv.symm_apply_eq, mathlib:AlgEquiv.ofBijective_apply.
+
+Acceptance:
+
+- The right factor stays unchanged, for arbitrary b rather than only the distinguished root.
+
+Sources: [Stacks Tag040N](https://stacks.math.columbia.edu/tag/040N), Lemma59.28.3, unit-parameter cover, and TV17 §3.1, finite chart action. These passages motivate the native calculation; the explicit inverse formulas are derived using the listed algebra prerequisites.
+
+### Unit-chart inverse character tensors
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-character-tensor. lemma. Native name: TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_character_tmul.
+
+For every i≥0 and b∈B, E_v⁻¹(e_i⊗b)=x^i⊗((v⁻¹x^(n−1))^i b), with e_i indexed by i modulo n.
+
+Hypotheses:
+
+- A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption.
+
+Construction or proof:
+
+1. Factor e_i⊗b=(e_1⊗1)^i(1⊗b) using the native character-power and tensor multiplication laws.
+2. Apply the actual inverse algebra homomorphism, preserving multiplication and powers; use both generator evaluations.
+3. Use the native tensor-power and multiplication laws to combine the result.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-character, FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-right, FunctionFieldArithmeticPartII:RS.0/affine-character-power, mathlib:Algebra.TensorProduct.tmul_pow, mathlib:Algebra.TensorProduct.tmul_mul_tmul.
+
+Acceptance:
+
+- Includes i=0, i≥n and n=1; it does not choose representatives or divide by n.
+
+Sources: [Stacks Tag040N](https://stacks.math.columbia.edu/tag/040N), Lemma59.28.3, unit-parameter cover, and TV17 §3.1, finite chart action. These passages motivate the native calculation; the explicit inverse formulas are derived using the listed algebra prerequisites.
+
+### Proof and sketch boundaries
+
+The current native proof extraction has37 examples, all with actual bodies, and22 printed declaration axiom audits. It has zero errors, two admitted assertions (the determinant and the general field-rank theorem), and no other warnings. The unit-inverse declarations have no admission dependency. The four inherited direct examples now have actual proofs: the nonzero branch tensor, the wild unit nilpotent, failure of injectivity preservation under Z→F₂, and the full Z/8 cokernel-equivalence example with an element of order four. The five new unit-chart tests compute the exponent-one character, the wild inverse, the inverse coefficient3 over F₅, the zero ring and the unchanged right factor.
+
+The distinct proposed native signature extraction has37 examples, zero errors,100 admitted-body warnings and no other warnings. The final suggested signatures and examples are admitted under PROTOCOL13. Exact-pin compiled Tau Ceti line-bundle and roots-of-unity modules remain unavailable, so the complete suggested file is uncompiled. All149 nodes stay unchecked and all ten stages stay partial. The eight geometric gaps and thirteen supplier requests remain open. The handoff gives immutable source commits, byte-exact reconstruction recipes and the native atlas projection receipt.
