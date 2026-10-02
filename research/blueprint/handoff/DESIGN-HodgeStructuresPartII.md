@@ -1,54 +1,48 @@
-# DESIGN-HodgeStructuresPartII: native naturality continuation
+# DESIGN-HodgeStructuresPartII: native scalar-extension checkpoint
 
-Codex — codex-5ebb6f; Refs #3371. Based on100d7c8b65c171b0838c09359d94f457819bea1d. Winning claim5959674718 was confirmed by bot5959679145; the complete issue was read before and after confirmation. This is a partial mathematical checkpoint. The [complete predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/100d7c8b65c171b0838c09359d94f457819bea1d/research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md) retains allscalar-extension,locality,rank-bound proofs/counterexamples and its14552 finite regressions. The [earlier native all-order handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/864ea53476713e7146208251f1dbff98e0fa69e6/research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md) retains its source receipts and exact all-order proof extraction. Those historical claims are inherited; neither full correspondence proofs nor the finite rank experiments were freshly rerun here.
+Codex — codex-rtOQ9t; Refs #3371. Base fe93910f0a75056cc4f868bae9a417ec1e4f685a. Claim5960295614 was confirmed by bot5960298932; the entire issue was read before and after the winning confirmation. Partial checkpoint: no roadmap stage or source-route obligation is claimed closed.
 
-## Work completed
+The [complete predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/fe93910f0a75056cc4f868bae9a417ec1e4f685a/research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md) preserves allprior naturality,scalar-extension/locality/rank-bound leads and their immutable evidence. The [earlier actual all-order handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/864ea53476713e7146208251f1dbff98e0fa69e6/research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md) preserves its exact extraction recipe. The all-order actual native fragment was recovered byte-for-byte here:SHA2560bdf51d8056063efdc38796d1f76b09f39b0bf88fc7fdd7a93988263c5d1ea99. The current standalone proof includes that actual fragment; it never replaces its carriers by assumed predicates.
 
-- Read all88 current node statements and hypotheses,all9 stage descriptions,complete latest handoff and reserved key-definition survey entry. Read the full upstream Hodge roadmap; the two nearby StableReduction/JacobianChallenge upstream documents were already fully read in this continuous session.
-- Freshly inspect allsix reviewed audit rows:parent HodgeL0,L1,L2,L3 plus E1 andD3,including accepted REV-AUDIT02/10/22 evidence; no dedicated PartII audit row exists. Read CR.1/E1/DD.1/D3 supplierstage contracts and relevant accepted RS04/RS05/RS18 ownership. Ordinary topos/sheaf foundations belong to DiamondsAndVStacks:D0 under RS05; enhanced tensor coherence remains E1. This affine continuation introduces no global carrier,stage edge or request. Existing global requests remain open.
-- Read complete selected Heuer arXivv3 Definition1.2(1)–(2) plus introduction and selected Stacks01CA tensor/universal-property/associativity passages,Lemmas17.16.1–5 with printed proof text. Selected sources only; no new source-route closure or journal/preprint collation.
-- Check exact pinned Mathlib PiTensorProduct map/map_tprod/map_comp/map_id/congr,multiplication,unit,singleton and degree-cast constructions and hypotheses. Reuse allgeneric carriers and functor laws. A bounded exact-pin native TauCeti search found no matching affineOrderedStep/Iterate or ordered/nilpotent Higgs declaration within that search scope; no broad absence claim.
-- Prove seven actual native affine lemmas:step and all-order naturality,monotonicity,surjective fixed-bound preservation,two-isomorphism same-bound reflection,and first/second-degree comparisons. Seven actual examples pass. Add exact statements,proof routes,promoted APIs,uses and tests to packet/reader/suggested file.
-- Preserve all88 old statements,86 whole node objects,122 inherited APIs,114 inherited tests,149 source-item obligations,five requests,eleven gaps,six planets and35 global signature omissions. Only step/iterate gain new APIs/uses; the iterate gains seven tests. Keep every node unchecked,H.0 partial,H.1–H.8 not_read.
+## Mathematical result
 
-## Mathematical scope and convention
+Extend the actual affine field with LinearMap.baseChange and the existing TensorProduct.AlgebraTensorModule.distribBaseChange. This construction works for arbitrary E,Q and every commutative R-algebra S. For any basis b of Q, compare extended coordinate contractions by native tensor induction and the existing basis coordinate formula. Compare each ordered word using Module.End.baseChangeHom and the noncommutative monoid-homomorphism list-product law. The order is retained; the empty product is the actual identity.
 
-The canonical field is theta:E→E tensor Q. The successor keeps E on the left and inserts the newest coefficient first in the ordered coefficient word. The predecessor mathematical handoff wrote Q tensor E; transporting those formulas requires a tensor flip and cannot identify carriers literally. Our native proofs use the canonical E-left definition verbatim.
+For a finite basis of Q, the native all-order coordinate criterion proves I_n(theta)=0 implies I_n(theta_S)=0 for every n, with no flatness assumption and arbitrary E. Under native Module.FaithfullyFlat R S, evaluate extended word maps at1 tensor e and use native one_tmul_eq_zero_iff to reflect every word and the identical bound. The coordinate/word comparisons allow an infinite basis index; only the vanishing criterion requires it finite.
 
-For an intertwining f:E→F,u:Q→P,n≥0,naturality says I_n(psi) composed with f=(f tensor T_n(u)) composed with I_n(theta). At degree zero both sides send e to f(e) tensor1_0; Fin0 elimination identifies the empty coefficient maps. For a successor,substitute the recursion and induction hypothesis,then the separately promoted step-naturality identity. The step proof performs native tensor induction; a pure coefficient word becomes (u(q),u(q1),…,u(qn)) in that order. No basis,rank or integrability is needed.
+The four new tests are the extended zero field at every positive degree, the scalar unit’s actual pure tensor formula, its nonzero iterates at every order over nontrivial S, and the nonzero integer field theta(e)=2e tensor1 that becomes zero over Z/2. The latter shows unconditional reflection fails; it makes no claim that this extension is flat. The inherited flat-nonfaithful projection example and14552 finite regressions were not rerun and remain linked historical evidence.
 
-If f is surjective,zero on the right forces I_n(psi)=0 by evaluating preimages. This proves preservation for arbitrary u at the same n. Reflection uses the injective actual TensorProduct.congr of f and PiTensorProduct.congr of the n copies of an isomorphism u. Both isomorphisms are explicit. Monotonicity writes m=n+d and uses the zero successor composition. It does not produce a uniform exponent on an infinite cover.
+All95 inherited IDs,mathematical statements,hypotheses,acceptance contracts,129 APIs and121 tests are retained.93 full node objects are unchanged. The native iterate gains two promoted APIs/uses; global pullback-nilpotence gains two affine prerequisites and a proof-route refinement, preserving its statement. Five new nodes comprise one construction and four consumed lemmas. Total100nodes,135API entries,125tests(123 required definition/construction tests),124baseline references,six planets,five requests,eleven gaps. Allstatuses remain unchecked; H.0partial,H.1–H.8not_read. Stage IDs/requires,roadmap definition,149 source obligations,source findings and35 global signature omissions are unchanged.
 
-For degree one the exact comparison map is id_E tensor the native inverse singleton equivalence Q≃Q^(tensor1). For degree two apply the existing tensor congruence of those two singleton equivalences,then native TensorPower.mulEquiv at(1,1). This comparison maps p tensor q to the word(p,q),so the earlier noncommuting E12/E21 square calculation keeps its order. The actual native tensor congruence gives the zero equivalences for degree one and degree two. No symmetric/exterior quotient is used.
+## Native proof reproduction
 
-Over Z/2,take the unit line field theta(e)=e tensor1,psi=0,f=id,u=0. The field equation intertwines,psi has zero first iterate,and theta does not. The Lean example proves this with native tensor equivalences. Thus invertible f alone cannot reflect a bound after an arbitrary coefficient map. This test also rules out a positive-characteristic coefficient-collapse shortcut.
+Immutable proof commit:dc25c5c1974994ba2e382998b82d187f9b027bd9. [Public source](https://github.com/CBirkbeck/tauceti-explorer/blob/dc25c5c1974994ba2e382998b82d187f9b027bd9/research/blueprint/suggested/HodgeStructuresPartII.lean). Source SHA-256:f922ee36944f958ba59913bf9bef72223e69b22de885590cc37c35beefe8ebb6; normalized axiom-diagnostics SHA-256:31bce2ebd5b7edcb52ff3b03df4417d953573be47f6d5bf29b56b18fb884241b. The archive comment contains a complete standalone607-line Mathlib source,18 actual examples and28 axiom audits. Zero errors,warnings or admissions. Every audit uses only propext,Classical.choice andQuot.sound. Lean4.34.0-rc2/Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174,runtime3.80seconds,maxRSS2991956KiB,63GiB available. TauCeti f790474821cf4256814db967cb154e7af3d0c369 remains the packet pin; no compiled TauCeti import is claimed.
 
-## Reproducible native evidence
-
-Immutable proof commit:ab19cc58e36f8fe16ff95e0258bb5dd308e2fb5f. [Public source](https://github.com/CBirkbeck/tauceti-explorer/blob/ab19cc58e36f8fe16ff95e0258bb5dd308e2fb5f/research/blueprint/suggested/HodgeStructuresPartII.lean). The archive is a block comment delimited by BEGIN/END ARCHIVED CHECKED HIGGS NATURALITY and contains a complete standalone Mathlib-only source. Extract it verbatim with the recipe below. Source SHA-256:98d24ca7657199269c93f26eaae69b83dfedcd777ea8b0f0a669e5bb437bacc8; compiler-log SHA-256:473915f1a9281af480b4599ff43db2ed51ab49d9423ca197eb7fd0dc15902caf. Public extraction was checked byte-for-byte against the compiled source; no replacement definitions or assumed predicates were injected.
-
-Allseven new lemma axiom audits contain only propext,Classical.choice andQuot.sound; zero errors,warnings or admissions,seven examples,twelve matching actual declaration headers. Lean4.34.0-rc2 with Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; runtime2.20seconds,maxRSS2154116KiB,65GiB available. TauCeti f790474821cf4256814db967cb154e7af3d0c369 remains the packet pin but no compiled TauCeti import is claimed.
-
-Run the extraction in a checkout containing that immutable commit,then use an already existing exact-pin Mathlib build. Check available memory≥20GiB first; one bounded process≤20minutes,no Lake setup/cache/library build/LSP.
+Extract in a checkout containing that commit. Use only an already existing exact-pin build, with at least20GiB available before one bounded process of at most20minutes. No project setup,cache download,library build or language server.
 
 ```python
 from pathlib import Path
 import hashlib,subprocess
-s = subprocess.check_output(["git","show",
-    "ab19cc58e36f8fe16ff95e0258bb5dd308e2fb5f:research/blueprint/suggested/HodgeStructuresPartII.lean"],text=True)
-p = s.split("BEGIN ARCHIVED CHECKED HIGGS NATURALITY\n",1)[1]\
-     .split("END ARCHIVED CHECKED HIGGS NATURALITY",1)[0]
-assert hashlib.sha256(p.encode()).hexdigest()=="98d24ca7657199269c93f26eaae69b83dfedcd777ea8b0f0a669e5bb437bacc8"
-Path("higgs-naturality.lean").write_text(p)
+s=subprocess.check_output(["git","show",
+    "dc25c5c1974994ba2e382998b82d187f9b027bd9:research/blueprint/suggested/HodgeStructuresPartII.lean"],text=True)
+p=s.split("BEGIN ARCHIVED CHECKED HIGGS SCALAR EXTENSION\n",1)[1].split("END ARCHIVED CHECKED HIGGS SCALAR EXTENSION",1)[0]
+assert hashlib.sha256(p.encode()).hexdigest()=="f922ee36944f958ba59913bf9bef72223e69b22de885590cc37c35beefe8ebb6"
+Path("higgs-scalar-extension.lean").write_text(p)
 ```
 
-The final canonical file removes the archive comment and keeps allnew theorem and example bodies admitted under protocol13. Entire exact source SHA-256:87dd584cbe55a71d10bf049f6839f87a83e04c1d73b81b334a685b079b4cfb2b; log SHA-256:a0bff331fa557021ea49a37df2737387a4bf6417dbeeb2a76f629e7640e01a5e. It has80 examples and elaborates with zero errors,198 admitted-declaration warnings and no other warnings. Runtime4.70seconds,maxRSS2933908KiB,65GiB available. This checks types,not implementation or the35 omitted global signatures. Earlier historical receipts apply to their recorded hashes only.
+The final suggested file removes the archive comment and retains admitted planning bodies. Its exact fresh compilation receipt follows below. Header comparison verifies all28 native declaration types against the canonical file, including actual inherited all-order carriers; the four new example types also match. Native proof success does not implement any node or supply an omitted global signature.
 
-## Sources and checks
+## Source and ownership audit
 
-[Heuer arXivv3 HTML](https://arxiv.org/html/2307.01303v3),Definition1.2(1)–(2)/intro selected; downloaded SHA-256:ec7742d917b413a52d05e5eeffbab9fdaab3bed13412dc2c9e426ffb8bcb8081. [Stacks01CA](https://stacks.math.columbia.edu/tag/01CA),selected Section17.16 tensor passages; SHA-256:825127394e5828c3a56f5134b8823afba20547d7ba5173f624b2f9556a058e34. These motivate the field/morphism/tensor interfaces. The seven lemmas are authored affine deductions,not source-attributed correspondence results. Fresh source reading does not discharge source-route obligations.
+Freshly read all95 inherited node statements and18 distinct hypothesis groups,allnine own stage descriptions,the full upstream HodgeStructures README,and the complete current/earlier all-order handoffs. StableReduction andJacobianChallenge upstream documents were fully read earlier in this continuous session. Freshly read the six reviewed parentL0–L3/E1/D3 audit rows,currentCR.1/E1/DD.1/D3 supplier stage contracts,and the full reserved key-definition survey entry. The native scalar-extension/basis/faithful-flat declarations and ambient hypotheses are read at the exact pin and matched to the index;14 new baseline entries import these objects rather than duplicating E1 foundations. Bounded TauCeti Geometry/LinearAlgebra/Algebra searches found no native ordered-Higgs implementation; this is not a universal absence claim.
 
-Indexed packet checker:zero errors/warnings. Five-file intake,whitespace,preservation and exact type-header comparisons pass. The actual read-only atlas assembler accepts the candidate as promotion inputs:95 declarations andsix planets,no own skipped/pending links. Stage graph3022vertices/8663edges,own prerequisite DAG95/179,stage plus scoped reachable prerequisite DAG3112/8880,96 reachable declarations,51 existing virtual endpoints; allacyclic andzero unresolved references. Stage edges are unchanged from the same assembler run with the predecessor packet. No extra node-to-realises attachment is added and no atlas/site output is written. The graph recipe below uses the repository's actual assembler and input overlay; it is not a replacement graph builder. For the predecessor-edge comparison,save the packet from the base commit and pass its filename as the script's sole argument. Graph-recipe SHA-256:5a46304116f10354d329e9be99f8a194d5b697da439602b511696642ed3d32d5.
+Fresh primary reading: [Heuer arXivv3](https://arxiv.org/html/2307.01303v3),Definition1.2(1)–(2) and selected introductory setup; [Stacks00H9](https://stacks.math.columbia.edu/tag/00H9),Definition10.39.1 and the complete Lemma10.39.14 statement/proof. The new Higgs-specific algebra is an authored deduction. No correspondence proof,entire paper,full149-item inventory or historical experiments are described as freshly completed.
+
+## Actual atlas assembly
+
+The recipe below runs the repository’s actual assembler read-only with this candidate injected as promotion inputs. It writes no site/atlas output and invents no node-to-realises edges. Pass the base packet,obtained by git show of the base commit,as its sole argument to compare stage edges and other roadmaps’ skipped/pending links. The world’s existing virtual supplier endpoints are distinguished from unresolved references.
+
+Graph recipe SHA-256:b6785083c8ef302315e4282c47d841a0f254ea0129108d99cf32dc36ef76eb81.
 
 ```python
 """Read-only actual atlas assembly with the candidate injected as promotion inputs."""
@@ -113,7 +107,7 @@ assert roadmap['blueprint']['declarations']==len(own)
 assert roadmap['blueprint']['planets']==6
 assert not roadmap['blueprint']['skippedLinks'],roadmap['blueprint']['skippedLinks']
 assert not roadmap['pendingLinks'],roadmap['pendingLinks']
-report['actualBlueprint']=roadmap['blueprint']
+report['actualBlueprint']={k:roadmap['blueprint'][k] for k in ['declarations','planets','kinds','skippedLinks']}
 # The original packet is used as a second promotion input to check projection preservation.
 p0=json.loads(sys.argv[1] and Path(sys.argv[1]).read_text()) if len(sys.argv)>1 else p
 r0=copy.deepcopy(r)
@@ -123,15 +117,19 @@ b,*_=build.assemble(require_distances=False)
 bedges={(e['source'],e['target']) for e in b['stageEdges']}
 assert stageedges==bedges
 report['stageEdgesUnchanged']=True
+control={x['id']:(x.get('blueprint',{}).get('skippedLinks',[]),x.get('pendingLinks',[])) for x in a['roadmaps'] if x['id']!=rid}
+control0={x['id']:(x.get('blueprint',{}).get('skippedLinks',[]),x.get('pendingLinks',[])) for x in b['roadmaps'] if x['id']!=rid}
+assert control==control0
+report['otherRoadmapSkippedPendingLinksUnchanged']=True
 print(json.dumps(report,ensure_ascii=False,indent=2))
 ```
 
 ## Resume work
 
-1. Supply the actual cross-ring scalar-extension comparison with scalar-tower/tensor associativity maps. Preservation keeps the same exponent without flatness;reflection needs faithful zero detection. An R-linear coefficient map is not this scalar-extension functor. Retain the predecessor flat nonfaithful projection counterexample.
-2. Construct the Higgs-specific sheaf tensor-power compatibility by importing exact generic ordinary/enhanced supplier contracts. Prove restriction naturality and fixed-bound equality detection/gluing;locally varying bounds need an explicit finite subcover/maximum or suitable rank/reducedness assumptions. Do not replace a sheaf tensor by a tensor of global sections or assume a uniform bound on a disjoint unbounded-rank family.
-3. Turn the predecessor field and reduced-scheme rank proofs into native canonical plans only after checking allfibre/local-free/coefficient-module hypotheses. Nonreduced rank-one and coherent non-locally-free coefficient counterexamples stay explicit;nilpotence kernels need not be subbundles.
-4. Resume the augmentation same-exponent bridge with the actual source ideal and noncommutative End target;do not infer geometric nilpotence from a symmetric projection. Use an existing exact compiled TauCeti import set if available;never build it for this job.
-5. Supply coefficient/Tate equivariance,CR.1 ordinary-connection comparison,DD.1 filtered period-lattice/Rees inputs,global determinant/exterior-power/descent and the remaining149 source-route inventory. Source-decompose H.1–H.8 before changing their status.
+The affine scalar-extension and fixed-bound result is now in the canonical plan. Next establish finite-projective coefficient chart restriction and actual sheaf morphism equality detection/gluing with E1; do not mistake this finite-basis proof for arbitrary-Q tensor-power coherence or global descent. The original global pullback theorem also needs its following coefficient-map and exterior-integrability comparisons. Preserve the original source/hypothesis contracts. Field/reduced-ring rank bounds,kernel/image-algebra base-change restrictions,global determinant descent,period/Tate equivariance and the unbounded Liu–Zhu filtered-coefficient adapter remain open. All149 routed obligations and35 global omissions remain binding. H.1–H.8 require their full primary source decomposition.
 
-Scratch is deleted when the PR opens. The complete immutable native source,extraction hash,public predecessor handoffs and graph recipe above preserve the reviewable work.
+## Exact final checks
+
+The entire exact final Mathlib-only suggested file elaborates:84examples,zero errors,209admitted-declaration warnings andzero other warnings. Source SHA-256:ab7b037d990ebfd7e39d242e8819ab8aaaece15e07adf3c171c64893d18e3bc3; normalized diagnostics SHA-256:c0699f5d698b2734b1774f886f1f3da335303bf55ba8d276acfbde43c41237d0. Runtime5.00seconds,maxRSS2960448KiB,61GiB available beforehand. Normalize the source filename to suggested/HodgeStructuresPartII.lean and omit the final elapsed/maxRSS line when hashing the diagnostics. Allplanning bodies remain admitted.
+
+Indexed packet checker:zero errors/warnings. Actual atlas assembly:stage graph3022vertices/8663edges; own prerequisite graph100/189; stage plus reachable prerequisite graph3117/8890;101reachable declarations,51existing virtual supplier endpoints,zero unresolved references. Allacyclic; no own skipped/pending links; stage edges and other roadmaps skipped/pending links unchanged from the base control. No site output is written. Five-file intake,JSON validity,statement/hypothesis/API/test preservation,exact public archive extraction,all28 declaration headers,four new example types andwhitespace pass. Only the packet,reader,suggested file andhandoff change; roadmap definition stays byte-identical. Scratch is deleted after the PR opens; allreproduction inputs are durable in tracked files/history. No owned background process remains.
