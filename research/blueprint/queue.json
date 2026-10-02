@@ -10288,7 +10288,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-StableReductionPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3342"
   },
   {
    "id": "REV-DESIGN-StableReductionPartII",
@@ -13128,7 +13129,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-FunctionFieldArithmeticPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3403"
   },
   {
    "id": "REV-DESIGN-FunctionFieldArithmeticPartII",
@@ -23659,12 +23661,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -39984,8 +39986,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GAN-SAVIN-23-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5698"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5698",
+   "finishedAt": "2026-10-02T09:30:00Z"
   },
   {
    "id": "RT-PAPER-CHANG-CHEN-MISHIBA-23",
@@ -47507,8 +47510,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5711"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5711",
+   "finishedAt": "2026-10-02T09:30:04Z"
   },
   {
    "id": "REV-FIX-RT-RS-21",
