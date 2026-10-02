@@ -4,7 +4,7 @@ Genus-one fibrations, Ferrand pinching and rational elliptic surfaces
 
 This continuation supplies the genus-one and rational-Jacobian mathematics routed from Schröer’s paper. It begins with reusable finite pinching, passes through regular models and finite-field fiber descent, constructs global Weierstrass equations, and separates the fourteen explicit characteristic-two candidates from their exhaustiveness theorem. Its general definition of Ferrand pushouts is also needed by Witaszek’s conductor and line-bundle descent. The reserved owner is `NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts`.
 
-**Status: partial design.** Codex `codex-5ebb6f`, Refs #3378. The packet has 163 declarations: 13 definitions, 5 constructions, 114 lemmas, 26 theorems and 5 comparisons; 72 API entries, 70 definition/construction test entries,29 planets,110 baseline declarations,17 gaps and23 requests. All158 inherited IDs/statements,78 routed items and21 source findings remain. Five specialized coordinate/Basis nodes complete the native vector-space basis, coefficient reconstruction and degree interface for the existing quadratic generation claim. Nine distinct new typed examples and a separate proof prototype are checked. The bivariate presentation and geometric normalization remain open. The full suggested file is uncompiled; its exact Mathlib-only extraction is checked. All statuses remain unchecked and all seven stages remain partial.
+**Status: partial design.** Codex `codex-J6LwjP`, Refs #3378. The packet has182 declarations:13 definitions,9 constructions,129 lemmas,26 theorems and5 comparisons;85 API entries,83 definition/construction test entries,29 planets,136 baseline declarations,17 gaps and23 requests. All163 inherited statements,162 whole node objects,78 routed items and21 source findings remain. Nineteen specialized nodes supply the actual full affine substitution kernel, range and canonical quotient algebra comparison. Thirteen new typed examples and the actual proof prototype are checked, without restrictions on characteristic or separability. The full suggested file is uncompiled; its exact Mathlib-only extraction elaborates. All implementation statuses remain unchecked and all seven stages remain partial. Earlier continuation receipts below retain their original attribution; the final presentation receipt supersedes their kernel/quotient omission only.
 
 ## Conventions and boundaries
 
@@ -4214,9 +4214,9 @@ For q=t²+at+b, the substitution ψ:k[U,V]→k[t], U↦q,V↦tq, has image A_q a
 
 4. Use the native first-isomorphism theorem with the identified kernel; do not infer injectivity merely from checking F maps to zero.
 
-5. The complete native kernel proof still requires explicit bivariate-to-univariate transport, monic division in V and first-isomorphism compatibility; no image/range equality or complete kernel theorem is certified by the new helper alone.
+5. The presentation continuation below supplies the explicit bivariate-to-univariate transport, monic division, full kernel/range proofs and canonical first-isomorphism compatibility, with a separately checked native prototype. Geometric comparisons remain open.
 
-Current prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-relation`, `SchemeAndStackFoundations:SF.0`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normal-form-injective`.
+Current prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-range`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-kernel`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-quotient-equivalence`.
 
 ### Additional polynomial API and unit tests
 
@@ -4366,3 +4366,424 @@ The statement and ID of `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quad
 Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The complete bivariate presentation kernel/quotient comparison, finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. A k[q]-module instance/freeness interface is not constructed. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked.
 
 New pinned baseline statements: `mathlib:Polynomial.basisMonomials`, `mathlib:Polynomial.coe_basisMonomials`, `mathlib:Module.Basis.prod`, `mathlib:Module.Basis.prod_apply`, `mathlib:Module.Basis.prod_repr_inl`, `mathlib:Module.Basis.prod_repr_inr`, `mathlib:Module.Basis.map`, `mathlib:Module.Basis.linearCombination_repr`, `mathlib:LinearEquiv.ofBijective`, `mathlib:LinearEquiv.ofBijective_apply`, `mathlib:Polynomial.natDegree_pow`, `mathlib:Polynomial.aeval`. Each was read at the exact pin. The source reading is limited to the v3 HTML conductor paragraphs and displayed Prop3.1–3.2 proofs, plus the Stacks0ECH scheme-existence scope/Prop37.67.3 proof; no fresh PDF rendering, whole-paper collation or finite-field model certificate rerun is claimed. All inherited source findings, requests, routes, planets and the general reserved Ferrand owner remain unchanged.
+
+
+## Quadratic affine presentation — codex-J6LwjP
+
+Work over any field k, q=t²+at+b and the existing native Subalgebra A_q⊂k[t]. Put F=V²+aUV+bU²−U³. Every new construction below uses an existing polynomial, ideal or algebra-map carrier. The coordinate chart is a convention adapter on these carriers. It does not re-plan general multivariable polynomials or general quotient algebras.
+
+The key proof is native monic division in V over k[U]. The exact transported remainder has the form P(U)+VQ(U); under substitution it is P(q)+tqQ(q). The inherited injectivity theorem at quadratic degree2 forces P=Q=0 when the image vanishes. Pull divisibility back through the native coordinate equivalence. This proves the entire kernel, rather than only membership of the displayed relation.
+
+### G.1/quadratic-pinch-v-chart — V-coordinate chart for the pinching equation
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-chart`; construction; `QuadraticPinch.inV`.
+
+Use the existing native algebra equivalences to construct e:k[U,V]≅k[U][V] with e(U)=C(U) and e(V)=V. Swap the two Fin2 indices before finSuccEquiv, then map the native one-variable coefficient equivalence. This is a coordinate-convention adapter on existing carriers, not a new general polynomial construction.
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. Compose the native rename, successor-variable and coefficient-map equivalences. Their existing inverse laws give the algebra equivalence.
+2. The explicit swap is essential because finSuccEquiv chooses index0 as the outer variable, while this chart requires index1 outside.
+
+Prerequisites: `mathlib:MvPolynomial.renameEquiv`, `mathlib:MvPolynomial.finSuccEquiv`, `mathlib:MvPolynomial.uniqueAlgEquiv`, `mathlib:Polynomial.mapAlgEquiv`.
+
+Consumer API:
+
+- `QuadraticPinch.inV_U` (simp): Coordinate0 maps to the constant coefficient polynomial U.
+- `QuadraticPinch.inV_V` (simp): Coordinate1 maps to the outer variable V.
+- `QuadraticPinch.inV_relation` (compatibility): The existing relation F maps to V²+C(aU)V+C(bU²−U³).
+
+Typed tests:
+
+- `QuadraticPinch.inV.test_cusp` (computation): At a=b=0 the transported equation is V²−C(U³).
+- `QuadraticPinch.inV.test_char2_cross_term` (boundary): Over F₂ at a=b=1, the coefficient of U in the V coefficient is1; the UV term survives.
+- `QuadraticPinch.inV.test_orientation` (non-example): The transported U and V are distinct: their outer V coefficients are0 and1. This rejects reversing the chosen variable order.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation: Supplies the actual affine full-kernel/range/quotient comparison for the existing quadratic pinching chart; its repeated-root and characteristic-two forms retain the same source ideal. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Makes the hypersurface/normal-form algebra comparison available to the distinct finite normalization and fraction-field interfaces; it does not prove those interfaces.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-v-chart-u — First coordinate is a coefficient
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-chart-u`; lemma; `QuadraticPinch.inV_U`.
+
+The V-coordinate chart sends U to C(U), not to the outer variable V.
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. Apply native rename to the swapped index, the successor-variable formula and the single-variable coefficient equivalence.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-chart`, `mathlib:MvPolynomial.rename_X`, `mathlib:MvPolynomial.finSuccEquiv_X_succ`, `mathlib:MvPolynomial.uniqueAlgEquiv`.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-v-chart-v — Second coordinate is the outer variable
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-chart-v`; lemma; `QuadraticPinch.inV_V`.
+
+The V-coordinate chart sends V to the outer polynomial variable V.
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. The swapped index is0; native finSuccEquiv maps it to the outer variable and coefficient transport preserves that variable.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-chart`, `mathlib:MvPolynomial.rename_X`, `mathlib:MvPolynomial.finSuccEquiv_X_zero`.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-v-chart-relation — Transport the complete pinching relation
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-chart-relation`; lemma; `QuadraticPinch.inV_relation`.
+
+For all a,b, e(F_(a,b))=V²+C(aU)V+C(bU²−U³) in the actual polynomial ring k[U][V].
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. Apply the algebra-homomorphism sum/product/power and scalar laws, use the two promoted coordinate formulas, and collect the coefficient polynomial. Retain the cubic term and the UV coefficient.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-chart-u`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-chart-v`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-relation`.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-substitution — Quadratic pinch substitution
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution`; construction; `QuadraticPinch.substitution`.
+
+Define ψ_(a,b):k[U,V]→k[t] as the native algebra evaluation at U=q and V=tq, where q=t²+at+b. This uses the existing multivariable evaluation homomorphism.
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. Instantiate the native algebra evaluation at the actual two-element polynomial tuple; its generic algebra laws are imported.
+
+Prerequisites: `mathlib:MvPolynomial.aeval`.
+
+Consumer API:
+
+- `QuadraticPinch.substitution_relation` (relation): ψ(F)=0.
+- `QuadraticPinch.substitution_inV` (compatibility): ψ equals coefficient evaluation U↦q followed by outer-variable evaluation V↦tq under the chosen V chart.
+- `QuadraticPinch.substitution_range` (characterisation): The actual algebra-homomorphism range is the existing A_q.
+- `QuadraticPinch.substitution_ker` (characterisation): The entire native kernel ideal is the principal ideal generated by F.
+
+Typed tests:
+
+- `QuadraticPinch.substitution.test_zero` (degenerate): The actual substitution sends the zero polynomial to0 for all parameters.
+- `QuadraticPinch.substitution.test_char2_generators` (computation): Over F₂ at a=b=1, U maps to t²+t+1 and V to t(t²+t+1).
+- `QuadraticPinch.substitution.test_cubic_essential` (non-example): At a=b=0 the image of V² is nonzero t⁶. Killing V² alone or dropping U³ changes the kernel.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation: Supplies the actual affine full-kernel/range/quotient comparison for the existing quadratic pinching chart; its repeated-root and characteristic-two forms retain the same source ideal. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Makes the hypersurface/normal-form algebra comparison available to the distinct finite normalization and fraction-field interfaces; it does not prove those interfaces.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-substitution-relation — The pinching relation vanishes
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-relation`; lemma; `QuadraticPinch.substitution_relation`.
+
+For all a,b, ψ_(a,b)(F_(a,b))=0.
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. Evaluate the complete relation at q,tq and use q=t²+at+b. Commutative polynomial ring arithmetic proves the equality. This alone does not identify the full kernel.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-relation`.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-substitution-chart — Substitution agrees with the V chart
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-chart`; lemma; `QuadraticPinch.substitution_inV`.
+
+For every f∈k[U,V], ψ(f)=eval₂(aeval_q,tq)(e(f)) in k[t]. The coefficient homomorphism evaluates U at q and the outer variable at tq.
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. Build the native iterated-polynomial evaluation algebra homomorphism; all elements commute in k[t].
+2. Compare the two algebra homomorphisms on U and V using their promoted chart formulas, then use native multivariable algebra extensionality.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-chart-u`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-chart-v`, `mathlib:Polynomial.eval₂AlgHom`, `mathlib:MvPolynomial.algHom_ext`, `mathlib:Polynomial.eval₂_C`, `mathlib:Polynomial.eval₂_X`.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-v-relation-monic — The transported relation is monic in V
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-relation-monic`; lemma; `QuadraticPinch.inV_relation_monic`.
+
+For every a,b, the native polynomial e(F_(a,b)) is monic as a polynomial in V over k[U].
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. The displayed leading term is V²; both other terms have lower outer degree. Native polynomial monicity automation verifies its leading coefficient1 without inverting any scalar.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-chart-relation`.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-v-relation-degree — Exact V-degree of the transported relation
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-relation-degree`; lemma; `QuadraticPinch.inV_relation_natDegree`.
+
+For every a,b, e(F_(a,b)) has native natural V-degree2, including characteristic2 and a=b=0.
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. Native degree automation compares the monic V² leading term with the degree-at-most1 remainder.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-chart-relation`.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-v-remainder — Monic division leaves two polynomial coefficients
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-remainder`; lemma; `QuadraticPinch.inV_remainder_normal_form`.
+
+For every H∈k[U][V], division by e(F) leaves a remainder C(P)+V C(Q) for some actual P,Q∈k[U]. This includes the zero remainder.
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. The monic relation has degree2 and is not1. Native monic division gives natural remainder degree<2 even for a zero remainder.
+2. Choose the native zeroth and first remainder coefficients. The existing degree-at-most1 formula reconstructs the exact remainder as C(P)+VC(Q).
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-relation-monic`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-relation-degree`, `mathlib:Polynomial.natDegree_modByMonic_lt`, `mathlib:Polynomial.eq_X_add_C_of_natDegree_le_one`.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-quadratic-degree — Exact degree of the parameter quadratic
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-quadratic-degree`; lemma; `QuadraticPinch.quadratic_natDegree`.
+
+For every field k and a,b∈k, t²+at+b has native natural degree2. This promotes the already planned coordinate-map API consumed by the full-kernel proof.
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. Unfold the explicit polynomial and use native degree automation; its leading coefficient is1. The coordinate-map construction does not depend on this promoted lemma, so there is no cycle.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinate-map`.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-kernel-divisibility — Zero substitution is exactly relation divisibility
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-kernel-divisibility`; lemma; `QuadraticPinch.substitution_eq_zero_iff_dvd`.
+
+For every f∈k[U,V], ψ(f)=0 iff F_(a,b) divides f in the actual multivariable polynomial ring. No separability or characteristic restriction is used.
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. Apply the native monic division decomposition to e(f). Since ψ(f)=0 and ψ(F)=0, the iterated evaluation of its remainder is0.
+2. Write that exact remainder C(P)+VC(Q). The promoted chart comparison makes its image P(q)+tqQ(q). The inherited pinch-normal-form injectivity at the exact degree2 quadratic forces P=Q=0.
+3. Native remainder-zero iff divisibility yields e(F)∣e(f). Pull the divisor witness back through the native algebra-equivalence inverse to get F∣f.
+4. Conversely a multiple of F evaluates to0 by the native algebra multiplication law.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-chart`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-relation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-remainder`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-v-relation-monic`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-quadratic-degree`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normal-form-injective`, `mathlib:Polynomial.modByMonic_add_div`, `mathlib:Polynomial.modByMonic_eq_zero_iff_dvd`, `mathlib:Polynomial.eval₂_add`, `mathlib:Polynomial.eval₂_mul`, `mathlib:Polynomial.eval₂_C`, `mathlib:Polynomial.eval₂_X`, `mathlib:Polynomial.comp_eq_aeval`.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-substitution-range — Full range of the quadratic substitution
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-range`; lemma; `QuadraticPinch.substitution_range`.
+
+For all a,b, the actual range Subalgebra of ψ_(a,b) is A_q.
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. Native multivariable evaluation has range the algebra generated by its value tuple.
+2. The native two-element tuple has range {q,tq}; use the inherited exact generation theorem to identify this with A_q.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation`, `mathlib:MvPolynomial.aeval_range`, `mathlib:Matrix.range_cons_cons_empty`.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-substitution-kernel — Entire relation kernel ideal
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-kernel`; lemma; `QuadraticPinch.substitution_ker`.
+
+For all a,b, ker(ψ_(a,b))=Ideal.span{F_(a,b)} in k[U,V].
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. Use native ideal extensionality, kernel membership and membership in a principal ideal. The exact zero/divisibility equivalence supplies both directions; checking only F∈ker would not suffice.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-kernel-divisibility`, `mathlib:RingHom.mem_ker`, `mathlib:Ideal.mem_span_singleton`.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-substitution-to-algebra — Substitution into the actual pinch algebra
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-to-algebra`; construction; `QuadraticPinch.substitutionToAlgebra`.
+
+Restrict ψ_(a,b) to a native k-algebra homomorphism ψ_A:k[U,V]→A_q using the proven exact range. The target is the existing Subalgebra, not an abstract replacement.
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. Every substitution value belongs to its native range=A_q; use native algebra codomain restriction.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-range`, `mathlib:AlgHom.codRestrict`.
+
+Consumer API:
+
+- `QuadraticPinch.substitutionToAlgebra_coe` (coercion): The ambient polynomial of ψ_A(f) is exactly ψ(f).
+- `QuadraticPinch.substitutionToAlgebra_surjective` (characterisation): ψ_A is surjective onto the actual A_q.
+- `QuadraticPinch.substitutionToAlgebra_ker` (compatibility): The restricted map has exactly the same principal relation kernel.
+
+Typed tests:
+
+- `QuadraticPinch.substitutionToAlgebra.test_zero` (degenerate): The restricted substitution sends0 to0 for any parameters.
+- `QuadraticPinch.substitutionToAlgebra.test_inseparable_cubic` (boundary): Over F₂ at q=t², its actual image of V is t³, including the inseparable/repeated-root case.
+- `QuadraticPinch.substitutionToAlgebra.test_scalar` (compatibility): Every scalar C(c) maps to that same constant in the existing subalgebra.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation: Supplies the actual affine full-kernel/range/quotient comparison for the existing quadratic pinching chart; its repeated-root and characteristic-two forms retain the same source ideal. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Makes the hypersurface/normal-form algebra comparison available to the distinct finite normalization and fraction-field interfaces; it does not prove those interfaces.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-substitution-coercion — Ambient value of restricted substitution
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-coercion`; lemma; `QuadraticPinch.substitutionToAlgebra_coe`.
+
+For every f, the inclusion of ψ_A(f) in k[t] is ψ(f).
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. This is the defining native codomain-restriction coercion, promoted for quotient-map evaluation.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-to-algebra`, `mathlib:AlgHom.coe_codRestrict`.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-substitution-surjective — Every pinch polynomial has a substitution preimage
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-surjective`; lemma; `QuadraticPinch.substitutionToAlgebra_surjective`.
+
+For all a,b the actual ψ_A:k[U,V]→A_q is surjective.
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. Each actual f∈A_q belongs to the proven range, so take its multivariable preimage. Equality in the subalgebra follows by native subtype extensionality.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-to-algebra`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-range`.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-restricted-kernel — Restricted substitution keeps the relation kernel
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-restricted-kernel`; lemma; `QuadraticPinch.substitutionToAlgebra_ker`.
+
+The native kernel of ψ_A is the principal ideal generated by F_(a,b).
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. Equality to0 in the actual Subalgebra is equivalent to equality to0 after its native inclusion in k[t]. Apply the full ambient kernel theorem by native ideal extensionality.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-to-algebra`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-kernel`, `mathlib:RingHom.mem_ker`.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### G.1/quadratic-pinch-quotient-equivalence — Canonical hypersurface algebra isomorphism
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-quotient-equivalence`; construction; `QuadraticPinch.presentationEquiv`.
+
+For every field k and a,b∈k, construct the actual k-algebra equivalence k[U,V]/Ideal.span{F_(a,b)}≅A_q induced by U↦q,V↦tq. It preserves the given inclusion into k[t] and remains valid for split, repeated-root and inseparable quadratics.
+
+Hypotheses: k is any field; a,b∈k; q=t²+at+b and A_q is the already owned scalar-preimage Subalgebra of k[t]. No perfectness, separability, irreducibility or characteristic assumption is imposed. Use native MvPolynomial(Fin2,k), Polynomial(k[U]), native ideals/quotients and algebra maps. Coordinate0 is U=q,coordinate1 is V=tq. The transport places V in the outer polynomial variable and U in its coefficient ring. No projective completion or node/cohomology property is asserted.
+
+Proof outline:
+
+1. Identify the source principal ideal with the actual kernel of the restricted map. Transport along native equal-ideal quotient equivalence.
+2. Apply the native algebra first-isomorphism theorem to the proved surjective map into A_q, then compose. The resulting map is an algebra equivalence, not merely a vector-space bijection.
+3. Its native quotient-class formula sends every class[f] to ψ_A(f); the inverse and generator equations follow from the actual equivalence laws.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-restricted-kernel`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-surjective`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-coercion`, `mathlib:Ideal.quotientEquivAlgOfEq`, `mathlib:Ideal.quotientEquivAlgOfEq_mk`, `mathlib:Ideal.quotientKerAlgEquivOfSurjective`, `mathlib:Ideal.quotientKerAlgEquivOfSurjective_mk`.
+
+Consumer API:
+
+- `QuadraticPinch.presentationEquiv_mk` (characterisation): For every representative f, the ambient polynomial of the quotient equivalence on[f] is ψ(f).
+- `QuadraticPinch.presentationEquiv_symm_substitution` (characterisation): The inverse sends ψ_A(f) to the exact native quotient class[f].
+- `QuadraticPinch.presentationEquiv_generators` (simp): The native classes[U] and[V] map to q and tq, respectively.
+
+Typed tests:
+
+- `QuadraticPinch.presentationEquiv.test_zero` (degenerate): The actual quotient algebra equivalence sends0 to0.
+- `QuadraticPinch.presentationEquiv.test_cusp_product` (computation): At q=t², the actual image of[V]² is t⁶. This checks multiplicative compatibility in the quotient.
+- `QuadraticPinch.presentationEquiv.test_nonzero_unit_coordinate` (non-example): At q=t² the class[U] is nonzero. The kernel is not the maximal ideal (U,V).
+- `QuadraticPinch.presentationEquiv.test_char2_inseparable` (boundary): Over F₂ at q=t², the inverse of ψ_A(V²) is exactly the native class[U³], using the source principal relation ideal.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation: Supplies the actual affine full-kernel/range/quotient comparison for the existing quadratic pinching chart; its repeated-root and characteristic-two forms retain the same source ideal. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Makes the hypersurface/normal-form algebra comparison available to the distinct finite normalization and fraction-field interfaces; it does not prove those interfaces.
+
+Source: [Schröer v3 §3](https://arxiv.org/html/2004.07025v3), conductor paragraphs preceding Prop3.1–3.2. This algebraic adapter is an authored deduction from the inherited normal forms and the named pinned library interfaces, rather than a printed source theorem.
+
+### Exact library reuse
+
+The following26 complete pinned declarations and their relevant ambient hypotheses were read for this continuation. Other inherited audit receipts keep their attribution.
+
+| Pinned Mathlib declaration | Exact contribution |
+| --- | --- |
+| `mathlib:AlgHom.codRestrict` | Given an algebra homomorphism and proof all its values lie in a specified Subalgebra, constructs the native algebra homomorphism into that same subalgebra. |
+| `mathlib:AlgHom.coe_codRestrict` | For codomain restriction, the underlying ambient value is the original algebra homomorphism value. |
+| `mathlib:Ideal.mem_span_singleton` | In a commutative semiring, membership in the ideal generated by a single element is exactly divisibility by that element. |
+| `mathlib:Ideal.quotientEquivAlgOfEq` | Equality of native ideals gives the canonical algebra equivalence between their quotients, preserving representative classes. |
+| `mathlib:Ideal.quotientEquivAlgOfEq_mk` | The ideal-equality quotient equivalence sends the class of a representative to the class of that same representative. |
+| `mathlib:Ideal.quotientKerAlgEquivOfSurjective` | A surjective algebra homomorphism induces the canonical native algebra equivalence from its kernel quotient to its target; applied here to the actual A_q. |
+| `mathlib:Ideal.quotientKerAlgEquivOfSurjective_mk` | The surjective kernel-quotient equivalence maps the quotient class of f to the given algebra homomorphism applied to f. |
+| `mathlib:Matrix.range_cons_cons_empty` | The range of an actual two-element vector ![x,y] is the set {x,y}. |
+| `mathlib:MvPolynomial.aeval_range` | The range of native multivariable algebra evaluation is the subalgebra generated by the range of its assignment of variables. |
+| `mathlib:MvPolynomial.algHom_ext` | Two algebra homomorphisms from the native multivariable polynomial algebra agree when their values on every variable agree. |
+| `mathlib:MvPolynomial.finSuccEquiv` | Native algebra equivalence between polynomials in Fin(n+1) variables and polynomials over the Fin(n)-variable coefficient algebra; index0 is the outer variable. |
+| `mathlib:MvPolynomial.finSuccEquiv_X_succ` | The successor-index variable becomes the constant coefficient polynomial of the corresponding coefficient-algebra variable. |
+| `mathlib:MvPolynomial.finSuccEquiv_X_zero` | Index0 becomes the outer polynomial variable under the native successor-variable equivalence. |
+| `mathlib:MvPolynomial.renameEquiv` | Renaming variables by an equivalence gives an algebra equivalence, used here only to swap the two existing coordinates. |
+| `mathlib:MvPolynomial.rename_X` | Renaming maps X_i to the variable indexed by the renamed i. |
+| `mathlib:MvPolynomial.uniqueAlgEquiv` | For a unique variable type, the existing multivariable algebra is algebra-equivalent to the ordinary polynomial algebra. |
+| `mathlib:Polynomial.eq_X_add_C_of_natDegree_le_one` | Any native polynomial of natural degree at most1 equals C(coeff1)*X+C(coeff0), including the zero polynomial. |
+| `mathlib:Polynomial.eval₂AlgHom` | Constructs iterated polynomial evaluation as an algebra homomorphism from a coefficient algebra map and an element commuting with all its coefficient images. |
+| `mathlib:Polynomial.eval₂_C` | Iterated polynomial evaluation of a constant coefficient polynomial is its image under the coefficient homomorphism. |
+| `mathlib:Polynomial.eval₂_X` | Iterated polynomial evaluation maps the outer variable to its supplied value. |
+| `mathlib:Polynomial.eval₂_add` | Iterated evaluation preserves polynomial addition. |
+| `mathlib:Polynomial.eval₂_mul` | Iterated evaluation preserves polynomial multiplication in the commutative target used here. |
+| `mathlib:Polynomial.mapAlgEquiv` | An algebra equivalence on coefficients induces the native algebra equivalence on polynomial rings. |
+| `mathlib:Polynomial.modByMonic_add_div` | For a monic divisor, the native remainder plus divisor times native quotient reconstructs the original polynomial. |
+| `mathlib:Polynomial.natDegree_modByMonic_lt` | For a monic divisor not equal to1, the natural remainder degree is strictly below the divisor degree; its statement covers zero remainder. |
+| `mathlib:RingHom.mem_ker` | Membership in a native ring-homomorphism kernel is exactly that its image is zero. |
+
+### Current proof and source receipts
+
+[Immutable actual proof source](https://github.com/CBirkbeck/tauceti-explorer/blob/56f50a446961467da91614244b8a552770a97579/research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean), commit `56f50a446961467da91614244b8a552770a97579`. The reconstructed Mathlib-only proof contains29 examples and compiled with0 errors and0 warnings in3.40 seconds, maximum RSS3,375,004KiB,68GB available before compilation. All25 axiom prints (21 new names, the existing presentation theorem and three inherited dependencies) contain only propext, Classical.choice and Quot.sound, with no admission dependency. The submitted sketch admits the34 new bodies (21 declarations,13 examples) per PROTOCOL§13, preserving their signatures and all inherited native proof bodies. Its exact native extraction contains42 examples and elaborates with0 errors,63 admission warnings and0 other warnings in3.10 seconds, maximum RSS3,357,680KiB,67GB available. **The full TauCeti-importing suggested file was not compiled.** No build, cache, dependency update or language server was run.
+
+Fresh source reading: the §3 one/two-component conductor paragraphs and complete displayed Prop3.1–3.2 statements/proofs in [Schröer v3](https://arxiv.org/html/2004.07025v3); Situation37.67.1, Lemma37.67.2 and complete Proposition37.67.3/proof at [Stacks0ECH](https://stacks.math.columbia.edu/tag/0ECH). The scheme affine-neighborhood condition remains essential. No new PDF visual inspection, full-paper collation, historical finite-certificate rerun or source error is claimed. The full current issue, reviewed parent R11.1–6/SF.0 audit and selected accepted RS25 owner records were read before planning. The reserved Ferrand key and all source findings/routes remain unchanged.
+
+Source/extraction hashes and the exact reproduction recipe are in the current handoff and quadraticPresentationContinuation metadata. Finite normalization/localization/common fraction field, k[q]-module freeness, tangent/branch/node conditions, projective P¹ comparisons, coherent cohomology and every-extension counts remain open. No stage or implementation status is closed.
+
+Read-only final atlas validation:3,043 stage/planet vertices(including51 existing virtual endpoints),8,727 stage edges;182 packet nodes,455 internal prerequisite edges;3,196 combined vertices,9,362 combined stage/planet-plus-reachable-prerequisite edges. All graphs are acyclic; no unresolved, pending or skipped own edge. All88 touching stage edges and unrelated skipped/deferred links are unchanged. Indexed checker0 errors/0 warnings, five-file intake0 problems, whitespace and preservation/signature/reader checks pass.
