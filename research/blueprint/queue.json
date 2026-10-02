@@ -38156,8 +38156,9 @@
     "REV-PAPER-FRESAN-SABBAH-YU-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-FRESAN-SABBAH-YU-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4184"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4184",
+   "finishedAt": "2026-10-02T03:00:15Z"
   },
   {
    "id": "REV-RT-PAPER-FRESAN-SABBAH-YU-22",
