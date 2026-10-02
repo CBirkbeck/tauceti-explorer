@@ -12,7 +12,7 @@
     "SchemeAndStackFoundations:SF.6"
   ],
   "status": "partial",
-  "summary": "Continuation of the general henselization key in SF.0: fifteen inherited declarations retained exactly, plus six declarations for the actual induced pair map, unit naturality, ideal preservation, identity, composition and canonical residue naturality. The Mathlib-only native file now elaborates after a noncomputability repair. Universal-property proof leaves, every other key and stage, source routes and confirmed findings remain open. A newly found PerfectoidSpaces overlap is recorded for consolidation rather than creating another general henselization carrier. All implementations remain unchecked.",
+  "summary": "Continuation of the existing general henselization strand in SF.0: twenty-one inherited node IDs retained, with four proof-sized adapters for extended-ideal membership, monic polynomial descent, quotient-unit descent, and simultaneous simple-root data. The canonical residue comparison now has a direct element/kernel argument and the Jacobson/root proofs name their finite-data inputs. Built generic filtered-colimit machinery is cited, not re-planned. Étale splitting, universal-property closure, the PerfectoidSpaces ownership overlap, the other five reserved definitions, every other stage, all source routes and confirmed findings remain open; every implementation stays unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -219,20 +219,133 @@
         "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
         "provides": "Evaluation of the canonical quotient map on a quotient representative, with containment and two-sided hypotheses.",
         "checked": "Complete declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02, lines 589–616; exact name also confirmed in declarations.tsv. File SHA-256 25359917b64f9434dbff99f3033ecba35badb45d0a4e3468aead0ba87743d109"
+      },
+      {
+        "ref": "mathlib:CommRingCat.FilteredColimits.forget_preservesFilteredColimits",
+        "kind": "instance",
+        "module": "Mathlib/Algebra/Category/Ring/FilteredColimits.lean",
+        "provides": "The underlying-set functor on commutative rings preserves filtered colimits.",
+        "checked": "Complete declaration statement and relevant implementation passage read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Under.preservesColimitsOfShape_forget_of_isConnected",
+        "kind": "instance",
+        "module": "Mathlib/CategoryTheory/Limits/Constructions/Over/Connected.lean",
+        "provides": "Under R forgets connected colimits to the ambient category without changing their universal property.",
+        "checked": "Complete declaration statement and relevant implementation passage read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsFiltered.of_equivalence",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Filtered/Basic.lean",
+        "provides": "Transport the established filtered structure to the chosen small model.",
+        "checked": "Complete declaration statement and relevant implementation passage read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsFiltered.isConnected",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Filtered/Connected.lean",
+        "provides": "Every nonempty filtered category is connected; the theorem is installed locally when invoking the Under instance.",
+        "checked": "Complete declaration statement and relevant implementation passage read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsFiltered.sup_exists",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Filtered/Basic.lean",
+        "provides": "Finite sets of objects and arrows admit a compatible common target, including parallel-arrow coherences.",
+        "checked": "Complete declaration statement and relevant implementation passage read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.Concrete.colimit_exists_rep",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/ConcreteCategory/Basic.lean",
+        "provides": "Every element of a colimit is represented at one stage when its forgetful functor preserves that colimit.",
+        "checked": "Complete declaration statement and relevant implementation passage read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.Concrete.colimit_rep_eq_iff_exists",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/ConcreteCategory/Basic.lean",
+        "provides": "Two representatives agree precisely when their images agree at a common later stage; injective transitions are not required.",
+        "checked": "Complete declaration statement and relevant implementation passage read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.preservesColimit_of_natIso",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Limits/Preserves/Basic.lean",
+        "provides": "Transport preservation to the actual forgetful functor along the natural isomorphism from commAlgCatEquivUnder.",
+        "checked": "Complete declaration statement and relevant implementation passage read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Ideal.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "The extended ideal is the span of the image, not the set-theoretic image.",
+        "checked": "Complete declaration statement and relevant implementation passage read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Submodule.span_induction",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
+        "provides": "Finitary induction on span membership gives finite ideal-sum witnesses, without a finitely generated ideal hypothesis.",
+        "checked": "Complete declaration statement and relevant implementation passage read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Polynomial.Monic.as_sum",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Monic.lean",
+        "provides": "A monic polynomial is X to its natural degree plus the finite lower-coefficient sum, including the subsingleton-ring convention.",
+        "checked": "Complete declaration statement and relevant implementation passage read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Polynomial.Monic.map",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Monic.lean",
+        "provides": "Ring maps preserve monicity, even when the target is the zero ring.",
+        "checked": "Complete declaration statement and relevant implementation passage read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Polynomial.eval_map_apply",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "Polynomial evaluation commutes with a ring map at the image of an argument.",
+        "checked": "Complete declaration statement and relevant implementation passage read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Polynomial.derivative_map",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Derivative.lean",
+        "provides": "Formal derivative commutes with mapping coefficients.",
+        "checked": "Complete declaration statement and relevant implementation passage read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.mk_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "Every quotient class has a ring representative.",
+        "checked": "Complete declaration statement and ambient quotient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.eq_zero_iff_mem",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "A quotient class is zero exactly when its representative belongs to the ideal.",
+        "checked": "Complete declaration statement and ambient quotient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
       }
     ]
   },
   "sources": [
     {
       "id": "STACKS-0EM7",
-      "title": "Henselization and strict henselization",
+      "title": "Henselization of pairs",
       "authors": "The Stacks Project Authors",
       "edition": "Online tag 0EM7, retrieved 2026-10-02",
       "url": "https://stacks.math.columbia.edu/tag/0EM7",
       "sha256": "4ba42d62e07f39cd049d2d8f3111e27472daf4060685232ac1ea70a2cc3f0e0e",
       "readSections": [
         "The complete mathematical statements and proofs of Lemmas 15.12.1-15.12.8; the selected proof of 15.12.1 drives the nodes. Later lemmas are read leads, not fully planned results.",
-        "Continuation codex-J6LwjP freshly read the entire mathematical text/proofs of 15.12.1–15.12.8 on 2026-10-02; downloaded HTML is byte-identical to the recorded SHA-256. The six new map nodes derive from 15.12.1; the remaining lemmas are leads, not newly closed results."
+        "Continuation codex-J6LwjP freshly read the entire mathematical text/proofs of 15.12.1–15.12.8 on 2026-10-02; downloaded HTML is byte-identical to the recorded SHA-256. The six new map nodes derive from 15.12.1; the remaining lemmas are leads, not newly closed results.",
+        "Codex — codex-a71f92 freshly read the complete mathematical text and displayed proofs of Lemmas 15.12.1–15.12.8 on 2026-10-02; HTML SHA-256 unchanged. Four new diagram-specific finite-data adapters are library-based proof decompositions for 15.12.1, not claims to close the later lemmas."
       ]
     },
     {
@@ -663,6 +776,245 @@
       ]
     },
     {
+      "id": "SchemeAndStackFoundations:SF.0/extended-ideal-stage",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "title": "Ideal membership is detected at a later neighbourhood",
+      "kind": "lemma",
+      "statement": "For b in a stage B, stage_B(b) belongs to IH if and only if there are a later stage C and one arrow t:B→C with diagram(t)(b) in IC. The existential is over actual neighbourhood arrows, not an inclusion order or an embedding of carriers.",
+      "hypotheses": [
+        "R is any commutative ring with identity, including the zero ring; I is any ideal, without finite-generation, Noetherian, local or completeness assumptions.",
+        "B and C are objects of the chosen small neighbourhood diagram. All carrier rings lie in a common universe; its transition maps need not be injective."
+      ],
+      "proofSteps": [
+        "Transport filteredness to SmallModel by IsFiltered.of_equivalence. To apply Concrete.colimit_exists_rep and colimit_rep_eq_iff_exists to diagram I, compose commAlgCatEquivUnder with Under.forget and the commutative-ring forgetful functor: the equivalence preserves colimits, Under.forget preserves connected colimits by IsFiltered.isConnected, and the latter functor preserves filtered colimits. Identify this composite with the actual CommAlgCat forgetful functor using the natural isomorphism and preservesColimit_of_natIso. These are built generic inputs, not a new colimit construction.",
+        "Unfold Ideal.map as the span of η(I). Submodule.span_induction proves that each member has a witness built from finitely many generators η(r), r in I, and finitely many coefficients in H. Represent those coefficients using Concrete.colimit_exists_rep and use IsFiltered.sup_exists to move them to one stage C0. Their finite sum lies in IC0 and has the prescribed image in H.",
+        "For the given b, detect the equality between its stage image and the finite-sum image using Concrete.colimit_rep_eq_iff_exists. Refine C0 and B, retaining a single arrow from B; finite parallel-arrow discrepancies are equalized using sup_exists. This yields diagram(t)(b) in IC.",
+        "Conversely, stage_C maps IC into IH because its R-algebra map commutes with η. Apply Ideal.map_le_iff_le_comap and the existing cocone naturality. No finite generating set for the whole ideal and no injectivity are used."
+      ],
+      "acceptance": [
+        "At I=0, a stage element mapped to zero becomes zero along an actual later arrow, even for non-injective transition maps.",
+        "At I=R, every stage element meets the criterion; no nonzero-ring assumption is added."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:key/henselization",
+        "mathlib:CommRingCat.FilteredColimits.forget_preservesFilteredColimits",
+        "mathlib:CategoryTheory.Under.preservesColimitsOfShape_forget_of_isConnected",
+        "mathlib:CategoryTheory.IsFiltered.of_equivalence",
+        "mathlib:CategoryTheory.IsFiltered.isConnected",
+        "mathlib:CategoryTheory.IsFiltered.sup_exists",
+        "mathlib:CategoryTheory.Limits.Concrete.colimit_exists_rep",
+        "mathlib:CategoryTheory.Limits.Concrete.colimit_rep_eq_iff_exists",
+        "mathlib:CategoryTheory.Limits.preservesColimit_of_natIso",
+        "mathlib:commAlgCatEquivUnder",
+        "mathlib:Ideal.map",
+        "mathlib:Submodule.span_induction",
+        "mathlib:Ideal.map_le_iff_le_comap",
+        "mathlib:Ideal.map_map"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-0EM7",
+          "locator": "Lemma 15.12.1, proof: the neighbourhood colimit and its reduction; finite-data adaptation to the pinned simple-root predicate",
+          "excerpt": "henselization",
+          "match": "Motivates this diagram-specific proof adapter. The finitary span, inverse-witness and coefficient arguments below are derived from the explicitly cited pinned library statements, not asserted to be separately numbered source theorems."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Henselization",
+        "namespace": "TauCeti.Henselization"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Henselization.mem_extended_iff_exists_stage",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/residue-comparison",
+          "how": "Detect the kernel of the canonical base quotient map without an undecomposed quotient/colimit adjunction."
+        },
+        {
+          "where": "SchemeAndStackFoundations:SF.0/jacobson-containment",
+          "how": "Bring the extended-ideal element and its multiplier to one neighbourhood before localizing 1+bc."
+        },
+        {
+          "where": "SchemeAndStackFoundations:SF.0/simple-root-stage",
+          "how": "The polynomial evaluation's membership is an actual finite witness at a later neighbourhood."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/monic-polynomial-stage",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "title": "A monic polynomial descends to a neighbourhood",
+      "kind": "lemma",
+      "statement": "For every monic f in H[T], there are a small stage B and a monic p in B[T] with coefficient map stage_B sending p exactly to f. No injectivity of stage_B, prescribed degree of p, or finite-generation condition on I is asserted.",
+      "hypotheses": [
+        "R is any commutative ring with identity, including the zero ring; I is any ideal, without finite-generation, Noetherian, local or completeness assumptions.",
+        "B and C are objects of the chosen small neighbourhood diagram. All carrier rings lie in a common universe; its transition maps need not be injective."
+      ],
+      "proofSteps": [
+        "Use Polynomial.Monic.as_sum to write f=X^n plus the finite sum of its coefficients of exponents below n. The representation also holds for H a subsingleton ring.",
+        "Represent the finitely many lower coefficients by Concrete.colimit_exists_rep. IsFiltered.sup_exists moves their representatives to a single stage B; for an empty coefficient family use the nonempty neighbourhood category.",
+        "Define p at B by the same X^n plus lower-coefficient sum. Its leading term gives monicity (or use the subsingleton convention if B is zero). Mapping coefficients returns f term by term.",
+        "This construction chooses the leading coefficient to be 1 at B, rather than claiming an arbitrary polynomial lift must be monic. Do not infer degree equality through a non-injective or zero-target ring map."
+      ],
+      "acceptance": [
+        "The polynomial 1 uses an empty lower-coefficient list and still has a stage representative.",
+        "A monic polynomial over the zero colimit ring is allowed; the statement makes no unjustified degree-preservation claim."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:key/henselization",
+        "mathlib:CommRingCat.FilteredColimits.forget_preservesFilteredColimits",
+        "mathlib:CategoryTheory.Under.preservesColimitsOfShape_forget_of_isConnected",
+        "mathlib:CategoryTheory.IsFiltered.of_equivalence",
+        "mathlib:CategoryTheory.IsFiltered.isConnected",
+        "mathlib:CategoryTheory.IsFiltered.sup_exists",
+        "mathlib:CategoryTheory.Limits.Concrete.colimit_exists_rep",
+        "mathlib:CategoryTheory.Limits.Concrete.colimit_rep_eq_iff_exists",
+        "mathlib:CategoryTheory.Limits.preservesColimit_of_natIso",
+        "mathlib:Polynomial.Monic.as_sum"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-0EM7",
+          "locator": "Lemma 15.12.1, proof: the neighbourhood colimit and its reduction; finite-data adaptation to the pinned simple-root predicate",
+          "excerpt": "henselization",
+          "match": "Motivates this diagram-specific proof adapter. The finitary span, inverse-witness and coefficient arguments below are derived from the explicitly cited pinned library statements, not asserted to be separately numbered source theorems."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Henselization",
+        "namespace": "TauCeti.Henselization"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Henselization.exists_stage_monic_polynomial",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/simple-root-stage",
+          "how": "Supply a genuinely monic polynomial at a finite stage before constructing the standard-étale root algebra."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-unit-stage",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "title": "A quotient unit descends to a later neighbourhood",
+      "kind": "lemma",
+      "statement": "If b is in a stage B and its image in H/IH is a unit, then there are a later stage C and an arrow t:B→C such that the class of diagram(t)(b) in C/IC is a unit. No lift of that unit is asserted to be a unit in B or in H.",
+      "hypotheses": [
+        "R is any commutative ring with identity, including the zero ring; I is any ideal, without finite-generation, Noetherian, local or completeness assumptions.",
+        "B and C are objects of the chosen small neighbourhood diagram. All carrier rings lie in a common universe; its transition maps need not be injective."
+      ],
+      "proofSteps": [
+        "Choose an inverse of the class of stage_B(b) in H/IH and a representative c in H, using quotient surjectivity. The inverse equation says stage_B(b)c−1 belongs to IH.",
+        "Represent c at a stage and take a common target with B using Concrete.colimit_exists_rep and IsFiltered.sup_exists. Its product-minus-one has the required stage image by the ring-map laws and cocone naturality.",
+        "Apply mem_extended_iff_exists_stage to that one product-minus-one. At the later target its class is zero, so the transported b and c have product 1 in C/IC.",
+        "The quotient is commutative, so the same c gives the two-sided inverse and hence a unit. No henselian-pair theorem, residue-comparison result, or base-ring unit hypothesis is used, avoiding a cycle."
+      ],
+      "acceptance": [
+        "For Z/30 at I=(5), the element 2 is a unit modulo I but is not a unit in Z/30 itself; replacing quotient invertibility by stage invertibility is false.",
+        "The zero quotient at the unit ideal has 0=1 and its sole element is a unit; the statement remains valid."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:key/henselization",
+        "mathlib:CommRingCat.FilteredColimits.forget_preservesFilteredColimits",
+        "mathlib:CategoryTheory.Under.preservesColimitsOfShape_forget_of_isConnected",
+        "mathlib:CategoryTheory.IsFiltered.of_equivalence",
+        "mathlib:CategoryTheory.IsFiltered.isConnected",
+        "mathlib:CategoryTheory.IsFiltered.sup_exists",
+        "mathlib:CategoryTheory.Limits.Concrete.colimit_exists_rep",
+        "mathlib:CategoryTheory.Limits.Concrete.colimit_rep_eq_iff_exists",
+        "mathlib:CategoryTheory.Limits.preservesColimit_of_natIso",
+        "SchemeAndStackFoundations:SF.0/extended-ideal-stage",
+        "mathlib:Ideal.quotientMap",
+        "mathlib:Ideal.Quotient.mk_surjective",
+        "mathlib:Ideal.Quotient.eq_zero_iff_mem"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-0EM7",
+          "locator": "Lemma 15.12.1, proof: the neighbourhood colimit and its reduction; finite-data adaptation to the pinned simple-root predicate",
+          "excerpt": "henselization",
+          "match": "Motivates this diagram-specific proof adapter. The finitary span, inverse-witness and coefficient arguments below are derived from the explicitly cited pinned library statements, not asserted to be separately numbered source theorems."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Henselization",
+        "namespace": "TauCeti.Henselization"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Henselization.exists_stage_quotient_unit",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/simple-root-stage",
+          "how": "Transport the actual derivative's inverse modulo I to the same finite stage as the polynomial and approximate root."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/simple-root-stage",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "title": "Simple-root data descend simultaneously",
+      "kind": "lemma",
+      "statement": "Let f in H[T] be monic and a0 in H satisfy f(a0) in IH and f′(a0) invertible modulo IH. There exist a small neighbourhood B, a monic p in B[T], and b in B such that coefficient mapping sends p to f, stage_B(b)=a0, p(b) belongs to IB, and p′(b) is invertible in B/IB. Every condition holds at the same stage.",
+      "hypotheses": [
+        "R is any commutative ring with identity, including the zero ring; I is any ideal, without finite-generation, Noetherian, local or completeness assumptions.",
+        "B and C are objects of the chosen small neighbourhood diagram. All carrier rings lie in a common universe; its transition maps need not be injective."
+      ],
+      "proofSteps": [
+        "First use exists_stage_monic_polynomial for f and Concrete.colimit_exists_rep for a0; pass to a common neighbourhood by sup_exists. Polynomial.Monic.map preserves the monic representative, and cocone naturality preserves its exact coefficient map and the approximate root's image.",
+        "By Polynomial.eval_map_apply, the stage image of p(b) is f(a0). Apply mem_extended_iff_exists_stage and transport p and b along the resulting arrow to obtain the actual membership p(b) in IB.",
+        "Use Polynomial.derivative_map together with eval_map_apply to identify the transported derivative's stage image with f′(a0). Apply exists_stage_quotient_unit and transport p and b once more.",
+        "Polynomial.Monic.map and ordinary ideal-map containment preserve all previously attained conditions under the last refinement. Recheck the two exact image equalities by cocone naturality. Thus the standard-étale presentation uses finite-stage coefficients and its actual residue section, not a new postulated descent field."
+      ],
+      "acceptance": [
+        "For f=T²−1 over F5 and a0=1, the root condition holds and the derivative is 2, a quotient unit.",
+        "For the same f and a0 over F2, the derivative is zero in the nonzero residue field, so this lemma's invertibility hypothesis fails.",
+        "Finite ideal-sum witnesses suffice even when the original ideal has infinitely many generators."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:key/henselization",
+        "SchemeAndStackFoundations:SF.0/monic-polynomial-stage",
+        "SchemeAndStackFoundations:SF.0/extended-ideal-stage",
+        "SchemeAndStackFoundations:SF.0/quotient-unit-stage",
+        "mathlib:CategoryTheory.Limits.Concrete.colimit_exists_rep",
+        "mathlib:CategoryTheory.IsFiltered.sup_exists",
+        "mathlib:Polynomial.Monic.map",
+        "mathlib:Polynomial.eval_map_apply",
+        "mathlib:Polynomial.derivative_map"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-0EM7",
+          "locator": "Lemma 15.12.1, proof: the neighbourhood colimit and its reduction; finite-data adaptation to the pinned simple-root predicate",
+          "excerpt": "henselization",
+          "match": "Motivates this diagram-specific proof adapter. The finitary span, inverse-witness and coefficient arguments below are derived from the explicitly cited pinned library statements, not asserted to be separately numbered source theorems."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Henselization",
+        "namespace": "TauCeti.Henselization"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Henselization.exists_stage_simple_root",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/simple-root-realization",
+          "how": "Replace the former unnamed finite coefficient/equation descent step; étale section splitting remains a separate recorded gap."
+        }
+      ]
+    },
+    {
       "id": "SchemeAndStackFoundations:SF.0/residue-comparison",
       "parentStageId": "SchemeAndStackFoundations:SF.0",
       "realises": [
@@ -675,10 +1027,10 @@
         "All rings are commutative with identity, including the zero ring; I is an arbitrary ideal unless a stronger hypothesis is explicitly stated. Ring carriers and target rings may be placed in a common universe."
       ],
       "proofSteps": [
-        "Each neighbourhood has canonical quotient R/I and each morphism reduces to the identity under that identification.",
-        "Reduction is scalar extension to R/I, hence a left adjoint and commutes with colimits. Express it using the existing quotient/tensor equivalence.",
-        "The resulting constant R/I diagram has a colimit R/I because the category is nonempty and filtered. Reindexing by the chosen equivalence does not change it.",
-        "Check this is exactly reducedMap I H on classes of R. The canonical quotient/colimit comparison is still an explicit implementation gap, rather than a second quotient carrier."
+        "Surjectivity: represent h in H at a neighbourhood B using Concrete.colimit_exists_rep. Because B is a neighbourhood, its canonical reducedMap R/I→B/IB is surjective, so choose r in R with b−η_B(r) in IB. The stage map sends that difference into IH, proving the class of h is the canonical image of r.",
+        "Injectivity: if the class of η_H(r) vanishes, choose any nonempty stage B and consider b=η_B(r). Apply mem_extended_iff_exists_stage to b. At the resulting C, R-algebra compatibility identifies its transition image with η_C(r), which lies in IC.",
+        "Since C is a neighbourhood, its canonical R/I→C/IC is injective; hence r belongs to I. This identifies the kernel of the actual reducedMap and proves its injectivity.",
+        "Both arguments use the chosen cocone and actual algebra maps. They replace the earlier undecomposed quotient-colimit/scalar-extension argument, not the quotient carrier. At I=R all involved quotients are zero, and the same argument applies."
       ],
       "acceptance": [
         "I=top gives an isomorphism of zero rings, not a contradiction.",
@@ -686,8 +1038,12 @@
       ],
       "prerequisites": [
         "SchemeAndStackFoundations:key/henselization",
+        "SchemeAndStackFoundations:SF.0/extended-ideal-stage",
+        "mathlib:CategoryTheory.Limits.Concrete.colimit_exists_rep",
         "mathlib:Ideal.quotientMap",
-        "mathlib:Algebra.TensorProduct.quotIdealMapEquivTensorQuot"
+        "mathlib:Ideal.map_le_iff_le_comap",
+        "mathlib:Ideal.Quotient.mk_surjective",
+        "mathlib:Ideal.Quotient.eq_zero_iff_mem"
       ],
       "sources": [
         {
@@ -717,10 +1073,10 @@
         "All rings are commutative with identity, including the zero ring; I is an arbitrary ideal unless a stronger hypothesis is explicitly stated. Ring carriers and target rings may be placed in a common universe."
       ],
       "proofSteps": [
-        "Use the filtered algebra colimit to descend each finite ideal sum and any multiplier to a common neighbourhood B. The descended element of IH lies in IB.",
+        "Represent the element of IH and its multiplier using Concrete.colimit_exists_rep, take a common target by IsFiltered.sup_exists, and use mem_extended_iff_exists_stage to refine until the descended ideal element actually lies in IB. Cocone naturality transports the multiplier along the same arrow.",
         "For such b∈IB and c∈B, x=1+bc is 1 modulo IB. Localizing B away from x is etale over R and its canonical reduction is R/I, so it is another neighbourhood.",
         "Its stage map to H makes 1+bc a unit. Apply the already existing Ideal.mem_jacobson_bot element criterion in H.",
-        "The finite-data descent and equality-detection adapter for this CommAlgCat colimit must still be implemented; it is not assumed as an extra field of H."
+        "All finite ideal-sum and equality detection is supplied by the explicit extended-ideal-stage node and the cited generic baseline facts; no stage map is assumed injective. The localisation/étale and canonical residue adapters remain subject to the separately recorded gaps."
       ],
       "acceptance": [
         "For (Z,(5)), 1+5y becomes a unit in H for every y.",
@@ -730,7 +1086,10 @@
         "SchemeAndStackFoundations:key/henselization",
         "SchemeAndStackFoundations:SF.0/etale-neighbourhood",
         "mathlib:Ideal.mem_jacobson_bot",
-        "mathlib:Algebra.Etale.of_isLocalizationAway"
+        "mathlib:Algebra.Etale.of_isLocalizationAway",
+        "SchemeAndStackFoundations:SF.0/extended-ideal-stage",
+        "mathlib:CategoryTheory.Limits.Concrete.colimit_exists_rep",
+        "mathlib:CategoryTheory.IsFiltered.sup_exists"
       ],
       "sources": [
         {
@@ -761,10 +1120,10 @@
       ],
       "proofSteps": [
         "Use StandardEtalePair with g=f prime. Its defining equation has p1=1,p2=0,n=1, and its already-built ring is H[T,Y]/(f,Yf prime−1). The reduction map sends T to a0 modulo IH.",
-        "Descend the finitely many coefficients and equalities to one neighbourhood B. The same explicit standard-etale presentation over B avoids assuming an undecomposed general etale-descent theorem.",
+        "Use exists_stage_simple_root to obtain one neighbourhood B, a monic p, and b, with their exact images f,a0 and with p(b) in IB and p′(b) a unit modulo IB. Construct the explicit standard-étale presentation over B using these actual finite-stage data; no undecomposed general étale-algebra descent theorem is assumed.",
         "The residue section of this etale algebra gives a product decomposition R/I × C. Lift the idempotent (1,0) to some g in the algebra and localize at g, making the localized algebra another neighbourhood.",
         "Map that neighbourhood to H. The image of T is the required root; the chosen residue section gives its exact congruence.",
-        "The etale section/product-splitting and finite-data descent adapters are outstanding leaves. This is an explicit adaptation of the source construction to the pinned simple-root predicate."
+        "The finite-data descent now has four named declaration-sized adapters with baseline prerequisites. The étale residue-section/product splitting and localization comparisons are still open leaves, so this root-realization node remains unchecked and its source-proof closure is not asserted."
       ],
       "acceptance": [
         "Over an already complete local ring, the result agrees with its existing HenselianRing root-lifting instance.",
@@ -776,7 +1135,8 @@
         "mathlib:StandardEtalePair",
         "mathlib:StandardEtalePair.Ring",
         "mathlib:StandardEtalePair.homEquiv",
-        "mathlib:Algebra.Etale.of_isLocalizationAway"
+        "mathlib:Algebra.Etale.of_isLocalizationAway",
+        "SchemeAndStackFoundations:SF.0/simple-root-stage"
       ],
       "sources": [
         {
@@ -1365,7 +1725,7 @@
       "stageId": "SchemeAndStackFoundations:SF.0",
       "status": "partial",
       "remaining": [
-        "Complete the twenty-one-node henselization strand, including the unchanged finite-data/quotient-colimit and etale-section comparison proof gaps. Functorial maps and canonical residue naturality are now planned, conditional on that universal-property closure.",
+        "Complete the twenty-five-node henselization strand. Finite-data descent is now decomposed into four explicit proof adapters and canonical reduction has a direct argument; the actual proofs, étale section/product splitting and the source criterion/universal cocone remain unfinished. Functorial maps and residue naturality remain conditional on universal-property closure.",
         "Plan the reserved excellent-schemes key. Reuse existing schemes/morphisms, smooth/etale/proper/flat predicates, QCoh and local algebra. Source-decompose relative Spec, general Proj/canonical comparison without unrestricted O(1) or properness claims.",
         "Retain all SF.0 routed source obligations listed in sourceWorklist, including perfect geometry, coherent extension, standard coordinates and finite-presentation spreading. Weil restriction uses the confirmed MC0F → RG2.0a → R09.3 import, not a duplicate."
       ]
@@ -1421,15 +1781,6 @@
     }
   ],
   "gaps": [
-    {
-      "title": "Filtered algebra colimit finite-data and reduction adapters",
-      "neededBy": [
-        "SchemeAndStackFoundations:SF.0/residue-comparison",
-        "SchemeAndStackFoundations:SF.0/jacobson-containment",
-        "SchemeAndStackFoundations:SF.0/simple-root-realization"
-      ],
-      "detail": "Inspect the pinned forgetful-functor filtered-colimit construction and its element/equality descent API; prove finite coefficients and ideal sums descend, and identify the canonical quotient colimit using scalar-extension adjunction. No custom colimit ring is planned. Generic existing categorical machinery must be imported where available."
-    },
     {
       "title": "Actual scalar towers in the parallel-map coequalizer",
       "neededBy": [
@@ -1548,7 +1899,7 @@
       "stageId": "SchemeAndStackFoundations:SF.0",
       "review": "REV-AUDIT-01, accepted 2026-09-16",
       "checked": "Full applicable AUDIT-01 layer entry read on 2026-10-02; no already-built carrier is re-planned.",
-      "boundary": "Complete the twenty-one-node henselization strand, including the explicitly missing finite-data/quotient-colimit and etale-section comparison proof adapters."
+      "boundary": "Complete the twenty-five-node henselization strand, importing existing filtered-colimit representation/equality detection and finishing the explicitly missing étale-section/universal-property adapters."
     },
     {
       "stageId": "SchemeAndStackFoundations:SF.1",
@@ -1592,7 +1943,7 @@
     "upstream": "Inherited codex-rtOQ9t provenance: Full GrothendieckEulerForms and Multiquadratic upstream roadmap documents read during this continuing worker session. Only selected ModularCurves 4D/0E passages and five exact touching AlgebraicCurves/ModularCurves research links were read for this job. Existing upstream mathematics is imported, never re-planned.",
     "local": "Ordinary henselization for arbitrary pairs is this new key; strict henselization and existing local regularity/completion contracts remain ModularCurves 4D.",
     "process": "SF.6 is consumer integration according to its accepted audit. It gets no new mathematical nodes in this checkpoint.",
-    "continuation": "codex-J6LwjP freshly read all seven accepted RS-25 decisions and touching links, all seven AUDIT-01 entries, current atlas stages/touching edges, all four current touching research links, the complete general-pair key brief, all twelve full confirmed findings/verifications, and full JacobianChallenge and Multiquadratic upstream documents. PerfectoidSpaces:P3/henselisation-of-pairs was read in full as an overlap, not independently reviewed."
+    "continuation": "codex-J6LwjP freshly read all seven accepted RS-25 decisions and touching links, all seven AUDIT-01 entries, current atlas stages/touching edges, all four current touching research links, the complete general-pair key brief, all twelve full confirmed findings/verifications, and full JacobianChallenge and Multiquadratic upstream documents. PerfectoidSpaces:P3/henselisation-of-pairs was read in full as an overlap, not independently reviewed. Codex — codex-a71f92 re-read the seven applicable reviewed AUDIT-01 entries, all seven accepted RS-25 layer decisions/touching endpoints, the atlas extract and whole general-pair key brief, the exact PerfectoidSpaces overlapping construction, and full JacobianChallenge/Multiquadratic documents. Existing library element and equality descent is imported; no generic algebraic colimit, second henselization carrier, new stage or cross-roadmap edge is introduced."
   },
   "keyDefinitionBoundary": [
     {
@@ -2025,12 +2376,12 @@
     }
   ],
   "validationBoundary": {
-    "agent": "Codex — codex-J6LwjP",
+    "agent": "Codex — codex-a71f92",
     "date": "2026-10-02",
     "issue": 642,
     "implementation": "Every node unchecked; elaborated admitted signatures do not prove the mathematics.",
-    "sourceRead": "Fresh complete mathematical text/proofs of Stacks 0EM7; byte-identical hash. 09XD and current-master TeX receipts remain inherited, not fresh rereads. All 62 sourceWorklist routes and twelve unimplemented findings preserved. Limited open Mathlib PR and public Zulip searches found no henselization design to adopt; that is not a comprehensive absence claim.",
-    "elaboration": "Full current Mathlib-only suggested file compiled using the existing exact-pinned build; final receipt in the handoff. No Tau Ceti imports or combined-build claim. No Lake setup, cache download, dependency build or language server."
+    "sourceRead": "Fresh complete mathematical text/proofs of Stacks 0EM7; byte-identical hash. 09XD and current-master TeX receipts remain inherited. All 62 sourceWorklist routes, twelve unimplemented findings and source issue E1 are preserved. Four finite-data proof adapters are derived from freshly read pinned baseline statements; no fresh primary-paper coverage or independent source-issue review is claimed.",
+    "elaboration": "Full current Mathlib-only suggested file elaborated using the existing exact-pinned build: exit zero, 41 admitted-proof warnings, no errors or other diagnostics, sixteen typed examples. Source SHA-256 cc339f664a8a5effe1fdae5946e06a32cc8c21d37a40e48be0a49754493c664f. No Tau Ceti imports or combined-build claim; no Lake setup, cache download, library build or language server. Detailed checker/model/assembly receipts are in the handoff."
   },
   "restructure": [
     {
