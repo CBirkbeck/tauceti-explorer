@@ -4,7 +4,7 @@ Genus-one fibrations, Ferrand pinching and rational elliptic surfaces
 
 This continuation supplies the genus-one and rational-Jacobian mathematics routed from Schröer’s paper. It begins with reusable finite pinching, passes through regular models and finite-field fiber descent, constructs global Weierstrass equations, and separates the fourteen explicit characteristic-two candidates from their exhaustiveness theorem. Its general definition of Ferrand pushouts is also needed by Witaszek’s conductor and line-bundle descent. The reserved owner is `NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts`.
 
-**Status: partial design.** Codex `codex-J6LwjP`, Refs #3378. The current packet has 154 declarations: twelve definitions, three constructions, 108 lemmas, 26 theorems and five comparisons; 60 API entries, 57 definition/construction tests, 29 planets, 89 baseline declarations, 17 gaps and 23 requests. All 150 inherited IDs/statements, 78 routed items and 21 source findings remain. Four new quadratic remainder/uniqueness adapters and the inherited residue/conductor API have native proofs in a Mathlib-only extraction. The whole suggested file is uncompiled; all implementation statuses and seven stages remain open. No full surface search, all-place resolution, completeness theorem or formal roadmap implementation is claimed.
+**Status: partial design.** Codex `codex-a71f92`, Refs #3378. The packet has158 declarations: twelve definitions, three constructions,112 lemmas,26 theorems and five comparisons;61 API entries,60 definition/construction tests,29 planets,98 baseline declarations,17 gaps and23 requests. All154 inherited IDs/statements,78 routed items and21 source findings remain. Four quadratic normal-form helpers, an actual polynomial spanning API and the generation/cusp identities now have native proofs. The complete Basis interface, bivariate presentation kernel and geometric normalization remain open. The full suggested file is uncompiled; only the exact Mathlib-only affine extraction is checked. All implementation statuses stay unchecked and all seven stages remain partial. No full model or formalisation claim.
 
 ## Conventions and boundaries
 
@@ -4120,3 +4120,115 @@ Four additional typed acceptance examples reject t in a monic quadratic pinch an
 Fresh source reading covers Schröer §3, printed pp9–11, mathematical text and displayed proofs, with PDF SHA-256 ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61. Ten newly named baseline statements and the ZMod prime-field instance source were read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Historical primary-source, finite-model and model-classifier receipts retain their attribution. No finite model script or elliptic/surface certificate was rerun.
 
 All seventeen gap groups and seven open stages remain. The SF.0 quadratic request no longer lists the scalar residue map as an unresolved consumer; presentation/localization and geometric exports are still requested. General normalization/nodal/cohomological theory remains with its existing owners, and the full omission ledger stays binding. No atlas data or supplier packet changes.
+
+
+## Current quadratic normal-form integration checkpoint
+
+This section supersedes the earlier affine generation compilation boundary; its historical receipts retain their attribution. The source is Schröer §3, printed pp9–11, interpreted through the existing pinching algebra, not a claim that the following polynomial helpers are printed source lemmas. Generic Polynomial induction, composition, degree and native Subalgebra evaluation are imported from Mathlib, not planned anew.
+
+### Polynomial normal forms over a quadratic
+
+`QuadraticPinch.exists_normal_form` · `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-exists`
+
+For every field k, a,b∈k and h∈k[t], put q=t²+at+b. There exist P,Q∈k[t] with h=P(q)+tQ(q). No separability, irreducibility or characteristic restriction is imposed.
+
+1. Use the native Polynomial.induction_on: constants have the pair (C(c),0), and addition adds the two pairs.
+
+2. For multiplication by t, send (P,Q) to ((t−b)Q,P−aQ). Substitution and t²=q−at−b verify the identity in k[t].
+
+3. This is a specialized coordinate decomposition of existing Polynomial, not a replacement polynomial, quotient or power-basis carrier.
+
+Prerequisites: `mathlib:Polynomial.induction_on`.
+
+Acceptance: The pair update remains valid for q=t² and for q=t²+t+1 over F₂.
+
+### Even and odd degrees of quadratic normal forms
+
+`QuadraticPinch.normal_form_degrees` · `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-degrees`
+
+For a field k and q,P,Q∈k[t] with natDegree(q)=2 and Q≠0, natDegree(P(q))=2 natDegree(P) and natDegree(tQ(q))=2 natDegree(Q)+1. The first equality includes P=0, where native natDegree(0)=0.
+
+1. Polynomial.comp_eq_zero_iff and natDegree(q)=2 imply Q(q)≠0: the exceptional constant-composition case contradicts natDegree(C(c))=0.
+
+2. Apply Polynomial.natDegree_comp and Polynomial.natDegree_X_mul; rewrite natDegree(q)=2. Keep Q≠0, since natDegree(t·0)=0 is not1.
+
+Prerequisites: `mathlib:Polynomial.comp_eq_zero_iff`, `mathlib:Polynomial.natDegree_comp`, `mathlib:Polynomial.natDegree_X_mul`.
+
+Acceptance: The odd-degree assertion excludes Q=0 explicitly; q may be inseparable in characteristic2.
+
+### Uniqueness of quadratic polynomial normal forms
+
+`QuadraticPinch.normal_form_injective` · `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-injective`
+
+For a field k and q∈k[t] with natDegree(q)=2, the actual function (P,Q)↦P(q)+tQ(q) from k[t]×k[t] to k[t] is injective.
+
+1. First prove the zero-form criterion. If P(q)+tQ(q)=0 with Q≠0, P(q)=−tQ(q). Its two native natural degrees have opposite parity by quadratic-normal-form-degrees and natDegree_neg, a contradiction.
+
+2. Hence Q=0. Polynomial.comp_eq_zero_iff gives P=0, because q cannot be constant.
+
+3. Apply the zero criterion to the componentwise difference of two polynomial pairs, using the native composition/subtraction identities. Recover equality of both components and Prod.ext.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-degrees`, `mathlib:Polynomial.comp_eq_zero_iff`, `mathlib:Polynomial.natDegree_neg`.
+
+Acceptance: For q=t, the pairs (t,0) and (0,1) have the same image; the degree-two hypothesis cannot be omitted.
+
+### Uniqueness of affine pinching coordinates
+
+`QuadraticPinch.pinch_normal_form_injective` · `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normal-form-injective`
+
+For a field k and q∈k[t] with natDegree(q)=2, the actual function (P,Q)↦P(q)+tqQ(q) from k[t]×k[t] to k[t] is injective.
+
+1. Rewrite the pinch form as P(q)+t(tQ)(q). Apply quadratic-normal-form-injective to the pairs (P,tQ).
+
+2. Equality of their first components gives equality of P. Cancel the native nonzero polynomial t from the second components to obtain equality of Q.
+
+3. This is the zero-remainder certificate for the existing presentation argument, not yet a proof that every bivariate polynomial admits the required remainder modulo the relation.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-injective`.
+
+Acceptance: The injection holds for q=t² over F₂, so repeated roots do not invalidate this affine argument.
+
+### Current proof for `QuadraticPinch.generation`
+
+For q=t²+at+b over any field, A_q=k[q,tq]. As a k-vector space it has basis 1,q^i (i≥1),tq^j (j≥1). These have degrees0,2i,2j+1 respectively, so no degree1 vector occurs.
+
+1. Write f=c+qh by the native membership criterion and decompose h=P(q)+tQ(q) using quadratic-normal-form-exists.
+
+2. In S=k[q,tq], native aeval into the subalgebra, aeval_subalgebra_coe and comp_eq_aeval show every P(q) and Q(q) belongs. Thus f=c+qP(q)+(tq)Q(q) lies in S. Conversely q and tq are in A_q, so adjoin_le proves S⊆A_q. This adjoin equality now has a native proof.
+
+3. The spanning API rewrites f as P′(q)+tqQ(q). Expand P′ and Q into native polynomial coefficient sums to obtain the displayed vector-space spanning family. Pinch normal-form injectivity makes its coefficients unique.
+
+4. Each q^i is monic of degree2i and tq^j is monic of degree2j+1; with1 their degrees are distinct, and degree1 is absent. The native Basis object, coefficient representation and this full degree-family interface remain explicitly omitted; the suggested generation signature certifies the adjoin equality only.
+
+Current prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-exists`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normal-form-injective`, `mathlib:Polynomial.aeval_subalgebra_coe`, `mathlib:Polynomial.comp_eq_aeval`, `mathlib:Algebra.subset_adjoin`, `mathlib:Algebra.adjoin_le`.
+
+### Current proof for `QuadraticPinch.presentation`
+
+For q=t²+at+b, the substitution ψ:k[U,V]→k[t], U↦q,V↦tq, has image A_q and kernel (F_(a,b)). Consequently its induced map k[U,V]/(F_(a,b))→A_q is the canonical k-algebra isomorphism. This remains true for split, repeated-root and inseparable quadratics.
+
+1. Generation identifies the image.
+
+2. Since F is monic of V-degree2, divide any polynomial by F in k[U][V], leaving P(U)+VQ(U). The registered quadratic-pinch-normal-form-injective supplies uniqueness of that actual polynomial remainder.
+
+3. Under ψ this remainder becomes P(q)+tq Q(q); its nonzero monomials have distinct even/odd leading degrees. Vanishing therefore forces both P and Q to vanish. The registered quadratic-pinch-normal-form-injective supplies uniqueness of that actual polynomial remainder.
+
+4. Use the native first-isomorphism theorem with the identified kernel; do not infer injectivity merely from checking F maps to zero.
+
+5. The complete native kernel proof still requires explicit bivariate-to-univariate transport, monic division in V and first-isomorphism compatibility; no image/range equality or complete kernel theorem is certified by the new helper alone.
+
+Current prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-relation`, `SchemeAndStackFoundations:SF.0`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normal-form-injective`.
+
+### Additional polynomial API and unit tests
+
+`QuadraticPinch.pinch_spanning`: For q=t²+at+b and f∈A_q, there exist P,Q∈k[t] with f=P(q)+tqQ(q). This is actual polynomial spanning, not an asserted Basis instance.
+
+`QuadraticPinch.test_normal_form_char2` (compatibility): Over F₂, every h∈F₂[t] has h=P(t²+t+1)+tQ(t²+t+1), with no separability restriction on the general existence result.
+
+`QuadraticPinch.test_normal_form_inseparable` (degenerate): Over F₂, (P,Q)↦P(t²)+t³Q(t²) is injective, despite the inseparability of t².
+
+`QuadraticPinch.test_linear_not_injective` (non-example): Over any field, (P,Q)↦P(t)+tQ(t) is not injective: (t,0) and (0,1) have the same image.
+
+The native cusp equality is also proved via generation with a=b=0. The extraction has20 examples and six inherited admitted declarations; the six new/proved helper/API/generation declarations have no admitted axiom dependency. Full combined-file compilation is not claimed. The six admissions are the two old arbitrary-subring cusp/node tests, the split and F₄ membership tests, the full presentation theorem, and finite inclusion. Actual Basis construction, complete bivariate division/kernel, fraction-field/normalization, nodality, P¹/cohomology and all-extension count interfaces remain binding gaps. The predecessor's projective source-proof checkpoint is preserved in the handoff, not claimed integrated or rechecked here.
+
+Fresh reading by Codex codex-a71f92: parsed Schröer §3 mathematical text, printed pp9–11, and Stacks0ECH Situation37.67.1 plus1–5 and their displayed proofs. PDF screenshot attempts failed; no fresh visual-diagram verification, full-paper reading, or rerun of the predecessor's133,830 finite assertions is claimed. The reviewed parent R11.1–R11.6/SF.0 audit, reserved Ferrand entry, accepted RS-25 owner boundaries and current atlas/link inputs were read. All17 gap groups and23 requests remain; no supplier or atlas files change.
+
