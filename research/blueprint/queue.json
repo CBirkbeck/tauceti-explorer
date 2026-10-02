@@ -48227,7 +48227,8 @@
     "FIX-RT-BP-EllipticCurveModularity"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-EllipticCurveModularity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5191"
   },
   {
    "id": "RT-BP-EllipticKTheory",
@@ -55157,8 +55158,9 @@
     "FIX-RT-AREA-topology~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5544"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5544",
+   "finishedAt": "2026-10-02T04:08:50Z"
   },
   {
    "id": "RT-AREA-diffgeom",
