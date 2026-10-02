@@ -1,0 +1,2538 @@
+{
+  "roadmapId": "SemisimpleAlgebrasPartII",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "SemisimpleAlgebrasPartII:SA.0",
+    "SemisimpleAlgebrasPartII:SA.1",
+    "SemisimpleAlgebrasPartII:SA.2",
+    "SemisimpleAlgebrasPartII:SA.3",
+    "SemisimpleAlgebrasPartII:SA.4"
+  ],
+  "status": "partial",
+  "summary": "Initial source-checked checkpoint: class-index descent and arbitrary-finite-extension degree arithmetic, separable period transfer, and geometric Morita support and invariant descent. Both routed tranches remain partial; unresolved inputs are explicit and no implementation is certified.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:TauCeti.Algebra.index",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "CSA index: degree of its division representative, not degree of an arbitrary representative.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.index_matrix",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "Positive matrix size leaves CSA index unchanged.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.index_eq_of_algEquiv",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "Index invariant under a K-algebra equivalence of finite-dimensional central simple algebras.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.index_pos",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "Index positive for finite-dimensional CSA.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.index_dvd_deg",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "Index divides CSA degree.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.index_eq_deg_of_divisionRing",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "Central finite-dimensional division algebra has index equal to degree.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.exists_isSplittingField_finrank_eq_index",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "Finite splitting field of degree equal to index; separability is NOT part of this statement.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.isSplittingField_self_iff_index_eq_one",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "CSA split over its ground field iff index equals one.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.index_eq_one_of_finite",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "Finite ground field forces CSA index one.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.deg_baseChange",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/CentralSimple/BaseChange.lean",
+        "provides": "Degree unchanged by field scalar extension; no CSA hypothesis needed for the degree equality.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.exists_isSplittingField_finiteDimensional_isSeparable",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/CentralSimple/FiniteSeparable.lean",
+        "provides": "Finite splitting intermediate field of SeparableClosure K; does NOT assert its degree equals index.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.exists_eq_mk_centralDivisionRing",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/BrauerGroup/Division.lean",
+        "provides": "Every Brauer class has a central finite-dimensional division representative.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.nonempty_algEquiv_of_mk_eq_mk",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/BrauerGroup/Division.lean",
+        "provides": "Equal Brauer classes of central division algebras give a nonempty algebra equivalence.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.mk",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
+        "provides": "Canonical CSA quotient projection, using the explicit Brauer.CSA_Setoid.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.mk_eq_mk_iff",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
+        "provides": "Equal quotient classes iff positive-matrix Brauer equivalence.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.baseChange",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
+        "provides": "Multiplicative homomorphism on same-universe Brauer groups for any extension of fields.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.baseChange_mk",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
+        "provides": "Base change sends a CSA class to the scalar-extension class.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.mk_mem_ker_baseChange_iff_isSplittingField",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
+        "provides": "Class killed by base change iff the extension splits the algebra.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:BrauerGroup",
+        "kind": "declaration",
+        "module": "Mathlib/Algebra/BrauerGroup/Defs.lean",
+        "provides": "Quotient of CSA by positive-matrix Brauer equivalence; carrier exists independently of group operations.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:orderOf_dvd_iff_pow_eq_one",
+        "kind": "declaration",
+        "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+        "provides": "Order divides n iff nth power is one, including n=0; positivity still needs finite order.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:orderOf_eq_one_iff",
+        "kind": "declaration",
+        "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+        "provides": "Order one exactly for the identity.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:IsOfFinOrder.orderOf_pos",
+        "kind": "declaration",
+        "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+        "provides": "Finite-order witness implies positive natural order.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Module.finrank_mul_finrank",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/Dimension/Free.lean",
+        "provides": "Free-module tower law over strong-rank-condition semirings, usable for division rings after installing compatible module/free instances.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:IsAzumaya",
+        "kind": "declaration",
+        "module": "Mathlib/Algebra/Azumaya/Defs.lean",
+        "provides": "Finite projective faithful algebra with bijective A⊗Aᵒᵖ→End_R(A).",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:IsAzumaya.matrix",
+        "kind": "declaration",
+        "module": "Mathlib/Algebra/Azumaya/Matrix.lean",
+        "provides": "Matrix algebra is Azumaya for nonempty finite index type; no reducedness hypothesis.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:ModuleCat.matrixEquivalence",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Morita/Matrix.lean",
+        "provides": "Actual equivalence M↦ι→M and inverse E_ii-image, with finite index type and chosen i.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:moritaEquivalenceMatrix",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Morita/Matrix.lean",
+        "provides": "R₀-linear matrix Morita equivalence, from the same actual functors.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Module.annihilator",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "Kernel of the scalar action, an actual ideal, not topological support.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Module.mem_annihilator",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "r belongs to the annihilator iff it kills every module element.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Module.annihilator_pi",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "Annihilator of a product is the infimum of component annihilators; empty product has full annihilator.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.annihilator_eq",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "Linear equivalences preserve annihilator ideals.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Matrix.charpoly_units_conj",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+        "provides": "Characteristic polynomial invariant under invertible conjugation over a commutative ring.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:TrivSqZeroExt.inr_mul_inr",
+        "kind": "declaration",
+        "module": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
+        "provides": "Any two pure square-zero elements multiply to zero.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:isOfFinOrder_iff_pow_eq_one",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+        "provides": "Finite order iff some positive natural exponent kills the element.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.deg_sq",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/CentralSimple/Degree.lean",
+        "provides": "For finite-dimensional central simple algebras, degree squared equals finrank.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.baseChange_self",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
+        "provides": "Base change for K/K is the identity homomorphism.",
+        "checked": "Actual statement read at the pinned commit, 2026-10-02."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "GS",
+      "title": "Central Simple Algebras and Galois Cohomology",
+      "authors": "Philippe Gille and Tamás Szamuely",
+      "url": "https://www.math.ens.psl.eu/~benoist/refs/Gille-Szamuely.pdf",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "2006 edition §4.5, printed pp100–105; proof of 4.5.16 not completely read"
+      ],
+      "sha256": "3697582f57a11547addeb8d5d63764d788b9d670e2bd76bd7401b9f3994f1e63",
+      "edition": "Cambridge Studies in Advanced Mathematics101, 2006"
+    },
+    {
+      "id": "GS-ERR",
+      "title": "Errata and additional comments",
+      "authors": "Tamás Szamuely",
+      "url": "https://pagine.dm.unipi.it/tamas/erratams.pdf",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "December 4, 2020: p101 correction and p105 Saltman correction"
+      ],
+      "sha256": "db7cea507d8aa13060aeff424845bbfd74e12fd71faceb4c374dbc7e815f3d04",
+      "edition": "Author errata dated December4, 2020"
+    },
+    {
+      "id": "BENOIST",
+      "title": "The period-index problem for real surfaces",
+      "authors": "Olivier Benoist",
+      "url": "https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "§0.1, printed p63: definitions and general divisibility; the surface theorems are outside this continuation"
+      ],
+      "sha256": "8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b",
+      "edition": "Publications Mathématiques de l’IHÉS130 (2019), 63–110"
+    },
+    {
+      "id": "EG",
+      "title": "Rigid connections and F-isocrystals",
+      "authors": "Hélène Esnault and Michael Groechenig",
+      "url": "https://arxiv.org/pdf/1707.00752v4",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "arXiv v4, June 1, 2020; Theorem2.17 and Remark2.18, pp13–14; Appendix A.2–A.3, pp40–41"
+      ],
+      "sha256": "bcc435b58bb2b1c06869413c1cd96018676d15da8003d21e5b507b114a63c4eb",
+      "edition": "arXiv:1707.00752v4, June1, 2020",
+      "fetchedUrl": "https://arxiv.org/pdf/1707.00752",
+      "versionVerified": "PDF page1 footer identifies arXiv:1707.00752v4, 1 Jun2020."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/index-brauer-congr",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Index invariance under Brauer equivalence",
+      "kind": "lemma",
+      "statement": "For finite-dimensional central simple K-algebras A,B, IsBrauerEquivalent A B implies index_K(A)=index_K(B).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Unpack the positive matrix sizes n,m and algebra equivalence.",
+        "Install NeZero n and NeZero m from the nonzero witnesses. Apply index_eq_of_algEquiv to the matrix algebras.",
+        "Rewrite both sides with index_matrix; this is the missing quotient-descent lemma, not a second definition of algebra index."
+      ],
+      "acceptance": [
+        "For finite-dimensional central simple K-algebras A,B, IsBrauerEquivalent A B implies index_K(A)=index_K(B)."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.Algebra.index_matrix",
+        "tauceti:TauCeti.Algebra.index_eq_of_algEquiv",
+        "tauceti:TauCeti.BrauerGroup.mk_eq_mk_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "§4.5",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/class-index",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Index of a Brauer class",
+      "kind": "definition",
+      "statement": "For a field K, classIndex:Br(K)→N is the quotient descent of A↦TauCeti.Algebra.index K A. It equals the degree of the unique central division representative. All classes and representative carriers are in the same universe.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the actual CSA setoid quotient and index-brauer-congr to form Quotient.lift.",
+        "Identify the value on a division representative using index_eq_deg_of_divisionRing; uniqueness follows from the existing division-class uniqueness theorem."
+      ],
+      "acceptance": [
+        "For a field K, classIndex:Br(K)→N is the quotient descent of A↦TauCeti.Algebra.index K A. It equals the degree of the unique central division representative. All classes and representative carriers are in the same universe."
+      ],
+      "prerequisites": [
+        "mathlib:BrauerGroup",
+        "tauceti:TauCeti.Algebra.index",
+        "SemisimpleAlgebrasPartII:SA.0/index-brauer-congr",
+        "tauceti:TauCeti.BrauerGroup.exists_eq_mk_centralDivisionRing",
+        "tauceti:TauCeti.BrauerGroup.nonempty_algEquiv_of_mk_eq_mk",
+        "tauceti:TauCeti.Algebra.index_eq_deg_of_divisionRing"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "§4.5",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      },
+      "planet": {
+        "name": "Index of a Brauer class"
+      },
+      "uses": [
+        {
+          "where": "Benoist §0.1",
+          "how": "Provides index of a brauer class for the consuming declarations in this layer and its successors."
+        }
+      ],
+      "api": [
+        {
+          "name": "classIndex_mk",
+          "role": "simp",
+          "statement": "classIndex([A])=index_K(A)."
+        },
+        {
+          "name": "classIndex_pos",
+          "role": "characterisation",
+          "statement": "For every α, 0<classIndex α."
+        },
+        {
+          "name": "classIndex_eq_one_iff",
+          "role": "characterisation",
+          "statement": "classIndex α=1 iff α=1."
+        },
+        {
+          "name": "classIndex_baseChange_dvd",
+          "role": "functoriality",
+          "statement": "For every field extension L/K, classIndex(α_L) divides classIndex α."
+        }
+      ],
+      "tests": [
+        {
+          "name": "matrix_identity",
+          "kind": "acceptance",
+          "statement": "classIndex of any positive matrix algebra over K is 1, even for M₂(K) of degree2."
+        },
+        {
+          "name": "finite_field",
+          "kind": "acceptance",
+          "statement": "Every class over a finite field has index1."
+        },
+        {
+          "name": "division_representative",
+          "kind": "acceptance",
+          "statement": "For a central division algebra D of degree d, classIndex([D])=d; a nonsplit quaternion division example has value2."
+        },
+        {
+          "name": "zero_excluded",
+          "kind": "acceptance",
+          "statement": "No Brauer class has index0; the zero-dimensional matrix ring is not a CSA."
+        }
+      ]
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/class-index-mk",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Class index on representatives",
+      "kind": "lemma",
+      "statement": "For A:CSA K, classIndex([A])=TauCeti.Algebra.index K A.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Evaluate Quotient.lift on the actual canonical quotient projection."
+      ],
+      "acceptance": [
+        "For A:CSA K, classIndex([A])=TauCeti.Algebra.index K A."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/class-index",
+        "tauceti:TauCeti.BrauerGroup.mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "§4.5",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/class-index-positive",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Positivity of class index",
+      "kind": "lemma",
+      "statement": "For every α∈Br(K), 0<classIndex α.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Quotient induction, class-index-mk, then existing index_pos."
+      ],
+      "acceptance": [
+        "For every α∈Br(K), 0<classIndex α."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/class-index-mk",
+        "tauceti:TauCeti.Algebra.index_pos"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "§4.5",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/class-index-one",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Index one is the trivial class",
+      "kind": "lemma",
+      "statement": "For every α∈Br(K), classIndex α=1 iff α=1.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Choose a CSA representative and use the existing index-one/splitting equivalence.",
+        "Translate self-splitting to triviality of the class using the existing base-change kernel theorem and baseChange_self."
+      ],
+      "acceptance": [
+        "For every α∈Br(K), 0<classIndex α."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/class-index-mk",
+        "tauceti:TauCeti.Algebra.isSplittingField_self_iff_index_eq_one",
+        "tauceti:TauCeti.BrauerGroup.mk_mem_ker_baseChange_iff_isSplittingField",
+        "tauceti:TauCeti.BrauerGroup.baseChange_self"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "§4.5",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/splitting-degrees",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Finite splitting degrees",
+      "kind": "definition",
+      "statement": "splittingDegrees_K(α) is the subset of N of all dim_K L, where L/K is a finite extension in the fixed universe and baseChange_K,L(α)=1. Separability is not imposed.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Quantify over native field, K-algebra and finite-dimensional instances.",
+        "Use the existing base-change homomorphism and its identity element; no second Brauer carrier."
+      ],
+      "acceptance": [
+        "splittingDegrees_K(α) is the subset of N of all dim_K L, where L/K is a finite extension in the fixed universe and baseChange_K,L(α)=1. Separability is not imposed."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.BrauerGroup.baseChange"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "§4.5",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      },
+      "uses": [
+        {
+          "where": "Benoist §0.1",
+          "how": "Provides finite splitting degrees for the consuming declarations in this layer and its successors."
+        }
+      ],
+      "api": [
+        {
+          "name": "mem_splittingDegrees",
+          "role": "characterisation",
+          "statement": "d belongs iff there is a finite extension L/K of degree d killing α."
+        },
+        {
+          "name": "one_mem_splittingDegrees_iff",
+          "role": "characterisation",
+          "statement": "1 belongs iff α=1."
+        },
+        {
+          "name": "splittingDegrees_nonempty",
+          "role": "structure",
+          "statement": "Every α has a finite splitting degree."
+        },
+        {
+          "name": "splittingDegrees_positive",
+          "role": "characterisation",
+          "statement": "Every member is positive."
+        },
+        {
+          "name": "classIndex_mem_splittingDegrees",
+          "role": "example",
+          "statement": "The class index itself belongs."
+        }
+      ],
+      "tests": [
+        {
+          "name": "identity_degree_one",
+          "kind": "acceptance",
+          "statement": "1 belongs for the identity class, using K/K."
+        },
+        {
+          "name": "zero_degree",
+          "kind": "acceptance",
+          "statement": "0 is never a member, since extensions are nontrivial fields."
+        },
+        {
+          "name": "nontrivial_no_degree_one",
+          "kind": "acceptance",
+          "statement": "For α≠1, degree1 cannot split α."
+        },
+        {
+          "name": "quaternion_degree_two",
+          "kind": "acceptance",
+          "statement": "A quaternion division class split by a quadratic extension has degree2 in the set."
+        }
+      ]
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/division-module-dimension",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Division-module splitting dimension",
+      "kind": "lemma",
+      "statement": "Let D be a central division K-algebra of degree d>0 and L/K finite with L⊗_K D≃ₐ[L]M_d(L). The column module V=L^d admits a finite-dimensional left D-module structure compatible with its K-action, and dim_K V=d²·dim_D V.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Restrict the matrix column action along D→L⊗D and the chosen matrix equivalence; explicitly verify scalar-tower compatibility.",
+        "A K-spanning set also D-spans V, so V is finite-dimensional over the division ring D. The module structure and its finite/free instances are a genuine construction obligation.",
+        "Use the free-module tower law and dim_K D=d². This is an authored proof for inseparable extensions as well, rather than an attribution of that strengthening to GS4.5.11."
+      ],
+      "acceptance": [
+        "Let D be a central division K-algebra of degree d>0 and L/K finite with L⊗_K D≃ₐ[L]M_d(L). The column module V=L^d admits a finite-dimensional left D-module structure compatible with its K-action, and dim_K V=d²·dim_D V."
+      ],
+      "prerequisites": [
+        "mathlib:Module.finrank_mul_finrank",
+        "tauceti:TauCeti.Algebra.index_eq_deg_of_divisionRing",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
+        "tauceti:TauCeti.Algebra.deg_sq"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.3, 4.5.8; authored dimension strengthening",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/index-divides-splitting-degree",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Index divides every splitting degree",
+      "kind": "theorem",
+      "statement": "For every field K, α∈Br(K), and finite extension L/K with α_L=1, classIndex α divides dim_K L. No separability hypothesis.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Choose the existing central division representative D. The class-kernel theorem gives a splitting matrix equivalence after scalar extension.",
+        "Apply division-module-dimension to obtain [L:K]·d=r·d².",
+        "Cancel the positive d to obtain [L:K]=r·d. Do not cancel the square first and infer a false divisibility."
+      ],
+      "acceptance": [
+        "For every field K, α∈Br(K), and finite extension L/K with α_L=1, classIndex α divides dim_K L. No separability hypothesis."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/class-index",
+        "SemisimpleAlgebrasPartII:SA.0/class-index-positive",
+        "SemisimpleAlgebrasPartII:SA.0/division-module-dimension",
+        "tauceti:TauCeti.BrauerGroup.exists_eq_mk_centralDivisionRing",
+        "tauceti:TauCeti.BrauerGroup.mk_mem_ker_baseChange_iff_isSplittingField"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.8; authored extension to all finite fields",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      },
+      "planet": {
+        "name": "Index divides every splitting degree"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/index-basechange-divides",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Index under scalar extension",
+      "kind": "theorem",
+      "statement": "For every extension L/K, finite or infinite, classIndex(α_L) divides classIndex α.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Choose central division representative D, of degree classIndex α.",
+        "After extending to L, its index divides its degree; deg_baseChange preserves the latter.",
+        "Use baseChange_mk and class-index-mk to identify this index with the class index."
+      ],
+      "acceptance": [
+        "For every extension L/K, finite or infinite, classIndex(α_L) divides classIndex α."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/class-index",
+        "SemisimpleAlgebrasPartII:SA.0/class-index-mk",
+        "tauceti:TauCeti.BrauerGroup.exists_eq_mk_centralDivisionRing",
+        "tauceti:TauCeti.Algebra.index_dvd_deg",
+        "tauceti:TauCeti.Algebra.deg_baseChange",
+        "tauceti:TauCeti.BrauerGroup.baseChange_mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.11 first divisibility; direct CSA proof",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/index-divides-degree-index",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Reverse index divisibility",
+      "kind": "theorem",
+      "statement": "For every finite extension L/K, classIndex α divides [L:K]·classIndex(α_L). No separability hypothesis.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply the existing index-degree attainment theorem to a representative of α_L to choose M/L of degree classIndex(α_L).",
+        "Composition of native algebra instances gives M/K finite; the existing splitting-field tower law makes M split α.",
+        "Use index-divides-splitting-degree and the field tower degree formula."
+      ],
+      "acceptance": [
+        "For every finite extension L/K, classIndex α divides [L:K]·classIndex(α_L). No separability hypothesis."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/index-divides-splitting-degree",
+        "tauceti:TauCeti.Algebra.exists_isSplittingField_finrank_eq_index",
+        "mathlib:Module.finrank_mul_finrank",
+        "tauceti:TauCeti.BrauerGroup.baseChange",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.11; authored all-finite strengthening",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      },
+      "planet": {
+        "name": "Reverse index divisibility"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/class-index-attained",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Attainment of the class index",
+      "kind": "lemma",
+      "statement": "classIndex α belongs to splittingDegrees_K(α).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Choose a CSA representative; use the built finite splitting field of index degree.",
+        "Translate splitting through the class-kernel theorem and class-index-mk. This is a quotient adapter, not a new maximal-subfield theorem."
+      ],
+      "acceptance": [
+        "classIndex α belongs to splittingDegrees_K(α)."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/splitting-degrees",
+        "SemisimpleAlgebrasPartII:SA.0/class-index-mk",
+        "tauceti:TauCeti.Algebra.exists_isSplittingField_finrank_eq_index",
+        "tauceti:TauCeti.BrauerGroup.mk_mem_ker_baseChange_iff_isSplittingField"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "§4.5",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/minimum-splitting-degree",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Minimum splitting degree",
+      "kind": "theorem",
+      "statement": "classIndex α is the least member of splittingDegrees_K(α).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Membership is class-index-attained.",
+        "Each member is a positive multiple of classIndex α, by index-divides-splitting-degree; hence it is at least classIndex α."
+      ],
+      "acceptance": [
+        "classIndex α is the least member of splittingDegrees_K(α)."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/class-index-attained",
+        "SemisimpleAlgebrasPartII:SA.0/index-divides-splitting-degree",
+        "SemisimpleAlgebrasPartII:SA.0/class-index-positive"
+      ],
+      "sources": [
+        {
+          "sourceId": "BENOIST",
+          "locator": "§0.1, p63",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      },
+      "planet": {
+        "name": "Minimum splitting degree"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/gcd-splitting-degrees",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Gcd of splitting degrees",
+      "kind": "theorem",
+      "statement": "For every n∈N, n divides every d∈splittingDegrees_K(α) iff n divides classIndex α. Thus the natural gcd of all finite splitting degrees is classIndex α.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Forward: evaluate at the attained class-index degree.",
+        "Reverse: transitivity of divisibility using index-divides-splitting-degree. This universal property avoids a finite-list surrogate for the infinite set."
+      ],
+      "acceptance": [
+        "For every n∈N, n divides every d∈splittingDegrees_K(α) iff n divides classIndex α. Thus the natural gcd of all finite splitting degrees is classIndex α."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/class-index-attained",
+        "SemisimpleAlgebrasPartII:SA.0/index-divides-splitting-degree"
+      ],
+      "sources": [
+        {
+          "sourceId": "BENOIST",
+          "locator": "§0.1, p63",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/same-cyclic-index",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Index of a cyclic Brauer subgroup",
+      "kind": "theorem",
+      "statement": "If α,β generate the same cyclic subgroup of Br(K), classIndex α=classIndex β.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For any L/K, α_L=1 iff β_L=1, by mutual integer-power expressions and the base-change homomorphism.",
+        "Their finite splitting degree sets agree. Apply the minimum characterization."
+      ],
+      "acceptance": [
+        "If α,β generate the same cyclic subgroup of Br(K), classIndex α=classIndex β."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/minimum-splitting-degree",
+        "SemisimpleAlgebrasPartII:SA.0/splitting-degrees",
+        "tauceti:TauCeti.BrauerGroup.baseChange"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.10",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.1/comparison-basechange-units",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.1",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.1"
+      ],
+      "title": "Naturality of the Brauer comparison",
+      "kind": "comparison",
+      "statement": "For a finite separable extension L/K with chosen embedding into Kˢ, the full comparison Additive Br(K)≃H²(G_K,Additive Kˢˣ) commutes with CSA base change and restriction, after the explicit separable-closure units coefficient comparison. This concerns all Brauer classes, not only 2-torsion.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import QFI7B’s crossed-product-normalized comparison, and Profinite9’s chosen-embedding open-subgroup bridge.",
+        "Compute the restriction on a crossed-product class and refine to a common finite Galois splitting field.",
+        "Prove equality using the comparison’s surjectivity. QFI7B states base-change naturality only for 2-torsion; the all-class extension is a new obligation here."
+      ],
+      "acceptance": [
+        "For a finite separable extension L/K with chosen embedding into Kˢ, the full comparison Additive Br(K)≃H²(G_K,Additive Kˢˣ) commutes with CSA base change and restriction, after the explicit separable-closure units coefficient comparison. This concerns all Brauer classes, not only 2-torsion."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+        "tauceti:TauCeti.BrauerGroup.baseChange"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.6–4.5.7; QFI7B normalization",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.1/brauer-corestriction",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.1",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.1"
+      ],
+      "title": "Corestriction of Brauer classes",
+      "kind": "construction",
+      "statement": "For finite separable L/K, brauerCorestriction_L,K:Br(L)→*Br(K) is the degree-two cohomological transfer transported through the full units-coefficient Brauer comparisons and the chosen separable-closure coefficient identification.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the actual units coefficient module Additive(Kˢˣ), not the trivial F₂ coefficient adapter.",
+        "Transport the supplied degree-two coinduced transfer through QFI7B’s full comparison.",
+        "Prove independence of the embedding and separable-closure identifications using conjugation and coefficient naturality; do not silently erase these choices."
+      ],
+      "acceptance": [
+        "For finite separable L/K, brauerCorestriction_L,K:Br(L)→*Br(K) is the degree-two cohomological transfer transported through the full units-coefficient Brauer comparisons and the chosen separable-closure coefficient identification."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+        "SemisimpleAlgebrasPartII:SA.1/comparison-basechange-units"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "§4.5",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      },
+      "planet": {
+        "name": "Corestriction of Brauer classes"
+      },
+      "uses": [
+        {
+          "where": "Benoist §0.1",
+          "how": "Provides corestriction of brauer classes for the consuming declarations in this layer and its successors."
+        }
+      ],
+      "api": [
+        {
+          "name": "brauerCorestriction_res",
+          "role": "compatibility",
+          "statement": "cor(α_L)=α^[L:K]."
+        },
+        {
+          "name": "brauerCorestriction_comp",
+          "role": "functoriality",
+          "statement": "Corestriction is transitive in finite separable towers."
+        },
+        {
+          "name": "brauerCorestriction_self",
+          "role": "simp",
+          "statement": "Corestriction for K/K is identity."
+        },
+        {
+          "name": "brauerCorestriction_embedding",
+          "role": "extensionality",
+          "statement": "Compatible changes of chosen closure embedding give the same map."
+        }
+      ],
+      "tests": [
+        {
+          "name": "identity_extension",
+          "kind": "acceptance",
+          "statement": "For K/K, cor α=α."
+        },
+        {
+          "name": "trivial_class",
+          "kind": "acceptance",
+          "statement": "For any finite separable extension cor(1)=1."
+        },
+        {
+          "name": "quadratic_restriction",
+          "kind": "acceptance",
+          "statement": "For a separable quadratic extension, cor(res α)=α², which is not generally α."
+        },
+        {
+          "name": "inseparable_boundary",
+          "kind": "acceptance",
+          "statement": "An inseparable extension is outside this construction’s input type."
+        }
+      ]
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.1/corestriction-restriction-degree",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.1",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.1"
+      ],
+      "title": "Corestriction-restriction identity",
+      "kind": "theorem",
+      "statement": "For finite separable L/K and α∈Br(K), cor_L,K(α_L)=α^[L:K].",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use comparison-basechange-units and Profinite10 cor∘res=[G_K:G_L] on H² with units coefficients.",
+        "Identify the open-subgroup index with dim_K L through Profinite9. Translate addition back to Brauer multiplication."
+      ],
+      "acceptance": [
+        "For finite separable L/K and α∈Br(K), cor_L,K(α_L)=α^[L:K]."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.1/brauer-corestriction",
+        "SemisimpleAlgebrasPartII:SA.1/comparison-basechange-units",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "§4.5",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.1/separable-splitting-annihilates",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.1",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.1"
+      ],
+      "title": "Separable splitting annihilates the class",
+      "kind": "lemma",
+      "statement": "If finite separable L/K splits α, then α^[L:K]=1.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply corestriction-restriction-degree to α_L=1 and the homomorphism’s identity law."
+      ],
+      "acceptance": [
+        "If finite separable L/K splits α, then α^[L:K]=1."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.1/corestriction-restriction-degree"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "§4.5",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.1/class-power-index",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.1",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.1"
+      ],
+      "title": "Class annihilated by its index",
+      "kind": "theorem",
+      "statement": "For every field K and α∈Br(K), α^(classIndex α)=1.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For finite K use the built splitting/triviality results.",
+        "For infinite K obtain a separable splitting field of degree classIndex α from parent Layer6; the pinned existence theorem of index degree does not include separability.",
+        "Use separable-splitting-annihilates. The source’s p101 argument is read with the author’s injective-subalgebra correction, not the invalid irreducibility claim over an algebraic closure."
+      ],
+      "acceptance": [
+        "For every field K and α∈Br(K), α^(classIndex α)=1."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/class-index",
+        "tauceti:TauCeti.Algebra.index_eq_one_of_finite",
+        "tauceti:TauCeti.Algebra.exists_isSplittingField_finiteDimensional_isSeparable",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
+        "SemisimpleAlgebrasPartII:SA.1/separable-splitting-annihilates",
+        "SemisimpleAlgebrasPartII:SA.0/class-index-one"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.4, 4.5.12–4.5.13; author errata p101",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.1/brauer-finite-order",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.1",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.1"
+      ],
+      "title": "Finite order of Brauer classes",
+      "kind": "theorem",
+      "statement": "Every α∈Br(K) is of finite order, and its natural order is positive.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the positive classIndex as an exponent killing α.",
+        "Apply the generic finite-order criterion and positivity; orderOf alone may be zero for an infinite-order group element."
+      ],
+      "acceptance": [
+        "Every α∈Br(K) is of finite order, and its natural order is positive."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.1/class-power-index",
+        "SemisimpleAlgebrasPartII:SA.0/class-index-positive",
+        "mathlib:IsOfFinOrder.orderOf_pos",
+        "mathlib:isOfFinOrder_iff_pow_eq_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.12",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.1/period-divides-index",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.1",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.1"
+      ],
+      "title": "Period divides index",
+      "kind": "theorem",
+      "statement": "For every field K and α∈Br(K), orderOf α divides classIndex α. The period is the existing group orderOf, not a second invariant with arbitrary witnesses.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply orderOf_dvd_iff_pow_eq_one to class-power-index."
+      ],
+      "acceptance": [
+        "For every field K and α∈Br(K), orderOf α divides classIndex α. The period is the existing group orderOf, not a second invariant with arbitrary witnesses."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.1/class-power-index",
+        "mathlib:orderOf_dvd_iff_pow_eq_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.13",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      },
+      "planet": {
+        "name": "Period divides index"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.1/prime-to-p-splitting",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.1",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.1"
+      ],
+      "title": "Prime-to-p splitting for prime-to-p period",
+      "kind": "theorem",
+      "statement": "Let p be prime with p∤orderOf α. There exists a finite separable splitting field E/K of degree prime to p.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Choose a finite Galois splitting extension M/K from the existing comparison construction.",
+        "Choose a p-Sylow P of Gal(M/K) and let E=M^P. The Galois degree formula gives [E:K] prime to p.",
+        "The class over E lies in the relative Brauer group split by the p-group extension M/E; the supplied finite-group H² annihilation result makes its order a p-power. Restriction also makes its order divide orderOf α.",
+        "Coprimality forces the E-class to be trivial. Sylow/fixed-field and relative comparison obligations remain named supplier inputs, not routine steps."
+      ],
+      "acceptance": [
+        "Let p be prime with p∤orderOf α. There exists a finite separable splitting field E/K of degree prime to p."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+        "SemisimpleAlgebrasPartII:SA.1/brauer-finite-order",
+        "tauceti:TauCeti.BrauerGroup.baseChange"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.14",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.1/index-prime-divides-period",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.1",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.1"
+      ],
+      "title": "Every index prime divides period",
+      "kind": "lemma",
+      "statement": "For a prime p, if p divides classIndex α then p divides orderOf α.",
+      "hypotheses": [],
+      "proofSteps": [
+        "If p does not divide the period, prime-to-p-splitting gives a splitting degree not divisible by p.",
+        "But index-divides-splitting-degree forces p to divide that degree, a contradiction."
+      ],
+      "acceptance": [
+        "For a prime p, if p divides classIndex α then p divides orderOf α."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.1/prime-to-p-splitting",
+        "SemisimpleAlgebrasPartII:SA.0/index-divides-splitting-degree"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.13–4.5.14",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.1/same-prime-divisors",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.1",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.1"
+      ],
+      "title": "Period and index have the same prime divisors",
+      "kind": "theorem",
+      "statement": "For all primes p, p∣orderOf α iff p∣classIndex α. No equality of period and index is asserted.",
+      "hypotheses": [],
+      "proofSteps": [
+        "One direction uses period-divides-index. The other uses index-prime-divides-period."
+      ],
+      "acceptance": [
+        "For all primes p, p∣orderOf α iff p∣classIndex α. No equality of period and index is asserted."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.1/period-divides-index",
+        "SemisimpleAlgebrasPartII:SA.1/index-prime-divides-period"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.13",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      },
+      "planet": {
+        "name": "Period and index have the same prime divisors"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.2/matrix-support",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.2",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.2"
+      ],
+      "title": "Scheme support in the matrix model",
+      "kind": "comparison",
+      "statement": "For a commutative ring R, R-module M, ideal I and nonempty index type ι, I≤ann_R(ι→M) iff I≤ann_R M. For finite ι this is the underlying R-module of the actual matrix Morita functor.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the existing annihilator_pi theorem and the nonempty constant infimum.",
+        "Identify the actual matrix functor object as ι→M; no new functor or generic annihilator definition.",
+        "The empty index type gives full annihilator, so it is excluded from the Morita statement."
+      ],
+      "acceptance": [
+        "For a commutative ring R, R-module M, ideal I and nonempty index type ι, I≤ann_R(ι→M) iff I≤ann_R M. For finite ι this is the underlying R-module of the actual matrix Morita functor."
+      ],
+      "prerequisites": [
+        "mathlib:Module.annihilator_pi",
+        "mathlib:ModuleCat.matrixEquivalence",
+        "mathlib:moritaEquivalenceMatrix"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Remark2.18 and matrix step in proof of Theorem2.17",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.2/nilpotent-support-boundary",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.2",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.2"
+      ],
+      "title": "Nilpotent support boundary",
+      "kind": "lemma",
+      "statement": "For R=Z/4 and I=(2), R/I²=R has topological support in V(I)=Spec R but is not annihilated by I: 2·1=2≠0. Hence topological support does not imply scheme-theoretic support.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Compute 2²=0 and 2≠0 in R.",
+        "The generator 2 acts nontrivially on 1. Apply mem_annihilator to refute I≤ann_R R.",
+        "Nilpotence places 2 in every prime ideal, so V(I) is all of Spec R. This finite-ring example instantiates EG’s ideal-support warning without a reduced-base assumption."
+      ],
+      "acceptance": [
+        "For R=Z/4 and I=(2), R/I²=R has topological support in V(I)=Spec R but is not annihilated by I: 2·1=2≠0. Hence topological support does not imply scheme-theoretic support."
+      ],
+      "prerequisites": [
+        "mathlib:Module.mem_annihilator"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Remark2.18",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.2",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.2"
+      ],
+      "title": "Morita equivalence from a splitting module",
+      "kind": "construction",
+      "statement": "Let X be a scheme, A a sheaf Azumaya O_X-algebra supplied by the shared key, and P a finite locally free generator with specified A≃End_O(P). Construct inverse O_X-linear functors P⊗− and Hom_A(P,−) between QCoh(X) and QCoh_A(X), with explicit unit and counit.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import generic projective-generator Morita theory from GeneralAlgebraicKTheory:K.7 and QCoh localization/gluing from SF.0.",
+        "On affine opens apply the native End_R(P) equivalence with P finite projective and generating; the source’s locally free splitting data give these hypotheses.",
+        "Construct restriction-compatible unit/counit and glue the actual functors, proving the two triangle identities. O_X-linearity is part of the result."
+      ],
+      "acceptance": [
+        "Let X be a scheme, A a sheaf Azumaya O_X-algebra supplied by the shared key, and P a finite locally free generator with specified A≃End_O(P). Construct inverse O_X-linear functors P⊗− and Hom_A(P,−) between QCoh(X) and QCoh_A(X), with explicit unit and counit."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:key/scheme-brauer",
+        "SchemeAndStackFoundations:SF.0",
+        "GeneralAlgebraicKTheory:K.7",
+        "mathlib:ModuleCat.matrixEquivalence",
+        "mathlib:moritaEquivalenceMatrix"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Theorem2.17 proof, pp13–14; AppendixA.3",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      },
+      "planet": {
+        "name": "Morita equivalence from a splitting module"
+      },
+      "uses": [
+        {
+          "where": "Esnault–Groechenig Theorem2.17 / AppendixA.3",
+          "how": "Provides morita equivalence from a splitting module for the consuming declarations in this layer and its successors."
+        }
+      ],
+      "api": [
+        {
+          "name": "sheafMorita_unit",
+          "role": "universal-property",
+          "statement": "Hom_A(P,P⊗N)≅N naturally."
+        },
+        {
+          "name": "sheafMorita_counit",
+          "role": "universal-property",
+          "statement": "P⊗Hom_A(P,M)≅M naturally."
+        },
+        {
+          "name": "sheafMorita_restrict",
+          "role": "functoriality",
+          "statement": "The functors and adjunction data commute with restriction to opens."
+        },
+        {
+          "name": "sheafMorita_matrix",
+          "role": "compatibility",
+          "statement": "For P=O_X^n, n>0, the affine specialization is the pinned matrix equivalence."
+        }
+      ],
+      "tests": [
+        {
+          "name": "rank_one",
+          "kind": "acceptance",
+          "statement": "For A=O_X,P=O_X, the equivalence is identity."
+        },
+        {
+          "name": "matrix_rank_two",
+          "kind": "acceptance",
+          "statement": "For P=O_X², the forward object is the matrix column module; annihilator agrees with the scalar module."
+        },
+        {
+          "name": "disconnected_rank",
+          "kind": "acceptance",
+          "statement": "On a disconnected base with ranks1 and2, apply local positive rank, not one globally constant rank."
+        },
+        {
+          "name": "nongenerator",
+          "kind": "acceptance",
+          "statement": "The zero bundle on a nonempty nontrivial base cannot give an equivalence."
+        }
+      ]
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.2/coherent-morita",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.2",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.2"
+      ],
+      "title": "Coherent Morita restriction",
+      "kind": "theorem",
+      "statement": "For X locally noetherian, A locally finite over O_X and splitting generator P finite locally free, the sheaf Morita equivalence restricts to coherent modules. More generally the finitely presented QCoh subcategories are preserved when coherence is not available.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use finite projectivity and the generic Morita restriction to finitely presented modules on affine opens.",
+        "For a locally noetherian base finite modules are coherent; compare the actual affine restriction data.",
+        "Glue the local comparisons using the sheafMorita restriction API."
+      ],
+      "acceptance": [
+        "For X locally noetherian, A locally finite over O_X and splitting generator P finite locally free, the sheaf Morita equivalence restricts to coherent modules. More generally the finitely presented QCoh subcategories are preserved when coherence is not available."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+        "GeneralAlgebraicKTheory:K.7",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Theorem2.17, pp13–14",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.2/sheaf-support-morita",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.2",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.2"
+      ],
+      "title": "Morita preserves scheme-theoretic support",
+      "kind": "theorem",
+      "statement": "For any scheme X, closed immersion Y defined by I_Y and splitting generator P, I_Y·M=0 iff I_Y·Hom_A(P,M)=0. Equivalently the two actual O_X-annihilator ideal sheaves agree. No reducedness assumption.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Localize where P is free of positive rank and A is the matching matrix algebra.",
+        "Use the actual matrix-support comparison and the counit to identify underlying modules.",
+        "Equality of ideal sheaves and vanishing of multiplication are local, so descend through SF.0."
+      ],
+      "acceptance": [
+        "For any scheme X, closed immersion Y defined by I_Y and splitting generator P, I_Y·M=0 iff I_Y·Hom_A(P,M)=0. Equivalently the two actual O_X-annihilator ideal sheaves agree. No reducedness assumption."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+        "SemisimpleAlgebrasPartII:SA.2/matrix-support",
+        "SchemeAndStackFoundations:key/scheme-brauer",
+        "SchemeAndStackFoundations:SF.0",
+        "mathlib:LinearEquiv.annihilator_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Remark2.18 and proof of Theorem2.17",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      },
+      "planet": {
+        "name": "Morita preserves scheme-theoretic support"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.3/splitting-transition-line",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.3",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.3"
+      ],
+      "title": "Change of splitting module",
+      "kind": "theorem",
+      "statement": "For two splitting generators P,Q of a sheaf Azumaya algebra A, the comparison of their inverse Morita functors is tensoring by the invertible sheaf Hom_A(Q,P), with the evaluation isomorphism fixed. Local ranks are positive and equal on each connected component.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import the Picard torsor of splitting modules and its evaluation maps from the shared scheme-Brauer key.",
+        "Apply the imported unit/counit to identify the transition functor.",
+        "Pin direction by testing Q=P⊗L: Hom_A(Q,M)≅L^∨⊗Hom_A(P,M). Never assert a unique isomorphism between arbitrary splitting modules."
+      ],
+      "acceptance": [
+        "For two splitting generators P,Q of a sheaf Azumaya algebra A, the comparison of their inverse Morita functors is tensoring by the invertible sheaf Hom_A(Q,P), with the evaluation isomorphism fixed. Local ranks are positive and equal on each connected component."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:key/scheme-brauer",
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Theorem2.17 étale descent step; explicit repair of source issue E2",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.3/charpoly-line-twist",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.3",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.3"
+      ],
+      "title": "Characteristic polynomial under a line twist",
+      "kind": "lemma",
+      "statement": "For a finite locally free O_X-module N and O_X-linear endomorphism t, the characteristic polynomial of id_L⊗t on L⊗N equals that of t for every invertible sheaf L, over arbitrary scheme bases.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Trivialize N and L locally. In those trivializations the two matrices agree, or are conjugate after changing frames.",
+        "Use the pinned charpoly_units_conj for independence from frames.",
+        "Glue equality of polynomial coefficient sections; nilpotents do not affect the argument."
+      ],
+      "acceptance": [
+        "For a finite locally free O_X-module N and O_X-linear endomorphism t, the characteristic polynomial of id_L⊗t on L⊗N equals that of t for every invertible sheaf L, over arbitrary scheme bases."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.charpoly_units_conj",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Theorem2.17 descent; authored invariant-based repair",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.3",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.3"
+      ],
+      "title": "Morita characteristic polynomial",
+      "kind": "definition",
+      "statement": "Given a sheaf Azumaya algebra A, A-module M and A-linear endomorphism t, suppose its inverse Morita module is finite locally free of rank r on an étale splitting cover. Define the degree-r monic polynomial in O_X[T] locally as charpoly(Hom_A(P,t)). The coefficients are sections on X after the overlap compatibility has been proved.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the shared key’s étale splitting cover and inverse Morita modules.",
+        "On overlaps use splitting-transition-line and charpoly-line-twist; keep natural evaluation data so this is descent of specified coefficients.",
+        "Use SF.0/SF.2 sheaf descent. This defines an invariant by Morita data, not an arbitrary Frobenius root of the full polynomial."
+      ],
+      "acceptance": [
+        "Given a sheaf Azumaya algebra A, A-module M and A-linear endomorphism t, suppose its inverse Morita module is finite locally free of rank r on an étale splitting cover. Define the degree-r monic polynomial in O_X[T] locally as charpoly(Hom_A(P,t)). The coefficients are sections on X after the overlap compatibility has been proved."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:key/scheme-brauer",
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+        "SemisimpleAlgebrasPartII:SA.3/splitting-transition-line",
+        "SemisimpleAlgebrasPartII:SA.3/charpoly-line-twist",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Theorem2.17; repair of E2",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      },
+      "planet": {
+        "name": "Morita characteristic polynomial"
+      },
+      "uses": [
+        {
+          "where": "Esnault–Groechenig Theorem2.17 / AppendixA.3",
+          "how": "Provides morita characteristic polynomial for the consuming declarations in this layer and its successors."
+        }
+      ],
+      "api": [
+        {
+          "name": "moritaCharpoly_matrix",
+          "role": "compatibility",
+          "statement": "For A=M_n(R), M=R^n⊗N and t=id⊗u, the value is charpoly u."
+        },
+        {
+          "name": "moritaCharpoly_changeSplitting",
+          "role": "extensionality",
+          "statement": "Compatible replacement of splitting generator leaves the polynomial unchanged."
+        },
+        {
+          "name": "moritaCharpoly_baseChange",
+          "role": "functoriality",
+          "statement": "Pullback carries the polynomial to the coefficient pullback for finite locally free inverse modules."
+        },
+        {
+          "name": "moritaCharpoly_degree",
+          "role": "data",
+          "statement": "On a rank-r locus it is monic of degree r."
+        }
+      ],
+      "tests": [
+        {
+          "name": "rank_one_scalar",
+          "kind": "acceptance",
+          "statement": "For rank1 inverse module and scalar b, the polynomial is T−b."
+        },
+        {
+          "name": "zero_rank",
+          "kind": "acceptance",
+          "statement": "For M=0 the polynomial is 1, of degree0."
+        },
+        {
+          "name": "nonreduced_scalar",
+          "kind": "acceptance",
+          "statement": "Over F₂[ε]/ε², rank1 scalar ε has polynomial T−ε, distinct from T although their squares agree."
+        },
+        {
+          "name": "line_twist",
+          "kind": "acceptance",
+          "statement": "Replacing P by P⊗L yields the same polynomial, using the specified transition equivalence."
+        }
+      ]
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.3/frobenius-root-boundary",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.3",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.3"
+      ],
+      "title": "Frobenius root boundary",
+      "kind": "lemma",
+      "statement": "In R=F₂[ε]/ε², ε≠0 and ε²=0. Thus the distinct monic polynomials T and T+ε have the same square; a monic Frobenius root is not unique on a nonreduced base.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the native TrivSqZeroExt(F₂,F₂) model and its pure nilpotent element.",
+        "Verify nonzero by its second projection and square zero by inr_mul_inr.",
+        "Compute (T+ε)²=T² in characteristic2. The compiled native tests check the two ring facts; the polynomial equality still needs its own native example."
+      ],
+      "acceptance": [
+        "In R=F₂[ε]/ε², ε≠0 and ε²=0. Thus the distinct monic polynomials T and T+ε have the same square; a monic Frobenius root is not unique on a nonreduced base."
+      ],
+      "prerequisites": [
+        "mathlib:TrivSqZeroExt.inr_mul_inr"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Theorem2.17 proof, pp13–14; source issue E2",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.4",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.4"
+      ],
+      "title": "Cartier forms and Azumaya classes",
+      "kind": "comparison",
+      "statement": "For a smooth characteristic-p scheme in the exact Cartier setup of EG(A.3), the two-step étale boundary Φ:H⁰(Ω¹)→H²(G_m) is additive and natural for morphisms respecting that relative exact sequence. The differential-operator class satisfies [D]=Φ(θ) only through the Cartier-flow supplier’s OV07 comparison.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import the actual relative four-term exact sequence of units, dlog, closed forms and w*−C; a short exact sequence with the same names is insufficient.",
+        "Use SF.2’s connecting-map construction twice, with its explicit middle image sheaf.",
+        "Import the specific OV07 Proposition4.4 identification [D]=Φ(θ); it is not supplied merely by generic CR.1 crystals. Relative functoriality requires a morphism of the full exact sequence."
+      ],
+      "acceptance": [
+        "For a smooth characteristic-p scheme in the exact Cartier setup of EG(A.3), the two-step étale boundary Φ:H⁰(Ω¹)→H²(G_m) is additive and natural for morphisms respecting that relative exact sequence. The differential-operator class satisfies [D]=Φ(θ) only through the Cartier-flow supplier’s OV07 comparison."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:key/scheme-brauer"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "AppendixA.2, equation(A.3); OV07 Proposition4.4 not freshly acquired",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.4/relative-brauer-equality",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.4",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.4"
+      ],
+      "title": "Relative Brauer class comparison",
+      "kind": "application",
+      "statement": "Let Z/k be smooth projective, k perfect of characteristic p>0, with a W₂(k)-lift, and V=Z′_a. On T=Spec k[t]/(t−1)^p let m be cotangent scaling and r the projection. The target is [m*D]=[r*D] on V×T, with an equivalence of module categories carrying chosen splitting data when a refinement is established.",
+      "hypotheses": [],
+      "proofSteps": [
+        "By cartier-brauer-comparison the class difference is Φ(m*θ−r*θ).",
+        "The published proof’s inference from vanishing on t=1 to support on the zero-section is invalid as stated; retain a named unresolved Brauer-class vanishing input for this exact relative thickening.",
+        "If that input is proved, the equality follows. A chosen Morita bimodule/evaluation coherence is needed to obtain the categorical refinement of RemarkA.3. No canonical equivalence is inferred from equality of classes alone."
+      ],
+      "acceptance": [
+        "Let Z/k be smooth projective, k perfect of characteristic p>0, with a W₂(k)-lift, and V=Z′_a. On T=Spec k[t]/(t−1)^p let m be cotangent scaling and r the projection. The target is [m*D]=[r*D] on V×T, with an equivalence of module categories carrying chosen splitting data when a refinement is established."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison",
+        "SchemeAndStackFoundations:key/scheme-brauer",
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "PropositionA.2 and RemarkA.3, pp40–41",
+          "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
+      "need": "Compatible CSA scalar-extension splitting matrix presentation and splitting ascent through field towers; separable splitting field of index degree over an infinite field. The two pinned existence exports separately provide index-degree and separability, not their conjunction.",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.0/division-module-dimension",
+        "SemisimpleAlgebrasPartII:SA.0/index-divides-degree-index",
+        "SemisimpleAlgebrasPartII:SA.1/class-power-index"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
+      "need": "Full crossed-product-normalized units-coefficient Brauer/H² equivalence, finite Galois splitting field, relative kernel comparison for finite Galois extensions and restriction identification. Its stated 2-torsion naturality does not close the new all-class naturality node.",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.1/comparison-basechange-units",
+        "SemisimpleAlgebrasPartII:SA.1/brauer-corestriction",
+        "SemisimpleAlgebrasPartII:SA.1/prime-to-p-splitting"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+      "need": "Chosen-embedding open Galois subgroup, topological group comparison and index=[L:K]; use units coefficient transport explicitly rather than the F₂ galoisRes/galoisCor adapters.",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.1/comparison-basechange-units",
+        "SemisimpleAlgebrasPartII:SA.1/brauer-corestriction",
+        "SemisimpleAlgebrasPartII:SA.1/corestriction-restriction-degree"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "need": "Degree-two corestriction/naturality and cor∘res=index for discrete units coefficients; finite p-group positive-degree H² killed by its group order, and coefficient/closure comparison required by the relative Brauer computation.",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.1/brauer-corestriction",
+        "SemisimpleAlgebrasPartII:SA.1/corestriction-restriction-degree",
+        "SemisimpleAlgebrasPartII:SA.1/prime-to-p-splitting"
+      ]
+    },
+    {
+      "supplier": "GeneralAlgebraicKTheory:K.7",
+      "need": "Split the existing moritaStructure API into native projective-generator tensor/Hom equivalence with unit/counit, R-linearity, restriction to finite presentation and compatible localization. Existing K-theory invariance node is too coarse to supply these signatures directly.",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+        "SemisimpleAlgebrasPartII:SA.2/coherent-morita"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.0",
+      "need": "Actual QCoh modules over a quasi-coherent algebra, finite locally free and coherent carriers, restriction-compatible tensor/Hom and effective gluing of natural transformations and ideal actions.",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+        "SemisimpleAlgebrasPartII:SA.2/coherent-morita",
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-support-morita",
+        "SemisimpleAlgebrasPartII:SA.3/splitting-transition-line",
+        "SemisimpleAlgebrasPartII:SA.3/charpoly-line-twist",
+        "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Étale descent of polynomial coefficient sections and a native two-step connecting homomorphism of a four-term exact sequence, with coefficient and base-change naturality.",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial",
+        "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "The one shared sheaf Azumaya/Brauer carrier: matrix specialization, étale-local splitting including strict-henselian local bases, positive-rank splitting generators, Picard transition evaluation and class/module-category comparison. Ordinary henselian rings need a split residue algebra.",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-support-morita",
+        "SemisimpleAlgebrasPartII:SA.3/splitting-transition-line",
+        "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial",
+        "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison",
+        "SemisimpleAlgebrasPartII:SA.4/relative-brauer-equality"
+      ],
+      "reservedNode": "SchemeAndStackFoundations:key/scheme-brauer"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "SemisimpleAlgebrasPartII:SA.0",
+      "status": "partial",
+      "remaining": [
+        "Elaborate division-column module instances and all native field signatures; complete supplier splitting tower checks and all-finite proof."
+      ]
+    },
+    {
+      "stageId": "SemisimpleAlgebrasPartII:SA.1",
+      "status": "partial",
+      "remaining": [
+        "Close separable index-degree, all-class comparison naturality, units coefficient transfer, Sylow fixed-field and relative p-group chain."
+      ]
+    },
+    {
+      "stageId": "SemisimpleAlgebrasPartII:SA.2",
+      "status": "partial",
+      "remaining": [
+        "Import native generic projective-generator theory and shared scheme-Brauer/QCoh carriers; elaborate coherent and support descent."
+      ]
+    },
+    {
+      "stageId": "SemisimpleAlgebrasPartII:SA.3",
+      "status": "partial",
+      "remaining": [
+        "Supply étale Picard transitions, coefficient descent and Higgs tuple refinement; prove native polynomial nilpotent example."
+      ]
+    },
+    {
+      "stageId": "SemisimpleAlgebrasPartII:SA.4",
+      "status": "partial",
+      "remaining": [
+        "Freshly read OV07 and BB07, decompose the relative Cartier sequence and repair A.2 class vanishing with coherent categorical data."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Native division-column module and tower instances",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.0/division-module-dimension",
+        "SemisimpleAlgebrasPartII:SA.0/index-divides-splitting-degree",
+        "SemisimpleAlgebrasPartII:SA.0/index-divides-degree-index"
+      ],
+      "detail": "The restricted noncommutative D-action, finite-dimensional/free instances, deg² identity and splitting ascent are not yet elaborated. The all-finite argument is authored and must be checked independently."
+    },
+    {
+      "title": "Separable index-degree conjunction",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.1/class-power-index",
+        "SemisimpleAlgebrasPartII:SA.1/brauer-finite-order",
+        "SemisimpleAlgebrasPartII:SA.1/period-divides-index"
+      ],
+      "detail": "Parent-owned missing precise export; the pin has finite index-degree attainment and a finite separable splitter, but not a theorem combining them. Use the corrected Gille–Szamuely p101 argument; do not infer the conjunction."
+    },
+    {
+      "title": "All-class units naturality and transfer",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.1/comparison-basechange-units",
+        "SemisimpleAlgebrasPartII:SA.1/brauer-corestriction",
+        "SemisimpleAlgebrasPartII:SA.1/corestriction-restriction-degree",
+        "SemisimpleAlgebrasPartII:SA.1/separable-splitting-annihilates"
+      ],
+      "detail": "Actual comparison carrier, closure-units coefficient maps and embedding independence remain supplier signatures; no opaque proposition or trivial F₂ adapter substitutes for them."
+    },
+    {
+      "title": "Sylow fixed-field relative comparison",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.1/prime-to-p-splitting",
+        "SemisimpleAlgebrasPartII:SA.1/index-prime-divides-period",
+        "SemisimpleAlgebrasPartII:SA.1/same-prime-divisors"
+      ],
+      "detail": "Need explicit finite Galois relative Brauer/H² kernel identification, p-Sylow fixed-field degree computation and positive-degree finite p-group H² annihilation. These statements have not been closed by a native chain."
+    },
+    {
+      "title": "Native projective-generator and geometric Morita carriers",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+        "SemisimpleAlgebrasPartII:SA.2/coherent-morita",
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-support-morita",
+        "SemisimpleAlgebrasPartII:SA.3/splitting-transition-line",
+        "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial"
+      ],
+      "detail": "GeneralAlgebraicKTheory:K.7/morita-invariance includes moritaStructure but not the native granularity needed. Import the generic result; shared scheme-Brauer key is still promised, not an implemented node."
+    },
+    {
+      "title": "Multi-endomorphism Higgs invariant",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial"
+      ],
+      "detail": "Single A-linear endomorphism is decomposed here. The commuting Higgs tuple, symmetric differentials and the exact rank-p^d characteristic-polynomial power relation need further declaration-sized nodes; no coefficient-root uniqueness argument is valid over nilpotents."
+    },
+    {
+      "title": "Cartier-specific relative exact sequence and OV comparison",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison",
+        "SemisimpleAlgebrasPartII:SA.4/relative-brauer-equality"
+      ],
+      "detail": "Fresh reading covers EG(A.3), not OV07 Proposition4.4 or BB07 Proposition3.11. The exact relative closed-form sequence and [D]=Φ(θ) belong to the promised Cartier-flow continuation, not generic Crystalline CR.1. No exact reserved node exists yet; ownership addition is proposed in restructure."
+    },
+    {
+      "title": "Appendix A.2 relative vanishing gap",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.4/relative-brauer-equality"
+      ],
+      "detail": "Vanishing of m*θ−r*θ on t=1 does not give support on the zero-section. Need a valid relative Brauer-class vanishing argument on V×Spec k[t]/(t−1)^p and a coherent chosen splitting for A.3."
+    },
+    {
+      "title": "Suggested-file coverage and compilation",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+        "SemisimpleAlgebrasPartII:SA.2/coherent-morita",
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-support-morita",
+        "SemisimpleAlgebrasPartII:SA.3/splitting-transition-line",
+        "SemisimpleAlgebrasPartII:SA.3/charpoly-line-twist",
+        "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial",
+        "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison",
+        "SemisimpleAlgebrasPartII:SA.4/relative-brauer-equality"
+      ],
+      "detail": "Full field signatures use native pinned Tau Ceti imports whose oleans are unavailable in the existing build. Geometric signatures needing unresolved carriers are explicitly unrepresented; the Mathlib-only affine extraction is checked separately. Whole-file elaboration is not claimed."
+    },
+    {
+      "title": "Source coverage incomplete",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.1/prime-to-p-splitting",
+        "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial",
+        "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison",
+        "SemisimpleAlgebrasPartII:SA.4/relative-brauer-equality"
+      ],
+      "detail": "GS4.5.16 full proof, source passages underlying the relative crossed-product and Higgs refinements, OV07 and BB07 remain unread. No complete-paper or closed-stage coverage is asserted."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "SemisimpleAlgebrasPartII/E1",
+      "locator": "printed p101, final line in proof of4.5.4",
+      "issue": "The claimed irreducibility over the algebraic closure is false.",
+      "correction": "Use the author’s errata: the map K[T]/P_a→D becomes the diagonal-algebra embedding after algebraic closure and is injective. A finite commutative subalgebra of D is a domain, hence a field; distinct roots give separability.",
+      "reason": "A polynomial with distinct roots splits over the algebraic closure and cannot be irreducible there in degree greater than one.",
+      "affectedNodes": [
+        "SemisimpleAlgebrasPartII:SA.1/class-power-index"
+      ],
+      "source": "GS",
+      "kind": "error",
+      "printed": "The source asserts irreducibility.",
+      "affects": "the proof",
+      "known": "GS-ERR p3, correction to p101; read 2026-10-02.",
+      "searched": [
+        "Author errata, December4, 2020"
+      ]
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII/E2",
+      "locator": "Theorem2.17 proof, pp13–14",
+      "issue": "Uniqueness of a monic p^d-th polynomial root fails on a nonreduced base.",
+      "correction": "Descend characteristic coefficients via Morita transitions and line-twist invariance; extend to the full commuting Higgs tuple before asserting the source target.",
+      "reason": "In F₂[ε]/ε², distinct monic T and T+ε have the same square.",
+      "affectedNodes": [
+        "SemisimpleAlgebrasPartII:SA.3/splitting-transition-line",
+        "SemisimpleAlgebrasPartII:SA.3/charpoly-line-twist",
+        "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial",
+        "SemisimpleAlgebrasPartII:SA.3/frobenius-root-boundary"
+      ],
+      "source": "EG",
+      "kind": "error",
+      "printed": "The source asserts uniqueness.",
+      "affects": "the proof",
+      "known": "No published correction freshly verified; the existing paper extraction E2 was reread as a lead.",
+      "searched": [
+        "Existing extraction sourceIssues; public arXiv v4; published PDF access returned403. No fresh journal-wide corrigendum search certified."
+      ]
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII/E3",
+      "locator": "AppendixA.2, p41 first paragraph",
+      "issue": "Vanishing on the reduced t=1 fibre does not imply zero-section support.",
+      "correction": "Require and prove a relative Brauer-class vanishing statement; no corrected proof is certified in this checkpoint.",
+      "reason": "ε·ξ·dx over a nilpotent parameter vanishes on ε=0 but is still nonzero where ξ is invertible.",
+      "affectedNodes": [
+        "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison",
+        "SemisimpleAlgebrasPartII:SA.4/relative-brauer-equality"
+      ],
+      "source": "EG",
+      "kind": "gap",
+      "printed": "The source asserts the existence of support.",
+      "affects": "the proof",
+      "known": "No published correction freshly verified; paper extraction E5 was reread.",
+      "searched": [
+        "Existing extraction sourceIssues; public arXiv v4; published PDF access returned403. No fresh journal-wide corrigendum search certified."
+      ]
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII/E4",
+      "source": "GS",
+      "kind": "error",
+      "locator": "Remark4.5.15, printed p105; author errata p3 calls it Remark4.5.14",
+      "printed": "2",
+      "issue": "The printed constant bound on ind(A)/per(A) for a p-adic curve function field is misstated.",
+      "correction": "For period prime to the residue characteristic, the corrected claim is ind(A) dividing per(A)².",
+      "reason": "The author’s published errata replace the constant-ratio assertion by the square-period bound.",
+      "affects": "a stated result",
+      "known": "GS-ERR December4,2020, p3, correction to p105.",
+      "searched": [
+        "Author’s public errata PDF"
+      ],
+      "affectedNodes": [],
+      "scope": "Outside this continuation’s generic period-index arithmetic; recorded because the read source contains the mistake."
+    }
+  ],
+  "restructure": [
+    {
+      "title": "Cartier-flow supplier addition",
+      "proposal": "In the Cartier-flow continuation, plan the relative four-term Cartier units/closed-form exact sequence, its two-step boundary, the OV07/BB07 identifications and W₂ splitting comparisons. Import these here; generic CR.1 does not supply them.",
+      "reason": "The EG route adds a Cartier-specific dependency beyond the current generic crystals stage."
+    },
+    {
+      "title": "Generic Morita API granularity",
+      "proposal": "The owner GeneralAlgebraicKTheory should expose its moritaStructure API as native projective-generator and localization declarations; this roadmap specializes it to sheaf Azumaya module descent.",
+      "reason": "One existing multi-target K-theory node does not provide the native affine inputs needed here."
+    }
+  ],
+  "libraryAudit": {
+    "read": "data/library-coverage.json, 2026-10-02",
+    "finding": "No reviewed entry for the parent SemisimpleAlgebras roadmap or this new PartII was found. Related duplication notes and actual pinned statements were inspected; absence of an audit entry is not evidence of absence from the library."
+  },
+  "paperRoutes": [
+    {
+      "paperId": "PAPER-BENOIST-19",
+      "route": "BrauerPeriodIndexArithmetic",
+      "items": [
+        "06",
+        "07",
+        "08"
+      ],
+      "nodes": [
+        "SemisimpleAlgebrasPartII:SA.0/class-index",
+        "SemisimpleAlgebrasPartII:SA.0/splitting-degrees",
+        "SemisimpleAlgebrasPartII:SA.0/minimum-splitting-degree",
+        "SemisimpleAlgebrasPartII:SA.0/gcd-splitting-degrees",
+        "SemisimpleAlgebrasPartII:SA.0/index-basechange-divides",
+        "SemisimpleAlgebrasPartII:SA.0/index-divides-degree-index",
+        "SemisimpleAlgebrasPartII:SA.1/period-divides-index",
+        "SemisimpleAlgebrasPartII:SA.1/same-prime-divisors"
+      ],
+      "status": "partial"
+    },
+    {
+      "paperId": "PAPER-ESNAULT-GROECHENIG-20",
+      "route": "SemisimpleAlgebrasPartIIGeometricMorita",
+      "items": [
+        "022",
+        "023",
+        "036",
+        "124"
+      ],
+      "nodes": [
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+        "SemisimpleAlgebrasPartII:SA.2/coherent-morita",
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-support-morita",
+        "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial",
+        "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison",
+        "SemisimpleAlgebrasPartII:SA.4/relative-brauer-equality"
+      ],
+      "status": "partial"
+    }
+  ],
+  "upstreamNotes": [
+    "The parent README predates pinned algebra index/Brauer CommGroup/base-change exports; actual source statements override stale missing-API prose. No upstream file was edited.",
+    "QFI7B’s full comparison exists as a plan, while its explicit base-change naturality milestone is 2-torsion; the all-class units square is an additional PartII obligation.",
+    "The paper extraction’s phrase unique up to unique isomorphism is unsuitable for arbitrary splitting modules: retain functor/evaluation data and natural isomorphisms."
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "sourceId": "EG",
+      "url": "https://arxiv.org/pdf/1707.00752v4",
+      "version": "arXiv v4, June1, 2020",
+      "read": "Theorem2.17/Remark2.18 and AppendixA.2–A.3",
+      "sha256": "bcc435b58bb2b1c06869413c1cd96018676d15da8003d21e5b507b114a63c4eb"
+    },
+    {
+      "kind": "published",
+      "sourceId": "EG",
+      "url": "https://intlpress.com/site/pub/files/_fulltext/journals/acta/2020/0225/0001/ACTA-2020-0225-0001-a002.pdf",
+      "read": "Not freshly acquired: both public attempts returned403. Published/preprint differences are not certified."
+    },
+    {
+      "kind": "author copy",
+      "sourceId": "GS",
+      "url": "https://www.math.ens.psl.eu/~benoist/refs/Gille-Szamuely.pdf",
+      "read": "2006 edition §4.5 pp100–105, author errata separately checked."
+    },
+    {
+      "kind": "author copy",
+      "sourceId": "GS-ERR",
+      "url": "https://pagine.dm.unipi.it/tamas/erratams.pdf",
+      "version": "December4,2020",
+      "sha256": "db7cea507d8aa13060aeff424845bbfd74e12fd71faceb4c374dbc7e815f3d04",
+      "read": "Correction to p101 and p105, p3."
+    }
+  ],
+  "suggestedFile": {
+    "wholeFileCompiled": false,
+    "reason": "All four imported Tau Ceti compiled modules are absent from the existing pinned build; no build was started.",
+    "sourceSha256": "63f6c90ec8b28f79b214537e0f371512c0e0ab83534cde7001b8a4aadbf21adf",
+    "coverage": [
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/index-brauer-congr",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.indexBrauerCongr",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/class-index",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.classIndex",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/class-index-mk",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.classIndex_mk",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/class-index-positive",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.classIndex_pos",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/class-index-one",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.classIndex_eq_one_iff",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/splitting-degrees",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.splittingDegrees",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/division-module-dimension",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.divisionModuleDimension",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/index-divides-splitting-degree",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.indexDividesSplittingDegree",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/index-basechange-divides",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.classIndex_baseChange_dvd",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/index-divides-degree-index",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.indexDividesDegreeIndex",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/class-index-attained",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.classIndex_mem_splittingDegrees",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/minimum-splitting-degree",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.minimumSplittingDegree",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/gcd-splitting-degrees",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.gcdSplittingDegrees",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/same-cyclic-index",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.sameCyclicIndex",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.1/comparison-basechange-units",
+        "status": "unrepresented",
+        "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.1/brauer-corestriction",
+        "status": "unrepresented",
+        "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
+        "api": [
+          "brauerCorestriction_res",
+          "brauerCorestriction_comp",
+          "brauerCorestriction_self",
+          "brauerCorestriction_embedding"
+        ],
+        "tests": [
+          "identity_extension",
+          "trivial_class",
+          "quadratic_restriction",
+          "inseparable_boundary"
+        ]
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.1/corestriction-restriction-degree",
+        "status": "unrepresented",
+        "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.1/separable-splitting-annihilates",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.separableSplittingAnnihilates",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.1/class-power-index",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.classPowerIndex",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.1/brauer-finite-order",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.brauerFiniteOrder",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.1/period-divides-index",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.periodDividesIndex",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.1/prime-to-p-splitting",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.primeToPSplitting",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.1/index-prime-divides-period",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.indexPrimeDividesPeriod",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.1/same-prime-divisors",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.samePrimeDivisors",
+        "compiled": false
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.2/matrix-support",
+        "status": "native-signature",
+        "declaration": "SemisimpleAlgebrasPartII.matrixSupport",
+        "compiled": true
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.2/nilpotent-support-boundary",
+        "status": "partial-native-examples",
+        "detail": "The concrete ZMod4 / pure TrivSqZeroExt ring computations are checked; the global support / polynomial conclusions are not separate compiled declarations."
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+        "status": "unrepresented",
+        "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
+        "api": [
+          "sheafMorita_unit",
+          "sheafMorita_counit",
+          "sheafMorita_restrict",
+          "sheafMorita_matrix"
+        ],
+        "tests": [
+          "rank_one",
+          "matrix_rank_two",
+          "disconnected_rank",
+          "nongenerator"
+        ]
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.2/coherent-morita",
+        "status": "unrepresented",
+        "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.2/sheaf-support-morita",
+        "status": "unrepresented",
+        "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.3/splitting-transition-line",
+        "status": "unrepresented",
+        "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.3/charpoly-line-twist",
+        "status": "unrepresented",
+        "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial",
+        "status": "unrepresented",
+        "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
+        "api": [
+          "moritaCharpoly_matrix",
+          "moritaCharpoly_changeSplitting",
+          "moritaCharpoly_baseChange",
+          "moritaCharpoly_degree"
+        ],
+        "tests": [
+          "rank_one_scalar",
+          "zero_rank",
+          "nonreduced_scalar",
+          "line_twist"
+        ]
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.3/frobenius-root-boundary",
+        "status": "partial-native-examples",
+        "detail": "The concrete ZMod4 / pure TrivSqZeroExt ring computations are checked; the global support / polynomial conclusions are not separate compiled declarations."
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison",
+        "status": "unrepresented",
+        "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.4/relative-brauer-equality",
+        "status": "unrepresented",
+        "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
+        "api": [],
+        "tests": []
+      }
+    ],
+    "affineReceipt": {
+      "exitCode": 0,
+      "errors": 0,
+      "admissionWarnings": 0,
+      "otherWarnings": 0,
+      "seconds": 0.9,
+      "examples": 7,
+      "provedDeclaration": "SemisimpleAlgebrasPartII.matrixSupport",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "containsSorryAx": false,
+      "sourceSha256": "b8c7403b0c0a2a218f1358d78e704fcd5a2fccd3dbef4b34c7585f7289991898",
+      "logSha256": "b4148d35bfa2cfbe9ae0953942209716d270322dd477d1711ba6845666e44700",
+      "scope": "Exact marked affine section with Mathlib imports and an axiom print; field and geometric signatures excluded."
+    }
+  },
+  "atlasCheck": {
+    "readOnly": true,
+    "stageVertices": 3022,
+    "stageEdges": 8663,
+    "stageDag": true,
+    "ownNodeVertices": 35,
+    "ownNodeEdges": 43,
+    "ownNodeDag": true,
+    "scopedVertices": 3048,
+    "scopedEdges": 8765,
+    "scopedDag": true,
+    "requestPairs": 28,
+    "requestPairsReachable": 28,
+    "promisedKeys": [
+      "SchemeAndStackFoundations:key/scheme-brauer"
+    ],
+    "pendingLinks": [],
+    "removedExistingStageEdges": 0,
+    "scope": "Read-only provisional overlay: rendered layer/planet graph plus this packet’s own declaration prerequisites; no certification of all external declaration graphs. Reserved key is an explicit unresolved virtual supplier reference."
+  }
+}
