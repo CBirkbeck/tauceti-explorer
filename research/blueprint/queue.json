@@ -38721,8 +38721,9 @@
     "REV-PAPER-DEMARCO-MAVRAKI-YE-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DEMARCO-MAVRAKI-YE-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4201"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4201",
+   "finishedAt": "2026-10-02T05:00:14Z"
   },
   {
    "id": "RT-PAPER-HANSEN-26",
@@ -41076,7 +41077,8 @@
     "REV-PAPER-DING-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DING-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4287"
   },
   {
    "id": "REV-RT-PAPER-DING-25",
@@ -53114,7 +53116,8 @@
     "FIX-RT-AREA-algebraicgeometry"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5148"
   },
   {
    "id": "RT-AREA-padic-1",
