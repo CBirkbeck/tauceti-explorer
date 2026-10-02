@@ -463,7 +463,7 @@
       "file": "HabiroNahmSeries",
       "roadmap": "HabiroNahmSeries",
       "nodes": 109,
-      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~2"
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~3"
     },
     {
       "file": "HabiroNumberFields",
@@ -493,7 +493,7 @@
       "file": "Polylogarithms",
       "roadmap": "Polylogarithms",
       "nodes": 75,
-      "reviewer": "independent-review-REV-Polylogarithms"
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~3"
     },
     {
       "file": "SmallRamificationAndAbelianVarietyBaseCases",
@@ -503,8 +503,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 30689341,
-  "htmlSha256": "a2b5b7014150fd25bd3fcc880b4b44ad574737d1dda380fa3e1143e9388aac64",
+  "htmlBytes": 30689811,
+  "htmlSha256": "788d734a264c48f9a21dd62761f65a2eae67a21b596d09462713805335b32d56",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -627,7 +627,7 @@
     "data/blueprints/HabiroCohomologyFoundations--HQ.1.md": "1234aa3f09946c388578081fe64b6f03e4f617df8bc79dbce4ac41f6c5bef30b",
     "data/blueprints/HabiroCyclotomicCompletions.json": "8c78181e54669682102500158cf934aa102adb38fd0af43cca7417623495b50a",
     "data/blueprints/HabiroCyclotomicCompletions.md": "4639b41bf3f48f54a55066d96efa11ab071b16e2da2437309f6971dc97624a06",
-    "data/blueprints/HabiroNahmSeries.json": "f0837e5a92c150ac35cd9df7d1d0101efb74b34ecee1ad4368beb41697a85b49",
+    "data/blueprints/HabiroNahmSeries.json": "eb0ca2488778710e8ca3d30f9389870faa9119d10c37b9b771c3d435904d358d",
     "data/blueprints/HabiroNahmSeries.md": "57e69d599eabed639adfa0cd5958bb19f50385bc3b2737e77a60c045aacd4b23",
     "data/blueprints/HabiroNumberFields.json": "4fdb7141018eab742384a041a6a5e2baa437a2e5b746e46bb34e1eadd6e35d36",
     "data/blueprints/HabiroNumberFields.md": "6dacd129ca08c9fc3747d9ffb451223707b6b47e1b9f78aebe03a907cf11df9d",
@@ -637,8 +637,8 @@
     "data/blueprints/K2SymbolsBrauer--T.3.md": "008cc52b3b52ce5e0674e8af693faa037a4932c9096fc8e64a06c947216c1ed9",
     "data/blueprints/K3BlochGroups.json": "ac9ba93202af2d2e5d7dcf6a6db0c8c84550756cad0cede5425905a178aac599",
     "data/blueprints/K3BlochGroups.md": "165b68c2bffead7bf468a831b3900aa954e06bbea3e85878621915d056c4c05f",
-    "data/blueprints/Polylogarithms.json": "2cb09d18d91fb86a9a3b6e32c727e93a2fb57aa302257bace65e21571844384f",
-    "data/blueprints/Polylogarithms.md": "010b7847408a01f3e73e680b1adee5851d2a3f5127cb8a5955cf6e877c8c7c22",
+    "data/blueprints/Polylogarithms.json": "c9068486dd97c07d99f56c54ed6af8d7bd29607a0f6069817ec95927f968bb86",
+    "data/blueprints/Polylogarithms.md": "1d28e812ddc1cdf712e71814d4ba70a913d2107cd694003639dd5cc7ea08cf43",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.json": "fb0daca4a0b888dfad1d7bb862a800af846fc2f9553abe9f9cd2e61567e6d3a7",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md": "bf5bb37e33b91d56f46879172730f6ced43c4f448c1ff01efeec27bc66d0141e",
     "data/links/tauceti_Completed_EffectiveBounds.json": "a1493c80585e5e41a95005979315013c4406ce3be31b57b9fd2fb8bc9c278805",
