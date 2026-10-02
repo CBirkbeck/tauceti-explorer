@@ -30,61 +30,8 @@ Current entire Mathlib-only sketch: Lean v4.34.0-rc2, Mathlib 082e2d37e8b0463410
 
 The separate experiment proves the generic word span and kernel criterion from an explicit supplied ideal-generation equality. That equality is local to this experiment and is not an extra public hypothesis. Both declarations check with no errors/warnings; both axiom audits contain only propext, Classical.choice and Quot.sound. This is not a compiled proof of the canonical Tau Ceti augmentation bridge or of global sheaf statements.
 
-Save the following as words.lean in your own disk scratch, check memory, then run a single lake env lean on its absolute filename from the top of an already existing exact pinned Mathlib build. Never set up or build a project.
+The exact experiment text and its axiom commands are archived in the [first submitted version](https://github.com/CBirkbeck/tauceti-explorer/blob/b386baf/research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md). Use the displayed source SHA-256 to identify it. Lean code is kept out of the current handoff under the issue’s file-format rule. An existing exact pinned Mathlib build and the worker memory/process restrictions still apply.
 
-```lean
-import Mathlib.RingTheory.Ideal.Operations
-import Mathlib.RingTheory.Ideal.Maps
-import Mathlib.Algebra.Algebra.Operations
-import Mathlib.Algebra.Group.Pointwise.Set.ListOfFn
-import Mathlib.LinearAlgebra.SymmetricAlgebra.Basic
-import Mathlib.RingTheory.Bialgebra.SymmetricAlgebra
-import Mathlib.LinearAlgebra.Dual.Defs
-
-noncomputable section
-open scoped Pointwise
-namespace WordProof
-variable {A U B : Type*} [CommRing A] [Ring B]
-
-theorem span_pow_words (g : U → A) (N : ℕ) :
-    (Ideal.span (Set.range g)) ^ N =
-      Ideal.span (Set.range fun w : Fin N → U => ((List.ofFn w).map g).prod) := by
-  have hset : (Set.range g) ^ N =
-      Set.range (fun w : Fin N → U => ((List.ofFn w).map g).prod) := by
-    ext x
-    rw [Set.mem_pow]
-    constructor
-    · rintro ⟨f, hf⟩
-      choose w hw using fun i => (f i).property
-      refine ⟨w, ?_⟩
-      simpa only [List.map_ofFn, Function.comp_def, hw] using hf
-    · rintro ⟨w, rfl⟩
-      refine ⟨fun i => ⟨g (w i), ⟨w i, rfl⟩⟩, ?_⟩
-      simp only [List.map_ofFn, Function.comp_def]
-  change (Submodule.span A (Set.range g)) ^ N = _
-  rw [Submodule.span_pow]
-  exact congrArg Ideal.span hset
-
-theorem pow_ker_iff_words (g : U → A) (I : Ideal A)
-    (hI : I = Ideal.span (Set.range g)) (ψ : A →+* B) (N : ℕ) :
-    I ^ N ≤ RingHom.ker ψ ↔
-      ∀ w : Fin N → U, ((List.ofFn w).map (ψ ∘ g)).prod = 0 := by
-  rw [hI, span_pow_words, Ideal.span_le]
-  constructor
-  · intro h w
-    have hx := h (Set.mem_range_self w)
-    change ψ (((List.ofFn w).map g).prod) = 0 at hx
-    simpa only [map_list_prod, List.map_map, Function.comp_def] using hx
-  · intro h x hx
-    obtain ⟨w, rfl⟩ := hx
-    change ψ (((List.ofFn w).map g).prod) = 0
-    simpa only [map_list_prod, List.map_map, Function.comp_def] using h w
-
-end WordProof
-
-#print axioms WordProof.span_pow_words
-#print axioms WordProof.pow_ker_iff_words
-```
 
 The predecessor's exact Python regression was freshly rerun: 88 commuting F₂ pairs, N=0,…,4, 440 cases, and all ambient-ideal, characteristic-two, Z/4 and noncommuting fixtures passed. Finite computations are not general proofs. Save the next block in your own scratch and run with Python 3.
 
