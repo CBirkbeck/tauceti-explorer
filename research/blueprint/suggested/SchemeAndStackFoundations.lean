@@ -145,11 +145,145 @@ lemma simple_root_lift (I : Ideal R) (f : Polynomial (algebra I))
 theorem henselian (I : Ideal R) : HenselianRing (algebra I) (extended I) := by sorry
 attribute [instance] henselian
 
+
+
+section EtaleSection
+variable {B : Type u} [CommRing B] [Algebra R B] [Algebra.Etale R B]
+
+-- node: SchemeAndStackFoundations:SF.0/etale-section-selector
+lemma etale_section_selector (σ : B →ₐ[R] R) :
+    ∃ e : B, IsIdempotentElem e ∧ σ e = 1 ∧
+      ∀ b : B, e * b = e * algebraMap R B (σ b) := by
+  let : Algebra B R := σ.toAlgebra
+  have : IsScalarTower R B R := IsScalarTower.of_algebraMap_eq' σ.comp_algebraMap.symm
+  have hσ : Function.Surjective σ := fun r ↦ ⟨algebraMap R B r, σ.commutes r⟩
+  have : Algebra.FormallyEtale B R := Algebra.FormallyEtale.of_restrictScalars (R := R)
+  obtain ⟨k, hk, hker⟩ :=
+    (Ideal.isIdempotentElem_iff_of_fg _ (Algebra.FinitePresentation.ker_fG_of_surjective σ hσ)).mp
+      ((Algebra.FormallyEtale.iff_of_surjective hσ).mp inferInstance)
+  have hσk : σ k = 0 := by
+    apply RingHom.mem_ker.mp
+    change k ∈ RingHom.ker σ.toRingHom
+    rw [hker]
+    exact Ideal.mem_span_singleton_self k
+  refine ⟨1 - k, hk.one_sub, by simp [hσk], ?_⟩
+  intro b
+  have hb : b - algebraMap R B (σ b) ∈ RingHom.ker σ.toRingHom := by
+    simp [RingHom.mem_ker]
+  rw [hker] at hb
+  obtain ⟨c, hc⟩ := Ideal.mem_span_singleton'.mp hb
+  have hz : (1 - k) * (b - algebraMap R B (σ b)) = 0 := by
+    rw [← hc]
+    calc
+      (1 - k) * (c * k) = c * (k - k * k) := by ring
+      _ = 0 := by rw [hk]; ring
+  exact sub_eq_zero.mp (by simpa only [mul_sub] using hz)
+
+
+-- node: SchemeAndStackFoundations:SF.0/etale-selector-kernel
+omit [Algebra.Etale R B] in
+lemma etale_selector_kernel (σ : B →ₐ[R] R) {e : B}
+    (heσ : σ e = 1) (he : ∀ b : B, e * b = e * algebraMap R B (σ b)) :
+    RingHom.ker σ.toRingHom = Ideal.span {1 - e} := by
+  apply le_antisymm
+  · intro b hb
+    have hzb : e * b = 0 := by
+      have hσb : σ b = 0 := hb
+      simpa only [hσb, map_zero, mul_zero] using he b
+    exact Ideal.mem_span_singleton'.mpr ⟨b, by calc
+      b * (1 - e) = b - e * b := by ring
+      _ = b := by rw [hzb]; ring⟩
+  · apply Ideal.span_le.mpr
+    intro b hb
+    obtain rfl := Set.mem_singleton_iff.mp hb
+    simp [RingHom.mem_ker, heσ]
+
+-- node: SchemeAndStackFoundations:SF.0/etale-section-product
+lemma etale_section_product (σ : B →ₐ[R] R) :
+    ∃ e : B, IsIdempotentElem e ∧ σ e = 1 ∧
+      ∃ E : B ≃ₐ[R] R × (B ⧸ Ideal.span {e}), ∀ b : B, (E b).1 = σ b := by
+  obtain ⟨e, he, heσ, hselect⟩ := etale_section_selector σ
+  have hker := etale_selector_kernel σ heσ hselect
+  have hσ : Function.Surjective σ := fun r ↦ ⟨algebraMap R B r, σ.commutes r⟩
+  let E₁ := AlgEquiv.prodQuotientOfIsIdempotentElem R he.one_sub he (by ring)
+    (by change (1-e)*e=0; rw [sub_mul, one_mul, he]; ring)
+  let E₂ : (B ⧸ Ideal.span {1-e}) ≃ₐ[R] R :=
+    ((Ideal.span {1-e}).quotientEquivAlgOfEq R hker.symm).trans
+      (Ideal.quotientKerAlgEquivOfSurjective hσ)
+  refine ⟨e, he, heσ, E₁.trans (AlgEquiv.prodCongr E₂ (.refl)), ?_⟩
+  intro b
+  rfl
+
+-- node: SchemeAndStackFoundations:SF.0/etale-section-localization
+lemma etale_section_localization (σ : B →ₐ[R] R) :
+    ∃ e : B, IsIdempotentElem e ∧ σ e = 1 ∧
+      ∃ E : Localization.Away e ≃ₐ[R] R,
+        ∀ b : B, E (algebraMap B (Localization.Away e) b) = σ b := by
+  obtain ⟨e, he, heσ, hselect⟩ := etale_section_selector σ
+  let : Algebra B R := σ.toAlgebra
+  have : IsScalarTower R B R := IsScalarTower.of_algebraMap_eq' σ.comp_algebraMap.symm
+  have : IsLocalization.Away e R := IsLocalization.away_of_isIdempotentElem he
+    (etale_selector_kernel σ heσ hselect)
+    (fun r ↦ ⟨algebraMap R B r, σ.commutes r⟩)
+  let E := (IsLocalization.algEquiv (Submonoid.powers e) (Localization.Away e) R).restrictScalars R
+  exact ⟨e, he, heσ, E, fun b ↦ (IsLocalization.algEquiv (Submonoid.powers e) (Localization.Away e) R).commutes b⟩
+
+-- acceptance: first-sheet selector has its actual projection and multiplication law.
+example : IsIdempotentElem ((1, 0) : ZMod 5 × ZMod 5) ∧
+    (AlgHom.fst (ZMod 5) (ZMod 5) (ZMod 5)) (1, 0) = 1 ∧
+    ∀ b : ZMod 5 × ZMod 5, (1, 0) * b =
+      (1, 0) * algebraMap (ZMod 5) (ZMod 5 × ZMod 5)
+        ((AlgHom.fst (ZMod 5) (ZMod 5) (ZMod 5)) b) := by
+  refine ⟨?_, by decide, by decide⟩
+  change ((1, 0) : ZMod 5 × ZMod 5) * (1, 0) = (1, 0)
+  decide
+
+-- acceptance: the complementary idempotent selects the other sheet.
+example : ¬ ((AlgHom.fst (ZMod 5) (ZMod 5) (ZMod 5))
+    ((0, 1) : ZMod 5 × ZMod 5) = 1) := by decide
+
+-- acceptance: the actual section kernel is the complementary ideal.
+example : RingHom.ker (AlgHom.fst (ZMod 5) (ZMod 5) (ZMod 5)).toRingHom =
+    Ideal.span {1 - ((1, 0) : ZMod 5 × ZMod 5)} := by
+  apply etale_selector_kernel (AlgHom.fst (ZMod 5) (ZMod 5) (ZMod 5)) (by decide)
+  decide
+
+-- acceptance: product comparison carries the given section, not an arbitrary projection.
+example (σ : B →ₐ[R] R) :
+    ∃ e : B, IsIdempotentElem e ∧ σ e = 1 ∧
+      ∃ E : B ≃ₐ[R] R × (B ⧸ Ideal.span {e}), ∀ b : B, (E b).1 = σ b :=
+  etale_section_product σ
+
+-- acceptance: localization comparison fixes each source element's actual section image.
+example (σ : B →ₐ[R] R) :
+    ∃ e : B, IsIdempotentElem e ∧ σ e = 1 ∧
+      ∃ E : Localization.Away e ≃ₐ[R] R,
+        ∀ b : B, E (algebraMap B (Localization.Away e) b) = σ b :=
+  etale_section_localization σ
+
+end EtaleSection
+
+
 -- node: SchemeAndStackFoundations:SF.0/etale-lift-uniqueness
 lemma etale_lift_unique (I : Ideal R) (hI : I ≤ Ideal.jacobson (⊥ : Ideal R))
     (B : CommAlgCat.{u} R) [Algebra.Etale R B] (f g : B →ₐ[R] R)
     (hfg : (Ideal.Quotient.mk I).comp f.toRingHom =
-      (Ideal.Quotient.mk I).comp g.toRingHom) : f = g := by sorry
+      (Ideal.Quotient.mk I).comp g.toRingHom) : f = g := by
+  obtain ⟨e, he, hfe, hselect⟩ := etale_section_selector f
+  have hge : g e - 1 ∈ I := by
+    apply Ideal.Quotient.eq_zero_iff_mem.mp
+    have h : Ideal.Quotient.mk I (g e) = 1 := by
+      have hh : Ideal.Quotient.mk I (g e) = Ideal.Quotient.mk I (f e) :=
+        (DFunLike.congr_fun hfg e).symm
+      simpa only [hfe, map_one] using hh
+    rw [map_sub, map_one, h, sub_self]
+  have hu : IsUnit (g e) := Ideal.isUnit_of_sub_one_mem_jacobson_bot _ (hI hge)
+  have heq : g e = 1 := by
+    have hid : g e * g e = g e * 1 := by simpa using congrArg g he
+    exact hu.mul_left_cancel hid
+  ext b
+  have h := congrArg g (hselect b)
+  simpa [heq] using h.symm
 
 -- node: SchemeAndStackFoundations:SF.0/etale-section-comparison
 theorem exists_etale_lift (I : Ideal R) [HenselianRing R I]
