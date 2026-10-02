@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Sixteen L3 nodes apply native cyclic periodicity to the actual point-negation representation and construct the ordinary degree-one integral and F2 torsion comparisons. All2,005predecessor nodes and1,233baseline records remain whole.",
+  "summary": "Eighteen L3 nodes construct the actual primitive-fiber factor and its original degree-one Cartan group-ring coordinates, preserving all2,021predecessor nodes and1,236baseline records. The raw factor is not an ordinary distribution; the full corrected local-factor product remains to be constructed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -8666,6 +8666,27 @@
         "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
         "provides": "Existing ordinary group cohomology object of a linear representation, defined as homology of its actual inhomogeneous cochain complex.",
         "checked": "Full statements and relevant constructions read2October2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and TauCetif790474821cf4256814db967cb154e7af3d0c369. Native Tate Periodic1–355 including299–326; Mathlib Tate Basic227–246; and GroupCohomology Basic161–201. Reuses generic native theory with the actual order-two generator and original quotient representation."
+      },
+      {
+        "ref": "mathlib:LinearMap.congr_fun",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "Equality of actual linear maps implies equality of their values at each actual input.",
+        "checked": "Full statements read2October2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: LinearMap/Defs294–330, Finsupp/Single42–90, BigOperators/Group/Finset/Basic328–341 and630–643. The already indexed finite filter identity and additive-equivalence order preservation365–382 were reread; generated additive names are identified explicitly."
+      },
+      {
+        "ref": "mathlib:Finsupp.single_eq_same",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Finsupp/Single.lean",
+        "provides": "Evaluation of a native singleton finitely supported coefficient at its own index recovers that coefficient.",
+        "checked": "Full statements read2October2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: LinearMap/Defs294–330, Finsupp/Single42–90, BigOperators/Group/Finset/Basic328–341 and630–643. The already indexed finite filter identity and additive-equivalence order preservation365–382 were reread; generated additive names are identified explicitly."
+      },
+      {
+        "ref": "mathlib:Finset.prod_const",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "provides": "The indexed multiplicative theorem generates Finset.sum_const: a finite sum of a constant is its cardinality times that constant.",
+        "checked": "Full statements read2October2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: LinearMap/Defs294–330, Finsupp/Single42–90, BigOperators/Group/Finset/Basic328–341 and630–643. The already indexed finite filter identity and additive-equivalence order preservation365–382 were reread; generated additive names are identified explicitly."
       }
     ]
   },
@@ -8886,6 +8907,17 @@
         "This checkpoint extracts the ordinary universal quotient on179–180 and weighted relation(A1) on200. It proves actual finite fibers for the native rational torus. Finite-level generation/freeness, Cartan constructions, Bernoulli/Fourier models, rational realization, even/odd quotients and cohomology are read but not yet decomposed or certified.",
         "External references[K-L],[K1],[K2],[Si],[B],[Y],[Ma],[Mi] are not thereby read. The unidentified[L]reference is recorded as a source gap. Thek=1complex construction is explicitly left to the reader on192."
       ]
+    },
+    {
+      "id": "Kubert-Cohomology-1979",
+      "title": "The Z/2 Z cohomology of the universal ordinary distribution",
+      "authors": "Daniel S. Kubert",
+      "edition": "Bulletin de la Société Mathématique de France107(1979),203–224; DOI10.24033/bsmf.1892",
+      "url": "https://www.numdam.org/item/10.24033/bsmf.1892.pdf",
+      "sha256": "77f2c3502fd404bae43f1515bb21a67c1874cb63f8b164aa3f873e46c81beaf3",
+      "readSections": [
+        "Only rational-model section204–207 was examined for the correction cross-check, including formula1.9 on206 as an image. No claim of full-body reading or extraction; no later companion result is used."
+      ]
     }
   ],
   "sourceVersions": [
@@ -8930,6 +8962,12 @@
       "url": "https://www.numdam.org/item/10.24033/bsmf.1891.pdf",
       "read": "2026-10-01",
       "sha256": "50ddeaefff42c5753b5ac8e9c9f5cbedee663821f3788776a8dbf02b1b701bca"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/10.24033/bsmf.1892.pdf",
+      "read": "2026-10-02",
+      "sha256": "77f2c3502fd404bae43f1515bb21a67c1874cb63f8b164aa3f873e46c81beaf3"
     }
   ],
   "nodes": [
@@ -129048,6 +129086,1012 @@
       "acceptance": [
         "The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual rational primitive-fiber sum",
+      "kind": "construction",
+      "statement": "Construct s(X_N(a)) in the native rational coefficient space on primitive level-N points, with coefficient1 at every primitive lift satisfying (N/f(a))y=a and coefficient0 elsewhere.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint."
+      ],
+      "proofSteps": [
+        "Use the already proved positivity and divisibility of the actual additive order f(a).",
+        "Regard the original point as a primitive point at its own order.",
+        "Apply the existing full primitive transfer from f(a) to N to its singleton rational coefficient1."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generators-level-order-pos",
+        "DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd",
+        "DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimitiveSum"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.unit_level_zero_is_basis",
+          "kind": "degenerate",
+          "statement": "At level1, the zero-labelled point has the unique primitive basis vector with coefficient1; this also detects the empty-product normalization required by the rational model."
+        },
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.level_six_half_has_two_lifts",
+          "kind": "computation",
+          "statement": "At level6, the order-two point1/2 has exactly the primitive lifts1/6 and5/6, both with coefficient1."
+        },
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.primitive_point_is_not_full_fiber",
+          "kind": "non-example",
+          "statement": "The primitive point1/6 at level6 has only its own singleton lift, although the order-two point1/2 has two lifts. No averaging or inclusion of nonprimitive roots is permitted."
+        },
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.raw_fiber_sum_is_not_distribution",
+          "kind": "non-example",
+          "statement": "The raw primitive-fiber sum alone is not an ordinary distribution: at level2, both0 and1/2 map to the unique primitive basis vector, so their full root sum is twice that vector rather than its value at0. The later rational-model factors are essential."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ],
+      "api": [
+        {
+          "name": "kubertRationalPrimitiveSum_apply",
+          "role": "compatibility",
+          "statement": "The coefficient at a primitive point y is1 precisely when (N/f(a))y=a, and is0 otherwise."
+        },
+        {
+          "name": "kubertRationalPrimitiveSum_nonzero",
+          "role": "compatibility",
+          "statement": "For every original level-N point a, its rational primitive-fiber sum is nonzero."
+        },
+        {
+          "name": "kubertRationalPrimitiveSum_zero",
+          "role": "compatibility",
+          "statement": "At the original zero point, every primitive level-N coefficient of the rational primitive sum equals1."
+        },
+        {
+          "name": "kubertRationalPrimitiveSum_primitive",
+          "role": "compatibility",
+          "statement": "If the original point a has additive order N, its rational primitive sum is exactly the singleton coefficient1 at a."
+        },
+        {
+          "name": "kubertRationalPrimitiveSum_transition",
+          "role": "compatibility",
+          "statement": "For M dividing N and an original point a killed by M, the full primitive transfer from M to N sends its primitive sum at M to its primitive sum at N, using the actual inclusion of the same ambient point."
+        },
+        {
+          "name": "kubertRationalPrimitiveSum_support",
+          "role": "compatibility",
+          "statement": "A primitive point y belongs to the support of the rational primitive sum exactly when (N/f(a))y=a."
+        },
+        {
+          "name": "kubertRationalPrimitiveSum_exists",
+          "role": "compatibility",
+          "statement": "For every original level-N point a, there exists an actual primitive point y of order N satisfying (N/f(a))y=a."
+        },
+        {
+          "name": "kubertRationalPrimitiveSum_sum",
+          "role": "compatibility",
+          "statement": "The rational primitive element equals the sum of all singleton basis vectors with coefficient1 over the actual primitive fiber X_N(a)."
+        },
+        {
+          "name": "kubertRationalPrimitiveSum_mass",
+          "role": "compatibility",
+          "statement": "The sum of all rational coefficients of the primitive-fiber element equals the cardinality of the actual primitive fiber, embedded in the rational numbers."
+        },
+        {
+          "name": "kubertRationalPrimitiveSum_equivariant",
+          "role": "compatibility",
+          "statement": "For every additive automorphism e of the original rational torus, the primitive sum of e(a) equals the existing coefficient transport of the primitive sum of a."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert193–195, equations4.1–4.5 and Proposition4.8",
+          "how": "Supplies the actual s(X(a)) factor, its original primitive representatives, nonvanishing, equivariance and exact full-fiber level compatibility before constructing the local rational factors."
+        },
+        {
+          "where": "Kubert196–199, Propositions4.10 and4.13 and Theorem4.11",
+          "how": "Provides the primitive-fiber basis sums used in the source distribution and rational-span arguments; the corrected product and the remaining proof steps are still required."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-apply",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Coefficients of the actual primitive-fiber sum",
+      "kind": "lemma",
+      "statement": "The coefficient at a primitive point y is1 precisely when (N/f(a))y=a, and is0 otherwise.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint."
+      ],
+      "proofSteps": [
+        "Use the actual transfer coefficient formula.",
+        "Evaluate the native singleton coefficient.",
+        "Use the previously proved equivalence between primitive reduction equality and multiplication in the original point group."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum",
+        "DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-apply",
+        "DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-eq-iff",
+        "mathlib:Finsupp.single_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimitiveSum_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.rationalPrimitiveSum_apply_typed_api",
+          "kind": "compatibility",
+          "statement": "The coefficient at a primitive point y is1 precisely when (N/f(a))y=a, and is0 otherwise."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-nonzero",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual primitive-fiber sum is nonzero",
+      "kind": "lemma",
+      "statement": "For every original level-N point a, its rational primitive-fiber sum is nonzero.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint."
+      ],
+      "proofSteps": [
+        "If its transfer were zero, injectivity of the actual primitive transfer would make the singleton at a zero.",
+        "Evaluate that singleton at a to obtain the contradiction1=0 in the rational numbers."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum",
+        "DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-injective",
+        "mathlib:Finsupp.single_eq_same"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimitiveSum_nonzero"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.rationalPrimitiveSum_nonzero_typed_api",
+          "kind": "compatibility",
+          "statement": "For every original level-N point a, its rational primitive-fiber sum is nonzero."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-zero",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The zero point has every primitive lift",
+      "kind": "lemma",
+      "statement": "At the original zero point, every primitive level-N coefficient of the rational primitive sum equals1.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint."
+      ],
+      "proofSteps": [
+        "The additive order of zero is1.",
+        "Every primitive point of order N is killed by N.",
+        "Apply the coefficient formula with these exact facts."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-apply",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-zero-mem-iff",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimitiveSum_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.rationalPrimitiveSum_zero_typed_api",
+          "kind": "compatibility",
+          "statement": "At the original zero point, every primitive level-N coefficient of the rational primitive sum equals1."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-primitive",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A primitive point has a singleton primitive fiber",
+      "kind": "lemma",
+      "statement": "If the original point a has additive order N, its rational primitive sum is exactly the singleton coefficient1 at a.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint."
+      ],
+      "proofSteps": [
+        "In the coefficient formula, replace f(a) by N and N/N by1.",
+        "The fiber condition becomes equality with the original point.",
+        "Use the native singleton coefficient formula and subtype extensionality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-apply",
+        "mathlib:Finsupp.single_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimitiveSum_primitive"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.rationalPrimitiveSum_primitive_typed_api",
+          "kind": "compatibility",
+          "statement": "If the original point a has additive order N, its rational primitive sum is exactly the singleton coefficient1 at a."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-transition",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Primitive-fiber sums respect actual level transitions",
+      "kind": "lemma",
+      "statement": "For M dividing N and an original point a killed by M, the full primitive transfer from M to N sends its primitive sum at M to its primitive sum at N, using the actual inclusion of the same ambient point.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint."
+      ],
+      "proofSteps": [
+        "Both sums are transfers of the same singleton at the unchanged additive order of a.",
+        "Apply the existing composition identity for the actual primitive transfers.",
+        "Evaluate the resulting linear-map equality at that singleton."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum",
+        "DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-comp",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-level-mono",
+        "mathlib:LinearMap.congr_fun"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimitiveSum_transition"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.rationalPrimitiveSum_transition_typed_api",
+          "kind": "compatibility",
+          "statement": "For M dividing N and an original point a killed by M, the full primitive transfer from M to N sends its primitive sum at M to its primitive sum at N, using the actual inclusion of the same ambient point."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-support",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Support is exactly the actual primitive fiber",
+      "kind": "lemma",
+      "statement": "A primitive point y belongs to the support of the rational primitive sum exactly when (N/f(a))y=a.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint."
+      ],
+      "proofSteps": [
+        "Native finitely supported membership means its coefficient is nonzero.",
+        "Apply the coefficient formula and distinguish the rational coefficients1 and0."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-apply",
+        "mathlib:Finsupp.mem_support_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimitiveSum_support"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.rationalPrimitiveSum_support_typed_api",
+          "kind": "compatibility",
+          "statement": "A primitive point y belongs to the support of the rational primitive sum exactly when (N/f(a))y=a."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-exists",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every point has an actual primitive lift at the containing level",
+      "kind": "lemma",
+      "statement": "For every original level-N point a, there exists an actual primitive point y of order N satisfying (N/f(a))y=a.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint."
+      ],
+      "proofSteps": [
+        "Use the actual positive order f(a) as the lower level.",
+        "Apply the established primitive lifting theorem for all positive divisors of N to the original point a."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generators-level-order-pos",
+        "DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd",
+        "DirichletPadicLFunctions:L3/kubert-transfer-primitive-lift-all-divisors"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimitiveSum_exists"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.rationalPrimitiveSum_exists_typed_api",
+          "kind": "compatibility",
+          "statement": "For every original level-N point a, there exists an actual primitive point y of order N satisfying (N/f(a))y=a."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The primitive-fiber element is the full basis sum",
+      "kind": "lemma",
+      "statement": "The rational primitive element equals the sum of all singleton basis vectors with coefficient1 over the actual primitive fiber X_N(a).",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint."
+      ],
+      "proofSteps": [
+        "Apply the existing primitive-transfer formula on a singleton coefficient.",
+        "Its filtered index condition is exactly (N/f(a))y=a."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum",
+        "DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-single"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimitiveSum_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.rationalPrimitiveSum_sum_typed_api",
+          "kind": "compatibility",
+          "statement": "The rational primitive element equals the sum of all singleton basis vectors with coefficient1 over the actual primitive fiber X_N(a)."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-mass",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The primitive-fiber mass is its actual cardinality",
+      "kind": "lemma",
+      "statement": "The sum of all rational coefficients of the primitive-fiber element equals the cardinality of the actual primitive fiber, embedded in the rational numbers.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint."
+      ],
+      "proofSteps": [
+        "Replace every coefficient by its exact0/1 formula.",
+        "Use the native filtered finite-sum identity.",
+        "The finite sum of the constant1 is the cardinality of the filtered fiber."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-apply",
+        "mathlib:Finset.prod_filter",
+        "mathlib:Finset.prod_const"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimitiveSum_mass"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.rationalPrimitiveSum_mass_typed_api",
+          "kind": "compatibility",
+          "statement": "The sum of all rational coefficients of the primitive-fiber element equals the cardinality of the actual primitive fiber, embedded in the rational numbers."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-equivariant",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Primitive-fiber sums respect actual torus automorphisms",
+      "kind": "lemma",
+      "statement": "For every additive automorphism e of the original rational torus, the primitive sum of e(a) equals the existing coefficient transport of the primitive sum of a.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint."
+      ],
+      "proofSteps": [
+        "The native additive equivalence preserves the additive order of a.",
+        "Evaluate the existing primitive coefficient transport by the inverse automorphism.",
+        "The original fiber condition is equivalent to the transported one because e preserves multiplication by natural numbers and is injective."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-apply",
+        "DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv-apply",
+        "mathlib:MulEquiv.orderOf_eq"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimitiveSum_equivariant"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.rationalPrimitiveSum_equivariant_typed_api",
+          "kind": "compatibility",
+          "statement": "For every additive automorphism e of the original rational torus, the primitive sum of e(a) equals the existing coefficient transport of the primitive sum of a."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual Cartan primitive-fiber element",
+      "kind": "construction",
+      "statement": "In degree one, construct the corresponding rational group-ring element on the actual finite Cartan product by applying the inverse established primitive-coefficient equivalence to the actual primitive sum.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint.",
+        "For the Cartan construction set k=0. Use the actual degree-one Cartan product of truncated-Witt unit groups, and its already constructed equivalence with the actual primitive circle coordinates. No arbitrary torsor or assumed finite-ring identification is supplied."
+      ],
+      "proofSteps": [
+        "Use the already constructed degree-one Cartan-to-primitive coefficient equivalence.",
+        "Apply its inverse to the actual unnormalized primitive-fiber sum."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum",
+        "DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-coefficient-equiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanRationalPrimitiveSum"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.cartan_unit_level_normalization",
+          "kind": "degenerate",
+          "statement": "In the actual degree-one Cartan group ring at level1, the zero-labelled primitive sum is the identity basis vector."
+        },
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.cartan_half_has_full_unit_support",
+          "kind": "computation",
+          "statement": "At level6, the order-two point1/2 has coefficient1 at every actual Cartan unit, corresponding exactly to its two primitive lifts."
+        },
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.cartan_primitive_identity_singleton",
+          "kind": "non-example",
+          "statement": "At level6, the primitive point1/6 maps to the identity basis vector and has zero coefficient at every other actual Cartan unit."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanRationalPrimitiveSum_coordinates",
+          "role": "compatibility",
+          "statement": "The established Cartan coefficient equivalence sends the new group-ring element to the original rational primitive sum."
+        },
+        {
+          "name": "kubertCartanRationalPrimitiveSum_coeff",
+          "role": "compatibility",
+          "statement": "The coefficient at an actual Cartan unit u is1 exactly when the corresponding original primitive point y satisfies (N/f(a))y=a, and is0 otherwise."
+        },
+        {
+          "name": "kubertCartanRationalPrimitiveSum_nonzero",
+          "role": "compatibility",
+          "statement": "The actual rational group-ring element for every original point a is nonzero."
+        },
+        {
+          "name": "kubertCartanRationalPrimitiveSum_zero",
+          "role": "compatibility",
+          "statement": "Every actual finite Cartan unit has coefficient1 in the rational primitive element of the original zero point."
+        },
+        {
+          "name": "kubertCartanRationalPrimitiveSum_primitive",
+          "role": "compatibility",
+          "statement": "For an actual Cartan unit u, take the original primitive point corresponding to u under the established circle and one-coordinate torus equivalences. Its Cartan primitive sum is exactly the native group-ring basis vector at u with coefficient1."
+        },
+        {
+          "name": "kubertCartanRationalPrimitiveSum_norm",
+          "role": "compatibility",
+          "statement": "For M dividing N, the original full-fiber Cartan norm sends the primitive-fiber element of an original level-M point to the primitive-fiber element of the same ambient point at level N."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert193–195, equations4.1–4.5 and Proposition4.8",
+          "how": "Supplies the actual s(X(a)) factor, its original primitive representatives, nonvanishing, equivariance and exact full-fiber level compatibility before constructing the local rational factors."
+        },
+        {
+          "where": "Kubert196–199, Propositions4.10 and4.13 and Theorem4.11",
+          "how": "Provides the primitive-fiber basis sums used in the source distribution and rational-span arguments; the corrected product and the remaining proof steps are still required."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-coordinates",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Cartan coordinates recover the actual primitive sum",
+      "kind": "lemma",
+      "statement": "The established Cartan coefficient equivalence sends the new group-ring element to the original rational primitive sum.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint.",
+        "For the Cartan construction set k=0. Use the actual degree-one Cartan product of truncated-Witt unit groups, and its already constructed equivalence with the actual primitive circle coordinates. No arbitrary torsor or assumed finite-ring identification is supplied."
+      ],
+      "proofSteps": [
+        "Cancel the actual coefficient equivalence with the inverse used in the construction."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum",
+        "DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-coefficient-equiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanRationalPrimitiveSum_coordinates"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.cartanRationalPrimitiveSum_coordinates_typed_api",
+          "kind": "compatibility",
+          "statement": "The established Cartan coefficient equivalence sends the new group-ring element to the original rational primitive sum."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-coeff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Actual unit coefficients detect the original primitive fiber",
+      "kind": "lemma",
+      "statement": "The coefficient at an actual Cartan unit u is1 exactly when the corresponding original primitive point y satisfies (N/f(a))y=a, and is0 otherwise.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint.",
+        "For the Cartan construction set k=0. Use the actual degree-one Cartan product of truncated-Witt unit groups, and its already constructed equivalence with the actual primitive circle coordinates. No arbitrary torsor or assumed finite-ring identification is supplied."
+      ],
+      "proofSteps": [
+        "Use the existing evaluation formula for the actual Cartan coefficient equivalence.",
+        "Recover the original primitive sum by its coordinate identity.",
+        "Apply the actual primitive coefficient formula."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-coordinates",
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-apply",
+        "DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-coefficient-equiv-apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanRationalPrimitiveSum_coeff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.cartanRationalPrimitiveSum_coeff_typed_api",
+          "kind": "compatibility",
+          "statement": "The coefficient at an actual Cartan unit u is1 exactly when the corresponding original primitive point y satisfies (N/f(a))y=a, and is0 otherwise."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-nonzero",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The Cartan primitive-fiber element is nonzero",
+      "kind": "lemma",
+      "statement": "The actual rational group-ring element for every original point a is nonzero.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint.",
+        "For the Cartan construction set k=0. Use the actual degree-one Cartan product of truncated-Witt unit groups, and its already constructed equivalence with the actual primitive circle coordinates. No arbitrary torsor or assumed finite-ring identification is supplied."
+      ],
+      "proofSteps": [
+        "If the group-ring element were zero, apply the actual linear coefficient equivalence.",
+        "Its coordinate identity would make the original primitive sum zero.",
+        "Use the proved nonvanishing of that actual primitive sum."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-coordinates",
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-nonzero"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanRationalPrimitiveSum_nonzero"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.cartanRationalPrimitiveSum_nonzero_typed_api",
+          "kind": "compatibility",
+          "statement": "The actual rational group-ring element for every original point a is nonzero."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-zero",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The zero point has coefficient one at every Cartan unit",
+      "kind": "lemma",
+      "statement": "Every actual finite Cartan unit has coefficient1 in the rational primitive element of the original zero point.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint.",
+        "For the Cartan construction set k=0. Use the actual degree-one Cartan product of truncated-Witt unit groups, and its already constructed equivalence with the actual primitive circle coordinates. No arbitrary torsor or assumed finite-ring identification is supplied."
+      ],
+      "proofSteps": [
+        "Transport coefficient evaluation to the original primitive coordinates.",
+        "Apply the established zero-point coefficient formula."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-coordinates",
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-zero",
+        "DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-coefficient-equiv-apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanRationalPrimitiveSum_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.cartanRationalPrimitiveSum_zero_typed_api",
+          "kind": "compatibility",
+          "statement": "Every actual finite Cartan unit has coefficient1 in the rational primitive element of the original zero point."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-primitive",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A primitive Cartan point gives its actual unit basis vector",
+      "kind": "lemma",
+      "statement": "For an actual Cartan unit u, take the original primitive point corresponding to u under the established circle and one-coordinate torus equivalences. Its Cartan primitive sum is exactly the native group-ring basis vector at u with coefficient1.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint.",
+        "For the Cartan construction set k=0. Use the actual degree-one Cartan product of truncated-Witt unit groups, and its already constructed equivalence with the actual primitive circle coordinates. No arbitrary torsor or assumed finite-ring identification is supplied."
+      ],
+      "proofSteps": [
+        "Apply injectivity of the actual coefficient equivalence.",
+        "Use its known basis-vector formula.",
+        "The corresponding original point is primitive, so its primitive sum is the singleton at that point."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-coordinates",
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-primitive",
+        "DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-coefficient-equiv-single"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanRationalPrimitiveSum_primitive"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.cartanRationalPrimitiveSum_primitive_typed_api",
+          "kind": "compatibility",
+          "statement": "For an actual Cartan unit u, take the original primitive point corresponding to u under the established circle and one-coordinate torus equivalences. Its Cartan primitive sum is exactly the native group-ring basis vector at u with coefficient1."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Actual Cartan norms preserve primitive-fiber elements",
+      "kind": "lemma",
+      "statement": "For M dividing N, the original full-fiber Cartan norm sends the primitive-fiber element of an original level-M point to the primitive-fiber element of the same ambient point at level N.",
+      "hypotheses": [
+        "Let k be natural and let the actual point group be the rational torus with k+1 coordinates. Let N be positive and a an actual point killed by N. Its positive additive order f(a) divides N.",
+        "Primitive points at N are the existing actual points of additive order exactly N. The full primitive fiber X_N(a) consists of those primitive y with (N/f(a))y=a, using multiplication in the original torus.",
+        "The coefficient object is the existing finitely supported rational vector space on those actual primitive points. Every fiber coefficient is1; there is no normalization by its cardinality.",
+        "This is the raw primitive sum s(X_N(a)) used by the rational model. It is not by itself an ordinary distribution: the later product of local rational factors is essential. No full rational-model law, rank, source freeness or internal-to-global injection follows from this checkpoint.",
+        "For the Cartan construction set k=0. Use the actual degree-one Cartan product of truncated-Witt unit groups, and its already constructed equivalence with the actual primitive circle coordinates. No arbitrary torsor or assumed finite-ring identification is supplied."
+      ],
+      "proofSteps": [
+        "Apply the actual coefficient equivalence at the target level.",
+        "Use the established equality between the original Cartan norm and full primitive transfer.",
+        "Use the actual primitive-sum transition identity and cancel the coefficient equivalence."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-coordinates",
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-rational-primitive-sum-transition",
+        "DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-coefficient-equiv-norm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertRationalFibers",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanRationalPrimitiveSum_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published193–195, equations4.1–4.4 and the primitive-sum factor in4.5; compatibility uses the s(X_M(a))→s(X_N(a)) step on195 in Proposition4.8.",
+          "match": "Constructs the actual primitive fiber sum at the positive order of the original point, using the existing full primitive transfer, and its actual degree-one Cartan coordinates. It provides the unnormalized s(X(a)) factor only; the local correction factors and their general distribution proof remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertSinnottLatticeTests.cartanRationalPrimitiveSum_norm_typed_api",
+          "kind": "compatibility",
+          "statement": "For M dividing N, the original full-fiber Cartan norm sends the primitive-fiber element of an original level-M point to the primitive-fiber element of the same ambient point at level N."
+        }
+      ],
+      "acceptance": [
+        "At level1, the zero point gives the unique primitive basis vector. At level6, the point1/2 has the two primitive lifts1/6 and5/6, whereas1/6 has a singleton lift. Coefficients remain1, and Cartan group-ring coordinates retain these exact fibers. At level2 the raw primitive sum fails the full ordinary distribution relation, so it must not replace the corrected full rational model."
+      ]
     }
   ],
   "requests": [
@@ -129194,7 +130238,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The printed ordinary degree1/even-torsion comparison now has an actual native construction: ordinary H1 is identified with degree-minus-one Tate by existing periodicity and then, under the explicit torsion-free premise on the original Q, with the native torsion of the original even quotient over both integers and F2. Representatives are transported through this precise comparison; no separate equality with the native periodic-resolution cocycle projection is asserted. Source freeness, the independent lower-rank and internal-to-global input remain unproved. Character components, general-degree coordinates and fiber counts, and the unramified-ring identification remain open.",
+        "The actual primitive-fiber factor s(X_N(a)) now has a complete source-coordinate construction, coefficients, nonvanishing, support/cardinality and equivariance, plus its actual degree-one Cartan group-ring comparison and norm compatibility. The raw factor is not an ordinary distribution. The full rational model requires the product of local factors; printed4.5 has a sum, while its following proof and the published companion formula1.9 use the product, recorded asE27. Construct those actual local coset factors and prove the corrected rational distribution and rational-span arguments next. Source freeness, lower rank, internal-to-global injection, character components, general-degree Cartan coordinates and unramified-ring identification remain open.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -129226,7 +130270,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The printed ordinary degree1/even-torsion comparison now has an actual native construction: ordinary H1 is identified with degree-minus-one Tate by existing periodicity and then, under the explicit torsion-free premise on the original Q, with the native torsion of the original even quotient over both integers and F2. Representatives are transported through this precise comparison; no separate equality with the native periodic-resolution cocycle projection is asserted. Source freeness, the independent lower-rank and internal-to-global input remain unproved. Character components, general-degree coordinates and fiber counts, and the unramified-ring identification remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The actual primitive-fiber factor s(X_N(a)) now has a complete source-coordinate construction, coefficients, nonvanishing, support/cardinality and equivariance, plus its actual degree-one Cartan group-ring comparison and norm compatibility. The raw factor is not an ordinary distribution. The full rational model requires the product of local factors; printed4.5 has a sum, while its following proof and the published companion formula1.9 use the product, recorded asE27. Construct those actual local coset factors and prove the corrected rational distribution and rational-span arguments next. Source freeness, lower rank, internal-to-global injection, character components, general-degree Cartan coordinates and unramified-ring identification remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -129771,41 +130815,57 @@
         "The complete Numdam article record and volume107 contents were fetched and read; neither lists a correction. Browser text opens failed, but direct public HTTP fetches succeeded and their hashes are retained. Bounded title/author searches with erratum, correction, corrigendum,3.7 and Proposition3.3 located no relevant correction. No separate author correction page or preprint was located; no exhaustive historical novelty claim is made.",
         "The captured atlas source-issue registry was screened through its nested rows for Kubert; no matching finding was present. Open Mathlib/GitHub and Lean Zulip searches for ordinary distribution found no matching design. No author or third party was contacted."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E27",
+      "source": "Kubert-1979",
+      "kind": "misprint",
+      "locator": "Published194, equation4.5, compared with the product defining epsilon in the immediately following proof and the published companion paper206, equation1.9.",
+      "printed": "r(N)(a)=s(X(a)) Σ_{p|f(a)} (1−s(X_p(N))/|X_p(N)|)",
+      "correction": "Replace the sum over primes dividing f(a) by the product over those primes. Retain the unnormalized primitive-fiber sum s(X(a)). The empty product at the zero point of level1 is1.",
+      "reason": "The displayed4.5 prints a sum, but the immediately following proof on194 defines epsilon as the product of the same local factors and writes r(N)(a)=epsilon(s(X(a))). The subsequent distribution and rational-span arguments use that product. The distinction is substantive: at N=1,a=0, the printed empty sum gives0, whereas the product gives the unique primitive basis vector, as required by the rational model and its span. At degree1,N=6,a=1/6, exact original unit coordinates[1,5] give the product(1,−1), whereas the printed sum gives(3/2,−3/2). This corrects the displayed definition; it does not challenge the subsequent arguments carried out with the product.",
+      "affects": "a stated result",
+      "known": "The intended product is already printed in the same paper’s proof immediately after4.6 on194, and in Daniel S. Kubert, The Z/2 Z cohomology of the universal ordinary distribution, BSMF107(1979)203–224, equation1.9 on206, https://www.numdam.org/item/10.24033/bsmf.1892.pdf. The latter is a published correct restatement, not labelled an erratum.",
+      "searched": [
+        "The original published Numdam scan, DOI10.24033/bsmf.1891, was reread on193–200; formulas4.5 and the following product were visually checked on194. Original sourceSHA25650ddeaefff42c5753b5ac8e9c9f5cbedee663821f3788776a8dbf02b1b701bca.",
+        "The companion published Numdam scan, DOI10.24033/bsmf.1892, was fetched2October2026, SHA25677f2c3502fd404bae43f1515bb21a67c1874cb63f8b164aa3f873e46c81beaf3. Only rational-model section204–207 was examined for this check; equation1.9 on206 was visually verified. No full-body reading or later cohomology result is claimed.",
+        "The original Numdam article record and limited title/author queries with4.5, correction and erratum were read2October2026; no explicit erratum was located. The captured atlas registry contains no matching Kubert4.5 finding. No comprehensive historical novelty claim or author contact is made."
+      ]
     }
   ],
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All26source findings and seven source versions remain whole; no new finding or independent review verdict is added. Ordinary degree1 is now connected through actual native periodicity. Its even-torsion comparisons remain conditional on the explicitly stated original-module torsion-free premise; no source freeness instance or stage closure is claimed.",
+    "sourceIssues": "All26earlier source findings and seven source versions remain whole. NewE27 records the sum/product misprint in published4.5, with the correct product already printed in the same proof and the companion paper1.9. The companion published version is recorded for that scoped correction check only. No independent review verdict or stage closure is added.",
     "validation": {
-      "nodes": 2021,
+      "nodes": 2039,
       "kinds": {
         "definition": 22,
-        "lemma": 1205,
-        "construction": 228,
+        "lemma": 1221,
+        "construction": 230,
         "theorem": 359,
         "comparison": 207
       },
-      "api": 1419,
-      "packetTests": 3600,
-      "definitionConstructionTests": 954,
-      "typedExamples": 3603,
+      "api": 1435,
+      "packetTests": 3623,
+      "definitionConstructionTests": 961,
+      "typedExamples": 3626,
       "planets": 24,
-      "baseline": 1236,
-      "preservedWholeNodes": 2005,
-      "preservedBaseline": 1233,
+      "baseline": 1239,
+      "preservedWholeNodes": 2021,
+      "preservedBaseline": 1236,
       "preservedSourceIssues": 26,
-      "newSourceIssues": 0,
-      "newNodes": 16,
-      "newNamedDeclarations": 16,
-      "newTypedTests": 24,
+      "newSourceIssues": 1,
+      "newNodes": 18,
+      "newNamedDeclarations": 18,
+      "newTypedTests": 23,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 2283,
-      "dependencyEdges": 9344,
+      "reachableNodes": 2301,
+      "dependencyEdges": 9394,
       "acyclic": true,
-      "baselineLeaves": 1404,
+      "baselineLeaves": 1407,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -129820,7 +130880,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 1027841,
+      "readerWords": 1036015,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -129846,31 +130906,34 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 170,
-      "scratchCompleteLemmas": 1326,
+      "scratchCompleteDefinitions": 172,
+      "scratchCompleteLemmas": 1342,
       "scratchMathlibModules": 3282,
       "scratchTauModules": 10,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "cyclicGroups": 48,
-        "integerVectors": 13720,
-        "normKernelBoundaryWitnesses": 80,
-        "evenTorsionChecks": 13720,
-        "auxiliarySignRepresentatives": 129,
-        "auxiliarySignPairChecks": 16641,
-        "auxiliaryBinaryScalarChecks": 258
+        "levels": 36,
+        "primitiveFibers": 666,
+        "nonemptyFibers": 666,
+        "zeroFullSupports": 36,
+        "primitiveSingletons": 396,
+        "transitionCoefficients": 14254,
+        "unitEquivariance": 9519,
+        "rankTwoTorusFibers": 650,
+        "correctedDistributionChecks": 1196,
+        "correctedNormCoefficients": 4286
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "6da4720810aa52d3094138578ab27e0ad0e376885c18efc01755c020c90021e7",
+        "sourceSha256": "c06d77f7252de7bbb83baafe39ef662467f7f62aaceea42412ee1b541e7e611a",
         "modules": 3914,
-        "warnings": 5969,
+        "warnings": 6010,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,969 expected placeholder warnings across 3,914 pinned source modules. It includes all 16 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 6da4720810aa52d3094138578ab27e0ad0e376885c18efc01755c020c90021e7.",
+        "scope": "The separate partial signature file also compiled with zero errors and 6,010 expected placeholder warnings across 3,914 pinned source modules. It includes all 18 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c06d77f7252de7bbb83baafe39ef662467f7f62aaceea42412ee1b541e7e611a.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -129880,7 +130943,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "532979defc4d9a61878cc96d692c460f579477a123b209e1fe46cc8d8a5c66f1",
+      "sha256": "b1401e8c78a4d9114ad9f03cfb53d7ef2084d3e403fd718f0d8020288f20ce0b",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -129895,11 +130958,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1326,
+        "completeLemmas": 1342,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "cc60fe9f4294ccd1f5090a0b6850d87c8f1922ce59d16b61f711ad0ac077549a"
+        "sha256": "c1d49b232d099e7bc1af89a8b4206958c45ecbbc4a76b650df330ddfd96777e3"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -130119,17 +131182,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "6da4720810aa52d3094138578ab27e0ad0e376885c18efc01755c020c90021e7",
+        "sourceSha256": "c06d77f7252de7bbb83baafe39ef662467f7f62aaceea42412ee1b541e7e611a",
         "modules": 3914,
-        "warnings": 5969,
+        "warnings": 6010,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,969 expected placeholder warnings across 3,914 pinned source modules. It includes all 16 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 6da4720810aa52d3094138578ab27e0ad0e376885c18efc01755c020c90021e7.",
+        "scope": "The separate partial signature file also compiled with zero errors and 6,010 expected placeholder warnings across 3,914 pinned source modules. It includes all 18 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c06d77f7252de7bbb83baafe39ef662467f7f62aaceea42412ee1b541e7e611a.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "45c222bb286048de1ed6f869f8ac62760cee5d15",
+      "base": "8777e5075c0c03f8ba0f8f2c2177e9f2e060ae3a",
       "unchangedInputs": 79,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -142550,6 +143613,57 @@
         "warnings": 5969,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 5,969 expected placeholder warnings across 3,914 pinned source modules. It includes all 16 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 6da4720810aa52d3094138578ab27e0ad0e376885c18efc01755c020c90021e7.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertRationalFibers": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5767,
+      "previousHead": "598b5b4e70e76628a9a9e218d7aa9ad92a53fec8",
+      "previousMerge": "bb091c2002fb6a0f6682f89092fe08aa2fb4c5ff",
+      "preservedWholeNodes": 2021,
+      "preservedBaseline": 1236,
+      "preservedFindings": 26,
+      "newNodes": 18,
+      "reading": "Kubert193–200 was reread in text, with formula4.5 and the proofs on194,198–199 checked visually. Equations4.1–4.4 and the primitive-sum compatibility step195 are matched on actual native carriers. Existing primitive transfer, order and coefficient-equivalence interfaces were reused. For the sum/product correction alone, Kubert’s published companion paper203–224 was fetched and its rational-model section204–207 read, with formula1.9 on206 visually checked. No later theorem from that companion paper is adopted or claimed fully extracted.",
+      "boundary": "The actual primitive-fiber factor s(X_N(a)) now has a complete source-coordinate construction, coefficients, nonvanishing, support/cardinality and equivariance, plus its actual degree-one Cartan group-ring comparison and norm compatibility. The raw factor is not an ordinary distribution. The full rational model requires the product of local factors; printed4.5 has a sum, while its following proof and the published companion formula1.9 use the product, recorded asE27. Construct those actual local coset factors and prove the corrected rational distribution and rational-span arguments next. Source freeness, lower rank, internal-to-global injection, character components, general-degree Cartan coordinates and unramified-ring identification remain open.",
+      "inputBase": "f4f64d6519f407767ee8c6042cc60420400bf81a",
+      "sourceBoundary": "All26earlier source findings and seven source versions remain whole. NewE27 records the sum/product misprint in published4.5, with the correct product already printed in the same proof and the companion paper1.9. The companion published version is recorded for that scoped correction check only. No independent review verdict or stage closure is added.",
+      "publication": {
+        "base": "8777e5075c0c03f8ba0f8f2c2177e9f2e060ae3a",
+        "unchangedInputs": 79,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 36,
+        "primitiveFibers": 666,
+        "nonemptyFibers": 666,
+        "zeroFullSupports": 36,
+        "primitiveSingletons": 396,
+        "transitionCoefficients": 14254,
+        "unitEquivariance": 9519,
+        "rankTwoTorusFibers": 650,
+        "correctedDistributionChecks": 1196,
+        "correctedNormCoefficients": 4286
+      },
+      "numericalMethod": "Exact rational arithmetic on actual cyclic point groups through level36 and rank-two tori through level12 checks every primitive fiber, its nonemptiness, zero and primitive cases, unit equivariance and divisor transitions. A separate finite implementation of the corrected rational-model product checks every internal distribution relation and group-ring norm through level24. It also distinguishes the printed sum from the intended product at levels1,6,30. These finite product controls support the source correction only; no general corrected rational-distribution, lower-rank or source-freeness theorem is claimed by the current native probe.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "c06d77f7252de7bbb83baafe39ef662467f7f62aaceea42412ee1b541e7e611a",
+        "modules": 3914,
+        "warnings": 6010,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 6,010 expected placeholder warnings across 3,914 pinned source modules. It includes all 18 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c06d77f7252de7bbb83baafe39ef662467f7f62aaceea42412ee1b541e7e611a.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
