@@ -1,3 +1,104 @@
+# Native counts over finite extensions — current checkpoint
+
+Codex codex-J6LwjP; 2 October 2026. This is a partial continuation of #3378 from commit 4a1f4b6f4dc475b67e029001f90053ff85163a04. Five specialized lemmas are added to G.1, using existing finite-field theorems. Generic embedding theory and chosen extensions stay library baseline inputs.
+
+Write q=X²+C(a)X+C(b) and n=Module.finrank(k,L). The source field embeds into finite L, hence is itself finite; n is the actual native relative degree, not an assumed parity value. Irreducibility makes AdjoinRoot(q) a field of k-dimension2. A root in L gives a k-algebra homomorphism from this quotient; conversely the image of its distinguished root is a root. Mathlib’s existing homomorphism criterion therefore gives root existence exactly when2 divides n.
+
+For the remaining formulas keep discrim(1,a,b)≠0 explicitly, including characteristic two; no division by2 is used. Its image stays nonzero. The existing distinct-root branch count gives2 or0, while the existing receiving-field count gives card(L) or card(L)+2. The native module cardinality theorem rewrites card(L)=card(k)^n. Substitution in the native integer defect gives1 or−1. These are actual equation-level statements, with the singular origin and infinity included.
+
+## Roots of the conductor quadratic over finite extensions
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-root-parity; declaration QuadraticPinch.quadratic_root_iff_even.
+
+For irreducible q=X²+C(a)X+C(b) over k and finite field L with a k-algebra structure, there exists t∈L with t²+algebraMap(a)t+algebraMap(b)=0 if and only if 2 divides Module.finrank(k,L).
+
+k and L are fields, L is finite, with the actual native Algebra k L. No separate Finite k assumption is needed: injectivity into L forces it.
+a,b∈k and q=X²+C(a)X+C(b) is irreducible over k. Use actual Module.finrank k L, native algebraMap, polynomial quotient and WeierstrassCurve; no assumed parity oracle or count data.
+
+Proof: Take the actual field AdjoinRoot(q). Monicity and the nonzero leading coefficient give natDegree(q)=2, hence the native quotient has k-finrank2. A receiving root gives the existing liftAlgHom; conversely the image of the quotient root satisfies the actual receiving polynomial by aeval_algHom_eq_zero. Apply the already existing finite-field algebra-homomorphism criterion and rewrite the source finrank to2. No new generic field-embedding theorem is planned.
+
+Inputs: mathlib:FiniteField.nonempty_algHom_iff_finrank_dvd, mathlib:AdjoinRoot.instField, mathlib:AdjoinRoot.liftAlgHom, mathlib:AdjoinRoot.aeval_algHom_eq_zero, mathlib:finrank_quotient_span_eq_natDegree, mathlib:Polynomial.natDegree_quadratic.
+
+QuadraticPinch.quadratic_root_iff_even.test_binary_odd_no_root: For the actual native degree-three extension of ZMod2, t²+t+1 has no root.
+
+## Two or zero conductor roots by extension degree
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-root-count; declaration QuadraticPinch.quadraticRootCount_extension_parity.
+
+Under irreducibility of q and nonzero quadratic discriminant, the native subtype {t∈L:t²+algebraMap(a)t+algebraMap(b)=0} has Nat.card2 when 2 divides Module.finrank(k,L), and0 otherwise.
+
+k and L are fields, L is finite, with the actual native Algebra k L. No separate Finite k assumption is needed: injectivity into L forces it.
+a,b∈k and q=X²+C(a)X+C(b) is irreducible over k. Use actual Module.finrank k L, native algebraMap, polynomial quotient and WeierstrassCurve; no assumed parity oracle or count data.
+For the distinct-root/count/trace formulas require discrim(1,a,b)=a²−4b≠0 explicitly. No inversion of2 or characteristic restriction; this is the quadratic discriminant, not the vanishing Weierstrass discriminant.
+
+Proof: Transport the nonzero quadratic discriminant through the actual algebraMap; field injectivity preserves nonvanishing. Apply the existing native distinct-root branch formula in L, then replace root existence by the separately proved degree criterion.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-root-parity, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-root-count-branch, mathlib:RingHom.injective, mathlib:discrim.
+
+QuadraticPinch.quadraticRootCount_extension_parity.test_binary_even_two_roots: In the actual native degree-two extension of ZMod2, the distinct-root subtype for t²+t+1 has cardinality2.
+
+## One-component native count by extension degree
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-pointcount; declaration QuadraticPinch.pointCount_extension_parity.
+
+For W_L=(algebraMap(a),−algebraMap(b),0,0,0), under irreducibility and nonzero quadratic discriminant, W_L.pointCount is Nat.card(L) for even Module.finrank(k,L), and Nat.card(L)+2 for odd degree, including singular origin and infinity.
+
+k and L are fields, L is finite, with the actual native Algebra k L. No separate Finite k assumption is needed: injectivity into L forces it.
+a,b∈k and q=X²+C(a)X+C(b) is irreducible over k. Use actual Module.finrank k L, native algebraMap, polynomial quotient and WeierstrassCurve; no assumed parity oracle or count data.
+For the distinct-root/count/trace formulas require discrim(1,a,b)=a²−4b≠0 explicitly. No inversion of2 or characteristic restriction; this is the quadratic discriminant, not the vanishing Weierstrass discriminant.
+
+Proof: Use the receiving-field coefficient-map count formula with the actual algebraMap k L. Replace its root predicate by divisibility of extension degree. Reconcile proof-irrelevant decidability instances by splitting the condition; neither outcome is assumed.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coefficient-count-branch, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-root-parity.
+
+## Native finite-extension count in powers of the base cardinality
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-power-count; declaration QuadraticPinch.pointCount_extension_power.
+
+For the same actual W_L and hypotheses, W_L.pointCount equals Nat.card(k)^Module.finrank(k,L) when the degree is even, and this power plus2 when it is odd.
+
+k and L are fields, L is finite, with the actual native Algebra k L. No separate Finite k assumption is needed: injectivity into L forces it.
+a,b∈k and q=X²+C(a)X+C(b) is irreducible over k. Use actual Module.finrank k L, native algebraMap, polynomial quotient and WeierstrassCurve; no assumed parity oracle or count data.
+For the distinct-root/count/trace formulas require discrim(1,a,b)=a²−4b≠0 explicitly. No inversion of2 or characteristic restriction; this is the quadratic discriminant, not the vanishing Weierstrass discriminant.
+
+Proof: The finite receiving field supplies the finite k-module instance. Rewrite Nat.card(L) in the degree-branch theorem using the existing module cardinality theorem. This computes the actual equation-level projective count, without asserting a geometric pinching identification.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-pointcount, mathlib:Module.natCard_eq_pow_finrank.
+
+QuadraticPinch.pointCount_extension_power.test_binary_degree1: For the actual native degree1 extension of ZMod2, the model (1,−1,0,0,0) has pointCount4.
+
+QuadraticPinch.pointCount_extension_power.test_binary_degree2: For the actual native degree2 extension of ZMod2, the model (1,−1,0,0,0) has pointCount4.
+
+QuadraticPinch.pointCount_extension_power.test_binary_degree3: For the actual native degree3 extension of ZMod2, the model (1,−1,0,0,0) has pointCount10.
+
+QuadraticPinch.pointCount_extension_power.test_odd_characteristic_even_degree: In the actual native degree-two extension of ZMod3, the model (0,−1,0,0,0) has pointCount9.
+
+## Native numerical trace defect by extension degree
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-trace; declaration QuadraticPinch.frobeniusTrace_extension_parity.
+
+For the same actual W_L and hypotheses, W_L.frobeniusTrace is1 for even Module.finrank(k,L) and−1 for odd degree. This is the existing integer count defect on a singular equation, without a cohomological or elliptic trace assertion.
+
+k and L are fields, L is finite, with the actual native Algebra k L. No separate Finite k assumption is needed: injectivity into L forces it.
+a,b∈k and q=X²+C(a)X+C(b) is irreducible over k. Use actual Module.finrank k L, native algebraMap, polynomial quotient and WeierstrassCurve; no assumed parity oracle or count data.
+For the distinct-root/count/trace formulas require discrim(1,a,b)=a²−4b≠0 explicitly. No inversion of2 or characteristic restriction; this is the quadratic discriminant, not the vanishing Weierstrass discriminant.
+
+Proof: Unfold the existing native finite-field count defect and substitute the degree-branch point count. Split on even degree and simplify integer arithmetic. The sign switches when the two conductor roots become rational.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-pointcount, tauceti:WeierstrassCurve.frobeniusTrace_def.
+
+QuadraticPinch.frobeniusTrace_extension_parity.test_binary_even_trace: In the actual native degree-two extension of ZMod2, the model (1,−1,0,0,0) has native numerical trace defect1.
+
+The seven new examples use existing FiniteField.Extension fields and its explicit native Algebra instance. Irreducibility of X²+X+1 over ZMod2 and X²+1 over ZMod3 is proved from the existing degree-at-most-three criterion and exhaustive root evaluation. They test degrees1,2,3 in characteristic two, two distinct roots after degree2, no root after degree3, the degree2 count in characteristic three, and the even-degree numerical defect. These are kernel-checked examples, not finite-field-size assumptions or an external enumeration oracle.
+
+The [checked actual-body snapshot](https://github.com/CBirkbeck/tauceti-explorer/blob/31e1edfddca815057809280d4b01ae904eda2910/research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean) contains the complete predecessor370-line proof and the new fragment; all20 named audits have only the standard propext, Classical.choice and Quot.sound axioms. The final suggested file admits every new outer body under PROTOCOL§13. The exact admitted extraction has only39 admission warnings. The full TauCeti-importing suggested file remains uncompiled because required pinned compiled artifacts are absent.
+
+The every-extension geometric consumer retains its full I₁/I₂ statement and hypotheses. Its inputs now include the four new root/count lemmas; it still requires identification of the actual projective pinch, normalization and conductor schemes with this equation and field, plus schematic reduction and the independent fixed-component I₂ construction. The numerical defect is an auxiliary check and does not assert an étale-cohomological trace. All17 gaps,23 supplier requests,78 route records,21 source findings,29 planets, seven stage IDs and the reserved Ferrand pushout key retain their scope; no stage is closed. Historical remaining lists below record their original checkpoint frontiers.
+
+Source: [Schröer arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 conductor diagrams, complete Proposition3.1–3.2 proofs and table, read2 October2026. These every-extension signatures are authored deductions from pinned library facts and the native chart, not printed theorems in the paper. The earlier full-paper/source-finding receipts retain their worker attribution.
+
+## Preserved predecessor reader
+
 # Néron models and semistable abelian varieties, Part II
 
 Genus-one fibrations, Ferrand pinching and rational elliptic surfaces

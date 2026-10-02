@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 189 declaration nodes. This continuation preserves all 182 inherited node objects, 78 routes, 21 source findings, 23 requests and 29 planets; it adds seven native quadratic equation-solution parametrization/count nodes, four API entries and six typed examples. The explicit subtype equivalence yields pointCount plus distinct-root count equals field size plus two and the native integer invariant roots minus one, without ellipticity or separability. A separate actual-body prototype checks these declarations. Complete projective normalization, conductor/sheaf/cohomology, every-extension and two-component I₂ interfaces, plus all other inherited source obligations, remain open. All implementation statuses and coverage remain unchecked/partial.",
+  "summary": "Seven-stage partial design with 198 declaration nodes. This checkpoint adds five native quadratic finite-extension lemmas and seven typed examples, importing existing finite-field embedding and module cardinality theorems. The irreducible quadratic gains roots exactly in even extension degrees; the native one-component model has count q^n or q^n+2 and numerical trace defect1 or−1. All193 inherited statements, hypotheses, source/acceptance/implementation records,89 API entries,95 tests,78 routes,21 source findings,23 requests,29 planets and the reserved Ferrand key remain; only the every-extension consumer proof/prerequisites are extended. The actual projective-pinch/normalization/conductor/sheaf/cohomology comparison, separate I₂ count and all other G.0–G.6 source obligations remain open. All stages are partial and all implementation statuses unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1241,6 +1241,96 @@
         "module": "Mathlib/RingTheory/SimpleRing/Basic.lean",
         "provides": "Unital ring homomorphisms from simple rings into nontrivial semirings are injective; division rings are simple. Supplies discriminant transport for field maps.",
         "checked": "Full statement and ambient hypotheses read at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174,2026-10-02; indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:FiniteField.nonempty_algHom_iff_finrank_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Finite/GaloisField.lean",
+        "line": 330,
+        "provides": "For fields F,K,L with both F-algebras and finite receiving field L, existence of an F-algebra homomorphism K→L is equivalent to finrank(F,K) dividing finrank(F,L). Source finiteness is derived, not an extra hypothesis.",
+        "checked": "Codex codex-J6LwjP freshly read the full named statement/construction and ambient hypotheses at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; prototype compiled against that pin.",
+        "sourceSha256": "4adddf6dbdeb841074d2b6373bfa419aa47d23414f79906a65c589853b5cc6dd"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.instField",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 546,
+        "provides": "For a field and a polynomial with a Fact irreducibility instance, its actual AdjoinRoot quotient carries the native field instance.",
+        "checked": "Codex codex-J6LwjP freshly read the full named statement/construction and ambient hypotheses at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; prototype compiled against that pin.",
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.liftAlgHom",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 323,
+        "provides": "A root of p after coefficient evaluation gives the existing quotient algebra homomorphism; use Algebra.ofId for the k-algebra case.",
+        "checked": "Codex codex-J6LwjP freshly read the full named statement/construction and ambient hypotheses at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; prototype compiled against that pin.",
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.aeval_algHom_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 351,
+        "provides": "For an actual k-algebra homomorphism from AdjoinRoot(p), the image of its distinguished root evaluates p to zero.",
+        "checked": "Codex codex-J6LwjP freshly read the full named statement/construction and ambient hypotheses at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; prototype compiled against that pin.",
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:finrank_quotient_span_eq_natDegree",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 761,
+        "provides": "The actual polynomial quotient by the principal span has finrank equal to polynomial natural degree over a field.",
+        "checked": "Codex codex-J6LwjP freshly read the full named statement/construction and ambient hypotheses at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; prototype compiled against that pin.",
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_quadratic",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/SmallDegree.lean",
+        "line": 109,
+        "provides": "A quadratic with nonzero leading coefficient has natural degree two; specialize to leading coefficient one.",
+        "checked": "Codex codex-J6LwjP freshly read the full named statement/construction and ambient hypotheses at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; prototype compiled against that pin.",
+        "sourceSha256": "46ade3e5c8c6334c08cc2e6a1ffa22f5325f1758be9ce268b4de423b512596f7"
+      },
+      {
+        "ref": "mathlib:Module.natCard_eq_pow_finrank",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Finiteness.lean",
+        "line": 96,
+        "provides": "For a finite module over a division ring, its Nat.card equals base Nat.card raised to native finrank.",
+        "checked": "Codex codex-J6LwjP freshly read the full named statement/construction and ambient hypotheses at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; prototype compiled against that pin.",
+        "sourceSha256": "05316f2a785ab572626eabca5545306095b329a9ad19e305d740c83e83a6ac00"
+      },
+      {
+        "ref": "mathlib:FiniteField.Extension",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/Finite/Extension.lean",
+        "line": 48,
+        "provides": "Existing chosen finite extension of a finite field of characteristic p, for prime p and nonzero degree n. Its actual native Algebra instance is used in the typed tests.",
+        "checked": "Codex codex-J6LwjP freshly read the full named statement/construction and ambient hypotheses at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; prototype compiled against that pin.",
+        "sourceSha256": "3c8e114073e50386ef314293184b7426f1fd2431c8b2369a0d9c5418fe764cf2"
+      },
+      {
+        "ref": "mathlib:FiniteField.finrank_extension",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Finite/Extension.lean",
+        "line": 81,
+        "provides": "The existing chosen extension has native relative finrank n, with the precise native extension Algebra instance.",
+        "checked": "Codex codex-J6LwjP freshly read the full named statement/construction and ambient hypotheses at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; prototype compiled against that pin.",
+        "sourceSha256": "3c8e114073e50386ef314293184b7426f1fd2431c8b2369a0d9c5418fe764cf2"
+      },
+      {
+        "ref": "mathlib:Polynomial.irreducible_of_degree_le_three_of_not_isRoot",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/SpecificDegree.lean",
+        "line": 58,
+        "provides": "For a field polynomial of natural degree between one and three, absence of field-valued roots implies irreducibility. Used to verify the small test polynomials.",
+        "checked": "Codex codex-J6LwjP freshly read the full named statement/construction and ambient hypotheses at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; prototype compiled against that pin.",
+        "sourceSha256": "215b4f3ec51a8a4570482bd50301c83e7b4dc0b061eb937b761e84848c9b02bb"
       }
     ]
   },
@@ -1589,6 +1679,19 @@
         "§3 conductor diagrams and complete Proposition3.1–3.2 statements/proofs with adjacent count table"
       ],
       "readingExtent": "Scoped fresh primary-source reading only; native root/count branches are checked authored deductions. No full-paper/erratum collation, fresh PDF/HTML hash or inherited Python regression rerun is claimed."
+    },
+    {
+      "id": "schroer-J6LwjP-extension-parity",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schröer",
+      "edition": "arXiv2004.07025v3; scoped HTML reading 2 October 2026, distinct from the published Annals version.",
+      "url": "https://arxiv.org/html/2004.07025v3",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "§3 conductor diagrams, complete Proposition3.1–3.2 statements, proofs and adjoining count table"
+      ],
+      "readingExtent": "The equation-level finite-extension formulas are authored deductions from the existing chart and pinned finite-field mathematics, not printed every-extension theorems or a full-paper collation.",
+      "sha256": "d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456"
     }
   ],
   "nodes": [
@@ -8806,14 +8909,18 @@
         "For I₁ use the complement isomorphism: #(P¹\\Spec E)+#Spec F_q. This is Q+1−0+1 or Q+1−2+1.",
         "For I₂ remove the two copies of Spec E from P¹⊔P¹ and add one Spec E: 2(Q+1)−2e+e where e is0 or2.",
         "A field-valued morphism kills nilpotents; import the reduction comparison. At n=1 recover the two inherited Schröer3.2 counts.",
-        "The separately checked native pointCount_field_map supplies the one-component coefficient-changed chart count. Identify the actual projective pinch and prove the finite-field embedding/parity criterion before instantiating the odd/even formula; it does not prove I₂ or schematic reduction."
+        "The separately checked native pointCount_extension_power now proves the odd/even formula for the one-component equation over every actual finite receiving-field algebra; quadratic_root_iff_even and quadraticRootCount_extension_parity supply the native conductor-polynomial criterion. Identify the actual projective pinch and its conductor field with this chart before transporting the count. These facts do not prove I₂ or schematic reduction; the numerical trace defect is only an auxiliary check."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-splitting",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/localization-complement",
         "SchemeAndStackFoundations:SF.0",
         "SchemeAndStackFoundations:SF.3",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coefficient-count-branch"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coefficient-count-branch",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-root-parity",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-root-count",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-pointcount",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-power-count"
       ],
       "sources": [
         {
@@ -11060,6 +11167,286 @@
       },
       "declarationName": "QuadraticPinch.pointCount_field_map",
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-root-parity",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Roots of the conductor quadratic over finite extensions",
+      "kind": "lemma",
+      "statement": "For irreducible q=X²+C(a)X+C(b) over k and finite field L with a k-algebra structure, there exists t∈L with t²+algebraMap(a)t+algebraMap(b)=0 if and only if 2 divides Module.finrank(k,L).",
+      "hypotheses": [
+        "k and L are fields, L is finite, with the actual native Algebra k L. No separate Finite k assumption is needed: injectivity into L forces it.",
+        "a,b∈k and q=X²+C(a)X+C(b) is irreducible over k. Use actual Module.finrank k L, native algebraMap, polynomial quotient and WeierstrassCurve; no assumed parity oracle or count data."
+      ],
+      "prerequisites": [
+        "mathlib:FiniteField.nonempty_algHom_iff_finrank_dvd",
+        "mathlib:AdjoinRoot.instField",
+        "mathlib:AdjoinRoot.liftAlgHom",
+        "mathlib:AdjoinRoot.aeval_algHom_eq_zero",
+        "mathlib:finrank_quotient_span_eq_natDegree",
+        "mathlib:Polynomial.natDegree_quadratic"
+      ],
+      "proofSteps": [
+        "Take the actual field AdjoinRoot(q). Monicity and the nonzero leading coefficient give natDegree(q)=2, hence the native quotient has k-finrank2.",
+        "A receiving root gives the existing liftAlgHom; conversely the image of the quotient root satisfies the actual receiving polynomial by aeval_algHom_eq_zero.",
+        "Apply the already existing finite-field algebra-homomorphism criterion and rewrite the source finrank to2. No new generic field-embedding theorem is planned."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+          "how": "Specialized one-component chart input: the root/cardinality/power formulas and numerical defect check supply the finite-extension calculation. Identifying this equation with the actual projective pinch, conductor scheme points, reduction comparison and the separate I₂ count remain prerequisites of the geometric consumer."
+        }
+      ],
+      "acceptance": [
+        "For irreducible q=X²+C(a)X+C(b) over k and finite field L with a k-algebra structure, there exists t∈L with t²+algebraMap(a)t+algebraMap(b)=0 if and only if 2 divides Module.finrank(k,L)."
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-J6LwjP-extension-parity",
+          "locator": "§3, printed p10 conductor diagrams; Proposition3.1–3.2, printed pp10–11 and adjacent count table",
+          "excerpt": "conductor square",
+          "match": "Authored specialization of existing finite-field theorems to the previously checked quadratic chart; the source gives the geometric conductor/count context, not these every-extension native signatures."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "declarationName": "QuadraticPinch.quadratic_root_iff_even",
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "QuadraticPinch.quadratic_root_iff_even.test_binary_odd_no_root",
+          "kind": "non-example",
+          "statement": "For the actual native degree-three extension of ZMod2, t²+t+1 has no root."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-root-count",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Two or zero conductor roots by extension degree",
+      "kind": "lemma",
+      "statement": "Under irreducibility of q and nonzero quadratic discriminant, the native subtype {t∈L:t²+algebraMap(a)t+algebraMap(b)=0} has Nat.card2 when 2 divides Module.finrank(k,L), and0 otherwise.",
+      "hypotheses": [
+        "k and L are fields, L is finite, with the actual native Algebra k L. No separate Finite k assumption is needed: injectivity into L forces it.",
+        "a,b∈k and q=X²+C(a)X+C(b) is irreducible over k. Use actual Module.finrank k L, native algebraMap, polynomial quotient and WeierstrassCurve; no assumed parity oracle or count data.",
+        "For the distinct-root/count/trace formulas require discrim(1,a,b)=a²−4b≠0 explicitly. No inversion of2 or characteristic restriction; this is the quadratic discriminant, not the vanishing Weierstrass discriminant."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-root-parity",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-root-count-branch",
+        "mathlib:RingHom.injective",
+        "mathlib:discrim"
+      ],
+      "proofSteps": [
+        "Transport the nonzero quadratic discriminant through the actual algebraMap; field injectivity preserves nonvanishing.",
+        "Apply the existing native distinct-root branch formula in L, then replace root existence by the separately proved degree criterion."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+          "how": "Specialized one-component chart input: the root/cardinality/power formulas and numerical defect check supply the finite-extension calculation. Identifying this equation with the actual projective pinch, conductor scheme points, reduction comparison and the separate I₂ count remain prerequisites of the geometric consumer."
+        }
+      ],
+      "acceptance": [
+        "Under irreducibility of q and nonzero quadratic discriminant, the native subtype {t∈L:t²+algebraMap(a)t+algebraMap(b)=0} has Nat.card2 when 2 divides Module.finrank(k,L), and0 otherwise."
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-J6LwjP-extension-parity",
+          "locator": "§3, printed p10 conductor diagrams; Proposition3.1–3.2, printed pp10–11 and adjacent count table",
+          "excerpt": "conductor square",
+          "match": "Authored specialization of existing finite-field theorems to the previously checked quadratic chart; the source gives the geometric conductor/count context, not these every-extension native signatures."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "declarationName": "QuadraticPinch.quadraticRootCount_extension_parity",
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "QuadraticPinch.quadraticRootCount_extension_parity.test_binary_even_two_roots",
+          "kind": "computation",
+          "statement": "In the actual native degree-two extension of ZMod2, the distinct-root subtype for t²+t+1 has cardinality2."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-pointcount",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "One-component native count by extension degree",
+      "kind": "lemma",
+      "statement": "For W_L=(algebraMap(a),−algebraMap(b),0,0,0), under irreducibility and nonzero quadratic discriminant, W_L.pointCount is Nat.card(L) for even Module.finrank(k,L), and Nat.card(L)+2 for odd degree, including singular origin and infinity.",
+      "hypotheses": [
+        "k and L are fields, L is finite, with the actual native Algebra k L. No separate Finite k assumption is needed: injectivity into L forces it.",
+        "a,b∈k and q=X²+C(a)X+C(b) is irreducible over k. Use actual Module.finrank k L, native algebraMap, polynomial quotient and WeierstrassCurve; no assumed parity oracle or count data.",
+        "For the distinct-root/count/trace formulas require discrim(1,a,b)=a²−4b≠0 explicitly. No inversion of2 or characteristic restriction; this is the quadratic discriminant, not the vanishing Weierstrass discriminant."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coefficient-count-branch",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-root-parity"
+      ],
+      "proofSteps": [
+        "Use the receiving-field coefficient-map count formula with the actual algebraMap k L.",
+        "Replace its root predicate by divisibility of extension degree. Reconcile proof-irrelevant decidability instances by splitting the condition; neither outcome is assumed."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+          "how": "Specialized one-component chart input: the root/cardinality/power formulas and numerical defect check supply the finite-extension calculation. Identifying this equation with the actual projective pinch, conductor scheme points, reduction comparison and the separate I₂ count remain prerequisites of the geometric consumer."
+        }
+      ],
+      "acceptance": [
+        "For W_L=(algebraMap(a),−algebraMap(b),0,0,0), under irreducibility and nonzero quadratic discriminant, W_L.pointCount is Nat.card(L) for even Module.finrank(k,L), and Nat.card(L)+2 for odd degree, including singular origin and infinity."
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-J6LwjP-extension-parity",
+          "locator": "§3, printed p10 conductor diagrams; Proposition3.1–3.2, printed pp10–11 and adjacent count table",
+          "excerpt": "conductor square",
+          "match": "Authored specialization of existing finite-field theorems to the previously checked quadratic chart; the source gives the geometric conductor/count context, not these every-extension native signatures."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "declarationName": "QuadraticPinch.pointCount_extension_parity",
+      "implementationStatus": "unchecked",
+      "tests": []
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-power-count",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Native finite-extension count in powers of the base cardinality",
+      "kind": "lemma",
+      "statement": "For the same actual W_L and hypotheses, W_L.pointCount equals Nat.card(k)^Module.finrank(k,L) when the degree is even, and this power plus2 when it is odd.",
+      "hypotheses": [
+        "k and L are fields, L is finite, with the actual native Algebra k L. No separate Finite k assumption is needed: injectivity into L forces it.",
+        "a,b∈k and q=X²+C(a)X+C(b) is irreducible over k. Use actual Module.finrank k L, native algebraMap, polynomial quotient and WeierstrassCurve; no assumed parity oracle or count data.",
+        "For the distinct-root/count/trace formulas require discrim(1,a,b)=a²−4b≠0 explicitly. No inversion of2 or characteristic restriction; this is the quadratic discriminant, not the vanishing Weierstrass discriminant."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-pointcount",
+        "mathlib:Module.natCard_eq_pow_finrank"
+      ],
+      "proofSteps": [
+        "The finite receiving field supplies the finite k-module instance.",
+        "Rewrite Nat.card(L) in the degree-branch theorem using the existing module cardinality theorem. This computes the actual equation-level projective count, without asserting a geometric pinching identification."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+          "how": "Specialized one-component chart input: the root/cardinality/power formulas and numerical defect check supply the finite-extension calculation. Identifying this equation with the actual projective pinch, conductor scheme points, reduction comparison and the separate I₂ count remain prerequisites of the geometric consumer."
+        }
+      ],
+      "acceptance": [
+        "For the same actual W_L and hypotheses, W_L.pointCount equals Nat.card(k)^Module.finrank(k,L) when the degree is even, and this power plus2 when it is odd."
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-J6LwjP-extension-parity",
+          "locator": "§3, printed p10 conductor diagrams; Proposition3.1–3.2, printed pp10–11 and adjacent count table",
+          "excerpt": "conductor square",
+          "match": "Authored specialization of existing finite-field theorems to the previously checked quadratic chart; the source gives the geometric conductor/count context, not these every-extension native signatures."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "declarationName": "QuadraticPinch.pointCount_extension_power",
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "QuadraticPinch.pointCount_extension_power.test_binary_degree1",
+          "kind": "computation",
+          "statement": "For the actual native degree1 extension of ZMod2, the model (1,−1,0,0,0) has pointCount4."
+        },
+        {
+          "name": "QuadraticPinch.pointCount_extension_power.test_binary_degree2",
+          "kind": "computation",
+          "statement": "For the actual native degree2 extension of ZMod2, the model (1,−1,0,0,0) has pointCount4."
+        },
+        {
+          "name": "QuadraticPinch.pointCount_extension_power.test_binary_degree3",
+          "kind": "computation",
+          "statement": "For the actual native degree3 extension of ZMod2, the model (1,−1,0,0,0) has pointCount10."
+        },
+        {
+          "name": "QuadraticPinch.pointCount_extension_power.test_odd_characteristic_even_degree",
+          "kind": "compatibility",
+          "statement": "In the actual native degree-two extension of ZMod3, the model (0,−1,0,0,0) has pointCount9."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-trace",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Native numerical trace defect by extension degree",
+      "kind": "lemma",
+      "statement": "For the same actual W_L and hypotheses, W_L.frobeniusTrace is1 for even Module.finrank(k,L) and−1 for odd degree. This is the existing integer count defect on a singular equation, without a cohomological or elliptic trace assertion.",
+      "hypotheses": [
+        "k and L are fields, L is finite, with the actual native Algebra k L. No separate Finite k assumption is needed: injectivity into L forces it.",
+        "a,b∈k and q=X²+C(a)X+C(b) is irreducible over k. Use actual Module.finrank k L, native algebraMap, polynomial quotient and WeierstrassCurve; no assumed parity oracle or count data.",
+        "For the distinct-root/count/trace formulas require discrim(1,a,b)=a²−4b≠0 explicitly. No inversion of2 or characteristic restriction; this is the quadratic discriminant, not the vanishing Weierstrass discriminant."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-pointcount",
+        "tauceti:WeierstrassCurve.frobeniusTrace_def"
+      ],
+      "proofSteps": [
+        "Unfold the existing native finite-field count defect and substitute the degree-branch point count.",
+        "Split on even degree and simplify integer arithmetic. The sign switches when the two conductor roots become rational."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+          "how": "Specialized one-component chart input: the root/cardinality/power formulas and numerical defect check supply the finite-extension calculation. Identifying this equation with the actual projective pinch, conductor scheme points, reduction comparison and the separate I₂ count remain prerequisites of the geometric consumer."
+        }
+      ],
+      "acceptance": [
+        "For the same actual W_L and hypotheses, W_L.frobeniusTrace is1 for even Module.finrank(k,L) and−1 for odd degree. This is the existing integer count defect on a singular equation, without a cohomological or elliptic trace assertion."
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-J6LwjP-extension-parity",
+          "locator": "§3, printed p10 conductor diagrams; Proposition3.1–3.2, printed pp10–11 and adjacent count table",
+          "excerpt": "conductor square",
+          "match": "Authored specialization of existing finite-field theorems to the previously checked quadratic chart; the source gives the geometric conductor/count context, not these every-extension native signatures."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "declarationName": "QuadraticPinch.frobeniusTrace_extension_parity",
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "QuadraticPinch.frobeniusTrace_extension_parity.test_binary_even_trace",
+          "kind": "computation",
+          "statement": "In the actual native degree-two extension of ZMod2, the model (1,−1,0,0,0) has native numerical trace defect1."
+        }
+      ]
     }
   ],
   "requests": [
@@ -11429,7 +11816,8 @@
         "Pointed genus-one scheme to binary-equation classification adapter; finite coefficient, count and cyclic-group calculations have explicit source-decomposed witnesses.",
         "Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The actual full bivariate range/kernel and canonical quotient algebra equivalence are now stated with a separate checked native prototype. Finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. A k[q]-module instance/freeness interface is not constructed. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked.",
         "The native affine solution equivalence and native pointCount/frobeniusTrace balance are now explicit. They count distinct rational roots; they do not supply projective normalization, conductor schemes, the structure-sheaf exact sequence, H¹ comparison, arbitrary finite-extension packaging or the separate two-component I₂ construction. The inherited affine algebra/presentation and all global/fibration/classification/model obligations remain planned. Full Tau Ceti-importing suggested file remains uncompiled.",
-        "Native nonzero-quadratic-discriminant root/cardinality and split/nonsplit pointCount/frobeniusTrace branches, including receiving finite fields under actual field homomorphisms, are separately checked. The finite-field odd/even embedding criterion, scheme/projective normalization identification, conductor/sheaf/cohomology and independent I₂ count remain required; all G.0–G.6 obligations stay partial."
+        "Native nonzero-quadratic-discriminant root/cardinality and split/nonsplit pointCount/frobeniusTrace branches, including receiving finite fields under actual field homomorphisms, are separately checked. The finite-field odd/even embedding criterion, scheme/projective normalization identification, conductor/sheaf/cohomology and independent I₂ count remain required; all G.0–G.6 obligations stay partial.",
+        "Current finite-extension checkpoint supersedes the earlier native odd/even-criterion frontier: the irreducible quadratic root existence, distinct-root count, pointCount, cardinal-power and numerical trace-defect formulas have checked prototypes. Their geometric identification with the projective pinching/conductor schemes, nilpotent reduction and separate fixed-component I₂ calculation remain open; no other source obligations are discharged."
       ]
     },
     {
@@ -14309,5 +14697,166 @@
       "scriptSha256": "d3b89f4cff68adba943b80830163812214c3b709b7e171c214504faaeaa3b943"
     },
     "checks": "Indexed checker:0 errors,0 warnings; actual assembler stage/declaration/combined DAGs acyclic,68/68 touching stage paths preserved; 182 inherited whole node objects unchanged; submitted fragment0 errors,17 admissions,0 other warnings; actual prototype0 errors,0 admissions,0 other warnings and11 axiom audits without admitted axioms."
+  },
+  "quadraticExtensionParityContinuation": {
+    "worker": "Codex — codex-J6LwjP",
+    "date": "2026-10-02",
+    "claimComment": 5961771184,
+    "botConfirmation": 5961772756,
+    "auditBase": "4a1f4b6f4dc475b67e029001f90053ff85163a04",
+    "status": "partial checkpoint",
+    "addedNodes": [
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-root-parity",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-root-count",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-pointcount",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-power-count",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-extension-trace"
+    ],
+    "native": {
+      "sourceSha256": "99bf40cb0c2dd38f00d6b2466a887b5e21ba49f4cf50530726f97fb869a7e6ec",
+      "diagnosticsSha256": "73e94bb8339daed612cf13999e0b1cee66e31ff22553c9ce8b8e5bcbe48cafcd",
+      "lines": 545,
+      "examples": 19,
+      "audits": 20,
+      "errors": 0,
+      "warnings": 0,
+      "admittedWarnings": 0,
+      "wallSeconds": 3.4,
+      "maxResidentKiB": 6795264,
+      "exitCode": 0,
+      "availableMemoryGiB": 56,
+      "allowedAxioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "admittedDependency": false,
+      "currentAuditedDeclarations": [
+        "quadratic_root_iff_even",
+        "quadraticRootCount_extension_parity",
+        "pointCount_extension_parity",
+        "pointCount_extension_power",
+        "frobeniusTrace_extension_parity"
+      ],
+      "inheritedAudits": 15
+    },
+    "admittedExtraction": {
+      "sourceSha256": "5bdac8ea7dc35f5e0bdd5e116c0e9865156c81140017b3eb5a3de0d3e3c88023",
+      "diagnosticsSha256": "3d5b2c1eb789fa7d81a46e8a30fda7a543eba95755362b4b98c6a9ec8078d2f4",
+      "lines": 262,
+      "examples": 19,
+      "audits": 0,
+      "errors": 0,
+      "warnings": 39,
+      "admittedWarnings": 39,
+      "wallSeconds": 2.5,
+      "maxResidentKiB": 6734812,
+      "exitCode": 0,
+      "availableMemoryGiB": 57,
+      "wholeFileCompiled": false,
+      "scope": "Exact admitted public parametrization, root branches and new finite-extension fragments with the exact pinned PointCount public namespace fixture; no pruned whole-file check."
+    },
+    "proofArchive": {
+      "commit": "31e1edfddca815057809280d4b01ae904eda2910",
+      "path": "research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean",
+      "beginMarker": "BEGIN ARCHIVED CHECKED QUADRATIC EXTENSION PARITY",
+      "endMarker": "END ARCHIVED CHECKED QUADRATIC EXTENSION PARITY",
+      "priorArchive": "e4ff005892a37a27cbabd336972a18d90bc4ad5d",
+      "priorSourceSha256": "1970269a7c653d423ace5bd6fe2192c06672031cffcbd88e9dd1d78eb8b8c6b8",
+      "priorLines": 370,
+      "byteParity": true,
+      "credit": "Exact PointCount public namespace fixture: The Tau Ceti contributors, Copyright2026, Apache2.0, pinf790474821cf4256814db967cb154e7af3d0c369. No duplicated library definitions in submitted head."
+    },
+    "signatureParity": {
+      "newSignatures": 5,
+      "newExamples": 7,
+      "method": "Mechanical admitted-body extraction preserves exact namespaces, binders, types and example statements."
+    },
+    "wholeSuggestedCompiled": false,
+    "reason": "Existing pinned build lacks required TauCeti PointCount artifacts. Exact native/admitted Mathlib fragments checked with the pinned public-section fixture; no setup/update/cache/library build or LSP.",
+    "remaining": "Actual projective-pinch/normalization comparison, conductor scheme/quotient field point interface, structure-sheaf and H¹ comparison, nilpotent reduction and independent I₂ counts; all other inherited G.0–G.6/source/classification/fibration obligations.",
+    "checks": {
+      "base": "4a1f4b6f4dc475b67e029001f90053ff85163a04",
+      "preservedStatements": 193,
+      "unchangedNodes": 192,
+      "addedNodes": 5,
+      "kinds": {
+        "definition": 13,
+        "lemma": 144,
+        "theorem": 26,
+        "comparison": 5,
+        "construction": 10
+      },
+      "api": 89,
+      "tests": 102,
+      "definitionConstructionTests": 86,
+      "baseline": 160,
+      "planets": 29,
+      "gaps": 17,
+      "requests": 23,
+      "routeRecords": 78,
+      "sourceFindings": 21,
+      "ownDeclarationEdges": 477,
+      "stageVertices": 2992,
+      "stageEdges": 8727,
+      "reachableDependencyVertices": 604,
+      "reachableDeclarations": 198,
+      "requiredStagePairs": 69,
+      "requiredStagePairsReachable": 69,
+      "combinedVertices": 3212,
+      "combinedEdges": 9589,
+      "allDAGs": "acyclic",
+      "pendingLinks": [],
+      "ownSkippedLinks": [],
+      "otherSkips": "unchanged",
+      "newStageEdges": 0,
+      "newUnresolvedReferences": [],
+      "legacySupplierPlaceholders": [
+        "UPSTREAM:AlgebraicCurves",
+        "UPSTREAM:AlgebraicGeometry:ProjectiveSchemesAndSmoothMorphisms",
+        "UPSTREAM:ClassFieldTheory",
+        "UPSTREAM:CohomologicalPointCounting:CompactSupport:5-9",
+        "UPSTREAM:CohomologicalPointCounting:ComplexComparison",
+        "UPSTREAM:CohomologicalPointCounting:ComplexComparison:8",
+        "UPSTREAM:CohomologicalPointCounting:ConstructibleEtale:3",
+        "UPSTREAM:CohomologicalPointCounting:ConstructibleEtale:6",
+        "UPSTREAM:CohomologicalPointCounting:ConstructibleEtale:7-9",
+        "UPSTREAM:CohomologicalPointCounting:EllAdicRealization",
+        "UPSTREAM:CohomologicalPointCounting:EtaleBaseChange",
+        "UPSTREAM:CohomologicalPointCounting:EtaleBaseChange:3-8",
+        "UPSTREAM:CohomologicalPointCounting:EtaleBaseChange:4-7",
+        "UPSTREAM:CohomologicalPointCounting:EtaleBaseChange:6",
+        "UPSTREAM:CohomologicalPointCounting:EtaleBaseChange:8-9",
+        "UPSTREAM:CohomologicalPointCounting:FrobeniusGeometry",
+        "UPSTREAM:CohomologicalPointCounting:TraceFormula",
+        "UPSTREAM:CohomologicalPointCounting:TraceFormula:0-4",
+        "UPSTREAM:CohomologicalPointCounting:TraceFormula:8",
+        "UPSTREAM:ECD:ADIC",
+        "UPSTREAM:ECD:BASE",
+        "UPSTREAM:ECD:DG",
+        "UPSTREAM:ECD:SCH_BC",
+        "UPSTREAM:ECD:SCH_SHEAVES",
+        "UPSTREAM:ECD:SCH_SUPPORT_NOETH",
+        "UPSTREAM:EllipticCurves",
+        "UPSTREAM:JacobianChallenge",
+        "UPSTREAM:LocalFieldsRamification"
+      ],
+      "legacyPlaceholders": "unchanged from base; open supplier obligations, not library baseline leaves",
+      "scriptSha256": "c0ec77914f93a3b23f74311d31224c1b3c1daf11f5fd2029652dfb067736291b",
+      "indexedChecker": "pass:0 errors,0 warnings",
+      "actualIntake": "pass",
+      "whitespace": "pass"
+    },
+    "readScope": {
+      "instructions": "WORKERS and full issue before/after confirmed claim; binding protocols and upstream guide fully read earlier in this continuous session, PROTOCOL§13 freshly checked.",
+      "packet": "All193 inherited mathematical statements and hypotheses freshly read; full495-line latest handoff, all seven own stage descriptions and full reserved Ferrand node read. Existing sources/findings remain historical except the specified fresh source scope.",
+      "audit": "No own reviewed PartII row; all six parent AUDIT-10 R11.1–R11.6 target/evidence/duplicate records freshly read before planning.",
+      "routes": "Full78-item owner route brief and complete routed items15–18,170–171 freshly read. Other route/source item receipts preserved without fresh verification claims.",
+      "source": "Fresh Schröer parsed §3 conductor diagrams and complete Proposition3.1–3.2 proofs/table; HTML acquisition hash unchanged. No fresh full-paper/Annals erratum collation.",
+      "libraries": "Exact native PointCount file, all ten new indexed baseline statements/constructions with ambient hypotheses and relevant proofs, and complete native Extension and polynomial irreducibility source read at the recorded pins. Full-tree searches for the five adapter names returned no matches; no exhaustive semantic absence claim.",
+      "upstream": "The two required nearby upstream documents were fully read earlier in this continuous worker loop; no fresh whole-document reread claimed.",
+      "links": "No tracked blueprint link JSON mentioned this roadmap. Actual assembler control preserves all existing stage edges and unrelated skipped-link sets.",
+      "regression": "Inherited Python regression and earlier archives are preserved with original worker attribution; no fresh rerun of the old Python program claimed."
+    }
   }
 }

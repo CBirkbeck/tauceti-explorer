@@ -1,3 +1,180 @@
+# Quadratic finite-extension parity — #3378
+
+Codex — codex-J6LwjP; 2 October2026. Claim5961771184, bot5961772756. Read base `4a1f4b6f4dc475b67e029001f90053ff85163a04`.
+
+This is a partial design checkpoint. Five specialized G.1 lemma nodes and seven typed examples advance the predecessor’s finite-extension frontier. For an irreducible quadratic over k, the receiving root exists exactly when2 divides the native relative finrank. With explicit nonzero quadratic discriminant, the distinct-root count is2 or0, native one-component pointCount is card(L) or card(L)+2, its power form is card(k)^n or card(k)^n+2, and the existing integer count defect is1 or−1. These are equation-level inputs for the still-open geometric consumer. Generic finite-field embedding/extension/cardinality theory is imported from the pinned libraries, never planned again.
+
+The packet has198 nodes:13 definitions,144 lemmas,26 theorems,5 comparisons,10 constructions;89 API items;102 raw tests (86 definition/construction tests,16 additional lemma tests);29 planets;160 baseline declarations;17 gaps;23 requests;78 route records;21 source findings;7 partial stages and0 closed. All193 inherited statements, hypotheses, sources, acceptance, API, tests, uses and implementation statuses are preserved.192 whole node objects are identical; only quadratic-extension-counts gains four proved inputs and an updated final proof step. All prior metadata and the complete roadmap bytes are retained. The reserved Ferrand geometric-square predicate and its scheme versus algebraic-space existence hypotheses remain intact for both Witaszek and Schröer consumers.
+
+## Actual proof and exact validation scope
+
+The [immutable checked proof snapshot](https://github.com/CBirkbeck/tauceti-explorer/blob/31e1edfddca815057809280d4b01ae904eda2910/research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean) stores the545-line actual source between BEGIN/END ARCHIVED CHECKED QUADRATIC EXTENSION PARITY markers. Its initial370 lines are byte-identical to the [predecessor snapshot](https://github.com/CBirkbeck/tauceti-explorer/blob/e4ff005892a37a27cbabd336972a18d90bc4ad5d/research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean), SHA2561970269a7c653d423ace5bd6fe2192c06672031cffcbd88e9dd1d78eb8b8c6b8. The20 named audits (15 inherited,5 new) report only propext,Classical.choice,Quot.sound, with no admitted axiom. All19 examples pass (12 inherited,7 new). Actual source has0 errors,0 warnings and no admissions.
+
+Actual source SHA256 `99bf40cb0c2dd38f00d6b2466a887b5e21ba49f4cf50530726f97fb869a7e6ec`; normalized diagnostics SHA256 `73e94bb8339daed612cf13999e0b1cee66e31ff22553c9ce8b8e5bcbe48cafcd`; elapsed3.40s, maximumRSS6795264KiB, available56GiB before invocation. Exact admitted extraction:262 lines,19 examples,0 errors,39 admission warnings and0 other warnings; elapsed2.50s, maximumRSS6734812KiB, available57GiB. Source SHA256 `5bdac8ea7dc35f5e0bdd5e116c0e9865156c81140017b3eb5a3de0d3e3c88023`; normalized diagnostics SHA256 `3d5b2c1eb789fa7d81a46e8a30fda7a543eba95755362b4b98c6a9ec8078d2f4`. The five new lemma headers and seven example statements compare mechanically equal between actual and admitted fragments. All new submitted outer bodies are admitted under PROTOCOL§13.
+
+**The full TauCeti-importing suggested file was not compiled.** The existing pinned build lacks PointCount and other required compiled TauCeti artifacts. The receipt covers precisely the native/admitted fragments with the exact pinned public PointCount namespace fixture, not a pruned whole-file compilation. Credit: The Tau Ceti contributors, Copyright2026, Apache2.0, [PointCount at the exact pin](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean). The fixture is only in the actual check archive; the submitted head imports it without duplicated library definitions. Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, TauCeti f790474821cf4256814db967cb154e7af3d0c369, Lean4.34.0-rc2. No setup/update/cache/library build, language server or concurrent Lean invocation; each run checked memory and used the20-minute timeout.
+
+## Tests, library and source evidence
+
+The new examples use the actual existing FiniteField.Extension fields with the explicit native extension Algebra instance. ZMod’s general algebra instance is otherwise preferred, so that choice is required to rewrite the native finrank theorem without treating an isomorphic field as definitionally identical. The base irreducibility tests use the existing degree-one-through-three root criterion with exhaustive ZMod2/ZMod3 evaluation. They assert binary counts4,4,10 in degrees1,2,3; no root in degree3; two distinct roots in degree2; count9 over the ternary degree2 extension; and binary degree2 numerical defect1. No assumed root/parity/count witness or external computation oracle enters these proofs.
+
+Ten new baseline citations: FiniteField.nonempty_algHom_iff_finrank_dvd; AdjoinRoot.instField,liftAlgHom,aeval_algHom_eq_zero; finrank_quotient_span_eq_natDegree; Polynomial.natDegree_quadratic; Module.natCard_eq_pow_finrank; FiniteField.Extension,finrank_extension; Polynomial.irreducible_of_degree_le_three_of_not_isRoot. Actual statements/constructions and ambient hypotheses were read at the pin before citation. Native PointCount was fully read again. Five exact helper-name searches through both pinned source trees had no matches; this does not claim exhaustive mathematical absence. Parent reviewed AUDIT-10 R11.1–R11.6 rows were read; no own PartII reviewed row was found. Full current issue,193 mathematical statements/hypotheses,495-line predecessor handoff,seven stage descriptions,reserved Ferrand node,full key-definition entry and78-item owner brief were read. Complete routed items15–18,170–171 were read; other historical source/extraction receipts retain their attribution. The required nearby upstream documents were fully read earlier in this continuous loop.
+
+Fresh source: [Schröer arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 conductor diagrams and complete Proposition3.1–3.2 proofs/table. HTML SHA256 d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456, acquired2 October2026. The native every-extension lemmas are authored deductions, not printed theorems attributed to the paper. No fresh full-paper/Annals erratum collation or predecessor Python regression rerun is claimed. All21 inherited source findings, their corrections and verification states are preserved.
+
+## Atlas and preservation checks
+
+Indexed checker:0 errors,0 warnings. Actual intake passes; whitespace check passes. Read-only scripts/build.py assembly injects the own packet and new roadmap definition into both candidate and original-packet control, preserving other promoted work. Stage graph2992 vertices/8727 edges; own declaration graph198/477; stage-plus-reachable-declaration graph3212/9589;604 recursively reachable dependency vertices,198 reachable declaration nodes. All three graphs are acyclic and all69 required stage pairs remain reachable. Stage edges and unrelated skipped-link sets compare equal; no own pending or skipped links and no new unresolved references. Parent-stage context edges in the combined graph are diagnostic context, not mathematical proof dependencies. Actual tauceti:TauCetiRoadmap references remain stage vertices, not library declaration leaves.
+
+The broader inherited supplier closure still reaches28 UPSTREAM placeholders. They compare equal with the original-packet control and remain open supplier obligations; they are not certified library facts. The complete list is recorded in quadraticExtensionParityContinuation.checks. Thus this checkpoint does not claim complete recursive proof closure of the roadmap. New specialized lemma prerequisites terminate in verified native baseline declarations and prior own nodes. No atlas data is written.
+
+Graph/reconstruction script SHA256 `c0ec77914f93a3b23f74311d31224c1b3c1daf11f5fd2029652dfb067736291b`. Save the exact Python below in own disk-backed scratch and run from a checkout of this submitted commit. It reconstructs the545-line actual source,262-line admitted fragment and original packet/roadmap, verifies source/header parity and preservation, then calls the actual assembler with control and reports graphs. It writes only a small own scratch directory. Using an already-existing build at the specified pins, run one Lean invocation at a time for ExtensionParity.lean and Admitted.lean (memory at least20GiB; timeout1200s; no setup or library build). Normalize diagnostics by replacing the absolute source directory with the basename and removing the timing footer, preserving a final newline; compare the hashes above. Delete scratch after checks.
+
+```python
+from pathlib import Path
+from collections import Counter,defaultdict
+import sys,json,re,hashlib,subprocess
+root=Path.cwd();sc=root.parent/'scratch-neron-extension-reproduce';sc.mkdir(exist_ok=True)
+rid='NeronModelsAndSemistableAbelianVarietiesPartII';base='4a1f4b6f4dc475b67e029001f90053ff85163a04';archive='31e1edfddca815057809280d4b01ae904eda2910'
+def blob(folder,ext,commit=base):
+ name=('DESIGN-' if folder=='handoff' else '')+rid+'.'+ext
+ return subprocess.check_output(['git','show',f'{commit}:research/blueprint/{folder}/{name}']).decode()
+p=json.loads((root/'research/blueprint/packets'/f'{rid}.json').read_text());orig=json.loads(blob('packets','json'));road=json.loads((root/'research/blueprint/roadmaps'/f'{rid}.json').read_text());origroad=json.loads(blob('roadmaps','json'))
+lean=(root/'research/blueprint/suggested'/f'{rid}.lean').read_text();reader=(root/'research/blueprint/readmes'/f'{rid}.md').read_text()
+old={n['id']:n for n in orig['nodes']};new={n['id']:n for n in p['nodes']}
+for nid,n in old.items():
+ for k in ['id','kind','statement','hypotheses','acceptance','sources','implementationStatus','uses','api','tests']:assert n.get(k)==new[nid].get(k),(nid,k)
+ assert n.get('prerequisites',[])==new[nid].get('prerequisites',[])[:len(n.get('prerequisites',[]))],nid
+unchanged=sum(n==new[nid] for nid,n in old.items());assert unchanged==192
+for k in orig:
+ if k in ['summary','nodes','baseline','sources','coverage']:continue
+ assert orig[k]==p[k],k
+assert p['baseline']['declarations'][:150]==orig['baseline']['declarations']
+assert p['sources'][:len(orig['sources'])]==orig['sources']
+for a,b in zip(orig['coverage'],p['coverage']):
+ assert {k:v for k,v in a.items() if k!='remaining'}=={k:v for k,v in b.items() if k!='remaining'}
+ assert a['remaining']==b['remaining'][:len(a['remaining'])]
+assert road==origroad and (root/'research/blueprint/roadmaps'/f'{rid}.json').read_text()==blob('roadmaps','json')
+assert p['status']=='partial' and all(n['implementationStatus']=='unchecked' for n in new.values())
+assert Counter(c['status'] for c in p['coverage'])=={'partial':7}
+for nid,n in new.items():
+ if nid in old:continue
+ assert n['statement'] in reader
+ assert re.search(r'^lemma '+re.escape(n['declarationName'].rsplit('.',1)[1])+r'\b',lean,re.M),nid
+ for t in n.get('tests',[]):assert t['name'] in lean and t['name'] in reader and t['statement'] in reader
+originalLean=blob('suggested','lean');imports='import Mathlib.FieldTheory.Finite.GaloisField\nimport Mathlib.FieldTheory.Finite.Extension\nimport Mathlib.FieldTheory.Finiteness\nimport Mathlib.Algebra.Polynomial.Degree.SmallDegree\nimport Mathlib.Algebra.Polynomial.SpecificDegree\n'
+assert lean.startswith(originalLean.replace('import Mathlib.Algebra.Category.Ring.Constructions\n',imports+'import Mathlib.Algebra.Category.Ring.Constructions\n'))
+a=blob('suggested','lean',archive).split('BEGIN ARCHIVED CHECKED QUADRATIC EXTENSION PARITY\n',1)[1].split('END ARCHIVED CHECKED QUADRATIC EXTENSION PARITY\n',1)[0]
+assert hashlib.sha256(a.encode()).hexdigest()==p['quadraticExtensionParityContinuation']['native']['sourceSha256']
+assert hashlib.sha256(''.join(a.splitlines(keepends=True)[:370]).encode()).hexdigest()=='1970269a7c653d423ace5bd6fe2192c06672031cffcbd88e9dd1d78eb8b8c6b8'
+fixture=a[a.index('\nnamespace TauCeti'):a.index('\nnamespace TauCeti.GenusOne')]
+def fragment(marker):return lean.split('/- BEGIN '+marker+' -/\n',1)[1].split('/- END '+marker+' -/',1)[0]
+sketch='import Mathlib\n'+fixture+'\n'+fragment('QUADRATIC POINT PARAMETRIZATION')+'\n'+fragment('QUADRATIC ROOT BRANCH COUNTS')+'\n'+fragment('QUADRATIC EXTENSION PARITY')+'\n'
+assert hashlib.sha256(sketch.encode()).hexdigest()==p['quadraticExtensionParityContinuation']['admittedExtraction']['sourceSha256']
+headers=lambda s:re.findall(r'^(?:lemma |example ).*? := by',s,re.M|re.S)
+actualnew=''.join(a.splitlines(keepends=True)[370:]);actualnew=re.sub(r'^#print axioms .*\n','',actualnew,flags=re.M)
+assert headers(actualnew)==headers(fragment('QUADRATIC EXTENSION PARITY')) and len(headers(actualnew))==12
+assert not re.search(r'\bsorry\b',a)
+assert not re.search(r'^(?:axiom|opaque)\s|:\s*True\b',fragment('QUADRATIC EXTENSION PARITY'),re.M)
+(sc/'ExtensionParity.lean').write_text(a);(sc/'Admitted.lean').write_text(sketch)
+for ext,name in [('json','packets'),('json','roadmaps')]:(sc/f'original-{name}.{ext}').write_text(blob(name,ext))
+sys.path.insert(0,str(root/'scripts'));import build
+normal=build.load_promoted
+def assemble(packet,definition):
+ def candidate(*args,**kw):
+  packets,docs,defs=normal(*args,**kw)
+  return ([(name,q) for name,q in packets if q.get('roadmapId')!=rid]+[(rid,packet)],{**docs,rid:'research/blueprint/readmes/'+rid+'.md'},[x for x in defs if x.get('id')!=rid]+[definition])
+ build.load_promoted=candidate
+ return build.assemble(require_distances=False)
+baseline,_=assemble(orig,origroad);atlas,_=assemble(p,road)
+def acyclic(g,roots):
+ colors={}
+ def visit(v):
+  assert colors.get(v)!=1,('cycle',v)
+  if colors.get(v)==2:return
+  colors[v]=1
+  for w in g[v]:visit(w)
+  colors[v]=2
+ for v in list(roots):visit(v)
+ return set(colors)
+g=defaultdict(set)
+for e in atlas['stageEdges']:g[e['source']].add(e['target'])
+vertices={s['id'] for s in atlas['stages']};acyclic(g,vertices)
+row=next(r for r in atlas['roadmaps'] if r['id']==rid)
+assert row['blueprint']['declarations']==198 and row['blueprint']['planets']==29
+assert not row.get('pendingLinks') and not row['blueprint'].get('skippedLinks')
+assert {(e['source'],e['target']) for e in atlas['stageEdges']}=={(e['source'],e['target']) for e in baseline['stageEdges']}
+before={r['id']:r for r in baseline['roadmaps']}
+for r in atlas['roadmaps']:
+ if r['id']!=rid:assert r.get('blueprint',{}).get('skippedLinks',[])==before[r['id']].get('blueprint',{}).get('skippedLinks',[]),r['id']
+req=defaultdict(set)
+for e in atlas['stageEdges']:req[e['target']].add(e['source'])
+allnodes={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for path in (root/folder).glob('*.json'):
+  q=json.loads(path.read_text())
+  for n in q.get('nodes',[]):
+   allnodes.setdefault(n['id'],n);req[n['id']].update(n.get('prerequisites',[])+n.get('upstreamPrerequisites',[]))
+  for request in q.get('requests',[]):
+   for target in request.get('neededBy',[]):req[target].add(request['supplier'])
+allnodes.update(new)
+for n in new.values():req[n['id']]=set(n.get('prerequisites',[])+n.get('upstreamPrerequisites',[]))
+for q in p['requests']:
+ for v in q['neededBy']:req[v].add(q['supplier'])
+reachable=acyclic(req,list(new))
+def unresolved(vs):
+ return sorted(v for v in vs if not v.startswith(('mathlib:','tauceti:')) and v not in vertices and v not in allnodes)
+# Existing supplier placeholders remain open; compare them with the original-packet control.
+controlreq=defaultdict(set,{k:set(v) for k,v in req.items()})
+for n in old.values():controlreq[n['id']]=set(n.get('prerequisites',[])+n.get('upstreamPrerequisites',[]))
+for q in orig['requests']:
+ for v in q['neededBy']:controlreq[v].add(q['supplier'])
+controlReachable=acyclic(controlreq,list(old))
+assert unresolved(reachable)==unresolved(controlReachable),('new unresolved references',unresolved(reachable),unresolved(controlReachable))
+assert all(v.startswith('UPSTREAM:') for v in unresolved(reachable))
+assert all(d.startswith(('mathlib:','tauceti:')) or d in vertices or d in new for n in new.values() if n['id'] not in old for d in n['prerequisites'])
+# tauceti:TauCetiRoadmap/... are stages, never declaration leaves.
+assert all(v in vertices for v in reachable if v.startswith('tauceti:TauCetiRoadmap/'))
+used=set(new);todo=list(new)
+while todo:
+ v=todo.pop()
+ for d in req[v]:
+  if d in allnodes and d not in used:used.add(d);todo.append(d)
+def stage_of(v):
+ seen=set()
+ while v in allnodes and v not in seen:seen.add(v);v=allnodes[v].get('parentStageId')
+ return v
+pairs={(d,rid+':'+s['key']) for s in road['stages'] for d in s.get('requires',[])}
+pairs.update((s,stage_of(n['id'])) for n in new.values() for s in n['prerequisites'] if s in vertices and s not in allnodes and s!=stage_of(n['id']))
+pairs.update((q['supplier'],stage_of(v)) for q in p['requests'] for v in q['neededBy'] if q['supplier']!=stage_of(v))
+def reaches(source,target):
+ seen=set();todo=[source]
+ while todo:
+  v=todo.pop()
+  if v==target:return True
+  if v in seen:continue
+  seen.add(v);todo.extend(g[v])
+ return False
+assert all(reaches(s,t) for s,t in pairs),[v for v in pairs if not reaches(*v)]
+combined=defaultdict(set)
+for e in atlas['stageEdges']:combined[e['target']].add(e['source'])
+for v in used:
+ n=allnodes[v]
+ # Diagnostic parent-stage context edges do not constitute mathematical proof dependencies.
+ if n.get('parentStageId'):combined[v].add(n['parentStageId'])
+ for d in req[v]:
+  if d in vertices or d in used:combined[v].add(d)
+combinedVertices=vertices|used|set(combined)|{v for ds in combined.values() for v in ds};acyclic(combined,combinedVertices)
+receipt={'base':base,'preservedStatements':193,'unchangedNodes':unchanged,'addedNodes':5,'kinds':Counter(n['kind'] for n in p['nodes']),'api':sum(len(n.get('api',[])) for n in p['nodes']),'tests':sum(len(n.get('tests',[])) for n in p['nodes']),'definitionConstructionTests':sum(len(n.get('tests',[])) for n in p['nodes'] if n['kind'] in ['definition','construction']),'baseline':len(p['baseline']['declarations']),'planets':29,'gaps':len(p['gaps']),'requests':len(p['requests']),'routeRecords':len(p['routeCoverage']),'sourceFindings':len(p['sourceIssues']),'ownDeclarationEdges':sum(sum(v in new for v in n['prerequisites']) for n in new.values()),'stageVertices':len(vertices),'stageEdges':len(atlas['stageEdges']),'reachableDependencyVertices':len(reachable),'reachableDeclarations':len(used),'requiredStagePairs':len(pairs),'requiredStagePairsReachable':len(pairs),'combinedVertices':len(combinedVertices),'combinedEdges':sum(map(len,combined.values())),'allDAGs':'acyclic','pendingLinks':[],'ownSkippedLinks':[],'otherSkips':'unchanged','newStageEdges':0,'newUnresolvedReferences':[],'legacySupplierPlaceholders':unresolved(reachable),'legacyPlaceholders':'unchanged from base; open supplier obligations, not library baseline leaves','scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+print(json.dumps(receipt,ensure_ascii=False));(sc/'receipt.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
+```
+
+## Resume here
+
+Identify the actual projective I₁ pinch with the checked Weierstrass model via the two-chart P¹ normalization map, infinity-chart localization and explicit unit, finite birational normalization and actual conductor scheme. Relate the field quotient AdjoinRoot(q), roots/Hom(Spec L,Spec E) and the geometric base-change conductor; this transports the proved native parity calculation to the inherited all-extension geometric count. Prove the structure-sheaf sequence with the actual E/k quotient and finite-pushforward H⁰/H¹ comparison. Treat the fixed-component I₂ construction and its count separately, and import the field-valued-point reduction comparison for nonreduced schematic fibers. A native pointCount or numeric trace defect alone does not prove any of these scheme/cohomology statements. All other G.0–G.6 fibration/Picard/Néron/classification/model-completeness/source obligations and the23 supplier requests remain open. Existing remaining lists below record their original checkpoint frontiers; the present native degree criterion supersedes that numerical frontier only.
+
+## Preserved predecessor handoff
+
 # Quadratic root-count branches — #3378
 
 Codex — codex-a71f92; 2 October 2026. Claim5961132544, bot5961134840. Audit base `b315875f27d5859bf9bd7a09c9673b692eaf821c`; publication preflight `4557261650818a24845bd3c8f195e393990ea9c0`.
