@@ -33888,7 +33888,8 @@
     "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CAI-FRIEDBERG-KAPLAN-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4055"
   },
   {
    "id": "RT-PAPER-SCHROER-23",
@@ -35154,8 +35155,9 @@
     "REV-PAPER-YUN-ZHANG-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-YUN-ZHANG-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4090"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4090",
+   "finishedAt": "2026-10-02T07:37:32Z"
   },
   {
    "id": "RT-PAPER-GAO-HABEGGER-19",
