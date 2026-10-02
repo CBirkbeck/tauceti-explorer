@@ -40,6 +40,9 @@ import Mathlib.Data.ENat.Basic
 import Mathlib.Analysis.Polynomial.Basic
 import Mathlib.RingTheory.Nakayama
 import Mathlib.Order.Filter.AtTopBot.Archimedean
+import Mathlib.RingTheory.ReesAlgebra
+import Mathlib.RingTheory.Filtration
+import Mathlib.Algebra.DirectSum.Module
 import Mathlib.RingTheory.Ideal.Quotient.PowTransition
 import Mathlib.NumberTheory.BernoulliPolynomials
 
@@ -57,7 +60,7 @@ The previous file elaborated with placeholder-proof warnings only against the
 existing Mathlib build at the pin (Codex codex-J6LwjP, 2 October 2026).
 That historical receipt covers neither codex-rtOQ9t's positivity continuation
 nor codex-a71f92's cumulative continuation.
-The changed file was not compiled; no existing pinned build was available.
+The current full-file elaboration receipt is in the handoff.
 No Tau Ceti module is imported; its baseline references were inspected as source.
 The original ten baseline examples are retained. Five new signatures and four
 algebraic regressions cover the R03.4 point strand, not the eight-stage part.
@@ -1124,7 +1127,7 @@ end TauCeti.HilbertSamuel
 
 /-! ## R03.3: native graded quotients and rational summation (codex-a71f92)
 
-NOT COMPILED. Every signature uses native quotients or rational polynomials.
+The current full-file elaboration receipt is in the handoff. Every signature uses native quotients or rational polynomials.
 No associated-graded ring/module or graded polynomial-existence input is asserted.
 -/
 namespace TauCeti.HilbertSamuel
@@ -1311,3 +1314,141 @@ example : summatoryPolynomial 0 + C (3 : ℚ) = C 3 := by sorry
 example : summatoryPolynomial (C (3 : ℚ)) - C 2 = C 3 * X + 1 := by sorry
 
 end HilbertSamuelSumTest
+
+/-! ## R03.3: adic graded ring through the native Rees quotient (codex-J6LwjP)
+No generic Rees carrier is reconstructed. Module comparison and graded polynomiality
+remain gaps; every proposed mathematical implementation is unchecked. -/
+namespace TauCeti.HilbertSamuel
+noncomputable section AdicGraded
+open scoped Polynomial DirectSum
+variable {A : Type*} [CommRing A]
+
+abbrev reesCoefficientIdeal (q : Ideal A) : Ideal (reesAlgebra q) :=
+  q.map (algebraMap A (reesAlgebra q))
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-ring
+abbrev adicGradedRing (q : Ideal A) := (reesAlgebra q) ⧸ reesCoefficientIdeal q
+
+instance adicGradedRing_quotientAlgebra (q : Ideal A) :
+    Algebra (A ⧸ q) (adicGradedRing q) :=
+  Ideal.Quotient.algebraQuotientOfLEComap Ideal.le_comap_map
+
+lemma adicGradedRing_zero : Nonempty (adicGradedRing (⊥ : Ideal A) ≃ₐ[A] A) := by sorry
+lemma adicGradedRing_top : Subsingleton (adicGradedRing (⊤ : Ideal A)) := by sorry
+lemma adicGradedRing_noetherian [IsNoetherianRing A] (q : Ideal A) :
+    IsNoetherianRing (adicGradedRing q) := inferInstance
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-ideal
+lemma mem_reesCoefficientIdeal_iff (q : Ideal A) (p : reesAlgebra q) :
+    p ∈ reesCoefficientIdeal q ↔ ∀ n : ℕ, (p : A[X]).coeff n ∈ q ^ (n + 1) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-map
+noncomputable def adicMonomial (q : Ideal A) (n : ℕ) :
+    ↥(q ^ n) →ₗ[A] adicGradedRing q where
+  toFun x := Ideal.Quotient.mk (reesCoefficientIdeal q)
+    ⟨Polynomial.monomial n x.val, reesAlgebra.monomial_mem.mpr x.property⟩
+  map_add' := by sorry
+  map_smul' := by sorry
+
+lemma adicMonomial_eq (q : Ideal A) (n : ℕ) (x : ↥(q ^ n)) :
+    adicMonomial q n x = Ideal.Quotient.mk (reesCoefficientIdeal q)
+      ⟨Polynomial.monomial n x.val, reesAlgebra.monomial_mem.mpr x.property⟩ := rfl
+
+lemma adicMonomial_add (q : Ideal A) (n : ℕ) (x y : ↥(q ^ n)) :
+    adicMonomial q n (x + y) = adicMonomial q n x + adicMonomial q n y :=
+  (adicMonomial q n).map_add x y
+lemma adicMonomial_smul (q : Ideal A) (n : ℕ) (c : A) (x : ↥(q ^ n)) :
+    adicMonomial q n (c • x) = c • adicMonomial q n x :=
+  (adicMonomial q n).map_smul c x
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-kernel
+lemma adicMonomial_ker (q : Ideal A) (n : ℕ) :
+    LinearMap.ker (adicMonomial q n) = q • (⊤ : Submodule A ↥(q ^ n)) := by sorry
+
+abbrev adicRingPiece (q : Ideal A) (n : ℕ) :=
+  ↥(q ^ n) ⧸ (q • (⊤ : Submodule A ↥(q ^ n)))
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-inclusion
+noncomputable def adicPieceInclusion (q : Ideal A) (n : ℕ) :
+    adicRingPiece q n →ₗ[A] adicGradedRing q :=
+  Submodule.liftQ _ (adicMonomial q n) (by rw [adicMonomial_ker])
+
+lemma adicPieceInclusion_mk (q : Ideal A) (n : ℕ) (x : ↥(q ^ n)) :
+    adicPieceInclusion q n (Submodule.Quotient.mk x) = adicMonomial q n x := rfl
+lemma adicPieceInclusion_injective (q : Ideal A) (n : ℕ) :
+    Function.Injective (adicPieceInclusion q n) := by sorry
+
+lemma adicPieceInclusion_zero (q : Ideal A) (n : ℕ) :
+    adicPieceInclusion q n 0 = 0 := (adicPieceInclusion q n).map_zero
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-homogeneous-product
+lemma adicMonomial_mul (q : Ideal A) (n m : ℕ) (x : ↥(q ^ n)) (y : ↥(q ^ m)) :
+    adicMonomial q n x * adicMonomial q m y =
+      adicMonomial q (n + m)
+        ⟨x.val * y.val, by rw [pow_add]; exact Ideal.mul_mem_mul x.property y.property⟩ := by sorry
+
+noncomputable def adicExpansion (q : Ideal A) :
+    (⨁ n : ℕ, adicRingPiece q n) →ₗ[A] adicGradedRing q :=
+  DirectSum.toModule A ℕ (adicGradedRing q) (adicPieceInclusion q)
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-bijective
+lemma adicExpansion_bijective (q : Ideal A) : Function.Bijective (adicExpansion q) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-direct-sum
+noncomputable def adicDirectSumEquiv (q : Ideal A) :
+    (⨁ n : ℕ, adicRingPiece q n) ≃ₗ[A] adicGradedRing q :=
+  LinearEquiv.ofBijective (adicExpansion q) (adicExpansion_bijective q)
+
+lemma adicDirectSumEquiv_lof (q : Ideal A) (n : ℕ) (x : adicRingPiece q n) :
+    adicDirectSumEquiv q (DirectSum.lof A ℕ (adicRingPiece q) n x) =
+      adicPieceInclusion q n x := by sorry
+lemma adicDirectSumEquiv_coe (q : Ideal A) :
+    (adicDirectSumEquiv q).toLinearMap = adicExpansion q := rfl
+
+lemma adicDirectSumEquiv_symm_inclusion (q : Ideal A) (n : ℕ) (x : adicRingPiece q n) :
+    (adicDirectSumEquiv q).symm (adicPieceInclusion q n x) =
+      DirectSum.lof A ℕ (adicRingPiece q) n x := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-generation
+lemma adicGradedRing_generated_degree_one (q : Ideal A) :
+    Algebra.adjoin (A ⧸ q) (Set.range fun x : q =>
+      adicMonomial q 1 ⟨x.val, by simpa only [pow_one] using x.property⟩) = ⊤ := by sorry
+
+-- test: HilbertSamuelAdicTest.field_zero_ideal
+example {k : Type*} [Field k] : Nonempty (adicGradedRing (⊥ : Ideal k) ≃ₐ[k] k) := by sorry
+-- test: HilbertSamuelAdicTest.unit_ideal
+example (q : Ideal A) (hq : q = ⊤) : Subsingleton (adicGradedRing q) := by sorry
+-- test: HilbertSamuelAdicTest.dual_numbers_nonfield
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    ∃ x : adicGradedRing q, x ≠ 0 ∧ x * x = 0 := by sorry
+
+-- test: HilbertSamuelAdicTest.monomial_degree_zero
+example (a : A) :
+    adicMonomial (⊥ : Ideal A) 0 ⟨a, by simp⟩ =
+      algebraMap A (adicGradedRing (⊥ : Ideal A)) a := by sorry
+-- test: HilbertSamuelAdicTest.monomial_two_survives
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    adicMonomial q 1 ⟨2, by simp [q]⟩ ≠ 0 := by sorry
+-- test: HilbertSamuelAdicTest.monomial_top_zero
+example (n : ℕ) (x : ↥((⊤ : Ideal A) ^ n)) : adicMonomial (⊤ : Ideal A) n x = 0 := by sorry
+
+-- test: HilbertSamuelAdicTest.piece_field_higher_zero
+example {k : Type*} [Field k] (n : ℕ) : Subsingleton (adicRingPiece (⊥ : Ideal k) (n + 1)) := by sorry
+-- test: HilbertSamuelAdicTest.piece_two_injective
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    Function.Injective (adicPieceInclusion q 1) ∧
+      adicPieceInclusion q 1 (Submodule.Quotient.mk ⟨2, by simp [q]⟩) ≠ 0 := by sorry
+-- test: HilbertSamuelAdicTest.piece_unit_zero
+example (n : ℕ) : Subsingleton (adicRingPiece (⊤ : Ideal A) n) := by sorry
+
+-- test: HilbertSamuelAdicTest.expansion_degree_zero
+example (x : adicRingPiece (⊥ : Ideal A) 0) :
+    adicDirectSumEquiv (⊥ : Ideal A) (DirectSum.lof A ℕ (adicRingPiece (⊥ : Ideal A)) 0 x) = adicPieceInclusion (⊥ : Ideal A) 0 x := by sorry
+-- test: HilbertSamuelAdicTest.expansion_nilpotent_degree
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    ∃ x : adicRingPiece q 1,
+      adicDirectSumEquiv q (DirectSum.lof (ZMod 4) ℕ (adicRingPiece q) 1 x) ≠ 0 := by sorry
+-- test: HilbertSamuelAdicTest.expansion_unit_zero
+example : Subsingleton (⨁ n : ℕ, adicRingPiece (⊤ : Ideal A) n) := by sorry
+end AdicGraded
+end TauCeti.HilbertSamuel
