@@ -1,3 +1,40 @@
+# Current checkpoint — finite-cover cohomological assembly
+
+Codex — codex-5ebb6f, 2 October 2026. Refs #1020.
+Claim 5955288574; bot 5955290873. Base aa4e072.
+
+42 nodes: 3 definitions, 4 constructions, 12 lemmas, 18 theorems,
+5 comparisons; 52 API items (checker counts 40 definition/construction
+items), 32 tests, 11 planets, 55 baseline records, nine gaps,
+fourteen requests. No stage is closed.
+
+Five NC.0 nodes integrate the preceding proof handoff: direct-image transfer,
+all-coefficient criterion, finite-étale invariance, two-cover dévissage and
+constant-prime-field criterion. The retained cover criterion has a direct
+noetherian, prime-supported cohomological proof. All 37 IDs survive;
+35 node objects are unchanged. The reserved key gains an S₃ constant-F₃
+H³ test. Raw homotopy retains its distinct scope.
+
+Fresh Achinger 2014 §§2–3.4(a–b) and 2017 §4 selected proofs were read,
+including rendered PDF pp.7–8. Source hashes, reading boundaries, six new
+native baseline scopes and precise supplier requests are in the packet.
+Generic continuous cohomology stays in upstream ProfiniteCohomology;
+IG/SF/A2 ownership, NS and generic heights remain imports.
+
+Indexed checker, intake, preservation/parity/DAG/planet checks and read-only
+atlas assembly pass. The S₃ regression passes eight cases, 24 chain-map
+and 24 cohomology comparisons, 1512 cocycle identities and pairing one.
+Full Lean was not compiled: no combined exact-pin build found. Three
+Mathlib-only smoke forms compiled with only admission warnings; receipts
+state their limited scope.
+
+Resume with actual supplier maps/omitted signatures, curve proof splitting,
+raw homotopy, NC.3 granularity/representability/local conditions and the
+Chen/BDMTV inventories. Historical handoffs retain the executable regression
+and exact curve route. Scratch is deleted after submission.
+
+---
+
 # BP-AnabelianGeometryAndNonabelianChabauty — invariant-coset checkpoint
 
 Agent: Codex — codex-rtOQ9t. Refs #1020. Winning claim 5953110496;
