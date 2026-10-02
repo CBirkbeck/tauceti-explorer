@@ -60286,3 +60286,455 @@ Exact integer and F2 controls cover48cyclic groups and13,720vectors, with144bina
 All79captured inputs, four actual merged predecessor outputs and the full issue body are unchanged. Native torsion, linear range equivalences, integer cancellation and binary-field scalar interfaces were read at the pinned commits. No new source issue or review verdict is added.
 
 The separate partial signature file also compiled with zero errors and 5,929 expected placeholder warnings across 3,910 pinned source modules. It includes all 20 new named declarations and 28 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: af5d1d5a919a6046ccc1536304616b7c2631a742cd887da3a8878dc09e60fd28.
+
+
+## Native periodicity and the ordinary degree-one torsion comparison
+
+Sixteen L3 nodes apply native cyclic periodicity to the actual point-negation representation and construct the ordinary degree-one integral and F2 torsion comparisons. All2,005predecessor nodes and1,233baseline records remain whole.
+
+The full pinned native Periodic1–355, including its all-degree comparison and generator-dependent periodicity, was read; Mathlib positive-degree Tate comparison227–246 and ordinary cohomology carrier161–201 were checked. Kubert199–200 supplies the ordinary degree1/even-torsion target and its explicit source freeness premise. Existing generic cohomology and periodicity are reused. The actual maps preserve source representatives, and E25 remains unchanged. Two archived native periodicity/invariants artifacts have matching pinned source bytes, toolchain/import metadata and a byte-identical LowDegree anchor; separate original compiler logs were not located, so no empty-log claim is made for those two modules. A fresh complete native probe verifies current compatibility.
+
+### Ordinary degree one and negative Tate for point negation
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv` — `DirichletPadic.kubertSignGroupH1NegOneEquiv`
+
+Construct an integer-linear equivalence from the actual ordinary H1 of the point-negation representation to its actual degree-minus-one Tate group.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted.
+
+**Proof:**
+
+1. Invert the existing positive-degree Tate-to-ordinary comparison at degree1.
+2. Apply existing native generator-dependent periodicity from Tate degree1 to degree−1; these integers are congruent modulo2.
+3. Supply the actual order-two generator and its previously proved generation property.
+4. Compose these native categorical isomorphisms and use the existing conversion to a linear equivalence.
+
+**Prerequisites:** `mathlib:groupCohomology`, `mathlib:TateCohomology.isoGroupCohomology`, `tauceti:Rep.FiniteCyclicGroup.periodicIsoOfGenerator`, `mathlib:CategoryTheory.Iso.toLinearEquiv`, `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation`, `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-group-generator`.
+
+**Uses:**
+
+- Kubert200, Corollary4.15(iii): Matches the printed ordinary degree1/even-torsion convention through actual existing native periodicity while retaining the source torsion-free premise only where needed.
+- Original parity quotient and cohomology calculations: Makes ordinary classes, zero/equality criteria, inverse torsion values and field scalar compatibility available on the actual source carriers.
+
+**API:**
+
+- `kubertSignGroupH1NegOneEquiv_class` (compatibility): The ordinary-to-negative-Tate equivalence sends the new ordinary class of every norm-kernel representative z to its existing negative Tate class.
+- `kubertSignGroupH1NegOneEquiv_surjective` (compatibility): The actual ordinary-to-negative-Tate comparison is surjective.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.ordinary_h1_roundtrip` (characterisation): The native periodicity comparison and its inverse recover every actual ordinary degree-one class.
+- `SuggestedKubertTatePeriodicityTests.negative_tate_roundtrip` (compatibility): The inverse and comparison recover every actual degree-minus-one Tate class.
+- `SuggestedKubertTatePeriodicityTests.nonzero_boundary_maps_to_zero` (non-example): For the empty-relation permutation module on ZMod5, the nonzero antisymmetric representative[1]-[4] becomes zero after the actual ordinary-to-negative-Tate comparison.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+### Ordinary degree-one classes of norm-kernel representatives
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-class` — `DirichletPadic.kubertSignGroupH1Class`
+
+Construct an integer-linear map from the actual kernel of d-odd to ordinary H1, by composing the existing negative Tate representative map with the inverse ordinary-to-negative-Tate equivalence.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted.
+
+**Proof:**
+
+1. Use the already constructed negative Tate class of each actual norm-kernel element.
+2. Apply the inverse of the specified native ordinary-to-negative-Tate equivalence.
+3. Compose the two actual linear maps.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class`.
+
+**Uses:**
+
+- Kubert200, Corollary4.15(iii): Matches the printed ordinary degree1/even-torsion convention through actual existing native periodicity while retaining the source torsion-free premise only where needed.
+- Original parity quotient and cohomology calculations: Makes ordinary classes, zero/equality criteria, inverse torsion values and field scalar compatibility available on the actual source carriers.
+
+**API:**
+
+- `kubertSignGroupH1NegOneEquiv_class` (compatibility): The ordinary-to-negative-Tate equivalence sends the new ordinary class of every norm-kernel representative z to its existing negative Tate class.
+- `kubertSignGroupH1Class_eq_zero_iff` (compatibility): The ordinary H1 class of a norm-kernel representative z is zero exactly when its underlying vector belongs to the actual image of d-even.
+- `kubertSignGroupH1Class_eq_iff` (compatibility): Two norm-kernel representatives z and z-prime have the same ordinary H1 class exactly when their underlying difference belongs to the actual image of d-even.
+- `kubertSignGroupH1Class_surjective` (compatibility): The actual map from the norm kernel to ordinary H1 is surjective.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.h1_nonzero_boundary_vanishes` (non-example): The nonzero vector[1]-[4] is an actual norm-kernel representative whose ordinary degree-one class is zero.
+- `SuggestedKubertTatePeriodicityTests.h1_zero_representative` (degenerate): The zero norm-kernel representative gives the zero ordinary degree-one class.
+- `SuggestedKubertTatePeriodicityTests.h1_representative_surjectivity` (characterisation): Every ordinary degree-one class has an actual norm-kernel representative under the transported representative map.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+### Periodicity preserves the transported representative
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv-class` — `DirichletPadic.kubertSignGroupH1NegOneEquiv_class`
+
+The ordinary-to-negative-Tate equivalence sends the new ordinary class of every norm-kernel representative z to its existing negative Tate class.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted.
+
+**Proof:**
+
+1. Expand the transported ordinary representative map.
+2. Cancel the actual equivalence with its inverse.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv`, `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-class`.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.signGroupH1NegOneEquiv_class_typed_api` (compatibility): The ordinary-to-negative-Tate equivalence sends the new ordinary class of every norm-kernel representative z to its existing negative Tate class.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+### Vanishing of the ordinary degree-one representative
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-class-eq-zero-iff` — `DirichletPadic.kubertSignGroupH1Class_eq_zero_iff`
+
+The ordinary H1 class of a norm-kernel representative z is zero exactly when its underlying vector belongs to the actual image of d-even.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted.
+
+**Proof:**
+
+1. The inverse linear equivalence detects zero.
+2. Apply the existing zero criterion for the negative Tate representative map.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-class`, `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class-eq-zero-iff`, `mathlib:LinearEquiv.map_eq_zero_iff`.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.signGroupH1Class_eq_zero_iff_typed_api` (compatibility): The ordinary H1 class of a norm-kernel representative z is zero exactly when its underlying vector belongs to the actual image of d-even.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+### Equality of ordinary degree-one representatives
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-class-eq-iff` — `DirichletPadic.kubertSignGroupH1Class_eq_iff`
+
+Two norm-kernel representatives z and z-prime have the same ordinary H1 class exactly when their underlying difference belongs to the actual image of d-even.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted.
+
+**Proof:**
+
+1. Rewrite equality as vanishing of the difference.
+2. Use linearity of the actual representative map.
+3. Apply its zero criterion to the difference representative.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-class-eq-zero-iff`, `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-class`.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.signGroupH1Class_eq_iff_typed_api` (compatibility): Two norm-kernel representatives z and z-prime have the same ordinary H1 class exactly when their underlying difference belongs to the actual image of d-even.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+### Every ordinary degree-one class has a norm-kernel representative
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-class-surjective` — `DirichletPadic.kubertSignGroupH1Class_surjective`
+
+The actual map from the norm kernel to ordinary H1 is surjective.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted.
+
+**Proof:**
+
+1. The negative Tate representative map is surjective.
+2. The inverse native linear equivalence is surjective.
+3. Compose these two surjections.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-class`, `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class-surjective`.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.signGroupH1Class_surjective_typed_api` (compatibility): The actual map from the norm kernel to ordinary H1 is surjective.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+### Ordinary degree one is annihilated by two
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-two-nsmul` — `DirichletPadic.kubertSignGroupH1_two_nsmul`
+
+Every class in the actual ordinary H1 of the point-negation representation is killed by2, without a torsion-free premise on Q.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted.
+
+**Proof:**
+
+1. Apply injectivity of the ordinary-to-negative-Tate equivalence.
+2. Move multiplication by2 through this linear map.
+3. Use the established annihilation of the actual negative Tate group by2.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv`, `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-two-nsmul`.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.signGroupH1_two_nsmul_typed_api` (compatibility): Every class in the actual ordinary H1 of the point-negation representation is killed by2, without a torsion-free premise on Q.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+### Every negative Tate class comes from ordinary degree one
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv-surjective` — `DirichletPadic.kubertSignGroupH1NegOneEquiv_surjective`
+
+The actual ordinary-to-negative-Tate comparison is surjective.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted.
+
+**Proof:**
+
+1. Use the surjectivity of the constructed native linear equivalence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.signGroupH1NegOneEquiv_surjective_typed_api` (compatibility): The actual ordinary-to-negative-Tate comparison is surjective.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+### The integral ordinary degree-one torsion comparison
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-equiv` — `DirichletPadic.kubertSignGroupH1TorsionEquiv`
+
+Under the explicit torsion-free premise on Q, construct an integer-linear equivalence from its actual ordinary H1 to the native torsion submodule of the original even quotient.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted. For the torsion comparisons only, assume explicitly IsAddTorsionFree for the original Q. This checkpoint supplies no source freeness instance, lower-rank theorem or internal-to-global injection. The target is the native integer torsion submodule of the original even quotient.
+
+**Proof:**
+
+1. Compose the actual ordinary-to-negative-Tate equivalence with the established conditional negative-Tate-to-even-torsion equivalence.
+2. Keep the original Q and original even quotient as the coefficient and target carriers.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv`, `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-equiv`.
+
+**Uses:**
+
+- Kubert200, Corollary4.15(iii): Matches the printed ordinary degree1/even-torsion convention through actual existing native periodicity while retaining the source torsion-free premise only where needed.
+- Original parity quotient and cohomology calculations: Makes ordinary classes, zero/equality criteria, inverse torsion values and field scalar compatibility available on the actual source carriers.
+
+**API:**
+
+- `kubertSignGroupH1TorsionEquiv_coe` (compatibility): The underlying original even quotient value of the integral H1 torsion comparison at x equals the actual negative Tate embedding evaluated at the ordinary-to-negative-Tate image of x.
+- `kubertSignGroupH1TorsionEquiv_class` (compatibility): The underlying original even quotient value of the integral comparison at the ordinary class of a norm-kernel representative z is the original even quotient class of its underlying vector.
+- `kubertSignGroupH1TorsionEquiv_symm_coe` (compatibility): For every actual even torsion element y, apply the inverse integral H1 comparison, then the ordinary-to-negative-Tate comparison, then the original negative Tate embedding. The result is exactly the original quotient value of y.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.integral_h1_boundary_zero` (non-example): Under the explicit original-module torsion-free premise, a nonzero antisymmetric boundary maps to zero in the original even torsion subgroup.
+- `SuggestedKubertTatePeriodicityTests.integral_even_torsion_inverse` (characterisation): The actual inverse followed by the comparison recovers every element of the original even torsion submodule and its exact quotient value.
+- `SuggestedKubertTatePeriodicityTests.integral_h1_free_example` (degenerate): In the empty-relation permutation example on ZMod5, the actual even quotient is torsion-free, so the inverse comparison sends every torsion element to the zero ordinary H1 class.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+### The ordinary integral comparison retains the original even map
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-equiv-coe` — `DirichletPadic.kubertSignGroupH1TorsionEquiv_coe`
+
+The underlying original even quotient value of the integral H1 torsion comparison at x equals the actual negative Tate embedding evaluated at the ordinary-to-negative-Tate image of x.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted. For the torsion comparisons only, assume explicitly IsAddTorsionFree for the original Q. This checkpoint supplies no source freeness instance, lower-rank theorem or internal-to-global injection. The target is the native integer torsion submodule of the original even quotient.
+
+**Proof:**
+
+1. Expand the composite equivalence.
+2. Use the established underlying-value formula for the actual negative Tate torsion equivalence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-equiv`, `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv`, `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-equiv-coe`.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.signGroupH1TorsionEquiv_coe_typed_api` (compatibility): The underlying original even quotient value of the integral H1 torsion comparison at x equals the actual negative Tate embedding evaluated at the ordinary-to-negative-Tate image of x.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+### The ordinary integral comparison preserves original representatives
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-equiv-class` — `DirichletPadic.kubertSignGroupH1TorsionEquiv_class`
+
+The underlying original even quotient value of the integral comparison at the ordinary class of a norm-kernel representative z is the original even quotient class of its underlying vector.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted. For the torsion comparisons only, assume explicitly IsAddTorsionFree for the original Q. This checkpoint supplies no source freeness instance, lower-rank theorem or internal-to-global injection. The target is the native integer torsion submodule of the original even quotient.
+
+**Proof:**
+
+1. Apply the underlying-value formula.
+2. Cancel native periodicity against the definition of the transported ordinary representative.
+3. Apply the existing original even quotient formula for a negative Tate representative.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv-class`, `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity-class`.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.signGroupH1TorsionEquiv_class_typed_api` (compatibility): The underlying original even quotient value of the integral comparison at the ordinary class of a norm-kernel representative z is the original even quotient class of its underlying vector.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+### The integral inverse recovers every original even torsion element
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-equiv-symm-coe` — `DirichletPadic.kubertSignGroupH1TorsionEquiv_symm_coe`
+
+For every actual even torsion element y, apply the inverse integral H1 comparison, then the ordinary-to-negative-Tate comparison, then the original negative Tate embedding. The result is exactly the original quotient value of y.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted. For the torsion comparisons only, assume explicitly IsAddTorsionFree for the original Q. This checkpoint supplies no source freeness instance, lower-rank theorem or internal-to-global injection. The target is the native integer torsion submodule of the original even quotient.
+
+**Proof:**
+
+1. Rewrite the final composite through the integral comparison underlying-value formula.
+2. Cancel the comparison with its actual inverse.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-equiv`, `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-equiv-coe`.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.signGroupH1TorsionEquiv_symm_coe_typed_api` (compatibility): For every actual even torsion element y, apply the inverse integral H1 comparison, then the ordinary-to-negative-Tate comparison, then the original negative Tate embedding. The result is exactly the original quotient value of y.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+### The binary-field ordinary degree-one torsion comparison
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-z-mod-equiv` — `DirichletPadic.kubertSignGroupH1TorsionZModEquiv`
+
+Under the explicit torsion-free premise on Q, construct an F2-linear equivalence from actual ordinary H1 to the native torsion of the original even quotient, with the same underlying additive map as the integral comparison.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted. For the torsion comparisons only, assume explicitly IsAddTorsionFree for the original Q. This checkpoint supplies no source freeness instance, lower-rank theorem or internal-to-global injection. The target is the native integer torsion submodule of the original even quotient.
+
+**Proof:**
+
+1. Use native exponent-two module structures on ordinary H1 and the actual even torsion subgroup, justified by the two proved annihilation statements.
+2. Retain the additive equivalence underlying the integral comparison.
+3. Apply the existing ZMod scalar compatibility theorem to that actual additive map.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-equiv`, `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-two-nsmul`, `DirichletPadicLFunctions:L3/kubert-torsion-comparison-even-parity-torsion-two-nsmul`, `mathlib:AddCommGroup.zmodModule`, `mathlib:ZMod.map_smul`.
+
+**Uses:**
+
+- Kubert200, Corollary4.15(iii): Matches the printed ordinary degree1/even-torsion convention through actual existing native periodicity while retaining the source torsion-free premise only where needed.
+- Original parity quotient and cohomology calculations: Makes ordinary classes, zero/equality criteria, inverse torsion values and field scalar compatibility available on the actual source carriers.
+
+**API:**
+
+- `kubertSignGroupH1TorsionZModEquiv_coe` (compatibility): The underlying original even quotient value of the F2 comparison equals the existing negative Tate embedding at the native periodicity image of the ordinary H1 class.
+- `kubertSignGroupH1TorsionZModEquiv_class` (compatibility): The underlying even quotient value of the F2 comparison at the ordinary class of a norm-kernel representative z is the original source even quotient class of z.
+- `kubertSignGroupH1TorsionZModEquiv_symm_coe` (compatibility): For every actual even torsion element y, the inverse field comparison followed by native periodicity and the original negative Tate embedding recovers the exact original quotient value of y.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.binary_h1_boundary_zero` (non-example): Under the explicit original-module torsion-free premise, a nonzero antisymmetric boundary maps to zero in the original even torsion subgroup.
+- `SuggestedKubertTatePeriodicityTests.binary_even_torsion_inverse` (characterisation): The actual inverse followed by the comparison recovers every element of the original even torsion submodule and its exact quotient value.
+- `SuggestedKubertTatePeriodicityTests.binary_h1_scalar_compatibility` (compatibility): The actual field-linear comparison respects every scalar of F2 on the native ordinary H1 and original even torsion carrier, using the constructed exponent-two actions.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+### The ordinary field comparison retains the original even map
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-z-mod-equiv-coe` — `DirichletPadic.kubertSignGroupH1TorsionZModEquiv_coe`
+
+The underlying original even quotient value of the F2 comparison equals the existing negative Tate embedding at the native periodicity image of the ordinary H1 class.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted. For the torsion comparisons only, assume explicitly IsAddTorsionFree for the original Q. This checkpoint supplies no source freeness instance, lower-rank theorem or internal-to-global injection. The target is the native integer torsion submodule of the original even quotient.
+
+**Proof:**
+
+1. The field-linear comparison has the same additive map as the integral comparison.
+2. Its original even quotient value is therefore unchanged.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-z-mod-equiv`, `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-equiv-coe`.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.signGroupH1TorsionZModEquiv_coe_typed_api` (compatibility): The underlying original even quotient value of the F2 comparison equals the existing negative Tate embedding at the native periodicity image of the ordinary H1 class.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+### The ordinary field comparison preserves original representatives
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-z-mod-equiv-class` — `DirichletPadic.kubertSignGroupH1TorsionZModEquiv_class`
+
+The underlying even quotient value of the F2 comparison at the ordinary class of a norm-kernel representative z is the original source even quotient class of z.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted. For the torsion comparisons only, assume explicitly IsAddTorsionFree for the original Q. This checkpoint supplies no source freeness instance, lower-rank theorem or internal-to-global injection. The target is the native integer torsion submodule of the original even quotient.
+
+**Proof:**
+
+1. Use the field comparison underlying-value formula.
+2. Use the periodicity representative cancellation and existing negative Tate representative formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-z-mod-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv-class`, `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity-class`.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.signGroupH1TorsionZModEquiv_class_typed_api` (compatibility): The underlying even quotient value of the F2 comparison at the ordinary class of a norm-kernel representative z is the original source even quotient class of z.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+### The field inverse recovers original even torsion
+
+`DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-z-mod-equiv-symm-coe` — `DirichletPadic.kubertSignGroupH1TorsionZModEquiv_symm_coe`
+
+For every actual even torsion element y, the inverse field comparison followed by native periodicity and the original negative Tate embedding recovers the exact original quotient value of y.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Use the actual native representation of the multiplicative form of ZMod2 on Q, whose generator acts by point negation. Write j for this involution, d-even=j−identity and d-odd=j+identity. Ordinary H1 means the native cohomology of inhomogeneous cochains. The comparison with native degree-minus-one Tate uses the existing positive-degree Tate comparison and existing generator-dependent two-periodicity with the actual generator. No private cohomology carrier or assumed periodicity is introduced. The norm-kernel representative map is defined by transport through this exact native periodicity comparison. No separate equality with the native periodic-resolution cocycle projection is asserted. For the torsion comparisons only, assume explicitly IsAddTorsionFree for the original Q. This checkpoint supplies no source freeness instance, lower-rank theorem or internal-to-global injection. The target is the native integer torsion submodule of the original even quotient.
+
+**Proof:**
+
+1. The field equivalence retains the inverse of the integral additive equivalence.
+2. Apply the integral inverse underlying-value formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-z-mod-equiv`, `DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-torsion-equiv-symm-coe`.
+
+**Tests:**
+
+- `SuggestedKubertTatePeriodicityTests.signGroupH1TorsionZModEquiv_symm_coe_typed_api` (compatibility): For every actual even torsion element y, the inverse field comparison followed by native periodicity and the original negative Tate embedding recovers the exact original quotient value of y.
+
+**Acceptance:** The maps use the actual ordinary degree-one and negative Tate carriers and the same source even quotient. They retain original norm-kernel representatives and all stated hypotheses. In the empty-relation example on ZMod5, the nonzero vector[1]−[4] is a difference boundary and has zero ordinary H1 class. Integral inverse and field scalar identities preserve the actual torsion elements.
+
+**Source:** Published199–200, Corollary4.15(iii), its printed degree1/even-torsion comparison and the original-module torsion-free premise used in the proof; E25 remains the recorded symbol correction. Applies existing native cyclic periodicity and the positive-degree Tate comparison to the actual point-negation representation. This identifies ordinary degree1 with the already constructed degree-minus-one comparison and hence, under the explicit source torsion-free premise, with torsion of the original even quotient. It does not replan generic group cohomology or periodicity.
+
+**Remaining:** The printed ordinary degree1/even-torsion comparison now has an actual native construction: ordinary H1 is identified with degree-minus-one Tate by existing periodicity and then, under the explicit torsion-free premise on the original Q, with the native torsion of the original even quotient over both integers and F2. Representatives are transported through this precise comparison; no separate equality with the native periodic-resolution cocycle projection is asserted. Source freeness, the independent lower-rank and internal-to-global input remain unproved. Character components, general-degree coordinates and fiber counts, and the unramified-ring identification remain open.
+
+### Native periodicity and the ordinary degree-one torsion comparison validation
+
+All 2005 predecessor nodes, 1233 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 16 nodes, 16 named suggested declarations and 24 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2283 reachable nodes, 9344 edges and 1404 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route ends in existing native positive-degree Tate and cyclic periodicity interfaces, the actual point-negation representation, the original source quotient carriers or the established conditional torsion comparisons. No assumed action, periodicity package, source freeness instance or generic cohomology duplicate is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3915 pinned Mathlib modules and 32 pinned Tau Ceti modules. Only 31 Tau module artifacts are available and hash-verified. The 152 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5758 verbatim and adds four constructions and twelve complete lemmas. Totals are170definitions and1,326lemmas with no placeholders. The public append has16named declarations and24typed examples, all new mathematical bodies placeholders. Existing native periodicity artifacts are reused; no library build occurs. The separate probe compiles against 3282 pinned Mathlib modules and 10 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native periodicity, low-degree Tate and Teichmuller artifacts, with ten Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact controls cover48cyclic point groups,13,720integer vectors and80explicit norm-kernel boundary witnesses. The separate auxiliary integral sign module supplies129representatives,16,641equality checks and258binary scalar checks with its nonzero H1 class; it is not asserted to be a distribution quotient. Exact integer orbit coordinates on cyclic point groups of orders1–48, with all{-1,0,1} vectors through order8 and97 deterministic vectors at larger orders, verify that every norm-kernel vector is an actual difference boundary and that the even permutation quotient has no torsion. Separately, the auxiliary free rank-one sign module has ordinary H1 and degree-minus-one Tate both Z/2; representative, equality and binary scalar checks detect its nonzero class. This auxiliary sign module is not asserted to be an original distribution quotient. The finite controls neither prove the generic native periodicity theorem nor supply source freeness. The largest observed discrepancy is 0.
+
+The fresh capture changes only the source-issue registry and its generated register: one unreviewed SchemeAndStackFoundations/E1 report is added. The complete diff was read; all 9,125 old records and all other registry metadata remain whole. Awaiting-review count rises from1,781to1,782; other status counts are unchanged. This henselization report is outside the new Dirichlet routes, and no claim or review verdict from it is adopted. All77other captured inputs, four merged predecessor outputs and the full issue body are unchanged. Native periodicity, the positive-degree Tate comparison and ordinary cohomology carrier statements were read at the exact pins.
+
+The separate partial signature file also compiled with zero errors and 5,969 expected placeholder warnings across 3,914 pinned source modules. It includes all 16 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 6da4720810aa52d3094138578ab27e0ad0e376885c18efc01755c020c90021e7.
