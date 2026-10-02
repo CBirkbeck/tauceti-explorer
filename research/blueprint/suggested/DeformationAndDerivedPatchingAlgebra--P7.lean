@@ -2152,3 +2152,133 @@ example :
 
 end ResidueJetLength
 end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section PlaneCurveContinuation
+variable {k : Type*} [Field k]
+variable (f : (MvPowerSeries (Fin 2) k))
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-equation-jet-length-balance
+-- sum in ENat first; no subtraction of infinite lengths.
+lemma planeEquationJet_length_balance (d N : ℕ)
+    (hN : d ≤ N) (hd : f.order = (d : ℕ∞)) :
+    Module.length (MvPowerSeries (Fin 2) k) ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))) ^ (N + 1)) =
+      Module.length (MvPowerSeries (Fin 2) k) ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))) ^ (N + 1 - d)) +
+        Module.length (MvPowerSeries (Fin 2) k) ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span {f} ⊔ (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))) ^ (N + 1))) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-equation-jet-length
+-- the right-hand subtraction is in Nat before the ENat cast.
+lemma planeEquationJet_length (d N : ℕ) (hd : f.order = (d : ℕ∞)) :
+    Module.length (MvPowerSeries (Fin 2) k) ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span {f} ⊔ (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))) ^ (N + 1))) =
+      ((Nat.choose (N + 2) 2 - Nat.choose (N + 2 - d) 2 : ℕ) : ℕ∞) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-jet-length
+lemma planeCurve_jet_length (N : ℕ) :
+    function (A := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) N =
+      Module.length (MvPowerSeries (Fin 2) k) ((MvPowerSeries (Fin 2) k) ⧸ ((Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))) ⊔ (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))) ^ (N + 1))) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-function
+-- the actual Hilbert-Samuel function of the actual quotient A.
+lemma planeCurve_function (d N : ℕ) (hd : f.order = (d : ℕ∞)) :
+    function (A := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) N =
+      ((Nat.choose (N + 2) 2 - Nat.choose (N + 2 - d) 2 : ℕ) : ℕ∞) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-graded-function
+-- use the native successive-quotient carrier, including N=0.
+lemma planeCurve_gradedFunction (d N : ℕ) (hd : f.order = (d : ℕ∞)) :
+    gradedFunction (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) N = (min (N + 1) d : ℕ∞) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-defect
+-- rational subtraction, after the preceding finite-length equality.
+lemma planeCurve_postulation_defect (d N : ℕ) (hd : f.order = (d : ℕ∞)) :
+    ((function (A := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) N).toNat : ℚ) -
+        ((d : ℚ) * ((N : ℚ) + 1) - (d : ℚ) * ((d : ℚ) - 1) / 2) =
+      (Nat.choose (d - N - 1) 2 : ℚ) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-iff
+-- cumulative, not graded, agreement threshold.
+lemma planeCurve_postulation_iff (d N : ℕ) (hd : f.order = (d : ℕ∞)) :
+    (((function (A := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) N).toNat : ℚ) =
+      (d : ℚ) * ((N : ℚ) + 1) - (d : ℚ) * ((d : ℚ) - 1) / 2) ↔
+        d ≤ N + 2 := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial
+-- no caller-supplied Hilbert polynomial or automatic local instance.
+lemma planeCurve_polynomial [IsNoetherianRing ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))] [IsLocalRing ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))]
+    (d : ℕ) (hd : f.order = (d : ℕ∞))
+    (hq : ((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))))).radical = IsLocalRing.maximalIdeal ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) :
+    polynomial (A := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) hq =
+      Polynomial.C (d : ℚ) * (Polynomial.X + 1) -
+        Polynomial.C ((d : ℚ) * ((d : ℚ) - 1) / 2) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-function
+-- zero is not a finite-order equation.
+lemma planeZeroEquation_function (N : ℕ) :
+    let I : Ideal (MvPowerSeries (Fin 2) k) := Ideal.span {(0 : (MvPowerSeries (Fin 2) k))}
+    let B := (MvPowerSeries (Fin 2) k) ⧸ I
+    let q := ((Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))).map (Ideal.Quotient.mk I)
+    function (A := B) (M := B) q N = (Nat.choose (N + 2) 2 : ℕ∞) := by sorry
+end PlaneCurveContinuation
+
+section PlaneCurveAcceptance
+-- Unit boundary: no IsLocalRing instance is required on the zero quotient.
+-- test: PlaneCurveAcceptance.unit_boundary
+example (N : ℕ) :
+    let R := MvPowerSeries (Fin 2) ℚ
+    let I : Ideal R := Ideal.span {(1 : R)}
+    let B := R ⧸ I
+    let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    function (A := B) (M := B) (v.map (Ideal.Quotient.mk I)) N = 0 := by sorry
+
+-- The zero equation retains the regular surface's quadratic function.
+-- test: PlaneCurveAcceptance.zero_equation_six
+example :
+    let R := MvPowerSeries (Fin 2) (ZMod 2)
+    let I : Ideal R := Ideal.span {(0 : R)}
+    let B := R ⧸ I
+    let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    function (A := B) (M := B) (v.map (Ideal.Quotient.mk I)) 2 = 6 := by sorry
+
+-- Smooth equation: the function is N+1, not the ambient triangular number.
+-- test: PlaneCurveAcceptance.smooth_linear
+example (N : ℕ) :
+    let R := MvPowerSeries (Fin 2) ℚ
+    let I : Ideal R := Ideal.span {(MvPowerSeries.X 0 : R)}
+    let B := R ⧸ I
+    let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    function (A := B) (M := B) (v.map (Ideal.Quotient.mk I)) N = (N + 1 : ℕ∞) := by sorry
+
+-- Nonreduced positive-characteristic equation, with its low-index exception.
+-- test: PlaneCurveAcceptance.nonreduced_cumulative
+example :
+    let R := MvPowerSeries (Fin 2) (ZMod 2)
+    let I : Ideal R := Ideal.span {(MvPowerSeries.X 0 : R) ^ 4}
+    let B := R ⧸ I
+    let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    let q := (v).map (Ideal.Quotient.mk I)
+    function (A := B) (M := B) q 0 = 1 ∧
+      function (A := B) (M := B) q 1 = 3 ∧
+      function (A := B) (M := B) q 2 = 6 ∧
+      function (A := B) (M := B) q 4 = 14 := by sorry
+
+-- The cumulative function has already stabilised polynomially at index 2,
+-- but the degree-2 graded component has dimension 3, not yet 4.
+-- test: PlaneCurveAcceptance.nonreduced_graded
+example :
+    let R := MvPowerSeries (Fin 2) (ZMod 2)
+    let I : Ideal R := Ideal.span {(MvPowerSeries.X 0 : R) ^ 4}
+    let B := R ⧸ I
+    let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    let q := (v).map (Ideal.Quotient.mk I)
+    gradedFunction (M := B) q 2 = 3 ∧ gradedFunction (M := B) q 3 = 4 := by sorry
+
+-- Large order does not erase a small ambient jet.
+-- test: PlaneCurveAcceptance.below_equation_order
+example :
+    let R := MvPowerSeries (Fin 2) ℚ
+    let I : Ideal R := Ideal.span {(MvPowerSeries.X 0 : R) ^ 100}
+    let B := R ⧸ I
+    let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    function (A := B) (M := B) (v.map (Ideal.Quotient.mk I)) 2 = 6 := by sorry
+end PlaneCurveAcceptance
+end TauCeti.HilbertSamuel
