@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial. Codex — codex-rtOQ9t adds three reusable quotient-ring Hilbert–Samuel API lemmas and six actual boundary examples, refines the plane-curve adapter to their specialization, and retains all source/closure boundaries.",
+  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial. Codex — codex-rtOQ9t adds three reusable quotient-ring Hilbert–Samuel API lemmas and six actual boundary examples, refines the plane-curve adapter to their specialization, and retains all source/closure boundaries. This finite-variable continuation separates algebraic monomial-power membership, the order lower bound and a finite degree-r factorization; their admission-free native prototypes assemble the existing ideal-power/order equivalence without a domain assumption. The canonical plan remains partial and unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1648,6 +1648,118 @@
         "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
         "provides": "Zero kernel is equivalent to every zero fibre element being zero.",
         "checked": "Actual statement and ambient assumptions personally read at the exact pin on 2026-10-02; used by the admission-free principal-quotient prototype."
+      },
+      {
+        "ref": "mathlib:Submodule.mul_induction_on",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Operations.lean",
+        "provides": "Algebraic submodule products are generated by products and finite addition; the eliminator requires a product case and an addition case.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
+      },
+      {
+        "ref": "mathlib:Finsupp.degree",
+        "kind": "def",
+        "module": "Mathlib/Data/Finsupp/Weight.lean",
+        "provides": "Native additive total degree of a finitely supported exponent, with no finite-variable hypothesis.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
+      },
+      {
+        "ref": "mathlib:Finsupp.degree_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Finsupp/Weight.lean",
+        "provides": "Total degree is the finite sum of coordinates over the support.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
+      },
+      {
+        "ref": "mathlib:Finsupp.finite_of_degree_eq",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Finsupp/Weight.lean",
+        "provides": "Over a finite variable set the exponents of any fixed total degree form a finite set, including degree zero and the empty variable set.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
+      },
+      {
+        "ref": "mathlib:Finsupp.degree_mono",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Finsupp/Weight.lean",
+        "provides": "Pointwise comparison of natural exponents implies comparison of their total degrees.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
+      },
+      {
+        "ref": "mathlib:Finsupp.exists_le_degree_eq",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Finsupp/Weight.lean",
+        "provides": "If r≤degree α, a pointwise smaller exponent β≤α of degree exactly r exists, even over an infinite variable set.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
+      },
+      {
+        "ref": "mathlib:Ideal.pow_mem_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "An element of an ideal has its n-th power in the n-th algebraic ideal power.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
+      },
+      {
+        "ref": "mathlib:Ideal.subset_span",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "Each generator belongs to the algebraic ideal it spans.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
+      },
+      {
+        "ref": "mathlib:Ideal.span_le",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "Containment of the ideal span is equivalent to containment of its generating set.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "The native coefficient projection is a linear map.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.ext",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Native power series equality is coefficientwise equality, with no topological convergence premise.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff_monomial_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "The coefficient at α of monomial β a times φ is a·coeff_(α−β)(φ) when β≤α, and zero otherwise.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.constantCoeff_X",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Every native variable has zero constant coefficient.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.monomial_one_eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "A native monomial of coefficient one is the finite product of native variables to its coordinate exponents.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.min_order_le_add",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "The minimum of two native orders is a lower bound for the order of the sum.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.one_le_order_iff_constCoeff_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "Native total order at least one is equivalent to zero constant coefficient.",
+        "checked": "Statement, local assumptions and selected proof personally read at the exact Mathlib pin on 2026-10-02 for Codex codex-a71f92's finite monomial-factorization continuation; declaration-index presence confirmed. HS-VARIABLE-IDEAL-PIN records the exact file hash."
       }
     ]
   },
@@ -2349,6 +2461,31 @@
         "Mathlib/RingTheory/Ideal/Operations.lean": "4859dadb42353660e6827c0c070962279d8fabdc8eea013eeed783b5cab59c22",
         "Mathlib/Algebra/Module/LinearMap/Defs.lean": "242ce4f144fbc775bc424e6b9e088f583fb485fa72f89135d157b5586a987ae7",
         "Mathlib/Algebra/Module/Submodule/Ker.lean": "6cc0c2a52cc00e0cfa86072a20703538d94475847249493a81617f8e5e9f956d"
+      }
+    },
+    {
+      "id": "HS-VARIABLE-IDEAL-PIN",
+      "title": "Finite monomial factorization and algebraic variable-ideal powers",
+      "authors": "The Mathlib contributors; adapter proofs by Codex — codex-a71f92, building on ChatGPT — gpt6astra-20261002-7d2f90's DDPA-JET-HANDOFF",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and the immutable DDPA-JET-HANDOFF",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Finsupp/Weight.lean",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Freshly read selected statements, local assumptions and displayed proofs: Finsupp degree/finiteness/monotonicity/sub-exponent selection; native series carrier, coefficient/extensionality, monomial multiplication coefficient, coefficient-one monomial product, constant coefficient and variables; native order bounds and coefficient vanishing; algebraic ideal powers, span containment and submodule-product induction. These are bounded reads, not a whole-tree absence proof.",
+        "The DDPA-JET-HANDOFF §3 finite-sum factorization paragraph is freshly read. Its two-variable argument motivates the finite-variable arbitrary-commutative-ring extension explicitly proved here. The predecessor's whole-source reads, computational regression and principal-quotient proof receipts remain historical; none is claimed as a fresh rerun."
+      ],
+      "sourceHashes": {
+        "Mathlib/Algebra/Algebra/Operations.lean": "913909c0cc53d9f1a34cf059ee192a34bac9b6d62661a710a91bbc245a87f3cc",
+        "Mathlib/RingTheory/MvPowerSeries/Basic.lean": "fb6303b35ede9edf896a799d46d5656faca3e55f7f05cbfb02b86e3c7bb9b865",
+        "Mathlib/RingTheory/Ideal/Span.lean": "217304ad0ad295d4ac8b38c191580f636a4448fbfdf0fac94a0b9fe2470aea5f",
+        "Mathlib/Data/Finsupp/Weight.lean": "ea22b70af2e5976437b3e01334e70a7d729e424024fc4a70987936f37be8b96c",
+        "Mathlib/RingTheory/Ideal/Operations.lean": "4859dadb42353660e6827c0c070962279d8fabdc8eea013eeed783b5cab59c22",
+        "Mathlib/RingTheory/MvPowerSeries/Order.lean": "cda7e4c6c23c83c61b97a8b365d95faaf43cec5996a3c4aada0401ebe9ecdd34"
+      },
+      "mathematicalSource": {
+        "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/eb645dc85df65608c56fafc4d9ed0e71ab0ca3ce/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md",
+        "sha256": "d6bb818403e28967bc241c039a37fc503492d926159c6fcf89c8317ac7119f3c",
+        "readScope": "§3 first finite-sum factorization paragraph; bounded fresh read"
       }
     }
   ],
@@ -7485,10 +7622,10 @@
         "σ is finite, k is any commutative ring, R=MvPowerSeries σ k and v is the algebraically generated ideal span{X_i | i∈σ}. All degrees are natural numbers."
       ],
       "proofSteps": [
-        "Forward: each variable has no constant term. Expanding a product of r variables times a series, the coefficient convolution has no term of total degree below r. The same vanishing is preserved by finite sums and R-multiples, hence by the algebraic ideal power. Translate coefficient vanishing to the native ENat order using nat_le_order.",
-        "Reverse, r=0: v^0=R, so every series belongs. For r>0 fix a finite enumeration of σ. For each exponent α of degree at least r, greedily allocate r units from its coordinates in that enumeration, obtaining β(α)≤α of degree r. The set B_r of such β is finite: every coordinate is at most r. If σ is empty then B_r is empty and the vanishing condition forces g=0.",
-        "For each β∈B_r define the formal series h_β by setting its coefficient at γ to coeff_(β+γ)(g) when β(β+γ)=β, and zero otherwise. Then coefficientwise g=Σ_(β∈B_r) X^β h_β. Each X^β is a product of exactly r native variables, so lies in v^r. The sum is finite; no closure under an infinite sum or ideal topology is assumed.",
-        "Native coeff_of_lt_order gives the reverse vanishing implication. Keep order(0)=∞: no ENat.toNat is used. This extends the predecessor's explicit two-variable allocation to finite σ and does not identify v with a local maximal ideal over an arbitrary coefficient ring."
+        "Apply variable-ideal-power-order-bound for the forward implication; its proof works even for an infinite variable set.",
+        "For the reverse implication, use finite-degree-monomial-factorization on the native coefficient carrier. Each summand has a coefficient-one degree-r monomial in v^r by monomial-variable-ideal-power, and multiplication by its series factor stays in the same ideal. Closure under the genuinely finite sum proves membership.",
+        "No domain, residue-field or local-ring hypothesis is introduced. The zero/zero-power/empty-variable boundaries are handled by the same native proofs. The ideal is algebraically generated; no closure under infinite sums is asserted.",
+        "This theorem is now supported by an admission-free native proof prototype. The canonical suggested body stays admitted and the node remains unchecked pending independent review/library implementation. The shifted multiplication, total-jet basis/count, curve length and general multiplicity theorems remain separate open work."
       ],
       "acceptance": [
         "For σ=Fin 2, k=ℚ, X_0∈v but X_0∉v².",
@@ -7496,9 +7633,10 @@
         "For the empty variable set and r>0 the only member of v^r is zero."
       ],
       "prerequisites": [
-        "mathlib:MvPowerSeries.order",
-        "mathlib:MvPowerSeries.coeff_of_lt_order",
-        "mathlib:MvPowerSeries.nat_le_order"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order-bound",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-degree-monomial-factorization",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/monomial-variable-ideal-power",
+        "mathlib:Ideal.mul_mem_mul"
       ],
       "sources": [
         {
@@ -7506,6 +7644,28 @@
           "locator": "§3, first paragraph; finite-variable allocation extension explicitly derived here",
           "excerpt": "finite sum",
           "match": "An adapter between algebraic powers of the variable ideal and native total order, not a new order definition."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelVariableIdealTest.zero_series",
+          "kind": "regression",
+          "statement": "For every finite σ and commutative k, the zero series belongs to every v^r."
+        },
+        {
+          "name": "HilbertSamuelVariableIdealTest.empty_variables",
+          "kind": "non-example",
+          "statement": "For empty σ and k=ℚ, g∈v^r iff g=0 whenever r>0."
+        },
+        {
+          "name": "HilbertSamuelVariableIdealTest.variable_not_square",
+          "kind": "non-example",
+          "statement": "Over Z/4 in two variables, X_0 does not belong to v²."
+        },
+        {
+          "name": "HilbertSamuelVariableIdealTest.zero_coefficient_ring",
+          "kind": "regression",
+          "statement": "With coefficient ring ZMod 1, every series belongs to every variable-ideal power."
         }
       ]
     },
@@ -9302,6 +9462,201 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/monomial-variable-ideal-power",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Monomials in algebraic variable-ideal powers",
+      "declaration": "TauCeti.HilbertSamuel.monomial_mem_variableIdeal_pow_degree",
+      "statement": "For any variable set σ, any commutative coefficient ring k, β:σ→₀ℕ and v=Ideal.span(range(X)), the native series monomial β 1 belongs to v^degree(β). No finiteness of σ or domain/nontriviality of k is required.",
+      "hypotheses": [
+        "σ is any type, k is any commutative ring, and β is a finitely supported natural exponent; v is the native algebraic variable ideal."
+      ],
+      "proofSteps": [
+        "Use native monomial_one_eq to write monomial β 1 as the product over the finite support of β of X_i^(β_i).",
+        "Induct over that finite support: the empty product belongs to v^0; each X_i belongs to v by subset_span, so X_i^(β_i) belongs to v^(β_i) by pow_mem_pow. Combine memberships by mul_mem_mul and pow_add.",
+        "Native degree_apply identifies the sum of coordinate exponents with degree β. There is no enumeration of all variables and no topological ideal closure."
+      ],
+      "acceptance": [
+        "β=0 gives the coefficient-one constant in v^0, including a zero coefficient ring.",
+        "The exponent 2e_0+3e_1 gives a monomial in v^5 over Z/4; this is a total-degree, not a coordinatewise, assertion."
+      ],
+      "prerequisites": [
+        "mathlib:MvPowerSeries.monomial_one_eq",
+        "mathlib:Finsupp.degree_apply",
+        "mathlib:Ideal.subset_span",
+        "mathlib:Ideal.pow_mem_pow",
+        "mathlib:Ideal.mul_mem_mul"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§3, first paragraph; finite-variable arbitrary-commutative-ring extension derived here",
+          "excerpt": "finite sum",
+          "match": "Separate the finite degree-r monomial generators from their formal-series factors; no infinite-sum closure of an ideal is used."
+        },
+        {
+          "sourceId": "HS-VARIABLE-IDEAL-PIN",
+          "locator": "Selected native declarations listed as prerequisites; explicit adapter proof derived here",
+          "excerpt": "The degree of a finsupp function.",
+          "match": "Reuse native Finsupp degree, finite degree fibre and sub-exponent selection, native power series and algebraic ideal powers; introduce no replacement carrier or order."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "HilbertSamuelVariableIdealTest.constant_monomial",
+          "kind": "regression",
+          "statement": "The coefficient-one degree-zero monomial belongs to v^0 over every commutative k."
+        },
+        {
+          "name": "HilbertSamuelVariableIdealTest.mixed_total_degree",
+          "kind": "computation",
+          "statement": "Over Z/4 in two variables, the monomial with exponent 2e_0+3e_1 belongs to v^5."
+        },
+        {
+          "name": "HilbertSamuelVariableIdealTest.variable_membership",
+          "kind": "regression",
+          "statement": "Over Z/4 in two variables, X_0 belongs to v."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order-bound",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Order bound for algebraic variable-ideal powers",
+      "declaration": "TauCeti.HilbertSamuel.order_lower_bound_of_mem_variableIdeal_pow",
+      "statement": "For any variable set σ, any commutative ring k, series g:MvPowerSeries σ k and r∈ℕ, membership g∈v^r implies (r:ℕ∞)≤g.order, where v=Ideal.span(range(X)). The implication does not require finite σ.",
+      "hypotheses": [
+        "σ is any type; k is any commutative ring, including rings with zero divisors and the zero ring. r is a natural number and g∈v^r."
+      ],
+      "proofSteps": [
+        "The native constantCoeff ring homomorphism kills every X_i. Native span_le therefore puts v in its kernel; one_le_order_iff_constCoeff_eq_zero gives order at least one on v.",
+        "Induct on r. The zero-power bound is 0≤order g. For v^(r+1)=v^r*v, use native Submodule.mul_induction_on on the actual algebraic product, not on a topological closure.",
+        "For a product a*b, combine the induction bound r≤order a and 1≤order b with le_order_mul. For an addition, combine both bounds with min_order_le_add. Keep all inequalities in ℕ∞; never replace order(0)=∞ by zero."
+      ],
+      "acceptance": [
+        "The implication applies with σ=ℕ and k=Z/4.",
+        "For r=0 every native series belongs to v^0; no nontrivial coefficient-ring assumption is introduced."
+      ],
+      "prerequisites": [
+        "mathlib:MvPowerSeries.constantCoeff",
+        "mathlib:MvPowerSeries.constantCoeff_X",
+        "mathlib:Ideal.span_le",
+        "mathlib:MvPowerSeries.one_le_order_iff_constCoeff_eq_zero",
+        "mathlib:Submodule.mul_induction_on",
+        "mathlib:MvPowerSeries.le_order_mul",
+        "mathlib:MvPowerSeries.min_order_le_add"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§3, first paragraph; finite-variable arbitrary-commutative-ring extension derived here",
+          "excerpt": "finite sum",
+          "match": "Separate the finite degree-r monomial generators from their formal-series factors; no infinite-sum closure of an ideal is used."
+        },
+        {
+          "sourceId": "HS-VARIABLE-IDEAL-PIN",
+          "locator": "Selected native declarations listed as prerequisites; explicit adapter proof derived here",
+          "excerpt": "The degree of a finsupp function.",
+          "match": "Reuse native Finsupp degree, finite degree fibre and sub-exponent selection, native power series and algebraic ideal powers; introduce no replacement carrier or order."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "HilbertSamuelVariableIdealTest.infinite_variables_forward",
+          "kind": "regression",
+          "statement": "For σ=ℕ,k=Z/4, g∈v^r implies r≤order g."
+        },
+        {
+          "name": "HilbertSamuelVariableIdealTest.zero_power",
+          "kind": "regression",
+          "statement": "Every series lies in v^0 for arbitrary σ and commutative k."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/finite-degree-monomial-factorization",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Finite degree-monomial factorization",
+      "declaration": "TauCeti.HilbertSamuel.exists_degree_monomial_factorization",
+      "statement": "For finite σ, any commutative ring k, native series g and r∈ℕ with (r:ℕ∞)≤g.order, there is a family h:(σ→₀ℕ)→MvPowerSeries σ k such that g=Σ_{β∈B_r} monomial β 1·h(β), where B_r={β | degree β=r} is the native finite degree fibre. The sum is finite, including r=0 and an empty B_r.",
+      "hypotheses": [
+        "σ is finite; k is any commutative ring, without a domain or nontriviality assumption. g:MvPowerSeries σ k; r∈ℕ; (r:ℕ∞)≤g.order."
+      ],
+      "proofSteps": [
+        "Use baseline finite_of_degree_eq to take the finite sum over B_r. For each exponent α of degree at least r, baseline exists_le_degree_eq supplies pick(α)≤α of degree r; below r choose zero. The choice is internal to the proof, not a new public selector or alternate exponent carrier.",
+        "On the native coefficient-function carrier define h(β)(γ)=coeff_(β+γ)(g) if pick(β+γ)=β, and zero otherwise. Native ext reduces the asserted finite-sum equality to equality of each coefficient.",
+        "If degree α≥r, use coeff_monomial_mul and β+(α−β)=α when β≤α. Exactly the summand β=pick(α) contributes coeff_α(g); every other summand vanishes. Use finite sum_eq_single.",
+        "If degree α<r, coeff_of_lt_order makes coeff_α(g)=0. No β∈B_r can satisfy β≤α, by degree_mono; every coefficient of the finite sum is zero. This also proves the empty-variable and r=0 boundaries without separate infinite-series convergence assertions."
+      ],
+      "acceptance": [
+        "At r=0, every series has the displayed factorization over B_0={0}.",
+        "For σ=Fin 2,k=Z/4,g=X_0²+X_1²,r=2, the displayed finite factorization exists despite zero divisors.",
+        "Empty σ and r>0 force g=0 and allow the empty sum; a zero coefficient ring is permitted."
+      ],
+      "prerequisites": [
+        "mathlib:Finsupp.degree",
+        "mathlib:Finsupp.finite_of_degree_eq",
+        "mathlib:Finsupp.exists_le_degree_eq",
+        "mathlib:Finsupp.degree_mono",
+        "mathlib:MvPowerSeries.coeff",
+        "mathlib:MvPowerSeries.ext",
+        "mathlib:MvPowerSeries.coeff_monomial_mul",
+        "mathlib:MvPowerSeries.coeff_of_lt_order"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§3, first paragraph; finite-variable arbitrary-commutative-ring extension derived here",
+          "excerpt": "finite sum",
+          "match": "Separate the finite degree-r monomial generators from their formal-series factors; no infinite-sum closure of an ideal is used."
+        },
+        {
+          "sourceId": "HS-VARIABLE-IDEAL-PIN",
+          "locator": "Selected native declarations listed as prerequisites; explicit adapter proof derived here",
+          "excerpt": "The degree of a finsupp function.",
+          "match": "Reuse native Finsupp degree, finite degree fibre and sub-exponent selection, native power series and algebraic ideal powers; introduce no replacement carrier or order."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "HilbertSamuelVariableIdealTest.zero_degree_factorization",
+          "kind": "regression",
+          "statement": "For every finite σ and commutative k, every series has the finite degree-zero factorization."
+        },
+        {
+          "name": "HilbertSamuelVariableIdealTest.sum_factorization",
+          "kind": "regression",
+          "statement": "Over Z/4 in two variables, X_0²+X_1² has a finite degree-two monomial factorization."
+        }
+      ]
     }
   ],
   "baselineCoverage": [
@@ -9430,7 +9785,8 @@
         "Discharge the nine adic graded-ring and eleven adic graded-module comparison proofs, then register the exact graded ring/module interfaces and decompose the graded Hilbert–Serre induction. Native Rees carriers and native quotient scalar descent are reused. All earlier local algebra, multiplicity, degree/dimension, completion and routed-paper obligations remain open.",
         "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open.",
         "The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open.",
-        "The general quotient-ring comparison, equation-containment adapter, quotient antitonicity and exact existing plane-curve scalar comparison now have admission-free native proof prototypes and six checked boundary examples. Canonical signatures remain admitted and all nodes unchecked. The numerical jet counts, ideal-power/order theorem, shifted multiplication/exactness, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, completion, Artin–Rees, associativity and every inherited routed-paper obligation remain open."
+        "The general quotient-ring comparison, equation-containment adapter, quotient antitonicity and exact existing plane-curve scalar comparison now have admission-free native proof prototypes and six checked boundary examples. Canonical signatures remain admitted and all nodes unchecked. The numerical jet counts, ideal-power/order theorem, shifted multiplication/exactness, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, completion, Artin–Rees, associativity and every inherited routed-paper obligation remain open.",
+        "The algebraic variable-ideal-power/order equivalence now has four admission-free native proofs and eleven boundary examples. Canonical bodies remain admitted and all nodes unchecked. Actual shifted series injectivity, jet kernel/equivalence/basis and counts, all-index curve lengths, tangent-cone kernel, curve dimension, general intrinsic/ambient multiplicity, Hilbert–Serre, completion, Artin–Rees and every routed-paper obligation remain open."
       ]
     },
     {
@@ -9620,7 +9976,7 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial",
         "DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-function"
       ],
-      "detail": "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open. Retain f=0 and unit boundaries, positive characteristic and nonreduced equations. An arbitrary finite R-module is not thereby finite over k. The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open. Current codex-rtOQ9t continuation: The general quotient-ring comparison, equation-containment adapter, quotient antitonicity and exact existing plane-curve scalar comparison now have admission-free native proof prototypes and six checked boundary examples. Canonical signatures remain admitted and all nodes unchecked. The numerical jet counts, ideal-power/order theorem, shifted multiplication/exactness, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, completion, Artin–Rees, associativity and every inherited routed-paper obligation remain open."
+      "detail": "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open. Retain f=0 and unit boundaries, positive characteristic and nonreduced equations. An arbitrary finite R-module is not thereby finite over k. The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open. Current codex-rtOQ9t continuation: The general quotient-ring comparison, equation-containment adapter, quotient antitonicity and exact existing plane-curve scalar comparison now have admission-free native proof prototypes and six checked boundary examples. Canonical signatures remain admitted and all nodes unchecked. The numerical jet counts, ideal-power/order theorem, shifted multiplication/exactness, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, completion, Artin–Rees, associativity and every inherited routed-paper obligation remain open. The current finite-variable continuation provides an admission-free native prototype for the algebraic ideal-power/order equivalence via three new proof lemmas, over arbitrary commutative coefficients. This resolves the predecessor's prototype omission for that one adapter, not canonical library implementation or any shifted-sequence/jet-basis/curve-multiplicity obligation; all node statuses and stage coverage remain unchecked/partial."
     }
   ],
   "sourceIssues": [],
@@ -10623,5 +10979,102 @@
     },
     "proofArchiveCommit": "4c5fd9654e1f835ffdbc7f184c4a6409d0a3216b",
     "publicationBase": "9f4ec81d1839ece8d10129830133db03a6d5d430"
+  },
+  "variableIdealContinuation": {
+    "agent": "Codex — codex-a71f92",
+    "date": "2026-10-02",
+    "winningClaim": 5962351728,
+    "confirmation": 5962353339,
+    "base": "a6094bd6d7c7856944d7cf3b905c7e9bf11d90fd",
+    "status": "partial",
+    "nodes": [
+      "DeformationAndDerivedPatchingAlgebra:R03.3/monomial-variable-ideal-power",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order-bound",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/finite-degree-monomial-factorization"
+    ],
+    "refinedNode": "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
+    "boundary": "Native algebraic ideal powers versus total ENat order, with a finite coefficientwise factorization over finite variables and arbitrary commutative coefficients. The forward bound and monomial membership are valid for arbitrary variable sets. No new carrier/order/choice API, domain premise, topological ideal closure or multiplicity definition. Canonical suggested proofs remain admitted; every node stays unchecked and every inherited routed-paper/stage obligation remains.",
+    "validation": {
+      "native": {
+        "sourceSha256": "7fe19f09fe60d201a6caa91ae3bc7e71cdae708045b3e7bf6d4acafc2d99c57a",
+        "normalizedLogSha256": "b1ce992f450e508142c6dc44d0e83f513b3b518a63028bfe3faedf10d32b8d6a",
+        "lines": 217,
+        "examples": 11,
+        "errors": 0,
+        "admissionWarnings": 0,
+        "otherWarnings": 0,
+        "axiomAudits": 4,
+        "elapsed": "0:02.00",
+        "maxRSSKiB": 3358652,
+        "elapsedSeconds": 2,
+        "availableGiBBefore": 54
+      },
+      "canonical": {
+        "sourceSha256": "fbed696b48dd96b8c75e84c095269b7f6a0c874cbd22d835aa341e0d78b12a76",
+        "normalizedLogSha256": "a0c5c2bbd83e40c02e22e9f5b1ec8cc12fc589daa8d79a071f6b31b477e61255",
+        "lines": 2568,
+        "examples": 156,
+        "errors": 0,
+        "admissionWarnings": 312,
+        "otherWarnings": 0,
+        "axiomAudits": 0,
+        "elapsedSeconds": 23.51,
+        "maxRSSKiB": 3542196,
+        "availableGiBBefore": 54
+      },
+      "preservedIncomingContracts": 113,
+      "wholeNodeObjectsUnchanged": 112,
+      "newNodes": 3,
+      "nativeLemmaAudits": 4,
+      "checkedBoundaryExamples": 11,
+      "canonicalNodeStatuses": "unchecked",
+      "reservedMultiplicityObjectUnchanged": true,
+      "stageCoverageStatusUnchanged": true,
+      "partial": true
+    },
+    "graphValidation": {
+      "stageDAG": {
+        "vertices": 3003,
+        "edges": 8623,
+        "acyclic": true
+      },
+      "ownDAG": {
+        "vertices": 116,
+        "edges": 176,
+        "acyclic": true
+      },
+      "combinedDAG": {
+        "vertices": 3107,
+        "edges": 8799,
+        "acyclic": true
+      },
+      "reachableDeclarations": 117,
+      "externalDeclarations": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds"
+      ],
+      "reachableBaselineReferences": 220,
+      "unresolved": [],
+      "otherPartsRetained": [
+        "DeformationAndDerivedPatchingAlgebra--R03.6"
+      ],
+      "partDeclarations": 116,
+      "partPlanets": 13,
+      "roadmapDeclarations": 169,
+      "requiredStagePairs": 13,
+      "requiredStagePairsReachable": 12,
+      "inheritedMissingStagePairs": [
+        [
+          "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+          "DeformationAndDerivedPatchingAlgebra:R03.4"
+        ]
+      ],
+      "acceptedRestructurePairs": 65,
+      "acceptedRestructurePairsReachable": 65,
+      "stageEdgesUnchanged": true,
+      "otherSkippedPendingUnchanged": true,
+      "ownSkippedPendingEmpty": true
+    },
+    "proofArchiveCommit": "596ea8e0e75ec76e52e256b941f75aec05a9cc09",
+    "publicationBase": "099cf06f3b3c49aa0cb075268da13d97b3dc300e"
   }
 }
