@@ -31001,3 +31001,211 @@ example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
       kubertRationalCartanValue N (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) a) := by sorry
 
 end DirichletPadic.SuggestedKubertFactorNormsTests
+
+/- Original full root sums with unchanged prime support and repeated primes. -/
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertCartanRationalPrimitiveSum_eq_sum (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    kubertCartanRationalPrimitiveSum N a=
+      ∑ u ∈ Finset.univ.filter (fun u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) => ((N : ℕ)/addOrderOf a.val) • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val=a.val),
+        MonoidAlgebra.single u (1 : ℚ) := by sorry
+
+lemma kubertRationalCartanValue_primitive_fiber_sum (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    (∑ u ∈ Finset.univ.filter (fun u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) => ((N : ℕ)/addOrderOf a.val) • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val=a.val),
+      kubertRationalCartanValue N (⟨(kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val,kubertGenerators_primitive_mem_level (dvd_refl _) (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).property⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker))=
+      kubertCartanRationalPrimitiveSum N a * ∏ p : (N : ℕ).primeFactors,kubertRationalPrimeFactor N p := by sorry
+
+lemma kubertRationalCartanValue_same_prime_support (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (ha : (N : ℕ).primeFactors ⊆ (addOrderOf a.val).primeFactors) :
+    kubertRationalCartanValue N a=kubertCartanRationalPrimitiveSum N a *
+      ∏ p : (N : ℕ).primeFactors,kubertRationalPrimeFactor N p := by sorry
+
+lemma kubertRationalCartanValue_same_support_primitive_sum (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (ha : (N : ℕ).primeFactors ⊆ (addOrderOf a.val).primeFactors) :
+    (∑ u ∈ Finset.univ.filter (fun u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) => ((N : ℕ)/addOrderOf a.val) • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val=a.val),
+      kubertRationalCartanValue N (⟨(kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val,kubertGenerators_primitive_mem_level (dvd_refl _) (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).property⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker))=kubertRationalCartanValue N a := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+noncomputable def kubertCartanSameSupportRootEquiv (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (ha : (N : ℕ).primeFactors ⊆ (addOrderOf a.val).primeFactors) :
+    {u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) // ((N : ℕ)/addOrderOf a.val) • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val=a.val} ≃ {b : (Fin 1 → AddCircle (1 : ℚ)) // ((N : ℕ)/addOrderOf a.val) • b=a.val} := by sorry
+
+lemma kubertCartanSameSupportRootEquiv_coe (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (ha : (N : ℕ).primeFactors ⊆ (addOrderOf a.val).primeFactors) (u : {u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) // ((N : ℕ)/addOrderOf a.val) • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val=a.val}) :
+    (kubertCartanSameSupportRootEquiv N a ha u).val=(kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u.val)).val := by sorry
+
+lemma kubertCartanSameSupportRootEquiv_symm_coe (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (ha : (N : ℕ).primeFactors ⊆ (addOrderOf a.val).primeFactors) (b : {b : (Fin 1 → AddCircle (1 : ℚ)) // ((N : ℕ)/addOrderOf a.val) • b=a.val}) :
+    (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N ((kubertCartanSameSupportRootEquiv N a ha).symm b).val)).val=b.val := by sorry
+
+lemma kubertCartanSameSupportRootEquiv_mem_level (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (ha : (N : ℕ).primeFactors ⊆ (addOrderOf a.val).primeFactors) (b : {b : (Fin 1 → AddCircle (1 : ℚ)) // ((N : ℕ)/addOrderOf a.val) • b=a.val}) :
+    b.val ∈ (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker := by sorry
+
+lemma kubertRationalCartanValue_same_support_root_sum (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (ha : (N : ℕ).primeFactors ⊆ (addOrderOf a.val).primeFactors)
+    [Fintype {b : (Fin 1 → AddCircle (1 : ℚ)) // ((N : ℕ)/addOrderOf a.val) • b=a.val}] :
+    (∑ b : {b : (Fin 1 → AddCircle (1 : ℚ)) // ((N : ℕ)/addOrderOf a.val) • b=a.val},kubertRationalCartanValue N
+      ⟨b.val,kubertCartanSameSupportRootEquiv_mem_level N a ha b⟩)=kubertRationalCartanValue N a := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertRationalCartanValue_same_support_level_sum (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (ha : (N : ℕ).primeFactors ⊆ (addOrderOf a.val).primeFactors) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => ((N : ℕ)/addOrderOf a.val) • b.val=a.val),
+      kubertRationalCartanValue N b)=kubertRationalCartanValue N a := by sorry
+
+lemma kubertRationalCartanValue_repeated_prime_support (N : ℕ+) (q : ℕ) (hq : q.Prime)
+    (hqN : q ∣ (N : ℕ)) (hrepeat : q ∣ (N : ℕ)/q)
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) (ha : a.val ∈ kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)) :
+    (addOrderOf ((q • a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker).val)).primeFactors=(N : ℕ).primeFactors := by sorry
+
+lemma kubertRationalCartanValue_repeated_prime_root_sum (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] (q : ℕ) (hq : q.Prime)
+    (hqN : q ∣ (N : ℕ)) (hrepeat : q ∣ (N : ℕ)/q)
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) (ha : a.val ∈ kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => q • b.val=q • a.val),
+      kubertRationalCartanValue N b)=kubertRationalCartanValue N (q • a) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertPrimeRootFibersTests
+open scoped Classical BigOperators
+noncomputable section
+-- identity_unit_gives_actual_one_ninth_root
+example : ((kubertCartanSameSupportRootEquiv 9 (⟨(fun _ : Fin 1 => ((1/3 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (9 : ℕ)).ker) (by sorry)) ⟨1,by sorry⟩).val 0=((1/9 : ℚ) : AddCircle (1 : ℚ)) := by sorry
+-- actual_four_ninths_root_recovers_residue_four
+example : (kubertCartanDegreeOneFiniteEquiv 9 ((kubertCartanSameSupportRootEquiv 9 (⟨(fun _ : Fin 1 => ((1/3 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (9 : ℕ)).ker) (by sorry)).symm ⟨(fun _ : Fin 1 => ((4/9 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩).val).val=4 := by sorry
+-- new_prime_support_hypothesis_is_essential
+example : ¬(6 : ℕ).primeFactors ⊆ (3 : ℕ).primeFactors := by sorry
+-- original_fiber_sum_has_identity_coefficient_one
+example : (kubertCartanRationalPrimitiveSum 9 (⟨(fun _ : Fin 1 => ((1/3 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (9 : ℕ)).ker)).coeff 1=1 := by sorry
+-- corrected_root_sum_has_half_identity_coefficient
+example : (kubertRationalCartanValue 9 (⟨(fun _ : Fin 1 => ((1/3 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (9 : ℕ)).ker)).coeff 1=1/2 := by sorry
+-- repeated_three_fiber_uses_all_three_actual_points
+example : kubertRationalCartanValue 18 (⟨(fun _ : Fin 1 => ((1/18 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (18 : ℕ)).ker)+kubertRationalCartanValue 18 (⟨(fun _ : Fin 1 => ((7/18 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (18 : ℕ)).ker)+kubertRationalCartanValue 18 (⟨(fun _ : Fin 1 => ((13/18 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (18 : ℕ)).ker)=kubertRationalCartanValue 18 (⟨(fun _ : Fin 1 => ((1/6 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (18 : ℕ)).ker) := by sorry
+-- new_prime_primitive_part_alone_fails
+example : kubertRationalCartanValue 6 (⟨(fun _ : Fin 1 => ((1/6 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (6 : ℕ)).ker)≠kubertRationalCartanValue 6 (⟨(fun _ : Fin 1 => ((1/3 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (6 : ℕ)).ker) := by sorry
+-- level_one_full_root_sum_keeps_identity
+example : kubertRationalCartanValue 1 0=1 := by sorry
+end
+end DirichletPadic.SuggestedKubertPrimeRootFibersTests
+namespace DirichletPadic.SuggestedKubertPrimeRootFibersTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+-- cartanRationalPrimitiveSum_eq_sum_typed_api
+example (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    kubertCartanRationalPrimitiveSum N a=
+      ∑ u ∈ Finset.univ.filter (fun u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) => ((N : ℕ)/addOrderOf a.val) • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val=a.val),
+        MonoidAlgebra.single u (1 : ℚ) := by sorry
+
+-- rationalCartanValue_primitive_fiber_sum_typed_api
+example (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    (∑ u ∈ Finset.univ.filter (fun u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) => ((N : ℕ)/addOrderOf a.val) • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val=a.val),
+      kubertRationalCartanValue N (⟨(kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val,kubertGenerators_primitive_mem_level (dvd_refl _) (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).property⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker))=
+      kubertCartanRationalPrimitiveSum N a * ∏ p : (N : ℕ).primeFactors,kubertRationalPrimeFactor N p := by sorry
+
+-- rationalCartanValue_same_prime_support_typed_api
+example (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (ha : (N : ℕ).primeFactors ⊆ (addOrderOf a.val).primeFactors) :
+    kubertRationalCartanValue N a=kubertCartanRationalPrimitiveSum N a *
+      ∏ p : (N : ℕ).primeFactors,kubertRationalPrimeFactor N p := by sorry
+
+-- rationalCartanValue_same_support_primitive_sum_typed_api
+example (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (ha : (N : ℕ).primeFactors ⊆ (addOrderOf a.val).primeFactors) :
+    (∑ u ∈ Finset.univ.filter (fun u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) => ((N : ℕ)/addOrderOf a.val) • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val=a.val),
+      kubertRationalCartanValue N (⟨(kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val,kubertGenerators_primitive_mem_level (dvd_refl _) (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).property⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker))=kubertRationalCartanValue N a := by sorry
+
+end DirichletPadic.SuggestedKubertPrimeRootFibersTests
+
+namespace DirichletPadic.SuggestedKubertPrimeRootFibersTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+-- cartanSameSupportRootEquiv_coe_typed_api
+example (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (ha : (N : ℕ).primeFactors ⊆ (addOrderOf a.val).primeFactors) (u : {u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) // ((N : ℕ)/addOrderOf a.val) • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val=a.val}) :
+    (kubertCartanSameSupportRootEquiv N a ha u).val=(kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u.val)).val := by sorry
+
+-- cartanSameSupportRootEquiv_symm_coe_typed_api
+example (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (ha : (N : ℕ).primeFactors ⊆ (addOrderOf a.val).primeFactors) (b : {b : (Fin 1 → AddCircle (1 : ℚ)) // ((N : ℕ)/addOrderOf a.val) • b=a.val}) :
+    (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N ((kubertCartanSameSupportRootEquiv N a ha).symm b).val)).val=b.val := by sorry
+
+-- cartanSameSupportRootEquiv_mem_level_typed_api
+example (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (ha : (N : ℕ).primeFactors ⊆ (addOrderOf a.val).primeFactors) (b : {b : (Fin 1 → AddCircle (1 : ℚ)) // ((N : ℕ)/addOrderOf a.val) • b=a.val}) :
+    b.val ∈ (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker := by sorry
+
+-- rationalCartanValue_same_support_root_sum_typed_api
+example (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (ha : (N : ℕ).primeFactors ⊆ (addOrderOf a.val).primeFactors)
+    [Fintype {b : (Fin 1 → AddCircle (1 : ℚ)) // ((N : ℕ)/addOrderOf a.val) • b=a.val}] :
+    (∑ b : {b : (Fin 1 → AddCircle (1 : ℚ)) // ((N : ℕ)/addOrderOf a.val) • b=a.val},kubertRationalCartanValue N
+      ⟨b.val,kubertCartanSameSupportRootEquiv_mem_level N a ha b⟩)=kubertRationalCartanValue N a := by sorry
+
+end DirichletPadic.SuggestedKubertPrimeRootFibersTests
+
+namespace DirichletPadic.SuggestedKubertPrimeRootFibersTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+-- rationalCartanValue_same_support_level_sum_typed_api
+example (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (ha : (N : ℕ).primeFactors ⊆ (addOrderOf a.val).primeFactors) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => ((N : ℕ)/addOrderOf a.val) • b.val=a.val),
+      kubertRationalCartanValue N b)=kubertRationalCartanValue N a := by sorry
+
+-- rationalCartanValue_repeated_prime_support_typed_api
+example (N : ℕ+) (q : ℕ) (hq : q.Prime)
+    (hqN : q ∣ (N : ℕ)) (hrepeat : q ∣ (N : ℕ)/q)
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) (ha : a.val ∈ kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)) :
+    (addOrderOf ((q • a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker).val)).primeFactors=(N : ℕ).primeFactors := by sorry
+
+-- rationalCartanValue_repeated_prime_root_sum_typed_api
+example (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] (q : ℕ) (hq : q.Prime)
+    (hqN : q ∣ (N : ℕ)) (hrepeat : q ∣ (N : ℕ)/q)
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) (ha : a.val ∈ kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => q • b.val=q • a.val),
+      kubertRationalCartanValue N b)=kubertRationalCartanValue N (q • a) := by sorry
+
+end DirichletPadic.SuggestedKubertPrimeRootFibersTests
