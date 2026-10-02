@@ -6281,3 +6281,143 @@ The full suggested file remains uncompiled because the exact TauCeti cohomology 
 The durable finite-regression script in the handoff passes8876 assertions over connected/disconnected cyclic groupoids,S3,cyclic reductions and finite discrete-space covering/noncover families. Its SHA256 iscc6a883ce5bdfa7e9cf2f86ca98967b30173b39988801e86331184c7ef78130d. This is finite coordinate evidence only. Exact extraction/source parity,new reader/API/test parity,all inherited statement preservation,source-script durability,whitespace and privacy checks pass.
 
 Resume at general Hom-gluing and inverse coherence,abelian-inertia evaluation surjectivity,the locally glued fixed-band inverse and SF1 descended-slice comparison. Instantiate the point-site,chain-site and nonneutral root-gerbe fixtures. No band-sheaf isomorphism,key definition or stage is closed.
+
+## Matching central families and native descent
+
+A matching family on a sieve R assigns a central section z_i to every arrow i:V_i→U and requires r_g(z_j)=z_i for every arrow g:i→j in its native arrow category. At a common test object q:Y→U, downward closure supplies the object q of that category. Both local evaluations identify with the same central component at q. Its naturality proves compatibility with the actual canonical descent transition, including the native pseudofunctor composition constraints. No fibre products or terminal object are required.
+
+The native descent-isomorphism constructor retains each local automorphism and its inverse. For a covering sieve and a prestack, its fully faithful descent functor descends that isomorphism to an actual automorphism of an explicit x over U. This is a component gluing result. Global naturality in x, restriction along all base arrows and assembly of the central section remain proof obligations of the existing sheaf theorem. All nodes remain unchecked, all stage statuses and nine gaps/twenty-one requests are retained.
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility. lemma. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.compatible.
+
+Statement: For every central section s over U, a:V→U, g:W→V and x over V, F(g) sends the component z_(V,a)(x) to z_(W,g≫a)(F(g)x). This is precisely the stored compatibility equation of the existing subgroup.
+
+Hypotheses: C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sections.
+
+Proof: Project the defining subgroup membership equation; no descent or gerbe hypothesis is needed.
+
+Acceptance: This promotes the existing API used by the covering-transition proof; no additional carrier or equation is defined.
+
+Source: Stacks06NY Lemma8.11.8, the omitted varying-base conclusion; Stacks026F Definition8.4.1(2). The specific central-family descent is derived from the native baseline, not quoted as a printed generic gluing theorem.
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict-evaluation. lemma. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.restrict_apply.
+
+Statement: For a:V→U, s in ZF(U) and b:W→V, the central-unit component of r_a(s) at (W,b) equals the component of s at (W,b≫a), as an equality in the native units of CatCenter(F(W)).
+
+Hypotheses: C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict.
+
+Proof: Evaluate the existing reindexing function. Its source and target index arrows are the displayed composites.
+
+Acceptance: This promotes the existing component API used by covering-transition matching; it retains units, not only their isomorphism classes.
+
+Source: Stacks06NY Lemma8.11.8, the omitted varying-base conclusion; Stacks026F Definition8.4.1(2). The specific central-family descent is derived from the native baseline, not quoted as a printed generic gluing theorem.
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-transition. lemma. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.coverTransition.
+
+Statement: Let R be any sieve on U. For each arrow i:V_i→U in its native arrow category take z_i∈ZF(V_i), with r_g(z_j)=z_i for every arrow g:i→j in that category. Fix x∈F(U). For every common test object Y and arrows f:Y→V_i,g:Y→V_j with f≫i=g≫j=q, the two pulled-back evaluated homs commute with the actual transition of the canonical descent datum of x. No cover, prestack, groupoid or abelian-inertia assumption is needed.
+
+Hypotheses: C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict-evaluation, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation, mathlib:CategoryTheory.CatCenter.naturality, mathlib:CategoryTheory.Presieve.category, mathlib:CategoryTheory.Over.homMk, mathlib:CategoryTheory.Pseudofunctor.DescentData.ofObj, mathlib:CategoryTheory.Pseudofunctor.toDescentData.
+
+Proof: Downward closure puts q in R. Regard it as the native sieve-category object and construct its two arrows to i,j from the triangle equations. Matching and the promoted restriction-component equation identify both pulled-back evaluations with the component of z_q at identity Y, acting on the respective pulled-back objects. Apply that component's naturality to the actual canonical descent transition. The transition retains the native mapComp constraints; its being an arbitrary fibre arrow is enough for central naturality.
+
+Acceptance: No fibre product or terminal object of C is chosen. The same central component acts on both sides of the native transition.
+
+Source: Stacks06NY Lemma8.11.8, the omitted varying-base conclusion; Stacks026F Definition8.4.1(2). The specific central-family descent is derived from the native baseline, not quoted as a printed generic gluing theorem.
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-isomorphism. construction. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.coverIso.
+
+Statement: Let R be any sieve on U. For each arrow i:V_i→U in its native arrow category take z_i∈ZF(V_i), with r_g(z_j)=z_i for every arrow g:i→j in that category. For x∈F(U), construct an automorphism of the native canonical DescentData object of x along R. Its component at i is ev_(id V_i,F(i)x)(z_i), and its inverse component is the inverse of that same automorphism. This requires neither R covering nor F prestack.
+
+Hypotheses: C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-transition, mathlib:CategoryTheory.Pseudofunctor.DescentData.isoMk, mathlib:CategoryTheory.Pseudofunctor.toDescentData.
+
+Proof: Use the specified component automorphisms and the preceding transition lemma in the existing DescentData.isoMk. The native constructor supplies the inverse components and both inverse identities; do not define another descent category or replace these maps by an existence predicate.
+
+Acceptance: A descent isomorphism alone does not descend to an automorphism of x for a noncover or a pseudofunctor without Hom descent.
+
+Use: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism. Supplies the exact native descent isomorphism lifted by full faithfulness.
+
+Use: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sheaf. Retains the glued inverse before assembling a global central family.
+
+API: IntrinsicBandSections.coverIso_hom_apply (projection). The hom component at i is the hom of ev_(id V_i,F(i)x)(z_i).
+
+API: IntrinsicBandSections.coverIso_one (simp). The family of identity sections gives the identity automorphism of the canonical descent datum.
+
+API: IntrinsicBandSections.coverIso_inv (compatibility). The descent automorphism of the pointwise inverse matching family is the inverse of the original descent automorphism.
+
+Test: BandCoverTests.iso_one (degenerate). For every sieve and x, the identity matching family yields the identity descent automorphism.
+
+Test: BandCoverTests.iso_inverse_component (compatibility). For every matching family and every i, the inverse arrow component equals the inverse of the prescribed local evaluated automorphism.
+
+Test: BandCoverTests.iso_empty (degenerate). If the native arrow category of R is empty, its descent automorphism equals the identity, for any input family. No empty-cover assumption or object-descent conclusion is made.
+
+Source: Stacks06NY Lemma8.11.8, the omitted varying-base conclusion; Stacks026F Definition8.4.1(2). The specific central-family descent is derived from the native baseline, not quoted as a printed generic gluing theorem.
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism. construction. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.coverAut.
+
+Statement: Let R be any sieve on U. For each arrow i:V_i→U in its native arrow category take z_i∈ZF(V_i), with r_g(z_j)=z_i for every arrow g:i→j in that category. Assume R covers U and F is a prestack. For x∈F(U), construct the specified automorphism of x whose pullback hom along each i is the hom of ev_(id V_i,F(i)x)(z_i). Lift both hom and inverse through the native fully faithful toDescentData functor. No gerbe or abelian-inertia hypothesis is used.
+
+Hypotheses: C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-isomorphism, mathlib:CategoryTheory.Pseudofunctor.isPrestackFor', mathlib:CategoryTheory.Pseudofunctor.IsPrestackFor.fullyFaithful, mathlib:CategoryTheory.Functor.FullyFaithful.preimageIso.
+
+Proof: The covering/prestack hypotheses supply the existing fully faithful toDescentData functor. Apply its native preimageIso to the previous descent automorphism. Its hom/inverse use the supplied preimage maps; faithfulness reflects their inverse identities. The native map_preimage field gives the actual component formula. Uniqueness is a separate promoted lemma below.
+
+Acceptance: This descends evaluations for a chosen existing x. It does not yet assemble the section over all base arrows or prove naturality in x.
+
+Use: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sheaf. For each a:V→U, descend the pulled-back matching family at each x∈F(V), then prove naturality/restriction to obtain a global central section.
+
+Use: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism-unique. Specified pullback components identify this descended automorphism.
+
+API: IntrinsicBandSections.coverAut_map_hom (projection). For each i in the covering sieve, F(i) sends the descended hom to the hom of ev_(id V_i,F(i)x)(z_i).
+
+API: IntrinsicBandSections.coverAut_unique (characterisation). Any automorphism of x with exactly those pullback hom components equals the descended automorphism.
+
+API: IntrinsicBandSections.coverAut_one (simp). Descending the identity matching family gives the identity automorphism of x.
+
+Test: BandCoverTests.aut_one (degenerate). For every covering sieve, the identity central family descends to identity on x.
+
+Test: BandCoverTests.aut_existing (compatibility). If z_i is the restriction of an existing s∈ZF(U), the descended automorphism equals ev_(id U,x)(s), rather than an unspecified isomorphic automorphism.
+
+Test: BandCoverTests.aut_trivial_inertia (degenerate). If Aut(x) is subsingleton, every matching central family on a covering sieve descends to the identity on x.
+
+Source: Stacks06NY Lemma8.11.8, the omitted varying-base conclusion; Stacks026F Definition8.4.1(2). The specific central-family descent is derived from the native baseline, not quoted as a printed generic gluing theorem.
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism-unique. lemma. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.coverAut_unique.
+
+Statement: Let R be any sieve on U. For each arrow i:V_i→U in its native arrow category take z_i∈ZF(V_i), with r_g(z_j)=z_i for every arrow g:i→j in that category. If F is a prestack and R covers U, any automorphism a of x with the prescribed pulled-back hom components equals coverAut(R,z,x). Equality is equality of automorphisms, not their conjugacy classes.
+
+Hypotheses: C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism, mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext, mathlib:CategoryTheory.Functor.FullyFaithful.map_injective.
+
+Proof: Compare the homs after applying toDescentData, using the component formula built into the descended construction. Native descent hom extensionality gives equality of mapped homs, and full faithfulness reflects equality. Iso extensionality finishes.
+
+Acceptance: No separate abelian-inertia or global object of a gerbe is presumed: x is an explicit input.
+
+Source: Stacks06NY Lemma8.11.8, the omitted varying-base conclusion; Stacks026F Definition8.4.1(2). The specific central-family descent is derived from the native baseline, not quoted as a printed generic gluing theorem.
+
+The central-section sheaf theorem now consumes AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism-unique, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-separated. Its refined proof is: For a matching family on R over U, fix a:V→U and x over V. Pull R back along a and obtain the native matching central family indexed by that sieve's arrow category. Apply band-center-cover-automorphism to construct the specified automorphism of x, with both hom and inverse. The native cover-transition/isomorphism/automorphism contracts account for gluing the evaluated maps and inverses. Prove the additional naturality in x and compatibility under every g:W→V on common covering refinements; these are not consequences of the construction signature alone. Hom separatedness gives those naturality and restriction equalities globally, including the native mapId/mapComp transports. Assemble the resulting compatible unit of each fibre center into ZF(U). These assembly/coherence proof leaves remain unverified in the native prototype. The existing band-center-separated lemma gives uniqueness of the resulting central section. Use the already imported algebraic-category sheaf interface to package the abelian-group sheaf; the actual arbitrary-site existence theorem remains open.
+
+Native baseline statements read for this continuation:
+
+- mathlib:CategoryTheory.Pseudofunctor.DescentData.isoMk — Constructs a native descent isomorphism from component isomorphisms satisfying the actual transition equation; its inverse equation is proved by cancellation. Source: Mathlib/CategoryTheory/Sites/Descent/DescentData.lean.
+- mathlib:CategoryTheory.Pseudofunctor.DescentData.ofObj — Canonical native descent datum of an object, whose transitions retain the pseudofunctor composition isomorphisms. Source: Mathlib/CategoryTheory/Sites/Descent/DescentData.lean.
+- mathlib:CategoryTheory.Presieve.category — The full subcategory of Over U containing the arrows in a presieve; use the existing index category for matching central families. Source: Mathlib/CategoryTheory/Sites/Sieves/Presieve.lean.
+- mathlib:CategoryTheory.Over.homMk — An actual over-category arrow from its base arrow and triangle equation, used at common test objects of the sieve. Source: Mathlib/CategoryTheory/Comma/Over/Basic.lean.
+- mathlib:CategoryTheory.Functor.FullyFaithful.preimageIso — Lifts an actual isomorphism through a fully faithful functor by lifting both hom and inverse, with their identities proved by faithfulness. Source: Mathlib/CategoryTheory/Functor/FullyFaithful.lean.
+
+## Validation boundary for this continuation
+
+The [separate native proof prototype](https://github.com/CBirkbeck/tauceti-explorer/blob/f0bb4f284aefaffe97578454ecf9a0588472103e/research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension.lean) contains proofs of nine new declarations and six new examples. Its narrow Mathlib-only extraction checks with zero errors, two unrelated inherited admission warnings, no other warnings and eleven kernel axiom audits without admission dependencies. Those audits include the two promoted existing compatibility/projection declarations. This is evidence for the specified component descent, not a completed proof of the central-section sheaf theorem.
+
+Under PROTOCOL §13 the submitted suggested file retains admitted bodies for all nine new declarations and six new examples. Its distinct complete intrinsic-band extraction checks with 32 examples, zero errors, 24 admitted-proof warnings and no other warnings. The earlier module/cohomology blocks and exact TauCeti cohomology import were excluded; the full suggested file is uncompiled. Exact source/log hashes and reproduction boundaries are in the packet continuation receipt and handoff.
+
+The packet has 144 nodes, 164 total API items, 157 total tests, 91 baseline declarations and ten planets. Definition/construction counts are 159 API items and 151 tests. All 138 inherited statements and 137 complete inherited node objects are preserved. The actual own-roadmap declaration DAG and transitive stage/declaration graph are acyclic, without unresolved references, pending links or skipped links for this packet. Four coverage rows remain partial, four not_read; nine gaps and 21 requests remain open.

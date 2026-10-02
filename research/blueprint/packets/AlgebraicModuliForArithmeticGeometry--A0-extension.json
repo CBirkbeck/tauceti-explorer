@@ -620,6 +620,51 @@
         "module": "Mathlib/Data/ZMod/Basic.lean",
         "provides": "The actual ring hom ZMod n→R when R has characteristic m dividing n; C4→C2 is a reduction hom, not an injective restriction by default.",
         "checked": "Actual complete statement and relevant defining/proof fields read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-a71f92. Used in the compiled Mathlib-only extraction; the full TauCeti file is not certified."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.DescentData.isoMk",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Sites/Descent/DescentData.lean",
+        "provides": "Constructs a native descent isomorphism from component isomorphisms satisfying the actual transition equation; its inverse equation is proved by cancellation.",
+        "checked": "Exact statement/construction and relevant proof read at Mathlib082e2d3 on2026-10-02.",
+        "sourceLine": 147,
+        "sourceSha256": "2292153f538142a8c3879094fed08f38a619a6dd13af91ab1c2f29448fb5e13e"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.DescentData.ofObj",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Sites/Descent/DescentData.lean",
+        "provides": "Canonical native descent datum of an object, whose transitions retain the pseudofunctor composition isomorphisms.",
+        "checked": "Exact statement/construction and relevant proof read at Mathlib082e2d3 on2026-10-02.",
+        "sourceLine": 133,
+        "sourceSha256": "2292153f538142a8c3879094fed08f38a619a6dd13af91ab1c2f29448fb5e13e"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Presieve.category",
+        "kind": "abbrev",
+        "module": "Mathlib/CategoryTheory/Sites/Sieves/Presieve.lean",
+        "provides": "The full subcategory of Over U containing the arrows in a presieve; use the existing index category for matching central families.",
+        "checked": "Exact statement/construction and relevant proof read at Mathlib082e2d3 on2026-10-02.",
+        "sourceLine": 61,
+        "sourceSha256": "6e90d96313f98de2330e97f3a25711e50aba6e2d540de2624c8027b7db08c298"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Over.homMk",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Comma/Over/Basic.lean",
+        "provides": "An actual over-category arrow from its base arrow and triangle equation, used at common test objects of the sieve.",
+        "checked": "Exact statement/construction and relevant proof read at Mathlib082e2d3 on2026-10-02.",
+        "sourceLine": 120,
+        "sourceSha256": "3c910808171fc4d408ddef9be5213aa336a8e6387430c8dd53d9811d5958e41c"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.FullyFaithful.preimageIso",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Functor/FullyFaithful.lean",
+        "provides": "Lifts an actual isomorphism through a fully faithful functor by lifting both hom and inverse, with their identities proved by faithfulness.",
+        "checked": "Exact statement/construction and relevant proof read at Mathlib082e2d3 on2026-10-02.",
+        "sourceLine": 205,
+        "sourceSha256": "94c995fd165ad4c7a422bca4b64d422deb2207bc490967487bb20b16b2d3315e"
       }
     ]
   },
@@ -1053,6 +1098,28 @@
         "Entire printed Definition 8.4.1: morphism sheaves on each slice and effective object descent are separate requirements."
       ],
       "readingAgent": "Codex codex-a71f92"
+    },
+    {
+      "id": "SP06NY-5ebb6f-cover",
+      "title": "The Stacks Project, Gerbes",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online text accessed 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/06NY",
+      "sha256": "784df742e6d6c147f90645bfef73a6ad9fa60cb34e9b2d3006401857ed88a32e",
+      "readSections": [
+        "Lemma8.11.8 full statement and proof, including its omitted varying-base conclusion."
+      ]
+    },
+    {
+      "id": "SP026F-5ebb6f-cover",
+      "title": "The Stacks Project, definition of a stack",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online text accessed 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/026F",
+      "sha256": "0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0",
+      "readSections": [
+        "Definition8.4.1, full printed definition."
+      ]
     }
   ],
   "nodes": [
@@ -7707,13 +7774,16 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation",
         "mathlib:CategoryTheory.Pseudofunctor.IsPrestack",
         "mathlib:CategoryTheory.Pseudofunctor.sheafHom",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism-unique",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-separated"
       ],
       "proofSteps": [
-        "For a matching family on a covering sieve R of U, fix f:V→U and x over V. On f*R, its evaluations form matching morphisms of pullbacks of x, compared with native mapComp/mapId constraints.",
-        "Use the existing Hom sheaf on C/V to glue the automorphism and its inverse; their composites are identity because this holds locally.",
-        "Naturality in x and compatibility under g:W→V are equalities of morphisms that hold on a common covering refinement. Hom separatedness proves them globally.",
-        "This yields a compatible unit of the center in every (V,f). Uniqueness follows from the same separatedness and band-center-ext. Products glue componentwise, so the underlying sheaf packages as an abelian-group sheaf."
+        "For a matching family on R over U, fix a:V→U and x over V. Pull R back along a and obtain the native matching central family indexed by that sieve's arrow category. Apply band-center-cover-automorphism to construct the specified automorphism of x, with both hom and inverse.",
+        "The native cover-transition/isomorphism/automorphism contracts account for gluing the evaluated maps and inverses. Prove the additional naturality in x and compatibility under every g:W→V on common covering refinements; these are not consequences of the construction signature alone.",
+        "Hom separatedness gives those naturality and restriction equalities globally, including the native mapId/mapComp transports. Assemble the resulting compatible unit of each fibre center into ZF(U). These assembly/coherence proof leaves remain unverified in the native prototype.",
+        "The existing band-center-separated lemma gives uniqueness of the resulting central section. Use the already imported algebraic-category sheaf interface to package the abelian-group sheaf; the actual arbitrary-site existence theorem remains open."
       ],
       "acceptance": [
         "Explicitly glue inverse maps as well as hom maps.",
@@ -8826,6 +8896,354 @@
           "statement": "For any actual A-banding b and any U, equality c_b(U)(a)=c_b(U)(a′) forces a=a′ without supplying x over U. In particular the theorem remains applicable to the nonneutral root-gerbe fixture once its carrier is supplied; no root-gerbe instance is claimed here."
         }
       ]
+    },
+    {
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "hypotheses": [
+        "C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SP06NY-5ebb6f-cover",
+          "locator": "Lemma8.11.8 proof, canonical automorphism identifications and final varying-base omission",
+          "match": "Rooted in the intrinsic-band source argument, this is a derived completion for the existing compatible-center carrier. It is not a general gluing theorem printed in the source."
+        },
+        {
+          "sourceId": "SP026F-5ebb6f-cover",
+          "locator": "Definition8.4.1(2), morphism sheaves on the slice site",
+          "match": "The source motivates importing native morphism descent. The actual construction uses the listed pinned DescentData and fully faithful functor, not a second descent theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.compatible",
+      "title": "Central sections commute with pullback",
+      "kind": "lemma",
+      "statement": "For every central section s over U, a:V→U, g:W→V and x over V, F(g) sends the component z_(V,a)(x) to z_(W,g≫a)(F(g)x). This is precisely the stored compatibility equation of the existing subgroup.",
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sections"
+      ],
+      "proofSteps": [
+        "Project the defining subgroup membership equation; no descent or gerbe hypothesis is needed."
+      ],
+      "acceptance": [
+        "This promotes the existing API used by the covering-transition proof; no additional carrier or equation is defined."
+      ]
+    },
+    {
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "hypotheses": [
+        "C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SP06NY-5ebb6f-cover",
+          "locator": "Lemma8.11.8 proof, canonical automorphism identifications and final varying-base omission",
+          "match": "Rooted in the intrinsic-band source argument, this is a derived completion for the existing compatible-center carrier. It is not a general gluing theorem printed in the source."
+        },
+        {
+          "sourceId": "SP026F-5ebb6f-cover",
+          "locator": "Definition8.4.1(2), morphism sheaves on the slice site",
+          "match": "The source motivates importing native morphism descent. The actual construction uses the listed pinned DescentData and fully faithful functor, not a second descent theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict-evaluation",
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.restrict_apply",
+      "title": "Evaluation of a reindexed central family",
+      "kind": "lemma",
+      "statement": "For a:V→U, s in ZF(U) and b:W→V, the central-unit component of r_a(s) at (W,b) equals the component of s at (W,b≫a), as an equality in the native units of CatCenter(F(W)).",
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict"
+      ],
+      "proofSteps": [
+        "Evaluate the existing reindexing function. Its source and target index arrows are the displayed composites."
+      ],
+      "acceptance": [
+        "This promotes the existing component API used by covering-transition matching; it retains units, not only their isomorphism classes."
+      ]
+    },
+    {
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "hypotheses": [
+        "C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SP06NY-5ebb6f-cover",
+          "locator": "Lemma8.11.8 proof, canonical automorphism identifications and final varying-base omission",
+          "match": "Rooted in the intrinsic-band source argument, this is a derived completion for the existing compatible-center carrier. It is not a general gluing theorem printed in the source."
+        },
+        {
+          "sourceId": "SP026F-5ebb6f-cover",
+          "locator": "Definition8.4.1(2), morphism sheaves on the slice site",
+          "match": "The source motivates importing native morphism descent. The actual construction uses the listed pinned DescentData and fully faithful functor, not a second descent theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-transition",
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.coverTransition",
+      "title": "Central families respect descent transitions",
+      "kind": "lemma",
+      "statement": "Let R be any sieve on U. For each arrow i:V_i→U in its native arrow category take z_i∈ZF(V_i), with r_g(z_j)=z_i for every arrow g:i→j in that category. Fix x∈F(U). For every common test object Y and arrows f:Y→V_i,g:Y→V_j with f≫i=g≫j=q, the two pulled-back evaluated homs commute with the actual transition of the canonical descent datum of x. No cover, prestack, groupoid or abelian-inertia assumption is needed.",
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict-evaluation",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation",
+        "mathlib:CategoryTheory.CatCenter.naturality",
+        "mathlib:CategoryTheory.Presieve.category",
+        "mathlib:CategoryTheory.Over.homMk",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.ofObj",
+        "mathlib:CategoryTheory.Pseudofunctor.toDescentData"
+      ],
+      "proofSteps": [
+        "Downward closure puts q in R. Regard it as the native sieve-category object and construct its two arrows to i,j from the triangle equations.",
+        "Matching and the promoted restriction-component equation identify both pulled-back evaluations with the component of z_q at identity Y, acting on the respective pulled-back objects.",
+        "Apply that component's naturality to the actual canonical descent transition. The transition retains the native mapComp constraints; its being an arbitrary fibre arrow is enough for central naturality."
+      ],
+      "acceptance": [
+        "No fibre product or terminal object of C is chosen. The same central component acts on both sides of the native transition."
+      ]
+    },
+    {
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "hypotheses": [
+        "C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SP06NY-5ebb6f-cover",
+          "locator": "Lemma8.11.8 proof, canonical automorphism identifications and final varying-base omission",
+          "match": "Rooted in the intrinsic-band source argument, this is a derived completion for the existing compatible-center carrier. It is not a general gluing theorem printed in the source."
+        },
+        {
+          "sourceId": "SP026F-5ebb6f-cover",
+          "locator": "Definition8.4.1(2), morphism sheaves on the slice site",
+          "match": "The source motivates importing native morphism descent. The actual construction uses the listed pinned DescentData and fully faithful functor, not a second descent theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-isomorphism",
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.coverIso",
+      "title": "Descent isomorphism of a matching central family",
+      "kind": "construction",
+      "statement": "Let R be any sieve on U. For each arrow i:V_i→U in its native arrow category take z_i∈ZF(V_i), with r_g(z_j)=z_i for every arrow g:i→j in that category. For x∈F(U), construct an automorphism of the native canonical DescentData object of x along R. Its component at i is ev_(id V_i,F(i)x)(z_i), and its inverse component is the inverse of that same automorphism. This requires neither R covering nor F prestack.",
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-transition",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.isoMk",
+        "mathlib:CategoryTheory.Pseudofunctor.toDescentData"
+      ],
+      "proofSteps": [
+        "Use the specified component automorphisms and the preceding transition lemma in the existing DescentData.isoMk.",
+        "The native constructor supplies the inverse components and both inverse identities; do not define another descent category or replace these maps by an existence predicate."
+      ],
+      "acceptance": [
+        "A descent isomorphism alone does not descend to an automorphism of x for a noncover or a pseudofunctor without Hom descent."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism",
+          "how": "Supplies the exact native descent isomorphism lifted by full faithfulness."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sheaf",
+          "how": "Retains the glued inverse before assembling a global central family."
+        }
+      ],
+      "api": [
+        {
+          "name": "IntrinsicBandSections.coverIso_hom_apply",
+          "role": "projection",
+          "statement": "The hom component at i is the hom of ev_(id V_i,F(i)x)(z_i)."
+        },
+        {
+          "name": "IntrinsicBandSections.coverIso_one",
+          "role": "simp",
+          "statement": "The family of identity sections gives the identity automorphism of the canonical descent datum."
+        },
+        {
+          "name": "IntrinsicBandSections.coverIso_inv",
+          "role": "compatibility",
+          "statement": "The descent automorphism of the pointwise inverse matching family is the inverse of the original descent automorphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BandCoverTests.iso_one",
+          "kind": "degenerate",
+          "statement": "For every sieve and x, the identity matching family yields the identity descent automorphism."
+        },
+        {
+          "name": "BandCoverTests.iso_inverse_component",
+          "kind": "compatibility",
+          "statement": "For every matching family and every i, the inverse arrow component equals the inverse of the prescribed local evaluated automorphism."
+        },
+        {
+          "name": "BandCoverTests.iso_empty",
+          "kind": "degenerate",
+          "statement": "If the native arrow category of R is empty, its descent automorphism equals the identity, for any input family. No empty-cover assumption or object-descent conclusion is made."
+        }
+      ]
+    },
+    {
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "hypotheses": [
+        "C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SP06NY-5ebb6f-cover",
+          "locator": "Lemma8.11.8 proof, canonical automorphism identifications and final varying-base omission",
+          "match": "Rooted in the intrinsic-band source argument, this is a derived completion for the existing compatible-center carrier. It is not a general gluing theorem printed in the source."
+        },
+        {
+          "sourceId": "SP026F-5ebb6f-cover",
+          "locator": "Definition8.4.1(2), morphism sheaves on the slice site",
+          "match": "The source motivates importing native morphism descent. The actual construction uses the listed pinned DescentData and fully faithful functor, not a second descent theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism",
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.coverAut",
+      "title": "Descended automorphism of a central matching family",
+      "kind": "construction",
+      "statement": "Let R be any sieve on U. For each arrow i:V_i→U in its native arrow category take z_i∈ZF(V_i), with r_g(z_j)=z_i for every arrow g:i→j in that category. Assume R covers U and F is a prestack. For x∈F(U), construct the specified automorphism of x whose pullback hom along each i is the hom of ev_(id V_i,F(i)x)(z_i). Lift both hom and inverse through the native fully faithful toDescentData functor. No gerbe or abelian-inertia hypothesis is used.",
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-isomorphism",
+        "mathlib:CategoryTheory.Pseudofunctor.isPrestackFor'",
+        "mathlib:CategoryTheory.Pseudofunctor.IsPrestackFor.fullyFaithful",
+        "mathlib:CategoryTheory.Functor.FullyFaithful.preimageIso"
+      ],
+      "proofSteps": [
+        "The covering/prestack hypotheses supply the existing fully faithful toDescentData functor.",
+        "Apply its native preimageIso to the previous descent automorphism. Its hom/inverse use the supplied preimage maps; faithfulness reflects their inverse identities.",
+        "The native map_preimage field gives the actual component formula. Uniqueness is a separate promoted lemma below."
+      ],
+      "acceptance": [
+        "This descends evaluations for a chosen existing x. It does not yet assemble the section over all base arrows or prove naturality in x."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sheaf",
+          "how": "For each a:V→U, descend the pulled-back matching family at each x∈F(V), then prove naturality/restriction to obtain a global central section."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism-unique",
+          "how": "Specified pullback components identify this descended automorphism."
+        }
+      ],
+      "api": [
+        {
+          "name": "IntrinsicBandSections.coverAut_map_hom",
+          "role": "projection",
+          "statement": "For each i in the covering sieve, F(i) sends the descended hom to the hom of ev_(id V_i,F(i)x)(z_i)."
+        },
+        {
+          "name": "IntrinsicBandSections.coverAut_unique",
+          "role": "characterisation",
+          "statement": "Any automorphism of x with exactly those pullback hom components equals the descended automorphism."
+        },
+        {
+          "name": "IntrinsicBandSections.coverAut_one",
+          "role": "simp",
+          "statement": "Descending the identity matching family gives the identity automorphism of x."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BandCoverTests.aut_one",
+          "kind": "degenerate",
+          "statement": "For every covering sieve, the identity central family descends to identity on x."
+        },
+        {
+          "name": "BandCoverTests.aut_existing",
+          "kind": "compatibility",
+          "statement": "If z_i is the restriction of an existing s∈ZF(U), the descended automorphism equals ev_(id U,x)(s), rather than an unspecified isomorphic automorphism."
+        },
+        {
+          "name": "BandCoverTests.aut_trivial_inertia",
+          "kind": "degenerate",
+          "statement": "If Aut(x) is subsingleton, every matching central family on a covering sieve descends to the identity on x."
+        }
+      ]
+    },
+    {
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "hypotheses": [
+        "C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SP06NY-5ebb6f-cover",
+          "locator": "Lemma8.11.8 proof, canonical automorphism identifications and final varying-base omission",
+          "match": "Rooted in the intrinsic-band source argument, this is a derived completion for the existing compatible-center carrier. It is not a general gluing theorem printed in the source."
+        },
+        {
+          "sourceId": "SP026F-5ebb6f-cover",
+          "locator": "Definition8.4.1(2), morphism sheaves on the slice site",
+          "match": "The source motivates importing native morphism descent. The actual construction uses the listed pinned DescentData and fully faithful functor, not a second descent theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism-unique",
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.coverAut_unique",
+      "title": "Uniqueness of descended central evaluation",
+      "kind": "lemma",
+      "statement": "Let R be any sieve on U. For each arrow i:V_i→U in its native arrow category take z_i∈ZF(V_i), with r_g(z_j)=z_i for every arrow g:i→j in that category. If F is a prestack and R covers U, any automorphism a of x with the prescribed pulled-back hom components equals coverAut(R,z,x). Equality is equality of automorphisms, not their conjugacy classes.",
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext",
+        "mathlib:CategoryTheory.Functor.FullyFaithful.map_injective"
+      ],
+      "proofSteps": [
+        "Compare the homs after applying toDescentData, using the component formula built into the descended construction.",
+        "Native descent hom extensionality gives equality of mapped homs, and full faithfulness reflects equality. Iso extensionality finishes."
+      ],
+      "acceptance": [
+        "No separate abelian-inertia or global object of a gerbe is presumed: x is an explicit input."
+      ]
     }
   ],
   "requests": [
@@ -9064,12 +9482,13 @@
   "gaps": [
     {
       "title": "Compatibility of the intrinsic band over varying slice objects",
-      "detail": "Stacks8.11.8 explicitly omits this final verification. Check independence under refinements and the composition law for all restriction maps before claiming the construction source-closed. This continuation supplies15 explicit compatible-center-section leaves with cover/refinement, mapId/mapComp and restriction identity/composition proof outlines. The mathematical varying-base route is now decomposed; implement the new native signatures, verify sectionwise sheaf descent and the SF1 slice-glued carrier comparison, and elaborate before claiming this gap closed. The chosen-band coefficient-to-center and comparison/reindexing branch now has native proofs; the general Hom-gluing and evaluation-locality obligations, a locally glued inverse, and the actual SF1 descended-slice comparison remain open. Codex codex-a71f92 supplies native evaluation-locality, covering-sieve separatedness, gerbe evaluation injectivity and fixed-band coefficient injectivity; these proofs do not depend on the admitted central-section sheaf theorem. General Hom-gluing, abelian-inertia surjectivity, the locally glued inverse and the actual SF1 descended-slice comparison are still open.",
+      "detail": "Stacks8.11.8 explicitly omits this final verification. Check independence under refinements and the composition law for all restriction maps before claiming the construction source-closed. This continuation supplies15 explicit compatible-center-section leaves with cover/refinement, mapId/mapComp and restriction identity/composition proof outlines. The mathematical varying-base route is now decomposed; implement the new native signatures, verify sectionwise sheaf descent and the SF1 slice-glued carrier comparison, and elaborate before claiming this gap closed. The chosen-band coefficient-to-center and comparison/reindexing branch now has native proofs; the general Hom-gluing and evaluation-locality obligations, a locally glued inverse, and the actual SF1 descended-slice comparison remain open. Codex codex-a71f92 supplies native evaluation-locality, covering-sieve separatedness, gerbe evaluation injectivity and fixed-band coefficient injectivity; these proofs do not depend on the admitted central-section sheaf theorem. General Hom-gluing, abelian-inertia surjectivity, the locally glued inverse and the actual SF1 descended-slice comparison are still open. This continuation checks the specialized matching-central-family transition, native descent isomorphism and fully faithful descended automorphism, retaining the inverse. Global naturality/restriction for these automorphisms and their assembly into a central section remain unfinished; neither the sheaf theorem nor evaluation surjectivity follows from this receipt.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sheaf",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-glued-comparison"
-      ]
+      ],
+      "previousDetail": "Stacks8.11.8 explicitly omits this final verification. Check independence under refinements and the composition law for all restriction maps before claiming the construction source-closed. This continuation supplies15 explicit compatible-center-section leaves with cover/refinement, mapId/mapComp and restriction identity/composition proof outlines. The mathematical varying-base route is now decomposed; implement the new native signatures, verify sectionwise sheaf descent and the SF1 slice-glued carrier comparison, and elaborate before claiming this gap closed. The chosen-band coefficient-to-center and comparison/reindexing branch now has native proofs; the general Hom-gluing and evaluation-locality obligations, a locally glued inverse, and the actual SF1 descended-slice comparison remain open. Codex codex-a71f92 supplies native evaluation-locality, covering-sieve separatedness, gerbe evaluation injectivity and fixed-band coefficient injectivity; these proofs do not depend on the admitted central-section sheaf theorem. General Hom-gluing, abelian-inertia surjectivity, the locally glued inverse and the actual SF1 descended-slice comparison are still open."
     },
     {
       "title": "Contracted-product composition and universal property for change of band",
@@ -10448,6 +10867,74 @@
         "ownPendingLinks": []
       },
       "checks": "Actual check_blueprint and actual intake file policy: zero errors/warnings. Preservation, exact native extraction, reader/new contract parity, durable finite model, whitespace/privacy and atlas graph checks pass."
+    },
+    {
+      "agent": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "base": "439b73117f3731f73fa90dd140f314abe453c342",
+      "issue": 672,
+      "scope": "Matching central-family native descent isomorphism and descended evaluation, without closing full central-section sheafness.",
+      "addedNodes": 6,
+      "preservedNodeIds": 138,
+      "sourceReading": "Fresh full Stacks Lemma8.11.8 proof and Definition8.4.1; broader routed papers remain predecessor reading.",
+      "auditReading": "Current full reviewed R09.4 target/evidence/duplication record; accepted RS-27 R09.4 narrowing and owner boundary. Other scope audits retain predecessor provenance.",
+      "compiled": false,
+      "reason": "Full exact-pin TauCeti cohomology import has no compiled artifact. Narrow Mathlib-only proof prototype is checked separately; submitted new declaration/example bodies remain admitted under PROTOCOL §13.",
+      "proofPrototype": {
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+        "leanVersion": "4.34.0-rc2",
+        "nativeProofSourceSha256": "b2cf95029e01260cc9bb3791e3175fec7307c533bdd356b75481c16aad3b02ee",
+        "extractionSha256": "793781fadfb9ac763332e165150bed89a3f8d1c57ba9f5141a87bfb6532d396e",
+        "axiomExtractionSha256": "ff54309df4423b4823c6e388bafe98d22892f44b93014ed82b95bc0d5cdb1509",
+        "normalizedLogSha256": "0ffa61b545edc6cd318d8cfd0a09040b372f7239dc46958f6cca93638975a4c1",
+        "errors": 0,
+        "admittedWarnings": 2,
+        "otherWarnings": 0,
+        "axiomAudits": 11,
+        "examples": 7,
+        "extractionLines": 405,
+        "availableGiB": 71,
+        "axiomBoundary": "All eleven audited declarations depend only on propext, Classical.choice and Quot.sound; no admission dependency. The two warnings are unused inherited gerbe-equivalence and two-component examples. This narrow extraction excludes the existing global sheaf/evaluation-surjectivity blocks.",
+        "proofSourceCommit": "f0bb4f284aefaffe97578454ecf9a0588472103e",
+        "elapsedSeconds": 2.5,
+        "maxResidentKiB": 3269732
+      },
+      "submittedSketch": {
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "leanVersion": "4.34.0-rc2",
+        "suggestedSourceSha256": "0de33335bf1b43074ffb4f8190799db9c5e1bbff6979b78b4cd03687b0f83893",
+        "extractionSha256": "fd2fe591c567c63273ccfb51468749ebff7f7ebeabab38cadfb5375363a945e9",
+        "normalizedLogSha256": "674a66bc919ca87fbb89d22f81ee9edc01016d27a1c67cd5392d964fede67962",
+        "extractionLines": 874,
+        "examples": 32,
+        "errors": 0,
+        "admittedWarnings": 24,
+        "otherWarnings": 0,
+        "availableGiB": 70,
+        "elapsedSeconds": 3.9,
+        "maxResidentKiB": 3298640,
+        "boundary": "Only the Mathlib imports, complete initial gerbe/banding declarations and final intrinsic-band namespace; earlier module/cohomology blocks and exact TauCeti cohomology import excluded. All nine new declarations and six new examples are admitted in the submitted suggested file."
+      },
+      "projection": {
+        "nodes": 144,
+        "ownEdges": 271,
+        "stageVertices": 3017,
+        "stageEdges": 8655,
+        "virtualSupplierEndpoints": 51,
+        "reachableDeclarations": 147,
+        "combinedVertices": 3154,
+        "combinedEdges": 9132,
+        "acyclic": true,
+        "unchangedNodeObjects": 137,
+        "preservedStatements": 138,
+        "unresolvedReferences": 0,
+        "ownSkippedLinks": 0,
+        "ownPendingLinks": 0,
+        "apiItems": 164,
+        "allTests": 157
+      },
+      "checks": "Indexed packet, intake file policy, inherited statements/objects and API/test presence, prerequisite DAG, actual read-only atlas assembly and whitespace checks; full file uncompiled."
     }
   ]
 }

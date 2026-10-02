@@ -1,167 +1,79 @@
 # BP-AlgebraicModuliForArithmeticGeometry--A0-extension
 
-Codex — codex-a71f92; Refs #672. Partial checkpoint; no stage or reserved key definition closed.
+Codex — codex-5ebb6f; Refs #672. Partial checkpoint. No stage or reserved key definition is closed.
 
-Claim comment5956438355 was confirmed by bot comment5956441366. This continuation uses immutable base8f00a4f7d6ea2371ea7ed5b9b4d55d20f08fd0bb and continues merged PR#5794. The [previous checkpoint handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/8f00a4f7d6ea2371ea7ed5b9b4d55d20f08fd0bb/research/blueprint/handoff/BP-AlgebraicModuliForArithmeticGeometry--A0-extension.md) retains the earlier module-descent, Picard, cohomology, intrinsic-band and fixed-band comparison history. It is not this worker's compilation receipt.
+Claim comment 5957369958 was confirmed by bot comment 5957373280; the full issue was reread after confirmation. Immutable base 439b73117f3731f73fa90dd140f314abe453c342 includes merged predecessor PR #5808. The [previous handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/439b73117f3731f73fa90dd140f314abe453c342/research/blueprint/handoff/BP-AlgebraicModuliForArithmeticGeometry--A0-extension.md) retains historical module/Picard/cohomology proofs, broader paper reading and its reproducible 8876-assertion finite regression. Those receipts are not this continuation's fresh reading or compilation; that finite regression was not rerun here.
 
-## Delivery
+## Delivery and preservation
 
-Preserve all135 predecessor IDs and mathematical statements;132 inherited node objects are identical. The central-section definition adds three tests; evaluation injectivity adds its specific descent dependency, proof and one test; the band-isomorphism plan imports the new coefficient-injectivity lemma. All68 routed items,21 requests, source issues, scope rows, reserved gerbe key and ten planets are preserved.
+Add six R09.4 nodes: promote the existing compatible and restrict_apply equations; specify native matching-family coverTransition, coverIso, coverAut and coverAut_unique. The two construction nodes add six API items and six mathematical tests. Only the existing central-section sheaf node's prerequisites/proof outline and one existing gap detail change. All 138 predecessor mathematical statements, 137 complete predecessor node objects, 68 routes, 21 requests, source-issue/owner boundaries and ten planets are retained.
 
-Add three R09.4 lemma contracts and their actual native proofs:
+Counts: 144 nodes (16 definitions, 33 constructions, 64 lemmas, 27 theorems, four comparisons), 164 total API items, 157 total tests, 91 baseline declarations, ten planets, nine gaps, 21 requests. Definition/construction-only counts are 159 API items and 151 tests. Four scope rows remain partial and four not_read; every implementation status remains unchecked.
 
-- IntrinsicBandSections.eval_eq_of_cover: equality of evaluated automorphisms over a covering sieve reflects to equality, using the existing fully faithful toDescentData functor. Only prestack descent is required.
-- IntrinsicBandSections.ext_of_cover: covering restrictions jointly detect central sections, by pulling back the cover along each component arrow. This is separatedness, not existence of gluing.
-- IntrinsicBandSections.fromBanding_injective: an actual fixed A-banding detects coefficients using only local objects and coefficient-sheaf separatedness, even when the fibre over U is empty.
+For an arbitrary sieve R, matching central sections on its native arrow category give compatible automorphisms of the native canonical descent datum of an explicit x. At a common test arrow q, sieve downward closure and Over.homMk identify both local sections with the same central component. CatCenter naturality establishes the actual transition equation, retaining the pseudofunctor composition constraints. Native DescentData.isoMk includes inverse arrows. When R covers and F is a prestack, the existing fully faithful toDescentData functor's preimageIso gives an actual automorphism of x; component extensionality/faithfulness gives uniqueness. No fibre products, gerbe, groupoid or abelian-inertia hypothesis is needed. No second generic Hom-descent or stack carrier is planned.
 
-The existing eval_injective proof is now supplied using local isomorphism, conjugation and cover-local reflection; no abelian-inertia hypothesis is needed. The trivial-inertia section example follows from this injection. No replacement stack, center, Hom-descent or coefficient carrier is introduced.
+The six examples check identity-family descent, inverse components, the empty-sieve descent category, identity automorphisms, exact agreement for restrictions of an existing central section and trivial inertia. They use the actual parameterized native carriers; none claims an instantiated geometric point-site or root-gerbe fixture.
 
-Counts:138 nodes (16 definitions,31 constructions,60 lemmas,27 theorems,4 comparisons),158 API entries,151 mathematical tests,86 baseline declarations,ten planets,nine gaps,21 requests. Four coverage rows remain partial and four not_read; every implementation status remains unchecked.
+## Fresh source and owner boundary
 
-## Sources, ownership and boundaries
+Read the full current reviewed R09.4 target/evidence/duplication audit and its accepted RS-27 narrowing. D0 supplies ordinary prestacks/stacks/stackification and generic quotients; SF1 supplies ordinary spaces/sites/diagonals. R09.4 retains algebraic-stack/general-criteria/elliptic compatibility, importing generalized elliptic/abelian scheme consumers without reverse dependencies. Coherent duality and stable pointed-curve moduli retain their reserved suppliers. The reserved gerbe key still requires band-sensitive étale/fppf H², genuine objects/inertia and fpqc profinite 2-limits; no set-class surrogate or finite-presentation claim for the profinite classifying object is introduced.
 
-Freshly read full mathematical Stacks8.11 (tag06NY) and the entire printed stack definition026F; their HTML SHA256 values and exact read extents are in the packet. These new locality leaves are derived results, not misattributed printed lemmas. Eleven new complete baseline declarations and relevant definitions/proofs were read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Exact-pin source/index searches found no competing native gerbe/band carrier in the searched names. Wider inherited paper receipts remain historical, not fresh whole-paper claims.
+Fresh reading is the full statement and proof of [Stacks Lemma 8.11.8](https://stacks.math.columbia.edu/tag/06NY), including the final omitted varying-base conclusion, and the whole printed [Definition 8.4.1](https://stacks.math.columbia.edu/tag/026F). Other statements on those pages and referenced proofs are not claimed as fresh full reading. Downloaded HTML SHA256 values are 784df742e6d6c147f90645bfef73a6ad9fa60cb34e9b2d3006401857ed88a32e and 0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0. Broader eight-row audits, red-team confirmations and paper routes retain predecessor provenance.
 
-Accepted RS-27 ownership remains: generic QCoh descent and this gerbe branch are here; ordinary stacks import D0, ordinary spaces/sites/diagonals import SF1. Do not reverse these imports. Coherent duality and stable pointed-curve moduli import their reserved owners. Confirmed algebraicgeometry1/2/10/11/12/14/17/18 and etalecohomology25 constraints, the eight reviewed audit rows and matching link records were inspected. No route or supplier contract is retired.
+The exact pinned native statements/constructions and relevant proofs were read for DescentData.isoMk/ofObj/hom_ext, pullHom/presheafHom/IsPrestack, fully faithful preimageIso, Presieve.category, Over.homMk, CatCenter naturality and the algebraic-category sheaf interface. Five new index-confirmed baseline entries supplement existing ones. map_preimage is a native record field, not a fabricated separately indexed declaration.
 
-## Native validation
+## Separate native proof receipt
 
-Only a narrow Mathlib-only extraction was compiled in an existing exact-pin build with Lean4.34.0-rc2. Recipe: keep the suggested file's Mathlib imports but omit its TauCeti cohomology import; keep the initial namespace through the complete AbelianBanding structure, close that namespace explicitly, then append the final intrinsic-band namespace and all its tests and omission ledgers. Earlier module-descent and cohomology blocks are excluded.
+A [pushed immutable proof prototype](https://github.com/CBirkbeck/tauceti-explorer/blob/f0bb4f284aefaffe97578454ecf9a0588472103e/research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension.lean) contains actual proofs of all nine new declarations and all six new examples. Its distinct narrow Mathlib-only extraction has seven examples (six new, one unused inherited example), zero errors, two unused inherited admission warnings and no other warnings. Eleven kernel audits cover compatible, restrict_apply and the nine new declarations; all depend only on propext, Classical.choice and Quot.sound, with no admission dependency. This excludes the unfinished global sheaf/evaluation-surjectivity blocks. Runtime 2.50 seconds, maximum RSS 3269732 KiB; 71 GiB available before the single bounded compiler process.
 
-The extraction contains26 examples and passes with zero errors, nine admitted-proof warnings and no other warnings. Six kernel axiom audits (eval_eq_of_cover,ext_of_cover,eval_injective,fromBanding_injective,fromBanding,fromBandingPresheaf) contain only propext,Classical.choice,Quot.sound, with no admission axiom dependency. The sheaf-existence, evaluation-surjectivity and other inherited admitted examples remain explicitly unfinished.
+SHA256:
 
-SHA256 receipts:
+- Full proof source: b2cf95029e01260cc9bb3791e3175fec7307c533bdd356b75481c16aad3b02ee.
+- Native proof extraction: 793781fadfb9ac763332e165150bed89a3f8d1c57ba9f5141a87bfb6532d396e.
+- Extraction plus eleven audits: ff54309df4423b4823c6e388bafe98d22892f44b93014ed82b95bc0d5cdb1509.
+- Normalized compiler/audit log: 0ffa61b545edc6cd318d8cfd0a09040b372f7239dc46958f6cca93638975a4c1.
 
-- Extracted source:6e2f1ac80a6cdfd346c49de58d88dee3d3abf5eb5fad00c11c2c23c0ac80e3f4.
-- Full suggested source:109eea05c890c4b474c5a660707a20190cc7ac99087563ced9f3816bbb47b56a.
-- Normalized compiler/axiom log:8ccdffb7e5c15dece5b9a56495eb89bafe112862aada76ae8108acf4d33cc29f.
-
-The full suggested file is uncompiled: the exact TauCeti f790474821cf4256814db967cb154e7af3d0c369 cohomology import lacks a compiled artifact in the available exact-pin build. No fresh project, cache fetch, build or LSP was started. These receipts do not certify the full TauCeti file or any geometric fixture.
-
-Three new examples use the actual parameterized gerbe/banding carriers. Two native negative examples prove only the pair-projection and ZMod.castHom consequences. Their complete disconnected point-site and C4→C2→C2 topology/pseudofunctor fixtures are named omissions. The root-gerbe instance still requires RootGerbe; no object over U is silently assumed.
-
-## Reproducible finite regression
-
-The dependency-free Python3 script below passes8876 assertions:12 cyclic connected/disconnected groupoid coordinate models,78 connected cyclic sections,actual S3 center of order1,35 cyclic reductions,1744 discrete covering-family models,304 noncover models and331776 section fingerprints. The C4→C2 kernel witness is0/2; disconnected C3 has center order9,connected C3 order3. Fixed-band unit calibrations are retained, not quotiented by coefficient automorphisms.
-
-These are finite coordinates, not an arbitrary-site proof or geometric/root-gerbe fixture. Earlier workers' finite regressions were not rerun. Save the following block verbatim, including the final blank line, to reproduce script SHA256 cc6a883ce5bdfa7e9cf2f86ca98967b30173b39988801e86331184c7ef78130d, then run python3 on it.
+To reproduce in a checkout containing that immutable commit, save the following Python extraction recipe and run it. It reads that exact suggested file; it does not inject replacement proofs. Recipe SHA256 c58b89d3f43864f83f0d8b924d3b22f9102e3dfd2c695a058bc477b312aac75f. Run the resulting cover-axioms.lean with lake env lean from the root of an existing exact-pin Mathlib build. Respect the shared-machine memory/one-process/20-minute constraints in WORKERS.md.
 
 ```python
-"""Finite coordinate regressions, not a proof for arbitrary sites or gerbes."""
-from itertools import product, permutations
-from math import gcd
-import json
-checks = 0
-def check(p):
-    global checks
-    assert p
-    checks += 1
-
-cyclic_models = 0
-connected_sections = 0
-for n in range(1, 13):
-    # In a two-object connected cyclic groupoid, naturality along every
-    # arrow g says z_y+g=g+z_x. Evaluation must be injective.
-    centers = [(a, b) for a, b in product(range(n), repeat=2)
-               if all((b+g)%n == (g+a)%n for g in range(n))]
-    check(centers == [(a, a) for a in range(n)])
-    check(len({a for a, b in centers}) == len(centers))
-    connected_sections += len(centers)
-    # Without arrows between components, every pair is a central section.
-    disconnected = list(product(range(n), repeat=2))
-    check(len(disconnected) == n*n)
-    check((len({a for a,b in disconnected}) == len(disconnected)) == (n == 1))
-    for a,b in centers:
-        for g in range(n):
-            check((b+g)%n == (g+a)%n)
-    for u in range(n):
-        if gcd(u,n) == 1:
-            images = {(u*a)%n for a in range(n)}
-            check(len(images) == n)
-            for a in range(n):
-                check((u*(-a))%n == (-(u*a))%n)
-    cyclic_models += 1
-
-# Actual S3 permutations. Connected sections are diagonal central pairs,
-# not arbitrary inertia elements.
-S3 = list(permutations(range(3)))
-def mul(a,b): return tuple(a[b[i]] for i in range(3))
-center = [z for z in S3 if all(mul(z,g)==mul(g,z) for g in S3)]
-check(center == [(0,1,2)])
-pairs = [(a,b) for a,b in product(S3, repeat=2)
-         if all(mul(b,g)==mul(g,a) for g in S3)]
-check(pairs == [(center[0],center[0])])
-check(mul((1,0,2),(0,2,1)) != mul((0,2,1),(1,0,2)))
-
-reductions = 0
-for n in range(1,13):
-    for m in range(1,n+1):
-        if n % m: continue
-        images = [a % m for a in range(n)]
-        check(len(set(images)) == m)
-        check((len(set(images)) == n) == (m == n))
-        reductions += 1
-check(0 % 2 == 2 % 2 and 0 != 2)  # C4 -> C2, not injective.
-check(len(list(product(range(4),range(2),range(2)))) == 16)
-compatible = [(a,b,c) for a,b,c in product(range(4),range(2),range(2))
-              if a%2==b and b==c]
-check(len(compatible)==4)
-
-# A genuine finite discrete-space sheaf model. On each subset of three
-# points, sections are tuples of cyclic coefficients and maps are
-# coordinate restrictions. Joint restriction is injective precisely
-# for covers (or for the trivial coefficient group). This finite model
-# checks separatedness, not the native pseudofunctor/gluing theorem.
-masks = list(range(8))
-def indices(mask): return [i for i in range(3) if mask & (1<<i)]
-def restrict(s,mask): return tuple(s[i] for i in indices(mask))
-cover_models = 0
-noncover_models = 0
-section_fingerprints = 0
-for n in range(1,9):
-    sections = list(product(range(n),repeat=3))
-    for flags in product((False,True),repeat=8):
-        family = [m for m,f in zip(masks,flags) if f]
-        union = 0
-        for m in family: union |= m
-        fingerprints = {tuple(restrict(s,m) for m in family) for s in sections}
-        check((len(fingerprints)==len(sections)) == (union==7 or n==1))
-        section_fingerprints += len(sections)
-        if union==7: cover_models += 1
-        else: noncover_models += 1
-        # A fixed coefficient identification is a bijection, not quotient
-        # by its automorphism group. Check all calibrated unit scalings.
-        for u in range(n):
-            if gcd(u,n) != 1: continue
-            mapped = {tuple((u*a)%n for a in s) for s in sections}
-            check(len(mapped)==len(sections))
-check((1*1)%3 == 1 and (2*1)%3 == 2)
-print(json.dumps({"assertions":checks,"cyclicModels":cyclic_models,
- "connectedCyclicSections":connected_sections,"S3CenterOrder":len(center),
- "cyclicReductions":reductions,"discreteCoverModels":cover_models,
- "discreteNoncoverModels":noncover_models,
- "sectionFingerprints":section_fingerprints,
- "C4ReductionKernelWitness":[0,2],"disconnectedC3CenterOrder":9,
- "connectedC3CenterOrder":3,"boundary":"finite coordinates only"}))
-
+from pathlib import Path
+import subprocess
+commit = "f0bb4f284aefaffe97578454ecf9a0588472103e"
+path = "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension.lean"
+s = subprocess.check_output(["git", "show", commit + ":" + path], text=True)
+imports = "\n".join(l for l in s.splitlines() if l.startswith("import Mathlib"))
+prefix = s[s.index("open CategoryTheory Opposite Bicategory"):s.index("variable {A : Sheaf")]
+marker = "namespace TauCeti.AlgebraicGeometry\n\nopen CategoryTheory Opposite Bicategory\n\nvariable {C"
+central = s[s.index(marker, s.index("/-! Intrinsic-band continuation")):]
+central = central[:central.index("/-- R09.4/band-center-sheaf: glue")]
+fragment = imports + "\n" + prefix + "\nend TauCeti.AlgebraicGeometry\n" + central
+fragment += "\nend IntrinsicBandSections\nend TauCeti.AlgebraicGeometry\n"
+Path("cover-native.lean").write_text(fragment)
+names = ["compatible", "restrict_apply", "coverTransition", "coverIso",
+         "coverIso_hom_apply", "coverIso_one", "coverIso_inv", "coverAut",
+         "coverAut_map_hom", "coverAut_unique", "coverAut_one"]
+audits = "\n".join("#print axioms TauCeti.AlgebraicGeometry.IntrinsicBandSections." + n for n in names)
+Path("cover-axioms.lean").write_text(fragment + "\n" + audits + "\n")
 ```
+
+## Submitted admitted sketch receipt
+
+PROTOCOL §13 requires proposed declaration/example bodies to be admitted. The final suggested file therefore leaves all nine new declarations and six new examples admitted, preserving inherited bodies. Its separate extraction uses the submitted source, all Mathlib imports, the complete initial gerbe/banding prefix (through before variable A : Sheaf), an explicit namespace closure and the entire final intrinsic-band namespace. Unlike the proof extraction it does not truncate at band-center-sheaf. Earlier module/cohomology blocks and the TauCeti cohomology import are excluded.
+
+This 874-line extraction has 32 examples and passes with zero errors, 24 admission warnings and no other warnings. Runtime 3.90 seconds, maximum RSS 3298640 KiB; 70 GiB available before the single bounded process. The full suggested file remains uncompiled because the exact TauCeti cohomology import has no available compiled artifact. Both extractions use existing Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Lean 4.34.0-rc2; no project/cache/build/LSP was started. Neither receipt certifies the full TauCeti file, central-section sheafness or omitted geometric fixtures.
+
+SHA256:
+
+- Submitted suggested source: 0de33335bf1b43074ffb4f8190799db9c5e1bbff6979b78b4cd03687b0f83893.
+- Admitted intrinsic-band extraction: fd2fe591c567c63273ccfb51468749ebff7f7ebeabab38cadfb5375363a945e9.
+- Normalized admitted-sketch log: 674a66bc919ca87fbb89d22f81ee9edc01016d27a1c67cd5392d964fede67962.
+
+## Packet and atlas validation
+
+Indexed check_blueprint and actual intake file policy pass with zero errors/warnings; whitespace passes. Reader/native API/test presence and preservation checks pass, respecting inherited structure-field namespaces and existing omission ledgers. The actual read-only build.assemble overlay exposes all 144 declarations and ten planets without this packet's skipped/pending links. Its stage graph contains 3017 vertices (including the same 51 virtual supplier endpoints as the control) and 8655 edges. The own prerequisite DAG has 144 nodes and 271 edges. Traversing all 147 reachable declaration prerequisites gives a combined 3154-vertex, 9132-edge stage/declaration DAG, with zero unresolved references. All are acyclic; other roadmaps' skipped links remain unchanged. No assembly files were written.
 
 ## Resume
 
-First finish general central-family Hom-gluing, including gluing both arrow and inverse and native mapId/mapComp coherence. Then finish local extension/evaluation surjectivity under abelian inertia, the locally glued inverse of the existing fixed-band comparison, and the SF1 descended-slice sheaf comparison. None follows merely from the new injections.
+For each covering matching family, first prove the descended coverAut is natural in x using morphism-sheaf separatedness. Then prove compatibility under arbitrary base restriction on common refinements, retaining native mapId/mapComp transports; assemble a compatible unit of each fibre center into a global IntrinsicBandSection. Only then use separatedness for uniqueness and prove the existing isSheaf statement. The new component-descent construction alone does not discharge these obligations.
 
-Instantiate point-site classifying/disconnected groupoids, the no-terminal restriction-chain site and the nonneutral root-gerbe tests on their actual carriers. Continue the remaining source work, nine gaps and21 requests before claiming any stage or key-definition closure.
-
-## Current validation receipt — Codex codex-a71f92
-
-At immutable publication parent f44dac690605e196da86493633b8f7e5a9e4486e, actual check_blueprint and actual intake file policy pass with zero errors or warnings. All135 predecessor IDs/statements,132 identical node objects,68 routed items,21 requests, reserved-key/source-issue ownership and ten planets are retained. Counts are138 nodes,158 total API entries,151 total mathematical tests and86 baseline declarations. The checker's definition/construction-only counts are153 API entries and145 tests; they are not total-node counts. Four scope rows remain partial,four not_read,none closed; all implementation statuses are unchecked.
-
-Actual in-memory build.assemble exposes138 declarations and ten planets for this roadmap. Its2966-stage,8655-edge DAG is acyclic. The own138-node,260-edge prerequisite DAG and its241 reachable stage/declaration/baseline vertices are acyclic; all seven expected external-stage edges are present. This packet has no pending or skipped links. The immutable Git view overrides only these four deliverables and writes nothing to the shared repository.
-
-The exact Mathlib-only extraction from the published suggested code passes with26 examples,zero errors,nine admitted-proof warnings and no other warnings. Six kernel axiom audits contain no admission dependency: eval_eq_of_cover,ext_of_cover,eval_injective,fromBanding_injective,fromBanding,fromBandingPresheaf. Their dependencies are only propext,Classical.choice,Quot.sound. Extracted-source SHA256 is6e2f1ac80a6cdfd346c49de58d88dee3d3abf5eb5fad00c11c2c23c0ac80e3f4; full suggested-source SHA256 is109eea05c890c4b474c5a660707a20190cc7ac99087563ced9f3816bbb47b56a; normalized compiler/axiom log SHA256 is8ccdffb7e5c15dece5b9a56495eb89bafe112862aada76ae8108acf4d33cc29f.
-
-The full suggested file remains uncompiled because the exact TauCeti cohomology import has no available compiled artifact. Earlier module/cohomology blocks and omitted geometric fixtures are outside this receipt. No build/cache/LSP was started. The supplied band remains an actual parameter, not a claimed constructed implementation.
-
-The durable finite-regression script in the handoff passes8876 assertions over connected/disconnected cyclic groupoids,S3,cyclic reductions and finite discrete-space covering/noncover families. Its SHA256 iscc6a883ce5bdfa7e9cf2f86ca98967b30173b39988801e86331184c7ef78130d. This is finite coordinate evidence only. Exact extraction/source parity,new reader/API/test parity,all inherited statement preservation,source-script durability,whitespace and privacy checks pass.
-
-Resume at general Hom-gluing and inverse coherence,abelian-inertia evaluation surjectivity,the locally glued fixed-band inverse and SF1 descended-slice comparison. Instantiate the point-site,chain-site and nonneutral root-gerbe fixtures. No band-sheaf isomorphism,key definition or stage is closed.
+Next finish abelian-inertia evaluation surjectivity, the locally glued inverse of the supplied fixed-band comparison and the SF1 descended-slice sheaf comparison. Instantiate actual point-site connected/disconnected classifying groupoids, the no-terminal restriction-chain site and nonneutral O(1) root gerbes; they remain omissions. Continue the remaining sources, nine gaps and 21 requests before claiming a stage or reserved-key closure. Broader geometric stack/gerbe/cohomology completion is not established by this checkpoint.
