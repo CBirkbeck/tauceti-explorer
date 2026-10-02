@@ -1,220 +1,657 @@
-# Affine residue and conductor proof checkpoint — Codex codex-J6LwjP
+# Quadratic pinching: full presentation and finite-module checkpoint
 
-Refs #3378. Claim 5955398647 was confirmed by bot 5955401645. The whole 18,717-character issue was reread after confirmation. Base `f30763a96093a6c0cff1df92693bee9f7bb4e43c`; continuation of the quadratic pinching checkpoint. This is partial: all seven stages, the reserved Ferrand key and every implementation status remain open/unchecked.
+Agent: ChatGPT Pro — `gpt6astra-20261002-c84f2a`. Refs #3378.
+2 October 2026. Claim 5956064315 was confirmed by bot 5956066605;
+the issue was reread after confirmation. Publication base
+`4c60fa3dd0933cd4220d9590ea93b7779089e678`.
 
-Four new declaration-sized G.1 lemmas prove constant remainders, scalar remainders of actual pinching elements, scalar uniqueness and linear remainders for monic quadratics. The existing quotient-preimage membership, residue AlgHom laws/API and exact ambient conductor equality now have native proofs. The existing arbitrary-subring conductor definition and five API lemmas have native proofs, as do its top and proper-field-extension tests. The quadratic relation laws and three tests are proved. No new carrier, stage, planet or ownership transfer is introduced; general polynomial and quotient results are baseline imports.
+**Partial source-proof checkpoint, not a completed blueprint or formalisation.**
+Only this handoff changes. The roadmap definition, canonical packet, reader
+and suggested file are unchanged. Their inherited inventory remains 154 nodes
+(12 definitions, 3 constructions, 108 lemmas, 26 theorems, 5 comparisons),
+60 API entries, 57 definition/construction tests, 29 planets, 89 baseline
+references, 17 gaps and 23 requests. All 78 routes, 21 source findings and
+seven partial stages are retained, with every implementation status unchecked.
+These counts and the earlier compilation/axiom receipts are historical,
+not fresh whole-packet verification or new implementation claims.
 
-Totals: 154 nodes (twelve definitions, three constructions, 108 lemmas, 26 theorems, five comparisons), 60 API entries, 57 definition/construction tests, 29 planets, 89 named baseline declarations, seventeen gaps and 23 requests. All 150 inherited IDs and mathematical statements, 78 routes, 21 source findings, roadmap definition and historical verification objects are preserved. 147 full inherited node objects are unchanged; three proof/dependency plans are refined. Twenty-two requests are unchanged; the quadratic SF.0 request no longer lists the scalar residue as an unresolved consumer, with its remaining comparison scope retained. Old finite-model certificates were not rerun.
+The complete preceding accumulated handoff is preserved at
+[the immutable publication base](https://github.com/CBirkbeck/tauceti-explorer/blob/4c60fa3dd0933cd4220d9590ea93b7779089e678/research/blueprint/handoff/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII.md).
+This current receipt replaces that accumulation, not its canonical mathematics.
 
-The algebra is the actual Subalgebra preimage under AdjoinRoot.mkₐ. Membership in the bottom subalgebra yields a scalar witness and the existing quotient equality yields divisibility by q, including q=0 and units. For monic degree-two q, actual remainders recover this unique scalar and prove the given residue function's ring/algebra laws. Its kernel is the contraction of the ambient principal ideal (q). A conductor element f=C(c)+qh also satisfies ft∈A_q; the exact linear remainder comparison forces c=0. These proofs impose no separability, irreducibility, perfectness or characteristic restriction. They do not infer normalization or nodality from the conductor.
+## 1. Delivered and notation
 
-Four new typed examples show that t is absent for monic quadratics and q=0, belongs for q=t, and that constant recovery fails modulo q=1. The thirteen existing examples in the extracted scope are retained; eight now have native proofs. The characteristic-two relation keeps both its UV term and cubic term. Generation, the entire hypersurface kernel and finite normalization are still admitted. Full local tangent/branch, P¹/cohomology, field-extension counts and proper nonsplit-node signatures remain in the unchanged exact omission ledger.
+The missing generation and **entire presentation-kernel** arguments are
+proved below, not merely the vanishing of the displayed relation. The same
+normal forms give finite inclusion, the canonical localization, the field
+normalization, the conductor defect sequence, and an explicit two-periodic
+presentation of the finite module. They also distinguish arbitrary changes
+of the coefficient ring from nonflat base change on the pinched curve.
 
-Fresh source reading: Schröer arXiv2004.07025v3 §3, mathematical text of printed pp9–11, both conductor diagrams, full displayed proofs of Propositions3.1–3.2 and the Proposition3.3 table. Downloaded PDF SHA-256 `ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61`, matching the inherited receipt. The new polynomial adapters are explicitly derived from this affine consumer and pinned library statements, not claimed as separately numbered source theorems. Ferrand, Witaszek and other primary-source receipts retain prior attribution; no fresh full-paper read or source-error review is claimed.
+Let R be a commutative ring, a,b in R, and put
 
-Read all parent R11.1–R11.6 reviewed AUDIT-10 entries and applicable SF.3 AUDIT-01 targets; SF.0 was read fully in the immediately preceding job of this continuous session. No direct PartII audit exists. The reserved key entry, parent/Schröer route, touching owner links and full nearby upstream documents were read earlier in this continuing session; current receipts do not turn them into new full-paper reads. No research link file names this PartII. Ten newly registered baseline declarations, their ambient hypotheses and the native prime-field instance source were read at the exact Mathlib pin.
+    q(t)=t^2+a t+b,    B=R[t],    A=R+qB,
+    u=q(t),           v=tq(t),   C=R[U].
 
-## Current validation
+C acts on B by U mapping to u; A is the existing quotient-preimage
+subalgebra, not a replacement carrier. Write
 
-- Indexed packet checker: zero errors and warnings; counts above. Exact permitted-file intake and whitespace checks pass. The unchanged roadmap definition remains consistent. All protected routes/findings/certificates/provenance, inherited statements, and other node/request objects pass preservation checks.
-- The **full suggested file is not compiled**: it imports Tau Ceti modules without available built artifacts at `f790474821cf4256814db967cb154e7af3d0c369`. No substitute source, fabricated type, new project, cache/library build or language server is used.
-- A precise Mathlib-only extraction compiles in the already-existing Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` build with Lean v4.34.0-rc2: exit zero, zero errors, eight admitted-proof warnings and zero other diagnostics, seventeen examples, 1.56 seconds. Available memory exceeded 70 GB. Its two actual namespace bodies match the suggested file byte-for-byte: `Subring` in full, and `TauCeti.GenusOne.QuadraticPinch` through `finite_normalization`, before `proper_point_pushout`. Individual Mathlib imports supply polynomial/subalgebra/AdjoinRoot/MvPolynomial/ZMod/tactics; no Tau Ceti import or combined-build claim. The explicit prime-field module resolves the F₂ examples.
-- Full suggested SHA-256 `9920987c770f03a1623ad0cce94f93537f33f1f15f65178f995f7e5499ca8d18`; extraction SHA-256 `3b1aa718153a09886d7cb0f37cd523ca6485a17125039e4b3f268f95c30876dc`; diagnostic SHA-256 `5ddcc9ef8944f9b0d141d5366ae1196d02565b803f99cec21a5fec2aa270272c`. The packet records the exact extraction and imports can be read from the suggested file.
-- Separate kernel axiom audit: exit zero, 1.57 seconds; all 22 named definitions, API lemmas and proof adapters listed in `affineProofContinuation.axiomAudit.names` have no admitted axiom dependency. Their axioms are subsets of `propext`, `Classical.choice`, `Quot.sound`. Axiom diagnostic SHA-256 `31b2dd4bfb049b4bf16fa21e2eadc9a081741ce4638176865152fc7487bdec2e`. The eight remaining admissions are outside this audit claim.
-- Read-only normal atlas assembly with the current packet and unchanged new-roadmap definition overlaid in memory accepts all 154 declarations and 29 planets, no own pending/skipped links. Its actual stage graph has 2,992 vertices/8,727 edges; own declaration graph has 154 vertices/405 edges; stages plus current reachable prerequisites have 3,117 vertices/9,467 edges. All are acyclic. Current and inherited overlays have exactly the same stage-edge set. All typed upstream stage references and baseline leaves are resolved. No atlas data is written or promoted; other roadmaps' declaration closure is not certified.
-- Current main input freshness and remote intake results are checked before/after publication; remote outcomes are not preclaimed here.
+    F(U,V)=V^2+aUV+bU^2-U^3,    d=U(U-b).
 
-## Resume
+Thus F=V^2+aUV-Ud. The inherited native forms use a field k; the
+coefficient-ring algebra here is stronger and those field targets follow
+by specialization. Generalizing their typeclasses has NOT been implemented
+or compiled. The zero coefficient ring is a trivial separate case before
+using a positive polynomial degree or a nonzero basis vector. No field,
+Noetherian, reducedness, perfectness, separability or characteristic-zero
+hypothesis is imposed on Sections 2–5 and 7–9.
 
-1. Prove generation and the full presentation kernel using monic-V division and the distinct leading degrees. Checking that the relation maps to zero is insufficient. Reuse the proved scalar residue/conductor adapters.
-2. Prove finite inclusion, canonical localization/fraction-field comparisons and import SR.1's actual normalization and nodal/branch types. Repeated-root/inseparable quadratics remain covered algebraically and excluded from the separable-node conclusion.
-3. Finish the exact SF.3/SR.2 P¹/cohomology exports, proper nonsplit-node test, conductor exact sequences and field-extension point counts. Preserve the distinct I₁ and I₂ global maps and fixed-component convention.
-4. Finish G.0's algebraic-space carrier/descent/patching exports and global Scheme conductor/annihilator comparison. The excerpt supplies the ring conductor, not global scheme gluing.
-5. Continue all seventeen precise gaps and 23 requests, canonical/wild and Picard/DVR/quasielliptic geometry, complete model/resolution/rejection certificates and missing William Lang2000 source. No fourteen-model exhaustiveness or stage closure is asserted.
-6. Independent review must assess these plans and inherited source findings. Twenty-two audited prototype declarations do not formalize the roadmap or close the general Ferrand key.
+The finite-module comparison is specific to this pinching family. Generic
+polynomial quotients, power bases, scalar descent, localization and matrix
+operations remain library inputs, not new competing programmes.
 
-All durable mathematics and receipts are in the allowed deliverables. Own scratch is removed after PR publication; no private download or diagnostic log is required to resume.
+## 2. The actual polynomial-ring basis
 
-## Previous checkpoints — historical provenance and superseded counts
+In C[T] consider the monic polynomial
 
-# Quadratic pinching checkpoint — Codex codex-rtOQ9t
+    P(T)=T^2+aT+b-U.
 
-Refs #3378. Claim5954581552 confirmed by bot5954584603; entire issue read before claiming and reread after confirmation. Continues merged PR#5775 from base b0b4c1426bf3daae7240086046c4f7ae2064715b. Partial design; all seven stages and the reserved Ferrand key remain open.
+There is a canonical R-algebra equivalence
 
-Thirteen new G.1 leaves give the native quotient-preimage algebra, two-generator hypersurface, residue map, conductor, finite normalization, tangent/branch comparison, proper one-field-point existence, two distinct cohomology sequences, field-extension splitting and odd/even point counts. The old nonsplit-I₁/I₂ and two n=1 count targets consume the new leaves through added proof steps/dependencies; their mathematical statements/source records are preserved. The other133 inherited node objects, all137 IDs,78 routes,21 source findings,20 earlier requests,19 earlier sources and72 earlier baseline receipts are identical. New totals:150 nodes (12 definitions,104 lemmas,26 theorems,5 comparisons,3 constructions),60 API items,57 tests,29 planets,79 baseline entries,22 sources,23 requests,17 gaps,zero closed stages.
+    C[T]/(P) -> B,    U |-> q(t),    T |-> t.
 
-The characteristic2 tangent keeps its UV term: t²+t+1 gives two conjugate branches, while t²+1 has a double tangent. The two-component construction fixes both P¹ components and exchanges its two nodes. H¹ is E/k in both cases, but I₁ uses a zero global map k→E/k and I₂ uses (c₁,c₂)↦c₁−c₂ from k²→E. Extension counts are q^n+2 and2q^n+2 for odd n, q^n and2q^n for even n. A component-permuting form is outside those formulas.
+Its inverse is the polynomial map t mapping to the class of T. The two
+composites are the identity: on t this is immediate, and on U it is exactly
+U=T^2+aT+b in the quotient. The coefficient map and generator identities
+make this a C-algebra comparison with the stated C-action, rather than an
+abstract isomorphism chosen by rank.
 
-Fresh reading: Schröer arXiv2004.07025v3 §3, printed pp9–11, both conductor diagrams and all displayed proofs; Proposition3.2 explicitly leaves the count calculation to the reader. PDF SHA256 ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61. Stacks0ECH displayed37.67.1–9 and their proofs,00IT and09MQ full statements/proofs. Ferrand alternative PDF front matter/introduction was accessible, but its §7 proof was not freshly read here; inherited G.0 proof receipts remain attributed. Seven new pinned Mathlib statements/constructions/proofs were personally read. All parent R11 audited rows and the entire SF.3 audited row, with corresponding independent-review metadata, were read. No direct PartII audited row exists. Current SR.1/SR.2 and SF.0/SF.3 stage contracts and relevant earlier supplier requests were read; the full StableReduction document was not personally reread. JacobianChallenge and Multiquadratic were read in this continuous session. The complete current handoff was read; the remaining inherited packet nodes were preserved rather than recertified individually.
+Use the native monic AdjoinRoot power basis. It gives the unique normal form
 
-Validation: indexed blueprint checker zero errors/warnings; exact five-file scope and whitespace; native module paths at the pin, import placement, reader/native-or-omission name parity and preservation. Actual read-only build.assemble with the pending packet in memory runs its normal retirement/restructuring/link/decomposition pipeline:150 declarations,29 planets,no own pending/skipped links,all named stage prerequisites reach consumers. Stage graph2992/8651, own declaration graph150/397 and stages plus this packet3113/9230 are acyclic. Other roadmaps retain the same seven skipped links (GeneralAlgebraicKTheory2,K2SymbolsBrauer1,K3BlochGroups4); their declaration graphs were not audited.
+    f(u)+t g(u),     f,g in R[U].                         (B-NF)
 
-Independent finite arithmetic passes258041 assertions: all38 monic quadratics over F₂,F₃,F₅, all degree<5 polynomials, generator spans, remainder/residue and conductor tests, all affine hypersurface points with the infinity correction, and Frobenius fixed pinched sets over F₄,F₉,F₂₅. Component swapping is distinguished. These are finite examples, not proofs of properness, normalization, cohomology, general-field results or scheme descent. Existing elliptic/surface certificates were not rerun. The durable reader and packet record the exact calculation limits and reproduction method.
+An elementary recurrence provides explicit coordinates for each t^n:
 
-Lean NOT COMPILED: no existing build at both pins. No project/cache/library build/server was created. The native file contains actual affine definitions/maps/API/examples, canonical presentation image/kernel, conductor/finite inclusion and generic proper-point Scheme existence. Full fraction-field normalization, tangent/branch, P¹/cohomology and extension-count signatures remain in the exact omission ledger; no arbitrary Prop fields replace them. Every implementation status is unchecked.
+    f_0=1, g_0=0;
+    f_(n+1)=(U-b)g_n,    g_(n+1)=f_n-a g_n.
 
-Resume at the three new owner requests: SF.0's canonical algebra/localization/tensor/finite-field/reduction exports; SR.1's existing normalization and nodal/branch types; SF.3/SR.2's genuine P¹ and coherent exact-sequence exports. Elaborate the existing native forms at the pins before claiming signatures checked. Finish the proper-P¹ nonsplit-node test with those actual types, then the earlier space/patching, canonical/wild, Picard/DVR/quasielliptic, model-resolution and full completeness gaps. William Lang2000 remains unavailable, no14-model exhaustiveness or closed stage is asserted. The next worker should reuse this consumer decomposition instead of planning a second general node/cohomology theory.
+This follows by multiplying f_n(u)+t g_n(u) by t and substituting
+ t^2=u-a t-b. Linear combination computes the normal form of every
+polynomial. Uniqueness comes from the same monic quotient basis, not from
+field-valued point evaluations. In particular C -> B is injective, and
+multiplication by U on C and by q on B is injective. These regularity
+claims use a monic polynomial, not that R is a domain.
 
-Native SHA256 821f66e1c1a43f79a08bc590d1b0307ec09ed3d1b6cc83370703efb910f21b60; overlay SHA256 bba2a4836bdea5760f7909e25b6c6a0b9dfe95beea2799a233ed6647e79a56fb; finite script SHA256 7d76ef6a7b4b5bcf9c0c9a904d719009f326ee394c5ddc245c18948c061b6d20.
+## 3. The pinching basis and its full hypersurface presentation
 
----
+Modulo q, (B-NF) has the unique form f(0)+t g(0) in the R-basis 1,t of
+R[t]/(q). It lies in the image of R exactly when g(0)=0. Polynomial division
+by U says this is equivalent to g(U)=U h(U). Consequently
 
-## Previous checkpoints — historical receipts
+    A={f(u)+v h(u): f,h in R[U]},                       (A-NF)
 
-# Global Scheme conductor checkpoint — Codex codex-5ebb6f
+and that expression is unique. This proves generation by u,v and gives a
+C-basis 1,v for A. Relative to (1,v) and (1,t), the inclusion A -> B is
+exactly the C-linear matrix diag(1,U). This is not a claim that B is free
+of rank two over A.
 
-Refs #3378. Claim 5953575647 confirmed by bot 5953579428; full issue reread. Continues merged PR #5762. Partial design; all seven stages and the reserved Ferrand key remain open.
+The relation F(u,v)=0 follows by multiplying t^2+a t+b=u by u^2. To prove
+that this is the WHOLE kernel, take an arbitrary H(U,V) in C[V]. Divide by
+F, monic in V of degree two:
 
-Nine new targets give the annihilator comparison, finite flat/localization adapters, native conductor ideal-sheaf datum, quotient charts, canonical induced map, geometric/categorical squares and flat recomputation. The source’s reduced Noetherian finite-surjective case is a corollary of the explicitly derived finite schematically dominant statement. The generic finite-module annihilator theorem is requested at SF.0.
+    H=J F+f(U)+Vg(U).
 
-Totals: 137 nodes, 51 API items, 48 planned tests, 28 planets, 72 baseline declarations, 16 gaps and 20 requests. All 128 inherited IDs, 78 routes, 21 source findings and prior F₂ certificates remain. All 76 upstream imports are ordinary prerequisites; the obsolete encoding gap is removed.
+If H(u,v)=0, the remainder maps to f(u)+t u g(u). By (B-NF), f=0 and Ug=0.
+Since U is regular on C, g=0. Conversely every multiple of F maps to zero.
+Thus the canonical evaluation has image A and kernel (F), and induces
 
-Fresh reading: Ferrand pp553–557,565–569; Witaszek pp674–675, including visual inspection; complete Stacks 07T8/0BBY/0E25 displayed proofs; 34 pinned native declarations. Prior receipts retain their attribution.
+    R[U,V]/(V^2+aUV+bU^2-U^3) = A                     (PRESENT)
 
-Validation: indexed checker zero errors/warnings; reader/native parity, preservation, source hashes, intake and whitespace checks; actual read-only atlas integration with no own pending/skipped links; acyclic own and combined graphs; 859 finite assertions across 55 unital subrings, including localization, flat nilpotents and a nonflat cusp obstruction.
+through its specified generator maps. This proves the inherited
+`quadratic-pinch-generation` and `quadratic-pinch-presentation` targets,
+including inseparable quadratics, as mathematical statements.
 
-Lean NOT COMPILED: no existing build at both pins; no project/cache/build/server created. Resume with exact SF.0 annihilator/affine exports and native elaboration/gluing, then SF.1/SF.3 space types, proper nonsplit-node and remaining model/completeness/source gaps.
+The current suggested file uses MvPolynomial (Fin 2), with variable 0=U,
+1=V. Native MvPolynomial.finSuccEquiv makes variable 0 the OUTER polynomial
+variable, not variable 1. For division in V, first exchange the two variables
+with the native rename equivalence, then use finSuccEquiv and identify the
+remaining one-variable coefficient polynomial. Alternatively construct the
+two evaluation maps and check each generator. A silent U/V swap gives the
+wrong monic-division argument. The compatibility is a proof obligation, not
+a new polynomial carrier.
 
----
+## 4. Finite inclusion, localization and the field normalization
 
-## Previous checkpoints — historical receipts, superseded current totals
+B is generated as an A-module by 1,t, because C is a subring of A and
+(B-NF) spans. The element t is integral over A, satisfying
 
-# Native Scheme interface checkpoint — ChatGPT gpt-6astra-20261002-c4d9
+    T^2+aT+(b-u)=0.
 
-Refs #3378. Model: GPT-6 Astra Pro. Claim comment 5952727571 was accepted by bot comment 5952731307. Continuation of merged PR #5752 on branch `gpt-6astra-20261002-c4d9-neron-ii`. Signature commit: `7c5ae7e317bd1325158b981f50b19eb4a1eccdf7`.
+The localization comparison is the actual map
 
-**Partial design checkpoint, not implementation or stage closure.** Only the suggested Lean file and this handoff change. The roadmap definition, packet and definitive reader are unchanged: all 128 nodes, existing API/test contracts, source findings, routes, requests and dependency edges are preserved. No baseline theorem is newly marked implemented, and no packet gap is closed.
+    A[1/u] -> B[1/q]
 
-## Delivered
+induced by inclusion. Its inverse sends t to v/u. Indeed PRESENT implies
+(v/u)^2+a(v/u)+b=u. The composites agree on R,u,v,t and the inverted
+elements. This proves an isomorphism compatible with the original maps,
+not just an agreement of complements on points.
 
-The existing Ferrand key now has native Scheme forms for five API contracts: `GeometricPushout.lift` includes both finite Ferrand pinching and the complete Witaszek alternative; `GeometricPushout.flat_baseChange` specifies all comparison maps and actual cartesian squares; `GeometricPushout.witaszek_iff` uses the actual section-ring pullback on every open; `FerrandPushout.complementIso` identifies actual open subschemes by the unique isomorphism over the pinching map; and `FerrandPushout.conductor` supplies the actual affine Spec/quotient square.
+For R=k a field, A and B are domains inside k(t), and their fraction fields
+agree by the canonical inclusion. Explicitly, any f(t)/g(t) with g nonzero
+is (qf)/(qg), with numerator and nonzero denominator in A. B is finite
+integral over A and is integrally closed in k(t). For completeness, the
+last fact has the standard elementary proof: put an integral rational
+function in coprime form f/g; a monic equation shows g divides f^n, whence
+g is a unit in the polynomial PID. An element of k(t) integral over A is
+also integral over B by the same equation, so it belongs to B. Therefore B
+is precisely the integral closure of A in this identified fraction field.
 
-The full `GeometricPushout.topological_not_geometric` test now constructs the four schemes and maps. It asserts the topological pushout and universal-homeomorphism properties, but denies the geometric square. The old monomial nonmembership calculation is retained as its witness, rather than being mistaken for the entire test. The omission ledger distinguishes these delivered Scheme signatures from the still-missing algebraic-space and global-conductor forms. All previous affine reconstruction, polynomial and F₂ declarations remain unchanged.
+Only this last normalization paragraph uses a field. No normality theorem
+for R[t] over arbitrary R is asserted. The exact native fraction-field,
+localization and scheme-normalization comparisons still need registration,
+including the actual SR.1 normalization type. Separability of q is not
+needed for normalization; it is a separate hypothesis in the nodal/branch
+conclusion, which is not proved by PRESENT alone.
 
-Universal homeomorphism is expressed by the native conjunction `UniversallyInjective`, `UniversallyClosed`, `Surjective`: these properties persist under base change and give a closed bijection there. No second universal-homeomorphism carrier, opaque geometric predicate, or arbitrary proposition parameter is introduced. Representability is automatic only because these signatures use Scheme. The Witaszek alternative retains qcqs for i and both universal-homeomorphisms, without incorrectly assuming finiteness. The general finite Ferrand alternative is not restricted to radicial g.
+## 5. Defect, conductor and the two coefficient actions
 
-## Mathematical check of the negative example
+Define the R-linear map
 
-Write B=k[t], S=k[t²,t⁵], C=B/(t²), and use C←B and C←k. The map S→k is evaluation at zero. The square commutes because every positive-degree monomial of S dies in C. B is finite over S since t satisfies the monic equation X²−t². Off V(t²), the element t equals t⁵/(t²)², so the inclusion becomes an isomorphism. Over V(t²) there is just the origin, with residue field k; the same description holds geometrically. Thus Spec B→Spec S is a universal homeomorphism. Spec C→Spec k is also one, and the commutative square is a pushout of topological spaces. However B×C k identifies with k+t²k[t]. It contains the compatible pair (t³,0), while t³ is not in S: 3 is not in the semigroup generated by 2 and 5. Consequently the square fails the global-section pullback, hence fails the geometric condition. This argument works over every field, including characteristic two.
+    delta:B -> R,    delta(f(u)+t g(u))=g(0).
 
-An independent finite illustration over F₂[t]/(t⁸) checked the subring generated by t²,t⁵, all its sums/products, and every compatible pair modulo t². Its monomial basis has exponents 0,2,4,5,6,7; the subring has 64 elements, the pullback has 128, and (t³,0) is missing from the injective comparison. This is a finite check of the obstruction, not a proof of the Scheme theorem or a surface-model certificate.
+Its kernel is A, it is surjective, and r mapping to rt is an R-linear
+section. For alpha=f(u)+v h(u) in A define
 
-## Fresh reading and verification scope
+    epsilon(alpha)=f(0).
 
-Read the displayed primary-source statements and proofs for Witaszek, *Keel's base point free theorem and quotients in mixed characteristic*, published Annals 195 (2022), Definition 2.17, Remark 2.19, Lemmas 2.23 and 2.25, and Definition 2.27 (https://par.nsf.gov/servlets/purl/10429755). Read the relevant Temkin–Tyomkin arXiv:1305.6014v3 portions, in particular Lemma 3.2.4, the complement assertion of Theorem 4.4.2, and Theorem 6.3.2 with its proof (https://arxiv.org/pdf/1305.6014v3). Flatness preserves the kernel sequence; no arbitrary nonflat compatibility or flatness of the normalization map is inferred. The conductor application retains reduced/Noetherian/finite hypotheses but not birationality. These are selected text readings, not a fresh full-paper audit. PDF screenshot requests failed; no visual inspection or newly computed PDF hash is claimed. Inherited paper-reading receipts below remain attributed to their original workers.
+The multiplication formula gives delta(alpha z)=epsilon(alpha)delta(z).
+Thus the actual inclusion fits in the short exact A-module sequence
 
-At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, read the native definitions and relevant surrounding declarations in `AlgebraicGeometry/Morphisms/Flat.lean`, `OpenImmersion.lean`, `QuasiSeparated.lean`, `UniversallyClosed.lean`, and `UniversallyInjective.lean`. The four added explicit imports use those existing scheme predicates. This is a selected signature check, not a complete fresh read of every inherited baseline entry. Upstream orientation: AdicSpaces and Multiquadratic README documents were read in full; selected EllipticCurves and StableReduction material was used for the ownership boundary. The reviewed R11.1–R11.6 entries and Néron boundary discussion in RT-AUDIT-10 were consulted. The oversized integrated `data/library-coverage.json` could not be retrieved through the connector; this receipt does not claim a fresh direct read of that projection.
+    0 -> A -> B --delta--> R_epsilon -> 0,             (DEFECT)
 
-The GitHub commit diff was read: the changes are limited to four imports, the five API forms, the completed negative example and the corresponding omission-ledger update. No historical declarations or geometric contracts were deleted. Repository-local blueprint/atlas validators were not run in this browser environment; the official submission workflow is the validation gate. Its eventual result belongs to the PR, not to the historical receipts below.
+where R_epsilon means R with A-action through epsilon. This epsilon agrees
+with the inherited scalar residue: reduce f(u)+v h(u) modulo q. The
+sequence splits over R, not over A when R is nonzero. An A-linear section
+would send 1 to an element of B killed by u, impossible since u is regular
+on B and the section would have nonzero delta.
 
-**Lean NOT COMPILED.** No existing build at the two pins was available; no Lake project, cache, library build or Lean server was started. All proofs remain explicit prototype `sorry`s. The suggested file is not a proof certificate and elaboration is not certified.
+The conductor in B is qB. Here is its computation from the same coordinates,
+consistent with the predecessor's proved field statement. An element
+alpha=f(u)+v h(u) belongs to the conductor iff alpha and t alpha both lie
+in A, because B=A+A t. The coefficient of t in t alpha modulo q is f(0).
+Hence the conductor contracted to A is
 
-## Resume
+    I=ker epsilon=(u,v),   and I=qB as subsets of B.
 
-Keep the existing 17 gaps and 20 requests open. The native Scheme omissions addressed here should not be recreated. The remaining Ferrand work is the actual SF.1 algebraic-space carrier and small étale site, exact SF.1/SF.3 descent and flat-object patching exports, all space-valued universal properties, the nonsplit proper-node test and global conductor gluing. Thereafter continue the scheme-to-Weierstrass adapter and the canonical/wild, numerical-Picard, DVR/henselization, rational-surface, resolution and completeness gaps below. A small typo `conductor-subsheme` in the new omission comment means conductor-subscheme; it has no mathematical or declaration effect.
+Multiplication by q gives an A-linear isomorphism B -> I. In normal
+coordinates it is (f,g) mapping to (Uf,g), with codomain in A-coordinates.
+Its inverse exists on I because f(0)=0 exactly when U divides f; injectivity
+uses regularity of q. Also Ann_A(B/A)=I, using DEFECT and the faithful
+regular R-module. The ideal I is generally NOT uA: for R nonzero, v is not
+in uA, since that would force t to belong to A after cancelling q.
 
----
+A useful specialized dual comparison follows without a generic duality
+theory. Evaluation at 1 gives
 
-## Previous common-ideal checkpoint (unchanged historical receipt)
+    Hom_A(B,A) = I.
 
-# Common-ideal reconstruction checkpoint — Codex codex-J6LwjP
+If h(1)=r and h(t)=s, then u s=v r, hence q(s-tr)=0 in B. Therefore s=tr,
+and r lies in the conductor. Conversely multiplication by any r in I is
+an A-linear map B -> A; the values on 1,t determine it. Composing with
+multiplication by q identifies B with this Hom module. This is a concrete
+conductor comparison, not a newly assumed dualizing complex.
 
-Refs #3378. Claim 5952038870 confirmed by bot comment 5952041952; the full issue was reread. Base 9c2a511. Partial checkpoint; all seven stages and the reserved Ferrand key remain open.
+## 6. A complete normalization-module presentation
 
-The packet now contains **128 nodes: 9 definitions, 1 construction, 92 lemmas, 23 theorems and 3 comparisons; 44 API items, 40 planned tests, 28 planets, 38 baseline declarations, 17 gaps and 20 requests**. All 123 predecessor node ids, 78 routed items, 21 source findings and the previous finite F₂ certificate are retained. Only the existing geometric conductor-square proof/dependency list consumes the new chain. The roadmap definition and reserved key are unchanged.
+All matrices act on column vectors. In A set d=u(u-b) and define
 
-Five added affine declarations expose the common-ideal reconstruction: a canonical comparison into the existing ring pullback, its kernel ker(f)∩I, compatible-pair lifting when f(I) is already an ideal, the cartesian if-and-only-if criterion, and its specialization to an arbitrary subring conductor. The conductor identity itself needs no finite, birational, reduced or Noetherian hypothesis. Its geometric application still requires the separately stated pinching/localization/gluing inputs.
+    Psi = [ -v,        -d       ],
+          [  u,         v+a u   ]
 
-The comparison has three API signatures and four native tests. The tests distinguish two real obstructions: Z→Z/2 with I=ker(f) has nonzero reconstruction kernel, while the injective diagonal F₂→F₂×F₂ with I=F₂ has an image that is not an ideal and a comparison missing two of four elements. Identity maps and zero ideals give the positive/degenerate cases.
+    Phi = [ -v-a u,    -d       ].
+          [  u,         v       ]
 
-Fresh reading: Ferrand, Conducteur, descente et pincement, printed pp555–557 in full, especially Lemma1.3 and its converse, 2 October2026. Public PDF SHA-256: 4f1f2438ad6d757d67d2ecf154b1bc920d210d8abd54c02e6acd020805629d91. Ten new baseline declarations were read at Mathlib082e2d3. Exact-pin searches find no existing Ferrand/common-ideal reconstruction theorem; the apparent Tau Ceti common-ideal hit concerns matrix-division-algebra uniqueness. Reviewed R11.1–R11.6 and SF.0/SF.1/SF.3 audits, parent document, complete accepted Schröer continuation brief and key-definition entry were read. The continuous session’s earlier full JacobianChallenge/StableReduction readings are reused. No new source error is asserted.
+Let pi:A^2 -> B send (r,s) to r+t s. It is surjective. The two displayed
+columns of Psi map to zero, since ut=v and t(v+a u)=u(u-b).
+Over R[U,V], before imposing F, both matrix products equal F times the
+identity; over A they are zero. This alone would not prove exactness.
 
-Validation: indexed blueprint checker 0 errors/0 warnings; preservation and five-declaration/three-API/four-test reader/native-name parity; all 128 declaration nodes form an acyclic 347-edge dependency graph. Read-only actual atlas assembly with the unchanged definition/current packet preserves all 67 required stage edges and 76 typed upstream references, with zero pending/skipped links. Its stage graph has 3042 vertices/8726 edges; combined declaration/stage graph has 3142 vertices/9359 edges; both are acyclic. Typed upstream references were appended only to an in-memory validation copy. No atlas or other job files were edited.
+For the missing kernel proof write
 
-Finite checks cover 778 integer-quotient squares, both missing-hypothesis counterexamples, and the nonreduced conductor example F₂[u]/u⁴ with subring F₂+u²F₂[u]/u⁴. Its conductor is (u²) and all eight compatible pairs reconstruct the subring. These calculations are not general proofs, geometric pushout verification, or reruns of the prior elliptic/surface certificates. The packet retains the precise scope.
+    r=r0+v r1,    s=s0+v s1,     r_i,s_i in C.
 
-**Lean not compiled:** the whole suggested file imports Tau Ceti modules, and no existing build at the exact Tau Ceti pin was found. No new project, cache, library build or Lean server was started. Suggested-file SHA-256: ef166fa314cc1f1021a86372a444d4a6a0029dbf51ef97023142bd454ce5f0ad. The five new declarations have actual native ring/quotient/pullback types, but this handoff does not certify elaboration. Every implementation status remains unchecked.
+In B-coordinates,
 
-Resume with the prior 17 gaps and 20 requests below: exact SF.1/SF.3 space/descent/flat-object-patching exports and full signatures, the scheme-to-Weierstrass adapter, then the canonical/wild, numerical-Picard, DVR/henselization, rational-surface and full model-resolution/completeness source boundaries. The new affine reconstruction does not close those global interfaces.
+    pi(r,s)=(r0+d s1) + t(U r1+s0-aU s1).
 
----
+Thus pi(r,s)=0 implies r0=-d s1 and s0=-U r1+aU s1, and the explicit
+preimage is
 
-## Previous finite-classifier checkpoint (historical receipt)
+    (r,s)=Psi(-r1,s1).                                (KERNEL-PI)
 
-# DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII: codex-rtOQ9t continuation
+The arguments on the right are included from C into A. This proves
+ker(pi)=image(Psi), hence coker(Psi) is B through pi, not merely a module
+with the same generic rank.
 
-Refs #3378. **Partial checkpoint** extending the merged 111-node plan. No stage or reserved Ferrand key is declared closed. Every implementation status is unchecked.
+For periodic exactness, define
 
-Current totals: 123 nodes (9 definitions, 89 lemmas, 22 theorems, 3 comparisons), 41 API items, 36 unit tests, 28 planets, 28 cited baseline declarations, 17 gaps and 20 requests. All 111 inherited node IDs, 78 routed items and 21 source findings are preserved. The Ferrand key and unrelated model geometry are unchanged.
+    w=U r1+s0,    z=-r0+aU r1-d s1.
 
-This continuation decomposes the finite constant-coefficient F₂ classification into twelve native declarations: five models, binary discriminant and smooth split, eight admissible changes, model discriminants/counts/j, complete orbit witnesses, orbit disjointness, the point-count classifier, the order-four doubling calculation and cyclic point groups. The five inherited E_i nodes consume these calculations, and the existing geometric classifier imports the exact SF.3 scheme-presentation contract. The definition has four API entries and four typed tests, including same-j distinct models and a singular equation sharing count3 with a smooth model.
+The first coordinate of Psi(r,s), in A-coordinates, is -d w+v z;
+the second is -U z+aU w+v w. Uniqueness of (A-NF) says it vanishes exactly
+when w=z=0. Substitution then gives
 
-The durable packet certificate and reader contain every one of the sixteen smooth coefficient tuples, its forward change to the count-indexed model, and the five full point cycles. An independent modulo2 calculation verified all 32 tuples, eight changes, 1024 affine equation substitutions, discriminant/count preservation and inverse changes. Orbit sizes are 2,4,4,4,2; the E₄ cycle is O,(1,0),(0,0),(1,1),O. This finite calculation does not certify the fourteen surface models or the polynomial searches in G.5–G.6.
+    (r,s)=Phi(-r1,s1).                                (KERNEL-PSI)
 
-Fresh primary reading is Schröer arXiv:2004.07025v3, p.11 Proposition3.3/table and preceding context. Its SHA-256 matches the inherited edition receipt. The paragraph cites Knapp, whose text was not freshly obtained; geometric classification is not inferred from an isomorphism of finite point groups. Earlier source ledgers retain their attribution to the previous workers rather than becoming a claim of fresh complete rereading. JacobianChallenge and Multiquadratic upstream documents were read in full. Reviewed parent R11.1–R11.6, SF.3 and EllipticCurves Layer3 audits were read; no direct PartII audit entry exists. All 28 registered baseline statements were read at the pins. General Weierstrass carriers, variable changes, addition, pointCount and cyclic group equivalences are reused.
+For Phi, put c=r0+d s1 and e=U r1+s0-aU s1. Its coordinates are
+-d e-aU c-v c and U c+v e. They vanish exactly when c=e=0, giving
+(KERNEL-PI) again. Therefore
 
-Validation passed: indexed blueprint checker (0 errors, 0 warnings), exact five-file intake, whitespace, inherited ID/route/source/request preservation, new reader/signature/API/test parity and source hash. Actual atlas projection includes all 76 typed upstream prerequisites and all 67 expected stage edges, with no pending or skipped links. The stage graph has 2612 vertices and 8726 edges; the combined declaration/stage graph has 2738 vertices and 9269 edges. Both are acyclic. Typed upstream imports were appended only to an in-memory validation copy to test the current merger accurately. No other job files or atlas output were edited.
+    ker(Psi)=image(Phi),   ker(Phi)=image(Psi).
 
-Lean was **NOT COMPILED**: no existing build at both pinned commits. No Lake project, cache, library build or Lean server was started. All twelve added native forms and four API names have real library types; the order-four form includes its nonzero and self-inverse conclusions. The old space/scheme signature omission ledger remains binding.
+This supplies the exact two-periodic free resolution ending in B. The proof
+uses the actual coefficient equations and constructs the preimage of every
+kernel element. It does not replan a general hypersurface matrix-factorization
+theorem from another roadmap. In particular det(Psi)=-F is only a check,
+not the reason the augmented complex is exact.
 
-Resume with the seventeenth gap: SF.3 must export pointed smooth proper genus-one scheme presentation by a native elliptic equation, comparison of scheme rational points with native Point, and geometric realization of admissible changes preserving infinity. This is an addition to the existing SF.3 request, with the exact five-classifier consumer named. Geometric ordinary/supersingular comparison remains an upstream EllipticCurves Layer3 import. The prior sixteen gaps and all twenty requests remain: genuine space/patching exports and signatures, canonical/wild fiber proofs, numerical-Picard descent, DVR adapters, rational surface geometry, Lang configurations, model resolution certificates and full rejection/equivalence witnesses. All seven layers remain partial.
+The coordinate proofs of this SECTION survive every C-algebra base change,
+even when U becomes a zero divisor, because the monic quotients retain bases
+1,v and 1,t and the displayed kernel reconstructions never divide by U.
+After such a change B denotes the specialized finite module, not a newly
+asserted normalization. By contrast, injectivity of A -> B before taking
+cokernels used regularity of U; that injectivity need not survive.
 
-## Previous checkpoint: historical attribution
+## 7. Coefficient-ring base change does preserve this family
 
-# DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII: codex-a71f92 continuation
+For any ring map R -> R', let a',b' be the images and form q',A',B' by the
+same formulas. Then the canonical maps give
 
-Refs #3378. Partial continuation from the merged 99-node checkpoint; no stage or reserved
-Ferrand key is closed.
-
-Current totals: 111 nodes (8 definitions,80 lemmas,21 theorems,2 comparisons),37 API items,
-32 unit tests,28 planets (G.0 has six),15 cited baseline declarations,16 gaps and20 requests.
-All99 original node IDs,78 routed items and21 source findings are preserved. Only the
-Ferrand key's space-site clarification/API/tests and the existing affine declaration metadata
-change among old nodes. The unrelated model geometry and completeness are still conditional.
-
-## What changed
-
-Twelve new G.0 declarations decompose finite pinching in algebraic spaces, verify its primary
-existence source, and distinguish it from the if-and-only-if scheme affine-neighborhood
-criterion. They include compatible étale charts, two Hom lemmas, the relation and schematic
-overlap, existence, cartesian/sheaf/finite/closed properties, flat comparison and recognition.
-The overlap is constructed independently of final existence; its finite-surjective
-separatedness step uses Stacks05Z2. Local quasi-finiteness is not replaced by quasi-compactness.
-The existing genuine Scheme affine existence theorem now has its full suggested Lean form.
-
-Fresh selected reading: Temkin–Tyomkin author PDF arXiv1305.6014v3 (27 May2016), the exact
-sections/proofs in the reader ledger; Stacks04D1,082J,04S6,02X4,05Z2 and section0417, displayed
-statements and proofs. Edition, URLs, date and download SHA-256 are recorded. Other sources
-and checks retain their inherited attribution; no new source erratum is asserted.
-
-## Remaining and requests
-
-The source-existence uncertainty is resolved, not the integration gap. SF.1 must supply the
-genuine space carrier/site, finite cofinality, lifting, descent, quotient, diagonal,
-separatedness and representability exports. SF.3 must supply the flat-object patching
-equivalence with cartesian unit/counit, not only preservation of existing pushouts. Exact
-consumer IDs are added to the two existing requests, without changing their other consumers.
-
-All twelve full algebraic-space forms, the two promoted API names and two new tests have an
-exact omission ledger. No fictional carrier replaces them. Lean was NOT COMPILED: no
-existing pinned build was available; no Lake setup/cache/build was made.
-
-Validation: actual repository checker and intake rules; preservation; added-edge cycles
-including typed upstream prerequisites and stage dependencies; reader/packet and
-signature-or-omission parity; new source hashes; whitespace. The continuation did not rerun
-the inherited model coefficient/orbit computations. Resume with exact SF.1/SF.3 exports and
-full space signatures; then the pre-existing G.1–G.6 proof/model/completeness gaps.
-
-## Inherited checkpoint (unchanged historical note)
-
-# DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII
-
-Codex — codex-5ebb6f; Refs #3378. **Partial checkpoint**, not a closed blueprint.
-
-Seven layers contain99 targets, eight definitions,35 API contracts,30 tests and27 planets. All78 routed Schröer items are accounted for. The exact reserved Ferrand node defines the general geometric square and finite-pinching specialization, distinguishes Witaszek’s radicial restriction, and states affine-neighborhood hypotheses for scheme existence. It imports the existing ring pullback and model/lattice carriers.
-
-The reader records exact conventions, proof outlines, ownership, editions and21 source findings. Public Schröer v3, Ferrand, Witaszek, LLR/corrigendum, Bombieri–Mumford, Szydło, Serge Lang and selected2024-book passages were read. William Lang2000 and a full1989 book were not obtained.
-
-Checks passed: official blueprint checker, combined acyclic dependency graph including76 typed upstream edges, supplier consumers,78 unique routes, text-source literal anchors, fourteen discriminant/degree/chart identities, and32 F₂ equations yielding16 smooth equations in five point-count-distinguished orbits. Intake/path checks are recorded in the PR. **Lean not compiled:** no existing pinned build; no project/cache/library build created.
-
-Resume with the16 packet gaps and20 supplier requests: exact exports and upstream-stage checker encoding, geometric signature omissions, numerical-Picard descent, EGA/Raynaud/henselization adapters, canonical/wild and quasielliptic proofs, rational-surface proofs, Lang configurations, model-certificate granularity/resolutions and full rejection/equivalence witnesses. No stage is closed; classifications remain conditional. Missing Lean conditions are named explicitly rather than fabricated as opaque propositions.
+    A tensor_R R' = A',     B tensor_R R' = R'[t],
+
+with the inclusion and residue maps commuting. One proof uses the monic
+presentation and (A-NF); another tensors the R-split exact sequence DEFECT.
+The finite quotient B/qB is free of rank two over R, so the actual constant
+preimage agrees after every coefficient-ring change, not only a flat one.
+
+This is a special uniform quadratic FAMILY over Spec R. It does not strengthen
+the general Ferrand theorem to arbitrary base change on Spec A. Its free
+C-module rank two is likewise not flatness of the normalization over A.
+For a field, the latter has generic rank one and a two-dimensional fiber
+at the pinch.
+
+## 8. The nonflat curve-base-change obstruction, with its nilpotent
+
+For L>=1, set C_L=R[U]/(U^L), D_L=A/(u^L), and B_L=B/(q^L). The first two
+normal forms specialize to C_L-bases (1,v) for D_L and (1,t) for B_L. The
+natural comparison D_L -> B_L still has matrix diag(1,U). It has kernel
+
+    R times u^(L-1)v
+
+and cokernel R. For R nonzero the displayed kernel element is nonzero:
+its v-coordinate U^(L-1) is nonzero in the monic truncated polynomial ring.
+No point-counting test detects this kernel.
+
+At L=1, D_1=R[V]/(V^2), while B_1=R[t]/(q)=E. The original conductor
+square has rings A,B,R,E. After base change along A -> D_1, the other three
+rings are E,R,E, with the E -> E map the identity. Their recomputed fiber
+product is R. The canonical map
+
+    D_1 -> E times_E R = R
+
+kills the nonzero square-zero class v. Thus the base-changed square is not
+the same geometric pushout. At general L the recomputed ring is the image
+R+qB inside B/(q^L), and the same comparison loses u^(L-1)v.
+
+This works for separable, repeated-root and inseparable quadratics; the
+nilpotent is scheme-theoretic information, not a claim that each fiber has
+the same singularity type. The example supplements the existing nonflat
+conductor warnings without introducing a new source error.
+
+## 9. Proof-sized integration targets and tests
+
+These are refinements to integrate under this roadmap's G.1, NOT registered
+new nodes or new inventory counts in this checkpoint. Keep the IDs of the
+existing generation, presentation, residue, conductor and normalization
+nodes. The exact API statements and tests below should be reflected in the
+canonical packet, reader and suggested file together.
+
+1. **Eliminated quadratic root equivalence:** the specified C[T]/(P) -> R[t]
+   comparison and C-basis 1,t. Import AdjoinRoot; prove both generator
+   identities. Tests: t^2=(u-b)-at; a=b=0; characteristic-two a=b=1.
+2. **Pinching normal-form equivalence:** A is C plus C v with the inclusion
+   diag(1,U). Tests: constants and v survive; t is not in A for nonzero R;
+   R=Z/4 with a nilpotent coefficient still has unique coordinates.
+3. **Monic-V kernel reduction:** division by F and vanishing of its entire
+   evaluated remainder, giving the inherited presentation theorem. Tests:
+   the cusp V^2-U^3, the split-node equation, and the characteristic-two
+   UV term; pointwise equality on a finite field is not kernel equality.
+4. **Finite module and localization:** generators 1,t, their integral equation,
+   and inverse t mapping to v/u. The field fraction-ring/integral-closure
+   corollary is separate and must retain the actual canonical maps.
+5. **Defect sequence:** delta, its kernel/surjectivity, and its R-linear
+   section; compare epsilon to the EXISTING residue map. Tests: delta(t)=1,
+   delta(A)=0, and failure of A-linearity of the section.
+6. **Conductor module comparison:** the existing conductor is (u,v), with
+   multiplication q:B -> I an equivalence; evaluation Hom_A(B,A) -> I is a
+   separate lemma. Tests: v is in I but not uA; q times t maps to v; the
+   conductor is not inferred from equal closed point sets.
+7. **Augmented relation preimage:** formula KERNEL-PI proves exactness of
+   A^2 --Psi--> A^2 --pi--> B -> 0, not just pi composed with Psi=0.
+8. **Two periodic kernels:** split KERNEL-PSI and the Phi-kernel identity into
+   individual lemmas. Use actual normal-form coordinates; generic matrix
+   factorization/homological constructions remain imported.
+9. **Coefficient specialization:** canonical arbitrary R -> R' comparisons,
+   with all four conductor-square maps. This is not arbitrary A-base change.
+10. **Nonflat specialization:** the exact kernel R times u^(L-1)v, its
+    nonvanishing, and the L=1 conductor-square comparison to R.
+
+The dependency direction is elimination/basis -> A normal form -> full
+presentation -> module/localization/conductor comparisons -> specialized
+module/base-change tests. No new cross-roadmap reverse dependency or planet
+is proposed. Before changing the existing SF.0 request, integrate these
+specific proofs and distinguish them from the genuinely generic localization,
+fraction-field and geometric exports. The separate SR.1 node/normalization
+and SF.3 proper-P1/cohomology/finite-field interfaces remain open.
+
+## 10. Sources and native-interface receipts
+
+Fresh primary reading was deliberately bounded:
+
+- [Schröer arXiv:2004.07025v3](https://arxiv.org/pdf/2004.07025v3), selected
+  §3 text on pinching and residue algebras. The rendered printed p.10 was
+  inspected, including the two conductor diagrams and the split, infinitesimal
+  and separable quadratic residue cases. Rendering printed pp.9 and 11
+  failed; no fresh complete §3 proof, full paper, edition collation or
+  source-erratum audit is claimed. The inherited PDF hash is not a fresh
+  downloaded-byte certificate from this continuation.
+- [Stacks 0ECH](https://stacks.math.columbia.edu/tag/0ECH), Section 37.67:
+  the scheme hypotheses, affine construction and geometric sheaf formula,
+  and the displayed flat-base-change statements/proofs. Its finite-fiber
+  affine-neighborhood hypothesis is retained. No unconditional global-scheme
+  pushout theorem is deduced from the affine calculation here.
+
+The coordinate normal forms, matrix kernels and base-change examples above
+are explicitly derived adapters motivated by those sources. They are not
+claimed as separately numbered theorems of Schröer. No new source mistake
+is alleged; all prior 21 findings retain their earlier attribution.
+
+Fresh native statements at Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174`:
+
+- RingTheory/AdjoinRoot.lean, lines 230–340 and 580–800, blob
+  `1945b7728630a10baf56374f183be1bcfa3727f0`: lift/liftAlgHom with their actual
+  coefficient maps and generator evaluations; monic-root integrality,
+  modByMonicHom and its inverse comparison; powerBasisAux', powerBasis',
+  and Polynomial.Monic.free_adjoinRoot/finite_adjoinRoot. The arbitrary
+  CommRing hypotheses, rather than the later field-only powerBasis, are
+  essential. Zero rings require the explicit separate degree case.
+- Algebra/MvPolynomial/Equiv.lean, lines 460–620 and 640–780, blob
+  `fdfc975d04badb9226183345a7558ee477649af0`: optionEquivLeft, its generator
+  maps, finSuccEquiv and finSuccEquiv_X_zero/X_succ. These expose the
+  outer-variable convention used in Section 3.
+- Algebra/MvPolynomial/Polynomial.lean, complete file, blob
+  `cdb9754b529c499e7b53514526df99addf91e186`: evaluation compatibility for
+  finSuccEquiv. Searches on current main were only leads, not pin evidence.
+
+The current native QuadraticPinch definitions, admitted generation/presentation
+forms and proved residue/conductor adapters were read. The general-R carrier
+and formal first-isomorphism/localization/normalization comparisons are NOT
+claimed to elaborate. The polynomial PID argument for field normality is a
+mathematical proof, not a newly inspected exact native normalization theorem.
+
+Read the complete issue before and after claim, the latest handoff and
+relevant canonical nodes/request/omission records, the seven-stage roadmap,
+and selected reviewed AUDIT-10 parent information. No direct PartII audit
+was located in that material. The parent review distinguishes scheme Neron
+objects from existing algebra/group-scheme ingredients. Upstream style and
+ownership reading in this working session included GrothendieckEulerForms
+and Multiquadratic, and the opening function-field/scheme boundary of
+EllipticCurves; this is not a fresh full read of every geometric supplier.
+No claim of a new exhaustive link-map or library-absence search is made.
+
+## 11. Validation and remaining scope
+
+The standalone program below executed **52,339 assertions**. It covers all
+200 monic quadratic coefficient choices over moduli 1,2,3,4,5,8,9, including
+the zero ring and rings with nilpotents, with nine random polynomial/module
+samples per choice. Monic division returns the full quotient and remainder
+and checks the polynomial identity independently of substitution. Entire
+finite coefficient boxes over F2 and F3 give 23,779 additional kernel tests.
+
+The 152 finite module cases use all a,b over F2,F3,F5 and C/(U^L), 1<=L<=4.
+Exact Gaussian ranks validate the full finite maps, complementing the
+composition and explicit preimage tests. Four hundred coefficient-reduction
+cases separately test multiplication and inclusion. Highlights: 1,800 each
+of full division identities, principal-ideal regressions, normalization
+coordinates, conductor comparisons, augmented relations and periodic
+composition/preimage checks; 152 nonflat kernel witnesses and rank checks.
+
+These are finite regressions, not a substitute for the general proofs,
+Lean elaboration, normalization of a scheme, or the geometric nodality
+comparison. The tests do not revalidate the inherited fourteen-model surface
+classification or its completeness certificates.
+
+Program SHA-256:
+`bf4d1cad82aa6e8ecaeb6c95cb435d888e832e50b9e88c294e304a1a23049fce`.
+JSON output SHA-256:
+`d57103c71cf92cc8ba5a5644fc29be912e130647f31348f3eeb42a5e55105f84`.
+
+**Lean was not compiled.** Available memory was about 3 GB, below WORKERS'
+20 GB threshold, and no existing pinned build was available. No project,
+cache retrieval, library build or language server was started. The local
+indexed checker and actual atlas assembly were not run; the canonical packet
+was not changed. Submission CI is a separate mechanical check, not an
+independent mathematical review. Historical compilation applies only to its
+own exact file/excerpt. No new formalization or stage closure is claimed.
+
+Resume by integrating Sections 2–4 into the existing generation/presentation
+and finite-normalization targets, with proof-sized helpers and native
+signatures, then Sections 5–8 into the conductor and nonflat-test interfaces.
+Preserve the variable convention and distinguish C-freeness from A-flatness.
+Finish actual scheme normalization/node/branch comparison, proper P1
+pinching and cohomology, the I1/I2 and field-extension maps, all space/gluing,
+canonical/wild, DVR/quasielliptic and model-resolution obligations, and the
+missing William Lang source/completeness work. The reserved general Ferrand
+key is not closed by this affine quadratic computation.
+
+## 12. Reproduction
+
+Run this standalone Python 3 program; only the standard library is used.
+
+```python
+"""Quadratic-pinch exact regressions. Standard library only; not Lean proofs."""
+from collections import Counter
+from itertools import product
+from random import Random
+import json
+
+counts=Counter(); rng=Random(3378); modulus=2; a=0; b=0; trunc=None
+
+def ck(name, assertion):
+    if not assertion: raise AssertionError((name,modulus,a,b,trunc))
+    counts[name]+=1
+
+def trim(f):
+    f=[x%modulus for x in f]
+    if trunc is not None: f=f[:trunc]
+    while f and f[-1]==0: f.pop()
+    return tuple(f)
+def add(f,g): return trim([(f[i] if i<len(f) else 0)+(g[i] if i<len(g) else 0) for i in range(max(len(f),len(g)))])
+def neg(f): return trim([-x for x in f])
+def sub(f,g): return add(f,neg(g))
+def mul(f,g):
+    h=[0]*max(0,len(f)+len(g)-1)
+    for i,x in enumerate(f):
+        for j,y in enumerate(g): h[i+j]+=x*y
+    return trim(h)
+def c(x): return trim([x])
+def shift(f,n=1): return trim([0]*n+list(f))
+def power(f,n):
+    h=c(1)
+    for _ in range(n): h=mul(h,f)
+    return h
+def eval_poly(f,x):
+    h=()
+    for v in reversed(f): h=add(mul(h,x),c(v))
+    return h
+def randpoly(n=5): return trim([rng.randrange(modulus) for _ in range(n)])
+def padd(z,w): return add(z[0],w[0]),add(z[1],w[1])
+def pneg(z): return neg(z[0]),neg(z[1])
+def pscale(f,z): return mul(f,z[0]),mul(f,z[1])
+def pmul(z,w,kind):
+    # B: t^2=U-a*t-b; A: V^2=U^3-a*U*V-b*U^2.
+    gj=mul(z[1],w[1]); u=shift(c(1))
+    d=sub(u,c(b)) if kind=='B' else sub(power(u,3),pscale(c(b),(power(u,2),()))[0])
+    e=c(a) if kind=='B' else pscale(c(a),(u,()))[0]
+    return add(mul(z[0],w[0]),mul(d,gj)), sub(add(mul(z[0],w[1]),mul(z[1],w[0])),mul(e,gj))
+def inc(z): return z[0],shift(z[1])
+def times_t(z): return mul(sub(shift(c(1)),c(b)),z[1]), sub(z[0],mul(c(a),z[1]))
+def pi(z): return padd(inc(z[0]),times_t(inc(z[1])))
+def normal_B(f):
+    out=((),()); tpower=(c(1),())
+    for coeff in f:
+        out=padd(out,pscale(c(coeff),tpower)); tpower=times_t(tpower)
+    return out
+
+def poly_t_from_B(z):
+    # Only call with no truncation: the argument is a pair of U-polynomials.
+    q=(b%modulus,a%modulus,1%modulus)
+    return add(eval_poly(z[0],q),shift(eval_poly(z[1],q)))
+def poly_t_from_A(z): return poly_t_from_B(inc(z))
+def normal_A_eval(f):
+    z=normal_B(f)
+    return (z[0],trim(z[1][1:])) if not z[1] or z[1][0]==0 else None
+
+def mvec(M,z):
+    return tuple(padd(pmul(M[i][0],z[0],'A'),pmul(M[i][1],z[1],'A')) for i in range(2))
+def matrices():
+    zero=((),()); u=shift(c(1)); v=((),c(1)); up=(u,()); d=(mul(u,sub(u,c(b))),())
+    psi=((pneg(v),pneg(d)),(up,padd(v,(mul(c(a),u),()))))
+    phi=((pneg(padd(v,(mul(c(a),u),()))),pneg(d)),(up,v))
+    return psi,phi
+
+def nf(P):
+    # Actual monic division in V: retain the entire quotient and remainder.
+    P={ij:x%modulus for ij,x in P.items() if x%modulus}; H={}
+    while any(j>=2 for i,j in P):
+        i,j=max((ij for ij in P if ij[1]>=2),key=lambda z:(z[1],z[0]))
+        x=P[(i,j)]; pos=(i,j-2); H[pos]=(H.get(pos,0)+x)%modulus
+        # subtract x U^i V^(j-2) (V^2+aUV+bU^2-U^3)
+        for di,dj,w in [(0,2,1),(1,1,a),(2,0,b),(3,0,-1)]:
+            key=(i+di,j-2+dj); P[key]=(P.get(key,0)-x*w)%modulus
+            if not P[key]: P.pop(key,None)
+    F=trim([P.get((i,0),0) for i in range(1+max((i for i,j in P),default=-1))])
+    G=trim([P.get((i,1),0) for i in range(1+max((i for i,j in P),default=-1))])
+    return (F,G),{ij:x for ij,x in H.items() if x}
+def mvadd(P,Q):
+    out=dict(P)
+    for ij,x in Q.items(): out[ij]=(out.get(ij,0)+x)%modulus
+    return {ij:x for ij,x in out.items() if x}
+def mvmul(P,Q):
+    out={}
+    for (i,j),x in P.items():
+        for (k,l),y in Q.items(): out[(i+k,j+l)]=(out.get((i+k,j+l),0)+x*y)%modulus
+    return {ij:x for ij,x in out.items() if x}
+def from_normal(z): return {(i,0):x for i,x in enumerate(z[0]) if x}|{(i,1):x for i,x in enumerate(z[1]) if x}
+def eval_mv(P):
+    q=trim([b,a,1]); tq=shift(q); out=()
+    for (i,j),x in P.items(): out=add(out,mul(c(x),mul(power(q,i),power(tq,j))))
+    return out
+
+ring_cases=0
+for modulus in [1,2,3,4,5,8,9]:
+    trunc=None
+    for a,b in product(range(modulus),repeat=2):
+        ring_cases+=1; F={(0,2):1,(1,1):a,(2,0):b,(3,0):-1}
+        for _ in range(9):
+            h=randpoly(13); z=normal_B(h)
+            ck('normalization_polynomial_basis',poly_t_from_B(z)==h)
+            f,g=randpoly(),randpoly(); zz=(f,g)
+            ck('pinch_normal_form_injective',normal_A_eval(poly_t_from_A(zz))==zz)
+            w=(randpoly(),randpoly())
+            ck('multiplication_diagonal_inclusion',inc(pmul(zz,w,'A'))==pmul(inc(zz),inc(w),'B'))
+            ck('polynomial_multiplication',poly_t_from_A(pmul(zz,w,'A'))==mul(poly_t_from_A(zz),poly_t_from_A(w)))
+            # Cokernel is the coefficient of t in the remainder modulo q.
+            delta=z[1][0] if z[1] else 0
+            projected=sub(h,shift(c(delta)))
+            ck('split_coefficient_cokernel',normal_A_eval(projected) is not None)
+            ck('conductor_membership',(normal_A_eval(poly_t_from_B(times_t(inc(zz)))) is not None)==(not f or f[0]==0))
+            P={(rng.randrange(5),rng.randrange(5)):rng.randrange(modulus) for _ in range(10)}
+            N,H=nf(P)
+            ck('monic_division_identity',mvadd(mvmul(F,H),from_normal(N))=={ij:x%modulus for ij,x in P.items() if x%modulus})
+            ck('normal_form_evaluation',eval_mv(P)==poly_t_from_A(N))
+            ck('kernel_equivalence_sample',(eval_mv(P)==())==(N==((),())))
+            ck('principal_ideal_sample',nf(mvmul(F,P))[0]==((),()))
+            psi,phi=matrices(); y=((randpoly(),randpoly()),(randpoly(),randpoly())); zero=(((),()),((),()))
+            syz=mvec(psi,y); syz2=mvec(phi,y)
+            ck('augmented_relation',pi(syz)==((),()))
+            ck('periodic_compositions',mvec(phi,syz)==zero and mvec(psi,syz2)==zero)
+            rec=((neg(syz[0][1]),()),(syz[1][1],()))
+            ck('kernel_augmentation_preimage',mvec(psi,rec)==syz)
+            rec2=((neg(syz2[0][1]),()),(syz2[1][1],()))
+            ck('kernel_psi_preimage',mvec(phi,rec2)==syz2)
+            # conductor qB has A-normal coordinates (U*f,g).
+            con=(shift(z[0]),z[1]); q=trim([b,a,1])
+            ck('conductor_multiplication_isomorphism',poly_t_from_A(con)==mul(q,h))
+
+# Entire finite coefficient boxes, not just random ideal elements.
+for modulus,bound in [(2,8),(3,6)]:
+    trunc=None; basis=[(i,j) for j in range(bound//3+1) for i in range(bound//2+1) if 2*i+3*j<=bound]
+    for a,b in product(range(modulus),repeat=2):
+        for coeff in product(range(modulus),repeat=len(basis)):
+            P={ij:x for ij,x in zip(basis,coeff) if x}; z,H=nf(P)
+            ck('exhaustive_presentation_box',(eval_mv(P)==())==(z==((),())))
+
+# Prime-field linear algebra validates entire finite module maps, not just samples.
+def rank(cols,p):
+    if not cols: return 0
+    A=[list(row) for row in zip(*cols)]; r=0
+    for j in range(len(cols)):
+        pivot=next((i for i in range(r,len(A)) if A[i][j]%p),None)
+        if pivot is None: continue
+        A[r],A[pivot]=A[pivot],A[r]; u=pow(A[r][j]%p,-1,p); A[r]=[(x*u)%p for x in A[r]]
+        for i in range(len(A)):
+            if i!=r and A[i][j]%p:
+                u=A[i][j]%p; A[i]=[(x-u*y)%p for x,y in zip(A[i],A[r])]
+        r+=1
+        if r==len(A): break
+    return r
+
+def flatpair(z,L): return tuple(z[0])+(0,)*(L-len(z[0]))+tuple(z[1])+(0,)*(L-len(z[1]))
+def flatvec(z,L): return flatpair(z[0],L)+flatpair(z[1],L)
+finite_cases=0
+for modulus in [2,3,5]:
+    for a,b in product(range(modulus),repeat=2):
+        for L in range(1,5):
+            finite_cases+=1; trunc=L; psi,phi=matrices(); columns_psi=[];columns_phi=[];columns_pi=[]
+            for i in range(4*L):
+                parts=[(),(),(),()]; parts[i//L]=trim([0]*(i%L)+[1]); z=((parts[0],parts[1]),(parts[2],parts[3]))
+                columns_psi.append(flatvec(mvec(psi,z),L));columns_phi.append(flatvec(mvec(phi,z),L));columns_pi.append(flatpair(pi(z),L))
+            ck('finite_cokernel_surjection',rank(columns_pi,modulus)==2*L)
+            ck('finite_augmented_exactness',rank(columns_psi,modulus)==2*L)
+            ck('finite_periodic_exactness',rank(columns_phi,modulus)==2*L)
+            # inclusion diag(1,U) has exactly one-dimensional kernel and cokernel.
+            inc_cols=[]
+            for i in range(2*L):
+                z=(trim([0]*i+[1]),()) if i<L else ((),trim([0]*(i-L)+[1]))
+                inc_cols.append(flatpair(inc(z),L))
+            ck('nonflat_inclusion_rank',rank(inc_cols,modulus)==2*L-1)
+            witness=((),trim([0]*(L-1)+[1]))
+            ck('nonflat_kernel_witness',witness!=((),()) and inc(witness)==((),()))
+
+# Arbitrary coefficient reduction, distinguished from quotienting by U on A.
+trunc=None
+for source,target in [(4,2),(8,4),(8,2),(9,3)]:
+    for _ in range(100):
+        modulus=source;a=rng.randrange(source);b=rng.randrange(source)
+        z=(randpoly(),randpoly());w=(randpoly(),randpoly());prod0=pmul(z,w,'A');image0=poly_t_from_A(z)
+        modulus=target;a%=target;b%=target
+        zz=(trim(z[0]),trim(z[1]));ww=(trim(w[0]),trim(w[1]))
+        ck('coefficient_base_change_product',pmul(zz,ww,'A')==(trim(prod0[0]),trim(prod0[1])))
+        ck('coefficient_base_change_inclusion',poly_t_from_A(zz)==trim(image0))
+
+print(json.dumps({'seed':3378,'quadratic_coefficient_cases':ring_cases,'coefficient_moduli':[1,2,3,4,5,8,9],
+'finite_module_cases':finite_cases,'checks':dict(counts),'total_assertions':sum(counts.values()),
+'scope':'Exact polynomial and finite-module regressions; not formal proofs or scheme/normalization verification'},sort_keys=True,indent=2))
+```
