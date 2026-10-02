@@ -1,0 +1,2019 @@
+# Stable reduction of curves and stable maps, Part II
+
+## Scope and execution state
+
+This is a **partial research checkpoint**, not an accepted or closed blueprint.
+It continues the parent StableReduction roadmap at its moduli-stack boundary.
+The parent owns nodal curve families, dualizing/cohomological curve theory,
+stability, family gluing, forgetting and contraction, and stable reduction over
+traits. Here those objects become moduli groupoids and stack morphisms; the
+parent is imported rather than planned a second time. Stable-map moduli are
+not constructed in this continuation.
+
+Every stage is partial. The packet records 83 declaration nodes, 72 API items,
+70 discriminating tests, 35 planets, 135 precise supplier requests and 15 gaps.
+There are nine inspected pinned-library declarations. Nothing is claimed
+formalized: every implementationStatus is unchecked. An open request is a
+dependency on a specification, not evidence that the mathematical library
+already contains its theorem.
+
+The two binding routes contribute nineteen Yuan items and two DGH items.
+The reserved moduli-curves node also serves the six key-definition consumers.
+Hurwitz spaces, their Sp/GSp torsors, pure mapping-class groups and tautological
+Chow-ring presentations remain with their existing consumer owners. The source
+proofs and missing foundations listed below must be reconciled before any stage
+can be called source_decomposed or closed.
+
+## Conventions and interfaces
+
+The genus and marking number are nonnegative integers with 2g−2+n>0 for pointed
+stable moduli. Markings are ordered, disjoint and contained in the relative
+smooth locus. Arithmetic genus is used on nodal fibres; a self-node contributes
+two flags on the normalization. Stability is the parent’s ampleness condition
+for the log-dualizing line. The moduli definition retains isomorphisms and
+automorphism groups over every base scheme. The smooth and stable flavours use
+one underlying interface. A classifying family is a map to this stack, not
+automatically a point of a scheme.
+
+Three objects have distinct meanings: the moduli stack, its coarse algebraic
+space, and a smooth-curve fine level scheme. Coarse points classify geometric
+isomorphism classes and forget inertia; a coarse universal curve is not supplied.
+The smooth stable stack is not evidence for smoothness of its coarse scheme.
+Full level N≥3 is prime to the characteristic, with a fixed trivialization of
+μ_N for a symplectic component. The homogeneous similitude interpretation over
+Z[1/N] retains multiplier components. DGH uses one component fixed by ζ_N.
+At a nodal boundary the Jacobian is semiabelian, so the smooth full-torsion-frame
+definition is not asserted to give a fine stable moduli scheme.
+
+The universal stable curve includes an arbitrary extra section, which can meet
+a node or collide with a marking. Knudsen expansion inserts a three-flag rational
+bridge at a node or a rational tail at a collision. It is inverse to forgetting
+the final mark and stabilizing. The total universal stack can be smooth over Z
+while its projection to moduli is nodal. The genus-zero tests are M̄₀,₃=Spec Z
+and M̄₀,₄=P¹, with smooth M₀,₄ obtained by deleting 0,1,∞. The genus-one
+stack retains the elliptic involution; it is not its coarse j-line.
+
+For g≥2 tricanonical embedding has degree6g−6, rank of sections5g−5,
+projective dimension5g−6 and Hilbert polynomial(6t−1)(g−1). The Hilbert locus
+also imposes the canonical polarization, not just that polynomial. Projective
+frames form a PGL(5g−5)-torsor and give the quotient-stack atlas. Properness
+uses the parent’s stable reduction and a stack valuative criterion allowing a
+finite extension of the trait field. The finite unramified diagonal uses stable
+model uniqueness, including nodal generic fibres.
+
+Boundary branches are chart-local node parameters. Normal crossings do not
+mean globally simple normal crossings: Δ₀ can have several branches at one
+curve. Normalization remembers a distinguished node and graph automorphisms,
+including the constant branch-exchange group in characteristic two. A separating
+clutching map can have multiple preimages even when the genera differ and there
+is a marking. For three nonisomorphic elliptic curves in a genus-three chain
+with a central marking, either outer tail gives a different preimage in
+M̄₁,₁×M̄₂,₂. Corollary3.9(b) of KnudsenII therefore requires independent
+review; the draft uses finite unramified clutching rather than that global
+closed-immersion claim. A chosen boundary branch has conormal L_a⊗L_b and
+normal first Chern class−ψ_a−ψ_b. Forgetting corrects the marking cotangent
+line by the positive collision divisor on the source.
+
+The Hodge vector bundle E=f_*ω has rank g; λ=det E is a line. Markings are
+not included in ω in this definition. Integral Noether means an isomorphism
+λ¹²≅⟨ω,ω⟩⊗O(Δ), not only an equality in rational Chow. Mumford’s rational
+GRR calculation is supplemented by torsion freeness of the complex stack Picard
+group and injection from the integral Picard group. Those arguments require
+geometric irreducibility and topology imports. The line-valued Deligne pairing
+is a separate missing foundational construction. Universal integral units are
+±1; an arbitrary family base can have other units. Thus semi-canonical refers
+to pullbacks of a universal integral choice. A generically smooth family pulls
+Δ back as a Cartier divisor; a constant nodal family does not. At a trait each
+node contributes its thickness, with residue degrees before splitting.
+
+The compactification construction retains more than the classifying image.
+Choose a projective compactification S̄₀ and a finite moduli scheme cover V.
+For W=S×_{M̄_g}V choose a component W₀ dominating integral S. Its map to
+S×V is finite and can remember several isomorphisms of the same two families.
+Close its image in S̄₀×V and normalize in K(W₀). This preserves the base
+coordinate and the finite function-field data, and its open part is the
+normalization of W₀. Closing only the image in V loses a positive-dimensional
+constant-family base. The resulting cover is finite surjective over S and its
+projective compactification carries the stable pullback family.
+
+Smooth Torelli takes a curve-level family to its relatively polarized Jacobian.
+Strong Torelli gives at most two geometric level preimages, with sign ambiguity
+on nonhyperelliptic curves. Hyperelliptic involution realizes sign change;
+genus2 is consequently injective on geometric points. Finite geometric fibres
+do not assert that the smooth Torelli morphism is finite. For maximal variation
+the coarse classifying map is generically quasi-finite onto its image; its
+composition with compactified Torelli is generically finite, so pullback of an
+ample rational Hodge line is nef and big. The all-characteristic boundary
+extension and the relative-family Jacobian require supplier extensions.
+
+Degree-d Picard parameters are fppf sheafified line classes. They are torsors
+under the relative Jacobian, not necessarily equipped with an origin or a
+universal line. Geometric algebraically closed field points can be described by
+triples (C,level,L). Over general bases a Brauer obstruction can prevent a
+global line bundle, and the triple groupoid still has scalar G_m inertia. A
+chosen section permits rigidification; an unpointed universal curve is not
+silently endowed with one.
+
+## Library baseline and ownership
+
+Mathlib is pinned to082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti to
+f790474821cf4256814db967cb154e7af3d0c369. The parent’s reviewed library audit,
+AUDIT02 and its accepted REV-AUDIT02, were read in full. The pinned source
+search found schemes, ring operations and categorical stack descent, but no
+stable pointed-family/moduli, curve-relative Picard, Hodge-line or Torelli
+declarations meeting the targets. A pseudofunctor IsStack predicate does not
+provide an algebraic-stack atlas or properness theorem. Searches covered both
+the declaration index and Mathlib/Tau Ceti source trees.
+
+The upstream StableReduction and JacobianChallenge reader documents were read
+in full for ownership and density. Supplier descriptions were read before use.
+JacobianChallenge layerD covers a field Picard problem; relative abelian-scheme
+duality does not supply a curve-family Jacobian. SF.5 covers intersection and
+GRR, not a complete nef-vector-bundle or Deligne-pairing theory. C5 has a
+good-prime level scope, not automatically an all-characteristic unlevel Torelli
+extension. These boundaries appear as rescope proposals and gaps, rather than
+as fictitious supplier theorems. The parent’s already planned curve cohomology,
+infinitesimal automorphisms, family pushouts and contractions have no duplicate
+nodes here.
+
+## Declaration-level layers
+
+Each declaration below gives its full planned mathematical statement, proof
+outline and graph prerequisites. Definitions and constructions include the API
+and tests a plausible wrong implementation would fail. Requests at a stage
+boundary remain open; the final sections enumerate what closure still needs.
+
+### MC.0. The pointed curve moduli problem
+
+For every g,n≥0 with 2g−2+n>0 construct the groupoid-valued moduli pseudofunctor of smooth or stable ordered n-pointed genus-g curves over arbitrary schemes, using the parent’s curve-family objects. Establish base-change coherence and effective descent; keep isomorphism groupoids distinct from their sets of isomorphism classes. Construct the universal family with an arbitrary additional section, including sections at a node or coinciding with an existing mark.
+
+**Status:** partial.
+
+#### Moduli stacks of pointed curves
+
+`StableReductionPartII:key/moduli-curves` — definition.
+
+Define a single moduli pseudofunctor CurvesModuli(ε,g,n), ε=smooth or stable, on schemes. Its fibre over S is the groupoid of parent curve families f:C→S, proper flat finitely presented of pure relative dimension one, with geometrically connected fibres of arithmetic genus g and an ordered list of n disjoint sections through the relative smooth locus. In the stable flavour fibres are nodal and ω_{C/S}(Σsᵢ) is relatively ample; the smooth flavour is the full subcategory with f smooth. Arrows are marking-preserving S-isomorphisms; pullback is scheme-theoretic base change with its canonical associator. Write M_{g,n} and M̄_{g,n}. This is a groupoid-valued functor; no coarse or fine representability is built into its definition.
+
+**Construction/proof.** (1) Use the parent’s stable-pointed and smooth-curve family data, without redefining stability. (2) Form the fibre groupoid using marking-preserving relative isomorphisms. (3) Use pullback universal properties to obtain coherent reindexing; the effective-descent assertion is a separate node.
+
+**Dependencies:** `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `SchemeAndStackFoundations:SF.1`, `mathlib:AlgebraicGeometry.Scheme`.
+
+**API.**
+
+- `CurvesModuli.obj` (data): The fibre groupoid over S has precisely the parent smooth/stable pointed families as objects.
+- `CurvesModuli.iso` (characterisation): Morphisms are exactly S-isomorphisms carrying every ordered marking to the marking of the same index.
+- `CurvesModuli.pullback` (functoriality): For T→S pull back the family and every section; identity and composition agree via coherent canonical isomorphisms.
+- `CurvesModuli.smoothInclusion` (projection): The smooth flavour is the full subcategory of the stable flavour on smooth families.
+- `CurvesModuli.geometricPoints` (characterisation): Over an algebraically closed field the objects and automorphism groups are those of pointed curves, not only isomorphism classes.
+
+**Discriminating tests.**
+
+- `CurvesModuli.rationalThree` (computation): Over an algebraically closed field the smooth three-pointed rational curve has a unique isomorphism to (P¹;0,1,∞) and trivial automorphism group.
+- `CurvesModuli.rationalTwoExcluded` (non-example): (P¹;0,∞) fails the stable-range condition and has a positive-dimensional automorphism group.
+- `CurvesModuli.ellipticInvolution` (non-example): In characteristic zero a pointed elliptic curve (E,0) has the nontrivial automorphism [−1]; its fibre groupoid is not a discrete set.
+- `CurvesModuli.selfNodeFlags` (compatibility): An irreducible rational nodal curve with one smooth marking is stable of arithmetic genus one: the normalization has three special flags.
+
+**Uses.** KEYDEF-algebraicgeometry: algebraicgeometry/moduli-curves, six cited papers; PAPER-YUAN-26/69 and PAPER-DIMITROV-GAO-HABEGGER-21/10; PAPER-CANNING-LARSON-PAYNE-24/2; PAPER-CHEN-24/1; PAPER-LANDESMAN-LITT-24/9; PAPER-ABDURRAHMAN-VENKATESH-25/54.
+
+**Acceptance:** The genus-zero stable range begins at n=3; a two-pointed rational curve is excluded. A self-node contributes two normalization flags to stability.
+
+**Source:** knudsen2, Definitions1.1–1.2,pp.162–164.
+
+#### Pullback coherence for pointed moduli
+
+`StableReductionPartII:MC.0/pullback-coherence` — lemma.
+
+The canonical isomorphisms (C×_S T)×_T U≅C×_S U and C×_S S≅C preserve all markings and satisfy the pentagon and unit identities, defining the moduli pseudofunctor on arbitrary schemes.
+
+**Construction/proof.** (1) Use the unique morphisms supplied by pullback universal properties; their composites have equal projections, hence agree. (2) Import the parent’s base-change preservation of geometric genus, nodality, smooth sections and log-dualizing ampleness.
+
+**Dependencies:** `StableReductionPartII:key/moduli-curves`, `SchemeAndStackFoundations:SF.0`.
+
+**Acceptance:** Composition is coherent, not asserted definitionally equal.
+
+**Source:** knudsen2, Definition1.2,p.164.
+
+#### Effective descent of pointed stable curves
+
+`StableReductionPartII:MC.0/effective-descent` — theorem.
+
+CurvesModuli(ε,g,n) has effective fppf descent of objects and isomorphisms, hence is a stack; compare with Mathlib’s pseudofunctor IsStack predicate rather than asserting this predicate supplies an algebraic atlas.
+
+**Construction/proof.** (1) Descend the relatively ample log-dualizing line with the family by polarized-scheme descent. (2) Descend the ordered sections and their disjoint smooth-locus condition. (3) Use the parent’s geometric-fibre and base-change characterizations to descend the fixed-genus and stability conditions.
+
+**Dependencies:** `StableReductionPartII:MC.0/pullback-coherence`, `SchemeAndStackFoundations:SF.1`, `AlgebraicModuliForArithmeticGeometry:R09.3`, `mathlib:CategoryTheory.Pseudofunctor.IsStack`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
+
+**Acceptance:** Do not replace the fibre groupoid by isomorphism classes before descent.
+
+**Source:** knudsen2, Definition1.2,p.164; §2.
+
+#### The universal curve with an arbitrary extra section
+
+`StableReductionPartII:MC.0/universal-curve` — construction.
+
+Define Z̄_{g,n} over M̄_{g,n} by an object (C/S;s₁,…,sₙ;Δ), where Δ:S→C is an arbitrary additional section. It may hit a node or an old marking. For S→M̄_{g,n} classified by C/S, the fibre product S×_{M̄} Z̄ is canonically C. This representable proper flat nodal morphism is the universal curve; it is smooth over the smooth base only after restricting the total space to smooth fibres.
+
+**Construction/proof.** (1) The groupoid of pairs (T→S, a section of C_T/T) is the representable fibre category of C. (2) Use its universal property to construct the canonical relative scheme and pullback square. (3) The smooth-universal family is the base change to M_{g,n}; the universal total stack can be smooth over Z even though its projection is nodal.
+
+**Dependencies:** `StableReductionPartII:key/moduli-curves`, `StableReductionPartII:MC.0/pullback-coherence`, `SchemeAndStackFoundations:SF.1`.
+
+**API.**
+
+- `UniversalCurve.fiber` (universal-property): S×_{M̄} Z̄≅C for every classifying family C/S.
+- `UniversalCurve.section` (projection): An S-object of Z̄ over C is an arbitrary section Δ of C/S.
+- `UniversalCurve.baseChange` (functoriality): The representing isomorphism is natural in S and respects the pointed-family cocycle.
+
+**Discriminating tests.**
+
+- `UniversalCurve.nodeAllowed` (degenerate): An extra section at the node of an irreducible one-pointed rational genus-one stable curve is allowed.
+- `UniversalCurve.collisionAllowed` (non-example): The extra section may equal s₁; imposing disjointness would give only an open part of the universal curve.
+- `UniversalCurve.smoothFiber` (compatibility): Over a smooth curve over an algebraically closed field, the fibre is the whole smooth proper curve.
+
+**Uses.** StableReductionPartII:MC.1/frame-torsor; StableReductionPartII:MC.2/expansion; StableReductionPartII:MC.3/cotangent-line; StableReductionPartII:MC.4/finite-projective-cover; StableReductionPartII:MC.5/hodge-bundle.
+
+**Acceptance:** The universal projection is not a smooth morphism at a node.
+
+**Source:** knudsen2, Definition1.2,p.164.
+
+**To close this layer.**
+
+- Resolve stable-family descent/type suppliers and supply Lean moduli-pseudofunctor signatures.
+- Check literal Knudsen source excerpts and arbitrary-scheme approximation.
+
+
+### MC.1. The unpointed Deligne–Mumford construction
+
+For g≥2 construct the tricanonical Hilbert locus with polynomial (6t−1)(g−1), identify its projective-frame torsor and quotient stack, and prove representability, finiteness and unramifiedness of the diagonal. Import the parent’s infinitesimal automorphism vanishing and compute the obstruction space, algebraize versal deformations and obtain independent node-smoothing parameters. Deduce a smooth proper Deligne–Mumford stack over Z of relative dimension 3g−3 with relative normal-crossings boundary.
+
+**Status:** partial.
+
+#### Tricanonical Hilbert polynomial and frame rank
+
+`StableReductionPartII:MC.1/tricanonical-cohomology` — application.
+
+Apply the parent’s pluricanonical vanishing, very-ampleness and cohomology/base-change API to a stable genus-g curve, g≥2. Its tricanonical direct image has rank 5g−5, the embedding is into P^{5g−6}, its degree is 6g−6 and its Hilbert polynomial is (6t−1)(g−1). These are the numerical inputs to the Hilbert moduli construction, not a second development of the parent’s curve cohomology.
+
+**Construction/proof.** (1) Import the parent’s m≥2 vanishing and m≥3 very-ampleness with arbitrary-base-change locally free direct images. (2) Compute the degree of ω³ from deg ω=2g−2 and its Hilbert polynomial and rank by the parent’s Riemann–Roch.
+
+**Dependencies:** `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `AlgebraicModuliForArithmeticGeometry:R09.1`.
+
+**Acceptance:** For m=3 the rank is 5g−5 and the projective dimension is 5g−6.
+
+**Source:** dm, Theorem1.2 and corollary,pp.77–78.
+
+#### The tricanonical Hilbert locus
+
+`StableReductionPartII:MC.1/tricanonical-hilbert` — construction.
+
+For g≥2 let U_g be the locally closed locus in Hilb(P^{5g−6}_Z) with Hilbert polynomial (6t−1)(g−1) whose universal fibres are stable connected genus-g curves and whose hyperplane sheaf is ω³ with the complete basis of global sections. Its universal family and projective-frame interpretation identify U_g with tricanonically framed stable families. The canonical-line condition is included, not merely the Hilbert polynomial.
+
+**Construction/proof.** (1) Use the universal flat Hilbert family with the stated polynomial. (2) Cut out the stable open locus and the canonical-polarization/frame condition using relative line-bundle comparison and base change. (3) The representing functor includes projective frames, hence a PGL(5g−5)-action.
+
+**Dependencies:** `StableReductionPartII:MC.1/tricanonical-cohomology`, `AlgebraicModuliForArithmeticGeometry:R09.2`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`.
+
+**API.**
+
+- `TricanonicalHilbert.universal` (data): Pull back the universal embedded stable curve with O(1)≅ω³.
+- `TricanonicalHilbert.frame` (characterisation): S-points identify with stable families equipped with a projective frame of f_*ω³.
+- `TricanonicalHilbert.action` (structure): PGL(5g−5) acts by changing the projective frame and preserves the locus.
+
+**Discriminating tests.**
+
+- `TricanonicalHilbert.genusTwo` (computation): For g=2 the embedding is in P⁴, has degree6, and Hilbert polynomial6t−1.
+- `TricanonicalHilbert.wrongPolarization` (non-example): The Hilbert polynomial alone does not impose the isomorphism O(1)≅ω³.
+- `TricanonicalHilbert.pullback` (compatibility): A base change of a framed family corresponds to the base change of its point of U_g.
+
+**Uses.** StableReductionPartII:MC.1/frame-torsor; StableReductionPartII:MC.4/finite-degree-equations.
+
+**Acceptance:** A curve with the same Hilbert polynomial but the wrong polarization is excluded.
+
+**Source:** dm, p.78, definition of H_g.
+
+#### The projective-frame torsor
+
+`StableReductionPartII:MC.1/frame-torsor` — theorem.
+
+For a stable genus-g family C/S, g≥2, the fibre product S×_{M̄_g} U_g is the PGL(5g−5)-torsor of projective frames of P(f_*ω³); it is representable smooth and surjective over S.
+
+**Construction/proof.** (1) Use the framed representing property and locally free base change. (2) Trivialize f_*ω³ locally; transitions are projective linear maps. (3) Import the smoothness of PGL over Z and descent of a torsor.
+
+**Dependencies:** `StableReductionPartII:MC.1/tricanonical-hilbert`, `StableReductionPartII:MC.0/universal-curve`, `AlgebraicModuliForArithmeticGeometry:R09.4`.
+
+**Acceptance:** The torsor need not have a global section.
+
+**Source:** dm, Proposition5.1 proof,p.104.
+
+#### Hilbert quotient presentation
+
+`StableReductionPartII:MC.1/hilbert-quotient` — theorem.
+
+For g≥2 the natural morphism [U_g/PGL(5g−5)]→M̄_g is an equivalence of stacks; it gives a finite-type smooth atlas and does not require a GIT coarse quotient.
+
+**Construction/proof.** (1) An equivariant family descends through the projective-frame torsor by effective descent. (2) Every stable family acquires a frame locally; marking-free isomorphisms are exactly the descended arrows.
+
+**Dependencies:** `StableReductionPartII:MC.1/frame-torsor`, `StableReductionPartII:MC.0/effective-descent`, `AlgebraicModuliForArithmeticGeometry:R09.4`.
+
+**Acceptance:** Keep quotient stack and coarse quotient distinct.
+
+**Source:** dm, Proposition5.1,p.104.
+
+#### Representability of the Isom functor
+
+`StableReductionPartII:MC.1/isom-representable` — theorem.
+
+For two stable genus-g families g≥2 over S, Isom_S(C,D) is represented by a quasi-projective S-scheme of finite presentation, compatible with arbitrary base change; a marked Isom functor is its closed subfunctor imposing equality of each ordered section.
+
+**Construction/proof.** (1) Apply polarized relative Isom representability to the canonical polarization. (2) For markings use the closed equalizers of their evaluations on the separated target family.
+
+**Dependencies:** `StableReductionPartII:MC.1/tricanonical-cohomology`, `AlgebraicModuliForArithmeticGeometry:R09.2`, `SchemeAndStackFoundations:SF.0`.
+
+**Acceptance:** The representing object is not the set of geometric isomorphism classes.
+
+**Source:** dm, Definition1.10 and paragraph after it,p.84.
+
+#### Unramified Isom scheme
+
+`StableReductionPartII:MC.1/isom-unramified` — theorem.
+
+The stable-curve Isom scheme is unramified over its base, including in positive characteristic; its geometric tangent spaces at automorphisms vanish.
+
+**Construction/proof.** (1) Identify first-order automorphisms with vector fields. (2) Use vanishing and the finite-presentation infinitesimal criterion for unramifiedness.
+
+**Dependencies:** `StableReductionPartII:MC.1/isom-representable`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `SchemeAndStackFoundations:SF.0`.
+
+**Acceptance:** No characteristic-zero assumption is used.
+
+**Source:** dm, Theorem1.11 proof,p.84.
+
+#### Properness of stable-curve Isom
+
+`StableReductionPartII:MC.1/isom-proper` — theorem.
+
+The stable-curve Isom scheme is proper over the base. For a trait any generic-fibre isomorphism between stable models extends uniquely; do not require the generic fibre to be smooth in the final theorem.
+
+**Construction/proof.** (1) Use the parent’s uniqueness of stable models, with limit/descent to the required noetherian test setting. (2) Apply the scheme valuative criterion to the Isom scheme; the source’s smooth-generic test reduction requires the universal density argument, not an assumption on every trait.
+
+**Dependencies:** `StableReductionPartII:MC.1/isom-representable`, `tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction`, `tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction`, `SchemeAndStackFoundations:SF.0`.
+
+**Acceptance:** The final Isom theorem includes singular generic stable curves.
+
+**Source:** dm, Theorem1.11 and Lemma1.12,pp.84–85.
+
+#### Finite unramified diagonal
+
+`StableReductionPartII:MC.1/finite-unramified-diagonal` — theorem.
+
+The diagonal of M̄_g, g≥2, is representable finite and unramified; hence the stack is separated Deligne–Mumford of finite type over Z.
+
+**Construction/proof.** (1) Unramified finite presentation is quasi-finite; proper quasi-finite implies finite. (2) Identify diagonal fibres with the Isom schemes and apply the smooth-atlas/unramified-diagonal DM criterion.
+
+**Dependencies:** `StableReductionPartII:MC.1/hilbert-quotient`, `StableReductionPartII:MC.1/isom-unramified`, `StableReductionPartII:MC.1/isom-proper`, `AlgebraicModuliForArithmeticGeometry:R09.4`, `SchemeAndStackFoundations:SF.0`.
+
+**Acceptance:** Finite inertia follows; it does not imply a fine coarse moduli scheme.
+
+**Source:** dm, Theorem1.11;Proposition5.1,p.104.
+
+#### Vanishing of stable-curve obstruction space
+
+`StableReductionPartII:MC.1/obstruction-vanishing` — theorem.
+
+For a geometric nodal curve C, Ext²(Ω_C,O_C)=0. The local-to-global map Ext¹(Ω_C,O_C)→⊕_nodes Ext¹_{O_C,x}(Ω_C,x,O_C,x) is surjective.
+
+**Construction/proof.** (1) Use the lci nodal two-term resolution and local Ext sheaves supported at finitely many nodes. (2) Apply the local-to-global Ext spectral sequence and H²=0 on curves; H¹ of a finite-support sheaf vanishes.
+
+**Dependencies:** `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `AlgebraicModuliForArithmeticGeometry:R09.6`.
+
+**Acceptance:** Obstructions vanish, while one independent smoothing parameter remains per node.
+
+**Source:** dm, Lemma1.3 and Proposition1.5,pp.79–82.
+
+#### Independent node-smoothing parameters
+
+`StableReductionPartII:MC.1/versal-node-parameters` — theorem.
+
+For a geometric stable genus-g curve g≥2 with r nodes, a versal deformation over the complete unramified coefficient ring has formally smooth base with 3g−3 variables and local node equations uv=tᵢ for r distinct parameters; the framed base has an additional dim PGL(5g−5) smooth factor. The parameters are chart-local and may be permuted by stabilizers.
+
+**Construction/proof.** (1) The local node deformation has one smoothing coordinate per node. (2) Surjectivity of the global-to-local tangent map and obstruction vanishing give a smooth lifting map. (3) Use the parent’s curve Riemann–Roch dimension and formal algebraization with ample ω³.
+
+**Dependencies:** `StableReductionPartII:MC.1/obstruction-vanishing`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `StableReductionPartII:MC.1/tricanonical-cohomology`, `AlgebraicModuliForArithmeticGeometry:R09.6`.
+
+**Acceptance:** An automorphism can permute node parameters; no globally chosen ordering of nodes is asserted.
+
+**Source:** dm, Proposition1.5 and Theorem1.6,pp.81–83.
+
+#### Smooth moduli of dimension 3g−3
+
+`StableReductionPartII:MC.1/smooth-dimension` — theorem.
+
+For g≥2, M̄_g→Spec Z is smooth of relative dimension 3g−3, and M_g is its dense open substack of smooth curves.
+
+**Construction/proof.** (1) Translate the versal smooth formal rings to atlas smoothness by the finite-presentation formal criterion. (2) Smooth fibres correspond to all tᵢ≠0, a dense open in every versal chart.
+
+**Dependencies:** `StableReductionPartII:MC.1/finite-unramified-diagonal`, `StableReductionPartII:MC.1/versal-node-parameters`, `AlgebraicModuliForArithmeticGeometry:R09.6`.
+
+**Acceptance:** The total universal curve is smooth over Z, while its projection to moduli is nodal.
+
+**Source:** dm, Corollary1.7;Theorem5.2,pp.83,104–105.
+
+#### Relative normal-crossings boundary
+
+`StableReductionPartII:MC.1/normal-crossing-boundary` — theorem.
+
+For g≥2 the boundary Δ=M̄_g minus M_g is an effective Cartier divisor with relative normal crossings over Z: on an étale local regular chart its equation is a unit times ∏_{i=1}^r tᵢ. Its global irreducible components need not be smooth and the divisor need not have simple normal crossings.
+
+**Construction/proof.** (1) In the node charts the family is singular exactly when one of the smoothing parameters vanishes. (2) Use the independent parameters to prove the relative Cartier and normal-crossings condition étale locally.
+
+**Dependencies:** `StableReductionPartII:MC.1/smooth-dimension`, `StableReductionPartII:MC.1/versal-node-parameters`, `SchemeAndStackFoundations:SF.0`.
+
+**Acceptance:** Two nonseparating nodes can give two branches of Δ₀ through one point.
+
+**Source:** dm, Definition1.8;Corollary1.9;Theorem5.2,pp.83,104–105.
+
+#### Properness from stable reduction
+
+`StableReductionPartII:MC.1/proper-moduli` — theorem.
+
+For g≥2 M̄_g→Spec Z is proper as a morphism of algebraic stacks. The existence test permits a finite extension of the trait fraction field; the separatedness test uses unique isomorphism extension.
+
+**Construction/proof.** (1) Import the parent’s stable-reduction existence over a finite DVR extension and uniqueness. (2) Apply the stack valuative criterion with extension allowed; ordinary scheme IsProper is not a replacement for this criterion.
+
+**Dependencies:** `StableReductionPartII:MC.1/finite-unramified-diagonal`, `tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction`, `AlgebraicModuliForArithmeticGeometry:R09.4`.
+
+**Acceptance:** A family can require a finite ramified extension to acquire a stable model.
+
+**Source:** dm, Theorem5.2 proof and criterion4.19,pp.103–105.
+
+**To close this layer.**
+
+- Read the stack valuative and algebraization arguments in DM §§2–4 at full depth.
+- Resolve Hilbert/Isom/deformation suppliers and separate each nonroutine formal-to-algebraic criterion.
+
+
+### MC.2. Universal curves and the full pointed stable range
+
+Identify the universal stable curve over the (g,n)-stack with the (g,n+1)-stack by contraction and expansion, including collision and node charts. Prove the inverse comparison and arbitrary-base-change compatibility. Establish the genus-zero base (0,3), the genus-one base (1,1), and the resulting smooth proper Deligne–Mumford theorem of relative dimension 3g−3+n for every stable pair. Compute M₀,₃, M₀,₄ and its compactification and the unstable rational-tail contraction.
+
+**Status:** partial.
+
+#### The binary quadratic node form
+
+`StableReductionPartII:MC.2/binary-node-form` — definition.
+
+For a commutative ring A and γ,δ∈A define q_{γ,δ}(x,y)=x²+γxy+δy². Its nondegeneracy condition is that γ²−4δ is a unit. Over a field this describes a possibly nonsplit ordinary double point, including characteristic two. The definition is the polynomial form; the discriminant condition is an explicit hypothesis, not an arbitrary predicate field.
+
+**Construction/proof.** (1) Construct the polynomial and its evaluation using the existing ring operations. (2) Use the determinant of its derivative coefficient matrix for the discriminant; the lifting lemma is a separate node.
+
+**Dependencies:** `mathlib:CommRing`, `mathlib:RingHom`, `mathlib:IsUnit`.
+
+**API.**
+
+- `NodeForm.eval` (simp): q(x,y)=x²+γxy+δy².
+- `NodeForm.map` (functoriality): For a ring map φ, φ(q(x,y))=q_{φγ,φδ}(φx,φy).
+- `NodeForm.linearCorrection` (relation): For ε²=0 and f=(γ²−4δ)(xu+yv), the explicit coordinate changes μ=−2δu+γv and ν=γu−2v give q(x+εμ,y+εν)=q(x,y)+εf. This ring identity specializes to formal power series; expressing a zero-constant series as xu+yv is the separate algebraic input.
+
+**Discriminating tests.**
+
+- `NodeForm.split` (computation): q_{0,−1}(x,y)=x²−y²; this is nondegenerate when2 is invertible.
+- `NodeForm.characteristicTwo` (computation): Over a characteristic-two field q_{1,0}=x²+xy has unit discriminant1 and two distinct branches.
+- `NodeForm.doubleLineExcluded` (non-example): q_{0,0}=x² has discriminant0 and is excluded from the nondegenerate node hypothesis.
+
+**Uses.** StableReductionPartII:MC.2/small-extension-coordinate-correction; StableReductionPartII:MC.2/pointed-node-normal-form; StableReductionPartII:MC.2/node-matrix-factorization; StableReductionPartII:MC.2/node-factorization-products; StableReductionPartII:MC.2/node-factorization-exact.
+
+**Acceptance:** No division by2 is used.
+
+**Source:** knudsen2012, Definition1.1,pp.4–5.
+
+#### Coordinate correction over a small extension
+
+`StableReductionPartII:MC.2/small-extension-coordinate-correction` — theorem.
+
+Let A be a commutative ring, ε²=0, and d=γ²−4δ a unit. Every zero-constant-term series f=d(xu+yv) admits μ=−2δu+γv and ν=γu−2v such that q(x+εμ,y+εν)=q(x,y)+εf. The identity works also in characteristic two.
+
+**Construction/proof.** (1) Expand the two squares and the cross term. (2) Terms with ε² vanish; the remaining coefficient is d(xu+yv).
+
+**Dependencies:** `StableReductionPartII:MC.2/binary-node-form`.
+
+**Acceptance:** Whenγ=1 and char2 the formulas still give the required correction.
+
+**Source:** knudsen2012, Lemma2.6 and proof,pp.8–9.
+
+#### Normal form of a pointed nodal deformation
+
+`StableReductionPartII:MC.2/pointed-node-normal-form` — theorem.
+
+Let Λ be complete noetherian local with residue field k and let q over k have unit discriminant. The pointed node k[[x,y]]/(q), with x,y↦0, has a formally versal hull A_pd=Λ[[s,t]] and R_pd=A_pd[[x,y]]/(q̃(x,y)−q̃(s,t)), with section x↦s,y↦t. The tangent map is an isomorphism k²→k². This is a hull, not a claim that the deformation groupoid is represented by a fine scheme.
+
+**Construction/proof.** (1) Use power-series division by a monic quadratic to express each element uniquely as f(y)+xg(y); flatness of noetherian formal power-series rings gives flatness of R_pd. (2) Lift pointed coordinates across a small extension and use coordinate correction to remove the error. (3) Use flatness and nilpotent Nakayama to show that the resulting surjective map has zero kernel. (4) Compute the tangent pair from the images of x,y under the section.
+
+**Dependencies:** `StableReductionPartII:MC.2/binary-node-form`, `StableReductionPartII:MC.2/small-extension-coordinate-correction`, `AlgebraicModuliForArithmeticGeometry:R09.6`.
+
+**Acceptance:** Do not assert absence of automorphisms in the pointed-node deformation groupoid.
+
+**Source:** knudsen2012, Proposition2.1 and Lemmas2.5,2.7–2.9,pp.6–10.
+
+#### The node-section matrix factorization
+
+`StableReductionPartII:MC.2/node-matrix-factorization` — construction.
+
+For a commutative ring A and γ,δ,x,y,s,t∈A define Φ=((δy+δt+γx,x+s+γt);(−(x−s),y−t)) and Ψ=((y−t,−(x+s+γt));(x−s,δy+δt+γx)). These explicit matrices constitute the special node-section factorization; their polynomial product relation and the noetherian nodal exactness theorem are separate nodes. No unit-discriminant hypothesis is needed to form the matrices.
+
+**Construction/proof.** (1) Use the pinned Matrix.of to form the two matrices from their four entries. (2) The product relation and exactness are separate applications; forming the two matrices does not depend on those proofs.
+
+**Dependencies:** `StableReductionPartII:MC.2/binary-node-form`, `mathlib:Matrix`, `mathlib:Matrix.of`, `mathlib:Matrix.scalar`.
+
+**API.**
+
+- `NodeSectionFactorization.left` (projection): The left matrix is Φ with the stated entries.
+- `NodeSectionFactorization.right` (projection): The right matrix is Ψ with the stated entries.
+- `NodeSectionFactorization.products` (relation): ΦΨ=ΨΦ=(q(x,y)−q(s,t))I₂.
+- `NodeSectionFactorization.cokernels` (characterisation): Modulo w the two cokernels identify with J and J∨ through the explicit maps.
+
+**Discriminating tests.**
+
+- `NodeSectionFactorization.atOrigin` (computation): At s=t=0 the left matrix has entries (δy+γx,x;−x,y), the explicit specialization used for the node ideal.
+- `NodeSectionFactorization.characteristicTwo` (compatibility): The same product identities hold when2=0 andγ=1.
+- `NodeSectionFactorization.repeatedRootExcluded` (non-example): The geometric node conclusions require unit discriminant; the raw matrix product identity alone does not exclude a double line.
+
+**Uses.** StableReductionPartII:MC.2/node-factorization-products; StableReductionPartII:MC.2/node-factorization-exact.
+
+**Acceptance:** The general Eisenbud regular-local MCM equivalence is not needed.
+
+**Source:** knudsen2012, §3,pp.11–12.
+
+#### Products of the explicit node matrices
+
+`StableReductionPartII:MC.2/node-factorization-products` — theorem.
+
+For a commutative ring A and arbitrary γ,δ,x,y,s,t∈A, the displayed Φ and Ψ satisfy ΦΨ=ΨΦ=(q(x,y)−q(s,t))I₂. This polynomial identity needs neither noetherianity nor the unit-discriminant hypothesis.
+
+**Construction/proof.** (1) Compute the two off-diagonal entries as zero. (2) Each diagonal entry is δ(y²−t²)+γx(y−t)+(x+s+γt)(x−s)=q(x,y)−q(s,t).
+
+**Dependencies:** `StableReductionPartII:MC.2/binary-node-form`, `StableReductionPartII:MC.2/node-matrix-factorization`, `mathlib:Matrix.mul_apply`.
+
+**Acceptance:** The identity specializes in characteristic two.
+
+**Source:** knudsen2012, §3,pp.11–12.
+
+#### Exactness of the node-section complex
+
+`StableReductionPartII:MC.2/node-factorization-exact` — theorem.
+
+For noetherian A and unit discriminant in the pointed quadratic model R=A[x,y]/(q(x,y)−q(s,t)), the alternating Φ,Ψ complex and its dual are exact. Their two cokernels identify with the section ideal J and its dual through the explicit maps κ and λ of Knudsen2012 Proposition3.1.
+
+**Construction/proof.** (1) The polynomial w is monic in x, hence regular even when A has zero-divisors. (2) Reduce representatives to f(y)+xg(y) and compute the kernels of κ and λ. (3) The same calculation for the transposed factorization identifies the dual kernels.
+
+**Dependencies:** `StableReductionPartII:MC.2/node-matrix-factorization`, `StableReductionPartII:MC.2/node-factorization-products`, `StableReductionPartII:MC.2/binary-node-form`.
+
+**Acceptance:** A need not be regular; no general MCM equivalence is invoked.
+
+**Source:** knudsen2012, Proposition3.1 and proof,pp.11–12.
+
+#### Dual ideal of an arbitrary nodal section
+
+`StableReductionPartII:MC.2/dual-section-ideal` — theorem.
+
+For a nodal family C/S over a locally noetherian base and an arbitrary section Δ with ideal J, J is stably reflexive, formation of J∨ and J∨/O_C commutes with arbitrary base change, and Δ*(J∨/O_C) is an invertible sheaf. In the local quadratic model J∨ is generated by1 and ε=(x+s+γt)/(y−t) in the total quotient ring, and J∨/R≅A via the class of ε.
+
+**Construction/proof.** (1) Use the matrix complex to compute the dual and its quotient in the local nodal model. (2) Apply the source’s flat-completion and faithful-descent comparison to transfer the calculation to the local family. (3) Use the invertible-ideal calculation at smooth points and descend the fibrewise-compatible local identifications.
+
+**Dependencies:** `StableReductionPartII:MC.2/pointed-node-normal-form`, `StableReductionPartII:MC.2/node-factorization-exact`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `SchemeAndStackFoundations:SF.1`.
+
+**Acceptance:** Do not strengthen this to J·J∨=J throughout a smoothing family: that equality holds only on the nodal-section locus.
+
+**Source:** knudsen2012, Proposition3.1,Corollary3.2 and §4,pp.12–13.
+
+#### Expansion at an arbitrary extra section
+
+`StableReductionPartII:MC.2/expansion` — construction.
+
+Given a stable ordered n-pointed family and an arbitrary section Δ, form K=coker(O_C→J_Δ∨⊕O_C(Σsᵢ)), with diagonal inclusion, and C^s=Proj_C Sym K. The two quotient maps at each old section and at Δ define the lifted ordered n+1 sections. This construction commutes with base change and is functorial under pointed isomorphisms. At a smooth new point it changes nothing, at a collision it inserts a marked rational tail, and at a node it inserts a marked rational bridge.
+
+**Construction/proof.** (1) Form the coherent cokernel and the relative symmetric algebra. (2) Use the quotient line bundles along all sections to construct their lifts to relative Proj. (3) Apply the dual-ideal base-change comparison to transport the entire cokernel/Proj construction; stability and flatness are separate conclusions.
+
+**Dependencies:** `StableReductionPartII:MC.0/universal-curve`, `StableReductionPartII:MC.2/dual-section-ideal`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `AlgebraicModuliForArithmeticGeometry:R09.1`.
+
+**API.**
+
+- `PointedExpansion.scheme` (data): The new family is Proj_C Sym K with the specified cokernel K.
+- `PointedExpansion.markings` (projection): Lift all old ordered marks and Δ using the specified invertible quotients.
+- `PointedExpansion.baseChange` (functoriality): Pullback of the expansion identifies canonically with expansion of the pulled-back family.
+
+**Discriminating tests.**
+
+- `PointedExpansion.newSmoothPoint` (computation): For Δ disjoint from old marks and contained in the smooth locus, C^s≅C.
+- `PointedExpansion.collidingPoint` (degenerate): For Δ=s₁, the new fibre has a P¹ tail carrying the two distinct lifts of s₁ and Δ.
+- `PointedExpansion.nodalPoint` (compatibility): For Δ at a node, the new fibre has a P¹ bridge with two attachment points and a third point given by the new mark.
+
+**Uses.** StableReductionPartII:MC.2/expansion-flat; StableReductionPartII:MC.2/expansion-stable.
+
+**Acceptance:** An arbitrary extra section is not assumed Cartier.
+
+**Source:** knudsen2012, Introduction,pp.2–3;Theorem5.1,p.13.
+
+#### Flatness of the expanded family
+
+`StableReductionPartII:MC.2/expansion-flat` — theorem.
+
+The expanded C^s/S is flat of finite presentation. At a nodal section its two affine charts are the rings (4),(5) in Knudsen2012 §5; the first has an explicit free A-module monomial basis and the second is flat after inverting δx²−γx+1, and these opens cover.
+
+**Construction/proof.** (1) Use the explicit presentation of Sym J∨ from the matrix factorization. (2) Eliminate one old coordinate in each Proj chart; monic reduction gives the claimed free basis. (3) The remaining open is a localization of A[x]. The cover proves flatness; handle collisions by the marked smooth local chart from KnudsenII Theorem2.4.
+
+**Dependencies:** `StableReductionPartII:MC.2/expansion`, `StableReductionPartII:MC.2/pointed-node-normal-form`, `AlgebraicModuliForArithmeticGeometry:R09.1`, `SchemeAndStackFoundations:SF.0`.
+
+**Acceptance:** A fibrewise description alone does not prove flatness over a nonreduced base.
+
+**Source:** knudsen2012, Theorem5.1 proof,pp.14–16.
+
+#### Stability of the expanded family
+
+`StableReductionPartII:MC.2/expansion-stable` — theorem.
+
+C^s with its n+1 lifted sections is a stable pointed family of the same arithmetic genus g. Its new marking is in the relative smooth locus and is disjoint from every retained mark; in the node case the inserted P¹ has three distinct special flags.
+
+**Construction/proof.** (1) Identify geometric fibres by the Proj charts, including nodal and collision cases. (2) Compute the genus using the parent normalization/dual-graph formula. (3) Check log-canonical degrees on every component using the parent pointed-stability criterion.
+
+**Dependencies:** `StableReductionPartII:MC.2/expansion-flat`, `StableReductionPartII:MC.2/expansion`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`.
+
+**Acceptance:** At a node neither attaching point is the new marking.
+
+**Source:** knudsen2012, Theorem5.1,pp.13–16;KnudsenII2.4.
+
+#### Forgetting a marking on the moduli stack
+
+`StableReductionPartII:MC.2/forget` — construction.
+
+For 2g−2+n>0 define the morphism π:M̄_{g,n+1}→M̄_{g,n} by the parent’s single-mark contraction after forgetting the last mark. The contraction sends the removed mark to an arbitrary section of the contracted curve, hence lifts π to a morphism c:M̄_{g,n+1}→Z̄_{g,n}. Repeated forgetting is coherent and respects permutations of retained labels.
+
+**Construction/proof.** (1) Apply the already-owned family contraction on every fibre category. (2) Use its uniqueness and base-change cocycle to descend a stack morphism; record the image of the removed section.
+
+**Dependencies:** `StableReductionPartII:key/moduli-curves`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction`, `StableReductionPartII:MC.0/pullback-coherence`.
+
+**API.**
+
+- `ForgetMarking.map` (projection): The target family is the parent forget-last contraction.
+- `ForgetMarking.extraSection` (data): The removed section descends to an arbitrary section of the contracted family.
+- `ForgetMarking.compose` (functoriality): Different coherent orders of forgetting the same set give canonically isomorphic morphisms.
+
+**Discriminating tests.**
+
+- `ForgetMarking.rationalTail` (degenerate): Forgetting one of two markings on a rational tail contracts that tail and carries the remaining mark to its attachment.
+- `ForgetMarking.rationalBridge` (degenerate): Forgetting the sole marking on a rational bridge replaces that bridge by a node.
+- `ForgetMarking.unstableTargetExcluded` (non-example): The putative map M̄₀,₃→M̄₀,₂ is excluded by the stated target range.
+
+**Uses.** StableReductionPartII:MC.2/expansion-contraction-inverses; StableReductionPartII:MC.3/forget-cotangent-line; StableReductionPartII:MC.5/hodge-forgetting.
+
+**Acceptance:** Forgetting into the unstable range is not part of the morphism.
+
+**Source:** knudsen2, Proposition2.1 and Corollary2.6,pp.174,179.
+
+#### Expansion and contraction are inverse
+
+`StableReductionPartII:MC.2/expansion-contraction-inverses` — theorem.
+
+The expansion morphism s:Z̄_{g,n}→M̄_{g,n+1} and contraction morphism c are quasi-inverse equivalences over M̄_{g,n}. Their unit and counit are natural pointed-family isomorphisms; consequently M̄_{g,n+1} is the universal curve of M̄_{g,n}.
+
+**Construction/proof.** (1) The parent contraction of an expanded tail or bridge recovers the original family with its arbitrary section. (2) The explicit relative Proj comparison and uniqueness of the parent contraction recover a given stable n+1 family. (3) Use flatness and the proper comparison maps in KnudsenII Lemma2.5 to upgrade the geometric checks to scheme isomorphisms, not bare fibrewise equality.
+
+**Dependencies:** `StableReductionPartII:MC.2/expansion-stable`, `StableReductionPartII:MC.2/forget`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`.
+
+**Acceptance:** Collision and nodal cases are included.
+
+**Source:** knudsen2, Lemma2.5,Corollary2.6,pp.178–179.
+
+#### The three-pointed rational moduli scheme
+
+`StableReductionPartII:MC.2/genus-zero-base` — theorem.
+
+M₀,₃=M̄₀,₃≅Spec Z. Every ordered smooth three-pointed rational family is uniquely trivialized as (P¹;0,1,∞); no singular stable genus-zero three-pointed fibre exists.
+
+**Construction/proof.** (1) Use the normalization genus and stable-flag count to exclude reducible stable three-pointed trees. (2) Trivialize the genus-zero family locally and use the unique three-point projectivity; descend the unique trivialization.
+
+**Dependencies:** `StableReductionPartII:MC.0/effective-descent`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `SchemeAndStackFoundations:SF.0`.
+
+**Acceptance:** The automorphism group of the ordered triple is trivial.
+
+**Source:** knudsen2, Introduction and Theorem2.7,p.179.
+
+#### Pointed induction for genus at least two
+
+`StableReductionPartII:MC.2/higher-genus-pointed` — theorem.
+
+For g≥2 and n≥0, M̄_{g,n} is smooth proper Deligne–Mumford over Z of relative dimension3g−3+n with dense smooth locus and relative normal-crossings boundary.
+
+**Construction/proof.** (1) Induct from the unpointed stack using the universal-curve equivalence. (2) In the local universal nodal chart xy=t replace the base parameter t by xy; the total chart remains smooth and the boundary becomes a product of coordinates. (3) Properness and the DM property are preserved by the representable proper universal curve.
+
+**Dependencies:** `StableReductionPartII:MC.2/expansion-contraction-inverses`, `StableReductionPartII:MC.1/proper-moduli`, `StableReductionPartII:MC.1/smooth-dimension`, `StableReductionPartII:MC.1/normal-crossing-boundary`, `AlgebraicModuliForArithmeticGeometry:R09.4`.
+
+**Acceptance:** This induction does not assume the genus-one base.
+
+**Source:** knudsen2, Theorem2.7 proof,p.179.
+
+#### The rigid triangle locus
+
+`StableReductionPartII:MC.2/rigid-triangle-embedding` — theorem.
+
+Attach to a one-pointed genus-one curve the rigid three-component rational triangle carrying the two ordered extra markings of Knudsen’s construction. The resulting genus-two two-pointed family identifies M̄₁,₁ with the specified closed intersection of three boundary branches in M̄₂,₂; the labelled rational subcurve is uniquely recoverable.
+
+**Construction/proof.** (1) Use the parent family gluing and stable-flag criterion for the rigid labelled rational subcurve. (2) Recover the genus-one component and attachment section from the distinguished labelled triangle; check the comparison on families and isomorphisms. (3) The local nodal chart cuts out the three triangle smoothing coordinates. A nodal genus-one component supplies a fourth boundary parameter.
+
+**Dependencies:** `StableReductionPartII:MC.2/higher-genus-pointed`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `StableReductionPartII:MC.2/expansion-contraction-inverses`, `AlgebraicModuliForArithmeticGeometry:R09.4`.
+
+**Acceptance:** This is the specific rigid locus, not a claim that every separating clutching is a closed immersion.
+
+**Source:** knudsen2, Theorem2.7 proof,p.179.
+
+#### The one-pointed genus-one base stack
+
+`StableReductionPartII:MC.2/genus-one-base` — theorem.
+
+M̄₁,₁ is a proper smooth Deligne–Mumford stack over Z of relative dimension1 with relative normal-crossings boundary. Construct it as the rigid triangle-clutching intersection inside M̄₂,₂, as in KnudsenII Theorem2.7; retain the fourth local boundary branch when the elliptic curve is nodal.
+
+**Construction/proof.** (1) First obtain all genus≥2 pointed stacks by universal-curve induction. (2) Attach the rigid labelled rational triangle to the pointed genus-one curve to obtain the specified closed substack of M̄₂,₂. (3) Compute its chart as the intersection of the three specified independent node branches; the nodal elliptic boundary adds one more branch.
+
+**Dependencies:** `StableReductionPartII:MC.2/rigid-triangle-embedding`, `StableReductionPartII:MC.2/higher-genus-pointed`, `AlgebraicModuliForArithmeticGeometry:R09.4`.
+
+**Acceptance:** The genus-one base is not a fine j-line: elliptic stabilizers remain.
+
+**Source:** knudsen2, Theorem2.7 proof,p.179.
+
+#### Deligne–Mumford–Knudsen theorem
+
+`StableReductionPartII:MC.2/pointed-dm-theorem` — theorem.
+
+For every stable pair (g,n), M̄_{g,n} is a smooth proper Deligne–Mumford stack over Z of relative dimension3g−3+n. The smooth substack M_{g,n} is open dense and its complement has relative normal crossings.
+
+**Construction/proof.** (1) Induct on n using the universal-curve equivalence. (2) In a nodal chart replace the old smoothing coordinate t by uv; the total chart is smooth over Z and the boundary equation replaces t by the product uv. (3) Start separately at (0,3),(1,1), and (g,0) for g≥2. Properness and the DM diagonal pass through the representable universal curve.
+
+**Dependencies:** `StableReductionPartII:MC.2/genus-zero-base`, `StableReductionPartII:MC.2/genus-one-base`, `StableReductionPartII:MC.2/expansion-contraction-inverses`, `StableReductionPartII:MC.1/proper-moduli`, `StableReductionPartII:MC.1/smooth-dimension`, `StableReductionPartII:MC.1/normal-crossing-boundary`, `AlgebraicModuliForArithmeticGeometry:R09.4`.
+
+**Acceptance:** The relative dimension is0 at (0,3) and1 at both (0,4) and (1,1).
+
+**Source:** knudsen2, Theorem2.7,p.179.
+
+#### The cross-ratio compactification
+
+`StableReductionPartII:MC.2/cross-ratio` — theorem.
+
+M₀,₄≅P¹_Z minus {0,1,∞} and M̄₀,₄≅P¹_Z. The three boundary points are precisely the three unordered2+2 partitions of the four ordered markings.
+
+**Construction/proof.** (1) The universal curve over M̄₀,₃ is P¹ with its three sections. (2) Use expansion at the fourth section: outside the three sections the fourth coordinate is the cross-ratio; at the three sections it creates the corresponding stable two-component curve.
+
+**Dependencies:** `StableReductionPartII:MC.2/genus-zero-base`, `StableReductionPartII:MC.2/expansion-contraction-inverses`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `SchemeAndStackFoundations:SF.0`.
+
+**Acceptance:** The compactification adds three points, each with a stable rational tail.
+
+**Source:** knudsen2, Theorem2.7 and Corollary2.6,pp.179.
+
+**To close this layer.**
+
+- Read KnudsenII Appendix; finish noetherian approximation and arbitrary-base-change proof.
+- Expand the rigid genus-one embedding and local collision charts into individual lemmas; supply missing Lean family types.
+
+
+### MC.3. Clutching, boundary strata and cotangent lines
+
+Lift the parent’s gluing operations to separating and nonseparating morphisms of pointed moduli stacks. Prove they are representable finite and unramified, classify boundary divisors by stable one-edge graphs with their automorphism quotients, and compute the conormal node-smoothing line as the tensor product of the two cotangent lines. Construct marking cotangent lines and their forgetful correction. Do not assert that a whole separating clutching map is a closed immersion, or that normal crossings are globally simple.
+
+**Status:** partial.
+
+#### Separating clutching morphism
+
+`StableReductionPartII:MC.3/separating-clutching` — construction.
+
+For ordered complementary marking sets I,J and g₁+g₂=g, with stable source pairs (g₁,|I|+1),(g₂,|J|+1), define ξ_{g₁,I}:M̄_{g₁,I∪{a}}×M̄_{g₂,J∪{b}}→M̄_{g,n} by gluing a and b in the disjoint union. The new node is distinguished in the construction, but is forgotten in the target. The two source components may each already be reducible.
+
+**Construction/proof.** (1) Apply the parent’s external scheme clutching and reindex the remaining markings. (2) Its arbitrary-base-change and isomorphism compatibility define the stack morphism.
+
+**Dependencies:** `StableReductionPartII:key/moduli-curves`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `StableReductionPartII:MC.0/pullback-coherence`.
+
+**API.**
+
+- `SeparatingClutching.map` (constructor): Glue the two distinguished smooth sections over their common base.
+- `SeparatingClutching.genus` (characterisation): The target arithmetic genus is g₁+g₂ with the ordered I∪J markings.
+- `SeparatingClutching.baseChange` (functoriality): The construction respects pullback and the canonical exchange of the two labelled inputs.
+
+**Discriminating tests.**
+
+- `SeparatingClutching.rationalBoundary` (computation): Gluing two copies of M̄₀,₃ gives a boundary point of M̄₀,₄ indexed by a2+2 partition.
+- `SeparatingClutching.equalGenera` (non-example): For n=0 and equal genera, swapping the two source factors induces the same target object; the graph exchange symmetry must be retained.
+- `SeparatingClutching.twoEllipticTails` (non-example): Over C let three pairwise nonisomorphic elliptic curves form a stable genus-three one-pointed tree with the mark on the middle component. Choosing either outer elliptic tail gives two nonisomorphic preimages under ξ_{1,∅}:M̄₁,₁×M̄₂,₂→M̄₃,₁.
+
+**Uses.** StableReductionPartII:MC.3/clutching-finite-unramified; StableReductionPartII:MC.3/boundary-types; StableReductionPartII:MC.5/separating-hodge.
+
+**Acceptance:** Do not assume the target distinguishes which node was glued.
+
+**Source:** knudsen2, Definition3.8,p.190.
+
+#### Nonseparating clutching morphism
+
+`StableReductionPartII:MC.3/nonseparating-clutching` — construction.
+
+For g≥1 with stable source pair (g−1,n+2), define ξ_irr:M̄_{g−1,n+2}→M̄_{g,n} by identifying the last two ordered smooth sections. The genus increases by one and both glued labels disappear. Exchanging these two sections gives the same glued target and is part of the graph automorphism quotient, including characteristic two.
+
+**Construction/proof.** (1) Apply the parent’s self-clutching pushout with its base-change isomorphisms. (2) Use the parent graph-genus formula to obtain genus g.
+
+**Dependencies:** `StableReductionPartII:key/moduli-curves`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `StableReductionPartII:MC.0/pullback-coherence`.
+
+**API.**
+
+- `NonseparatingClutching.map` (constructor): Glue the last two sections by the parent pushout.
+- `NonseparatingClutching.exchange` (relation): Exchanging the two removed sections yields a canonically isomorphic target.
+- `NonseparatingClutching.graph` (compatibility): The graph gains one edge and b₁ increases by one.
+
+**Discriminating tests.**
+
+- `NonseparatingClutching.genusOne` (computation): M̄₀,₃ maps to the rational nodal boundary of M̄₁,₁.
+- `NonseparatingClutching.branchExchange` (non-example): The boundary normalization retains the branch-exchange quotient; M̄_{g−1,n+2} alone is not the unlabelled normalization.
+- `NonseparatingClutching.genus` (compatibility): Self-gluing two disjoint points on a connected genus-h curve gives arithmetic genus h+1.
+
+**Uses.** StableReductionPartII:MC.3/clutching-finite-unramified; StableReductionPartII:MC.3/boundary-types; StableReductionPartII:MC.5/nonseparating-hodge.
+
+**Acceptance:** An unlabelled nonseparating node does not order its branches.
+
+**Source:** knudsen2, Definition3.8,p.190.
+
+#### Finite unramified clutching
+
+`StableReductionPartII:MC.3/clutching-finite-unramified` — theorem.
+
+Both clutching morphisms are representable finite and unramified. For a fixed target stable curve their geometric fibres are finite choices of a node and, when relevant, an ordering or genus/marking assignment to its branches. These choices can be more than one even for a fixed separating genus and marking partition.
+
+**Construction/proof.** (1) A source automorphism mapping to the identity target is the identity on the partial normalization, proving representability. (2) Pull back along a target family: the choice is a closed subspace of the finite unramified singular-locus/branch data. (3) The source stack is proper, so the representable quasi-finite morphism is finite; the singular-locus description gives unramifiedness.
+
+**Dependencies:** `StableReductionPartII:MC.3/separating-clutching`, `StableReductionPartII:MC.3/nonseparating-clutching`, `StableReductionPartII:MC.2/pointed-dm-theorem`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `AlgebraicModuliForArithmeticGeometry:R09.4`.
+
+**Acceptance:** There can be two distinct separating preimages for two elliptic tails.
+
+**Source:** knudsen2, Corollary3.9(a),p.190.
+
+#### Stable one-edge boundary types
+
+`StableReductionPartII:MC.3/boundary-types` — definition.
+
+A pointed boundary type is a stable connected genus-g graph with n labelled legs and exactly one edge, up to label-preserving graph isomorphism, using the parent’s weighted dual graphs. Its normalization parameter stack is the product of the vertex moduli stacks modulo the finite automorphism group of this graph. For n=0,g≥2 the types are Δ₀ and Δᵢ for1≤i≤⌊g/2⌋, where Δ₀ is the closure of the nonseparating one-node locus, not merely the locus of irreducible nodal curves.
+
+**Construction/proof.** (1) Specialize the parent stable graphs to one edge and keep leg labels. (2) Use the parent normalization data and finite graph automorphisms to form the quotient parameter.
+
+**Dependencies:** `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `StableReductionPartII:MC.3/separating-clutching`, `StableReductionPartII:MC.3/nonseparating-clutching`, `SchemeAndStackFoundations:SF.1`.
+
+**API.**
+
+- `BoundaryType.vertexProduct` (data): Associate the product of the pointed vertex moduli stacks.
+- `BoundaryType.automorphisms` (structure): Graph automorphisms preserve genera and every external leg label.
+- `BoundaryType.map` (projection): Clutching descends through the graph automorphism action to the target boundary divisor.
+
+**Discriminating tests.**
+
+- `BoundaryType.zeroFour` (computation): There are exactly three one-edge types for(g,n)=(0,4).
+- `BoundaryType.genusTwoUnpointed` (computation): The unpointed genus-two types are Δ₀ and Δ₁; Δ₁ has the exchange of its two genus-one vertices.
+- `BoundaryType.nonseparatingExchange` (non-example): The one-loop graph has branch-exchange automorphism, even in characteristic two; the quotient is by a constant finite group, not by μ₂.
+
+**Uses.** StableReductionPartII:MC.3/boundary-normalization; StableReductionPartII:MC.3/forget-cotangent-line; StableReductionPartII:MC.5/boundary-divisor.
+
+**Acceptance:** Higher-node curves can lie on several branches of the same global boundary component.
+
+**Source:** knudsen2, Definition3.8,p.190.
+
+#### Normalization of the boundary
+
+`StableReductionPartII:MC.3/boundary-normalization` — theorem.
+
+The normalization of the reduced total boundary of M̄_{g,n} is the disjoint union, over stable one-edge types, of the corresponding vertex-product quotient stacks. Its finite map to the boundary records a distinguished node; it separates branches at curves with several nodes of the same type.
+
+**Construction/proof.** (1) The source products are smooth and hence normal; quotient by the constant finite graph group preserves normality in the stack sense. (2) Every stable nodal geometric curve has a node, whose partial normalization yields a one-edge type. (3) Over the generic one-node locus the quotient gives a unique unlabelled node; finite birational normality identifies each normalization component.
+
+**Dependencies:** `StableReductionPartII:MC.3/boundary-types`, `StableReductionPartII:MC.3/clutching-finite-unramified`, `StableReductionPartII:MC.2/pointed-dm-theorem`, `StableReductionPartII:MC.1/normal-crossing-boundary`, `AlgebraicModuliForArithmeticGeometry:R09.5`.
+
+**Acceptance:** The map is not globally an isomorphism onto a smooth boundary divisor.
+
+**Source:** knudsen2, Definition3.8 and Corollary3.9(a),p.190;local description in Theorem2.7.
+
+#### Cotangent lines at the markings
+
+`StableReductionPartII:MC.3/cotangent-line` — construction.
+
+For the universal stable pointed curve f:C→M̄_{g,n}, define Lᵢ=sᵢ*ω_{C/M̄}. Each is an invertible sheaf because the marking is in the relative smooth locus; it identifies with sᵢ*Ω¹_{C/M̄}. Base change and relabelling preserve this line. The class ψᵢ=c₁(Lᵢ) is an exported input to the consumer’s tautological Chow-ring construction, not a new Chow theory here.
+
+**Construction/proof.** (1) Pull back the parent nodal relative dualizing line along the smooth section. (2) Use its agreement with relative differentials on the smooth locus and its base-change cocycle to descend a line on the stack.
+
+**Dependencies:** `StableReductionPartII:MC.0/universal-curve`, `StableReductionPartII:MC.2/pointed-dm-theorem`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `SchemeAndStackFoundations:SF.1`.
+
+**API.**
+
+- `MarkingCotangentLine.pullback` (functoriality): For a family over S, the pulled-back line is sᵢ*ω_{C/S}.
+- `MarkingCotangentLine.differentials` (compatibility): At a smooth marking Lᵢ≅sᵢ*Ω¹_{C/S}.
+- `MarkingCotangentLine.relabel` (functoriality): Permuting marking labels permutes the corresponding line bundles.
+
+**Discriminating tests.**
+
+- `MarkingCotangentLine.zeroThree` (computation): On M̄₀,₃≅Spec Z every marking cotangent line is trivial.
+- `MarkingCotangentLine.zeroFour` (computation): On M̄₀,₄≅P¹ each Lᵢ has degree1.
+- `MarkingCotangentLine.sign` (non-example): The section normal line is Lᵢ∨, so its first Chern class is−ψᵢ, not ψᵢ.
+
+**Uses.** StableReductionPartII:MC.3/forget-cotangent-line; StableReductionPartII:MC.3/node-conormal.
+
+**Acceptance:** The dual line is the normal line to the section.
+
+**Source:** knudsen3, §4 definition(d),p.201.
+
+#### Cotangent-line correction under forgetting
+
+`StableReductionPartII:MC.3/forget-cotangent-line` — theorem.
+
+For π:M̄_{g,n+1}→M̄_{g,n} and retained i, let D_{i,n+1} be the divisor of a rational tail carrying exactly marks i,n+1 and its attachment. Then Lᵢ on the source is π*Lᵢ⊗O(D_{i,n+1}); equivalently π*Lᵢ=Lᵢ⊗O(−D_{i,n+1}).
+
+**Construction/proof.** (1) Apply the local contraction comparison for the section cotangent sheaf. (2) The comparison is an isomorphism away from the collision divisor and has one simple zero there, giving the displayed sign.
+
+**Dependencies:** `StableReductionPartII:MC.3/cotangent-line`, `StableReductionPartII:MC.2/forget`, `StableReductionPartII:MC.3/boundary-types`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
+
+**Acceptance:** In genus zero the degree difference produces deg Lᵢ=1 on M̄₀,₄.
+
+**Source:** knudsen3, Theorem4.1(c) and proof,pp.202–203.
+
+#### The node-smoothing conormal line
+
+`StableReductionPartII:MC.3/node-conormal` — theorem.
+
+Along the normalized one-edge boundary, the conormal line of its distinguished local branch is L_a⊗L_b. Thus the corresponding normal line is L_a∨⊗L_b∨ and has first Chern class−ψ_a−ψ_b. This concerns a chosen branch on the normalization, not a global assertion that the whole boundary component is embedded smoothly.
+
+**Construction/proof.** (1) In the local smoothing xy=t, coordinate changes x↦ux,y↦vy transform t by uv. (2) The differential lines at the two normalization branches transform by u and v; identify the conormal parameter with their tensor product. (3) Descend the identification through branch exchange and graph automorphisms.
+
+**Dependencies:** `StableReductionPartII:MC.3/cotangent-line`, `StableReductionPartII:MC.3/boundary-normalization`, `StableReductionPartII:MC.1/versal-node-parameters`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`.
+
+**Acceptance:** Dualizing changes the sign of both ψ classes.
+
+**Source:** knudsen2, Theorem3.5,pp.183–186.
+
+**To close this layer.**
+
+- Verify augmented-clutching restriction using Ile; acquire a modern primary normalization reference.
+- Independently review the Corollary3.9(b) counterexample; finish line/graph quotient suppliers and Lean APIs.
+
+
+### MC.4. Coarse moduli, projectivity and full level
+
+Construct coarse algebraic spaces separately from the stacks. For g≥2 prove projectivity of the unpointed stable coarse space over Z using pluricanonical direct-image nefness and the ampleness lemma. Obtain a finite surjective normal projective scheme cover. Construct smooth-curve symplectic-similitude level N≥3 over Z[1/N], with a fixed pairing component over Z[1/N,ζ_N]; prove representability, regularity, quasi-projectivity, connectedness and dimension 3g−3, and its smooth projective universal curve. Normalize a chosen projective cover for a stable compactification; never declare naive full level on every nodal curve fine.
+
+**Status:** partial.
+
+#### Coarse spaces of pointed curve stacks
+
+`StableReductionPartII:MC.4/coarse-space` — construction.
+
+For each stable pair construct the coarse algebraic spaces q:M̄_{g,n}→M̄^{coarse}_{g,n} and q°:M_{g,n}→M^{coarse}_{g,n}. They are initial for maps to algebraic spaces and induce bijections between geometric points and isomorphism classes. Stable coarse spaces are proper over Z. Existence alone gives neither smoothness of the coarse space nor a universal family on it; base change is used only with the hypotheses of the imported coarse-space theorem.
+
+**Construction/proof.** (1) The finite diagonal gives finite inertia; apply the generic coarse-space existence theorem with its noetherian finite-type hypotheses. (2) Use the proper coarse-space comparison to deduce properness. (3) Restrict the stable coarse space to the saturated smooth open; geometric curve smoothness is invariant under isomorphism.
+
+**Dependencies:** `StableReductionPartII:MC.2/pointed-dm-theorem`, `AlgebraicModuliForArithmeticGeometry:R09.5`.
+
+**API.**
+
+- `CurvesCoarseSpace.geometricPoints` (characterisation): For algebraically closed k, coarse k-points correspond to curve isomorphism classes.
+- `CurvesCoarseSpace.initial` (universal-property): A stack morphism to an algebraic space factors uniquely through q.
+- `CurvesCoarseSpace.smoothOpen` (compatibility): The smooth coarse space is the saturated open corresponding to smooth curves.
+
+**Discriminating tests.**
+
+- `CurvesCoarseSpace.zeroThree` (computation): For(g,n)=(0,3),q is the isomorphism Spec Z→Spec Z.
+- `CurvesCoarseSpace.zeroFour` (computation): The stable coarse space for(0,4) is P¹_Z.
+- `CurvesCoarseSpace.ellipticInertia` (non-example): Over a characteristic-zero field (E,0) retains [−1] in the stack although its coarse point has no automorphism data; a coarse class does not make it a fine moduli object.
+
+**Uses.** StableReductionPartII:MC.4/moduli-determinant-ample; StableReductionPartII:MC.4/projective-coarse; StableReductionPartII:MC.4/fine-level-scheme; StableReductionPartII:MC.6/maximal-variation; StableReductionPartII:MC.6/compactified-torelli.
+
+**Acceptance:** Smooth stacks can have singular coarse spaces.
+
+**Source:** clm, Lemma1.3,p.3.
+
+#### Nef pluricanonical direct images
+
+`StableReductionPartII:MC.4/pluricanonical-nef` — theorem.
+
+For a family f:X→B of stable genus-g curves g≥2 over a smooth projective curve B over an algebraically closed field, f_*ω^m is nef for m≥2, in every characteristic. Nefness means nonnegative degree for line quotients after finite maps from smooth projective curves.
+
+**Construction/proof.** (1) If the generic fibre is smooth apply the smooth-generic direct-image theorem. (2) Otherwise split persistent nodes after a finite cover of B and use the normalization residue sequence. (3) Its kernel is the direct sum of component bundles twisted by (m−1)D^ν, nef by the pointed theorem, and its quotient is a direct sum of O_B. Apply preservation of nefness under extensions from the positivity supplier. (4) Descend nefness along the finite cover.
+
+**Dependencies:** `StableReductionPartII:MC.4/smooth-generic-direct-image-nef`, `StableReductionPartII:MC.4/pointed-normalization-nef`, `StableReductionPartII:MC.4/persistent-node-residue-sequence`, `SchemeAndStackFoundations:SF.5`.
+
+**Acceptance:** Characteristic two is included; the exceptional bound≤1 still contradicts H¹≥2.
+
+**Source:** clm, Propositions6.3,6.7,6.9;Theorem6.10,pp.23–29.
+
+#### Finite-degree equations of stable embeddings
+
+`StableReductionPartII:MC.4/finite-degree-equations` — theorem.
+
+For a finite-type family of stable genus-g curves g≥2, after choosing a sufficiently large common d the multiplication Symᵈ(f_*ω³)→f_*ω^{3d} is surjective and its kernel determines each tricanonically embedded geometric fibre. The bound is allowed to depend on the finite-type family; no unproved universal choice d=2 is used.
+
+**Construction/proof.** (1) Apply relative Serre vanishing to the ideal sheaf of the tricanonical embedding over the noetherian family base. (2) Use finite generation of the relative ideal and a sufficiently large degree to recover the saturated ideal; record this generic projective-algebra input as a supplier request. (3) The dimension of the quotient is(6d−1)(g−1).
+
+**Dependencies:** `StableReductionPartII:MC.1/tricanonical-cohomology`, `StableReductionPartII:MC.1/tricanonical-hilbert`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `AlgebraicModuliForArithmeticGeometry:R09.2`.
+
+**Acceptance:** A finite-fibre moduli map alone does not imply its source is noetherian; finite-type/noetherian hypotheses are explicit.
+
+**Source:** clm, Lemma7.1 proof,pp.29–30.
+
+#### Ampleness of a pluricanonical determinant
+
+`StableReductionPartII:MC.4/moduli-determinant-ample` — theorem.
+
+Let S be a proper finite-type algebraic space over an algebraically closed field and f:X→S a stable genus-g family g≥2 whose coarse moduli map has finite geometric fibres. For all sufficiently large d, det f_*ω^{3d} is ample on S.
+
+**Construction/proof.** (1) Use the multiplication quotient Symᵈ(f_*ω³)→f_*ω^{3d}. (2) Its projective-frame classifying map to the Grassmannian quotient has finite fibres because its kernel determines the embedded curve up to projectivity. (3) Use the precise ampleness lemma: for a nef vector bundle E on a proper algebraic space and a locally free quotient SymᵈE→Q with finite-fibre classifying map, det Q is ample. This generic positivity theorem is not silently attributed to SF.5; it is recorded as an unassigned extension gap.
+
+**Dependencies:** `StableReductionPartII:MC.4/pluricanonical-nef`, `StableReductionPartII:MC.4/finite-degree-equations`, `StableReductionPartII:MC.4/coarse-space`, `AlgebraicModuliForArithmeticGeometry:R09.1`, `SchemeAndStackFoundations:SF.5`.
+
+**Acceptance:** The claim concerns the determinant line; it does not state that the entire quotient vector bundle is ample.
+
+**Source:** clm, Proposition5.5,pp.21–22;Lemma7.1,pp.29–30.
+
+#### Projectivity of the stable coarse moduli space
+
+`StableReductionPartII:MC.4/projective-coarse` — theorem.
+
+For g≥2 M̄^{coarse}_g is a projective scheme over Z. There is a positive power of a sufficiently high pluricanonical determinant which descends to an ample line on the coarse algebraic space.
+
+**Construction/proof.** (1) Use the generic finite scheme-cover theorem for a finite-type DM stack, retaining representability. (2) The composite cover→coarse is proper with finite geometric fibres, hence finite; a proper algebraic space with a finite surjective scheme cover can be treated by finite ampleness descent. (3) Use coarse descent of sufficiently divisible powers of line bundles; no injectivity of equivariant Picard into ordinary Picard is asserted. (4) For each residue characteristic apply the determinant-ampleness result to the proper scheme cover. Openness of relative ampleness and quasi-compactness of Spec Z give one common exponent. (5) An ample line on the proper coarse algebraic space makes it a projective scheme.
+
+**Dependencies:** `StableReductionPartII:MC.4/coarse-space`, `StableReductionPartII:MC.4/moduli-determinant-ample`, `AlgebraicModuliForArithmeticGeometry:R09.5`, `SchemeAndStackFoundations:SF.0`.
+
+**Acceptance:** The coarse space is not claimed smooth over Z.
+
+**Source:** clm, Theorem7.2,pp.30–31.
+
+#### A finite projective scheme cover of stable moduli
+
+`StableReductionPartII:MC.4/finite-projective-cover` — construction.
+
+For g≥2 choose a representable finite surjective morphism V→M̄_g with V a normal integral scheme projective over Z. Pull back the universal stable curve to V. This is a chosen cover with a stable family, not a new fine moduli interpretation of V.
+
+**Construction/proof.** (1) Choose a finite surjective scheme cover of the finite-type DM stack. (2) The composite to the projective coarse scheme is proper quasi-finite and hence finite; this makes the cover projective. (3) Choose a component dominating the integral target and normalize it; normalization is finite over the excellent base. Its finite closed image contains the generic point, hence the entire target.
+
+**Dependencies:** `StableReductionPartII:MC.4/projective-coarse`, `StableReductionPartII:MC.0/universal-curve`, `AlgebraicModuliForArithmeticGeometry:R09.5`, `SchemeAndStackFoundations:SF.0`, `StableReductionPartII:MC.4/irreducible-geometric-fibres`.
+
+**API.**
+
+- `StableModuliCover.map` (projection): The chosen cover V→M̄_g is representable finite surjective.
+- `StableModuliCover.family` (data): The family on V is the pullback of the universal stable curve.
+- `StableModuliCover.pullback` (functoriality): A family C/S yields the finite cover S×_{M̄_g}V→S and its pulled-back family.
+
+**Discriminating tests.**
+
+- `StableModuliCover.smoothPullback` (compatibility): The family restricted to the inverse image of M_g is smooth.
+- `StableModuliCover.boundaryRamification` (non-example): No étaleness or smoothness of the cover is imposed at a nodal boundary point.
+- `StableModuliCover.coverOfBase` (characterisation): Pulling V back along any genus-g stable family yields a finite surjective scheme cover of its base.
+
+**Uses.** StableReductionPartII:MC.6/graph-closure.
+
+**Acceptance:** The finite map is not assumed étale at the boundary.
+
+**Source:** yuan-author-http, §3.1.4,p.45.
+
+#### Full symplectic level on smooth curves
+
+`StableReductionPartII:MC.4/full-level` — definition.
+
+Fix g≥2 and N≥3 invertible on the base. A full Jacobi level structure on a smooth genus-g curve is an isomorphism α:(Z/N)^{2g}→J(C)[N] carrying the standard alternating form to the Weil pairing through a chosen trivialization of μ_N, or equivalently a homogeneous symplectic-similitude identification without choosing that trivialization. Use the fixed symplectic flavour over Z[1/N,ζ_N], and the similitude flavour over Z[1/N]. Their components and universal families are not identified without this choice.
+
+**Construction/proof.** (1) Use the relative Jacobian of the smooth curve family, its principal polarization and prime-to-characteristic torsion pairing; the curve-relative representability input is a recorded extension gap. (2) Define the isomorphism functor with its exact pairing condition and marking-preserving curve isomorphisms.
+
+**Dependencies:** `StableReductionPartII:key/moduli-curves`, `AbelianSchemesAndArithmeticModuli:A3`, `PELModuli:M6`, `SchemeAndStackFoundations:SF.3`.
+
+**API.**
+
+- `CurveFullLevel.pairing` (characterisation): The Weil pairing is the standard form through the chosen ζ_N in the fixed-component flavour.
+- `CurveFullLevel.pullback` (functoriality): Base change pulls back the Jacobian torsion and the pairing identification.
+- `CurveFullLevel.similitude` (compatibility): Forgetting the chosen μ_N trivialization gives the homogeneous symplectic-similitude object, with its multiplier component.
+
+**Discriminating tests.**
+
+- `CurveFullLevel.component` (non-example): The full similitude-level space over Q can have several geometric components; the DGH space selects one viaζ_N.
+- `CurveFullLevel.minusOne` (non-example): For N=2 the automorphism[−1] acts trivially on N-torsion, so this level does not remove the hyperelliptic curve stabilizer.
+- `CurveFullLevel.badCharacteristic` (non-example): If char(k) divides N, J[N] need not be constant étale of rank N^{2g}; the stated definition of full étale level does not apply.
+
+**Uses.** StableReductionPartII:MC.4/level-rigidity; StableReductionPartII:MC.4/fine-level-scheme; StableReductionPartII:MC.6/smooth-torelli.
+
+**Acceptance:** N is invertible; level at the characteristic is a different problem.
+
+**Source:** dm, Definitions5.3–5.4 and §5.14,pp.105,108.
+
+#### Rigidity of full curve level
+
+`StableReductionPartII:MC.4/level-rigidity` — theorem.
+
+For a smooth genus-g curve g≥2 over an algebraically closed field with N≥3 prime to the characteristic, an automorphism acting trivially on full N-torsion of its Jacobian is the identity. Consequently the curve full-level stack has trivial inertia.
+
+**Construction/proof.** (1) Use faithfulness of Aut(C)→Aut(J(C),λ), separately from finite curve automorphism groups. (2) Use Serre’s full-level rigidity for finite-order abelian automorphisms: choose an odd prime dividing N or the level-four2-adic case. (3) The exact Serre theorem and its prime-to-characteristic proof are a source-acquisition gap, not supplied merely by the existence of full-level moduli.
+
+**Dependencies:** `StableReductionPartII:MC.4/full-level`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme`, `PELModuli:M6`.
+
+**Acceptance:** N=2 fails because of hyperelliptic[−1].
+
+**Source:** dm, §5.14,p.108.
+
+#### The fine smooth full-level curve scheme
+
+`StableReductionPartII:MC.4/fine-level-scheme` — theorem.
+
+The fixed symplectic component M_g[N] over Z[1/N,ζ_N] is a smooth quasi-projective scheme of relative dimension3g−3, carrying a smooth projective universal curve of genus g. Forgetting level to M_g is representable finite étale. It is regular; geometric irreducibility is the separate connectedness theorem.
+
+**Construction/proof.** (1) The torsion-frame functor is finite étale; pulling back the smooth-curve stack gives the level stack. (2) Trivial inertia makes it an algebraic space; identify its finite coarse map to the smooth coarse space to deduce quasi-projectivity and therefore schemeness. (3) Use the tricanonical universal embedding for projectivity of its curve. (4) Geometric irreducibility requires the distinct connectedness argument below.
+
+**Dependencies:** `StableReductionPartII:MC.4/full-level`, `StableReductionPartII:MC.4/level-rigidity`, `StableReductionPartII:MC.1/smooth-dimension`, `StableReductionPartII:MC.4/coarse-space`, `StableReductionPartII:MC.4/projective-coarse`, `AlgebraicModuliForArithmeticGeometry:R09.5`, `AlgebraicModuliForArithmeticGeometry:R09.2`.
+
+**Acceptance:** This concerns smooth curves; it is not naive full-level representability on all nodal curves.
+
+**Source:** dm, §5.14–5.15,pp.108–109;DGH§6.1,p.23.
+
+#### Connectedness of a pairing component
+
+`StableReductionPartII:MC.4/level-connectedness` — theorem.
+
+Every geometric fibre of the full Jacobi-level scheme over Spec Z[1/N,ζ_N] is connected, hence irreducible by smoothness. The homogeneous-similitude scheme over Z[1/N] is not asserted geometrically connected without fixing the multiplier.
+
+**Construction/proof.** (1) Normalize stable moduli in the finite level cover and apply tame local Kummer normal forms along the normal-crossings boundary to compare component counts in characteristic zero and positive characteristic. (2) Over C use connected Teichmüller space and surjectivity of mapping-class monodromy to Sp_{2g}(Z/N). (3) The Dehn-twist and Teichmüller inputs have no identified owner and are recorded as gaps.
+
+**Dependencies:** `StableReductionPartII:MC.4/fine-level-scheme`, `StableReductionPartII:MC.1/proper-moduli`, `StableReductionPartII:MC.1/normal-crossing-boundary`, `AbelianSchemesAndArithmeticModuli:A3`, `AlgebraicModuliForArithmeticGeometry:R09.5`.
+
+**Acceptance:** The primitive rootζ_N is fixed for the DGH component.
+
+**Source:** dm, Theorems5.9,5.13,5.15;Lemma5.16,pp.106–109.
+
+#### Geometric irreducibility of stable moduli
+
+`StableReductionPartII:MC.4/irreducible-geometric-fibres` — theorem.
+
+For g≥2 every geometric fibre of M̄_g over Spec Z is irreducible and its dense smooth open M_g is geometrically irreducible.
+
+**Construction/proof.** (1) For a residue characteristic p choose level N≥3 prime to p, choosing N=3 except at p=3 where N=4 suffices. (2) The fixed pairing-component fine-level cover is connected and smooth, hence irreducible, and surjects onto smooth moduli. (3) Density of smooth curves in all versal charts gives irreducibility of its stable closure.
+
+**Dependencies:** `StableReductionPartII:MC.4/level-connectedness`, `StableReductionPartII:MC.1/smooth-dimension`, `StableReductionPartII:MC.1/proper-moduli`, `StableReductionPartII:MC.1/normal-crossing-boundary`.
+
+**Acceptance:** One fixed level cannot be used at the primes dividing it.
+
+**Source:** dm, Theorems5.9,5.15 and concluding argument,p.109.
+
+#### Nefness with smooth generic fibre
+
+`StableReductionPartII:MC.4/smooth-generic-direct-image-nef` — theorem.
+
+Let f:X→B be a family of nodal curves of genus g≥2 over a smooth projective curve over an algebraically closed field, with smooth generic fibre. For m≥2, f_*ω^m is nef.
+
+**Construction/proof.** (1) Resolve the isolated rational double points and preserve pluricanonical pushforwards. (2) On a minimal smooth surface over a base of genus≥2, a negative quotient after Frobenius and Serre duality forces H¹ of a negative pluricanonical twist to have dimension≥2. (3) Apply the Mumford–Ekedahl surface vanishing bound: zero except possibly characteristic2,m=2, where it is≤1. (4) Use finite base covers and spreading out to remove the base-genus and characteristic-zero restrictions. All these nonroutine surface inputs are the positivity-extension gap.
+
+**Dependencies:** `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`, `tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models`, `SchemeAndStackFoundations:SF.5`.
+
+**Acceptance:** The exceptional surface bound is sufficient; it is not claimed to be zero.
+
+**Source:** clm, Proposition6.3 and Lemmas6.4–6.5,pp.23–26.
+
+#### Nonnegative dualizing degree along a section
+
+`StableReductionPartII:MC.4/dualizing-section-degree` — theorem.
+
+Under the smooth-generic nef theorem, for any smooth-locus section s:B→X, deg s*ω_{X/B}≥0.
+
+**Construction/proof.** (1) For sufficiently large m the sequence restricting ω^m to s has zero R¹ for ω^m(−s). (2) Thus s*ω^m is a line quotient of f_*ω^m, of nonnegative degree. Divide its degree by m.
+
+**Dependencies:** `StableReductionPartII:MC.4/smooth-generic-direct-image-nef`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
+
+**Acceptance:** The section must be in the relative smooth locus.
+
+**Source:** clm, Corollary6.6,p.26.
+
+#### Nefness on pointed normalization components
+
+`StableReductionPartII:MC.4/pointed-normalization-nef` — theorem.
+
+Let f:X→B be a nodal family over a smooth projective algebraically closed field curve with smooth connected generic fibre, and s_i disjoint smooth-locus sections. For integers m≥2 and 0≤a_i≤m, f_*ω^m(Σa_i s_i) is nef, including a zero direct image in the negative-degree genus-zero cases.
+
+**Construction/proof.** (1) For genus≥2 add section coefficients inductively; adjunction and nonnegative dualizing section degree make the line quotient nonnegative. (2) For genus0, a negative quotient would produce a divisor contradicting the surface Hodge-index calculation with the disjoint sections. (3) For genus1 use the elliptic-fibration canonical-bundle formula and nonnegative χ from Euler/Noether. These genus0/1 surface inputs are explicit gaps and need a generic owner extension.
+
+**Dependencies:** `StableReductionPartII:MC.4/smooth-generic-direct-image-nef`, `StableReductionPartII:MC.4/dualizing-section-degree`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `SchemeAndStackFoundations:SF.5`.
+
+**Acceptance:** This is a positivity statement for vector bundles, not just numerical degree of their determinants.
+
+**Source:** clm, Proposition6.7,pp.26–28.
+
+#### Direct-image sequence at persistent nodes
+
+`StableReductionPartII:MC.4/persistent-node-residue-sequence` — theorem.
+
+After a finite base change splitting the horizontal nodes of a stable family X/B, normalize along them, ν:X^ν→X, and let D^ν be the two branch divisors. Then ν*ω_{X/B}≅ω_{X^ν/B}(D^ν). For m≥2 there is an exact sequence 0→(fν)_*ω_{X^ν/B}^m((m−1)D^ν)→f_*ω_{X/B}^m→f_*O_D→0, with f_*O_D a direct sum of copies of O_B.
+
+**Construction/proof.** (1) Use the parent conductor/dualizing comparison and the antidiagonal gluing condition on the two branch values. Adjunction gives ω_{X^ν/B}(D^ν)|_{D^ν}≅O_{D^ν}. (2) The componentwise pointed vanishing gives the direct-image exact sequence and its base-change ranks. (3) Descend the two branch quotients to the one O_D quotient using the antidiagonal condition; retain the signs in the m-th tensor power.
+
+**Dependencies:** `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `StableReductionPartII:MC.4/pointed-normalization-nef`, `SchemeAndStackFoundations:SF.1`.
+
+**Acceptance:** The residue sequence concerns a persistently nodal generic fibre; isolated special-fibre nodes use the smooth-generic theorem.
+
+**Source:** clm, Propositions6.8–6.9,pp.28–29.
+
+**To close this layer.**
+
+- Read DM component/tame-cover proof and Serre rigidity sources.
+- Read generic CLM positivity background and acquire/decompose the surface inputs; resolve owner extensions and all coarse-cover prerequisites.
+
+
+### MC.5. Hodge determinant and integral Noether comparison
+
+Construct the rank-g Hodge bundle and its determinant line on the stable stacks and prove pullback, forgetting and clutching comparisons. For g≥2 construct the integral line isomorphism λ¹²≅⟨ω,ω⟩⊗O(Δ), its base-change compatibility and uniqueness up to the global units ±1 on the universal integral stack. For a generically smooth stable family over an integral noetherian base compute the boundary pullback at a trait as the sum of node thicknesses. An equality in rational Chow groups does not substitute for this integral Picard-group identity.
+
+**Status:** partial.
+
+#### The Hodge bundle of stable pointed curves
+
+`StableReductionPartII:MC.5/hodge-bundle` — construction.
+
+For the universal stable pointed family f:C→M̄_{g,n}, define E_{g,n}=f_*ω_{C/M̄}. It is locally free of rank g, including rank zero for g=0, and formation commutes with arbitrary base change with its canonical cocycle. The relative dualizing sheaf is untwisted by the markings.
+
+**Construction/proof.** (1) Relative duality identifies f_*ω with the dual of R¹f_*O_C, whose locally free genus-g and base-change API is supplied by the parent. (2) Descend the sheaf along the atlas using its pullback cocycle.
+
+**Dependencies:** `StableReductionPartII:MC.0/universal-curve`, `StableReductionPartII:MC.2/pointed-dm-theorem`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `SchemeAndStackFoundations:SF.1`.
+
+**API.**
+
+- `CurveHodgeBundle.fiber` (characterisation): At a geometric curve the fibre is H⁰(C,ω_C), of dimension g.
+- `CurveHodgeBundle.baseChange` (functoriality): For a classifying family C/S the pullback is f_*ω_{C/S}.
+- `CurveHodgeBundle.duality` (compatibility): E_{g,n}≅(R¹f_*O_C)∨, with the parent’s Serre-duality convention.
+
+**Discriminating tests.**
+
+- `CurveHodgeBundle.genusZero` (computation): E₀,ₙ has rank zero on the stable genus-zero range.
+- `CurveHodgeBundle.genusTwo` (computation): E₂,ₙ has rank2; it is not an invertible sheaf.
+- `CurveHodgeBundle.nonseparatingNode` (compatibility): For the nodal rational genus-one boundary, the Hodge fibre is one-dimensional, generated by the differential with opposite residues at the two normalization branches.
+
+**Uses.** StableReductionPartII:MC.5/hodge-determinant; StableReductionPartII:MC.5/hodge-forgetting; StableReductionPartII:MC.5/separating-hodge; StableReductionPartII:MC.5/nonseparating-hodge; StableReductionPartII:MC.6/jacobian-hodge-comparison.
+
+**Acceptance:** Adding markings does not change the fibre Hodge rank.
+
+**Source:** knudsen3, §4(b),p.201;Yuan§3.1.1,p.41.
+
+#### The Hodge determinant line
+
+`StableReductionPartII:MC.5/hodge-determinant` — construction.
+
+Define λ_{g,n}=det E_{g,n}=∧^g E_{g,n}, using det of the rank-zero sheaf as the trivial line. It is an invertible sheaf on the stable stack with the induced base-change cocycle. In the Yuan interfaces λ always means this line; E is the rank-g vector bundle.
+
+**Construction/proof.** (1) Apply the generic determinant functor to the finite locally free Hodge bundle. (2) Use its naturality and tensor/determinant identities for descent.
+
+**Dependencies:** `StableReductionPartII:MC.5/hodge-bundle`, `SchemeAndStackFoundations:SF.5`.
+
+**API.**
+
+- `CurveHodgeLine.definition` (characterisation): λ=∧^g f_*ω.
+- `CurveHodgeLine.baseChange` (functoriality): A classifying family pulls λ back to det f_*ω_{C/S}.
+- `CurveHodgeLine.rankZero` (simp): The determinant of the genus-zero rank-zero Hodge bundle is O.
+
+**Discriminating tests.**
+
+- `CurveHodgeLine.genusZero` (computation): λ₀,ₙ≅O on every stable genus-zero pointed stack.
+- `CurveHodgeLine.genusOne` (compatibility): In genus one λ=E is the invariant-differential line.
+- `CurveHodgeLine.genusTwoRank` (non-example): In genus two λ has rank1 and E has rank2; identifying them is a type error.
+
+**Uses.** StableReductionPartII:MC.5/hodge-forgetting; StableReductionPartII:MC.5/separating-hodge; StableReductionPartII:MC.5/nonseparating-hodge; StableReductionPartII:MC.5/rational-noether; StableReductionPartII:MC.5/integral-noether; StableReductionPartII:MC.6/jacobian-hodge-comparison; StableReductionPartII:MC.6/compactified-torelli; StableReductionPartII:MC.6/maximal-variation-hodge.
+
+**Acceptance:** The line and the vector bundle are different for g≥2.
+
+**Source:** yuan-author-http, §3.1.1,p.41.
+
+#### Hodge pullback under forgetting
+
+`StableReductionPartII:MC.5/hodge-forgetting` — theorem.
+
+For π:M̄_{g,n+1}→M̄_{g,n}, π*E_{g,n}≅E_{g,n+1} and therefore π*λ_{g,n}≅λ_{g,n+1}, canonically with coherent repeated forgetting.
+
+**Construction/proof.** (1) Use the parent’s universally trivial O-pushforward and zero R¹ along the rational contraction. (2) Compare R¹O on the two families by Leray, dualize and take determinants.
+
+**Dependencies:** `StableReductionPartII:MC.5/hodge-bundle`, `StableReductionPartII:MC.5/hodge-determinant`, `StableReductionPartII:MC.2/forget`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
+
+**Acceptance:** There is no cotangent-tail correction in the Hodge pullback.
+
+**Source:** knudsen3, Theorem4.1(a),p.202.
+
+#### Hodge determinant under separating clutching
+
+`StableReductionPartII:MC.5/separating-hodge` — theorem.
+
+Under separating clutching, ξ*E_g≅pr₁*E_{g₁}⊕pr₂*E_{g₂}, hence ξ*λ_g≅pr₁*λ_{g₁}⊗pr₂*λ_{g₂}. The isomorphism is equivariant for permitted graph exchanges using the determinant convention.
+
+**Construction/proof.** (1) The normalization exact sequence for O has no new graph-cycle H¹ in the separating case. (2) Dualize the cohomology decomposition and take the determinant.
+
+**Dependencies:** `StableReductionPartII:MC.5/hodge-bundle`, `StableReductionPartII:MC.5/hodge-determinant`, `StableReductionPartII:MC.3/separating-clutching`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
+
+**Acceptance:** The ranks add as g=g₁+g₂.
+
+**Source:** knudsen3, Theorem4.2(a),p.203.
+
+#### Hodge determinant under self-clutching
+
+`StableReductionPartII:MC.5/nonseparating-hodge` — theorem.
+
+For ξ_irr there is an exact sequence0→E_{g−1,n+2}→ξ_irr*E_{g,n}→O→0 with the last map the residue at an ordered branch. It gives ξ_irr*λ_g≅λ_{g−1,n+2}. Exchanging the two branches negates the residue; the induced equivariant determinant data must retain this sign when descending to the unlabelled graph quotient.
+
+**Construction/proof.** (1) Use the parent residue description of nodal dualizing forms; opposite residues give one additional one-dimensional quotient. (2) Use determinant exact-sequence multiplicativity; record the effect of branch exchange on the chosen residue trivialization.
+
+**Dependencies:** `StableReductionPartII:MC.5/hodge-bundle`, `StableReductionPartII:MC.5/hodge-determinant`, `StableReductionPartII:MC.3/nonseparating-clutching`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
+
+**Acceptance:** The determinant identity does not identify the two Hodge vector bundles, whose ranks differ by one.
+
+**Source:** knudsen3, Theorem4.2(a),p.203.
+
+#### The universal boundary Cartier divisor
+
+`StableReductionPartII:MC.5/boundary-divisor` — construction.
+
+For g≥2 let Δ be the effective Cartier divisor M̄_g minus M_g, with coefficient1 on each reduced local node branch. Its global decomposition is Δ=Σ_{i=0}^{⌊g/2⌋}Δᵢ according to the one-edge unpointed types. For a generically smooth stable family over an integral noetherian S, its pullback is an effective Cartier divisor Δ_S; arbitrary families mapping entirely into Δ do not have this effective-Cartier pullback.
+
+**Construction/proof.** (1) Use the local product of the independent node parameters. (2) Collect branches into their global genus types while preserving multiplicity one. (3) For an integral generically smooth base the pulled-back local equation is nonzero, hence a non-zero-divisor.
+
+**Dependencies:** `StableReductionPartII:MC.1/normal-crossing-boundary`, `StableReductionPartII:MC.3/boundary-types`, `StableReductionPartII:MC.2/pointed-dm-theorem`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
+
+**API.**
+
+- `CurveBoundary.localEquation` (characterisation): Étale locally Δ has equation∏tᵢ.
+- `CurveBoundary.types` (data): The unpointed components are Δ₀ and the separating Δᵢ up to genus exchange.
+- `CurveBoundary.familyPullback` (functoriality): Pullback to an integral generically smooth stable family is the corresponding effective Cartier divisor.
+
+**Discriminating tests.**
+
+- `CurveBoundary.smoothFamily` (computation): For an everywhere smooth family Δ_S=0.
+- `CurveBoundary.constantNodalFamily` (non-example): For a constant nodal family the pullback equation is zero; there is no effective Cartier divisor on the base defined by that equation.
+- `CurveBoundary.twoNodes` (computation): For a versal curve with two nodes the local boundary equation is t₁t₂, including when both nodes belong to Δ₀.
+
+**Uses.** StableReductionPartII:MC.5/rational-noether; StableReductionPartII:MC.5/integral-noether; StableReductionPartII:MC.5/semi-canonical-noether; StableReductionPartII:MC.5/boundary-thickness.
+
+**Acceptance:** Generically smooth is required for the family divisor.
+
+**Source:** yuan-author-http, §3.1.1–3.1.2,pp.41–43.
+
+#### Rational Noether identity
+
+`StableReductionPartII:MC.5/rational-noether` — theorem.
+
+For the universal stable genus-g family g≥2,12c₁(λ)=f_*(c₁(ω)²)+[Δ] in codimension-one Chow groups with rational coefficients. The node correction is coefficient1 per universal smoothing branch.
+
+**Construction/proof.** (1) Use the lci relative cotangent complex, not an unjustified smooth-morphism GRR hypothesis. (2) In the universal local chart xy=t, the natural map Ω¹→ω has cokernel supported on the singular locus with the node contribution to its second Chern class. (3) Apply source-scoped GRR and extract degree one; R¹f_*ω≅O gives no determinant correction.
+
+**Dependencies:** `StableReductionPartII:MC.5/hodge-determinant`, `StableReductionPartII:MC.5/boundary-divisor`, `StableReductionPartII:MC.1/versal-node-parameters`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `SchemeAndStackFoundations:SF.5`.
+
+**Acceptance:** A rational Chow identity alone is not the integral Picard identity.
+
+**Source:** mumford1977, Theorem5.10 calculation,pp.100–102.
+
+#### Torsion freeness of the stable-stack Picard group
+
+`StableReductionPartII:MC.5/complex-picard-torsion-free` — theorem.
+
+For g≥2 Pic(M̄_{g,C}) is torsion free. A torsion line gives a finite cyclic cover of the stack. Over Teichmüller space this cover splits; its character factors through the mapping-class group, and extending over every boundary kills each Dehn-twist generator, so the cover and line are trivial.
+
+**Construction/proof.** (1) The proof uses connected simply connected Teichmüller space, the analytic presentation of the smooth stack and generation by Dehn twists. These general analytic inputs have no verified atlas supplier and are recorded as gaps. (2) Use the one-node smoothing monodromy to identify the boundary loop with the corresponding Dehn twist. (3) Since the cover extends over that divisor, its cyclic monodromy on the loop vanishes; all generators vanish.
+
+**Dependencies:** `StableReductionPartII:MC.1/finite-unramified-diagonal`, `StableReductionPartII:MC.1/normal-crossing-boundary`, `AlgebraicModuliForArithmeticGeometry:R09.4`.
+
+**Acceptance:** Retain stack stabilizers; passing first to the coarse space is not this proof.
+
+**Source:** mumford1977, Lemma5.14 proof,pp.103–105.
+
+#### Integral-to-complex Picard injection
+
+`StableReductionPartII:MC.5/integral-picard-injection` — theorem.
+
+For g≥2 restriction Pic(M̄_{g,Z})→Pic(M̄_{g,C}) is injective. A line trivial over C is generically trivial; on the smooth integral stack with geometrically irreducible fibres its vertical divisor is a sum of whole prime fibres, hence principal on Spec Z.
+
+**Construction/proof.** (1) Use coherent proper base change to descend a nonzero trivializing section to the rational generic fibre. (2) Extend it as a rational section; its zero and pole divisors are vertical. (3) Every codimension-one vertical component is a whole prime fibre, and an integer rational function removes their multiplicities. (4) This uses geometric irreducibility of stable moduli; the source’s §3/§5 component argument is not replaced by mere smoothness.
+
+**Dependencies:** `StableReductionPartII:MC.1/proper-moduli`, `StableReductionPartII:MC.1/smooth-dimension`, `StableReductionPartII:MC.4/irreducible-geometric-fibres`, `AlgebraicModuliForArithmeticGeometry:R09.5`, `SchemeAndStackFoundations:SF.5`.
+
+**Acceptance:** Global units after the resulting trivialization are±1.
+
+**Source:** mumford1977, paragraph after Lemma5.14,pp.102–103.
+
+#### Integral universal Noether formula
+
+`StableReductionPartII:MC.5/integral-noether` — theorem.
+
+For g≥2 there is an isomorphism of invertible sheaves on M̄_{g,Z}:λ^{⊗12}≅⟨ω,ω⟩⊗O(Δ). The relative Deligne pairing is a line on the base; its first Chern class is f_*(c₁ω·c₁ω). This is an integral Picard-group identity, natural under classifying pullback.
+
+**Construction/proof.** (1) Use the generic Deligne-pairing construction and its c₁ comparison; this generic line-valued input requires an owner extension and is explicitly a gap. (2) The rational GRR identity makes the difference line torsion. (3) Torsion freeness over C and the integral Picard injection remove the ambiguity, yielding a global line isomorphism. (4) Pull back the universal isomorphism to a family; this step is not a fresh application of rational GRR on that family.
+
+**Dependencies:** `StableReductionPartII:MC.5/rational-noether`, `StableReductionPartII:MC.5/complex-picard-torsion-free`, `StableReductionPartII:MC.5/integral-picard-injection`, `StableReductionPartII:MC.5/hodge-determinant`, `StableReductionPartII:MC.5/boundary-divisor`, `SchemeAndStackFoundations:SF.5`.
+
+**Acceptance:** The coefficient of Δ is+1 and the power on λ is12.
+
+**Source:** yuan-author-http, Theorem3.3 and §3.1.2,p.42.
+
+#### Global units on integral stable moduli
+
+`StableReductionPartII:MC.5/universal-units` — theorem.
+
+For g≥2, Γ(M̄_{g,Z},O)=Z and Γ(M̄_{g,Z},O×)={±1}. This follows from properness, smoothness and geometrically connected fibres with cohomology/base change.
+
+**Construction/proof.** (1) Use the universally connected proper-fibre O-pushforward comparison and the base Spec Z. (2) Take units of Z; do not replace the integral base by an arbitrary field, where more units exist.
+
+**Dependencies:** `StableReductionPartII:MC.1/proper-moduli`, `StableReductionPartII:MC.1/smooth-dimension`, `StableReductionPartII:MC.4/irreducible-geometric-fibres`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `AlgebraicModuliForArithmeticGeometry:R09.4`.
+
+**Acceptance:** Over C the global units include all of C×.
+
+**Source:** yuan-author-http, §3.1.2,p.42.
+
+#### Semi-canonical Noether comparison
+
+`StableReductionPartII:MC.5/semi-canonical-noether` — definition.
+
+For a stable genus-g family g≥2 over an integral noetherian S, generically smooth, call a Noether line isomorphism semi-canonical when it is the pullback of a chosen universal integral isomorphism on M̄_{g,Z}. All such isomorphisms differ by multiplication by±1. This compares choices of universal isomorphism; arbitrary line isomorphisms on S may differ by other units.
+
+**Construction/proof.** (1) Specify the universal source of the chosen line isomorphism and pull it back along the classifying morphism. (2) Use the universal-unit theorem to compare choices.
+
+**Dependencies:** `StableReductionPartII:MC.5/integral-noether`, `StableReductionPartII:MC.5/universal-units`, `StableReductionPartII:MC.5/boundary-divisor`.
+
+**API.**
+
+- `SemiCanonicalNoether.pullback` (functoriality): A compatible base change pulls back the chosen universal Noether isomorphism.
+- `SemiCanonicalNoether.sign` (characterisation): Two choices from the universal integral stack differ by±1.
+- `SemiCanonicalNoether.line` (compatibility): Its underlying line equality isλ_S¹²≅⟨ω_{C/S},ω_{C/S}⟩⊗O(Δ_S).
+
+**Discriminating tests.**
+
+- `SemiCanonicalNoether.smoothFamily` (degenerate): For a smooth family the comparison has no boundary line factor.
+- `SemiCanonicalNoether.extraUnits` (non-example): Over S=Spec C multiplying the line isomorphism by2 yields another isomorphism but not a second universal integral choice.
+- `SemiCanonicalNoether.signAmbiguity` (characterisation): Negating the chosen universal isomorphism gives exactly the other sign choice.
+
+**Uses.** PAPER-YUAN-26 routed moduli requirements.
+
+**Acceptance:** Do not infer Γ(S,O×)={±1}.
+
+**Source:** yuan-author-http, §3.1.2,pp.42–43.
+
+#### Boundary multiplicity equals node thickness
+
+`StableReductionPartII:MC.5/boundary-thickness` — theorem.
+
+Let S be normal integral noetherian and a stable genus-g family g≥2 be generically smooth. At a codimension-one point v, after a finite unramified extension splitting the special-fibre nodes, write xy=π^{m(x)} up to a unit at each node. Then ord_v Δᵢ=Σ_{i(x)=i}m(x), and ord_v Δ=Σ_x m(x). Before splitting, descend this formula with the residue-degree multiplicities of the closed node points.
+
+**Construction/proof.** (1) Pull the product of the universal node smoothing parameters back to the trait. (2) The local valuation of each factor is its thickness; sum the factors of the same genus type. (3) Use unramified invariance and descent of Cartier-divisor multiplicities.
+
+**Dependencies:** `StableReductionPartII:MC.5/boundary-divisor`, `StableReductionPartII:MC.1/versal-node-parameters`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `SchemeAndStackFoundations:SF.5`.
+
+**Acceptance:** A node of thickness m contributes m, not1.
+
+**Source:** yuan-author-http, §3.1.2,p.43.
+
+**To close this layer.**
+
+- Acquire generic integral Deligne-pairing/determinant constructions and comparison source.
+- Resolve topology/Picard injection inputs and supply stack-valued line signatures; retain the rational-versus-integral distinction.
+
+
+### MC.6. Stable compactifications and Torelli
+
+For an integral quasi-projective S over Z or a field with a stable genus-g family (g≥2), produce a dominant finite cover S′→S and a projective integral compactification carrying a stable extension, by retaining the base in a graph closure. Construct the smooth full-level Torelli map and its Cartesian universal-Jacobian comparison, finite fibres with the ±level ambiguity and the genus-two exception. Construct the compactified Torelli map to the minimal Siegel compactification and its Hodge pullback. For maximal variation deduce nefness and bigness of the pulled-back Hodge line, using generic finiteness rather than a globally finite smooth Torelli morphism.
+
+**Status:** partial.
+
+#### Maximal variation of a curve family
+
+`StableReductionPartII:MC.6/maximal-variation` — definition.
+
+For an integral finite-type base S over a field and a smooth genus-g family, g≥2, maximal variation means that the coarse classifying map S→M_g^{coarse} is generically quasi-finite onto its image. The definition uses geometric curve isomorphism classes, not choices of frames or markings.
+
+**Construction/proof.** (1) Take the coarse classifying map and require dimension of its geometric generic fibre over its image to be zero.
+
+**Dependencies:** `StableReductionPartII:key/moduli-curves`, `StableReductionPartII:MC.4/coarse-space`.
+
+**API.**
+
+- `CurveMaximalVariation.dimension` (characterisation): The image dimension equals dim S.
+- `CurveMaximalVariation.finiteCover` (compatibility): A finite dominant change of integral base preserves maximal variation.
+- `CurveMaximalVariation.coarse` (projection): The condition is checked on the coarse classifying map.
+
+**Discriminating tests.**
+
+- `CurveMaximalVariation.constant` (non-example): A constant family on a positive-dimensional integral base fails maximal variation.
+- `CurveMaximalVariation.point` (degenerate): A family on an integral zero-dimensional field base has maximal variation.
+- `CurveMaximalVariation.frameTorsor` (non-example): The positive-dimensional projective-frame torsor of one fixed curve is not maximal variation.
+
+**Uses.** StableReductionPartII:MC.6/maximal-variation-hodge.
+
+**Acceptance:** An isotrivial family over a positive-dimensional base does not have maximal variation.
+
+**Source:** yuan-author-http, Introduction,p.2;§3.4,p.56.
+
+#### Stable compactification of a smooth family
+
+`StableReductionPartII:MC.6/stable-compactification` — definition.
+
+For k a field or Z, an integral quasi-projective k-scheme S and a smooth genus-g family X/S, g≥2, a stable compactification consists of a projective integral k-scheme S̄ containing S as a dense open, a stable family X̄/S̄, and a Cartesian comparison X≅X̄×_{S̄}S. The open immersion on total spaces is the one induced by this comparison.
+
+**Construction/proof.** (1) Specify a projective compactification of the base and a stable extension restricting to the given family, including its classifying isomorphism.
+
+**Dependencies:** `StableReductionPartII:key/moduli-curves`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `SchemeAndStackFoundations:SF.0`.
+
+**API.**
+
+- `StableCurveCompactification.base` (data): S̄ is projective integral and S→S̄ is a dense open immersion.
+- `StableCurveCompactification.restrict` (compatibility): The square of families over S→S̄ is Cartesian.
+- `StableCurveCompactification.hodge` (functoriality): The extended Hodge line restricts to the Hodge line of the original family.
+
+**Discriminating tests.**
+
+- `StableCurveCompactification.alreadyProjective` (degenerate): A smooth family over a projective integral base admits the identity compactification.
+- `StableCurveCompactification.trait` (compatibility): Over a discrete valuation test base, stable reduction supplies the stable extension after the allowed finite field extension.
+- `StableCurveCompactification.constantBase` (non-example): Closing the constant classifying image in a moduli cover cannot compactify a positive-dimensional base.
+
+**Uses.** StableReductionPartII:MC.6/graph-closure; StableReductionPartII:MC.6/stable-compactification-exists.
+
+**Acceptance:** The base compactification is part of the data.
+
+**Source:** yuan-author-http, §3.1.4,p.45.
+
+#### Graph-closure compactification after a finite cover
+
+`StableReductionPartII:MC.6/graph-closure` — construction.
+
+Choose a projective compactification S̄₀ of S and the normal projective finite scheme cover V→M̄_g. Let W=S×_{M̄_g}V, choose a reduced irreducible component W₀ dominating S, and normalize it to S′. In S̄₀×V close the finite image of W₀, then normalize that integral closure in the finite function-field extension K(W₀) to obtain S̄′. The resulting S′ is the inverse image of S under S̄′→S̄₀, and the family pulled back from V extends X×_S S′.
+
+**Construction/proof.** (1) W is finite surjective over S because the cover map is representable finite. A component dominates the generic point of integral S. (2) The map W→S×V is finite, as the pullback of the finite diagonal of M̄_g. It need not be a monomorphism: the chosen isomorphism of the two curve families is part of W. (3) Close its finite image in the projective product, preserving the S̄₀-coordinate and then its function field K(W₀); normalization in a finite extension is finite over the excellent finite-type base. (4) Because W₀ is finite over its image, normalization over the open S in K(W₀) is the normalization of W₀; the extension family is obtained from the second projection to V.
+
+**Dependencies:** `StableReductionPartII:MC.6/stable-compactification`, `StableReductionPartII:MC.4/finite-projective-cover`, `AlgebraicModuliForArithmeticGeometry:R09.5`, `SchemeAndStackFoundations:SF.0`.
+
+**API.**
+
+- `CurveGraphClosure.finiteCover` (projection): S′→S is finite dominant and surjective.
+- `CurveGraphClosure.projective` (characterisation): S̄′ is normal integral projective over k.
+- `CurveGraphClosure.family` (compatibility): The stable family on S̄′ restricts to X×_S S′.
+
+**Discriminating tests.**
+
+- `CurveGraphClosure.constant` (non-example): For a constant family on A¹, S̄₀×V retains the A¹ direction; closing only in V loses it.
+- `CurveGraphClosure.integralComponent` (degenerate): If W is reducible, take a component dominating S rather than assert that all of W is integral.
+- `CurveGraphClosure.openNormalization` (compatibility): Normalization commutes with restriction to the open inverse image of S.
+
+**Uses.** StableReductionPartII:MC.6/stable-compactification-exists.
+
+**Acceptance:** The graph retains the base coordinate even for a constant family.
+
+**Source:** yuan-author-http, §3.1.4,p.45, final paragraph (corrected graph closure).
+
+#### Existence after a finite dominant base change
+
+`StableReductionPartII:MC.6/stable-compactification-exists` — theorem.
+
+Every smooth genus-g family g≥2 over an integral quasi-projective scheme over a field or Z admits a stable compactification after a finite surjective morphism S′→S with S′ normal integral.
+
+**Construction/proof.** (1) Use the graph construction and its stable pullback family. (2) The closed finite image of the dominating component contains the generic point of S and hence all of S.
+
+**Dependencies:** `StableReductionPartII:MC.6/graph-closure`, `StableReductionPartII:MC.6/stable-compactification`.
+
+**Acceptance:** No maximal-variation hypothesis is needed.
+
+**Source:** yuan-author-http, §3.1.4,pp.45–46.
+
+#### A stable compactification for the fine level family
+
+`StableReductionPartII:MC.6/level-stable-compactification` — theorem.
+
+The universal smooth family over a fixed full-level component M_g[N] has a stable compactification after a finite dominant cover. Choose a projective coarse compactification, close the graph into a stable moduli scheme cover and normalize as above. Do not assert that the boundary represents naive full torsion frames of every stable Jacobian.
+
+**Construction/proof.** (1) Apply the general graph-closure theorem to the quasi-projective integral fine-level component, after geometric component choice as required. (2) Keep the stable extension and the dense-open level interpretation distinct.
+
+**Dependencies:** `StableReductionPartII:MC.4/fine-level-scheme`, `StableReductionPartII:MC.6/stable-compactification-exists`.
+
+**Acceptance:** N remains invertible on the original level base.
+
+**Source:** yuan-author-http, §3.1.4,p.46.
+
+#### The smooth full-level Torelli morphism
+
+`StableReductionPartII:MC.6/smooth-torelli` — construction.
+
+Over the fixed pairing base and for g≥2, form τ:M_g[N]→A_g[N] by the relative Jacobian with its canonical principal polarization and induced full level. The pullback of the universal abelian scheme is canonically Jac(C_g/M_g[N]); in particular the square of abelian schemes is Cartesian.
+
+**Construction/proof.** (1) Use the relative smooth-curve Jacobian, canonical principal polarization and arbitrary-base-change comparisons. Their family representability belongs to a proposed JacobianChallenge Part II, not to a field-only Picard theorem. (2) The fine ppav universal property yields τ and the Cartesian family isomorphism.
+
+**Dependencies:** `StableReductionPartII:MC.4/fine-level-scheme`, `StableReductionPartII:MC.4/full-level`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme`, `SchemeAndStackFoundations:SF.3`, `PELModuli:M5`, `PELModuli:M6`.
+
+**API.**
+
+- `CurveTorelli.map` (projection): τ sends (C,α) to (J(C),λ_C,α).
+- `CurveTorelli.cartesian` (compatibility): τ* of the universal ppav is the relative Jacobian of the universal curve.
+- `CurveTorelli.hodge` (compatibility): τ* of the ppav Hodge determinant is det f_*ω of the curve family.
+
+**Discriminating tests.**
+
+- `CurveTorelli.dimension` (computation): In genus2 both smooth moduli and ppav moduli have dimension3.
+- `CurveTorelli.minusLevel` (non-example): For nonhyperelliptic genus≥3, (C,α) and (C,−α) can be distinct curve-level objects although their ppav-level images are isomorphic.
+- `CurveTorelli.hyperelliptic` (compatibility): The hyperelliptic involution realizes sign change of level on the curve.
+
+**Uses.** StableReductionPartII:MC.6/torelli-finite-fibres; StableReductionPartII:MC.6/jacobian-hodge-comparison.
+
+**Acceptance:** The curve-to-Jacobian construction is not AbelianSchemes duality.
+
+**Source:** dgh, §6.1,pp.23–24.
+
+#### Finite Torelli fibres and the sign ambiguity
+
+`StableReductionPartII:MC.6/torelli-finite-fibres` — theorem.
+
+On geometric points the smooth full-level Torelli morphism has fibres of size at most2. On nonhyperelliptic curves the two objects (C,α) and (C,−α) are distinct for N≥3; for hyperelliptic curves they are isomorphic. Since every smooth genus-two curve is hyperelliptic, the genus-two map is injective on geometric points. Finite fibres do not imply the smooth Torelli map is a finite morphism.
+
+**Construction/proof.** (1) Import strong classical Torelli: a ppav isomorphism of Jacobians equals ± the Jacobian of a curve isomorphism, with the hyperelliptic qualification. (2) Apply the pairing-level compatibility; on a nonhyperelliptic curve there is no curve automorphism inducing −1. (3) For genus2 use the hyperelliptic double cover. All named classical curve/Jacobian facts require the proposed owner extension.
+
+**Dependencies:** `StableReductionPartII:MC.6/smooth-torelli`, `StableReductionPartII:MC.4/level-rigidity`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme`.
+
+**Acceptance:** The blanket claim of noninjectivity for every g≥2 is excluded.
+
+**Source:** milne, Theorem12.1 and proof §§12–13,pp.37–45;DGH§6.1,p.24.
+
+#### Curve Hodge and Jacobian invariant differentials
+
+`StableReductionPartII:MC.6/jacobian-hodge-comparison` — theorem.
+
+For a smooth proper genus-g family f:C→S whose relative Jacobian J/S exists with base change, the canonical Lie comparison Lie(J/S)≅R¹f_*O_C dualizes to f_*ω_{C/S}≅e*Ω¹_{J/S}. Taking determinants identifies the curve Hodge line with the ppav Hodge line.
+
+**Construction/proof.** (1) Identify the tangent functor of relative Pic⁰ with H¹(O) using first-order units; import the family version from the Jacobian extension. (2) Use curve Serre duality and invariant differentials on the abelian scheme.
+
+**Dependencies:** `StableReductionPartII:MC.5/hodge-bundle`, `StableReductionPartII:MC.5/hodge-determinant`, `StableReductionPartII:MC.6/smooth-torelli`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `AbelianSchemesAndArithmeticModuli:A1`.
+
+**Acceptance:** This is a canonical algebraic line comparison; metric equality is supplied by the Arakelov owner.
+
+**Source:** yuan-author-http, Lemma3.4 and proof,pp.43–44.
+
+#### The compactified Torelli and Hodge comparison
+
+`StableReductionPartII:MC.6/compactified-torelli` — theorem.
+
+Over an algebraically closed field k, the coarse stable curve moduli admits a morphism t̄:M̄_g^{coarse}→A_g^{min} extending smooth Torelli. On a stable curve it uses the abelian part of the generalized Jacobian and maps to the corresponding minimal-compactification stratum. The descended rational Hodge line satisfies λ_coarse=t̄*ω_min, with ω_min ample.
+
+**Construction/proof.** (1) Use the stable-family generalized Jacobian as a semiabelian scheme and its degeneration data; reducible-curve relative Pic⁰ is a Jacobian-owner extension gap. (2) Use the minimal Siegel extension theorem and descended rational automorphic Hodge line; the all-characteristic unlevel statement needs a scoped supplier extension, not an unsupported assertion from good-prime level moduli. (3) Check the extension and line comparison on the boundary with the source’s abelian-part interpretation and descent.
+
+**Dependencies:** `StableReductionPartII:MC.4/coarse-space`, `StableReductionPartII:MC.5/hodge-determinant`, `StableReductionPartII:MC.6/jacobian-hodge-comparison`, `AlgebraicModuliForArithmeticGeometry:R09.5`, `ShimuraCompactifications:C4`, `ShimuraCompactifications:C5`.
+
+**Acceptance:** The entire semiabelian Jacobian is not an abelian scheme at a non-compact-type node.
+
+**Source:** knudsen3, §6,p.211;Yuan§3.4,p.56.
+
+#### Nef and big Hodge line for maximal variation
+
+`StableReductionPartII:MC.6/maximal-variation-hodge` — theorem.
+
+Let k be a field, S̄ normal integral projective over k, and f:X̄→S̄ a stable genus-g family g≥2 with smooth restriction over a dense open S. If that smooth family has maximal variation, λ_{S̄}=det f_*ω is nef and big. No maximal-variation conclusion is asserted for an isotrivial positive-dimensional family.
+
+**Construction/proof.** (1) After a finite field or level-cover change use the compactified Torelli and ample rational Hodge line on the minimal Siegel compactification. (2) The composite classifying map is generically finite onto its image by maximal variation and finite Torelli fibres. (3) The pullback of an ample line along a projective generically finite map is nef and big; descend nefness/bigness through the finite cover.
+
+**Dependencies:** `StableReductionPartII:MC.6/maximal-variation`, `StableReductionPartII:MC.6/compactified-torelli`, `StableReductionPartII:MC.6/torelli-finite-fibres`, `StableReductionPartII:MC.5/hodge-determinant`, `SchemeAndStackFoundations:SF.5`.
+
+**Acceptance:** Only finite fibres on the smooth locus are used.
+
+**Source:** yuan-author-http, §3.4,pp.55–56.
+
+**To close this layer.**
+
+- Resolve relative Jacobian, strong Torelli, all-characteristic minimal ppav compactification and Hodge supplier extensions.
+- Complete formal signatures and generic finite-pullback nef/big dependencies; graph closure is specified with both the base and K(W₀).
+
+
+### MC.7. Level Picard parameters and consumer interfaces
+
+For a fixed genus g≥2, level N≥3 invertible and degree d∈Z define the level-Picard parameter functor and compare it with relative Picᵈ of the universal smooth curve. Keep the fppf-sheafified Picard functor distinct from globally existing line bundles; identify triples only over algebraically closed fields or under the explicit Brauer-obstruction vanishing condition. Export the moduli and family interfaces to the six key-definition consumers, without rebuilding their Hurwitz stacks, mapping-class groups or tautological Chow rings.
+
+**Status:** partial.
+
+#### The degree-d level Picard parameter functor
+
+`StableReductionPartII:MC.7/level-picard-parameter` — definition.
+
+For g≥2, N≥3 invertible with a fixed pairing component, and d∈Z, define the parameter sheaf P_g,N^d=Pic^d_{C_g/M_g[N]} on the fppf site. It parametrizes sheafified relative degree-d line classes on the universal smooth curve. An algebraically closed field point corresponds to a triple (C,α,L) up to curve-level isomorphism and line-bundle isomorphism. Over a general base T the sheaf class can have a Brauer obstruction to a globally existing line bundle; the triple groupoid and this sheaf are distinct.
+
+**Construction/proof.** (1) Pull back the relative Picard sheaf of the universal curve, including the degree decomposition and arbitrary-base-change comparison. (2) The Jacobian extension must supply representability of Picᵈ as a torsor under Pic⁰; it does not assert a universal line without rigidification. (3) Over an algebraically closed field the Brauer obstruction vanishes, giving the stated triples.
+
+**Dependencies:** `StableReductionPartII:MC.4/fine-level-scheme`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme`, `SchemeAndStackFoundations:SF.3`.
+
+**API.**
+
+- `LevelPicardParameter.fiber` (characterisation): The fibre over a smooth curve-level point is its degree-d Picard scheme.
+- `LevelPicardParameter.torsor` (structure): Picᵈ is a torsor under the relative Jacobian; there need not be a canonical origin.
+- `LevelPicardParameter.obstruction` (compatibility): A sheaf point is represented by an actual line bundle exactly when its Brauer obstruction vanishes.
+
+**Discriminating tests.**
+
+- `LevelPicardParameter.degreeZero` (computation): For d=0 the relative Picard component is the Jacobian with its canonical origin.
+- `LevelPicardParameter.sectionRigidification` (compatibility): A chosen section permits rigidification and a Poincaré line; the unpointed universal family is not assumed to have that section.
+- `LevelPicardParameter.scalarInertia` (non-example): The groupoid of triples has G_m scalar automorphisms of L; it cannot be identified with the represented Picard sheaf as a groupoid.
+
+**Uses.** StableReductionPartII:MC.7/picard-triples-comparison.
+
+**Acceptance:** The Picard parameter is a sheaf of classes, not the automorphism groupoid of line bundles.
+
+**Source:** yuan-author-http, §4.5,pp.73–75.
+
+#### Geometric triples and the Picard sheaf
+
+`StableReductionPartII:MC.7/picard-triples-comparison` — theorem.
+
+For an algebraically closed field k in which N is invertible, geometric points of P_g,N^d identify with isomorphism classes of curve-level-line triples. For general bases retain the fppf sheafification and the obstruction/rigidification distinction; the existence of the parameter scheme does not produce a tautological line on every pulled-back curve.
+
+**Construction/proof.** (1) Use relative Picard representability and its line-lifting obstruction sequence. (2) Use Br(k)=0 for algebraically closed k and full-level rigidity.
+
+**Dependencies:** `StableReductionPartII:MC.7/level-picard-parameter`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme`, `SchemeAndStackFoundations:SF.1`.
+
+**Acceptance:** Scalar automorphisms disappear only after passage to classes.
+
+**Source:** yuan-author-http, §4.5,pp.73–75.
+
+**To close this layer.**
+
+- Resolve relative Picᵈ representability and the Brauer obstruction API in the Jacobian owner extension.
+- Supply actual sheaf/groupoid Lean signatures and verify each routed Yuan/DGH and key-definition consumer export.
+
+## Routed consumer coverage
+
+| Item | Planned nodes | Qualification |
+|---|---|---|
+| PAPER-YUAN-26/2 | `StableReductionPartII:MC.6/maximal-variation` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/69 | `StableReductionPartII:key/moduli-curves`; `StableReductionPartII:MC.0/universal-curve` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/70 | `StableReductionPartII:MC.1/smooth-dimension` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/71 | `StableReductionPartII:MC.5/hodge-bundle`; `StableReductionPartII:MC.5/hodge-determinant` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/72 | `StableReductionPartII:MC.3/boundary-types`; `StableReductionPartII:MC.5/boundary-divisor` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/73 | `StableReductionPartII:MC.5/integral-noether` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/74 | `StableReductionPartII:MC.5/semi-canonical-noether` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/75 | `StableReductionPartII:MC.5/boundary-thickness` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/82 | `StableReductionPartII:MC.6/stable-compactification` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/83 | `StableReductionPartII:MC.6/graph-closure`; `StableReductionPartII:MC.6/stable-compactification-exists` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/84 | `StableReductionPartII:MC.4/finite-projective-cover` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/85 | `StableReductionPartII:MC.4/fine-level-scheme`; `StableReductionPartII:MC.6/level-stable-compactification` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/107 | `StableReductionPartII:MC.6/maximal-variation-hodge` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/134 | `StableReductionPartII:MC.4/full-level`; `StableReductionPartII:MC.7/level-picard-parameter` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/137 | `StableReductionPartII:MC.7/level-picard-parameter`; `StableReductionPartII:MC.7/picard-triples-comparison` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/250 | `StableReductionPartII:MC.1/smooth-dimension` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/251 | `StableReductionPartII:MC.1/proper-moduli` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/252 | `StableReductionPartII:MC.1/normal-crossing-boundary` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-YUAN-26/258 | `StableReductionPartII:MC.6/compactified-torelli` | The stated target is planned; the exact unresolved dependencies are in gaps and stage remaining lists. |
+| PAPER-DIMITROV-GAO-HABEGGER-21/10 | `StableReductionPartII:MC.4/full-level`; `StableReductionPartII:MC.4/fine-level-scheme`; `StableReductionPartII:MC.4/level-connectedness`; `StableReductionPartII:MC.0/universal-curve` | Single pairing component with chosen ζ_N; geometric irreducibility requires component/topology inputs. |
+| PAPER-DIMITROV-GAO-HABEGGER-21/12 | `StableReductionPartII:MC.6/smooth-torelli`; `StableReductionPartII:MC.6/torelli-finite-fibres`; `StableReductionPartII:MC.6/jacobian-hodge-comparison` | Finite geometric fibres, ±level ambiguity, genus-two injectivity and Cartesian universal-Jacobian square; no globally finite smooth Torelli claim. |
+
+The reserved key node is `StableReductionPartII:key/moduli-curves`. Its smooth/stable flavours, automorphism groupoids, universal curve, forgetful stabilization, clutching, coarse and full-level distinctions serve the six cited key-definition papers. The packet’s keyDefinitionCoverage lists the exact exports.
+
+## Source versions and issues
+
+### mumford1977
+
+David Mumford, *Stability of projective varieties*, L’Enseignement Mathématique 23 (1977),39–110. [Public source](https://www.dam.brown.edu/people/mumford/alg_geom/papers/1977a--StabilityLecturesIHES-Swiss.pdf). Read 2026-10-02; SHA-256 `558c5e1a56a522c7d6815b4def3e6410690e8e8d28642f49df6887b57905bd80`.
+
+Read scope: PDF63–68, printed pp.100–105: GRR calculation and Picard torsion arguments.
+
+### milne
+
+J. S. Milne, *Jacobian Varieties*, Corrected author notes,12 June2021. [Public source](https://www.jmilne.org/math/xnotes/JVs.pdf). Read 2026-10-02; SHA-256 `36c3f09c7462dbbd4ae1f8b81a02bd9ff84f03c5a346351d7d5d78fc3f173486`.
+
+Read scope: PDF27–30 (§8, relative integral-fibre Jacobians);PDF37–45 (§§12–13, Torelli statement and proof).
+
+### dm
+
+Pierre Deligne; David Mumford, *The irreducibility of the space of curves of given genus*, IHÉS 36 (1969), 75–109. [Public source](https://www.dam.brown.edu/people/mumford/alg_geom/papers/1969c--IrredModCurves-Deligne-Numdam.pdf). Read 2026-10-02; SHA-256 `d779973708ecef9a098db863df766f173740d75302f15655e4bbc9dd7df739e7`.
+
+Read scope: PDF1–14 and31–36, printed pp.75–87 and104–109;§§2–4 not read in full.
+
+### knudsen2
+
+Finn Faye Knudsen, *The projectivity of the moduli space of stable curves, II: The stacks M_{g,n}*, Math. Scand.52 (1983),161–199. [Public source](https://journals.msp.org/mscand/article/download/1622/1621/1653). Read 2026-10-02; SHA-256 `18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230`.
+
+Read scope: §§1–3, printed pp.161–191 (PDF1–31), rendered scan.
+
+### knudsen2012
+
+Finn Faye Knudsen, *A closer look at the stacks of stable pointed curves*, arXiv:1106.1588v2, 3 April 2012. [Public source](https://arxiv.org/pdf/1106.1588v2). Read 2026-10-02; SHA-256 `de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36`.
+
+Read scope: Entire paper, PDF1–17; internal generated header dated 2018 is not a new arXiv version.
+
+### knudsen3
+
+Finn Faye Knudsen, *The projectivity of the moduli space of stable curves, III: The line bundles on M_{g,n}, and a proof of the projectivity of M̄_{g,n} in characteristic 0*, Math.Scand.52 (1983),200–212. [Public source](https://journals.msp.org/mscand/article/download/1623/1622/1654). Read 2026-10-02; SHA-256 `97c2d29246b5aeff4820b4f7e74aaf8ad2e32eb72c25d05acfb7b2cbd8f017f2`.
+
+Read scope: Entire paper, PDF1–13, rendered scan; projectivity argument is characteristic zero.
+
+### ile
+
+Runar Ile, *Stably reflexive modules and a lemma of Knudsen*, arXiv:1110.3909 author preprint. [Public source](https://arxiv.org/pdf/1110.3909). Read 2026-10-02; SHA-256 `41e6a87de44074fdc24770e0f842c6e8846347c3b77483d17371d40c97793743`.
+
+Read scope: Remark6.4 and Example6.5, PDF20–21; remaining proof not yet read.
+
+### clm
+
+Raymond Cheng; Carl Lian; Takumi Murayama; in collaboration with Yordanka Kovacheva and Monica Marinescu, *Projectivity of the moduli of curves*, Author manuscript, 1 July 2021. [Public source](https://chngr.github.io/assets/mgbar.pdf). Read 2026-10-02; SHA-256 `5314dd91d8957fc775ea40e30d9a9cc12159fd5b61a5f0d2640c41b18f19a829`.
+
+Read scope: PDF1–5,18–33;PDF6–17 generic positivity background not yet read.
+
+### yuan-author-http
+
+Xinyi Yuan, *Arithmetic bigness and a uniform Bogomolov-type result*, Author manuscript,21 August2024; published Ann.Math.203 (2026) is not collated here. [Public source](http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf). Read 2026-10-02; SHA-256 `b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e`.
+
+Read scope: PDF16,41–46,55–57,73–75; only passages routed to this roadmap.
+
+### dgh
+
+Vesselin Dimitrov; Ziyang Gao; Philipp Habegger, *Uniformity in Mordell–Lang for curves*, arXiv:2001.10276v3. [Public source](https://arxiv.org/pdf/2001.10276v3). Read 2026-10-02; SHA-256 `5fc8e86f53ee43e9d18e8239a8db986bff74115ddb947abef4902a72dde338a4`.
+
+Read scope: PDF6,23–24,§§1.2,6.1; only the two routed moduli items.
+
+The later CLM NSF copy was collated at PDF1–6,33,38–41; its hash and URL are in sourceVersions. Yuan’s publisher page was read but its PDF was not acquired. A source error scoped to an author manuscript is not an accusation about an unread published version. All ten findings remain without an independent-review verdict.
+
+### StableReductionPartII/E1: gap
+
+knudsen2, Main Lemma2.2 and its application,pp.175–178, published1983 scan.
+
+Printed: “Main Lemma”
+
+Correction: The pointed-node versality needed by the dual ideal calculation must be proved; use Knudsen2012 Proposition2.1 and §§2–4.
+
+Reason: Knudsen2012 explicitly identifies the earlier unproved versality assumption and supplies the small-extension and matrix calculations.
+
+Reach: the proof. Known status: Knudsen, A closer look at the stacks of stable pointed curves, arXiv:1106.1588v2,2012. Searches: Read the full2012 repair and its introduction; compared with1983 Main Lemma.
+
+### StableReductionPartII/E2: error
+
+knudsen2, Proof of Theorem3.7,pp.187–189; Ile Remark6.4/Example6.5 PDF20–21.
+
+Printed: “JJ∨ = J”
+
+Correction: Restrict the claimed nodal ideal relations to the nodal-section locus before the rank-two calculation.
+
+Reason: For R=S[x,y]/(xy−bc) and I=(x−b,y−c), Ile computes R/(I I∨)≅S/(b,c) and I∨⊗S≅S⊕S/(b,c). The quotient is not rank2 on the whole smoothing base.
+
+Reach: the proof. Known status: Runar Ile, Stably reflexive modules and a lemma of Knudsen, Remark6.4 and Example6.5 (arXiv:1110.3909). Searches: Read Ile Remark6.4 and Example6.5 in full; checked Knudsen2012 repair as distinct from this clutching-proof restriction.
+
+### StableReductionPartII/E3: error
+
+knudsen2, Corollary3.9(b),printedp.190 (PDF30), published1983 scan.
+
+Printed: “When g₁ ≠ g₂ or n ≠ 0, β_{g₁,g₂,H,K} is a closed immersion.”
+
+Correction: Use finite unramified clutching and boundary normalization by distinguished-node choices. A global separating clutching map need not be a closed immersion even for unequal genera and n>0.
+
+Reason: Over C glue three pairwise nonisomorphic elliptic curves in a chain and put the sole mark on the central curve. The genus3 target has two distinct nodes of type (1,empty)|(2,{1}). Choosing the left or right elliptic tail gives nonisomorphic geometric preimages in M̄₁,₁×M̄₂,₂, since the first elliptic factors are nonisomorphic. A closed immersion is injective on geometric points. This is a statement counterexample, distinct from Ile’s correction to the proof of3.7.
+
+Reach: a stated result. Known status: new. Searches: 2026-10-02: journal original PDF and Corollary3.9 page rendered at high resolution.; Bounded searches for Knudsen Corollary3.9 closed-immersion correction/erratum found no exact published correction; later repetitions are not verification.; Ile1110.3909 Remarks6.4/6.5 correct3.7 proof, not this3.9(b) statement. Novelty and the counterexample require independent review.
+
+### StableReductionPartII/E4: gap
+
+yuan-author-http, §3.1.4,p.45,21August2024 author manuscript.
+
+Printed: “a stable compactification is given by the Zariski closure of S′ in M′g”
+
+Correction: Close the finite image in S̄₀×V and normalize in K(W₀), retaining both the base coordinate and the finite cover’s isomorphism data.
+
+Reason: For a constant curve family on A¹, the image in V is zero-dimensional while a compactification of the base has dimension1. Moreover the stack fibre product remembers an isomorphism and can map finitely, not injectively, to S×V.
+
+Reach: the proof. Known status: new; the graph-closure problem was already flagged in routed extraction item83, without a published correction. Searches: Read author manuscript p.45 and the routed item83.; Annals article page checked; candidate publisher PDF404 and Euclid returned non-PDF, so no published-text collation is claimed.; ArXiv v4 predates the21August2024 manuscript; no later author version verified.
+
+### StableReductionPartII/E5: misprint
+
+yuan-author-http, §1.6,p.16,21August2024 author manuscript.
+
+Printed: “any rational irreducible component of C_k̄ intersects other irreducible components at three or more points”
+
+Correction: Count the two normalization branches of every self-node; the three-intersection condition applies to nonsingular rational components.
+
+Reason: A nodal rational component attached to an elliptic component has three normalization flags and is stable of total genus2 although it meets the other component only once. The parent and DM definitions count normalization flags.
+
+Reach: nothing. Known status: Previously recorded and independently confirmed in PAPER-YUAN-26/E7 and ERRATA-PAPER-YUAN-26/E4; no published correction verified. Searches: Read data/source-issues.json entries for the exact owner PAPER-YUAN-26 and the paper extraction; publisher acquisition failed as stated in sourceVersions.
+
+### StableReductionPartII/E6: error
+
+clm, Introduction,p.1,1July2021 author manuscript.
+
+Printed: “irreducible smooth projective scheme over Z”
+
+Correction: Delete smooth for the coarse scheme; the stable stack is smooth.
+
+Reason: Smoothness of an algebraic stack does not establish smoothness of its coarse quotient. The later NSF-deposited copy p.1 explicitly removes the word smooth.
+
+Reach: a stated result. Known status: Corrected in the later NSF-deposited author copy,PDF1,https://par.nsf.gov/servlets/purl/10585475. Searches: Compared full introductions in2021 author copy and43-page NSF copy; the latter is not asserted to be the publisher’s version of record.
+
+### StableReductionPartII/E7: error
+
+clm, Lemma1.5 proof,p.4,1July2021 author manuscript.
+
+Printed: “Pic(X) is a subgroup of Pic(U)”
+
+Correction: Use the groupoid-equivariant descent datum and norm construction; forgetting equivariance need not be injective.
+
+Reason: For Bμ_N over an algebraically closed field of characteristic prime to N, distinct character line bundles become the same trivial line on the atlas Spec k. The later NSF copy pp.4–6 replaces the argument by descent and norms.
+
+Reach: the proof. Known status: Corrected in the later NSF-deposited author copy,Lemma1.5 proof,PDF4–6. Searches: Read2021 pp.4–5 and NSF pp.4–5;PDF6 was subsequently read in full, including the cocycle/norm compatibility.
+
+### StableReductionPartII/E8: gap
+
+clm, Lemma7.1 proof,p.29,1July2021 author manuscript.
+
+Printed: “S is Noetherian since it maps finitely to M_g”
+
+Correction: Require finite type/noetherian source explicitly before applying relative Serre vanishing.
+
+Reason: The assumption is finite fibres of the classifying map; finite fibres alone do not imply a finite morphism or a noetherian source. The later NSF copy p.39 supplies finite type instead.
+
+Reach: the proof. Known status: Corrected in the later NSF-deposited author copy,Lemma1.44 proof,PDF39. Searches: Compared2021 Lemma7.1 proof and NSF Lemma1.44 proof. The node in this packet assumes proper finite-type S.
+
+### StableReductionPartII/E9: misprint
+
+clm, Proposition6.3 proof,p.25,2021 author copy; same line in NSF copyPDF33.
+
+Printed: “Since b∗ωS′ ∼= ωS”
+
+Correction: For the contraction b:S→S′ use b_*ω_S^{⊗m}≅ω_{S′}^{⊗m}, hence the equality of relative pluricanonical direct images.
+
+Reason: The rendered NSF line puts the star below b and its argument on S′, reversing the domain of pushforward. If read instead as pullback, the identity also misses the exceptional divisor: for a blowup ω_S≅b*ω_{S′}⊗O(E). The intended pluricanonical pushforward equality is valid, but requires its own argument.
+
+Reach: the proof. Known status: new. Searches: Compared2021 p.25 with the later NSF p.33, rendered to check the star position.; Bounded search for Cheng–Lian–Murayama projectivity erratum on2026-10-02 found no exact correction. Publisher version not identified; finding scoped to these author copies.
+
+### StableReductionPartII/E10: misprint
+
+clm, Lemma7.1 final proof line,p.30,2021 author copy; NSF Lemma1.44 proofPDF40.
+
+Printed: “f_*ω^{⊗3d}_{X/S} is ample”
+
+Correction: The conclusion supplied by the ampleness lemma is det(f_*ω^{⊗3d}_{X/S}) ample.
+
+Reason: The lemma statement concerns λ_{3d}=det f_*ω^{3d}, and Proposition5.5/NSF1.33 concludes ampleness of det Q. Its invocation does not by itself conclude ampleness of Q.
+
+Reach: nothing. Known status: new. Searches: Compared both author-copy proof endings and their correctly stated determinant-ample lemma.; Bounded projectivity erratum search2026-10-02 found no exact correction; no assertion about an unread publisher text.
+
+## Supplier extensions and remaining work
+
+### Parent and foundational stage imports remain open
+
+Every such use has a precise request naming the real supplier stage and consuming proof. Stage descriptions are specifications, not built declarations. Closure requires verified supplier nodes or pinned declarations; the parent roadmap is not replanned here.
+
+### Curve-family Jacobians and Picard components
+
+JacobianChallenge layer D is over a field. Milne §8 supplies a sketch for integral-fibre projective flat families, not reducible stable families. A JacobianChallenge Part II must develop fppf relative Picᵈ, smooth relative ppav Jacobians, stable semiabelian Pic⁰, base change, canonical polarizations, Lie comparisons, and the line-lifting obstruction. Read Grothendieck FGA §232 and BLR §§8.4,9.4 at exact locators; they were not acquired here.
+
+### Strong Torelli owner extension
+
+Milne §§12–13 were read in full at the scoped pages, including the theta/symmetric-power reconstruction proof. Strong Torelli, hyperelliptic sign realization, nonhyperelliptic sign exclusion and the genus-two hyperelliptic theorem need declaration-level planning in JacobianChallenge Part II. Do not duplicate those foundational proofs inside the curve-moduli owner.
+
+### Full-level rigidity source
+
+Acquire and decompose Serre, Séminaire Cartan 1960/61, exposé17 Appendix, including odd-prime and level-four cases in prime-to-characteristic geometry. DM §5.14 is a citation of this result, not its proof. Oort–Steenbrink Theorem1.8/Lemma1.11 remain unacquired.
+
+### Teichmüller and mapping-class inputs
+
+DM §§5.13–5.16 and Mumford1977 Lemma5.14 require connected/simply connected Teichmüller space, the analytic moduli presentation, generation by Dehn twists, boundary-loop monodromy and Sp(Z/N) surjectivity. No verified atlas owner was found. Propose an owner extension before creating these generic nodes; do not attribute them to scheme deformation theory.
+
+### Tame normalized-level component comparison
+
+Read DM §§2–4 in full, especially Theorem4.19 and all normalization/tame-cover arguments used by5.9/5.13. Only §§1,5 and the stated pages were fully read. These dependencies prevent source_decomposed coverage of MC.4.
+
+### Generic positivity and ampleness supplier extension
+
+SF.5 currently plans intersection/GRR and surface Riemann–Roch, not nef vector bundles. Propose SchemeAndStackFoundations Part II: curve-test nefness of locally free sheaves, quotients/extensions/symmetric powers, finite pullback/descent, classifying Grassmannian/frame maps and the precise Kollár ampleness lemma. CLM author §§2–4 (PDF6–17) remain unread; the §5 proof was read.
+
+### Surface positivity inputs
+
+Acquire Mumford/Ekedahl vanishing with the characteristic-two,m=2 bound≤1, Frobenius negative-quotient contradiction, rational-double-point resolutions and pluricanonical pushforward invariance, elliptic canonical bundle formula (Bombieri–Mumford1977), and Lang1980 Euler bound. Assign generic surface facts to an owner extension; do not put them in parent StableReduction without verifying its exact scope.
+
+### Line-valued determinants and Deligne pairing
+
+A generic determinant-of-cohomology/Deligne-pairing construction on proper flat nodal curves, pullback and its c₁ pushforward identity are required in addition to SF.5 rational Chow GRR. Deligne’s determinant paper and Moret-Bailly Noether1989 were not acquired. Propose a foundational/Arakelov Part II with an unmetrized algebraic core, retaining exact integral tensor powers.
+
+### All-characteristic compactified Torelli
+
+KnudsenIII §6 is a characteristic-zero proof. Yuan p.56 cites an all-field minimal ppav/Hodge result. The existing C5 good-prime level scope does not alone prove the unlevel all-characteristic statement. Read Faltings–Chai V Theorem2.3 or a public primary replacement and prove compatible prime-to-characteristic level descent and boundary extension.
+
+### Pointed noetherian-to-arbitrary-base passage
+
+The repaired node calculation was checked in Knudsen2012 under noetherian hypotheses. Supply finite-presentation approximation, descent and arbitrary-base-change tests to justify the moduli definition over arbitrary schemes. Read KnudsenII Appendix (PDF32–39), not yet read.
+
+### Rigid genus-one locus and boundary normalization details
+
+Expand the special labelled triangle recovery into individual family lemmas and reconcile the augmented clutching proof with Ile’s nodal-locus correction. Obtain a primary modern boundary normalization statement, e.g. the consumer CLP §2.1, rather than treating Knudsen Corollary3.9(b) as a global closed immersion.
+
+### Suggested Lean type interfaces
+
+The pinned libraries have schemes but no stable pointed-family, algebraic-stack, relative Picard, or invertible sheaf interfaces of the strength required here. The suggested file gives real ring/matrix signatures and explicitly lists omitted moduli signatures. All remaining APIs/tests need actual Lean types from supplier packets; arbitrary Prop fields or axioms standing for moduli objects would falsify the prototype.
+
+### Source-locator and published-version collation
+
+Before full submission verify every short excerpt literally at its cited printed/PDF page, refine combined locators to individual statements, and collate the published Yuan/DGH texts. Yuan publisher PDF could not be acquired: Annals candidate404 and Euclid non-PDF response; author hash/version scope is explicit. CLM’s NSF copy repairs several older manuscript errors, but publisher identification still needs checking.
+
+### Standard checker upstream-stage dispatch
+
+scripts/check_blueprint.py tests its baseline-reference regex before known stage membership and therefore rejects genuine upstream stage IDs. Reported at issue3342 comment5950082999. Only job deliverables may be edited, so the script is not patched and no baseline entries are forged. A scratch diagnostic excludes roadmap IDs from the baseline regex; it is not a standard-check pass.
+
+**rescope — tauceti:TauCetiRoadmap/JacobianChallenge, StableReductionPartII.** Field-only layer D is insufficient for family Picᵈ/Jacobians and strong Torelli. Existing relative abelian duality is not curve Picard representability. Create JacobianChallenge,Part II with relative curve Picard/Jacobian and strong Torelli stages. This packet keeps moduli-specific level and Torelli maps, importing those generic constructions after approval; no upstream edits.
+
+**rescope — SchemeAndStackFoundations, StableReductionPartII.** SF.5 intersection/GRR does not plan generic vector-bundle positivity or line-valued determinant/pairing constructions. Create SchemeAndStackFoundations,Part II: vector-bundle nefness/ampleness and determinant/Deligne-pairing core; use an Arakelov Part II for metric refinements. Assign surface vanishing and elliptic positivity to a verified surface owner extension.
+
+**rescope — ShimuraCompactifications, StableReductionPartII.** C5 currently states good-prime level compactification while the curve Hodge target is an all-characteristic unlevel statement. Add a ShimuraCompactifications,Part II supplier for minimal Siegel unlevel descent across every characteristic, preserving automorphic Hodge powers. Verify a prime-to-characteristic level argument instead of claiming the good-prime scope automatically covers it.
+
+**split — StableReductionPartII.** MC.4 combines coarse projectivity, generic positivity applications and full-level component topology. Split MC.4 into coarse-space/projective-cover and fine-level/component sublayers once the generic positivity supplier extension is assigned; current node stage IDs are kept for this checkpoint.
+
+## Validation and suggested file
+
+The standard checker was run with the pinned declaration index. It reports58 errors and0 warnings, all from genuine upstream `tauceti:TauCetiRoadmap/...#layer-...` IDs being dispatched to baseline lookup before stage membership. Issue3342 comment5950082999 reports the defect. No checker code or baseline entries were altered. A scratch diagnostic excluding upstream roadmap IDs from the baseline regex reports0 errors and0 warnings against the same pinned index; it is not a standard pass.
+
+The suggested Lean file supplies explicit quadratic-form and matrix signatures, API and examples, and lists every omitted node/API/test by name. Missing moduli types are not replaced by arbitrary propositions. This is partial prototype coverage, with its exact ledger in the packet. No pre-existing built environment at both pinned commits was found; the file was not compiled, and no Lake project, cache or library build was created. No stage is closed.
+
+## Upstream stage encoding for intake
+
+The 58 exact upstream roadmap-stage imports of 44 nodes are retained in the packet’s upstreamPrerequisites field because the current standard checker dispatches them as declaration names. The roadmap requires edges, supplier contracts, requests and mathematical statements are unchanged. Validation restores the typed references only in an in-memory atlas overlay and checks every expected edge and cycles. This follows the accepted Néron Part II packet convention; it supplies no new baseline declaration and closes no source or geometric-interface gap. Canonical prerequisite-field integration remains explicit in the checker gap until the shared checker handles known upstream stages or genuine declaration/node exports replace them.
