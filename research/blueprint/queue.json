@@ -45458,7 +45458,8 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-01.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4387"
   },
   {
    "id": "REV-RT-RS-01",
