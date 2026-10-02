@@ -1,3 +1,23 @@
+# DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII: codex-rtOQ9t continuation
+
+Refs #3378. **Partial checkpoint** extending the merged 111-node plan. No stage or reserved Ferrand key is declared closed. Every implementation status is unchecked.
+
+Current totals: 123 nodes (9 definitions, 89 lemmas, 22 theorems, 3 comparisons), 41 API items, 36 unit tests, 28 planets, 28 cited baseline declarations, 17 gaps and 20 requests. All 111 inherited node IDs, 78 routed items and 21 source findings are preserved. The Ferrand key and unrelated model geometry are unchanged.
+
+This continuation decomposes the finite constant-coefficient F₂ classification into twelve native declarations: five models, binary discriminant and smooth split, eight admissible changes, model discriminants/counts/j, complete orbit witnesses, orbit disjointness, the point-count classifier, the order-four doubling calculation and cyclic point groups. The five inherited E_i nodes consume these calculations, and the existing geometric classifier imports the exact SF.3 scheme-presentation contract. The definition has four API entries and four typed tests, including same-j distinct models and a singular equation sharing count3 with a smooth model.
+
+The durable packet certificate and reader contain every one of the sixteen smooth coefficient tuples, its forward change to the count-indexed model, and the five full point cycles. An independent modulo2 calculation verified all 32 tuples, eight changes, 1024 affine equation substitutions, discriminant/count preservation and inverse changes. Orbit sizes are 2,4,4,4,2; the E₄ cycle is O,(1,0),(0,0),(1,1),O. This finite calculation does not certify the fourteen surface models or the polynomial searches in G.5–G.6.
+
+Fresh primary reading is Schröer arXiv:2004.07025v3, p.11 Proposition3.3/table and preceding context. Its SHA-256 matches the inherited edition receipt. The paragraph cites Knapp, whose text was not freshly obtained; geometric classification is not inferred from an isomorphism of finite point groups. Earlier source ledgers retain their attribution to the previous workers rather than becoming a claim of fresh complete rereading. JacobianChallenge and Multiquadratic upstream documents were read in full. Reviewed parent R11.1–R11.6, SF.3 and EllipticCurves Layer3 audits were read; no direct PartII audit entry exists. All 28 registered baseline statements were read at the pins. General Weierstrass carriers, variable changes, addition, pointCount and cyclic group equivalences are reused.
+
+Validation passed: indexed blueprint checker (0 errors, 0 warnings), exact five-file intake, whitespace, inherited ID/route/source/request preservation, new reader/signature/API/test parity and source hash. Actual atlas projection includes all 76 typed upstream prerequisites and all 67 expected stage edges, with no pending or skipped links. The stage graph has 2612 vertices and 8726 edges; the combined declaration/stage graph has 2738 vertices and 9269 edges. Both are acyclic. Typed upstream imports were appended only to an in-memory validation copy to test the current merger accurately. No other job files or atlas output were edited.
+
+Lean was **NOT COMPILED**: no existing build at both pinned commits. No Lake project, cache, library build or Lean server was started. All twelve added native forms and four API names have real library types; the order-four form includes its nonzero and self-inverse conclusions. The old space/scheme signature omission ledger remains binding.
+
+Resume with the seventeenth gap: SF.3 must export pointed smooth proper genus-one scheme presentation by a native elliptic equation, comparison of scheme rational points with native Point, and geometric realization of admissible changes preserving infinity. This is an addition to the existing SF.3 request, with the exact five-classifier consumer named. Geometric ordinary/supersingular comparison remains an upstream EllipticCurves Layer3 import. The prior sixteen gaps and all twenty requests remain: genuine space/patching exports and signatures, canonical/wild fiber proofs, numerical-Picard descent, DVR adapters, rational surface geometry, Lang configurations, model resolution certificates and full rejection/equivalence witnesses. All seven layers remain partial.
+
+## Previous checkpoint: historical attribution
+
 # DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII: codex-a71f92 continuation
 
 Refs #3378. Partial continuation from the merged 99-node checkpoint; no stage or reserved
