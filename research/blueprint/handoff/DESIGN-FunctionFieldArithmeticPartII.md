@@ -1,3 +1,360 @@
+# FunctionFieldArithmeticPartII — native factorial algebra diagram checkpoint
+
+Worker: Codex — codex-J6LwjP. Date: 2026-10-02. Refs #3403. Winning claim 5962877654, confirming bot 5962879126; whole issue read before and after confirmation. Branch codex-J6LwjP-design-function-field-root-refinement. Mathematical and assembly base 766de57f65a3ee380d9c1a7dec2f87eceaa417b7. Exact pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
+
+Publication guard: fetched origin/main bcc37efa667a1f3c521b0d8e2407b9eda3fa87e6; seventeen real tracked paths (governing rules, reviewed audit/review, key ownership, validators and all five own inputs) are byte unchanged against the recorded mathematical base. Actual assembly remains reproduced at the recorded base; unrelated later roadmap changes are not claimed to share its graph totals. The live bot confirmation still names this session.
+
+## Done and remaining
+
+Eight new consumed RS.2 planning nodes construct the native fixed-index divisibility root maps, prove root/identity/composition/agreement with multiplicative transitions, and construct a genuine factorial functor into the existing CommAlgCat with chart, root and coefficient interfaces. This removes the need for carrier casts in the factorial algebra diagram. It is a partial checkpoint, not a completed root-stack or Part II blueprint. The infinite-affine-quotient consumer gains the diagram prerequisite and an explicit remaining-proof step. Its statement, hypotheses, APIs/tests, sources and acceptance contract are unchanged.
+
+All 173 inherited mathematical contracts are preserved; 172 old entire node objects are identical. The original 2075-line suggested file is preserved byte for byte following four additional Mathlib imports; eleven new public signatures and eight new example headers match the actual checked prototype. New final outer bodies are admitted under PROTOCOL §13. All earlier source arrays, findings, route inventories (28 Yun–Zhang and 38 independent symplectic items), root ownership, requests, gaps, planets, coverage and implementation statuses are unchanged. The original roadmap definition is byte unchanged. The reader and handoff retain their predecessors verbatim beneath explicit historical boundaries.
+
+Current totals: 181 unchecked nodes, 9 definitions, 30 constructions, 95 lemmas, 36 theorems, 10 comparisons, 1 application; 134 APIs (132 required), 158 tests (134 required), 159 baseline entries and 39 planets. All ten stages remain partial with eight gaps and thirteen requests. No checklist or closure claim is advanced.
+
+The constructions work for arbitrary commutative A and f, including zero rings and nilpotents, and all positive indices. The quotient lift sends t_n to t_N^(N/n); exact division proves its relation and its fixed-carrier identity/composition. Native factorial nonvanishing and divisibility give the actual preorder functor fields. The specified chart equivalence exposes the intended carriers even when the planning functor's body is opaque. The tests compute genuine root/coefficient images and a composite, and prove the wild-characteristic image t_6³ is nonzero using the imported monic power basis. They do not assume nilpotents disappear.
+
+Resume with the separate coherent root-object/groupoid reindexing comparison, diagonalizable grading and affine colimit identification, then the stated infinite fpqc quotient and torsor contracts. A ring functor alone proves none of those conclusions. Earlier finite-basis/faithful-flatness and Spec results remain credited to codex-rtOQ9t; this checkpoint's agreement lemma connects to those contracts without claiming a new finite-flat geometric proof. Existing H1_fpqc, uniformizer choices, ramified norm exactness, symmetric-local-system and both consumer-route boundaries remain open exactly as recorded. No global stack/descent oracle or invented substitute carrier is introduced.
+
+## Fresh reading and provenance
+
+Fresh reading includes both issue reads, the ten-stage roadmap, full reserved root-stack node and key-definition survey, focused affine relation/transition/composition/flatness/factorial-limit/infinite-quotient inputs, all reviewed FA.0–FA.7 audit rows and the relevant REV-AUDIT-20 receipt, and the complete upstream JacobianChallenge and StableReduction roadmap documents. No current link file names this Part II. All inherited node preservation is additionally checked mechanically; this continuation does not claim a fresh full reading of every historical contract or every historical handoff paragraph.
+
+Fresh primary-source reading: [Talpo–Vistoli, arXiv:1410.1164v2](https://arxiv.org/pdf/1410.1164v2), printed pp.12–14 (root objects and transitions, complete Proposition 3.2, Definition 3.3, Proposition 3.4, complete Proposition 3.5 proof and Remark 3.6), followed by local charts/grading and the complete Lemma 3.7 statement/proof on p.15. Download SHA-256: 92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2. No full Proposition 3.10 or printed p.16 proof reading is newly claimed. The rank-one native diagram is an authored deduction, not a printed theorem about Lean carriers or a geometric two-limit comparison. Historical YZ/AGV/B24/AV complete-paper, edition and erratum receipts retain their original worker provenance.
+
+Nine added baseline entries cite existing CommAlgCat object/morphism/extensionality, Functor, preorder morphism/order, exact division and factorial nonvanishing infrastructure. Each actual defining statement or structure fields and ambient hypotheses was read at the pinned Mathlib commit before use. Previously indexed quotient lifts, quotient extensionality, monic power bases and factorial divisibility were also checked against their actual source statements. No new general infrastructure is planned and no whole-library absence claim is made.
+
+## Checks and immutable proof
+
+The native proof preserves the verified 2081-line predecessor extraction byte for byte after four additional imports, then proves the continuation. Native.lean passes: 2268 lines, 84 actual proved examples, 71 axiom audits, zero errors, warnings or admissions; no audited declaration uses an admitted axiom. Runtime 12.70 seconds; maximum RSS 3390216 KiB; 52 GiB available. The submitted Mathlib-only extraction passes: 1294 lines, 84 examples, zero errors, exactly 193 admission warnings and no other warnings; runtime 4.80 seconds, maximum RSS 3269280 KiB, 51 GiB available.
+
+The full submitted 2205-line geometric file is UNCOMPILED. The existing exact-pin build lacks compiled Tau Ceti LineBundle/TensorProduct and Algebra/AlgebraicGroup/RootsOfUnity/Basic imports. No imports are stubbed, no library is rebuilt, and no Lake project, update, cache retrieval or LSP is started. One direct Lean 4.34.0-rc2 process ran at a time, bounded to 1200 seconds. No compiler remains running. The extracts certify the stated native algebra/signature boundaries, not all geometric declarations or all packet tests.
+
+The complete native proof is archived in an allowed Lean comment at immutable commit c3a84cdc7ab042f6cef2ac1f585800474fcf3db9, with markers BEGIN ARCHIVED CHECKED FACTORIAL ROOT ALGEBRA DIAGRAM and END ARCHIVED CHECKED FACTORIAL ROOT ALGEBRA DIAGRAM. [Public immutable source](https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/c3a84cdc7ab042f6cef2ac1f585800474fcf3db9/research/blueprint/suggested/FunctionFieldArithmeticPartII.lean). The final suggested file restores the admitted planning signatures. Extraction SHA must be verified before executing or deleting local scratch.
+
+```json
+{
+  "Native.lean": {
+    "sha256": "772b52d1390997359924243d5742385771d733fa6c2b2666d393c3d05d31306d",
+    "lines": 2268,
+    "examples": 84,
+    "audits": 71,
+    "errors": 0,
+    "admissionWarnings": 0,
+    "otherWarnings": 0,
+    "sorryAx": false,
+    "diagnosticSha256": "1c134a5af46c0265750eceb4d8a22bef17fc5553fa9e233d32361c4bd5d7b909",
+    "resource": "Elapsed 12.70 seconds; peak 3390216 KiB"
+  },
+  "Sketch.lean": {
+    "sha256": "80bd7179d32a588d11ebd69dbaf56472004a79fd06b007d1a32218d084df8d64",
+    "lines": 1294,
+    "examples": 84,
+    "audits": 0,
+    "errors": 0,
+    "admissionWarnings": 193,
+    "otherWarnings": 0,
+    "sorryAx": false,
+    "diagnosticSha256": "fb53bf8416eb4860045d53621279fb24523458e75c8f977ca33560c1ed659f40",
+    "resource": "Elapsed 4.80 seconds; peak 3269280 KiB"
+  },
+  "canonical": {
+    "sha256": "e5f064070de53680fe316f55b2b52789bbd6e06aa4ad076ccd45ed11baa88a3f",
+    "lines": 2205,
+    "newPublicHeaderParity": 11,
+    "newExampleHeaderParity": 8,
+    "preservedPredecessorLines": 2075
+  }
+}
+```
+
+Normalized diagnostic hashes replace only the invoked source path with Native.lean or Sketch.lean, omit the separate time/resource footer, and retain the final newline. Source hashes cover exact UTF-8 bytes. Recovery recipe (run from the final PR tree; fetching the PR's own branch gives the archive ancestor):
+
+```python
+from pathlib import Path
+import hashlib,re,subprocess
+PATH='research/blueprint/suggested/FunctionFieldArithmeticPartII.lean'
+ARCHIVE='c3a84cdc7ab042f6cef2ac1f585800474fcf3db9'
+# Run in the repository root after fetching the PR branch; use your own disk scratch.
+SC=Path('../factorial-root-proof-reproduction');SC.mkdir(exist_ok=True)
+raw=subprocess.check_output(['git','show',ARCHIVE+':'+PATH],text=True)
+native=raw.split('BEGIN ARCHIVED CHECKED FACTORIAL ROOT ALGEBRA DIAGRAM\n',1)[1].split('END ARCHIVED CHECKED FACTORIAL ROOT ALGEBRA DIAGRAM\n',1)[0]
+assert hashlib.sha256(native.encode()).hexdigest()=='772b52d1390997359924243d5742385771d733fa6c2b2666d393c3d05d31306d'
+assert not re.search(r'\bsorry\b',native)
+head=Path(PATH).read_text()
+assert hashlib.sha256(head.encode()).hexdigest()=='e5f064070de53680fe316f55b2b52789bbd6e06aa4ad076ccd45ed11baa88a3f'
+imports='\n'.join(l for l in head.splitlines() if l.startswith('import Mathlib'))
+initial=head[head.index('abbrev AffineRing (f : A)'):head.index('-- TauCeti.RootStack.affineCoaction.nativePoint')]
+one=head[head.index('-- TauCeti.RootStack.affineCoaction.test_one'):head.index('-- TauCeti.RootStack.affineCoaction.test_sign')]
+comparison=head[head.index('section AffineTorsorComparison'):head.index('-- Native acceptance computations')]
+own=head[head.index('/-! Native factorial chart diagram continuation'):]
+extra=head[head.index('-- Native acceptance computations'):head.index('/-! Native factorial chart diagram continuation')]
+finite=head.split('/- BEGIN NATIVE FINITE ROOT TRANSITIONS -/\n',1)[1].split('/- END NATIVE FINITE ROOT TRANSITIONS -/\n',1)[0]
+prefix='\nnoncomputable section\nuniverse u\nnamespace TauCeti.RootStack\nvariable {A : Type u} [CommRing A]\nopen scoped TensorProduct\n'
+sketch=imports+prefix+initial+one+comparison+extra+'\nnamespace TauCeti.RootStack\nvariable {A : Type u} [CommRing A]\n'+finite+'\nend TauCeti.RootStack\n'+own
+sketch=sketch.replace('TauCeti.RootsOfUnityGroup.generator n','Multiplicative.ofAdd (1 : ZMod n)')
+assert hashlib.sha256(sketch.encode()).hexdigest()=='80bd7179d32a588d11ebd69dbaf56472004a79fd06b007d1a32218d084df8d64'
+(SC/'Native.lean').write_text(native);(SC/'Sketch.lean').write_text(sketch)
+# For each file: run one bounded direct Lean process in an EXISTING exact-pin build,
+# after checking at least 20 GiB available. LEAN_PATH must contain that build's
+# package .lake/build/lib/lean directories and its own .lake/build/lib/lean.
+# No project setup, cache download, library build or LSP is needed.
+print('Recovered exact archived proof and submitted Mathlib-only sketch.')
+```
+
+## Actual atlas assembly and preservation
+
+The indexed blueprint checker reports zero errors and warnings. The actual read-only intake check and git diff --check are run on the final four deliverable paths. Assembly invokes scripts/build.py assemble(require_distances=False), overlays this packet and its roadmap definition, and compares with the original packet on the same tree. Injecting the definition is necessary because this roadmap is not yet in the promoted atlas. The own graph and recursively reachable declaration graph are checked along with the complete stage graph, including planned Tau Ceti stage prerequisites. All 54 actual supplier/stage paths are reachable; no nonlibrary prerequisite is unresolved. Own pending/skipped links are empty, stage edges and unrelated pending/skipped lists match the original control. No atlas, application or data output is written.
+
+```json
+{
+  "actualAssembler": true,
+  "base": "766de57f65a3ee380d9c1a7dec2f87eceaa417b7",
+  "declarations": 181,
+  "ownDeclarations": 181,
+  "kinds": {
+    "construction": 30,
+    "definition": 9,
+    "comparison": 10,
+    "lemma": 95,
+    "theorem": 36,
+    "application": 1
+  },
+  "apiTotal": 134,
+  "testsTotal": 158,
+  "baseline": 159,
+  "planets": 39,
+  "gaps": 8,
+  "requests": 13,
+  "ownSkippedLinks": [],
+  "ownPendingLinks": [],
+  "stageDAG": {
+    "vertices": 3056,
+    "edges": 8723,
+    "acyclic": true
+  },
+  "ownDeclarationDAG": {
+    "vertices": 181,
+    "edges": 373,
+    "acyclic": true
+  },
+  "stagesAndReachableDeclarations": {
+    "vertices": 3249,
+    "edges": 9488,
+    "acyclic": true
+  },
+  "reachableDeclarations": 232,
+  "externalDeclarations": [
+    "AlgebraicModuliForArithmeticGeometry:R09.3/affine-fpqc-quasicoherent-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/affine-pullback-tensor",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/canonical-overlap-functor",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-descent-to-overlap",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-morphisms",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-roundtrips",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-cocycle",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-inverses",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-maps",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/coalgebra-to-overlap",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/descent-equalizer-module-coordinates",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/finite-presentation-module-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-effective",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-faithful",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-full",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-descent-coalgebra",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coaction-roundtrips",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-morphisms",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-comparison-canonical",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-diagonal",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-diagonal",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-triple",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-chosen-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-coalgebra",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pseudofunctor",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pullback",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe",
+    "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+    "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+    "DiamondsAndVStacks:D0/stackification"
+  ],
+  "requiredStagePairs": 54,
+  "requiredStagePairsReachable": 54,
+  "stageEdgesUnchanged": true,
+  "otherSkipsMatchOriginal": true,
+  "unchangedNodeObjects": 172,
+  "preservedStatements": 173,
+  "addedNodes": 8,
+  "unresolvedNonlibraryPrerequisites": [],
+  "scriptSha256": "0975d7464e83044b98b7f1a30b209258f268811786fe36e7ae06a12b8cf3a51d"
+}
+```
+
+The following exact read-only assembly recipe has SHA-256 0975d7464e83044b98b7f1a30b209258f268811786fe36e7ae06a12b8cf3a51d. Save it to your own scratch on disk and run from the repository root at the recorded base plus this packet. Its base control comes from git show; only its adjacent receipt JSON is written.
+
+```python
+import json,sys,subprocess,hashlib,re
+from pathlib import Path
+from collections import defaultdict,deque,Counter
+root=Path.cwd();sys.path.insert(0,str(root/'scripts'));import build
+rid='FunctionFieldArithmeticPartII';stem=rid
+packetpath='research/blueprint/packets/'+stem+'.json'
+base='766de57f65a3ee380d9c1a7dec2f87eceaa417b7'
+p=json.loads((root/packetpath).read_text())
+old=json.loads(subprocess.check_output(['git','show',base+':'+packetpath],text=True))
+r=json.loads((root/('research/blueprint/roadmaps/'+rid+'.json')).read_text())
+load=build.load_promoted
+def assemble(packet):
+    def overlay(*a,**k):
+        ps,ds,defs=load(*a,**k)
+        return ([(n,v) for n,v in ps if n!=stem]+[(stem,packet)],
+            {**ds,stem:'research/blueprint/readmes/'+stem+'.md'},
+            [v for v in defs if v['id']!=rid]+[r])
+    build.load_promoted=overlay
+    return build.assemble(require_distances=False)[0]
+a=assemble(p);control=assemble(old)
+def dag(vertices,edges):
+    edges=set(edges);vertices=set(vertices)|{x for e in edges for x in e}
+    following=defaultdict(set);indegree=dict.fromkeys(vertices,0)
+    for s,t in edges:following[s].add(t);indegree[t]+=1
+    q=deque(v for v in vertices if not indegree[v]);seen=[]
+    while q:
+        v=q.popleft();seen.append(v)
+        for w in following[v]:
+            indegree[w]-=1
+            if not indegree[w]:q.append(w)
+    assert len(seen)==len(vertices),('cycle',sorted(v for v in vertices if indegree[v])[:10])
+    return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+se={(e['source'],e['target']) for e in a['stageEdges']}
+ce={(e['source'],e['target']) for e in control['stageEdges']}
+assert se==ce
+stageids={s['id'] for s in a['stages']}
+own={n['id']:n for n in p['nodes']}
+oe={(dep,n['id']) for n in own.values() for dep in n.get('prerequisites',[]) if dep in own}
+stageDAG=dag(stageids,se);ownDAG=dag(own,oe)
+allnodes=dict(own)
+for folder in ('data/decompositions','data/blueprints','research/blueprint/packets'):
+    for path in sorted((root/folder).glob('*.json')):
+        for n in json.loads(path.read_text()).get('nodes',[]):allnodes.setdefault(n['id'],n)
+used=set(own);todo=list(own)
+while todo:
+    v=todo.pop()
+    for d in allnodes[v].get('prerequisites',[]):
+        if d in allnodes and d not in used:used.add(d);todo.append(d)
+unresolved=[]
+for v in used:
+    for dep in allnodes[v].get('prerequisites',[]):
+        if dep not in stageids and dep not in used and (not dep.startswith(('mathlib:','tauceti:')) or dep.startswith('tauceti:TauCetiRoadmap/')):unresolved.append((v,dep))
+assert not unresolved,unresolved
+edges=set(se)
+for v in used:
+    n=allnodes[v];parent=n.get('parentStageId')
+    if parent:edges.add((parent,v))
+    for d in n.get('prerequisites',[]):
+        if d in stageids or d in used:edges.add((d,v))
+for request in p['requests']:
+    for v in request['neededBy']:edges.add((request['supplier'],v))
+combined=dag(stageids|used,edges)
+following=defaultdict(set)
+for s,t in se:following[s].add(t)
+def reachable(s,t):
+    todo=[s];seen=set()
+    while todo:
+        x=todo.pop()
+        if x==t:return True
+        if x not in seen:seen.add(x);todo+=list(following[x])
+    return False
+pairs=set()
+for stage in r['stages']:
+    for dep in stage.get('requires',[]):pairs.add((dep,rid+':'+stage['key']))
+def stage_of(v):
+    seen=set()
+    while v in allnodes and v not in seen:
+        seen.add(v);v=allnodes[v].get('parentStageId')
+    return v
+for n in own.values():
+    for d in n.get('prerequisites',[]):
+        if d in stageids and d not in allnodes and d!=stage_of(n['id']):pairs.add((d,stage_of(n['id'])))
+for req in p['requests']:
+    for v in req['neededBy']:
+        source=stage_of(req['supplier']);target=stage_of(v)
+        if source!=target:pairs.add((source,target))
+missing=[(s,t) for s,t in sorted(pairs) if not reachable(s,t)]
+assert not missing,missing
+ar={r['id']:r for r in a['roadmaps']};cr={r['id']:r for r in control['roadmaps']}
+assert ar[rid]['blueprint']['declarations']==cr[rid]['blueprint']['declarations']+8
+assert ar[rid]['blueprint']['planets']==cr[rid]['blueprint']['planets']
+assert ar[rid]['blueprint']['skippedLinks']==cr[rid]['blueprint']['skippedLinks']
+assert not ar[rid].get('pendingLinks')
+assert all(ar[x].get('pendingLinks')==cr[x].get('pendingLinks') for x in cr)
+assert all(ar[x].get('blueprint',{}).get('skippedLinks')==cr[x].get('blueprint',{}).get('skippedLinks') for x in cr)
+for key in ('sourceIssues','requests','coverage','gaps','restructure','sourceCoverage','sourceVersions','auditEvidence','continuationBoundary','continuationCorrections'):
+    assert p[key]==old[key],key
+assert p['gaps'][1:]==old['gaps'][1:]
+assert [(c['stageId'],c['status']) for c in p['coverage']]==[(c['stageId'],c['status']) for c in old['coverage']]
+assert len(p['gaps'])==len(old['gaps'])
+assert p['baseline']['declarations'][:len(old['baseline']['declarations'])]==old['baseline']['declarations']
+on={n['id']:n for n in old['nodes']}
+for key in old:
+    if key not in ('nodes','baseline','summary','continuationHistory'):assert p[key]==old[key],key
+assert p['continuationHistory'][:len(old.get('continuationHistory',[]))]==old.get('continuationHistory',[])
+for id,n in on.items():
+    for key in ('id','kind','statement','hypotheses','sources','implementationStatus','uses'):
+        assert own[id].get(key)==n.get(key),(id,key)
+    assert all(x in own[id].get('prerequisites',[]) for x in n.get('prerequisites',[]))
+    assert all(t in own[id].get('tests',[]) for t in n.get('tests',[]))
+    assert all(x in own[id].get('api',[]) for x in n.get('api',[]))
+    assert all(x in own[id].get('acceptance',[]) for x in n.get('acceptance',[]))
+assert sum(own[id]==n for id,n in on.items())==172
+assert len(own)==181
+assert all(n['implementationStatus']=='unchecked' for n in own.values())
+lean=(root/('research/blueprint/suggested/'+stem+'.lean')).read_text()
+for node in p['nodes'][len(old['nodes']):]:
+    assert node['declarationName'].split('.')[-1] in lean
+    for test in node.get('tests',[]):assert test['name'] in lean,test['name']
+    for api in node.get('api',[]):assert api['name'].split('.')[-1] in lean,api['name']
+allowed={packetpath,'research/blueprint/readmes/'+stem+'.md','research/blueprint/suggested/'+stem+'.lean','research/blueprint/handoff/DESIGN-'+stem+'.md'}
+changed=set(subprocess.check_output(['git','diff','--name-only',base],text=True).splitlines())
+assert changed<=allowed,changed
+for path in changed:
+    assert not re.search(r'/(?:home|tmp|Users)/|file'+'://',(root/path).read_text()),path
+result={'actualAssembler':True,'base':base,'declarations':ar[rid]['blueprint']['declarations'],'ownDeclarations':len(own),
+    'kinds':dict(Counter(n['kind'] for n in own.values())),
+    'apiTotal':sum(len(n.get('api',[])) for n in own.values()),'testsTotal':sum(len(n.get('tests',[])) for n in own.values()),
+    'baseline':len(p['baseline']['declarations']),'planets':ar[rid]['blueprint']['planets'],'gaps':len(p['gaps']),'requests':len(p['requests']),
+    'ownSkippedLinks':ar[rid]['blueprint']['skippedLinks'],'ownPendingLinks':ar[rid]['blueprint'].get('pendingLinks',[]),
+    'stageDAG':stageDAG,'ownDeclarationDAG':ownDAG,'stagesAndReachableDeclarations':combined,
+    'reachableDeclarations':len(used),'externalDeclarations':sorted(used-set(own)),
+    'requiredStagePairs':len(pairs),'requiredStagePairsReachable':len(pairs)-len(missing),'stageEdgesUnchanged':True,
+    'otherSkipsMatchOriginal':True,'unchangedNodeObjects':172,'preservedStatements':173,'addedNodes':8,'unresolvedNonlibraryPrerequisites':unresolved,
+    'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+Path(__file__).with_suffix('.json').write_text(json.dumps(result,indent=2)+'\n')
+print(json.dumps(result,indent=2))
+```
+
+---
+
+# Retained predecessor handoff (historical checkpoint; original provenance)
+
 # FunctionFieldArithmeticPartII — finite root transition checkpoint
 
 Worker: Codex — codex-rtOQ9t. Date: 2026-10-02. Issue #3403; winning claim 5962223442, confirming bot 5962225195. The whole issue was read before and after confirmation. Branch codex-rtOQ9t/root-stack-descent; mathematical base aec55383b7e77a42d961484dd0f8431212790883.

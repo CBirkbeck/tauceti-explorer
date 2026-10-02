@@ -1,3 +1,7 @@
+import Mathlib.Algebra.Category.CommAlgCat.Basic
+import Mathlib.CategoryTheory.Category.Preorder
+import Mathlib.Data.Nat.Factorial.Basic
+import Mathlib.Data.Nat.GCD.Basic
 import Mathlib.AlgebraicGeometry.Morphisms.Finite
 import Mathlib.AlgebraicGeometry.Morphisms.Flat
 import Mathlib.GroupTheory.Perm.Fin
@@ -2073,3 +2077,129 @@ example :
 
 end TauCeti.RootStack
 /- END NATIVE ROOT DETERMINANT DEPENDENCIES -/
+
+/-! Native factorial chart diagram continuation, Codex codex-J6LwjP. -/
+namespace TauCeti.RootStack
+variable {A : Type u} [CommRing A]
+open CategoryTheory
+
+-- Actual maps at divisibility indices avoid quotient carrier transports.
+def affineDivisibility (f : A) (n N : ℕ) [NeZero n] [NeZero N] (h : n ∣ N) :
+    AffineRing f n →ₐ[A] AffineRing f N := by
+  sorry
+
+lemma affineDivisibility.root (f : A) (n N : ℕ) [NeZero n] [NeZero N] (h : n ∣ N) :
+    affineDivisibility f n N h (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
+      AdjoinRoot.root (Polynomial.X ^ N - Polynomial.C f) ^ (N / n) := by
+  sorry
+
+lemma affineDivisibility.identity (f : A) (n : ℕ) [NeZero n] :
+    affineDivisibility f n n (dvd_refl n) = AlgHom.id A (AffineRing f n) := by
+  sorry
+
+lemma affineDivisibility.composition (f : A) (n N K : ℕ)
+    [NeZero n] [NeZero N] [NeZero K] (h : n ∣ N) (k : N ∣ K) :
+    (affineDivisibility f N K k).comp (affineDivisibility f n N h) =
+      affineDivisibility f n K (dvd_trans h k) := by
+  sorry
+
+lemma affineDivisibility.constant (f a : A) (n N : ℕ)
+    [NeZero n] [NeZero N] (h : n ∣ N) :
+    affineDivisibility f n N h (algebraMap A (AffineRing f n) a) =
+      algebraMap A (AffineRing f N) a := by
+  sorry
+
+lemma affineDivisibility.unique (f : A) (n N : ℕ) [NeZero n] [NeZero N]
+    (h : n ∣ N) (g : AffineRing f n →ₐ[A] AffineRing f N)
+    (hg : g (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
+      AdjoinRoot.root (Polynomial.X ^ N - Polynomial.C f) ^ (N / n)) :
+    g = affineDivisibility f n N h := by
+  sorry
+
+lemma affineDivisibility.multiplicative (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
+    affineDivisibility f n (n*m) (dvd_mul_right n m) = affineTransition f n m := by
+  sorry
+
+-- A genuine native functor, not a family whose compatibility is assumed.
+def factorialAffineTower (f : A) : ℕ ⥤ CommAlgCat.{u} A := by
+  sorry
+
+-- Keep the specified chart carrier visible even when the functor's body is admitted.
+def factorialAffineTower.chart (f : A) (i : ℕ) :
+    ((factorialAffineTower f).obj i) ≃ₐ[A] AffineRing f (Nat.factorial (i+1)) := by
+  sorry
+
+lemma factorialAffineTower.root (f : A) {i j : ℕ} (h : i ≤ j) :
+    factorialAffineTower.chart f j
+      (((factorialAffineTower f).map (homOfLE h)).hom
+        ((factorialAffineTower.chart f i).symm
+          (AdjoinRoot.root (Polynomial.X ^ Nat.factorial (i+1) - Polynomial.C f)))) =
+      AdjoinRoot.root (Polynomial.X ^ Nat.factorial (j+1) - Polynomial.C f) ^
+        (Nat.factorial (j+1) / Nat.factorial (i+1)) := by
+  sorry
+
+lemma factorialAffineTower.constant (f a : A) {i j : ℕ} (h : i ≤ j) :
+    factorialAffineTower.chart f j
+      (((factorialAffineTower f).map (homOfLE h)).hom
+        ((factorialAffineTower.chart f i).symm
+          (algebraMap A (AffineRing f (Nat.factorial (i+1))) a))) =
+      algebraMap A (AffineRing f (Nat.factorial (j+1))) a := by
+  sorry
+
+-- affineDivisibilityTests.identity
+example (f : A) (n : ℕ) [NeZero n] :
+    affineDivisibility f n n (dvd_refl n) = AlgHom.id A (AffineRing f n) := by
+  sorry
+
+-- affineDivisibilityTests.fourToTwo
+example (f : A) :
+    affineDivisibility f 2 4 (by decide)
+      (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f)) =
+      AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C f) ^ 2 := by
+  sorry
+
+-- affineDivisibilityTests.coefficients
+example (f a : ZMod 4) :
+    affineDivisibility f 2 6 (by decide) (algebraMap (ZMod 4) (AffineRing f 2) a) =
+      algebraMap (ZMod 4) (AffineRing f 6) a := by
+  sorry
+
+-- factorialAffineTowerTests.firstLevel
+example (f : A) :
+    (factorialAffineTower f).obj 0 = CommAlgCat.of A (AffineRing f 1) := by
+  sorry
+
+-- factorialAffineTowerTests.twoToSix
+example (f : A) :
+    factorialAffineTower.chart f 2
+      (((factorialAffineTower f).map (homOfLE (by decide : 1 ≤ 2))).hom
+        ((factorialAffineTower.chart f 1).symm
+          (AdjoinRoot.root (Polynomial.X ^ Nat.factorial 2 - Polynomial.C f)))) =
+      AdjoinRoot.root (Polynomial.X ^ Nat.factorial 3 - Polynomial.C f) ^ 3 := by
+  sorry
+
+-- factorialAffineTowerTests.composite
+example (f : A) :
+    factorialAffineTower.chart f 3
+      ((((factorialAffineTower f).map (homOfLE (by decide : 2 ≤ 3))).hom.comp
+        ((factorialAffineTower f).map (homOfLE (by decide : 1 ≤ 2))).hom)
+        ((factorialAffineTower.chart f 1).symm
+          (AdjoinRoot.root (Polynomial.X ^ Nat.factorial 2 - Polynomial.C f)))) =
+      AdjoinRoot.root (Polynomial.X ^ Nat.factorial 4 - Polynomial.C f) ^ 12 := by
+  sorry
+
+-- factorialAffineTowerTests.wildNilpotent
+example :
+    factorialAffineTower.chart (0 : ZMod 2) 2
+      (((factorialAffineTower (0 : ZMod 2)).map (homOfLE (by decide : 1 ≤ 2))).hom
+        ((factorialAffineTower.chart (0 : ZMod 2) 1).symm
+          (AdjoinRoot.root (Polynomial.X ^ Nat.factorial 2 - Polynomial.C (0 : ZMod 2))))) ≠ 0 := by
+  sorry
+
+-- factorialAffineTowerTests.zeroRing
+example {i j : ℕ} (h : i ≤ j) (x : (factorialAffineTower (0 : ZMod 1)).obj i) :
+    factorialAffineTower.chart (0 : ZMod 1) j
+      (((factorialAffineTower (0 : ZMod 1)).map (homOfLE h)).hom x) = 0 := by
+  sorry
+
+end TauCeti.RootStack
