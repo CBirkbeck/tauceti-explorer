@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "Partial NC.0/NC.3 continuation: retain the reserved étale K(π,1) interface and all inherited source inventories; add the actual invariant-coset projection, connecting map, initial invariant-group exactness and quotient-level boundary fibres. No stage is closed or implementation claimed. The NC.0 continuation adds the direct finite-étale cohomological criterion, transfer to every finite cover, componentwise finite-étale invariance and two-cover coefficient dévissage with a separate constant-prime-field criterion. These extend the retained constant-coefficient criterion to prime-supported finite coefficients on connected noetherian schemes; the raw-homotopy equivalence retains its separate narrower scope. All stages and supplier proof leaves remain open. The characteristic-zero smooth-curve proof is now split into connected prime-degree covers, degree-two prime and prime-power killing, the geometric all-cover criterion, geometric killing-cover descent and separable-closure invariance. The curve theorem uses this cohomological route rather than raw homotopy. Generic curve, Picard/Kummer and limit interfaces are supplier requests, not completed foundations. The characteristic-zero product theorem retains its public statement and reserved owner, with three explicit finitary proof assemblies for finite positive-degree families, arbitrary product-cover classes and binary geometric closure. This discrete-descent checkpoint integrates the native one-fibre subgroup, compact normal-open killing, normal-coset/invariant-value and same-stage gauge-witness lemmas, plus simultaneous killing of finite varying-coefficient families. Quotient construction, pointed-set inflation/neutral-fibre exactness, colimits and the geometric degree-one dictionary remain open. This continuation completes actual normal-quotient cocycle descent/inflation and their inverse identities, using the already implemented native quotient action on U^N. The general cocycle-level equivalence and exact fixed gauge witnesses need neither compactness nor discreteness. The actual nonabelian H¹ map/injectivity/neutral fibre, finite-quotient transitions/colimits and canonical comparison to TauCeti's additive descent remain unfinished. This continuation adds actual nonabelian H¹ inflation and same-normal-subgroup injectivity, with explicit quotient-action continuity and no stage closure. This checkpoint adds actual restriction, inverse-gauge normalization and nonabelian inflation image=neutral restriction fibre with a unique same-N source class; no stage closure is asserted. Joint continuity of the native fixed-subgroup quotient action is specified for separately continuous multiplication on G. Inflation is packaged as a pointed equivalence with the neutral restriction fibre, without a separate quotient-action continuity input. All 85 previous node objects are preserved, and no stage is closed.",
+  "summary": "Partial NC.0/NC.3 continuation: retain the reserved étale K(π,1) interface and all inherited source inventories; add the actual invariant-coset projection, connecting map, initial invariant-group exactness and quotient-level boundary fibres. No stage is closed or implementation claimed. The NC.0 continuation adds the direct finite-étale cohomological criterion, transfer to every finite cover, componentwise finite-étale invariance and two-cover coefficient dévissage with a separate constant-prime-field criterion. These extend the retained constant-coefficient criterion to prime-supported finite coefficients on connected noetherian schemes; the raw-homotopy equivalence retains its separate narrower scope. All stages and supplier proof leaves remain open. The characteristic-zero smooth-curve proof is now split into connected prime-degree covers, degree-two prime and prime-power killing, the geometric all-cover criterion, geometric killing-cover descent and separable-closure invariance. The curve theorem uses this cohomological route rather than raw homotopy. Generic curve, Picard/Kummer and limit interfaces are supplier requests, not completed foundations. The characteristic-zero product theorem retains its public statement and reserved owner, with three explicit finitary proof assemblies for finite positive-degree families, arbitrary product-cover classes and binary geometric closure. This discrete-descent checkpoint integrates the native one-fibre subgroup, compact normal-open killing, normal-coset/invariant-value and same-stage gauge-witness lemmas, plus simultaneous killing of finite varying-coefficient families. Quotient construction, pointed-set inflation/neutral-fibre exactness, colimits and the geometric degree-one dictionary remain open. This continuation completes actual normal-quotient cocycle descent/inflation and their inverse identities, using the already implemented native quotient action on U^N. The general cocycle-level equivalence and exact fixed gauge witnesses need neither compactness nor discreteness. The actual nonabelian H¹ map/injectivity/neutral fibre, finite-quotient transitions/colimits and canonical comparison to TauCeti's additive descent remain unfinished. This continuation adds actual nonabelian H¹ inflation and same-normal-subgroup injectivity, with explicit quotient-action continuity and no stage closure. This checkpoint adds actual restriction, inverse-gauge normalization and nonabelian inflation image=neutral restriction fibre with a unique same-N source class; no stage closure is asserted. Joint continuity of the native fixed-subgroup quotient action is specified for separately continuous multiplication on G. Inflation is packaged as a pointed equivalence with the neutral restriction fibre, without a separate quotient-action continuity input. All 85 previous node objects are preserved, and no stage is closed. The reverse-inclusion nonabelian transition diagram and its inflation-induced compact/discrete colimit are specified on actual native carriers; arithmetic and geometric stages remain partial.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -765,6 +765,69 @@
         "module": "Mathlib/Logic/Equiv/Defs.lean",
         "provides": "Every native equivalence has injective forward map.",
         "checked": "Complete statement and relevant ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 178; index corroborated. Codex codex-a71f92, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.Types.FilteredColimit.isColimitOf",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/Types/Filtered.lean",
+        "provides": "Recognizes a specified cocone of types as colimiting from representative surjectivity and equality at a common comparison stage.",
+        "checked": "Statement and surrounding hypotheses read at the exact recorded pin; generated duals were also exercised in the actual Lean proof."
+      },
+      {
+        "ref": "mathlib:OpenNormalSubgroup.instSemilatticeInfOpenNormalSubgroup",
+        "kind": "instance",
+        "module": "Mathlib/Topology/Algebra/OpenSubgroup.lean",
+        "provides": "Native intersection of open normal subgroups with both inclusion bounds.",
+        "checked": "Statement and surrounding hypotheses read at the exact recorded pin; generated duals were also exercised in the actual Lean proof."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsFiltered",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Filtered/Basic.lean",
+        "provides": "Native filtered category, including the same file’s semilattice-sup/nonempty instances used on reverse inclusion.",
+        "checked": "Statement and surrounding hypotheses read at the exact recorded pin; generated duals were also exercised in the actual Lean proof."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/IsLimit.lean",
+        "provides": "Native limit uniqueness; its read to_dual attribute generates IsColimit.coconePointUniqueUpToIso with the dual cocone statement.",
+        "checked": "Statement and surrounding hypotheses read at the exact recorded pin; generated duals were also exercised in the actual Lean proof."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso_inv_comp",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/IsLimit.lean",
+        "provides": "Native cone-leg compatibility and its generated dual IsColimit.comp_coconePointUniqueUpToIso_hom for specified colimit legs.",
+        "checked": "Statement and surrounding hypotheses read at the exact recorded pin; generated duals were also exercised in the actual Lean proof."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.limit.isLimit",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
+        "provides": "The chosen native limit is universal; its to_dual attribute generates colimit.isColimit for the chosen native colimit.",
+        "checked": "Statement and surrounding hypotheses read at the exact recorded pin; generated duals were also exercised in the actual Lean proof."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Iso.toEquiv",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Types/Basic.lean",
+        "provides": "Converts an actual isomorphism of types to the equivalence given by its hom and inverse.",
+        "checked": "Statement and surrounding hypotheses read at the exact recorded pin; generated duals were also exercised in the actual Lean proof."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.explicitFiniteQuotientTransition1",
+        "kind": "def",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Explicit.lean",
+        "provides": "Existing additive, discrete coefficient transition by quotient pullback and fixed-point inclusion. Positive prior art, not a map on noncommutative gauge-orbit H¹.",
+        "checked": "Statement and surrounding hypotheses read at the exact recorded pin; generated duals were also exercised in the actual Lean proof."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.explicitFiniteQuotientColimit1",
+        "kind": "def",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean",
+        "provides": "Existing additive degree-one colimit for compact totally disconnected G and discrete abelian coefficients. Its canonical comparison with the nonabelian carrier remains a separate gap.",
+        "checked": "Statement and surrounding hypotheses read at the exact recorded pin; generated duals were also exercised in the actual Lean proof."
       }
     ]
   },
@@ -780,7 +843,8 @@
         "Read §1 'Torsor spaces' in full (pp. 2–10): the topologies of Lemmas 1–5, continuous cochains and nonabelian H¹, Proposition 1 (torsors and H¹) with proof, Proposition 2 (representability) with the central-extension claim and its proof, the exact sequence of pointed sets and Proposition 3. §2–§3 not read.",
         "Fresh Codex codex-J6LwjP reading on 2026-10-02: printed pp. 5–10 in full, from Proposition 1 and continuous cocycle/gauge definitions through Propositions 2–3 and subgroup exactness. Earlier pp. 2–4 and later sections were not freshly read. Same arXiv v1 PDF SHA-256 independently verified.",
         "Codex codex-rtOQ9t, 2026-10-02, actual H¹ inflation continuation: freshly read the complete continuous-cocycle and gauge-orbit definitions on printed p.6 and Proposition1 statement on p.5. Parsed Proposition1 proof was displayed through its end; no new torsor-classification closure or whole-paper reading is claimed. The independently downloaded exact v1 PDF has the retained SHA256. Inflation and same-N reflection are deductions, not a printed numbered Kim result.",
-        "Codex codex-a71f92, 2026-10-02: exact v1 PDF independently hash-checked; complete selected parsed printed pp.5–7 definitions and Proposition1 proof read. No fresh complete Proposition2 proof, whole-paper read, published collation or Serre reading. Joint continuity and fibre equivalence are authored deductions."
+        "Codex codex-a71f92, 2026-10-02: exact v1 PDF independently hash-checked; complete selected parsed printed pp.5–7 definitions and Proposition1 proof read. No fresh complete Proposition2 proof, whole-paper read, published collation or Serre reading. Joint continuity and fibre equivalence are authored deductions.",
+        "Codex codex-7e92bd, 2026-10-02: exact v1 PDF SHA256 verified; parsed continuous cocycle/gauge definitions and complete Proposition 1 proof on printed pp.5–7, with only the beginning of Proposition 2 read. No whole-paper claim."
       ]
     },
     {
@@ -803,7 +867,8 @@
       "sha256": "42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579",
       "readSections": [
         "Read §1.3.5 (Definition 1.3.14, Proposition 1.3.15 and its proof, pp. 11–12), Exercise 1.9 (p. 28), §4.5 (twists and Theorem 4.5.2, pp. 105–106), §5.11 and §5.12.4 (inner twists, classification of torsors, Remark 5.12.13, pp. 153–154).",
-        "Codex codex-J6LwjP,2026-10-02: fresh parsed Definition1.3.14 and opening finite-to-infinite argument of Proposition1.3.15, printedp.11. Complete proof was read earlier; it is not claimed freshly reread here. Same author-hosted PDF hash independently verified. Browser screenshot returned no viewable image; no fresh visual PDF verification is claimed. The present compact/discrete arguments are authored deductions, not printed source lemmas."
+        "Codex codex-J6LwjP,2026-10-02: fresh parsed Definition1.3.14 and opening finite-to-infinite argument of Proposition1.3.15, printedp.11. Complete proof was read earlier; it is not claimed freshly reread here. Same author-hosted PDF hash independently verified. Browser screenshot returned no viewable image; no fresh visual PDF verification is claimed. The present compact/discrete arguments are authored deductions, not printed source lemmas.",
+        "Codex codex-7e92bd, 2026-10-02: freshly downloaded matching SHA256; parsed §1.3.5 Definition 1.3.14 and the complete Proposition 1.3.15 proof, printed pp.11–12 (zero-based PDF pages24–25). No new full-book or visual collation claimed. General compact/discrete transition and colimit results are authored deductions."
       ]
     },
     {
@@ -5897,6 +5962,843 @@
           "statement": "For every x∈U the inverse at the neutral-fibre class represented by the genuine coboundary x·1 is the distinguished quotient class. The representing cocycle need not literally be 1, as the inherited S₃ conjugation example exhibits."
         }
       ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation-injective",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Injectivity of actual quotient-cocycle inflation",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.inflate_injective",
+      "statement": "For every normal N, inflation Z¹(G/N,U^N)→Z¹(G,U) is injective.",
+      "hypotheses": [
+        "G and U are groups with topologies, with a G-action on U by group automorphisms. Use the actual continuous ordered cocycles c(gh)=c(g)(g•c(h)), native quotient topologies and native fixed coefficient subgroups.",
+        "N is a normal subgroup of G. No compactness, openness/closedness, discrete coefficients, continuity of the action or commutativity is required for cocycle inflation injectivity."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/descend-inflated-cocycle"
+      ],
+      "proofSteps": [
+        "If two cocycles have equal inflations, descend both to N and apply the existing descend-inflate identity. This promotes the inherited API without changing its signature or adding a second declaration."
+      ],
+      "acceptance": [
+        "For every normal N, inflation Z¹(G/N,U^N)→Z¹(G,U) is injective."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle and gauge definitions",
+          "match": "Motivates the actual carriers and ordered gauge convention. The transition and colimit statements are authored deductions from these definitions and the listed native library/packet inputs, not numbered Kim results."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp.11–12",
+          "match": "Motivates passage from finite to infinite Galois extensions. The general compact/discrete colimit proof below is an authored deduction, not the printed Hilbert 90 theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/FiniteQuotient",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.inflate_injective"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Reverse-inclusion transition of quotient cocycles",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.transition",
+      "statement": "For M≤N, construct tᴺ_M:Z¹(G/N,U^N)→Z¹(G/M,U^M) by descending inflate_N(d) to M. On representatives its underlying U-value at [g]_M is d([g]_N). Thus it combines pullback along G/M→G/N with inclusion U^N→U^M.",
+      "hypotheses": [
+        "G and U are groups with topologies, with a G-action on U by group automorphisms. Use the actual continuous ordered cocycles c(gh)=c(g)(g•c(h)), native quotient topologies and native fixed coefficient subgroups.",
+        "M≤N are normal subgroups of G. Neither openness/closedness nor compactness, commutativity or discreteness is required for cocycle transitions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-descent",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/inflate-descended-cocycle",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/descend-inflated-cocycle",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation-injective",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation-one"
+      ],
+      "proofSteps": [
+        "inflate_N(d) is identically 1 on N, hence on M. Apply the existing actual descent to M; its representative formula gives the stated value.",
+        "Inflating the result recovers inflate_N(d). Same-subgroup cocycle injectivity then proves identity, composition, preservation of the identity cocycle and injectivity. No choice of quotient representative or new coefficient action is introduced."
+      ],
+      "acceptance": [
+        "For M≤N, construct tᴺ_M:Z¹(G/N,U^N)→Z¹(G/M,U^M) by descending inflate_N(d) to M. On representatives its underlying U-value at [g]_M is d([g]_N). Thus it combines pullback along G/M→G/N with inclusion U^N→U^M."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle and gauge definitions",
+          "match": "Motivates the actual carriers and ordered gauge convention. The transition and colimit statements are authored deductions from these definitions and the listed native library/packet inputs, not numbered Kim results."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp.11–12",
+          "match": "Motivates passage from finite to infinite Galois extensions. The general compact/discrete colimit proof below is an authored deduction, not the printed Hilbert 90 theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/FiniteQuotient",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.transition"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.transition_apply",
+          "role": "simp",
+          "statement": "The underlying U-value of tᴺ_M(d) at [g]_M is d([g]_N)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.inflate_transition",
+          "role": "compatibility",
+          "statement": "inflate_M(tᴺ_M(d))=inflate_N(d)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.transition_refl",
+          "role": "functoriality",
+          "statement": "tᴺ_N(d)=d."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.transition_trans",
+          "role": "functoriality",
+          "statement": "For P≤M≤N, tᴹ_P(tᴺ_M(d))=tᴺ_P(d)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.transition_one",
+          "role": "simp",
+          "statement": "tᴺ_M(1)=1."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.transition_injective",
+          "role": "extensionality",
+          "statement": "Each transition on actual quotient cocycles is injective."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.transition.test_one",
+          "kind": "degenerate",
+          "statement": "The identity quotient cocycle maps to the identity cocycle."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.transition.test_value",
+          "kind": "compatibility",
+          "statement": "At the class of each actual g∈G, the underlying value is exactly d([g]_N). Reversing the subgroup inclusion or forgetting the fixed coefficient target fails this interface."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.transition.test_identity",
+          "kind": "characterisation",
+          "statement": "The self-transition fixes every actual cocycle, including nonidentity ones."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.3 finite-quotient descent of continuous nonabelian H¹",
+          "how": "Provides the named map or universal property used by the following declarations. This discrete-coefficient comparison does not supply representability or local Selmer conditions."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition-inflation",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Inflation commutes with cocycle transition",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.inflate_transition",
+      "statement": "For M≤N, inflate_M(tᴺ_M(d))=inflate_N(d).",
+      "hypotheses": [
+        "G and U are groups with topologies, with a G-action on U by group automorphisms. Use the actual continuous ordered cocycles c(gh)=c(g)(g•c(h)), native quotient topologies and native fixed coefficient subgroups.",
+        "M≤N are normal subgroups of G. Neither openness/closedness nor compactness, commutativity or discreteness is required for cocycle transitions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/inflate-descended-cocycle"
+      ],
+      "proofSteps": [
+        "Apply recovery after actual descent to the inflated N-level cocycle. This promotes the transition API for use in orbit descent."
+      ],
+      "acceptance": [
+        "For M≤N, inflate_M(tᴺ_M(d))=inflate_N(d)."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle and gauge definitions",
+          "match": "Motivates the actual carriers and ordered gauge convention. The transition and colimit statements are authored deductions from these definitions and the listed native library/packet inputs, not numbered Kim results."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp.11–12",
+          "match": "Motivates passage from finite to infinite Galois extensions. The general compact/discrete colimit proof below is an authored deduction, not the printed Hilbert 90 theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/FiniteQuotient",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.inflate_transition"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Reverse-inclusion transition on nonabelian cohomology",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.transition",
+      "statement": "For M≤N, construct the pointed map tᴺ_M:H¹(G/N,U^N)→H¹(G/M,U^M) sending [d] to [tᴺ_M(d)]. These are actual gauge-orbit sets; no group law on H¹ is imposed.",
+      "hypotheses": [
+        "G and U are groups with topologies, with a G-action on U by group automorphisms. Use the actual continuous ordered cocycles c(gh)=c(g)(g•c(h)), native quotient topologies and native fixed coefficient subgroups.",
+        "M≤N are normal subgroups of G. Neither openness/closedness nor compactness, commutativity or discreteness is required for cocycle transitions.",
+        "U is a topological group. The joint ambient G-action and joint native quotient actions on U^M and U^N are continuous. For a third subgroup P≤M the same continuity is required at P. Separately continuous multiplication on G supplies all quotient-action instances via quotient-fixed-action-continuity."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-injective",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-orbit-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-one"
+      ],
+      "proofSteps": [
+        "Lift the cocycle transition through the native orbit quotient. For gauge-equivalent representatives, their M-level images have equal inflations by cocycle-transition-inflation and well-defined N-level inflation. Same-M H¹ inflation injectivity makes the images equal.",
+        "The representative formula is definitional. Identity, composition and injectivity follow by applying same-subgroup inflation injectivity. Basepoint preservation uses inflation of the identity class."
+      ],
+      "acceptance": [
+        "For M≤N, construct the pointed map tᴺ_M:H¹(G/N,U^N)→H¹(G/M,U^M) sending [d] to [tᴺ_M(d)]. These are actual gauge-orbit sets; no group law on H¹ is imposed."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle and gauge definitions",
+          "match": "Motivates the actual carriers and ordered gauge convention. The transition and colimit statements are authored deductions from these definitions and the listed native library/packet inputs, not numbered Kim results."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp.11–12",
+          "match": "Motivates passage from finite to infinite Galois extensions. The general compact/discrete colimit proof below is an authored deduction, not the printed Hilbert 90 theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/FiniteQuotient",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.transition"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.transition_mk",
+          "role": "simp",
+          "statement": "tᴺ_M([d])=[tᴺ_M(d)]."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflate_transition",
+          "role": "compatibility",
+          "statement": "inflate_M(tᴺ_M(a))=inflate_N(a)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.transition_refl",
+          "role": "functoriality",
+          "statement": "tᴺ_N(a)=a."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.transition_trans",
+          "role": "functoriality",
+          "statement": "For P≤M≤N, tᴹ_P(tᴺ_M(a))=tᴺ_P(a)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.transition_one",
+          "role": "simp",
+          "statement": "The distinguished class maps to the distinguished class."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.transition_injective",
+          "role": "extensionality",
+          "statement": "Each pointed-set transition is injective."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.transition.test_one",
+          "kind": "degenerate",
+          "statement": "tᴺ_M(1)=1."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.transition.test_gauge",
+          "kind": "compatibility",
+          "statement": "For every x∈U^N and d, transitioning [x·d] gives [tᴺ_M(d)]."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.transition.test_nonneutral",
+          "kind": "non-example",
+          "statement": "For every a≠1, tᴺ_M(a)≠1. The actual S₂→S₃ transposition class supplies a nonneutral input; collapsing classes to the basepoint fails."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.3 finite-quotient descent of continuous nonabelian H¹",
+          "how": "Provides the named map or universal property used by the following declarations. This discrete-coefficient comparison does not supply representability or local Selmer conditions."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-inflation",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Inflation commutes with cohomology transition",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.inflate_transition",
+      "statement": "For M≤N and every class a, inflate_M(tᴺ_M(a))=inflate_N(a).",
+      "hypotheses": [
+        "G and U are groups with topologies, with a G-action on U by group automorphisms. Use the actual continuous ordered cocycles c(gh)=c(g)(g•c(h)), native quotient topologies and native fixed coefficient subgroups.",
+        "M≤N are normal subgroups of G. Neither openness/closedness nor compactness, commutativity or discreteness is required for cocycle transitions.",
+        "U is a topological group. The joint ambient G-action and joint native quotient actions on U^M and U^N are continuous. For a third subgroup P≤M the same continuity is required at P. Separately continuous multiplication on G supplies all quotient-action instances via quotient-fixed-action-continuity."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation"
+      ],
+      "proofSteps": [
+        "Choose a representative and apply the cocycle identity, then take its actual gauge class."
+      ],
+      "acceptance": [
+        "For M≤N and every class a, inflate_M(tᴺ_M(a))=inflate_N(a)."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle and gauge definitions",
+          "match": "Motivates the actual carriers and ordered gauge convention. The transition and colimit statements are authored deductions from these definitions and the listed native library/packet inputs, not numbered Kim results."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp.11–12",
+          "match": "Motivates passage from finite to infinite Galois extensions. The general compact/discrete colimit proof below is an authored deduction, not the printed Hilbert 90 theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/FiniteQuotient",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.inflate_transition"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-identity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Identity law for quotient cohomology transition",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.transition_refl",
+      "statement": "For every class a at N, tᴺ_N(a)=a.",
+      "hypotheses": [
+        "G and U are groups with topologies, with a G-action on U by group automorphisms. Use the actual continuous ordered cocycles c(gh)=c(g)(g•c(h)), native quotient topologies and native fixed coefficient subgroups.",
+        "M≤N are normal subgroups of G. Neither openness/closedness nor compactness, commutativity or discreteness is required for cocycle transitions.",
+        "U is a topological group. The joint ambient G-action and joint native quotient actions on U^M and U^N are continuous. For a third subgroup P≤M the same continuity is required at P. Separately continuous multiplication on G supplies all quotient-action instances via quotient-fixed-action-continuity."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-injective"
+      ],
+      "proofSteps": [
+        "Both classes have the same N-level inflation by the promoted compatibility. Apply its injectivity."
+      ],
+      "acceptance": [
+        "For every class a at N, tᴺ_N(a)=a."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle and gauge definitions",
+          "match": "Motivates the actual carriers and ordered gauge convention. The transition and colimit statements are authored deductions from these definitions and the listed native library/packet inputs, not numbered Kim results."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp.11–12",
+          "match": "Motivates passage from finite to infinite Galois extensions. The general compact/discrete colimit proof below is an authored deduction, not the printed Hilbert 90 theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/FiniteQuotient",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.transition_refl"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-composition",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Composition law for quotient cohomology transition",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.transition_trans",
+      "statement": "For P≤M≤N, tᴹ_P(tᴺ_M(a))=tᴺ_P(a).",
+      "hypotheses": [
+        "G and U are groups with topologies, with a G-action on U by group automorphisms. Use the actual continuous ordered cocycles c(gh)=c(g)(g•c(h)), native quotient topologies and native fixed coefficient subgroups.",
+        "M≤N are normal subgroups of G. Neither openness/closedness nor compactness, commutativity or discreteness is required for cocycle transitions.",
+        "U is a topological group. The joint ambient G-action and joint native quotient actions on U^M and U^N are continuous. For a third subgroup P≤M the same continuity is required at P. Separately continuous multiplication on G supplies all quotient-action instances via quotient-fixed-action-continuity."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-injective"
+      ],
+      "proofSteps": [
+        "Inflate both sides from P. Use the promoted compatibility twice on the left and once on the right, then same-P injectivity."
+      ],
+      "acceptance": [
+        "For P≤M≤N, tᴹ_P(tᴺ_M(a))=tᴺ_P(a)."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle and gauge definitions",
+          "match": "Motivates the actual carriers and ordered gauge convention. The transition and colimit statements are authored deductions from these definitions and the listed native library/packet inputs, not numbered Kim results."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp.11–12",
+          "match": "Motivates passage from finite to infinite Galois extensions. The general compact/discrete colimit proof below is an authored deduction, not the printed Hilbert 90 theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/FiniteQuotient",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.transition_trans"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-quotient-diagram",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "The reverse-inclusion quotient cohomology diagram",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.quotientDiagram",
+      "statement": "Construct the native functor F from the order dual of OpenNormalSubgroup G to types, with F(N)=H¹(G/N,U^N) and F(N→M)=tᴺ_M. Identity and composition are the promoted transition laws.",
+      "hypotheses": [
+        "G is a group with a topology and separately continuous multiplication. U is a topological group with a jointly continuous G-action by automorphisms.",
+        "Index by the order dual of native open normal subgroups: an arrow N→M means M≤N. At N use H¹(G/N,U^N), not coefficients U unless N acts trivially. No compactness or discreteness is required for the diagram or inflation cocone."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-identity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-composition",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-fixed-action-continuity"
+      ],
+      "proofSteps": [
+        "Use the native preorder category on the order dual. Its arrow N→M is exactly M≤N.",
+        "Supply quotient-action continuity locally from the existing lemma. Set object and map fields to the actual H¹ carrier and transition; fill the functor laws from their promoted declarations."
+      ],
+      "acceptance": [
+        "Construct the native functor F from the order dual of OpenNormalSubgroup G to types, with F(N)=H¹(G/N,U^N) and F(N→M)=tᴺ_M. Identity and composition are the promoted transition laws."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle and gauge definitions",
+          "match": "Motivates the actual carriers and ordered gauge convention. The transition and colimit statements are authored deductions from these definitions and the listed native library/packet inputs, not numbered Kim results."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp.11–12",
+          "match": "Motivates passage from finite to infinite Galois extensions. The general compact/discrete colimit proof below is an authored deduction, not the printed Hilbert 90 theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/FiniteQuotient",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.quotientDiagram"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.quotientDiagram_map_apply",
+          "role": "simp",
+          "statement": "The diagram map for N→M applied to a is exactly tᴺ_M(a)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.quotientDiagram_obj",
+          "role": "data",
+          "statement": "The object at N is exactly H¹(G/N,U^N)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.quotientDiagram_map_id",
+          "role": "functoriality",
+          "statement": "The identity diagram arrow fixes each class."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.quotientDiagram.test_identity",
+          "kind": "degenerate",
+          "statement": "The identity arrow acts as the identity on every quotient class."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.quotientDiagram.test_composition",
+          "kind": "compatibility",
+          "statement": "On every class, F(f≫g)=F(g)∘F(f)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.quotientDiagram.test_coefficients",
+          "kind": "characterisation",
+          "statement": "The object at N is exactly H¹(G/N,U^N), with the native fixed subgroup, not H¹(G/N,U) with an assumed action."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.3 finite-quotient descent of continuous nonabelian H¹",
+          "how": "Provides the named map or universal property used by the following declarations. This discrete-coefficient comparison does not supply representability or local Selmer conditions."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-cocone",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "The native inflation cocone",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.inflationCocone",
+      "statement": "Construct a native cocone on F with apex H¹(G,U) whose leg at N is exactly inflate_N. Its naturality is inflate_M∘tᴺ_M=inflate_N.",
+      "hypotheses": [
+        "G is a group with a topology and separately continuous multiplication. U is a topological group with a jointly continuous G-action by automorphisms.",
+        "Index by the order dual of native open normal subgroups: an arrow N→M means M≤N. At N use H¹(G/N,U^N), not coefficients U unless N acts trivially. No compactness or discreteness is required for the diagram or inflation cocone."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-quotient-diagram",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation"
+      ],
+      "proofSteps": [
+        "Take the actual ambient H¹ as apex and inflation as each leg. The promoted compatibility proves the cocone naturality equation on every class."
+      ],
+      "acceptance": [
+        "Construct a native cocone on F with apex H¹(G,U) whose leg at N is exactly inflate_N. Its naturality is inflate_M∘tᴺ_M=inflate_N."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle and gauge definitions",
+          "match": "Motivates the actual carriers and ordered gauge convention. The transition and colimit statements are authored deductions from these definitions and the listed native library/packet inputs, not numbered Kim results."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp.11–12",
+          "match": "Motivates passage from finite to infinite Galois extensions. The general compact/discrete colimit proof below is an authored deduction, not the printed Hilbert 90 theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/FiniteQuotient",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.inflationCocone"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflationCocone_app",
+          "role": "simp",
+          "statement": "The leg at N applied to a is inflate_N(a)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflationCocone_pt",
+          "role": "data",
+          "statement": "The apex is the actual ambient H¹(G,U)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflationCocone_naturality",
+          "role": "compatibility",
+          "statement": "For each arrow N→M, its transition followed by the M-leg equals the N-leg on each class."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflationCocone.test_representative",
+          "kind": "compatibility",
+          "statement": "At [d], the cocone leg is the actual class [inflate_N(d)]."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflationCocone.test_one",
+          "kind": "degenerate",
+          "statement": "Every leg sends the distinguished quotient class to the distinguished ambient class."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflationCocone.test_commutes",
+          "kind": "characterisation",
+          "statement": "Every transition followed by its target leg equals its source leg on every input class."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.3 finite-quotient descent of continuous nonabelian H¹",
+          "how": "Provides the named map or universal property used by the following declarations. This discrete-coefficient comparison does not supply representability or local Selmer conditions."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-finite-quotient-surjectivity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Every compact-discrete class comes from a finite quotient",
+      "kind": "theorem",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.exists_quotient_class",
+      "statement": "For every a∈H¹(G,U), there exist an open normal N and b∈H¹(G/N,U^N) with inflate_N(b)=a.",
+      "hypotheses": [
+        "G is a compact topological group, with no total-disconnectedness or Hausdorff assumption required by this proof. U is a discrete group with a jointly continuous G-action by automorphisms; U need not be finite or abelian.",
+        "The diagram and cocone are the specified native ones on reverse inclusion of all open normal subgroups. Compactness makes every G/N finite. This assertion does not replace the non-discrete topologies used for unipotent p-adic coefficients."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-orbit-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/discrete-normal-killing",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-descent",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/inflate-descended-cocycle",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-fixed-action-continuity"
+      ],
+      "proofSteps": [
+        "Choose an actual continuous cocycle representative c of a.",
+        "The existing compact/discrete normal-killing theorem supplies N with c identically 1 on N. Descend c to G/N with values in U^N. Inflation recovers c literally, so its orbit class inflates to a. No coboundary correction is needed in this step."
+      ],
+      "acceptance": [
+        "For every a∈H¹(G,U), there exist an open normal N and b∈H¹(G/N,U^N) with inflate_N(b)=a."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle and gauge definitions",
+          "match": "Motivates the actual carriers and ordered gauge convention. The transition and colimit statements are authored deductions from these definitions and the listed native library/packet inputs, not numbered Kim results."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp.11–12",
+          "match": "Motivates passage from finite to infinite Galois extensions. The general compact/discrete colimit proof below is an authored deduction, not the printed Hilbert 90 theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/FiniteQuotient",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.exists_quotient_class"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-quotient-index-filtered",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Filteredness of reverse-inclusion open normal subgroups",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.quotientIndex_isFiltered",
+      "statement": "The native preorder category on the order dual of OpenNormalSubgroup G is filtered.",
+      "hypotheses": [
+        "G is a group with a topology; no continuity, compactness or coefficient group is required."
+      ],
+      "prerequisites": [
+        "mathlib:OpenNormalSubgroup.instSemilatticeInfOpenNormalSubgroup",
+        "mathlib:CategoryTheory.IsFiltered"
+      ],
+      "proofSteps": [
+        "The top subgroup is an open normal subgroup, so the indexing type is nonempty. Its existing infimum gives N∩M and the two reverse-inclusion arrows. Parallel arrows in a preorder agree. Apply the existing semilattice-sup filteredness instance to the order dual; do not construct a competing category."
+      ],
+      "acceptance": [
+        "The native preorder category on the order dual of OpenNormalSubgroup G is filtered."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle and gauge definitions",
+          "match": "Motivates the actual carriers and ordered gauge convention. The transition and colimit statements are authored deductions from these definitions and the listed native library/packet inputs, not numbered Kim results."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp.11–12",
+          "match": "Motivates passage from finite to infinite Galois extensions. The general compact/discrete colimit proof below is an authored deduction, not the printed Hilbert 90 theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/FiniteQuotient",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.quotientIndex_isFiltered"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-colimit",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Nonabelian finite-quotient colimit theorem",
+      "kind": "theorem",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.inflationCoconeIsColimit",
+      "statement": "The specified inflation cocone is a colimit of F in the native category of types. For any cocone with apex X there is a unique map H¹(G,U)→X whose composite with every inflate_N is the specified N-leg.",
+      "hypotheses": [
+        "G is a compact topological group, with no total-disconnectedness or Hausdorff assumption required by this proof. U is a discrete group with a jointly continuous G-action by automorphisms; U need not be finite or abelian.",
+        "The diagram and cocone are the specified native ones on reverse inclusion of all open normal subgroups. Compactness makes every G/N finite. This assertion does not replace the non-discrete topologies used for unipotent p-adic coefficients."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-cocone",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-finite-quotient-surjectivity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-quotient-index-filtered",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-injective",
+        "mathlib:CategoryTheory.Limits.Types.FilteredColimit.isColimitOf",
+        "mathlib:OpenNormalSubgroup.instSemilatticeInfOpenNormalSubgroup"
+      ],
+      "proofSteps": [
+        "Apply the native isColimitOf criterion to the actual inflation cocone. Its surjectivity input is h1-finite-quotient-surjectivity.",
+        "For a at N and b at M with equal ambient inflations, take K=N∩M. The two transitioned classes at K have equal inflations by h1-transition-inflation, so they are equal by same-K inflation injectivity.",
+        "The native criterion constructs the universal map using a finite-level representative; common refinement proves independence and uniqueness. This proves universality of the named maps, not merely existence of an abstract bijection."
+      ],
+      "acceptance": [
+        "The specified inflation cocone is a colimit of F in the native category of types. For any cocone with apex X there is a unique map H¹(G,U)→X whose composite with every inflate_N is the specified N-leg."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle and gauge definitions",
+          "match": "Motivates the actual carriers and ordered gauge convention. The transition and colimit statements are authored deductions from these definitions and the listed native library/packet inputs, not numbered Kim results."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp.11–12",
+          "match": "Motivates passage from finite to infinite Galois extensions. The general compact/discrete colimit proof below is an authored deduction, not the printed Hilbert 90 theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/FiniteQuotient",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.inflationCoconeIsColimit"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-finite-quotient-equivalence",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "The inflation-induced finite-quotient equivalence",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv",
+      "statement": "Construct E:colim_N H¹(G/N,U^N) ≃ H¹(G,U) from the native colimit and the proved inflation cocone. Specify E(ι_N(a))=inflate_N(a), E⁻¹(inflate_N(a))=ι_N(a), and E(ι_N(1))=1 for every N.",
+      "hypotheses": [
+        "G is a compact topological group, with no total-disconnectedness or Hausdorff assumption required by this proof. U is a discrete group with a jointly continuous G-action by automorphisms; U need not be finite or abelian.",
+        "The diagram and cocone are the specified native ones on reverse inclusion of all open normal subgroups. Compactness makes every G/N finite. This assertion does not replace the non-discrete topologies used for unipotent p-adic coefficients."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-colimit",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-one",
+        "mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso",
+        "mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso_inv_comp",
+        "mathlib:CategoryTheory.Limits.limit.isLimit",
+        "mathlib:CategoryTheory.Iso.toEquiv",
+        "mathlib:Equiv.symm_apply_apply",
+        "mathlib:Equiv.apply_symm_apply"
+      ],
+      "proofSteps": [
+        "Use the library-generated colimit dual of native limit uniqueness to compare the chosen colimit with the actual inflation cocone. Convert that native type isomorphism to an equivalence with Iso.toEquiv.",
+        "The generated cocone-leg compatibility fixes the forward map at every ι_N(a). Apply the native equivalence inverse law to get the inverse formula. Basepoint preservation follows from h1-inflation-one.",
+        "The indexed baseline entries name the source declarations whose to_dual attributes generate IsColimit.coconePointUniqueUpToIso, its leg compatibility and colimit.isColimit; the generated declarations were exercised by the checked proof."
+      ],
+      "acceptance": [
+        "Construct E:colim_N H¹(G/N,U^N) ≃ H¹(G,U) from the native colimit and the proved inflation cocone. Specify E(ι_N(a))=inflate_N(a), E⁻¹(inflate_N(a))=ι_N(a), and E(ι_N(1))=1 for every N."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle and gauge definitions",
+          "match": "Motivates the actual carriers and ordered gauge convention. The transition and colimit statements are authored deductions from these definitions and the listed native library/packet inputs, not numbered Kim results."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp.11–12",
+          "match": "Motivates passage from finite to infinite Galois extensions. The general compact/discrete colimit proof below is an authored deduction, not the printed Hilbert 90 theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/FiniteQuotient",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv_ι",
+          "role": "simp",
+          "statement": "E(ι_N(a))=inflate_N(a)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv_symm_inflate",
+          "role": "equivalence",
+          "statement": "E⁻¹(inflate_N(a))=ι_N(a)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv_one",
+          "role": "simp",
+          "statement": "E(ι_N(1))=1 for every N. These images define the common distinguished colimit class."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_target_round_trip",
+          "kind": "characterisation",
+          "statement": "For every actual ambient class a, E(E⁻¹(a))=a."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_one",
+          "kind": "degenerate",
+          "statement": "E maps the distinguished class coming from any level to 1."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_inflated_inverse",
+          "kind": "compatibility",
+          "statement": "The inverse at an inflated class is exactly its native colimit inclusion."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_nonneutral",
+          "kind": "non-example",
+          "statement": "For a≠1 at any quotient level, E(ι_N(a))≠1."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_transposition",
+          "kind": "computation",
+          "statement": "Give S₂ and S₃ discrete topologies and let S₂ act trivially on S₃. The cocycle sending the nonidentity element of S₂ to (01)∈S₃ defines a class c≠1. In the actual native colimit E⁻¹([c])≠E⁻¹(1), as checked by evaluating a hypothetical coboundary at the transposition."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.3 finite-quotient descent of continuous nonabelian H¹",
+          "how": "Provides the named map or universal property used by the following declarations. This discrete-coefficient comparison does not supply representability or local Selmer conditions."
+        }
+      ]
     }
   ],
   "requests": [
@@ -6079,7 +6981,8 @@
         "Remaining nonabelian inflation–restriction extensions: arbitrary quotient-action continuity, transitions and colimit, canonical additive comparison. Serre I §5.8 was not freshly consulted; the neutral-fibre theorem here is an authored deduction from Kim’s definitions.",
         "The invariant-coset projection, actual connecting map and initial H⁰ exactness are now outlined with native carriers. Split continuous-cocycles, functoriality and central-extension and complete every inherited omitted API/test. Representability, local conditions, Selmer varieties and all recorded source-proof gaps remain open; no stage is closed.",
         "Actual subgroup restriction on continuous cocycles and native H¹ orbit sets, inverse-gauge normalization, image=neutral restriction fibre and unique same-N inflated class are supplied under explicit joint quotient-action continuity. General multiplicative quotient-action continuity discharge, reverse-inclusion transitions, compact-discrete filtered-colimit bijection and genuine additive cocycle conversion remain open. All representability, local-condition, source-proof, inherited API/granularity and geometric obligations remain open.",
-        "Joint multiplicative quotient-action continuity and the neutral-fibre equivalence are supplied for separately continuous multiplication on G (in particular topological groups), topological group U and jointly continuous ambient automorphism action. Earlier results for arbitrary group topologies retain their explicit quotient-action continuity hypothesis. Reverse-inclusion transitions, compact-discrete filtered-colimit bijection, canonical additive cocycle conversion, representability, local conditions, inherited API/granularity and geometric source/supplier obligations remain open."
+        "Joint multiplicative quotient-action continuity and the neutral-fibre equivalence are supplied for separately continuous multiplication on G (in particular topological groups), topological group U and jointly continuous ambient automorphism action. Earlier results for arbitrary group topologies retain their explicit quotient-action continuity hypothesis. Reverse-inclusion transitions, compact-discrete filtered-colimit bijection, canonical additive cocycle conversion, representability, local conditions, inherited API/granularity and geometric source/supplier obligations remain open.",
+        "Reverse-inclusion cocycle and H¹ transitions, their native type-valued diagram, actual inflation cocone and compact/discrete finite-quotient equivalence are specified. The colimit requires discrete U and does not extend the unipotent p-adic topology by assumption. Genuine additive cocycle conversion, compatibility with the existing TauCeti additive transition/colimit, representability, local conditions, inherited API/granularity and all geometric source/supplier obligations remain open."
       ]
     },
     {
@@ -6204,7 +7107,7 @@
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.3"
       ],
-      "detail": "The inherited exact-sequence ID is now one inclusion-kernel theorem, with six new nodes separating connecting construction/image/change, triviality, fixed-orbit fibres and normal exactness. All twenty prior IDs survive. continuous-cocycles, functoriality and central-extension still bundle independent declarations and need granular continuation; inherited omitted APIs/tests remain open. Twisting needs its target repointed at [c]. The promoted identity/inverse APIs and discrete one-fibre/killing lemmas are now declaration-sized and separately prototyped. D2 quotient action and actual quotient cocycle, D3 H¹ inflation map/injectivity, D4 neutral-fibre equality and D5 transition/colimit remain distinct missing interfaces. The pointwise gauge-witness theorem does not close them. Geometric degree-one G1 remains with existing IG.0/SF.2 requests and must not introduce an NC.3→NC.0 stage cycle. Current continuation: D2 actual quotient cocycles and their inverse equivalence are now supplied for arbitrary normal N; exact N-fixed quotient gauge witnesses are established. D3 actual H¹ inflation/injectivity, D4 neutral-fibre exactness and D5 colimits remain open. Native TauCeti additive descendZ1 is positive prior art; its canonical cocycle-conversion comparison and the full-file TauCeti build remain unverified. Current H¹ continuation: the actual pointed-set inflation and same-N injectivity are supplied under explicit quotient-action continuity. D4 neutral restriction fibre, D5 transitions/colimit, the canonical additive comparison and arbitrary-coefficient quotient-action continuity discharge remain open. Neutral-point reflection is not neutral-fibre exactness. Current neutral-fibre continuation supersedes only the D4-open wording: Actual subgroup restriction on continuous cocycles and native H¹ orbit sets, inverse-gauge normalization, image=neutral restriction fibre and unique same-N inflated class are supplied under explicit joint quotient-action continuity. General multiplicative quotient-action continuity discharge, reverse-inclusion transitions, compact-discrete filtered-colimit bijection and genuine additive cocycle conversion remain open. All representability, local-condition, source-proof, inherited API/granularity and geometric obligations remain open. Current quotient-action continuation supersedes continuity-open wording only in the stated scope: Joint multiplicative quotient-action continuity and the neutral-fibre equivalence are supplied for separately continuous multiplication on G (in particular topological groups), topological group U and jointly continuous ambient automorphism action. Earlier results for arbitrary group topologies retain their explicit quotient-action continuity hypothesis. Reverse-inclusion transitions, compact-discrete filtered-colimit bijection, canonical additive cocycle conversion, representability, local conditions, inherited API/granularity and geometric source/supplier obligations remain open."
+      "detail": "The inherited exact-sequence ID is now one inclusion-kernel theorem, with six new nodes separating connecting construction/image/change, triviality, fixed-orbit fibres and normal exactness. All twenty prior IDs survive. continuous-cocycles, functoriality and central-extension still bundle independent declarations and need granular continuation; inherited omitted APIs/tests remain open. Twisting needs its target repointed at [c]. The promoted identity/inverse APIs and discrete one-fibre/killing lemmas are now declaration-sized and separately prototyped. D2 quotient action and actual quotient cocycle, D3 H¹ inflation map/injectivity, D4 neutral-fibre equality and D5 transition/colimit remain distinct missing interfaces. The pointwise gauge-witness theorem does not close them. Geometric degree-one G1 remains with existing IG.0/SF.2 requests and must not introduce an NC.3→NC.0 stage cycle. Current continuation: D2 actual quotient cocycles and their inverse equivalence are now supplied for arbitrary normal N; exact N-fixed quotient gauge witnesses are established. D3 actual H¹ inflation/injectivity, D4 neutral-fibre exactness and D5 colimits remain open. Native TauCeti additive descendZ1 is positive prior art; its canonical cocycle-conversion comparison and the full-file TauCeti build remain unverified. Current H¹ continuation: the actual pointed-set inflation and same-N injectivity are supplied under explicit quotient-action continuity. D4 neutral restriction fibre, D5 transitions/colimit, the canonical additive comparison and arbitrary-coefficient quotient-action continuity discharge remain open. Neutral-point reflection is not neutral-fibre exactness. Current neutral-fibre continuation supersedes only the D4-open wording: Actual subgroup restriction on continuous cocycles and native H¹ orbit sets, inverse-gauge normalization, image=neutral restriction fibre and unique same-N inflated class are supplied under explicit joint quotient-action continuity. General multiplicative quotient-action continuity discharge, reverse-inclusion transitions, compact-discrete filtered-colimit bijection and genuine additive cocycle conversion remain open. All representability, local-condition, source-proof, inherited API/granularity and geometric obligations remain open. Current quotient-action continuation supersedes continuity-open wording only in the stated scope: Joint multiplicative quotient-action continuity and the neutral-fibre equivalence are supplied for separately continuous multiplication on G (in particular topological groups), topological group U and jointly continuous ambient automorphism action. Earlier results for arbitrary group topologies retain their explicit quotient-action continuity hypothesis. Reverse-inclusion transitions, compact-discrete filtered-colimit bijection, canonical additive cocycle conversion, representability, local conditions, inherited API/granularity and geometric source/supplier obligations remain open. Finite-quotient continuation supersedes the D5-open wording in exactly this scope: Reverse-inclusion cocycle and H¹ transitions, their native type-valued diagram, actual inflation cocone and compact/discrete finite-quotient equivalence are specified. The colimit requires discrete U and does not extend the unipotent p-adic topology by assumption. Genuine additive cocycle conversion, compatibility with the existing TauCeti additive transition/colimit, representability, local conditions, inherited API/granularity and all geometric source/supplier obligations remain open."
     }
   ],
   "sourceIssues": [],
@@ -7504,5 +8407,107 @@
       "validatorSha256": "e2b201acc56f5091eae91f4f13478bb254a436edc15a367d403675ed780f7a84",
       "immutableLoaderSha256": "491e127e5acacb7c821795bff8c05e18b32e20c18cbe90bf3f4f22d762040d8e"
     }
+  },
+  "finiteQuotientColimitContinuation": {
+    "agent": "Codex — codex-7e92bd",
+    "date": "2026-10-02",
+    "base": "e6c62ea553479b4ac4f7d23af94e3e35547ee89b",
+    "claim": 5962443218,
+    "botConfirmation": 5962445387,
+    "addedNodes": 13,
+    "unchangedNodeObjects": 88,
+    "fullFileCompiled": false,
+    "remaining": "Reverse-inclusion cocycle and H¹ transitions, their native type-valued diagram, actual inflation cocone and compact/discrete finite-quotient equivalence are specified. The colimit requires discrete U and does not extend the unipotent p-adic topology by assumption. Genuine additive cocycle conversion, compatibility with the existing TauCeti additive transition/colimit, representability, local conditions, inherited API/granularity and all geometric source/supplier obligations remain open.",
+    "upstreamPriorArt": {
+      "url": "https://github.com/leanprover-community/mathlib4/pull/31613",
+      "head": "9dc1e337689fa7ba4fefa52b4874660bdd3a3619",
+      "statusAtRead": "open",
+      "scopeRead": "NonAbelian.lean lines1–265: algebraic H0, Z1, gauge relation, H1 and coefficient maps, without topology. Declaration-name screen of the remaining file. No full PR proof audit.",
+      "boundary": "Not in the pins. Follow its algebraic API when adopted; establish the continuous-carrier comparison rather than treating arbitrary algebraic cocycles as continuous. No PR code copied."
+    },
+    "proofCommit": "2d1e149f4d80cca089bd4e1ce9f639bb664e0361",
+    "native": {
+      "sha256": "dcbf5a525aefe9fe86c8d39a5480a945d11d7d5b450abc95776573f355483974",
+      "diagnosticSha256": "0b6cdcaed625daac294580c6bd37513a50edda092c9d63e4ffc3615634dc3cd2",
+      "lines": 1353,
+      "examples": 53,
+      "kernelAudits": 65,
+      "errors": 0,
+      "warnings": 0,
+      "admissionWarnings": 0,
+      "otherWarnings": 0,
+      "sorryAx": false,
+      "resource": {
+        "elapsed": "0:09.35",
+        "maxRSSKiB": 3548664,
+        "availableGiBBefore": 52
+      }
+    },
+    "submittedMathlib": {
+      "sha256": "899b77ef1a85012d3fa6cf2cbead272a42ca226b830f9ec59a72da9a94536b34",
+      "diagnosticSha256": "d72e37f01d51e5822926f38081771404b868764f6b349bb34e684c1efd3f9baf",
+      "lines": 1850,
+      "examples": 95,
+      "kernelAudits": 0,
+      "errors": 0,
+      "warnings": 232,
+      "admissionWarnings": 232,
+      "otherWarnings": 0,
+      "sorryAx": false,
+      "resource": {
+        "elapsed": "0:11.21",
+        "maxRSSKiB": 3560688,
+        "availableGiBBefore": 53
+      }
+    },
+    "projection": {
+      "stage": {
+        "vertices": 3018,
+        "edges": 8655,
+        "acyclic": true
+      },
+      "own": {
+        "vertices": 101,
+        "edges": 231,
+        "acyclic": true
+      },
+      "combinedPrerequisites": {
+        "vertices": 3108,
+        "edges": 8922,
+        "acyclic": true
+      },
+      "virtualSupplierEndpoints": 51,
+      "reachableDeclarations": 101,
+      "unresolvedReferences": 0,
+      "actualBlueprint": {
+        "declarations": 101,
+        "planets": 11,
+        "kinds": {
+          "comparison": 6,
+          "construction": 17,
+          "definition": 3,
+          "lemma": 48,
+          "theorem": 27
+        },
+        "skippedLinks": []
+      },
+      "stageEdgesUnchanged": true,
+      "otherRoadmapSkippedPendingLinksUnchanged": true,
+      "requiredStagePairs": 20,
+      "requiredStagePairsReachable": 20
+    },
+    "newBaselineDeclarations": 9,
+    "newTypedExamples": 17,
+    "extensionHeaders": 46,
+    "unchangedInheritedProofSha256": "4312f7348e1e8b59a6fc5fa8fb7739bd3d5e21529e30015a5691fca6bd56b769",
+    "checked": [
+      "Whole issue and confirmed claim; campaign README, all seven reviewed library rows, seven stage descriptions and seventeen touching edges read.",
+      "Exact Kim v1 selected pp.5–7 and Poonen Definition 1.3.14/full Proposition 1.3.15 proof freshly read; PDF hashes verified.",
+      "Complete 980-line inherited native proof read. New source statements and affected existing cocycle/inflation contracts read; no claim to reread all inherited source proofs or every historical reader paragraph.",
+      "JacobianChallenge document read in full; HodgeStructures was read in full earlier in this continuous worker session. ProfiniteCohomology §§1–2 and Layers4/10 read for the additive ownership boundary.",
+      "New native colimit/intersection/equivalence declarations source-read at the pins; existing additive finite quotient transitions and colimit source-read as positive prior art.",
+      "Open Mathlib PR31613 checked at the recorded head; bounded Zulip web search did not identify a matching continuous finite-quotient implementation. This is not an exhaustive absence audit."
+    ],
+    "governingFilesUnchangedAtFetchedMain": "766de57f"
   }
 }
