@@ -11579,8 +11579,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3371"
+   "state": "pending",
+   "note": "released on GitHub issue #3371"
   },
   {
    "id": "REV-DESIGN-HodgeStructuresPartII",
