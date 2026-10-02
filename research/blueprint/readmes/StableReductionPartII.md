@@ -10,9 +10,9 @@ traits. Here those objects become moduli groupoids and stack morphisms; the
 parent is imported rather than planned a second time. Stable-map moduli are
 not constructed in this continuation.
 
-Every stage is partial. The packet records 118 declaration nodes, 135 API items,
-128 definition/construction tests plus two exactness tests, 35 planets,
-135 precise supplier requests and 14 gaps. There are 63 inspected
+Every stage is partial. The packet records 119 declaration nodes, 139 API items,
+131 definition/construction tests plus two exactness tests, 35 planets,
+135 precise supplier requests and 14 gaps. There are 70 inspected
 pinned-library declarations. Nothing is claimed
 formalized: every implementationStatus is unchecked. An open request is a
 dependency on a specification, not evidence that the mathematical library
@@ -3183,3 +3183,20 @@ A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c
 **Source:** stacks-completion, Stacks §10.97, Lemmas10.97.1(3),10.97.2(1),10.97.3. Specialize finite-module completion and flatness to D and its actual multiplication quotient. Faithfulness requires I contained in the Jacobson radical; this node does not impose or claim faithfulness.
 
 **Source:** knudsen2, Appendix Definition1, Theorem2, Propositions4–7, printed191–195 (PDF31–35). Motivates completed-local passage; Proposition6 cites Bourbaki without a proof and Proposition7 is an exercise. These ambient algebra adapters do not claim either proposition or relative stable reflexivity.
+
+
+## Coefficient section splitting continuation — Codex codex-rtOQ9t
+
+Node StableReductionPartII:MC.2/section-evaluation-split constructs the actual A-linear equivalence R≃J×A for the polynomial node model over every commutative coefficient ring, including the zero ring. Its formula is r↦(r−ι(ev(r)),ev(r)); its inverse is (j,a)↦j+ι(a). This specifies the maps rather than only their abstract isomorphism class. There is no noetherian, reducedness, field or unit-discriminant premise, and no finite A-rank conclusion.
+
+The existing evaluation-kernel node now uses the built two-variable Polynomial.mem_span_C_X_sub_C_X_sub_C_iff_eval_eval_eq_zero, AdjoinRoot.induction_on and evaluation-on-representative law. Ideal.map_span takes its generators to v−ιt and u−ιs. This avoids a private generic polynomial-remainder lemma and does not require a normal-form basis. Conversely evaluation kills both generators. The kernel node's mathematical statement is unchanged.
+
+The coefficient image and J are complementary A-submodules because ev∘ι=id. Instantiate built Submodule.prodEquivOfIsCompl, identifying the coefficient image with A; its inverse is the displayed splitting. The existing coefficient-flatness node now explicitly consumes this construction and the already cited free/retract-of-flat facts. Neither R-flatness nor relative stable reflexivity follows from this coefficient splitting.
+
+API: NodeSectionFactorization.PolynomialModel.sectionSplit_first gives r−ιev(r); sectionSplit_second gives ev(r); sectionSplit_inverse gives j+ι(a); sectionSplit_section sends ι(a) to (0,a). Each belongs to that same namespace and has a suggested admitted native signature.
+
+Tests: NodeSectionFactorization.PolynomialModel.sectionSplitNonreduced checks u↦(u−1,1) over Z/4 with γ=δ=t=0,s=1 and zero discriminant. sectionSplitZeroBase checks collapse to (0,0) over Z/1. sectionSplitNotRingLinear uses ℚ with γ=1,δ=s=t=0: the ideal projection sends 1 to 0 and nonzero u to u, contradicting R-linearity. That nonzero class is detected by the monic degree-two quotient basis, not by assuming the node ring is a domain.
+
+Fresh source reading covered the complete Knudsen2012 §3 Key Example and Corollary3.2 at the v2 URL, alongside the complete preceding handoff, the two binding Yuan/DGH route briefs, reviewed parent layers1/3 with accepted AUDIT-02 metadata, and the full upstream StableReduction and JacobianChallenge documents. The cited Appendix/Eisenbud and two-base completion inputs remain open. A separate Mathlib-only experiment checks the quotient-kernel and constant-evaluation laws without admitted axioms; it does not certify any global moduli or sheaf statement. The current suggested file restores admitted bodies under PROTOCOL §13; the fifteen checked bodies and nine examples at cef4c2085eddbf723e9050f7d4924924d593a0e3 retain their historical receipts.
+
+Current check: 0 errors, 160 admitted-proof warnings only, 70 examples, existing exact pinned Mathlib artifacts. Native SHA-256 d544f7832817056f8155239d116d0d0fa55f5a1341e1d1ef56433d390c037784; output SHA-256 35106ebb4dcb128e07a96dfe194ced01db341578dde6b68d3dea770799f049cd. Separate quotient-kernel experiment: 0 errors/warnings and no admitted axioms. Finite regression: 2,896 auxiliary R/(v³) models over moduli 1–8 with t³=0, 448,551 exact assertions; these finite quotients do not replace the general polynomial model. Current read-only atlas graphs are acyclic: stages 3,050/8,750; own declarations 119/264; stages plus reachable declarations/requests 3,134/9,247. All 81 computed stage prerequisite pairs are reachable, with identical stage edges and no own skipped links. The 135 requests, fourteen gaps, geometric omission ledger, reserved moduli-curves key and all eight partial stage statuses remain unchanged.
