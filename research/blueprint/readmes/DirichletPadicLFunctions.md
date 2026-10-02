@@ -67021,3 +67021,206 @@ Fresh capture after actual5849 merge finds all79 canonical inputs unchanged. The
 The separate partial signature file also compiled with zero errors and 6,532 expected placeholder warnings across 3,914 pinned source modules. It includes all 11 new named declarations and 14 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 25ecb2234d1f4911ee9ab674db8cede74a3d8b5689f3df43cd99348a50a3a6e1.
 
 The indexed blueprint checker reports zero errors and 26 advisory short-API warnings, including 26 inherited warnings. No new short-API warning is introduced.
+
+
+## Admissible and distinguished generators of the actual corrected image
+
+Seven L3 lemmas identify the actual corrected integer image with the integer spans of original admissible-order values and distinguished-point Cartan translates, using actual transitivity and corrected orbit formulas. All2,251 predecessor nodes and1,285 baseline records remain whole. The local-product identity, rational spanning and source injection remain open.
+
+Kubert published198, opening proof4.11 and its displayed Cartan covariance and distinguished generators, was read against the original5431 admissiblePrimitiveSpan generation,5419 actual distinguished rational points,5684 primitive-circle transitivity,5474 projection surjectivity and5849 corrected action. The source198–199 product proof gives the next precise target. Pinned native subgroup closure/comap, singleton-coordinate equivalence/order transport and span containment were reread. All native references already exist; no source, version, baseline or finding is added.
+
+### Containment of the actual image is tested on admissible-order values
+
+`DirichletPadicLFunctions:L3/kubert-corrected-admissible-rational-cartan-image-le-iff-admissible` — `DirichletPadic.kubertRationalCartanImage_le_iff_admissible`
+
+The actual corrected integer image is contained in an integer submodule L exactly when r_N(a) belongs to L for every original level point a whose actual order is an admissible divisor of N.
+
+**Hypotheses:** The degree is one and N is positive. The original level kernel consists of actual points in the one-coordinate rational torus. The original corrected value, original internal relation quotient and actual corrected integer image retain their existing carriers and maps. An admissible divisor M of N means M divides N and is coprime to N/M, exactly the existing admissibleDivisors definition. Admissible-order generators are actual original points whose additive orders are such divisors. The source-generation input is the already proved equality of the original internal quotient admissiblePrimitiveSpan with the whole quotient. Native divisibility of the actual rational torus supplies its stated hypothesis; no new generation package is assumed. The original Cartan action is transitive on actual torus points of a fixed positive order, by the existing finite primitive-circle coordinates and surjective original global Cartan projection. At a containing level the projected unit witness is not asserted unique. For each positive admissible M, the distinguished point is exactly the existing rational torus point with coordinate1/M, embedded in the original level-N kernel using M dividing N. Its corrected value is the original r_N at that actual point. The generator criteria concern native integer submodules in the original rational Cartan group ring. Basis translates use the original finite Cartan units, and integral multipliers use the native coefficient embedding of the original integer group ring. These results identify the actual image generators used in source4.11. The local-product equality4.13, rational spanning, universal-distribution identification, source quotient injectivity/freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. For the forward implication, each original point value already lies in the actual image.
+2. For the converse, choose an original internal quotient preimage of the actual image element.
+3. The inverse image of L under the original corrected quotient map contains every original admissible-order point class.
+4. Use native subgroup closure and the previously proved original admissiblePrimitiveSpan equals top, with actual rational-torus divisibility, to cover the entire original quotient.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-point`, `DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-mem`, `DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-of`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-admissible-primitive-span`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-admissible-primitive-span-eq-top`, `mathlib:Subgroup.closure_le`, `mathlib:Subgroup.comap`, `mathlib:Pi.rootableBy`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedAdmissibleTests.the_level_twelve_nonadmissible_sixth_is_a_sum_of_primitive_values` (computation): At level12 order6 is not admissible, but the original corrected value at1/6 is the sum of the primitive values at1/12 and7/12, both of admissible order12.
+- `SuggestedKubertCorrectedAdmissibleTests.rationalCartanImage_le_iff_admissible_typed_api` (compatibility): The actual corrected integer image is contained in an integer submodule L exactly when r_N(a) belongs to L for every original level point a whose actual order is an admissible divisor of N.
+
+**Acceptance:** At level1 the integer image is the integer span of1. At level12, order6 is not admissible and r_12(1/6)=r_12(1/12)+r_12(7/12), both terms of admissible order12. At level9, order3 is not admissible and r_9(1/3)=r_9(1/9)+r_9(4/9)+r_9(7/9). At level6 the unit5 sends the order3 corrected value at1/3 to the value at2/3. Nonprimitive containing-level points can have nontrivial unit stabilizers; no unique unit witness is claimed.
+
+**Source:** Published198, first paragraph of the proof of Theorem4.11: admissible-order corrected values generate the image as an integer module, and distinguished1/M values generate it as a Cartan module. Proposition4.13 on198–199 uses these generators. Proves the source admissible and distinguished-generator assertions on the actual corrected image. Reuses the original quotient generation theorem and actual finite Cartan transitivity to supply original unit witnesses; no source quotient identification or rational-spanning conclusion is assumed.
+
+### The actual corrected image is the integer span of admissible-order values
+
+`DirichletPadicLFunctions:L3/kubert-corrected-admissible-rational-cartan-image-eq-admissible-span` — `DirichletPadic.kubertRationalCartanImage_eq_admissible_span`
+
+The actual corrected integer image equals the native integer span of original corrected values at actual level points whose orders are admissible divisors of N.
+
+**Hypotheses:** The degree is one and N is positive. The original level kernel consists of actual points in the one-coordinate rational torus. The original corrected value, original internal relation quotient and actual corrected integer image retain their existing carriers and maps. An admissible divisor M of N means M divides N and is coprime to N/M, exactly the existing admissibleDivisors definition. Admissible-order generators are actual original points whose additive orders are such divisors. The source-generation input is the already proved equality of the original internal quotient admissiblePrimitiveSpan with the whole quotient. Native divisibility of the actual rational torus supplies its stated hypothesis; no new generation package is assumed. The original Cartan action is transitive on actual torus points of a fixed positive order, by the existing finite primitive-circle coordinates and surjective original global Cartan projection. At a containing level the projected unit witness is not asserted unique. For each positive admissible M, the distinguished point is exactly the existing rational torus point with coordinate1/M, embedded in the original level-N kernel using M dividing N. Its corrected value is the original r_N at that actual point. The generator criteria concern native integer submodules in the original rational Cartan group ring. Basis translates use the original finite Cartan units, and integral multipliers use the native coefficient embedding of the original integer group ring. These results identify the actual image generators used in source4.11. The local-product equality4.13, rational spanning, universal-distribution identification, source quotient injectivity/freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Use the proved admissible-order containment criterion for one inclusion.
+2. Every such actual point value lies in its own generating span.
+3. For the other inclusion, each original corrected point value has an original quotient preimage and the actual image is an integer submodule.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-admissible-rational-cartan-image-le-iff-admissible`, `DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-point`, `mathlib:Submodule.span_le`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedAdmissibleTests.the_level_one_image_has_its_single_admissible_generator` (degenerate): At level1 the actual corrected integer image is the integer span of coefficient1, matching its sole admissible divisor.
+- `SuggestedKubertCorrectedAdmissibleTests.rationalCartanImage_eq_admissible_span_typed_api` (compatibility): The actual corrected integer image equals the native integer span of original corrected values at actual level points whose orders are admissible divisors of N.
+
+**Acceptance:** At level1 the integer image is the integer span of1. At level12, order6 is not admissible and r_12(1/6)=r_12(1/12)+r_12(7/12), both terms of admissible order12. At level9, order3 is not admissible and r_9(1/3)=r_9(1/9)+r_9(4/9)+r_9(7/9). At level6 the unit5 sends the order3 corrected value at1/3 to the value at2/3. Nonprimitive containing-level points can have nontrivial unit stabilizers; no unique unit witness is claimed.
+
+**Source:** Published198, first paragraph of the proof of Theorem4.11: admissible-order corrected values generate the image as an integer module, and distinguished1/M values generate it as a Cartan module. Proposition4.13 on198–199 uses these generators. Proves the source admissible and distinguished-generator assertions on the actual corrected image. Reuses the original quotient generation theorem and actual finite Cartan transitivity to supply original unit witnesses; no source quotient identification or rational-spanning conclusion is assumed.
+
+### The actual Cartan action connects all points of the same positive order
+
+`DirichletPadicLFunctions:L3/kubert-corrected-admissible-cartan-torus-equiv-transitive` — `DirichletPadic.kubertCartanTorusEquiv_transitive`
+
+For any positive M and two actual original rational torus points of order M, there exists an element of the original global degree-one Cartan group whose actual torus equivalence sends the first point to the second.
+
+**Hypotheses:** The degree is one and N is positive. The original level kernel consists of actual points in the one-coordinate rational torus. The original corrected value, original internal relation quotient and actual corrected integer image retain their existing carriers and maps. An admissible divisor M of N means M divides N and is coprime to N/M, exactly the existing admissibleDivisors definition. Admissible-order generators are actual original points whose additive orders are such divisors. The source-generation input is the already proved equality of the original internal quotient admissiblePrimitiveSpan with the whole quotient. Native divisibility of the actual rational torus supplies its stated hypothesis; no new generation package is assumed. The original Cartan action is transitive on actual torus points of a fixed positive order, by the existing finite primitive-circle coordinates and surjective original global Cartan projection. At a containing level the projected unit witness is not asserted unique. For each positive admissible M, the distinguished point is exactly the existing rational torus point with coordinate1/M, embedded in the original level-N kernel using M dividing N. Its corrected value is the original r_N at that actual point. The generator criteria concern native integer submodules in the original rational Cartan group ring. Basis translates use the original finite Cartan units, and integral multipliers use the native coefficient embedding of the original integer group ring. These results identify the actual image generators used in source4.11. The local-product equality4.13, rational spanning, universal-distribution identification, source quotient injectivity/freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Transport the two actual torus points to their original rational-circle coordinates using the native singleton-coordinate additive equivalence, preserving their exact additive order.
+2. Use the existing actual finite primitive-circle transitivity to obtain a finite Cartan unit.
+3. Lift that original finite unit through the proved surjective global Cartan projection.
+4. The existing global circle action at level M and the original torus coordinate equality give the required actual point equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-torus-equiv`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv-exists-unique`, `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-surjective`, `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-level`, `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-circle-equiv-apply`, `mathlib:MulEquiv.piUnique`, `mathlib:MulEquiv.orderOf_eq`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedAdmissibleTests.cartanTorusEquiv_transitive_typed_api` (compatibility): For any positive M and two actual original rational torus points of order M, there exists an element of the original global degree-one Cartan group whose actual torus equivalence sends the first point to the second.
+
+**Acceptance:** At level1 the integer image is the integer span of1. At level12, order6 is not admissible and r_12(1/6)=r_12(1/12)+r_12(7/12), both terms of admissible order12. At level9, order3 is not admissible and r_9(1/3)=r_9(1/9)+r_9(4/9)+r_9(7/9). At level6 the unit5 sends the order3 corrected value at1/3 to the value at2/3. Nonprimitive containing-level points can have nontrivial unit stabilizers; no unique unit witness is claimed.
+
+**Source:** Published198, first paragraph of the proof of Theorem4.11: admissible-order corrected values generate the image as an integer module, and distinguished1/M values generate it as a Cartan module. Proposition4.13 on198–199 uses these generators. Proves the source admissible and distinguished-generator assertions on the actual corrected image. Reuses the original quotient generation theorem and actual finite Cartan transitivity to supply original unit witnesses; no source quotient identification or rational-spanning conclusion is assumed.
+
+### Equal-order point values lie in the same actual Cartan orbit
+
+`DirichletPadicLFunctions:L3/kubert-corrected-admissible-rational-cartan-value-same-order-orbit` — `DirichletPadic.kubertRationalCartanValue_same_order_orbit`
+
+For any two actual original level-N points a,b of equal additive order, there exists an original finite level-N Cartan unit u for which r_N(b) equals the product of its basis element with r_N(a).
+
+**Hypotheses:** The degree is one and N is positive. The original level kernel consists of actual points in the one-coordinate rational torus. The original corrected value, original internal relation quotient and actual corrected integer image retain their existing carriers and maps. An admissible divisor M of N means M divides N and is coprime to N/M, exactly the existing admissibleDivisors definition. Admissible-order generators are actual original points whose additive orders are such divisors. The source-generation input is the already proved equality of the original internal quotient admissiblePrimitiveSpan with the whole quotient. Native divisibility of the actual rational torus supplies its stated hypothesis; no new generation package is assumed. The original Cartan action is transitive on actual torus points of a fixed positive order, by the existing finite primitive-circle coordinates and surjective original global Cartan projection. At a containing level the projected unit witness is not asserted unique. For each positive admissible M, the distinguished point is exactly the existing rational torus point with coordinate1/M, embedded in the original level-N kernel using M dividing N. Its corrected value is the original r_N at that actual point. The generator criteria concern native integer submodules in the original rational Cartan group ring. Basis translates use the original finite Cartan units, and integral multipliers use the native coefficient embedding of the original integer group ring. These results identify the actual image generators used in source4.11. The local-product equality4.13, rational spanning, universal-distribution identification, source quotient injectivity/freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. The original level-order positivity gives the actual common positive order.
+2. Use actual torus transitivity to obtain a global Cartan element sending a to b.
+3. Apply corrected finite-value covariance and identify the transformed original level point with b.
+4. Its original level-N projection is the required finite unit; no uniqueness is claimed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-admissible-cartan-torus-equiv-transitive`, `DirichletPadicLFunctions:L3/kubert-generators-level-order-pos`, `DirichletPadicLFunctions:L3/kubert-corrected-equivariance-rational-cartan-value-action`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedAdmissibleTests.the_level_six_order_three_orbit_uses_the_original_unit_five` (computation): At level6 the corrected value at2/3 is the original unit5 basis element times the value at1/3; both points have order3.
+- `SuggestedKubertCorrectedAdmissibleTests.rationalCartanValue_same_order_orbit_typed_api` (compatibility): For any two actual original level-N points a,b of equal additive order, there exists an original finite level-N Cartan unit u for which r_N(b) equals the product of its basis element with r_N(a).
+
+**Acceptance:** At level1 the integer image is the integer span of1. At level12, order6 is not admissible and r_12(1/6)=r_12(1/12)+r_12(7/12), both terms of admissible order12. At level9, order3 is not admissible and r_9(1/3)=r_9(1/9)+r_9(4/9)+r_9(7/9). At level6 the unit5 sends the order3 corrected value at1/3 to the value at2/3. Nonprimitive containing-level points can have nontrivial unit stabilizers; no unique unit witness is claimed.
+
+**Source:** Published198, first paragraph of the proof of Theorem4.11: admissible-order corrected values generate the image as an integer module, and distinguished1/M values generate it as a Cartan module. Proposition4.13 on198–199 uses these generators. Proves the source admissible and distinguished-generator assertions on the actual corrected image. Reuses the original quotient generation theorem and actual finite Cartan transitivity to supply original unit witnesses; no source quotient identification or rational-spanning conclusion is assumed.
+
+### One distinguished value per admissible divisor generates under Cartan translates
+
+`DirichletPadicLFunctions:L3/kubert-corrected-admissible-rational-cartan-image-le-iff-distinguished` — `DirichletPadic.kubertRationalCartanImage_le_iff_distinguished`
+
+The actual corrected integer image is contained in an integer submodule L exactly when L contains every original Cartan basis translate of r_N at the original distinguished point1/M, for each positive admissible divisor M of N.
+
+**Hypotheses:** The degree is one and N is positive. The original level kernel consists of actual points in the one-coordinate rational torus. The original corrected value, original internal relation quotient and actual corrected integer image retain their existing carriers and maps. An admissible divisor M of N means M divides N and is coprime to N/M, exactly the existing admissibleDivisors definition. Admissible-order generators are actual original points whose additive orders are such divisors. The source-generation input is the already proved equality of the original internal quotient admissiblePrimitiveSpan with the whole quotient. Native divisibility of the actual rational torus supplies its stated hypothesis; no new generation package is assumed. The original Cartan action is transitive on actual torus points of a fixed positive order, by the existing finite primitive-circle coordinates and surjective original global Cartan projection. At a containing level the projected unit witness is not asserted unique. For each positive admissible M, the distinguished point is exactly the existing rational torus point with coordinate1/M, embedded in the original level-N kernel using M dividing N. Its corrected value is the original r_N at that actual point. The generator criteria concern native integer submodules in the original rational Cartan group ring. Basis translates use the original finite Cartan units, and integral multipliers use the native coefficient embedding of the original integer group ring. These results identify the actual image generators used in source4.11. The local-product equality4.13, rational spanning, universal-distribution identification, source quotient injectivity/freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Forward containment uses actual point-image membership and the proved original Cartan basis closure.
+2. For the converse use the admissible-order criterion and take M to be the actual order of its original point.
+3. The existing distinguished1/M point belongs to the original level-N kernel and has exactly order M.
+4. The equal-order corrected orbit theorem supplies an original finite unit taking its corrected value to the required admissible-order point value.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-admissible-rational-cartan-image-le-iff-admissible`, `DirichletPadicLFunctions:L3/kubert-corrected-admissible-rational-cartan-value-same-order-orbit`, `DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-basis-mul`, `DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-point`, `DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-mem-level`, `DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-order`, `DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedAdmissibleTests.rationalCartanImage_le_iff_distinguished_typed_api` (compatibility): The actual corrected integer image is contained in an integer submodule L exactly when L contains every original Cartan basis translate of r_N at the original distinguished point1/M, for each positive admissible divisor M of N.
+
+**Acceptance:** At level1 the integer image is the integer span of1. At level12, order6 is not admissible and r_12(1/6)=r_12(1/12)+r_12(7/12), both terms of admissible order12. At level9, order3 is not admissible and r_9(1/3)=r_9(1/9)+r_9(4/9)+r_9(7/9). At level6 the unit5 sends the order3 corrected value at1/3 to the value at2/3. Nonprimitive containing-level points can have nontrivial unit stabilizers; no unique unit witness is claimed.
+
+**Source:** Published198, first paragraph of the proof of Theorem4.11: admissible-order corrected values generate the image as an integer module, and distinguished1/M values generate it as a Cartan module. Proposition4.13 on198–199 uses these generators. Proves the source admissible and distinguished-generator assertions on the actual corrected image. Reuses the original quotient generation theorem and actual finite Cartan transitivity to supply original unit witnesses; no source quotient identification or rational-spanning conclusion is assumed.
+
+### The distinguished Cartan translates give the exact integer image
+
+`DirichletPadicLFunctions:L3/kubert-corrected-admissible-rational-cartan-image-eq-distinguished-span` — `DirichletPadic.kubertRationalCartanImage_eq_distinguished_span`
+
+The actual corrected integer image equals the native integer span of every original Cartan basis translate of the original corrected1/M value, where M ranges over the positive admissible divisors of N.
+
+**Hypotheses:** The degree is one and N is positive. The original level kernel consists of actual points in the one-coordinate rational torus. The original corrected value, original internal relation quotient and actual corrected integer image retain their existing carriers and maps. An admissible divisor M of N means M divides N and is coprime to N/M, exactly the existing admissibleDivisors definition. Admissible-order generators are actual original points whose additive orders are such divisors. The source-generation input is the already proved equality of the original internal quotient admissiblePrimitiveSpan with the whole quotient. Native divisibility of the actual rational torus supplies its stated hypothesis; no new generation package is assumed. The original Cartan action is transitive on actual torus points of a fixed positive order, by the existing finite primitive-circle coordinates and surjective original global Cartan projection. At a containing level the projected unit witness is not asserted unique. For each positive admissible M, the distinguished point is exactly the existing rational torus point with coordinate1/M, embedded in the original level-N kernel using M dividing N. Its corrected value is the original r_N at that actual point. The generator criteria concern native integer submodules in the original rational Cartan group ring. Basis translates use the original finite Cartan units, and integral multipliers use the native coefficient embedding of the original integer group ring. These results identify the actual image generators used in source4.11. The local-product equality4.13, rational spanning, universal-distribution identification, source quotient injectivity/freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Apply the proved distinguished-generator containment criterion to its actual integer span.
+2. Each distinguished Cartan translate is one of that span’s original generators.
+3. Conversely, every distinguished point value belongs to the actual image and its original Cartan basis translates remain there.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-admissible-rational-cartan-image-le-iff-distinguished`, `DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-basis-mul`, `DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-point`, `mathlib:Submodule.span_le`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedAdmissibleTests.the_level_nine_third_is_generated_at_the_admissible_top_level` (compatibility): The original corrected value at1/3 in level9 equals the sum of the actual primitive values at1/9,4/9 and7/9. Its order3 is not an admissible divisor of9; the three order9 terms lie in the distinguished-point Cartan orbit.
+- `SuggestedKubertCorrectedAdmissibleTests.rationalCartanImage_eq_distinguished_span_typed_api` (compatibility): The actual corrected integer image equals the native integer span of every original Cartan basis translate of the original corrected1/M value, where M ranges over the positive admissible divisors of N.
+
+**Acceptance:** At level1 the integer image is the integer span of1. At level12, order6 is not admissible and r_12(1/6)=r_12(1/12)+r_12(7/12), both terms of admissible order12. At level9, order3 is not admissible and r_9(1/3)=r_9(1/9)+r_9(4/9)+r_9(7/9). At level6 the unit5 sends the order3 corrected value at1/3 to the value at2/3. Nonprimitive containing-level points can have nontrivial unit stabilizers; no unique unit witness is claimed.
+
+**Source:** Published198, first paragraph of the proof of Theorem4.11: admissible-order corrected values generate the image as an integer module, and distinguished1/M values generate it as a Cartan module. Proposition4.13 on198–199 uses these generators. Proves the source admissible and distinguished-generator assertions on the actual corrected image. Reuses the original quotient generation theorem and actual finite Cartan transitivity to supply original unit witnesses; no source quotient identification or rational-spanning conclusion is assumed.
+
+### The distinguished values generate under the original integral group ring
+
+`DirichletPadicLFunctions:L3/kubert-corrected-admissible-rational-cartan-image-le-iff-integral-distinguished` — `DirichletPadic.kubertRationalCartanImage_le_iff_integral_distinguished`
+
+The actual corrected integer image is contained in an integer submodule L exactly when it contains every original integral Cartan group-ring multiple of the original corrected1/M value, for every positive admissible divisor M of N.
+
+**Hypotheses:** The degree is one and N is positive. The original level kernel consists of actual points in the one-coordinate rational torus. The original corrected value, original internal relation quotient and actual corrected integer image retain their existing carriers and maps. An admissible divisor M of N means M divides N and is coprime to N/M, exactly the existing admissibleDivisors definition. Admissible-order generators are actual original points whose additive orders are such divisors. The source-generation input is the already proved equality of the original internal quotient admissiblePrimitiveSpan with the whole quotient. Native divisibility of the actual rational torus supplies its stated hypothesis; no new generation package is assumed. The original Cartan action is transitive on actual torus points of a fixed positive order, by the existing finite primitive-circle coordinates and surjective original global Cartan projection. At a containing level the projected unit witness is not asserted unique. For each positive admissible M, the distinguished point is exactly the existing rational torus point with coordinate1/M, embedded in the original level-N kernel using M dividing N. Its corrected value is the original r_N at that actual point. The generator criteria concern native integer submodules in the original rational Cartan group ring. Basis translates use the original finite Cartan units, and integral multipliers use the native coefficient embedding of the original integer group ring. These results identify the actual image generators used in source4.11. The local-product equality4.13, rational spanning, universal-distribution identification, source quotient injectivity/freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Actual image membership of each distinguished value and integral Cartan closure prove the forward implication.
+2. For the converse specialize the integral multiplier to each original unit basis element.
+3. The native coefficient embedding evaluates that integral basis element to the same original rational basis element, so apply the distinguished-generator criterion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-admissible-rational-cartan-image-le-iff-distinguished`, `DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-integral-mul`, `DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-point`, `mathlib:MonoidAlgebra.mapRingHom_single`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedAdmissibleTests.rationalCartanImage_le_iff_integral_distinguished_typed_api` (compatibility): The actual corrected integer image is contained in an integer submodule L exactly when it contains every original integral Cartan group-ring multiple of the original corrected1/M value, for every positive admissible divisor M of N.
+
+**Acceptance:** At level1 the integer image is the integer span of1. At level12, order6 is not admissible and r_12(1/6)=r_12(1/12)+r_12(7/12), both terms of admissible order12. At level9, order3 is not admissible and r_9(1/3)=r_9(1/9)+r_9(4/9)+r_9(7/9). At level6 the unit5 sends the order3 corrected value at1/3 to the value at2/3. Nonprimitive containing-level points can have nontrivial unit stabilizers; no unique unit witness is claimed.
+
+**Source:** Published198, first paragraph of the proof of Theorem4.11: admissible-order corrected values generate the image as an integer module, and distinguished1/M values generate it as a Cartan module. Proposition4.13 on198–199 uses these generators. Proves the source admissible and distinguished-generator assertions on the actual corrected image. Reuses the original quotient generation theorem and actual finite Cartan transitivity to supply original unit witnesses; no source quotient identification or rational-spanning conclusion is assumed.
+
+**Remaining:** The actual corrected integer image is generated by original corrected values of admissible order, and equivalently by the original Cartan translates or integral group-ring multiples of the distinguished1/M values for positive admissible divisors M. Actual Cartan transitivity and corrected equal-order orbits supply the reduction, with no false uniqueness at a containing level. Next prove source4.13 equality with the product of the original local integer lattices, including the actual prime-kernel product identities, then source4.11 rational spanning. Universal-distribution identification, source quotient injectivity/freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.
+
+### Admissible and distinguished generators of the actual corrected image validation
+
+All 2251 predecessor nodes, 1285 baseline records, 27 findings, requests and sourceVersions remain whole. This checkpoint adds 7 nodes, 7 named suggested declarations and 11 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2520 reachable nodes, 10082 edges and 1451 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route ends in the original actual quotient generation and corrected image, original finite/global Cartan actions and surjective projections, original distinguished rational points or checked native closure/span/order interfaces. No supplied source injection, rank, basis, transitivity or rational-spanning package is assumed.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3915 pinned Mathlib modules and 32 pinned Tau Ceti modules. Only 31 Tau module artifacts are available and hash-verified. The 152 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5853 verbatim and adds seven complete lemmas. Totals are191 definitions and1,543 lemmas without placeholders. The public append has7 named declarations and11 typed examples, all new mathematical bodies placeholders. No native import or library build is added. The separate probe compiles against 3282 pinned Mathlib modules and 10 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native periodicity, low-degree Tate and Teichmuller artifacts, with ten Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact controls through36 levels construct666 actual point-generator expressions using853 admissible-order root values and853 explicit distinguished-point unit witnesses, checking9,519 root-sum and9,519 integral distinguished-generator coefficients. All7,830 same-order point pairs admit the checked original finite-unit covariance. The level12 and9 nonadmissible-order examples require genuine sums; the level8 half-point has four finite-unit stabilizers. Exact actual support-completion root fibers through36 levels give integer witnesses expressing every original point value as a sum of admissible-order values. Each actual root has an explicit original finite Cartan unit taking the distinguished point1/M to it; collecting those units yields an integral group-ring coefficient for the single admissible distinguished value. Every pair of equal-order level points is also tested. Level12 order6 and level9 order3 controls require genuine sums of admissible primitive values. At level8 the half-point has four unit stabilizers, so no uniqueness of projected-unit witnesses is inferred. These finite checks do not prove rational spanning, product-image identity or source quotient injection. The largest observed discrepancy is 0.
+
+Fresh capture after actual5853 merge finds all79 canonical inputs unchanged. The complete unchanged issue and available queue, original winning claim and blocked/unclaimed review390 were checked. All27 findings and eight source versions remain whole; no new source conclusion or independent review is adopted.
+
+The separate partial signature file also compiled with zero errors and 6,550 expected placeholder warnings across 3,914 pinned source modules. It includes all 7 new named declarations and 11 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 89688d49692652ec025f1320d81746d5b8f3261a407480e8a211252537def927.
+
+The indexed blueprint checker reports zero errors and 26 advisory short-API warnings, including 26 inherited warnings. No new short-API warning is introduced.

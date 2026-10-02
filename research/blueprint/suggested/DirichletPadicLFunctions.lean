@@ -32516,3 +32516,111 @@ example
 example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] : (kubertRationalCartanImage N).FG := by sorry
 
 end DirichletPadic.SuggestedKubertCorrectedImageTests
+
+/- Original admissible and distinguished corrected-image generators. -/
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertRationalCartanImage_le_iff_admissible (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    (L : Submodule ℤ (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) :
+    kubertRationalCartanImage N ≤ L ↔
+      ∀ a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker, addOrderOf a.val ∈ kubertAdmissibleDivisors (N : ℕ) → kubertRationalCartanValue N a ∈ L := by sorry
+
+lemma kubertRationalCartanImage_eq_admissible_span (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] :
+    kubertRationalCartanImage N=Submodule.span ℤ
+      {x : (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) | ∃ a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker,addOrderOf a.val ∈ kubertAdmissibleDivisors (N : ℕ) ∧ kubertRationalCartanValue N a=x} := by sorry
+
+lemma kubertCartanTorusEquiv_transitive (M : ℕ+) (a b : Fin 1 → AddCircle (1 : ℚ))
+    (ha : addOrderOf a=(M : ℕ)) (hb : addOrderOf b=(M : ℕ)) :
+    ∃ g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ),kubertCartanTorusEquiv g a=b := by sorry
+
+lemma kubertRationalCartanValue_same_order_orbit (N : ℕ+) (a b : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (h : addOrderOf a.val=addOrderOf b.val) :
+    ∃ u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ),kubertRationalCartanValue N b=MonoidAlgebra.single u 1*kubertRationalCartanValue N a := by sorry
+
+lemma kubertRationalCartanImage_le_iff_distinguished (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    (L : Submodule ℤ (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) :
+    kubertRationalCartanImage N ≤ L ↔
+      ∀ (M : ℕ+) (hM : (M : ℕ) ∈ kubertAdmissibleDivisors (N : ℕ)) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)),
+        MonoidAlgebra.single u 1*kubertRationalCartanValue N (⟨kubertDistinguishedPoint 0 (M : ℕ),kubertGenerators_distinguishedPoint_mem_level 0 (N : ℕ) (M : ℕ) M.pos ((kubertGenerators_admissible_mem_iff N.ne_zero).1 hM).1⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) ∈ L := by sorry
+
+lemma kubertRationalCartanImage_eq_distinguished_span (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] :
+    kubertRationalCartanImage N=Submodule.span ℤ
+      {x : (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) | ∃ (M : ℕ+) (hM : (M : ℕ) ∈ kubertAdmissibleDivisors (N : ℕ)) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)),
+        MonoidAlgebra.single u 1*kubertRationalCartanValue N (⟨kubertDistinguishedPoint 0 (M : ℕ),kubertGenerators_distinguishedPoint_mem_level 0 (N : ℕ) (M : ℕ) M.pos ((kubertGenerators_admissible_mem_iff N.ne_zero).1 hM).1⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker)=x} := by sorry
+
+lemma kubertRationalCartanImage_le_iff_integral_distinguished (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    (L : Submodule ℤ (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) :
+    kubertRationalCartanImage N ≤ L ↔
+      ∀ (M : ℕ+) (hM : (M : ℕ) ∈ kubertAdmissibleDivisors (N : ℕ)) (r : MonoidAlgebra ℤ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)),
+        (MonoidAlgebra.mapRingHom (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) (Int.castRingHom ℚ)) r*kubertRationalCartanValue N (⟨kubertDistinguishedPoint 0 (M : ℕ),kubertGenerators_distinguishedPoint_mem_level 0 (N : ℕ) (M : ℕ) M.pos ((kubertGenerators_admissible_mem_iff N.ne_zero).1 hM).1⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) ∈ L := by sorry
+
+end DirichletPadic
+
+
+namespace DirichletPadic.SuggestedKubertCorrectedAdmissibleTests
+open scoped Classical BigOperators
+noncomputable section
+-- the_level_one_image_has_its_single_admissible_generator
+example [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((1 : ℕ+) : ℕ)).ker] : kubertRationalCartanImage 1=Submodule.span ℤ ({1} : Set _) := by sorry
+-- the_level_twelve_nonadmissible_sixth_is_a_sum_of_primitive_values
+example : (6 : ℕ) ∉ kubertAdmissibleDivisors 12 ∧ kubertRationalCartanValue 12 (⟨(fun _ : Fin 1 => ((1/6 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker)=kubertRationalCartanValue 12 (⟨(fun _ : Fin 1 => ((1/12 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker)+kubertRationalCartanValue 12 (⟨(fun _ : Fin 1 => ((7/12 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker) := by sorry
+-- the_level_six_order_three_orbit_uses_the_original_unit_five
+example : kubertRationalCartanValue 6 (⟨(fun _ : Fin 1 => ((2/3 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : ℕ+) : ℕ)).ker)=MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by sorry))) (1 : ℚ)*kubertRationalCartanValue 6 (⟨(fun _ : Fin 1 => ((1/3 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : ℕ+) : ℕ)).ker) := by sorry
+-- the_level_nine_third_is_generated_at_the_admissible_top_level
+example : (3 : ℕ) ∉ kubertAdmissibleDivisors 9 ∧ kubertRationalCartanValue 9 (⟨(fun _ : Fin 1 => ((1/3 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((9 : ℕ+) : ℕ)).ker)=kubertRationalCartanValue 9 (⟨(fun _ : Fin 1 => ((1/9 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((9 : ℕ+) : ℕ)).ker)+kubertRationalCartanValue 9 (⟨(fun _ : Fin 1 => ((4/9 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((9 : ℕ+) : ℕ)).ker)+kubertRationalCartanValue 9 (⟨(fun _ : Fin 1 => ((7/9 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩ : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((9 : ℕ+) : ℕ)).ker) := by sorry
+end
+end DirichletPadic.SuggestedKubertCorrectedAdmissibleTests
+namespace DirichletPadic.SuggestedKubertCorrectedAdmissibleTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+-- rationalCartanImage_le_iff_admissible_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    (L : Submodule ℤ (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) :
+    kubertRationalCartanImage N ≤ L ↔
+      ∀ a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker, addOrderOf a.val ∈ kubertAdmissibleDivisors (N : ℕ) → kubertRationalCartanValue N a ∈ L := by sorry
+
+-- rationalCartanImage_eq_admissible_span_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] :
+    kubertRationalCartanImage N=Submodule.span ℤ
+      {x : (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) | ∃ a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker,addOrderOf a.val ∈ kubertAdmissibleDivisors (N : ℕ) ∧ kubertRationalCartanValue N a=x} := by sorry
+
+-- cartanTorusEquiv_transitive_typed_api
+example (M : ℕ+) (a b : Fin 1 → AddCircle (1 : ℚ))
+    (ha : addOrderOf a=(M : ℕ)) (hb : addOrderOf b=(M : ℕ)) :
+    ∃ g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ),kubertCartanTorusEquiv g a=b := by sorry
+
+-- rationalCartanValue_same_order_orbit_typed_api
+example (N : ℕ+) (a b : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (h : addOrderOf a.val=addOrderOf b.val) :
+    ∃ u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ),kubertRationalCartanValue N b=MonoidAlgebra.single u 1*kubertRationalCartanValue N a := by sorry
+
+-- rationalCartanImage_le_iff_distinguished_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    (L : Submodule ℤ (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) :
+    kubertRationalCartanImage N ≤ L ↔
+      ∀ (M : ℕ+) (hM : (M : ℕ) ∈ kubertAdmissibleDivisors (N : ℕ)) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)),
+        MonoidAlgebra.single u 1*kubertRationalCartanValue N (⟨kubertDistinguishedPoint 0 (M : ℕ),kubertGenerators_distinguishedPoint_mem_level 0 (N : ℕ) (M : ℕ) M.pos ((kubertGenerators_admissible_mem_iff N.ne_zero).1 hM).1⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) ∈ L := by sorry
+
+-- rationalCartanImage_eq_distinguished_span_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] :
+    kubertRationalCartanImage N=Submodule.span ℤ
+      {x : (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) | ∃ (M : ℕ+) (hM : (M : ℕ) ∈ kubertAdmissibleDivisors (N : ℕ)) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)),
+        MonoidAlgebra.single u 1*kubertRationalCartanValue N (⟨kubertDistinguishedPoint 0 (M : ℕ),kubertGenerators_distinguishedPoint_mem_level 0 (N : ℕ) (M : ℕ) M.pos ((kubertGenerators_admissible_mem_iff N.ne_zero).1 hM).1⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker)=x} := by sorry
+
+-- rationalCartanImage_le_iff_integral_distinguished_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    (L : Submodule ℤ (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) :
+    kubertRationalCartanImage N ≤ L ↔
+      ∀ (M : ℕ+) (hM : (M : ℕ) ∈ kubertAdmissibleDivisors (N : ℕ)) (r : MonoidAlgebra ℤ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)),
+        (MonoidAlgebra.mapRingHom (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) (Int.castRingHom ℚ)) r*kubertRationalCartanValue N (⟨kubertDistinguishedPoint 0 (M : ℕ),kubertGenerators_distinguishedPoint_mem_level 0 (N : ℕ) (M : ℕ) M.pos ((kubertGenerators_admissible_mem_iff N.ne_zero).1 hM).1⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) ∈ L := by sorry
+
+end DirichletPadic.SuggestedKubertCorrectedAdmissibleTests
