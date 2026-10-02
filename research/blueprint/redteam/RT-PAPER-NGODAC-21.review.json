@@ -1,0 +1,95 @@
+{
+  "redteam": "RT-PAPER-NGODAC-21",
+  "findings": [
+    {
+      "finding": "RT-PAPER-NGODAC-21/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed against routes 4/6, gamma/small-power-sum dependencies, the DM.6 contract and reviewed AUDIT-20 coverage. DM.6 constructs Taelman's class-number formula, not these factorial/power-sum interfaces; the Part II import plus its ownership of indices/degree-sums would force reverse dependencies. HAL pp. 8,17 supply the elementary inputs, and Im–Kim–Le route 1 still carries the same factorial and small-sum statements. Move both aggregate items into the shared Part II and remove the DM.6 import/route; the merged red-team fix contains contradictory intermediate instructions to retain a factorial-only DM.6 route, which should not be followed. If scalar factorials are instead split into an early rank-one owner, keep tuple products with the index owner. Preserve exact-once routing and refresh route-number review verdicts when a route is deleted. These are prospective route-induced cycles, not an already cyclic assembled atlas."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed ownership conflict for E, Omega, the CPY denominator theorem and Carlitz products. Read both sibling extractions, their route reviews, the current routes and make_queue.accepted_routes/paper_designs: Im–Kim–Le route 1 owns those overlapping specialized statements in Part II, while Ngo Dac assigns them to base DM layers. Route 5's blanket assertion of agreement is false. Qualify the current evidence: Im–Kim–Le's recent fix already splits the ordinary Tate algebra/norm/fraction-field interface into an upstream AdicSpaces Layer 0 import; its historical tate-algebra-E-and-a-of-t id now contains only specialized E and renaming, not a second generic Tate construction. Coordinate one owner per specialized item, with explicit sibling-id mappings and maintainer notes where the other extraction cannot be edited. Do not restore a duplicate generic Tate layer, and choose Omega's owner consistently with /4. Chang–Chen–Mishiba routes 3/4 have no matching accepted positional verdict yet; they are leads, not independently accepted ownership. I previously fixed the Im–Kim–Le extraction; here it is evidence of the conflict in Ngo Dac, not a new independent review of that fix."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed the false derivation in route 6's brief against HAL pp. 3–5,22,24. Independently enumerated q=3,w=4: the small-entry family has five indices, whereas the Thakur family has six, including (3,1). Theorems A/B alone therefore give only 5 <= dim <= 6. State Corollary C for w<=q, and separately Theorem 6.2 for q>2,w<=2q-2, Lemma 6.1's cardinality equality and the application with A yielding D. For q=2 the D range is already C. The individual theorem-D item/report table do not share the brief's error."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed route prerequisites against HAL pp. 16–18, the item graph, DM.2/4/8 and fresh assembly. DM.2 and DM.4 are direct prerequisites of DM.8; no reverse paths exist. Omega at DM.2 currently imports twist/E at DM.8, and dual-motive at DM.4 imports that same analytic twist, yielding forbidden reverse ownership. Prefer splitting the algebraic inverse Frobenius on the perfect field barK[t]/barK(t) into the DM.4 interface, then keeping analytic twisting/E and the rank-one trivialization Omega with DM.8; general Tate theory is imported upstream, not rebuilt there. Period-power can remain at DM.2 only after explicitly using that owner's Carlitz period/root/product formula, rather than merely deleting its Omega dependency without a replacement. An early analytic supplier is also possible, but must be an explicit extension coordinated with /2. Do not add DM.8-to-DM.2/4 edges. Moving the entire dual-motive construction downstream would obscure DM.4's existing ownership."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed the inappropriate owner and overlapping supplier against monic-frobenius-descent/theta-degree-bound, their sole degree-descent consumer, route 6's brief and HAL p.23. Both worker lemmas support the Part II's small-weight system; DM.8's Tannakian/lifting contract does not state these scalar arithmetic results. Im–Kim–Le /33 and Chang–Chen–Mishiba /33–34 provide related descent/degree statements in the same Part II. Move these inputs alongside integral-monic-quotient there and coordinate the common lemma. The generic subring/monic descent statement is a generalization, not literally identical to every sibling bound; compare each specialization and its forcing-polynomial convention rather than merging statements verbatim. No newly read Kuan–Lin proof is claimed."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed the unconnected constructions and stale audit. All four rev-* items have neither dependency fields nor consumers; the stored order has 106 ids, omitting six of the 112 items, and internalEdges says 260 versus the actual 266. HAL pp.6–8 fixes a particular recursion because uniqueness is open; existential product results cannot alone define Todd's fixed maps. Connect canonical recursion and dominance calculus to their suppliers/consumers and recompute the audit. The proposed /6, /9 and /10 internal edges were simulated together and remain acyclic on all 112 ids. The proposed tests follow the actual recursion: at q=2 trunc(1,1)=[2], at q=3 it is [2]+2[1,1], and fix(2,2)=[4]+[2,2]. APIs/tests may be supplied as useful brief commitments; PROTOCOL §16 assigns recursive proof/API closure to blueprints and does not make their absence alone an extraction completion blocker."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed a normalization coordination gap, not a false standalone Omega item or a new source error. Read HAL p.17, Chang v4 (3.1.3), Papanikolas v2 §3.3.4 p.12 and the partial DM.8 request: the first two use pi=1/Omega(theta), the last uses pi_P=-1/Omega(theta) for the same root/product. The item already selects a compatible period, so its identities are valid in that convention. Name both aliases and their transport explicitly in supplier/consumer imports; under pi_P, weight-w formulas gain (-1)^w. Odd weights distinguish them in odd characteristic; characteristic two collapses the signs. Eulerian field membership and homogeneous same-weight relations are unchanged. Do not report an intrinsically false period choice."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed the missing integral codomain against AT-polynomials' statement/API and HAL p.17. The source explicitly says alpha_n in A[t]; the current generating-function statement does not export this, although the theta/t interchange, polynomial motive matrices and Gauss estimates require it. Chang v4 Theorem 5.5.1 p.18 independently states the integral H polynomials and bound with the one-place index shift. Add the A[t] membership, reuse the cited result or give the valid denominator-carry argument, and add the main source's Anderson–Thakur (3.7.3) locator. For q=2 the coefficient computation gives alpha_3=theta+t^2, hence H_3=t+theta^2. This is an omitted statement/interface, not a demand to close the original cited proof inside the extraction."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed all missing edges against the new closure item and the prefix-difference-zero/nonq-tail/theorem-6-2 rows. HAL Remark 5.1 and Lemma 6.1 p.22 explicitly use prefix closure; p.23 uses suffix closure to apply the lower-weight induction. Supply its index-family dependency and the named consumers; the combined proposed internal edge additions are acyclic. The failure of Thakur-family prefix closure is part of the correct interface and must be retained."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed the missing fraction-field prerequisite and status inconsistency. Papanikolas v2 Lemma 3.3.2 p.12 and §4.1.6 p.22 prove the fixed-field and fundamental-matrix comparison. The general X-in-Frac(T) statement needs L^sigma, not merely barK(t)^sigma; add the new item to trivialization-uniqueness and connect its analytic suppliers. The smaller fixed-field/intersection statement is its corollary. Qualify the asserted packet evidence: DM.8 is partial with no accepted review, and its L^sigma text is in coverage.remaining, not an accepted finished node. Keep the promised generic DM.8 interface explicit when marking either item planned or requested; do not call that remaining-work text an independently proved supplier. The manuscript's special triangular matrix alternatively uses T^sigma directly, but that does not justify the extraction's broader Frac(T) theorem without this lemma."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed by direct counts and the report opening: 112 items (5 library,4 planned,103 missing),16 sourceIssues, while the opening still says 108/3/100 and twelve findings. The appended review summary does not repair the opening. Update both narrative and counts after the coordinated fix."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed the still incorrect test and report's claim it was corrected. HAL p.6 gives the coefficient formula; direct integer-binomial reduction yields (-1)+(-1)=-2=1 in F_3, not 2. Change the actual test field to Delta_2(2,2)=1 and its product identity, retaining the historical review note."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed the false converse in B-small's review note. HAL Corollary 2.7 p.9 asserts only the sufficient small-head hypothesis. In characteristic two every Chen coefficient for equal exponents cancels; independently checked q=2,a=2 and q=4,a=3, and Frobenius gives S_d(a)^2=S_d(2a) even with 2a>q. Replace exactly when by when; the main theorem statement is already correct."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed that the claimed non-example has no witness for the stated positive-weight K-coefficient families. At d=-1, only beta_(w) S_0(w)=beta_(w) survives; summing all nonnegative equations gives a weight-w MZV linear combination equal to beta_(w). Chang v4 Theorem 2.2.1 p.5, independently read, separates 1 from any independent positive-weight MZV basis, so beta_(w)=0. Degrees below -1 give zero automatically. Thus the predicates are equivalent using that theorem, while the source legitimately defines the all-integer predicate. Replace the invented weaker-predicate test with the concrete d=-1 boundary/R1 check; no change to the source definition is needed."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed the omitted Gauss-norm library interface. Read complete relevant statements at Mathlib 082e2d3 in PowerSeries/GaussNorm.lean and Polynomial/GaussNorm.lean, and Tau Ceti f790474 PowerSeries/GaussNorm.lean. The unit-radius definition, boundedness, ultrametric inequality and restricted-series multiplicativity apply under the actual normed/ultrametric/NormMulClass hypotheses. HAL p.16 and Chang v4 Lemma 5.3.1/Theorem 5.5.1 use them. Qualify the fix: generic completeness is also already present in TauCeti.Huber.completeSpace_weightedRestrictedSubring_one_weight, read with its complete uniform nonarchimedean commutative-base assumptions. Do not label completeness wholly absent. Retain the missing C-infinity norm instance and the comparison of the one-variable Gauss-norm model with that Huber restricted-series topology, importing upstream AdicSpaces Layer 0 §§0.4–0.5. These ingredients do not alone construct the entire-function/ABP theory, and no Lean adapter was compiled."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed the stronger-than-needed proof wording in prefix-difference-zero and the report. HAL pp.18,20–21 applies lower-weight linear independence, upgraded to barK by Chang's descent (v4 Theorem 3.4.5), after specializing and taking q^j-th roots. It does not assert algebraic independence. Replace both phrases by barK-linear independence of the relevant prefix MZVs; the current item's theorem statement already has that hypothesis."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/17",
+      "verdict": "rejected",
+      "reason": "Rejected as an extraction defect. The Omega item already explicitly asserts Omega in E, and its entire-ring dependency defines E using coefficients in barK as well as finite coefficient-field degree and root decay. Thus algebraicity is part of the exported statement, not omitted from it. Papanikolas v2 §3.3.4 and Chang v4 §3.2 explicitly supply Omega in E. The proposed recursion theta^q c_n^q+c_n=c_(n-1)^q is correct and gives a useful blueprint proof of coefficient algebraicity, but PROTOCOL §16 does not require an extraction to prove its sourced statements or close their prerequisites. The existing G5 explicitly defers analytic proof suppliers. Adding that proof detail is optional blueprint work; it is not a missing extraction item or false hypothesis. Do not add a reverse entire-from-equation dependency; /4 already addresses the genuine ownership issue."
+    },
+    {
+      "finding": "RT-PAPER-NGODAC-21/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed the misdirected brief obligations against all G3–G8 neededBy fields and the riemann-roch-high-degree consumer search. Only ABP-count uses that declaration; it is routed to DM.8. G5–G7 concern generic DM.2/8 suppliers, while G8 records version availability, not a mathematical proof leaf. Keep Part II's own nonvanishing/interpolation inputs distinct, import ABP as a theorem with its internals owned by its supplier, and name any actual imports by title/id. A brief may mention version reconciliation, but must not instruct Part II to rebuild ABP's Riemann–Roch/norm proof or treat G8 as proof closure. Coordinate the final owners of Omega/E from /2 and /4 rather than freezing the inconsistent old mapping."
+    }
+  ]
+}
