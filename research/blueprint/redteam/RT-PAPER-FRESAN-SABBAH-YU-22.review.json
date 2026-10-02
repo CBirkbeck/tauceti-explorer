@@ -1,0 +1,280 @@
+{
+  "redteam": "RT-PAPER-FRESAN-SABBAH-YU-22",
+  "findings": [
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed from Lemma 5.40, p. 58, and the current assembled stages/edges. R01.2 constructs the Weil–Deligne carrier and its semisimplifications; it does not supply epsilon factors or purity. ET.6 supplies local constants and is downstream of R01.2 (also by the shorter R01.2→DWP.4→AG2.1a→ET.6 path). Assigning the whole lemma to R01.2 therefore introduces a cycle. Move item 89 to the Kloosterman consumer, importing R01.2, LPV.1 and ET.6, or to PS.1 after checking its new inputs; keep item 88's Weil–Deligne and epsilon components separately attributed. Correct both the extraction and its reader's route-6 claim."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed by pp. 25, 49–52 and route 4. The specific Kloosterman F-isocrystal, its symmetric-power dimension calculation, the comparison through this paper's hypersurface, the explicit singular models and the resulting Newton bound are applications, rather than five general RD.6/RD.7 source results. Keep those applications with the Kloosterman owner; coordinate the existing Xu–Zhu Bessel/Kloosterman route so that its general object is defined once. Import generic rigid cohomology, Dwork and weights from RD, and the actual semistable comparison from CP.4. Split the general Mieda input from the application and retain the thickness gap in finding 7; the current source does not establish a universal one-blow-up model."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed against the current PAPER-BREUIL-HELLMANN-SCHRAEN-19 route brief: SpringerResolutionAndCharacteristicCycles expressly proposes coherent D-modules, good filtrations, characteristic varieties/cycles, and holonomic/regular modules. The FSY general D-module foundation cannot independently rebuild those objects. Establish one shared owner, coordinate the two accepted routes, and import the agreed foundation into the remaining FSY Hodge/Fourier construction. The shared scope must include the ordinary characteristic-zero modules and operations actually used; this does not identify these with arithmetic p-adic D-modules."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed: item 5 lacks the smoothness/lissity hypotheses needed for its ordinary-cohomology lower bound. A split irreducible nodal proper rational curve over a finite field with the constant pure weight-zero sheaf has H¹ of weight zero. Indeed 0→Q_X→ν_*Q_P¹→Q_node→0 gives that H¹, since the global difference of the two branch values is zero. Correct the formulation: compact-support upper bounds for separated finite-type mixed sheaves of weights ≤w; ordinary lower bounds for a smooth variety and lisse pure weight-w coefficients; then purity of the image H_c→H. State the local boundary estimate on the appropriate smooth complete curve, rather than claiming the same lower bound on every singular X."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed by the rendered Corollary 4.9(2), p. 28: its conclusion is N=j_{0!+}Sym^k Kl₂, not N=j_{0!}Sym^k Kl₂. The minimal/intermediate extension is the relevant submodule of j_{0+}; the ordinary !-extension cannot be substituted. Correct item 46's extension symbols, retain its proper-submodule and restriction hypotheses, and include the analogous tilde statement. In part (1), preserve the stated congruence restrictions for the infinity extension."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the definition in §5.3.2, p. 56, Theorems 5.38–5.39, pp. 56–57, and the public Patrikis–Taylor paper's opening definition and Corollary 2.2. The compatible system consists of continuous semisimple representations. The three compatibility conditions alone do not express those requirements, and application to r_{k,ℓ}^{ss} is deliberate. Add continuity and semisimplicity explicitly to item 8 and retain semisimplification in items 58–59. Do not add irreducibility, which is precisely the older hypothesis Patrikis–Taylor avoids."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the displayed local equations on pp. 41 and 45 and the claimed model on the rendered p. 50. At a nonzero orbit index a or b, c=2ap or 2bp and e=v_p(c)=1+v_p(a) or 1+v_p(b). After adjoining π=√(-p), the form is Q-uπ^(2e), not always Q-uπ² with u a unit. For k=9,p=3,a=3, c=18=2π⁴; in the π-chart after one blow-up the strict transform still has a quadratic-cone special fiber and a singular vertex. The analogous example k=18,p=3,b=6 has the same excess thickness. Record a proof gap affecting Proposition 5.23 and the dependent Corollary 5.27 argument for these small-prime cases. The e=1 argument remains separate. Require a verified iterated-resolution/comparison argument or a separately proved replacement; do not assert that Remark 5.41 alone supplies the missing rigid-to-de Rham comparison or Newton inequality. I have not independently obtained Mieda's paper and do not certify its hypotheses or the proposed repair."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed by the mixed-Hodge-module/perverse-sheaf uses on pp. 18, 20–21 and 60–63. The current LPV.0/LPV.6 and EDC.5 are étale constructions; EDC.6 transports specified comparison operations, and ComplexComparisonPartII:C5 proves smooth de Rham–Betti/regular-singular curve comparisons. None, as stated, supplies the entire classical rational perverse category and regular-holonomic Riemann–Hilbert dictionary used here. Add the missing classical coefficient/analytic construction and its compatibility contract, reusing existing comparison inputs where applicable. Do not infer a Riemann–Hilbert comparison for arbitrary irregular connections."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed against the Landesman–Litt HodgeStructuresPartII route and the Qian Hodge-theoretic extension, as well as FSY item 11. The variation/local-system/holomorphic-filtration API and the required mixed-Hodge-module bridge must have a shared owner; the reader's assertion that no other accepted route needs mixed Hodge modules is obsolete. Import ShimuraData:D3's common variation interface where its hypotheses apply, and coordinate the general VHS, canonical-extension and admissibility extension with HodgeStructuresPartII. Rational FSY and real Landesman–Litt coefficients require an explicit coefficient-change/real variant rather than an unproved identification."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed from Theorem 5.38 and Corollary 5.39 on pp. 56–57 and Remark 5.41 on pp. 58–59. The general Patrikis–Taylor theorem/corollary belongs with ML.2, but its Kloosterman-specific verification and p-adic consequences belong with the Kloosterman application. Split item 59 accordingly. The current ML packet already contains BLGGT compatible-system potential automorphy and Corollary 5.4.3; this is an extension removing their irreducibility requirement, not a wholly unrelated ten-author-only layer. Qualify the even-k assertion at p=2: the established unipotent-inertia theorem is for odd p, so Remark 5.41 does not justify unrestricted semistability there."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed from Corollary 5.30, pp. 52–53, and the semisimplicity/sign inputs on p. 58. Γ_V and motivic archimedean factors have the shared PS.1 direction, with PS.0's realization/conjugation interface; gamma functions themselves are partly built. Serre's semisimplicity result is a separate source extension for the general G7 representation API, and T. Saito's sign theorem is a separate PS.1 source input. Keep the Kloosterman calculation as an application. Do not mark those two specific theorems already proved merely because the general owner exists."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed from item 5 and the current DWP descriptions. DWP.4 is the smooth-projective Weil I/RH stage, not the full local/mixed-sheaf Weil II contract asserted. Cite DWP.5 for local estimates and DWP.7 for global mixed-sheaf bounds, with DWP.6's curve purity where needed, or the expressly importing R34.5 interface. Keep the smoothness/coefficient restrictions from finding 4. Update the reader's DWP.4 attribution as well."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed against R06.1–R06.5. The period rings and de Rham/crystalline/semistable functors are R06.1 and R06.2; R06.5 is their geometric application. Correct item 7's planned owner and cite R06.3 separately for the p-adic Weil–Deligne construction when consumed in Remark 5.41. A theorem about geometric representations cannot stand in for the underlying definitions."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed against the current PA.5 and PotentialModularityAndCompatibleSystems:R24.5:operations descriptions. PA.5 consumes and transports a generic lifting/compatible-system package; it does not own the definitions in item 8. Route the generic compatible-system carrier and operations to R24.5:operations, with polarized representation inputs from ML.2/G7 and local monodromy/Weil–Deligne inputs separately attributed. Keep the purity, regularity and total-oddness hypotheses explicit."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed by the source's distinct étale, classical-perverse and Hodge/D-module uses and the current EDC/LPV statements. Item 3 cannot mark all nearby/vanishing-cycle constructions planned merely from étale LPV.0/LPV.1/LPV.6 or the R34.3 importing interface; item 4 likewise cannot mark holonomic-D-module intermediate extension planned merely from EDC.5. Split the coefficient/realization components and statuses. Reuse the actual étale functors; add the classical/Hodge-module functors and compatibility maps in the common Hodge/D-module owner."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed by FSY's bibliography on pp. 72–74 and the cited proof locators. Repair the Sabbah polarized-twistor citation to Part II, arXiv:0804.4328, Adv. Stud. Pure Math. 59 (2010), 289–347, with Theorem 6.1/§6.b; keep Esnault–Sabbah–Yu in J. reine angew. Math. 729 (2017), but correct the separately named Yu work in that entry to Manuscripta Math. 144 (2014) and deduplicate it against its existing separate entry; use Adolphson–Sperber, Nagoya Math. J. 146 (1997), 55–81, Theorem 1.4. Correct the two Haessig references, including the 2020 arXiv:2012.00570 link (1607.06821 is an unrelated physics paper). Correct Broadhurst/Roberts as in finding 47 and deduplicate the repeated Katz book. Kontsevich–Soibelman §4 supplies EMHS, while §5 is legitimately used for Definition A.18: retain both with their correct separate locators. Identify entries by citation rather than the red team's inaccurate duplicate-entry numbering."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed by the proof citations and prerequisite list. Explicit coverage decisions are missing for Sabbah–Yu [52] (filtered comparison), Sabbah [51] (irregular Hodge theory), Sabbah [49] (2008 formal stationary phase), Sabbah [48] (2006 microlocal input), Dettweiler–Sabbah [14] with its erratum (additive convolution), Steenbrink–Zucker [59] (constant-underlying-module criterion), and Hotta–Takeuchi–Tanisaki [27] (D-module foundations). Conversely Deligne SGA 4½, BLGGT, Kedlaya p-adic Weil II and Deligne’s Valeurs de fonctions L are already registered with shared suppliers. Keep their local consumer citations and import the supplier; do not batch-register a covered primary source again. Distinguish source registration from the existence of the particular needed theorem, and regenerate the reader's count rather than preserving its adds-21 claim. Correct citation identities before checking coverage."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed against FF.2's actual Kloosterman-sum, local L-function and bound nodes and its character-sheaf-cohomology-vanishes node. The base sum, α+β=-K and αβ=q, and all-complex-embedding Weil bound are already planned there. Split item 29's base theory from the additional symmetric-power moments, which still need the Kloosterman application. Item 33's nontrivial Artin–Schreier acyclicity should import FF.2. Coordinate the higher-rank Kloosterman sheaf with the Xu–Zhu route; a planned base finite-field theory does not establish its connection, moments or realization comparisons."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed by Proposition 2.10's proof, p. 13, the étale construction, p. 23, and additive *-convolution (A.5), p. 63. Existing transform nodes do not provide the required Fourier/convolution compatibility in either the holonomic-D-module or the étale setting. Record the D-module input with its support/shift convention in the shared D-module owner; request the missing étale compatibility in FF.2 using its existing Laumon Fourier source. Refinement: that Laumon source is already registered in FF, so adding another paper-batch prerequisite for it would duplicate coverage. Preserve the ! versus * and normalization distinctions rather than using one unqualified tensor/convolution formula."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the last step of Theorem 3.2's proof on p. 21: Sabbah's 2006 Proposition 2.3 supplies the microlocal/stationary-phase identification of nearby cycles and the resulting Hodge structure. Neither the extraction's item list nor its briefs records that input as a theorem with ownership and status. Add it separately to the shared Fourier/Hodge-module chain with the actual source locator and the requisite regularity/monodromy conventions. It is distinct from the 2008 explicit formal transform in finding 27."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an omitted input: Proposition 2.4's proof, p. 12, uses irreducibility of Sym^k of the standard SL_{n+1} or Sp_{n+1} representation, and p. 28 uses its sl₂ case. No matching symmetric-power irreducibility declaration was found in the pinned declaration index. Refine the fix to avoid rebuilding general representation theory: Tau Ceti's LieHighestWeight Layer 0 already plans the sl₂ standard irreducibles, and ClassicalGroups Layers 2–3 / SchurWeyl Layer 8 plan the Schur-functor and highest-weight construction (including the SL restriction). Record these planned suppliers, then isolate the needed symplectic highest-weight identification/irreducibility and any missing group-versus-Lie or coefficient-field adapter as an extension of those owners. Do not mark the entire general theorem newly missing inside KloostermanMoments."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed from p. 18's appeal to the Nori-motive weight filtration and from the current 22-node MC.5 packet: its category/projector/cohomology machinery does not supply that filtration and the exact functorial compatibility used here. Add a specifically scoped source extension of MC.5 for the filtration and its required realization/Hodge compatibility, then import it in the motive construction. The existence of a Nori category alone does not construct W. I checked FSY's cited use, not the full proof of the cited book theorem, and do not certify an unrestricted realization-weight comparison beyond that contract."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed from pp. 12–15 and 19. Add the symmetric-power projector/permutation-action convention, finite-cover invariant descent, cyclic Kummer-character decomposition, and the exponential mixed-Hodge cohomology constructions actually used. State the invertibility of the finite group order for averaging and distinguish invariants from the sign action introduced by shifted Künneth. These definitions have concrete consumers and cannot remain implicit in the proof summaries; locate the generic finite-group construction with its existing algebraic owner and the EMHS lift with the common Hodge owner."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed from (2.22), Lemma 2.24 and its proof, pp. 17–18. The relevant M-tilde is the image of the specific map in (2.22), equivalently the quotient of M by its maximal constant submodule under the projector Π, with its Hodge-module lift. It is not merely the image of a generic !→* map. For n=k=1 the finite map y+1/y has direct image O⊕M₂ and the quotient removes O; that distinguishes the constructions. Correct item 40 and preserve its pure-Hodge-module/weight assertion with the stated hypotheses."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the explicit Grothendieck–Ogg–Shafarevich use on p. 5. The étale curve formula χ_c(U,L)=rank(L)χ_c(U,Q_ℓ)-Σ Sw_x(L) is a separate input from the D-module index formula and rigid GOS. FF's current gap/restructuring request does not make the missing étale theorem already built or already declared in EDC.2. Record the source item and hand it to the shared étale/finite-field supplier, retaining the smooth curve, lisse coefficients and boundary ramification hypotheses."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed by the rendered definition on p. 35 and independently by Mochizuki, arXiv:1501.04146, Definition 2.6, Remarks 2.7–2.8 and §2.2.2. Mochizuki requires the zero-divisor regularity/transversality condition in a small neighborhood of the pole divisor, not at all interior points. The paper's all-X local normal form would exclude the actual interior critical points and the holomorphic zero boundary. Restrict it to a neighborhood of the poles, allow the stated equivalent normal forms there, and correct the exponent index to a (the number of ξ coordinates). Record the discrepancy as a source issue; do not impose a new condition at points where f is holomorphic. Assign distinct new source-issue IDs after finding 7 rather than both proposed E8 IDs."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the explicit [49, Theorem 5.1] invocation on p. 26 and its relegation to a note in item 71. The local formal Fourier transform/stationary-phase theorem is a separate missing input needed to deduce the rank-two formal type and its symmetric-power irregularities. Add a source item in the common D-module/Fourier supplier, taking the precise elementary-formal-module hypotheses and formula from Sabbah's 2008 paper; retain the application Kl̂₂≅[2]_+(E^{2t}⊗L_{-1}) with monodromy -1. The Levelt–Turrittin or Fourier-transform definitions do not by themselves prove it. I verified FSY's use and citation, not Sabbah's full proof."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a shared-owner/import omission, with a necessary correction to the proposed fix. I read TauCeti.Toric.Fan (Basic.lean:81) and Fan.IsRegular (Regular.lean:364) at f790474 and AnalyticToricGeometry Layers 0, 4 and 5. The fan/regularity carrier is built and the complex toric construction/boundary is planned upstream, but Layer 5 proves compactness of the complex realization, not algebraic properness over Q or Z. Import the applicable shared components and request the algebraic base/properness extension from that owner rather than declaring those stronger statements already planned or rebuilding them in KloostermanMoments. Also require a full-dimensional regular maximal cone for an A^n chart; lower-dimensional regular cones give A^r×G_m^(n-r). Keep the particular fan, equation (4.23), blow-ups and non-degeneracy in the Kloosterman application."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the rigid realization argument on p. 25 and the current RD packet. Its needed Dwork-isocrystal, cohomological localization/Gysin, rigid Frobenius weights and finiteness/duality inputs are planned separately in RD.4–RD.6, but the extraction records no corresponding component-level imports. Add them with their actual nodes. In particular the p-adic Weil II node retains its ι-realizability hypotheses, and the current Gysin node includes its lift-coordinate hypothesis: obtain the required descent/generalization before claiming an unrestricted rigid Gysin theorem. Preserve the Artin–Schreier/Dwork trace sign convention. Robba's symmetric-power calculation remains a separate Kloosterman application input."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed by the log-form assertion in item 73 and the filtration construction on pp. 36–37 and 65–66. An arbitrary lower-degree log form need not define a hypercohomology class: on G_m² with f=0, x dy/y has differential x dx/x∧dy/y≠0. State the criterion for a closed form whose degree survives the relevant filtered truncation, or specialize it to top-degree forms, which are automatically closed, with the required filtration-index inequality. Do not state a cohomology-class membership for every nonclosed differential form."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the archimedean epsilon calculation on p. 56 and items 32/62/63. The δ_{8Z}(k) term is already accounted for by ε_k(∞,s)=(-1)^{δ_{8Z}(k)}; only the conjectural floor(k/8) contribution from the unknown sign at p=2 remains. Correct item 63 and the reader to match that distinction and their own correct statements elsewhere. This is an epsilon-sign issue, distinct from the known p=2 polynomial factorization on p. 40."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed by rendered Example A.3, p. 63, and the extraction's already recorded E6. With perverse constants normalized by dimension, i*Q_U[dim U]=Q_D[dim D][1], so the shifted perverse pullback is i*[-1], not i*[1]. Correct item 13 to the same convention as its own source issue. The reduced-divisor ordinary pullback statement and the smooth-divisor extraordinary pullback/Tate-twist statement are distinct; retain the smoothness requirement for the latter."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed from ordinary-cohomology Example A.27, p. 71, and its use in Theorem 3.8, pp. 21–22. Item 25 records the compact-support comparison but omits the ordinary-cohomology-with-supports companion needed by the proof. Add that companion, including the smooth hypersurface Gysin identification and degree/Tate shift when applicable. For a singular K retain cohomology with supports rather than silently identifying it with ordinary cohomology of K."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed from Proposition A.10 and (A.16)–(A.17), pp. 65–66, together with their use in §4.3. The compatibility of irregular Hodge filtration with the specified pushforward is an input from Sabbah–Yu Theorem 1.3(4), not merely an unfiltered de Rham isomorphism. Record the filtration-preserving comparison and its degree/dimension shift, the Newton/log-pole descriptions with their sources, and the classical-versus-irregular comparison when classicality holds. Keep each construction and its hypotheses distinct instead of assuming all three filtrations coincide by definition."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the epsilon-factor calculation on pp. 54–55 and its explicit Deligne citations. Add the local epsilon duality/functional-equation normalization and the archimedean sign input as source items of ET.6 and PS.1 respectively, with the chosen additive character, Haar measure and Frobenius convention. Import rational Hilbert-symbol reciprocity from QuadraticFormInvariants Layer 6c's existing productFormula contract; do not replan class field theory in KloostermanMoments. The reciprocal/sign identity is for the specified local epsilon normalization, not an arbitrary unnormalized constant."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/36",
+      "verdict": "confirmed",
+      "reason": "Confirmed from determinant-character recognition on p. 53 and Remark 5.12, p. 44: equality of Frobenius data is converted to equality of Galois characters using Chebotarev. Add that input explicitly. Tau Ceti's Chebotarev Layers 9–10 provide the finite-extension/density theorem; for continuous ℓ-adic characters, add the actual reduction through finite quotients and continuity. A finite Galois counting theorem alone is not already the full infinite-image representation-recognition API."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the rigid statements on p. 25 and item 6. The appropriate planned suppliers are RD.3 for the isocrystal category, RD.4 for the cohomology constructions and localization, RD.5 for finiteness/perfect duality, and RD.6 for Frobenius weights/Dwork inputs. Correct the conflated RD.4/RD.6 attribution; the current RD.5 pairing statement explicitly retains the dual coefficient object and twists."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/38",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an extraction/scope correction. The paper has no Riemann-zeta input; its bibliography's Hasse zeta function is unrelated. Remove riemannZeta as evidence for item 1's coverage. I read Mathlib's Gammaℝ, Gammaℂ and Gammaℝ_mul_Gammaℝ_add_one at 082e2d3 and the integer/natural-denominator jacobiSym definition: those are directly relevant to the completed factors and quadratic-symbol calculations. Cite those actual declarations/components, keeping Γ_V and its motivic realization formula as a separately planned PS.1 input rather than declaring the entire formula library-built."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed against the route import lists and PROTOCOL §16. The briefs repeatedly list bare stage IDs without naming the supplied construction, and several IDs are substantively wrong as established in findings 12–15. Replace them with the construction's title plus roadmap/stage ID, distinguishing coefficient theories and precise provided interfaces. This makes the design job's dependency contract usable; it is not just a cosmetic renaming of the same incorrect imports."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/40",
+      "verdict": "confirmed",
+      "reason": "Confirmed against the current reader, particularly its library/planned table, route 4, route 6, prerequisite count and final independent-review paragraph. They preserve stale statuses, the epsilon-owner error and the assertion that the new D-module/Hodge route duplicates nothing. After the mathematical/routing corrections, regenerate the reader's counts and scope from the corrected result, record the shared-owner coordination and proof gaps, and retain review history as history rather than representing the old acceptance as a current clean audit."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/41",
+      "verdict": "confirmed",
+      "reason": "Confirmed on the rendered p. 5: the middle cohomology definition has Sym^k Kl₂ on the left but Sym^k Kl_{n+1} on both right-hand groups although n is not introduced there. Correct the right-hand coefficients to Kl₂ and add a distinct source issue with that exact locator. This does not alter the general higher-rank definition elsewhere."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/42",
+      "verdict": "confirmed",
+      "reason": "Confirmed on rendered p. 8. In (1.9) the same-degree tensor local system should be taken with the invariant projector to obtain Sym^k; the sign projector appears only after the cohomological degree-one Künneth shift in the G_m^(k+1) realization. Otherwise the rank-two exterior powers would incorrectly vanish for k≥3. In (1.10) the right-hand degree must be k+1, as in the corresponding statement of Proposition 2.13. Record the two source discrepancies separately and preserve the graded permutation/sign convention."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/43",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the introduction's k=7 table on p. 4 and Evans's public primary paper abstract, https://mathweb.ucsd.edu/~revans/seventh2010.pdf: the weight-three form has level 525 and character conductor 105. The printed 125 is also incompatible with that nebentypus conductor. Record 525 as the correction; do not change the independently correct conductor stated for the underlying Kloosterman motive."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/44",
+      "verdict": "confirmed",
+      "reason": "Confirmed by checking the actual statement headers and proof locations in the v5 PDF. Correct the cited locators instead of extending them by guesswork: item 6/83's rigid setup is p. 25; item 61 uses p. 25 and §5.2, pp. 49–51, not nonexistent §5.5; item 58 starts at the bottom of p. 56 and continues on p. 57, so retain pp. 56–57; item 56's Remark 5.28 is pp. 51–52; item 91's application is p. 58. Theorem A.30 is p. 71 and Corollary A.31 p. 72; Theorem 1.8 spans pp. 7–8; §4.3.1's Newton proof is p. 35; the main geometric result cited by item 65 is p. 9. Correct the classical/étale nearby-cycle, acyclicity and Theorem 3.8 locators to their actual domains and pages, as detailed in the finding. Page numbers throughout refer to the 74-page arXiv v5, not the Duke pagination."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/45",
+      "verdict": "confirmed",
+      "reason": "Confirmed by Proposition 2.4, pp. 11–12, and Theorem 3.8's proof/Remark 3.10, pp. 21–22. Proposition 2.4 has four numbered parts; duality is (3) and Fourier is (4), not imaginary extra parts, and the stated proof uses the recursion of Lemma 2.5 rather than simply transposing Deligne's arguments. Intermediate and minimal extension are synonyms, so irreducibility does not make them equal: its actual cited uses are H⁰_dR=0 in Proposition 2.13 and irreducibility of M-tilde in Lemma 2.24. The critical-locus description must require coordinates constant inside each block, y_{ji}=ζ_j, and Σ_j ζ_j=0, rather than allowing every mixed-root tuple with zero sum. Correct all three notes to those actual inputs."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/46",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the setup on p. 3 and reiterated on p. 40. For even k write k=2m+4 when k≡0 mod 4 and k=2m+2 when k≡2 mod 4, with m even. Add this definition where item 30 introduces m. Preserve the valid interpretation of deg M_k as the middle-cohomology dimension and distinguish it from deg Z_k and the removed factors."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/47",
+      "verdict": "confirmed",
+      "reason": "Confirmed by FSY's references [4]–[6] and [47] and the discussion of the conjectural formulas. The prerequisite's supposed joint Broadhurst–Roberts PoS citation does not identify the sources FSY actually uses. Replace it with Broadhurst, CNTP 10 (2016), 527–569, equation (128), and the separately attributed 2017 Broadhurst and Roberts slides, with publicly accessible links and exact consumer locators. Reconcile this with the bibliography deduplication in finding 16 rather than adding another inaccurate joint entry."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/48",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a worthwhile acceptance-case omission: Remark 3.7, p. 21, explicitly computes k=n=1, H¹=Q(-2), H¹_c=Q(0), and H¹_mid=0. Add it to item 41's acceptance examples or as a short separately located item. Retain kn≥2 in Theorems 3.8/3.12; the degenerate example cannot be absorbed by silently dropping that hypothesis. This verdict concerns extraction coverage and a discriminating boundary example, not a claim that the main theorem is wrong."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/49",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the explicit basis on p. 34: the distinguished vectors are v₀ and v-tilde₀, whereas the item uses undefined e₀ and e-tilde₀. Correct the symbol in item 51 and keep the source's basis and derivative conventions; no new mathematical construction is required."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/50",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the tilde-module conclusions on pp. 29 and 33. Item 47 must include M-tilde's own rank-one vanishing cycles, their locations and local monodromy (-1)^k, rather than recording only a Π-image statement. Record those Corollary 4.10(2) inputs and their use in Proposition 4.20 to deduce N²=0 at the relevant unipotent vanishing-cycle point, with the stated parity hypotheses. These are inputs to the later dimension/Hodge calculation, not consequences of the projector definition alone."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/51",
+      "verdict": "confirmed",
+      "reason": "Confirmed from Corollary 4.9's proof, pp. 28–29, and the local regular-holonomic discussion in Appendix A.1. Add the local regular-singular gluing/submodule classification actually invoked. Refine the fix: in the unipotent eigenvalue-one sector, the subspace F⊂E contains im N and the minimal extension corresponds to im N; other eigenvalue sectors use the invertible can/var identification. The two-space/monodromy quiver is needed for the full statement. Do not state that every regular-holonomic module is described solely by the unipotent N-sector, or apply this local regular classification globally to an irregular module."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/52",
+      "verdict": "confirmed",
+      "reason": "Confirmed from Theorem A.24, pp. 68–69: the theorem pairs the specified ordinary [*0] construction with the compact [!0] construction. Item 24 overstates the result by giving the same unrestricted claim for both localization variants in both support theories. Split its two source-supported statements and preserve the extension, realization and support convention; any additional comparison would need its own proof rather than attribution to A.24."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/53",
+      "verdict": "confirmed",
+      "reason": "Confirmed against route 3 and the current ML.2 packet, which includes BLGGT Theorem 5.4.1/Corollary 5.4.2 and its L-function/purity Corollary 5.4.3. Item 58's claim that ML.2 plans only unrelated ten-author-paper automorphy contradicts both that packet and this extraction's own source route. Replace it with the precise relation: the Patrikis–Taylor input extends the compatible-system theorem by removing irreducibility under its purity/regularity/polarization hypotheses. Keep that stronger input as a missing source extension, not as already supplied by the older BLGGT theorem."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/54",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an omitted dependency in Remark 5.41, p. 59, with an owner correction. Import the p-adic de Rham-to-Weil–Deligne parameter from R06.3. Generic weak/almost strict/strict compatible-system definitions belong to the current R24.5:operations shared carrier; the restructured R19.3 is a specialized eigenform-family consumer, so it is not the general supplier proposed by the finding. Cite Patrikis–Taylor's strict-compatibility input and Taylor's 2004 Galois representations §1 explicitly, registering the latter as a new source only after checking existing coverage. Keep this distinct from the application and the unresolved small-prime comparison in finding 7."
+    },
+    {
+      "finding": "RT-PAPER-FRESAN-SABBAH-YU-22/55",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the source discrepancies, with a more cautious repair. Remark 5.28, p. 52, has coincident early vertices for k=6 ((1,0),(2,2)) before strict separation at (3,7) versus (3,6); clarify 'above' and the coincidence range rather than attributing pointwise strictness. On p. 55 the quadratic part of det ρ can be locally trivial (for k=3 at p=7, -3 is a square in Q₇), and the full determinant may also have its unramified cyclotomic factor: correct the quadratic-character wording accordingly. On pp. 40 and 51 the even-k small-prime calculation has the additional floor(k/(2p)) factors of R_k of slope k/2 and a rank drop, which 'putting the trivial factor back' does not account for. Record the missing polygon-comparison argument, including lost middle slopes and inserted factors. Do not call its reach 'nothing', certify the proposed symmetry-only repair without a complete inequality, or assert that it cures finding 7's semistable-model gap. Give the source issues distinct IDs and the actual proof-step reach."
+    }
+  ]
+}
