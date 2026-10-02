@@ -567,10 +567,11 @@ def route_job(route, by_id):
     return "DESIGN-" + rid if "DESIGN-" + rid in by_id else None
 
 
-def keydef_owners(entries, routes, jobs, states, suppliers_of, titles):
+def keydef_owners(entries, routes, jobs, states, suppliers_of, titles, decisions=None):
     """{key definition id: assignment} for each promoted key definition that no layer plans (PROTOCOL.md section 19).
 
-    Its owner is one queued job that plans it once, as generally as all its uses need: the roadmap its
+    Its owner is one queued job that plans it once, as generally as all its uses need: the roadmap the
+    maintainer decided on (decisions, from research/blueprint/keydefs/assign.json), else the roadmap its
     survey names in `plannedBy`, else, among the queued jobs its catalogue items are routed to, the most
     foundational (the one whose roadmap supplies most of the others), then the one receiving most items.
     The other queued jobs receiving its items cite it under a reserved node id. Owner None: no queued job
@@ -616,11 +617,13 @@ def keydef_owners(entries, routes, jobs, states, suppliers_of, titles):
                 else:
                     unrouted += 1
         owner, reason = None, "no queued job receives its items"
-        named = entry.get("plannedBy")
+        decided = (decisions or {}).get(entry["id"])
+        named = decided or entry.get("plannedBy")
         if named:
+            who = "the maintainer decided on" if decided else "its survey names"
             options = [jid for jid in sorted(by_id) if live(jid) and roadmap(jid) == named]
             owner = max(options, key=lambda jid: (counts.get(jid, 0), -by_id[jid].get("order", 0)), default=None)
-            reason = f"its survey names {named}" if owner else f"its survey names {named}, which has no queued job"
+            reason = f"{who} {named}" if owner else f"{who} {named}, which has no queued job"
         elif counts:
             def rank(jid):
                 return (sum(supplies(jid, other) for other in counts if other != jid), counts[jid],
@@ -1712,7 +1715,10 @@ def main():
             for item in route.get("items") or []:
                 item_routes.setdefault(item, route)
     key_entries = promoted_keydefs()
-    owned_by = keydef_owners(key_entries, item_routes, jobs, states, suppliers_of, {rid: r.get("title", rid) for rid, r in roadmaps.items()})
+    decisions_path = BP / "keydefs" / "assign.json"
+    decisions = json.loads(decisions_path.read_text()).get("assign", {}) if decisions_path.exists() else {}
+    owned_by = keydef_owners(key_entries, item_routes, jobs, states, suppliers_of,
+                             {rid: r.get("title", rid) for rid, r in roadmaps.items()}, decisions)
     keydefs_owned, keydefs_cited = defaultdict(dict), defaultdict(dict)
     for kid, assignment in owned_by.items():
         if assignment["owner"]:

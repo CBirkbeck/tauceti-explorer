@@ -3,17 +3,18 @@
   "algebraicgeometry/coherent-duality": {
    "importers": [
     "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+    "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "DESIGN-ClassicalAdicEtaleCohomologyPartII",
     "DESIGN-PadicFamiliesPartII"
    ],
    "items": 7,
    "name": "Coherent dualizing complexes and exceptional inverse image",
-   "owner": "BP-DeformationAndDerivedPatchingAlgebra--P7",
-   "reason": "the most foundational of the 4 queued jobs its items go to",
-   "reserved": "DeformationAndDerivedPatchingAlgebra:key/coherent-duality",
-   "roadmap": "DeformationAndDerivedPatchingAlgebra",
+   "owner": "BP-SchemeAndStackFoundations",
+   "reason": "the maintainer decided on SchemeAndStackFoundations",
+   "reserved": "SchemeAndStackFoundations:key/coherent-duality",
+   "roadmap": "SchemeAndStackFoundations",
    "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
-   "title": "Commutative algebra for deformation theory and patching",
+   "title": "Scheme, stack, cohomology and intersection foundations",
    "unrouted": 8
   },
   "algebraicgeometry/equivariant-sheaf-cohomology": {
@@ -34,12 +35,12 @@
    "importers": [],
    "items": 0,
    "name": "Étale K(π,1) schemes",
-   "owner": null,
-   "reason": "no queued job receives its items",
-   "reserved": null,
-   "roadmap": null,
+   "owner": "BP-AnabelianGeometryAndNonabelianChabauty",
+   "reason": "the maintainer decided on AnabelianGeometryAndNonabelianChabauty",
+   "reserved": "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+   "roadmap": "AnabelianGeometryAndNonabelianChabauty",
    "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
-   "title": null,
+   "title": "Anabelian geometry and nonabelian Chabauty",
    "unrouted": 4
   },
   "algebraicgeometry/excellent-schemes": {
@@ -127,12 +128,12 @@
    "importers": [],
    "items": 0,
    "name": "Hilbert–Samuel function and multiplicity of a local ring or module",
-   "owner": null,
-   "reason": "no queued job receives its items",
-   "reserved": null,
-   "roadmap": null,
+   "owner": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+   "reason": "the maintainer decided on DeformationAndDerivedPatchingAlgebra",
+   "reserved": "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
+   "roadmap": "DeformationAndDerivedPatchingAlgebra",
    "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
-   "title": null,
+   "title": "Commutative algebra for deformation theory and patching",
    "unrouted": 2
   },
   "algebraicgeometry/moduli-curves": {

@@ -870,8 +870,9 @@ The survey writes `research/blueprint/keydefs/KEYDEF-<area>.json`:
   empty list says that nothing plans it yet, which is a gap. Owners in two
   different roadmaps are a duplication (section 15). The report lists both.
 - **Who plans a gap.** A key definition no layer plans is given to one owner when
-  the queue is generated: the roadmap its entry names in the optional
-  `"plannedBy": "<roadmap id>"`, else, among the queued blueprint and design jobs
+  the queue is generated: the roadmap the maintainer decided on
+  (`research/blueprint/keydefs/assign.json`), else the roadmap its entry names
+  in the optional `"plannedBy": "<roadmap id>"`, else, among the queued blueprint and design jobs
   its catalogue items are routed to (section 16), the most foundational (the one
   whose roadmap supplies most of the others), then the one receiving most items.
   The owner plans it once, as generally as all its uses need, under a reserved

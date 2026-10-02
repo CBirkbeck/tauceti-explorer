@@ -1,0 +1,13 @@
+{
+ "purpose": "The maintainer's decisions on which roadmap plans a key definition no layer plans yet (research/blueprint/PROTOCOL.md, section 19). research/blueprint/make_queue.py applies each ahead of the survey's plannedBy and the default rule.",
+ "assign": {
+  "algebraicgeometry/coherent-duality": "SchemeAndStackFoundations",
+  "algebraicgeometry/etale-k-pi-1": "AnabelianGeometryAndNonabelianChabauty",
+  "algebraicgeometry/hilbert-samuel-multiplicity": "DeformationAndDerivedPatchingAlgebra"
+ },
+ "decided": {
+  "algebraicgeometry/coherent-duality": "2026-10-02, the maintainer: Grothendieck duality for schemes belongs in the scheme foundations, not with the commutative algebra for patching",
+  "algebraicgeometry/etale-k-pi-1": "2026-10-02, the maintainer: no accepted route reached a queued job; Schmidt–Stix's use is anabelian",
+  "algebraicgeometry/hilbert-samuel-multiplicity": "2026-10-02, the maintainer: no accepted route reached a queued job; local algebra, beside the congruence modules"
+ }
+}
