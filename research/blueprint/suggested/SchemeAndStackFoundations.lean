@@ -6,6 +6,11 @@ The current elaboration receipt is in the handoff. Open source-proof and baselin
 are listed in the packet; admitted signatures certify no implementation.
 -/
 import Mathlib.Algebra.Category.CommAlgCat.FiniteType
+import Mathlib.Algebra.Category.Ring.FilteredColimits
+import Mathlib.CategoryTheory.Limits.ConcreteCategory.Basic
+import Mathlib.CategoryTheory.Limits.Constructions.Over.Connected
+import Mathlib.CategoryTheory.Filtered.Connected
+import Mathlib.Algebra.Polynomial.Monic
 import Mathlib.CategoryTheory.EssentiallySmall
 import Mathlib.CategoryTheory.Filtered.Basic
 import Mathlib.CategoryTheory.ObjectProperty.FullSubcategory
@@ -89,6 +94,38 @@ noncomputable def stage (I : Ideal R) (B : SmallModel.{u} (Neighbourhood I)) :
 lemma stage_naturality (I : Ideal R) {B C : SmallModel.{u} (Neighbourhood I)}
     (f : B ⟶ C) :
     (stage I C).comp ((diagram I).map f).hom = stage I B := by sorry
+
+-- node: SchemeAndStackFoundations:SF.0/extended-ideal-stage
+lemma mem_extended_iff_exists_stage (I : Ideal R)
+    (B : SmallModel.{u} (Neighbourhood I)) (b : (diagram I).obj B) :
+    stage I B b ∈ extended I ↔
+      ∃ (C : SmallModel.{u} (Neighbourhood I)) (t : B ⟶ C),
+        ((diagram I).map t).hom b ∈ I.map (algebraMap R ((diagram I).obj C)) := by sorry
+
+-- node: SchemeAndStackFoundations:SF.0/monic-polynomial-stage
+lemma exists_stage_monic_polynomial (I : Ideal R) (f : Polynomial (algebra I))
+    (hf : f.Monic) :
+    ∃ (B : SmallModel.{u} (Neighbourhood I)) (p : Polynomial ((diagram I).obj B)),
+      p.Monic ∧ p.map (stage I B).toRingHom = f := by sorry
+
+-- node: SchemeAndStackFoundations:SF.0/quotient-unit-stage
+lemma exists_stage_quotient_unit (I : Ideal R)
+    (B : SmallModel.{u} (Neighbourhood I)) (b : (diagram I).obj B)
+    (hb : IsUnit (Ideal.Quotient.mk (extended I) (stage I B b))) :
+    ∃ (C : SmallModel.{u} (Neighbourhood I)) (t : B ⟶ C),
+      IsUnit (Ideal.Quotient.mk (I.map (algebraMap R ((diagram I).obj C)))
+        (((diagram I).map t).hom b)) := by sorry
+
+-- node: SchemeAndStackFoundations:SF.0/simple-root-stage
+lemma exists_stage_simple_root (I : Ideal R) (f : Polynomial (algebra I))
+    (hf : f.Monic) (a0 : algebra I) (hroot : f.eval a0 ∈ extended I)
+    (hderiv : IsUnit (Ideal.Quotient.mk (extended I) (f.derivative.eval a0))) :
+    ∃ (B : SmallModel.{u} (Neighbourhood I))
+      (p : Polynomial ((diagram I).obj B)) (b : (diagram I).obj B),
+      p.Monic ∧ p.map (stage I B).toRingHom = f ∧ stage I B b = a0 ∧
+        p.eval b ∈ I.map (algebraMap R ((diagram I).obj B)) ∧
+        IsUnit (Ideal.Quotient.mk (I.map (algebraMap R ((diagram I).obj B)))
+          (p.derivative.eval b)) := by sorry
 
 -- node: SchemeAndStackFoundations:SF.0/residue-comparison
 lemma quotient_bijective (I : Ideal R) :
@@ -206,5 +243,23 @@ example : ¬ Function.Injective
       (by intro r hr; trivial)) := by sorry
 
 end Functoriality
+
+-- acceptance: zero ideal detects eventual zero, not injectivity of stage maps.
+example (B : SmallModel.{u} (Neighbourhood (⊥ : Ideal R)))
+    (b : (diagram (⊥ : Ideal R)).obj B) (hb : stage (⊥ : Ideal R) B b = 0) :
+    ∃ (C : SmallModel.{u} (Neighbourhood (⊥ : Ideal R))) (t : B ⟶ C),
+      ((diagram (⊥ : Ideal R)).map t).hom b = 0 := by sorry
+
+-- acceptance: a quotient unit need not be a unit before quotienting.
+example : ¬ IsUnit (2 : ZMod 30) ∧
+    IsUnit (Ideal.Quotient.mk (Ideal.span {(5 : ZMod 30)}) (2 : ZMod 30)) := by sorry
+
+-- acceptance: the empty lower-coefficient family still admits a monic lift.
+example (I : Ideal R) :
+    ∃ (B : SmallModel.{u} (Neighbourhood I)) (p : Polynomial ((diagram I).obj B)),
+      p.Monic ∧ p.map (stage I B).toRingHom = (1 : Polynomial (algebra I)) := by sorry
+
+-- acceptance: the same root is multiple in characteristic two.
+example : ¬ IsUnit (((Polynomial.X ^ 2 - 1 : Polynomial (ZMod 2)).derivative).eval 1) := by sorry
 
 end TauCeti.Henselization
