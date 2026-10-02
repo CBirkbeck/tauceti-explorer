@@ -5,7 +5,7 @@ forms so that contributors and reviewers converge on names and signatures.
 Partial continuation for DESIGN-HodgeStructuresPartII, issue #3371.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-COMPILED: the entire file elaborates with Lean v4.34.0-rc2 against the existing
+PRECEDING VERSION COMPILED: the entire file elaborates with Lean v4.34.0-rc2 against the existing
 pinned Mathlib build, with only sorry warnings. All imports are Mathlib modules.
 No project/cache setup, library build or Lean language server was started.
 The affine test prefix is retained. The intrinsic local core uses actual additive
@@ -24,6 +24,7 @@ import Mathlib.Algebra.Category.ModuleCat.Sheaf.LocallyFree
 import Mathlib.Algebra.Category.ModuleCat.Presheaf.Monoidal
 import Mathlib.Algebra.MvPolynomial.PDeriv
 import Mathlib.Data.Matrix.Basis
+import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.LinearAlgebra.Matrix.Kronecker
 
 noncomputable section
@@ -170,6 +171,7 @@ def Connection.gauge (c : Connection F V) (G : (Matrix V V R)ˣ) : Connection F 
 theorem Connection.gauge_matrix (c : Connection F V) (G : (Matrix V V R)ˣ) (i : Fin d) :
     (c.gauge G).matrix i = (G : Matrix V V R) * c.matrix i * ((↑(G⁻¹)) : Matrix V V R) -
       lam • ((G : Matrix V V R).map (F.delta i) * ((↑(G⁻¹)) : Matrix V V R)) := sorry
+-- node: HodgeStructuresPartII:H.0/gauge-curvature (promoted existing API)
 theorem Connection.gauge_curvature (c : Connection F V) (G : (Matrix V V R)ˣ) (i j : Fin d) :
     (c.gauge G).curvature i j = (G : Matrix V V R) * c.curvature i j * ((↑(G⁻¹)) : Matrix V V R) := sorry
 theorem Connection.gauge_flat (c : Connection F V) (G : (Matrix V V R)ˣ) :
@@ -271,6 +273,61 @@ example (ε : R) (hε : ε * ε = 0) (hne : ε ≠ 0) :
     let F := Frame.zero (k := k) (R := R) 1 0
     let c : Connection F (Fin 1) := ⟨fun _ => Matrix.diagonal (fun _ => ε)⟩
     c.JointNilpotent 2 ∧ c.matrix 0 ≠ 0 := sorry
+
+/-! Coordinate determinant adapter only; global exterior-power/descent remains a gap. -/
+-- node: HodgeStructuresPartII:H.0/determinant-coordinate
+def Connection.determinant (c : Connection F V) : Connection F (Fin 1) := sorry
+
+-- node: HodgeStructuresPartII:H.0/determinant-matrix
+theorem Connection.determinant_matrix (c : Connection F V) (i : Fin d) :
+    c.determinant.matrix i 0 0 = Matrix.trace (c.matrix i) := sorry
+
+theorem Connection.determinant_operator (c : Connection F V) (i : Fin d) (s : Fin 1 → R) :
+    c.determinant.operator i s 0 =
+      lam * F.delta i (s 0) + Matrix.trace (c.matrix i) * s 0 := sorry
+
+-- node: HodgeStructuresPartII:H.0/determinant-curvature
+theorem Connection.determinant_curvature (c : Connection F V) (i j : Fin d) :
+    c.determinant.curvature i j 0 0 = Matrix.trace (c.curvature i j) := sorry
+
+-- node: HodgeStructuresPartII:H.0/determinant-flat
+theorem Connection.determinant_flat (c : Connection F V) (hc : c.IsFlat) :
+    c.determinant.IsFlat := sorry
+
+-- node: HodgeStructuresPartII:H.0/determinant-dual
+theorem Connection.determinant_dual (c : Connection F V) :
+    c.dual.determinant = c.determinant.dual := sorry
+
+-- node: HodgeStructuresPartII:H.0/determinant-tensor
+theorem Connection.determinant_tensor_matrix (c : Connection F V) (b : Connection F W)
+    (i : Fin d) :
+    (c.tensor b).determinant.matrix i 0 0 =
+      (Fintype.card W : R) * Matrix.trace (c.matrix i) +
+      (Fintype.card V : R) * Matrix.trace (b.matrix i) := sorry
+
+-- node: HodgeStructuresPartII:H.0/determinant-gauge-curvature
+theorem Connection.determinant_gauge_curvature (c : Connection F V)
+    (G : (Matrix V V R)ˣ) (i j : Fin d) :
+    (c.gauge G).determinant.curvature i j 0 0 = c.determinant.curvature i j 0 0 := sorry
+
+-- test: Connection.test_determinant_rank_zero
+example (c : Connection F (Fin 0)) :
+    c.determinant = Connection.zero (F := F) (V := Fin 1) := sorry
+
+-- test: Connection.test_determinant_rank_one
+example (c : Connection F (Fin 1)) : c.determinant = c := sorry
+
+-- test: Connection.test_determinant_scalar_rank_two
+example (a : Fin d → R) (i : Fin d) :
+    (Connection.mk (fun j => a j • (1 : Matrix (Fin 2) (Fin 2) R)) :
+      Connection F (Fin 2)).determinant.matrix i 0 0 = 2 * a i := sorry
+
+-- test: Connection.test_determinant_flat_no_converse
+example :
+    let F := Frame.zero (k := ℚ) (R := ℚ) 2 0
+    let A : Fin 2 → Matrix (Fin 2) (Fin 2) ℚ := ![Matrix.single 0 1 1, Matrix.single 1 0 1]
+    let c : Connection F (Fin 2) := Connection.mk A
+    c.determinant.IsFlat ∧ ¬c.IsFlat := sorry
 
 end TauCeti.Hodge.ParameterConnection.Affine
 

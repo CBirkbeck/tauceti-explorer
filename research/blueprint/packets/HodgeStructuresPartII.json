@@ -14,7 +14,7 @@
     "HodgeStructuresPartII:H.8"
   ],
   "status": "partial",
-  "summary": "Intrinsic ringed-site Higgs/constant-parameter connection continuation, preserving the twelve affine test nodes. The reserved definition, graded extension, curvature, transport and coefficient/filtration algebra are supplied as plans with explicit supplier boundaries. H.0 remains partial while supplier interfaces and full source decomposition remain open; H.1–H.8 stay unread.",
+  "summary": "Intrinsic ringed-site Higgs/constant-parameter connection continuation, preserving the twelve affine test nodes. The reserved definition, graded extension, curvature, transport and coefficient/filtration algebra are supplied as plans with explicit supplier boundaries. H.0 remains partial while supplier interfaces and full source decomposition remain open; H.1–H.8 stay unread. Eight coordinate determinant/gauge declarations add trace coefficients, trace curvature, flatness, dual/tensor compatibility and gauge-curvature invariance. The global exterior-power and determinant-line descent bridge remains explicit.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -108,6 +108,104 @@
         "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
         "provides": "Evaluation of the balanced additive lift on elementary tensors.",
         "checked": "Actual defining statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Matrix.trace",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "Finite diagonal sum, the determinant coordinate coefficient.",
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:Matrix.trace_mul_comm",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "Trace of AB equals trace of BA over commutative multiplication.",
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:AddMonoidHom.map_trace",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "An additive map commutes with the finite matrix trace, including a derivation.",
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:Matrix.trace_transpose",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "Transposition preserves trace.",
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:Matrix.trace_neg",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "Trace of a negative matrix is negative trace.",
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:Matrix.trace_kronecker",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Kronecker.lean",
+        "provides": "Trace of the Kronecker product is the product of traces.",
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:Matrix.trace_one",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "Trace of the identity is the finite rank cast into the ring.",
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:Matrix.trace_units_conj",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "Conjugation by a matrix unit preserves trace.",
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:Matrix.trace_fin_zero",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "The empty coordinate trace is zero.",
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:Matrix.trace_fin_one",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "One-by-one trace equals its sole entry.",
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:Matrix.trace_zero",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "Trace of a zero matrix is zero.",
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:Matrix.trace_add",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "Trace is additive.",
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:Matrix.trace_sub",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "Trace preserves subtraction.",
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:Matrix.trace_smul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "Trace commutes with a distributive scalar action.",
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
       }
     ]
   },
@@ -171,6 +269,19 @@
         "Opening ordinary connection, extension and integrability definitions; Lemma 60.15.1 and full proof read."
       ],
       "readingExtent": "Only this section; the crystal equivalence is neither claimed nor replanned."
+    },
+    {
+      "id": "EG-author-2026",
+      "title": "Rigid connections and F-isocrystals (author-hosted preprint)",
+      "authors": "Hélène Esnault and Michael Groechenig",
+      "edition": "Author-hosted 44-page preprint at the recorded URL, accessed 2026-10-02. Different bytes/pagination from the 56-page Acta published PDF; no complete version collation.",
+      "url": "https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf",
+      "sha256": "0bfa00b7dbae7a59c193d3523028df826741f15d3e88cb50526f8656a7fb8e35",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Fresh reading by codex-J6LwjP: §1 p.2 opening fixed-determinant paragraph, Definition 1.1/Remark 1.2; §2.1 pp.5–6 complete selected Higgs/trace-zero definitions and Lemma 2.1 proof; §4.2 pp.23–24 parameter definition and Lemma 4.9 with its printed proof."
+      ],
+      "readingExtent": "Selected passages only. Published PDF retrieval returned HTTP 403; its historical source receipt is preserved. No new correspondence proof, erratum or version-independent theorem claim."
     }
   ],
   "nodes": [
@@ -3390,6 +3501,399 @@
       "acceptance": [
         "Under the generic finite split Rees identifications, (Rees_F(E),t∇)/(t) identifies as a Higgs object with (gr_F E,gr_F∇), and its /(t−1) fiber identifies as an ordinary connection with (E,∇). After t inversion, t⁻¹D_Rees identifies with ∇ on E[t,t⁻¹]. These are operator-compatible sheaf isomorphisms, not just rank or point equalities."
       ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/determinant-coordinate",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "construction",
+      "title": "Coordinate determinant parameter connection",
+      "declaration": "Connection.determinant",
+      "statement": "For the finite free coordinate model c with matrices A_i, construct a rank-one coordinate model det(c) with the same F and λ and one-by-one matrix tr(A_i). Its section operator is s ↦ λδ_i(s)+tr(A_i)s. This is the local coefficient model for the induced top exterior-power connection; the global determinant sheaf, the wedge identification and change-of-frame descent are separate supplier/bridge obligations. Rank zero gives the unit-line connection with zero coefficient.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N and λ∈R; all derivations are k-linear.",
+        "F is the existing coordinate Frame: its k-linear derivations commute and annihilate λ. Every coordinate model uses this same frame.",
+        "The index types V and W are finite decidable types. No positive rank, characteristic-zero or invertibility of rank is assumed."
+      ],
+      "proofSteps": [
+        "Define the rank-one matrices by the existing matrix trace, summing diagonal entries; reuse the existing coordinate Connection carrier with index Fin 1.",
+        "The operator formula follows from the existing operator equation. The scalar derivative term has λ, not rank(V)λ; the rank only multiplies scalar coefficient matrices.",
+        "This construction uses no scalar division, exterior-sheaf construction or global frame choice. Its identification with a top exterior power is recorded as a separate gap, not an assumed theorem."
+      ],
+      "acceptance": [
+        "Distinguish trace(A_i) from the algebraic determinant of A_i.",
+        "The model preserves the source parameter at every rank, including rank zero.",
+        "Trace loses information: flatness of det(c) has no converse."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/preconnection",
+        "HodgeStructuresPartII:H.0/operator",
+        "mathlib:Matrix.trace"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG-author-2026",
+          "locator": "§1 p.2 Definition 1.1; §2.1 pp.5–6 fixed-determinant trace condition; §4.2 pp.23–24 parameter Leibniz rule",
+          "match": "These passages require a determinant connection and trace-zero Higgs specialization. The finite coordinate trace, curvature and transport formulas are derived algebraically below; this does not identify a global exterior-power sheaf or prove any moduli theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "EG author §1 Definition 1.1 and §2.1; HodgeStructuresPartII:H.1/H.5",
+          "how": "Provide the local coefficients needed for the fixed-determinant connection and trace-zero Higgs condition without assuming an arbitrary connection has trace zero."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/determinant-curvature",
+          "how": "Identify the scalar curvature and prove flatness is preserved."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/determinant-tensor and HodgeStructuresPartII:H.0/determinant-dual",
+          "how": "Test determinant compatibility and rank multiplicities before global exterior-power descent."
+        }
+      ],
+      "api": [
+        {
+          "name": "Connection.determinant_matrix",
+          "role": "projection",
+          "statement": "The sole matrix entry of det(c) in direction i equals tr(A_i). Promoted to determinant-matrix for downstream use."
+        },
+        {
+          "name": "Connection.determinant_operator",
+          "role": "projection",
+          "statement": "On the coordinate line, D_det,i(s)(0)=λδ_i(s(0))+tr(A_i)s(0)."
+        },
+        {
+          "name": "Connection.determinant_curvature",
+          "role": "compatibility",
+          "statement": "The sole curvature entry of det(c) in directions i,j is tr(κ_c,ij). Promoted to determinant-curvature for downstream use."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Connection.test_determinant_rank_zero",
+          "kind": "degenerate",
+          "statement": "For an empty index Fin 0, det(c) is the rank-one zero-coefficient model; the determinant is not the zero module."
+        },
+        {
+          "name": "Connection.test_determinant_rank_one",
+          "kind": "compatibility",
+          "statement": "For index Fin 1, det(c)=c."
+        },
+        {
+          "name": "Connection.test_determinant_scalar_rank_two",
+          "kind": "computation",
+          "statement": "For A_i=a_i I_2, the determinant connection coefficient is 2a_i, not a_i² and not a rank-scaled parameter."
+        },
+        {
+          "name": "Connection.test_determinant_flat_no_converse",
+          "kind": "non-example",
+          "statement": "For λ=0, two zero directions over Q and A_0=E12, A_1=E21, det(c) is flat while c has nonzero diagonal(1,−1) curvature."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/determinant-matrix",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Matrix of the coordinate determinant connection",
+      "declaration": "Connection.determinant_matrix",
+      "statement": "The unique matrix entry of det(c) in direction i is tr(A_i).",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N and λ∈R; all derivations are k-linear.",
+        "F is the existing coordinate Frame: its k-linear derivations commute and annihilate λ. Every coordinate model uses this same frame.",
+        "The index types V and W are finite decidable types. No positive rank, characteristic-zero or invertibility of rank is assumed."
+      ],
+      "proofSteps": [
+        "Project the defining one-by-one matrix from the coordinate construction."
+      ],
+      "acceptance": [
+        "The coefficient is trace, not determinant."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/determinant-coordinate"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG-author-2026",
+          "locator": "§1 p.2 Definition 1.1; §2.1 pp.5–6 fixed-determinant trace condition; §4.2 pp.23–24 parameter Leibniz rule",
+          "match": "These passages require a determinant connection and trace-zero Higgs specialization. The finite coordinate trace, curvature and transport formulas are derived algebraically below; this does not identify a global exterior-power sheaf or prove any moduli theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/determinant-curvature",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Curvature of the determinant coordinate line",
+      "declaration": "Connection.determinant_curvature",
+      "statement": "For all i,j, the unique entry of κ_det(c),ij is tr(κ_c,ij)=λδ_i(tr A_j)−λδ_j(tr A_i).",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N and λ∈R; all derivations are k-linear.",
+        "F is the existing coordinate Frame: its k-linear derivations commute and annihilate λ. Every coordinate model uses this same frame.",
+        "The index types V and W are finite decidable types. No positive rank, characteristic-zero or invertibility of rank is assumed."
+      ],
+      "proofSteps": [
+        "Use determinant-matrix and expand the coordinate curvature. One-by-one coefficient commutators vanish because R is commutative.",
+        "Apply AddMonoidHom.map_trace to each derivation, commuting differentiation with the finite diagonal sum. Apply trace_add, trace_sub and trace_smul to the original curvature.",
+        "Matrix.trace_mul_comm identifies tr(A_i A_j) and tr(A_j A_i); their difference cancels. No division by rank or by two is used."
+      ],
+      "acceptance": [
+        "Valid over any commutative coefficient ring, including characteristic two."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/determinant-matrix",
+        "HodgeStructuresPartII:H.0/curvature",
+        "mathlib:AddMonoidHom.map_trace",
+        "mathlib:Matrix.trace_mul_comm",
+        "mathlib:Matrix.trace_add",
+        "mathlib:Matrix.trace_sub",
+        "mathlib:Matrix.trace_smul"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG-author-2026",
+          "locator": "§1 p.2 Definition 1.1; §2.1 pp.5–6 fixed-determinant trace condition; §4.2 pp.23–24 parameter Leibniz rule",
+          "match": "These passages require a determinant connection and trace-zero Higgs specialization. The finite coordinate trace, curvature and transport formulas are derived algebraically below; this does not identify a global exterior-power sheaf or prove any moduli theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/determinant-flat",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "theorem",
+      "title": "Flat connections have flat determinant models",
+      "declaration": "Connection.determinant_flat",
+      "statement": "If c is flat, det(c) is flat. A flat determinant model does not imply that c is flat.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N and λ∈R; all derivations are k-linear.",
+        "F is the existing coordinate Frame: its k-linear derivations commute and annihilate λ. Every coordinate model uses this same frame.",
+        "The index types V and W are finite decidable types. No positive rank, characteristic-zero or invertibility of rank is assumed."
+      ],
+      "proofSteps": [
+        "Apply determinant-curvature and trace_zero to every vanishing input curvature matrix; a one-by-one matrix vanishes exactly when its entry does.",
+        "The test with two noncommuting off-diagonal matrix units has nonzero trace-zero curvature and refutes the converse."
+      ],
+      "acceptance": [
+        "Do not replace the full integrability condition by trace-zero curvature."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/determinant-curvature",
+        "HodgeStructuresPartII:H.0/flatness",
+        "mathlib:Matrix.trace_zero"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG-author-2026",
+          "locator": "§1 p.2 Definition 1.1; §2.1 pp.5–6 fixed-determinant trace condition; §4.2 pp.23–24 parameter Leibniz rule",
+          "match": "These passages require a determinant connection and trace-zero Higgs specialization. The finite coordinate trace, curvature and transport formulas are derived algebraically below; this does not identify a global exterior-power sheaf or prove any moduli theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/determinant-dual",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Determinant model commutes with duality",
+      "declaration": "Connection.determinant_dual",
+      "statement": "The coordinate models det(c.dual) and det(c).dual are equal, with the same F and λ.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N and λ∈R; all derivations are k-linear.",
+        "F is the existing coordinate Frame: its k-linear derivations commute and annihilate λ. Every coordinate model uses this same frame.",
+        "The index types V and W are finite decidable types. No positive rank, characteristic-zero or invertibility of rank is assumed."
+      ],
+      "proofSteps": [
+        "Use the inherited dual coefficient −A_iᵀ. Trace_neg and trace_transpose give tr(−A_iᵀ)=−tr(A_i).",
+        "The one-by-one matrices agree by determinant-matrix; connection extensionality gives equality."
+      ],
+      "acceptance": [
+        "The minus sign is required; transpose alone is wrong."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/determinant-matrix",
+        "HodgeStructuresPartII:H.0/dual",
+        "mathlib:Matrix.trace_transpose",
+        "mathlib:Matrix.trace_neg"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG-author-2026",
+          "locator": "§1 p.2 Definition 1.1; §2.1 pp.5–6 fixed-determinant trace condition; §4.2 pp.23–24 parameter Leibniz rule",
+          "match": "These passages require a determinant connection and trace-zero Higgs specialization. The finite coordinate trace, curvature and transport formulas are derived algebraically below; this does not identify a global exterior-power sheaf or prove any moduli theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/determinant-tensor",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Tensor determinant rank multiplicities",
+      "declaration": "Connection.determinant_tensor_matrix",
+      "statement": "For c on R^V and b on R^W with the same F and λ, the determinant coordinate coefficient of c.tensor(b) in direction i is rank(W)tr(A_i)+rank(V)tr(B_i), with natural ranks cast into R.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N and λ∈R; all derivations are k-linear.",
+        "F is the existing coordinate Frame: its k-linear derivations commute and annihilate λ. Every coordinate model uses this same frame.",
+        "The index types V and W are finite decidable types. No positive rank, characteristic-zero or invertibility of rank is assumed."
+      ],
+      "proofSteps": [
+        "Use the inherited Kronecker-sum coefficient A_i⊗I_W+I_V⊗B_i.",
+        "Apply trace_add and Matrix.trace_kronecker, then trace_one. Commute the scalar factors in R to obtain the displayed rank coefficients.",
+        "The section operator still has parameter λ. This coefficient identity alone is not the global determinant-line tensor isomorphism."
+      ],
+      "acceptance": [
+        "Ranks appear as elements of R and can vanish in positive characteristic; they are not inverted."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/determinant-matrix",
+        "HodgeStructuresPartII:H.0/tensor",
+        "mathlib:Matrix.trace_kronecker",
+        "mathlib:Matrix.trace_one",
+        "mathlib:Matrix.trace_add"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG-author-2026",
+          "locator": "§1 p.2 Definition 1.1; §2.1 pp.5–6 fixed-determinant trace condition; §4.2 pp.23–24 parameter Leibniz rule",
+          "match": "These passages require a determinant connection and trace-zero Higgs specialization. The finite coordinate trace, curvature and transport formulas are derived algebraically below; this does not identify a global exterior-power sheaf or prove any moduli theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/gauge-curvature",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Curvature under coordinate change",
+      "declaration": "Connection.gauge_curvature",
+      "statement": "For the coordinate transformation s′=Gs and every invertible matrix G, curvature transforms as κ_gauge(c,G),ij=G κ_c,ij G⁻¹. This is the promoted curvature API of the inherited gauge construction.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N and λ∈R; all derivations are k-linear.",
+        "F is the existing coordinate Frame: its k-linear derivations commute and annihilate λ. Every coordinate model uses this same frame.",
+        "The index types V and W are finite decidable types. No positive rank, characteristic-zero or invertibility of rank is assumed."
+      ],
+      "proofSteps": [
+        "Differentiate GG⁻¹=I entrywise. The matrix product Leibniz rule gives δ_i(G⁻¹)=−G⁻¹δ_i(G)G⁻¹ by multiplying the resulting zero identity on the left by G⁻¹.",
+        "Insert the defined coefficient G A_i G⁻¹−λδ_i(G)G⁻¹ into the curvature formula. Use the preceding inverse derivative, the relatively constant parameter and commutation of the coordinate derivations to cancel all terms with derivatives of G; the remaining expression is G(λδ_iA_j−λδ_jA_i+[A_i,A_j])G⁻¹. Finite matrix sums and multiplication are over the commutative ring R."
+      ],
+      "acceptance": [
+        "The transformation convention is s′=Gs, so the derivative correction has a minus sign.",
+        "No field, characteristic-zero hypothesis or matrix inverse in a field is used: G is a unit of the matrix ring."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/gauge",
+        "HodgeStructuresPartII:H.0/curvature",
+        "HodgeStructuresPartII:H.0/coordinate-frame",
+        "mathlib:Derivation.leibniz"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG-author-2026",
+          "locator": "§1 p.2 Definition 1.1; §2.1 pp.5–6 fixed-determinant trace condition; §4.2 pp.23–24 parameter Leibniz rule",
+          "match": "These passages require a determinant connection and trace-zero Higgs specialization. The finite coordinate trace, curvature and transport formulas are derived algebraically below; this does not identify a global exterior-power sheaf or prove any moduli theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/determinant-gauge-curvature",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Determinant curvature is gauge invariant",
+      "declaration": "Connection.determinant_gauge_curvature",
+      "statement": "For every invertible coordinate matrix G, the one-by-one curvature entry of det(c.gauge(G)) equals that of det(c).",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N and λ∈R; all derivations are k-linear.",
+        "F is the existing coordinate Frame: its k-linear derivations commute and annihilate λ. Every coordinate model uses this same frame.",
+        "The index types V and W are finite decidable types. No positive rank, characteristic-zero or invertibility of rank is assumed."
+      ],
+      "proofSteps": [
+        "Apply determinant-curvature on both sides and the inherited gauge curvature identity κ_gauge=G κ G⁻¹.",
+        "Matrix.trace_units_conj proves equality of the two traces. This requires no derivative of det(G).",
+        "This is curvature invariance only; the connection coefficient still has its trace of the derivative correction. A global determinant descent theorem also needs the induced frame det(G) and the Jacobi derivative formula."
+      ],
+      "acceptance": [
+        "Do not assert that the determinant connection matrices themselves are unchanged under a nonconstant gauge."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/determinant-curvature",
+        "HodgeStructuresPartII:H.0/gauge-curvature",
+        "mathlib:Matrix.trace_units_conj"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG-author-2026",
+          "locator": "§1 p.2 Definition 1.1; §2.1 pp.5–6 fixed-determinant trace condition; §4.2 pp.23–24 parameter Leibniz rule",
+          "match": "These passages require a determinant connection and trace-zero Higgs specialization. The finite coordinate trace, curvature and transport formulas are derived algebraically below; this does not identify a global exterior-power sheaf or prove any moduli theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -3435,9 +3939,10 @@
         "HodgeStructuresPartII:H.0/tensor-nilpotence",
         "HodgeStructuresPartII:H.0/twisted-higgs",
         "HodgeStructuresPartII:H.0/unit-connection",
-        "HodgeStructuresPartII:key/higgs-parameter-connections"
+        "HodgeStructuresPartII:key/higgs-parameter-connections",
+        "HodgeStructuresPartII:H.0/determinant-coordinate"
       ],
-      "need": "Use the pinned SheafOfModules and locally free carriers; supply their missing underived sheaf tensor, finite locally free dual/evaluation, tensor-exactness for locally free coefficient sheaves, ringed-site pullback and monoidal coherence/descent. Presheaf tensorObj already exists. No new module-sheaf carrier is requested."
+      "need": "Use the pinned SheafOfModules and locally free carriers; supply their missing underived sheaf tensor, finite locally free dual/evaluation, tensor-exactness for locally free coefficient sheaves, ringed-site pullback and monoidal coherence/descent. Presheaf tensorObj already exists. No new module-sheaf carrier is requested. Also supply finite locally free exterior powers and the determinant-line carrier with wedge universal properties and frame-change coherence; this job owns only the induced parameter operator and its comparison."
     },
     {
       "supplier": "DerivedDeRhamCohomology:DD.1",
@@ -3469,7 +3974,7 @@
         "Discharge the CR.1 ordinary connection/exterior-calculus comparison and E1 sheaf tensor, finite dual evaluation, tensor-kernel exactness, pullback and descent requests; native sheaf carriers and presheaf tensor must be reused.",
         "Discharge DD.1 finite split filtration/Rees carrier and specialization equations, then elaborate the global signatures listed in the suggested-file omission ledger.",
         "Freshly source-decompose all other H.0 definitions/proof inputs required by the full 149-item route inventory; the reserved carrier and its present algebra are supplied as plans, not implementation.",
-        "Prove determinant/exterior-power connection functoriality and the coefficient-equivariance adapter for the p-adic Tate instance at declaration granularity; no choices of a Tate basis may erase Galois action.",
+        "Seven affine trace-coordinate determinant declarations are supplied; prove the global determinant/exterior-power comparison and connection functoriality and the coefficient-equivariance adapter for the p-adic Tate instance at declaration granularity; no choices of a Tate basis may erase Galois action.",
         "Supply the filtered-coefficient/period-lattice adapter for Liu–Zhu Definition 3.5–3.6: its t-adic filtration is not a bounded subbundle filtration over the original period ring. Import graded base-ring and Tate degree identifications from DD.1 and the p-adic consumer; the finite Griffiths/Rees specialization here does not discharge that adapter."
       ]
     },
@@ -3624,6 +4129,16 @@
         "HodgeStructuresPartII:H.8"
       ],
       "detail": "Retain the mandatory Benoist continuation: geometric weight-two real variations, transported Hodge classes, generic Kodaira–Spencer contraction, Griffiths derivative, normal-boundary factorization, Green open cones and the required Voisin kernel-cone interface. Supply RealSurfacePeriodIndex using common variations and the existing divisor-class supplier. Ordinary integral weak Lefschetz is not replaced by an equivariant variant. Double-cover families and application-specific vanishings remain with the consumer. Binding route obligations, not established declarations."
+    },
+    {
+      "title": "Global determinant connection and exterior-power comparison",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0/determinant-coordinate",
+        "HodgeStructuresPartII:H.0/coordinate-comparison",
+        "HodgeStructuresPartII:H.1",
+        "HodgeStructuresPartII:H.5"
+      ],
+      "detail": "The seven new affine declarations describe a trace-coordinate line and its transport tests. Still import finite locally free exterior powers/determinant sheaves, build the induced alternating connection, compare its chosen top-wedge frame with trace(A), and prove frame-change by det(G) using the derivation Jacobi formula before local descent. The curvature trace identity alone is not this bridge. Fixed determinant includes the specified line connection and its identification; trace zero is the Higgs local coefficient condition, not a condition built into every parameter connection."
     }
   ],
   "sourceIssues": [
@@ -3978,26 +4493,51 @@
   ],
   "verification": {
     "leanCompiled": true,
-    "reason": "All imports are Mathlib modules. Entire suggested file elaborated against the existing exact-pin Mathlib build using Lean v4.34.0-rc2. This does not certify a Tau Ceti build or any omitted global signature. No project/cache setup, library build or language server started.",
+    "reason": "Entire expanded suggested file elaborated against the existing exact-pin Mathlib build with Lean v4.34.0-rc2, only admitted-proof warnings. All imports are Mathlib; no Tau Ceti build is required or certified. All 35 global omissions remain, and no implementation status changes.",
     "mathematics": "All nodes are declaration-sized plans. Intrinsic algebra uses specified exterior calculus and exact named supplier contracts; no complete stage or formal implementation claimed.",
-    "sourceIssueScope": "One narrow inherited EG20/E10 misprint subset is freshly confirmed; no new source error or corrected correspondence is claimed. Relative dλ=0 is input, not an EG erratum.",
+    "sourceIssueScope": "Inherited EG20/E10 receipt remains historical. This continuation reads a different author-preprint edition for fixed determinant and parameter definitions; no new source issue or complete version collation is claimed.",
     "checks": {
-      "packetChecker": "0 errors, 0 warnings with pinned declaration index",
-      "preservation": "Current continuation: all 47 predecessor nodes, 100 APIs, 85 tests, 149 routed input ids, sources, baseline declarations, requests, gaps, coverage and restructure preserved exactly.",
-      "nameParity": "All 47 node ids, 100 API names and 85 test names occur in reader and suggested file; 35 global signatures are explicitly omitted, not elaborated",
+      "packetChecker": "0 errors, 0 warnings with the pinned declaration index",
+      "preservation": "All 47 predecessor node objects, 100 existing APIs, 85 existing tests, 149 routed input IDs, 15 baseline prefix records, 4 source prefix records, sourceIssues and restructure preserved exactly. The E1 request is extended precisely for exterior/determinant carriers; H.0 remaining text and a new gap identify the global bridge.",
+      "nativeParity": "Every new statement occurs verbatim in the reader; all eight node names, three construction API forms and four new examples have native declarations/forms. One existing gauge API is promoted without a duplicate declaration. The inherited global 35-node/65-API/54-test omission ledger remains unchanged.",
       "atlasProjection": {
-        "vertices": 3022,
-        "edges": 8662,
+        "inheritedNodesPreserved": 47,
+        "newNodes": 8,
+        "routeManifestPreserved": true,
+        "totalNodes": 55,
+        "apiItems": 103,
+        "tests": 89,
+        "planets": 6,
+        "baselineDeclarations": 29,
+        "gaps": 10,
+        "requests": 4,
         "requiredLayerEdges": 18,
-        "acyclic": true,
+        "missingEdges": 0,
         "pendingLinks": 0,
-        "skippedLinks": 0
+        "skippedLinks": 0,
+        "stageDAG": {
+          "vertices": 3022,
+          "edges": 8662,
+          "acyclic": true
+        },
+        "combinedDAG": {
+          "vertices": 3071,
+          "edges": 8862,
+          "acyclic": true
+        }
       },
       "concreteModels": {
-        "passed": 20,
-        "scope": "Exact polynomial/matrix scalar Leibniz, additive extension, curvature and variable-parameter defect; tensor, dual, gauge, rescaling; characteristic-two commutator; ordered-word and nonreduced nilpotence examples; finite Griffiths Rees fibers. No general proof or Lean elaboration."
+        "polynomialConnectionPairs": 270,
+        "laurentGaugeCases": 90,
+        "characteristics": [
+          "zero",
+          2,
+          3
+        ],
+        "scope": "Exact trace curvature, dual, Kronecker rank multiplicities and nonconstant invertible Laurent gauge transformations; nonflat connections with flat determinant and positive-characteristic trace loss. Algebraic regression only, not general proof.",
+        "receiptSha256": "c6e05c58d20ebdc98bde25972dd8eac496dd858e4a29df031c7c4d0b723eaef4"
       },
-      "sourceExcerpts": "All unique PDF excerpt strings confirmed after Unicode/whitespace normalization; Stacks ordinary-connection excerpt checked on tag 07J5."
+      "sourceExcerpts": "The eight new source excerpts are the same three-word literal in the freshly read author-preprint opening definition; no fresh certification of the inherited published/LZ/Heuer excerpts."
     },
     "historicalReceiptTree": "dc0c470bcc064a08d8d9161ea963afe12b2c4b8d",
     "historicalReceiptScope": "Retained prior-worker model/source-excerpt/atlas-projection receipts; not rerun in the codex-J6LwjP elaboration continuation.",
@@ -4021,6 +4561,44 @@
       "exitCode": 0,
       "suggestedSha256": "cdf1b95ef9ab04bf23785ca2237351c811135d72e3683fc9116ab9ba9c87f35e",
       "logSha256": "dd795b2ea3338409471533d2f4766c0755d17885156bd5ea6038fe0d0b2cb6f8"
+    },
+    "historicalVerification": {
+      "packetChecker": "0 errors, 0 warnings with pinned declaration index",
+      "preservation": "Current continuation: all 47 predecessor nodes, 100 APIs, 85 tests, 149 routed input ids, sources, baseline declarations, requests, gaps, coverage and restructure preserved exactly.",
+      "nameParity": "All 47 node ids, 100 API names and 85 test names occur in reader and suggested file; 35 global signatures are explicitly omitted, not elaborated",
+      "atlasProjection": {
+        "vertices": 3022,
+        "edges": 8662,
+        "requiredLayerEdges": 18,
+        "acyclic": true,
+        "pendingLinks": 0,
+        "skippedLinks": 0
+      },
+      "concreteModels": {
+        "passed": 20,
+        "scope": "Exact polynomial/matrix scalar Leibniz, additive extension, curvature and variable-parameter defect; tensor, dual, gauge, rescaling; characteristic-two commutator; ordered-word and nonreduced nilpotence examples; finite Griffiths Rees fibers. No general proof or Lean elaboration."
+      },
+      "sourceExcerpts": "All unique PDF excerpt strings confirmed after Unicode/whitespace normalization; Stacks ordinary-connection excerpt checked on tag 07J5."
+    },
+    "determinantContinuation": {
+      "agent": "Codex",
+      "session": "codex-J6LwjP",
+      "date": "2026-10-02",
+      "base": "72b8733",
+      "claim": "5952774707",
+      "bot": "5952777457",
+      "newNodes": 8,
+      "nativeGlobalOmissionsUnchanged": true,
+      "primaryEdition": "EG-author-2026",
+      "checksPending": false,
+      "exitCode": 0,
+      "seconds": 2.27,
+      "errors": 0,
+      "sorryWarnings": 118,
+      "otherWarnings": 0,
+      "nativeExamples": 48,
+      "suggestedSha256": "df692430d323e907f4a419970dbde6f4a72a6d354f5759a96a1c5a42c7c154e7",
+      "logSha256": "b80d7603656e0947d9747150790f767c08eaf021e9fcc846b064b789c708518c"
     }
   }
 }
