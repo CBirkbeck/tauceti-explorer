@@ -14,7 +14,7 @@
     "HodgeStructuresPartII:H.8"
   ],
   "status": "partial",
-  "summary": "Intrinsic ringed-site Higgs/constant-parameter connection continuation, preserving the twelve affine test nodes. The reserved definition, graded extension, curvature, transport and coefficient/filtration algebra are supplied as plans with explicit supplier boundaries. H.0 remains partial while supplier interfaces and full source decomposition remain open; H.1–H.8 stay unread. Eight coordinate determinant/gauge declarations add trace coefficients, trace curvature, flatness, dual/tensor compatibility and gauge-curvature invariance. The global exterior-power and determinant-line descent bridge remains explicit. Five further affine declaration plans decompose determinant differentiation, the trace row-action identity, coefficient/frame gauge compatibility, and determinant evaluation of the induced alternating operator. Global exterior-power/descent and all later-stage obligations remain open; The determinant adapters still have admitted native bodies. The generic matrix-unit Jacobi identity is imported once from ColemanPowerSeries:L1/derivation-determinant-unit. Ten action/ordered-nilpotence nodes import the built augmentation description, descend the symmetric action into the associative endomorphism algebra, identify exact augmentation-power annihilation and preserve the characteristic-two distinction between ordered and projected iterates. Global sheaf forms remain explicit omissions; spectral image algebras stay with the p-adic Simpson consumer. This continuation supplies actual bodies for fifteen existing affine declarations and ten native examples; the ordered-augmentation and global sheaf obligations remain open.",
+  "summary": "Intrinsic ringed-site Higgs/constant-parameter connection continuation, preserving the twelve affine test nodes. The reserved definition, graded extension, curvature, transport and coefficient/filtration algebra are supplied as plans with explicit supplier boundaries. H.0 remains partial while supplier interfaces and full source decomposition remain open; H.1–H.8 stay unread. Eight coordinate determinant/gauge declarations add trace coefficients, trace curvature, flatness, dual/tensor compatibility and gauge-curvature invariance. The global exterior-power and determinant-line descent bridge remains explicit. Five further affine declaration plans decompose determinant differentiation, the trace row-action identity, coefficient/frame gauge compatibility, and determinant evaluation of the induced alternating operator. Global exterior-power/descent and all later-stage obligations remain open; The determinant adapters still have admitted native bodies. The generic matrix-unit Jacobi identity is imported once from ColemanPowerSeries:L1/derivation-determinant-unit. Ten action/ordered-nilpotence nodes import the built augmentation description, descend the symmetric action into the associative endomorphism algebra, identify exact augmentation-power annihilation and preserve the characteristic-two distinction between ordered and projected iterates. Global sheaf forms remain explicit omissions; spectral image algebras stay with the p-adic Simpson consumer. This continuation supplies actual bodies for fifteen existing affine declarations and ten native examples; the ordered-augmentation and global sheaf obligations remain open. This continuation adds the degree-one word-generator adapter for augmentation powers and the ambient-End-ideal regression; global and source gaps remain open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -480,6 +480,36 @@
         "module": "Mathlib/RingTheory/Ideal/Operations.lean",
         "provides": "If x lies in I, its Nth power lies in I^N, including N=0.",
         "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and matched to its indexed declaration; used by the native proof or regression."
+      },
+      {
+        "ref": "tauceti:TauCeti.HopfIdeal.augmentation_toIdeal",
+        "module": "TauCeti/Algebra/HopfAlgebra/HopfIdeal/Augmentation.lean",
+        "provides": "The underlying ideal of the Hopf augmentation is the kernel of Bialgebra.counitAlgHom.",
+        "checked": "Full statement and ambient hypotheses read at the exact pinned source commit; existing declaration, not a new roadmap node."
+      },
+      {
+        "ref": "mathlib:Submodule.span_pow",
+        "module": "Mathlib/Algebra/Algebra/Operations.lean",
+        "provides": "The Nth power of a scalar span equals the span of the Nth set power; use S as its own scalar algebra.",
+        "checked": "Full statement and ambient hypotheses read at the exact pinned source commit; existing declaration, not a new roadmap node."
+      },
+      {
+        "ref": "mathlib:Set.mem_pow",
+        "module": "Mathlib/Algebra/Group/Pointwise/Set/ListOfFn.lean",
+        "provides": "Membership in a set power is witnessed by a Fin N-indexed word whose ordered product is the element, including N=0.",
+        "checked": "Full statement and ambient hypotheses read at the exact pinned source commit; existing declaration, not a new roadmap node."
+      },
+      {
+        "ref": "mathlib:Ideal.span_le",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "An ideal span is contained in an ideal exactly when its generating set is contained there.",
+        "checked": "Full statement and ambient hypotheses read at the exact pinned source commit; existing declaration, not a new roadmap node."
+      },
+      {
+        "ref": "mathlib:Matrix.toLin'",
+        "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+        "provides": "Native equivalence from matrices to linear maps on finite function modules, used only for concrete End(ℚ²) fixtures.",
+        "checked": "Full statement and ambient hypotheses read at the exact pinned source commit; existing declaration, not a new roadmap node."
       }
     ]
   },
@@ -4527,7 +4557,8 @@
         "mathlib:TensorAlgebra.hom_ext",
         "mathlib:RingCon.Quotient.hom_extₐ",
         "mathlib:SymmetricAlgebra.induction",
-        "mathlib:SymmetricAlgebra.algebraMapInv_ι"
+        "mathlib:SymmetricAlgebra.algebraMapInv_ι",
+        "mathlib:Matrix.toLin'"
       ],
       "library": {
         "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
@@ -4587,6 +4618,11 @@
           "name": "TwistedHiggsBundle.affineSymmetricAction.test_noncommuting",
           "kind": "non-example",
           "statement": "On ℚ² the actual endomorphisms E12 and E21 cannot both be images of degree-one generators under a symmetric-algebra action: their products differ on the first basis vector."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineSymmetricAction.test_ambient_ideal",
+          "kind": "non-example",
+          "statement": "On ℚ² set X=E12 and Y=E21. There exists the rank-one symmetric action α with ι(id_ℚ)↦X and I²⊆ker α because X²=0. But YX lies in the ambient left ideal span{X}, is nonzero, and (YX)²=YX. Thus forming the augmentation ideal in all End(ℚ²) instead of in S rejects this valid nilpotent action. This guards a potential implementation error, not a source erratum."
         }
       ]
     },
@@ -4776,6 +4812,67 @@
       ]
     },
     {
+      "id": "HodgeStructuresPartII:H.0/augmentation-power-generators",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Degree-one words generate Higgs augmentation powers",
+      "declaration": "TwistedHiggsBundle.augmentation_pow_generators",
+      "statement": "For every N≥0, the Nth power of I=ker(ε) in S=Sym_A(V), V=Hom_A(Q,A), is the ideal span of the products ι(v₀)⋯ι(v_{N−1}) indexed by words Fin N→V. The empty word generates the whole ideal when N=0. The ideal is formed in the commutative source S, never in all of End_A(E).",
+      "hypotheses": [
+        "A is a commutative ring; E and Q are A-modules. For this affine algebra no smoothness, characteristic-zero, reducedness, freeness or finite-generation assumption is imposed.",
+        "V=Hom_A(Q,A), S=Sym_A(V), ε:S→A is the canonical degree-zero augmentation, and I=ker ε. End_A(E) has its actual associative composition product and central A-algebra structure; it is not assumed commutative."
+      ],
+      "proofSteps": [
+        "Use the built TauCeti.SymmetricAlgebra.augmentation_toIdeal_eq_span_range_ι. The built HopfIdeal.augmentation_toIdeal and SymmetricAlgebra.counitAlgHom_eq identify this with the kernel of the actual degree-zero augmentation algebraMapInv.",
+        "View Ideal.span in the commutative symmetric algebra as Submodule.span over S, and apply the built Submodule.span_pow. Its scalar-algebra and two-sidedness hypotheses hold in this commutative source.",
+        "Use the built Set.mem_pow to express membership in the Nth set power as a Fin N-indexed word of generators. Choose a preimage in V for each entry of range ι; List.map_ofFn identifies the resulting product. This includes N=0 and requires neither a basis nor a characteristic or rank assumption.",
+        "This is a Higgs-specific instantiation of built generic span and word facts. Do not add a new generic ideal-power induction, symmetric algebra carrier, or augmentation construction."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.SymmetricAlgebra.augmentation_toIdeal_eq_span_range_ι",
+        "tauceti:TauCeti.HopfIdeal.augmentation_toIdeal",
+        "mathlib:SymmetricAlgebra.counitAlgHom_eq",
+        "mathlib:Submodule.span_pow",
+        "mathlib:Set.mem_pow"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every N≥0, the Nth power of I=ker(ε) in S=Sym_A(V), V=Hom_A(Q,A), is the ideal span of the products ι(v₀)⋯ι(v_{N−1}) indexed by words Fin N→V. The empty word generates the whole ideal when N=0. The ideal is formed in the commutative source S, never in all of End_A(E)."
+      ],
+      "uses": [
+        {
+          "where": "Heuer25 Definition 1.2(2); LZ17 Theorem 2.1(i); the existing H.0 ordered-iterate and symmetric-action nodes",
+          "how": "Compare commuting contractions, actual symmetric action and ordered nilpotence without changing coefficient twists, exponent or characteristic."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TwistedHiggsBundle.augmentation_pow_generators.test_zero",
+          "kind": "degenerate",
+          "statement": "At N=0 the span of the singleton empty-word product 1 is the whole symmetric algebra, including when V has no nonzero elements."
+        },
+        {
+          "name": "TwistedHiggsBundle.augmentation_pow_generators.test_one",
+          "kind": "compatibility",
+          "statement": "At N=1 the formula recovers the built degree-one generator span for ker ε, without finite generation or freeness."
+        }
+      ]
+    },
+    {
       "id": "HodgeStructuresPartII:H.0/augmentation-power-words",
       "parentStageId": "HodgeStructuresPartII:H.0",
       "realises": [
@@ -4790,17 +4887,15 @@
         "V=Hom_A(Q,A), S=Sym_A(V), ε:S→A is the canonical degree-zero augmentation, and I=ker ε. End_A(E) has its actual associative composition product and central A-algebra structure; it is not assumed commutative."
       ],
       "proofSteps": [
-        "Import the already built TauCeti.SymmetricAlgebra.augmentation_toIdeal_eq_span_range_ι. HopfIdeal.mem_augmentation and the built SymmetricAlgebra.counitAlgHom_eq identify its ideal with ker ε, where ε=algebraMapInv.",
-        "Induct on N using native Ideal.span_mul_span and ideal power multiplication: I^N is the ideal generated by all products of N degree-one generators. This is a deduction from the existing ideal operations, not a new augmentation or homogeneous grading plan.",
-        "Use symmetricAction_word and the fact that ker α is an ideal. Containment is equivalent to vanishing on those generators.",
-        "The zero endomorphism acts by zero on all e, and conversely equality of its evaluations detects a zero endomorphism. For N=0 the ideal is S and the empty endomorphism word is id_E; both vanish precisely for E=0."
+        "Apply augmentation_pow_generators, a Higgs-specific adapter of the built augmentation, span-power and set-word facts, for the same N≥0. No private generic power induction is needed.",
+        "Use the built Ideal.span_le and symmetricAction_word: containment in the source ideal ker α is equivalent to vanishing on every length-N generator word. End(E) is only an associative target; no commutative endomorphism-ring hypothesis is added.",
+        "The zero endomorphism acts by zero on every e, and equality of evaluations detects a zero endomorphism. At N=0 both criteria mean id_E=0, exactly when E is the zero module.",
+        "Keep I and ker α in S. An ambient left or two-sided ideal generated by the contractions in all End(E) can contain nonzero idempotents even when I² annihilates E; the concrete E12/E21 regression prevents this substitution."
       ],
       "prerequisites": [
         "HodgeStructuresPartII:H.0/symmetric-action-word",
-        "tauceti:TauCeti.SymmetricAlgebra.augmentation_toIdeal_eq_span_range_ι",
-        "tauceti:TauCeti.HopfIdeal.mem_augmentation",
-        "mathlib:SymmetricAlgebra.counitAlgHom_eq",
-        "mathlib:Ideal.span_mul_span"
+        "HodgeStructuresPartII:H.0/augmentation-power-generators",
+        "mathlib:Ideal.span_le"
       ],
       "library": {
         "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
@@ -5102,7 +5197,7 @@
         "Freshly source-decompose all other H.0 definitions/proof inputs required by the full 149-item route inventory; the reserved carrier and its present algebra are supplied as plans, not implementation.",
         "Local determinant trace/curvature and the five determinant-derivative/gauge/alternating adapters are supplied as plans. Prove the global determinant/exterior-power comparison, restriction/descent and connection functoriality; also the coefficient-equivariance adapter for the p-adic Tate instance. No Tate-basis choice may erase Galois action. The generic Jacobi input is the existing ColemanPowerSeries:L1/derivation-determinant-unit plan, not a duplicated Hodge node.",
         "Supply the filtered-coefficient/period-lattice adapter for Liu–Zhu Definition 3.5–3.6: its t-adic filtration is not a bounded subbundle filtration over the original period ring. Import graded base-ring and Tate degree identifications from DD.1 and the p-adic consumer; the finite Griffiths/Rees specialization here does not discharge that adapter.",
-        "The affine contraction, symmetric extension/generator/uniqueness/zero laws, commuting criterion, word evaluation, action intertwiners and fixed quotient action/factorization now have actual proof bodies. The augmentation-power word criterion and counterexamples remain admitted; supply E1 sheaf symmetric/endomorphism/augmentation quotient interfaces and ordered tensor-power coefficient gluing. Field/reduced-rank nilpotence bounds and the unbounded period/Tate adapter remain required work; spectral image algebra belongs to PadicHodgeTheoryPartIIPadicSimpson."
+        "Historical affine proofs remain at commit 9a36f4d1d6743c0202f12020c0df603400149faa. The current suggested file uses admitted planning bodies under protocol section 13. The source augmentation-power generator adapter and same-exponent criterion are plans; a separate Mathlib-only conditional span/kernel proof compiles without admissions, but no exact Tau Ceti compiled import set was available. Supply E1 sheaf symmetric/endomorphism/augmentation quotient interfaces and ordered tensor-power coefficient gluing. Field/reduced-rank bounds, the unbounded period/Tate adapter and spectral-image consumer routing remain open."
       ]
     },
     {
@@ -5650,356 +5745,467 @@
   ],
   "verification": {
     "previousCheckpoint": {
-      "leanCompiled": true,
-      "reason": "The entire expanded Mathlib-only suggested file elaborated in an existing exact-pin Mathlib build with Lean v4.34.0-rc2: zero errors, 151 admitted-declaration warnings, no other warnings; all 58 native examples. No project/cache setup, library build or Lean server. No Tau Ceti build is required or certified. The two new global obligations remain omissions (one reuses an existing API entry).",
-      "mathematics": "All 70 nodes unchecked; H.0 partial and H.1–H.8 not_read. No formal implementation or closed stage.",
       "previousCheckpoint": {
         "leanCompiled": true,
-        "reason": "The entire changed suggested file elaborated with Lean v4.34.0-rc2 against an existing build at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: zero errors, 123 admitted-declaration warnings, no other warnings. All 48 native examples elaborate; all 35 global omission entries remain byte-identical. No library build, cache retrieval or language server was run. The initial nested-project invocation failed on the Aesop search path and auto-fetched redundant dependency copies; those copies were removed to recoverable trash, then the existing top-level project was used successfully.",
-        "mathematics": "All 60 declaration nodes remain unchecked; proofs are mathematical plans, not formalization. H.0 is partial, H.1–H.8 not_read; all 35 global omission entries remain.",
-        "checks": [
-          "Indexed check_blueprint: zero errors, zero warnings.",
-          "Actual five-file intake and private-path/whitespace checks.",
-          "All 55 previous nodes, 103 API items, 89 tests, six planets, sourceIssues, routeManifest, restructure and global omission ledger preserved.",
-          "Read-only actual build.assemble projection and full reachable declaration/request DAG including the Coleman Jacobi supplier.",
-          "6,303 exact Laurent-dual-number algebra regressions on 720 rank-0–3 pairs in characteristics 0, 2 and 3.",
-          "Full changed-file Lean elaboration, 123 admitted-declaration warnings only; mathematical proofs remain planned."
-        ],
+        "reason": "The entire expanded Mathlib-only suggested file elaborated in an existing exact-pin Mathlib build with Lean v4.34.0-rc2: zero errors, 151 admitted-declaration warnings, no other warnings; all 58 native examples. No project/cache setup, library build or Lean server. No Tau Ceti build is required or certified. The two new global obligations remain omissions (one reuses an existing API entry).",
+        "mathematics": "All 70 nodes unchecked; H.0 partial and H.1–H.8 not_read. No formal implementation or closed stage.",
         "previousCheckpoint": {
           "leanCompiled": true,
-          "reason": "Entire expanded suggested file elaborated against the existing exact-pin Mathlib build with Lean v4.34.0-rc2, only admitted-proof warnings. All imports are Mathlib; no Tau Ceti build is required or certified. All 35 global omissions remain, and no implementation status changes.",
-          "mathematics": "All nodes are declaration-sized plans. Intrinsic algebra uses specified exterior calculus and exact named supplier contracts; no complete stage or formal implementation claimed.",
-          "sourceIssueScope": "Inherited EG20/E10 receipt remains historical. This continuation reads a different author-preprint edition for fixed determinant and parameter definitions; no new source issue or complete version collation is claimed.",
-          "checks": {
-            "packetChecker": "0 errors, 0 warnings with the pinned declaration index",
-            "preservation": "All 47 predecessor node objects, 100 existing APIs, 85 existing tests, 149 routed input IDs, 15 baseline prefix records, 4 source prefix records, sourceIssues and restructure preserved exactly. The E1 request is extended precisely for exterior/determinant carriers; H.0 remaining text and a new gap identify the global bridge.",
-            "nativeParity": "Every new statement occurs verbatim in the reader; all eight node names, three construction API forms and four new examples have native declarations/forms. One existing gauge API is promoted without a duplicate declaration. The inherited global 35-node/65-API/54-test omission ledger remains unchanged.",
-            "atlasProjection": {
-              "inheritedNodesPreserved": 47,
-              "newNodes": 8,
-              "routeManifestPreserved": true,
-              "totalNodes": 55,
-              "apiItems": 103,
-              "tests": 89,
-              "planets": 6,
-              "baselineDeclarations": 29,
-              "gaps": 10,
-              "requests": 4,
-              "requiredLayerEdges": 18,
-              "missingEdges": 0,
-              "pendingLinks": 0,
-              "skippedLinks": 0,
-              "stageDAG": {
+          "reason": "The entire changed suggested file elaborated with Lean v4.34.0-rc2 against an existing build at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: zero errors, 123 admitted-declaration warnings, no other warnings. All 48 native examples elaborate; all 35 global omission entries remain byte-identical. No library build, cache retrieval or language server was run. The initial nested-project invocation failed on the Aesop search path and auto-fetched redundant dependency copies; those copies were removed to recoverable trash, then the existing top-level project was used successfully.",
+          "mathematics": "All 60 declaration nodes remain unchecked; proofs are mathematical plans, not formalization. H.0 is partial, H.1–H.8 not_read; all 35 global omission entries remain.",
+          "checks": [
+            "Indexed check_blueprint: zero errors, zero warnings.",
+            "Actual five-file intake and private-path/whitespace checks.",
+            "All 55 previous nodes, 103 API items, 89 tests, six planets, sourceIssues, routeManifest, restructure and global omission ledger preserved.",
+            "Read-only actual build.assemble projection and full reachable declaration/request DAG including the Coleman Jacobi supplier.",
+            "6,303 exact Laurent-dual-number algebra regressions on 720 rank-0–3 pairs in characteristics 0, 2 and 3.",
+            "Full changed-file Lean elaboration, 123 admitted-declaration warnings only; mathematical proofs remain planned."
+          ],
+          "previousCheckpoint": {
+            "leanCompiled": true,
+            "reason": "Entire expanded suggested file elaborated against the existing exact-pin Mathlib build with Lean v4.34.0-rc2, only admitted-proof warnings. All imports are Mathlib; no Tau Ceti build is required or certified. All 35 global omissions remain, and no implementation status changes.",
+            "mathematics": "All nodes are declaration-sized plans. Intrinsic algebra uses specified exterior calculus and exact named supplier contracts; no complete stage or formal implementation claimed.",
+            "sourceIssueScope": "Inherited EG20/E10 receipt remains historical. This continuation reads a different author-preprint edition for fixed determinant and parameter definitions; no new source issue or complete version collation is claimed.",
+            "checks": {
+              "packetChecker": "0 errors, 0 warnings with the pinned declaration index",
+              "preservation": "All 47 predecessor node objects, 100 existing APIs, 85 existing tests, 149 routed input IDs, 15 baseline prefix records, 4 source prefix records, sourceIssues and restructure preserved exactly. The E1 request is extended precisely for exterior/determinant carriers; H.0 remaining text and a new gap identify the global bridge.",
+              "nativeParity": "Every new statement occurs verbatim in the reader; all eight node names, three construction API forms and four new examples have native declarations/forms. One existing gauge API is promoted without a duplicate declaration. The inherited global 35-node/65-API/54-test omission ledger remains unchanged.",
+              "atlasProjection": {
+                "inheritedNodesPreserved": 47,
+                "newNodes": 8,
+                "routeManifestPreserved": true,
+                "totalNodes": 55,
+                "apiItems": 103,
+                "tests": 89,
+                "planets": 6,
+                "baselineDeclarations": 29,
+                "gaps": 10,
+                "requests": 4,
+                "requiredLayerEdges": 18,
+                "missingEdges": 0,
+                "pendingLinks": 0,
+                "skippedLinks": 0,
+                "stageDAG": {
+                  "vertices": 3022,
+                  "edges": 8662,
+                  "acyclic": true
+                },
+                "combinedDAG": {
+                  "vertices": 3071,
+                  "edges": 8862,
+                  "acyclic": true
+                }
+              },
+              "concreteModels": {
+                "polynomialConnectionPairs": 270,
+                "laurentGaugeCases": 90,
+                "characteristics": [
+                  "zero",
+                  2,
+                  3
+                ],
+                "scope": "Exact trace curvature, dual, Kronecker rank multiplicities and nonconstant invertible Laurent gauge transformations; nonflat connections with flat determinant and positive-characteristic trace loss. Algebraic regression only, not general proof.",
+                "receiptSha256": "c6e05c58d20ebdc98bde25972dd8eac496dd858e4a29df031c7c4d0b723eaef4"
+              },
+              "sourceExcerpts": "The eight new source excerpts are the same three-word literal in the freshly read author-preprint opening definition; no fresh certification of the inherited published/LZ/Heuer excerpts."
+            },
+            "historicalReceiptTree": "dc0c470bcc064a08d8d9161ea963afe12b2c4b8d",
+            "historicalReceiptScope": "Retained prior-worker model/source-excerpt/atlas-projection receipts; not rerun in the codex-J6LwjP elaboration continuation.",
+            "elaborationContinuation": {
+              "agent": "Codex",
+              "session": "codex-J6LwjP",
+              "base": "ead8d4f",
+              "errors": 0,
+              "sorryWarnings": 106,
+              "nativeExamples": 44,
+              "globalNodesOmitted": 35,
+              "globalApiItemsOmitted": 65,
+              "globalTestsOmitted": 54,
+              "changes": [
+                "Use lam instead of the reserved lambda token in native identifiers.",
+                "Infer the frame as an implicit parameter in Connection methods.",
+                "Separate finite index universes from the coefficient-ring universe.",
+                "Annotate polynomial scalar types and coerce inverses of matrix units explicitly."
+              ],
+              "implementationStatus": "unchecked",
+              "exitCode": 0,
+              "suggestedSha256": "cdf1b95ef9ab04bf23785ca2237351c811135d72e3683fc9116ab9ba9c87f35e",
+              "logSha256": "dd795b2ea3338409471533d2f4766c0755d17885156bd5ea6038fe0d0b2cb6f8"
+            },
+            "historicalVerification": {
+              "packetChecker": "0 errors, 0 warnings with pinned declaration index",
+              "preservation": "Current continuation: all 47 predecessor nodes, 100 APIs, 85 tests, 149 routed input ids, sources, baseline declarations, requests, gaps, coverage and restructure preserved exactly.",
+              "nameParity": "All 47 node ids, 100 API names and 85 test names occur in reader and suggested file; 35 global signatures are explicitly omitted, not elaborated",
+              "atlasProjection": {
                 "vertices": 3022,
                 "edges": 8662,
-                "acyclic": true
+                "requiredLayerEdges": 18,
+                "acyclic": true,
+                "pendingLinks": 0,
+                "skippedLinks": 0
               },
-              "combinedDAG": {
-                "vertices": 3071,
-                "edges": 8862,
-                "acyclic": true
-              }
+              "concreteModels": {
+                "passed": 20,
+                "scope": "Exact polynomial/matrix scalar Leibniz, additive extension, curvature and variable-parameter defect; tensor, dual, gauge, rescaling; characteristic-two commutator; ordered-word and nonreduced nilpotence examples; finite Griffiths Rees fibers. No general proof or Lean elaboration."
+              },
+              "sourceExcerpts": "All unique PDF excerpt strings confirmed after Unicode/whitespace normalization; Stacks ordinary-connection excerpt checked on tag 07J5."
             },
-            "concreteModels": {
-              "polynomialConnectionPairs": 270,
-              "laurentGaugeCases": 90,
-              "characteristics": [
-                "zero",
+            "determinantContinuation": {
+              "agent": "Codex",
+              "session": "codex-J6LwjP",
+              "date": "2026-10-02",
+              "base": "72b8733",
+              "claim": "5952774707",
+              "bot": "5952777457",
+              "newNodes": 8,
+              "nativeGlobalOmissionsUnchanged": true,
+              "primaryEdition": "EG-author-2026",
+              "checksPending": false,
+              "exitCode": 0,
+              "seconds": 2.27,
+              "errors": 0,
+              "sorryWarnings": 118,
+              "otherWarnings": 0,
+              "nativeExamples": 48,
+              "suggestedSha256": "df692430d323e907f4a419970dbde6f4a72a6d354f5759a96a1c5a42c7c154e7",
+              "logSha256": "b80d7603656e0947d9747150790f767c08eaf021e9fcc846b064b789c708518c"
+            }
+          },
+          "determinantDerivationContinuation": {
+            "agent": "Codex — codex-a71f92",
+            "issue": 3371,
+            "claim": 5953381486,
+            "confirmation": 5953384526,
+            "baseTree": "f9cfbaf2b11b46e79508bfaa1c4d60823bd266de",
+            "addedNodes": [
+              "HodgeStructuresPartII:H.0/determinant-derivation-rows",
+              "HodgeStructuresPartII:H.0/determinant-row-action",
+              "HodgeStructuresPartII:H.0/determinant-gauge-matrix",
+              "HodgeStructuresPartII:H.0/determinant-gauge",
+              "HodgeStructuresPartII:H.0/determinant-alternating-operator"
+            ],
+            "originalNodesPreserved": 55,
+            "nativeBaselineCount": 43,
+            "sourceScope": "Selected EG author-version passages and full selected native statements only; no full-paper/edition-collation or source-erratum claim.",
+            "ownershipScope": "Parent Hodge and ReductiveGroups documents read fully; parent L0/L1/L3 built and L2 partly built AUDIT-02 verdicts imported; D3 not built and E1 partly built. CR.1/E1/DD.1/D3 stage descriptions reread. No HodgeStructuresPartII link-map entries found. Exact determinant-derivation search located ColemanPowerSeries:L1/derivation-determinant-unit in identical generality: its complete statement, hypotheses and proof outline were read and are imported rather than duplicated. Remaining finite row-derivative and row-action helpers support local alternating evaluation, not a replan of that unit Jacobi theorem.",
+            "remaining": "Global exterior/determinant carriers, induced sheaf operator, top-wedge comparison, restriction/descent/functoriality, CR.1/E1/DD.1 supplier requests, coefficient-equivariance and unbounded period-lattice/Tate adapter; H.1–H.8 source decomposition.",
+            "leanReceipt": {
+              "leanVersion": "v4.34.0-rc2",
+              "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+              "sha256": "6e90608f1e0748728112b947e7f5f6bf3b1c55398d62235d80cdf7a6300ad290",
+              "errors": 0,
+              "sorryWarnings": 123,
+              "otherWarnings": 0,
+              "nativeExamples": 48,
+              "scope": "Full changed native file, not a global-sheaf implementation or proof certificate."
+            },
+            "modelReceipt": {
+              "seed": 3371,
+              "rings": "Q,F2,F3 Laurent polynomial rings with a nonzero square-zero epsilon",
+              "ranks": [
+                0,
+                1,
                 2,
                 3
               ],
-              "scope": "Exact trace curvature, dual, Kronecker rank multiplicities and nonconstant invertible Laurent gauge transformations; nonflat connections with flat determinant and positive-characteristic trace loss. Algebraic regression only, not general proof.",
-              "receiptSha256": "c6e05c58d20ebdc98bde25972dd8eac496dd858e4a29df031c7c4d0b723eaef4"
+              "pairs": 720,
+              "assertions": 6303,
+              "scope": "Independent finite model regressions, not Lean proofs."
             },
-            "sourceExcerpts": "The eight new source excerpts are the same three-word literal in the freshly read author-preprint opening definition; no fresh certification of the inherited published/LZ/Heuer excerpts."
-          },
-          "historicalReceiptTree": "dc0c470bcc064a08d8d9161ea963afe12b2c4b8d",
-          "historicalReceiptScope": "Retained prior-worker model/source-excerpt/atlas-projection receipts; not rerun in the codex-J6LwjP elaboration continuation.",
-          "elaborationContinuation": {
-            "agent": "Codex",
-            "session": "codex-J6LwjP",
-            "base": "ead8d4f",
-            "errors": 0,
-            "sorryWarnings": 106,
-            "nativeExamples": 44,
-            "globalNodesOmitted": 35,
-            "globalApiItemsOmitted": 65,
-            "globalTestsOmitted": 54,
-            "changes": [
-              "Use lam instead of the reserved lambda token in native identifiers.",
-              "Infer the frame as an implicit parameter in Connection methods.",
-              "Separate finite index universes from the coefficient-ring universe.",
-              "Annotate polynomial scalar types and coerce inverses of matrix units explicitly."
-            ],
-            "implementationStatus": "unchecked",
-            "exitCode": 0,
-            "suggestedSha256": "cdf1b95ef9ab04bf23785ca2237351c811135d72e3683fc9116ab9ba9c87f35e",
-            "logSha256": "dd795b2ea3338409471533d2f4766c0755d17885156bd5ea6038fe0d0b2cb6f8"
-          },
-          "historicalVerification": {
-            "packetChecker": "0 errors, 0 warnings with pinned declaration index",
-            "preservation": "Current continuation: all 47 predecessor nodes, 100 APIs, 85 tests, 149 routed input ids, sources, baseline declarations, requests, gaps, coverage and restructure preserved exactly.",
-            "nameParity": "All 47 node ids, 100 API names and 85 test names occur in reader and suggested file; 35 global signatures are explicitly omitted, not elaborated",
-            "atlasProjection": {
-              "vertices": 3022,
-              "edges": 8662,
-              "requiredLayerEdges": 18,
+            "graphReceipt": {
+              "actualAssemblyStages": 2971,
+              "actualAssemblyEdges": 8663,
+              "requiredLayerEdges": 19,
+              "reachableDeclarationVertices": 128,
+              "skippedLinks": [],
+              "pendingLinks": [],
               "acyclic": true,
-              "pendingLinks": 0,
-              "skippedLinks": 0
-            },
-            "concreteModels": {
-              "passed": 20,
-              "scope": "Exact polynomial/matrix scalar Leibniz, additive extension, curvature and variable-parameter defect; tensor, dual, gauge, rescaling; characteristic-two commutator; ordered-word and nonreduced nilpotence examples; finite Griffiths Rees fibers. No general proof or Lean elaboration."
-            },
-            "sourceExcerpts": "All unique PDF excerpt strings confirmed after Unicode/whitespace normalization; Stacks ordinary-connection excerpt checked on tag 07J5."
-          },
-          "determinantContinuation": {
-            "agent": "Codex",
-            "session": "codex-J6LwjP",
-            "date": "2026-10-02",
-            "base": "72b8733",
-            "claim": "5952774707",
-            "bot": "5952777457",
-            "newNodes": 8,
-            "nativeGlobalOmissionsUnchanged": true,
-            "primaryEdition": "EG-author-2026",
-            "checksPending": false,
-            "exitCode": 0,
-            "seconds": 2.27,
-            "errors": 0,
-            "sorryWarnings": 118,
-            "otherWarnings": 0,
-            "nativeExamples": 48,
-            "suggestedSha256": "df692430d323e907f4a419970dbde6f4a72a6d354f5759a96a1c5a42c7c154e7",
-            "logSha256": "b80d7603656e0947d9747150790f767c08eaf021e9fcc846b064b789c708518c"
+              "auditTree": "f9cfbaf2b11b46e79508bfaa1c4d60823bd266de"
+            }
           }
         },
-        "determinantDerivationContinuation": {
-          "agent": "Codex — codex-a71f92",
-          "issue": 3371,
-          "claim": 5953381486,
-          "confirmation": 5953384526,
-          "baseTree": "f9cfbaf2b11b46e79508bfaa1c4d60823bd266de",
-          "addedNodes": [
-            "HodgeStructuresPartII:H.0/determinant-derivation-rows",
-            "HodgeStructuresPartII:H.0/determinant-row-action",
-            "HodgeStructuresPartII:H.0/determinant-gauge-matrix",
-            "HodgeStructuresPartII:H.0/determinant-gauge",
-            "HodgeStructuresPartII:H.0/determinant-alternating-operator"
+        "nativeReceipt": {
+          "lean": "v4.34.0-rc2",
+          "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "imports": "Mathlib only",
+          "errors": 0,
+          "admitted_declaration_warnings": 151,
+          "other_warnings": 0,
+          "examples": 58,
+          "native_sha256": "92d380f0b3fd13af0187b13920525b4e2ccc957872e27cf41d16eddf7a810f24",
+          "compiler_log_sha256": "b625bfec8c11ee32b9154fffad4ea7512a4a138d813bb894d3efda740fc89b51"
+        },
+        "finiteModels": {
+          "assertions": 11378,
+          "matrix_pairs": {
+            "2": {
+              "pairs": 256,
+              "commuting": 88
+            },
+            "3": {
+              "pairs": 6561,
+              "commuting": 945
+            }
+          },
+          "truncated_polynomial_modules": {
+            "2": {
+              "dimension": 4,
+              "ordered_bound": 3,
+              "symmetric_degree_p_zero": true,
+              "ordered_degree_p_nonzero": true
+            },
+            "3": {
+              "dimension": 9,
+              "ordered_bound": 5,
+              "symmetric_degree_p_zero": true,
+              "ordered_degree_p_nonzero": true
+            }
+          },
+          "scope": "Finite models only; no general ideal-power, sheaf, or source correspondence proof.",
+          "script_sha256": "5dfc681b5f0b4b707166a8a24d5d548ad7f63aa3d515af49fdbfc182880364cd"
+        },
+        "atlasProjection": {
+          "actual_assembler": true,
+          "declarations": 70,
+          "planets": 6,
+          "own_skipped_links": [],
+          "own_pending_links": [],
+          "stage_dag": {
+            "vertices": 3056,
+            "edges": 8663,
+            "acyclic": true
+          },
+          "own_declaration_dag": {
+            "vertices": 70,
+            "edges": 137,
+            "acyclic": true
+          },
+          "stages_and_reachable_declarations": {
+            "vertices": 3121,
+            "edges": 8914,
+            "acyclic": true
+          },
+          "reachable_declarations": 71,
+          "imported_declarations": [
+            "ColemanPowerSeries:L1/derivation-determinant-unit"
           ],
-          "originalNodesPreserved": 55,
-          "nativeBaselineCount": 43,
-          "sourceScope": "Selected EG author-version passages and full selected native statements only; no full-paper/edition-collation or source-erratum claim.",
-          "ownershipScope": "Parent Hodge and ReductiveGroups documents read fully; parent L0/L1/L3 built and L2 partly built AUDIT-02 verdicts imported; D3 not built and E1 partly built. CR.1/E1/DD.1/D3 stage descriptions reread. No HodgeStructuresPartII link-map entries found. Exact determinant-derivation search located ColemanPowerSeries:L1/derivation-determinant-unit in identical generality: its complete statement, hypotheses and proof outline were read and are imported rather than duplicated. Remaining finite row-derivative and row-action helpers support local alternating evaluation, not a replan of that unit Jacobi theorem.",
-          "remaining": "Global exterior/determinant carriers, induced sheaf operator, top-wedge comparison, restriction/descent/functoriality, CR.1/E1/DD.1 supplier requests, coefficient-equivariance and unbounded period-lattice/Tate adapter; H.1–H.8 source decomposition.",
-          "leanReceipt": {
-            "leanVersion": "v4.34.0-rc2",
-            "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-            "sha256": "6e90608f1e0748728112b947e7f5f6bf3b1c55398d62235d80cdf7a6300ad290",
-            "errors": 0,
-            "sorryWarnings": 123,
-            "otherWarnings": 0,
-            "nativeExamples": 48,
-            "scope": "Full changed native file, not a global-sheaf implementation or proof certificate."
-          },
-          "modelReceipt": {
-            "seed": 3371,
-            "rings": "Q,F2,F3 Laurent polynomial rings with a nonzero square-zero epsilon",
-            "ranks": [
-              0,
-              1,
-              2,
-              3
+          "required_stage_pairs_reachable": 19,
+          "other_skipped_links": {
+            "GeneralAlgebraicKTheory": [
+              [
+                "SchemeKTheoryOperations:S.5",
+                "GeneralAlgebraicKTheory:K.6"
+              ],
+              [
+                "SchemeKTheoryOperations:S.6",
+                "GeneralAlgebraicKTheory:K.7"
+              ]
             ],
-            "pairs": 720,
-            "assertions": 6303,
-            "scope": "Independent finite model regressions, not Lean proofs."
+            "K2SymbolsBrauer": [
+              [
+                "ArithmeticKTheory:N.2",
+                "K2SymbolsBrauer:T.5"
+              ]
+            ],
+            "K3BlochGroups": [
+              [
+                "ArithmeticKTheory:N.3:ranks",
+                "K3BlochGroups:V.2"
+              ],
+              [
+                "ArithmeticKTheory:N.3:finite-generation",
+                "K3BlochGroups:V.2"
+              ],
+              [
+                "ArithmeticKTheory:N.5",
+                "K3BlochGroups:V.2"
+              ],
+              [
+                "ArithmeticKTheory:N.8",
+                "K3BlochGroups:V.5"
+              ]
+            ]
           },
-          "graphReceipt": {
-            "actualAssemblyStages": 2971,
-            "actualAssemblyEdges": 8663,
-            "requiredLayerEdges": 19,
-            "reachableDeclarationVertices": 128,
-            "skippedLinks": [],
-            "pendingLinks": [],
-            "acyclic": true,
-            "auditTree": "f9cfbaf2b11b46e79508bfaa1c4d60823bd266de"
-          }
-        }
+          "scope": "Actual in-memory pending packet/definition assembled with normal retirements, restructuring, link overlays and replaced-decomposition trimming. All stage graph and only this packet plus recursively used declaration graph checked; unrelated declaration graphs not audited.",
+          "script_sha256": "d04a67b35367b2a5521740f4c63e82189ce879091002b99fee94f4524238e558",
+          "other_skips_match_baseline": true
+        },
+        "preservation": "All 60 inherited node IDs and statements, all 103 inherited API items and 89 tests, all 149 routed IDs/statuses, sourceIssues, restructure, source/baseline prefixes and six planets preserved. Fifty-nine inherited node objects unchanged; symmetric-action only gains the precise TensorAlgebra/RingCon proof step/dependency. E1 supplier request gains precise global algebra/action/quotient interfaces. All nodes unchecked, zero closed stages.",
+        "checks": [
+          "Indexed packet checker: zero errors, zero warnings.",
+          "Five named deliverables, JSON/private-path/whitespace intake checks.",
+          "New node/API/test names and complete mathematical statements present in reader and native or explicit omission forms.",
+          "Actual in-memory build.assemble pending overlay; full stage graph and recursively used declaration graph acyclic; no own pending/skipped links; all 19 named stage prerequisites reachable; other seven skips exactly match baseline.",
+          "11,378 independent finite algebra assertions; finite scope only.",
+          "Full exact-pin Mathlib-only signature elaboration, with 151 admitted-declaration warnings only."
+        ]
       },
+      "leanCompiled": true,
+      "reason": "The entire exact changed Mathlib-only suggested file elaborates at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 with Lean v4.34.0-rc2: zero errors, 127 admitted-declaration warnings, no other warnings, 59 native examples. Fifteen named affine declarations and ten examples have actual bodies; a separate matching focused file elaborates with zero warnings and checks all fifteen named declarations for admitted-proof axiom dependencies. No Tau Ceti build or global sheaf implementation is certified.",
+      "mathematics": "All 70 nodes remain unchecked; H.0 partial, H.1–H.8 not_read. Fifteen named affine declarations have actual proof bodies; this does not close a stage or implement the global sheaf objects.",
       "nativeReceipt": {
-        "lean": "v4.34.0-rc2",
-        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-        "imports": "Mathlib only",
+        "exitCode": 0,
+        "seconds": 3.55,
         "errors": 0,
-        "admitted_declaration_warnings": 151,
-        "other_warnings": 0,
-        "examples": 58,
-        "native_sha256": "92d380f0b3fd13af0187b13920525b4e2ccc957872e27cf41d16eddf7a810f24",
-        "compiler_log_sha256": "b625bfec8c11ee32b9154fffad4ea7512a4a138d813bb894d3efda740fc89b51"
+        "admittedWarnings": 127,
+        "otherWarnings": 0,
+        "examples": 59,
+        "sourceSha256": "af7d537a0dc75975f2081fbd6b143a70b7d63a81b92e032511fd9a20d0ae4b83",
+        "logSha256": "9458fef8f76f8955e974846509c23124dd24da5b252d934fc6a0494df7968a3e"
       },
-      "finiteModels": {
-        "assertions": 11378,
-        "matrix_pairs": {
-          "2": {
-            "pairs": 256,
-            "commuting": 88
-          },
-          "3": {
-            "pairs": 6561,
-            "commuting": 945
-          }
+      "affineProofReceipt": {
+        "agent": "Codex",
+        "session": "codex-J6LwjP",
+        "claim": 5955847141,
+        "bot": 5955851389,
+        "base": "27ae2a7daec09365d1ea5abc8a5148ce445ae429",
+        "declarations": [
+          "affineContractions",
+          "affineContractions_apply",
+          "affineContractions_zero",
+          "affineContractions_add",
+          "affineSymmetricAction",
+          "affineSymmetricAction_generator",
+          "affineSymmetricAction_unique",
+          "affineSymmetricAction_zero",
+          "affineSymmetricAction_iff_commute",
+          "symmetricAction_word",
+          "symmetricAction_morphism",
+          "truncatedSymmetricAction",
+          "truncatedSymmetricAction_mk",
+          "truncatedSymmetricAction_unique",
+          "truncatedSymmetricAction_exists_iff"
+        ],
+        "existingExamplesProved": 9,
+        "newExamplesProved": 1,
+        "focusedExamples": 10,
+        "axiomAudit": {
+          "exitCode": 0,
+          "seconds": 2.18,
+          "errors": 0,
+          "warnings": 0,
+          "sorryAx": false,
+          "declarations": 15,
+          "sourceSha256": "4f92141c3c91821a4ce6a20e2a177506ac44554b3a42343e47cc7b0aafeb92be",
+          "logSha256": "e44351794e0b77d4828e013fc26647c405fe51313db9ae126ee6138ccbf91253"
         },
-        "truncated_polynomial_modules": {
-          "2": {
-            "dimension": 4,
-            "ordered_bound": 3,
-            "symmetric_degree_p_zero": true,
-            "ordered_degree_p_nonzero": true
-          },
-          "3": {
-            "dimension": 9,
-            "ordered_bound": 5,
-            "symmetric_degree_p_zero": true,
-            "ordered_degree_p_nonzero": true
-          }
-        },
-        "scope": "Finite models only; no general ideal-power, sheaf, or source correspondence proof.",
-        "script_sha256": "5dfc681b5f0b4b707166a8a24d5d548ad7f63aa3d515af49fdbfc182880364cd"
+        "scope": "Actual affine proofs and example calculations at the exact Mathlib pin. The only dependencies reported are propext, Classical.choice and Quot.sound; no admitted-proof axiom. All implementationStatus entries remain unchecked."
       },
       "atlasProjection": {
-        "actual_assembler": true,
+        "actualAssembler": true,
         "declarations": 70,
         "planets": 6,
-        "own_skipped_links": [],
-        "own_pending_links": [],
-        "stage_dag": {
-          "vertices": 3056,
+        "ownPendingLinks": [],
+        "ownSkippedLinks": [],
+        "stageDAG": {
+          "vertices": 3022,
           "edges": 8663,
           "acyclic": true
         },
-        "own_declaration_dag": {
+        "ownDeclarationDAG": {
           "vertices": 70,
           "edges": 137,
           "acyclic": true
         },
-        "stages_and_reachable_declarations": {
-          "vertices": 3121,
+        "stagesAndReachableDeclarations": {
+          "vertices": 3087,
           "edges": 8914,
           "acyclic": true
         },
-        "reachable_declarations": 71,
-        "imported_declarations": [
+        "reachableDeclarations": 71,
+        "externalDeclarations": [
           "ColemanPowerSeries:L1/derivation-determinant-unit"
         ],
-        "required_stage_pairs_reachable": 19,
-        "other_skipped_links": {
-          "GeneralAlgebraicKTheory": [
-            [
-              "SchemeKTheoryOperations:S.5",
-              "GeneralAlgebraicKTheory:K.6"
-            ],
-            [
-              "SchemeKTheoryOperations:S.6",
-              "GeneralAlgebraicKTheory:K.7"
-            ]
-          ],
-          "K2SymbolsBrauer": [
-            [
-              "ArithmeticKTheory:N.2",
-              "K2SymbolsBrauer:T.5"
-            ]
-          ],
-          "K3BlochGroups": [
-            [
-              "ArithmeticKTheory:N.3:ranks",
-              "K3BlochGroups:V.2"
-            ],
-            [
-              "ArithmeticKTheory:N.3:finite-generation",
-              "K3BlochGroups:V.2"
-            ],
-            [
-              "ArithmeticKTheory:N.5",
-              "K3BlochGroups:V.2"
-            ],
-            [
-              "ArithmeticKTheory:N.8",
-              "K3BlochGroups:V.5"
-            ]
-          ]
-        },
-        "scope": "Actual in-memory pending packet/definition assembled with normal retirements, restructuring, link overlays and replaced-decomposition trimming. All stage graph and only this packet plus recursively used declaration graph checked; unrelated declaration graphs not audited.",
-        "script_sha256": "d04a67b35367b2a5521740f4c63e82189ce879091002b99fee94f4524238e558",
-        "other_skips_match_baseline": true
+        "requiredStagePairsReachable": 21,
+        "stageEdgesUnchanged": true,
+        "otherSkipsMatchOriginal": true,
+        "unchangedNodeObjects": 67,
+        "preservation": "All 70 IDs/statements/hypotheses/APIs/acceptance/source records, 99 prior tests, requests/gaps/routes/sourceIssues/restructure and baseline prefix retained. Only three node proof/dependency/test outlines change; one action test added.",
+        "scriptSha256": "14985a897bb969631f728f35ee9a1bc67280f0245e6034effe465300eec58d41"
       },
-      "preservation": "All 60 inherited node IDs and statements, all 103 inherited API items and 89 tests, all 149 routed IDs/statuses, sourceIssues, restructure, source/baseline prefixes and six planets preserved. Fifty-nine inherited node objects unchanged; symmetric-action only gains the precise TensorAlgebra/RingCon proof step/dependency. E1 supplier request gains precise global algebra/action/quotient interfaces. All nodes unchecked, zero closed stages.",
+      "preservation": "All 70 IDs/statements/hypotheses/APIs/acceptance/source records, 99 prior tests, requests/gaps/routes/sourceIssues/restructure and baseline prefix retained. Only three node proof/dependency/test outlines change; one action test added.",
       "checks": [
-        "Indexed packet checker: zero errors, zero warnings.",
-        "Five named deliverables, JSON/private-path/whitespace intake checks.",
-        "New node/API/test names and complete mathematical statements present in reader and native or explicit omission forms.",
-        "Actual in-memory build.assemble pending overlay; full stage graph and recursively used declaration graph acyclic; no own pending/skipped links; all 19 named stage prerequisites reachable; other seven skips exactly match baseline.",
-        "11,378 independent finite algebra assertions; finite scope only.",
-        "Full exact-pin Mathlib-only signature elaboration, with 151 admitted-declaration warnings only."
+        "Indexed packet checker: zero errors and warnings; 70 nodes, 112 API items, 100 planned definition/construction tests, six planets, 69 baseline citations, eleven gaps and five requests.",
+        "Full exact-file Mathlib-only Lean elaboration: zero errors, 127 admitted-declaration warnings only, 59 examples.",
+        "Fifteen actual native affine proof bodies, nine existing examples now proved and one concrete noncommuting-action example; focused axiom audit has no admitted-proof dependency.",
+        "Actual read-only assembler with normal overlays and trimmed decompositions; stage/own declaration/reachable declaration-plus-supplier-request graphs acyclic; no own pending/skipped links, all 21 computed stage prerequisite pairs reachable.",
+        "All prior source issues, restructure, routed obligations, requests, gaps, mathematical node statements and API/test prefixes preserved.",
+        "Five-file intake, whitespace and private-path checks."
       ]
     },
     "leanCompiled": true,
-    "reason": "The entire exact changed Mathlib-only suggested file elaborates at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 with Lean v4.34.0-rc2: zero errors, 127 admitted-declaration warnings, no other warnings, 59 native examples. Fifteen named affine declarations and ten examples have actual bodies; a separate matching focused file elaborates with zero warnings and checks all fifteen named declarations for admitted-proof axiom dependencies. No Tau Ceti build or global sheaf implementation is certified.",
-    "mathematics": "All 70 nodes remain unchecked; H.0 partial, H.1–H.8 not_read. Fifteen named affine declarations have actual proof bodies; this does not close a stage or implement the global sheaf objects.",
+    "reason": "The complete current admitted Mathlib-only sketch elaborated at the exact pin. Tau Ceti primary source was inspected at its exact pin; no matching Tau Ceti compiled import set was certified or created.",
+    "mathematics": "One Higgs-specific generator lemma, built generic facts reused, same-exponent source kernel retained. No global sheaf, rank-bound or later-source closure.",
+    "preservation": "All 70 prior IDs/statements/hypotheses/APIs/acceptance/source records and all 100 prior tests retained. Requests, gaps, routes, sourceIssues and restructure unchanged. Only the existing augmentation criterion's proof/prerequisite outline and the symmetric-action test list change.",
+    "checks": [
+      "Indexed packet checker: zero errors/warnings; 71 nodes, 112 APIs, 101 required definition/construction tests, 103 all-node tests, six planets, 74 baseline citations, eleven gaps and five requests.",
+      "Complete admitted Mathlib-only sketch: zero errors, 156 admitted warnings only, 62 examples. Historical 15 affine proofs and ten proved examples preserved at immutable 9a36f4d1d6743c0202f12020c0df603400149faa.",
+      "Separate generic span/word/kernel experiment: zero errors/warnings, both declarations audited with no admitted axiom dependency.",
+      "Fresh 440 finite same-exponent cases and all displayed counterexample fixtures passed.",
+      "Actual read-only assembler with normal overlays and decomposition trimming; stage, own declaration and reachable declaration-plus-request graphs acyclic; 21 computed stage prerequisite pairs reachable, no own skipped links. All stage edges and other skips match the unmodified packet overlay.",
+      "Seventy original mathematical node signatures, 100 original tests, APIs, all source/routes/requests/gaps/ownership metadata and baseline prefix preserved. Five-file intake, whitespace and private-path checks."
+    ],
     "nativeReceipt": {
-      "exitCode": 0,
-      "seconds": 3.55,
+      "library": "Mathlib only",
+      "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "leanVersion": "v4.34.0-rc2",
+      "sourceSha256": "e7c84108653b8d910a49fb6aebe50ca9880572f206b2e0348ba36e625665af4b",
+      "outputSha256": "2c8ff8fa3cfb9ca4ba9deef0bc48a0fdb6436a483149be1da355a8281715482f",
       "errors": 0,
-      "admittedWarnings": 127,
+      "admittedWarnings": 156,
       "otherWarnings": 0,
-      "examples": 59,
-      "sourceSha256": "af7d537a0dc75975f2081fbd6b143a70b7d63a81b92e032511fd9a20d0ae4b83",
-      "logSha256": "9458fef8f76f8955e974846509c23124dd24da5b252d934fc6a0494df7968a3e"
+      "examples": 62,
+      "proofClaim": false,
+      "existingArtifactsReused": true,
+      "minimumAvailableMemoryGB": 70,
+      "noSetupCacheLibraryBuildOrServer": true
     },
-    "affineProofReceipt": {
-      "agent": "Codex",
-      "session": "codex-J6LwjP",
-      "claim": 5955847141,
-      "bot": 5955851389,
-      "base": "27ae2a7daec09365d1ea5abc8a5148ce445ae429",
+    "conditionalProofReceipt": {
+      "sourceSha256": "f992d8964bf0d0537ccd3650eaaafd5701de75631319a06160dc993c874956a2",
+      "outputSha256": "302b28803b85c8f8c140865854ebec97f21481fe83a0c14664d2b13d0f879326",
+      "errors": 0,
+      "warnings": 0,
       "declarations": [
-        "affineContractions",
-        "affineContractions_apply",
-        "affineContractions_zero",
-        "affineContractions_add",
-        "affineSymmetricAction",
-        "affineSymmetricAction_generator",
-        "affineSymmetricAction_unique",
-        "affineSymmetricAction_zero",
-        "affineSymmetricAction_iff_commute",
-        "symmetricAction_word",
-        "symmetricAction_morphism",
-        "truncatedSymmetricAction",
-        "truncatedSymmetricAction_mk",
-        "truncatedSymmetricAction_unique",
-        "truncatedSymmetricAction_exists_iff"
+        "WordProof.span_pow_words",
+        "WordProof.pow_ker_iff_words"
       ],
-      "existingExamplesProved": 9,
-      "newExamplesProved": 1,
-      "focusedExamples": 10,
-      "axiomAudit": {
-        "exitCode": 0,
-        "seconds": 2.18,
-        "errors": 0,
-        "warnings": 0,
-        "sorryAx": false,
-        "declarations": 15,
-        "sourceSha256": "4f92141c3c91821a4ce6a20e2a177506ac44554b3a42343e47cc7b0aafeb92be",
-        "logSha256": "e44351794e0b77d4828e013fc26647c405fe51313db9ae126ee6138ccbf91253"
-      },
-      "scope": "Actual affine proofs and example calculations at the exact Mathlib pin. The only dependencies reported are propext, Classical.choice and Quot.sound; no admitted-proof axiom. All implementationStatus entries remain unchecked."
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "admittedAxiomDependency": false,
+      "boundary": "Separate experiment under an explicit ideal-generation equality; this is not an extra public hypothesis or a compiled proof of the canonical Tau Ceti augmentation theorem. Full reproducible code is in the handoff."
+    },
+    "freshReading": {
+      "audits": "Full reviewed Hodge L0–L3 and E1/D3 rows; REV-AUDIT02/10/22 metadata. Part II has no dedicated row.",
+      "Heuer25": "Definition 1.2(2), complete Definition 4.1 and Remark 4.2; publisher HTML SHA-256 b3162f810c5064726cd951511bbdb036227e6c2a30b7b682cb4548cb13500fed",
+      "LZ17": "Complete Lemma 2.15 and its short proof, printed pp.18–19; v3 PDF SHA-256 8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79",
+      "baseline": "Full named augmentation/span/kernel, set-word and matrix-adapter statements at the pinned commits. No broader source decomposition certified."
+    },
+    "finiteReceipt": {
+      "scriptSha256": "1d51a023fbcd294545fde2255cebff86f5d47945083ba2f6585e82d96ce366c1",
+      "commutingPairsF2": 88,
+      "sameExponentCases": 440,
+      "bounds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fixtures": [
+        "ambient left ideal nonzero idempotent",
+        "four-basis characteristic-two ordered/projection witness",
+        "nonreduced Z/4 rank-one",
+        "noncommuting coefficient pair"
+      ],
+      "boundary": "Exact finite regression, not the general theorem or a Lean proof; predecessor's displayed script rerun."
     },
     "atlasProjection": {
       "actualAssembler": true,
-      "declarations": 70,
+      "declarations": 71,
       "planets": 6,
-      "ownPendingLinks": [],
       "ownSkippedLinks": [],
       "stageDAG": {
         "vertices": 3022,
@@ -6007,34 +6213,24 @@
         "acyclic": true
       },
       "ownDeclarationDAG": {
-        "vertices": 70,
-        "edges": 137,
+        "vertices": 71,
+        "edges": 138,
         "acyclic": true
       },
       "stagesAndReachableDeclarations": {
-        "vertices": 3087,
-        "edges": 8914,
+        "vertices": 3088,
+        "edges": 8916,
         "acyclic": true
       },
-      "reachableDeclarations": 71,
+      "reachableDeclarations": 72,
       "externalDeclarations": [
         "ColemanPowerSeries:L1/derivation-determinant-unit"
       ],
       "requiredStagePairsReachable": 21,
       "stageEdgesUnchanged": true,
       "otherSkipsMatchOriginal": true,
-      "unchangedNodeObjects": 67,
-      "preservation": "All 70 IDs/statements/hypotheses/APIs/acceptance/source records, 99 prior tests, requests/gaps/routes/sourceIssues/restructure and baseline prefix retained. Only three node proof/dependency/test outlines change; one action test added.",
-      "scriptSha256": "14985a897bb969631f728f35ee9a1bc67280f0245e6034effe465300eec58d41"
-    },
-    "preservation": "All 70 IDs/statements/hypotheses/APIs/acceptance/source records, 99 prior tests, requests/gaps/routes/sourceIssues/restructure and baseline prefix retained. Only three node proof/dependency/test outlines change; one action test added.",
-    "checks": [
-      "Indexed packet checker: zero errors and warnings; 70 nodes, 112 API items, 100 planned definition/construction tests, six planets, 69 baseline citations, eleven gaps and five requests.",
-      "Full exact-file Mathlib-only Lean elaboration: zero errors, 127 admitted-declaration warnings only, 59 examples.",
-      "Fifteen actual native affine proof bodies, nine existing examples now proved and one concrete noncommuting-action example; focused axiom audit has no admitted-proof dependency.",
-      "Actual read-only assembler with normal overlays and trimmed decompositions; stage/own declaration/reachable declaration-plus-supplier-request graphs acyclic; no own pending/skipped links, all 21 computed stage prerequisite pairs reachable.",
-      "All prior source issues, restructure, routed obligations, requests, gaps, mathematical node statements and API/test prefixes preserved.",
-      "Five-file intake, whitespace and private-path checks."
-    ]
+      "unchangedNodeObjects": 68,
+      "scriptSha256": "171b894b6c4ab30417c9c1b19d49443332b8d3ca7bb84a19d245ded8914dfe74"
+    }
   }
 }
