@@ -9341,6 +9341,110 @@
     "preservedStatementContracts": 101,
     "unchangedOldNodeObjects": 100,
     "sourceReading": "Fresh Kim arXiv math/0409456v1 continuous cocycle/gauge definitions on printed pp.5–6 and coefficient-functor paragraph on p.7. The displayed Proposition1 proof was read through its end. No full-paper, Proposition2 representability, Chen/BDMTV or fresh geometric erratum audit is claimed.",
-    "boundary": "Only coefficient part (a) of the inherited functoriality node is refined. Arbitrary source-group restriction, canonical additive cocycle conversion and finite-quotient comparison, local conditions/representability and all geometric supplier/source obligations remain open."
+    "boundary": "Only coefficient part (a) of the inherited functoriality node is refined. Arbitrary source-group restriction, canonical additive cocycle conversion and finite-quotient comparison, local conditions/representability and all geometric supplier/source obligations remain open.",
+    "nativeArchive": "8b5be8854463dd4ec9ed5ab5934a76739e1eaf0d",
+    "nativeArchivePath": "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean",
+    "checkedEvidence": {
+      "Native.lean": {
+        "sha256": "f5623ec94e4bb750a876d6a0268f362a0ee90a96dbffff26f2cece8cb59d604e",
+        "lines": 1599,
+        "examples": 65,
+        "audits": 80,
+        "errors": 0,
+        "admissionWarnings": 0,
+        "otherWarnings": 0,
+        "admittedDependencies": false,
+        "diagnosticSha256": "fc4492c0dac6df0d2a9e4abf65042b65ee3e6cf4556e9fe96008327f8b3ea080",
+        "resource": "Elapsed 9.90 seconds; peak 3564648 KiB"
+      },
+      "Sketch.lean": {
+        "sha256": "e58f86b0e80e70373633541f28f21531c9e499aa67283db48b5bd496dff8056a",
+        "lines": 2042,
+        "examples": 107,
+        "audits": 0,
+        "errors": 0,
+        "admissionWarnings": 253,
+        "otherWarnings": 0,
+        "admittedDependencies": false,
+        "diagnosticSha256": "da60dccc3a6d1f0c30e8d4b5a81c390203e4f17865e0e81c56470770ffc18860",
+        "resource": "Elapsed 12.00 seconds; peak 3572184 KiB"
+      },
+      "canonical": {
+        "sha256": "f705f0230dd178140f6b7cec6f50ca8e39c750cc1294ede1569b33e6544e599b",
+        "lines": 2059,
+        "compiled": false,
+        "newExampleHeaderParity": 12,
+        "preservedPredecessorLines": 1867,
+        "publicHeaderParity": 15,
+        "newSignatureHeaders": 9,
+        "promotedHeaders": 6
+      }
+    },
+    "actualAssembler": {
+      "stage": {
+        "vertices": 3018,
+        "edges": 8655,
+        "acyclic": true
+      },
+      "own": {
+        "vertices": 112,
+        "edges": 250,
+        "acyclic": true
+      },
+      "combinedPrerequisites": {
+        "vertices": 3119,
+        "edges": 9053,
+        "acyclic": true
+      },
+      "virtualSupplierEndpoints": 51,
+      "reachableDeclarations": 112,
+      "unresolvedReferences": 0,
+      "actualBlueprint": {
+        "declarations": 112,
+        "planets": 11,
+        "kinds": {
+          "comparison": 6,
+          "construction": 20,
+          "definition": 3,
+          "lemma": 56,
+          "theorem": 27
+        },
+        "skippedLinks": []
+      },
+      "stageEdgesUnchanged": true,
+      "otherRoadmapSkippedPendingLinksUnchanged": true,
+      "requiredStagePairs": 20,
+      "requiredStagePairsReachable": 20,
+      "preservedStatementContracts": 101,
+      "unchangedNodeObjects": 100,
+      "addedNodes": 11,
+      "apiTotal": 125,
+      "testsTotal": 107,
+      "baseline": 123,
+      "gaps": 9,
+      "requests": 16,
+      "scriptSha256": "3c562c2d0e2cdb51c65e74cfaa9ef6eae7a6d88be9cbeff5b12f98b6154f2f97"
+    },
+    "publicationGuard": {
+      "publicationGuard": "f0401e396395a306b58cb28db79f3b24721e6fb3",
+      "unchangedTrackedInputs": [
+        "research/blueprint/WORKERS.md",
+        "research/blueprint/PROTOCOL.md",
+        "research/expansion/PROTOCOL.md",
+        "research/blueprint/UPSTREAM_GUIDE.md",
+        "data/library-coverage.json",
+        "research/blueprint/reviews/REV-AUDIT-08.md",
+        "data/keydefs/KEYDEF-algebraicgeometry.json",
+        "research/blueprint/reserved-ids.json",
+        "scripts/build.py",
+        "scripts/check_blueprint.py",
+        "research/blueprint/intake.py",
+        "research/blueprint/atlas/roadmaps/AnabelianGeometryAndNonabelianChabauty.json",
+        "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json",
+        "research/blueprint/readmes/AnabelianGeometryAndNonabelianChabauty.md",
+        "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean",
+        "research/blueprint/handoff/BP-AnabelianGeometryAndNonabelianChabauty.md"
+      ]
+    }
   }
 }

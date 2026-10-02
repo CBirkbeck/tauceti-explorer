@@ -1,3 +1,289 @@
+# BP-AnabelianGeometryAndNonabelianChabauty — coefficient functoriality checkpoint
+
+Codex — codex-J6LwjP, 2026-10-02. Refs #1020. Winning claim 5963166166, confirming bot 5963167606. Whole issue read before and after confirmation. Branch codex-J6LwjP-anabelian-native-paths; mathematical and actual-assembly base bcc37efa667a1f3c521b0d8e2407b9eda3fa87e6. Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
+
+Publication guard: fetched origin/main f0401e396395a306b58cb28db79f3b24721e6fb3; sixteen real tracked governing/validator, audit/review, key ownership, atlas and own-input files are byte unchanged against the mathematical base. The live bot confirmation still names this session. Assembly counts below are for the recorded mathematical base, not claimed for unrelated subsequent roadmap changes.
+
+## Result and limits
+
+Eleven additional declaration-sized nodes refine coefficient part (a) of the inherited functoriality contract: three constructions and eight lemmas. Actual coefficient maps on continuous cocycles, native invariant subgroups and gauge-orbit H¹ carry the exact evaluation, gauge, neutral, identity and composition APIs. Fifteen public interfaces are checked, including six promoted inherited signatures and nine additional signatures. Three construction nodes have fifteen API records and twelve tests. The twelve new examples include actual S₂→S₃ transposition calculations and a nonneutral class killed by the constant-one coefficient map. A general coefficient map is therefore not asserted injective.
+
+For continuous equivariant f, the actual cocycle map is c↦f∘c, with continuity by composition and the ordered cocycle identity by multiplication preservation and equivariance. Expanding the actual gauge action proves f(x·c)=f(x)·(f∘c). Native Quotient.lift therefore constructs the actual map on classes. Its identity and composition laws follow on each representative using class-map surjectivity. H¹ remains a pointed set. H⁰ maps restrict the actual native homomorphism to the native fixed subgroups using equivariance alone; neither topology nor continuity enters those maps.
+
+These constructions work without compactness, discreteness, finite coefficients, commutative coefficients or a supplied geometric/topological realization of a unipotent group. Gauge/H¹ formulas require topological coefficient groups with jointly continuous automorphism action; ordinary cocycle coefficient maps only require continuity of f. G itself is a group with a topology in these signatures. Arbitrary source-group restriction (part b), canonical additive cocycle conversion and its compatibility with existing Tau Ceti transition/colimit maps, representability, local conditions, inherited remaining granularity and every geometric source/supplier obligation remain open. The finite-quotient colimit's discrete-coefficient boundary is unchanged.
+
+## Preservation and current totals
+
+All 101 inherited statement contracts, hypotheses, sources, API/test lists, acceptances, uses, planets and implementation statuses are preserved; 100 entire old node objects are identical. The one old functoriality object gains the coefficient leaves as prerequisites and a scope-qualified proof step. Every original prerequisite remains. All previous continuation receipts, sourceIssues/sourceVersions/sourceCoverage, coefficient-class distinctions, seven-stage scope, nine gaps, sixteen requests and restructuring proposals are unchanged. The full predecessor reader and handoff are retained verbatim below an explicit historical boundary. The original 1867-line suggested file remains a byte-identical prefix. Every new final outer body is admitted under PROTOCOL §13. No stage is closed or result claimed implemented.
+
+Totals: 112 unchecked nodes (3 definitions, 20 constructions, 56 lemmas, 27 theorems, 6 comparisons); 125 raw API records, 113 required APIs; 107 raw tests, 96 required tests; 123 baseline entries, 11 planets, 9 gaps, 16 requests; all seven stages partial. Reserved AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1 remains the unique general owner. Its all-degree canonical comparison, coefficient-class parameter and distinction from maximal-pro-p replacement are unchanged. RT-AREA-algebraicgeometry/8 continues to request NS/ρ and symmetric-homomorphism machinery from A2, not SF.3; this checkpoint introduces no duplicate or reverse height/NC.5 dependency. Chen and BDMTV individual source-route obligations and E9/E10 remain as recorded, not silently completed.
+
+## Reading and prior-art boundary
+
+Fresh reading covers both complete issue reads, campaign README, all seven reviewed NC audit rows and the relevant REV-AUDIT-08 correction/metadata, the seven-stage extract and all touching edges, the inherited coefficient-functoriality contract, the continuous-cocycle/H¹ mathematical contracts, the reserved key survey entry and the relevant entries of all 29 link files mentioning this roadmap. Their negative screens are preserved as screens, not upgraded to absence proofs. The current geometric reader supplied the full reserved definition/API boundary. The complete upstream JacobianChallenge and StableReduction roadmap documents were read in this continuous session immediately before this claim; they are not claimed newly reread in this checkpoint. Inherited node preservation is checked mechanically; no fresh complete 101-node proof reading, whole historical handoff reading or full Chen/BDMTV source reading is claimed.
+
+Fresh source reading is [Kim, arXiv:math/0409456v1](https://arxiv.org/pdf/math/0409456v1), continuous cocycle/gauge definitions on printed pp.5–6, the displayed Proposition1 proof through its end, and the coefficient-functor paragraph on p.7. Exact PDF independently downloaded and SHA-256 verified: 00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941. The general continuous-equivariant coefficient maps/laws are authored deductions from these definitions, not a printed theorem proving representability or a geometric torsor pushout comparison. No fresh full-paper, full Proposition2, Serre, source error/erratum or published-version visual collation is claimed. Historical complete and partial source receipts retain their original authorship.
+
+Seven additional baseline entries import existing MonoidHom identity/composition/evaluation and multiplication/inverse/unit laws. Their complete actual defining fields or statements and ambient hypotheses were read at the pinned Mathlib commit. The existing continuous-composition, fixed-subgroup and orbit-membership statements were also read; native Lean Quotient.lift was read in the matching toolchain core. No new generic group-homomorphism, orbit-quotient or cohomology infrastructure is planned and no whole-library absence claim is made. Earlier additive prior art and open Mathlib PR31613 receipts stay historical evidence; this checkpoint does not claim canonical additive conversion.
+
+## Lean evidence and immutable recovery
+
+Native.lean passes: 1599 lines, 65 proved examples, 80 kernel axiom audits, zero errors/warnings/admissions and no admitted dependencies. Its complete verified 1353-line predecessor native proof is byte unchanged as a prefix (source dcbf5a525aefe9fe86c8d39a5480a945d11d7d5b450abc95776573f355483974). All inherited native dependencies are compiled together, not replaced by planning assumptions. Native runtime 9.90 seconds, maximum RSS 3564648 KiB; 50 GiB available.
+
+The submitted Mathlib-only extraction passes: 2042 lines, 107 examples, zero errors, 253 admission warnings and no other warnings; runtime 12.00 seconds, maximum RSS 3572184 KiB; 49 GiB available. All fifteen public continuation headers and all twelve full example headers agree with the actual proof, including the complete let-bound concrete test setups. The extraction removes only Tau Ceti imports and the named Abelian section. The canonical 2059-line full suggested file is UNCOMPILED: the existing build lacks the Tau Ceti ContCohomology.LowDegree artifact. No project setup/update, cache retrieval, library build, stubs or LSP is run. A single direct Lean 4.34.0-rc2 process ran at a time, each bounded to 1200 seconds. Every compiler has exited.
+
+The immutable allowed Lean archive at 8b5be8854463dd4ec9ed5ab5934a76739e1eaf0d contains the complete actual proof between BEGIN ARCHIVED CHECKED NONABELIAN COEFFICIENT MAPS and END ARCHIVED CHECKED NONABELIAN COEFFICIENT MAPS markers. [Public immutable archive](https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/8b5be8854463dd4ec9ed5ab5934a76739e1eaf0d/research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean). The final file restores the admitted planning signatures. Verify the public extracted SHA before deleting local scratch.
+
+```json
+{
+  "Native.lean": {
+    "sha256": "f5623ec94e4bb750a876d6a0268f362a0ee90a96dbffff26f2cece8cb59d604e",
+    "lines": 1599,
+    "examples": 65,
+    "audits": 80,
+    "errors": 0,
+    "admissionWarnings": 0,
+    "otherWarnings": 0,
+    "admittedDependencies": false,
+    "diagnosticSha256": "fc4492c0dac6df0d2a9e4abf65042b65ee3e6cf4556e9fe96008327f8b3ea080",
+    "resource": "Elapsed 9.90 seconds; peak 3564648 KiB"
+  },
+  "Sketch.lean": {
+    "sha256": "e58f86b0e80e70373633541f28f21531c9e499aa67283db48b5bd496dff8056a",
+    "lines": 2042,
+    "examples": 107,
+    "audits": 0,
+    "errors": 0,
+    "admissionWarnings": 253,
+    "otherWarnings": 0,
+    "admittedDependencies": false,
+    "diagnosticSha256": "da60dccc3a6d1f0c30e8d4b5a81c390203e4f17865e0e81c56470770ffc18860",
+    "resource": "Elapsed 12.00 seconds; peak 3572184 KiB"
+  },
+  "canonical": {
+    "sha256": "f705f0230dd178140f6b7cec6f50ca8e39c750cc1294ede1569b33e6544e599b",
+    "lines": 2059,
+    "compiled": false,
+    "newExampleHeaderParity": 12,
+    "preservedPredecessorLines": 1867,
+    "publicHeaderParity": 15,
+    "newSignatureHeaders": 9,
+    "promotedHeaders": 6
+  }
+}
+```
+
+Diagnostic normalization excludes the separate Elapsed footer, replaces the invoked absolute filename with Native.lean or Sketch.lean, strips outer whitespace and appends one final newline. Recovery recipe: run in the final PR tree after fetching its branch, with an existing reviewer-owned disk scratch directory as the first argument.
+
+```python
+from pathlib import Path
+import hashlib,re,subprocess,sys
+out=Path(sys.argv[1]);assert out.is_dir()
+archive='8b5be8854463dd4ec9ed5ab5934a76739e1eaf0d'
+path='research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean'
+# Fetch the PR branch to recover this immutable ancestor; no repository snapshot is needed.
+raw=subprocess.check_output(['git','show',archive+':'+path],text=True)
+native=raw.split('BEGIN ARCHIVED CHECKED NONABELIAN COEFFICIENT MAPS\n',1)[1].split('END ARCHIVED CHECKED NONABELIAN COEFFICIENT MAPS -/\n',1)[0]
+assert hashlib.sha256(native.encode()).hexdigest()=='f5623ec94e4bb750a876d6a0268f362a0ee90a96dbffff26f2cece8cb59d604e'
+assert not re.search(r'\bsorry\b',native)
+canonical=Path(path).read_text()
+assert hashlib.sha256(canonical.encode()).hexdigest()=='f705f0230dd178140f6b7cec6f50ca8e39c750cc1294ede1569b33e6544e599b'
+broad='\n'.join(l for l in canonical.splitlines() if not l.startswith('import TauCeti.'))+'\n'
+a=broad.index('section Abelian');z=broad.index('end Abelian',a)+len('end Abelian')
+broad=broad[:a]+broad[z:]
+assert hashlib.sha256(broad.encode()).hexdigest()=='e58f86b0e80e70373633541f28f21531c9e499aa67283db48b5bd496dff8056a'
+(out/'Native.lean').write_text(native);(out/'Sketch.lean').write_text(broad)
+# Run separately in an EXISTING exact-pin build after checking >=20 GiB available.
+# Use one direct Lean process, a 1200-second timeout and that build's package LEAN_PATH.
+# No project setup, cache retrieval, library build, stubs or LSP is required.
+```
+
+## Actual atlas validation
+
+Indexed blueprint checker: zero errors and warnings. Actual read-only deliverable intake and git diff --check are run on the final four files. The actual scripts/build.py assemble(require_distances=False) is run with the candidate and original packet separately forced as promotion inputs on the same immutable base tree. Complete stage, own and recursively reachable declaration graphs are acyclic; all 20 required supplier-stage paths are reachable, including planned Tau Ceti stage IDs. There are no unresolved prerequisites and own pending/skipped links are empty. Stage edges and all other-roadmap skipped/pending links match the original control. The combined graph includes actual recorded stage-parent metadata; it introduces no synthetic realises attachment. No site/application/data output is written.
+
+```json
+{
+  "stage": {
+    "vertices": 3018,
+    "edges": 8655,
+    "acyclic": true
+  },
+  "own": {
+    "vertices": 112,
+    "edges": 250,
+    "acyclic": true
+  },
+  "combinedPrerequisites": {
+    "vertices": 3119,
+    "edges": 9053,
+    "acyclic": true
+  },
+  "virtualSupplierEndpoints": 51,
+  "reachableDeclarations": 112,
+  "unresolvedReferences": 0,
+  "actualBlueprint": {
+    "declarations": 112,
+    "planets": 11,
+    "kinds": {
+      "comparison": 6,
+      "construction": 20,
+      "definition": 3,
+      "lemma": 56,
+      "theorem": 27
+    },
+    "skippedLinks": []
+  },
+  "stageEdgesUnchanged": true,
+  "otherRoadmapSkippedPendingLinksUnchanged": true,
+  "requiredStagePairs": 20,
+  "requiredStagePairsReachable": 20,
+  "preservedStatementContracts": 101,
+  "unchangedNodeObjects": 100,
+  "addedNodes": 11,
+  "apiTotal": 125,
+  "testsTotal": 107,
+  "baseline": 123,
+  "gaps": 9,
+  "requests": 16,
+  "scriptSha256": "3c562c2d0e2cdb51c65e74cfaa9ef6eae7a6d88be9cbeff5b12f98b6154f2f97"
+}
+```
+
+The following exact read-only assembly recipe has SHA-256 3c562c2d0e2cdb51c65e74cfaa9ef6eae7a6d88be9cbeff5b12f98b6154f2f97. Run it from the repository root, giving the original packet at base bcc37efa667a1f3c521b0d8e2407b9eda3fa87e6 as its first argument; store that control and this script in your own scratch, and set PYTHONDONTWRITEBYTECODE=1. Its printed receipt is the only output. It also checks the exact inherited object/API/source preservation.
+
+```python
+"""Read-only actual atlas assembly with the candidate injected as promotion inputs."""
+from pathlib import Path
+import sys,json,copy,collections
+root=Path.cwd();sys.path.insert(0,str(root/'scripts'))
+import build,blueprints,check_blueprint
+rid='AnabelianGeometryAndNonabelianChabauty'
+p=json.loads((root/'research/blueprint/packets'/f'{rid}.json').read_text())
+r=next(x for x in json.loads((root/'data/atlas.json').read_text())['roadmaps'] if x['id']==rid)
+a0=json.loads((root/'data/atlas.json').read_text())
+packets,documents,definitions=blueprints.load_promoted(root)
+packets=[x for x in packets if x[1].get('roadmapId')!=rid]+[(rid,p)]
+documents[rid]=f'research/blueprint/readmes/{rid}.md'
+definitions=[x for x in definitions if x['id']!=rid]
+if not any(x['id']==rid for x in a0['roadmaps']):definitions.append(r)
+build.load_promoted=lambda *args:(copy.deepcopy(packets),copy.deepcopy(documents),copy.deepcopy(definitions))
+a,*rest=build.assemble(require_distances=False)
+ctx=check_blueprint.world()
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for path in sorted((root/folder).glob('*.json')):
+  q=json.loads(path.read_text())
+  for n in q.get('nodes',[]):world.setdefault(n['id'],n)
+world.update({n['id']:n for n in p['nodes']})
+stages={s['id']:s for s in a['stages']}
+stageids=set(stages)|set(ctx[1])
+stageedges={(e['source'],e['target']) for e in a['stageEdges']}
+virtual={v for e in stageedges for v in e}-set(stages)
+
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ out=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in out[s]:out[s].add(t);indeg[t]+=1
+ stack=[v for v,k in indeg.items() if k==0];count=0
+ while stack:
+  x=stack.pop();count+=1
+  for y in out[x]:
+   indeg[y]-=1
+   if indeg[y]==0:stack.append(y)
+ assert count==len(vertices),f'cycle: {[v for v,k in indeg.items() if k][:15]}'
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+
+own={n['id']:n for n in p['nodes']}
+ownedges={(q,n['id']) for n in p['nodes'] for q in n.get('prerequisites',[]) if q in own}
+stack=list(own);seen=set();dep=set();unresolved=set()
+while stack:
+ nid=stack.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ n=world[nid]
+ for q in n.get('prerequisites',[]):
+  if q.startswith(('mathlib:','tauceti:')) and q not in stageids and not q.startswith('tauceti:TauCetiRoadmap/'):continue
+  dep.add((q,nid))
+  if q in world:stack.append(q)
+  elif q not in stageids:unresolved.add(q)
+assert not unresolved,sorted(unresolved)
+# Include actual recorded parent metadata and request edges, not synthetic realises attachments.
+parents={(world[v]['parentStageId'],v) for v in seen
+         if world[v].get('parentStageId') in stageids or world[v].get('parentStageId') in seen}
+requests={(request['supplier'],consumer) for request in p.get('requests',[])
+          for consumer in request.get('neededBy',[]) if consumer in own or consumer in stageids}
+dep |= parents | requests
+report={'stage':dag(stages,stageedges),'own':dag(own,ownedges),'combinedPrerequisites':dag(set(stages)|seen,stageedges|dep),'virtualSupplierEndpoints':len(virtual),'reachableDeclarations':len(seen),'unresolvedReferences':len(unresolved)}
+roadmap=next(x for x in a['roadmaps'] if x['id']==rid)
+assert roadmap['blueprint']['declarations']==len(own)
+assert roadmap['blueprint']['planets']==11
+assert not roadmap['blueprint']['skippedLinks'],roadmap['blueprint']['skippedLinks']
+assert not roadmap.get('pendingLinks',[]),roadmap.get('pendingLinks',[])
+report['actualBlueprint']={k:roadmap['blueprint'][k] for k in ['declarations','planets','kinds','skippedLinks']}
+# The original packet is used as a second promotion input to check projection preservation.
+p0=json.loads(sys.argv[1] and Path(sys.argv[1]).read_text()) if len(sys.argv)>1 else p
+r0=copy.deepcopy(r)
+basepackets=[x for x in packets if x[1].get('roadmapId')!=rid]+[(rid,p0)]
+build.load_promoted=lambda *args:(copy.deepcopy(basepackets),copy.deepcopy(documents),copy.deepcopy(definitions))
+b,*_=build.assemble(require_distances=False)
+bedges={(e['source'],e['target']) for e in b['stageEdges']}
+assert stageedges==bedges
+report['stageEdgesUnchanged']=True
+control={x['id']:(x.get('blueprint',{}).get('skippedLinks',[]),x.get('pendingLinks',[])) for x in a['roadmaps'] if x['id']!=rid}
+control0={x['id']:(x.get('blueprint',{}).get('skippedLinks',[]),x.get('pendingLinks',[])) for x in b['roadmaps'] if x['id']!=rid}
+assert control==control0
+report['otherRoadmapSkippedPendingLinksUnchanged']=True
+# Check all original in-roadmap dependencies and explicit request supplier paths.
+stageout=collections.defaultdict(set)
+for source,target in stageedges:stageout[source].add(target)
+def reachable(source,target):
+ todo=[source];done=set()
+ while todo:
+  x=todo.pop()
+  if x==target:return True
+  if x in done:continue
+  done.add(x);todo.extend(stageout[x]-done)
+ return False
+pairs={(e['source'],e['target']) for e in a0['stageEdges'] if e['target'].startswith(rid+':')}
+for node in p['nodes']:
+ for q in node.get('prerequisites',[]):
+  if q in stageids and q not in world and q != node['parentStageId']:pairs.add((q,node['parentStageId']))
+for request in p.get('requests',[]):
+ for consumer in request.get('neededBy',[]):
+  if consumer in own:pairs.add((request['supplier'],own[consumer]['parentStageId']))
+  elif consumer in stageids:pairs.add((request['supplier'],consumer))
+assert all(reachable(source,target) for source,target in pairs),[(s,t) for s,t in pairs if not reachable(s,t)]
+report['requiredStagePairs']=len(pairs)
+report['requiredStagePairsReachable']=len(pairs)
+
+# Exact old-object and metadata preservation, with one consumed bundled node refined.
+on={n['id']:n for n in p0['nodes']}
+for id,n in on.items():
+ for k in ('id','kind','statement','hypotheses','sources','implementationStatus','acceptance','api','tests','uses'):
+  assert own[id].get(k)==n.get(k),(id,k)
+ assert all(x in own[id].get('prerequisites',[]) for x in n.get('prerequisites',[]))
+assert sum(own[id]==n for id,n in on.items())==100
+assert len(own)==112 and len(on)==101
+for k in p0:
+ if k not in ('nodes','baseline','summary'):assert p[k]==p0[k],k
+assert p['baseline']['declarations'][:len(p0['baseline']['declarations'])]==p0['baseline']['declarations']
+assert all(n['implementationStatus']=='unchecked' for n in p['nodes'])
+report.update(preservedStatementContracts=101,unchangedNodeObjects=100,addedNodes=11,
+ apiTotal=sum(len(n.get('api',[])) for n in p['nodes']),testsTotal=sum(len(n.get('tests',[])) for n in p['nodes']),
+ baseline=len(p['baseline']['declarations']),gaps=len(p['gaps']),requests=len(p['requests']))
+print(json.dumps(report,ensure_ascii=False,indent=2))
+```
+
+## Resume
+
+Complete the genuine additive cocycle comparison and its naturality against the existing additive finite-quotient maps. The coefficient leaves now supply the exact coefficient part of the original functoriality declaration, while arbitrary source-homomorphism restriction and its full laws retain their own task. Continue the stated representability/local-condition and geometric source/supplier decompositions without promoting discrete-colimit or signature checks to unipotent geometric theorems. All sources missing or unread remain as the inherited coverage/gaps and route inventories specify.
+
+---
+
+# Retained predecessor handoff — historical receipts and original provenance
+
 # BP-AnabelianGeometryAndNonabelianChabauty — finite-quotient colimit checkpoint
 
 Codex — codex-7e92bd; 2 October 2026; Refs #1020. Confirmed claim5962443218, bot5962445387; basee6c62ea553479b4ac4f7d23af94e3e35547ee89b.
