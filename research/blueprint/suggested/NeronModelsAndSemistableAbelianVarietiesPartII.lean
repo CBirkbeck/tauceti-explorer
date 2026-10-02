@@ -16,6 +16,11 @@ ledger names every API, example and layer theorem whose full signature needs sup
 The two partial data structures below are not substitutes for their mathematical definitions.
 -/
 
+import Mathlib.FieldTheory.Finite.GaloisField
+import Mathlib.FieldTheory.Finite.Extension
+import Mathlib.FieldTheory.Finiteness
+import Mathlib.Algebra.Polynomial.Degree.SmallDegree
+import Mathlib.Algebra.Polynomial.SpecificDegree
 import Mathlib.Algebra.Category.Ring.Constructions
 import Mathlib.Algebra.QuadraticDiscriminant
 import Mathlib.AlgebraicGeometry.Scheme
@@ -1826,3 +1831,71 @@ example [Finite k] (a b : k) (hd : discrim 1 a b ≠ 0) :
 end
 end TauCeti.GenusOne.QuadraticPinch
 /- END QUADRATIC ROOT BRANCH COUNTS -/
+
+/- BEGIN QUADRATIC EXTENSION PARITY -/
+namespace TauCeti.GenusOne.QuadraticPinch
+open Polynomial
+variable {k l : Type*} [Field k] [Field l] [Algebra k l] [Finite l]
+
+/-- Degree-two field factors acquire roots exactly in extensions of even degree. -/
+lemma quadratic_root_iff_even (a b : k)
+    (hi : Irreducible (X ^ 2 + C a * X + C b : k[X])) :
+    (∃ t : l, t ^ 2 + algebraMap k l a * t + algebraMap k l b = 0) ↔
+      2 ∣ Module.finrank k l := by
+  sorry
+
+lemma pointCount_extension_parity (a b : k)
+    (hi : Irreducible (X ^ 2 + C a * X + C b : k[X])) (hd : discrim 1 a b ≠ 0) :
+    (⟨algebraMap k l a, -algebraMap k l b, 0, 0, 0⟩ : WeierstrassCurve l).pointCount =
+      if 2 ∣ Module.finrank k l then Nat.card l else Nat.card l + 2 := by
+  sorry
+
+lemma quadraticRootCount_extension_parity (a b : k)
+    (hi : Irreducible (X ^ 2 + C a * X + C b : k[X])) (hd : discrim 1 a b ≠ 0) :
+    Nat.card {t : l // t ^ 2 + algebraMap k l a * t + algebraMap k l b = 0} =
+      if 2 ∣ Module.finrank k l then 2 else 0 := by
+  sorry
+
+lemma pointCount_extension_power (a b : k)
+    (hi : Irreducible (X ^ 2 + C a * X + C b : k[X])) (hd : discrim 1 a b ≠ 0) :
+    (⟨algebraMap k l a, -algebraMap k l b, 0, 0, 0⟩ : WeierstrassCurve l).pointCount =
+      if 2 ∣ Module.finrank k l then Nat.card k ^ Module.finrank k l
+      else Nat.card k ^ Module.finrank k l + 2 := by
+  sorry
+
+lemma frobeniusTrace_extension_parity (a b : k)
+    (hi : Irreducible (X ^ 2 + C a * X + C b : k[X])) (hd : discrim 1 a b ≠ 0) :
+    (⟨algebraMap k l a, -algebraMap k l b, 0, 0, 0⟩ : WeierstrassCurve l).frobeniusTrace =
+      if 2 ∣ Module.finrank k l then 1 else -1 := by
+  sorry
+
+-- test: QuadraticPinch.pointCount_extension_power.test_binary_degree1
+example : (⟨1,-1,0,0,0⟩ : WeierstrassCurve (FiniteField.Extension (ZMod 2) 2 1)).pointCount = 4 := by
+  sorry
+
+-- test: QuadraticPinch.pointCount_extension_power.test_binary_degree2
+example : (⟨1,-1,0,0,0⟩ : WeierstrassCurve (FiniteField.Extension (ZMod 2) 2 2)).pointCount = 4 := by
+  sorry
+
+-- test: QuadraticPinch.pointCount_extension_power.test_binary_degree3
+example : (⟨1,-1,0,0,0⟩ : WeierstrassCurve (FiniteField.Extension (ZMod 2) 2 3)).pointCount = 10 := by
+  sorry
+
+-- test: QuadraticPinch.quadratic_root_iff_even.test_binary_odd_no_root
+example : ¬ ∃ t : FiniteField.Extension (ZMod 2) 2 3, t ^ 2 + 1 * t + 1 = 0 := by
+  sorry
+
+-- test: QuadraticPinch.quadraticRootCount_extension_parity.test_binary_even_two_roots
+example : Nat.card {t : FiniteField.Extension (ZMod 2) 2 2 // t ^ 2 + 1 * t + 1 = 0} = 2 := by
+  sorry
+
+-- test: QuadraticPinch.pointCount_extension_power.test_odd_characteristic_even_degree
+example : (⟨0,-1,0,0,0⟩ : WeierstrassCurve (FiniteField.Extension (ZMod 3) 3 2)).pointCount = 9 := by
+  sorry
+
+-- test: QuadraticPinch.frobeniusTrace_extension_parity.test_binary_even_trace
+example : (⟨1,-1,0,0,0⟩ : WeierstrassCurve (FiniteField.Extension (ZMod 2) 2 2)).frobeniusTrace = 1 := by
+  sorry
+
+end TauCeti.GenusOne.QuadraticPinch
+/- END QUADRATIC EXTENSION PARITY -/
