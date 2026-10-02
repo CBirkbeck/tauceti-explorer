@@ -272,11 +272,11 @@
    ]
   },
   "research/blueprint/packets/AdicSpacesPartII.json": {
-   "promotedAt": "2026-10-01T20:54:46Z",
-   "review": "caf2189fdc3f2bb0",
-   "reviewDate": "2026-10-01",
-   "reviewer": "independent-review-REV-FIX-RT-AREA-padic-2~2",
-   "sha256": "dabfcb849ac00f9a3b2e4eec49078b701650f2c7c8aa24b9e454284793987001",
+   "promotedAt": "2026-10-02T04:15:10Z",
+   "review": "57198d8a84a5aada",
+   "reviewDate": "2026-10-02",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-padic-2~3",
+   "sha256": "892734ede7ee7a19e6d802c60ce4cecf2eb36cc1f091f51766831c068e8f1dfc",
    "to": [
     "data/blueprints/AdicSpacesPartII.json",
     "data/blueprints/AdicSpacesPartII.md"
