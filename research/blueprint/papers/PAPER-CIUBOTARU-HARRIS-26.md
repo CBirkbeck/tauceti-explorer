@@ -1,6 +1,20 @@
-# PAPER-CIUBOTARU-HARRIS-26: completion
+# PAPER-CIUBOTARU-HARRIS-26: extraction and proof obligations
 
 Dan Ciubotaru and Michael Harris, *On the generalized Ramanujan and Arthur conjectures over function fields*, Ann. of Math. 204 (2026), 545–601 ([doi](https://doi.org/10.4007/annals.2026.204.2.3), [arXiv:2311.15300](https://arxiv.org/abs/2311.15300v1)).
+
+Current repair by **Codex**, session `codex-rtOQ9t`, 2 October 2026, issue #5498. The two independently confirmed findings in [RT-PAPER-CIUBOTARU-HARRIS-26](../redteam/RT-PAPER-CIUBOTARU-HARRIS-26.fixes.md) are applied. Extraction status remains complete; several mathematical proof and source-version obligations remain open. Counts: **83 items (2 library, 11 planned, 70 missing), four routes with 11/29/27/3 items, 13 prerequisites, 18 source issues**. Existing source-issue reviews are preserved; the new linked E18 awaits its own review.
+
+Theorem 8.5/Remark 8.7's exceptional list is false for arbitrary compact Satake parts, even with full geometricity and connected center. E18 propagates the already confirmed E11 witness: in split G2, `(aα₁+bα₂)(s)=(−1)^a q^(b/2)` has real exponent `ν=½ω₂`. Every algebraic representation has Weil eigenvalues of integer weight because the G2 weight lattice equals its root lattice. The positive-root values are `−1,√q,−√q,√q,−√q,−q`; none is `q` or `q⁻¹`. Kato's stabilizer criterion and the irreducible hermitian path from the compact parameter establish unitarity. Thus the nilpotent q-eigenspace is zero, `s∈CS(G2,0)`, and its nonzero real exponent differs from that stratum's central point. G2 has trivial connected center. This is a local counterexample; no global cuspidal realization is claimed.
+
+Route 2 now retains only the **real or central-compact** Sp/Spin/exceptional classification interface. The source-derived data still require their stated geometricity and group hypotheses, and their formal proofs remain targets. The arbitrary-compact theorem is an explicit new exhaustive target: analyze the centralizer of `s_c`, its root/Hecke data, full geometricity, q-eigenspaces, nilpotent-orbit lifting and unitary/branching comparisons. Audit Sp and Spin at the same boundary. The finite real E8,4A1 inequality exclusion does not certify that target. Adding the G2 point alone would not repair completeness. The global nongeneric and extraneous-elimination applications must establish the restricted hypothesis at each use or import the new exhaustive theorem. Their separate gap from real-part recognition to the actual nilpotent stratum remains open.
+
+Theorem 4.2 (`galois-discrete-series`) moves from route 2 into the **early arithmetic prefix of GlobalShtukasPartIIRamanujanArthur**, with FA.6, GS.5/GS.7, SR.2/SR.3 and DWP.0/5/8 imports. This prefix precedes Theorem 5.4 and all global applications. The local classification and nilpotent recognition independently feed the later applications; no whole consumer feeds its prerequisite. This ownership change does not resolve E10's general geometricity gap or use Theorem 5.4 to prove its own input.
+
+The explicit GHS request is coordinated with the pending SupercuspidalParameters owner, which is held for revision. Its input remains source-gated: the freshly read v3 Theorem 1.2 assumes `p>3`; other source bounds must be stated separately. The §4.1 semisimple scope has finite center and finite-order central character; a reductive extension needs an algebraic/geometric central character with compatible globalization. Appendix Lemma A.1 fixes a global central character, auxiliary sets and at least one supercuspidal place, and supplies nonzero pseudo-coefficient trace/same cuspidal support. It does not alone isolate an arbitrary prescribed discrete series as the exact local component. A local-isolation or finite-length cuspidal-support descent bridge to its number-field model remains required, together with embedding-stable exponents and Casselman's criterion. GHS v3 Corollary 3.11/Remark 3.12 have different numbering from the published extraction's Corollary 3.12/Remark 3.13.
+
+Fresh reading was bounded to CH v1 pp. 7, 11–12, 18, 27–30 (pp. 28–30 also viewed as images), Kato pp. 930–933 and 935, and GHS v3 PDF pp. 3, 9–12 and 41. The Annals record now lists online publication on 13 September 2026; it still offers no article PDF and the conventional URL returns 404. The published CH revision remains uncollated. Supporting GHS/Kato readings are recorded separately from CH `sourceVersions`; no fresh full-paper or library audit is claimed. The fixes report records the exact provenance and checks. No Lean file is required or compiled.
+
+## Historical continuation, 29 September 2026
 
 Continuation by Claude Code, session `cc-39fac3`, 29 September 2026 (issue #1057). Status: **complete**. `check_paper.py` passes.
 
@@ -22,7 +36,7 @@ After the independent review (REV-PAPER-CIUBOTARU-HARRIS-26, research/blueprint/
 - **Routes.** Route 1's area is set to `representations`, a galaxy id, so it coalesces with Mao–Wan–Zhang's proposal of the same Part II. The three Part II briefs now state their final theorems and name their imports: SmoothRepresentationsPartIIUnitaryDual, ES5 and ES7:parabolic.
 - **Prerequisites.** V. Lafforgue (2018) and Gan–Harris–Sawin are already in the atlas batch and are removed. Collingwood–McGovern gets a link.
 
-The earlier checkpoint's report follows below.
+The historical continuation and earlier checkpoint follow below; their old counts and open-task descriptions describe those dates.
 
 ## What this continuation did
 
@@ -90,9 +104,9 @@ The generic result uses three existing bodies of mathematics: global cuspidal pa
 
 **LieHighestWeightPartIINilpotentOrbits** extends the upstream highest-weight direction with the zero-triple adapter, nilpotent-orbit/triple comparison, filtered tensor functor and recognition from representation-indexed weight data. It imports the upstream sl2 classification and complete reducibility. The very-even orthogonal case requires half-spin representations; the standard representation alone cannot distinguish the two SO-orbits. This extension remains subject to a complete library and neighboring-owner search before acceptance.
 
-**SmoothRepresentationsPartIIUnitarySpherical** extends local representation theory with the generic unitary regions, root-by-root half-integrality tests, nonsplit transfer, Kazhdan–Lusztig data and nilpotent complementary-series classification. Its endpoints are the local temperedness tests and the extraneous-parameter list, not another Satake transform. The proofs cited by the paper for these classifications must be read at their original sources before the brief becomes an implementation packet.
+**SmoothRepresentationsPartIIUnitarySpherical** extends local representation theory with the generic unitary regions, root-by-root half-integrality tests, nonsplit transfer, Kazhdan–Lusztig data and nilpotent complementary-series classification. Its extraneous-list endpoint is now restricted to real/central-compact parameters; arbitrary compact parts require the new exhaustive target described above. The proofs cited by the paper for these classifications must be read at their original sources before the brief becomes an implementation packet.
 
-**GlobalShtukasPartIIRamanujanArthur** adds geometricity of the particular local/global parameters, removal of constant-field twists, finite-extension parameter lifts, and propagation of the weight constraints. Theorem 5.4 comes first. The nongeneric endpoints must retain the explicit global-parameter and same-nilpotent-orbit hypotheses. This route imports the two proposed extensions above and FA.6, DWP.0/5/8 and GS.5–7.
+**GlobalShtukasPartIIRamanujanArthur** adds geometricity of the particular local/global parameters, removal of constant-field twists, finite-extension parameter lifts, and propagation of the weight constraints. The early arithmetic prefix now comes before Theorem 5.4, as specified above. The nongeneric endpoints retain explicit global-parameter and same-nilpotent-orbit hypotheses, plus the compact-part classification gate. This route imports the two proposed extensions above and FA.6, DWP.0/5/8 and GS.5–7.
 
 ## Hypotheses and API checks that must survive refinement
 
@@ -108,11 +122,11 @@ For the nongeneric assertions, Section 9 distinguishes existing cusp parameters 
 
 ## Exceptional coordinates retained for the next worker
 
-The following are the **full real parts**, not just the displacement from h/2, transcribed from v1 Theorem 8.5, printed page 29. The omega_i use that paper's fundamental-coweight numbering. They are source data, not independently computed certificates.
+The following are the **full real parts**, not just the displacement from h/2, from v1 Theorem 8.5, printed page 29, with the independently confirmed E5 correction to F4 B3. They are retained only for the real/central-compact interface; E18 rejects arbitrary-compact completeness. The omega_i use that paper's fundamental-coweight numbering. They are source data, not independently computed certificates.
 
 | Dual type | Nilpotent orbit | Full real part |
 | --- | --- | --- |
-| F4 | B3 | omega_1 + omega_2 + (omega_3 + omega_4)/2 |
+| F4 | B3 | omega_1 + (omega_3 + omega_4)/2 (E5 correction) |
 | F4 | A1 + tilde-A1 | (omega_1 + omega_4)/2 |
 | E7 | D5(a1) + A1 | (omega_1 + omega_2 + omega_3 + omega_6 + omega_7)/2 |
 | E8 | D6 | omega_1 + omega_4/2 + omega_6/2 + omega_8 |
