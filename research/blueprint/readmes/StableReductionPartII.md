@@ -10,9 +10,9 @@ traits. Here those objects become moduli groupoids and stack morphisms; the
 parent is imported rather than planned a second time. Stable-map moduli are
 not constructed in this continuation.
 
-Every stage is partial. The packet records 118 declaration nodes, 133 API items,
-125 definition/construction tests plus two exactness tests, 35 planets,
-135 precise supplier requests and 14 gaps. There are 50 inspected
+Every stage is partial. The packet records 118 declaration nodes, 135 API items,
+128 definition/construction tests plus two exactness tests, 35 planets,
+135 precise supplier requests and 14 gaps. There are 63 inspected
 pinned-library declarations. Nothing is claimed
 formalized: every implementationStatus is unchecked. An open request is a
 dependency on a specification, not evidence that the mathematical library
@@ -26,13 +26,53 @@ proofs and missing foundations listed below must be reconciled before any stage
 can be called source_decomposed or closed.
 
 
-The polynomial model in MC.2 now has native quotient, ideal, dual and tensor
-signatures checked in an existing pinned Mathlib build. This records elaboration,
-with admitted proof bodies; it does not formalize the proofs or close a stage.
-The new source scope is KnudsenII's Appendix, printed191–199, visually read
-from the scan, and the selected Stacks tags described below. Knudsen2012 and
-other inherited receipts retain their historical authorship. The Appendix's
-Bourbaki citation and its unproved exercise are recorded as unresolved inputs.
+The polynomial model in MC.2 has native quotient, ideal, dual and tensor
+signatures checked in an existing pinned Mathlib build. This checkpoint adds
+actual proofs for its normal form, coefficient-ring freeness, regular relation,
+regular section-coordinate difference, section evaluation and coefficient-map
+compatibilities, together with the binary quadratic evaluation/map and matrix
+products. The full file still contains admitted bodies; no stage is closed.
+
+Fresh source reading in this checkpoint is selected extracted text of
+Knudsen2012 §3, printed pp.11–12, including its noetherian and unit-discriminant
+hypotheses. The arbitrary-ring range of the elementary polynomial calculations
+is justified by the native proofs below. The preceding worker's visual
+KnudsenII Appendix reading and Stacks receipts remain historical; its Bourbaki
+citation and unproved exercise remain unresolved.
+
+## Verified polynomial foundation in the suggested file
+
+For nontrivial A, the pinned monic `AdjoinRoot.powerBasis'` has dimension two.
+Reindexing it by Fin2 gives the vectors 1 and u. Basis reconstruction proves
+existence of p(v)+u q(v); applying the basis representation proves uniqueness.
+The zero-ring case uses the actual subsingleton quotient and coefficient pair,
+so no false degree-two assertion is needed. `polynomialMonic` holds for every
+A, while `polynomialNatDegree` explicitly requires Nontrivial A.
+
+The same power basis gives freeness over A[Y]. Combining it with the existing
+monomial basis using `Basis.smulTower` gives freeness over A. Free modules are
+torsion free in the pinned sense that regular scalars act injectively. Since
+Y−t is monic and regular, its action on R is injective, which is exactly
+multiplication by v−ιt. This argument permits zero divisors in A and zero
+discriminant. Multiplication by F is regular directly by monicity.
+
+The native quotient evaluation verifies F(s,t)=0. The coefficient-map body
+verifies the mapped relation; quotient extensionality proves identity,
+composition and evaluation naturality. These proofs use the native polynomial
+quotient, not an admitted dual/cokernel theorem or an assumed flat coefficient
+map. Nine proved examples include the existing relation, zero-model,
+evaluation and coefficient-coordinate checks, plus monicity at the zero base,
+degree in characteristic two and regularity over ZMod4 with zero discriminant.
+
+Fifteen matching bodies and these nine examples compile in an admission-free
+extraction. All fifteen axiom prints have only the standard logical axioms
+where needed, and no admitted-proof axiom. This verifies the suggested proof
+bodies; it does not install them in Mathlib or TauCeti. The complete
+[suggested file](../suggested/StableReductionPartII.lean) compiles with
+zero errors,130 admitted-proof warnings and zero other warnings (67 examples).
+Its remaining cokernel, dual, tensor, ambient and completion proofs are admitted.
+Exact hashes and graph/preservation receipts are recorded in the packet and
+[handoff](../handoff/DESIGN-StableReductionPartII.md).
 
 ## Conventions and interfaces
 
@@ -2467,7 +2507,7 @@ Expand the special labelled triangle recovery into individual family lemmas and 
 
 ### Suggested Lean type interfaces
 
-The pinned libraries lack the stable pointed-family, algebraic-stack, relative Picard and sheaf interfaces of the strength required here. All 207 inherited geometric omissions remain. Native AdjoinRoot, Ideal, LinearMap, tensor-algebra, specified tensor-module action and actual dual-quotient signatures elaborate, including R′-linearity and dual tensor identity/composition on pure tensors. Elaboration checks types only; no completed-local or general-family comparison is supplied.
+The pinned libraries lack the stable pointed-family, algebraic-stack, relative Picard and sheaf interfaces of the strength required here. All 207 inherited geometric omissions remain. Native AdjoinRoot, Ideal, LinearMap, tensor-algebra, specified tensor-module action and actual dual-quotient signatures elaborate, including R′-linearity and dual tensor identity/composition on pure tensors. Whole-file elaboration checks the remaining signatures only; the fifteen elementary bodies listed above have a separate proof and axiom audit. No proved completed-local or general-family comparison is supplied.
 
 ### Source-locator and published-version collation
 

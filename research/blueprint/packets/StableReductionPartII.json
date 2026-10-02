@@ -401,6 +401,97 @@
         "provides": "Faithfully flat tensor preserves and reflects bijectivity.",
         "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
         "sourceBlob": "c2d6c3c609d283fe01bcddb47be836eca8230e50"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.powerBasis'",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "def powerBasis' (hg : g.Monic) : PowerBasis R (AdjoinRoot g) where",
+        "checked": "Actual statement and its ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; index entry verified, line 667. Used by the native polynomial normal-form, regularity or coefficient-map proofs; no geometric supplier inferred."
+      },
+      {
+        "ref": "mathlib:Polynomial.Monic.free_adjoinRoot",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "lemma _root_.Polynomial.Monic.free_adjoinRoot (hg : g.Monic) : Module.Free R (AdjoinRoot g) :=",
+        "checked": "Actual statement and its ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; index entry verified, line 682. Used by the native polynomial normal-form, regularity or coefficient-map proofs; no geometric supplier inferred."
+      },
+      {
+        "ref": "mathlib:Polynomial.leadingCoeff_quadratic",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/SmallDegree.lean",
+        "provides": "theorem leadingCoeff_quadratic (ha : a ≠ 0) : leadingCoeff (C a * X ^ 2 + C b * X + C c) = a := by",
+        "checked": "Actual statement and its ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; index entry verified, line 113. Used by the native polynomial normal-form, regularity or coefficient-map proofs; no geometric supplier inferred."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_quadratic",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/SmallDegree.lean",
+        "provides": "theorem natDegree_quadratic (ha : a ≠ 0) : natDegree (C a * X ^ 2 + C b * X + C c) = 2 :=",
+        "checked": "Actual statement and its ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; index entry verified, line 109. Used by the native polynomial normal-form, regularity or coefficient-map proofs; no geometric supplier inferred."
+      },
+      {
+        "ref": "mathlib:Polynomial.basisMonomials",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Basis.lean",
+        "provides": "def basisMonomials : Basis ℕ R R[X] :=",
+        "checked": "Actual statement and its ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; index entry verified, line 29. Used by the native polynomial normal-form, regularity or coefficient-map proofs; no geometric supplier inferred."
+      },
+      {
+        "ref": "mathlib:Module.Basis.smulTower",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AlgebraTower.lean",
+        "provides": "def smulTower : Basis (ι × ι') R A :=",
+        "checked": "Actual statement and its ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; index entry verified, line 122. Used by the native polynomial normal-form, regularity or coefficient-map proofs; no geometric supplier inferred."
+      },
+      {
+        "ref": "mathlib:IsRegular.isSMulRegular",
+        "kind": "alias",
+        "module": "Mathlib/Algebra/Module/Torsion/Free.lean",
+        "provides": "alias IsRegular.isSMulRegular := IsTorsionFree.isSMulRegular",
+        "checked": "Actual statement and its ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; index entry verified, line 48. Used by the native polynomial normal-form, regularity or coefficient-map proofs; no geometric supplier inferred."
+      },
+      {
+        "ref": "mathlib:Polynomial.monic_X_sub_C",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Monic.lean",
+        "provides": "theorem monic_X_sub_C (x : R) : Monic (X - C x) := by",
+        "checked": "Actual statement and its ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; index entry verified, line 430. Used by the native polynomial normal-form, regularity or coefficient-map proofs; no geometric supplier inferred."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.ringHom_ext",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "lemma ringHom_ext {f g : AdjoinRoot p →+* T} (hAlg : f.comp (of p) = g.comp (of p))",
+        "checked": "Actual statement and its ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; index entry verified, line 186. Used by the native polynomial normal-form, regularity or coefficient-map proofs; no geometric supplier inferred."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.map_of",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "@[simp] lemma map_of (f : R →+* S) (p : R[X]) (q : S[X]) (h) (r : R) :",
+        "checked": "Actual statement and its ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; index entry verified, line 405. Used by the native polynomial normal-form, regularity or coefficient-map proofs; no geometric supplier inferred."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.map_root",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "@[simp] lemma map_root (f : R →+* S) (p : R[X]) (q : S[X]) (h) : map f p q h (root p) = root q := by",
+        "checked": "Actual statement and its ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; index entry verified, line 408. Used by the native polynomial normal-form, regularity or coefficient-map proofs; no geometric supplier inferred."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.eval₂_root",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "theorem eval₂_root (f : R[X]) : f.eval₂ (of f) (root f) = 0 := by",
+        "checked": "Actual statement and its ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; index entry verified, line 261. Used by the native polynomial normal-form, regularity or coefficient-map proofs; no geometric supplier inferred."
+      },
+      {
+        "ref": "mathlib:Module.subsingleton",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Defs.lean",
+        "provides": "protected theorem Module.subsingleton (R M : Type*) [MonoidWithZero R] [Subsingleton R] [Zero M]",
+        "checked": "Actual statement and its ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; index entry verified, line 157. Used by the native polynomial normal-form, regularity or coefficient-map proofs; no geometric supplier inferred."
       }
     ]
   },
@@ -1784,12 +1875,16 @@
         "mathlib:AdjoinRoot.of",
         "mathlib:AdjoinRoot.root",
         "mathlib:AdjoinRoot.lift",
-        "mathlib:Polynomial.evalRingHom"
+        "mathlib:Polynomial.evalRingHom",
+        "mathlib:Polynomial.leadingCoeff_quadratic",
+        "mathlib:Polynomial.natDegree_quadratic"
       ],
       "proofSteps": [
         "Use the nested polynomial A[Y][X] and the existing quotient AdjoinRoot F.",
         "Evaluation at (s,t) kills F, so its ring map descends.",
-        "Take the two-generator ideal and its actual R-linear dual."
+        "Take the two-generator ideal and its actual R-linear dual.",
+        "The native sectionEval body verifies evaluation of the nested polynomial at (s,t) by ring normalization; the quotient ideal and dual are the existing native objects.",
+        "polynomialMonic handles the subsingleton base separately and then uses leadingCoeff_quadratic; only polynomialNatDegree assumes Nontrivial A."
       ],
       "acceptance": [
         "The section can meet the singular point; no smoothness or invertibility of J is assumed."
@@ -1827,6 +1922,16 @@
           "name": "NodeSectionFactorization.PolynomialModel.sectionIdeal",
           "role": "data",
           "statement": "J is Ideal.span {u−ιs,v−ιt}; sectionDual is J→ₗ[R]R."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.polynomialMonic",
+          "role": "simp",
+          "statement": "F is monic over every commutative base ring, including the zero ring."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.polynomialNatDegree",
+          "role": "simp",
+          "statement": "For nontrivial A the outer polynomial F has natural degree two. This degree assertion is not made for the zero ring."
         }
       ],
       "tests": [
@@ -1844,6 +1949,21 @@
           "name": "NodeSectionFactorization.PolynomialModel.evaluationCoordinates",
           "kind": "compatibility",
           "statement": "Native AdjoinRoot.lift evaluates u,v and coefficients to s,t and the original coefficient."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.monicZeroBase",
+          "kind": "degenerate",
+          "statement": "The zero-base polynomial is monic; its natural degree is not asserted to be two."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.degreeCharacteristicTwo",
+          "kind": "computation",
+          "statement": "Over ZMod 2, F=X²+YX has outer natural degree two."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.regularOverNondomain",
+          "kind": "degenerate",
+          "statement": "Over ZMod 4 with γ=δ=s=t=0, multiplication by v remains injective despite coefficient zero divisors and zero discriminant."
         }
       ],
       "uses": [
@@ -1875,7 +1995,8 @@
       ],
       "proofSteps": [
         "For nonzero A, F is monic of degree two in X; the top nonzero coefficient of a product survives.",
-        "If A is the zero ring the domain is a singleton."
+        "If A is the zero ring the domain is a singleton.",
+        "The checked body applies Polynomial.Monic.isRegular directly to polynomialMonic; no discriminant or noetherian input is used."
       ],
       "acceptance": [
         "Do not deduce this from unit discriminant after specializing coordinates to a receiving ring."
@@ -1909,12 +2030,18 @@
       "prerequisites": [
         "StableReductionPartII:MC.2/polynomial-node-model",
         "mathlib:Polynomial.divByMonic",
-        "mathlib:Polynomial.modByMonic"
+        "mathlib:Polynomial.modByMonic",
+        "mathlib:AdjoinRoot.powerBasis'",
+        "mathlib:Polynomial.Monic.free_adjoinRoot",
+        "mathlib:Polynomial.basisMonomials",
+        "mathlib:Module.Basis.smulTower",
+        "mathlib:Module.subsingleton"
       ],
       "proofSteps": [
-        "Divide a representative by the monic quadratic F in X.",
-        "The remainder has X-degree less than two, giving the pair.",
-        "A difference of two such representatives divisible by F must vanish by degree, or is zero in the zero-ring case."
+        "Use the pinned AdjoinRoot.powerBasis' supplied by monic remainder division. Over nontrivial A, natDegree_quadratic identifies its dimension as two.",
+        "Reindex that basis by Fin 2. Its vectors are 1 and u; basis reconstruction supplies p(v)+u q₁(v), and applying the basis representation to an equality proves uniqueness of both coefficients.",
+        "Over the zero ring, Module.subsingleton makes both the quotient and the pair of coefficient polynomials subsingleton, proving the same unique-existence statement.",
+        "Monic.free_adjoinRoot gives freeness over A[Y]. Compose its power basis with Polynomial.basisMonomials using Basis.smulTower to obtain freeness over A; no truncation of v is introduced."
       ],
       "acceptance": [
         "No relation truncating powers of v is introduced."
@@ -1947,11 +2074,14 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.2/polynomial-normal-form",
-        "mathlib:Polynomial.Monic.isRegular"
+        "mathlib:Polynomial.Monic.isRegular",
+        "mathlib:Polynomial.monic_X_sub_C",
+        "mathlib:IsRegular.isSMulRegular"
       ],
       "proofSteps": [
         "In the unique two-coefficient form, multiplication by d multiplies each coefficient polynomial by Y−t.",
-        "Cancel the monic Y−t separately on both coefficient polynomials."
+        "Cancel the monic Y−t separately on both coefficient polynomials.",
+        "The native proof uses freeness over A[Y] to obtain Module.IsTorsionFree; apply IsRegular.isSMulRegular to the monic polynomial Y−t, then identify this scalar multiplication with multiplication by v−ιt. This notion of torsion freeness uses regular scalars over arbitrary rings, not a domain assumption."
       ],
       "acceptance": [
         "A can have zero divisors; d is not chosen to be invertible."
@@ -2690,12 +2820,16 @@
         "StableReductionPartII:MC.2/polynomial-node-model",
         "mathlib:AdjoinRoot.map",
         "mathlib:Polynomial.mapRingHom",
-        "mathlib:AdjoinRoot.map_comp_map"
+        "mathlib:AdjoinRoot.map_comp_map",
+        "mathlib:AdjoinRoot.map_of",
+        "mathlib:AdjoinRoot.map_root",
+        "mathlib:AdjoinRoot.ringHom_ext"
       ],
       "proofSteps": [
         "Coefficient mapping sends F to F′. Apply the existing quotient map construction.",
         "Check the images on the two variables and coefficients.",
-        "Use the existing composition law and generator extensionality for identity and composition."
+        "Use the existing composition law and generator extensionality for identity and composition.",
+        "The native map body checks the mapped defining relation. Pinned AdjoinRoot.map_of/map_root give its values. Ring-map extensionality on the coefficient polynomial ring and the adjoined root verifies identity and composition."
       ],
       "acceptance": [
         "No flatness or injectivity of f is required."
@@ -6230,11 +6364,13 @@
       "prerequisites": [
         "StableReductionPartII:MC.2/section-coefficient-map",
         "StableReductionPartII:MC.2/polynomial-normal-form",
-        "StableReductionPartII:MC.2/section-evaluation-kernel"
+        "StableReductionPartII:MC.2/section-evaluation-kernel",
+        "mathlib:AdjoinRoot.ringHom_ext"
       ],
       "proofSteps": [
         "Both sides are ring maps R→A′; evaluate them on u, v and every coefficient ιz.",
-        "Use the unique expression p(v)+u q₁(v) to reduce the equality to coefficientwise polynomial evaluation."
+        "Use the unique expression p(v)+u q₁(v) to reduce the equality to coefficientwise polynomial evaluation.",
+        "The checked native proof compares the two ring maps by AdjoinRoot.ringHom_ext; their values on coefficient polynomials and the root agree. This direct proof uses neither the admitted sectionEvaluationKernel body nor a flatness assumption."
       ],
       "acceptance": [
         "The equation holds also when f kills a nonzero coefficient; it is not cancellation through f."
@@ -9225,7 +9361,7 @@
   "prototypeCoverage": {
     "status": "partial",
     "compiled": true,
-    "reason": "Native signatures now include the actual mapped ideal and dual under flat ambient R→B, multiplication quotients, and completion of the actual dual/quotient modules over a noetherian polynomial node ring. These complement the arbitrary coefficient A→A′ comparison. Relative stable reflexivity, pointed completed-local hull identification and sheaf/arbitrary-base descent remain absent; all207 inherited geometric omissions remain. Proof bodies are unchecked.",
+    "reason": "Partial native polynomial-model checkpoint: fifteen specified proof bodies and nine examples have a checked, admission-free Mathlib-only extraction. The complete suggested file still contains admitted bodies. All 207 geometric omissions, relative stable-reflexivity, completed pointed-local identification and sheaf/arbitrary-base descent remain open; all implementation statuses remain unchecked.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -9336,7 +9472,9 @@
       "NodeSectionFactorization.PolynomialModel.completedDualEquivTensor",
       "NodeSectionFactorization.PolynomialModel.completedQuotientEquiv",
       "NodeSectionFactorization.PolynomialModel.completedQuotientEquivOf",
-      "NodeSectionFactorization.PolynomialModel.completedQuotientEquivTensor"
+      "NodeSectionFactorization.PolynomialModel.completedQuotientEquivTensor",
+      "NodeSectionFactorization.PolynomialModel.polynomialMonic",
+      "NodeSectionFactorization.PolynomialModel.polynomialNatDegree"
     ],
     "expressedTests": [
       "NodeForm.characteristicTwo",
@@ -9400,7 +9538,10 @@
       "NodeSectionFactorization.PolynomialModel.completedDualEvaluation",
       "NodeSectionFactorization.PolynomialModel.completedQuotientMultiplication",
       "NodeSectionFactorization.PolynomialModel.completedQuotientZero",
-      "NodeSectionFactorization.PolynomialModel.completedQuotientAwayFromSection"
+      "NodeSectionFactorization.PolynomialModel.completedQuotientAwayFromSection",
+      "NodeSectionFactorization.PolynomialModel.monicZeroBase",
+      "NodeSectionFactorization.PolynomialModel.degreeCharacteristicTwo",
+      "NodeSectionFactorization.PolynomialModel.regularOverNondomain"
     ],
     "omissions": [
       {
@@ -10532,20 +10673,38 @@
         "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquiv"
       ]
     },
-    "adapterBoundary": "The polynomial model has native algebra-equivalence, specified tensor-module action, R′-linear dual comparison, pure-tensor identity/composition and actual quotient transport signatures. The proofs remain unchecked. Completed-local, stable-reflexivity and arbitrary-family descent interfaces and all 207 inherited geometric omissions remain open.",
+    "adapterBoundary": "The elementary quadratic, matrix products, monic normal form, two regularity statements and coefficient-map compatibilities have verified native bodies in the suggested file. Cokernel/dual/tensor/ambient/completion comparisons remain admitted. These are proposed library adapters, not delivered geometric supplier types or a closed stage.",
     "validation": {
+      "exitCode": 0,
+      "wallSeconds": 14.58,
+      "admittedProofWarnings": 130,
+      "otherWarnings": 0,
+      "examples": 67,
+      "leanSha256": "7581e64bec5f64fcdbda9dabc15feaff726b4e9b3fbe20d56ef9b5557a027804",
+      "logSha256": "8f3796af970ab4aca468391be7cba94e7115d3d32de88661136a7ea7d5d62150",
+      "reader": "Codex — codex-J6LwjP",
       "date": "2026-10-02",
       "toolchain": "Lean 4.34.0-rc2",
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-      "exitCode": 0,
-      "admittedProofWarnings": 114,
-      "otherWarnings": 0,
-      "wholeFile": true,
-      "leanSha256": "d0149f43f296f48382b135f4e78ff4e7c5ab2d5caca380c240bc07086afd8dea",
-      "logSha256": "579e1cb923f09525dd16d34ee0dc28c70f48040814502b1c33770bab8e398235",
-      "examples": 49
+      "wholeFile": true
     },
     "compilation": {
+      "exitCode": 0,
+      "wallSeconds": 14.58,
+      "admittedProofWarnings": 130,
+      "otherWarnings": 0,
+      "examples": 67,
+      "leanSha256": "7581e64bec5f64fcdbda9dabc15feaff726b4e9b3fbe20d56ef9b5557a027804",
+      "logSha256": "8f3796af970ab4aca468391be7cba94e7115d3d32de88661136a7ea7d5d62150",
+      "reader": "Codex — codex-J6LwjP",
+      "date": "2026-10-02",
+      "toolchain": "Lean 4.34.0-rc2",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "wholeFile": true,
+      "imports": "Mathlib-only; exact existing pinned build. No combined TauCeti or geometric family/sheaf check.",
+      "availableMemoryGiB": 71
+    },
+    "previousCompilation": {
       "reader": "Codex — codex-5ebb6f",
       "date": "2026-10-02",
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -10559,6 +10718,76 @@
       "maxRssKiB": 2914636,
       "suggestedSha256": "46cd42d06b12bb85540ccab7a105887c3011dab41a23b8f855e8162c4380ed6c",
       "logSha256": "e75e04e713e9f19ac5720c37fe08b24274a070aef12071266ad93754d3ab0b28"
+    },
+    "previousValidation": {
+      "date": "2026-10-02",
+      "toolchain": "Lean 4.34.0-rc2",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "exitCode": 0,
+      "admittedProofWarnings": 114,
+      "otherWarnings": 0,
+      "wholeFile": true,
+      "leanSha256": "d0149f43f296f48382b135f4e78ff4e7c5ab2d5caca380c240bc07086afd8dea",
+      "logSha256": "579e1cb923f09525dd16d34ee0dc28c70f48040814502b1c33770bab8e398235",
+      "examples": 49
+    },
+    "nativeProofVerification": {
+      "status": "partial",
+      "reader": "Codex — codex-J6LwjP",
+      "date": "2026-10-02",
+      "claimComment": 5956261158,
+      "claimConfirmation": 5956264736,
+      "baseCommit": "c88d8b3b5ebd6ba36e912657b2ea567070cde5ea",
+      "provedBodies": [
+        "NodeForm.eval",
+        "NodeForm.map",
+        "NodeSectionFactorization.products",
+        "NodeSectionFactorization.PolynomialModel.sectionEval",
+        "NodeSectionFactorization.PolynomialModel.coefficientMap",
+        "NodeSectionFactorization.PolynomialModel.polynomialMonic",
+        "NodeSectionFactorization.PolynomialModel.polynomialNatDegree",
+        "NodeSectionFactorization.PolynomialModel.normalForm",
+        "NodeSectionFactorization.PolynomialModel.normalFormFree",
+        "NodeSectionFactorization.PolynomialModel.sectionCoordinateRegular",
+        "NodeSectionFactorization.PolynomialModel.polynomialRelationRegular",
+        "NodeSectionFactorization.PolynomialModel.coefficientMapValues",
+        "NodeSectionFactorization.PolynomialModel.coefficientMapEvaluation",
+        "NodeSectionFactorization.PolynomialModel.coefficientMapIdentity",
+        "NodeSectionFactorization.PolynomialModel.coefficientMapComposition"
+      ],
+      "extraction": {
+        "exitCode": 0,
+        "wallSeconds": 4.07,
+        "admittedProofWarnings": 0,
+        "otherWarnings": 0,
+        "examples": 9,
+        "leanSha256": "ed81b7a6e2b0926f2fd3df0f6742694b42155c495ff0903e23ac92da99094c0c",
+        "logSha256": "d63be0284b90a6afbb03e6d736af2aa6f28aaf086cd0e2fcff641522cdd5f25a",
+        "axiomPrints": 15,
+        "hasSorryAx": false
+      },
+      "scope": "Matching proof bodies and nine examples extracted with their native definitions/imports; all fifteen axiom prints contain only propext, Classical.choice and Quot.sound where needed. NodeForm.eval has no axioms. The rest of the submitted file is not claimed proved; all implementation statuses remain unchecked.",
+      "atlasProjection": {
+        "stageDag": {
+          "vertices": 3050,
+          "edges": 8750
+        },
+        "ownedDag": {
+          "vertices": 118,
+          "edges": 264
+        },
+        "scopedDag": {
+          "vertices": 3133,
+          "edges": 9246
+        },
+        "scopedDeclarations": 118,
+        "reachableSupplierPairs": 178,
+        "pendingLinks": [],
+        "skippedLinks": [],
+        "stageEdgesUnchanged": true,
+        "statementsHypothesesRequestsGapsPreserved": true,
+        "unchangedNodeObjects": 112
+      }
     }
   },
   "upstreamImportEncoding": {
@@ -10661,6 +10890,14 @@
       "scope": "Fresh visual reading of scanned PDF31–39, printed191–199: Appendix introduction, Definition1, Theorem2 and its proof, Corollary3, Propositions4–7, explicit split-node matrices/homotopy/dual example and bibliography. Bourbaki III5.4.4 was not acquired; Proposition6 has only that citation and Proposition7 is left as an exercise. No claim to have read their proofs. Earlier §§1–3 reading remains historical.",
       "version": "Math.Scand.52(1983),161–199;39 scanned PDF pages",
       "sha256": "18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230"
+    },
+    {
+      "sourceId": "knudsen2012",
+      "reader": "Codex — codex-J6LwjP",
+      "date": "2026-10-02",
+      "url": "https://arxiv.org/pdf/1106.1588v2",
+      "scope": "Fresh selected extracted PDF text: §3 setup and monic normal-form/cancellation calculation, printed pp.11–12 (PDF pages10–11), including the noetherian/unit-discriminant hypotheses of Proposition3.1. No fresh whole-paper or visual-scan reading claimed; other source and Appendix receipts remain historical.",
+      "use": "Supplies the published polynomial model. The actual native normal-form and regularity proofs justify their arbitrary-ring range directly; no strengthening of relative stable reflexivity or completed-family descent is asserted."
     }
   ]
 }

@@ -1,3 +1,110 @@
+# Polynomial normal form and regularity — Codex, 2026-10-02
+
+Refs #3342; Codex — codex-J6LwjP. Claim5956261158 confirmed by bot5956264736.
+The whole issue was read before claiming and reread after confirmation.
+Base c88d8b3b5ebd6ba36e912657b2ea567070cde5ea. This is a partial checkpoint.
+
+All118 node IDs, statements, hypotheses, source routes, consumer requirements,
+135 requests and14 gap groups are preserved. 112 complete node objects are
+unchanged; six existing proof/API/prerequisite outlines are enriched. There
+are135 API items,128 definition/construction tests plus two inherited exactness
+tests,35 unchanged planets and63 inspected pinned-library declarations.
+All eight stages remain partial and every implementationStatus unchecked.
+The 207-entry geometric omission ledger and unapproved ownership proposal
+remain unchanged. No generic algebra or upstream geometry is replanned.
+
+## Actual native proof bodies
+
+Fifteen bodies have matching admission-free checks:
+NodeForm.eval/map; NodeSectionFactorization.products; and PolynomialModel's
+sectionEval, coefficientMap, polynomialMonic, polynomialNatDegree, normalForm,
+normalFormFree, sectionCoordinateRegular, polynomialRelationRegular,
+coefficientMapValues, coefficientMapEvaluation, coefficientMapIdentity and
+coefficientMapComposition. The two polynomial degree/monicity helpers are
+added to the existing polynomial-model API; no new declaration node is needed.
+
+The normal-form proof reuses AdjoinRoot.powerBasis' and its basis vectors.
+Nontrivial A gives degree2; the zero ring is handled separately by actual
+subsingleton modules. The monomial basis and scalar tower give freeness over A.
+Freeness over A[Y] and the existing arbitrary-ring regular-scalar torsion-free
+instance prove injectivity of multiplication by v−ιt. F itself is regular by
+monicity. No unit discriminant, domain, noetherianity or flatness of a coefficient
+map is used. Ring-map extensionality proves coefficient-map compatibilities
+without depending on the admitted evaluation-kernel or dual theorems.
+
+Six old examples now have actual proofs. Three additional packet/native tests
+cover zero-base monicity, quadratic degree in characteristic two, and section
+coordinate regularity over ZMod4 with zero discriminant. All nine appear in the
+proved extraction. Other examples and comparison theorems remain admitted.
+
+## Executed verification
+
+Mathlib remains082e2d37e8b0463410cdb532e111cd43d5a66174; TauCeti baseline
+f790474821cf4256814db967cb154e7af3d0c369. Thirteen newly cited baseline statements,
+their ambient hypotheses and exact index names were read and checked.
+Fresh selected extracted source text: Knudsen2012 §3 setup and monic normal-form
+calculation, printed11–12/PDF10–11, at the exact v2 URL in sourceReadReceipts.
+No fresh visual or whole-paper reading is claimed. The latest handoff and
+reviewed parent layers1/3 were read; prior continuous-session upstream and
+consumer-brief readings remain applicable. Earlier Appendix and finite
+regression receipts below remain historical, not rerun.
+
+Complete exact submitted Mathlib-only file: exit0, zero errors,
+130 admitted-proof warnings, zero other warnings,
+67 examples, 14.58 seconds. Source SHA-256:
+`7581e64bec5f64fcdbda9dabc15feaff726b4e9b3fbe20d56ef9b5557a027804`;
+log SHA-256:
+`8f3796af970ab4aca468391be7cba94e7115d3d32de88661136a7ea7d5d62150`.
+
+Matching extraction: exit0, zero warnings, nine examples, 4.07 seconds.
+All fifteen axiom prints exclude an admitted-proof axiom; only propext,
+Classical.choice and Quot.sound occur where needed. NodeForm.eval uses none.
+Extraction SHA-256:
+`ed81b7a6e2b0926f2fd3df0f6742694b42155c495ff0903e23ac92da99094c0c`;
+axiom-log SHA-256:
+`d63be0284b90a6afbb03e6d736af2aa6f28aaf086cd0e2fcff641522cdd5f25a`.
+The extraction is reproducible by retaining the listed declarations, their
+native definitions/imports and these nine examples from the submitted file,
+then printing each declaration's axioms. These are candidate bodies in a
+suggested file, not a claim of delivered formalized geometry.
+
+One existing pinned compiler ran at a time with timeout1200s and at least71GiB
+available; no project, cache, library build or LSP was started. No compiler is
+left running. Owned scratch is removed after opening the PR; receipts needed
+for continuation are durable here and in prototypeCoverage.
+
+Indexed packet checker, five-file intake and whitespace checks pass.
+Read-only current atlas projection: stage DAG3050 vertices/8750 edges; owned
+DAG118/264; scoped stages/declarations/requests DAG3133/9246, all acyclic.
+All178 supplier pairs are reachable, with no own pending/skipped links.
+Stage edges are identical before/after this checkpoint. This checks the scoped
+closure, not every accepted declaration graph. The read-only overlay does not
+write generated atlas data or promote this packet.
+
+## Continuation
+
+Use the now proved elementary foundation when filling the admitted
+section-evaluation kernel, exact alternating/transpose complexes and actual
+cokernel/dual/tensor comparisons. The ambient and module-completion signatures
+are preserved but their proofs remain admitted. Do not infer Knudsen's relative
+stable reflexivity from the ordinary flat Hom comparison.
+
+Resolve the unapproved StablePeriodicCurved, PartII ownership proposal, the
+relative S→R criterion with arbitrary S-module Hom/Ext comparisons, and the
+two-base local completion comparison of Appendix Proposition6. Its Bourbaki
+input is still unacquired; Proposition7 is still an exercise. Then establish
+the pointed completed-local hull, coefficient-compatible faithful descent,
+actual nodal-family/sheaf interfaces and arbitrary-base finite-presentation
+approximation. Global dual-section and universal-curve geometry remain open.
+All MC.0–MC.7 consumer, shared-key, positivity, level, determinant, Picard/Torelli
+and source-collation gaps remain as recorded.
+
+## Historical predecessor handoff
+
+The following is the preceding worker's118-node checkpoint, retained for
+source, completion and ownership detail. Its fresh-reading and compile claims
+belong to that worker and are not new checks by codex-J6LwjP.
+
 # Flat ambient transport and module completion — Codex, 2026-10-02
 
 Refs #3342; DESIGN-StableReductionPartII; Codex — codex-5ebb6f.
