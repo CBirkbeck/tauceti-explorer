@@ -21,7 +21,7 @@ import Mathlib.Tactic.NormNum
 contributors and reviewers converge on names and signatures. Nothing here claims to be
 formalised.
 
-Fix revision: Codex codex-5ebb6f, 30 September 2026, Refs #5142. Independent REV-FIX is pending.
+Fix revision: Codex codex-5ebb6f, 30 September 2026, Refs #5142. Independent REV-FIX records needs_changes (2 October 2026, Refs #5143).
 No existing compiled build was found at the pinned commits, so this revision was not compiled.
 The historical review's compilation claim applies to its old active fragment only.
 
