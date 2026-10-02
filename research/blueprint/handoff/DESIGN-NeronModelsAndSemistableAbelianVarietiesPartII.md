@@ -1,3 +1,76 @@
+# DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII — current quadratic basis checkpoint
+
+Codex — codex-5ebb6f; 2 October2026; Refs #3378. Confirmed claim5958170336 following comment5958167836. Base b9239798babb94f290b4302764f457bacfe87d36, after merged PR#5816. This receipt supersedes only the preceding vector-space Basis/coordinate omission. All earlier source readings, certificates and unresolved obligations keep their attribution below.
+
+## Result and exact scope
+
+The existing quadratic-pinch-generation statement now has its promised actual native k-vector-space Basis and exact coefficient/degree interface. Five nodes are added: coordinateMap, its bijectivity, the canonical native LinearEquiv, transported native Module.Basis, and its coefficient representation theorem. q=t²+at+b over any field; A_q is the existing scalar-preimage Subalgebra in k[t]. The forward function is(P,Q)↦P(q)+tqQ(q). It is built by native aeval into A_q and multiplication by its actual member tq. Membership does not use the generation theorem, so the newly sharpened generation prerequisites do not create a cycle.
+
+Existence uses the inherited pinch_spanning API; uniqueness uses the actual quadratic degree and pinch-normal-form injectivity. Native LinearEquiv.ofBijective supplies the inverse, including the iff between an ambient normal-form equation and the assigned pair. Transport Polynomial.basisMonomials.prod through that equivalence. With indexℕ⊕ℕ the vectors are q^n and tq^(n+1), with degrees2n and2(n+1)+1. Left index0 is1. The actual Finsupp basis representation has coefficients coeff_n(P) and coeff_n(Q), and its linearCombination reconstructs f in the actual subalgebra.
+
+No separability, irreducibility, perfectness or characteristic assumption is used. This is a k-linear equivalence, not a product AlgEquiv: at q=t² the second unit gives t³, whose square is t⁶ rather than t³. A basis vector can have a nonzero t coefficient: over F₂, q=t²+t+1 has coefficient1 at t. Absence of a degree1 basis vector is a statement about whole polynomial degrees. The nine distinct typed examples include those two failed strengthenings, arbitrary zero input, characteristic-two generator values, the first-coordinate evaluation distinction t↦q, repeated-root round trips, all cusp exponents, index0/zero coordinates and the absence of degree1 across the whole basis family.
+
+Current inventory:163 nodes(13 definitions,5 constructions,114 lemmas,26 theorems,5 comparisons),72 APIs,70 definition/construction test entries(9 distinct new examples, one shared between two constructions),110 baseline declarations,29 planets,17 gap groups,23 requests and7 partial stages. All158 inherited node statements,157 whole node objects, all prior APIs/tests,78 route records and21 source findings are preserved. Only quadratic-pinch-generation has its proof/prerequisites sharpened. All statuses are unchecked. No new planet, general polynomial/basis carrier, foundational supplier or geometric model is claimed.
+
+## Source and owner reading
+
+Fresh [Schröer v3 HTML](https://arxiv.org/html/2004.07025v3): §3 conductor paragraphs for one/two components and the complete displayed Prop3.1–3.2 proofs. Fresh HTML SHA256 d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456. These helpers are derived affine coordinate adapters, not printed source lemmas and not a global curve comparison. Fresh [Stacks0ECH](https://stacks.math.columbia.edu/tag/0ECH): scheme-existence scope, Situation37.67.1 hypotheses and Prop37.67.3 with its proof; the affine-neighborhood condition remains essential. No fresh PDF visual inspection, full-paper collation or rerun of historical finite model scripts is claimed. All21 inherited source findings remain unchanged; no new source error is alleged.
+
+Read reviewed AUDIT01/10 parent R11.1–6 and SF.0 rows before planning; PartII has no dedicated reviewed row. The selected accepted RS25 parent/supplier owner records and reserved Ferrand/owner entries are preserved. General relative Spec/Proj, cohomology and normalization stay with their suppliers. No whole-library absence claim follows from this screen. The12 additional exact pinned baseline statements import generic monomial/product/transported bases, finite-support reconstruction, algebra evaluation, bijective linear equivalences and polynomial-power degree. Their complete declarations and ambient hypotheses were read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Historical TauCeti/roadmap full-reading receipts retain their provenance.
+
+## Proof prototype versus submitted signatures
+
+[Immutable actual proof source](https://github.com/CBirkbeck/tauceti-explorer/blob/8337fdebca30e16ce95570df80f9680e05659f32/research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean), commit `8337fdebca30e16ce95570df80f9680e05659f32`. It contains the actual bodies of all14 new named declarations and9 examples. The exact extraction and its14 axiom prints compiled together at the pinned existing Mathlib build:0 errors,0 warnings,13 examples(9 new,4 inherited),3.01 seconds,3,333,480KiB maximum RSS,69GB available before compilation. All14 new declaration axiom lists contain only propext, Classical.choice and Quot.sound, with no admitted axiom. No library build, cache, dependency update or language server was started.
+
+The submitted suggested file admits every new body under PROTOCOL§13:14 named declarations and9 examples, with byte-identical signatures to the public proof snapshot. It preserves the existing native proof bodies outside this block. The exact final Mathlib-only extraction(companion native Subring namespace plus final QuadraticPinch namespace through finite_normalization) compiled:29 examples,0 errors,29 admission warnings(6 inherited plus23 new),0 other warnings,3.10 seconds,3,348,892KiB maximum RSS,68GB available. **The full combined TauCeti-importing suggested file was not compiled**; the required exact TauCeti artifacts are unavailable. That scope remains open and is not certified by a narrow Mathlib extraction.
+
+SHA256 receipts:
+
+- Public full proof source: `be50fcb22ae6401fb49cbc293095732925344d37d1b8ec88734a13ac492d35cc`.
+- Proof extraction: `3bbca723269cbdf9c01f1e5633191990822ae9c26aafa702a2dec413a2de97dd`.
+- Proof extraction with14 axiom prints: `7aa26bde4cf922775057e8aa93c8cf7193f6143ba0ffca66f2e4b003cb4d3d5c`.
+- Proof/axiom log: `00916d4227af6c6236fc5d5f88d15f133cdccd6e85b982c83374876bcf47ee4f`.
+- Submitted full source: `5cc2d7e77719c9fc4c20110500de6a81f3284fdcd4a07b25ba65c853ed458c9a`.
+- Submitted native extraction: `6883a0f9dc413603782679844a89cdebea30460a8eccc15ac9aed0d2ad9bbd60`.
+- Submitted extraction log: `29154ecd8cc9016cb827f9ade911607ab75993976d235c462c5011ca41b5eed6`.
+
+The source/artifact hashes, memory/timing data, scope and graph receipt are also in quadraticBasisContinuation in the packet. Compiler log hashes describe this run; absolute invocation names and timing vary on reproduction. Source reconstruction below was checked byte-for-byte against the public immutable commit before scratch cleanup.
+
+## Validation and next work
+
+Indexed blueprint checker:0 errors,0 warnings. Actual atlas assembler with the current roadmap and packet:2,992 stage vertices plus51 existing virtual endpoints,8,727 stage edges; the packet has163 nodes/422 internal prerequisite edges. The combined graph has3,177 vertices/9,298 edges. All three graphs are acyclic;55 supplied stage pairs are reachable; no unresolved prerequisite, pending link or skipped integration edge. Stage requires and the general Ferrand key-definition statement are unchanged. Intake path/JSON checks, inherited-object preservation, packet/reader/signature parity,23 admitted-body checks and whitespace checks pass.
+
+Resume with the actual bivariate presentation: transport k[U,V] to polynomials in V over k[U], divide by the monic quadratic relation, prove the remainder normal form and identify the actual full kernel/range and quotient AlgEquiv. The current coefficients certify only the specialized affine normal-form calculation. Finite normalization/localization/common fraction field, a k[q]-module freeness interface, projective P¹ chart comparisons, node/branch/completion and H0/H1/base-change interfaces remain separate. The earlier projective receipts below provide candidate coordinate calculations, not already registered native declarations. All17 gap groups and23 supplier requests remain; broader DVR/wild-fiber, rational-surface and model-completeness/source closure remains necessary.
+
+## Reproduce the immutable proof extraction
+
+Obtain the suggested file from the exact public commit above as ProofSuggested.lean, then run this Python3 program. Run the resulting ProofAudit.lean from the root of an already existing build at the exact Mathlib pin with `lake env lean`; do not set up or download a build for this checkpoint. A fresh WORKERS memory check still applies.
+
+```python
+from pathlib import Path
+import re
+s = Path('ProofSuggested.lean').read_text()
+head = '\n'.join(x for x in s.splitlines()
+    if x.startswith('import Mathlib.') or x.startswith('import Lean.'))
+head += '\nopen scoped Polynomial\nuniverse u\nnoncomputable section\n'
+body = s[s.index('namespace TauCeti.GenusOne.QuadraticPinch'):
+         s.index('-- test: QuadraticPinch.test_split')]
+native = head + body + '\nend TauCeti.GenusOne.QuadraticPinch\n'
+Path('ProofNative.lean').write_text(native)
+block = s[s.index('-- Quadratic coordinate/basis continuation.'):
+          s.index('-- test: QuadraticPinch.test_split')]
+names = re.findall(r'^(?:def|lemma) (\w+)', block, re.M)
+audit = native + '\n' + '\n'.join(
+    '#print axioms TauCeti.GenusOne.QuadraticPinch.' + n for n in names) + '\n'
+Path('ProofAudit.lean').write_text(audit)
+```
+
+For the submitted extraction, use the submitted source instead. Retain its Mathlib/Lean import lines, then the original open declarations/universe/noncomputable section, then the native Subring namespace before AffinePinching and the final QuadraticPinch namespace before the quadratic-point-proper-pushout marker; close the latter namespace. This exactly excludes the TauCeti imports and unverified geometry while retaining the unchanged native carriers, all29 extracted examples and their stated admissions.
+
+---
+
+## Historical handoff, preserved with original attribution
+
 # Quadratic normal forms and native generation — current checkpoint
 
 Codex — `codex-a71f92`. Refs #3378. 2 October2026.

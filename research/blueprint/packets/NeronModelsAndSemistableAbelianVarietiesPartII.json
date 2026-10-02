@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with158 declarations. This continuation adds four declaration-sized quadratic normal-form adapters, a polynomial spanning API, native generation/cusp proofs and three discriminating characteristic-two/degree-boundary tests. All154 inherited IDs/statements,78 routes,21 source findings,23 requests and29 planets are preserved. Generic polynomial machinery is imported from the pinned baseline; complete native basis/presentation/normalization and global geometric/cohomological/model interfaces remain open. No formalisation or closure claim; all statuses stay unchecked.",
+  "summary": "Seven-stage partial design with 163 declarations. This continuation adds five specialized k-linear coordinate/Basis nodes, eleven API entries and nine distinct typed examples. Every inherited node ID/statement,78 routes,21 source findings,23 requests and29 planets is retained. The actual native basis/representation/degree portion of quadratic-pinch-generation now has signatures and a separate proof prototype. Generic basis and polynomial machinery is imported; complete bivariate presentation, normalization and global geometric/cohomological/model interfaces remain open. All statuses stay unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -813,6 +813,102 @@
         "line": 550,
         "provides": "If the generating set lies in a subalgebra S, its adjoin is contained in S.",
         "checked": "Codex codex-a71f92 personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. These generic facts are imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Polynomial.basisMonomials",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Basis.lean",
+        "line": 29,
+        "provides": "Native polynomial monomial basis over any semiring.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-02. Imported generic machinery; no new implementation is planned."
+      },
+      {
+        "ref": "mathlib:Polynomial.coe_basisMonomials",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Basis.lean",
+        "line": 33,
+        "provides": "The native basis vector at n is monomial n1.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-02. Imported generic machinery; no new implementation is planned."
+      },
+      {
+        "ref": "mathlib:Module.Basis.prod",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/Prod.lean",
+        "line": 41,
+        "provides": "Product module basis indexed by the disjoint sum of the two index types.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-02. Imported generic machinery; no new implementation is planned."
+      },
+      {
+        "ref": "mathlib:Module.Basis.prod_apply",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Prod.lean",
+        "line": 87,
+        "provides": "The product basis vectors are the two component inclusions.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-02. Imported generic machinery; no new implementation is planned."
+      },
+      {
+        "ref": "mathlib:Module.Basis.prod_repr_inl",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Prod.lean",
+        "line": 45,
+        "provides": "The left product representation coordinate is the first basis representation.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-02. Imported generic machinery; no new implementation is planned."
+      },
+      {
+        "ref": "mathlib:Module.Basis.prod_repr_inr",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Prod.lean",
+        "line": 49,
+        "provides": "The right product representation coordinate is the second basis representation.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-02. Imported generic machinery; no new implementation is planned."
+      },
+      {
+        "ref": "mathlib:Module.Basis.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "line": 168,
+        "provides": "Transport a native basis through an existing linear equivalence; repr applies its inverse.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-02. Imported generic machinery; no new implementation is planned."
+      },
+      {
+        "ref": "mathlib:Module.Basis.linearCombination_repr",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "line": 156,
+        "provides": "Reconstruction from finitely supported basis coordinates, for arbitrary index type.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-02. Imported generic machinery; no new implementation is planned."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.ofBijective",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Equiv.lean",
+        "line": 183,
+        "provides": "A bijective semilinear map induces an equivalence; ordinary linear maps are a specialization.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-02. Imported generic machinery; no new implementation is planned."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.ofBijective_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/Equiv.lean",
+        "line": 189,
+        "provides": "The equivalence has the original map as its forward function.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-02. Imported generic machinery; no new implementation is planned."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_pow",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Domain.lean",
+        "line": 52,
+        "provides": "Natural degree of a polynomial power over a semiring with no zero divisors, including exponent0 and the zero polynomial.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-02. Imported generic machinery; no new implementation is planned."
+      },
+      {
+        "ref": "mathlib:Polynomial.aeval",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/AlgebraMap.lean",
+        "line": 257,
+        "provides": "Evaluate polynomials as an algebra homomorphism into an existing algebra, including a native subalgebra.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-02. Imported generic machinery; no new implementation is planned."
       }
     ]
   },
@@ -7804,8 +7900,8 @@
       "proofSteps": [
         "Write f=c+qh by the native membership criterion and decompose h=P(q)+tQ(q) using quadratic-normal-form-exists.",
         "In S=k[q,tq], native aeval into the subalgebra, aeval_subalgebra_coe and comp_eq_aeval show every P(q) and Q(q) belongs. Thus f=c+qP(q)+(tq)Q(q) lies in S. Conversely q and tq are in A_q, so adjoin_le proves S⊆A_q. This adjoin equality now has a native proof.",
-        "The spanning API rewrites f as P′(q)+tqQ(q). Expand P′ and Q into native polynomial coefficient sums to obtain the displayed vector-space spanning family. Pinch normal-form injectivity makes its coefficients unique.",
-        "Each q^i is monic of degree2i and tq^j is monic of degree2j+1; with1 their degrees are distinct, and degree1 is absent. The native Basis object, coefficient representation and this full degree-family interface remain explicitly omitted; the suggested generation signature certifies the adjoin equality only."
+        "The native coordinates equivalence constructs the unique pair P,Q with f=P(q)+tqQ(q). Transport the product polynomial monomial bases through that equivalence; the resulting actual Basis has vectors q^n and tq^(n+1), and its Finsupp representation coordinates are the coefficients of P,Q.",
+        "The basis_degrees API proves degrees2n and2(n+1)+1; left n=0 gives1. Thus the advertised full vector-space basis and degree-family interface now have native signatures and a separately checked prototype. The adjoin equality remains its existing generation signature. A k[q]-module freeness interface, the bivariate presentation and geometric normalization are separate obligations."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
@@ -7814,7 +7910,9 @@
         "mathlib:Polynomial.aeval_subalgebra_coe",
         "mathlib:Polynomial.comp_eq_aeval",
         "mathlib:Algebra.subset_adjoin",
-        "mathlib:Algebra.adjoin_le"
+        "mathlib:Algebra.adjoin_le",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-basis",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-basis-repr"
       ],
       "sources": [
         {
@@ -8523,6 +8621,348 @@
       },
       "implementationStatus": "unchecked",
       "declarationName": "QuadraticPinch.pinch_normal_form_injective"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinate-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Linear coordinates in a quadratic pinch",
+      "kind": "definition",
+      "statement": "For any field k and a,b∈k, put q=t²+at+b and A_q={f∈k[t]:f mod q is scalar}, the existing native Subalgebra. Define the actual k-linear map M_(a,b):k[t]×k[t]→A_q by (P,Q)↦P(q)+tqQ(q). The product has its ordinary componentwise k-module structure. This is a linear map, not an algebra homomorphism.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The elements u=q and v=tq belong to A_q by its membership criterion, with witnesses (0,1) and (0,t). Use native aeval at u into A_q to define M(P,Q)=aeval_u(P)+v·aeval_u(Q). This construction proves membership without assuming the generation theorem or constructing a new carrier.",
+        "The two aeval maps are k-linear, and multiplication by fixed v is k-linear. Their sum on the product proves addition and scalar laws. aeval_subalgebra_coe and comp_eq_aeval give the exact ambient polynomial formula.",
+        "The monic displayed quadratic has native natural degree2 in every characteristic. The generic degree machinery is already in Mathlib; quadratic_natDegree is just this coefficient-specific helper."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+        "mathlib:Polynomial.aeval",
+        "mathlib:Polynomial.aeval_subalgebra_coe",
+        "mathlib:Polynomial.comp_eq_aeval"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10 conductor squares and Proposition3.2, p11; v3 HTML corresponding conductor paragraphs and full displayed Prop3.1–3.2 proofs freshly read",
+          "match": "Derived affine coordinate/Basis adapters for the already owned quadratic pinch. These are not attributed as printed lemmas or as a proof of the global curve comparison."
+        }
+      ],
+      "acceptance": [
+        "The map sends (t,0) to q, not to t; the product coordinates do not carry the multiplicative structure of A_q."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.coordinateMap",
+      "api": [
+        {
+          "name": "QuadraticPinch.quadratic_natDegree",
+          "role": "simp",
+          "statement": "natDegree(t²+at+b)=2 over every field, including a=b=0 and characteristic2."
+        },
+        {
+          "name": "QuadraticPinch.coordinateMap_coe",
+          "role": "characterisation",
+          "statement": "The ambient polynomial of M_(a,b)(P,Q) is P(q)+tqQ(q)."
+        },
+        {
+          "name": "QuadraticPinch.coordinateMap_bijective",
+          "role": "characterisation",
+          "statement": "The actual coordinateMap is bijective; this assertion is promoted to quadratic-pinch-coordinate-bijective."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.test_map_zero",
+          "kind": "degenerate",
+          "statement": "M_(a,b)(0,0)=0 for arbitrary a,b over any field."
+        },
+        {
+          "name": "QuadraticPinch.test_map_char2_generators",
+          "kind": "computation",
+          "statement": "For k=F₂ and q=t²+t+1, M(t,0)=q and M(0,1)=tq as actual polynomials."
+        },
+        {
+          "name": "QuadraticPinch.test_map_not_identity",
+          "kind": "non-example",
+          "statement": "For q=t² over any field, M(t,0)=t²≠t. The first coordinate evaluates at q, not at t."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinate-bijective",
+          "how": "Turn polynomial spanning and injectivity into bijectivity of a map into the actual subalgebra."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinates",
+          "how": "Supply the forward native linear map for the canonical equivalence."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinate-bijective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Bijectivity of affine pinch coordinates",
+      "kind": "lemma",
+      "statement": "For every field k and a,b∈k, the actual k-linear map M_(a,b):(k[t]×k[t])→A_(t²+at+b) is bijective. There is no separability or characteristic hypothesis.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Coerce equality of two outputs into the ambient polynomial ring. coordinateMap_coe turns it into equality of P(q)+tqQ(q); quadratic-pinch-normal-form-injective with quadratic_natDegree gives equality of both inputs.",
+        "For a native element f of A_q, use the existing pinch_spanning API to obtain P,Q with f=P(q)+tqQ(q). The ambient formula and Subtype.ext give M(P,Q)=f.",
+        "This combines the specialized existence and uniqueness already planned here; generic bijective-map-to-equivalence machinery is imported from the library."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinate-map",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normal-form-injective"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10 conductor squares and Proposition3.2, p11; v3 HTML corresponding conductor paragraphs and full displayed Prop3.1–3.2 proofs freshly read",
+          "match": "Derived affine coordinate/Basis adapters for the already owned quadratic pinch. These are not attributed as printed lemmas or as a proof of the global curve comparison."
+        }
+      ],
+      "acceptance": [
+        "The repeated-root case q=t² over F₂ still has a two-sided coordinate inverse."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.coordinateMap_bijective"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinates",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Canonical linear equivalence for a quadratic pinch",
+      "kind": "construction",
+      "statement": "For every field k and a,b∈k, define e_(a,b):(k[t]×k[t])≃ₗ[k]A_(t²+at+b) as native LinearEquiv.ofBijective of the actual coordinateMap and its bijectivity proof. Its inverse assigns to f the unique polynomial pair (P,Q) with f=P(q)+tqQ(q). This is only a k-linear equivalence; componentwise pair multiplication is not transported unchanged.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply the existing LinearEquiv.ofBijective to M and the previous bijectivity theorem. No separately axiomatized inverse, new module structure or separability predicate is introduced.",
+        "ofBijective_apply gives the ambient formula e(P,Q)=P(q)+tqQ(q). Apply that formula to e⁻¹(f), then the native inverse law, to reconstruct f.",
+        "Native left and right inverse laws make the coordinates unique. For q=t², e(0,1)=t³, while e((0,1)²)=t³ differs from e(0,1)²=t⁶; the construction cannot be strengthened to a product AlgEquiv."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinate-map",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinate-bijective",
+        "mathlib:LinearEquiv.ofBijective",
+        "mathlib:LinearEquiv.ofBijective_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10 conductor squares and Proposition3.2, p11; v3 HTML corresponding conductor paragraphs and full displayed Prop3.1–3.2 proofs freshly read",
+          "match": "Derived affine coordinate/Basis adapters for the already owned quadratic pinch. These are not attributed as printed lemmas or as a proof of the global curve comparison."
+        }
+      ],
+      "acceptance": [
+        "Round-trip arbitrary P,Q over F₂ at q=t²; multiplication of the second unit violates the product algebra formula."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.coordinates",
+      "api": [
+        {
+          "name": "QuadraticPinch.coordinates_coe",
+          "role": "characterisation",
+          "statement": "For q=t²+at+b, the ambient value of e(P,Q) is P(q)+tqQ(q)."
+        },
+        {
+          "name": "QuadraticPinch.coordinates_symm_normal_form",
+          "role": "characterisation",
+          "statement": "If (P,Q)=e⁻¹(f), the actual ambient polynomial f is P(q)+tqQ(q). The inverse is the unique normal-form coordinate assignment."
+        },
+        {
+          "name": "QuadraticPinch.coordinates_unique",
+          "role": "characterisation",
+          "statement": "For any native f∈A_q and pair (P,Q), f=P(q)+tqQ(q) iff e⁻¹(f)=(P,Q)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.test_coordinates_inseparable",
+          "kind": "compatibility",
+          "statement": "Over F₂ at q=t², e⁻¹(e(P,Q))=(P,Q) for every pair of actual polynomials."
+        },
+        {
+          "name": "QuadraticPinch.test_basis_unit_zero",
+          "kind": "degenerate",
+          "statement": "For q=t² over any field, the left index0 basis vector is1 and e⁻¹(0)=(0,0)."
+        },
+        {
+          "name": "QuadraticPinch.test_coordinates_not_multiplicative",
+          "kind": "non-example",
+          "statement": "For q=t² over any field, e((0,1)·(0,1))=t³ differs from e(0,1)·e(0,1)=t⁶. The equivalence is linear and not multiplicative for the native componentwise product."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-basis",
+          "how": "Transport the existing product monomial basis into A_q."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-basis-repr",
+          "how": "Supply unique actual polynomial coordinates for each coefficient formula."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-basis",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Native vector-space basis of a quadratic pinch",
+      "kind": "construction",
+      "statement": "For every field k and q=t²+at+b, construct an actual native Module.Basis (ℕ⊕ℕ) k A_q by mapping the product of the two native polynomial monomial bases through e_(a,b). The vectors are b(inl n)=q^n and b(inr n)=tq^(n+1). Thus the left index0 is1, the positive left indices have degrees2,4,…, and the right indices have degrees3,5,… . This is a basis of the existing subalgebra as a k-vector space, not a k[q]-module instance or a mere spanning-family assertion.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use Polynomial.basisMonomials twice, the existing Module.Basis.prod to obtain a basis of k[t]×k[t] indexed by ℕ⊕ℕ, and Module.Basis.map along e to obtain a basis of A_q.",
+        "prod_apply, coe_basisMonomials and coordinates_coe evaluate the two summand vectors. The first is q^n; the second is tq·q^n=tq^(n+1). This treats left index0 explicitly.",
+        "The generic linearCombination_repr gives reconstruction by the native finitely supported coordinates. Infinite index sets require Finsupp.linearCombination, not a sum over a nonexistent finite enumeration.",
+        "natDegree_pow and natDegree_X_mul, using q≠0 and natDegree(q)=2, give degrees2n and2(n+1)+1. Every basis vector avoids natural degree1, but a basis vector can have nonzero coefficient of t, as q=t²+t+1 over F₂ demonstrates."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinates",
+        "mathlib:Polynomial.basisMonomials",
+        "mathlib:Polynomial.coe_basisMonomials",
+        "mathlib:Module.Basis.prod",
+        "mathlib:Module.Basis.prod_apply",
+        "mathlib:Module.Basis.map",
+        "mathlib:Module.Basis.linearCombination_repr",
+        "mathlib:Polynomial.natDegree_pow",
+        "mathlib:Polynomial.natDegree_X_mul"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10 conductor squares and Proposition3.2, p11; v3 HTML corresponding conductor paragraphs and full displayed Prop3.1–3.2 proofs freshly read",
+          "match": "Derived affine coordinate/Basis adapters for the already owned quadratic pinch. These are not attributed as printed lemmas or as a proof of the global curve comparison."
+        }
+      ],
+      "acceptance": [
+        "For q=t² the ambient basis vectors are exactly t^(2n) and t^(2n+3). In characteristic2, q=t²+t+1 has coefficient1 at t despite having degree2."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.basis",
+      "api": [
+        {
+          "name": "QuadraticPinch.basis_inl",
+          "role": "simp",
+          "statement": "For all n≥0, the ambient image of b(inl n) is q^n; n=0 gives1."
+        },
+        {
+          "name": "QuadraticPinch.basis_inr",
+          "role": "simp",
+          "statement": "For all n≥0, the ambient image of b(inr n) is tq^(n+1); n=0 gives tq."
+        },
+        {
+          "name": "QuadraticPinch.basis_repr",
+          "role": "characterisation",
+          "statement": "For f∈A_q, if e⁻¹(f)=(P,Q), b.repr(f)(inl n)=coeff_n(P) and b.repr(f)(inr n)=coeff_n(Q); promoted to quadratic-pinch-basis-repr."
+        },
+        {
+          "name": "QuadraticPinch.basis_reconstruction",
+          "role": "characterisation",
+          "statement": "Finsupp.linearCombination k b (b.repr f)=f in the actual subalgebra, for every f."
+        },
+        {
+          "name": "QuadraticPinch.basis_degrees",
+          "role": "characterisation",
+          "statement": "The natural degrees of the ambient basis vectors are2n and2(n+1)+1. All n, including0, are allowed; q is nonzero."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.test_basis_cusp",
+          "kind": "computation",
+          "statement": "For q=t² over any field, b(inl n)=t^(2n) and b(inr n)=t^(2n+3) for every n."
+        },
+        {
+          "name": "QuadraticPinch.test_basis_char2_cross_term",
+          "kind": "non-example",
+          "statement": "For k=F₂ and q=t²+t+1, the actual ambient b(inl1) has coefficient1 at t. Absence of a degree1 basis vector does not mean all degree1 coefficients vanish."
+        },
+        {
+          "name": "QuadraticPinch.test_basis_unit_zero",
+          "kind": "degenerate",
+          "statement": "For q=t² over any field, the left index0 basis vector is1 and e⁻¹(0)=(0,0)."
+        },
+        {
+          "name": "QuadraticPinch.test_basis_no_degree_one",
+          "kind": "characterisation",
+          "statement": "For every a,b over any field and every i∈ℕ⊕ℕ, the actual ambient b(i) has natural degree unequal to1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation",
+          "how": "Supply the full native vector-space basis and degree-family part of the preserved generation statement."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation",
+          "how": "Give unique affine coefficients of the specialized normal remainder; bivariate division/kernel still require their separate proof."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-basis-repr",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Polynomial coefficients are the pinch basis coordinates",
+      "kind": "lemma",
+      "statement": "For any field k, a,b∈k, f∈A_(t²+at+b) and n≥0, put (P,Q)=e_(a,b)⁻¹(f). The actual native basis representation satisfies b.repr(f)(inl n)=P.coeff(n) and b.repr(f)(inr n)=Q.coeff(n). This is an equality of the existing finitely supported representation coordinates, not a freely chosen coefficient map.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Unfold Basis.map: its repr first applies e⁻¹ and then the product basis repr.",
+        "prod_repr_inl and prod_repr_inr select the two polynomial coordinates. The native polynomial monomial basis uses the polynomial coefficient linear equivalence; its repr at n is coeff_n by definition.",
+        "Both equalities are definitional in the pinned library and the prototype proofs are reflexivity. With the basis reconstruction API they supply the exact coefficient interface previously absent from quadratic-pinch-generation."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-basis",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinates",
+        "mathlib:Module.Basis.prod_repr_inl",
+        "mathlib:Module.Basis.prod_repr_inr"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10 conductor squares and Proposition3.2, p11; v3 HTML corresponding conductor paragraphs and full displayed Prop3.1–3.2 proofs freshly read",
+          "match": "Derived affine coordinate/Basis adapters for the already owned quadratic pinch. These are not attributed as printed lemmas or as a proof of the global curve comparison."
+        }
+      ],
+      "acceptance": [
+        "The first coordinate of b(inl0)=1 is the scalar coefficient of P at0; all its other coordinates vanish by the native basis inverse law."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.basis_repr"
     }
   ],
   "requests": [
@@ -8890,7 +9330,7 @@
         "Suggested signatures for unbuilt geometric conditions",
         "Replace unresolved supplier stage requests by exact verified exports.",
         "Pointed genus-one scheme to binary-equation classification adapter; finite coefficient, count and cyclic-group calculations have explicit source-decomposed witnesses.",
-        "Quadratic pinching has native normal-form existence, even/odd degree separation, two uniqueness lemmas, actual polynomial spanning and the adjoin generation equality. Its full native Basis interface, complete presentation kernel, finite normalization and global P¹/nodal/cohomology/extension-count interfaces remain unfinished. The full suggested file is uncompiled; only the exact Mathlib-only affine extraction is checked."
+        "Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The complete bivariate presentation kernel/quotient comparison, finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. A k[q]-module instance/freeness interface is not constructed. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked."
       ]
     },
     {
@@ -9097,7 +9537,7 @@
     },
     {
       "id": "quadratic-pinching-native-exports",
-      "detail": "The existing affine residue and conductor proofs are retained. Four native quadratic normal-form helpers now support an actual polynomial spanning API and a native proof of A_q=k[q,tq], including the cusp equality. The generation node's full vector-space Basis/degree-family interface remains omitted, and the full bivariate presentation kernel remains admitted. Finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open as named in the native ledger. The full Tau Ceti-importing file is not compiled; only its exact Mathlib-only affine extraction is checked. All implementation statuses remain unchecked.",
+      "detail": "Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The complete bivariate presentation kernel/quotient comparison, finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. A k[q]-module instance/freeness interface is not constructed. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked.",
       "title": "Exact native quadratic-pinching owner interfaces"
     }
   ],
@@ -11365,6 +11805,111 @@
       ],
       "noAdmittedAxioms": true,
       "logSha256": "ebaa01f4877eb25f03fe31d3db34a7b9202da4fe23d043588e4bfd62f495e3a6"
+    }
+  },
+  "quadraticBasisContinuation": {
+    "agent": "Codex — codex-5ebb6f",
+    "date": "2026-10-02",
+    "claimComment": 5958167836,
+    "botConfirmation": 5958170336,
+    "readBase": "b9239798babb94f290b4302764f457bacfe87d36",
+    "addedNodes": [
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinate-map",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinate-bijective",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinates",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-basis",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-basis-repr"
+    ],
+    "addedBaseline": [
+      "mathlib:Polynomial.basisMonomials",
+      "mathlib:Polynomial.coe_basisMonomials",
+      "mathlib:Module.Basis.prod",
+      "mathlib:Module.Basis.prod_apply",
+      "mathlib:Module.Basis.prod_repr_inl",
+      "mathlib:Module.Basis.prod_repr_inr",
+      "mathlib:Module.Basis.map",
+      "mathlib:Module.Basis.linearCombination_repr",
+      "mathlib:LinearEquiv.ofBijective",
+      "mathlib:LinearEquiv.ofBijective_apply",
+      "mathlib:Polynomial.natDegree_pow",
+      "mathlib:Polynomial.aeval"
+    ],
+    "preservedStatements": 158,
+    "unchangedNodeObjects": 157,
+    "proofCommit": "8337fdebca30e16ce95570df80f9680e05659f32",
+    "fullFileCompiled": false,
+    "submissionBodies": "All14 newly introduced named declaration bodies and9 examples are admitted in the submitted suggested file under PROTOCOL§13; the linked immutable proof snapshot contains separately checked actual bodies.",
+    "sourceBoundary": "Fresh selected v3 HTML conductor paragraphs and full displayed Prop3.1–3.2 proofs; Stacks0ECH scheme-existence scope and Prop37.67.3 proof. Historical full-paper/source/PDF/finite-model receipts are preserved with their attribution.",
+    "sourceHtmlSha256": "d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456",
+    "auditBoundary": "Fresh reviewed AUDIT01/10 parent R11.1–6 and SF.0 rows; no direct PartII row. Accepted RS25 selected parent/supplier owner records and reserved Ferrand/owner entry read. No exhaustive new library absence claim.",
+    "remaining": "Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The complete bivariate presentation kernel/quotient comparison, finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. A k[q]-module instance/freeness interface is not constructed. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked.",
+    "proofPrototype": {
+      "commit": "8337fdebca30e16ce95570df80f9680e05659f32",
+      "sourceSha256": "be50fcb22ae6401fb49cbc293095732925344d37d1b8ec88734a13ac492d35cc",
+      "extractionSha256": "3bbca723269cbdf9c01f1e5633191990822ae9c26aafa702a2dec413a2de97dd",
+      "auditSha256": "7aa26bde4cf922775057e8aa93c8cf7193f6143ba0ffca66f2e4b003cb4d3d5c",
+      "logSha256": "00916d4227af6c6236fc5d5f88d15f133cdccd6e85b982c83374876bcf47ee4f",
+      "exit": 0,
+      "seconds": 3.01,
+      "maxResidentKiB": 3333480,
+      "availableGB": 69,
+      "examples": 13,
+      "declarations": [
+        "quadratic_natDegree",
+        "coordinateMap",
+        "coordinateMap_coe",
+        "coordinateMap_bijective",
+        "coordinates",
+        "coordinates_coe",
+        "coordinates_symm_normal_form",
+        "coordinates_unique",
+        "basis",
+        "basis_inl",
+        "basis_inr",
+        "basis_repr",
+        "basis_reconstruction",
+        "basis_degrees"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "noAdmittedAxioms": true,
+      "reproductionVerified": true,
+      "scope": "Exact Mathlib/Lean imports from the public proof source; final QuadraticPinch namespace through the new basis block, stopping before inherited test_split. Full combined file not certified."
+    },
+    "submittedExtraction": {
+      "sourceSha256": "5cc2d7e77719c9fc4c20110500de6a81f3284fdcd4a07b25ba65c853ed458c9a",
+      "extractionSha256": "6883a0f9dc413603782679844a89cdebea30460a8eccc15ac9aed0d2ad9bbd60",
+      "logSha256": "29154ecd8cc9016cb827f9ade911607ab75993976d235c462c5011ca41b5eed6",
+      "exit": 0,
+      "seconds": 3.1,
+      "maxResidentKiB": 3348892,
+      "availableGB": 68,
+      "examples": 29,
+      "errors": 0,
+      "warnings": 29,
+      "admittedWarnings": 29,
+      "otherWarnings": 0,
+      "fullFileCompiled": false,
+      "scope": "Exact Mathlib/Lean imports, original native Subring namespace, and final QuadraticPinch namespace through finite_normalization, excluding proper_point_pushout and every other geometric/TauCeti scope."
+    },
+    "graphValidation": {
+      "stageVertices": 2992,
+      "virtualVertices": 51,
+      "stageEdges": 8727,
+      "localNodes": 163,
+      "localEdges": 422,
+      "combinedVertices": 3177,
+      "combinedEdges": 9298,
+      "reachableSuppliedStagePairs": 55,
+      "unresolved": [],
+      "pending": [],
+      "skipped": [],
+      "acyclic": true,
+      "preservedStatements": 158,
+      "unchangedNodeObjects": 157,
+      "allInheritedAPIsAndTestsPreserved": true,
+      "signatureParity": 23,
+      "allNewBodiesAdmitted": true
     }
   }
 }
