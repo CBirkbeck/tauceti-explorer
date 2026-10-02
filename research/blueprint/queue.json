@@ -47024,8 +47024,9 @@
     "FIX-RT-RS-23"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5552"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5552",
+   "finishedAt": "2026-10-02T03:13:40Z"
   },
   {
    "id": "RT-RS-24",
@@ -47632,7 +47633,8 @@
     "REV-RS-33"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-33.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5120"
   },
   {
    "id": "RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6",
