@@ -1,3 +1,4 @@
+import Mathlib.Algebra.Group.Torsion
 import TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree
 import Mathlib.RepresentationTheory.Homological.FiniteCyclic
 import Mathlib.Algebra.Colimit.Module
@@ -28924,3 +28925,145 @@ example :
     Nontrivial (tateCohomology (Rep.of (kubertSignRepresentation (X := X) S 0)) 0) := by sorry
 
 end DirichletPadic.SuggestedKubertTateParityEmbeddingTests
+
+/- Actual parity descent maps, native Tate kernels and conditional torsion criterion. -/
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+variable {X : Type} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+noncomputable def kubertOddParityDescent : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (-1))) →ₗ[ℤ] (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) := by sorry
+
+lemma kubertOddParityDescent_of (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertOddParityDescent S w ((QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (-1))) z)=(kubertParityOperator (X := X) S w (1)) z := by sorry
+
+lemma kubertOddParityDescent_point (a : X) :
+    kubertOddParityDescent S w ((QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (-1))) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))))=(QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a))) - ((1 : ℤˣ) : ℤ) • (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) := by sorry
+
+lemma kubertOddParityDescent_tate (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (0)) :
+    kubertOddParityDescent S w (kubertSignTateZeroToParity S w x)=0 := by sorry
+
+lemma kubertOddParityDescent_kernel :
+    LinearMap.ker (kubertOddParityDescent (X := X) S w)=LinearMap.range (kubertSignTateZeroToParity S w) := by sorry
+
+lemma kubertOddParityDescent_range :
+    LinearMap.range (kubertOddParityDescent (X := X) S w)=LinearMap.range (kubertParityOperator (X := X) S w (1)).toIntLinearMap := by sorry
+
+lemma kubertOddParityDescent_unique (f : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (-1))) →ₗ[ℤ] (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w))
+    (hf : ∀ z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w), f ((QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (-1))) z)=(kubertParityOperator (X := X) S w (1)) z) : f=kubertOddParityDescent S w := by sorry
+
+lemma kubertOddParityDescent_torsion_mem_tate_range [IsAddTorsionFree (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)]
+    (y : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (-1)))) (n : ℕ) (hn : n≠0) (hy : n • y=0) :
+    y ∈ LinearMap.range (kubertSignTateZeroToParity S w) := by sorry
+
+noncomputable def kubertEvenParityDescent : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (1))) →ₗ[ℤ] (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) := by sorry
+
+lemma kubertEvenParityDescent_of (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertEvenParityDescent S w ((QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (1))) z)=(kubertParityOperator (X := X) S w (-1)) z := by sorry
+
+lemma kubertEvenParityDescent_point (a : X) :
+    kubertEvenParityDescent S w ((QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (1))) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))))=(QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a))) - ((-1 : ℤˣ) : ℤ) • (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) := by sorry
+
+lemma kubertEvenParityDescent_tate (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (-1)) :
+    kubertEvenParityDescent S w (kubertSignTateNegOneToParity S w x)=0 := by sorry
+
+lemma kubertEvenParityDescent_kernel :
+    LinearMap.ker (kubertEvenParityDescent (X := X) S w)=LinearMap.range (kubertSignTateNegOneToParity S w) := by sorry
+
+lemma kubertEvenParityDescent_range :
+    LinearMap.range (kubertEvenParityDescent (X := X) S w)=LinearMap.range (kubertParityOperator (X := X) S w (-1)).toIntLinearMap := by sorry
+
+lemma kubertEvenParityDescent_unique (f : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (1))) →ₗ[ℤ] (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w))
+    (hf : ∀ z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w), f ((QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (1))) z)=(kubertParityOperator (X := X) S w (-1)) z) : f=kubertEvenParityDescent S w := by sorry
+
+lemma kubertEvenParityDescent_torsion_mem_tate_range [IsAddTorsionFree (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)]
+    (y : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (1)))) (n : ℕ) (hn : n≠0) (hy : n • y=0) :
+    y ∈ LinearMap.range (kubertSignTateNegOneToParity S w) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertParityDescentTests
+open scoped Classical BigOperators
+noncomputable section
+-- odd_descent_signed_pair
+example : (kubertOddParityDescent (X := ZMod 5) (∅ : Set ℕ+) 0) (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5))))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5))) ∧ (kubertOddParityDescent (X := ZMod 5) (∅ : Set ℕ+) 0) (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5))))≠0 := by sorry
+-- odd_descent_nonzero_fixed_class_in_kernel
+example : (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5))))≠0 ∧ (kubertOddParityDescent (X := ZMod 5) (∅ : Set ℕ+) 0) (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5))))=0 := by sorry
+-- odd_descent_opposite_pair_sign
+example : (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5))))=-(QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5)))) ∧ (kubertOddParityDescent (X := ZMod 5) (∅ : Set ℕ+) 0) (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5))))=-((kubertOddParityDescent (X := ZMod 5) (∅ : Set ℕ+) 0) (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5))))) := by sorry
+-- even_descent_full_norm_pair
+example : (kubertEvenParityDescent (X := ZMod 5) (∅ : Set ℕ+) 0) (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5))))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5)))+(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5))) := by sorry
+-- even_descent_doubles_fixed_generator
+example : (kubertEvenParityDescent (X := ZMod 5) (∅ : Set ℕ+) 0) (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5))))=2 • (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5))) ∧ (kubertEvenParityDescent (X := ZMod 5) (∅ : Set ℕ+) 0) (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5))))≠0 := by sorry
+-- even_descent_injective_free_permutation_case
+example : Function.Injective (kubertEvenParityDescent (X := ZMod 5) (∅ : Set ℕ+) 0) := by sorry
+end
+end DirichletPadic.SuggestedKubertParityDescentTests
+namespace DirichletPadic.SuggestedKubertParityDescentTests
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+variable {X : Type} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+-- oddParityDescent_of_typed_api
+example (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertOddParityDescent S w ((QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (-1))) z)=(kubertParityOperator (X := X) S w (1)) z := by sorry
+
+-- oddParityDescent_point_typed_api
+example (a : X) :
+    kubertOddParityDescent S w ((QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (-1))) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))))=(QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a))) - ((1 : ℤˣ) : ℤ) • (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) := by sorry
+
+-- oddParityDescent_tate_typed_api
+example (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (0)) :
+    kubertOddParityDescent S w (kubertSignTateZeroToParity S w x)=0 := by sorry
+
+-- oddParityDescent_kernel_typed_api
+example :
+    LinearMap.ker (kubertOddParityDescent (X := X) S w)=LinearMap.range (kubertSignTateZeroToParity S w) := by sorry
+
+-- oddParityDescent_range_typed_api
+example :
+    LinearMap.range (kubertOddParityDescent (X := X) S w)=LinearMap.range (kubertParityOperator (X := X) S w (1)).toIntLinearMap := by sorry
+
+-- oddParityDescent_unique_typed_api
+example (f : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (-1))) →ₗ[ℤ] (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w))
+    (hf : ∀ z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w), f ((QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (-1))) z)=(kubertParityOperator (X := X) S w (1)) z) : f=kubertOddParityDescent S w := by sorry
+
+-- oddParityDescent_torsion_mem_tate_range_typed_api
+example [IsAddTorsionFree (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)]
+    (y : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (-1)))) (n : ℕ) (hn : n≠0) (hy : n • y=0) :
+    y ∈ LinearMap.range (kubertSignTateZeroToParity S w) := by sorry
+
+-- evenParityDescent_of_typed_api
+example (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertEvenParityDescent S w ((QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (1))) z)=(kubertParityOperator (X := X) S w (-1)) z := by sorry
+
+-- evenParityDescent_point_typed_api
+example (a : X) :
+    kubertEvenParityDescent S w ((QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (1))) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))))=(QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a))) - ((-1 : ℤˣ) : ℤ) • (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) := by sorry
+
+-- evenParityDescent_tate_typed_api
+example (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (-1)) :
+    kubertEvenParityDescent S w (kubertSignTateNegOneToParity S w x)=0 := by sorry
+
+-- evenParityDescent_kernel_typed_api
+example :
+    LinearMap.ker (kubertEvenParityDescent (X := X) S w)=LinearMap.range (kubertSignTateNegOneToParity S w) := by sorry
+
+-- evenParityDescent_range_typed_api
+example :
+    LinearMap.range (kubertEvenParityDescent (X := X) S w)=LinearMap.range (kubertParityOperator (X := X) S w (-1)).toIntLinearMap := by sorry
+
+-- evenParityDescent_unique_typed_api
+example (f : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (1))) →ₗ[ℤ] (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w))
+    (hf : ∀ z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w), f ((QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (1))) z)=(kubertParityOperator (X := X) S w (-1)) z) : f=kubertEvenParityDescent S w := by sorry
+
+-- evenParityDescent_torsion_mem_tate_range_typed_api
+example [IsAddTorsionFree (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)]
+    (y : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (1)))) (n : ℕ) (hn : n≠0) (hy : n • y=0) :
+    y ∈ LinearMap.range (kubertSignTateNegOneToParity S w) := by sorry
+
+end DirichletPadic.SuggestedKubertParityDescentTests
