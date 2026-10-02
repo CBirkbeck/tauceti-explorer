@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 208 declaration nodes. This continuation specifies the actual common-ideal localization equivalence and inverse representatives, allowing a noninjective original map, zero divisors and zero localizations. It promotes two inherited membership/containment APIs and supplies the polynomial-pinch localization and inverse coordinate for every q. Finite normalization, the projective chart comparison, conductor sheaves, finite pushforward cohomology and all later-stage closure obligations remain separate.",
+  "summary": "Seven-stage partial design with 224 declaration nodes. This continuation gives specified normalization module coefficients, their native reconstruction, the two-element spanning family, finite ring inclusion and actual affine Spec-map finiteness, a canonical shared fraction field for every nonzero q, and the native integral closure for monic quadratic q. The coefficient map has a nonzero relation, so no module freeness or flatness is asserted. Projective normalization charts, conductor ideal sheaves, finite pushforward cohomology and all later-stage/source closure obligations remain required.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1484,6 +1484,141 @@
         "provides": "Native diagonal/product homomorphism used in the missing-image-ideal example.",
         "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
         "sourceSha256": "efb2dac132b22a874760f009df7e98c45e0a7863ad3822410acea47b7c2bad87"
+      },
+      {
+        "ref": "mathlib:Subalgebra.smul_def",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
+        "line": 802,
+        "provides": "Restricted multiplication action on the native polynomial module.",
+        "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "09e4fbcd2699ec63c989f526f002a9208420df1ef47a341a28bf022b76eb8858"
+      },
+      {
+        "ref": "mathlib:Module.finite_def",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+        "line": 128,
+        "provides": "Finite modules are precisely those with finitely generated top submodule.",
+        "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "0f8bfdc780efe93d11d1256896a310bd32111114ddba302adfaa42596186d760"
+      },
+      {
+        "ref": "mathlib:Submodule.fg_span",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
+        "line": 37,
+        "provides": "Finite-set span is finitely generated.",
+        "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "33a377162fbc237ea7d67c74f9eeaee015fe5c08f72a41817826fbd5272e3fb1"
+      },
+      {
+        "ref": "mathlib:Submodule.eq_top_iff'",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/Lattice.lean",
+        "line": 163,
+        "provides": "Native top-submodule membership criterion.",
+        "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "6d143772606afa67740f152df5cad2263a867ffb4a7314686c98cba5b9efb430"
+      },
+      {
+        "ref": "mathlib:IsFractionRing.of_field",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/FractionRing.lean",
+        "line": 101,
+        "provides": "Injective field algebra maps with fraction representatives give the native fraction-ring instance.",
+        "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "fac6975a557312af0189da16cd0360163c75099ab9e9aa9a788ecf67d81fb1ef"
+      },
+      {
+        "ref": "mathlib:IsFractionRing.div_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/FractionRing.lean",
+        "line": 263,
+        "provides": "Actual polynomial fractions representing every element.",
+        "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "fac6975a557312af0189da16cd0360163c75099ab9e9aa9a788ecf67d81fb1ef"
+      },
+      {
+        "ref": "mathlib:FractionRing.algEquiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Localization/FractionRing.lean",
+        "line": 793,
+        "provides": "Canonical equivalence from the existing quotient fraction field.",
+        "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "fac6975a557312af0189da16cd0360163c75099ab9e9aa9a788ecf67d81fb1ef"
+      },
+      {
+        "ref": "mathlib:IsIntegralClosure.of_isIntegrallyClosed",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/IntegralClosure/IntegrallyClosed.lean",
+        "line": 272,
+        "provides": "Native integral closure of an integral extension which is normal in its fraction field.",
+        "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "d4818358821cc8b519cd9935148363d905529503a2bad380d9f4f2e915fc0e24"
+      },
+      {
+        "ref": "mathlib:Algebra.IsIntegral.of_finite",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/IntegralClosure/Algebra/Basic.lean",
+        "line": 72,
+        "provides": "Finite algebra implies integral extension.",
+        "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "9fba5af7ebaa7e858009518d0ee71e03969384eb7e64270c1574b90103797d5f"
+      },
+      {
+        "ref": "mathlib:Polynomial.not_finite",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Basic.lean",
+        "line": 212,
+        "provides": "The polynomial ring is not finite over its nontrivial coefficient ring.",
+        "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "15e16d6e6007057c18759a5967de72cadc54eb24ad1236dbdb0c8ea451c63b63"
+      },
+      {
+        "ref": "mathlib:Subalgebra.finite_bot",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Finiteness/Subalgebra.lean",
+        "line": 29,
+        "provides": "Constants form a finite coefficient module.",
+        "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "a4bf2a8572cdbf2aafb4eceaf55ca06ca8e28b9811b35fafd5b50b858d23bb21"
+      },
+      {
+        "ref": "mathlib:Subalgebra.algebraMap_def",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
+        "line": 859,
+        "provides": "Pointwise actual restricted structure map.",
+        "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "09e4fbcd2699ec63c989f526f002a9208420df1ef47a341a28bf022b76eb8858"
+      },
+      {
+        "ref": "mathlib:Subalgebra.algebraMap_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
+        "line": 855,
+        "provides": "The restricted map is the actual composite with subtype inclusion.",
+        "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "09e4fbcd2699ec63c989f526f002a9208420df1ef47a341a28bf022b76eb8858"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsFinite.SpecMap_iff",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Finite.lean",
+        "line": 74,
+        "provides": "The native finite-ring-map and finite-Spec-map comparison.",
+        "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "07121fbb322595182ba99bc1caaf9eb647faeaa6781049437d797551fe4183f3"
+      },
+      {
+        "ref": "mathlib:IsIntegralClosure",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/IntegralClosure/IsIntegralClosure/Defs.lean",
+        "line": 28,
+        "provides": "Actual integral-closure carrier and polynomial-image characterization.",
+        "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "c2a593953a65a8d428df050eaeb06da2b871a506867193c18e74df7625526061"
       }
     ]
   },
@@ -1850,6 +1985,19 @@
         "§3 conductor diagrams, complete Proposition3.1–3.2 statements, proofs and adjoining count table"
       ],
       "readingExtent": "The equation-level finite-extension formulas are authored deductions from the existing chart and pinned finite-field mathematics, not printed every-extension theorems or a full-paper collation.",
+      "sha256": "d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456"
+    },
+    {
+      "id": "schroer-rtOQ9t-normalization",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schröer",
+      "edition": "arXiv2004.07025v3, distinct from the published Annals version",
+      "url": "https://arxiv.org/html/2004.07025v3",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "§3 conductor diagrams and complete Proposition3.1–3.2 statements/proofs and count table"
+      ],
+      "readingExtent": "Scoped primary-source reading; the native affine normalization comparisons are authored deductions at the inherited polynomial chart. No full-paper/erratum collation or inherited regression rerun is claimed.",
       "sha256": "d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456"
     }
   ],
@@ -8658,7 +8806,8 @@
       "proofSteps": [
         "The monic equation t²+at+b−q=0 makes t integral over A_q. Its recurrence reduces every power to an A_q-linear combination of1,t.",
         "Invert the nonzero q and recover t to identify the localization and fraction field.",
-        "Import the normality of the polynomial ring over a field and the normalization comparison from the existing owner."
+        "Import the normality of the polynomial ring over a field and the normalization comparison from the existing owner.",
+        "The separately checked native continuation now supplies specified A_q module coefficients and their reconstruction, span{1,X}=top, native Module.Finite and RingHom.Finite, the canonical shared fraction field and actual IsIntegralClosure comparison. Keep the original normalization owner comparison and all projective/sheaf/cohomology obligations; the native affine Spec map is finite by the built IsFinite.SpecMap_iff. The generator map has a nonzero relation, so this is not a claim that the normalization module is free or flat."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation",
@@ -8666,7 +8815,10 @@
         "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
         "SchemeAndStackFoundations:SF.0",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-localization",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-localization-generator"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-localization-generator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-module-finite",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-integral-closure"
       ],
       "sources": [
         {
@@ -8683,7 +8835,29 @@
         "namespace": "TauCeti.GenusOne.QuadraticPinch"
       },
       "implementationStatus": "unchecked",
-      "declarationName": "QuadraticPinch.finite_normalization"
+      "declarationName": "QuadraticPinch.finite_normalization",
+      "tests": [
+        {
+          "name": "QuadraticPinch.normalization.cusp_finite",
+          "kind": "computation",
+          "statement": "For q=X² over F₂, the actual subtype ring inclusion A_q→F₂[X] is finite."
+        },
+        {
+          "name": "QuadraticPinch.normalization.nonsplit_finite",
+          "kind": "computation",
+          "statement": "For q=X²+X+1 over F₂, the actual subtype ring inclusion A_q→F₂[X] is finite."
+        },
+        {
+          "name": "QuadraticPinch.normalization.repeated_char3",
+          "kind": "computation",
+          "statement": "For q=X²+X+1 over F₃, which has a repeated root, the actual subtype ring inclusion A_q→F₃[X] is still finite."
+        },
+        {
+          "name": "QuadraticPinch.normalization.zero_not_finite",
+          "kind": "non-example",
+          "statement": "For q=0 over any field k, the actual subtype ring inclusion A_0→k[X] is not finite: A_0 is the constants and the polynomial module over k is not finite."
+        }
+      ]
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-tangent",
@@ -11856,6 +12030,846 @@
       },
       "implementationStatus": "unchecked",
       "declarationName": "QuadraticPinch.away_inverse_generator"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-remainder",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Linear remainder for the normalization module",
+      "kind": "lemma",
+      "statement": "For monic quadratic q and every f∈k[X], f mod q=C((f mod q).coeff0)+C((f mod q).coeff1)X.",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.",
+        "q is monic with native natural degree exactly two."
+      ],
+      "proofSteps": [
+        "The native monic remainder has natural degree below two. Apply the existing degree-at-most-one polynomial coefficient formula and reorder the two summands."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.natDegree_modByMonic_lt",
+        "mathlib:Polynomial.eq_X_add_C_of_natDegree_le_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "For monic quadratic q and every f∈k[X], f mod q=C((f mod q).coeff0)+C((f mod q).coeff1)X."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.normalization_remainder",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Specified normalization module coefficients",
+      "kind": "construction",
+      "statement": "For every q,f∈k[X], define the actual pair M_q(f)∈A_q×A_q with first ambient polynomial C((f mod q).coeff0)+q(f div q) and second C((f mod q).coeff1). The first membership witness is its displayed scalar-plus-q-multiple form; the second is a constant. The pair is a specified coefficient function, not an algebra equivalence or a unique coordinate system over A_q.",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Construct the actual two subalgebra elements using the already planned membership and constant APIs. Their definitions use native monic division and coefficient operations; no replacement module or guessed residue map is introduced."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "For every q,f∈k[X], define the actual pair M_q(f)∈A_q×A_q with first ambient polynomial C((f mod q).coeff0)+q(f div q) and second C((f mod q).coeff1). The first membership witness is its displayed scalar-plus-q-multiple form; the second is a constant. The pair is a specified coefficient function, not an algebra equivalence or a unique coordinate system over A_q."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.moduleCoefficients",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.moduleCoefficients_fst",
+          "role": "simp",
+          "statement": "The first component of M_q(f), included in k[X], is C((f mod q).coeff0)+q(f div q)."
+        },
+        {
+          "name": "QuadraticPinch.moduleCoefficients_snd",
+          "role": "simp",
+          "statement": "The second component of M_q(f), included in k[X], is C((f mod q).coeff1)."
+        },
+        {
+          "name": "QuadraticPinch.moduleCoefficients_reconstruct",
+          "role": "structure",
+          "statement": "For monic quadratic q, M_q(f).1•1+M_q(f).2•X=f with the native A_q action on k[X]."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.moduleCoefficients.zero",
+          "kind": "degenerate",
+          "statement": "For every q, M_q(0)=(0,0) in the actual product A_q×A_q."
+        },
+        {
+          "name": "QuadraticPinch.moduleCoefficients.generator",
+          "kind": "compatibility",
+          "statement": "For every monic quadratic q, M_q(X)=(0,1) in A_q×A_q."
+        },
+        {
+          "name": "QuadraticPinch.moduleCoefficients.cusp",
+          "kind": "computation",
+          "statement": "For k=F₂ and q=X², M_q(X³) has first ambient component X³ and second component zero; it does not select the equally valid pair (0,q)."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients-fst",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "First normalization coefficient",
+      "kind": "lemma",
+      "statement": "The first component of M_q(f), included in k[X], is C((f mod q).coeff0)+q(f div q).",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Unfold the specified pair and native subtype inclusion."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "The first component of M_q(f), included in k[X], is C((f mod q).coeff0)+q(f div q)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.moduleCoefficients_fst",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients-snd",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Second normalization coefficient",
+      "kind": "lemma",
+      "statement": "The second component of M_q(f), included in k[X], is C((f mod q).coeff1).",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Unfold the specified pair and native subtype inclusion."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "The second component of M_q(f), included in k[X], is C((f mod q).coeff1)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.moduleCoefficients_snd",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-reconstruction",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Normalization module reconstruction",
+      "kind": "lemma",
+      "statement": "For monic quadratic q, M_q(f).1•1+M_q(f).2•X=f with the native A_q action on k[X].",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.",
+        "q is monic with native natural degree exactly two."
+      ],
+      "proofSteps": [
+        "Rewrite the native subalgebra action as ambient multiplication. Replace the sum of constant and linear remainder coefficients by f mod q, then use the native division identity."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients-fst",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients-snd",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-remainder",
+        "mathlib:Subalgebra.smul_def",
+        "mathlib:Polynomial.modByMonic_add_div"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "For monic quadratic q, M_q(f).1•1+M_q(f).2•X=f with the native A_q action on k[X]."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.moduleCoefficients_reconstruct",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-span",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Two generators for the normalization module",
+      "kind": "lemma",
+      "statement": "For monic quadratic q, the native A_q-submodule span of {1,X} in k[X] is the whole module.",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.",
+        "q is monic with native natural degree exactly two."
+      ],
+      "proofSteps": [
+        "Rewrite an arbitrary polynomial using the specified coefficient reconstruction. Each of its two summands is a scalar multiple of a member of the generating set. Apply the native top-submodule membership criterion."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-reconstruction",
+        "mathlib:Submodule.eq_top_iff'"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "For monic quadratic q, the native A_q-submodule span of {1,X} in k[X] is the whole module."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.normalization_span",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-module-finite",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Finite normalization module",
+      "kind": "lemma",
+      "statement": "For monic quadratic q, native Module.Finite(A_q,k[X]) holds for the multiplication action restricted from k[X].",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.",
+        "q is monic with native natural degree exactly two."
+      ],
+      "proofSteps": [
+        "The two-element generating set is finite. Use the existing finitely-generated-span theorem and the native finite-module characterization together with normalization-span."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-span",
+        "mathlib:Module.finite_def",
+        "mathlib:Submodule.fg_span"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "For monic quadratic q, native Module.Finite(A_q,k[X]) holds for the multiplication action restricted from k[X]."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.normalization_module_finite",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-spec-finite",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Finite affine normalization morphism",
+      "kind": "lemma",
+      "statement": "For monic quadratic q, the actual Scheme morphism Spec(k[X])→Spec(A_q) induced by the native subtype inclusion is finite.",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.",
+        "q is monic with native natural degree exactly two."
+      ],
+      "proofSteps": [
+        "Convert the separately proved finite ring inclusion through the existing IsFinite.SpecMap_iff. This certifies the actual affine Scheme map, not its comparison to a separately constructed scheme normalization."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+        "mathlib:AlgebraicGeometry.IsFinite.SpecMap_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "For monic quadratic q, the actual Scheme morphism Spec(k[X])→Spec(A_q) induced by the native subtype inclusion is finite."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.normalization_spec_finite",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-ring",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Shared fraction field of the polynomial pinch",
+      "kind": "lemma",
+      "statement": "For every nonzero polynomial q and every native fraction field K of k[X], K with the canonical restricted A_q algebra structure is also an actual native fraction field of A_q.",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.",
+        "q≠0. This general fraction-field or module-relation statement is not restricted to quadratics.",
+        "K is a field with the given Algebra k[X] K and IsFractionRing k[X] K; the A_q structure is the native restricted one, not an independent Algebra instance."
+      ],
+      "proofSteps": [
+        "The restricted structure map is injective as the composite of the polynomial fraction-field map and the subtype inclusion. For z=a/b in K, both qa and qb lie in A_q. Multiplying numerator and denominator by the nonzero image of q gives z=(qa)/(qb). Apply the existing IsFractionRing.of_field, which handles zero numerators and denominator conditions."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership",
+        "mathlib:IsFractionRing.of_field",
+        "mathlib:IsFractionRing.div_surjective",
+        "mathlib:Subalgebra.algebraMap_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "For every nonzero polynomial q and every native fraction field K of k[X], K with the canonical restricted A_q algebra structure is also an actual native fraction field of A_q."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.fraction_ring",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-integral-closure",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Integral closure in the shared fraction field",
+      "kind": "comparison",
+      "statement": "For monic quadratic q and a native polynomial fraction field K, k[X] is the actual native IsIntegralClosure of A_q in K, with its given inclusion into K.",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.",
+        "q is monic with native natural degree exactly two.",
+        "K is a field with the actual polynomial algebra map and IsFractionRing k[X] K; all A_q actions are canonical restrictions."
+      ],
+      "proofSteps": [
+        "The finite normalization module makes k[X] integral over A_q through the existing finite-algebra instance. The polynomial ring over a field is integrally closed by the pinned polynomial normality instance. Apply the existing IsIntegralClosure.of_isIntegrallyClosed for the actual tower. The shared-fraction-field lemma identifies K as the fraction field of the smaller ring as well. This is an affine ring normalization comparison; the projective normalization comparison remains required."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-module-finite",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-ring",
+        "mathlib:Algebra.IsIntegral.of_finite",
+        "mathlib:IsIntegralClosure.of_isIntegrallyClosed"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "For monic quadratic q and a native polynomial fraction field K, k[X] is the actual native IsIntegralClosure of A_q in K, with its given inclusion into K."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.integral_closure",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-integral-membership",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Integral elements are polynomial elements",
+      "kind": "lemma",
+      "statement": "For monic quadratic q and z in any native polynomial fraction field K, z is integral over A_q if and only if z is the image of an actual polynomial in k[X].",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.",
+        "q is monic with native natural degree exactly two.",
+        "K is a field with the given Algebra k[X] K and IsFractionRing k[X] K."
+      ],
+      "proofSteps": [
+        "Use the defining iff of the actual integral-closure instance from the preceding comparison. Preserve the given polynomial structure map in the existence assertion."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-integral-closure",
+        "mathlib:IsIntegralClosure"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "For monic quadratic q and z in any native polynomial fraction field K, z is integral over A_q if and only if z is the image of an actual polynomial in k[X]."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.integral_iff_polynomial",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.normalization.integral_coordinate",
+          "kind": "compatibility",
+          "statement": "For monic quadratic q, the image of X in the native fraction field of k[X] is integral over the actual A_q."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-equiv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Canonical pinch fraction-field equivalence",
+      "kind": "construction",
+      "statement": "For every nonzero q∈k[X], construct the canonical native A_q-algebra equivalence E_q:Frac(A_q)≃Frac(k[X]) using FractionRing.algEquiv and the proved shared-fraction-field instance. The receiving action is the native restriction of the polynomial action, and the maps commute with the actual inclusion.",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.",
+        "q≠0. This general fraction-field or module-relation statement is not restricted to quadratics."
+      ],
+      "proofSteps": [
+        "Use the shared-fraction-field instance on the existing FractionRing(k[X]), then use native FractionRing.algEquiv. No quotient field, lift theory or abstract fraction-field carrier is replanned."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-ring",
+        "mathlib:FractionRing.algEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "For every nonzero q∈k[X], construct the canonical native A_q-algebra equivalence E_q:Frac(A_q)≃Frac(k[X]) using FractionRing.algEquiv and the proved shared-fraction-field instance. The receiving action is the native restriction of the polynomial action, and the maps commute with the actual inclusion."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.fractionEquiv",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.fractionEquiv_algebraMap",
+          "role": "compatibility",
+          "statement": "For a∈A_q, E_q maps its image in Frac(A_q) to the image of its actual ambient polynomial in Frac(k[X])."
+        },
+        {
+          "name": "QuadraticPinch.fractionEquiv_symm_algebraMap",
+          "role": "simp",
+          "statement": "For a∈A_q, E_q⁻¹ maps the image of its actual ambient polynomial back to its image in Frac(A_q)."
+        },
+        {
+          "name": "QuadraticPinch.fractionEquiv_symm_X",
+          "role": "compatibility",
+          "statement": "E_q⁻¹ sends the image of X to the fraction with numerator qX∈A_q and denominator q∈A_q, using their actual scalar-plus-q-multiple membership witnesses."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.fractionEquiv.cusp",
+          "kind": "compatibility",
+          "statement": "For q=X² over F₂ and arbitrary a∈A_q, E_q sends the native image of a to the fraction-field image of its actual ambient polynomial."
+        },
+        {
+          "name": "QuadraticPinch.fractionEquiv.unit",
+          "kind": "degenerate",
+          "statement": "For q=1 and arbitrary a∈A_1, E_1⁻¹ sends the image of its ambient polynomial back to the native image of a."
+        },
+        {
+          "name": "QuadraticPinch.fractionEquiv.fractions",
+          "kind": "compatibility",
+          "statement": "For every nonzero q and arbitrary a,b∈A_q, E_q sends the native quotient a/b to the quotient of their actual polynomial images; zero b is allowed by the field division convention."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Forward fraction-field coefficient compatibility",
+      "kind": "lemma",
+      "statement": "For a∈A_q, E_q maps its image in Frac(A_q) to the image of its actual ambient polynomial in Frac(k[X]).",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.",
+        "q≠0. This general fraction-field or module-relation statement is not restricted to quadratics."
+      ],
+      "proofSteps": [
+        "Use the native algebra-equivalence commutation law and the existing restricted subalgebra structure map."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-equiv",
+        "mathlib:Subalgebra.algebraMap_def"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "For a∈A_q, E_q maps its image in Frac(A_q) to the image of its actual ambient polynomial in Frac(k[X])."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.fractionEquiv_algebraMap",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-inverse-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse fraction-field coefficient compatibility",
+      "kind": "lemma",
+      "statement": "For a∈A_q, E_q⁻¹ maps the image of its actual ambient polynomial back to its image in Frac(A_q).",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.",
+        "q≠0. This general fraction-field or module-relation statement is not restricted to quadratics."
+      ],
+      "proofSteps": [
+        "Apply injectivity of E_q and its two-sided inverse law to the proved forward coefficient comparison."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "For a∈A_q, E_q⁻¹ maps the image of its actual ambient polynomial back to its image in Frac(A_q)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.fractionEquiv_symm_algebraMap",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-inverse-coordinate",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse fraction-field polynomial coordinate",
+      "kind": "lemma",
+      "statement": "E_q⁻¹ sends the image of X to the fraction with numerator qX∈A_q and denominator q∈A_q, using their actual scalar-plus-q-multiple membership witnesses.",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.",
+        "q≠0. This general fraction-field or module-relation statement is not restricted to quadratics."
+      ],
+      "proofSteps": [
+        "Apply E_q to both sides. Its division preservation and coefficient comparison identify the right side with (qX)/q in Frac(k[X]); the image of q is nonzero, so the existing field cancellation law gives X."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "E_q⁻¹ sends the image of X to the fraction with numerator qX∈A_q and denominator q∈A_q, using their actual scalar-plus-q-multiple membership witnesses."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.fractionEquiv_symm_X",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-generator-relation",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Nonunique coefficients over the pinch",
+      "kind": "lemma",
+      "statement": "For every nonzero q, the native map A_q×A_q→k[X], (a,b)↦a•1+b•X, is not injective: the nonzero coefficient pair (−qX,q) and (0,0) both map to zero.",
+      "hypotheses": [
+        "k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.",
+        "q≠0. This general fraction-field or module-relation statement is not restricted to quadratics."
+      ],
+      "proofSteps": [
+        "Construct −qX and q as actual subalgebra elements. Their two summands cancel by the native restricted multiplication action. If the coefficient map were injective, equality of the second ambient components would imply q=0. This rules out the tempting basis claim; it does not alone assert nonflatness."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership",
+        "mathlib:Subalgebra.smul_def"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-normalization",
+          "locator": "§3, printed p10, one-component conductor diagram and adjoining normalization discussion; affine algebraic deductions at its already owned quadratic chart",
+          "match": "The native finite module, shared fraction field and integral-closure comparisons are authored affine deductions. The source motivates the normalization chart; it does not print these polynomial signatures or certify the projective/cohomological comparison."
+        }
+      ],
+      "acceptance": [
+        "For every nonzero q, the native map A_q×A_q→k[X], (a,b)↦a•1+b•X, is not injective: the nonzero coefficient pair (−qX,q) and (0,0) both map to zero."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.module_generator_map_not_injective",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.normalization.not_basis",
+          "kind": "non-example",
+          "statement": "For every monic quadratic q, the actual coefficient map A_q×A_q→k[X], (a,b)↦a•1+b•X, is not injective; the spanning pair is not a basis over A_q."
+        }
+      ]
     }
   ],
   "requests": [
@@ -12228,7 +13242,8 @@
         "The native affine solution equivalence and native pointCount/frobeniusTrace balance are now explicit. They count distinct rational roots; they do not supply projective normalization, conductor schemes, the structure-sheaf exact sequence, H¹ comparison, arbitrary finite-extension packaging or the separate two-component I₂ construction. The inherited affine algebra/presentation and all global/fibration/classification/model obligations remain planned. Full Tau Ceti-importing suggested file remains uncompiled.",
         "Native nonzero-quadratic-discriminant root/cardinality and split/nonsplit pointCount/frobeniusTrace branches, including receiving finite fields under actual field homomorphisms, are separately checked. The finite-field odd/even embedding criterion, scheme/projective normalization identification, conductor/sheaf/cohomology and independent I₂ count remain required; all G.0–G.6 obligations stay partial.",
         "Current finite-extension checkpoint supersedes the earlier native odd/even-criterion frontier: the irreducible quadratic root existence, distinct-root count, pointCount, cardinal-power and numerical trace-defect formulas have checked prototypes. Their geometric identification with the projective pinching/conductor schemes, nilpotent reduction and separate fixed-component I₂ calculation remain open; no other source obligations are discharged.",
-        "The polynomial pinch localization and inverse coordinate are explicit. Prove finite generation of the normalization module, the fraction-field/normalization comparison, two projective charts and actual conductor-sheaf/cohomology sequence; retain the separate cusp, I₁ and I₂ distinctions."
+        "The polynomial pinch localization and inverse coordinate are explicit. Prove finite generation of the normalization module, the fraction-field/normalization comparison, two projective charts and actual conductor-sheaf/cohomology sequence; retain the separate cusp, I₁ and I₂ distinctions.",
+        "The native affine finite-module, shared-fraction-field and integral-closure frontiers now have separately checked carrier signatures, including the actual finite Spec map. Construct the projective two-chart normalization comparison and conductor ideal sheaf, then the actual E/k structure-sheaf sequence and finite-pushforward H0/H1. Keep the unrelated k[q]-freeness target and all nodal/inseparable/I2 distinctions."
       ]
     },
     {
@@ -15410,6 +16425,209 @@
       },
       "publicValidatorSha256": "90943f01ab3e7b07e7332f422c349134f7a4a2c288716498b72d89dcb476bda3",
       "publicGraphSha256": "6cdd411065546e6b5922eeac161ef6f6da650f86ddc52e03c3338ed734c8538d"
+    }
+  },
+  "quadraticNormalizationContinuation": {
+    "worker": "Codex — codex-rtOQ9t",
+    "date": "2026-10-02",
+    "claimComment": 5962824017,
+    "botConfirmation": 5962825720,
+    "auditBase": "e49e08127a3c6b3dadd74ddbe92c7499a11809ce",
+    "status": "partial substantive checkpoint; no stage closure",
+    "addedNodes": [
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-remainder",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients-fst",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients-snd",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-reconstruction",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-span",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-module-finite",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-spec-finite",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-ring",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-integral-closure",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-integral-membership",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-equiv",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-map",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-inverse-map",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-inverse-coordinate",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-generator-relation"
+    ],
+    "addedBaseline": [
+      "mathlib:Subalgebra.smul_def",
+      "mathlib:Module.finite_def",
+      "mathlib:Submodule.fg_span",
+      "mathlib:Submodule.eq_top_iff'",
+      "mathlib:IsFractionRing.of_field",
+      "mathlib:IsFractionRing.div_surjective",
+      "mathlib:FractionRing.algEquiv",
+      "mathlib:IsIntegralClosure.of_isIntegrallyClosed",
+      "mathlib:Algebra.IsIntegral.of_finite",
+      "mathlib:Polynomial.not_finite",
+      "mathlib:Subalgebra.finite_bot",
+      "mathlib:Subalgebra.algebraMap_def",
+      "mathlib:Subalgebra.algebraMap_eq",
+      "mathlib:AlgebraicGeometry.IsFinite.SpecMap_iff",
+      "mathlib:IsIntegralClosure"
+    ],
+    "wholeSuggestedCompiled": false,
+    "reason": "Required pinned Tau Ceti artifacts remain unavailable. Only the exact Mathlib-only native and admitted extractions were elaborated; no library build or language server was started.",
+    "remaining": [
+      "Actual projective two-chart normalization and geometric conductor comparison",
+      "Native conductor ideal-sheaf and E/k quotient sheaf sequence with all module actions",
+      "Finite-pushforward H0/H1 and separate I2 construction",
+      "All other G.0–G.6, paper coverage, supplier and completeness obligations"
+    ],
+    "proofArchive": {
+      "commit": "50aa007ffe084e26ccd4308d86a671304464af68",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/50aa007ffe084e26ccd4308d86a671304464af68/research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean",
+      "marker": "ARCHIVED CHECKED QUADRATIC AFFINE NORMALIZATION",
+      "admissions": 0
+    },
+    "native": {
+      "lines": 275,
+      "examples": 12,
+      "axiomAudits": 20,
+      "errors": 0,
+      "admissionWarnings": 0,
+      "otherWarnings": 0,
+      "sourceSha256": "74fba5a99c50c3786f9b67da065ba49d5b4bf38c35cac4d407888f0f2c2edf8d",
+      "normalizedLogSha256": "8f56a7716e8fbbe5b0330e66de1ed41af63bfc0bacedd98e833490b4a22486fc",
+      "availableGiB": 51,
+      "resource": "RESOURCE elapsed=11.00 rssKiB=6765480"
+    },
+    "admittedExtraction": {
+      "lines": 154,
+      "examples": 12,
+      "axiomAudits": 0,
+      "errors": 0,
+      "admissionWarnings": 29,
+      "otherWarnings": 0,
+      "sourceSha256": "d9efd50662281a4a3c984ecf58f72cf792de78ae8cfda7354cdd21aea59dd3d1",
+      "normalizedLogSha256": "113c760133ac7d28000e2da50843b2dcad198b2ae0a8d496bf7fbb1fb83f7909",
+      "availableGiB": 51,
+      "resource": "RESOURCE elapsed=10.00 rssKiB=6740344"
+    },
+    "signatureParity": {
+      "headers": 29,
+      "namedDeclarations": 17,
+      "newNodes": 16,
+      "inheritedFiniteSignature": 1,
+      "examples": 12
+    },
+    "readScope": "Whole issue before and after the winning bot confirmation; full incoming890-line handoff, all208 statement/hypothesis/acceptance contracts, seven stages and their coverage, reviewed AUDIT10 R11.1–R11.6 and full REV-AUDIT10, reserved Ferrand node and full key survey entry,78-item owner brief and full routed items15–18,170–171 plus Witaszek geometric/topological/conductor contracts. Fresh pinned native statements and scoped source section3 were read. Governing protocols and nearby upstream examples retain this continuous loop’s earlier whole readings. Historical source/erratum/regression strands are preserved, not freshly recertified.",
+    "checks": {
+      "validation": {
+        "indexedChecker": {
+          "roadmap": "NeronModelsAndSemistableAbelianVarietiesPartII",
+          "status": "partial",
+          "nodes": 224,
+          "kinds": {
+            "definition": 13,
+            "lemma": 166,
+            "theorem": 26,
+            "comparison": 6,
+            "construction": 13
+          },
+          "apiItems": 98,
+          "unitTests": 98,
+          "planets": 29,
+          "baselineDeclarations": 192,
+          "prerequisites": {
+            "baseline": 245,
+            "stage": 194,
+            "node (this packet)": 519
+          },
+          "gaps": 17,
+          "requests": 23,
+          "stagesInScope": 7,
+          "stagesClosed": 0
+        },
+        "checkerErrors": 0,
+        "checkerWarnings": 0,
+        "actualIntakeFiles": 5,
+        "actualIntakeProblems": 0,
+        "preservedMathematicalContracts": 208,
+        "unchangedNodeObjects": 207,
+        "addedNodes": 16,
+        "signatureHeaders": 29,
+        "typedExamples": 12,
+        "apiItems": 98,
+        "allTests": 124,
+        "sourceRecovery": "exact native and admitted hashes and headers match",
+        "scriptSha256": "d355638abe58147a3b0ee36413233f4b68429a1992621ff3a435f38a1ad7c550"
+      },
+      "graph": {
+        "actualAssembler": true,
+        "stageDAG": {
+          "vertices": 3043,
+          "edges": 8727,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 224,
+          "edges": 519,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3238,
+          "edges": 9426,
+          "acyclic": true
+        },
+        "reachableDeclarations": 224,
+        "externalDeclarations": [],
+        "reachableBaselineReferences": 175,
+        "unresolved": [],
+        "ownSkippedLinks": [],
+        "otherSkipsMatchOriginal": true,
+        "stageEdgesUnchanged": true,
+        "requiredStagePairs": 68,
+        "requiredStagePairsReachable": 68,
+        "inheritedMissingStagePairs": [],
+        "unchangedNodeObjects": 207,
+        "partDeclarations": 224,
+        "partPlanets": 29,
+        "roadmapDeclarations": 224,
+        "scriptSha256": "9c259f46e82f6c246ad606c8ab22a85e0d8c7219aec506dafdf2b329b4289ced"
+      },
+      "publicValidatorSha256": "d355638abe58147a3b0ee36413233f4b68429a1992621ff3a435f38a1ad7c550",
+      "publicGraphSha256": "9c259f46e82f6c246ad606c8ab22a85e0d8c7219aec506dafdf2b329b4289ced"
+    },
+    "publicationPreflight": {
+      "base": "bcc37efa667a1f3c521b0d8e2407b9eda3fa87e6",
+      "ownDeliverablesBindingInstructionsLibraryAuditKeySurveyAndSupplierSourceContracts": "unchanged from the mathematical read base; exact path diff screened before merging current main into the own branch",
+      "graph": {
+        "actualAssembler": true,
+        "stageDAG": {
+          "vertices": 3043,
+          "edges": 8727,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 224,
+          "edges": 519,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3238,
+          "edges": 9426,
+          "acyclic": true
+        },
+        "reachableDeclarations": 224,
+        "externalDeclarations": [],
+        "reachableBaselineReferences": 175,
+        "unresolved": [],
+        "ownSkippedLinks": [],
+        "otherSkipsMatchOriginal": true,
+        "stageEdgesUnchanged": true,
+        "requiredStagePairs": 68,
+        "requiredStagePairsReachable": 68,
+        "inheritedMissingStagePairs": [],
+        "unchangedNodeObjects": 207,
+        "partDeclarations": 224,
+        "partPlanets": 29,
+        "roadmapDeclarations": 224,
+        "scriptSha256": "9c259f46e82f6c246ad606c8ab22a85e0d8c7219aec506dafdf2b329b4289ced"
+      }
     }
   }
 }

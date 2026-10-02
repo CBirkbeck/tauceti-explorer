@@ -5214,3 +5214,306 @@ publication preflight, including all69 required stage paths and acyclicity,
 without adding stage edges or changing unrelated skipped links. Historical
 proofs, regression and source coverage retain their original attribution; they
 are not wholesale recertified by this fragment check.
+
+
+## Native affine normalization continuation
+
+The following declaration-sized steps complete the affine finite-module and fraction-field calculations. A_q always denotes the owned preimage subalgebra, and the scalar action is its native restricted polynomial multiplication. These are separately checked planning prototypes; all implementation statuses remain unchecked. Scheme normalization on the projective curve, conductor ideal sheaves, finite-pushforward cohomology, and the distinct two-component construction remain required. The inherited complete source routes and mathematical contracts above remain in force.
+
+### Linear remainder for the normalization module
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-remainder · QuadraticPinch.normalization_remainder
+
+For monic quadratic q and every f∈k[X], f mod q=C((f mod q).coeff0)+C((f mod q).coeff1)X.
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed. q is monic with native natural degree exactly two.
+
+Proof: The native monic remainder has natural degree below two. Apply the existing degree-at-most-one polynomial coefficient formula and reorder the two summands.
+
+Prerequisites: mathlib:Polynomial.natDegree_modByMonic_lt, mathlib:Polynomial.eq_X_add_C_of_natDegree_le_one.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+### Specified normalization module coefficients
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients · QuadraticPinch.moduleCoefficients
+
+For every q,f∈k[X], define the actual pair M_q(f)∈A_q×A_q with first ambient polynomial C((f mod q).coeff0)+q(f div q) and second C((f mod q).coeff1). The first membership witness is its displayed scalar-plus-q-multiple form; the second is a constant. The pair is a specified coefficient function, not an algebra equivalence or a unique coordinate system over A_q.
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.
+
+Proof: Construct the actual two subalgebra elements using the already planned membership and constant APIs. Their definitions use native monic division and coefficient operations; no replacement module or guessed residue map is introduced.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+QuadraticPinch.moduleCoefficients_fst (simp): The first component of M_q(f), included in k[X], is C((f mod q).coeff0)+q(f div q).
+
+QuadraticPinch.moduleCoefficients_snd (simp): The second component of M_q(f), included in k[X], is C((f mod q).coeff1).
+
+QuadraticPinch.moduleCoefficients_reconstruct (structure): For monic quadratic q, M_q(f).1•1+M_q(f).2•X=f with the native A_q action on k[X].
+
+QuadraticPinch.moduleCoefficients.zero (degenerate): For every q, M_q(0)=(0,0) in the actual product A_q×A_q.
+
+QuadraticPinch.moduleCoefficients.generator (compatibility): For every monic quadratic q, M_q(X)=(0,1) in A_q×A_q.
+
+QuadraticPinch.moduleCoefficients.cusp (computation): For k=F₂ and q=X², M_q(X³) has first ambient component X³ and second component zero; it does not select the equally valid pair (0,q).
+
+### First normalization coefficient
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients-fst · QuadraticPinch.moduleCoefficients_fst
+
+The first component of M_q(f), included in k[X], is C((f mod q).coeff0)+q(f div q).
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.
+
+Proof: Unfold the specified pair and native subtype inclusion.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+### Second normalization coefficient
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients-snd · QuadraticPinch.moduleCoefficients_snd
+
+The second component of M_q(f), included in k[X], is C((f mod q).coeff1).
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed.
+
+Proof: Unfold the specified pair and native subtype inclusion.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+### Normalization module reconstruction
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-reconstruction · QuadraticPinch.moduleCoefficients_reconstruct
+
+For monic quadratic q, M_q(f).1•1+M_q(f).2•X=f with the native A_q action on k[X].
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed. q is monic with native natural degree exactly two.
+
+Proof: Rewrite the native subalgebra action as ambient multiplication. Replace the sum of constant and linear remainder coefficients by f mod q, then use the native division identity.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients-fst, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-coefficients-snd, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-remainder, mathlib:Subalgebra.smul_def, mathlib:Polynomial.modByMonic_add_div.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+### Two generators for the normalization module
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-span · QuadraticPinch.normalization_span
+
+For monic quadratic q, the native A_q-submodule span of {1,X} in k[X] is the whole module.
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed. q is monic with native natural degree exactly two.
+
+Proof: Rewrite an arbitrary polynomial using the specified coefficient reconstruction. Each of its two summands is a scalar multiple of a member of the generating set. Apply the native top-submodule membership criterion.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-reconstruction, mathlib:Submodule.eq_top_iff'.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+### Finite normalization module
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-module-finite · QuadraticPinch.normalization_module_finite
+
+For monic quadratic q, native Module.Finite(A_q,k[X]) holds for the multiplication action restricted from k[X].
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed. q is monic with native natural degree exactly two.
+
+Proof: The two-element generating set is finite. Use the existing finitely-generated-span theorem and the native finite-module characterization together with normalization-span.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-span, mathlib:Module.finite_def, mathlib:Submodule.fg_span.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+### Finite affine normalization morphism
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-spec-finite · QuadraticPinch.normalization_spec_finite
+
+For monic quadratic q, the actual Scheme morphism Spec(k[X])→Spec(A_q) induced by the native subtype inclusion is finite.
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed. q is monic with native natural degree exactly two.
+
+Proof: Convert the separately proved finite ring inclusion through the existing IsFinite.SpecMap_iff. This certifies the actual affine Scheme map, not its comparison to a separately constructed scheme normalization.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization, mathlib:AlgebraicGeometry.IsFinite.SpecMap_iff.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+### Shared fraction field of the polynomial pinch
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-ring · QuadraticPinch.fraction_ring
+
+For every nonzero polynomial q and every native fraction field K of k[X], K with the canonical restricted A_q algebra structure is also an actual native fraction field of A_q.
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed. q≠0. This general fraction-field or module-relation statement is not restricted to quadratics. K is a field with the given Algebra k[X] K and IsFractionRing k[X] K; the A_q structure is the native restricted one, not an independent Algebra instance.
+
+Proof: The restricted structure map is injective as the composite of the polynomial fraction-field map and the subtype inclusion. For z=a/b in K, both qa and qb lie in A_q. Multiplying numerator and denominator by the nonzero image of q gives z=(qa)/(qb). Apply the existing IsFractionRing.of_field, which handles zero numerators and denominator conditions.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership, mathlib:IsFractionRing.of_field, mathlib:IsFractionRing.div_surjective, mathlib:Subalgebra.algebraMap_eq.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+### Integral closure in the shared fraction field
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-integral-closure · QuadraticPinch.integral_closure
+
+For monic quadratic q and a native polynomial fraction field K, k[X] is the actual native IsIntegralClosure of A_q in K, with its given inclusion into K.
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed. q is monic with native natural degree exactly two. K is a field with the actual polynomial algebra map and IsFractionRing k[X] K; all A_q actions are canonical restrictions.
+
+Proof: The finite normalization module makes k[X] integral over A_q through the existing finite-algebra instance. The polynomial ring over a field is integrally closed by the pinned polynomial normality instance. Apply the existing IsIntegralClosure.of_isIntegrallyClosed for the actual tower. The shared-fraction-field lemma identifies K as the fraction field of the smaller ring as well. This is an affine ring normalization comparison; the projective normalization comparison remains required.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-module-finite, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-ring, mathlib:Algebra.IsIntegral.of_finite, mathlib:IsIntegralClosure.of_isIntegrallyClosed.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+### Integral elements are polynomial elements
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-integral-membership · QuadraticPinch.integral_iff_polynomial
+
+For monic quadratic q and z in any native polynomial fraction field K, z is integral over A_q if and only if z is the image of an actual polynomial in k[X].
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed. q is monic with native natural degree exactly two. K is a field with the given Algebra k[X] K and IsFractionRing k[X] K.
+
+Proof: Use the defining iff of the actual integral-closure instance from the preceding comparison. Preserve the given polynomial structure map in the existence assertion.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-integral-closure, mathlib:IsIntegralClosure.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+QuadraticPinch.normalization.integral_coordinate (compatibility): For monic quadratic q, the image of X in the native fraction field of k[X] is integral over the actual A_q.
+
+### Canonical pinch fraction-field equivalence
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-equiv · QuadraticPinch.fractionEquiv
+
+For every nonzero q∈k[X], construct the canonical native A_q-algebra equivalence E_q:Frac(A_q)≃Frac(k[X]) using FractionRing.algEquiv and the proved shared-fraction-field instance. The receiving action is the native restriction of the polynomial action, and the maps commute with the actual inclusion.
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed. q≠0. This general fraction-field or module-relation statement is not restricted to quadratics.
+
+Proof: Use the shared-fraction-field instance on the existing FractionRing(k[X]), then use native FractionRing.algEquiv. No quotient field, lift theory or abstract fraction-field carrier is replanned.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-ring, mathlib:FractionRing.algEquiv.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+QuadraticPinch.fractionEquiv_algebraMap (compatibility): For a∈A_q, E_q maps its image in Frac(A_q) to the image of its actual ambient polynomial in Frac(k[X]).
+
+QuadraticPinch.fractionEquiv_symm_algebraMap (simp): For a∈A_q, E_q⁻¹ maps the image of its actual ambient polynomial back to its image in Frac(A_q).
+
+QuadraticPinch.fractionEquiv_symm_X (compatibility): E_q⁻¹ sends the image of X to the fraction with numerator qX∈A_q and denominator q∈A_q, using their actual scalar-plus-q-multiple membership witnesses.
+
+QuadraticPinch.fractionEquiv.cusp (compatibility): For q=X² over F₂ and arbitrary a∈A_q, E_q sends the native image of a to the fraction-field image of its actual ambient polynomial.
+
+QuadraticPinch.fractionEquiv.unit (degenerate): For q=1 and arbitrary a∈A_1, E_1⁻¹ sends the image of its ambient polynomial back to the native image of a.
+
+QuadraticPinch.fractionEquiv.fractions (compatibility): For every nonzero q and arbitrary a,b∈A_q, E_q sends the native quotient a/b to the quotient of their actual polynomial images; zero b is allowed by the field division convention.
+
+### Forward fraction-field coefficient compatibility
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-map · QuadraticPinch.fractionEquiv_algebraMap
+
+For a∈A_q, E_q maps its image in Frac(A_q) to the image of its actual ambient polynomial in Frac(k[X]).
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed. q≠0. This general fraction-field or module-relation statement is not restricted to quadratics.
+
+Proof: Use the native algebra-equivalence commutation law and the existing restricted subalgebra structure map.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-equiv, mathlib:Subalgebra.algebraMap_def.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+### Inverse fraction-field coefficient compatibility
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-inverse-map · QuadraticPinch.fractionEquiv_symm_algebraMap
+
+For a∈A_q, E_q⁻¹ maps the image of its actual ambient polynomial back to its image in Frac(A_q).
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed. q≠0. This general fraction-field or module-relation statement is not restricted to quadratics.
+
+Proof: Apply injectivity of E_q and its two-sided inverse law to the proved forward coefficient comparison.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-map.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+### Inverse fraction-field polynomial coordinate
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-inverse-coordinate · QuadraticPinch.fractionEquiv_symm_X
+
+E_q⁻¹ sends the image of X to the fraction with numerator qX∈A_q and denominator q∈A_q, using their actual scalar-plus-q-multiple membership witnesses.
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed. q≠0. This general fraction-field or module-relation statement is not restricted to quadratics.
+
+Proof: Apply E_q to both sides. Its division preservation and coefficient comparison identify the right side with (qX)/q in Frac(k[X]); the image of q is nonzero, so the existing field cancellation law gives X.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-fraction-map.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+### Nonunique coefficients over the pinch
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-generator-relation · QuadraticPinch.module_generator_map_not_injective
+
+For every nonzero q, the native map A_q×A_q→k[X], (a,b)↦a•1+b•X, is not injective: the nonzero coefficient pair (−qX,q) and (0,0) both map to zero.
+
+Hypotheses: k is any field. A_q is the existing scalar-preimage Subalgebra of k[X], with its native subtype inclusion and restricted multiplication action. No separability, irreducibility, perfectness or characteristic restriction is imposed. q≠0. This general fraction-field or module-relation statement is not restricted to quadratics.
+
+Proof: Construct −qX and q as actual subalgebra elements. Their two summands cancel by the native restricted multiplication action. If the coefficient map were injective, equality of the second ambient components would imply q=0. This rules out the tempting basis claim; it does not alone assert nonflatness.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership, mathlib:Subalgebra.smul_def.
+
+Uses: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization: Provide the actual finite affine normalization carrier and its maps, retaining the separate projective-chart and scheme-normalization obligations. NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus: Supply the normalization-side finite inclusion before conductor ideal-sheaf and finite-pushforward cohomology comparisons.
+
+Source: [Schröer, arXiv2004.07025v3](https://arxiv.org/html/2004.07025v3), §3 printed p10 conductor discussion; authored affine deduction, not a printed normalization-module theorem. Native generic finiteness, fraction fields and integral closure are imported from the pinned Mathlib.
+
+QuadraticPinch.normalization.not_basis (non-example): For every monic quadratic q, the actual coefficient map A_q×A_q→k[X], (a,b)↦a•1+b•X, is not injective; the spanning pair is not a basis over A_q.
+
+### Refined finite normalization contract
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization · QuadraticPinch.finite_normalization
+
+The inherited monic-quadratic statement, source locator and cusp acceptance remain unchanged. Its finite ring-map signature now has a native proof using quadratic-normalization-module-finite; the affine native Spec map, shared fraction field and integral-closure comparison have the separate declarations above. Module coefficients are not unique: (−qX,q) and (0,0) have the same image. Do not infer module freeness, flatness or nodality from finite normalization.
+
+QuadraticPinch.normalization.cusp_finite (computation): For q=X² over F₂, the actual subtype ring inclusion A_q→F₂[X] is finite.
+
+QuadraticPinch.normalization.nonsplit_finite (computation): For q=X²+X+1 over F₂, the actual subtype ring inclusion A_q→F₂[X] is finite.
+
+QuadraticPinch.normalization.repeated_char3 (computation): For q=X²+X+1 over F₃, which has a repeated root, the actual subtype ring inclusion A_q→F₃[X] is still finite.
+
+QuadraticPinch.normalization.zero_not_finite (non-example): For q=0 over any field k, the actual subtype ring inclusion A_0→k[X] is not finite: A_0 is the constants and the polynomial module over k is not finite.
