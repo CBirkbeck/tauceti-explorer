@@ -13711,7 +13711,8 @@
     "The universal property of Nori's diagram category, used by MC.6/fibre-functor-extension, rests on von Wangenheim's work, not obtained (gap).",
     "The quotient theorem of SGA 3 behind MC.6/affine-torsor-groups was not obtained (gap; not on the path to the period torsor).",
     "The comparison of relative de Rham and singular cohomology of pairs over Q as graded multiplicative representations is requested from ComplexComparisonPartII:C5, which owns the comparison and plans only the smooth and smooth proper cases.",
-    "Relative reconstruction implementation adapters (including the split-coequalizer preservation obligation) and installation of the early abstract stage split remain."
+    "Relative reconstruction implementation adapters (including the split-coequalizer preservation obligation) and installation of the early abstract stage split remain.",
+    "Encode and pass the unital multiplicative comparison of PeriodData, compatible with connecting edges, required by the period-point and formal-period evaluation signatures (gap added in REV-FIX-RT-AREA-algebraicgeometry)."
    ]
   },
   {
@@ -13912,6 +13913,14 @@
     "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode"
    ],
    "detail": "Supply the A-linear representability/action interface, monoidal extension to Ind(A), internal comodules with underlying objects in A, and filtered factorization used by FS VI.10.2. Mathlib has Ind and ordinary Beck, but this audit found no finished relative Tannaka comparison. Bridge the printed reflection convention to the preservation instance required by the pinned Beck theorem; until then use the explicitly strengthened sufficient-hypothesis version and do not claim closure. Apply the proposed early stage split before installing any GS stage import; the present packet makes no graph rewrite."
+  },
+  {
+   "title": "The suggested period comparison does not yet encode its tensor compatibility",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/period-point",
+    "MotivesAndAlgebraicCycles:MC.6/period-torsor"
+   ],
+   "detail": "The packet correctly requires comparison as an isomorphism of graded multiplicative representations, but PairDiagram.PeriodData in the suggested Lean file stores only a family of complex-linear isomorphisms and pullback naturality. It has no comparison equations for units, exterior/cross products or the connecting maps of triples. Thus periodPoint and periodPoint_gen cannot have their advertised algebra-map contract for arbitrary PeriodData: multiplying a genuine comparison by 2 preserves its current linear-isomorphism and pullback equations but changes the normalized unit period from 1 to 2 and breaks product compatibility. Supply a typed unital multiplicative comparison compatible with every diagram edge, and thread it through the period point, formal-period evaluation and dependent APIs before treating these signatures as correct. This is a prototype contract gap, not an erratum in the source. The required comparison for arbitrary relative pairs remains a requested extension of ComplexComparisonPartII:C5 or a named alternate owner, not an already available smooth/proper comparison."
   }
  ],
  "requests": [
@@ -15226,8 +15235,10 @@
   }
  ],
  "review": {
-  "status": "pending",
-  "notes": "Independent REV-FIX-RT-AREA-iwasawa-3~2 required. The previous needs_changes review is preserved in reviewHistory, and all 21 gaps/14 requests and partial coverage are retained. This fix does not accept its own work."
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry",
+  "date": "2026-10-02",
+  "notes": "Reviewed the 35 high/medium findings and their verified evidence against the area fix ledger and current carrying issues. Finding 31 correctly requests Betti–de Rham comparison from ComplexComparisonPartII:C5 and leaves SF.6 as the etale–Betti supplier; the other findings are documented future-blueprint handoffs or upstream maintainer actions, not completed mathematics. Follows independent-review-REV-MotivesAndAlgebraicCycles; preserves the intervening pending marker in reviewHistory. Added an explicit MC.6 gap: PeriodData only encodes pullback naturality of its linear comparison, whereas periodPoint and its generator formula need a unital multiplicative comparison also compatible with connecting edges. Scaling comparison by 2 exposes the missing hypothesis. The reader still reports the older 96-node packet and all eight stages as source_decomposed; reconcile it with this partial packet before acceptance. Its repair is outside this review job's authorized files. The separate geomlanglands~2 and iwasawa-3~2 fixes retain their own independent-review obligations. Checker passed with the pinned declarations index; no Lean compilation or promotion performed."
  },
  "reviewHistory": [
   {
@@ -16102,6 +16113,10 @@
      "note": "Added by R4: The Tate-Beilinson conjecture."
     }
    ]
+  },
+  {
+   "status": "pending",
+   "notes": "Independent REV-FIX-RT-AREA-iwasawa-3~2 required. The previous needs_changes review is preserved in reviewHistory, and all 21 gaps/14 requests and partial coverage are retained. This fix does not accept its own work."
   }
  ],
  "fixes": {
