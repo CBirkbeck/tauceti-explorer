@@ -1,116 +1,87 @@
-# FunctionFieldArithmeticPartII — native unit-chart comparison checkpoint
+# FunctionFieldArithmeticPartII — native zero-section ranks checkpoint
 
-Worker: Codex — codex-J6LwjP. Date:2026-10-02. Issue3403, claim5959902725, confirming bot5959905269. The whole issue was reread after confirmation. Branch codex-J6LwjP-blueprint-function-laurent; based173a3ec2a7f0b18f3d2eeabdb3755f15bf56dfb.
+Worker: Codex — codex-5ebb6f. Date:2026-10-02. Issue3403; claim5960931694, confirming bot5960933964. The whole issue was read before and after the winning confirmation. Branch codex-5ebb6f-function-fields-next1; base404db35ccec72b9ceabd108108d2ba8fa0762b2c.
 
-This continuation specifies the native unit-chart comparison equivalence and its inverse on every character/right-factor tensor. It adds six nodes (one construction and five lemmas), four API entries and five unit tests. The packet has149 unchecked nodes (9 definitions,25 constructions,69 lemmas,35 theorems,10 comparisons,1 application),111 required API entries and113 required definition/construction tests,117 total test records,39 planets and107 baseline declarations. All ten stages remain partial, with eight gaps and thirteen supplier requests. The whole Tau Ceti suggested file is uncompiled; no geometric or implementation closure is claimed.
+The continuation derives the general zero-section field ranks from the actual native kernel coordinates. Nine additional planning nodes (two constructions and seven lemmas), six API records and fourteen tests give158 unchecked nodes:9 definitions,27 constructions,76 lemmas,35 theorems,10 comparisons and1 application. There are117 required API records,119 required definition/construction tests,131 total tests,39 planets and118 baseline entries. All ten stages remain partial with eight gaps and thirteen requests. This is a research checkpoint; the geometric roadmap and complete suggested file remain unfinished.
 
-## Native calculation and preservation
+Publication base9be0d75234d712fb5773663482ee55c38ac60ce0 was merged into this own branch after checking that fourteen protocol, own-deliverable, reviewed-audit and key-definition inputs matched the mathematical base. The public proof commit remains an ancestor. The fresh publication projection passes.
 
-For a commutative ring A, a specified unit v and positive n, keep B=A[x]/(xⁿ−v), H=A[Multiplicative(ZMod n)] and the actual coaction-induced comparison Θ:B⊗B→H⊗B. The preceding weighted-table proof establishes its bijectivity. Import Mathlib’s promotion of this actual algebra homomorphism to obtain the specified E_v. This is not an arbitrary replacement equivalence or matrix.
+## Native mathematics and preservation
 
-The native quotient root satisfies x(v⁻¹x^(n−1))=1, including n=1 and the zero ring. Evaluating Θ on x⊗(v⁻¹x^(n−1)) gives e_1⊗1, so the native inverse-evaluation law proves that exact preimage. The right factor remains1⊗b. Character powers and multiplicativity give E_v⁻¹(e_i⊗b)=x^i⊗((v⁻¹x^(n−1))^i b) for every natural i, including i≥n. No inverse of n, representative choice, reducedness or domain assumption occurs. The existing existential unit-inverse statement is unchanged and follows from these specified maps. Its proof prerequisites now use the native bijectivity result and these evaluation lemmas.
+Keep B=A[x]/(xⁿ−f) as native AdjoinRoot, H=A[Multiplicative(ZMod n)] and the actual coaction-induced comparison Θ:B⊗_A B→H⊗_A B. The predecessor specifies the source coordinate equivalence Cs, target coordinates and cyclic permutation σ(i,j)=(i,i+j mod n). These maps, including all predecessor proofs, are retained.
 
-All143 inherited IDs and mathematical statements are preserved;142 whole node objects are unchanged. The only inherited node change is the unit-inverse proof/prerequisite/acceptance record. Both paper routes (28 Yun–Zhang and38 Abdurrahman–Venkatesh items), reserved root-stack key, moduli-curve import, source versions/issues/coverage, sibling ownership,39 planets and all gaps/requests/restructure records are unchanged. The roadmap definition is byte-for-byte unchanged. Generic algebra equivalences, tensor products and the singleton function equivalence are imported rather than replanned.
+The restricted equivalence W≃L uses W={(i,j):n≤i+j} and L={(i,k):k<i}. Both are actual subtypes of Fin n×Fin n. The inverse is the restriction of the existing cyclic subtraction. Import the finite ordered-pair counting theorem to obtain card L=choose n2=n(n−1)/2, then transport that count to W. The counting auxiliary admits n=0; every root construction keeps n≥1.
 
-All four previously admitted direct examples now have actual proofs in the separate native extraction: over any field the branch tensor x⊗x is nonzero and killed by Θ; over F₂ at n=2,v=1 the comparison is bijective while x−1 is nonzero with square zero; the injective comparison at f=2 over Z becomes noninjective at f=0 over F₂; and over Z/8,f=4,n=2 the actual module cokernel is equivalent to A/(4) and contains z with2z≠0,4z=0. The last example uses the Unique lower-coordinate index and the previously checked actual cokernel map. It retains the full quotient ring, not its reduction. The earlier nonzero nilpotent parameter example is also retained.
+At f=0, the specified kernel coordinates take values in ker(0·id_A)=A. Compose the preceding actual kernel equivalence with the pointwise native top-submodule equivalence to specify K₀:ker Θ₀≃ₗ[A](W→A). Its forward map extracts Cs coefficients. Its inverse extends wrapping coefficients by zero and synthesizes the actual tensor element. This holds over every commutative A, including nonreduced and zero rings; no replacement carrier, arbitrary vector-space model or assumption of geometric points appears.
 
-Five new tests check the exponent-one inverse character, the wild F₂ inverse x⊗x, the inverse coefficient3 for v=2 over F₅, the zero ring, and the unchanged right factor. The general determinant and field-rank statements remain the only two admitted assertions in the actual proof extraction. They are not claimed proved.
+Over a field, the finite-function dimension theorem gives dim ker Θ₀=card W and Cs gives dim(B⊗B)=n² for every f. Transfer finite dimensionality through the injective actual coordinate map and import rank-nullity. Evenness of n(n−1) is used before dividing by two, giving dim im Θ₀=n(n+1)/2. The existing simultaneous rank statement follows by pairing those two formulas. No inverse of n or characteristic restriction is used. In particular, over F₃ at n=3 the image has dimension six; over any field at n=2 the image/kernel dimensions are three/one, and over Q at n=4 they are ten/six. The branch algebra remains k[x]/(xⁿ), with its nilpotents.
 
-## Reading and baseline receipts
+All149 inherited node IDs, mathematical statements, hypotheses, API, sources and statuses are preserved;148 whole node objects are unchanged. Only the old zero-rank node's proof/prerequisites and two new tests change. Its acceptance conditions are retained. Both source routes (28 Yun–Zhang and38 Abdurrahman–Venkatesh records), reserved root-stack owner, curve/moduli import, source versions/findings/coverage, sibling ownership, gaps, requests, restructurings and39 planets are unchanged. All inherited reader declarations remain. The roadmap definition is byte-for-byte unchanged. Generic dimension, rank-nullity, counting and equivalence infrastructure is imported, not planned again.
 
-The preceding handoff was read in full at the [immutable base](https://github.com/CBirkbeck/tauceti-explorer/blob/d173a3ec2a7f0b18f3d2eeabdb3755f15bf56dfb/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md). All eight reviewed parent FA.0–FA.7 audit rows were read with target/evidence/duplication records, and the REV-AUDIT-20 report was read. There is no PartII row. The ten own stage descriptions and the reserved root-stack contract were reread. The unit comparison, quotient/coaction and module-coordinate mathematical boundaries were checked against their actual signatures and proof extraction. Broader inherited node/source collations retain the prior workers’ receipts; this continuation does not claim a fresh whole-paper, whole-packet or whole-library audit. Nearby JacobianChallenge and StableReduction upstream documents were read in the continuous worker session. The link-packet entry screen found no entry mentioning this PartII.
+The general determinant, including its permutation sign, is the sole remaining admission in the separate native calculation. The actual rank formulas and all51 examples have proved bodies there. That does not close geometric root-stack descent, normalized coframes, quotient algebraicity/coarse properties, coherent infinite fpqc towers, Kummer H¹ or ramified class-field theory.
 
-Fresh primary reading: [Stacks Tag040N](https://stacks.math.columbia.edu/tag/040N), complete Lemma59.28.3 statement and proof, including the unit-parameter finite-free cover and syntomic/fppf distinction. Our exponent remains positive. The source motivates the unit chart; it does not literally state the coordinate inverse formula. TV17 §3.1 and broader YZ19/AV/B24 reading retain predecessor attribution, as do source findings, version collation and57,628 arithmetic checks. No source erratum or successful fresh PDF image reading is claimed.
+## Reading and baseline
 
-Six new baseline statements were read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 with their ambient hypotheses: AlgEquiv.ofBijective, toAlgHom_ofBijective, ofBijective_apply and symm_apply_eq (Algebra/Algebra/Equiv); Algebra.TensorProduct.tmul_mul_tmul (RingTheory/TensorProduct/Basic); LinearEquiv.funUnique (LinearAlgebra/Pi, used only in the inherited cokernel example). Exact source lines/hashes are in the packet. Existing tensor-power, module-subsingleton and character-generator statements were reread; TauCeti.RootsOfUnityGroup.generator is exactly Multiplicative.ofAdd1. No new general absence assertion is made.
+The whole [incoming handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/404db35ccec72b9ceabd108108d2ba8fa0762b2c/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md), all149 inherited mathematical statements and29 deduplicated hypothesis groups, all eight reviewed parent FA.0–FA.7 audit rows with their target/evidence/duplication records, and REV-AUDIT-20 were freshly read. There is no PartII audit row. The full own ten-stage definition, reserved root-stack contract and SF.1/SF.2/SF.3/R09.4/R09.5 supplier descriptions were read. The incoming three immutable native proof fragments were reconstructed and their exact hashes verified. Nearby StableReduction and JacobianChallenge upstream documents were read earlier in this continuous worker session. The link-entry screen found no packet entry mentioning this PartII. No fresh whole-source, whole-packet metadata or whole-library audit is claimed.
 
-## Proof and proposed-signature checks
+Fresh primary reading: [Talpo–Vistoli v2](https://arxiv.org/pdf/1410.1164v2), complete printed pp.12–16, from the root-object construction through Corollary3.13 and the beginning of3.14, including the proofs of3.5,3.7,3.12 and3.10. Fresh downloaded SHA25692a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2 matches the inherited receipt. [Stacks040N](https://stacks.math.columbia.edu/tag/040N), complete Lemma59.28.3 statement and proof, was also reread. The latter concerns unit parameters. Our zero-parameter dimension formulas are explicit root-chart derivations, not quoted paper or Stacks theorems. Broader YZ19/AGV/B24/AV primary reading, paper route collations, source findings, image checks and arithmetic sweeps retain the preceding workers' receipts; no fresh erratum or new image/sweep result is asserted.
 
-Actual new bodies and examples are archived in the allowed suggested-file history at [9a0db34b993b8f180dc07f570121d63c9f0f5927](https://github.com/CBirkbeck/tauceti-explorer/blob/9a0db34b993b8f180dc07f570121d63c9f0f5927/research/blueprint/suggested/FunctionFieldArithmeticPartII.lean). That intermediate full file retains inherited admissions, so it is not itself a proof of all old inputs. The checked reconstruction below combines its new block and four example proofs with the actual native predecessor coaction/weighted-coordinate/module proofs at7660b60d3ed205f650aeefe6b1e46996ec36ff09 and6a5d51f50e6e1ca391411bee278a025fee3cbc4f. The PR head restores admissions under PROTOCOL13.
+Eleven new Mathlib baseline statements were read with their ambient hypotheses at082e2d37e8b0463410cdb532e111cd43d5a66174: the ordered-pair/subtype cardinality and choice formulas; equivalence of subtypes; cardinality invariance; divisibility of n(n−1) by2; finite-function dimension; pointwise linear equivalences; the top-submodule linear equivalence; injective transfer of finite dimensionality; and linear-equivalence dimension invariance. Their exact files, lines and file hashes are in the packet. The existing rank-nullity statement was freshly read in FiniteDimensional/Lemmas. The native Tau Ceti character generator is expanded only to its exact pinned definition. The F₃ example imports the pinned field structure with its primality instance; it does not derive a field structure from a commutative ring assumption.
 
-Actual proof extraction: 1403 lines,37 examples,0 errors,2 admitted-body warnings (determinant and field ranks),0 other warnings. All37 examples have actual bodies. Twenty-two printed native declaration axiom lists, including all seven unit-branch declarations and the earlier fifteen module-coordinate declarations, contain no admission axiom; their only axioms are subsets of propext, Classical.choice and Quot.sound. Available memory65 GiB; time8.90 seconds, maximum RSS3185656 KiB.
+## Native proof and admitted signatures
 
-Distinct final proposed native extraction: 720 lines,37 examples,0 errors,100 admitted-body warnings,0 other warnings. Available memory65 GiB; time3.30 seconds, maximum RSS3106648 KiB. Both used one direct Lean4.34.0-rc2 compiler process at a time in an existing build at the exact Mathlib pin, with a20-minute timeout. No project, build, cache download or language server was started and no compiler process remains.
+The complete separate native calculation is archived in the allowed suggested-file history at [proof commitfdc057a53800a1937f36f157aa7636a94611b5a9](https://github.com/CBirkbeck/tauceti-explorer/blob/fdc057a53800a1937f36f157aa7636a94611b5a9/research/blueprint/suggested/FunctionFieldArithmeticPartII.lean), between BEGIN/END ARCHIVED CHECKED ROOT ZERO RANK. It combines the actual predecessor coaction/weighted table/module coordinates/unit inverse and their examples with this continuation's proved bodies. The public archive contains one admission, exclusively the still-open determinant. It is not a proof of the whole roadmap. The PR head restores the proposed bodies under PROTOCOL13.
 
-Exact-pin compiled Tau Ceti line-bundle tensor-product and roots-of-unity modules are absent in that build, so the complete Tau Ceti suggested file is uncompiled. The extraction expands only the native character generator to its exact pinned definition and excludes geometric and uncompiled Tau Ceti branches. It does not certify those omitted signatures, suppliers or stack carriers.
+Actual extraction: 1586 lines,51 examples,0 errors,1 admitted-body warning (determinant),0 other warnings. All36 printed declaration axiom lists, including the14 new/updated exports and22 inherited module/unit exports, contain only subsets of propext, Classical.choice and Quot.sound. The rank computation has no admitted dependency. Available memory60 GiB; time11.30 seconds, maximum RSS3185264 KiB.
 
-Content/normalized diagnostic SHA256:
+Final proposed native extraction: 845 lines,51 examples,0 errors,126 admitted-body warnings,0 other warnings. Available memory60 GiB; time4.27 seconds, maximum RSS3107284 KiB. Thirteen new native/canonical declaration headers are identical; the existing rank header is preserved. Every inherited reader declaration and all new packet API/test names occur in the submitted deliverables.
 
-- Actual public intermediate: 7b4e7edb3762832f2c994dd3dd9fa1a1771f5d7f509c0b5112135d3b4e492291
-- Final proposed suggested file: 69629c71df06f4642a5aa54ddb2f5043b263d389b3e3cff6014dd21ccae3b6c6
-- Actual proof extraction: cbcb10fdb874bea25e1406f68daaa3fa011536b6126a631d47b5854f93580ee5
-- Actual proof diagnostics: 4400551c5460406f55fc05ef0e938840909f22936791865571dc14e0c07525e5
-- Proposed native extraction: e9a695135b168f1c252b7eb3d0bea7fc142087ac7e48a0350f20aa18a2b00537
-- Proposed diagnostics: 06c9c2b7d20b0d377cedc2656380015e424b0f3f322148cef0aebe945fca3c6f
+Both runs used a single direct Lean4.34.0-rc2 process at a time in an existing exact-pin Mathlib build, with a20-minute timeout. No project, build, cache download or LSP was started and no compiler process remains. The complete Tau Ceti suggested file is uncompiled: the exact-pin line-bundle/roots-of-unity compiled imports are absent in the available build. Native extraction excludes those geometric/Tau Ceti branches and does not certify their signatures or suppliers.
 
-Diagnostic normalization replaces the absolute invocation source path with UnitProof.lean or Submitted.lean and excludes the separate time trailer. These hashes were produced from the actual checks. Both public reconstruction outputs were byte-exact verified.
+SHA256 receipts:
 
-## Validation and projection
+- Actual extraction: 806e853b6b28b5608f6631c48523d66ac16a63bac60964c69601fe51359b1525
+- Actual normalized diagnostics: 2b929a47164388b41564da68dc8d1dc5027ff6bff7314853752919c0fe6571c6
+- Proposed native extraction: 0b58f3062788163a1ad4e2b53a5d5f370c9f93fa2ff2ad36bbfbfe6af4754759
+- Proposed normalized diagnostics: 558fff11a24827f05b7bd4e25a14c55ccb4b94cff9c8ae6a461152e3b5b57028
 
-The indexed packet checker reports0 errors/0 warnings. The normal read-only assembler overlay retains the new-roadmap definition and packet. The stage graph has3,056 vertices including51 inherited virtual endpoints and8,723 edges; own149 declarations/315 edges; combined stage and200 reachable declarations/ supplier-request dependencies has3,217 vertices/9,399 edges. All are acyclic, external prerequisites resolve, and all54 required stage pairs remain reachable. Stage edges, own empty skipped links and unrelated skipped lists match the control. The attached projection recipe also checks statement/key/source/route/gap preservation and the six new baseline entries. No atlas/application files were written.
+Diagnostics replace the invocation source path with RankProof.lean or Submitted.lean and exclude the separate TIME/RSS trailer. Public reconstruction verifies both source hashes byte for byte.
 
-## Reproduce native checks
+## Validation and actual atlas projection
 
-Run this Python from a checkout containing the three immutable proof commits and the final proposed suggested file. It verifies exact hashes before writing own scratch files. Require an already compiled Mathlib build at the exact pin and at least20 GiB available. Run one direct compiler process at a time with a20-minute timeout; do not set up a project, obtain caches, build libraries or start an LSP. No absolute private paths are part of this recipe.
+The indexed packet checker reports0 errors/0 warnings. The normal read-only assembler overlay uses the actual packet and roadmap definition, retaining other parts. Stage graph:3056 vertices including51 inherited virtual endpoints/8723 edges. Own graph:158 declarations/327 edges. Combined stage graph and209 reachable declarations:3226 vertices/9420 edges. All are acyclic; external prerequisites resolve; all54 required stage pairs are reachable. Stage edges, own empty skipped links, all unrelated skipped lists, the reserved key and all source/supplier boundaries match the control. No synthetic prerequisite, attachment or atlas/application file was added. The public script also checks148 unchanged whole nodes and149 preserved statements, all eleven new baseline entries and reader/API/test retention.
+
+## Reproduce the native extraction
+
+Save the following Python script and run it from a checkout containing the immutable proof commit and final proposed suggested file. It writes only its own scratch directory. Use an already compiled Mathlib build at the exact pin; require at least20 GiB available and one direct compiler process with a20-minute timeout. Do not set up a project, build libraries, download caches or start an LSP.
 
 ```python
 from pathlib import Path
-import subprocess, json, hashlib
-sc=Path('scratch-unit-comparison');sc.mkdir(exist_ok=True)
+import subprocess,hashlib,re
+sc=Path('scratch-zero-rank');sc.mkdir(exist_ok=True)
 sourcepath='research/blueprint/suggested/FunctionFieldArithmeticPartII.lean'
-def extract(s):
- imports='\n'.join(l for l in s.splitlines() if l.startswith('import Mathlib'))
- initial=s[s.index('abbrev AffineRing (f : A)'):s.index('-- TauCeti.RootStack.affineCoaction.nativePoint')]
- one=s[s.index('-- TauCeti.RootStack.affineCoaction.test_one'):s.index('-- TauCeti.RootStack.affineCoaction.test_sign')]
- comparison=s[s.index('section AffineTorsorComparison'):s.index('-- Native acceptance computations')]
- extra=s[s.index('-- Native acceptance computations'):]
- fragment=imports+'\nnoncomputable section\nuniverse u\nnamespace TauCeti.RootStack\nvariable {A : Type u} [CommRing A]\nopen scoped TensorProduct\n'+initial+one+comparison+extra
- return fragment.replace('TauCeti.RootsOfUnityGroup.generator n','Multiplicative.ofAdd (1 : ZMod n)')
-oldsource=subprocess.check_output(['git','show','7660b60d3ed205f650aeefe6b1e46996ec36ff09:'+sourcepath],text=True)
-old=extract(oldsource)
-assert hashlib.sha256(old.encode()).hexdigest()=='4ab15358f6cc7033abe508a1e3114b7a602a922ec2510c1f13fac4d9cac3a5bb'
-s=subprocess.check_output(['git','show','6a5d51f50e6e1ca391411bee278a025fee3cbc4f:'+sourcepath],text=True)
-assert hashlib.sha256(s.encode()).hexdigest()=='e2f09db25c35ff1ff9ad70b31c10cf3e00c6b68c6d5e8aaa70b67879dc76e5e3'
-a=old.index('/-- Native kernel, indexed');b=old.index('theorem affineTorsorComparison.injective_iff',a)
-block=s[s.index('/-- Kernel coefficients of an actual tensor'):s.index('theorem affineTorsorComparison.injective_iff')]
-proof='import Mathlib.LinearAlgebra.Isomorphisms\n'+old[:a]+block+old[b:]
-tests=s[s.index('/-! Module quotient acceptance computations.'):s.index('-- Native acceptance computations')]
-a=proof.index('-- Native acceptance computations');proof=proof[:a]+tests+proof[a:]
-axioms=['kernel_coordinate_condition','kernelCoordinateEquiv','kernelCoordinateEquiv_apply','kernelCoordinateEquiv_symm_coordinates','kernelCoordinateEquiv_nonwrap','kernel_equiv','cokernelResidue','cokernelResidue_apply','cokernelResidue_surjective','cokernelResidue_ker','cokernelCoordinateEquiv','cokernelCoordinateEquiv_mk','cokernelCoordinateEquiv_symm_residue','cokernelCoordinateEquiv_eq_iff','cokernel_equiv']
-proof+='\n'+'\n'.join('#print axioms TauCeti.RootStack.affineTorsorComparison.'+a for a in axioms)+'\n'
-assert hashlib.sha256(proof.encode()).hexdigest()=='864b5778b1c17965e1ef5832357735e5af38165f4230de7252cb1a4da3e4dc77'
-public=subprocess.check_output(['git','show','9a0db34b993b8f180dc07f570121d63c9f0f5927:'+sourcepath],text=True)
-assert hashlib.sha256(public.encode()).hexdigest()=='7b4e7edb3762832f2c994dd3dd9fa1a1771f5d7f509c0b5112135d3b4e492291'
-block=public[public.index('/-- The inverse of the root'):public.index('/-- The algebra equivalence is fixed')]
-a=proof.index('/-- The algebra equivalence is fixed');proof=proof[:a]+block+proof[a:]
-a=proof.index('theorem affineTorsorComparison.unit_inverse');b=proof.index('/-- Determinant',a)
-x=public.index('theorem affineTorsorComparison.unit_inverse');y=public.index('/-- Determinant',x)
-proof=proof[:a]+public[x:y]+proof[b:]
-for name in ['test_branch_kernel','test_wild_unit','test_nonflat_kernel','test_cokernel_nonreduced']:
- marker='-- affineTorsorComparison.'+name
- a=proof.index(marker);x=public.index(marker)
- if name=='test_cokernel_nonreduced':
-  b=proof.index('end AffineTorsorComparison',a);y=public.index('end AffineTorsorComparison',x)
- else:
-  b=proof.index('-- affineTorsorComparison.',a+len(marker));y=public.index('-- affineTorsorComparison.',x+len(marker))
- proof=proof[:a]+public[x:y]+proof[b:]
-proof+='\n'+public[public.index('/-! Unit chart acceptance computations.'):]
-proof+='\n#print axioms TauCeti.RootStack.affineRoot.unit_mul_inverse\n'
-proof+=''.join('#print axioms TauCeti.RootStack.affineTorsorComparison.'+x+'\n' for x in ['unitEquiv','unitEquiv_toAlgHom','unitEquiv_symm_character','unitEquiv_symm_right','unitEquiv_symm_character_tmul','unit_inverse'])
-proof=proof.replace('TauCeti.RootsOfUnityGroup.generator n','Multiplicative.ofAdd (1 : ZMod n)')
-assert hashlib.sha256(proof.encode()).hexdigest()=='cbcb10fdb874bea25e1406f68daaa3fa011536b6126a631d47b5854f93580ee5'
-(sc/'UnitProof.lean').write_text(proof)
-sketch=extract(Path(sourcepath).read_text())
-assert hashlib.sha256(sketch.encode()).hexdigest()=='e9a695135b168f1c252b7eb3d0bea7fc142087ac7e48a0350f20aa18a2b00537'
+archived=subprocess.check_output(['git','show','fdc057a53800a1937f36f157aa7636a94611b5a9:'+sourcepath],text=True)
+proof=archived.split('/- BEGIN ARCHIVED CHECKED ROOT ZERO RANK\n',1)[1].split('END ARCHIVED CHECKED ROOT ZERO RANK -/',1)[0]
+assert hashlib.sha256(proof.encode()).hexdigest()=='806e853b6b28b5608f6631c48523d66ac16a63bac60964c69601fe51359b1525'
+s=Path(sourcepath).read_text()
+imports='\n'.join(l for l in s.splitlines()if l.startswith('import Mathlib'))
+initial=s[s.index('abbrev AffineRing (f : A)'):s.index('-- TauCeti.RootStack.affineCoaction.nativePoint')]
+one=s[s.index('-- TauCeti.RootStack.affineCoaction.test_one'):s.index('-- TauCeti.RootStack.affineCoaction.test_sign')]
+comparison=s[s.index('section AffineTorsorComparison'):s.index('-- Native acceptance computations')]
+extra=s[s.index('-- Native acceptance computations'):]
+sketch=imports+'\nnoncomputable section\nuniverse u\nnamespace TauCeti.RootStack\nvariable {A : Type u} [CommRing A]\nopen scoped TensorProduct\n'+initial+one+comparison+extra
+sketch=sketch.replace('TauCeti.RootsOfUnityGroup.generator n','Multiplicative.ofAdd (1 : ZMod n)')
+assert hashlib.sha256(sketch.encode()).hexdigest()=='0b58f3062788163a1ad4e2b53a5d5f370c9f93fa2ff2ad36bbfbfe6af4754759'
+(sc/'RankProof.lean').write_text(proof)
 (sc/'Submitted.lean').write_text(sketch)
-print('Byte-exact proof and submitted native fragments reconstructed.')
+print('Both public native extractions verified byte for byte.')
 ```
 
-The proof and proposed-signature files have distinct claims. Delete own scratch after submission.
+Delete own scratch after submission. The unchanged predecessor statement-level source findings and routes remain review obligations.
 
-## Reproduce graph and preservation checks
+## Reproduce projection and preservation
 
-The normal assembler is used read-only; this script writes no atlas files. Script SHA2562b531f9fe312a37bbe2f715fe72fa64c8077ea6da3deeb1787cf4638d885fbb2.
+Save and run this script from the checkout; it imports the normal assembler read-only and writes no atlas files. Script SHA25674565ec38c0a1e629d7591763cb6c6e445dac6631ee6d4f2aa7fb8393e1cc294.
 
 ```python
 import json,sys,subprocess,hashlib,re
@@ -121,7 +92,8 @@ rid="FunctionFieldArithmeticPartII"
 stem=rid
 packetpath="research/blueprint/packets/"+stem+".json"
 roadmappath="research/blueprint/roadmaps/"+rid+".json"
-base="d173a3ec2a7f0b18f3d2eeabdb3755f15bf56dfb"
+base="404db35ccec72b9ceabd108108d2ba8fa0762b2c"
+publicationbase="9be0d75234d712fb5773663482ee55c38ac60ce0"
 p=json.loads((root/packetpath).read_text());r=json.loads((root/roadmappath).read_text())
 old=json.loads(subprocess.check_output(["git","show",base+":"+packetpath],text=True))
 oldr=json.loads(subprocess.check_output(["git","show",base+":"+roadmappath],text=True))
@@ -205,7 +177,7 @@ inheritedMissing=[]
 assert missing==inheritedMissing,missing
 assert p["requests"]==old["requests"]
 ar={x["id"]:x for x in a["roadmaps"]};cr={x["id"]:x for x in control["roadmaps"]}
-assert ar[rid]["blueprint"]["declarations"]==cr[rid]["blueprint"]["declarations"]+6
+assert ar[rid]["blueprint"]["declarations"]==cr[rid]["blueprint"]["declarations"]+9
 assert ar[rid]["blueprint"]["planets"]==cr[rid]["blueprint"]["planets"]
 assert ar[rid]["blueprint"]["skippedLinks"]==cr[rid]["blueprint"]["skippedLinks"]
 assert all(ar[x].get("blueprint",{}).get("skippedLinks")==cr[x].get("blueprint",{}).get("skippedLinks") for x in cr)
@@ -217,20 +189,36 @@ for id,n in on.items():
   assert own[id].get(key)==n.get(key),(id,key)
  assert all(t in own[id].get("tests",[]) for t in n.get("tests",[]))
  assert all(a in own[id].get("acceptance",[]) for a in n.get("acceptance",[]))
-assert p["baseline"]["declarations"][:101]==old["baseline"]["declarations"]
-assert len(p["baseline"]["declarations"])==107
+assert p["baseline"]["declarations"][:107]==old["baseline"]["declarations"]
+assert len(p["baseline"]["declarations"])==118
 assert r==oldr
 unchanged=sum(own[id]==n for id,n in on.items())
-assert unchanged==142
-assert len(own)==149
+assert unchanged==148
+assert len(own)==158
 assert all(n["implementationStatus"]=="unchecked" for n in own.values())
 lean=(root/("research/blueprint/suggested/"+stem+".lean")).read_text()
+reader=(root/("research/blueprint/readmes/"+stem+".md")).read_text()
+for node in old["nodes"]:
+ assert node["id"] in reader,node["id"]
+public=subprocess.check_output(["git","show","fdc057a53800a1937f36f157aa7636a94611b5a9:research/blueprint/suggested/FunctionFieldArithmeticPartII.lean"],text=True)
+proof=public.split("/- BEGIN ARCHIVED CHECKED ROOT ZERO RANK\n",1)[1].split("END ARCHIVED CHECKED ROOT ZERO RANK -/",1)[0]
+names={node["declarationName"] for node in p["nodes"][len(old["nodes"]):]}
+names|={api["name"] for node in p["nodes"][len(old["nodes"]):] for api in node.get("api",[])}
+names.add("TauCeti.RootStack.affineTorsorComparison.zero_rank")
+for name in names:
+ localname=name.removeprefix("TauCeti.RootStack.")
+ def header(s):
+  match=re.search(r"^(?:noncomputable )?(?:def|lemma|theorem) "+re.escape(localname)+r"\b.*?:=",s,re.M|re.S)
+  assert match,name
+  return re.sub(r"\s+"," ",match[0])
+ assert header(proof)==header(lean),name
+assert len(names)==14,len(names)
 for node in p["nodes"][len(old["nodes"]):]:
  for test in node.get("tests",[]):assert test["name"] in lean,test["name"]
 for node in p["nodes"][len(old["nodes"]):]:
  for api in node.get("api",[]):assert api["name"].split(".")[-1] in lean,api["name"]
 allowed={packetpath,"research/blueprint/readmes/"+stem+".md","research/blueprint/suggested/"+stem+".lean","research/blueprint/handoff/DESIGN-"+stem+".md"}
-changed=set(subprocess.check_output(["git","diff","--name-only",base],text=True).splitlines())
+changed=set(subprocess.check_output(["git","diff","--name-only",publicationbase],text=True).splitlines())
 assert changed<=allowed,changed
 for path in changed:
  assert not re.search(r"/(?:home|tmp|Users)/|file"+"://",(root/path).read_text()),path
@@ -246,8 +234,7 @@ print(json.dumps(result,indent=2))
 
 ## Resume
 
-1. Reconstruct the actual proof rather than taking admitted PR-head bodies as proof inputs. The unit inverse and all direct examples are checked there.
-2. Complete determinant sign by cyclic row translations/permutation signs and the number of wrapping entries; then general field ranks. Preserve n=1, the zero ring and arbitrary characteristic.
-3. Continue native geometric root-stack carriers, tensor-section/unit coordinates, finite charts, coherent infinite fpqc towers and class-field theory through the existing suppliers. JAC-A, ST-LISSE/ST-OPS, NORM-2EXACT, FA-APPROX, EXTERIOR-COMP, LEAN-GEOMETRY, LEAN-SECTION-COMP and TOWER-TYPING remain open. Preserve full nilpotent closed charts, unit-normalized coframes, both paper routes and source corrections. No stage is closed.
+1. Reconstruct the actual archived native proof, rather than using admitted PR-head bodies as proof inputs. The general field ranks are checked there. Complete the determinant sign using rowwise cyclic translations and the wrapping-cardinality theorem; keep n=1, the zero ring and arbitrary characteristic.
+2. Continue root-stack carriers and the actual tensor-section/unit-coordinate, geometric finite chart, coherent infinite fpqc tower and ramified class-field contracts through their existing suppliers. JAC-A, ST-LISSE/ST-OPS, NORM-2EXACT, FA-APPROX, EXTERIOR-COMP, LEAN-GEOMETRY, LEAN-SECTION-COMP and TOWER-TYPING remain open. Preserve normalized coframes, full nilpotent closed charts, both paper routes and all source corrections. No stage is closed.
 
-Opening the checkpoint PR ends this claim. Continue the next available issue in WORKERS order; never unclaim submitted work or independently review/red-team own contributions.
+Opening the checkpoint PR ends this claim. Continue with the next available issue in WORKERS order; never unclaim submitted work or independently review/red-team own contributions.
