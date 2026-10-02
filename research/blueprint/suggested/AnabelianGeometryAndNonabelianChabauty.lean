@@ -1,3 +1,4 @@
+import Mathlib.GroupTheory.GroupAction.OfQuotient
 import Mathlib.Topology.Algebra.ClopenNhdofOne
 import Mathlib.Tactic.Group
 import Mathlib.GroupTheory.GroupAction.ConjAct
@@ -614,6 +615,199 @@ example (N : OpenNormalSubgroup G) : Finite (G ⧸ N.toSubgroup) := by sorry
 example (c : Z1 G U) : ∃ N : OpenNormalSubgroup G, ∀ n ∈ N, c n = 1 := by sorry
 end Z1
 
+-- Quotient cocycle descent continuation, Codex codex-a71f92.
+namespace Z1
+variable {G : Type u} [Group G] [TopologicalSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+  (N : Subgroup G) [N.Normal]
+
+def descend (c : Z1 G U) (hc : ∀ n ∈ N, c n = 1) :
+    Z1 (G ⧸ N) (FixedPoints.subgroup N U) := by
+  let f : G ⧸ N → FixedPoints.subgroup N U :=
+    Quotient.lift (fun g => ⟨c g, c.values_mem_fixedPoints N hc g⟩)
+      (by
+        intro a b hab
+        apply Subtype.ext
+        have hn : a⁻¹ * b ∈ N := QuotientGroup.leftRel_apply.mp hab
+        have he := c.mul_right_eq_of_trivial N hc a (a⁻¹ * b) hn
+        simpa only [mul_inv_cancel_left] using he.symm)
+  refine ⟨f, ?_, ?_⟩
+  · exact (QuotientGroup.isQuotientMap_mk N).continuous_iff.mpr
+      (c.continuous.subtype_mk (fun g => c.values_mem_fixedPoints N hc g))
+  · intro q r
+    induction q using QuotientGroup.induction_on with | H g =>
+      induction r using QuotientGroup.induction_on with | H h =>
+        apply Subtype.ext
+        change c (g * h) = c g * g • c h
+        exact c.map_mul g h
+
+lemma descend_apply (c : Z1 G U) (hc : ∀ n ∈ N, c n = 1) (g : G) :
+    (descend N c hc (QuotientGroup.mk g)).val = c g := rfl
+
+lemma descend_unique (c : Z1 G U) (hc : ∀ n ∈ N, c n = 1)
+    (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U))
+    (hd : ∀ g : G, (d (QuotientGroup.mk g)).val = c g) : d = descend N c hc := by
+  apply Z1.ext
+  intro q
+  induction q using QuotientGroup.induction_on with | H g =>
+    apply Subtype.ext
+    exact hd g
+
+def inflate (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) : Z1 G U := by
+  refine ⟨fun g => (d (QuotientGroup.mk g)).val, ?_, ?_⟩
+  · exact continuous_subtype_val.comp (d.continuous.comp QuotientGroup.continuous_mk)
+  · intro g h
+    have he := congrArg Subtype.val (d.map_mul (QuotientGroup.mk g) (QuotientGroup.mk h))
+    exact he
+
+lemma inflate_apply (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) (g : G) :
+    inflate N d g = (d (QuotientGroup.mk g)).val := rfl
+
+lemma inflate_trivialOn (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U))
+    (n : G) (hn : n ∈ N) : inflate N d n = 1 := by
+  rw [inflate_apply, (QuotientGroup.eq_one_iff n).mpr hn, d.map_one]
+  rfl
+
+lemma inflate_descend (c : Z1 G U) (hc : ∀ n ∈ N, c n = 1) :
+    inflate N (descend N c hc) = c := by
+  apply Z1.ext
+  intro g
+  rfl
+
+lemma descend_inflate (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    descend N (inflate N d) (inflate_trivialOn N d) = d := by
+  symm
+  apply descend_unique
+  intro g
+  rfl
+
+lemma descend_one (hc : ∀ n ∈ N, (1 : Z1 G U) n = 1) :
+    descend N (1 : Z1 G U) hc = 1 := by
+  symm
+  apply descend_unique
+  intro g
+  rfl
+
+lemma inflate_one : inflate N (1 : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) = 1 := by
+  apply Z1.ext
+  intro g
+  rfl
+
+def descendEquiv :
+    {c : Z1 G U // ∀ n ∈ N, c n = 1} ≃ Z1 (G ⧸ N) (FixedPoints.subgroup N U) where
+  toFun c := descend N c.val c.property
+  invFun d := ⟨inflate N d, inflate_trivialOn N d⟩
+  left_inv c := Subtype.ext (inflate_descend N c.val c.property)
+  right_inv d := descend_inflate N d
+
+lemma descendEquiv_apply (c : {c : Z1 G U // ∀ n ∈ N, c n = 1}) :
+    descendEquiv N c = descend N c.val c.property := rfl
+
+lemma descendEquiv_symm_apply (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    ((descendEquiv N).symm d).val = inflate N d := rfl
+
+lemma descend_proof_independent (c : Z1 G U) (hc hc' : ∀ n ∈ N, c n = 1) :
+    descend N c hc = descend N c hc' := rfl
+
+lemma descend_gauge_iff (c d : Z1 G U) (hc : ∀ n ∈ N, c n = 1)
+    (hd : ∀ n ∈ N, d n = 1) :
+    (∃ x : U, ∀ g, d g = x * c g * (g • x)⁻¹) ↔
+      ∃ x : FixedPoints.subgroup N U, ∀ q : G ⧸ N,
+        descend N d hd q = x * descend N c hc q * (q • x)⁻¹ := by
+  constructor
+  · rintro ⟨x,hx⟩
+    have hfixed : x ∈ FixedPoints.subgroup N U := by
+      rw [FixedPoints.mem_subgroup]
+      intro n
+      exact gauge_witness_fixed c d N hc hd x hx n n.property
+    refine ⟨⟨x,hfixed⟩, ?_⟩
+    intro q
+    induction q using QuotientGroup.induction_on with | H g =>
+      apply Subtype.ext
+      exact hx g
+  · rintro ⟨x,hx⟩
+    refine ⟨x.val, ?_⟩
+    intro g
+    exact congrArg Subtype.val (hx (QuotientGroup.mk g))
+lemma inflate_injective : Function.Injective (inflate N : Z1 (G ⧸ N) (FixedPoints.subgroup N U) → Z1 G U) := by
+  intro d e h
+  apply Z1.ext
+  intro q
+  induction q using QuotientGroup.induction_on with | H g =>
+    apply Subtype.ext
+    exact congrArg (fun c : Z1 G U => c g) h
+
+lemma descendEquiv_left_inv (c : {c : Z1 G U // ∀ n ∈ N, c n = 1}) :
+    (descendEquiv N).symm (descendEquiv N c) = c := (descendEquiv N).left_inv c
+
+lemma descendEquiv_right_inv (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    descendEquiv N ((descendEquiv N).symm d) = d := (descendEquiv N).right_inv d
+
+lemma descendEquiv_one (hc : ∀ n ∈ N, (1 : Z1 G U) n = 1) :
+    descendEquiv N ⟨1,hc⟩ = 1 := descend_one N hc
+
+end Z1
+
+namespace Z1
+variable {G : Type u} [Group G] [TopologicalSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+  (N : Subgroup G) [N.Normal]
+
+-- Descent: degenerate cocycle.
+-- test: TauCeti.NonabelianCohomology.Z1.descend.test_one
+example (hc : ∀ n ∈ N, (1 : Z1 G U) n = 1) :
+    descend N (1 : Z1 G U) hc = 1 := descend_one N hc
+
+-- Descent: representative compatibility on the actual quotient.
+-- test: TauCeti.NonabelianCohomology.Z1.descend.test_representative
+example (c : Z1 G U) (hc : ∀ n ∈ N, c n = 1) (g n : G) (hn : n ∈ N) :
+    descend N c hc (QuotientGroup.mk (g * n)) = descend N c hc (QuotientGroup.mk g) := by
+  apply Subtype.ext
+  exact c.mul_right_eq_of_trivial N hc g n hn
+
+-- Descent: the prescribed target is strictly smaller than U in this nonabelian case.
+-- test: TauCeti.NonabelianCohomology.Z1.descend.test_proper_invariants
+example :
+    Equiv.swap (0 : Fin 3) 1 ∉
+      FixedPoints.subgroup (⊤ : Subgroup (ConjAct (Equiv.Perm (Fin 3))))
+        (Equiv.Perm (Fin 3)) := by
+  intro h
+  rw [FixedPoints.mem_subgroup] at h
+  have he := h
+    ⟨ConjAct.toConjAct (Equiv.swap (1 : Fin 3) 2), Subgroup.mem_top _⟩
+  have hn : ConjAct.toConjAct (Equiv.swap (1 : Fin 3) 2) •
+      Equiv.swap (0 : Fin 3) 1 ≠ Equiv.swap (0 : Fin 3) 1 := by decide
+  exact hn he
+
+-- Inflation: base-point preservation.
+-- test: TauCeti.NonabelianCohomology.Z1.inflate.test_one
+example : inflate N (1 : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) = 1 := inflate_one N
+
+-- Inflation: exact cocycle pullback along the native quotient projection.
+-- test: TauCeti.NonabelianCohomology.Z1.inflate.test_native_projection
+example (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) (g : G) :
+    inflate N d g = (d (QuotientGroup.mk g)).val := rfl
+
+-- Inflation: it is necessarily trivial on N.
+-- test: TauCeti.NonabelianCohomology.Z1.inflate.test_subgroup
+example (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) (n : G) (hn : n ∈ N) :
+    inflate N d n = 1 := inflate_trivialOn N d n hn
+
+-- Equivalence: actual recovery of the original cocycle.
+-- test: TauCeti.NonabelianCohomology.Z1.descendEquiv.test_left_inverse
+example (c : {c : Z1 G U // ∀ n ∈ N, c n = 1}) :
+    (descendEquiv N).symm (descendEquiv N c) = c := (descendEquiv N).left_inv c
+
+-- Equivalence: actual recovery of every quotient cocycle.
+-- test: TauCeti.NonabelianCohomology.Z1.descendEquiv.test_right_inverse
+example (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    descendEquiv N ((descendEquiv N).symm d) = d := (descendEquiv N).right_inv d
+
+-- Equivalence: proof of triviality does not alter the actual descended cocycle.
+-- test: TauCeti.NonabelianCohomology.Z1.descendEquiv.test_proof_irrelevance
+example (c : Z1 G U) (hc hc' : ∀ n ∈ N, c n = 1) :
+    descendEquiv N ⟨c,hc⟩ = descendEquiv N ⟨c,hc'⟩ := rfl
+end Z1
 end TauCeti.NonabelianCohomology
 
 /-!
