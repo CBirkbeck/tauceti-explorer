@@ -1,0 +1,310 @@
+{
+  "redteam": "RT-PAPER-BHATT-SCHOLZE-22",
+  "findings": [
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed semantic supplier cycle, not an installed graph cycle. Items 55/56/70 invoke BMS19 Proposition 7.17, whose accepted /066 route imports PR.4. Read v4 pp.75-76/100, BMS19 v2 p.51 and BL v1 Theorem 7.5.6 p.184. Prefer a single PR.4 owner for prismatic twists and the BL K-theory-free identification, preserving its construction and completion hypotheses; RT.6 imports/transports the TC realization. Name the PR.5 logarithm supplier explicitly if used and verify proposed PR.5→PR.4 and PR.4→RT.6 links jointly. Do not simultaneously apply the competing rerouting recipes or import the downstream Part II back into PR.4."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed against arXiv v4 only. Lemma 2.34 pp.21-22 uses p-adic separatedness; Lemma 3.9 p.31 applies it to the uncompleted colimit. Checked the square-zero cyclotomic example: semilinearity makes the Frobenius multiplicative; p-torsionfreeness makes the Frobenius lift a delta structure; each cyclotomic factor is complete, d-regular, and its quotient by d is killed by p. The class e_j at stage j is killed by d but survives every transition p^i e_{j+i}. Pass first to p-adic completion for the regularity assertion. Record affects=a stated result for this intermediate assertion, not a failure of completed perfection; qualify the Lemma 3.6 parenthetical. Do not call this a published-paper error without collation, or known=new without correction searches."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Definition 8.2/Example 8.3 pp.63-65 explicitly import Proposition 8.5 for base independence, and its proof uses 7.4/7.14. Move the independence/pi-zero assertions to the downstream owner of item 47; item 109 needs that import or a separately proved fixed-base argument. Keep the early fixed-base definition at PR.2."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing export/adapter specification. The route already exports to P8 but omits its recorded 10.11 gap, Shimura consumers and the arbitrary-(g) Galois/Andre adapter needed by the ramification continuation. Add source-qualified exports via P8/PerfectoidRamification and a proof obligation for the change of almost setup. A prior fix handoff alone is not evidence that the adapter is proved."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed generated-owner mismatch. Read paper_designs: grouping by parent produces PerfectoidQuotientsPartII; catalog order is CS24 #12 and this paper #28. Use the generated id and a coordinated brief covering their shared Q3 refinements and the promised 10.9/10.11 exports. Do not override the design job rule unconditionally: if a checked split is necessary, explicitly forward these consumers to its supplier instead of leaving a phantom id."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed overlapping component, not equivalence of the entire statements. CS24/017(b) owns ordinary completed-tensor-product perfectoidness at the relocated Q0 prefix; item 111 adds derived discreteness and perfect-prism compatibility (v4 pp.78-79). Import the former once, keep/prove the latter at PR.0, and state their agreement."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed unjustified planned status and overlap. PR.0 names sections but no regular-local cover construction; the P7 tower is explicitly restricted to perfect residue fields, while v4 Remark 3.11 pp.32-33 uses a Cohen ring for general residue fields. Choose one generic owner, add the missing imperfect-residue extension there, import its specialization and record the route-3 input for Remark 10.13. Do not mark the general statement planned just from a bibliography or the restricted P7 node."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed owner conflict. GR24/014 plans arc descent at PR.2, while this item 50 and CS24/072 route it to ArcTopologyAndDescent. PR.2 has no arc scope. Record the shared owner and hand off correction of the GR item; only this verification deliverable is edited."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 37b has both PR.1/PR.3 as planners; v4 Corollary 15.4 p.104 uses the PR.3 Frobenius factorization. Keep the general theorem and differential-graded upgrade at PR.3, importing the restricted 6.4 theorem from PR.1; no return edge."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed stale substantive report and summary: 96-item/three-route/no-Part-II narrative conflicts with 148 items and six accepted routes. Rewrite around current routes and source issues. Read 1.8(4)/9.1: retain perfect-base hypothesis and locally principal notation; the unrestricted bounded-prism etale sentence is false. Avoid describing an arbitrary ideal globally by a chosen d."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed v4 proof gap, not false equivalence. Theorem 3.10 p.32 establishes surjective Frobenius, pi^p|p and completeness before invoking a perfectoid-only principal-kernel result. Those alone do not imply perfectoidness (O_C/p is a semiperfect nonperfect characteristic-p counterexample). Supply the tilt identification (A/d)^flat≅A/p using perfectness and d-completeness, then Witt equivalence identifies theta kernel with (d). Record this missing argument and source version, not a withdrawn theorem."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted cited inputs at v4 Theorem 3.10 p.32. Separate the distinguished principal-kernel theorem (BMS18/038-039, Q0 prefix) from Fontaine's universal pro-infinitesimal thickening. The latter needs its precise topology and pro-infinitesimal hypotheses; the fix's blanket description of arbitrary complete surjections must not be adopted without proving that universal property. List both suppliers in item 19 and add the missing generic property at the unique A_inf owner."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted van der Kallen input: Lemma 2.18 p.17 explicitly uses Witt-vector preservation of etale maps. Reuse BMS18/149 at AI.0 with PR.0 an importing consumer; do not add it as a second PR.0 proof owner. AI.0→PR.0 is acyclic in the current graph."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted BMS19 Lemma 4.7 input, explicitly invoked on p.31. Reuse /029 at DD.1 for the derived-complete bounded-torsion/flatness criterion, list it in 17b, and preserve derived completeness; this is an existing upstream supplier, not a new theorem to plan at PR.0."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted complete-faithful-flatness and Cohen presentation inputs (v4 pp.32-33). The current Bhatt18 extraction now separates the common chosen coefficient map at R03.1 from its downstream regular-local corollary. Reuse that upstream coefficient construction and an explicitly available regular-local presentation; do not copy the stale claim that all Cohen input lives downstream or build a second generic coefficient map at PR.0. Retain the imperfect-residue-field extension needed by item 20."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted Example 3.14 assertion (p.35), explicitly consumed by Construction 4.17. Add the complete regular-immersion/base-change applicability lemma with the source hypotheses and name it as the envelope-construction input. A locator including an example does not inventory its assertion; a proof obligation must establish it."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing supplier imports. Fresh graph lacks DD.2/DD.3→PR.1 and DD.0→DD.1; the proposed edges are acyclic jointly and make DD.3 available to PR.2 transitively. Reuse DD.2 for the general ordinary de Rham complex and DD.3 for Cartier, with consumer adapters including C5. Do not install redundant direct links or duplicate the generic definitions in PR.1."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed arXiv-v4 global-form overstatement. On an infinite disjoint union, reduction modulo p gives (product F_p) tensor F_p[x]→product F_p[x], missing (x^n). For Frobenius base change on infinitely many variables the finite span cannot contain (x_n). Keep the sheaf statement; state global tensor comparisons with sufficient qcqs/finite-cohomological-descent hypotheses. The body comparisons are not invalidated. Scope any sourceIssue to the text read and complete the known-correction search."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing P^0 input: item 110 mentions Lurie but no item or prerequisite supplies it; Lemma 8.4 pp.63-64 requires the realization/Frobenius identification and vanishing on positive homotopy. Add the bounded theorem and its source with one enhanced-algebra owner/supplier to PR.2; do not claim formal coverage from the unrelated Eilenberg–Steenrod hits."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing smooth-algebra lifting along a locally nilpotent thickening. Read Theorem 5.2 p.47 and pinned exists_subalgebra_fg: the latter supplies finite-type descent only. FormallySmooth.lift lifts maps from an existing algebra, not the algebra itself. Reuse that partial library result and add the missing deformation/lifting theorem at the early DD.0 supplier, with reduction to a finite nilpotent model."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing crystalline reduction/base-change input in Theorem 6.4 p.53. Name the W(A/I)→A/I PD-base comparison and its hypotheses; reuse CR.2 explicit envelope comparison or CR.3 base change with a checked import. Do not give the same generic theorem two owners merely by listing CR.2–CR.3."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed Andre supplier gap for PR.3 and its downstream trace comparison, explicit on pp.91/95. Q3→PR.3 is absent and acyclic in the current graph, also with the other proposed prerequisite repairs. List the input in 66/68/114/69; RT.6 receives it through PR.3. The early derived functor at PR.2 remains independent of the stronger Q theorem."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed three omitted cited ingredients in §9 (pp.73/75): Artin–Schreier–Witt, affine proper base change, and Fujiwara–Gabber continuity. Reuse the last two from the accepted arc extraction with an explicit import; put the general AS–Witt result once at an etale-cohomology supplier and import the local perfectoid calculation. The existing nearby-named arc items do not state these results."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted symmetric-group envelope and trace/unipotent-cover inputs (pp.81/85). Andre18 has overall revise but route 1 specifically accepted; cite that precise accepted route and P3 item rather than the rejected ramification route. Stacks 03SH proves prime-to-p restriction/trace and the Sylow-subgroup construction; preserve local-system finite-rank hypotheses."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted BMS19 7.12/9.12/8.17 ingredients of Theorem 13.1 pp.95-96 and Bhatt20 5.15 flatness input p.88. Cite their existing RT.6/DD.1 owners and distinguish noncompleted and Nygaard-completed objects. Add the absent Bhatt20 prerequisite and reuse one general flatness lemma."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed scope inversion and overlapping flat-case source. P0 imposes m tensor m flat; v4 p.80 explicitly cannot invoke Andre directly for arbitrary J. Move the J-specific Proposition 10.8 to the downstream Part II, importing P0's flat case and proving principal-ideal flatness and elementwise almost detection there. The alternative wholesale extension of P0 is unnecessary and would still need a checked new generic contract. Accepted route 1 of Andre18 is relevant despite its overall revise status; the packet itself has no almost-Galois node."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed general-fibre scope gap. Read the accepted R2 type-(S) contract and A1 Yoneda-adic site: arbitrary perfectoid-base formal schemes are not covered by the R2/H1 hypotheses, and the anchor presheaf category is different. Split planned special cases from missing generic-fibre/nearby-cycle construction and use A1 for its site. Fresh graph already has R2→PR.4 transitively, so do not add that allegedly missing link; H1 does not reach PR.4, and its existing restricted theorem alone does not supply the general case."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed scope overclaim in item 82/prerequisite/report. Sch17 v1 p.2 asks for smooth Z-algebras over Z[[q−1]], whereas BS v4 §§16.3/Example 1.9(4) supply p-complete framing independence. Record the exact local result and separate arithmetic gluing (HQ.1). A source note should identify the unqualified introductory attribution, without asserting that the global conjecture is false or unsettled elsewhere; classify it as a scope clarification against v4 and search corrections before calling it new."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing Remark 7.20 and Lemma 7.22 provenance, explicitly cited on p.100. Item 115 already states the noncompleted fibre identification but supplies no contracting-tail input. Reuse BMS19/068 and /070 at PR.4, with the precise torsion/divided-Frobenius bounds and completed versus noncompleted distinction."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed cited-input inventory gaps in §15 (pp.102/104-105). Reuse the filtered Leta criterion and truncation maps at AI.1, relative-THH base change at RT.6, and flat wedge descent/complete-flatness at DD.5/DD.1. Some notes already name a lemma; that is provenance but not an item describing its theorem. Keep these as suppliers, not second owners of the prismatic factorization."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted Hodge–Tate and explicit-complex suppliers in §17 pp.117-120. Add BMS18 8.3/9.2 at AI.4, 9.4(iii) at AI.3, 7.3 and the triangle criterion at AI.1, the common noetherian complete-flatness lemma at DD.1, and the tower-perfectoidness import. Correct the proposed fix: do not add AI.4 as a planner of all item 83/Theorem 17.2; it supplies the second comparison datum, while PR.6 owns that theorem. AI.4 already reaches PR.6."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed stale queue explanation and wrong catalog order. paper_designs groups every new route by id and every Part II by parent, quoting all briefs. Replace the later-paper-wins/manual-merge claim by the generated shared job/id and actual coordinated design obligation; CS24 precedes this paper."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed qualified cycle rationale. Recomputed on current assembled graph: PR.2 reaches GS0:Witt-geometry, but removing the existing Q4→A3 edge eliminates that path. Keep ArcTopologyAndDescent as the ownership reason independently of the prospective removal; do not claim the current edge is already gone."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed planner-versus-supplier ambiguity. Read affected item lists and stage contracts. Narrow generic delta/prism, crystalline, derived initiality, lifting, Leta factorization and AΩ comparison owners to the stated suppliers; split item 76's cohomological and trace halves before retaining distinct owners. Notes may record consumers without marking a second generic theorem planner."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed brief import naming deficiency: the cited import lists give ids/stage keys but omit roadmap titles required by §16. Add the atlas titles alongside those ids when rewriting the coordinated briefs."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/36",
+      "verdict": "confirmed",
+      "reason": "Confirmed partial library omission. Read pinned PerfectClosure (commutative characteristic-p rings, Frobenius colimit), of, instPerfectRing and lift equivalence. Cite them for ordinary S_perf only. The identification with the derived prismatic S_perfd still requires a theorem; neither PerfectClosure nor inverse-limit Perfection proves it."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed locator corrections after inspecting page boundaries: 2.31 pp.20-21; 2.34 pp.21-22; 3.7 statement/descent paragraph p.30 and proof pp.30-31; 3.8 p.31. Preserve version qualification."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/38",
+      "verdict": "confirmed",
+      "reason": "Confirmed wrong numbered references in v4 pp.6/28: 1.17(1) is integral perfectoidization, and 3.10 is the equivalence. Correct references and record version-scoped slips; the intended results are unaffected."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed E5 conflates the broader introductory category with the bounded site in the body. Theorem 1.12(1) agrees with the introduction as printed; it is not itself a misprint. Retain the all-prism universal category and distinguish it from Remark 4.7's bounded site; correct the p.55 identification. Do not insist that every introductory variant must be redefined to the bounded site."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/40",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted BMS19 4.22 semiperfectoid-cover input, explicitly used in Proposition 8.5 p.64. Reuse /035 with a single DD.5/PR.2 ownership boundary and import it into the downstream perfectoidization proof; do not create two independent generic constructions."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/41",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing proof obligation and cited model for Example 7.9 p.59: the free-resolution calculation onto gr_1 is asserted as standard. Record that obligation and the crystalline analogue, preserving the early PR.2 proof or a checked early supplier. Calling an omitted routine computation an unproved planning step does not establish a mathematical error in the paper."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/42",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing descriptions of Hom-sheaf descent inputs in Proposition 8.10 p.68. Item 50 already mentions Gabber/TT90 but item 112 and the brief do not supply their statements/owners. Add quasi-separated reduction, finite-type approximation and the applicable h/submersive descent facts, using the accepted arc source and a shared generic scheme-limit supplier."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/43",
+      "verdict": "confirmed",
+      "reason": "Confirmed compatibility obligation left to the reader in Proposition 6.2 p.52. Add it to item 36's proof note; this is an omitted proof-plan step, not evidence that the comparison is false."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/44",
+      "verdict": "confirmed",
+      "reason": "Confirmed reversed retract direction in the report: Lemma 7.7(3) p.57 says the initial prism is a retract of the weakly initial derived prism. Correct the report; keep the stronger initiality as a conjecture outside its proved cases."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/45",
+      "verdict": "confirmed",
+      "reason": "Confirmed v4 Definition 4.1 p.36 drops faithfully in its gloss. The same sentence and Definition 1.6 retain faithfulness. Record the slip without weakening the covering definition."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/46",
+      "verdict": "confirmed",
+      "reason": "Confirmed equation (3) p.48 indexes overlapping translates by all M instead of the standard representatives S. The next decomposition uses S, confirming the repair; this affects notation, not the lemma."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/47",
+      "verdict": "confirmed",
+      "reason": "Confirmed Corollary 7.3 proof p.56 writes R where the universal category is under S. Replace by S→A/I; otherwise it would describe the wrong initial object."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/48",
+      "verdict": "confirmed",
+      "reason": "Confirmed Proposition 7.10 proof p.60 mixes base labels R/A; with (A,I)=A_inf(R), the nearby explicit idempotent is on Delta_(S′/A). Correct the labels and preserve the derived Hodge–Tate argument."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/49",
+      "verdict": "confirmed",
+      "reason": "Confirmed Remark 7.15(1) p.62 uses gamma_(ip) where independent divided-power generators are gamma_(p^i). Checked the universal divided-power identities: for odd p, 2 gamma_(2p)=gamma_p^2; for p=2, gamma_6=gamma_2 gamma_4. These give nonzero kernel relations for the printed presentation. The ind-syntomic conclusion remains the intended one."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/50",
+      "verdict": "confirmed",
+      "reason": "Confirmed pushout evaluation typo in Corollary 8.12 p.69: the last fibre-product factor must be F(S/I). This follows from the displayed sheaf pushout immediately above it."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/51",
+      "verdict": "confirmed",
+      "reason": "Confirmed needed derived-theory qualifier for arbitrary singular X/S and multiplicative comparison contract. Construction 7.6(2) p.57 sheafifies the left Kan extension; ordinary site cohomology is not interchangeable on all inputs. State that theory and preserve its enhanced algebra maps, avoiding an unqualified extension of the smooth site formula."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/52",
+      "verdict": "confirmed",
+      "reason": "Confirmed mixed-status bundle. Item 113 itself identifies the tilting equivalence as planned at P3, which already reaches PR.4; only the Huber scheme/adic comparison is missing/routed. Split them and import P3 once."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/53",
+      "verdict": "confirmed",
+      "reason": "Confirmed §13 diagram/base-change label slip p.96: the lower arrow is the base extension of the upper arrow, not the upper of itself; also standardize the Nygaard superscript/subscript. Preserve the noncompleted theory and derived Nakayama step."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/54",
+      "verdict": "confirmed",
+      "reason": "Confirmed proof presentation gap on p.85: a cartesian pullback of a merely locally closed U need not be open, so the displayed complement ideal is unjustified as written. Lift over the given constructible closed ambient subscheme containing U (with a finitely generated defining ideal), then its finite algebra has V open. Do not assume without proof that the topological closure of U itself has a finitely generated defining ideal. The theorem remains valid with the corrected reduction."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/55",
+      "verdict": "confirmed",
+      "reason": "Confirmed E19 locator omits the repeated wrong transition exponent in footnote 17 p.80. The positive transition 1/p^i−1/p^(i+1) makes the maps to the root ideal commute; record both occurrences."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/56",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing derived categorical equivalence from Proposition 10.4 p.79, beyond item 57's module-level equivalence/thick-ideal assertion. Add D_pcomp((R/J)_perfd) as the domain and correct Remark 10.7's locator to p.80."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/57",
+      "verdict": "confirmed",
+      "reason": "Confirmed mistaken BMS19 number copied by item 76. BS p.105 says Proposition 11.5; BMS19 has Construction 11.5 and defines the inverted-u comparison in Proposition 11.15/the proof of 11.2. Record the source-number correction without changing the construction."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/58",
+      "verdict": "confirmed",
+      "reason": "Confirmed several notation/domain slips in §§14-17: root-q coefficient convention, phi_n domain Fil_N^n, D rather than A in the framed datum, and the actual completion ideal. Renaming the reused I index in 15.1 improves scope clarity; unlike the domain/base errors it does not by itself make a theorem false. Record exact occurrences with the source version."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/59",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted A_inf(S) versus A_inf(R′) envelope-base typo in E29 p.123; the diagram and remaining proof use R′. Qualify the other allegation: A-linearity does fix IA_inf(R) in the perfectoid case, so that sentence is not literally false, but IA_inf(S) expresses the full prism ideal required by the argument. Extend the receipt to distinguish this clarification from the genuine envelope typo."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/60",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing Bhatt20/Bhatt specialization provenance for the flatness and triangle inputs (pp.88/117/118). Add their precise prerequisite entries or the accepted BMS19/041 provenance for the second, without duplicating the existing generic Leta theorem."
+    },
+    {
+      "finding": "RT-PAPER-BHATT-SCHOLZE-22/61",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted base-evenness adapter, not a false O_C/p^n statement. Corollary 14.3 p.97 transfers evenness; Theorem 9.4 plus strict henselianity/algebraic closedness, the complete motivic filtration and the henselian K/TC comparison establish it for O_C first. List those inputs and prove the transfer with p^n and its compatible roots."
+    }
+  ]
+}
