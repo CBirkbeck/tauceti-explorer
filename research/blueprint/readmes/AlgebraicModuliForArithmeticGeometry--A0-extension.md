@@ -2,6 +2,21 @@
 
 This is the reader for issue #672 and the packet with part A0-extension. It covers exactly A0-extension and R09.1–R09.7. It is a partial checkpoint: implementations are unchecked, requests are open, and none of the eight stages is closed. The declaration catalogue develops gerbes, arbitrary-module fpqc descent, torsor twisting and relative Picard descent. Full parameter spaces, Picard representability, Artin, algebraization and resolution remain work in this same scope. The suggested Lean file has not been compiled. Its exact type and signature omissions are recorded below rather than hidden by unspecified propositions.
 
+## Current continuation: tensor-overlap descent (Codex codex-a71f92)
+
+The current packet has 98 declaration nodes: all 85 inherited nodes plus thirteen fine R09.3 proof leaves. This continuation preserves the inherited 68 routed items and their ownership, all earlier baseline/source records, the gerbe key, and the Picard checkpoint. Earlier reading receipts belong to Codex codex-5ebb6f; only the new primary and baseline reads listed here are attributed to this continuation. All eight stages remain partial or not_read.
+
+The accepted independently reviewed RS-27 retains generic quasi-coherent module descent at R09.3. It imports algebraic-space carriers from SF.1 and ordinary generic descent data from the pinned Mathlib carrier/D0, and does not reconstruct ModularCurves0E object descent, StableReduction polarized Proj descent, abelian polarization descent or coherent duality.
+
+Presentation equivalence needs no flatness: a ring map f:R→S gives the native comonad G=(extendRestrictScalarsAdj f).toComonad, whose underlying functor is restrictScalars f followed by extendScalars f. Its counit multiplies s into n, and its comultiplication inserts1 after s. An overlap θ sends n⊗1 to the coaction. The inverse transition is obtained from that coaction, not assumed from descent effectivity. Faithful flatness enters only when the already available comonadicExtendScalars makes ModuleCat R equivalent to native coalgebras.
+
+The new inverse proof has two distinct contractions of coassociativity:
+a⊗c⊗v↦a v⊗b c proves ψθ=id, and a⊗c⊗v↦s c⊗a v proves θψ=id. Both contractions are R-balanced, so no tensor decomposition is chosen as data. The full triple cocycle is tested on n⊗b⊗c, not only on n⊗1⊗1. The morphism comparison retains every S-linear commuting-square map, including noninvertible maps.
+
+The all-test-object DescentData comparison remains unverified. Its pullHom_hom, hom_self and hom_comp fields require the tensor-pushout universal property and the actual module pseudofunctor constraints. The new tensor-overlap equivalence does not discharge that task or the equalizer comparison. The proposed tensor-action/extension carrier and its full signatures remain explicit omissions; native comonad-coordinate and comparison-field prototypes plus four native smoke examples do not count as elaboration of the bridge. No Lean compilation or formalisation is claimed.
+
+Fresh sources: [Stacks Section35.3](https://stacks.math.columbia.edu/tag/023F), specifically Definition35.3.1 and the full Lemma35.3.2 proof, with canonical-datum paragraph and explicitly omitted Lemma35.3.3 proof. Exact HTML SHA256 d5b82802e667aa651dffd7498d362bb9a5aadf49f838b1351233d2dc3536c282, accessed2026-10-02. The complete [Proposition35.3.9 proof](https://stacks.math.columbia.edu/tag/023N) was re-read and its inherited SHA256 b8d9a77257d45cfdf1068727990ce4b697f54f311b97b80511c9ed85a5f37cbd reconfirmed. E5 records its isolated y_i→y_j contraction-index misprint; the category equivalence proof remains explicitly omitted in that source.
+
 ## Carriers and conventions
 
 A stack is the pinned Mathlib Cat-valued pseudofunctor with its existing IsStack predicate. Mathlib does not require its values to be groupoids. The gerbe predicate adds invertibility of all fibre arrows, local nonemptiness and local isomorphism. Covering sieves express these two local conditions without assuming a chosen global object or a single covering map. Sheaf Hom and descent equivalences are imported from the existing IsPrestack and IsStack APIs.
@@ -77,9 +92,9 @@ Under the universal isomorphism OT→fT*OXT, the sequence 0→Pic(T)→Pic(XT)�
 
 ### AlgebraicModuliForArithmeticGeometry:R09.3 — partial
 
-- Fourteen leaves cover arbitrary-scheme and algebraic-space QCoh fpqc descent and finite-presentation/finite-local-free detection, conditional on the explicit supplier and overlap/coalgebra comparison obligations.
+- Twenty-seven leaves cover the existing arbitrary-scheme/algebraic-space QCoh descent chain, finite-presentation/finite-local-free detection, and thirteen explicit tensor-overlap/native-coalgebra proof leaves. No stage is closed: supplier and typed all-test-object comparison obligations remain.
 
-- Complete the exact tensor/overlap/all-test-object descent-data comparison and its coherence against the pinned carriers.
+- Complete and elaborate the exact tensor-pushout/all-test-object DescentData comparison with its unit/composition and equalizer coherence. The two transition inverses and full tensor cocycle now have explicit separate proof outlines; no Lean verification is claimed.
 
 - Coherent locally Noetherian etale-presentation descent and proper GAGA remain pending. Import ordinary object descent from ModularCurves0E and polarized etale Proj descent from StableReduction2.
 
@@ -3089,49 +3104,48 @@ Sources: SP023T, Proposition35.5.2: Its descent category uses exactly these pull
 
 AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction — construction; unchecked.
 
-For a faithfully flat ring map R→A, the usual module descent category, with an A⊗R A-linear transition isomorphism and its cocycle on A⊗R A⊗R A, is equivalent to the coalgebras of the comonad extendScalars(R→A)∘restrictScalars(R→A). For a datum θ:N⊗R A→A⊗R N the coaction is d(n)=θ(n⊗1); conversely d(n)=Σ a_i⊗n_i gives θ(n⊗a)=Σ a_i⊗a n_i. Interpret both formulas through the tensor universal property; no selected decomposition is part of the data.
+For every commutative ring map R→A, the usual tensor-overlap module descent category is equivalent to the existing coalgebras of (extendRestrictScalarsAdj(R→A)).toComonad, preserving the underlying A-module and all its morphisms. The forward coaction is d(n)=θ(n⊗1); the reverse transition is θ(n⊗a)=Σai⊗a ni if d(n)=Σai⊗ni, with inverse ψ(a⊗n)=Σa ni⊗ai. The tensor-overlap category must additionally be compared with the pinned all-test-object Pseudofunctor.DescentData, through the pushout property of A⊗R A and the actual pseudofunctor constraints; that final comparison remains an explicit gap.
 
-Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
+Hypotheses:
 
-Dependencies: mathlib:CommRingCat.moduleCatExtendScalarsPseudofunctor, mathlib:CategoryTheory.Pseudofunctor.DescentData, mathlib:comonadicExtendScalars
+- Commutative rings R,A in one universe and an arbitrary ring map R→A. Modules and their morphisms are arbitrary; faithful flatness is needed only for the following effective-descent theorem.
+
+Prerequisites:
+
+- `AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-equivalence`
+- `AlgebraicModuliForArithmeticGeometry:R09.3/overlap-comparison-canonical`
+- `mathlib:CommRingCat.moduleCatExtendScalarsPseudofunctor`
+- `mathlib:CategoryTheory.Pseudofunctor.DescentData`
 
 Proof or construction:
 
-1. Identify the diagonal/unit condition with multiplication composed with d being the identity.
-
-2. Identify the triple-overlap cocycle with coassociativity through tensor associators.
-
-3. Construct the displayed θ from d, prove it is invertible using the two equations, and construct compatible maps in both directions.
-
-4. Compare the overlap presentation with baseline DescentData over arbitrary test objects, using the pushout universal property for A⊗R A.
-
-API:
-
-- **ModuleDescentCoalgebra.equivalence** (constructor): An equivalence preserving the underlying A-module and its maps.
-
-- **ModuleDescentCoalgebra.coaction** (simp): The coaction sends n to θ(n⊗1).
-
-- **ModuleDescentCoalgebra.canonical** (compatibility): The canonical datum on A⊗R M becomes the comparison coalgebra of M.
-
-Unit tests:
-
-- **ModuleCoalgebraTests.identity** (degenerate): For R=A, descent and coalgebras are equivalent to ModuleCat R.
-
-- **ModuleCoalgebraTests.product** (computation): For the diagonal R→R×R the transition identifies the two component modules and recovers one R-module.
-
-- **ModuleCoalgebraTests.cocycle** (non-example): Arbitrary pairwise invertible maps that fail the triple-overlap equation do not define a coalgebra.
-
-Uses:
-
-- Pinned comonadicExtendScalars TODO: Closes the specific comparison missing between comonadicity and ordinary module descent.
-
-- Stacks023S: Supplies the affine algebraic input for quasi-coherent scheme descent.
+1. Use the thirteen fine leaves in this continuation for the tensor-overlap/native-coalgebra comparison; the diagonal, both inverse identities, cocycle, object round trips and morphism square are explicit.
+2. Separately compare the overlap presentation with pinned DescentData: evaluate arbitrary test objects through the tensor-pushout map and insert the actual mapId/mapComp constraints. This coherence is not discharged by the presentation equivalence and remains the recorded gap.
 
 Acceptance:
 
 - The statement covers arbitrary modules and keeps all morphisms, with the specified pullback coherence.
 
-Sources: SP023N, Proposition35.3.9, equalizer formula and cocycle calculation: The equalizer condition uses precisely the displayed coaction; the categorical comparison is made an explicit proof leaf.
+API:
+
+- `ModuleDescentCoalgebra.equivalence` (constructor): An equivalence preserving the underlying A-module and its maps.
+- `ModuleDescentCoalgebra.coaction` (simp): The coaction sends n to θ(n⊗1).
+- `ModuleDescentCoalgebra.canonical` (compatibility): The canonical datum on A⊗R M becomes the comparison coalgebra of M.
+
+Unit tests:
+
+- `ModuleCoalgebraTests.identity` (degenerate): For R=A, descent and coalgebras are equivalent to ModuleCat R.
+- `ModuleCoalgebraTests.product` (computation): For the diagonal R→R×R the transition identifies the two component modules and recovers one R-module.
+- `ModuleCoalgebraTests.cocycle` (non-example): Arbitrary pairwise invertible maps that fail the triple-overlap equation do not define a coalgebra.
+
+Uses:
+
+- Pinned comonadicExtendScalars TODO: Closes the specific comparison missing between comonadicity and ordinary module descent.
+- Stacks023S: Supplies the affine algebraic input for quasi-coherent scheme descent.
+
+Sources:
+
+- SP023N, Proposition35.3.9, equalizer formula and cocycle calculation: “cocycle”. The equalizer condition uses precisely the displayed coaction; the categorical comparison is made an explicit proof leaf.
 
 ### Effective faithfully flat module descent
 
@@ -3971,7 +3985,7 @@ Sources: SP0D24, Lemma99.11.4 and proof: The proof needs normalized isomorphisms
 
 - **Cofinal finite-image pseudodiagram comparison**: Specify the indexing two-category of finite quotient maps with compatible modifications, construct its cofiltered refinements, and prove that its compatible-object limit is equivalent to the original profinite presentation. Finite products and image factorizations give common cones; coherence and the essential-surjectivity comparison remain separate unproved leaves. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-finite-presentation.
 
-- **Overlap/coalgebra comparison still needs carrier-level verification**: The formulas identify the intended comparison, but the inverse transition map, tensor pushout comparisons and equivalence with the baseline all-test-object DescentData have not been verified in Lean. The affine module descent chain depends on this exact construction, not just the existing comonadicity instance. Consumers: AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction.
+- **All-test-object descent-data and tensor-pushout coherence remain unverified**: The thirteen continuation leaves now decompose the overlap/native-coalgebra proof, including both inverse maps and all morphisms, for arbitrary ring maps. What remains is a typed comparison between this tensor presentation and the pinned Pseudofunctor.DescentData, which quantifies over all test rings and includes pullHom_hom, hom_self and hom_comp. Construct it using the tensor-pushout universal property, prove its inverse and naturality against actual moduleCatExtendScalarsPseudofunctor mapId/mapComp constraints, and check its equalizer identification. The proposed overlap-action/extension carrier is not yet implemented or elaborated; none of the new mathematical proof outlines closes a formalized statement. Consumers: AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction.
 
 - **Upstream-stage prerequisite encoding**: The packet checker treats canonical tauceti:TauCetiRoadmap stage IDs as baseline declaration names. The two actual Layer A imports are therefore retained as typed upstreamPrerequisites, with exact requests, and included in the independent graph audit. They are not existing Lean declarations; restore ordinary prerequisites when the checker supports upstream stage IDs. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/root-o1-nonneutral, AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf.
 
@@ -4381,7 +4395,7 @@ The file prototypes the gerbe predicate, chosen band, band-preserving strong tra
 
 - **QCohPseudoTests.infiniteModule**: The direct sum of countably many copies of R on Spec R is admitted even though it is not finitely generated when R is a field.
 
-- **AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction**: For a faithfully flat ring map R→A, the usual module descent category, with an A⊗R A-linear transition isomorphism and its cocycle on A⊗R A⊗R A, is equivalent to the coalgebras of the comonad extendScalars(R→A)∘restrictScalars(R→A). For a datum θ:N⊗R A→A⊗R N the coaction is d(n)=θ(n⊗1); conversely d(n)=Σ a_i⊗n_i gives θ(n⊗a)=Σ a_i⊗a n_i. Interpret both formulas through the tensor universal property; no selected decomposition is part of the data.
+- **AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction**: For every commutative ring map R→A, the usual tensor-overlap module descent category is equivalent to the existing coalgebras of (extendRestrictScalarsAdj(R→A)).toComonad, preserving the underlying A-module and all its morphisms. The forward coaction is d(n)=θ(n⊗1); the reverse transition is θ(n⊗a)=Σai⊗a ni if d(n)=Σai⊗ni, with inverse ψ(a⊗n)=Σa ni⊗ai. The tensor-overlap category must additionally be compared with the pinned all-test-object Pseudofunctor.DescentData, through the pushout property of A⊗R A and the actual pseudofunctor constraints; that final comparison remains an explicit gap.
 
 - **ModuleDescentCoalgebra.equivalence**: An equivalence preserving the underlying A-module and its maps.
 
@@ -4516,3 +4530,601 @@ The file prototypes the gerbe predicate, chosen band, band-preserving strong tra
 - **AlgebraicModuliForArithmeticGeometry:A0-extension/rigidified-picard-setoid**: Under universal OT≅fT*OXT, an automorphism of (L,α) is identity. Any two choices of α for the same L give isomorphic rigidified objects, because their ratio is a base unit.
 
 - **AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split**: If σ:B→X is a section and OT→fT*OXT is an isomorphism for all T→B, then 0→Pic(T)→Pic(XT)→PicX/B(T)→0 is split exact, with retraction σT*. Equivalently PicX/B(T)≅ker σT*, naturally in T.
+
+## Thirteen continuation declarations
+
+All 85 inherited declarations are retained. The canonical-constructor API is promoted into its own prerequisite leaf. Every statement, hypothesis, dependency, proof step, API and test below is reproduced from the current packet.
+
+### The tensor-overlap presentation of module descent
+
+AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum — definition; unchecked.
+
+ModuleOverlapDatum(f) has an S-module N and an S⊗R S-linear isomorphism θ:N⊗R S→S⊗R N satisfying θ12∘θ01=θ02 on the triple tensor product. On N⊗R S the two scalar factors act on N and S respectively; on S⊗R N they act on S and N respectively. θij is extension along the insertion map p_ij:S⊗R S→S⊗R S⊗R S, using the tensor associators. Morphisms are all S-linear h:N→N′ satisfying (idS⊗h)∘θ=θ′∘(h⊗idS); componentwise identity and composition make a category. This is a tensor presentation to be compared with the existing DescentData carrier, not a replacement for generic descent or a core of the module category.
+
+Hypotheses:
+
+- Commutative rings R,S in one fixed universe and an arbitrary ring homomorphism f:R→S; N is an arbitrary S-module. No faithful-flatness, finite-generation or Noetherian assumption.
+
+Prerequisites:
+
+- `mathlib:CommRingCat.moduleCatExtendScalarsPseudofunctor`
+- `mathlib:CategoryTheory.Pseudofunctor.DescentData`
+- `mathlib:TensorProduct.lift`
+
+Proof or construction:
+
+1. Use the two S-actions specified in the statement to form both overlap modules; the R-actions on N and S are restriction along f.
+2. Extend θ along p01,p12,p02 and transport by the existing scalar-extension associators, never treating these identifications as definitional equalities.
+3. Install the category with arbitrary S-linear commuting-square maps; substitution proves closure under identity and composition.
+
+Acceptance:
+
+- The condition is exactly a commuting diagram of triple-overlap module maps.
+- A module map need not be invertible.
+- No diagonal identity is assumed as an additional axiom: the next lemma derives it.
+
+API:
+
+- `ModuleOverlapDatum.module` (projection): The underlying object is N:ModuleCat S.
+- `ModuleOverlapDatum.transition` (projection): The S⊗R S-linear overlap isomorphism θ, with the first/second-factor actions fixed above.
+- `ModuleOverlapDatum.cocycle` (relation): The extended maps obey θ12∘θ01=θ02, with the scalar-extension associators inserted.
+- `ModuleOverlapDatum.hom_ext` (extensionality): Two datum morphisms are equal iff their underlying S-linear maps are equal.
+
+Unit tests:
+
+- `ModuleOverlapTests.identity` (degenerate): For f=idR, diagonal normalization forces θ to be identity under the tensor unitors.
+- `ModuleOverlapTests.noninvertibleMap` (non-example): Multiplication by2 on the canonical datum for Z→Z is a datum morphism but not an isomorphism.
+- `ModuleOverlapTests.infiniteFree` (compatibility): The canonical datum on S⊗R(⊕n∈ℕ R) is admitted; no finite presentation is imposed.
+- `ModuleOverlapTests.scalarTwo` (non-example): For Q→Q and N=Q, multiplication by2 is an invertible overlap map but fails the cocycle since 4≠2.
+
+Uses:
+
+- R09.3/module-descent-coaction: Separates the overlap presentation from the all-test-object carrier, so the latter comparison cannot be silently assumed.
+- R09.2 Hilbert/Quot and R09.3 QCoh descent: Quotient maps and noninvertible sheaf morphisms require the full module category.
+
+Sources:
+
+- SP023F, Definition35.3.1 and the paragraph defining φij: “isomorphism”. Names the concrete tensor presentation and its module-map category, retaining the source's scalar actions.
+
+
+### Coordinates of the existing scalar-extension comonad
+
+AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates — comparison; unchecked.
+
+Let L=extendScalars f, U=restrictScalars f and G=(extendRestrictScalarsAdj f).toComonad. Its endofunctor is U⋙L, so G(N)=S⊗R N with S acting on the first factor. Its counit is εN(s⊗n)=s·n; its comultiplication is ΔN(s⊗n)=s⊗1⊗n, with G²(N)=S⊗R(S⊗R N). Thus an existing Comonad.Coalgebra G is exactly an S-linear d:N→S⊗R N with εN∘d=id and (idS⊗d)∘d=ΔN∘d; its existing morphisms are S-linear h with (idS⊗h)∘d=d′∘h. No new coalgebra or comonad carrier is constructed.
+
+Hypotheses:
+
+- Commutative rings R,S in one fixed universe and an arbitrary ring homomorphism f:R→S; N is an arbitrary S-module. No faithful-flatness, finite-generation or Noetherian assumption.
+
+Prerequisites:
+
+- `mathlib:ModuleCat.extendRestrictScalarsAdj`
+- `mathlib:CategoryTheory.Adjunction.toComonad`
+- `mathlib:CategoryTheory.Comonad.Coalgebra`
+- `mathlib:CategoryTheory.Comonad.Coalgebra.Hom`
+- `mathlib:ModuleCat.extendRestrictScalarsAdj_unit_app_apply`
+- `mathlib:ModuleCat.ExtendRestrictScalarsAdj.Counit.map`
+- `mathlib:ModuleCat.ExtendScalars.map_tmul`
+
+Proof or construction:
+
+1. Read the baseline toComonad fields: toFunctor=U⋙L, ε=the adjunction counit, Δ=L applied to the unit at U(N).
+2. Evaluate the existing unit and scalar-extension map on a pure tensor to obtain Δ(s⊗n)=s⊗(1⊗n).
+3. Evaluate the existing counit to obtain s·n, then unfold the existing Coalgebra.counit, coassoc and Hom.h equations.
+4. Use tensor universal properties to extend these formulas to all elements.
+
+Acceptance:
+
+- Comonadicity is neither an assumption nor a conclusion here.
+- The categorical G² nesting is retained; triple-tensor notation always denotes its associator comparison.
+
+Sources:
+
+- SP023F, Lemma35.3.2, displayed σ00, δ21 and δ22: “a_0n”. Compares the source's multiplication and unit-insertion formulas to actual pinned adjunction fields.
+
+
+### The overlap cocycle forces diagonal normalization
+
+AlgebraicModuliForArithmeticGeometry:R09.3/overlap-diagonal — lemma; unchecked.
+
+For a ModuleOverlapDatum(f), let p:N→N be the pullback of θ along multiplication μ:S⊗R S→S, using the two tensor unit identifications. Equivalently p(n)=εN(θ(n⊗1)). Then p=idN. This holds for any f, even if f is not faithfully flat.
+
+Hypotheses:
+
+- Commutative rings R,S in one fixed universe and an arbitrary ring homomorphism f:R→S; N is an arbitrary S-module. No faithful-flatness, finite-generation or Noetherian assumption.
+
+Prerequisites:
+
+- `AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum`
+- `AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates`
+
+Proof or construction:
+
+1. Base change of the overlap isomorphism along μ shows that p is an isomorphism; no flatness is used to preserve an isomorphism.
+2. Evaluate the cocycle on n⊗1⊗1 and multiply the two S coefficients into the N factor: if θ(n⊗1)=Σai⊗ni and θ(ni⊗1)=Σaij⊗nij, obtain Σai aij nij=Σai ni.
+3. Because p is S-linear, the left side is p(p(n)) and the right side is p(n); hence p²=p.
+4. Cancel the invertible p to get p=id. The finite sums abbreviate equality of tensor-induced linear maps, not chosen coordinates.
+
+Acceptance:
+
+- For Q→Q, an invertible overlap scalar2 fails precisely the idempotence equation.
+- Do not deduce the diagonal identity from invertibility alone.
+
+Sources:
+
+- SP023F, Lemma35.3.2, full proof of σ00∘δ11=id: “projector”. Makes the source's invertible-projector calculation a separate reusable leaf.
+
+
+### An overlap datum defines the native coalgebra
+
+AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-coalgebra — construction; unchecked.
+
+For an arbitrary f and overlap datum (N,θ), dθ(n)=θ(n⊗1) is S-linear for the first-factor action and defines an object of the existing Comonad.Coalgebra G. The counit law is overlap diagonal normalization; the coassociativity law is the triple cocycle evaluated at n⊗1⊗1.
+
+Hypotheses:
+
+- Commutative rings R,S in one fixed universe and an arbitrary ring homomorphism f:R→S; N is an arbitrary S-module. No faithful-flatness, finite-generation or Noetherian assumption.
+
+Prerequisites:
+
+- `AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum`
+- `AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates`
+- `AlgebraicModuliForArithmeticGeometry:R09.3/overlap-diagonal`
+
+Proof or construction:
+
+1. S⊗R S-linearity of θ gives dθ(sn)=s·dθ(n); balancing and additivity give a well-defined map.
+2. The preceding diagonal lemma proves ε∘dθ=id.
+3. Write dθ(n)=Σai⊗ni. Evaluating θ12∘θ01=θ02 yields Σai⊗dθ(ni)=Σai⊗1⊗ni, exactly dθ≫G.map dθ=dθ≫G.δ.app N under the existing associator.
+4. Fill the existing Coalgebra fields, rather than inventing a new coalgebra predicate.
+
+Acceptance:
+
+- The source's direction N⊗S→S⊗N is fixed, so no inverse or factor swap is silently substituted.
+
+API:
+
+- `ModuleOverlapDatum.toCoalgebra` (constructor): Constructs the native coalgebra on the same S-module N.
+- `ModuleOverlapDatum.toCoalgebra_coaction` (simp): The native coaction at n is θ(n⊗1).
+- `ModuleOverlapDatum.toCoalgebra_module` (compatibility): Forgetting the native coalgebra returns the datum's underlying ModuleCat S object.
+
+Unit tests:
+
+- `OverlapCoactionTests.identity` (degenerate): The identity overlap datum gives d(n)=1⊗n under the tensor unitors.
+- `OverlapCoactionTests.canonical` (computation): On N=S⊗R M the coaction is s⊗m↦s⊗1⊗m.
+- `OverlapCoactionTests.noFlatness` (compatibility): For Z→Z/2Z the forward presentation-to-coalgebra construction is still defined; it does not assert effective descent to Z.
+
+Uses:
+
+- R09.3/overlap-coalgebra-equivalence: Supplies the forward functor on objects.
+- Pinned comonadicExtendScalars TODO: Connects the tensor-overlap convention to the native comparison category.
+
+Sources:
+
+- SP023F, Definition35.3.1; Lemma35.3.2, δ11 and the cocycle equality: “cocycle”. Isolates the forward object construction from effectivity.
+
+
+### Tensor transition maps from a native coaction
+
+AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-maps — construction; unchecked.
+
+For a native coalgebra (N,d), tensor universal properties give two S⊗R S-linear maps θd:N⊗R S→S⊗R N and ψd:S⊗R N→N⊗R S. If d(n)=Σai⊗ni, their formulas are θd(n⊗b)=Σai⊗b ni and ψd(s⊗n)=Σs ni⊗ai. These formulas are induced linear maps, independent of every finite tensor decomposition. The two scalar factors act as in ModuleOverlapDatum.
+
+Hypotheses:
+
+- Commutative rings R,S in one fixed universe and an arbitrary ring homomorphism f:R→S; N is an arbitrary S-module. No faithful-flatness, finite-generation or Noetherian assumption.
+
+Prerequisites:
+
+- `AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates`
+- `mathlib:TensorProduct.lift`
+
+Proof or construction:
+
+1. For θ, compose d on the N factor with the R-balanced map (a⊗v,b)↦a⊗b v, then apply the tensor universal property.
+2. For ψ, compose d on N with the R-balanced map (s,a⊗v)↦s v⊗a.
+3. Check the R-balancing equations using f(r) acting on N and S, and distributivity of the S-module action; this ensures independence of tensor presentations.
+4. For θ use d(sn)=s d(n) to check the first S factor and commutativity of S to check the second. For ψ the same equation moves the second scalar into ai while the first acts on ni.
+
+Acceptance:
+
+- The pair of maps is not yet declared an isomorphism; its two inverse laws are the next lemma.
+- The formula for ψ uses the coaction d, not a presumed inverse of θ.
+
+API:
+
+- `ModuleCoaction.transition` (constructor): The R-balanced formula produces the overlap map θd.
+- `ModuleCoaction.reverseTransition` (constructor): The R-balanced formula produces the reverse map ψd.
+- `ModuleCoaction.transition_tmul` (simp): For d(n)=Σai⊗ni, θd(n⊗b)=Σai⊗b ni.
+- `ModuleCoaction.reverseTransition_tmul` (simp): For d(n)=Σai⊗ni, ψd(s⊗n)=Σs ni⊗ai.
+
+Unit tests:
+
+- `CoactionTransitionTests.canonical` (computation): For d(s⊗m)=s⊗1⊗m, θ((s⊗m)⊗t)=s⊗(t⊗m) and ψ(s⊗(t⊗m))=(s⊗m)⊗t.
+- `CoactionTransitionTests.zeroModule` (degenerate): On N=0 both transition maps are the unique maps between zero overlap modules.
+- `CoactionTransitionTests.decomposition` (compatibility): Replacing a tensor expression by a balanced relation or a sum leaves both maps unchanged.
+
+Uses:
+
+- R09.3/coaction-transition-inverses: The explicit reverse formula supplies both inverse calculations.
+- R09.3/coalgebra-to-overlap: Constructs the transition without assuming the desired descent theorem.
+
+Sources:
+
+- SP023F, Definition35.3.1 and Lemma35.3.2, tensor-linearity and displayed coaction: “module homomorphisms”. Explicit inverse-map derivation from the coaction laws; this is a derived proof expansion, not a claim that the source prints ψ.
+
+
+### Both transition inverse identities
+
+AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-inverses — lemma; unchecked.
+
+For a native coalgebra (N,d), the maps above satisfy ψd∘θd=id_(N⊗R S) and θd∘ψd=id_(S⊗R N). They are inverse S⊗R S-linear isomorphisms for arbitrary f.
+
+Hypotheses:
+
+- Commutative rings R,S in one fixed universe and an arbitrary ring homomorphism f:R→S; N is an arbitrary S-module. No faithful-flatness, finite-generation or Noetherian assumption.
+
+Prerequisites:
+
+- `AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-maps`
+- `AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates`
+- `mathlib:TensorProduct.ext'`
+
+Proof or construction:
+
+1. Write coassociativity as Σai⊗aij⊗nij=Σai⊗1⊗ni whenever d(n)=Σai⊗ni and d(ni)=Σaij⊗nij.
+2. For ψθ at n⊗b, its expansion is Σai nij⊗b aij. Apply the R-trilinear map a⊗c⊗v↦a v⊗b c to coassociativity. The right side becomes Σai ni⊗b=n⊗b by the counit law.
+3. For θψ at s⊗n, its expansion is Σs aij⊗ai nij. Apply the R-trilinear map a⊗c⊗v↦s c⊗a v to the same identity. The right side becomes s⊗Σai ni=s⊗n.
+4. Tensor extensionality proves the two map equalities on all elements; the preceding bilinearity checks prove these operations respect balancing. No injectivity of tensoring, field basis or flatness is used.
+
+Acceptance:
+
+- Both compositions, not just injectivity or one inverse, are proved.
+- The two trilinear maps are different: confusing them swaps the scalar-factor action.
+
+Sources:
+
+- SP023F, Lemma35.3.2, displayed cocycle equality and multiplication identity: “isomorphism”. A two-sided inverse proof derived from the exact source equations, not an omitted appeal to comonadicity.
+
+
+### Coassociativity gives the overlap cocycle
+
+AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-cocycle — lemma; unchecked.
+
+The transition θd of a native coalgebra satisfies θ12∘θ01=θ02 on N⊗R S⊗R S, with all three maps extended along their insertion ring maps and compared using tensor associators.
+
+Hypotheses:
+
+- Commutative rings R,S in one fixed universe and an arbitrary ring homomorphism f:R→S; N is an arbitrary S-module. No faithful-flatness, finite-generation or Noetherian assumption.
+
+Prerequisites:
+
+- `AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-maps`
+- `AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates`
+- `mathlib:TensorProduct.ext'`
+
+Proof or construction:
+
+1. Evaluate the first route on n⊗b⊗c: its value is Σai⊗b aij⊗c nij.
+2. The direct route gives Σai⊗b⊗c ni.
+3. Apply the R-trilinear map a⊗t⊗v↦a⊗b t⊗c v to coassociativity to equate these values.
+4. Extend by tensor extensionality and conjugate by the specified scalar-extension associators; never replace their pentagon coherence by definitional equality.
+
+Acceptance:
+
+- The statement is on the actual triple tensor product, not merely on n with b=c=1.
+
+Sources:
+
+- SP023F, Definition35.3.1, p_ij extension maps; Lemma35.3.2 cocycle equality: “cocycle condition”. Proves the reverse construction satisfies the full tensor-linear overlap equation.
+
+
+### A native coalgebra defines an overlap datum
+
+AlgebraicModuliForArithmeticGeometry:R09.3/coalgebra-to-overlap — construction; unchecked.
+
+Every existing Comonad.Coalgebra G produces a ModuleOverlapDatum(f) on the same S-module by taking θd with inverse ψd and the preceding cocycle proof. Denote it ModuleCoaction.toOverlap. This construction needs no faithful flatness.
+
+Hypotheses:
+
+- Commutative rings R,S in one fixed universe and an arbitrary ring homomorphism f:R→S; N is an arbitrary S-module. No faithful-flatness, finite-generation or Noetherian assumption.
+
+Prerequisites:
+
+- `AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum`
+- `AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-inverses`
+- `AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-cocycle`
+
+Proof or construction:
+
+1. Package the two inverse S⊗R S-linear maps as an isomorphism.
+2. Attach the triple cocycle theorem as its relation field.
+3. Retain the original module N; no quotient, finiteness structure or truncation of arrows is introduced.
+
+Acceptance:
+
+- For f=id the transition is identity under the unitors.
+- No effectivity conclusion about an R-module is included.
+
+API:
+
+- `ModuleCoaction.toOverlap` (constructor): Packages θd and ψd as a tensor-overlap datum.
+- `ModuleCoaction.toOverlap_module` (compatibility): Forgetting the overlap datum returns the native coalgebra's underlying ModuleCat S object.
+- `ModuleCoaction.toOverlap_transition` (simp): The transition and its inverse are exactly θd and ψd above.
+
+Unit tests:
+
+- `CoalgebraOverlapTests.zero` (degenerate): The zero coalgebra produces the zero overlap datum.
+- `CoalgebraOverlapTests.nonflat` (compatibility): For Z→Z/2Z the construction exists but the comparison ModuleCat Z→overlap data is not an equivalence.
+- `CoalgebraOverlapTests.factors` (computation): For canonical d, θ((s⊗m)⊗t)=s⊗(t⊗m), not t⊗(s⊗m).
+
+Uses:
+
+- R09.3/overlap-coalgebra-equivalence: Supplies its inverse functor on objects.
+
+Sources:
+
+- SP023F, Definition35.3.1 and Lemma35.3.2: “descent datum”. Completes the reverse object construction by the separately listed inverse and cocycle leaves.
+
+
+### The overlap and coaction object constructions are inverse
+
+AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coaction-roundtrips — lemma; unchecked.
+
+For every overlap datum θ, reconstructing θ from dθ yields the original transition; for every native coalgebra d, evaluating θd on n⊗1 yields d(n). These equalities preserve the underlying S-module and all proof fields by proof irrelevance, after the specified tensor identifications.
+
+Hypotheses:
+
+- Commutative rings R,S in one fixed universe and an arbitrary ring homomorphism f:R→S; N is an arbitrary S-module. No faithful-flatness, finite-generation or Noetherian assumption.
+
+Prerequisites:
+
+- `AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-coalgebra`
+- `AlgebraicModuliForArithmeticGeometry:R09.3/coalgebra-to-overlap`
+- `mathlib:TensorProduct.ext'`
+
+Proof or construction:
+
+1. S⊗R S-linearity gives θ(n⊗b)=(1⊗b)·θ(n⊗1); this is exactly θdθ(n⊗b).
+2. For d, substitute b=1 in θd(n⊗b) to get d(n), and use tensor extensionality without choosing summands.
+3. Equality of structure data plus proof irrelevance compares the equation fields; categorical unit/counit are identities on N, not merely bijections of isomorphism classes.
+
+Acceptance:
+
+- The round trips preserve N on the nose at the mathematical presentation level; type transport along associators is explicit.
+
+Sources:
+
+- SP023F, Definition35.3.1, module-linearity; Lemma35.3.2, δ11: “morphism”. The source formulas yield the two presentation identities; no descent effectivity theorem is used.
+
+
+### The correspondence retains all module morphisms
+
+AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-morphisms — lemma; unchecked.
+
+For overlap data (N,θ),(N′,θ′) and an S-linear h:N→N′, the overlap commuting square (idS⊗h)∘θ=θ′∘(h⊗idS) holds iff (idS⊗h)∘dθ=dθ′∘h. Thus datum morphisms are exactly the existing native coalgebra morphisms on h, with the same identities and compositions.
+
+Hypotheses:
+
+- Commutative rings R,S in one fixed universe and an arbitrary ring homomorphism f:R→S; N is an arbitrary S-module. No faithful-flatness, finite-generation or Noetherian assumption.
+
+Prerequisites:
+
+- `AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coaction-roundtrips`
+- `mathlib:CategoryTheory.Comonad.Coalgebra.Hom`
+- `mathlib:TensorProduct.ext'`
+
+Proof or construction:
+
+1. Evaluate the overlap square on n⊗1 to obtain the native coalgebra equation.
+2. Conversely evaluate both sides on n⊗b; S-linearity of h commutes with b acting on ni, so the assumed coaction equation gives the overlap square.
+3. Extend by tensor extensionality. The constructions send each h to itself, hence preserve identity and composition, including noninvertible h.
+
+Acceptance:
+
+- Multiplication by2 on the identity Z-cover is retained.
+- Do not identify the category with its core or with an isomorphism-class set.
+
+Sources:
+
+- SP023F, Definition35.3.1(2), commuting square: “morphisms”. This is the precise category-level comparison missing from an object-only construction.
+
+
+### Equivalence of overlap data and native coalgebras
+
+AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-equivalence — theorem; unchecked.
+
+For every commutative ring map f:R→S, ModuleOverlapDatum(f) is equivalent as a category over ModuleCat S to the existing Comonad.Coalgebra ((extendRestrictScalarsAdj f).toComonad). The forward and inverse functors are the two object constructions with the same underlying S-linear morphisms. Unit and counit have identity underlying module maps and obey the triangle identity. This compares two presentations, not ModuleCat R with either category; effective descent needs faithful flatness later.
+
+Hypotheses:
+
+- Commutative rings R,S in one fixed universe and an arbitrary ring homomorphism f:R→S; N is an arbitrary S-module. No faithful-flatness, finite-generation or Noetherian assumption.
+
+Prerequisites:
+
+- `AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-coalgebra`
+- `AlgebraicModuliForArithmeticGeometry:R09.3/coalgebra-to-overlap`
+- `AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coaction-roundtrips`
+- `AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-morphisms`
+
+Proof or construction:
+
+1. Define the object maps using the two constructions and the arrow maps using the preceding iff.
+2. Use the round-trip lemma to build unit and counit with identity underlying module maps; their naturality follows because the maps h are unchanged.
+3. Check the triangle identity after forgetting to ModuleCat S, where it is identity composition; datum/coalgebra Hom extensionality reflects equality.
+4. The forgetful compatibility is identity on both objects and arrows, preserving the specified tensor transports.
+
+Acceptance:
+
+- No faithful-flatness assumption has entered this equivalence.
+- This statement does not yet compare tensor overlap with all-test-object Pseudofunctor.DescentData; that comparison remains a gap.
+
+Sources:
+
+- SP023F, Definition35.3.1; Lemma35.3.2; compare Proposition35.3.9(2), whose proof is omitted: “category”. The categorical equivalence is derived here from the explicit leaves, rather than attributed to an unprinted source proof.
+
+
+### The canonical overlap has Mathlib’s comparison coaction
+
+AlgebraicModuliForArithmeticGeometry:R09.3/overlap-comparison-canonical — lemma; unchecked.
+
+For every f and R-module M, the canonical overlap on N=S⊗R M is sent to the existing (Comonad.comparison (extendRestrictScalarsAdj f)).obj M. Its coaction is L.map(unit.app M), or s⊗m↦s⊗(1⊗m). For an R-linear h:M→M′, the canonical arrow is L.map h, or s⊗m↦s⊗h(m). These identifications are compatible with the existing comparison's forgetful functor, before imposing faithful flatness.
+
+Hypotheses:
+
+- Commutative rings R,S in one fixed universe and an arbitrary ring homomorphism f:R→S; N is an arbitrary S-module. No faithful-flatness, finite-generation or Noetherian assumption.
+
+Prerequisites:
+
+- `AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-coalgebra`
+- `mathlib:CategoryTheory.Comonad.comparison`
+- `mathlib:ModuleCat.extendRestrictScalarsAdj_unit_app_apply`
+- `mathlib:ModuleCat.ExtendScalars.map_tmul`
+- `mathlib:TensorProduct.ext'`
+- `AlgebraicModuliForArithmeticGeometry:R09.3/canonical-overlap-functor`
+
+Proof or construction:
+
+1. Substitute the canonical transition into dθ(n)=θ(n⊗1). On n=s⊗m it gives s⊗(1⊗m).
+2. Read Comonad.comparison's actual object field: a=L.map(unit.app M); evaluate it using the existing unit and map_tmul formulas to get the same tensor.
+3. Its map field is L.map h, agreeing on pure tensors and hence all elements.
+4. Package these equalities as a natural identity-on-module comparison; no claim of equivalence with ModuleCat R is made until comonadicExtendScalars is supplied.
+
+Acceptance:
+
+- The scalar s stays in the first target factor; reversing factors changes the coaction.
+- Dropping faithful flatness does not affect this compatibility lemma but may destroy effectivity.
+
+Sources:
+
+- SP023F, Paragraph after Lemma35.3.2; Lemma35.3.3 (proof omitted): “canonical descent datum”. Expands the omitted canonical comparison using actual pinned functor fields.
+
+
+### Canonical tensor-overlap descent functor
+
+AlgebraicModuliForArithmeticGeometry:R09.3/canonical-overlap-functor — construction; unchecked.
+
+For any f:R→S, scalar extension with its canonical transition defines a functor ModuleCat R→ModuleOverlapDatum(f). At M its module is N=S⊗R M and its transition is θ((s⊗m)⊗t)=s⊗(t⊗m), with inverse ψ(s⊗(t⊗m))=(s⊗m)⊗t. At an R-linear h it is s⊗m↦s⊗h(m). The tensor unit/associator comparisons are specified, and forgetting the datum yields the existing extendScalars f functor.
+
+Hypotheses:
+
+- Commutative rings R,S in one universe, an arbitrary ring map f:R→S, and arbitrary R-modules M,M′. No faithful flatness or finiteness.
+
+Prerequisites:
+
+- `AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum`
+- `mathlib:TensorProduct.lift`
+- `mathlib:TensorProduct.ext'`
+- `mathlib:ModuleCat.ExtendScalars.map_tmul`
+
+Proof or construction:
+
+1. Construct the two displayed maps by R-balanced tensor lifts and prove the two-factor S action equations.
+2. Their compositions on the displayed pure tensors are identity, so tensor extensionality yields an isomorphism.
+3. On ((s⊗m)⊗t)⊗u, both triple-overlap routes have value s⊗t⊗(u⊗m); insert the declared tensor associators and use their coherence.
+4. The map induced by h commutes with the transition on pure tensors; the existing scalar-extension identity/composition laws give a functor with exactly the same underlying arrows.
+
+Acceptance:
+
+- The canonical functor exists for Z→Z/2Z, but it need not be an equivalence.
+- This is the canonical-constructor API promoted to a prerequisite, not an appeal to effective descent.
+
+API:
+
+- `ModuleOverlapDatum.canonical` (constructor): An R-module M gives N=S⊗R M with θ((s⊗m)⊗t)=s⊗(t⊗m).
+- `ModuleOverlapCanonical.map` (functoriality): The arrow associated to h is the existing extendScalars f map h, with identity and composition laws.
+- `ModuleOverlapCanonical.forget` (compatibility): The canonical overlap functor followed by its underlying-module functor agrees with the existing extendScalars f.
+
+Unit tests:
+
+- `CanonicalOverlapTests.identity` (degenerate): For f=idR, the canonical transition becomes identity through the unitors.
+- `CanonicalOverlapTests.scalarFactors` (computation): The formula sends (s⊗m)⊗t to s⊗(t⊗m); it does not exchange s and t.
+- `CanonicalOverlapTests.nonfaithful` (non-example): For Z→Z/2Z the canonical functor identifies the maps multiplication by2 and0 on Z, so it is not faithful.
+
+Uses:
+
+- R09.3/overlap-comparison-canonical: Supplies the actual canonical transition, its cocycle and maps before comparing with native Comonad.comparison.
+
+Sources:
+
+- SP023F, Canonical-datum paragraph after Lemma35.3.2; Lemma35.3.3 (proof omitted): “canonical descent datum”. Provides an explicit constructor/cocycle proof for the API consumed by the comparison-coaction lemma.
+
+## Fresh baseline extensions
+
+- `mathlib:CategoryTheory.Adjunction.toComonad` in `Mathlib/CategoryTheory/Monad/Adjunction.lean`: The actual adjunction comonad has underlying U⋙L, counit h.counit and comultiplication L applied to h.unit at U(N). Statement and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02; no elaboration claimed.
+- `mathlib:CategoryTheory.Comonad.Coalgebra` in `Mathlib/CategoryTheory/Monad/Algebra.lean`: The existing native coalgebra carrier: object A, coaction a, counit and coassociativity equations. Statement and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02; no elaboration claimed.
+- `mathlib:CategoryTheory.Comonad.Coalgebra.Hom` in `Mathlib/CategoryTheory/Monad/Algebra.lean`: Coalgebra arrows retain the underlying category morphism f and the equation a≫G.map f=f≫a′. Statement and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02; no elaboration claimed.
+- `mathlib:CategoryTheory.Comonad.comparison` in `Mathlib/CategoryTheory/Monad/Adjunction.lean`: The comparison object's coaction is L.map(unit.app M), and its arrow map is L.map h. Statement and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02; no elaboration claimed.
+- `mathlib:ModuleCat.extendRestrictScalarsAdj` in `Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean`: The actual extension/restriction adjunction for commutative rings, with explicit tensor unit and counit. Statement and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02; no elaboration claimed.
+- `mathlib:ModuleCat.extendRestrictScalarsAdj_unit_app_apply` in `Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean`: The adjunction unit sends m to 1⊗m, in its actual restricted module instance. Statement and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02; no elaboration claimed.
+- `mathlib:ModuleCat.ExtendRestrictScalarsAdj.Counit.map` in `Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean`: The actual tensor counit sends s⊗n to s•n, via a balanced tensor lift. Statement and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02; no elaboration claimed.
+- `mathlib:ModuleCat.ExtendScalars.map_tmul` in `Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean`: Extension of scalars sends h to s⊗m↦s⊗h(m). Statement and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02; no elaboration claimed.
+- `mathlib:TensorProduct.lift` in `Mathlib/LinearAlgebra/TensorProduct/Basic.lean`: The existing semilinear tensor universal property, used with identity scalar map for balanced linear constructions. Statement and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02; no elaboration claimed.
+- `mathlib:TensorProduct.ext'` in `Mathlib/LinearAlgebra/TensorProduct/Basic.lean`: Maps from a tensor product are equal if they agree on all pure tensors. Statement and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02; no elaboration claimed.
+
+## Continuation source correction
+
+Proposition35.3.9 proof, sentence after numbered consequences (1),(2), version accessed2026-10-02. Printed “y_ i”. Replace the y_i in Σ_j σ(a_ij)y_i by y_j, matching the earlier expansion d(x_i)=Σ_j a_ij⊗y_j and the next displayed expression. For fixed i the sum uses the j-indexed components of d(x_i); a constant y_i does not give the contraction (σ⊗id)d(x_i). This is only an index correction, not a false descent theorem.
+
+## Continuation signature omissions
+
+The owned tensor-overlap/action/extension carrier and its scalar-extension coherence have not been implemented; the all-test-object DescentData equivalence is an explicit gap. Native coalgebras exist and are not being replaced. No placeholder type or unspecified proposition is introduced.
+
+The two partial native prototypes use the actual pinned comonad/comparison fields. Four added native smoke examples do not replace the sixteen omitted overlap tests. None of this file has been compiled.
+
+- Omitted `AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum`: ModuleOverlapDatum(f) has an S-module N and an S⊗R S-linear isomorphism θ:N⊗R S→S⊗R N satisfying θ12∘θ01=θ02 on the triple tensor product. On N⊗R S the two scalar factors act on N and S respectively; on S⊗R N they act on S and N respectively. θij is extension along the insertion map p_ij:S⊗R S→S⊗R S⊗R S, using the tensor associators. Morphisms are all S-linear h:N→N′ satisfying (idS⊗h)∘θ=θ′∘(h⊗idS); componentwise identity and composition make a category. This is a tensor presentation to be compared with the existing DescentData carrier, not a replacement for generic descent or a core of the module category.
+- Omitted `ModuleOverlapDatum.module`: The underlying object is N:ModuleCat S.
+- Omitted `ModuleOverlapDatum.transition`: The S⊗R S-linear overlap isomorphism θ, with the first/second-factor actions fixed above.
+- Omitted `ModuleOverlapDatum.cocycle`: The extended maps obey θ12∘θ01=θ02, with the scalar-extension associators inserted.
+- Omitted `ModuleOverlapDatum.hom_ext`: Two datum morphisms are equal iff their underlying S-linear maps are equal.
+- Omitted `ModuleOverlapTests.identity`: For f=idR, diagonal normalization forces θ to be identity under the tensor unitors.
+- Omitted `ModuleOverlapTests.noninvertibleMap`: Multiplication by2 on the canonical datum for Z→Z is a datum morphism but not an isomorphism.
+- Omitted `ModuleOverlapTests.infiniteFree`: The canonical datum on S⊗R(⊕n∈ℕ R) is admitted; no finite presentation is imposed.
+- Omitted `ModuleOverlapTests.scalarTwo`: For Q→Q and N=Q, multiplication by2 is an invertible overlap map but fails the cocycle since 4≠2.
+- Omitted `AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates`: Let L=extendScalars f, U=restrictScalars f and G=(extendRestrictScalarsAdj f).toComonad. Its endofunctor is U⋙L, so G(N)=S⊗R N with S acting on the first factor. Its counit is εN(s⊗n)=s·n; its comultiplication is ΔN(s⊗n)=s⊗1⊗n, with G²(N)=S⊗R(S⊗R N). Thus an existing Comonad.Coalgebra G is exactly an S-linear d:N→S⊗R N with εN∘d=id and (idS⊗d)∘d=ΔN∘d; its existing morphisms are S-linear h with (idS⊗h)∘d=d′∘h. No new coalgebra or comonad carrier is constructed.
+- Omitted `AlgebraicModuliForArithmeticGeometry:R09.3/overlap-diagonal`: For a ModuleOverlapDatum(f), let p:N→N be the pullback of θ along multiplication μ:S⊗R S→S, using the two tensor unit identifications. Equivalently p(n)=εN(θ(n⊗1)). Then p=idN. This holds for any f, even if f is not faithfully flat.
+- Omitted `AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-coalgebra`: For an arbitrary f and overlap datum (N,θ), dθ(n)=θ(n⊗1) is S-linear for the first-factor action and defines an object of the existing Comonad.Coalgebra G. The counit law is overlap diagonal normalization; the coassociativity law is the triple cocycle evaluated at n⊗1⊗1.
+- Omitted `ModuleOverlapDatum.toCoalgebra`: Constructs the native coalgebra on the same S-module N.
+- Omitted `ModuleOverlapDatum.toCoalgebra_coaction`: The native coaction at n is θ(n⊗1).
+- Omitted `ModuleOverlapDatum.toCoalgebra_module`: Forgetting the native coalgebra returns the datum's underlying ModuleCat S object.
+- Omitted `OverlapCoactionTests.identity`: The identity overlap datum gives d(n)=1⊗n under the tensor unitors.
+- Omitted `OverlapCoactionTests.canonical`: On N=S⊗R M the coaction is s⊗m↦s⊗1⊗m.
+- Omitted `OverlapCoactionTests.noFlatness`: For Z→Z/2Z the forward presentation-to-coalgebra construction is still defined; it does not assert effective descent to Z.
+- Omitted `AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-maps`: For a native coalgebra (N,d), tensor universal properties give two S⊗R S-linear maps θd:N⊗R S→S⊗R N and ψd:S⊗R N→N⊗R S. If d(n)=Σai⊗ni, their formulas are θd(n⊗b)=Σai⊗b ni and ψd(s⊗n)=Σs ni⊗ai. These formulas are induced linear maps, independent of every finite tensor decomposition. The two scalar factors act as in ModuleOverlapDatum.
+- Omitted `ModuleCoaction.transition`: The R-balanced formula produces the overlap map θd.
+- Omitted `ModuleCoaction.reverseTransition`: The R-balanced formula produces the reverse map ψd.
+- Omitted `ModuleCoaction.transition_tmul`: For d(n)=Σai⊗ni, θd(n⊗b)=Σai⊗b ni.
+- Omitted `ModuleCoaction.reverseTransition_tmul`: For d(n)=Σai⊗ni, ψd(s⊗n)=Σs ni⊗ai.
+- Omitted `CoactionTransitionTests.canonical`: For d(s⊗m)=s⊗1⊗m, θ((s⊗m)⊗t)=s⊗(t⊗m) and ψ(s⊗(t⊗m))=(s⊗m)⊗t.
+- Omitted `CoactionTransitionTests.zeroModule`: On N=0 both transition maps are the unique maps between zero overlap modules.
+- Omitted `CoactionTransitionTests.decomposition`: Replacing a tensor expression by a balanced relation or a sum leaves both maps unchanged.
+- Omitted `AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-inverses`: For a native coalgebra (N,d), the maps above satisfy ψd∘θd=id_(N⊗R S) and θd∘ψd=id_(S⊗R N). They are inverse S⊗R S-linear isomorphisms for arbitrary f.
+- Omitted `AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-cocycle`: The transition θd of a native coalgebra satisfies θ12∘θ01=θ02 on N⊗R S⊗R S, with all three maps extended along their insertion ring maps and compared using tensor associators.
+- Omitted `AlgebraicModuliForArithmeticGeometry:R09.3/coalgebra-to-overlap`: Every existing Comonad.Coalgebra G produces a ModuleOverlapDatum(f) on the same S-module by taking θd with inverse ψd and the preceding cocycle proof. Denote it ModuleCoaction.toOverlap. This construction needs no faithful flatness.
+- Omitted `ModuleCoaction.toOverlap`: Packages θd and ψd as a tensor-overlap datum.
+- Omitted `ModuleCoaction.toOverlap_module`: Forgetting the overlap datum returns the native coalgebra's underlying ModuleCat S object.
+- Omitted `ModuleCoaction.toOverlap_transition`: The transition and its inverse are exactly θd and ψd above.
+- Omitted `CoalgebraOverlapTests.zero`: The zero coalgebra produces the zero overlap datum.
+- Omitted `CoalgebraOverlapTests.nonflat`: For Z→Z/2Z the construction exists but the comparison ModuleCat Z→overlap data is not an equivalence.
+- Omitted `CoalgebraOverlapTests.factors`: For canonical d, θ((s⊗m)⊗t)=s⊗(t⊗m), not t⊗(s⊗m).
+- Omitted `AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coaction-roundtrips`: For every overlap datum θ, reconstructing θ from dθ yields the original transition; for every native coalgebra d, evaluating θd on n⊗1 yields d(n). These equalities preserve the underlying S-module and all proof fields by proof irrelevance, after the specified tensor identifications.
+- Omitted `AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-morphisms`: For overlap data (N,θ),(N′,θ′) and an S-linear h:N→N′, the overlap commuting square (idS⊗h)∘θ=θ′∘(h⊗idS) holds iff (idS⊗h)∘dθ=dθ′∘h. Thus datum morphisms are exactly the existing native coalgebra morphisms on h, with the same identities and compositions.
+- Omitted `AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-equivalence`: For every commutative ring map f:R→S, ModuleOverlapDatum(f) is equivalent as a category over ModuleCat S to the existing Comonad.Coalgebra ((extendRestrictScalarsAdj f).toComonad). The forward and inverse functors are the two object constructions with the same underlying S-linear morphisms. Unit and counit have identity underlying module maps and obey the triangle identity. This compares two presentations, not ModuleCat R with either category; effective descent needs faithful flatness later.
+- Omitted `AlgebraicModuliForArithmeticGeometry:R09.3/overlap-comparison-canonical`: For every f and R-module M, the canonical overlap on N=S⊗R M is sent to the existing (Comonad.comparison (extendRestrictScalarsAdj f)).obj M. Its coaction is L.map(unit.app M), or s⊗m↦s⊗(1⊗m). For an R-linear h:M→M′, the canonical arrow is L.map h, or s⊗m↦s⊗h(m). These identifications are compatible with the existing comparison's forgetful functor, before imposing faithful flatness.
+- Omitted `AlgebraicModuliForArithmeticGeometry:R09.3/canonical-overlap-functor`: For any f:R→S, scalar extension with its canonical transition defines a functor ModuleCat R→ModuleOverlapDatum(f). At M its module is N=S⊗R M and its transition is θ((s⊗m)⊗t)=s⊗(t⊗m), with inverse ψ(s⊗(t⊗m))=(s⊗m)⊗t. At an R-linear h it is s⊗m↦s⊗h(m). The tensor unit/associator comparisons are specified, and forgetting the datum yields the existing extendScalars f functor.
+- Omitted `ModuleOverlapDatum.canonical`: An R-module M gives N=S⊗R M with θ((s⊗m)⊗t)=s⊗(t⊗m).
+- Omitted `ModuleOverlapCanonical.map`: The arrow associated to h is the existing extendScalars f map h, with identity and composition laws.
+- Omitted `ModuleOverlapCanonical.forget`: The canonical overlap functor followed by its underlying-module functor agrees with the existing extendScalars f.
+- Omitted `CanonicalOverlapTests.identity`: For f=idR, the canonical transition becomes identity through the unitors.
+- Omitted `CanonicalOverlapTests.scalarFactors`: The formula sends (s⊗m)⊗t to s⊗(t⊗m); it does not exchange s and t.
+- Omitted `CanonicalOverlapTests.nonfaithful`: For Z→Z/2Z the canonical functor identifies the maps multiplication by2 and0 on Z, so it is not faithful.
+
+- Omitted `ModuleDescentBridge.tensor_comonad_coordinates.tensorFormula`: pure-tensor evaluation with transported restricted-module instances.
+- Omitted `ModuleDescentBridge.overlap_comparison_canonical.overlapIso`: the actual natural isomorphism from the unimplemented overlap functor to the native comparison.
+
+## Current validation receipt
+
+Validation: actual check_blueprint and actual intake file policy pass with zero errors/warnings. Historical 85-node, baseline/source/version, 68-route, reserved-key and 21-request preservation pass; all current reader statements and new proof/API/test signature omissions match. The reachable prerequisite graph has167 vertices and no cycle, including typed upstream imports and request edges. In-memory atlas projection has1977 stages and3522 edges and is acyclic. Both fresh HTML hashes and every new literal citation fragment pass. Split-cover coordinate regressions over F3→F3×F3 with all48 rank-two gauges pass36144 checks, including both inverse identities, counit and triple coherence; scalar2 and swapped-factor negatives discriminate wrong conventions. Whitespace checks pass. These are blueprint/finite-model checks, not Lean elaboration or geometric proofs.
+
+Audit tree: `91d911baefb0c99925f87b3a02a5c81dca7b3ad4`; pinned library commits remain unchanged. The former worker's full source reads are preserved as inherited receipts; this continuation freshly verified only its selected Stacks source bytes and ten added baseline statements. Lean has not been compiled; no project, cache, build or language server was started.
