@@ -3726,3 +3726,269 @@ The generic finite-module flat-annihilator theorem and exact affine quotient/loc
 The indexed stock checker reports zero errors and warnings. The preservation audit checks all 128 inherited node IDs/statements, all 78 routes, all 21 source findings and the prior finite F₂ certificate. All new baseline names resolve in the pinned declaration index and their file hashes agree; source PDF/HTML hashes and all reader/native declaration, API and example names agree. The suggested imports exist at the pins, but this is not an elaboration claim.
 
 Read-only assembly with the repository’s actual atlas builder, roadmap-adder and blueprint merger resolves every required stage edge and all 76 restored upstream imports, with zero own pending or skipped links. The target declaration graph has 137 vertices and 367 edges. The actual atlas stage graph, including its 51 existing unrelated UPSTREAM boundary vertices, has 3042 vertices and 8726 edges. The combined declaration/stage/baseline graph has 3218 vertices and 9489 edges. All three are acyclic. No atlas projection or other job file was edited.
+
+
+## Quadratic pinching continuation — codex-rtOQ9t, 2 October 2026
+
+This checkpoint adds thirteen consumer leaves to G.1. The inherited 137 node IDs and statements, reserved Ferrand key, 78 routes, 21 source findings and previous requests are preserved. Four existing construction/count proof outlines now consume the new leaves; the other 133 node objects are identical. All stages remain partial. The original source describes the conductor squares on printed page10 and leaves the point computation on page11 to the reader; the algebra and cohomology calculations below supply that omitted consumer argument.
+
+### Affine polynomial pinching algebra
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra` — definition; `QuadraticPinch.algebra`.
+
+For a field k and q∈k[t], define A_q as the native k-subalgebra preimage of the constants in AdjoinRoot(q)=k[t]/(q). Thus f∈A_q iff there are c∈k and h∈k[t] with f=c+qh. The construction exists for every q; subsequent quadratic claims require q monic of degree2. It does not assert that q is separable or irreducible.
+
+Proof outline:
+
+1. Take the preimage of the bottom subalgebra under AdjoinRoot.mkₐ; quotient membership gives the displayed divisibility criterion.
+2. Use native Subalgebra, AdjoinRoot and the existing Ferrand ring pullback rather than introducing a new ring carrier.
+
+Prerequisites: `mathlib:Subalgebra.comap`, `mathlib:AdjoinRoot.mkₐ`, `mathlib:AdjoinRoot.mk_eq_mk`.
+
+Planning API:
+
+- `QuadraticPinch.mem_algebra` (characterisation): f∈A_q iff ∃c,h, f=C(c)+q h.
+- `QuadraticPinch.constants` (simp): Every constant polynomial C(c) belongs to A_q.
+- `QuadraticPinch.generation` (characterisation): For q=t²+at+b, A_q=k[q,tq]; this is promoted to quadratic-pinch-generation below.
+
+Unit tests:
+
+- `QuadraticPinch.test_cusp` (computation): A_(t²)=k[t²,t³].
+- `QuadraticPinch.test_split` (compatibility): For char k≠2, A_(t²−1) is the equal-value subalgebra {f:f(1)=f(−1)}.
+- `QuadraticPinch.test_f4` (non-example): Over F₂, t∉A_(t²+t+1) although q and tq belong. The pinch is not all of k[t].
+
+Sources: schroer — §3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11.
+
+### Quadratic pinching equation
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-relation` — definition; `QuadraticPinch.relation`.
+
+For a,b∈k define F_(a,b)∈k[U,V] by V²+aUV+bU²−U³, using native MvPolynomial(Fin2,k). With q=t²+at+b, the substitution U=q,V=tq kills F. Its quadratic part is V²+aUV+bU². No discriminant test requiring 2 invertible is built into this definition.
+
+Proof outline:
+
+1. Multiply t²+at+b=q by q² to derive the relation.
+2. Separate the quadratic part from the cubic term; retain the cross term in characteristic2.
+
+Prerequisites: `mathlib:MvPolynomial.aeval`.
+
+Planning API:
+
+- `QuadraticPinch.relation_eval` (relation): Substitution U=q,V=tq sends F_(a,b) to zero.
+- `QuadraticPinch.relation_quadratic` (projection): F_(a,b)+U³=V²+aUV+bU².
+- `QuadraticPinch.relation_origin` (simp): F_(a,b)(0,0)=0.
+
+Unit tests:
+
+- `QuadraticPinch.test_relation_cusp` (computation): F_(0,0)=V²−U³.
+- `QuadraticPinch.test_relation_char2` (computation): Over F₂, F_(1,1)=V²+UV+U²−U³; the UV term survives.
+- `QuadraticPinch.test_relation_cubic` (non-example): F_(0,0)(1,0)=−1. Dropping the cubic term changes the affine curve.
+
+Sources: schroer — §3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11.
+
+### Residue at the pinched point
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-residue` — construction; `QuadraticPinch.residue`.
+
+For monic q of degree2, the constant c in f=c+qh is unique. Define the k-algebra map ρ_q:A_q→k by that c, concretely the constant coefficient of the remainder modulo q. It is surjective and its kernel is the contraction of (q)⊂k[t]. The output is an actual AlgHom, not a freely chosen residue identification.
+
+Proof outline:
+
+1. A nonzero constant cannot be divisible by a degree2 polynomial; establish uniqueness independently of the generator presentation.
+2. Remainders of elements of A_q are constants; constant terms of sums/products give the AlgHom laws.
+3. Constants split ρ_q, and zero residue is exactly divisibility by q.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra`, `SchemeAndStackFoundations:SF.0`.
+
+Planning API:
+
+- `QuadraticPinch.residue_normal_form` (simp): ρ_q(c+qh)=c for the native subtype element.
+- `QuadraticPinch.residue_surjective` (structure): ρ_q is surjective, split by constants.
+- `QuadraticPinch.residue_kernel` (characterisation): ker ρ_q=(q).comap(A_q↪k[t]).
+
+Unit tests:
+
+- `QuadraticPinch.test_residue_constant` (computation): ρ_q(C(1))=1.
+- `QuadraticPinch.test_residue_q` (computation): ρ_q(q)=0.
+- `QuadraticPinch.test_residue_tq` (compatibility): ρ_q(tq)=0, although the residue of t in AdjoinRoot(q) is not a constant.
+
+Sources: schroer — §3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11.
+
+### Two generators for a quadratic pinch
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation` — lemma; `QuadraticPinch.generation`.
+
+For q=t²+at+b over any field, A_q=k[q,tq]. As a k-vector space it has basis 1,q^i (i≥1),tq^j (j≥1). These have degrees0,2i,2j+1 respectively, so no degree1 vector occurs.
+
+Proof outline:
+
+1. Write f=c+qh using the defining preimage criterion.
+2. Use t²q=q²−a tq−bq to inductively express each t^n q in q and tq.
+3. For linear independence compare distinct leading degrees of the displayed monic polynomials; for spanning reduce powers of tq using the relation.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra`.
+
+Sources: schroer — §3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11.
+
+### Hypersurface presentation of the pinch
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation` — lemma; `QuadraticPinch.presentation`.
+
+For q=t²+at+b, the substitution ψ:k[U,V]→k[t], U↦q,V↦tq, has image A_q and kernel (F_(a,b)). Consequently its induced map k[U,V]/(F_(a,b))→A_q is the canonical k-algebra isomorphism. This remains true for split, repeated-root and inseparable quadratics.
+
+Proof outline:
+
+1. Generation identifies the image.
+2. Since F is monic of V-degree2, divide any polynomial by F in k[U][V], leaving P(U)+VQ(U).
+3. Under ψ this remainder becomes P(q)+tq Q(q); its nonzero monomials have distinct even/odd leading degrees. Vanishing therefore forces both P and Q to vanish.
+4. Use the native first-isomorphism theorem with the identified kernel; do not infer injectivity merely from checking F maps to zero.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-relation`, `SchemeAndStackFoundations:SF.0`.
+
+Sources: schroer — §3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11.
+
+### Conductor of a quadratic pinch
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-conductor` — lemma; `QuadraticPinch.conductor`.
+
+For monic q of degree2, the conductor of A_q⊂k[t] is exactly the ambient ideal (q). Its contraction m=ker ρ_q satisfies A_q/m≅k, while k[t]/(q)=AdjoinRoot(q). The conductor square is the actual affine chart of the inherited Ferrand square.
+
+Proof outline:
+
+1. Every multiple of q remains a multiple after multiplication by any polynomial, giving (q)≤conductor.
+2. If f lies in the conductor, f=c+qh lies in A_q and tf also lies in A_q. Modulo q, its remainder is ct of degree≤1, so being constant forces c=0.
+3. Combine the residue kernel with the inherited ring/cartesian/geometric pushout results.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-residue`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ring-cartesian`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-existence`.
+
+Sources: schroer — §3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11.
+
+### Finite normalization on the affine chart
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization` — lemma; `QuadraticPinch.finite_normalization`.
+
+For monic quadratic q, k[t] is finite over A_q, with module generators1,t. The inclusion is an isomorphism after inverting q, since t=(tq)/q, and induces the same fraction field. As k[t] is normal, this is the finite normalization of A_q. The statement includes the cusp; normality of the normalization does not imply the target is nodal.
+
+Proof outline:
+
+1. The monic equation t²+at+b−q=0 makes t integral over A_q. Its recurrence reduces every power to an A_q-linear combination of1,t.
+2. Invert the nonzero q and recover t to identify the localization and fraction field.
+3. Import the normality of the polynomial ring over a field and the normalization comparison from the existing owner.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-conductor`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `SchemeAndStackFoundations:SF.0`.
+
+Sources: schroer — §3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11.
+
+### Tangent cone and separable branches
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-tangent` — lemma; `QuadraticPinch.tangent_branches`.
+
+At m=(U,V) on Spec(k[U,V]/F), m/m² has k-dimension2 and the tangent cone is k[U,V]/(V²+aUV+bU²). For separable q=t²+at+b this binary quadratic has two distinct geometric lines; if q is irreducible they are conjugate over its quadratic splitting field. The point is a node by the imported nodal-chart criterion. In characteristic2 a≠0 is the separability condition; a=0 is excluded from this nodal conclusion.
+
+Proof outline:
+
+1. There is no linear term in F, so the images of U,V form the cotangent basis.
+2. The lowest-degree term of F is its nonzero homogeneous quadratic; the initial ideal of this principal hypersurface is generated by that term.
+3. Over a splitting field with distinct roots α,β, factor the quadratic as (V−αU)(V−βU).
+4. Compare the local completed normal form with SR.1, rather than rebuilding a general node predicate. A double tangent requires separate singularity analysis.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `SchemeAndStackFoundations:SF.0`.
+
+Sources: schroer — §3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11.
+
+### Proper pinching of one closed field point
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout` — theorem; `QuadraticPinch.proper_point_pushout`.
+
+Let k⊂E be a finite field extension and i:Spec E→Y a closed immersion into a proper k-scheme Y, commuting with the structure maps. Then pinching i along Spec E→Spec k gives a proper k-scheme C, with finite surjective ν:Y→C, closed j:Spec k→C, and geometric, categorical and cartesian Ferrand squares. No projective-line carrier, reducedness or separability is required for this existence/properness theorem.
+
+Proof outline:
+
+1. Spec E has one underlying point, so an affine neighborhood of its image in Y supplies the inherited global Ferrand neighborhood hypothesis.
+2. Use the inherited universal property to obtain C→Spec k. Since Spec E→Spec k is onto, Y→C is onto.
+3. Descend separatedness through the finite surjection using Stacks09MQ. The inherited finite maps give universally closedness; properness of Y and surjectivity give universally closedness of C→Spec k via the pinned theorem.
+4. Obtain local finite type over k on Ferrand affine charts from Stacks37.67.5/00IT, retaining the Noetherian base hypothesis (a field). Combine the three native morphism properties.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence`, `NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts`, `mathlib:AlgebraicGeometry.UniversallyClosed.of_comp_surjective`, `mathlib:AlgebraicGeometry.IsProper`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`.
+
+Sources: stacks-0ECH — 37.67.1–5, especially4–5 including proofs; stacks-00IT — 15.5.1, full statement and proof; stacks-09MQ — 29.42.11(4), full statement and proof.
+
+### Cohomology of the one-component pinch
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus` — lemma; `QuadraticPinch.i1_genus`.
+
+Let C be obtained by pinching Spec E⊂P¹_k to Spec k, where E/k is separable quadratic. Then C is proper geometrically integral, H⁰(C,O_C)=k and H¹(C,O_C)≅E/k as k-vector spaces, so p_a(C)=1. It has exactly one rational singular point with two conjugate branches. Normalization is P¹_k and the conductor pair is Spec E→Spec k.
+
+Proof outline:
+
+1. Apply proper-point-pushout and identify the selected affine chart with A_q; the complement is unchanged.
+2. The normalization exact sequence is 0→O_C→ν_*O_P¹→j_*(E/k)→0. On global constants the quotient map is zero.
+3. Import H⁰(P¹,O)=k and H¹(P¹,O)=0; the long exact sequence gives the stated natural vector-space comparison, not a preferred basis of E/k.
+4. After a separable splitting extension the chart has one ordinary node and integral normalization, giving geometric integrality and the branch assertion.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-tangent`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `SchemeAndStackFoundations:SF.3`.
+
+Sources: schroer — §3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11.
+
+### Cohomology of the two-component pinch
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i2-genus` — lemma; `QuadraticPinch.i2_genus`.
+
+Let C pinch P¹_k⊔P¹_k along Spec(E×E)→Spec E, with the two chosen degree2 closed subschemes identified by specified E-isomorphisms. For separable quadratic E/k, C is proper geometrically connected, reduced, with its two rational components fixed over k and two conjugate geometric nodes. H⁰(C,O_C)=k; H¹(C,O_C)≅E/k, hence p_a=1. The incidence identification is part of the input, not equality of the residue fields by name.
+
+Proof outline:
+
+1. Use the inherited global Ferrand existence: the two closed points lie in a disjoint union of affine neighborhoods, which is affine. Properness follows by the same finite-surjection argument.
+2. The normalization quotient sheaf is j_*E, using (x,y)↦x−y from E⊕E modulo the specified diagonal E.
+3. The global map k⊕k→E is (c₁,c₂)↦c₁−c₂; its kernel is the diagonal k and its cokernel is E/k. H¹ of each P¹ vanishes.
+4. After splitting E, glue corresponding branches in the two components. Each geometric node has branches in different components; Frobenius exchanges the two edges and fixes the component vertices.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `SchemeAndStackFoundations:SF.3`.
+
+Sources: schroer — §3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11.
+
+### Field extension and branch action
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-splitting` — lemma; `QuadraticPinch.splitting`.
+
+For a separable quadratic E/k and a field extension K/k, both pinching constructions commute with K-base change via the existing flat-base-change theorem. The new conductor is E⊗_kK. When this is K×K, the one-component pinch is split I₁ and the two-component pinch is split I₂. Otherwise it remains a quadratic field. In the I₂ construction the components are already P¹_k; extending the field splits the nodes, not the component vertices.
+
+Proof outline:
+
+1. Field extension is flat, so apply the existing four-arrow base-change comparison.
+2. Use the imported separable quadratic tensor/Chinese-remainder comparison and track its two projections.
+3. For I₁ the two normalization points are identified with one K-rational point. For I₂ each of the two conductor points glues one branch from each specified component.
+4. Compare actual normalization and branch schemes with the imported graph carrier; record edge/half-edge actions without assuming trivial Galois action on all incidence data.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i2-genus`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/flat-base-change`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `SchemeAndStackFoundations:SF.0`.
+
+Sources: schroer — §3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11.
+
+### Point counts over every finite extension
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts` — lemma; `QuadraticPinch.extension_counts`.
+
+For the specified nonsplit I₁ and I₂ pinches over F_q, write Q=q^n with n≥1. Over F_(q^n), the I₁ count is Q+2 for odd n and Q for even n; the I₂ count is 2Q+2 for odd n and 2Q for even n. Counts of a nonreduced schematic fibre with this reduction are identical. These formulas apply to the fixed-component I₂ construction, and make no assertion for component-permuting forms.
+
+Proof outline:
+
+1. E=F_(q²) has no F_(q^n)-points as an F_q-scheme for odd n, and two for even n. Import the standard finite-field embedding criterion.
+2. For I₁ use the complement isomorphism: #(P¹\Spec E)+#Spec F_q. This is Q+1−0+1 or Q+1−2+1.
+3. For I₂ remove the two copies of Spec E from P¹⊔P¹ and add one Spec E: 2(Q+1)−2e+e where e is0 or2.
+4. A field-valued morphism kills nilpotents; import the reduction comparison. At n=1 recover the two inherited Schröer3.2 counts.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-splitting`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/localization-complement`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.3`.
+
+Sources: schroer — §3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11.
+
+### Validation and remaining owner interfaces
+
+The independent finite arithmetic calculation passes 258041 assertions for all 38 monic quadratics over F₂,F₃,F₅ and all degree<5 polynomials. It compares the generator span with the quotient-preimage definition, verifies conductor membership, computes affine hypersurface points, and adds the point at infinity. A second set calculation constructs the pinched P¹ sets over F₄,F₉,F₂₅, takes Frobenius fixed classes, and distinguishes fixed components from component-swapping actions. It validates finite examples only; it does not establish normalization, properness, coherent cohomology, general-field formulas or Lean elaboration. The script SHA256 is `7d76ef6a7b4b5bcf9c0c9a904d719009f326ee394c5ddc245c18948c061b6d20`. No unrelated inherited finite certificate was rerun.
+
+The cohomology maps are materially different: I₁ has quotient E/k and a zero map from k; I₂ has quotient E and map k²→E, (c₁,c₂)↦c₁−c₂. Both give H¹≅E/k. No basis of that quotient is chosen. Properness of the pinched scheme is proved through finite surjectivity, separatedness descent and Noetherian finite type; it is not inferred from a topological quotient alone. The native file provides actual affine signatures and general proper single-field-point existence. Its final ledger names the exact missing normalization/tangent/P¹/cohomology/count signatures. The source and pinned-read receipts in `quadraticPinchingContinuation` distinguish this worker’s reads from inherited checks. No combined pinned build exists, so Lean remains uncompiled.
+
+The inherited `G.1/nonsplit-i1`, `nonsplit-i2`, `count-16` and `count-17` retain their statements and source records. Their proof/dependency lists now consume the corresponding quadratic construction/cohomology/splitting leaves and the n=1 specialization of `quadratic-extension-counts`. This links the continuation to the original routed targets.
+
+Indexed packet validation: zero errors and warnings; 150 nodes, 60 API items, 57 tests, 29 planets, 79 baseline entries, 22 sources, 23 requests and 17 gaps. The actual assembler with an in-memory pending-packet overlay includes all 150 declarations and 29 planets, with no pending or skipped links for this roadmap. All named stage prerequisites reach their consumer stages. The stage graph is acyclic (2992 vertices,8651 edges); this packet’s declaration graph is acyclic (150 vertices,397 edges); stages plus this packet are acyclic (3113 vertices,9230 edges). Other roadmaps retain their seven pre-existing skipped links: GeneralAlgebraicKTheory2, K2SymbolsBrauer1, K3BlochGroups4. Their declaration graphs were not audited. Normal retirement, restructuring, links and decomposition trimming ran; no atlas output was written. Overlay SHA256: `bba2a4836bdea5760f7909e25b6c6a0b9dfe95beea2799a233ed6647e79a56fb`. Native file SHA256: `821f66e1c1a43f79a08bc590d1b0307ec09ed3d1b6cc83370703efb910f21b60`.
+
+For reproducing the Frobenius examples, the quadratic fields use t²+t+1 over F₂, t²+1 over F₃ and t²+2 over F₅. Form the P¹ set over each quadratic extension, pinch its two roots (I₁), or glue corresponding roots across two labelled copies (I₂), then count classes fixed by x↦x^p. The tested component swap exchanges the two copy labels as well and gives a different fixed-point count. These set models illustrate the specified geometry; they do not supply scheme descent.
