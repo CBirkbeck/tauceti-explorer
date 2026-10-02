@@ -4,11 +4,27 @@ Job: PAPER-SKOROBOGATOV-SOFOS-23. Issue: [#1256](https://github.com/CBirkbeck/ta
 
 - **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged partial checkpoint of Codex session codex-a71f92, whose material follows below.
 - **The paper.** Alexei N. Skorobogatov and Efthymios Sofos, *Schinzel Hypothesis on average and rational points*, Inventiones mathematicae 231 (2023), 673–739 (doi 10.1007/s00222-022-01153-6). The published version is open access and was read.
-- **Items.** The result has **103 items: 6 library, 6 planned and 91 missing**.
+- **Current items.** The result has **149 items: 7 library, 10 planned and 132 missing**, with each missing item routed once. The following checkpoint description is historical: it had 103 items (6 library, 6 planned and 91 missing).
   - The checkpoint's 91 items are kept.
   - Items 92–103 are new. They cover Lemmas 2.1, 2.2, 2.3 and 2.7, (3.7), Corollary 3.3, Proposition 3.8, Lemma 3.9, the von Mangoldt count θ^Λ, the bound on negative values, Holzer's theorem, and local solubility away from S.
   - Every missing item is routed exactly once, across eight routes.
-- **Mistakes.** Twenty-two are recorded under `sourceIssues`. The one with consequences is E1: Lemma 3.14 is false for positive primes. The repair below shows that Theorem 1.9, and everything the paper deduces from it, still holds.
+- **Current source issues.** There are 42 records under `sourceIssues`. The following description concerns the historical 22-record checkpoint. The one with consequences is E1: Lemma 3.14 is false for positive primes. The repair below shows that Theorem 1.9, and everything the paper deduces from it, still holds.
+
+## Confirmed red-team fixes (Codex, codex-J6LwjP, 2 October 2026)
+
+[Fix issue #5506](https://github.com/CBirkbeck/tauceti-explorer/issues/5506) applies the three independently confirmed findings in RT-PAPER-SKOROBOGATOV-SOFOS-23. The detailed application report is [RT-PAPER-SKOROBOGATOV-SOFOS-23.fixes.md](../redteam/RT-PAPER-SKOROBOGATOV-SOFOS-23.fixes.md). These corrections supersede conflicting descriptions below, including the earlier review's assertion that Theorem 1.9 stands without a residue-degree restriction. All 149 item IDs, statuses, route memberships, prerequisites, completion gates and the 42 existing source-issue records remain unchanged. These are extraction corrections, with no new author erratum or independent review verdict.
+
+| Finding | Corrected usable contract |
+| --- | --- |
+| 1: compatible residue families and denominators | Require deg Qᵢ ≤ dᵢ in the fixed-degree coefficient laws, mean discrepancy, density and character-cancellation chain. Keep the shorter printed Theorem 1.9 separately as `printedStatement`; it does not justify dispensing with the standing family assumptions. |
+| 2: two-sided truncation bound | Separate positive inputs from the term at zero. The two-sided coefficient bound assumes 1 ≤ z ≤ H and positive k,m ≤ (log H)^δ₂. Proposition 3.8 retains its full H^δ₁ ≤ z ≤ H hypothesis. |
+| 3: named class-field supplier | Import the strict Hilbert class field and its splitting law from ClassFieldTheory Layer 13. Layer 12 supplies underlying global correspondence; it does not construct the named field. |
+
+**Compatibility is necessary.** With M=2, d=1 and Q(t)=t²+1, the fixed-degree congruence family is empty at every height: its degree-two coefficient would have to be both zero and one modulo 2. The usable contract adopts the paper's standing restriction deg Q ≤ d, rather than a looser reduction-modulo-M convention. For compatible Q, normalize M positive and choose each lower coefficient in 0,…,M−1 and the leading coefficient in 1,…,M. This gives a positive-leading polynomial of the required degree and height at most M, so Poly(H) is nonempty for H≥M. Under the source unit condition, item 24's positive asymptotic density ensures Schinzel(H) is nonempty for sufficiently large H as well. Thus the relative-density denominators are eventually positive. The general mean-discrepancy theorem receives no additional coprimality condition; the density and character applications retain their own source conditions.
+
+**Truncation at zero matters.** For t≥1, |Λ_z(t)| ≤ Σ_{e∣t} log e ≤ τ(t) log t, uniformly in z. The positive-input bound therefore has an absolute constant. At zero, Λ_z(0)=−Σ_{e≤z} μ(e)log e and E_z(0)=−Λ_z(0). Its absolute value is at most z log z, controlled by H log H only under z≤H. For nonzero inputs use the even Λ convention already recorded here. The log factor in the two-sided bound is uniform when d and δ₂ are fixed and k,m are positive and at most (log H)^δ₂; it is not uniform for unrestricted k,m,z. The lower cutoff H^δ₁ in Proposition 3.8 is still required by that proposition, although the elementary L1 estimate itself needs only 1≤z≤H.
+
+**Checks and source boundary.** The published PDF matched the original SHA-256. Rendered published pp. 675, 677, 680, 691, 694, 720 and 727 were checked for these interfaces. This session did not reread the complete paper, collate the preprint, reprove the analytic repair, or rerun the historical finite calculations below. Exact current checks covered 1,259 compatible coefficient families, empty-family and small-height witnesses, 25 prime-jump identities for Λ_z(0), and preservation of unaffected records and an acyclic dependency graph. ClassFieldTheory's actual Layer 12/13 contracts and coverage were checked; Layer 13 remains planned. There was no Lean compilation.
 
 ## Independent review (REV-PAPER-SKOROBOGATOV-SOFOS-23)
 
@@ -111,7 +127,7 @@ The geometric applications use that prime-value engine inside finitely many loca
 
 The JSON contains the full design briefs and exact item membership. The proposed growing-degree random-polynomial Part II from BKK23 is not the owner of these new fixed-degree prime-value layers. Both should import ST.0, not each create a second generic density framework.
 
-The geometric Part II imports CFT layers 5, 6, 10 and 12 and GlobalQuadraticForms layer 5. It does not re-plan the local invariant, unramified unit norm theorem, ABHN, ray-class correspondence or Hasse–Minkowski. RP.2 supplies cyclic obstruction adapters; the statistics Part II supplies prime values. These supplier-to-consumer directions avoid a circular proof of prime values from their rational-point applications.
+The geometric Part II imports CFT layers 5, 6 and 10 for local invariants, unramified unit norms and ABHN, and Layer 13 for the strict Hilbert class field, its totally-positive-principal splitting law, cyclic Hasse norms and Kronecker–Weber. Layer 12 supplies underlying global correspondence. It also imports GlobalQuadraticForms layer 5 for Hasse–Minkowski. These remain supplier interfaces, without duplicate field constructions. RP.2 supplies cyclic obstruction adapters; the statistics Part II supplies prime values. These supplier-to-consumer directions avoid a circular proof of prime values from their rational-point applications.
 
 Proposed eventual modules and landmarks appear in the design briefs. This issue authorizes only the JSON, report and handoff, not a Lean source file.
 
