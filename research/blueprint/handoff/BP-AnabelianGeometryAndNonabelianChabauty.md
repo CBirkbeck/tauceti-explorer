@@ -60,7 +60,7 @@ Run each fragment separately with lake env lean in an already built exact-pin en
 
 85nodes:3definitions,11constructions,40lemmas,25theorems,6comparisons;85total APIs/72total tests,73required definition/construction APIs/62tests,95baseline declarations,11planets,16requests,9gaps,zero closed stages. Indexed packet checker has zero errors/warnings; actual deliverable intake, JSON, whitespace, contract preservation, header agreement and both public-source reconstructions pass.
 
-Actual read-only atlas assembly forces the candidate into promotion inputs and compares against the separately forced base packet. Stage graph3018vertices/8655edges, own graph85vertices/177edges, combined prerequisite graph3092vertices/8868edges; all acyclic.51 existing virtual supplier endpoints,85 reached declarations,zero unresolved references andall20 required supplier-stage paths reachable. Own skipped/pending links are empty; stage edges and other-roadmap skipped/pending links are unchanged. No synthetic node-to-realises attachment or repository/site output is written. Validator SHA256c85a89e029b4c52a650699f6c40b4bd457d470c77a7740454b48dcbbe680dcec.
+Actual read-only atlas assembly forces the candidate into promotion inputs and compares against the separately forced base packet. Stage graph3018vertices/8655edges, own graph85vertices/177edges, combined prerequisite graph3092vertices/8868edges; all acyclic.51 existing virtual supplier endpoints,85 reached declarations,zero unresolved references andall20 required supplier-stage paths reachable. Own skipped/pending links are empty; stage edges and other-roadmap skipped/pending links are unchanged. No synthetic node-to-realises attachment or repository/site output is written. Validator SHA2565b9f7e73cf3ebe437a5fc980a7411203fe0dd3bf40b573625fdb72eb0c6ae443.
 
 The exact read-only validator follows. Run from the repository root with the base packet JSON as its first argument: obtain that packet from publication base4a1f4b6f4dc475b67e029001f90053ff85163a04, path research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json. The own packet was identical at mathematical and publication bases. Relevant binding instructions, own deliverables, audit and reserved key contract were checked unchanged; the changed owner-table routing counts concern other definitions and leave this key entry unchanged.
 
@@ -170,7 +170,8 @@ assert all(reachable(source,target) for source,target in pairs),[(s,t) for s,t i
 report['requiredStagePairs']=len(pairs)
 report['requiredStagePairsReachable']=len(pairs)
 
-print(json.dumps(report,ensure_ascii=False,indent=2))```
+print(json.dumps(report,ensure_ascii=False,indent=2))
+```
 
 ## Resume
 
