@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Twelve L3 nodes connect the corrected finite values, original global point function and original global quotient map to the existing Cartan actions, with actual primitive and raw-coefficient comparisons. All2,228 predecessor nodes and1,283 baseline records remain whole. Finite image identification, rational spanning and quotient injectivity remain open.",
+  "summary": "Eleven L3 nodes identify the actual corrected quotient image with the integer span of original point values, prove integral Cartan-module closure, finite generation and nonzero image, and compare the original norm and global quotient maps. All2,240 predecessor nodes and1,283 baseline records remain whole. Admissible generators, rational spanning and source injectivity remain open.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -8995,6 +8995,20 @@
         "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
         "provides": "The native product of finite fiber products over a target finite set is the product over its preimage filter; the generated additive theorem reindexes the complete actual nested root sum.",
         "checked": "Full statement and ambient CommMonoid and DecidableEq hypotheses read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean, line248, surrounding235–277. Its generated additive theorem is used for arbitrary AddCommMonoid-valued actual root sums. Existing native prime induction, scalar-order divisibility, finite singleton and subtype-sum statements were reread."
+      },
+      {
+        "ref": "mathlib:Set.finite_range",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Set/Finite/Range.lean",
+        "provides": "The range of a function whose actual domain is finite is a finite set; applies to the original corrected point values.",
+        "checked": "Full declaration and ambient hypotheses read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/Data/Set/Finite/Range.lean, line89. Native actual linear-map range and span induction/containment were also reread at their existing baseline sources. No abstract finite-generation or image package is assumed."
+      },
+      {
+        "ref": "mathlib:Submodule.fg_def",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+        "provides": "A native submodule is finitely generated exactly when it is the span of an actual finite set; applies to the proved image-span equality.",
+        "checked": "Full declaration and ambient hypotheses read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/RingTheory/Finiteness/Defs.lean, line45. Native actual linear-map range and span induction/containment were also reread at their existing baseline sources. No abstract finite-generation or image package is assumed."
       }
     ]
   },
@@ -141729,6 +141743,657 @@
       "acceptance": [
         "Every actual Cartan element fixes the zero torus point and its inverse recovers every original point. An element whose level6 projection is the original unit5 sends1/6 to5/6 and does not fix1/6. The corrected level6 values at these two primitive points are negatives, namely[1]−[5] and[5]−[1]. The nonzero global corrected zero-point value is fixed by the existing norm-limit representation."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual corrected integer image",
+      "kind": "construction",
+      "statement": "Construct the actual finite corrected image as the native integer-linear range of the original corrected map from the original internal ordinary quotient to the original rational Cartan group ring.",
+      "hypotheses": [
+        "The degree is one and every level N is positive. The actual point carrier is the original level kernel in the one-coordinate rational torus, with a finite enumeration of that actual finite kernel. The original finite Cartan group and rational group ring are retained.",
+        "The source is the original internal ordinary quotient of the free abelian group on actual level points. The integer-linear map is the proved corrected quotient map, and the image is its actual native linear-map range as an integer submodule of the original rational group ring.",
+        "The span characterization is proved from actual original quotient representatives and free-abelian induction. It does not identify the source quotient with its image and does not assume the source map injective.",
+        "Integral Cartan-module closure uses the proved actual corrected-value action and surjectivity of the original global Cartan projection onto the original finite group. The integer group ring acts through the native coefficient embedding into the rational group ring.",
+        "Full-norm compatibility uses the original internal quotient level map and the original full coefficient norm. The global image comparison uses the existing levelToGlobal and corrected global quotient map. Only the original target level inclusion is used as an injective map; no source comparison injectivity is assumed.",
+        "The global comparison has finite enumerations of every actual positive-multiplier root fiber, as required by the original global quotient map. Finite generation uses the finite original level-point set, not a supplied basis or rank package.",
+        "This identifies the actual finite corrected integer image and its integral Cartan-module structure. Admissible image generators, source4.11 rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Take the native range of the already constructed original integer-linear corrected quotient map.",
+        "Retain its native integer-submodule structure inside the original rational group ring."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-linear",
+        "mathlib:LinearMap.range"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedImage",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanImage"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, proof of Theorem4.11: the corrected image V(N), its Cartan-module structure, generation by corrected point values and subsequent admissible generators. The source4.12–4.13 product description is on198–199.",
+          "match": "Constructs the actual corrected image as the native range of the original integer-linear quotient map, proves equality with the integer span of original point values and proves integral Cartan-module closure. Relates that finite image to the original norm system and global corrected map without assuming any source quotient injection or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedImageTests.the_level_one_integer_generator_belongs",
+          "kind": "degenerate",
+          "statement": "Coefficient1 at the original level1 is in the actual corrected integer image."
+        },
+        {
+          "name": "SuggestedKubertCorrectedImageTests.the_level_one_half_coefficient_is_not_integral",
+          "kind": "non-example",
+          "statement": "The rational basis coefficient1/2 at level1 is not in the actual integer image, whose single corrected point value is1. The image is not being replaced by its rational span."
+        },
+        {
+          "name": "SuggestedKubertCorrectedImageTests.the_level_six_half_difference_has_an_original_integer_preimage",
+          "kind": "computation",
+          "statement": "At level6 the half-difference([1]−[5])/2 belongs to the actual integer image: it is the corrected value of the original1/3 point class."
+        }
+      ],
+      "acceptance": [
+        "At level1 coefficient1 belongs to the actual integer image and coefficient1/2 does not. At level6 the half-difference([1]−[5])/2 belongs: it is the actual corrected value of the original1/3 point class. Its full norm6→30 has the original1/3 point at level30 as an integer preimage. Every original projected-unit basis multiplier and signed integer group-ring combination preserves actual image membership."
+      ],
+      "api": [
+        {
+          "name": "kubertRationalCartanImage_mem",
+          "role": "characterisation",
+          "statement": "An original rational Cartan group-ring element belongs to the corrected image exactly when it is the corrected value of some class in the original internal ordinary quotient."
+        },
+        {
+          "name": "kubertRationalCartanImage_point",
+          "role": "compatibility",
+          "statement": "For every actual level-N point a, its original corrected value r_N(a) lies in the actual corrected integer image."
+        },
+        {
+          "name": "kubertRationalCartanImage_eq_span",
+          "role": "characterisation",
+          "statement": "The actual corrected integer image equals the native integer span of the range of the original corrected point-value function on the original level kernel."
+        },
+        {
+          "name": "kubertRationalCartanImage_le_iff",
+          "role": "characterisation",
+          "statement": "The actual corrected integer image is contained in an integer submodule L exactly when every original corrected point value belongs to L."
+        },
+        {
+          "name": "kubertRationalCartanImage_basis_mul",
+          "role": "compatibility",
+          "statement": "For every original finite Cartan unit u and actual image element x, multiplication of x by the original group-ring basis element of u with coefficient1 remains in the actual corrected integer image."
+        },
+        {
+          "name": "kubertRationalCartanImage_integral_mul",
+          "role": "compatibility",
+          "statement": "The product of an actual image element with the native rational-coefficient image of any element of the original integral Cartan group ring remains in the actual corrected integer image."
+        },
+        {
+          "name": "kubertRationalCartanImage_ne_bot",
+          "role": "compatibility",
+          "statement": "At every positive level, the actual corrected integer image differs from the zero submodule."
+        },
+        {
+          "name": "kubertRationalCartanImage_norm",
+          "role": "compatibility",
+          "statement": "For M dividing N, the original full coefficient norm maps every element of the actual corrected integer image at M into the actual corrected integer image at N."
+        },
+        {
+          "name": "kubertRationalCartanImage_global_mem",
+          "role": "characterisation",
+          "statement": "For an original rational level-N Cartan element x, its original norm-limit inclusion is the corrected global image of some original internal quotient class under levelToGlobal exactly when x lies in the actual finite corrected integer image."
+        },
+        {
+          "name": "kubertRationalCartanImage_fg",
+          "role": "compatibility",
+          "statement": "The actual corrected integer image is a finitely generated native integer submodule."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert197–198, proof of Theorem4.11",
+          "how": "Supplies the actual integral image and proved Cartan-module closure on which admissible image generators and rational spanning depend."
+        },
+        {
+          "where": "Kubert198–199, Proposition4.13",
+          "how": "Provides the exact integer submodule that must be compared with the product of the previously constructed local integer lattices, with no rational-span substitution."
+        },
+        {
+          "where": "Kubert195–198, original compatible norm system",
+          "how": "Relates finite image membership to the original norm maps and original global quotient comparison without assuming a source map injective."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-mem",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Actual image membership has an original quotient preimage",
+      "kind": "lemma",
+      "statement": "An original rational Cartan group-ring element belongs to the corrected image exactly when it is the corrected value of some class in the original internal ordinary quotient.",
+      "hypotheses": [
+        "The degree is one and every level N is positive. The actual point carrier is the original level kernel in the one-coordinate rational torus, with a finite enumeration of that actual finite kernel. The original finite Cartan group and rational group ring are retained.",
+        "The source is the original internal ordinary quotient of the free abelian group on actual level points. The integer-linear map is the proved corrected quotient map, and the image is its actual native linear-map range as an integer submodule of the original rational group ring.",
+        "The span characterization is proved from actual original quotient representatives and free-abelian induction. It does not identify the source quotient with its image and does not assume the source map injective.",
+        "Integral Cartan-module closure uses the proved actual corrected-value action and surjectivity of the original global Cartan projection onto the original finite group. The integer group ring acts through the native coefficient embedding into the rational group ring.",
+        "Full-norm compatibility uses the original internal quotient level map and the original full coefficient norm. The global image comparison uses the existing levelToGlobal and corrected global quotient map. Only the original target level inclusion is used as an injective map; no source comparison injectivity is assumed.",
+        "The global comparison has finite enumerations of every actual positive-multiplier root fiber, as required by the original global quotient map. Finite generation uses the finite original level-point set, not a supplied basis or rank package.",
+        "This identifies the actual finite corrected integer image and its integral Cartan-module structure. Admissible image generators, source4.11 rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Evaluate native linear-map range membership.",
+        "The original integer-linear map and additive quotient map have the same value function."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image",
+        "DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-linear-apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedImage",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanImage_mem"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, proof of Theorem4.11: the corrected image V(N), its Cartan-module structure, generation by corrected point values and subsequent admissible generators. The source4.12–4.13 product description is on198–199.",
+          "match": "Constructs the actual corrected image as the native range of the original integer-linear quotient map, proves equality with the integer span of original point values and proves integral Cartan-module closure. Relates that finite image to the original norm system and global corrected map without assuming any source quotient injection or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedImageTests.rationalCartanImage_mem_typed_api",
+          "kind": "compatibility",
+          "statement": "An original rational Cartan group-ring element belongs to the corrected image exactly when it is the corrected value of some class in the original internal ordinary quotient."
+        }
+      ],
+      "acceptance": [
+        "At level1 coefficient1 belongs to the actual integer image and coefficient1/2 does not. At level6 the half-difference([1]−[5])/2 belongs: it is the actual corrected value of the original1/3 point class. Its full norm6→30 has the original1/3 point at level30 as an integer preimage. Every original projected-unit basis multiplier and signed integer group-ring combination preserves actual image membership."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-point",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every original corrected point value belongs to the actual image",
+      "kind": "lemma",
+      "statement": "For every actual level-N point a, its original corrected value r_N(a) lies in the actual corrected integer image.",
+      "hypotheses": [
+        "The degree is one and every level N is positive. The actual point carrier is the original level kernel in the one-coordinate rational torus, with a finite enumeration of that actual finite kernel. The original finite Cartan group and rational group ring are retained.",
+        "The source is the original internal ordinary quotient of the free abelian group on actual level points. The integer-linear map is the proved corrected quotient map, and the image is its actual native linear-map range as an integer submodule of the original rational group ring.",
+        "The span characterization is proved from actual original quotient representatives and free-abelian induction. It does not identify the source quotient with its image and does not assume the source map injective.",
+        "Integral Cartan-module closure uses the proved actual corrected-value action and surjectivity of the original global Cartan projection onto the original finite group. The integer group ring acts through the native coefficient embedding into the rational group ring.",
+        "Full-norm compatibility uses the original internal quotient level map and the original full coefficient norm. The global image comparison uses the existing levelToGlobal and corrected global quotient map. Only the original target level inclusion is used as an injective map; no source comparison injectivity is assumed.",
+        "The global comparison has finite enumerations of every actual positive-multiplier root fiber, as required by the original global quotient map. Finite generation uses the finite original level-point set, not a supplied basis or rank package.",
+        "This identifies the actual finite corrected integer image and its integral Cartan-module structure. Admissible image generators, source4.11 rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the original quotient class of the actual point as a preimage.",
+        "Apply the original corrected quotient point-evaluation theorem."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-mem",
+        "DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedImage",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanImage_point"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, proof of Theorem4.11: the corrected image V(N), its Cartan-module structure, generation by corrected point values and subsequent admissible generators. The source4.12–4.13 product description is on198–199.",
+          "match": "Constructs the actual corrected image as the native range of the original integer-linear quotient map, proves equality with the integer span of original point values and proves integral Cartan-module closure. Relates that finite image to the original norm system and global corrected map without assuming any source quotient injection or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedImageTests.rationalCartanImage_point_typed_api",
+          "kind": "compatibility",
+          "statement": "For every actual level-N point a, its original corrected value r_N(a) lies in the actual corrected integer image."
+        }
+      ],
+      "acceptance": [
+        "At level1 coefficient1 belongs to the actual integer image and coefficient1/2 does not. At level6 the half-difference([1]−[5])/2 belongs: it is the actual corrected value of the original1/3 point class. Its full norm6→30 has the original1/3 point at level30 as an integer preimage. Every original projected-unit basis multiplier and signed integer group-ring combination preserves actual image membership."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-eq-span",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual quotient image is the integer span of point values",
+      "kind": "lemma",
+      "statement": "The actual corrected integer image equals the native integer span of the range of the original corrected point-value function on the original level kernel.",
+      "hypotheses": [
+        "The degree is one and every level N is positive. The actual point carrier is the original level kernel in the one-coordinate rational torus, with a finite enumeration of that actual finite kernel. The original finite Cartan group and rational group ring are retained.",
+        "The source is the original internal ordinary quotient of the free abelian group on actual level points. The integer-linear map is the proved corrected quotient map, and the image is its actual native linear-map range as an integer submodule of the original rational group ring.",
+        "The span characterization is proved from actual original quotient representatives and free-abelian induction. It does not identify the source quotient with its image and does not assume the source map injective.",
+        "Integral Cartan-module closure uses the proved actual corrected-value action and surjectivity of the original global Cartan projection onto the original finite group. The integer group ring acts through the native coefficient embedding into the rational group ring.",
+        "Full-norm compatibility uses the original internal quotient level map and the original full coefficient norm. The global image comparison uses the existing levelToGlobal and corrected global quotient map. Only the original target level inclusion is used as an injective map; no source comparison injectivity is assumed.",
+        "The global comparison has finite enumerations of every actual positive-multiplier root fiber, as required by the original global quotient map. Finite generation uses the finite original level-point set, not a supplied basis or rank package.",
+        "This identifies the actual finite corrected integer image and its integral Cartan-module structure. Admissible image generators, source4.11 rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "For a point in the actual image, choose its original internal quotient preimage and then an original free-abelian representative.",
+        "Induct on that original free word: point generators lie in the span and the original additive map respects zero, negatives and sums.",
+        "For the reverse inclusion, every original point value has its original point-class preimage, and the actual range is an integer submodule."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-mem",
+        "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-point",
+        "DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-of",
+        "mathlib:QuotientGroup.mk'_surjective",
+        "mathlib:FreeAbelianGroup.induction_on",
+        "mathlib:Submodule.span_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedImage",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanImage_eq_span"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, proof of Theorem4.11: the corrected image V(N), its Cartan-module structure, generation by corrected point values and subsequent admissible generators. The source4.12–4.13 product description is on198–199.",
+          "match": "Constructs the actual corrected image as the native range of the original integer-linear quotient map, proves equality with the integer span of original point values and proves integral Cartan-module closure. Relates that finite image to the original norm system and global corrected map without assuming any source quotient injection or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedImageTests.rationalCartanImage_eq_span_typed_api",
+          "kind": "compatibility",
+          "statement": "The actual corrected integer image equals the native integer span of the range of the original corrected point-value function on the original level kernel."
+        }
+      ],
+      "acceptance": [
+        "At level1 coefficient1 belongs to the actual integer image and coefficient1/2 does not. At level6 the half-difference([1]−[5])/2 belongs: it is the actual corrected value of the original1/3 point class. Its full norm6→30 has the original1/3 point at level30 as an integer preimage. Every original projected-unit basis multiplier and signed integer group-ring combination preserves actual image membership."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-le-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Containment of the image is tested on actual point values",
+      "kind": "lemma",
+      "statement": "The actual corrected integer image is contained in an integer submodule L exactly when every original corrected point value belongs to L.",
+      "hypotheses": [
+        "The degree is one and every level N is positive. The actual point carrier is the original level kernel in the one-coordinate rational torus, with a finite enumeration of that actual finite kernel. The original finite Cartan group and rational group ring are retained.",
+        "The source is the original internal ordinary quotient of the free abelian group on actual level points. The integer-linear map is the proved corrected quotient map, and the image is its actual native linear-map range as an integer submodule of the original rational group ring.",
+        "The span characterization is proved from actual original quotient representatives and free-abelian induction. It does not identify the source quotient with its image and does not assume the source map injective.",
+        "Integral Cartan-module closure uses the proved actual corrected-value action and surjectivity of the original global Cartan projection onto the original finite group. The integer group ring acts through the native coefficient embedding into the rational group ring.",
+        "Full-norm compatibility uses the original internal quotient level map and the original full coefficient norm. The global image comparison uses the existing levelToGlobal and corrected global quotient map. Only the original target level inclusion is used as an injective map; no source comparison injectivity is assumed.",
+        "The global comparison has finite enumerations of every actual positive-multiplier root fiber, as required by the original global quotient map. Finite generation uses the finite original level-point set, not a supplied basis or rank package.",
+        "This identifies the actual finite corrected integer image and its integral Cartan-module structure. Admissible image generators, source4.11 rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the proved equality with the native integer span.",
+        "Apply the native span containment criterion to the actual range of point values."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-eq-span",
+        "mathlib:Submodule.span_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedImage",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanImage_le_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, proof of Theorem4.11: the corrected image V(N), its Cartan-module structure, generation by corrected point values and subsequent admissible generators. The source4.12–4.13 product description is on198–199.",
+          "match": "Constructs the actual corrected image as the native range of the original integer-linear quotient map, proves equality with the integer span of original point values and proves integral Cartan-module closure. Relates that finite image to the original norm system and global corrected map without assuming any source quotient injection or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedImageTests.rationalCartanImage_le_iff_typed_api",
+          "kind": "compatibility",
+          "statement": "The actual corrected integer image is contained in an integer submodule L exactly when every original corrected point value belongs to L."
+        }
+      ],
+      "acceptance": [
+        "At level1 coefficient1 belongs to the actual integer image and coefficient1/2 does not. At level6 the half-difference([1]−[5])/2 belongs: it is the actual corrected value of the original1/3 point class. Its full norm6→30 has the original1/3 point at level30 as an integer preimage. Every original projected-unit basis multiplier and signed integer group-ring combination preserves actual image membership."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-basis-mul",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every original Cartan basis element preserves the actual image",
+      "kind": "lemma",
+      "statement": "For every original finite Cartan unit u and actual image element x, multiplication of x by the original group-ring basis element of u with coefficient1 remains in the actual corrected integer image.",
+      "hypotheses": [
+        "The degree is one and every level N is positive. The actual point carrier is the original level kernel in the one-coordinate rational torus, with a finite enumeration of that actual finite kernel. The original finite Cartan group and rational group ring are retained.",
+        "The source is the original internal ordinary quotient of the free abelian group on actual level points. The integer-linear map is the proved corrected quotient map, and the image is its actual native linear-map range as an integer submodule of the original rational group ring.",
+        "The span characterization is proved from actual original quotient representatives and free-abelian induction. It does not identify the source quotient with its image and does not assume the source map injective.",
+        "Integral Cartan-module closure uses the proved actual corrected-value action and surjectivity of the original global Cartan projection onto the original finite group. The integer group ring acts through the native coefficient embedding into the rational group ring.",
+        "Full-norm compatibility uses the original internal quotient level map and the original full coefficient norm. The global image comparison uses the existing levelToGlobal and corrected global quotient map. Only the original target level inclusion is used as an injective map; no source comparison injectivity is assumed.",
+        "The global comparison has finite enumerations of every actual positive-multiplier root fiber, as required by the original global quotient map. Finite generation uses the finite original level-point set, not a supplied basis or rank package.",
+        "This identifies the actual finite corrected integer image and its integral Cartan-module structure. Admissible image generators, source4.11 rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the proved integer-span characterization and induct on actual span membership.",
+        "For an original point generator, lift u along the proved surjective original global Cartan projection.",
+        "The corrected-value action identifies its basis translate with the corrected value of an actual transformed point, which has an original quotient preimage.",
+        "Extend using zero, addition and integer scalar multiplication."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-eq-span",
+        "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-point",
+        "DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-surjective",
+        "DirichletPadicLFunctions:L3/kubert-corrected-equivariance-rational-cartan-value-action",
+        "mathlib:Submodule.span_induction"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedImage",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanImage_basis_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, proof of Theorem4.11: the corrected image V(N), its Cartan-module structure, generation by corrected point values and subsequent admissible generators. The source4.12–4.13 product description is on198–199.",
+          "match": "Constructs the actual corrected image as the native range of the original integer-linear quotient map, proves equality with the integer span of original point values and proves integral Cartan-module closure. Relates that finite image to the original norm system and global corrected map without assuming any source quotient injection or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedImageTests.rationalCartanImage_basis_mul_typed_api",
+          "kind": "compatibility",
+          "statement": "For every original finite Cartan unit u and actual image element x, multiplication of x by the original group-ring basis element of u with coefficient1 remains in the actual corrected integer image."
+        }
+      ],
+      "acceptance": [
+        "At level1 coefficient1 belongs to the actual integer image and coefficient1/2 does not. At level6 the half-difference([1]−[5])/2 belongs: it is the actual corrected value of the original1/3 point class. Its full norm6→30 has the original1/3 point at level30 as an integer preimage. Every original projected-unit basis multiplier and signed integer group-ring combination preserves actual image membership."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-integral-mul",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The original integral group ring acts on the actual image",
+      "kind": "lemma",
+      "statement": "The product of an actual image element with the native rational-coefficient image of any element of the original integral Cartan group ring remains in the actual corrected integer image.",
+      "hypotheses": [
+        "The degree is one and every level N is positive. The actual point carrier is the original level kernel in the one-coordinate rational torus, with a finite enumeration of that actual finite kernel. The original finite Cartan group and rational group ring are retained.",
+        "The source is the original internal ordinary quotient of the free abelian group on actual level points. The integer-linear map is the proved corrected quotient map, and the image is its actual native linear-map range as an integer submodule of the original rational group ring.",
+        "The span characterization is proved from actual original quotient representatives and free-abelian induction. It does not identify the source quotient with its image and does not assume the source map injective.",
+        "Integral Cartan-module closure uses the proved actual corrected-value action and surjectivity of the original global Cartan projection onto the original finite group. The integer group ring acts through the native coefficient embedding into the rational group ring.",
+        "Full-norm compatibility uses the original internal quotient level map and the original full coefficient norm. The global image comparison uses the existing levelToGlobal and corrected global quotient map. Only the original target level inclusion is used as an injective map; no source comparison injectivity is assumed.",
+        "The global comparison has finite enumerations of every actual positive-multiplier root fiber, as required by the original global quotient map. Finite generation uses the finite original level-point set, not a supplied basis or rank package.",
+        "This identifies the actual finite corrected integer image and its integral Cartan-module structure. Admissible image generators, source4.11 rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Induct on the original integral group ring using native basis, addition and integer scalar generators.",
+        "On a basis element use the proved actual image basis closure and native coefficient embedding evaluation.",
+        "Extend by the native ring-map and integer-module laws."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-basis-mul",
+        "mathlib:MonoidAlgebra.induction_on",
+        "mathlib:MonoidAlgebra.mapRingHom_single"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedImage",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanImage_integral_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, proof of Theorem4.11: the corrected image V(N), its Cartan-module structure, generation by corrected point values and subsequent admissible generators. The source4.12–4.13 product description is on198–199.",
+          "match": "Constructs the actual corrected image as the native range of the original integer-linear quotient map, proves equality with the integer span of original point values and proves integral Cartan-module closure. Relates that finite image to the original norm system and global corrected map without assuming any source quotient injection or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedImageTests.rationalCartanImage_integral_mul_typed_api",
+          "kind": "compatibility",
+          "statement": "The product of an actual image element with the native rational-coefficient image of any element of the original integral Cartan group ring remains in the actual corrected integer image."
+        }
+      ],
+      "acceptance": [
+        "At level1 coefficient1 belongs to the actual integer image and coefficient1/2 does not. At level6 the half-difference([1]−[5])/2 belongs: it is the actual corrected value of the original1/3 point class. Its full norm6→30 has the original1/3 point at level30 as an integer preimage. Every original projected-unit basis multiplier and signed integer group-ring combination preserves actual image membership."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-ne-bot",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual corrected image is nonzero",
+      "kind": "lemma",
+      "statement": "At every positive level, the actual corrected integer image differs from the zero submodule.",
+      "hypotheses": [
+        "The degree is one and every level N is positive. The actual point carrier is the original level kernel in the one-coordinate rational torus, with a finite enumeration of that actual finite kernel. The original finite Cartan group and rational group ring are retained.",
+        "The source is the original internal ordinary quotient of the free abelian group on actual level points. The integer-linear map is the proved corrected quotient map, and the image is its actual native linear-map range as an integer submodule of the original rational group ring.",
+        "The span characterization is proved from actual original quotient representatives and free-abelian induction. It does not identify the source quotient with its image and does not assume the source map injective.",
+        "Integral Cartan-module closure uses the proved actual corrected-value action and surjectivity of the original global Cartan projection onto the original finite group. The integer group ring acts through the native coefficient embedding into the rational group ring.",
+        "Full-norm compatibility uses the original internal quotient level map and the original full coefficient norm. The global image comparison uses the existing levelToGlobal and corrected global quotient map. Only the original target level inclusion is used as an injective map; no source comparison injectivity is assumed.",
+        "The global comparison has finite enumerations of every actual positive-multiplier root fiber, as required by the original global quotient map. Finite generation uses the finite original level-point set, not a supplied basis or rank package.",
+        "This identifies the actual finite corrected integer image and its integral Cartan-module structure. Admissible image generators, source4.11 rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "The original corrected zero-point value belongs to the image.",
+        "If the image were zero, that value would vanish.",
+        "Contradict the proved nonzero corrected image of the original zero-point quotient class."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-point",
+        "DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-of",
+        "DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-zero-point-ne-zero"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedImage",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanImage_ne_bot"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, proof of Theorem4.11: the corrected image V(N), its Cartan-module structure, generation by corrected point values and subsequent admissible generators. The source4.12–4.13 product description is on198–199.",
+          "match": "Constructs the actual corrected image as the native range of the original integer-linear quotient map, proves equality with the integer span of original point values and proves integral Cartan-module closure. Relates that finite image to the original norm system and global corrected map without assuming any source quotient injection or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedImageTests.rationalCartanImage_ne_bot_typed_api",
+          "kind": "compatibility",
+          "statement": "At every positive level, the actual corrected integer image differs from the zero submodule."
+        }
+      ],
+      "acceptance": [
+        "At level1 coefficient1 belongs to the actual integer image and coefficient1/2 does not. At level6 the half-difference([1]−[5])/2 belongs: it is the actual corrected value of the original1/3 point class. Its full norm6→30 has the original1/3 point at level30 as an integer preimage. Every original projected-unit basis multiplier and signed integer group-ring combination preserves actual image membership."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The original full norms preserve actual corrected images",
+      "kind": "lemma",
+      "statement": "For M dividing N, the original full coefficient norm maps every element of the actual corrected integer image at M into the actual corrected integer image at N.",
+      "hypotheses": [
+        "The degree is one and every level N is positive. The actual point carrier is the original level kernel in the one-coordinate rational torus, with a finite enumeration of that actual finite kernel. The original finite Cartan group and rational group ring are retained.",
+        "The source is the original internal ordinary quotient of the free abelian group on actual level points. The integer-linear map is the proved corrected quotient map, and the image is its actual native linear-map range as an integer submodule of the original rational group ring.",
+        "The span characterization is proved from actual original quotient representatives and free-abelian induction. It does not identify the source quotient with its image and does not assume the source map injective.",
+        "Integral Cartan-module closure uses the proved actual corrected-value action and surjectivity of the original global Cartan projection onto the original finite group. The integer group ring acts through the native coefficient embedding into the rational group ring.",
+        "Full-norm compatibility uses the original internal quotient level map and the original full coefficient norm. The global image comparison uses the existing levelToGlobal and corrected global quotient map. Only the original target level inclusion is used as an injective map; no source comparison injectivity is assumed.",
+        "The global comparison has finite enumerations of every actual positive-multiplier root fiber, as required by the original global quotient map. Finite generation uses the finite original level-point set, not a supplied basis or rank package.",
+        "This identifies the actual finite corrected integer image and its integral Cartan-module structure. Admissible image generators, source4.11 rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Choose the actual original internal quotient preimage at M.",
+        "Use compatibility of the corrected quotient map with the existing original quotient level map and full coefficient norm.",
+        "The image of that original quotient class under the existing level map is the required original preimage at N."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-mem",
+        "DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-norm",
+        "DirichletPadicLFunctions:L3/kubert-admissible-transport-level-map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedImage",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanImage_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, proof of Theorem4.11: the corrected image V(N), its Cartan-module structure, generation by corrected point values and subsequent admissible generators. The source4.12–4.13 product description is on198–199.",
+          "match": "Constructs the actual corrected image as the native range of the original integer-linear quotient map, proves equality with the integer span of original point values and proves integral Cartan-module closure. Relates that finite image to the original norm system and global corrected map without assuming any source quotient injection or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedImageTests.the_six_to_thirty_norm_preserves_the_actual_half_difference_image",
+          "kind": "compatibility",
+          "statement": "The original full coefficient norm from6 to30 sends the actual integer-image half-difference into the actual corrected integer image at30."
+        },
+        {
+          "name": "SuggestedKubertCorrectedImageTests.rationalCartanImage_norm_typed_api",
+          "kind": "compatibility",
+          "statement": "For M dividing N, the original full coefficient norm maps every element of the actual corrected integer image at M into the actual corrected integer image at N."
+        }
+      ],
+      "acceptance": [
+        "At level1 coefficient1 belongs to the actual integer image and coefficient1/2 does not. At level6 the half-difference([1]−[5])/2 belongs: it is the actual corrected value of the original1/3 point class. Its full norm6→30 has the original1/3 point at level30 as an integer preimage. Every original projected-unit basis multiplier and signed integer group-ring combination preserves actual image membership."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-global-mem",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual finite image agrees with the original global comparison",
+      "kind": "lemma",
+      "statement": "For an original rational level-N Cartan element x, its original norm-limit inclusion is the corrected global image of some original internal quotient class under levelToGlobal exactly when x lies in the actual finite corrected integer image.",
+      "hypotheses": [
+        "The degree is one and every level N is positive. The actual point carrier is the original level kernel in the one-coordinate rational torus, with a finite enumeration of that actual finite kernel. The original finite Cartan group and rational group ring are retained.",
+        "The source is the original internal ordinary quotient of the free abelian group on actual level points. The integer-linear map is the proved corrected quotient map, and the image is its actual native linear-map range as an integer submodule of the original rational group ring.",
+        "The span characterization is proved from actual original quotient representatives and free-abelian induction. It does not identify the source quotient with its image and does not assume the source map injective.",
+        "Integral Cartan-module closure uses the proved actual corrected-value action and surjectivity of the original global Cartan projection onto the original finite group. The integer group ring acts through the native coefficient embedding into the rational group ring.",
+        "Full-norm compatibility uses the original internal quotient level map and the original full coefficient norm. The global image comparison uses the existing levelToGlobal and corrected global quotient map. Only the original target level inclusion is used as an injective map; no source comparison injectivity is assumed.",
+        "The global comparison has finite enumerations of every actual positive-multiplier root fiber, as required by the original global quotient map. Finite generation uses the finite original level-point set, not a supplied basis or rank package.",
+        "This identifies the actual finite corrected integer image and its integral Cartan-module structure. Admissible image generators, source4.11 rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the proved equality between the original global corrected map on levelToGlobal and the limit inclusion of the original finite corrected quotient value.",
+        "Injectivity of the original target level inclusion recovers equality of finite values and therefore an actual original quotient preimage.",
+        "Conversely, an original finite quotient preimage gives the required original global comparison value."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-mem",
+        "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-distribution-level",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of-injective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedImage",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanImage_global_mem"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, proof of Theorem4.11: the corrected image V(N), its Cartan-module structure, generation by corrected point values and subsequent admissible generators. The source4.12–4.13 product description is on198–199.",
+          "match": "Constructs the actual corrected image as the native range of the original integer-linear quotient map, proves equality with the integer span of original point values and proves integral Cartan-module closure. Relates that finite image to the original norm system and global corrected map without assuming any source quotient injection or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedImageTests.rationalCartanImage_global_mem_typed_api",
+          "kind": "compatibility",
+          "statement": "For an original rational level-N Cartan element x, its original norm-limit inclusion is the corrected global image of some original internal quotient class under levelToGlobal exactly when x lies in the actual finite corrected integer image."
+        }
+      ],
+      "acceptance": [
+        "At level1 coefficient1 belongs to the actual integer image and coefficient1/2 does not. At level6 the half-difference([1]−[5])/2 belongs: it is the actual corrected value of the original1/3 point class. Its full norm6→30 has the original1/3 point at level30 as an integer preimage. Every original projected-unit basis multiplier and signed integer group-ring combination preserves actual image membership."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-fg",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual corrected integer image is finitely generated",
+      "kind": "lemma",
+      "statement": "The actual corrected integer image is a finitely generated native integer submodule.",
+      "hypotheses": [
+        "The degree is one and every level N is positive. The actual point carrier is the original level kernel in the one-coordinate rational torus, with a finite enumeration of that actual finite kernel. The original finite Cartan group and rational group ring are retained.",
+        "The source is the original internal ordinary quotient of the free abelian group on actual level points. The integer-linear map is the proved corrected quotient map, and the image is its actual native linear-map range as an integer submodule of the original rational group ring.",
+        "The span characterization is proved from actual original quotient representatives and free-abelian induction. It does not identify the source quotient with its image and does not assume the source map injective.",
+        "Integral Cartan-module closure uses the proved actual corrected-value action and surjectivity of the original global Cartan projection onto the original finite group. The integer group ring acts through the native coefficient embedding into the rational group ring.",
+        "Full-norm compatibility uses the original internal quotient level map and the original full coefficient norm. The global image comparison uses the existing levelToGlobal and corrected global quotient map. Only the original target level inclusion is used as an injective map; no source comparison injectivity is assumed.",
+        "The global comparison has finite enumerations of every actual positive-multiplier root fiber, as required by the original global quotient map. Finite generation uses the finite original level-point set, not a supplied basis or rank package.",
+        "This identifies the actual finite corrected integer image and its integral Cartan-module structure. Admissible image generators, source4.11 rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Its exact integer-span description uses the range of the original finite level-point set.",
+        "The native finite-range theorem makes that set of actual values finite.",
+        "Apply the native finite-span characterization of finite generation."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-image-rational-cartan-image-eq-span",
+        "mathlib:Set.finite_range",
+        "mathlib:Submodule.fg_def"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedImage",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanImage_fg"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, proof of Theorem4.11: the corrected image V(N), its Cartan-module structure, generation by corrected point values and subsequent admissible generators. The source4.12–4.13 product description is on198–199.",
+          "match": "Constructs the actual corrected image as the native range of the original integer-linear quotient map, proves equality with the integer span of original point values and proves integral Cartan-module closure. Relates that finite image to the original norm system and global corrected map without assuming any source quotient injection or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedImageTests.rationalCartanImage_fg_typed_api",
+          "kind": "compatibility",
+          "statement": "The actual corrected integer image is a finitely generated native integer submodule."
+        }
+      ],
+      "acceptance": [
+        "At level1 coefficient1 belongs to the actual integer image and coefficient1/2 does not. At level6 the half-difference([1]−[5])/2 belongs: it is the actual corrected value of the original1/3 point class. Its full norm6→30 has the original1/3 point at level30 as an integer preimage. Every original projected-unit basis multiplier and signed integer group-ring combination preserves actual image membership."
+      ]
     }
   ],
   "requests": [
@@ -141875,7 +142540,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The original corrected finite values, global point function and global quotient map now respect the actual original Cartan actions. The proof includes the coordinatewise original torus equivalence, primitive-coordinate covariance, raw coefficient covariance and the original quotient intertwining identity. Next identify the actual finite corrected image with the integer span of original point values and prove its integral Cartan-module closure, then source4.11 rational spanning and4.13 image/product. Universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.",
+        "The actual finite corrected integer image is the native range of the original integer-linear quotient map, and equals the integer span of all original corrected point values. Integral Cartan-module closure, finite generation, nonzero image, original full-norm containment and exact original finite/global image comparison are established. Next identify its admissible image generators, then prove source4.11 rational spanning and source4.13 image/product. Universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -141907,7 +142572,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The original corrected finite values, global point function and global quotient map now respect the actual original Cartan actions. The proof includes the coordinatewise original torus equivalence, primitive-coordinate covariance, raw coefficient covariance and the original quotient intertwining identity. Next identify the actual finite corrected image with the integer span of original point values and prove its integral Cartan-module closure, then source4.11 rational spanning and4.13 image/product. Universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The actual finite corrected integer image is the native range of the original integer-linear quotient map, and equals the integer span of all original corrected point values. Integral Cartan-module closure, finite generation, nonzero image, original full-norm containment and exact original finite/global image comparison are established. Next identify its admissible image generators, then prove source4.11 rational spanning and source4.13 image/product. Universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -142475,34 +143140,34 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All27 earlier source findings and eight source versions remain whole. No new source issue, independent review verdict or stage closure is added.",
     "validation": {
-      "nodes": 2240,
+      "nodes": 2251,
       "kinds": {
         "definition": 22,
-        "lemma": 1404,
-        "construction": 248,
+        "lemma": 1414,
+        "construction": 249,
         "theorem": 359,
         "comparison": 207
       },
-      "api": 1515,
-      "packetTests": 3919,
-      "definitionConstructionTests": 1019,
-      "typedExamples": 3922,
+      "api": 1525,
+      "packetTests": 3933,
+      "definitionConstructionTests": 1022,
+      "typedExamples": 3936,
       "planets": 24,
-      "baseline": 1283,
-      "preservedWholeNodes": 2228,
+      "baseline": 1285,
+      "preservedWholeNodes": 2240,
       "preservedBaseline": 1283,
       "preservedSourceIssues": 27,
       "newSourceIssues": 0,
-      "newNodes": 12,
-      "newNamedDeclarations": 12,
-      "newTypedTests": 16,
+      "newNodes": 11,
+      "newNamedDeclarations": 11,
+      "newTypedTests": 14,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 2502,
-      "dependencyEdges": 10012,
+      "reachableNodes": 2513,
+      "dependencyEdges": 10046,
       "acyclic": true,
-      "baselineLeaves": 1449,
+      "baselineLeaves": 1451,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -142517,7 +143182,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 1149929,
+      "readerWords": 1156879,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -142543,8 +143208,8 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 190,
-      "scratchCompleteLemmas": 1526,
+      "scratchCompleteDefinitions": 191,
+      "scratchCompleteLemmas": 1536,
       "scratchMathlibModules": 3282,
       "scratchTauModules": 10,
       "scratchErrors": 0,
@@ -142552,25 +143217,24 @@
       "scratchPlaceholders": 0,
       "finiteControls": {
         "levels": 36,
-        "pointActions": 9519,
-        "primitiveCoordinates": 6422,
-        "rawCoefficients": 171499,
-        "correctedCoefficients": 171499,
-        "quotientWordActions": 396,
-        "quotientWordCoefficients": 6422,
-        "normActionSquares": 1479,
-        "normActionCoefficients": 21475,
-        "zeroPointInvariants": 396
+        "integerPreimageWords": 36,
+        "integerWordCoefficients": 396,
+        "basisImageWitnesses": 396,
+        "integralMultiplierWitnesses": 36,
+        "integralMultiplierCoefficients": 396,
+        "normImageWitnesses": 140,
+        "normImageCoefficients": 1479,
+        "nonzeroZeroPointImages": 36
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "2fb47327215332a833999299c9e8b765c8e11afee26fa5760821ebd3c600245e",
+        "sourceSha256": "25ecb2234d1f4911ee9ab674db8cede74a3d8b5689f3df43cd99348a50a3a6e1",
         "modules": 3914,
-        "warnings": 6507,
+        "warnings": 6532,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 6,507 expected placeholder warnings across 3,914 pinned source modules. It includes all 12 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2fb47327215332a833999299c9e8b765c8e11afee26fa5760821ebd3c600245e.",
+        "scope": "The separate partial signature file also compiled with zero errors and 6,532 expected placeholder warnings across 3,914 pinned source modules. It includes all 11 new named declarations and 14 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 25ecb2234d1f4911ee9ab674db8cede74a3d8b5689f3df43cd99348a50a3a6e1.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       },
@@ -142608,7 +143272,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "58f2804c42d9333c74751ed0258e0396b3d08918d27f3fdb485c5e29d50b9022",
+      "sha256": "4517305ff0dc39768b5965747325bad3b8f2283313da6ed520c61d89ab01a0ab",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -142623,11 +143287,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1526,
+        "completeLemmas": 1536,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "c10e5d550a2fd0e41874f2e5348ee4fbc78c152fa5cdc7bd72e35047acee8c3c"
+        "sha256": "827c4a109ee6aaaa2153e213aaf02dcba18bc35354995fd2af6670ad0f53bdd6"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -142847,17 +143511,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "2fb47327215332a833999299c9e8b765c8e11afee26fa5760821ebd3c600245e",
+        "sourceSha256": "25ecb2234d1f4911ee9ab674db8cede74a3d8b5689f3df43cd99348a50a3a6e1",
         "modules": 3914,
-        "warnings": 6507,
+        "warnings": 6532,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 6,507 expected placeholder warnings across 3,914 pinned source modules. It includes all 12 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2fb47327215332a833999299c9e8b765c8e11afee26fa5760821ebd3c600245e.",
+        "scope": "The separate partial signature file also compiled with zero errors and 6,532 expected placeholder warnings across 3,914 pinned source modules. It includes all 11 new named declarations and 14 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 25ecb2234d1f4911ee9ab674db8cede74a3d8b5689f3df43cd99348a50a3a6e1.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "420d642c046a3f3931a40e7897d077d0c3b952c9",
+      "base": "f31661fb8ff057ec4c899e8e22229c295f2b4e6a",
       "unchangedInputs": 79,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -156043,6 +156707,56 @@
         "warnings": 6507,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 6,507 expected placeholder warnings across 3,914 pinned source modules. It includes all 12 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2fb47327215332a833999299c9e8b765c8e11afee26fa5760821ebd3c600245e.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertCorrectedImage": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5849,
+      "previousHead": "d2b79599f1ce8d255529638eaeb1886ecb8759b2",
+      "previousMerge": "ca90231203e7a46dda900c23269053a78f3f929e",
+      "preservedWholeNodes": 2240,
+      "preservedBaseline": 1283,
+      "preservedFindings": 27,
+      "newNodes": 11,
+      "reading": "Kubert197–198 Theorem4.11 and its image-module argument, together with the198–199 product target, were compared with the actual original quotient maps. Original5838 integer-linear quotient values,5844 global comparison,5849 corrected Cartan action,5474 finite projection surjectivity and5440 original level maps were read and reused. Pinned native actual range, span containment/induction, finite range and finite-generation characterization were read. Two native baseline records are added; no external source, source version or finding is added.",
+      "boundary": "The actual finite corrected integer image is the native range of the original integer-linear quotient map, and equals the integer span of all original corrected point values. Integral Cartan-module closure, finite generation, nonzero image, original full-norm containment and exact original finite/global image comparison are established. Next identify its admissible image generators, then prove source4.11 rational spanning and source4.13 image/product. Universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.",
+      "inputBase": "ca90231203e7a46dda900c23269053a78f3f929e",
+      "sourceBoundary": "All27 earlier source findings and eight source versions remain whole. No new source issue, independent review verdict or stage closure is added.",
+      "publication": {
+        "base": "f31661fb8ff057ec4c899e8e22229c295f2b4e6a",
+        "unchangedInputs": 79,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 36,
+        "integerPreimageWords": 36,
+        "integerWordCoefficients": 396,
+        "basisImageWitnesses": 396,
+        "integralMultiplierWitnesses": 36,
+        "integralMultiplierCoefficients": 396,
+        "normImageWitnesses": 140,
+        "normImageCoefficients": 1479,
+        "nonzeroZeroPointImages": 36
+      },
+      "numericalMethod": "Exact integer-word witnesses in the original free groups establish finite image membership and transport through36 levels. For every original residue unit the explicitly permuted integer word evaluates to left basis multiplication; an arbitrary signed integer group-ring multiplier is checked using the corresponding sum of those words. Original level inclusions give exact norm-image witnesses. Level1 has the single generator1, so its integer image excludes coefficient1/2; at6 the half-difference is the original1/3 point value and its norm has an explicit level30 preimage. No rational spanning, image/product identity or source quotient injectivity is inferred.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "25ecb2234d1f4911ee9ab674db8cede74a3d8b5689f3df43cd99348a50a3a6e1",
+        "modules": 3914,
+        "warnings": 6532,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 6,532 expected placeholder warnings across 3,914 pinned source modules. It includes all 11 new named declarations and 14 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 25ecb2234d1f4911ee9ab674db8cede74a3d8b5689f3df43cd99348a50a3a6e1.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
