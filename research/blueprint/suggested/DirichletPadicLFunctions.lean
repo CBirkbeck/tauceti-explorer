@@ -28750,3 +28750,177 @@ example (z z' : (LinearMap.ker (kubertParityOperator (X := X) S w (-1)).toIntLin
 example : Function.Surjective (kubertSignTateNegOneClass (X := X) S w) := by sorry
 
 end DirichletPadic.SuggestedKubertTateLowDegreeTests
+
+/- Native Tate embeddings into the original parity quotients and integral two-torsion. -/
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+variable {X : Type} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+noncomputable def kubertSignTateZeroToParity :
+    tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (0) →ₗ[ℤ]
+      ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (-1))) := by sorry
+
+lemma kubertSignTateZeroToParity_class (z : (LinearMap.ker (kubertParityOperator (X := X) S w (1)).toIntLinearMap)) :
+    kubertSignTateZeroToParity S w (kubertSignTateZeroClass S w z)=(QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (-1))) z.val := by sorry
+
+lemma kubertSignTateZeroToParity_injective : Function.Injective (kubertSignTateZeroToParity (X := X) S w) := by sorry
+
+lemma kubertSignTateZeroToParity_range (y : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (-1))) :
+    y ∈ LinearMap.range (kubertSignTateZeroToParity S w) ↔ ∃ z : (LinearMap.ker (kubertParityOperator (X := X) S w (1)).toIntLinearMap), (QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (-1))) z.val=y := by sorry
+
+noncomputable def kubertSignTateNegOneToParity :
+    tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (-1) →ₗ[ℤ]
+      ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (1))) := by sorry
+
+lemma kubertSignTateNegOneToParity_class (z : (LinearMap.ker (kubertParityOperator (X := X) S w (-1)).toIntLinearMap)) :
+    kubertSignTateNegOneToParity S w (kubertSignTateNegOneClass S w z)=(QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (1))) z.val := by sorry
+
+lemma kubertSignTateNegOneToParity_injective : Function.Injective (kubertSignTateNegOneToParity (X := X) S w) := by sorry
+
+lemma kubertSignTateNegOneToParity_range (y : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (1))) :
+    y ∈ LinearMap.range (kubertSignTateNegOneToParity S w) ↔ ∃ z : (LinearMap.ker (kubertParityOperator (X := X) S w (-1)).toIntLinearMap), (QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (1))) z.val=y := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+variable {X : Type} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+lemma kubertSignTateZeroClass_two_nsmul (z : (LinearMap.ker (kubertParityOperator (X := X) S w (1)).toIntLinearMap)) :
+    2 • (kubertSignTateZeroClass S w z)=0 := by sorry
+
+lemma kubertSignTateZero_two_nsmul (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (0)) : 2 • x=0 := by sorry
+
+lemma kubertSignTateZeroToParity_two_nsmul (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (0)) :
+    2 • kubertSignTateZeroToParity S w x=0 := by sorry
+
+lemma kubertSignTateNegOneClass_two_nsmul (z : (LinearMap.ker (kubertParityOperator (X := X) S w (-1)).toIntLinearMap)) :
+    2 • (kubertSignTateNegOneClass S w z)=0 := by sorry
+
+lemma kubertSignTateNegOne_two_nsmul (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (-1)) : 2 • x=0 := by sorry
+
+lemma kubertSignTateNegOneToParity_two_nsmul (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (-1)) :
+    2 • kubertSignTateNegOneToParity S w x=0 := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+variable {X : Type} [AddCommGroup X] (S : Set ℕ+)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+lemma kubertSignTateZeroClass_ordinary_zero_ne_zero
+    (z : LinearMap.ker (kubertParityOperator (X := X) S 0 1).toIntLinearMap)
+    (hz : z.val=QuotientAddGroup.mk' (kubertRelations (X := X) S 0) (FreeAbelianGroup.of (0 : X))) :
+    kubertSignTateZeroClass S 0 z≠0 := by sorry
+
+lemma kubertSignTateZero_ordinary_nontrivial :
+    Nontrivial (tateCohomology (Rep.of (kubertSignRepresentation (X := X) S 0)) 0) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertTateParityEmbeddingTests
+open scoped Classical BigOperators
+noncomputable section
+-- fixed_zero_maps_to_nonzero_odd_class
+example : (kubertSignTateZeroToParity (X := ZMod 5) (∅ : Set ℕ+) 0) ((kubertSignTateZeroClass (X := ZMod 5) (∅ : Set ℕ+) 0) ⟨(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5))), by sorry⟩)=(QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5)))) ∧ (kubertSignTateZeroToParity (X := ZMod 5) (∅ : Set ℕ+) 0) ((kubertSignTateZeroClass (X := ZMod 5) (∅ : Set ℕ+) 0) ⟨(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5))), by sorry⟩)≠0 := by sorry
+-- odd_free_orbit_not_in_tate_image
+example : (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5))))∉LinearMap.range (kubertSignTateZeroToParity (X := ZMod 5) (∅ : Set ℕ+) 0) := by sorry
+-- two_point_norm_maps_to_zero
+example : (kubertSignTateZeroToParity (X := ZMod 5) (∅ : Set ℕ+) 0) ((kubertSignTateZeroClass (X := ZMod 5) (∅ : Set ℕ+) 0) ⟨(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5)))+(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5))), by sorry⟩)=0 := by sorry
+-- antisymmetric_boundary_maps_to_even_zero
+example : (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5)))≠0 ∧ (kubertSignTateNegOneToParity (X := ZMod 5) (∅ : Set ℕ+) 0) ((kubertSignTateNegOneClass (X := ZMod 5) (∅ : Set ℕ+) 0) ⟨(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5))), by sorry⟩)=0 := by sorry
+-- even_fixed_generator_not_in_tate_image
+example : (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5))))∉LinearMap.range (kubertSignTateNegOneToParity (X := ZMod 5) (∅ : Set ℕ+) 0) := by sorry
+-- negative_tate_image_zero_for_free_permutation_module
+example (x : tateCohomology (Rep.of (kubertSignRepresentation (X := ZMod 5) (∅ : Set ℕ+) 0)) (-1)) : (kubertSignTateNegOneToParity (X := ZMod 5) (∅ : Set ℕ+) 0) x=0 := by sorry
+end
+end DirichletPadic.SuggestedKubertTateParityEmbeddingTests
+namespace DirichletPadic.SuggestedKubertTateParityEmbeddingTests
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+variable {X : Type} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+-- signTateZeroToParity_class_typed_api
+example (z : (LinearMap.ker (kubertParityOperator (X := X) S w (1)).toIntLinearMap)) :
+    kubertSignTateZeroToParity S w (kubertSignTateZeroClass S w z)=(QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (-1))) z.val := by sorry
+
+-- signTateZeroToParity_injective_typed_api
+example : Function.Injective (kubertSignTateZeroToParity (X := X) S w) := by sorry
+
+-- signTateZeroToParity_range_typed_api
+example (y : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (-1))) :
+    y ∈ LinearMap.range (kubertSignTateZeroToParity S w) ↔ ∃ z : (LinearMap.ker (kubertParityOperator (X := X) S w (1)).toIntLinearMap), (QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (-1))) z.val=y := by sorry
+
+-- signTateNegOneToParity_class_typed_api
+example (z : (LinearMap.ker (kubertParityOperator (X := X) S w (-1)).toIntLinearMap)) :
+    kubertSignTateNegOneToParity S w (kubertSignTateNegOneClass S w z)=(QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (1))) z.val := by sorry
+
+-- signTateNegOneToParity_injective_typed_api
+example : Function.Injective (kubertSignTateNegOneToParity (X := X) S w) := by sorry
+
+-- signTateNegOneToParity_range_typed_api
+example (y : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ (kubertParityRelations (X := X) S w (1))) :
+    y ∈ LinearMap.range (kubertSignTateNegOneToParity S w) ↔ ∃ z : (LinearMap.ker (kubertParityOperator (X := X) S w (-1)).toIntLinearMap), (QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (1))) z.val=y := by sorry
+
+end DirichletPadic.SuggestedKubertTateParityEmbeddingTests
+
+namespace DirichletPadic.SuggestedKubertTateParityEmbeddingTests
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+variable {X : Type} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+-- signTateZeroClass_two_nsmul_typed_api
+example (z : (LinearMap.ker (kubertParityOperator (X := X) S w (1)).toIntLinearMap)) :
+    2 • (kubertSignTateZeroClass S w z)=0 := by sorry
+
+-- signTateZero_two_nsmul_typed_api
+example (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (0)) : 2 • x=0 := by sorry
+
+-- signTateZeroToParity_two_nsmul_typed_api
+example (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (0)) :
+    2 • kubertSignTateZeroToParity S w x=0 := by sorry
+
+-- signTateNegOneClass_two_nsmul_typed_api
+example (z : (LinearMap.ker (kubertParityOperator (X := X) S w (-1)).toIntLinearMap)) :
+    2 • (kubertSignTateNegOneClass S w z)=0 := by sorry
+
+-- signTateNegOne_two_nsmul_typed_api
+example (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (-1)) : 2 • x=0 := by sorry
+
+-- signTateNegOneToParity_two_nsmul_typed_api
+example (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (-1)) :
+    2 • kubertSignTateNegOneToParity S w x=0 := by sorry
+
+end DirichletPadic.SuggestedKubertTateParityEmbeddingTests
+
+namespace DirichletPadic.SuggestedKubertTateParityEmbeddingTests
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+variable {X : Type} [AddCommGroup X] (S : Set ℕ+)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+-- signTateZeroClass_ordinary_zero_ne_zero_typed_api
+example
+    (z : LinearMap.ker (kubertParityOperator (X := X) S 0 1).toIntLinearMap)
+    (hz : z.val=QuotientAddGroup.mk' (kubertRelations (X := X) S 0) (FreeAbelianGroup.of (0 : X))) :
+    kubertSignTateZeroClass S 0 z≠0 := by sorry
+
+-- signTateZero_ordinary_nontrivial_typed_api
+example :
+    Nontrivial (tateCohomology (Rep.of (kubertSignRepresentation (X := X) S 0)) 0) := by sorry
+
+end DirichletPadic.SuggestedKubertTateParityEmbeddingTests
