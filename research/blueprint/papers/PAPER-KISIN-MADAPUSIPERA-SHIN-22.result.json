@@ -17,7 +17,7 @@
       "All 41 pages freshly read contiguously, including Appendix A and references; image checks at PDF pages 6,11,14,19,20,26,28,29,34,37."
     ]
   },
-  "summary": "Kisin, Madapusi Pera and Shin show that the Newton strata of a Shimura variety of Hodge type are non-empty when the group G is quasi-split at p, confirming a conjecture of Fargues and Rapoport in that case, without assuming a good integral model (G may be ramified at p). They conjecture that every mod p isogeny class contains the reduction of a special point, a refinement of Honda–Tate theory, and prove a large part of this for PEL type, through Tate's theorem with additional structures, independence of ℓ and CM lifts. Reviewed by REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22 (Claude Code, cc-2aeb03) and corrected in place: 244 items (16 library, 38 planned, 190 missing). 48 mistakes are confirmed (32 misprints, 5 gaps, 11 errors; 5 reach a stated result, 8 a proof); E10 is rejected as not a mistake. Theorem 3 and Corollaries 1.3.16 and 1.3.18 need the μ-ordinary class, which exists when G is quasi-split at p (E8), and Corollary 1.3.18 also needs the hypotheses of [KP18] (E27). Lemma 2.3.13 is false as stated, but the lift built in Proposition 2.3.11 satisfies the missing condition, so Corollaries 2.3.14 and 2.3.15 stand (E41). Theorems 1, 2 and 4–6 stand. Not formalised.",
+  "summary": "Kisin, Madapusi Pera and Shin show that the Newton strata of a Shimura variety of Hodge type are non-empty when the group G is quasi-split at p, confirming a conjecture of Fargues and Rapoport in that case, without assuming a good integral model (G may be ramified at p). They conjecture that every mod p isogeny class contains the reduction of a special point, a refinement of Honda–Tate theory, and prove a large part of this for PEL type, through Tate's theorem with additional structures, independence of ℓ and CM lifts. Reviewed by REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22 (Claude Code, cc-2aeb03) and corrected in place: 244 items (16 library, 38 planned, 190 missing). 48 mistakes are confirmed (32 misprints, 5 gaps, 11 errors; 5 reach a stated result, 8 a proof); E10 is rejected as not a mistake. Theorem 3 and Corollaries 1.3.16 and 1.3.18 need the μ-ordinary class, which exists when G is quasi-split at p (E8), and Corollary 1.3.18 also needs the hypotheses of [KP18] (E27). Lemma 2.3.13 is false as stated, but the lift built in Proposition 2.3.11 satisfies the missing condition, so Corollaries 2.3.14 and 2.3.15 stand (E41). Theorems 1, 2 and 4–6 stand. Not formalised. Fix #5512 restores L14 to pinned geometric isogenies and places coefficient Hom/Isom in T26/A6; reconciles positive admissibility with absent character parts; replaces the accommodating square by common-multiplier assembly; and propagates E5’s selected real orbit and component-aware lifting. All 244 IDs/classifications and six route memberships are preserved. E50 is scoped to the author copy; 49 historical source records and their independent reviews are preserved.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1137,14 +1137,14 @@
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/L14",
       "kind": "definition",
       "name": "Geometric isogeny",
-      "statement": "(§2.3.1) For s0, s0' ∈ S_{K_p}(F̄_p), Hom_Q(A_{s0},A_{s0'}) is the scheme over Q assigning to a Q-algebra R the group R ⊗ Hom(A_{s0},A_{s0'}), the Hom-space taken in the prime-to-p isogeny category. For a Q-algebra R, an R-isogeny from A_{s0} to A_{s0'} is an element f ∈ Hom_Q(A_{s0},A_{s0'})(R) for which there exists f' ∈ Hom_Q(A_{s0'},A_{s0})(R) with f'∘f ∈ Aut_Q(A_{s0})(R).",
+      "statement": "For a field K, abelian varieties A,B over K, and an ordinary homomorphism f:A→B, IsIsogeny(f) means that the underlying scheme morphism is finite and surjective. No separability assumption is imposed. This is the geometric predicate, not the rational Hom scheme or its points over a coefficient Q-algebra.",
       "locator": "§2.3.1",
       "status": "library",
       "implementationStatus": "unchecked",
       "prerequisites": [
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/L13"
       ],
-      "note": "Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.",
+      "note": "Fix #5512/1: library status is retained only for the finite-surjective geometric predicate in Tau Ceti Isogeny.lean at f790474. Its identity, composition and geometric field-base-change laws are also read there. Rational Hom representability and coefficient-algebra invertibility belong to missing T26 in AbelianSchemesAndArithmeticModuli:A6. A Q-algebra R used as Hom coefficients does not extend the characteristic-p ground field of A. The Frobenius test permits inseparability; it does not claim a general Frobenius-isogeny theorem is already proved.",
       "library": [
         "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
         "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.isIsogeny_iff"
@@ -1162,17 +1162,17 @@
         {
           "name": "KMPS.L14.finiteSurjective",
           "role": "characterisation",
-          "statement": "Use the existing finite-and-surjective criterion."
+          "statement": "For f:A→B over K, IsIsogeny(f) iff IsFinite(f_scheme) and Surjective(f_scheme), exactly the pinned isIsogeny_iff."
         },
         {
           "name": "KMPS.L14.comp",
           "role": "functoriality",
-          "statement": "The composite of isogenies is an isogeny."
+          "statement": "For isogenies f:A→B and g:B→C over K, g∘f is an isogeny; pinned IsIsogeny.comp."
         },
         {
           "name": "KMPS.L14.baseChange",
           "role": "compatibility",
-          "statement": "Field base change preserves an isogeny."
+          "statement": "For an extension field K→L, the geometric base change f_L is an isogeny; pinned IsIsogeny.baseChange. This is unrelated to coefficient extension of Hom_Q."
         }
       ],
       "unitTests": [
@@ -1195,7 +1195,7 @@
       "source": {
         "id": "berkeley-author-pdf",
         "locator": "§2.3.1",
-        "match": "Statement, construction or prerequisite as extracted with the explicit qualifications and gates in this item."
+        "match": "Geometric prerequisite used when passing to the prime-to-p/rational isogeny category in §2.3.1; the coefficient-scheme definition in that passage is T26, not this pinned predicate."
       },
       "tests": [
         {
@@ -6474,14 +6474,14 @@
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T18",
       "kind": "definition",
       "name": "Admissible classical representation for Noot's argument",
-      "statement": "For an absolutely almost simple classical group, an admissible representation is a positive multiple of the specified A standard-plus-dual, B spin, C standard, D standard or D two-half-spin representation; distinguish D^H and D^R. This use of admissible is unrelated to B(G,mu).",
+      "statement": "For a nonzero finite-dimensional representation W of an absolutely almost simple classical group in characteristic zero, admissibility means W is a positive integral multiple of a listed representation: A standard-plus-dual, B spin, C standard, D standard (D^H), or the sum of the two D half-spin representations (D^R). Retain the chosen type and multiplicity. When testing central-character parts in T19(ii), quantify only over characters that occur (V_χ≠0); absent parts satisfy that condition vacuously. A nonzero/faithful ambient symplectic representation is separate data. This use of admissible is unrelated to B(G,μ).",
       "locator": "§2.2.6",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/L06"
       ],
-      "note": "A source-based extraction target with the stated gates. This checkpoint does not certify recursive closure.",
+      "note": "Fix #5512/2 chooses the occurring-character convention. Positive multiplicity applies to nonzero representations only; zero is not assigned a positive classical multiplicity or a D-type. T19 does not require absent central-weight spaces to satisfy this predicate. This is an extraction consistency correction, not a new source issue.",
       "owner": "ShimuraVarietiesHondaTatePartII",
       "gaps": [
         "G-noot"
@@ -6510,6 +6510,11 @@
           "name": "KMPS.T18.scalarExtension",
           "role": "compatibility",
           "statement": "Compare the representation after the chosen splitting extension."
+        },
+        {
+          "name": "KMPS.T18.positiveMultiplicity",
+          "role": "projection",
+          "statement": "For a nonzero admissible W, record its selected classical representation and integer multiplicity m≥1; zero character parts are excluded from the T19 quantifier."
         }
       ],
       "unitTests": [
@@ -6526,6 +6531,16 @@
         {
           "name": "T18.test3",
           "statement": "Admissibility here is unrelated to the Newton inequality.",
+          "status": "specified, not Lean compiled"
+        },
+        {
+          "name": "T18.absentWeight",
+          "statement": "V_χ=0 has no positive admissible multiplicity; T19(ii) nevertheless holds vacuously for this absent χ.",
+          "status": "specified, not Lean compiled"
+        },
+        {
+          "name": "T18.occurringDR",
+          "statement": "For an occurring character part identified with m copies of the designated D^R sum of two half-spin representations, m≥1, the admissibility check succeeds. This is a representation-check input, not a claimed construction of a full Hodge-type datum.",
           "status": "specified, not Lean compiled"
         }
       ],
@@ -6549,6 +6564,16 @@
           "name": "T18.test3",
           "kind": "computation",
           "statement": "Admissibility here is unrelated to the Newton inequality."
+        },
+        {
+          "name": "T18.absentWeight",
+          "kind": "degenerate",
+          "statement": "V_χ=0 has no positive admissible multiplicity; T19(ii) nevertheless holds vacuously for this absent χ."
+        },
+        {
+          "name": "T18.occurringDR",
+          "kind": "value",
+          "statement": "For an occurring character part identified with m copies of the designated D^R sum of two half-spin representations, m≥1, the admissibility check succeeds. This is a representation-check input, not a claimed construction of a full Hodge-type datum."
         }
       ]
     },
@@ -6556,7 +6581,7 @@
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T19",
       "kind": "definition",
       "name": "Accommodating symplectic embedding",
-      "statement": "Let ι: (G,X) ↪ (G_V, H_V) be the given embedding. ι is strictly accommodating if (i) for some totally real field K, G^der = Res_{K/Q} G^s with G^s absolutely almost simple, and the G^der-representation V has the form Res_{K/Q} V^s for an admissible G^s-representation V^s; (ii) if (G^s, V^s) is of type D^R, then for every character χ: Z_G → G_m over Q̄, the χ-part of V is an admissible representation of a factor of G^der_{Q̄}; (iii) for every proper non-zero G-stable subspace V' ⊂ V, if G' denotes the image of G in Aut V', then (G', V') does not satisfy (i) and (ii). ι is accommodating if there are finitely many strictly accommodating embeddings ι_j: (G_j, X_j) ↪ (G_{V_j}, H_{V_j}), j = 1,…,s, and an isomorphism of symplectic spaces ∏_j V_j ≃ V inducing a commutative square (G,X) → (G_V,H_V), ∏_j (G_j,X_j) → (∏_j G_{V_j}, ∏_j H_{V_j}), such that the left vertical map induces G^der ≃ ∏_j G_j^der. (The paper prints 'accommodating' for 'strictly accommodating' in the second definition: E4.)",
+      "statement": "Let ι:(G,X)↪(GSp(V,ψ),H_V) be the given faithful symplectic Shimura embedding. Strictly accommodating means: (i) for a totally real K, G^der=Res_{K/Q}G^s with G^s absolutely almost simple and V=Res_{K/Q}V^s for a nonzero admissible V^s as in T18; (ii) in the D^R case, for each occurring algebraic central character χ over Qbar (V_χ≠0), V_χ is an admissible representation of a factor of G^der_Qbar; absent parts are vacuous; (iii) no proper nonzero G-stable subspace, with its image group, satisfies (i) and (ii). Accommodating means that there are strictly accommodating factor embeddings ι_j:(G_j,X_j)↪(GSp(V_j,ψ_j),H_j), a morphism of Shimura data φ:(G,X)→(∏G_j,∏X_j), and an isometry α:⊕(V_j,ψ_j)≅(V,ψ), such that α identifies the given G-representation with ⊕(ι_j∘φ_j) and φ^der:G^der→∏G_j^der is an isomorphism. The characters c_j∘ι_j∘φ_j all equal the given similitude character c of G. Thus the image factors through H_eq=∏_{G_m}GSp(V_j,ψ_j), the common-multiplier subgroup, whose block-diagonal map goes to GSp(V,ψ). The factor Hodge morphisms have compatible weights and polarization signs and their direct sum equals the given Hodge morphism for every h∈X. There is no restriction map from full GSp(V) to its factors. If a Shimura square is used, choose the compatible real orbit in H_eq mapping to H_V; do not use the whole product of independent Siegel half-spaces. E4 supplies strictly accommodating in the factor list; E50 repairs the author-copy square.",
       "locator": "§2.2.6",
       "status": "missing",
       "implementationStatus": "unchecked",
@@ -6564,14 +6589,16 @@
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T18",
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/P01"
       ],
-      "note": "A source-based extraction target with the stated gates. This checkpoint does not certify recursive closure.",
+      "note": "Fix #5512/2–3: quantify D^R character parts only over their finite occurring support. Faithfulness/nonzero ambient V are unchanged. The assembly is a datum map into factor data plus equality of their pulled-back similitude characters and the given block-sum representation, retaining the derived-group isomorphism. Neither a full-GSp restriction arrow nor an unsynchronized product-to-sum arrow is asserted. The abstract block/common-multiplier API is imported from the existing symplectic/PEL supplier; these accommodating conditions remain in the same Part II. E50 is scoped to the 41-page Berkeley author copy, not the uncollated Duke article.",
       "owner": "ShimuraVarietiesHondaTatePartII",
       "gaps": [
         "G-source",
         "G-noot"
       ],
       "proofSteps": [
-        "Construct the specified data and verify its well-definedness and functorial laws using the listed prerequisites. The API lists the operations required by the recorded consumer; nonroutine source inputs retain their gates."
+        "Verify strict conditions with finite occurring central support and preserve the minimality condition on proper nonzero subrepresentations.",
+        "Build the common-multiplier subgroup as the fiber product of the c_j maps. For tuples in it, the block-diagonal action multiplies every ψ_j by the same scalar, hence gives a homomorphism to GSp(⊕V_j). Identify it with the given representation via α.",
+        "Require φ to send each Hodge morphism to the specified factor orbits; the equal weights, compatible signs and α identify their direct sum with ι(h). Verify the given derived-group isomorphism independently. These conditions do not define a map from full GSp(V) to the product."
       ],
       "uses": [
         {
@@ -6594,6 +6621,21 @@
           "name": "KMPS.T19.minimality",
           "role": "projection",
           "statement": "Retain the prohibition on a proper nonzero stable subrepresentation satisfying the strict conditions."
+        },
+        {
+          "name": "KMPS.T19.occurringCharacters",
+          "role": "characterisation",
+          "statement": "Condition (ii) quantifies exactly over χ with V_χ≠0; a nonoccurring χ imposes no admissibility condition."
+        },
+        {
+          "name": "KMPS.T19.commonMultiplier",
+          "role": "projection",
+          "statement": "The c_j pulled back along φ_j equal c; this gives φ into the fiber product of factor similitude groups."
+        },
+        {
+          "name": "KMPS.T19.blockSum",
+          "role": "compatibility",
+          "statement": "The equal-multiplier block-diagonal map, transported by α, equals the original ι on groups and Hodge morphisms. A compatible selected orbit maps into H_V."
         }
       ],
       "unitTests": [
@@ -6610,6 +6652,31 @@
         {
           "name": "T19.test3",
           "statement": "An arbitrary symplectic representation is not automatically accommodating.",
+          "status": "specified, not Lean compiled"
+        },
+        {
+          "name": "T19.absentCharacter",
+          "statement": "For χ outside the finite central support, V_χ=0 and condition (ii) is vacuous; the ambient embedding stays nonzero and faithful.",
+          "status": "specified, not Lean compiled"
+        },
+        {
+          "name": "T19.occurringAdmissible",
+          "statement": "An occurring part with the designated positive-multiplicity admissible D^R representation passes; a nonadmissible occurring part fails. No unverified full type-D datum is inferred.",
+          "status": "specified, not Lean compiled"
+        },
+        {
+          "name": "T19.blockSwap",
+          "statement": "For Ω=diag(J,J), J=(0,1;−1,0), the block-swap S lies in Sp_4 but does not preserve the two ordered blocks; hence full GSp_4 has no restriction map of this kind.",
+          "status": "specified, not Lean compiled"
+        },
+        {
+          "name": "T19.unequalMultipliers",
+          "statement": "D=diag(2,2,1,1) has factor multipliers 4 and 1, so D^tΩD=diag(4J,J) and is not a similitude of Ω. A common multiplier is necessary.",
+          "status": "specified, not Lean compiled"
+        },
+        {
+          "name": "T19.equalMultipliers",
+          "statement": "Two factor similitudes with common multiplier c act on the direct sum with multiplier c; diag(2,2,2,2) is a positive test with c=4.",
           "status": "specified, not Lean compiled"
         }
       ],
@@ -6633,8 +6700,34 @@
           "name": "T19.test3",
           "kind": "non-example",
           "statement": "An arbitrary symplectic representation is not automatically accommodating."
+        },
+        {
+          "name": "T19.absentCharacter",
+          "kind": "degenerate",
+          "statement": "For χ outside the finite central support, V_χ=0 and condition (ii) is vacuous; the ambient embedding stays nonzero and faithful."
+        },
+        {
+          "name": "T19.occurringAdmissible",
+          "kind": "value",
+          "statement": "An occurring part with the designated positive-multiplicity admissible D^R representation passes; a nonadmissible occurring part fails. No unverified full type-D datum is inferred."
+        },
+        {
+          "name": "T19.blockSwap",
+          "kind": "non-example",
+          "statement": "For Ω=diag(J,J), J=(0,1;−1,0), the block-swap S lies in Sp_4 but does not preserve the two ordered blocks; hence full GSp_4 has no restriction map of this kind."
+        },
+        {
+          "name": "T19.unequalMultipliers",
+          "kind": "non-example",
+          "statement": "D=diag(2,2,1,1) has factor multipliers 4 and 1, so D^tΩD=diag(4J,J) and is not a similitude of Ω. A common multiplier is necessary."
+        },
+        {
+          "name": "T19.equalMultipliers",
+          "kind": "compatibility",
+          "statement": "Two factor similitudes with common multiplier c act on the direct sum with multiplier c; diag(2,2,2,2) is a positive test with c=4."
         }
-      ]
+      ],
+      "sourceTarget": "Let ι: (G,X) ↪ (G_V, H_V) be the given embedding. ι is strictly accommodating if (i) for some totally real field K, G^der = Res_{K/Q} G^s with G^s absolutely almost simple, and the G^der-representation V has the form Res_{K/Q} V^s for an admissible G^s-representation V^s; (ii) if (G^s, V^s) is of type D^R, then for every character χ: Z_G → G_m over Q̄, the χ-part of V is an admissible representation of a factor of G^der_{Q̄}; (iii) for every proper non-zero G-stable subspace V' ⊂ V, if G' denotes the image of G in Aut V', then (G', V') does not satisfy (i) and (ii). ι is accommodating if there are finitely many strictly accommodating embeddings ι_j: (G_j, X_j) ↪ (G_{V_j}, H_{V_j}), j = 1,…,s, and an isomorphism of symplectic spaces ∏_j V_j ≃ V inducing a commutative square (G,X) → (G_V,H_V), ∏_j (G_j,X_j) → (∏_j G_{V_j}, ∏_j H_{V_j}), such that the left vertical map induces G^der ≃ ∏_j G_j^der. (The paper prints 'accommodating' for 'strictly accommodating' in the second definition: E4.)"
     },
     {
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T20",
@@ -6786,16 +6879,20 @@
       "implementationStatus": "unchecked",
       "prerequisites": [
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T16",
-        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/P03"
+        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/P03",
+        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/real-approximation-adjoint",
+        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/P10",
+        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/S02"
       ],
-      "note": "Repair and proof supplied by the continuation of Claude Code (cc-fb70e5, 22 September 2026). With the printed G′=G×T the construction fails twice: G×T is not in GSp(V⊕V,ψ⊕ψ), and the kernel of I_{s′₀}→I_{s₀} contains 1×T, which maps onto G^ab. This is recorded in research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json (E5). The remaining inputs, Corollary 2.1.9 and Noot, stay under G-noot.",
+      "note": "Repair and proof supplied by the continuation of Claude Code (cc-fb70e5, 22 September 2026). With the printed G′=G×T the construction fails twice: G×T is not in GSp(V⊕V,ψ⊕ψ), and the kernel of I_{s′₀}→I_{s₀} contains 1×T, which maps onto G^ab. This is recorded in research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json (E5). The remaining inputs, Corollary 2.1.9 and Noot, stay under G-noot. Fix #5512/4 propagates the already accepted E5 orbit correction. A chosen connected component is covered using the existing real-approximation supplier before taking X′. The fixed CM torus cannot cover both half-planes in the GL₂ example. Keep the existing fiber-product and kernel/quotient steps; no new erratum or assertion that Lemma 2.2.8 is false is introduced. Real approximation, CM reduction, level and integral-model extension remain imported/planned inputs, not newly proved supplier theorems.",
       "owner": "ShimuraVarietiesHondaTatePartII",
       "gaps": [
-        "G-noot"
+        "G-noot",
+        "G-model"
       ],
       "proofSteps": [
-        "For a special point (T,h_T) of (G,X) put G′=G×_{G^ab}T⊂G×T acting on V′=V⊕V, with T acting on the second copy through T⊂G. Similitude factors through G^ab, so G′⊂GSp(V′,ψ⊕ψ). Since h^ab is constant on X, X′=X×{h_T} maps into Hom(S,G′_R), giving an embedding of Shimura data (G′,X′)↪(GSp(V′),H′).",
-        "As in the paper, conjugating T→G by G^ad(Q), the point s₀ lifts to s′₀ on the integral model for (G′,X′). A_{s′₀} is isogenous to A_{s₀}×A_T, and I_{s′₀} preserves the decomposition. Restriction to A_T gives I_{s′₀}→T; compose with T→G^ab.",
+        "Choose a generic lift s of the selected s₀ as in §2.2.7 and its complex representative h₀. By real-approximation-adjoint, conjugate a rational special pair (T,h_T) by G^ad(Q) so h_T lies in the connected component X₀ of h₀. Put G′=G×_{G^ab}T and X′=G′(R)·(h_T,h_T), one real-group orbit, not X×{h_T}. Both Hodge morphisms have the same abelianized image and compatible polarization sign; equal similitudes put G′ into GSp(V⊕V,ψ⊕ψ). The projection G′→G is a smooth surjective central-torus extension, so its real image contains G(R)^0. This identity component acts transitively on X₀; hence (h₀,h_T) belongs to X′ and its projection covers h₀. Other components require the appropriate conjugated rational special pair and a separate selected datum, never a union relabeled as one datum.",
+        "Use this chosen orbit covering h₀ in the source’s lifting argument (§2.2.7, pp.27–28), with the required level/Hecke choices and compatible reflex-field place. Since the rational-map assertion depends on the abelian variety with tensors rather than its level, make those choices as in that argument; do not assume a fixed initial datum covers all components. The generic auxiliary point has abelian variety isogenous to A_s×A_T. The first factor already has good reduction and P10 gives potentially good reduction of the CM factor; S02 (with its precise place and rigidifying-level conditions) extends the auxiliary point after a finite DVR extension, giving s′₀ over s₀. Retain these supplier hypotheses under G-model. I_{s′₀} preserves the decomposition, and restriction to A_T gives I_{s′₀}→T→G^ab.",
         "Kernel check: the kernel of I_{s′₀}→I_{s₀} (restriction to A_{s₀}) lies, after base change to any Q_ℓ, in ker(G′→G)={(1,t):t∈T∩G^der}. That kernel maps trivially to G^ab. So the composite kills ker(I_{s′₀}→I_{s₀}), and since I_{s′₀}→I_{s₀} is surjective (Corollary 2.1.9) it factors through a Q-map I_{s₀}→G^ab.",
         "Compatibility with i_ℓ: over Q_ℓ, the map I_{s₀}→G^ab so obtained and the composite I_{s₀}⊗Q_ℓ≅I_{ℓ,s₀}→G_{Q_ℓ}→G^ab_{Q_ℓ} agree on the image of I_{s′₀}, because for (g,t)∈G′ the images of g and t in G^ab coincide."
       ],
@@ -6803,7 +6900,31 @@
         "id": "berkeley-author-pdf",
         "locator": "Lemma 2.2.8",
         "match": "Statement, construction or prerequisite as extracted with the explicit qualifications and gates in this item."
-      }
+      },
+      "unitTests": [
+        {
+          "name": "T23.imaginaryQuadraticComponents",
+          "statement": "For G=GL₂, T=Res_{E/Q}G_m with E imaginary quadratic, G′(R)={(g,t):det g=N(t)} projects into GL₂^+(R), since N(t)=|t|²>0. Its orbit covers one half-plane, not both. Conjugating the special pair by diag(1,−1)∈GL₂(Q) supplies the opposite component as a separate datum.",
+          "status": "specified, not Lean compiled"
+        },
+        {
+          "name": "T23.selectedLiftComponent",
+          "statement": "Choose the conjugated h_T in the component of the generic lift h₀. The projection of G′(R) contains G(R)^0, so the chosen orbit contains (h₀,h_T); use S02/P10 to specialize that lift with actual level/place hypotheses.",
+          "status": "specified, not Lean compiled"
+        }
+      ],
+      "tests": [
+        {
+          "name": "T23.imaginaryQuadraticComponents",
+          "kind": "non-example",
+          "statement": "For G=GL₂, T=Res_{E/Q}G_m with E imaginary quadratic, G′(R)={(g,t):det g=N(t)} projects into GL₂^+(R), since N(t)=|t|²>0. Its orbit covers one half-plane, not both. Conjugating the special pair by diag(1,−1)∈GL₂(Q) supplies the opposite component as a separate datum."
+        },
+        {
+          "name": "T23.selectedLiftComponent",
+          "kind": "compatibility",
+          "statement": "Choose the conjugated h_T in the component of the generic lift h₀. The projection of G′(R) contains G(R)^0, so the chosen orbit contains (h₀,h_T); use S02/P10 to specialize that lift with actual level/place hypotheses."
+        }
+      ]
     },
     {
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T24",
@@ -6864,20 +6985,26 @@
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T26",
       "kind": "construction",
       "name": "Rational isogeny Isom scheme",
-      "statement": "For geometric abelian varieties A,A', represent R-isogenies in R tensor_Q Hom_Q(A,A') as the invertible locus; it is empty or a torsor under Aut_Q(A). R is a coefficient algebra, not the characteristic-p base field.",
+      "statement": "For geometric abelian varieties A,A′ in the paper’s prime-to-p isogeny category, let H(A,A′)=Hom(A,A′)⊗Q. Represent the finite-dimensional rational Hom functor by the affine Q-scheme Hom_Q(A,A′)=Spec Sym_Q(H(A,A′)^∨), whose R-points are R⊗_Q H(A,A′) for every commutative Q-algebra R. Composition is the scalar extension of bilinear composition. Define R-isogenies as the invertible arrows in this R-linear category, with a two-sided inverse in R⊗H(A′,A). For the equal-dimensional fibers in §2.3.1 this agrees with the paper’s criterion that some f′∘f is a unit in R⊗End^0(A); prove this equivalence, rather than using one-sided inverses for arbitrary dimensions. Isog(A,A′) is the corresponding open invertible locus, empty or a right Aut_Q(A)-torsor under precomposition. R is a coefficient algebra; the varieties remain over their original geometric characteristic-p field.",
       "locator": "§2.3.1, pp. 30–31",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
-        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T01"
+        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T01",
+        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/P09",
+        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/P15",
+        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/L14"
       ],
-      "note": "A source-based extraction target with the stated gates. This checkpoint does not certify recursive closure.",
+      "note": "Fix #5512/1: this existing missing construction now owns both Hom_Q representability and the coefficient-algebra isogeny definition removed from L14, without a new item or owner. Reuse P09/A6 finite-dimensional Hom, P15/A6 semisimple rational End and T01 units; the current A6 packet supplies the Hom-finiteness and semisimplicity planning nodes but no exact coefficient-Isom node was found. The source route is the bounded handoff to A6; no file outside this job is changed and no supplier implementation is asserted. Preserve G-tate for realization comparison, not for elementary affine representability.",
       "owner": "AbelianSchemesAndArithmeticModuli",
       "gaps": [
         "G-tate"
       ],
       "proofSteps": [
-        "Construct the specified data and verify its well-definedness and functorial laws using the listed prerequisites. The API lists the operations required by the recorded consumer; nonroutine source inputs retain their gates."
+        "Use P09 to make H(A,A′) finite-dimensional. Its dual symmetric algebra represents R↦R⊗H; composition and identities give morphisms of these affine schemes.",
+        "For E=End^0(A), invertibility of left multiplication has a determinant-open locus in the finite-dimensional algebra E. This is the group scheme Aut_Q(A) supplied by T01. For isogenous A,A′, choose a rational isogeny and its quasi-inverse to identify H(A,A′) with E; transport the unit open locus. Independence of this choice follows by multiplication by a unit. Poincare complete reducibility/semisimplicity gives emptiness for nonisogenous varieties and the torsor identity.",
+        "In the equal-dimensional setting, a left inverse is also a right inverse: the faithful rational Tate-module realization is between equal-rank modules; after any coefficient extension and the faithful flat scalar extension to Q_ell, a square matrix with left inverse is invertible by its determinant. Faithfulness on rational Hom identifies the categorical inverse. Reuse the A6 faithful-Hom interface; a full Tate-surjectivity theorem is not required for this step.",
+        "Prove coefficient base change R→R′ by tensor extension, functor laws, and compatibility of composition/inverses. Keep this separate from geometric field base change. At R=Q[ε]/(ε²), (1+ε)id_A has inverse (1−ε)id_A, although ε is no ordinary morphism coefficient over the original geometric field."
       ],
       "uses": [
         {
@@ -6899,7 +7026,22 @@
         {
           "name": "KMPS.T26.baseChange",
           "role": "universal-property",
-          "statement": "Coefficient-algebra points agree with invertible elements of the rationalized Hom module."
+          "statement": "For every commutative Q-algebra R, the Hom scheme has points R⊗_Q H and the Isog open locus has its invertible arrows; maps R→R′ extend coefficients, preserving composition and inverses."
+        },
+        {
+          "name": "KMPS.T26.homPoints",
+          "role": "universal-property",
+          "statement": "Hom_Q(A,A′)(R)≅R⊗_Q H(A,A′), naturally in R, with composition and identity compatibility."
+        },
+        {
+          "name": "KMPS.T26.coefficientExtension",
+          "role": "functoriality",
+          "statement": "A Q-algebra map R→R′ sends f to 1⊗f; identity/composite scalar extensions agree and inverse maps to inverse."
+        },
+        {
+          "name": "KMPS.T26.torsorIdentity",
+          "role": "characterisation",
+          "statement": "If f0 is a rational isogeny, u↦f0∘u identifies Aut_Q(A) with Isog(A,A′); two invertible arrows differ by a unique source automorphism."
         }
       ],
       "unitTests": [
@@ -6916,6 +7058,16 @@
         {
           "name": "T26.test3",
           "statement": "Invertibility after coefficient extension is distinct from changing the finite-field base.",
+          "status": "specified, not Lean compiled"
+        },
+        {
+          "name": "T26.dualNumbers",
+          "statement": "For nonzero A and R=Q[ε]/(ε²), f=(1+ε)id_A is an R-isogeny with inverse (1−ε)id_A. This is a coefficient point, not a geometric field extension.",
+          "status": "specified, not Lean compiled"
+        },
+        {
+          "name": "T26.unequalDimensions",
+          "statement": "An inclusion A→A×B with B positive-dimensional has a left inverse but is not an invertible arrow; do not extend the paper’s equal-dimensional one-sided criterion to it.",
           "status": "specified, not Lean compiled"
         }
       ],
@@ -6939,6 +7091,16 @@
           "name": "T26.test3",
           "kind": "non-example",
           "statement": "Invertibility after coefficient extension is distinct from changing the finite-field base."
+        },
+        {
+          "name": "T26.dualNumbers",
+          "kind": "compatibility",
+          "statement": "For nonzero A and R=Q[ε]/(ε²), f=(1+ε)id_A is an R-isogeny with inverse (1−ε)id_A. This is a coefficient point, not a geometric field extension."
+        },
+        {
+          "name": "T26.unequalDimensions",
+          "kind": "non-example",
+          "statement": "An inclusion A→A×B with B positive-dimensional has a left inverse but is not an invertible arrow; do not extend the paper’s equal-dimensional one-sided criterion to it."
         }
       ]
     },
@@ -9999,7 +10161,7 @@
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/kis17-cm-twisting"
       ],
       "reason": "ShimuraVarieties V4–V8 constructs generic canonical models and CM theory, and PELModuli owns PEL integral moduli. The arbitrary allowed-prime Hodge-type normal model, tensor groups and all-maximal-torus CM lifts go beyond those scopes. The fixed split unitary good-prime Igusa application does not supply the general theorem.",
-      "brief": "Build on Complex Shimura varieties and canonical models (ShimuraVarieties V4–V8), Shimura data (ShimuraData D3–D5), Siegel and PEL moduli problems (PELModuli M1–M4), Abelian schemes and arithmetic moduli (AbelianSchemesAndArithmeticModuli), AutomorphicBundles B1, finite-flat Dieudonne theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2), and PadicHodgeTheory R06.5. Import BunGAndNewtonStrata local theory, ReductiveGroupsArithmeticPartII global transfer, and CrystallineCohomologyConvergentPartII coefficient descent. Normalize the closure of the Hodge-type generic model at the lattice-stabilizer level. Construct lift-independent crystalline tensors, the family G-isocrystal and nonempty locally closed Newton strata for admissible classes satisfying (1.1.3.1); prove the lower Newton closure inclusion. State mu-ordinary nonemptiness with existence and rational-Newton witness, and density with local integrality. Prove the all-primes automorphism comparison, then independence of neat Weil conjugacy and rational maximal-torus transfer. For G quasi-split at p with no adjoint type-D factor, and explicitly assuming Conjecture 2.3.4 for all pairs, prove geometric coefficient-isogeny CM lifts for every point and every maximal torus of its isogeny group. Prove this unconditionally for PEL A/C. With G_der simply connected and ker1(Q,G_ab)=0 prove rational coefficient-isogeny CM lifts; specialize to C and A_n with n odd, retaining the separate odd-degree unitary argument. Preserve polarization similitudes, distinguish Qbar coefficient torsors from Q-points, and leave the disconnected type-D variant behind its exercise-proof gate. Do not generalize the motivic remarks to a proved abelian-type theorem. Import C02 from BG1: the ordinary class exists for quasi-split G_{Q_p} (the torus average), and can fail to exist for inner forms (E8). Keep geometric density conditional on its actual class and component hypotheses. Preserve N29 and T23 repairs from cc-fb70e5. Corrections the design must carry: the μ-ordinary class of §1.3.15 exists when G_{Q_p} is quasi-split and must otherwise be assumed (E8); Corollary 1.3.18 needs the hypotheses of [KP18, Cor. 0.3] (E27); in the proof of Proposition 1.3.10 the place v′ of E_T must be the one induced by ι_p (E24); the proof of Corollary 1.3.13 must work with the Tannakian group of 𝒟 inside G_{s0}, since the printed equivalence is false (E9); the rationality of the crystalline tensors over Q_{q^m} in §2.1.5 needs the uniqueness of Proposition 1.3.7, not only φ-invariance (E28); in §2.2.7 G″ must require equal similitude factors (E32) and γ″₁ must be made neat by a further power (E34); Lemma 2.2.8 must use G ×_{G^ab} T (E5); and Lemma 2.3.13 is false as stated: the CM lift must also have the Frobenius of s0, as the lift built in Proposition 2.3.11 does, and Corollaries 2.3.14 and 2.3.15 must start from that lift (E41)."
+      "brief": "Build on Complex Shimura varieties and canonical models (ShimuraVarieties V4–V8), Shimura data (ShimuraData D3–D5), Siegel and PEL moduli problems (PELModuli M1–M4), Abelian schemes and arithmetic moduli (AbelianSchemesAndArithmeticModuli), AutomorphicBundles B1, finite-flat Dieudonne theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2), and PadicHodgeTheory R06.5. Import BunGAndNewtonStrata local theory, ReductiveGroupsArithmeticPartII global transfer, and CrystallineCohomologyConvergentPartII coefficient descent. Normalize the closure of the Hodge-type generic model at the lattice-stabilizer level. Construct lift-independent crystalline tensors, the family G-isocrystal and nonempty locally closed Newton strata for admissible classes satisfying (1.1.3.1); prove the lower Newton closure inclusion. State mu-ordinary nonemptiness with existence and rational-Newton witness, and density with local integrality. Prove the all-primes automorphism comparison, then independence of neat Weil conjugacy and rational maximal-torus transfer. For G quasi-split at p with no adjoint type-D factor, and explicitly assuming Conjecture 2.3.4 for all pairs, prove geometric coefficient-isogeny CM lifts for every point and every maximal torus of its isogeny group. Prove this unconditionally for PEL A/C. With G_der simply connected and ker1(Q,G_ab)=0 prove rational coefficient-isogeny CM lifts; specialize to C and A_n with n odd, retaining the separate odd-degree unitary argument. Preserve polarization similitudes, distinguish Qbar coefficient torsors from Q-points, and leave the disconnected type-D variant behind its exercise-proof gate. Do not generalize the motivic remarks to a proved abelian-type theorem. Import C02 from BG1: the ordinary class exists for quasi-split G_{Q_p} (the torus average), and can fail to exist for inner forms (E8). Keep geometric density conditional on its actual class and component hypotheses. Preserve N29 and T23 repairs from cc-fb70e5. Corrections the design must carry: the μ-ordinary class of §1.3.15 exists when G_{Q_p} is quasi-split and must otherwise be assumed (E8); Corollary 1.3.18 needs the hypotheses of [KP18, Cor. 0.3] (E27); in the proof of Proposition 1.3.10 the place v′ of E_T must be the one induced by ι_p (E24); the proof of Corollary 1.3.13 must work with the Tannakian group of 𝒟 inside G_{s0}, since the printed equivalence is false (E9); the rationality of the crystalline tensors over Q_{q^m} in §2.1.5 needs the uniqueness of Proposition 1.3.7, not only φ-invariance (E28); in §2.2.7 G″ must require equal similitude factors (E32) and γ″₁ must be made neat by a further power (E34); Lemma 2.2.8 must use G ×_{G^ab} T (E5); and Lemma 2.3.13 is false as stated: the CM lift must also have the Frobenius of s0, as the lift built in Proposition 2.3.11 does, and Corollaries 2.3.14 and 2.3.15 must start from that lift (E41). Fix #5512/2–4: in T18/T19 use positive admissible multiplicity for nonzero representations and quantify D^R condition (ii) only over occurring central characters; absent parts are vacuous, with ambient faithfulness separate. Accommodating assembly uses φ:(G,X)→∏(G_j,X_j), equal pulled-back similitude characters, the given representation identified with the direct sum, compatible factor Hodge orbits and the required derived-group isomorphism. The block map ∏_{G_m}GSp(V_j)→GSp(V) replaces the invalid full-GSp restriction square (E50, author copy only). Test block swapping and unequal/equal multipliers. In T23 select one G′(R)-orbit in the fiber product, align the conjugated rational special pair with the generic lift’s component using real-approximation-adjoint, and apply P10/S02 with their place/level conditions before specializing. The GL₂/imaginary-quadratic test distinguishes the two half-planes; no whole-product orbit or component-blind lift is asserted. Preserve E5 and its kernel factorization."
     },
     {
       "route": "part-ii",
@@ -10049,7 +10211,7 @@
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/ell-independence-char-poly",
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/polarized-isogeny-torsor-real-trivial"
       ],
-      "reason": "A6 owns finite-dimensional rational Hom/End and Rosati positivity. Its reusable API should include the unit group, rational coefficient Isom open locus, real polarization-isometry compactness, and the unpolarized endomorphism-compatible rational-point argument. These are generic suppliers used by KMPS, not Shimura-specific definitions."
+      "reason": "A6 owns finite-dimensional rational Hom/End and Rosati positivity. Its reusable API should include the unit group, rational coefficient Isom open locus, real polarization-isometry compactness, and the unpolarized endomorphism-compatible rational-point argument. These are generic suppliers used by KMPS, not Shimura-specific definitions. Fix #5512/1: T26 supplies the affine rational Hom scheme R↦R⊗_Q Hom^0 and its coefficient-Isom open locus/torsor, using P09 and P15. L14 supplies only geometric finite-surjective isogenies. Include (1+ε)id at Q[ε]/(ε²), with inverse (1−ε)id, and separate coefficient extension from field base change. Reuse the current A6 Hom-finiteness and semisimple-End nodes; add this construction to A6 rather than introducing a second owner."
     },
     {
       "route": "source",
@@ -14183,6 +14345,23 @@
         "reason": "Checked on the p.39 image, and against A.2–A.3 (pp.37–38). Proposition A.6 is stated in the setting of A.2–A.3. That setting requires the abelian scheme over U to extend to a semi-abelian scheme over S, which produces E^log through [MP19, 1.3.5] and hence E^vlog and Lemma A.4. Corollary A.7 assumes this only for the original S ('as above'). The proof replaces (U,S) by (U_i,S_i), where the S_i are the compactifications given by [dJ96, 6.5]. Nothing ensures that A ×_U U_i extends semi-abelianly over the new boundary S_i∖U_i. Since S_i is proper and S need not be, S_i does not in general map to S, so the extension cannot simply be pulled back. Example (p > 2): the Legendre family y² = x(x−1)(x−λ) over U = S = Spec W[λ, 1/λ(1−λ)], with D = ∅. The choice U_1 = U_0 = U and S_0 = S_1 = P^1_W meets every requirement the proof places on de Jong's output: P^1_W is smooth over W, and the disjoint sections 0, 1, ∞ together with the special fibre form a strict normal crossings divisor. But at λ = ∞ the curve is the quadratic twist by the uniformizer of an I_2 curve. It has type I_2^* (additive) reduction, with local monodromy −(unipotent), so it does not extend semi-abelianly over the generic point of the ∞-section, and Proposition A.6 cannot be applied. In the application to Proposition 1.3.12 the base is the non-proper integral model, so new boundary really occurs. The statement of A.7 is very likely true with a repair, so this is a gap in the proof. Per p.19, Proposition 1.3.12 is only used in §1.3 (Cor. 1.3.13, (1.3.14), (1.3.16)).",
         "by": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
       }
+    },
+    {
+      "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E50",
+      "kind": "error",
+      "locator": "§2.2.6 accommodating-factor square, p.26, 41-page Berkeley author copy created 2021-01-27, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; Duke version not collated",
+      "printed": "The diagram's right vertical arrow is drawn as (G_V,H_V) ↓ (∏_j G_{V_j},∏_j H_{V_j}).",
+      "correction": "Use a datum map to the factors whose representation direct sum equals the given embedding, with equal pulled-back similitude multipliers. The block-diagonal map is ∏_{G_m}GSp(V_j)→GSp(V), with compatible selected Hodge orbits; it is not a restriction map from full GSp(V). Retain the derived-group isomorphism.",
+      "reason": "The block swap preserves J⊕J but does not preserve either ordered summand, so the printed full-GSp restriction is undefined. In the reverse direction diag(2I₂,I₂) scales the forms by 4 and 1 and is not a similitude of their sum. Reversing an arrow alone therefore fails. E4 concerns terminology and does not repair this square.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-10-01: fresh 41-page Berkeley author PDF, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db, creation 2021-01-27; bounded reading pp.15,25–31 and images 26,28,30,31. Diagram checked on p.26.",
+        "2026-10-01: Shin publication page links the unchanged HT.pdf; Kisin preprints page and Madapusi research page inspected. No applicable correction was found in the bounded exact-title/author correction search.",
+        "2026-10-01: Shin’s two-page errata.pdf read, SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; it concerns other papers.",
+        "2026-10-01: Crossref DOI 10.1215/00127094-2021-0063 has empty relation and no update-to. Project Euclid PDF endpoint returned 200 text/html, 1156 bytes, not a PDF. The final Duke text remains uncollated; no defect there or absence of a correction is asserted."
+      ],
+      "evidenceReview": "Confirmed RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22/3; new source record awaits independent fix review."
     }
   ],
   "gaps": [
@@ -14250,5 +14429,30 @@
     "status": "complete",
     "reading": "Author PDF re-fetched (hash matches); Lemma 2.2.11, §2.3 and Proposition 2.3.11 with its proof re-read; every numbered statement checked against the items.",
     "changes": "Conjecture 2.3.8 added (T45); E12 reclassified to affect nothing; E6 verification note; the continuation gates made explicit as gaps with statuses; status complete."
+  },
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://math.berkeley.edu/~swshin/HT.pdf",
+      "read": "2026-10-01",
+      "sha256": "fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db",
+      "version": "41-page Berkeley author PDF created 2021-01-27; bounded fix reading pp.15,25–31, images 26,28,30,31. Earlier full readings are historical provenance. Published Duke text not collated."
+    }
+  ],
+  "fixes": {
+    "job": "FIX-RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+    "issue": 5512,
+    "agent": "Codex",
+    "session": "codex-rtOQ9t",
+    "date": "2026-10-01",
+    "status": "complete",
+    "findings": [
+      "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22/1",
+      "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22/2",
+      "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22/3",
+      "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22/4"
+    ],
+    "report": "research/blueprint/redteam/RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22.fixes.md",
+    "scope": "All four confirmed repairs applied within existing items/owners; no supplier proof closure or Lean implementation claimed; independent fix review pending."
   }
 }

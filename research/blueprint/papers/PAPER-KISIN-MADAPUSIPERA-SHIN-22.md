@@ -9,6 +9,24 @@ Issue [#1314](https://github.com/CBirkbeck/tauceti-explorer/issues/1314). Status
 - **Items.** The result has **183 items: 17 library, 32 planned and 134 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
 - **Mistakes.** The twelve findings of the earlier checkpoints are kept under `sourceIssues`.
 
+## Confirmed red-team fixes (2026-10-01)
+
+Codex, session `codex-rtOQ9t`, applied all four confirmed findings from [fix issue #5512](https://github.com/CBirkbeck/tauceti-explorer/issues/5512). The current extraction remains **244 items: 16 library, 38 planned, 190 missing**, in the same six routes. Independent fix review is pending. The finding-by-finding report is [RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22.fixes.md](../redteam/RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22.fixes.md).
+
+**Geometric versus coefficient isogenies.** L14's library statement is precisely the pinned finite-surjective predicate for an ordinary morphism of abelian varieties over a field, including inseparable morphisms. Its composition and field-base-change laws refer to that geometric notion. T26, still missing at A6, carries the rational Hom affine scheme, its coefficient-algebra points, composition, invertible locus and Aut_Q torsor. It reuses the existing Hom-finiteness and semisimple-End planning interfaces. For R=Q[ε]/(ε²), (1+ε)id_A has inverse (1−ε)id_A. These are coefficient points; A remains over its characteristic-p geometric field. A left inverse suffices only in the paper's equal-dimensional setting; an inclusion A→A×B is a negative test for generalizing that criterion.
+
+**Central character parts.** T18 keeps positive multiplicity for a nonzero admissible representation. T19(ii) now quantifies only over characters that occur, V_χ≠0, treating absent parts vacuously. Ambient nonzero/faithful V remains separate. Tests cover absent parts, positive admissible D^R parts as specified representation inputs, and rejection of occurring nonadmissible parts. No new full type-D datum is claimed constructed.
+
+**Accommodating assembly.** T19 replaces the invalid full-GSp restriction square by a datum map G→∏G_j, the given representation identified with the symplectic direct sum, equal pulled-back similitude characters, compatible Hodge weights/signs/orbits, and the original derived-group isomorphism. The block map is ∏_{G_m}GSp(V_j)→GSp(V). For Ω=diag(J,J), the block swap preserves Ω but cannot restrict to the two ordered summands. Conversely diag(2I₂,I₂) gives diag(4J,J), so independent multipliers do not preserve the sum up to one scalar. A common multiplier gives the positive block test.
+
+**The selected real orbit.** T23 keeps G′=G×_{G^ab}T and its kernel factorization. It now selects X′=G′(R)·(h_T,h_T). Using the existing real-approximation input, first conjugate the rational special pair so h_T lies in the component of the generic lift h₀. The projection of G′(R) contains G(R)^0, so this selected orbit contains (h₀,h_T). The source's level/Hecke choices and P10/S02 reduction/extension contracts then specialize that auxiliary lift, retaining their place and level hypotheses. These remain imported supplier inputs, not freshly proved general theorems.
+
+For GL₂ and an imaginary-quadratic CM torus, det(g)=N(t)=|t|²>0 in G′(R). Its action preserves each of ℍ⁺ and ℍ⁻; the whole X×{h_T} is not one orbit. The rational matrix diag(1,−1) conjugates the special pair to the opposite component, which uses a separate datum. This propagates accepted E5, rather than adding another erratum. Older whole-product sentences in the checkpoint history below are superseded by this orbit choice.
+
+**Source and checks.** Fresh bounded reading used the unchanged 41-page Berkeley author copy, SHA-256 `fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db`, pp.15,25–31 and images 26,28,30,31. New E50 records only the accommodating-square discrepancy in that copy. The Duke endpoint again returned HTML, so no final-version defect is asserted. Author pages, the two-page Shin errata list, Crossref and bounded title/correction searches yielded no applicable correction; this is limited search evidence. No author was contacted.
+
+All 49 prior source records and their independent verdicts remain unchanged, including rejected E10. E50 awaits independent fix review. Paper/intake/source-version checks, item/status/route and acyclic-dependency checks, exact dual-number and symplectic-matrix tests, the character-support tests, the two-component test, and git diff --check passed. No Lean file was required or compiled. These fixes do not establish recursive supplier-proof closure.
+
 ## Independent review (REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22)
 
 The independent review (Claude Code, session cc-2aeb03, 23 September 2026) corrected this extraction in place. The review
