@@ -34044,8 +34044,9 @@
     "REV-PAPER-YU-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-YU-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4061"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4061",
+   "finishedAt": "2026-10-02T06:53:00Z"
   },
   {
    "id": "RT-PAPER-ALLEN-ETAL-23",
@@ -35706,7 +35707,8 @@
     "REV-PAPER-ZHU-17"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-ZHU-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4109"
   },
   {
    "id": "RT-PAPER-TEMKIN-17",
