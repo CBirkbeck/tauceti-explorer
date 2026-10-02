@@ -1438,11 +1438,13 @@ For a native descent datum D with associated coalgebra (N,d), the existing compa
 END NATIVE CHOSEN-OVERLAP OMISSIONS -/
 
 /-! Intrinsic-band continuation, Codex codex-rtOQ9t, Refs #672.
-Seventeen packet leaves use existing CatCenter, units, Aut and slice-Hom
-descent. Codex codex-J6LwjP checked this block in a Mathlib-only extraction
-at the pinned commit: zero errors, 15 admitted-proof warnings. Foundational
-carrier/restriction/evaluation proofs are supplied; sheafness, locality and
-fixed-band uniqueness remain admitted. This does not validate the full file.
+Twenty-six packet leaves use existing CatCenter, units, Aut and slice-Hom
+descent. Codex codex-rtOQ9t continues codex-J6LwjP's native checkpoint with
+the actual coefficient-center hom, compatible comparison and presheaf map.
+The Mathlib-only extraction has zero errors, 11 admitted-proof warnings and
+no other warnings. Foundational and chosen-band comparison proofs are
+supplied; general sheafness, locality and global band uniqueness remain
+admitted. This does not validate the full file.
 The old intrinsic-band omission ledger is historical: the concrete section
 model below supplies a new route, while the old slice-glued carrier comparison
 still requires the imported SF1 interface. No proof or stage is closed.
@@ -1664,20 +1666,149 @@ theorem banding_apply (U : C) (x : F.obj (.mk (op U)))
 variable {hComm}
 variable (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
 
-include b in
+/-- R09.4/band-coefficient-naturality: conjugation covers every fibre arrow. -/
+theorem coefficient_naturality (U : C) {x y : F.obj (.mk (op U))}
+    (f : x ⟶ y) (a : Multiplicative (A.obj.obj (op U))) :
+    f ≫ (b.autEquiv U y a).hom = (b.autEquiv U x a).hom ≫ f := by
+  let : IsIso f := IsGerbe.isIso_hom (F := F) (J := J) U f
+  have h := congrArg Iso.hom (b.conjugation U (asIso f) a)
+  change inv f ≫ (b.autEquiv U x a).hom ≫ f = (b.autEquiv U y a).hom at h
+  rw [← h]
+  simp only [← Category.assoc, IsIso.hom_inv_id, Category.id_comp]
+
+/-- R09.4/band-coefficient-center: a hom into existing units of CatCenter. -/
+noncomputable def coefficientCenter (U : C) :
+    Multiplicative (A.obj.obj (op U)) →* (CatCenter (F.obj (.mk (op U))))ˣ where
+  toFun a := (Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op U))))).symm
+    (NatIso.ofComponents (fun x ↦ b.autEquiv U x a)
+      (fun f ↦ coefficient_naturality F J A b U f a))
+  map_one' := by
+    apply Units.ext
+    apply CatCenter.ext
+    intro x
+    change (b.autEquiv U x 1).hom = (1 : Aut x).hom
+    rw [map_one]
+  map_mul' := by
+    intro a a'
+    apply Units.ext
+    apply CatCenter.ext
+    intro x
+    change (b.autEquiv U x (a * a')).hom = (b.autEquiv U x a').hom ≫
+      (b.autEquiv U x a).hom
+    rw [map_mul]
+    rfl
+
+/-- R09.4/band-coefficient-center-evaluation. -/
+theorem coefficientCenter_app (U : C) (x : F.obj (.mk (op U)))
+    (a : Multiplicative (A.obj.obj (op U))) :
+    (Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op U))))
+      (coefficientCenter F J A b U a)).app x = b.autEquiv U x a := by
+  apply Iso.ext
+  rfl
+
+theorem coefficientCenter_inv (U : C) (a : Multiplicative (A.obj.obj (op U))) :
+    coefficientCenter F J A b U a⁻¹ = (coefficientCenter F J A b U a)⁻¹ :=
+  map_inv (coefficientCenter F J A b U) a
+
+/-- R09.4/band-coefficient-restriction: the actual band pullback equation. -/
+theorem coefficientCenter_restrict {U V : C} (f : V ⟶ U)
+    (x : F.obj (.mk (op U))) (a : Multiplicative (A.obj.obj (op U))) :
+    (F.map f.op.toLoc).toFunctor.map ((coefficientCenter F J A b U a).val.app x) =
+      (coefficientCenter F J A b V
+        (Multiplicative.ofAdd (A.obj.map f.op a.toAdd))).val.app
+          ((F.map f.op.toLoc).toFunctor.obj x) := by
+  exact congrArg Iso.hom (b.pullback f x a)
+
 /-- R09.4/band-center-from-banding: its values are actual band automorphisms. -/
 noncomputable def fromBanding (b : AbelianBanding F J A) (U : C) :
-    Multiplicative (A.obj.obj (op U)) →* IntrinsicBandSection F U := by sorry
+    Multiplicative (A.obj.obj (op U)) →* IntrinsicBandSection F U where
+  toFun a := ⟨fun V f ↦ coefficientCenter F J A b V
+    (Multiplicative.ofAdd (A.obj.map f.op a.toAdd)), by
+      intro V W f g x
+      rw [coefficientCenter_restrict]
+      congr 3
+      exact (congrArg (fun h ↦ h a.toAdd) (A.obj.map_comp f.op g.op)).symm⟩
+  map_one' := by
+    apply ext
+    intro V f x
+    change (b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op 0))).hom =
+      (1 : Aut x).hom
+    rw [map_zero]
+    exact congrArg Iso.hom (b.autEquiv V x).map_one
+  map_mul' := by
+    intro a a'
+    apply ext
+    intro V f x
+    change (b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op
+      (a.toAdd + a'.toAdd)))).hom =
+      (b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a'.toAdd))).hom ≫
+      (b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a.toAdd))).hom
+    rw [map_add]
+    exact congrArg Iso.hom ((b.autEquiv V x).map_mul
+      (Multiplicative.ofAdd (A.obj.map f.op a.toAdd))
+      (Multiplicative.ofAdd (A.obj.map f.op a'.toAdd)))
 
+/-- R09.4/band-center-from-banding-evaluation. -/
 theorem fromBanding_eval {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op V)))
     (a : Multiplicative (A.obj.obj (op U))) :
     eval F f x (fromBanding F J A b U a) =
-      b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a.toAdd)) := by sorry
+      b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a.toAdd)) :=
+  coefficientCenter_app F J A b V x _
 
+/-- R09.4/band-center-from-banding-restriction. -/
 theorem fromBanding_restrict {U V : C} (f : V ⟶ U)
     (a : Multiplicative (A.obj.obj (op U))) :
     restrict F f (fromBanding F J A b U a) =
-      fromBanding F J A b V (Multiplicative.ofAdd (A.obj.map f.op a.toAdd)) := by sorry
+      fromBanding F J A b V (Multiplicative.ofAdd (A.obj.map f.op a.toAdd)) := by
+  apply ext
+  intro W g x
+  change (b.autEquiv W x (Multiplicative.ofAdd (A.obj.map (g ≫ f).op a.toAdd))).hom =
+    (b.autEquiv W x (Multiplicative.ofAdd (A.obj.map g.op (A.obj.map f.op a.toAdd)))).hom
+  exact congrArg (fun z ↦ (b.autEquiv W x (Multiplicative.ofAdd z)).hom)
+    (congrArg (fun h ↦ h a.toAdd) (A.obj.map_comp f.op g.op))
+
+/-- R09.4/band-center-from-banding-ext: determine the actual comparison section. -/
+theorem fromBanding_ext (U : C) (a : Multiplicative (A.obj.obj (op U)))
+    (s : IntrinsicBandSection F U)
+    (h : ∀ (V : C) (f : V ⟶ U) (x : F.obj (.mk (op V))),
+      eval F f x s = b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a.toAdd))) :
+    s = fromBanding F J A b U a := by
+  apply ext
+  intro V f x
+  exact congrArg Iso.hom ((h V f x).trans (fromBanding_eval F J A b f x a).symm)
+
+/-- R09.4/band-center-from-banding-presheaf: an actual natural transformation. -/
+noncomputable def fromBandingPresheaf : A.obj ⟶ presheaf F where
+  app U := AddCommGrpCat.ofHom
+    { toFun a := Additive.ofMul (fromBanding F J A b U.unop (Multiplicative.ofAdd a))
+      map_zero' := (fromBanding F J A b U.unop).map_one
+      map_add' a a' := (fromBanding F J A b U.unop).map_mul
+        (Multiplicative.ofAdd a) (Multiplicative.ofAdd a') }
+  naturality U V f := by
+    apply AddCommGrpCat.ext
+    intro a
+    exact (fromBanding_restrict F J A b f.unop (Multiplicative.ofAdd a)).symm
+
+theorem fromBandingPresheaf_app (U : C) (a : A.obj.obj (op U)) :
+    ((fromBandingPresheaf F J A b).app (op U) a).toMul =
+      fromBanding F J A b U (Multiplicative.ofAdd a) := rfl
+
+theorem fromBandingPresheaf_naturality {U V : C} (f : V ⟶ U) :
+    A.obj.map f.op ≫ (fromBandingPresheaf F J A b).app (op V) =
+      (fromBandingPresheaf F J A b).app (op U) ≫ (presheaf F).map f.op :=
+  (fromBandingPresheaf F J A b).naturality f.op
+
+/-- R09.4/band-center-fixed-band-distinction: no quotient by coefficient symmetry. -/
+theorem fromBanding_ne_of_aut_ne (b' : AbelianBanding F J A) (U : C)
+    (x : F.obj (.mk (op U))) (a : Multiplicative (A.obj.obj (op U)))
+    (h : b.autEquiv U x a ≠ b'.autEquiv U x a) :
+    fromBanding F J A b U a ≠ fromBanding F J A b' U a := by
+  intro hs
+  apply h
+  have he := congrArg (eval F (𝟙 U) x) hs
+  rw [fromBanding_eval, fromBanding_eval] at he
+  rw [op_id, A.obj.map_id] at he
+  exact he
 
 /-- R09.4/band-center-band-unique. Local gerbe objects prove local bijectivity;
 the coefficient sheaf glues the inverse even when F(U) is empty. -/
@@ -1767,7 +1898,82 @@ example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b b' : AbelianBanding F J A
     (h : b'.autEquiv U x (e.symm (Multiplicative.ofAdd (1 : ZMod 3))) =
       b.autEquiv U x (e.symm (Multiplicative.ofAdd (2 : ZMod 3)))) :
     fromBanding F J A b U (e.symm (Multiplicative.ofAdd (1 : ZMod 3))) ≠
-      fromBanding F J A b' U (e.symm (Multiplicative.ofAdd (1 : ZMod 3))) := by sorry
+      fromBanding F J A b' U (e.symm (Multiplicative.ofAdd (1 : ZMod 3))) := by
+  apply fromBanding_ne_of_aut_ne
+  rw [h]
+  intro he
+  have hc := congrArg e ((b.autEquiv U x).injective he)
+  simp only [MulEquiv.apply_symm_apply] at hc
+  exact (by decide : Multiplicative.ofAdd (1 : ZMod 3) ≠
+    Multiplicative.ofAdd (2 : ZMod 3)) hc
+
+-- BandCoefficientTests.generator: chosen C3 coordinate, retaining the band.
+example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+    (U : C) (x : F.obj (.mk (op U)))
+    (a : Multiplicative (A.obj.obj (op U)))
+    (e : Aut x ≃* Multiplicative (ZMod 3))
+    (h : e (b.autEquiv U x a) = Multiplicative.ofAdd (1 : ZMod 3)) :
+    e ((Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op U))))
+      (coefficientCenter F J A b U a)).app x) = Multiplicative.ofAdd (1 : ZMod 3) := by
+  rw [coefficientCenter_app]
+  exact h
+
+-- BandCoefficientTests.zero: zero coefficient is the identity at every object.
+example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+    (U : C) : coefficientCenter F J A b U (Multiplicative.ofAdd 0) = 1 :=
+  (coefficientCenter F J A b U).map_one
+
+-- BandCoefficientTests.inversion: inverse is 2, rather than 1, in C3.
+example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+    (U : C) (x : F.obj (.mk (op U)))
+    (a : Multiplicative (A.obj.obj (op U)))
+    (e : Aut x ≃* Multiplicative (ZMod 3))
+    (h : e (b.autEquiv U x a) = Multiplicative.ofAdd (1 : ZMod 3)) :
+    e ((Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op U))))
+      (coefficientCenter F J A b U a⁻¹)).app x) = Multiplicative.ofAdd (2 : ZMod 3) := by
+  rw [coefficientCenter_app, map_inv, map_inv, h]
+  rfl
+
+-- BandNaturalityTests.allArrows: no representative object or chosen arrow is used.
+example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+    (U : C) {x y : F.obj (.mk (op U))} (f : x ⟶ y)
+    (a : Multiplicative (A.obj.obj (op U))) :
+    f ≫ (b.autEquiv U y a).hom = (b.autEquiv U x a).hom ≫ f :=
+  coefficient_naturality F J A b U f a
+
+-- BandCoefficientRestrictionTests.mappedObject: evaluate at the actual pullback.
+example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+    {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op U)))
+    (a : Multiplicative (A.obj.obj (op U))) :
+    (F.map f.op.toLoc).toFunctor.mapAut x
+      ((Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op U))))
+        (coefficientCenter F J A b U a)).app x) =
+      b.autEquiv V ((F.map f.op.toLoc).toFunctor.obj x)
+        (Multiplicative.ofAdd (A.obj.map f.op a.toAdd)) := by
+  rw [coefficientCenter_app]
+  exact b.pullback f x a
+
+-- BandComparisonPresheafTests.zero: the actual natural-transformation component.
+example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+    (U : C) : (fromBandingPresheaf F J A b).app (op U) 0 = 0 := by
+  change fromBanding F J A b U 1 = 1
+  exact (fromBanding F J A b U).map_one
+
+-- BandComparisonPresheafTests.add: coefficient addition is section multiplication.
+example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+    (U : C) (a a' : A.obj.obj (op U)) :
+    ((fromBandingPresheaf F J A b).app (op U) (a + a')).toMul =
+      fromBanding F J A b U (Multiplicative.ofAdd a) *
+        fromBanding F J A b U (Multiplicative.ofAdd a') := by
+  exact (fromBanding F J A b U).map_mul (Multiplicative.ofAdd a)
+    (Multiplicative.ofAdd a')
+
+-- BandComparisonPresheafTests.restriction: preserves the chosen base arrow.
+example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+    {U V : C} (f : V ⟶ U) (a : A.obj.obj (op U)) :
+    restrict F f (((fromBandingPresheaf F J A b).app (op U) a).toMul) =
+      ((fromBandingPresheaf F J A b).app (op V) (A.obj.map f.op a)).toMul :=
+  fromBanding_restrict F J A b f (Multiplicative.ofAdd a)
 
 end IntrinsicBandTestsRT
 end TauCeti.AlgebraicGeometry
