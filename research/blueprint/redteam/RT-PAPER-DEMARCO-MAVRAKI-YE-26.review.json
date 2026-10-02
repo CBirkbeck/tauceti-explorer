@@ -1,0 +1,140 @@
+{
+  "redteam": "RT-PAPER-DEMARCO-MAVRAKI-YE-26",
+  "findings": [
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a prospective ownership/dependency defect, not an existing atlas cycle. On cbdcb4b, DY.6 requires DY.4; route 5 imports DY.6 and DY.4 but exports back to DY.6, while item 10 and the packet's moduli-PCF equidistribution need the downstream bifurcation and quasi-projective inputs. The packet also leaves McMullen as an input to Ingram. Remove the reverse endpoint export and move the moduli-PCF application downstream, but those edits alone do not close the dependency chain. Coordinate early critical-height definitions and early bifurcation/rigidity suppliers separately from late equidistribution and uniform endpoints, with explicit rescope/split requests and an acyclic dependency test. Keep generic Arakelov acceptance independent of critical-height applications. PCF and flexible-Lattes definitions are existing DY.6 plans (/5), not new Part II definitions. Do not declare that DY.6 imports nothing from bifurcation while its Ingram input still needs early McMullen rigidity. Fresh assembly has 2,956 stages and 8,563 edges and is acyclic; neither proposed Part II is a live vertex."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed that E7's assertion that (3.2) remains proved is unsupported. Published p.10 and arXiv v3 p.15 invoke DM1 Proposition 4.8 from the diagonal point. DM1 v2 p.19, section 4.3, explicitly requires an isolated intersection with the continued repelling section. Re-derivation: the first landing germ has dimension k-r-1; whenever z in that germ and y0 lie on a common family member, (z,y0,...,y0) is another simultaneous landing point. A positive-dimensional such germ defeats isolatedness. The affine-line incidence model in dimension three illustrates this mechanism with r=1, ell=4, k=3. However dimension of M_d^cm alone does not prove the claimed global generically finite A3 parameterization, nor all the global hypotheses of that example. GOV Lemma 6.8 proves nonzero top bifurcation mass off the flexible locus, not the missing isolatedness. Fix E7, item 27 and the brief to record both nonvanishing and the witness as unclosed inputs of Proposition 3.1/Theorem 1.8. Supply a valid construction or another proof; do not assert the theorem or measure is false, or prescribe the unproved global example/off-diagonal recipe as an established repair."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed wrong planned scope. R09.1/R09.2 and accepted RS-27 retain boundedness/Hilbert-Quot machinery and the proper-modification Chow lemma, not Chow varieties of cycles. Published section 2.5 p.7 needs an actual cycle parameter space. Route item 11 to an explicitly committed AlgebraicModuliForArithmeticGeometry Part II design, importing the retained projective/Hilbert foundations, and update the height/bifurcation consumers. Define the open locus for closures of irreducible subvarieties meeting Y, the bounded-degree finite union, incidence and field-of-definition interfaces precisely; do not conflate it with the Chow lemma or promise an unchanged R09 blueprint will supply it."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed current queue mismatch, with a narrower temporal claim. make_queue.py paper_designs keys accepted Part II routes by parent; queue.json has pending DESIGN-ArithmeticDynamicsPartII and superseded DESIGN-ArithmeticDynamicsPartIIMarkoff, and no separate bifurcation design. CHEN, MARTIN, GAMBURD-MAGEE-RONAN and GHOSH-SARNAK supply the Markoff direction. 'Will never be designed' is too absolute: record a maintainer decision to split the independent directions or explicitly incorporate both into a coherent canonical design, then synchronize all consumer ids and packet uses. Retitling route 5 alone does not create the separate job; changing global queue policy needs coordinator review."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed duplicate planning of PCF and flexible-Lattes definitions/facts: the partial ArithmeticDynamics packet has DY.6 nodes for PCF, flexible Lattes, the elliptic nP+T criterion and PCF property. Split item 3's PCF definition from PCF-special subvariety, keep only the latter downstream, and treat item 4 as an existing planned supplier. Retain the precise flexible condition, including translation by two-torsion in the elliptic presentation, through the supplier's definition/API. Qualify positive-dimensional-family wording as a family of Lattes maps; it is not a classification of all varying families of rational maps. The packet is a plan with gaps, not completed mathematics."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed conflation of set-level conjugacy classes with scheme/GIT and family constructions. DY.0's current packet supplies the former. The promoted geometric-quotients key definition already places generic GIT at SchemeAndStackFoundations:SF.1, so the older packet's 'no owner' restructuring text is stale. The finding merges incompatible fixes, one placing the dynamics instance at R09 and another at DY.0. Choose one coordinated instance owner: an explicitly enlarged DY.0 contract consuming SF.1, or an agreed AlgebraicModuli continuation consumed by DY.0. Separate generic GIT from Rat_d stability/quotient/compactification and finite marked-cover constructions. Coarse critically marked moduli can have stabilizers (e.g. z^d); state the further finite cover/marking needed to carry a chosen family and critical sections, not a universal fine family on the coarse space. Preserve arithmetic descent and field hypotheses."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing density input. Published p.1 uses PCF-specialness and Example 1.3 uses it in the degree-growth inference. Baker-DeMarco Proposition 2.6 (public PDF p.12) supplies ambient polynomial density; DeMarco 2016 Theorem 6.2 and its proof (printed pp.1052-1055) supply dynamically related/coincident critical points under the stated moduli-dimension and finite-projection conditions. Record the used theorem, its precise relation-locus components, and the source prerequisite, then connect Example 1.3 and route 5 acceptance. Do not generalize to every arbitrary subvariety of a relation locus: the source's nondegeneracy/R3 and dimension hypotheses matter. Define the polynomial carrier and exact-period locus separately."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed incomplete prerequisite bookkeeping against the current 16-record list and the citations in published sections 1, 2 and 4. Record DeMarco 2001/2016, Favre-Gauthier Theorem B, the Chow sources and Philippon, and the Mavraki-Schmidt slicing input at their actual consumption sites. Split the McMullen/MSS record into separately linked sources; add Baker-DeMarco Proposition 2.6 to its purpose. The registry/extraction search did not locate dedicated extractions for those named works; this is not an assertion of universal library absence. Ingram is already a source of the partial ArithmeticDynamics packet: record that exact planned input, not a redundant new extraction or a claim its proof is complete. Public FG2 PDF p.3 and section 5 support the cubic application; the other additional records still need the fix/design worker's source-level decomposition where their full proofs are consumed."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed that the route overstates its proof status after E9. Published pp.19-20 apply an induction bound measured by h_Ch(Y(lambda)) to a threshold measured by h_Ch(X_lambda); no uniform comparison follows merely by decreasing epsilon. E9 identifies this missing relative-height step. State the full printed Theorem 1.5 as a target and expose the needed relative strengthening or actual height comparison as an open input. Do not substitute a proved relative theorem without a source/proof. The proposed surviving containment conclusion also remains conditional on repairing E7/Proposition 3.1 and Theorem 1.8 (/2); it is not unconditionally proved by this verification. Register an actual weaker conclusion only with its quantified hypotheses and proof, and update sourceIssues affects/sourceVersions without declaring the published theorem false."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted section height/curvature interfaces in item 33. Published (4.1)-(4.3) pp.13-14 use the invariant adelic extension, specialization and relative-dimension-zero graph pairing. Directly checked YZ v6 Theorems 4.1.3 (p.112), 4.2.3 (pp.119-120), 6.1.1 (pp.191-192) and Lemma 6.2.1 (p.199). Add h_M(s)=canonical height of the section and the graph pushforward curvature identity, with quasi-projective arithmetic base, integrable/nef metrics, projectivity, normality/flatness and finite-Tor hypotheses as needed. The graph over S is isomorphic to S, so its relative-dimension-zero morphism is flat automatically. Generic pairing/specialization stays with the shared Arakelov owner; product-family critical-height and bifurcation applications consume it."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed imprecise reuse and height-inequality statement, not that two papers citing the same theorem under one owner create two constructions. YUAN items 12,21,22,47,121 and 171-173 and its Arakelov/height briefs already assign shared adelic theory. Distinguish the generic invariant extension from YUAN 47's abelian theta application; the rational-product application is a new consumer. General nondegeneracy belongs to shared Arakelov theory and the abelian case imports it. Replace item 34 by YZ Theorem 1.3.2(2)=5.3.5(2), checked on v6 p.12: for pi:X->S over a number field, nef L with positive geometric top degree, and a base adelic M, for every c>0 there are epsilon>0 and dense open U with h_L(x)>=epsilon*h_M(pi(x))-c. Include pi and algebraic-point domains, and use the Chow-map pullback to supply the actual base height. Reuse /10's section formula rather than inventing an additional owner."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed shared analytic foundations need coordinated ownership. CV.2's draft roadmap proposes psh functions; its packet is partial, covers CV.0 and has no accepted CV.2 supply. BT16 items 55/59 and its HyperbolicCurveVolumesAndGonality brief also request currents/psh. PDE C.12-C.15 supply classical potential theory, not the several-variable current package. DKY's TB.6 route requests Laplacian/measure theory and DY.2 supplies escape rates/canonical measures. Request one shared general psh/current/Bedford-Taylor owner with the needed dimensional, singular-space and continuity interfaces, then import it into all consumers. Bedford-Taylor products and uniform-potential continuity themselves are general mathematics, not automatically private bifurcation additions. Describe these as requested/planned supplies, not already implemented APIs, and leave upstream PDE unchanged."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed that 'the marked critical point lies in the basin at such parabolic parameters' is too broad: a parabolic basin contains some critical point, not necessarily the selected c. Published p.13 and item 28 need a c-specific existence/density statement in the local one-dimensional slice used by Proposition 3.2. MSS density alone does not identify that critical point. Correct the universal statement and retain the exact selected-c lemma as a named input/gap until an appropriate proof is supplied. I do not certify the red team's Montel-periodic-to-parabolic recipe: Dujardin's introduction and GOV's proof use prerepelling approximation, and that by itself does not establish this stronger basin conclusion. Any replacement proof must show the same c remains in the basin and that the cycle is nonpersistent."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed unclosed repair input. Dujardin's public theorem (pp.1-2) treats one holomorphic rational-map family over a complex manifold; Ga2 Theorem 2.6 (p.13) treats one P^k family, not a product of independently varying P1 maps. Neither cited statement supplies E7's proposed product-density theorem. Name the required product theorem as an open candidate with complete hypotheses, or remove the prescribed density recipe and leave another construction to be proved. An optional repair conjecture is not required to become a proved extraction item. Do not claim no such theorem exists anywhere in the literature, or that merely adding a missing-status item repairs Proposition 3.1."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed brief precision failure under section 16. Replace bare import ids with title plus exact id/stage, and state the final theorems with degree, field, irreducibility, dimension, constants and threshold quantifiers from published pp.1-4. In particular preserve the Theorem 1.5 target and the gaps from /2 and /9 instead of converting a gap-qualified target into a proven acceptance test. Update all three affected briefs and their consumer names consistently with the coordinated owner/design choices."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed locator error by directly viewing McMullen's author PDF printed pp.472-473. The rigidity statement is Theorem 2.2, not Lemma 2.2; Corollary 2.3 is the nonaffine multiplier-spectrum consequence. Correct item 25 and the prerequisite and register a distinct sourceIssue, preserving the theorem's stable algebraic-family hypotheses. The existing E1-E9 list already uses several ids suggested elsewhere: allocate fresh unique ids and perform fresh correction/erratum searches, not a copied 'searched' history."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed underspecified ample Chow height and constant dependence. Published p.2 fixes an embedding and height choice; section 2.5 defines the Chow parameter spaces but not a normalized height construction. Item 12's unspecified 'a height' is inadequate for YZ's base-height application. Specify a Weil height associated to an ample bundle on the chosen projective Chow model, its restriction/pullback and O(1) comparison convention, and restore choice-dependence in items 17/19. The p.2 pointer to section 2.5 may refer to the Chow-variety definition rather than promise a missing height definition; do not turn that ambiguous pointer into a definite source erratum or assert an unchecked Philippon normalization identity."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing positive constants and ample-height hypothesis. Ingram v3 Theorem 1 (pp.1-2) assumes an ample Weil height and positive comparison constants outside all Lattes maps. State that theorem accurately. DMY's off-flexible version additionally requires control of rigid Lattes maps in fixed degree (e.g. classification/finite or bounded-height locus, then absorption into constants); it is not the literal Ingram statement. Record that extra input if retaining DMY's stronger formulation. A positive lower comparison is essential; vacuous zero coefficients do not express moduli-height comparability."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed stale missing statuses: the partial ArithmeticDynamics packet plans critical height, zero iff PCF and moduli comparison at DY.6 and the moduli-PCF application at DY.4. Mark items 8/9 as planned to those exact nodes with the packet's unresolved hypotheses/input gaps. Item 10 must be updated together with /1's coordinated downstream move, not permanently marked both planned DY.4 and newly built Part II. Section 16 permits planned source items; keep their citations and do not imply acceptance or closure from the packet's existence."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/20",
+      "verdict": "rejected",
+      "reason": "Rejected. Published Remark 1.7 explicitly avoids assuming the conjectural classification; Questions 1.9-1.10 are contextual questions, not used or proved inputs of the main chain. Protocol section 16 does not require extraction of every unused conjecture/question. Route 5's 'no classification is assumed' is a valid boundary even without a classification item. Moreover 'cut out by critical orbit relations up to symmetries' is not a precise higher-dimensional formal statement: the existing DY.6 node deliberately does not assert that vague formulation. Optional statement-only background with a precise source formulation is allowed, but this is not a required fix."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed bundled applications and lost quantifiers. Split Example 1.3, the quadratic multiplier-line application, and the cubic fixed-n application. Define MPoly, the critical exact-period locus and the multiplier locus; keep n fixed, lambda nonzero and N_n dependence for the cubic case. Checked BD Theorem 1.1 (p.2), FG2 Theorem B (p.3) and its section 5/Theorem 5.1 (p.21). At lambda=1 the algebraic multiplier locus includes lower-period root-of-unity phenomena; do not define the whole closed Per_n(lambda) simply as an exact-n-cycle locus for every lambda. Import the PCF-specialness component result from /7 before the degree-growth inference."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed stale report/summary against current item 7. Fresh pinned Mathlib NumberTheory/Height/NumberField.lean:137-147 defines absMulHeight₁ via Q(x) and absLogHeight₁ in characteristic zero, including algebraic elements in Qbar. Current items count 1 library, 1 planned, 33 missing; the report still says 2 planned and cites the superseded Projectivization convention. Update the report's citations and correction history, explicitly retaining h(infinity)=0 as the P1 extension, and recompute final counts after all splits/status fixes. Also describe critical height/Ingram as planned with gaps, not absent or built. PR5125's correction was by a different session; this verifies the stale prose without reviewing my own height work."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing theorem domain and rigid-repeller hypotheses. Dujardin's public statement applies over any complex parameter manifold, so item 26 must cover the smooth U/Y1 slices, not just M_d^cm. DM1 v2 section 4.3/Proposition 4.8 p.19 requires the flat closed Y of the stated codimension, eventual repelling point, canonical-measure support and isolated intersection with the continued section. Record all these, including iterate and fiber dimension, separately from proper/transverse prerepelling terminology. This is the exact condition missing from the diagonal argument in /2."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed insufficient rescaling interface and normalization. Ga2 v3 pp.15-19, Proposition 3.2 and Lemma 3.3, give uniform convergence of individual rescaled potentials, needed before Bedford-Taylor continuity can pass to a wedge containing the disappearing parabolic factor. Use q=lcm(periods), the derivative of f^q, landing times n_j, and product normalization prod_j d^(n_j+nq) in the P1 case; explain any iterate/degree replacement. Record the escape-rate function of a normalized homogeneous lift as the local critical-current potential (published p.18), with harmonic ambiguity. State measure convergence weakly, while individual potentials converge uniformly. These are additional proof interfaces, not a claim that the entire cited proof must be re-extracted recursively."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted bounded-fiber-geometry interface in section 5 p.19, but reject the suggested 'missing' ownership label. R09.1's retained boundedness/Hilbert-polynomial scope and R09.2's Hilbert machinery already plan the generic algebraic input. Add a planned/derived input for a fixed projective closure/embedding over an irreducible finite-type base: after generic flatness, bound fiber degree and number of irreducible components on a dense open, then use Noetherian induction on remaining strata. Quasi-projective families need their projective closures; components/base strata and field hypotheses must be explicit. Consume this input in the GGK counting step without claiming the current Chow-variety item itself supplied it or re-planning all elementary Noetherian induction as a private new theory."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed that the unregistered source/citation slips need disposition, with qualifications to the composite fix. Checked published pp.14,17-19 and YZ v6 Lemma 5.4.4 pp.180-181: (a) the mass formula label is 5.4.4, not 5.4; (b) with Euclidean gradient norm, a radius-delta polydisc requires the sqrt(r) factor (or change to a compatible ball/norm convention); (c) (4.11) is weak measure convergence, not uniform measure convergence; (d) the N-bound reference is to 1.1/1.5, not 1.2. For (e), p.17 already says replace f by an iterate: first make a common-period iterate and its new degree explicit, or use Ga2's q-normalization, rather than registering an unconditional new error. Allocate distinct sourceIssue ids with actual fresh search/version evidence. New searches on 2 October found the primary Cambridge article and arXiv record, not a correction notice; I did not repeat the old Crossref check or collate all historical versions."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-MAVRAKI-YE-26/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed inconsistent propagation of E8. Item 22 already uses nu=c1(L)^(ell(r+1)) dominating alpha*mu_ell, while item 30 still states the equidistribution/slicing conclusion for mu_ell. Propagate nu through (4.7)-(4.8), the pushforward support and all consumers; domination gives the support inclusion. Preserve the local flat/smooth family, compactly supported tests, weak continuity and slicing hypotheses, not a blanket identity for arbitrary positive measures. Add item 27's r>=1, irreducible base/generic fiber and witness in supp(mu_ell), transverse over X_V^ell. This records the needed witness contract; /2 still leaves its construction unproved."
+    }
+  ]
+}
