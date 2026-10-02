@@ -52,6 +52,8 @@ import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.RingTheory.Ideal.Operations
 
 import Mathlib.Data.ZMod.Basic
+import Mathlib.LinearAlgebra.TensorProduct.Basis
+import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
 import Mathlib.LinearAlgebra.TensorPower.Pairing
 import Mathlib.LinearAlgebra.PiTensorProduct.Basis
 
@@ -1356,4 +1358,64 @@ example :
       affineOrderedIterate ψ 1 = 0 ∧ affineOrderedIterate θ 1 ≠ 0 := sorry
 
 end
+
+section ScalarExtension
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
+variable (S : Type*) [CommRing S] [Algebra R S]
+
+noncomputable def affineBaseChange (θ : E →ₗ[R] E ⊗[R] Q) :
+    S ⊗[R] E →ₗ[S] (S ⊗[R] E) ⊗[S] (S ⊗[R] Q) := sorry
+
+theorem affineBaseChange_tmul (θ : E →ₗ[R] E ⊗[R] Q) (a : S) (e : E) :
+    affineBaseChange S θ (a ⊗ₜ[R] e) =
+      TensorProduct.AlgebraTensorModule.distribBaseChange R S E Q (a ⊗ₜ[R] θ e) := sorry
+
+theorem affineBaseChange_zero :
+    affineBaseChange S (0 : E →ₗ[R] E ⊗[R] Q) = 0 := sorry
+
+theorem affineBaseChange_contraction {I : Type*}
+    (b : Module.Basis I R Q) (θ : E →ₗ[R] E ⊗[R] Q) (i : I) :
+    affineContractions (affineBaseChange S θ) ((b.baseChange S).coord i) =
+      (affineContractions θ (b.coord i)).baseChange S := sorry
+
+theorem affineBaseChange_word {I : Type*}
+    (b : Module.Basis I R Q) (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) (p : Fin n → I) :
+    (List.ofFn (fun i => affineContractions (affineBaseChange S θ)
+      ((b.baseChange S).coord (p i)))).prod =
+    ((List.ofFn (fun i => affineContractions θ (b.coord (p i)))).prod).baseChange S := sorry
+
+theorem affineOrderedIterate_baseChange_zero {I : Type*} [Fintype I]
+    (b : Module.Basis I R Q) (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ)
+    (h : affineOrderedIterate θ n = 0) :
+    affineOrderedIterate (affineBaseChange S θ) n = 0 := sorry
+
+theorem affineOrderedIterate_baseChange_zero_iff [Module.FaithfullyFlat R S]
+    {I : Type*} [Fintype I] (b : Module.Basis I R Q)
+    (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    affineOrderedIterate (affineBaseChange S θ) n = 0 ↔ affineOrderedIterate θ n = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_zero
+example (n : ℕ) :
+    affineOrderedIterate (affineBaseChange S (0 : E →ₗ[R] E ⊗[R] Q)) (n+1) = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_line
+example (a : S) (e : R) :
+    affineBaseChange S ((TensorProduct.rid R R).symm.toLinearMap) (a ⊗ₜ[R] e) =
+      (a ⊗ₜ[R] e) ⊗ₜ[S] ((1 : S) ⊗ₜ[R] (1 : R)) := sorry
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_unit_all_orders
+example [Nontrivial S] (n : ℕ) :
+    affineOrderedIterate
+      (affineBaseChange S ((TensorProduct.rid R R).symm.toLinearMap)) n ≠ 0 := sorry
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_nonfaithful
+example :
+    let θ : ℤ →ₗ[ℤ] ℤ ⊗[ℤ] ℤ :=
+      (2 : ℤ) • (TensorProduct.rid ℤ ℤ).symm.toLinearMap
+    θ ≠ 0 ∧ affineBaseChange (ZMod 2) θ = 0 := sorry
+
+end ScalarExtension
+
+
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle

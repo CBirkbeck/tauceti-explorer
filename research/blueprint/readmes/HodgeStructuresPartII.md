@@ -2840,7 +2840,7 @@ Baseline: mathlib:TensorPower.multilinearMapToDual — For any commutative semir
 Actual atlas assembly and the scoped prerequisite DAG pass without unresolved inputs or cycles. There are88 nodes,122 API items,114 total tests (112 required construction/definition tests),105 baseline entries and six unchanged planets. The reserved key, parent Hodge L0–L3, common variation D3, ordinary connection CR.1, generic sheaf tensor/dual/descent E1 and filtration/Rees DD.1 ownership remain unchanged. Global tensor-power comparison, change-of-chart/restriction and local equality detection/gluing are still required; the augmentation-power and rank/period adapters are separate obligations. H.0 remains partial, H.1–H.8 not_read, with11 gaps and5 requests.
 
 
-## Native naturality and exact bound transport
+## Predecessor checkpoint: native naturality and exact bound transport
 
 This continuation uses the existing E-left convention: a field has codomain E tensor Q, and its next application prepends the new Q coefficient before the previous coefficient word. The preceding mathematical handoff used a Q-left presentation. Those presentations require the actual tensor flip; they are not literally the same carrier. The native affine formulas below preserve all88 predecessor statements.
 
@@ -2952,10 +2952,112 @@ The characteristic-two test is an actual native tensor calculation, not a symmet
 
 These results settle native affine change of module/coefficient charts and same-ring isomorphism transport. An R-linear map u:Q→P is not the cross-ring functor S tensor_R−. Arbitrary scalar extension therefore still needs the actual scalar-tower and tensor-associativity comparison. Its fixed-exponent preservation uses no flatness, whereas reflection needs faithful zero detection. The inherited flat but nonfaithful projection example remains a valid warning against dropping faithfulness. Fixed-bound locality needs sheaf morphism equality detection; varying local bounds require a separate finite subcover/maximum argument. Field/reduced-ring rank bounds, image-algebra base change, period/Tate equivariance and global determinant comparison stay open. No tensor of global sections is substituted for a sheaf tensor. All5 supplier requests,11 gaps,149 source-route obligations and35 omitted global signatures remain. H.0 stays partial and H.1–H.8 not_read.
 
-### Current native proof and exact sketch evidence
+### Predecessor native proof and exact sketch evidence
 
 The [immutable native proof archive](https://github.com/CBirkbeck/tauceti-explorer/blob/ab19cc58e36f8fe16ff95e0258bb5dd308e2fb5f/research/blueprint/suggested/HodgeStructuresPartII.lean), delimited by ARCHIVED CHECKED HIGGS NATURALITY, contains the complete real native carriers and allseven new proofs/seven examples. Verbatim public extraction is byte-identical to the source checked against Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 with Lean4.34.0-rc2. Source SHA-256:98d24ca7657199269c93f26eaae69b83dfedcd777ea8b0f0a669e5bb437bacc8. The check has zero errors,warnings or admissions; allseven kernel axiom audits contain only propext,Classical.choice andQuot.sound. Runtime2.20seconds,maxRSS2154116KiB,65GiB available beforehand. Twelve native declaration headers match the canonical planning file, including the inherited step,iterate,square and unit/successor types.
 
 The entire submitted Mathlib-only planning file has80 examples and elaborates with zero errors,198 admitted-declaration warnings and no other warnings. Exact source SHA-256:87dd584cbe55a71d10bf049f6839f87a83e04c1d73b81b334a685b079b4cfb2b; compiler-log SHA-256:a0bff331fa557021ea49a37df2737387a4bf6417dbeeb2a76f629e7640e01a5e. Runtime4.70seconds,maxRSS2933908KiB,65GiB available. These are admitted signatures under protocol13. The separate actual proof does not turn any implementationStatus into implemented or discharge global omitted signatures. One bounded Lean process ran at a time; no project,cache,library build or language server was started.
 
 The indexed packet and actual read-only atlas assembly pass. The stage/planet graph is3022vertices/8663edges; the own declaration prerequisite graph95/179; the stage/planet plus reachable prerequisite graph3112/8880,with96 reachable declarations and51 existing virtual supplier endpoints. Allare acyclic; zero unresolved references,no own skipped/pending links and unchanged stage edges. There are95 nodes,129 APIs,121 total tests,110 baseline references,six planets,five requests andeleven gaps. All88 inherited mathematical statements,86 complete node objects,122 inherited APIs,114 inherited tests,149 paper-item obligations andstage requires are retained. Only step/iterate constructions gain new promoted APIs/uses and the iterate gains seven tests.
+
+
+## Scalar extension of ordered Higgs iterates
+
+This partial continuation compares different coefficient rings using the existing native scalar-extension functor. Let R→S be any map of commutative rings, and let E and Q be R-modules. Write E_S=S⊗_R E and Q_S=S⊗_R Q. Extend the actual field θ:E→E⊗_R Q and compose with Mathlib’s existing S-linear distribution equivalence to obtain θ_S:E_S→E_S⊗_S Q_S. This construction needs neither integrability nor a basis, and it does not define another generic tensor functor. It sends a⊗θ(e) to the distribution image; a term a⊗(x⊗q) becomes (a⊗x)⊗(1⊗q).
+
+Suppose b:I→Q is a basis. Its existing native extension b_S is an S-basis of Q_S with the same index type; this requires no flatness. Contract θ_S by the i-th coordinate of b_S. On a⊗e, expand θ(e) into elementary tensors. The coordinate of 1⊗q is the scalar image of b.coord(i)(q); tensor balancing moves this scalar back to the E factor. Consequently the contraction is exactly the S-extension of the original coordinate contraction. This comparison allows an infinite basis index type: each coordinate and each individual ordered word is finite data.
+
+Apply the actual endomorphism scalar-extension algebra homomorphism to a list of contractions. It preserves the list product in the original order, even when the endomorphisms do not commute. The newest coefficient remains on the left, and the rightmost operator acts first. At degree zero, the empty product extends to the identity of E_S. No symmetric or exterior quotient, factorial denominator, field or characteristic assumption is used.
+
+A finite basis of Q is required for the all-order vanishing criterion already planned here. E can still be any module. Apply that criterion before and after extension: every original ordered product vanishes when I_n(θ)=0, so its scalar extension vanishes, and reconstruction in the extended tensor-power basis gives I_n(θ_S)=0. The integer n is identical on both sides, including n=0. Scalar extension preserving a zero map requires no flatness; this calculation makes no assertion that kernels or image algebras commute with nonflat extension.
+
+For reflection, assume S is faithfully flat over R. If I_n(θ_S)=0, each extended ordered product is zero. Evaluate it at 1⊗e. The native faithful-flat zero-detection lemma implies the original product kills e. Since e is arbitrary, the original word is zero; the original finite-basis criterion gives I_n(θ)=0. This is an application of [Stacks Lemma10.39.14](https://stacks.math.columbia.edu/tag/00H9), imported through pinned Mathlib, to the authored Higgs-word comparison. It is not a source theorem about the p-adic Simpson correspondence.
+
+The construction and four consumed lemmas below keep all these hypotheses explicit. Their implementation status remains unchecked; the separate checked native proof provides evidence for the plan, while the suggested file retains admitted signatures under protocol13.
+
+### Scalar extension of an affine twisted field
+
+**Node:** HodgeStructuresPartII:H.0/affine-base-change. **Proposed declaration:** TwistedHiggsBundle.affineBaseChange. **Kind:** construction; implementation unchecked.
+
+For θ:E→E⊗_R Q, construct the S-linear field θ_S:E_S→E_S⊗_S Q_S by the existing linear-map scalar extension followed by the existing tensor-distribution equivalence. On an elementary term a⊗(x⊗q), the latter gives (a⊗x)⊗(1⊗q). No coefficient differential map or integrability claim is included.
+
+**Hypotheses:** R and S are arbitrary commutative rings and S is an R-algebra. E and Q are R-modules. Tensor products, scalar extensions, bases and endomorphism composition use the existing native Mathlib carriers. No integrability, reducedness, field, flatness or finiteness premise is imposed unless separately stated. Write E_S=S⊗_R E and Q_S=S⊗_R Q. A chosen basis b indexed by I is needed only for coordinate contraction/word comparisons; a finite index type I is required only for the all-order vanishing criterion. E remains an arbitrary module. A successor prepends its coefficient on the left, and the rightmost endomorphism acts first. At n=0 the ordered product is the identity.
+
+**Inputs:** mathlib:LinearMap.baseChange; mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange.
+
+**Proof route:** Compose the native scalar extension of θ with the native S-linear tensor equivalence; introduce no new generic tensor or scalar-extension carrier. Pure tensor evaluation is the defining baseChange formula followed by distribBaseChange_tmul. The zero field extends to zero.
+
+| API | Role | Contract |
+|---|---|---|
+| TwistedHiggsBundle.affineBaseChange_tmul | projection | θ_S(a⊗e) is the native tensor-distribution image of a⊗θ(e). |
+| TwistedHiggsBundle.affineBaseChange_zero | simp | The zero field extends to the zero field for every R-algebra S. |
+| TwistedHiggsBundle.affineBaseChange_contraction | compatibility | For any basis b of Q and i∈I, contraction of θ_S by the extended coordinate equals scalar extension of the i-th contraction of θ. |
+| TwistedHiggsBundle.affineBaseChange_word | compatibility | Every ordered word of extended coordinate contractions is scalar extension of the corresponding original word, including the empty word. |
+
+| Test | Kind | Contract |
+|---|---|---|
+| TwistedHiggsBundle.affineBaseChange.test_zero | degenerate | The extended zero field has zero iterate at every positive degree for arbitrary modules E,Q and every R-algebra S. |
+| TwistedHiggsBundle.affineBaseChange.test_line | computation | For E=Q=R and θ(e)=e⊗1, θ_S(a⊗e)=(a⊗e)⊗(1⊗1). This detects the placement of the coefficient unit. |
+| TwistedHiggsBundle.affineBaseChange.test_unit_all_orders | boundary | For every nontrivial R-algebra S, the scalar-extended unit field on E=Q=R has nonzero iterate at every n≥0. The empty product and positive degrees must all survive. |
+| TwistedHiggsBundle.affineBaseChange.test_nonfaithful | non-example | Over R=Z with E=Q=Z, θ(e)=2e⊗1 is nonzero; its scalar extension to S=Z/2 is zero. Arbitrary scalar extension cannot reflect vanishing. This example does not assert that Z→Z/2 is flat. |
+
+### Scalar extension of coordinate contractions
+
+**Node:** HodgeStructuresPartII:H.0/affine-base-change-contraction. **Proposed declaration:** TwistedHiggsBundle.affineBaseChange_contraction. **Kind:** lemma; implementation unchecked.
+
+For any basis b:I→Q, θ:E→E⊗_R Q and i∈I, a_(θ_S)((b_S).coord i)=(a_θ(b.coord i))_S as actual S-linear endomorphisms of E_S. I need not be finite.
+
+**Hypotheses:** R and S are arbitrary commutative rings and S is an R-algebra. E and Q are R-modules. Tensor products, scalar extensions, bases and endomorphism composition use the existing native Mathlib carriers. No integrability, reducedness, field, flatness or finiteness premise is imposed unless separately stated. Write E_S=S⊗_R E and Q_S=S⊗_R Q. A chosen basis b indexed by I is needed only for coordinate contraction/word comparisons; a finite index type I is required only for the all-order vanishing criterion. E remains an arbitrary module. A successor prepends its coefficient on the left, and the rightmost endomorphism acts first. At n=0 the ordered product is the identity. A specified native R-basis b:I→Q is given, with arbitrary index type I.
+
+**Inputs:** HodgeStructuresPartII:H.0/affine-base-change; HodgeStructuresPartII:H.0/affine-contractions; mathlib:Module.Basis.baseChange; mathlib:Module.Basis.baseChange_repr_tmul; mathlib:TensorProduct.AlgebraTensorModule.ext; mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange_tmul.
+
+**Proof route:** Check equality on a⊗e, then induct on θ(e) in the native E⊗_R Q. For x⊗q, the extended coordinate of 1⊗q is the scalar image of b.coord(i)(q). The right tensor unit makes it act on a⊗x. The tensor balancing relation identifies this with a⊗a_θ(b.coord i)(e). Zero and sums follow by linearity. No evaluation of global sections or finite-basis reconstruction is used.
+
+### Scalar extension of ordered contraction products
+
+**Node:** HodgeStructuresPartII:H.0/affine-base-change-word. **Proposed declaration:** TwistedHiggsBundle.affineBaseChange_word. **Kind:** lemma; implementation unchecked.
+
+For any basis b:I→Q, n≥0 and p:Fin(n)→I, the ordered product of the extended coordinate contractions equals scalar extension of the original ordered product. At n=0 both sides are id_(E_S).
+
+**Hypotheses:** R and S are arbitrary commutative rings and S is an R-algebra. E and Q are R-modules. Tensor products, scalar extensions, bases and endomorphism composition use the existing native Mathlib carriers. No integrability, reducedness, field, flatness or finiteness premise is imposed unless separately stated. Write E_S=S⊗_R E and Q_S=S⊗_R Q. A chosen basis b indexed by I is needed only for coordinate contraction/word comparisons; a finite index type I is required only for the all-order vanishing criterion. E remains an arbitrary module. A successor prepends its coefficient on the left, and the rightmost endomorphism acts first. At n=0 the ordered product is the identity. A specified native R-basis b:I→Q is given; its index type may be infinite because each individual word is finite.
+
+**Inputs:** HodgeStructuresPartII:H.0/affine-base-change-contraction; mathlib:Module.End.baseChangeHom; mathlib:map_list_prod.
+
+**Proof route:** Rewrite each factor by the coordinate-contraction lemma. Apply the existing endomorphism scalar-extension algebra homomorphism to the ordered list product. The generic monoid-homomorphism list-product law applies without commutativity. The homomorphism preserves the empty product as the actual identity endomorphism. No word reversal, divided factorial or characteristic assumption appears.
+
+### Preserve an ordered bound under scalar extension
+
+**Node:** HodgeStructuresPartII:H.0/affine-base-change-bound. **Proposed declaration:** TwistedHiggsBundle.affineOrderedIterate_baseChange_zero. **Kind:** lemma; implementation unchecked.
+
+For a finite basis b of Q and any n≥0, I_n(θ)=0 implies I_n(θ_S)=0 with exactly the same n, for every R-algebra S. E is arbitrary and S need not be flat.
+
+**Hypotheses:** R and S are arbitrary commutative rings and S is an R-algebra. E and Q are R-modules. Tensor products, scalar extensions, bases and endomorphism composition use the existing native Mathlib carriers. No integrability, reducedness, field, flatness or finiteness premise is imposed unless separately stated. Write E_S=S⊗_R E and Q_S=S⊗_R Q. A chosen basis b indexed by I is needed only for coordinate contraction/word comparisons; a finite index type I is required only for the all-order vanishing criterion. E remains an arbitrary module. A successor prepends its coefficient on the left, and the rightmost endomorphism acts first. At n=0 the ordered product is the identity. The basis index type I is finite; no finite-generation or freeness hypothesis is imposed on E.
+
+**Inputs:** HodgeStructuresPartII:H.0/affine-base-change-word; HodgeStructuresPartII:H.0/affine-ordered-iterate-vanishing; mathlib:Module.Basis.baseChange; mathlib:LinearMap.baseChange_zero.
+
+**Proof route:** Apply the actual all-order coordinate-vanishing criterion to b_S. Each extended word is scalar extension of the corresponding original word. Original iterate vanishing annihilates all such words; scalar extension preserves their zero values. The finite index type is used only for the native tensor-power basis and reconstruction in the criterion. The proof also covers n=0 and zero modules.
+
+### Reflect an ordered bound under faithful scalar extension
+
+**Node:** HodgeStructuresPartII:H.0/affine-base-change-bound-faithful. **Proposed declaration:** TwistedHiggsBundle.affineOrderedIterate_baseChange_zero_iff. **Kind:** lemma; implementation unchecked.
+
+For a finite basis b of Q and faithfully flat R-algebra S, I_n(θ_S)=0 if and only if I_n(θ)=0, at the identical n≥0. E is an arbitrary R-module.
+
+**Hypotheses:** R and S are arbitrary commutative rings and S is an R-algebra. E and Q are R-modules. Tensor products, scalar extensions, bases and endomorphism composition use the existing native Mathlib carriers. No integrability, reducedness, field, flatness or finiteness premise is imposed unless separately stated. Write E_S=S⊗_R E and Q_S=S⊗_R Q. A chosen basis b indexed by I is needed only for coordinate contraction/word comparisons; a finite index type I is required only for the all-order vanishing criterion. E remains an arbitrary module. A successor prepends its coefficient on the left, and the rightmost endomorphism acts first. At n=0 the ordered product is the identity. I is finite and S carries the native Module.FaithfullyFlat R S instance.
+
+**Inputs:** HodgeStructuresPartII:H.0/affine-base-change-bound; HodgeStructuresPartII:H.0/affine-base-change-word; HodgeStructuresPartII:H.0/affine-ordered-iterate-vanishing; mathlib:Module.FaithfullyFlat; mathlib:Module.FaithfullyFlat.one_tmul_eq_zero_iff.
+
+**Proof route:** Use the existing preservation lemma for the forward scalar-extension direction. For reflection, extended iterate vanishing makes every extended ordered word zero. The word comparison identifies it with scalar extension of the original word. Evaluate each extended endomorphism at 1⊗e. Native faithful zero detection gives that the original word kills e, for arbitrary e. Apply the original finite-basis coordinate criterion. Flatness alone is not used as a substitute for faithfulness; the characteristic-two field-collapse test and the retained historical flat-nonfaithful projection lead distinguish the assumptions.
+
+
+The unit-line test computes the coefficient-unit placement directly. Its all-order variant proves the scalar-extended unit field has nonzero iterate at every n when S is nontrivial, including the empty-word boundary. The concrete field θ(e)=2e⊗1 over Z is nonzero, yet becomes zero over Z/2. This rules out unconditional reflection. It does not assert flatness of Z→Z/2; the predecessor’s flat but nonfaithful projection example remains a historical lead with its original receipt.
+
+The global pullback-nilpotence theorem retains its original statement. Its proof now imports the affine scalar-extension bound, followed by the existing same-ring coefficient-map preservation for Q_S→Q_Y. E1 must still supply the actual sheaf tensor-power comparison, finite-projective charts, restriction and morphism equality detection. No global tensor of sections, pullback-integrability theorem or coefficient differential is silently supplied. General arbitrary-Q tensor-power comparison, sheaf gluing, field/reduced-ring rank bounds, kernel/image-algebra base-change hypotheses, determinant descent and period/Tate equivariance remain open. H.0 remains partial, H.1–H.8 not_read; allfive requests,eleven gaps,149 routed obligations and35 omitted global signatures remain.
+
+### Scalar-extension evidence
+
+The [immutable native proof archive](https://github.com/CBirkbeck/tauceti-explorer/blob/dc25c5c1974994ba2e382998b82d187f9b027bd9/research/blueprint/suggested/HodgeStructuresPartII.lean), delimited by BEGIN/END ARCHIVED CHECKED HIGGS SCALAR EXTENSION, contains the complete standalone native source:607 lines,18 examples and28 kernel axiom audits. Its source SHA-256 is f922ee36944f958ba59913bf9bef72223e69b22de885590cc37c35beefe8ebb6. Verbatim extraction was checked byte-for-byte. At the exact Mathlib pin with Lean4.34.0-rc2 it elaborates with zero errors,warnings or admissions; each audit contains only propext,Classical.choice andQuot.sound. Runtime3.80seconds,maxRSS2991956KiB,63GiB available. All28 native declaration headers and the four new example types are matched to the canonical sketch. The full final admitted-sketch receipt and actual assembler checks are in the current handoff and packet verification. Historical receipts earlier in this document apply only to their original hashes.
+
+The entire exact final Mathlib-only suggested file elaborates:84examples,zero errors,209admitted-declaration warnings andzero other warnings. Source SHA-256:ab7b037d990ebfd7e39d242e8819ab8aaaece15e07adf3c171c64893d18e3bc3; normalized diagnostics SHA-256:c0699f5d698b2734b1774f886f1f3da335303bf55ba8d276acfbde43c41237d0. Runtime5.00seconds,maxRSS2960448KiB,61GiB available beforehand. Normalize the source filename to suggested/HodgeStructuresPartII.lean and omit the final elapsed/maxRSS line when hashing the diagnostics. Allplanning bodies remain admitted.
+
+Indexed packet checker:zero errors/warnings. Actual atlas assembly:stage graph3022vertices/8663edges; own prerequisite graph100/189; stage plus reachable prerequisite graph3117/8890;101reachable declarations,51existing virtual supplier endpoints,zero unresolved references. Allacyclic; no own skipped/pending links; stage edges and other roadmaps skipped/pending links unchanged from the base control. No site output is written. Five-file intake,JSON validity,statement/hypothesis/API/test preservation,exact public archive extraction,all28 declaration headers,four new example types andwhitespace pass. Only the packet,reader,suggested file andhandoff change; roadmap definition stays byte-identical. Scratch is deleted after the PR opens; allreproduction inputs are durable in tracked files/history. No owned background process remains.
