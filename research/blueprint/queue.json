@@ -34397,8 +34397,9 @@
     "REV-PAPER-FINTZEN-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-FINTZEN-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4072"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4072",
+   "finishedAt": "2026-10-02T04:53:38Z"
   },
   {
    "id": "RT-PAPER-ZHANG-21",
@@ -40527,7 +40528,8 @@
     "REV-PAPER-LI-ZHANG-22-B"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LI-ZHANG-22-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4261"
   },
   {
    "id": "RT-PAPER-CLAUSEN-MATHEW-MORROW-21",
@@ -45461,8 +45463,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-01.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4387"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4387",
+   "finishedAt": "2026-10-02T04:53:41Z"
   },
   {
    "id": "REV-RT-RS-01",
