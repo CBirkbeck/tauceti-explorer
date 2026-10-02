@@ -49,6 +49,8 @@ import TauCeti.AlgebraicGeometry.Curves.StableReduction.Model.Basic
 import TauCeti.AlgebraicGeometry.EllipticCurve.PointCount
 
 import Mathlib.RingTheory.AdjoinRoot
+import Mathlib.Algebra.MvPolynomial.Equiv
+import Mathlib.Algebra.Polynomial.Degree.SmallDegree
 import Mathlib.Algebra.MvPolynomial.Eval
 import Mathlib.Algebra.Polynomial.RingDivision
 import Mathlib.Algebra.Algebra.Subalgebra.Basic
@@ -1452,7 +1454,140 @@ example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
     residue q hq hd ⟨Polynomial.X * q,hmem⟩ = 0 :=
   residue_normal_form q hq hd _ 0 Polynomial.X (by simp [mul_comm])
 
--- node: G.1/quadratic-pinch-presentation
+-- Full bivariate presentation continuation.
+-- node: G.1/quadratic-pinch-v-chart
+noncomputable def inV : MvPolynomial (Fin 2) k ≃ₐ[k] k[X][X] := by sorry
+
+-- node: G.1/quadratic-pinch-v-chart-u
+lemma inV_U : inV (k := k) (MvPolynomial.X 0) = Polynomial.C Polynomial.X := by sorry
+
+-- node: G.1/quadratic-pinch-v-chart-v
+lemma inV_V : inV (k := k) (MvPolynomial.X 1) = Polynomial.X := by sorry
+
+-- node: G.1/quadratic-pinch-v-chart-relation
+lemma inV_relation (a b : k) :
+    inV (relation a b) = Polynomial.X ^ 2 +
+      Polynomial.C (Polynomial.C a * Polynomial.X) * Polynomial.X +
+      Polynomial.C (Polynomial.C b * Polynomial.X ^ 2 - Polynomial.X ^ 3) := by sorry
+
+-- node: G.1/quadratic-pinch-substitution
+noncomputable def substitution (a b : k) : MvPolynomial (Fin 2) k →ₐ[k] k[X] := by sorry
+
+-- node: G.1/quadratic-pinch-substitution-relation
+lemma substitution_relation (a b : k) : substitution a b (relation a b) = 0 := by sorry
+
+-- node: G.1/quadratic-pinch-substitution-chart
+lemma substitution_inV (a b : k) (f : MvPolynomial (Fin 2) k) :
+    let q := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    substitution a b f =
+      Polynomial.eval₂ (Polynomial.aeval q).toRingHom (Polynomial.X * q) (inV f) := by sorry
+
+-- node: G.1/quadratic-pinch-v-relation-monic
+lemma inV_relation_monic (a b : k) : (inV (relation a b)).Monic := by sorry
+
+-- node: G.1/quadratic-pinch-v-relation-degree
+lemma inV_relation_natDegree (a b : k) : (inV (relation a b)).natDegree = 2 := by sorry
+
+-- node: G.1/quadratic-pinch-v-remainder
+lemma inV_remainder_normal_form (a b : k) (F : k[X][X]) :
+    ∃ P Q : k[X], F %ₘ (inV (relation a b)) =
+      Polynomial.C P + Polynomial.X * Polynomial.C Q := by sorry
+
+-- node: G.1/quadratic-pinch-kernel-divisibility
+lemma substitution_eq_zero_iff_dvd (a b : k) (f : MvPolynomial (Fin 2) k) :
+    substitution a b f = 0 ↔ relation a b ∣ f := by sorry
+
+-- node: G.1/quadratic-pinch-substitution-range
+lemma substitution_range (a b : k) :
+    (substitution a b).range =
+      algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b) := by sorry
+
+-- node: G.1/quadratic-pinch-substitution-kernel
+lemma substitution_ker (a b : k) :
+    RingHom.ker (substitution a b) = Ideal.span ({relation a b} : Set (MvPolynomial (Fin 2) k)) := by sorry
+
+-- node: G.1/quadratic-pinch-substitution-to-algebra
+noncomputable def substitutionToAlgebra (a b : k) :
+    MvPolynomial (Fin 2) k →ₐ[k]
+      algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b) := by sorry
+
+-- node: G.1/quadratic-pinch-substitution-coercion
+lemma substitutionToAlgebra_coe (a b : k) (f : MvPolynomial (Fin 2) k) :
+    (substitutionToAlgebra a b f : k[X]) = substitution a b f := by sorry
+
+-- node: G.1/quadratic-pinch-substitution-surjective
+lemma substitutionToAlgebra_surjective (a b : k) :
+    Function.Surjective (substitutionToAlgebra a b) := by sorry
+
+-- node: G.1/quadratic-pinch-restricted-kernel
+lemma substitutionToAlgebra_ker (a b : k) :
+    RingHom.ker (substitutionToAlgebra a b) =
+      Ideal.span ({relation a b} : Set (MvPolynomial (Fin 2) k)) := by sorry
+
+-- node: G.1/quadratic-pinch-quotient-equivalence
+noncomputable def presentationEquiv (a b : k) :
+    (MvPolynomial (Fin 2) k ⧸ Ideal.span ({relation a b} : Set (MvPolynomial (Fin 2) k))) ≃ₐ[k]
+      algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b) := by sorry
+
+lemma presentationEquiv_mk (a b : k) (f : MvPolynomial (Fin 2) k) :
+    (presentationEquiv a b (Ideal.Quotient.mk _ f) : k[X]) = substitution a b f := by sorry
+
+lemma presentationEquiv_symm_substitution (a b : k) (f : MvPolynomial (Fin 2) k) :
+    (presentationEquiv a b).symm (substitutionToAlgebra a b f) = Ideal.Quotient.mk _ f := by sorry
+
+lemma presentationEquiv_generators (a b : k) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    (presentationEquiv a b (Ideal.Quotient.mk _ (MvPolynomial.X 0)) : k[X]) = q ∧
+      (presentationEquiv a b (Ideal.Quotient.mk _ (MvPolynomial.X 1)) : k[X]) = Polynomial.X * q := by sorry
+
+-- test: QuadraticPinch.inV.test_cusp
+example : inV (relation (0 : k) 0) = Polynomial.X ^ 2 - Polynomial.C (Polynomial.X ^ 3) := by sorry
+
+-- test: QuadraticPinch.inV.test_char2_cross_term
+example : ((inV (relation (1 : ZMod 2) 1)).coeff 1).coeff 1 = 1 := by sorry
+
+-- test: QuadraticPinch.inV.test_orientation
+example : inV (k := k) (MvPolynomial.X 0) ≠ inV (MvPolynomial.X 1) := by sorry
+
+-- test: QuadraticPinch.substitution.test_zero
+example (a b : k) : substitution a b 0 = 0 := by sorry
+
+-- test: QuadraticPinch.substitution.test_char2_generators
+example :
+    substitution (1 : ZMod 2) 1 (MvPolynomial.X 0) = Polynomial.X ^ 2 + Polynomial.X + 1 ∧
+    substitution (1 : ZMod 2) 1 (MvPolynomial.X 1) =
+      Polynomial.X * (Polynomial.X ^ 2 + Polynomial.X + 1) := by sorry
+
+-- test: QuadraticPinch.substitution.test_cubic_essential
+example : substitution (0 : k) 0 (MvPolynomial.X 1 ^ 2) ≠ 0 := by sorry
+
+-- test: QuadraticPinch.substitutionToAlgebra.test_zero
+example (a b : k) : substitutionToAlgebra a b 0 = 0 := by sorry
+
+-- test: QuadraticPinch.substitutionToAlgebra.test_inseparable_cubic
+example : (substitutionToAlgebra (0 : ZMod 2) 0 (MvPolynomial.X 1) : (ZMod 2)[X]) =
+    Polynomial.X ^ 3 := by sorry
+
+-- test: QuadraticPinch.substitutionToAlgebra.test_scalar
+example (a b c : k) : (substitutionToAlgebra a b (MvPolynomial.C c) : k[X]) = Polynomial.C c := by sorry
+
+-- test: QuadraticPinch.presentationEquiv.test_zero
+example (a b : k) : presentationEquiv a b 0 = 0 := by sorry
+
+-- test: QuadraticPinch.presentationEquiv.test_cusp_product
+example :
+    (presentationEquiv (0 : k) 0 (Ideal.Quotient.mk _ (MvPolynomial.X 1) ^ 2) : k[X]) =
+      Polynomial.X ^ 6 := by sorry
+
+-- test: QuadraticPinch.presentationEquiv.test_nonzero_unit_coordinate
+example : (Ideal.Quotient.mk
+    (Ideal.span ({relation (0 : k) 0} : Set (MvPolynomial (Fin 2) k))) (MvPolynomial.X 0)) ≠ 0 := by sorry
+
+-- test: QuadraticPinch.presentationEquiv.test_char2_inseparable
+example :
+    (presentationEquiv (0 : ZMod 2) 0).symm
+      (substitutionToAlgebra 0 0 (MvPolynomial.X 1 ^ 2)) =
+      Ideal.Quotient.mk _ (MvPolynomial.X 0 ^ 3) := by sorry-- node: G.1/quadratic-pinch-presentation
 /-- Canonical map, its image and its entire kernel, including inseparable quadratics. -/
 lemma presentation (a b : k) :
     let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
