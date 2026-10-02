@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open.",
+  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1249,6 +1249,111 @@
         "module": "TauCeti/Algebra/DirectSum/Internal.lean",
         "provides": "theorem DirectSum.map_decompose_shift {R ι κ M N : Type*} [Semiring R]",
         "checked": "Actual declaration, ambient hypotheses and complete construction read at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-02 by Codex — codex-5ebb6f; line 189, source SHA-256 4bf35c373c44769a78dd8f9069a46ccfee2ec48d9bc69f6e08ba0af77cb81157. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.order",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "The minimum total degree with nonzero coefficient in ENat; order zero is infinity.",
+        "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff_of_lt_order",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "For any semiring coefficients, degree(α)<order(f) implies coeff_α(f)=0.",
+        "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.nat_le_order",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "For any semiring coefficients, vanishing of all coefficients with degree below n implies n≤order(f).",
+        "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.le_order_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "For semiring coefficients, order(f)+order(g)≤order(fg), including zero factors.",
+        "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.order_eq_top_iff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "For semiring coefficients, order(f)=∞ if and only if f=0.",
+        "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.order_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/NoZeroDivisors.lean",
+        "provides": "For a semiring k with NoZeroDivisors, native order(fg)=order(f)+order(g). The complete proof via weighted homogeneous components is already built; no finiteness of variables or field hypothesis is required.",
+        "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
+      },
+      {
+        "ref": "mathlib:LinearMap.mulLeft",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "Under Semiring R, NonUnitalNonAssocSemiring A, Module R A and SMulCommClass R A A, multiplication by a∈A is the native R-linear map A→A.",
+        "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
+      },
+      {
+        "ref": "mathlib:LinearMap.mulLeft_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "The value of LinearMap.mulLeft R a on b is a*b, definitionally.",
+        "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
+      },
+      {
+        "ref": "mathlib:Submodule.mapQ",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "A native semilinear quotient map for f and submodules p,q, given p≤Submodule.comap f q. The source and target are the actual module quotients.",
+        "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
+      },
+      {
+        "ref": "mathlib:Submodule.mapQ_apply",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "The native descended map on the class of x is the class of f(x), definitionally.",
+        "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
+      },
+      {
+        "ref": "mathlib:Submodule.factor",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "For native submodules p≤p', mapQ of LinearMap.id is the canonical R-linear factor map M/p→M/p'.",
+        "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
+      },
+      {
+        "ref": "mathlib:Submodule.factor_mk",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "The factor map sends the native quotient class of x to the native quotient class of the same x.",
+        "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
+      },
+      {
+        "ref": "mathlib:Submodule.range_mapQ",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "With the scalar ring homomorphism surjective, the range of the native descended semilinear map is the image of the original map range under q.mkQ.",
+        "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.X_pow_eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "For semiring coefficients, X_s^n=monomial(single s n) 1.",
+        "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.order_monomial_of_ne_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "For semiring coefficients and a≠0, order(monomial α a)=degree(α), as an ENat.",
+        "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
       }
     ]
   },
@@ -1788,6 +1893,38 @@
         "Mathlib GradedAlgebra/Basic lines 1–243; Module/GradedModule through end; DirectSum/Decomposition lines 36–140 and 243–285; DirectSum/Module lines 245–260 and 570–613; Submodule/Equiv lines 140–191; GradedMulAction lines 107–128; LinearAlgebra/DFinsupp lines 69–109; Tau Ceti DirectSum/Internal lines 178–214 and GradedModule/Internal lines 1–119."
       ],
       "checked": "Native structures, actual term types and full constructions were read, not inferred from declaration names. Tau Ceti internal grading uses integer indices; no competing wrapper is introduced for the natural-indexed adic application."
+    },
+    {
+      "id": "DDPA-JET-HANDOFF",
+      "title": "Plane-curve jet, tangent-cone and multiplicity source-proof checkpoint",
+      "authors": "ChatGPT — gpt6astra-20261002-7d2f90",
+      "edition": "Immutable merged #5810 handoff, as present at eb645dc85df65608c56fafc4d9ed0e71ab0ca3ce",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/eb645dc85df65608c56fafc4d9ed0e71ab0ca3ce/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md",
+      "sha256": "d6bb818403e28967bc241c039a37fc503492d926159c6fcf89c8317ac7119f3c",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Entire merged handoff read, including §§1–12 and the durable 179-line standard-library regression program. Only §§3–4 and J01/J04–J06 are canonically integrated here; finite-variable and general coefficient hypotheses are justified by the explicit extension proofs.",
+        "The preserved predecessor computation is freshly reproduced with its exact published script/output hashes; its finite checks do not prove arbitrary formal-series assertions."
+      ]
+    },
+    {
+      "id": "HS-JET-PIN",
+      "title": "Native power-series order and module quotient-map interfaces",
+      "authors": "The Mathlib contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPowerSeries/NoZeroDivisors.lean",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Order.lean 378–497; NoZeroDivisors.lean 138–190 including complete weightedOrder_mul proof; Basic.lean 360–429 variable/monomial formulas; LinearAlgebra/Quotient/Basic.lean 160–287; Algebra/Module/LinearMap/Defs.lean 1018–1042. Actual statements, context and displayed proofs read at the pin.",
+        "Equiv.lean finite-variable Noetherianity and complete truncTotalAlgHom construction were inspected as already-built continuation leads; no unproved total-truncation algebra map into an unquotiented polynomial ring is planned."
+      ],
+      "sourceHashes": {
+        "Order": "cda7e4c6c23c83c61b97a8b365d95faaf43cec5996a3c4aada0401ebe9ecdd34",
+        "NoZeroDivisors": "dcd2c7eae0853f1ccb509a3b18aabd934d53f7657543650a152abccb28765c98",
+        "Basic": "fb6303b35ede9edf896a799d46d5656faca3e55f7f05cbfb02b86e3c7bb9b865",
+        "QuotientBasic": "564aad5ee0111df700cb30aca030018f26939ed1c307f19ee6d9ac02b6bc4312",
+        "LinearMapDefs": "242ce4f144fbc775bc424e6b9e088f583fb485fa72f89135d157b5586a987ae7"
+      }
     }
   ],
   "nodes": [
@@ -6699,6 +6836,323 @@
           "how": "Give finite homogeneous projections on the existing carriers before restricting multiplication to degree n→n+1 and constructing its homogeneous kernel and quotient."
         }
       ]
+    },
+    {
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
+      "kind": "lemma",
+      "title": "Variable-ideal powers and total order",
+      "declaration": "TauCeti.HilbertSamuel.mem_variableIdeal_pow_iff",
+      "statement": "For finite σ, any commutative ring k, R=MvPowerSeries σ k and v=span{X_i | i∈σ}, a series g lies in v^r if and only if (r:ℕ∞)≤order(g), for every r≥0. This includes g=0, r=0, the empty variable set and coefficient rings with zero divisors.",
+      "hypotheses": [
+        "σ is finite, k is any commutative ring, R=MvPowerSeries σ k and v is the algebraically generated ideal span{X_i | i∈σ}. All degrees are natural numbers."
+      ],
+      "proofSteps": [
+        "Forward: each variable has no constant term. Expanding a product of r variables times a series, the coefficient convolution has no term of total degree below r. The same vanishing is preserved by finite sums and R-multiples, hence by the algebraic ideal power. Translate coefficient vanishing to the native ENat order using nat_le_order.",
+        "Reverse, r=0: v^0=R, so every series belongs. For r>0 fix a finite enumeration of σ. For each exponent α of degree at least r, greedily allocate r units from its coordinates in that enumeration, obtaining β(α)≤α of degree r. The set B_r of such β is finite: every coordinate is at most r. If σ is empty then B_r is empty and the vanishing condition forces g=0.",
+        "For each β∈B_r define the formal series h_β by setting its coefficient at γ to coeff_(β+γ)(g) when β(β+γ)=β, and zero otherwise. Then coefficientwise g=Σ_(β∈B_r) X^β h_β. Each X^β is a product of exactly r native variables, so lies in v^r. The sum is finite; no closure under an infinite sum or ideal topology is assumed.",
+        "Native coeff_of_lt_order gives the reverse vanishing implication. Keep order(0)=∞: no ENat.toNat is used. This extends the predecessor's explicit two-variable allocation to finite σ and does not identify v with a local maximal ideal over an arbitrary coefficient ring."
+      ],
+      "acceptance": [
+        "For σ=Fin 2, k=ℚ, X_0∈v but X_0∉v².",
+        "For k=Z/4 the same membership statement holds although order equality for products can fail.",
+        "For the empty variable set and r>0 the only member of v^r is zero."
+      ],
+      "prerequisites": [
+        "mathlib:MvPowerSeries.order",
+        "mathlib:MvPowerSeries.coeff_of_lt_order",
+        "mathlib:MvPowerSeries.nat_le_order"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§3, first paragraph; finite-variable allocation extension explicitly derived here",
+          "match": "An adapter between algebraic powers of the variable ideal and native total order, not a new order definition."
+        }
+      ]
+    },
+    {
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-denominator",
+      "kind": "lemma",
+      "title": "Shifted jet denominator containment",
+      "declaration": "TauCeti.HilbertSamuel.shiftedJet_denominator",
+      "statement": "With finite σ, commutative k and v as above, let d≤N and (d:ℕ∞)≤order(f). Multiplication by f sends v^(N+1−d) into v^(N+1), equivalently the source submodule is contained in the preimage of the target submodule under the native R-linear multiplication map.",
+      "hypotheses": [
+        "σ is finite, k is any commutative ring, R=MvPowerSeries σ k and v is the algebraically generated ideal span{X_i | i∈σ}. All degrees are natural numbers.",
+        "d≤N and (d:ℕ∞)≤order(f). The construction deliberately permits f=0 and d=0; injectivity has stricter separate hypotheses."
+      ],
+      "proofSteps": [
+        "Apply variable-ideal-power-order to a source element g. The native product-order lower bound gives order(fg)≥order(f)+order(g)≥d+(N+1−d)=N+1 in ENat.",
+        "The equality of natural exponents follows from d≤N, so the natural subtraction is legitimate. The zero representative and f=0 are covered directly by extended-natural inequalities.",
+        "Apply variable-ideal-power-order to fg. Express the conclusion as Submodule.comap of LinearMap.mulLeft R f, not Ideal.comap: multiplication by f is generally not a ring homomorphism."
+      ],
+      "acceptance": [
+        "For d=N the source ideal is v, not v^0.",
+        "No no-zero-divisors hypothesis is needed for well-definedness."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
+        "mathlib:MvPowerSeries.le_order_mul",
+        "mathlib:LinearMap.mulLeft"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4, displayed sequence (6) and following well-definedness paragraph",
+          "match": "Only the lower order bound is needed; finite exact order and a domain are reserved for injectivity."
+        }
+      ]
+    },
+    {
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-map",
+      "kind": "construction",
+      "title": "Shifted multiplication on finite jets",
+      "declaration": "TauCeti.HilbertSamuel.shiftedJetMap",
+      "statement": "Under d≤N and (d:ℕ∞)≤order(f), construct the actual R-linear map μ_f:R/v^(N+1−d)→R/v^(N+1), [g]↦[fg], by native Submodule.mapQ of LinearMap.mulLeft R f and shifted-jet-denominator. Its projection API is the native factor π_f:R/v^(N+1)→R/((f)+v^(N+1)), [g]↦[g]. No jet carrier, dimension datum, or algebra-homomorphism multiplication stand-in is introduced.",
+      "hypotheses": [
+        "σ is finite, k is any commutative ring, R=MvPowerSeries σ k and v is the algebraically generated ideal span{X_i | i∈σ}. All degrees are natural numbers.",
+        "d≤N and (d:ℕ∞)≤order(f). The construction deliberately permits f=0 and d=0; injectivity has stricter separate hypotheses."
+      ],
+      "proofSteps": [
+        "Take the displayed actual ideal quotients with their native R-module structures. Descend the native multiplication map using the denominator containment, fixing its value, not merely postulating a map with a type.",
+        "Take Submodule.factor for v^(N+1)≤(f)+v^(N+1) as the canonical quotient projection. Its quotient-representative formula is native factor_mk.",
+        "Both representative formulas are definitional. Native linearity, map_zero and map_add are inherited from LinearMap; do not re-plan the generic quotient or linear-map APIs. Injectivity, range-kernel identity and small-index behavior are separate lemma nodes below."
+      ],
+      "acceptance": [
+        "A zero multiplication stand-in fails the nonzero image tests.",
+        "Replacing the source by R/v^(N+1) fails injectivity in the linear equation test.",
+        "Neither polynomial evaluation nor a rectangular cutoff may replace the actual total-degree ideal quotients."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-denominator",
+        "mathlib:Submodule.mapQ",
+        "mathlib:Submodule.mapQ_apply",
+        "mathlib:Submodule.factor",
+        "mathlib:Submodule.factor_mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4, sequence (6) and its two actual maps",
+          "match": "The full native quotient construction records the chosen representative maps; this is canonical integration of the handoff, not a new multiplicity definition."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.shiftedJetMap_apply",
+          "role": "simp",
+          "statement": "For every g∈R, μ_f([g]_(v^(N+1−d)))=[fg]_(v^(N+1))."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.jetProjection",
+          "role": "projection",
+          "statement": "The canonical R-linear projection π_f:R/v^(N+1)→R/((f)+v^(N+1)) is native Submodule.factor of the displayed ideal inclusion."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.jetProjection_apply",
+          "role": "simp",
+          "statement": "For every g∈R, π_f([g]_(v^(N+1)))=[g]_((f)+v^(N+1))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelJetTest.linear_equation",
+          "kind": "computation",
+          "statement": "For k=ℚ, σ=Fin 2, f=X_0 and d=N=1, μ_f sends [1] modulo v to the nonzero class [X_0] modulo v²."
+        },
+        {
+          "name": "HilbertSamuelJetTest.unit_equation",
+          "kind": "degenerate",
+          "statement": "For k=ℚ, σ=Fin 2, f=1, d=0 and every N, μ_f is the identity of R/v^(N+1), for any proof of the order lower bound. This is an adapter boundary case, not a nontrivial curve."
+        },
+        {
+          "name": "HilbertSamuelJetTest.nonreduced_equation",
+          "kind": "computation",
+          "statement": "For k=F₂, σ=Fin 2, f=X_0^4 and d=N=4, its native order equals 4, μ_f([1] modulo v)=[X_0^4] modulo v^5 is nonzero, and μ_f is injective. The curve equation need not be reduced."
+        },
+        {
+          "name": "HilbertSamuelJetTest.zero_equation",
+          "kind": "degenerate",
+          "statement": "For any finite σ and commutative k, f=0 and admissible d≤N, μ_f is the zero linear map. It satisfies the order lower bound but not the exact finite-order premise of the injectivity lemma."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Plane-curve handoff §4, exact sequence (6), and §11 J04–J06",
+          "how": "Fix the actual shifted jet multiplication and quotient projection used for the jet length computation; distinguish well-definedness from injectivity."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function and reserved multiplicity geometric comparison",
+          "how": "Eventually identify the projection target with (R/(f))/n^(N+1), then transfer finite lengths. That quotient-of-quotient/scalar comparison is not silently assumed here."
+        }
+      ]
+    },
+    {
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-injective",
+      "kind": "lemma",
+      "title": "Injectivity at the exact equation order",
+      "declaration": "TauCeti.HilbertSamuel.shiftedJetMap_injective",
+      "statement": "If σ is finite, k is a commutative ring with no zero divisors, f has exact native order d∈ℕ and d≤N, then the actual shifted jet map μ_f:R/v^(N+1−d)→R/v^(N+1) is injective. Completeness, finite residue field, irreducibility and characteristic-zero hypotheses are unnecessary.",
+      "hypotheses": [
+        "σ is finite, k is any commutative ring, R=MvPowerSeries σ k and v is the algebraically generated ideal span{X_i | i∈σ}. All degrees are natural numbers.",
+        "k has no zero divisors, order(f)=(d:ℕ∞), and d≤N. Exact finite order already excludes f=0; d=0 is allowed."
+      ],
+      "proofSteps": [
+        "For a representative g of a kernel class, μ_f([g])=0 means fg∈v^(N+1), by the actual representative formula and native quotient equality.",
+        "Use the built native MvPowerSeries.order_mul, not a new order-multiplicativity theorem: order(fg)=d+order(g). If g=0 the source class is zero. Otherwise its order is finite and ENat cancellation of the finite d gives order(g)≥N+1−d.",
+        "Apply variable-ideal-power-order to get g in the source denominator. Thus the kernel is zero, hence the linear map is injective. Equivalently kernel_mapQ transports the same preimage equality.",
+        "An order lower bound alone is insufficient: a series of order larger than d can kill a nonzero source class, even over a field. Over Z/4 take f=2X_0 and g=2: both relevant low classes are nonzero but fg=0."
+      ],
+      "acceptance": [
+        "For k=F₂ and f=X_0^4, d=N=4 the map is injective despite a nonreduced equation.",
+        "The coefficient-ring no-zero-divisors assumption rejects f=2X_0 over Z/4."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-map",
+        "mathlib:MvPowerSeries.order_mul",
+        "mathlib:MvPowerSeries.order_eq_top_iff",
+        "mathlib:Submodule.ker_mapQ"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4, injectivity proof following (6); reuse of the pinned order_mul is a fresh library correction to the worklist",
+          "match": "The written proof supplies the kernel argument. General order multiplication is already built at the pin, so only this quotient adapter is planned."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelJetTest.zero_divisor_base",
+          "kind": "non-example",
+          "statement": "For k=Z/4, σ=Fin 2, f=2X_0 and d=N=1, the order lower bound holds but μ_f is not injective: it kills the nonzero residue class of 2."
+        }
+      ]
+    },
+    {
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-exact",
+      "kind": "lemma",
+      "title": "Range and cokernel of shifted jet multiplication",
+      "declaration": "TauCeti.HilbertSamuel.shiftedJetMap_exact",
+      "statement": "For finite σ, commutative k, d≤N and (d:ℕ∞)≤order(f), range(μ_f)=ker(π_f) and π_f is surjective, for the exact native maps in shifted-jet-map. Thus R/((f)+v^(N+1)) is their actual cokernel quotient. This right-exact assertion does not require exact finite order or a coefficient domain.",
+      "hypotheses": [
+        "σ is finite, k is any commutative ring, R=MvPowerSeries σ k and v is the algebraically generated ideal span{X_i | i∈σ}. All degrees are natural numbers.",
+        "d≤N and (d:ℕ∞)≤order(f). The construction deliberately permits f=0 and d=0; injectivity has stricter separate hypotheses."
+      ],
+      "proofSteps": [
+        "Surjectivity is native factor_surjective. A class [h] in the middle quotient lies in the projection kernel exactly when h belongs to (f)+v^(N+1).",
+        "For any kernel class choose h=fg+r with r∈v^(N+1), using singleton ideal span membership and the sum-ideal membership criterion. Then [h]=μ_f([g]) for the actual source class, proving kernel⊆range.",
+        "Conversely the projection kills every fg because fg∈(f). Native range_mapQ records that the range is the image of the principal ideal under the middle quotient map, yielding the reverse inclusion.",
+        "Only after shifted-jet-injective is added under its stricter hypotheses is this a short exact sequence. The further quotient-of-quotient equivalence with A/n^(N+1) and the length/dimension comparisons remain explicit continuation work; do not assert an A-linear structure on the shifted source."
+      ],
+      "acceptance": [
+        "For f=0 both multiplication image and projection kernel are zero.",
+        "For f=1,d=0 the multiplication is the identity and the projection target is zero."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-map",
+        "mathlib:Submodule.range_mapQ",
+        "mathlib:Submodule.factor_surjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4, paragraph identifying the middle kernel and the cokernel of (6)",
+          "match": "The principal-image proof works over any commutative coefficient ring; the left injectivity and the eventual A-scalar comparison are kept separate."
+        }
+      ]
+    },
+    {
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/jet-below-equation-order",
+      "kind": "lemma",
+      "title": "Jets below the equation order",
+      "declaration": "TauCeti.HilbertSamuel.jetProjection_below_order",
+      "statement": "For finite σ, commutative k, N<d and (d:ℕ∞)≤order(f), one has (f)+v^(N+1)=v^(N+1), and the actual projection π_f:R/v^(N+1)→R/((f)+v^(N+1)) is bijective. This is the small-index branch and asserts no shifted injective multiplication sequence.",
+      "hypotheses": [
+        "σ is finite, k is any commutative ring, R=MvPowerSeries σ k and v is the algebraically generated ideal span{X_i | i∈σ}. All degrees are natural numbers.",
+        "N<d and (d:ℕ∞)≤order(f); no domain, nonzero or exact-order hypothesis is required."
+      ],
+      "proofSteps": [
+        "Since N+1≤d≤order(f), variable-ideal-power-order gives f∈v^(N+1). The generated principal ideal lies in this power, so their sum is the same power.",
+        "The canonical factor under this equality has identical source and target quotient relations. Its representative formula proves injectivity; its native factor_surjective proves surjectivity.",
+        "For f=X_0^4,N=0 the projection is the residue-jet bijection, while the tempting multiplication R/v→R/v sends everything to zero. Guard the shifted construction with d≤N and never use truncated natural subtraction to extend injectivity to N<d."
+      ],
+      "acceptance": [
+        "The zeroth jet of f=X_0^4 over ℚ is unaffected by the equation.",
+        "The false unguarded shifted map kills the nonzero class of 1."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-map",
+        "mathlib:Submodule.factor_surjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4, small-index comparison (7) and the f=x^4,N=0 counterexample",
+          "match": "No natural-subtraction shortcut is used. This adapts the actual native factor map, not a new jet isomorphism carrier."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelJetTest.small_index_not_shifted",
+          "kind": "non-example",
+          "statement": "For k=ℚ, σ=Fin 2, f=X_0^4 and N=0, π_f is bijective, but multiplication by the class of f on R/v is not injective, since that class is zero and [1]≠0."
+        }
+      ]
     }
   ],
   "baselineCoverage": [
@@ -6824,7 +7278,8 @@
         "The prime-filtration/finite-module induction slice is supplied by the baseline. Catenarity (definition and the Noetherian-local dimension-function criterion), Cohen–Macaulayness of regular local rings and freeness of maximal-depth modules over a regular local base are now separate nodes, answering R03.6's two requests. Reconcile and refine the remaining integrated depth, Auslander-Buchsbaum, Cohen-Macaulay, complete-intersection, dimension and support arguments. Import the ModularCurves 4D local regularity/completion/flatness statements in the accepted RS-08 scope, and check any more general module-level forms. Do not infer that this baseline slice closes the whole stage.",
         "Supply the domain property of regular local rings (Stacks 00NP, through the associated graded ring 00NO), used by regular-local-cohen-macaulay; see the gap.",
         "The reserved general multiplicity strand includes positivity and now the native graded-length definition, adic transition length step, cumulative extended/natural length identities, finite coefficient lengths, rational summation polynomial and conditional graded-to-cumulative tail theorem. Its remaining leaves are associated-graded ring/module structure and finiteness, graded numerical-polynomial induction, degree/dimension and Artin–Rees comparisons, finite top-dimensional localization lengths, regular-local domain theorem and geometric/complete-ring comparisons. Existence of the graded polynomial remains open, so cumulative polynomial existence and the full key definition are not certified closed.",
-        "Discharge the nine adic graded-ring and eleven adic graded-module comparison proofs, then register the exact graded ring/module interfaces and decompose the graded Hilbert–Serre induction. Native Rees carriers and native quotient scalar descent are reused. All earlier local algebra, multiplicity, degree/dimension, completion and routed-paper obligations remain open."
+        "Discharge the nine adic graded-ring and eleven adic graded-module comparison proofs, then register the exact graded ring/module interfaces and decompose the graded Hilbert–Serre induction. Native Rees carriers and native quotient scalar descent are reused. All earlier local algebra, multiplicity, degree/dimension, completion and routed-paper obligations remain open.",
+        "Six jet-map nodes canonically integrate only the first shifted-quotient strand of the plane-curve handoff. Implement their admitted proofs; finish total-jet basis and length comparison, the quotient-of-quotient equivalence/scalar restriction, full tangent-cone kernel, exact jet length and the comparison with the existing intrinsic and ambient-normalized multiplicities. Neither the general Hilbert–Serre induction nor full key-definition closure follows from the shifted-map signatures."
       ]
     },
     {
@@ -6990,6 +7445,19 @@
         "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-hom-uniform-colimit"
       ],
       "detail": "The suggested file states a canonical colimit comparison on actual diagrams of complexes. The signatures elaborate with placeholder proofs at the Mathlib pin; no mathematical implementation is certified. The proof uses the existing AB5 instance and existing linear Hom carriers, not a claimed built RHom functor. Smart-truncation functoriality, Hom-group naturality and the unbounded-to-finite approximation comparison need actual implementation. The qcqs scheme and solid-category application belongs to the paper’s existing SchemeSixFunctorFormalism supplier, and is not proved by the ring result alone."
+    },
+    {
+      "title": "Finite-jet implementation and remaining formal-curve comparison",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-denominator",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-map",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-injective",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-exact",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/jet-below-equation-order",
+        "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity"
+      ],
+      "detail": "The six finite-variable quotient adapters have written proofs and actual pinned signatures, but their substantive proofs remain admitted and all implementations unchecked. The handoff's remaining plane-curve jet basis, R-length/k-dimension and surjective scalar restriction, actual equivalence R/((f)+v^(N+1))≃(R/(f))/n^(N+1), full graded tangent-cone kernel and exact quotient-length formula still need canonical nodes/signatures. Then compare the resulting eventual polynomial with the existing general construction, retaining nonzero/unit boundaries, positive characteristic, nonreduced equations and ambient normalization. The native truncTotalAlgHom already maps to a polynomial ideal quotient; no competing generic truncation map or order_mul theorem is needed."
     }
   ],
   "sourceIssues": [],
@@ -7441,5 +7909,89 @@
         "stagesClosed": 0
       }
     }
+  },
+  "jetMapContinuation": {
+    "agent": "Codex — codex-a71f92",
+    "date": "2026-10-02",
+    "winningClaim": 5957656405,
+    "confirmation": 5957659158,
+    "publicationBase": "b9239798babb94f290b4302764f457bacfe87d36",
+    "status": "partial",
+    "nodes": [
+      "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-denominator",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-map",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-injective",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-exact",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/jet-below-equation-order"
+    ],
+    "boundary": "Canonical integration of only the shifted-quotient strand, not all sixteen plane-curve worklist items, not the general graded Hilbert–Serre theorem and not a mathematical implementation. The variable ideal is not claimed to be a maximal ideal over arbitrary k. Every original node object and the reserved general multiplicity definition are preserved.",
+    "freshReading": [
+      "All eight current AUDIT-17 scope records, accepted RS-08 applicable keeps/review/owners and matching link map/stage edges; eight atlas stage descriptions; entire issue before and after bot confirmation; whole merged plane-curve handoff and all 79 inherited statements.",
+      "Primary Stacks 00K4 complete mathematical section and 0AZU complete section freshly read, with graded/cumulative conventions distinguished. 032C Remark 10.160.9 statement inspected only as a future dimension input, not a newly discharged native MV dimension theorem.",
+      "Pinned quotient-map, linear-multiplication and native order statements and full displayed constructions read. Bounded RingTheory/MvPowerSeries searches found no ready-made variable-ideal power/order adapter; no exhaustive library absence is asserted. The newly found built order_mul avoids duplication. The native adic completeness and polynomial-jet truncTotalAlgHom are recognized as built continuation leads."
+    ],
+    "validation": {
+      "lean": {
+        "errors": 0,
+        "sorryWarnings": 234,
+        "otherWarnings": 0,
+        "examples": 110,
+        "toolchain": "v4.34.0-rc2",
+        "existingBuildMathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "availableGiBBefore": 70,
+        "boundary": "Full Mathlib-only suggested file elaborates at the existing exact pin. Substantive planned proofs are admitted; representative formulas are definitional. No Tau Ceti imports/build, new Lake project, cache download or language server.",
+        "elapsedSeconds": 21.73,
+        "maxRSSKiB": 3527296,
+        "fileSha256": "e3164f12e7f6f3719fdf4c61fd6abae12d009eaf1ec3441215f4f0203fd7f274",
+        "logSha256": "aa871b8d5295369575cc5a75f222677098ab37a65f53f1fc3055f9a5b5fc04ce"
+      },
+      "predecessorRegressions": {
+        "cases": 507,
+        "totalAssertions": 25148,
+        "scriptSha256": "ed9dc3d82ba5b988e95634bfd035821efcd4ebda2e552465c757e38b9df73a35",
+        "outputSha256": "058a580c33c92c372851ded432b1740fb069243fa5e19a24943c6a3c86b182d5",
+        "reproduction": "Exact standalone program retained in the current handoff, freshly reproduced unchanged. This finite check is not proof of arbitrary series or quotient scalar equivalences."
+      },
+      "verification": {
+        "actualIntake": "pass",
+        "preservedNodeObjects": 79,
+        "preservedStatements": 79,
+        "addedNodes": 6,
+        "kinds": {
+          "lemma": 45,
+          "theorem": 16,
+          "definition": 8,
+          "construction": 16
+        },
+        "api": 102,
+        "definitionConstructionTests": 83,
+        "lemmaTests": 6,
+        "planets": 13,
+        "baseline": 191,
+        "gaps": 15,
+        "requests": 2,
+        "coverage": {
+          "partial": 3,
+          "not_read": 5
+        },
+        "actualAssemblyStages": 2952,
+        "actualAssemblyEdges": 8623,
+        "actualAssemblyDAG": "acyclic",
+        "reachableDeclarationVertices": 260,
+        "reachableDeclarationGraph": "acyclic",
+        "ownDeclarationEdges": 130,
+        "currentPartDeclarationsListed": 85,
+        "roadmapDeclarationsListed": 138,
+        "skippedLinks": [],
+        "nativeExamples": 110,
+        "admittedWarnings": 234,
+        "finiteCases": 507,
+        "finiteAssertions": 25148,
+        "suggestedSha256": "e3164f12e7f6f3719fdf4c61fd6abae12d009eaf1ec3441215f4f0203fd7f274",
+        "auditTree": "b9239798babb94f290b4302764f457bacfe87d36"
+      }
+    },
+    "auditBase": "eb645dc85df65608c56fafc4d9ed0e71ab0ca3ce"
   }
 }

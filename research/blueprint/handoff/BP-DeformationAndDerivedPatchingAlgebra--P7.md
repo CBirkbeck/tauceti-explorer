@@ -1,3 +1,116 @@
+# Codex — codex-a71f92 jet-map continuation of #551
+
+Latest receipt first; the complete predecessor handoff and reproduction
+program follow unchanged. 2026-10-02. Claim 5957656405 was confirmed by bot
+5957659158, followed by a complete reread of the issue. Initial read
+base: eb645dc85df65608c56fafc4d9ed0e71ab0ca3ce. Publication parent:
+b9239798babb94f290b4302764f457bacfe87d36. This is a partial blueprint checkpoint, not
+independent review or mathematical implementation.
+
+## What changed
+
+Six canonical R03.3 nodes integrate the first shifted-quotient strand of the
+predecessor plane-curve proof: variable-ideal power/order membership,
+denominator containment, native shifted multiplication with its projection,
+exact-order injectivity, range/kernel right-exactness, and the distinct
+small-index branch. The finite-variable extension groups coefficients into
+a finite sum of degree-r monomial multiples; it never asserts ideal closure
+under an infinite sum. Well-definedness and right-exactness work over any
+commutative coefficient ring; injectivity needs exact finite order and no
+zero divisors.
+
+The existing Mathlib order_mul is reused, not re-planned. The denominator
+uses Submodule.comap of the actual LinearMap.mulLeft, not Ideal.comap.
+The constructor is native mapQ and the projection native factor on ordinary
+ideal quotients. No new generic jet, graded, local-ring or multiplicity
+carrier is introduced. The explicit finite ENat order premise rejects the
+zero equation for injectivity, while d=0 and zero multiplication are
+allowed adapter boundary cases.
+
+All 79 inherited node objects, statements and IDs are identical. Every
+source finding, request, reserved-key definition and planet is preserved.
+Inventory: 85 nodes (8 definitions, 16 constructions, 45 lemmas,
+16 theorems), 102 API items, 83 definition/construction tests and six lemma
+tests, 110 native examples, 191 baseline declarations, 13 planets, 15 gaps
+and two requests. Three stages remain partial and five not_read. Every
+implementation remains unchecked. The original fourteen gaps remain;
+the extra gap records the admitted jet proofs and the unintegrated
+formal-curve comparisons.
+
+## Checks and exact limits
+
+The whole suggested Mathlib-only file elaborates with Lean v4.34.0-rc2 at
+the existing exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 build:
+0 errors, 234 admitted-proof warnings, no other warnings, 110 examples,
+21.73 seconds, maximum RSS 3,527,296 KiB. Before this successful run 70 GiB
+were available. No Tau Ceti import, library build, cache download, new Lake
+project or language server was used. File SHA-256:
+e3164f12e7f6f3719fdf4c61fd6abae12d009eaf1ec3441215f4f0203fd7f274.
+Full output SHA-256:
+aa871b8d5295369575cc5a75f222677098ab37a65f53f1fc3055f9a5b5fc04ce.
+The substantive planned proofs are admitted; this is signature validation,
+not formal closure.
+
+The exact predecessor program below was freshly reproduced unchanged:
+507 cases, 25,148 assertions, script SHA-256
+ed9dc3d82ba5b988e95634bfd035821efcd4ebda2e552465c757e38b9df73a35
+and output SHA-256
+058a580c33c92c372851ded432b1740fb069243fa5e19a24943c6a3c86b182d5,
+matching the published receipt. This finite calculation is not a proof of
+arbitrary series, scalar restrictions or general multiplicity. The earlier
+grading/induction programs were not rerun in this checkpoint.
+
+The six new signatures and every new API/test are in the native file and
+reader. The four deliverables are validated using the actual indexed
+blueprint checker and actual intake file checks against the immutable
+publication base. The normal atlas assembly is executed read-only with
+this part overlaid in memory, and its stage graph and reachable current
+declaration graph are checked for cycles. No repository snapshot or
+checkout mutation is needed. The final graph counts are recorded after
+that run: indexed checker 0 errors/warnings, intake pass; actual assembly
+2,952 stages and 8,623 edges, acyclic; all 85 declarations from this part
+listed (138 whole-roadmap declarations), no skipped links; reachable
+declaration graph 260 vertices and 130 own edges, acyclic. All four target
+blobs and binding instructions/owner inputs were freshly confirmed
+unchanged before publishing on the current main parent.
+No independent review or whole-source erratum audit is claimed.
+
+## Sources, ownership, and where to resume
+
+Read the full issue before and after winning the claim; the whole current
+handoff, all 79 original mathematical statements, all eight current
+AUDIT-17 records, accepted RS-08 applicable keeps/review/owners, the matching
+link-map overlap and stage edges, and all eight atlas stage descriptions.
+Nearby upstream density readings include the earlier stable-reduction and
+Jacobian roadmaps and the current complete GrothendieckEulerForms roadmap.
+Fresh primary reads cover all mathematical statements/proofs in Stacks
+00K4 and 0AZU. Remark 032C was inspected as a statement only; it is not a
+new native multivariate dimension proof. The packet records exact pinned
+source intervals and file hashes. The complete built weightedOrder_mul
+proof was personally read. Bounded source searches are not an exhaustive
+absence claim.
+
+Next, integrate J02–J03 and the remaining part of J06: native polynomial
+total-jet equivalence/basis, finite length versus coefficient-field
+dimension, length restriction along a surjective ring map, and the actual
+quotient-of-quotient equivalence with A/n^(N+1). Reuse the already-built
+truncTotalAlgHom (into the polynomial ideal quotient) and adic completeness.
+Then canonically register J07–J16: full tangent-cone kernel, all-index jet
+lengths, graded pieces, eventual polynomial, intrinsic/ambient multiplicity
+comparison, positive-characteristic/nonreduced and nonprincipal
+counterexamples, and source-qualified coordinate/unit/field-extension
+comparisons. Preserve the exact nonzero/unit and coefficient-domain
+hypotheses. Do not redefine multiplicity as equation order.
+
+The general homogeneous kernel/cokernel Hilbert–Serre induction remains
+independently open, including its anchor and threshold. So do
+degree/dimension, Artin–Rees, associativity, Nagata, parameters, completion,
+coefficient categories, derived base change, minimal/filtered-colimit
+comparisons, patching and all routed papers' source closure.
+No stage or key definition is certified closed.
+
+## Complete predecessor handoff (unchanged)
+
 # BP-DeformationAndDerivedPatchingAlgebra--P7: formal plane-curve jet checkpoint
 
 ChatGPT — `gpt6astra-20261002-7d2f90`. Refs #551. 2 October 2026.
