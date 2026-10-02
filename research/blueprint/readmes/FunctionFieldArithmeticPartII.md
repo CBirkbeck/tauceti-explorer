@@ -4926,6 +4926,149 @@ Sources:
 
 - TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
 
+## RS.0 continuation — specified determinant dependencies
+
+Codex — codex-a71f92,2026-10-02. All index quotients and E=n(n−1)/2 are natural numbers; they are not divisions in A. The actual native matrix retains the source/target pair indexing of the inherited coordinate equivalences.
+
+### Rowwise root coefficient permutation
+
+Node: `FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-rows`; declaration: `TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_rows`.
+
+For positive n, the specified native coefficient permutation σ(i,j)=(i,i+j) equals Equiv.prodCongrRight(i↦finCycle(i)); in row i its second coordinate is translated cyclically by i.
+
+Hypotheses: n≥1. Matrix and weight-product assertions use any commutative coefficient ring A and f∈A; index and sign assertions are independent of A. No nonzerodivisor, unit, reducedness or invertibility-of-n assumption.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-permutation`, `mathlib:Equiv.prodCongrRight`, `mathlib:finCycle`.
+
+Proof:
+
+1. Compare both components of the supplied native equivalences; cyclic addition is commutative, so the existing finCycle convention j+i equals i+j.
+
+Acceptance: Uses the actual σ, not a newly chosen reordering; inverse and natural representatives stay those of the existing coordinate map.
+
+Tests:
+
+- `TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_rows.test_wrap` (computation): At n=4 the actual permutation sends (3,3) to (3,2), retaining cyclic rather than natural truncated arithmetic.
+
+Source: [Stacks040N, Lemma59.28.3](https://stacks.math.columbia.edu/tag/040N), complete positive-exponent unit-chart statement/proof read2026-10-02. This lemma is an authored root-coordinate deduction, not a printed determinant theorem; generic finite-permutation/counting/determinant infrastructure is imported from the pinned library.
+
+### Root coefficient permutation sign
+
+Node: `FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-sign`; declaration: `TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_sign`.
+
+For positive n, the integer-unit sign of the actual coefficient permutation σ is (−1)^((n−1)E), where E=n(n−1)/2 is formed in natural numbers before any coefficient-ring specialization.
+
+Hypotheses: n≥1. Matrix and weight-product assertions use any commutative coefficient ring A and f∈A; index and sign assertions are independent of A. No nonzerodivisor, unit, reducedness or invertibility-of-n assumption.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-rows`, `mathlib:finCycle_eq_finRotate_iterate`, `mathlib:sign_finRotate`, `mathlib:Equiv.Perm.sign_prodCongrRight`, `mathlib:Finset.prod_pow_eq_pow_sum`, `mathlib:Finset.sum_range_id`.
+
+Proof:
+
+1. Use the native finCycle/finRotate iterate equality and the permutation power coercion to identify each row with the ith power of the n-cycle.
+2. Import the rowwise sign product. Each row sign is (−1)^((n−1)i). Convert their product to the power with exponent (n−1)Σ_i i.
+3. Import the natural Gauss sum Σ_i i=n(n−1)/2. No division by2 is performed in A.
+
+Acceptance: The sign belongs to integer units; the determinant casts it to the coefficient ring only after the integral calculation.
+
+Tests:
+
+- `TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_sign.test_two` (computation): At n=2 the actual permutation has integer-unit sign−1.
+- `TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_sign.test_three` (non-example): At n=3 the sign is+1; using only (−1)^E would give−1 and is wrong.
+
+Source: [Stacks040N, Lemma59.28.3](https://stacks.math.columbia.edu/tag/040N), complete positive-exponent unit-chart statement/proof read2026-10-02. This lemma is an authored root-coordinate deduction, not a printed determinant theorem; generic finite-permutation/counting/determinant infrastructure is imported from the pinned library.
+
+### Root comparison wrapping exponent
+
+Node: `FunctionFieldArithmeticPartII:RS.0/affine-torsor-weight-exponent`; declaration: `TauCeti.RootStack.affineTorsorComparison.weight_exponent`.
+
+For n≥1 and p=(i,j) in Fin n×Fin n, floor((i+j)/n)=1 when n≤i+j and0 otherwise, with i,j their natural representatives.
+
+Hypotheses: n≥1. Matrix and weight-product assertions use any commutative coefficient ring A and f∈A; index and sign assertions are independent of A. No nonzerodivisor, unit, reducedness or invertibility-of-n assumption.
+
+Prerequisites: `mathlib:Nat.add_div_eq_of_add_mod_lt`, `mathlib:Nat.add_div_eq_of_le_mod_add_mod`.
+
+Proof:
+
+1. Each representative is smaller than n, hence its remainder is itself and its individual quotient is0.
+2. Split on the actual wrapping inequality. Import the two natural addition/division formulas to give quotient1 or0, retaining positivity of n.
+
+Acceptance: This root-specific index assertion explains every column weight in the actual matrix; it does not add an invertibility assumption to A.
+
+Tests:
+
+- `TauCeti.RootStack.affineTorsorComparison.weight_exponent.test_wrap` (computation): At n=2 the column (1,1) has exponent1.
+- `TauCeti.RootStack.affineTorsorComparison.weight_exponent.test_nonwrap` (non-example): At n=2 the column (0,1) has exponent0, so it contributes weight1 rather than f.
+
+Source: [Stacks040N, Lemma59.28.3](https://stacks.math.columbia.edu/tag/040N), complete positive-exponent unit-chart statement/proof read2026-10-02. This lemma is an authored root-coordinate deduction, not a printed determinant theorem; generic finite-permutation/counting/determinant infrastructure is imported from the pinned library.
+
+### Product of root comparison weights
+
+Node: `FunctionFieldArithmeticPartII:RS.0/affine-torsor-weight-product`; declaration: `TauCeti.RootStack.affineTorsorComparison.weight_product`.
+
+For any commutative A, f∈A and n≥1, the product over p∈Fin n×Fin n of f^floor((p₁+p₂)/n) is f^E, E=n(n−1)/2.
+
+Hypotheses: n≥1. Matrix and weight-product assertions use any commutative coefficient ring A and f∈A; index and sign assertions are independent of A. No nonzerodivisor, unit, reducedness or invertibility-of-n assumption.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/affine-torsor-weight-exponent`, `FunctionFieldArithmeticPartII:RS.0/affine-torsor-wrapping-card`, `mathlib:Finset.prod_filter`, `mathlib:Fintype.card_subtype`.
+
+Proof:
+
+1. Rewrite each weight as f on wrapping columns and1 on other columns.
+2. Import the filtered product identity and constant product law. Identify the filter cardinality with the actual wrapping subtype.
+3. Consume the existing native wrapping_card result; do not re-plan ordered-pair counting.
+
+Acceptance: Works at f=0, nonunits, nilpotents and the zero ring; no logarithm, cancellation or division in A is used.
+
+Tests:
+
+- `TauCeti.RootStack.affineTorsorComparison.weight_product.test_nonunit` (computation): Over Z at n=2 and nonunit f=2, the actual product of all four column weights is2.
+
+Source: [Stacks040N, Lemma59.28.3](https://stacks.math.columbia.edu/tag/040N), complete positive-exponent unit-chart statement/proof read2026-10-02. This lemma is an authored root-coordinate deduction, not a printed determinant theorem; generic finite-permutation/counting/determinant infrastructure is imported from the pinned library.
+
+### Root comparison diagonal reindexing
+
+Node: `FunctionFieldArithmeticPartII:RS.0/affine-torsor-matrix-reindex`; declaration: `TauCeti.RootStack.affineTorsorComparison.matrix_reindex`.
+
+For the specified native monomial matrix M, let d(c)=f^floor((c₁+c₂)/n). Then M=(Matrix.diagonal d).submatrix σ⁻¹ id. The first-index reindexing is the inverse of the actual coefficient permutation; source and target index orders are retained.
+
+Hypotheses: n≥1. Matrix and weight-product assertions use any commutative coefficient ring A and f∈A; index and sign assertions are independent of A. No nonzerodivisor, unit, reducedness or invertibility-of-n assumption.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-permutation`, `FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-representative`, `FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial`, `mathlib:Matrix.det_diagonal`.
+
+Proof:
+
+1. For every row r and column c, the monomial support condition r=σ(c) is equivalent to σ⁻¹(r)=c.
+2. Compare diagonal entries after this exact reindexing. On support, equality transports the weight index; off support both entries are0.
+
+Acceptance: The inverse orientation is explicit. This is an equality of the actual root monomial matrix and the reindexed diagonal, not an arbitrary endomorphism model.
+
+Tests:
+
+- `TauCeti.RootStack.affineTorsorComparison.matrix_reindex.test_weight` (computation): At n=2 the actual monomial matrix entry with row(1,0) and column(1,1) is f.
+
+Source: [Stacks040N, Lemma59.28.3](https://stacks.math.columbia.edu/tag/040N), complete positive-exponent unit-chart statement/proof read2026-10-02. This lemma is an authored root-coordinate deduction, not a printed determinant theorem; generic finite-permutation/counting/determinant infrastructure is imported from the pinned library.
+
+### Updated proof of the inherited weighted determinant
+
+`FunctionFieldArithmeticPartII:RS.0/affine-torsor-determinant`; `TauCeti.RootStack.affineTorsorComparison.determinant`.
+
+In the specified source and target pair-indexed bases, the comparison matrix has entry M_(r,c)=f^⌊(c₁+c₂)/n⌋ if r₁=c₁ and r₂=(c₁+c₂) mod n, and zero otherwise. With E=n(n−1)/2, det M=(−1)^((n−1)E) f^E. The same pair ordering is used for rows and columns; this is not an endomorphism determinant without chosen identifications.
+
+1. Consume matrix_reindex for the specified monomial support and inverse coefficient permutation. Apply the pinned determinant-permutation and diagonal determinant formulas.
+2. Consume coefficientPermutation_sign and the native inverse-sign law. Cast the already computed integer-unit sign into A.
+3. Consume weight_product for the exact column weights. Their count E is computed in natural numbers, not by dividing by2 in A. Combine sign and weight without cancellation.
+
+Additional tests:
+
+- `TauCeti.RootStack.affineTorsorComparison.determinant.test_exponent_one` (degenerate): At n=1 the specified matrix has determinant1 for every commutative A and every f, including f=0.
+- `TauCeti.RootStack.affineTorsorComparison.determinant.test_three` (computation): At n=3 the determinant is f³ over any commutative A; omitting the row-sign factor would incorrectly negate it.
+- `TauCeti.RootStack.affineTorsorComparison.determinant.test_zero_ring` (degenerate): For A=ZMod1, n=2 and f=0, the determinant is0 in the zero ring; numerical polynomial degree is not substituted for the chosen index.
+- `TauCeti.RootStack.affineTorsorComparison.determinant.test_wild` (compatibility): For A=ZMod2, n=2 and f=1, the determinant is1 even though n is zero in A.
+
+Verification boundary: the complete separate native extraction is 1716 lines with 62 proved examples and 42 axiom audits. It passed at the exact Mathlib pin with no errors, warnings or admissions; the reconstructed 946-line admitted signature extraction passed with only its 142 expected admission warnings. The public archive [checked root determinant](https://github.com/CBirkbeck/tauceti-explorer/blob/6df00ac8cb82d19130a90b5d1ea473e803fd8eae/research/blueprint/suggested/FunctionFieldArithmeticPartII.lean) contains the exact native body and submitted head. Reconstruction verifies all three SHA-256 values, six determinant/helper signatures and eleven new test statements. Native source SHA-256: d40ac61960c10d4640c4ecaa3204968021303cdcdd7dedc4ef4b0b81835938e7; signature source SHA-256: c688fbc69edc77647a553185633a2a5cc9838fd7c7beaa0f62ba793450b83f01. The full 1964-line geometric/TauCeti-importing suggested file was not compiled: the existing exact-pin build lacks both required TauCeti line-bundle and root-of-unity artifacts. These prototype checks are not a library implementation or a certification of the remaining geometric/source work.
+
+All implementations remain unchecked and all ten stages partial. This matrix determinant does not close normalized-coframe descent, quotient-stack algebraicity/coarse comparisons, the infinite fpqc tower or ramified geometric class-field theory. Full-file elaboration still requires the actual geometric/TauCeti imports.
+
 
 ### Number of lower root coordinates
 

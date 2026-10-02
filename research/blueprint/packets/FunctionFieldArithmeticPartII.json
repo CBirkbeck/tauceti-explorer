@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded. The affine invariant-ring step is factored through the native μ_n Hopf coaction, its axioms, root weights and point comparison; geometric carriers remain open. Six native root-trivialization comparison nodes now expose the computed unit coefficient and root-arrow scalar equations; no geometric carrier or generic section tensor operation is duplicated. Continuation supplies fpqc descent and thirteen finite/infinite root-transition/Kummer proof leaves; it corrects the inherited infinite H1 topology and separates ordinary stacks, algebraic properties and coarse suppliers. Canonical integration adds the actual finite affine action comparison, weighted tensor coordinates, explicit kernel/module-cokernel maps, sharp injectivity/surjectivity criteria and unit inverse; the branch and normalized-coframe torsors remain distinct. This continuation specifies the native wrapping kernel coordinate equivalence, lower residue map, its surjectivity and exact kernel, and the module cokernel coordinate equivalence with inverse and representative APIs. Separate native proof evidence checks these contracts and nine concrete module-coordinate examples; all planned statuses stay unchecked. The unit-chart continuation specifies the actual promoted algebra comparison and its inverse on every character/right-factor tensor, and checks the four inherited direct counterexamples; determinant and field-rank proof obligations remain. This checkpoint derives the actual zero-section kernel and range dimensions from specified native tensor coordinates and restricted cyclic indices; geometric root stacks remain partial.",
+  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded. The affine invariant-ring step is factored through the native μ_n Hopf coaction, its axioms, root weights and point comparison; geometric carriers remain open. Six native root-trivialization comparison nodes now expose the computed unit coefficient and root-arrow scalar equations; no geometric carrier or generic section tensor operation is duplicated. Continuation supplies fpqc descent and thirteen finite/infinite root-transition/Kummer proof leaves; it corrects the inherited infinite H1 topology and separates ordinary stacks, algebraic properties and coarse suppliers. Canonical integration adds the actual finite affine action comparison, weighted tensor coordinates, explicit kernel/module-cokernel maps, sharp injectivity/surjectivity criteria and unit inverse; the branch and normalized-coframe torsors remain distinct. This continuation specifies the native wrapping kernel coordinate equivalence, lower residue map, its surjectivity and exact kernel, and the module cokernel coordinate equivalence with inverse and representative APIs. Separate native proof evidence checks these contracts and nine concrete module-coordinate examples; all planned statuses stay unchecked. The unit-chart continuation specifies the actual promoted algebra comparison and its inverse on every character/right-factor tensor, and checks the four inherited direct counterexamples; determinant and field-rank proof obligations remain. This checkpoint derives the actual zero-section kernel and range dimensions from specified native tensor coordinates and restricted cyclic indices; geometric root stacks remain partial. This determinant continuation exposes five specified root-coordinate proof leaves, imports thirteen pinned permutation/product/determinant declarations, and checks the general signed determinant over arbitrary commutative rings with eleven additional examples; it makes no geometric or stage-closure claim.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -847,6 +847,123 @@
         "provides": "A supplied linear equivalence preserves native module finrank.",
         "checked": "Actual statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-5ebb6f.",
         "sourceSha256": "4ab91c2b2e2d56f24c0260f25d55a31042cac8112a943a7c877594528c363e21"
+      },
+      {
+        "ref": "mathlib:Finset.prod_filter",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "line": 333,
+        "provides": "In any commutative monoid, product over a decidable predicate filter equals the unfiltered product with value1 off the predicate.",
+        "checked": "Complete declaration statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-a71f92; relevant source files unchanged from that exact HEAD.",
+        "sourceSha256": "273036de3d36eda43082685a3ebc998900735e96c3f4b18f1546b39a4f765af0"
+      },
+      {
+        "ref": "mathlib:Finset.prod_pow_eq_pow_sum",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "line": 656,
+        "provides": "In any commutative monoid, the finite product of fixed-base powers is that base to the sum of their natural exponents.",
+        "checked": "Complete declaration statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-a71f92; relevant source files unchanged from that exact HEAD.",
+        "sourceSha256": "273036de3d36eda43082685a3ebc998900735e96c3f4b18f1546b39a4f765af0"
+      },
+      {
+        "ref": "mathlib:Finset.sum_range_id",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Intervals.lean",
+        "line": 181,
+        "provides": "For every natural n, the sum of integers0 through n−1 equals n(n−1)/2 as a natural-number quotient.",
+        "checked": "Complete declaration statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-a71f92; relevant source files unchanged from that exact HEAD.",
+        "sourceSha256": "840fec2dceee97d7ddc878f68528aa28e30d1a298029dbb4f270e99a226e048a"
+      },
+      {
+        "ref": "mathlib:Nat.add_div_eq_of_add_mod_lt",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/ModEq.lean",
+        "line": 539,
+        "provides": "If the sum of two natural remainders modulo c is smaller than c, the quotient of the sum equals the sum of quotients.",
+        "checked": "Complete declaration statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-a71f92; relevant source files unchanged from that exact HEAD.",
+        "sourceSha256": "832785951f3a2f46747c891a3b2b64808e3f76f8e45ec76f2fffa2cd87da5417"
+      },
+      {
+        "ref": "mathlib:Nat.add_div_eq_of_le_mod_add_mod",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/ModEq.lean",
+        "line": 555,
+        "provides": "For c>0, if the sum of two natural remainders is at least c, the quotient of the sum equals the sum of quotients plus1.",
+        "checked": "Complete declaration statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-a71f92; relevant source files unchanged from that exact HEAD.",
+        "sourceSha256": "832785951f3a2f46747c891a3b2b64808e3f76f8e45ec76f2fffa2cd87da5417"
+      },
+      {
+        "ref": "mathlib:sign_finRotate",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/Perm/Fin.lean",
+        "line": 97,
+        "provides": "For every natural n, the sign of the native finRotate n is (−1)^(n−1) in integer units.",
+        "checked": "Complete declaration statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-a71f92; relevant source files unchanged from that exact HEAD.",
+        "sourceSha256": "f433715abb71c95af324945da54c85f58715ca625c66a0e61d1a521d2f15f447"
+      },
+      {
+        "ref": "mathlib:Equiv.Perm.sign_symm",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/Perm/Sign.lean",
+        "line": 385,
+        "provides": "The inverse equivalence of a finite decidable permutation has the same integer-unit sign.",
+        "checked": "Complete declaration statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-a71f92; relevant source files unchanged from that exact HEAD.",
+        "sourceSha256": "b0cfeebd1b9db78f1dc8e96c36ed9c0eb4de808ad2f292cec8d71ff807981bb6"
+      },
+      {
+        "ref": "mathlib:Equiv.Perm.sign_prodCongrRight",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/Perm/Sign.lean",
+        "line": 535,
+        "provides": "The sign of the rowwise product permutation is the product over rows of their signs, for finite decidable index types.",
+        "checked": "Complete declaration statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-a71f92; relevant source files unchanged from that exact HEAD.",
+        "sourceSha256": "b0cfeebd1b9db78f1dc8e96c36ed9c0eb4de808ad2f292cec8d71ff807981bb6"
+      },
+      {
+        "ref": "mathlib:Matrix.det_diagonal",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "line": 77,
+        "provides": "The determinant of a diagonal matrix is the product of its diagonal coefficients over any commutative ring.",
+        "checked": "Complete declaration statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-a71f92; relevant source files unchanged from that exact HEAD.",
+        "sourceSha256": "870291a8544ad9297e0c17f3531bea11607a1f0d83b775b13a31981777c30f2e"
+      },
+      {
+        "ref": "mathlib:Matrix.det_permute",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "line": 213,
+        "provides": "For any commutative coefficient ring and finite decidable index type, reindexing the first matrix index by a permutation multiplies its determinant by the permutation's integer-unit sign.",
+        "checked": "Complete declaration statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-a71f92; relevant source files unchanged from that exact HEAD.",
+        "sourceSha256": "870291a8544ad9297e0c17f3531bea11607a1f0d83b775b13a31981777c30f2e"
+      },
+      {
+        "ref": "mathlib:finCycle",
+        "kind": "def",
+        "module": "Mathlib/Logic/Equiv/Fin/Rotate.lean",
+        "line": 128,
+        "provides": "On Fin n, finCycle(k) sends i to i+k and its inverse subtracts k; no coefficient-ring hypothesis.",
+        "checked": "Complete declaration statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-a71f92; relevant source files unchanged from that exact HEAD.",
+        "sourceSha256": "efc770513d77602e3ac7d496622bf03f5bbdba4fd5cc18e21df3ca5241685eaa"
+      },
+      {
+        "ref": "mathlib:finCycle_eq_finRotate_iterate",
+        "kind": "lemma",
+        "module": "Mathlib/Logic/Equiv/Fin/Rotate.lean",
+        "line": 134,
+        "provides": "The native cyclic translation by k equals the k.val-fold iterate of finRotate n.",
+        "checked": "Complete declaration statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-a71f92; relevant source files unchanged from that exact HEAD.",
+        "sourceSha256": "efc770513d77602e3ac7d496622bf03f5bbdba4fd5cc18e21df3ca5241685eaa"
+      },
+      {
+        "ref": "mathlib:Equiv.prodCongrRight",
+        "kind": "def",
+        "module": "Mathlib/Logic/Equiv/Prod.lean",
+        "line": 254,
+        "provides": "A family of equivalences e_a induces the product equivalence (a,b)↦(a,e_a(b)); applied to finite root-coordinate row permutations.",
+        "checked": "Complete declaration statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-a71f92; relevant source files unchanged from that exact HEAD.",
+        "sourceSha256": "f39e6eccbabfdd20664ddc80919332cae0c387c058df85acaddc306fa1adcfdb"
       }
     ]
   },
@@ -7485,12 +7602,18 @@
         "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinates",
         "FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial",
         "mathlib:Matrix.det_apply",
-        "mathlib:Fin.sign_cycleRange"
+        "mathlib:Fin.sign_cycleRange",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-sign",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-weight-product",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-matrix-reindex",
+        "mathlib:Matrix.det_permute",
+        "mathlib:Matrix.det_diagonal",
+        "mathlib:Equiv.Perm.sign_symm"
       ],
       "proofSteps": [
-        "The monomial formula gives a weighted permutation matrix. The Leibniz determinant has only the σ term.",
-        "In row block i the permutation is the ith power of the cyclic rotation on n letters. Its sign is (−1)^((n−1)i), using the native cycle-range sign at the last index; multiply block signs.",
-        "The wrapping columns in row i are exactly i, so there are Σ_i i=E weights f and all remaining weights are 1. Multiply weights and signs. Both calculations take place integrally before specialization to A."
+        "Consume matrix_reindex for the specified monomial support and inverse coefficient permutation. Apply the pinned determinant-permutation and diagonal determinant formulas.",
+        "Consume coefficientPermutation_sign and the native inverse-sign law. Cast the already computed integer-unit sign into A.",
+        "Consume weight_product for the exact column weights. Their count E is computed in natural numbers, not by dividing by2 in A. Combine sign and weight without cancellation."
       ],
       "acceptance": [
         "For n=2 the determinant is −f, including f=0 and nonreduced coefficient rings."
@@ -7513,7 +7636,29 @@
           "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.determinant.test_exponent_one",
+          "kind": "degenerate",
+          "statement": "At n=1 the specified matrix has determinant1 for every commutative A and every f, including f=0."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.determinant.test_three",
+          "kind": "computation",
+          "statement": "At n=3 the determinant is f³ over any commutative A; omitting the row-sign factor would incorrectly negate it."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.determinant.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "For A=ZMod1, n=2 and f=0, the determinant is0 in the zero ring; numerical polynomial degree is not substituted for the chosen index."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.determinant.test_wild",
+          "kind": "compatibility",
+          "statement": "For A=ZMod2, n=2 and f=1, the determinant is1 even though n is zero in A."
+        }
+      ]
     },
     {
       "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-rank",
@@ -9357,6 +9502,251 @@
           "statement": "For k=F₃,n=3, the actual native range has dimension six; the field instance uses primality of3."
         }
       ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-rows",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Rowwise root coefficient permutation",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_rows",
+      "statement": "For positive n, the specified native coefficient permutation σ(i,j)=(i,i+j) equals Equiv.prodCongrRight(i↦finCycle(i)); in row i its second coordinate is translated cyclically by i.",
+      "hypotheses": [
+        "n≥1. Matrix and weight-product assertions use any commutative coefficient ring A and f∈A; index and sign assertions are independent of A. No nonzerodivisor, unit, reducedness or invertibility-of-n assumption."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-permutation",
+        "mathlib:Equiv.prodCongrRight",
+        "mathlib:finCycle"
+      ],
+      "proofSteps": [
+        "Compare both components of the supplied native equivalences; cyclic addition is commutative, so the existing finCycle convention j+i equals i+j."
+      ],
+      "acceptance": [
+        "Uses the actual σ, not a newly chosen reordering; inverse and natural representatives stay those of the existing coordinate map."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag040N, complete Lemma59.28.3 statement and proof, read2026-10-02; positive exponent unit root chart",
+          "excerpt": "finite free",
+          "match": "The finite unit chart motivates the existing native root-action comparison. This all-ring determinant dependency is an authored coordinate deduction from that comparison and the listed pinned Mathlib declarations, not a printed determinant or general nonunit torsor theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_rows.test_wrap",
+          "kind": "computation",
+          "statement": "At n=4 the actual permutation sends (3,3) to (3,2), retaining cyclic rather than natural truncated arithmetic."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-sign",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Root coefficient permutation sign",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_sign",
+      "statement": "For positive n, the integer-unit sign of the actual coefficient permutation σ is (−1)^((n−1)E), where E=n(n−1)/2 is formed in natural numbers before any coefficient-ring specialization.",
+      "hypotheses": [
+        "n≥1. Matrix and weight-product assertions use any commutative coefficient ring A and f∈A; index and sign assertions are independent of A. No nonzerodivisor, unit, reducedness or invertibility-of-n assumption."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-rows",
+        "mathlib:finCycle_eq_finRotate_iterate",
+        "mathlib:sign_finRotate",
+        "mathlib:Equiv.Perm.sign_prodCongrRight",
+        "mathlib:Finset.prod_pow_eq_pow_sum",
+        "mathlib:Finset.sum_range_id"
+      ],
+      "proofSteps": [
+        "Use the native finCycle/finRotate iterate equality and the permutation power coercion to identify each row with the ith power of the n-cycle.",
+        "Import the rowwise sign product. Each row sign is (−1)^((n−1)i). Convert their product to the power with exponent (n−1)Σ_i i.",
+        "Import the natural Gauss sum Σ_i i=n(n−1)/2. No division by2 is performed in A."
+      ],
+      "acceptance": [
+        "The sign belongs to integer units; the determinant casts it to the coefficient ring only after the integral calculation."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag040N, complete Lemma59.28.3 statement and proof, read2026-10-02; positive exponent unit root chart",
+          "excerpt": "finite free",
+          "match": "The finite unit chart motivates the existing native root-action comparison. This all-ring determinant dependency is an authored coordinate deduction from that comparison and the listed pinned Mathlib declarations, not a printed determinant or general nonunit torsor theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_sign.test_two",
+          "kind": "computation",
+          "statement": "At n=2 the actual permutation has integer-unit sign−1."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_sign.test_three",
+          "kind": "non-example",
+          "statement": "At n=3 the sign is+1; using only (−1)^E would give−1 and is wrong."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-weight-exponent",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Root comparison wrapping exponent",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.weight_exponent",
+      "statement": "For n≥1 and p=(i,j) in Fin n×Fin n, floor((i+j)/n)=1 when n≤i+j and0 otherwise, with i,j their natural representatives.",
+      "hypotheses": [
+        "n≥1. Matrix and weight-product assertions use any commutative coefficient ring A and f∈A; index and sign assertions are independent of A. No nonzerodivisor, unit, reducedness or invertibility-of-n assumption."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.add_div_eq_of_add_mod_lt",
+        "mathlib:Nat.add_div_eq_of_le_mod_add_mod"
+      ],
+      "proofSteps": [
+        "Each representative is smaller than n, hence its remainder is itself and its individual quotient is0.",
+        "Split on the actual wrapping inequality. Import the two natural addition/division formulas to give quotient1 or0, retaining positivity of n."
+      ],
+      "acceptance": [
+        "This root-specific index assertion explains every column weight in the actual matrix; it does not add an invertibility assumption to A."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag040N, complete Lemma59.28.3 statement and proof, read2026-10-02; positive exponent unit root chart",
+          "excerpt": "finite free",
+          "match": "The finite unit chart motivates the existing native root-action comparison. This all-ring determinant dependency is an authored coordinate deduction from that comparison and the listed pinned Mathlib declarations, not a printed determinant or general nonunit torsor theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.weight_exponent.test_wrap",
+          "kind": "computation",
+          "statement": "At n=2 the column (1,1) has exponent1."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.weight_exponent.test_nonwrap",
+          "kind": "non-example",
+          "statement": "At n=2 the column (0,1) has exponent0, so it contributes weight1 rather than f."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-weight-product",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Product of root comparison weights",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.weight_product",
+      "statement": "For any commutative A, f∈A and n≥1, the product over p∈Fin n×Fin n of f^floor((p₁+p₂)/n) is f^E, E=n(n−1)/2.",
+      "hypotheses": [
+        "n≥1. Matrix and weight-product assertions use any commutative coefficient ring A and f∈A; index and sign assertions are independent of A. No nonzerodivisor, unit, reducedness or invertibility-of-n assumption."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-weight-exponent",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-wrapping-card",
+        "mathlib:Finset.prod_filter",
+        "mathlib:Fintype.card_subtype"
+      ],
+      "proofSteps": [
+        "Rewrite each weight as f on wrapping columns and1 on other columns.",
+        "Import the filtered product identity and constant product law. Identify the filter cardinality with the actual wrapping subtype.",
+        "Consume the existing native wrapping_card result; do not re-plan ordered-pair counting."
+      ],
+      "acceptance": [
+        "Works at f=0, nonunits, nilpotents and the zero ring; no logarithm, cancellation or division in A is used."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag040N, complete Lemma59.28.3 statement and proof, read2026-10-02; positive exponent unit root chart",
+          "excerpt": "finite free",
+          "match": "The finite unit chart motivates the existing native root-action comparison. This all-ring determinant dependency is an authored coordinate deduction from that comparison and the listed pinned Mathlib declarations, not a printed determinant or general nonunit torsor theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.weight_product.test_nonunit",
+          "kind": "computation",
+          "statement": "Over Z at n=2 and nonunit f=2, the actual product of all four column weights is2."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-matrix-reindex",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Root comparison diagonal reindexing",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.matrix_reindex",
+      "statement": "For the specified native monomial matrix M, let d(c)=f^floor((c₁+c₂)/n). Then M=(Matrix.diagonal d).submatrix σ⁻¹ id. The first-index reindexing is the inverse of the actual coefficient permutation; source and target index orders are retained.",
+      "hypotheses": [
+        "n≥1. Matrix and weight-product assertions use any commutative coefficient ring A and f∈A; index and sign assertions are independent of A. No nonzerodivisor, unit, reducedness or invertibility-of-n assumption."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-permutation",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-representative",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial",
+        "mathlib:Matrix.det_diagonal"
+      ],
+      "proofSteps": [
+        "For every row r and column c, the monomial support condition r=σ(c) is equivalent to σ⁻¹(r)=c.",
+        "Compare diagonal entries after this exact reindexing. On support, equality transports the weight index; off support both entries are0."
+      ],
+      "acceptance": [
+        "The inverse orientation is explicit. This is an equality of the actual root monomial matrix and the reindexed diagonal, not an arbitrary endomorphism model."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag040N, complete Lemma59.28.3 statement and proof, read2026-10-02; positive exponent unit root chart",
+          "excerpt": "finite free",
+          "match": "The finite unit chart motivates the existing native root-action comparison. This all-ring determinant dependency is an authored coordinate deduction from that comparison and the listed pinned Mathlib declarations, not a printed determinant or general nonunit torsor theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.matrix_reindex.test_weight",
+          "kind": "computation",
+          "statement": "At n=2 the actual monomial matrix entry with row(1,0) and column(1,1) is f."
+        }
+      ]
     }
   ],
   "requests": [
@@ -9527,7 +9917,7 @@
       "remaining": [
         "Resolve JAC-A’s actual tensor-section/unit coordinate and pullback contracts.",
         "Implement and elaborate the five native root-coordinate comparison nodes and full-file signatures at the exact pins.",
-        "The separate native proof extraction checks the weighted comparison, specified module kernel/cokernel and unit inverse, all inherited direct examples and the general zero-section field ranks. Complete the determinant sign, native geometric supplier contracts and full-file elaboration. No stage or implementation closure is claimed."
+        "The separate native proof extraction checks the weighted comparison, specified module kernel/cokernel and unit inverse, all inherited direct examples and the general zero-section field ranks. The determinant sign and all native calculation bodies are now checked separately; complete native geometric supplier contracts and full-file elaboration. No stage or implementation closure is claimed."
       ]
     },
     {
@@ -11518,6 +11908,95 @@
       ],
       "publicationBase": "9be0d75234d712fb5773663482ee55c38ac60ce0",
       "publicationGuard": "Fourteen protocol/own-deliverable/audit/key-definition inputs match the mathematical base before merging the exact current main SHA into the own publication branch."
+    },
+    {
+      "worker": "Codex — codex-a71f92",
+      "date": "2026-10-02",
+      "base": "f42b014ff60edba2c55eafd7f1e4adaade676b83",
+      "claim": 5961550379,
+      "bot": 5961552101,
+      "scope": "Specified native root comparison determinant and five proof-sized lemma nodes; no geometric or stage closure.",
+      "addedNodes": 5,
+      "preservedNodeStatements": 158,
+      "fullSuggestedCompiled": false,
+      "reason": "Exact-pin compiled TauCeti line-bundle/root-of-unity imports remain absent. Full inherited Mathlib-native extraction is checked separately; no project/build/cache/LSP.",
+      "verification": {
+        "lean": {
+          "Native.lean": {
+            "sourceSha256": "d40ac61960c10d4640c4ecaa3204968021303cdcdd7dedc4ef4b0b81835938e7",
+            "diagnosticsSha256": "00a7feab16652440b2ba73a10c130de0c9ed4bdd302b1f67a473f8d602d448b9",
+            "lines": 1716,
+            "examples": 62,
+            "audits": 42,
+            "errors": 0,
+            "warnings": 0,
+            "admittedWarnings": 0,
+            "resource": "RESOURCE elapsed=0:10.50 maxRSSKiB=3225104 exit=0",
+            "availableGiB": 57
+          },
+          "Sketch.lean": {
+            "sourceSha256": "c688fbc69edc77647a553185633a2a5cc9838fd7c7beaa0f62ba793450b83f01",
+            "diagnosticsSha256": "04378787efef2558b4ff9e2c0676ff007b14f46345ef2101f420db149a6893c8",
+            "lines": 946,
+            "examples": 62,
+            "audits": 0,
+            "errors": 0,
+            "warnings": 142,
+            "admittedWarnings": 142,
+            "resource": "RESOURCE elapsed=0:04.30 maxRSSKiB=3110952 exit=0",
+            "availableGiB": 58
+          },
+          "head": {
+            "sourceSha256": "3a82b8adc32b6800787b266b918aba0d3ac4a531817a1202d58ad68300f31c58",
+            "lines": 1964
+          }
+        },
+        "graph": {
+          "indexedChecker": "pass",
+          "actualIntake": "pass",
+          "actualAssembler": "pass",
+          "base": "f42b014ff60edba2c55eafd7f1e4adaade676b83",
+          "preservedStatements": 158,
+          "unchangedNodes": 157,
+          "addedNodes": 5,
+          "api": 117,
+          "tests": 142,
+          "baseline": 131,
+          "planets": 39,
+          "gaps": 8,
+          "requests": 13,
+          "ownDeclarationEdges": 337,
+          "stageVertices": 3005,
+          "stageEdges": 8723,
+          "reachableDependencyVertices": 520,
+          "reachableDeclarations": 214,
+          "requiredStagePairs": 54,
+          "requiredStagePairsReachable": 54,
+          "combinedVertices": 3231,
+          "combinedEdges": 9435,
+          "allDAGs": "acyclic",
+          "pendingLinks": [],
+          "ownSkippedLinks": [],
+          "otherSkips": "unchanged",
+          "newStageEdges": 0,
+          "scriptSha256": "4f1addef913ba15e020fae643f82cdf662cd28af96230ea95d1f6fa580a08919"
+        },
+        "archive": {
+          "commit": "6df00ac8cb82d19130a90b5d1ea473e803fd8eae",
+          "blob": "6ed1965cb92b979ffb2124af521bd6849b8bca16",
+          "path": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+          "retainedPredecessor": "fdc057a53800a1937f36f157aa7636a94611b5a9",
+          "signatureParity": 6,
+          "testParity": 11
+        },
+        "loaderSha256": "384708dc8bb7c1ab07bdbdabae0d08979f5297cf6c190902e660cb38011e9552",
+        "recoverySha256": "434b2983c4cc2675c239c6f43c2a08b01e707b95c1542459af5982564520880e"
+      },
+      "readScope": {
+        "current": "Whole issue twice, complete current handoff and roadmap, all 158 inherited mathematical statements/hypotheses, reserved root-stack contract, reviewed parent audit and REV-AUDIT-20, complete Stacks040N Lemma59.28.3 proof and 13 new indexed Mathlib statements/ambient hypotheses; complete inherited native extraction rechecked.",
+        "inherited": "Historical whole-source coverage, source-version and errata records are retained, not newly certified. No complete rereading of the Part II source bibliography is claimed.",
+        "notCertified": "Whole geometric suggested file, suppliers' geometric carriers, complete source extraction/errata and all ten stage closures."
+      }
     }
   ]
 }
