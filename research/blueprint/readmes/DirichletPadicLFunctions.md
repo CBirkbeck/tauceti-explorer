@@ -65107,3 +65107,277 @@ Exact controls through36 levels verify53 local CRT residue equations and complem
 Fresh capture after the actual merge of5814 changed only the source-issue registry and generated errata register. The whole two-file diff and four added SemisimpleAlgebrasPartII records were read. All9,786 prior records, including their original multiplicities and order, and all registry metadata remain identical. All four added records are awaiting review; the generated register wording is not adopted as a confirmed correction. They concern different sources and owners and add no Dirichlet dependency or source conclusion. The other77 canonical inputs, whole issue, original winning claim and blocked/unclaimed review390 were checked; all27 Dirichlet findings and eight source versions remain whole.
 
 The separate partial signature file also compiled with zero errors and 6,368 expected placeholder warnings across 3,914 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: be64dd0229d3f01862f9fafa509e4754469f1a9c78ca4731dbedeae2ca846ffb.
+
+
+## Actual correction products and complete prime-root sums
+
+Ten L3 lemmas complete the actual new-prime corrected-value root sum and combine it with the repeated-prime case for every original primitive point. All2,183 predecessor nodes and1,278 baseline records remain whole. The general composite-multiplier distribution reduction remains open.
+
+Published Kubert196–197 Proposition4.10, including the actual exceptional point and final corrected-value cancellation, was reread against the original point/unit carriers and source product correctionE27. The existing full-norm compatibility5800, corrected primitive-fiber formula5809, translated raw cancellation5814 and complete actual exceptional-root partition5817 were read. Full pinned native complementary-divisor, disjoint-union, singleton and finite-product/sum statements were read. No external source, source version or finding is added.
+
+### The complementary point order omits exactly one prime
+
+`DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-prime-translated-point-order-prime-iff` — `DirichletPadic.kubertRationalPrimeTranslatedPoint_order_prime_iff`
+
+For actual prime factors p,q of N and any original unit u, q divides the actual order of a_p,u exactly when q differs from p.
+
+**Hypotheses:** The degree is one and N is positive. Original Cartan units are the existing finite product of truncated-Witt units over the original finite Galois fields. All points lie in the actual one-coordinate rational torus or its native level-N kernel. For p in the actual prime factors of N write t=p raised to v_p(N). The original translated target A=a_p,u=t times P_N(u) and exceptional point B=a_p,uλ have proved order N/t. The actual CRT unit λ, raw primitive-fiber sums, rational correction factors and corrected values are the existing constructions. The correction-product and translated cancellation statements hold for every primary exponent. The new-prime root-sum argument assumes p does not divide N/p, identifies t=p and uses the proved complete actual root partition from5817. Finite sums use actual Cartan labels or actual level-N points, with explicit Fintype instances where needed. Primitive reindexing uses the original5674 and5458 point equivalences, preserving the actual values of the points. The final prime-root law is for a primitive point a of exact order N and any prime q dividing N: the sum of corrected values at all level-N points b with qb=qa equals the corrected value at qa. It combines the new-prime and previously established repeated-prime cases. This completes the prime case used in source4.10. The composite-multiplier reduction and the extension to other finite-level points remain to be supplied. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. If q=p, the existing complementary-order coprimality theorem rules out divisibility.
+2. For q different from p, distinct actual primes are coprime, so p does not divide q.
+3. The native maximal complementary-divisor theorem places q in N divided by the full p-primary power.
+4. Use the existing exact translated-point order formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-coprime-order`, `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-order`, `mathlib:Nat.dvd_ordCompl_of_dvd_not_dvd`.
+
+**Tests:**
+
+- `SuggestedKubertNewPrimeSumTests.rationalPrimeTranslatedPoint_order_prime_iff_typed_api` (compatibility): For actual prime factors p,q of N and any original unit u, q divides the actual order of a_p,u exactly when q differs from p.
+
+**Acceptance:** AtN6,p2 the corrected target value at1/3 is half of[1]−[5], the primitive-root contribution is[1]−[5], and the actual exceptional point2/3 contributes negative one half of[1]−[5]. Omitting that exceptional value fails. AtN2 the zero target has corrected value1 while the nonzero primitive point has value0. AtN9 all three actual3-roots of1/3 give the earlier repeated-prime sum.
+
+**Source:** Published196–197, Proposition4.10: the repeated-prime and new-prime cases of the actual corrected-value distribution relation, including the complete exceptional-root contribution and correction-product split. Completes the new-prime corrected-value sum by retaining the actual exceptional root, and combines it with the prior repeated-prime case for every original primitive point. The finite sums, correction products and reindexing use original point/unit carriers; the subsequent general reduction is left explicit.
+
+### The actual translated value contains precisely the other correction factors
+
+`DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-translated-product` — `DirichletPadic.kubertRationalCartanValue_translated_product`
+
+The original corrected value at A=a_p,u equals its original raw primitive-fiber sum multiplied by the product of ε_q over the actual prime-factor set with p erased.
+
+**Hypotheses:** The degree is one and N is positive. Original Cartan units are the existing finite product of truncated-Witt units over the original finite Galois fields. All points lie in the actual one-coordinate rational torus or its native level-N kernel. For p in the actual prime factors of N write t=p raised to v_p(N). The original translated target A=a_p,u=t times P_N(u) and exceptional point B=a_p,uλ have proved order N/t. The actual CRT unit λ, raw primitive-fiber sums, rational correction factors and corrected values are the existing constructions. The correction-product and translated cancellation statements hold for every primary exponent. The new-prime root-sum argument assumes p does not divide N/p, identifies t=p and uses the proved complete actual root partition from5817. Finite sums use actual Cartan labels or actual level-N points, with explicit Fintype instances where needed. Primitive reindexing uses the original5674 and5458 point equivalences, preserving the actual values of the points. The final prime-root law is for a primitive point a of exact order N and any prime q dividing N: the sum of corrected values at all level-N points b with qb=qa equals the corrected value at qa. It combines the new-prime and previously established repeated-prime cases. This completes the prime case used in source4.10. The composite-multiplier reduction and the extension to other finite-level points remain to be supplied. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Expand the original corrected-value definition.
+2. Use the exact prime-divisibility criterion for the actual point order.
+3. Convert the conditional finite product into the native product over the erased prime factor.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-cartan-value`, `DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-prime-translated-point-order-prime-iff`, `mathlib:Finset.prod_filter`.
+
+**Tests:**
+
+- `SuggestedKubertNewPrimeSumTests.corrected_target_value_at_six` (computation): AtN6,p2 the corrected value at the actual target1/3 is half of1 minus the residue5 basis vector.
+- `SuggestedKubertNewPrimeSumTests.rationalCartanValue_translated_product_typed_api` (compatibility): The original corrected value at A=a_p,u equals its original raw primitive-fiber sum multiplied by the product of ε_q over the actual prime-factor set with p erased.
+
+**Acceptance:** AtN6,p2 the corrected target value at1/3 is half of[1]−[5], the primitive-root contribution is[1]−[5], and the actual exceptional point2/3 contributes negative one half of[1]−[5]. Omitting that exceptional value fails. AtN2 the zero target has corrected value1 while the nonzero primitive point has value0. AtN9 all three actual3-roots of1/3 give the earlier repeated-prime sum.
+
+**Source:** Published196–197, Proposition4.10: the repeated-prime and new-prime cases of the actual corrected-value distribution relation, including the complete exceptional-root contribution and correction-product split. Completes the new-prime corrected-value sum by retaining the actual exceptional root, and combines it with the prior repeated-prime case for every original primitive point. The finite sums, correction products and reindexing use original point/unit carriers; the subsequent general reduction is left explicit.
+
+### The full correction product splits off the chosen prime
+
+`DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-prime-factor-product-split` — `DirichletPadic.kubertRationalPrimeFactor_product_split`
+
+The actual product of all original correction factors ε_q at N equals ε_p times the product over the actual prime-factor set with p erased.
+
+**Hypotheses:** The degree is one and N is positive. Original Cartan units are the existing finite product of truncated-Witt units over the original finite Galois fields. All points lie in the actual one-coordinate rational torus or its native level-N kernel. For p in the actual prime factors of N write t=p raised to v_p(N). The original translated target A=a_p,u=t times P_N(u) and exceptional point B=a_p,uλ have proved order N/t. The actual CRT unit λ, raw primitive-fiber sums, rational correction factors and corrected values are the existing constructions. The correction-product and translated cancellation statements hold for every primary exponent. The new-prime root-sum argument assumes p does not divide N/p, identifies t=p and uses the proved complete actual root partition from5817. Finite sums use actual Cartan labels or actual level-N points, with explicit Fintype instances where needed. Primitive reindexing uses the original5674 and5458 point equivalences, preserving the actual values of the points. The final prime-root law is for a primitive point a of exact order N and any prime q dividing N: the sum of corrected values at all level-N points b with qb=qa equals the corrected value at qa. It combines the new-prime and previously established repeated-prime cases. This completes the prime case used in source4.10. The composite-multiplier reduction and the extension to other finite-level points remain to be supplied. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Apply the native finite-product decomposition at the actual member p of the prime-factor type.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-factor`, `mathlib:Finset.mul_prod_erase`.
+
+**Tests:**
+
+- `SuggestedKubertNewPrimeSumTests.rationalPrimeFactor_product_split_typed_api` (compatibility): The actual product of all original correction factors ε_q at N equals ε_p times the product over the actual prime-factor set with p erased.
+
+**Acceptance:** AtN6,p2 the corrected target value at1/3 is half of[1]−[5], the primitive-root contribution is[1]−[5], and the actual exceptional point2/3 contributes negative one half of[1]−[5]. Omitting that exceptional value fails. AtN2 the zero target has corrected value1 while the nonzero primitive point has value0. AtN9 all three actual3-roots of1/3 give the earlier repeated-prime sum.
+
+**Source:** Published196–197, Proposition4.10: the repeated-prime and new-prime cases of the actual corrected-value distribution relation, including the complete exceptional-root contribution and correction-product split. Completes the new-prime corrected-value sum by retaining the actual exceptional root, and combines it with the prior repeated-prime case for every original primitive point. The finite sums, correction products and reindexing use original point/unit carriers; the subsequent general reduction is left explicit.
+
+### Correcting the primitive contribution subtracts the actual exceptional value
+
+`DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-translated-cancellation` — `DirichletPadic.kubertRationalCartanValue_translated_cancellation`
+
+For A=a_p,u and B=a_p,uλ, raw(A) times the product of all original correction factors equals r_N(A)−r_N(B). This holds for every p-primary exponent.
+
+**Hypotheses:** The degree is one and N is positive. Original Cartan units are the existing finite product of truncated-Witt units over the original finite Galois fields. All points lie in the actual one-coordinate rational torus or its native level-N kernel. For p in the actual prime factors of N write t=p raised to v_p(N). The original translated target A=a_p,u=t times P_N(u) and exceptional point B=a_p,uλ have proved order N/t. The actual CRT unit λ, raw primitive-fiber sums, rational correction factors and corrected values are the existing constructions. The correction-product and translated cancellation statements hold for every primary exponent. The new-prime root-sum argument assumes p does not divide N/p, identifies t=p and uses the proved complete actual root partition from5817. Finite sums use actual Cartan labels or actual level-N points, with explicit Fintype instances where needed. Primitive reindexing uses the original5674 and5458 point equivalences, preserving the actual values of the points. The final prime-root law is for a primitive point a of exact order N and any prime q dividing N: the sum of corrected values at all level-N points b with qb=qa equals the corrected value at qa. It combines the new-prime and previously established repeated-prime cases. This completes the prime case used in source4.10. The composite-multiplier reduction and the extension to other finite-level points remain to be supplied. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Split the actual correction product at p.
+2. Associate the raw sum with ε_p and use the proved actual translated raw-fiber cancellation from5814.
+3. Distribute the remaining correction product over subtraction.
+4. Identify each term with its original corrected value using the exact complementary-order product formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-prime-factor-product-split`, `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-mul-factor`, `DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-translated-product`.
+
+**Tests:**
+
+- `SuggestedKubertNewPrimeSumTests.corrected_exceptional_value_at_six` (computation): The actual exceptional point2/3 has corrected value negative one half of1 minus the residue5 basis vector. Its sign is required in the complete root sum.
+- `SuggestedKubertNewPrimeSumTests.rationalCartanValue_translated_cancellation_typed_api` (compatibility): For A=a_p,u and B=a_p,uλ, raw(A) times the product of all original correction factors equals r_N(A)−r_N(B). This holds for every p-primary exponent.
+
+**Acceptance:** AtN6,p2 the corrected target value at1/3 is half of[1]−[5], the primitive-root contribution is[1]−[5], and the actual exceptional point2/3 contributes negative one half of[1]−[5]. Omitting that exceptional value fails. AtN2 the zero target has corrected value1 while the nonzero primitive point has value0. AtN9 all three actual3-roots of1/3 give the earlier repeated-prime sum.
+
+**Source:** Published196–197, Proposition4.10: the repeated-prime and new-prime cases of the actual corrected-value distribution relation, including the complete exceptional-root contribution and correction-product split. Completes the new-prime corrected-value sum by retaining the actual exceptional root, and combines it with the prior repeated-prime case for every original primitive point. The finite sums, correction products and reindexing use original point/unit carriers; the subsequent general reduction is left explicit.
+
+### Actual primitive point sums reindex by original Cartan labels
+
+`DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-primitive-level-fiber-sum` — `DirichletPadic.kubertRationalCartanValue_primitive_level_fiber_sum`
+
+For any natural m and actual level-N point a, the sum of r_N(b) over actual level-N points b of order N satisfying mb=a equals the sum of r_N(P_N(u)) over original Cartan units satisfying mP_N(u)=a.
+
+**Hypotheses:** The degree is one and N is positive. Original Cartan units are the existing finite product of truncated-Witt units over the original finite Galois fields. All points lie in the actual one-coordinate rational torus or its native level-N kernel. For p in the actual prime factors of N write t=p raised to v_p(N). The original translated target A=a_p,u=t times P_N(u) and exceptional point B=a_p,uλ have proved order N/t. The actual CRT unit λ, raw primitive-fiber sums, rational correction factors and corrected values are the existing constructions. The correction-product and translated cancellation statements hold for every primary exponent. The new-prime root-sum argument assumes p does not divide N/p, identifies t=p and uses the proved complete actual root partition from5817. Finite sums use actual Cartan labels or actual level-N points, with explicit Fintype instances where needed. Primitive reindexing uses the original5674 and5458 point equivalences, preserving the actual values of the points. The final prime-root law is for a primitive point a of exact order N and any prime q dividing N: the sum of corrected values at all level-N points b with qb=qa equals the corrected value at qa. It combines the new-prime and previously established repeated-prime cases. This completes the prime case used in source4.10. The composite-multiplier reduction and the extension to other finite-level points remain to be supplied. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Compose the original actual primitive-circle and one-coordinate torus equivalences.
+2. Map an actual primitive level point to the inverse original unit label, using its proved exact order.
+3. The equivalence inverse law preserves the actual root equation.
+4. Prove injectivity, surjectivity and equality of summand values from the original equivalence and native subtype extensionality.
+5. Apply the native finite-sum bijection theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level`, `mathlib:Finset.prod_bij`.
+
+**Tests:**
+
+- `SuggestedKubertNewPrimeSumTests.rationalCartanValue_primitive_level_fiber_sum_typed_api` (compatibility): For any natural m and actual level-N point a, the sum of r_N(b) over actual level-N points b of order N satisfying mb=a equals the sum of r_N(P_N(u)) over original Cartan units satisfying mP_N(u)=a.
+
+**Acceptance:** AtN6,p2 the corrected target value at1/3 is half of[1]−[5], the primitive-root contribution is[1]−[5], and the actual exceptional point2/3 contributes negative one half of[1]−[5]. Omitting that exceptional value fails. AtN2 the zero target has corrected value1 while the nonzero primitive point has value0. AtN9 all three actual3-roots of1/3 give the earlier repeated-prime sum.
+
+**Source:** Published196–197, Proposition4.10: the repeated-prime and new-prime cases of the actual corrected-value distribution relation, including the complete exceptional-root contribution and correction-product split. Completes the new-prime corrected-value sum by retaining the actual exceptional root, and combines it with the prior repeated-prime case for every original primitive point. The finite sums, correction products and reindexing use original point/unit carriers; the subsequent general reduction is left explicit.
+
+### The new-prime primitive-root contribution is target minus exceptional value
+
+`DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-new-primitive-sum` — `DirichletPadic.kubertRationalCartanValue_new_primitive_sum`
+
+If p does not divide N/p, the sum of corrected values at original primitive points P_N(v) with pP_N(v)=A equals r_N(A)−r_N(B).
+
+**Hypotheses:** The degree is one and N is positive. Original Cartan units are the existing finite product of truncated-Witt units over the original finite Galois fields. All points lie in the actual one-coordinate rational torus or its native level-N kernel. For p in the actual prime factors of N write t=p raised to v_p(N). The original translated target A=a_p,u=t times P_N(u) and exceptional point B=a_p,uλ have proved order N/t. The actual CRT unit λ, raw primitive-fiber sums, rational correction factors and corrected values are the existing constructions. The correction-product and translated cancellation statements hold for every primary exponent. The new-prime root-sum argument assumes p does not divide N/p, identifies t=p and uses the proved complete actual root partition from5817. Finite sums use actual Cartan labels or actual level-N points, with explicit Fintype instances where needed. Primitive reindexing uses the original5674 and5458 point equivalences, preserving the actual values of the points. The final prime-root law is for a primitive point a of exact order N and any prime q dividing N: the sum of corrected values at all level-N points b with qb=qa equals the corrected value at qa. It combines the new-prime and previously established repeated-prime cases. This completes the prime case used in source4.10. The composite-multiplier reduction and the extension to other finite-level points remain to be supplied. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Compute N divided by the actual order of A as p using the exponent-one result and exact division.
+2. Apply the previously proved corrected primitive-fiber sum formula at the actual target A.
+3. Replace its all-prime corrected raw contribution by the actual target-minus-exceptional cancellation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-order`, `DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-new-primary-power`, `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-rational-cartan-value-primitive-fiber-sum`, `DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-translated-cancellation`.
+
+**Tests:**
+
+- `SuggestedKubertNewPrimeSumTests.primitive_contribution_alone_is_not_the_full_sum` (non-example): AtN6,p2 the primitive-root contribution1 minus the residue5 basis vector differs from the corrected target value; adding the exceptional contribution is necessary.
+- `SuggestedKubertNewPrimeSumTests.rationalCartanValue_new_primitive_sum_typed_api` (compatibility): If p does not divide N/p, the sum of corrected values at original primitive points P_N(v) with pP_N(v)=A equals r_N(A)−r_N(B).
+
+**Acceptance:** AtN6,p2 the corrected target value at1/3 is half of[1]−[5], the primitive-root contribution is[1]−[5], and the actual exceptional point2/3 contributes negative one half of[1]−[5]. Omitting that exceptional value fails. AtN2 the zero target has corrected value1 while the nonzero primitive point has value0. AtN9 all three actual3-roots of1/3 give the earlier repeated-prime sum.
+
+**Source:** Published196–197, Proposition4.10: the repeated-prime and new-prime cases of the actual corrected-value distribution relation, including the complete exceptional-root contribution and correction-product split. Completes the new-prime corrected-value sum by retaining the actual exceptional root, and combines it with the prior repeated-prime case for every original primitive point. The finite sums, correction products and reindexing use original point/unit carriers; the subsequent general reduction is left explicit.
+
+### The complete actual root sum includes the exceptional corrected value
+
+`DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-new-level-partition` — `DirichletPadic.kubertRationalCartanValue_new_level_partition`
+
+If p does not divide N/p, the sum of r_N over every actual level-N p-root of A equals r_N(B) plus the sum over the actual primitive level-N p-roots of A.
+
+**Hypotheses:** The degree is one and N is positive. Original Cartan units are the existing finite product of truncated-Witt units over the original finite Galois fields. All points lie in the actual one-coordinate rational torus or its native level-N kernel. For p in the actual prime factors of N write t=p raised to v_p(N). The original translated target A=a_p,u=t times P_N(u) and exceptional point B=a_p,uλ have proved order N/t. The actual CRT unit λ, raw primitive-fiber sums, rational correction factors and corrected values are the existing constructions. The correction-product and translated cancellation statements hold for every primary exponent. The new-prime root-sum argument assumes p does not divide N/p, identifies t=p and uses the proved complete actual root partition from5817. Finite sums use actual Cartan labels or actual level-N points, with explicit Fintype instances where needed. Primitive reindexing uses the original5674 and5458 point equivalences, preserving the actual values of the points. The final prime-root law is for a primitive point a of exact order N and any prime q dividing N: the sum of corrected values at all level-N points b with qb=qa equals the corrected value at qa. It combines the new-prime and previously established repeated-prime cases. This completes the prime case used in source4.10. The composite-multiplier reduction and the extension to other finite-level points remain to be supplied. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Use the proved actual new-prime root partition to identify the full finite root set with the exceptional singleton union the primitive-root subset.
+2. The previously proved exceptional-root disjointness, specialized by t=p, shows the union is disjoint.
+3. Apply the native sum over a disjoint union and evaluate the exceptional singleton.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-new-partition`, `DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-new-coe`, `DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-root-not-high`, `DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-new-primary-power`, `mathlib:Finset.prod_union`, `mathlib:Finset.prod_singleton`, `mathlib:Finset.disjoint_singleton_left`.
+
+**Tests:**
+
+- `SuggestedKubertNewPrimeSumTests.rationalCartanValue_new_level_partition_typed_api` (compatibility): If p does not divide N/p, the sum of r_N over every actual level-N p-root of A equals r_N(B) plus the sum over the actual primitive level-N p-roots of A.
+
+**Acceptance:** AtN6,p2 the corrected target value at1/3 is half of[1]−[5], the primitive-root contribution is[1]−[5], and the actual exceptional point2/3 contributes negative one half of[1]−[5]. Omitting that exceptional value fails. AtN2 the zero target has corrected value1 while the nonzero primitive point has value0. AtN9 all three actual3-roots of1/3 give the earlier repeated-prime sum.
+
+**Source:** Published196–197, Proposition4.10: the repeated-prime and new-prime cases of the actual corrected-value distribution relation, including the complete exceptional-root contribution and correction-product split. Completes the new-prime corrected-value sum by retaining the actual exceptional root, and combines it with the prior repeated-prime case for every original primitive point. The finite sums, correction products and reindexing use original point/unit carriers; the subsequent general reduction is left explicit.
+
+### All new-prime roots reproduce the corrected target value
+
+`DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-new-translated-root-sum` — `DirichletPadic.kubertRationalCartanValue_new_translated_root_sum`
+
+If p does not divide N/p, summing r_N(b) over all actual level-N points with pb=A gives r_N(A), for every original translated target A=a_p,u.
+
+**Hypotheses:** The degree is one and N is positive. Original Cartan units are the existing finite product of truncated-Witt units over the original finite Galois fields. All points lie in the actual one-coordinate rational torus or its native level-N kernel. For p in the actual prime factors of N write t=p raised to v_p(N). The original translated target A=a_p,u=t times P_N(u) and exceptional point B=a_p,uλ have proved order N/t. The actual CRT unit λ, raw primitive-fiber sums, rational correction factors and corrected values are the existing constructions. The correction-product and translated cancellation statements hold for every primary exponent. The new-prime root-sum argument assumes p does not divide N/p, identifies t=p and uses the proved complete actual root partition from5817. Finite sums use actual Cartan labels or actual level-N points, with explicit Fintype instances where needed. Primitive reindexing uses the original5674 and5458 point equivalences, preserving the actual values of the points. The final prime-root law is for a primitive point a of exact order N and any prime q dividing N: the sum of corrected values at all level-N points b with qb=qa equals the corrected value at qa. It combines the new-prime and previously established repeated-prime cases. This completes the prime case used in source4.10. The composite-multiplier reduction and the extension to other finite-level points remain to be supplied. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Split the actual root sum into the exceptional contribution and primitive contribution.
+2. Reindex the actual primitive root subset by original Cartan unit labels.
+3. Substitute the proved primitive contribution r_N(A)−r_N(B).
+4. Cancel the exceptional value in the original rational group-ring additive group.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-new-level-partition`, `DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-primitive-level-fiber-sum`, `DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-new-primitive-sum`.
+
+**Tests:**
+
+- `SuggestedKubertNewPrimeSumTests.zero_target_at_level_two_has_nonzero_corrected_value` (degenerate): AtN2,p2 the translated target is zero and its corrected value is1, even though the nonzero primitive point has corrected value0.
+- `SuggestedKubertNewPrimeSumTests.rationalCartanValue_new_translated_root_sum_typed_api` (compatibility): If p does not divide N/p, summing r_N(b) over all actual level-N points with pb=A gives r_N(A), for every original translated target A=a_p,u.
+
+**Acceptance:** AtN6,p2 the corrected target value at1/3 is half of[1]−[5], the primitive-root contribution is[1]−[5], and the actual exceptional point2/3 contributes negative one half of[1]−[5]. Omitting that exceptional value fails. AtN2 the zero target has corrected value1 while the nonzero primitive point has value0. AtN9 all three actual3-roots of1/3 give the earlier repeated-prime sum.
+
+**Source:** Published196–197, Proposition4.10: the repeated-prime and new-prime cases of the actual corrected-value distribution relation, including the complete exceptional-root contribution and correction-product split. Completes the new-prime corrected-value sum by retaining the actual exceptional root, and combines it with the prior repeated-prime case for every original primitive point. The finite sums, correction products and reindexing use original point/unit carriers; the subsequent general reduction is left explicit.
+
+### The new-prime distribution identity holds at every primitive point
+
+`DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-new-prime-root-sum` — `DirichletPadic.kubertRationalCartanValue_new_prime_root_sum`
+
+For q prime dividing N, q not dividing N/q and any actual level-N point a of exact order N, the sum of r_N(b) over actual level-N points satisfying qb=qa equals r_N(qa).
+
+**Hypotheses:** The degree is one and N is positive. Original Cartan units are the existing finite product of truncated-Witt units over the original finite Galois fields. All points lie in the actual one-coordinate rational torus or its native level-N kernel. For p in the actual prime factors of N write t=p raised to v_p(N). The original translated target A=a_p,u=t times P_N(u) and exceptional point B=a_p,uλ have proved order N/t. The actual CRT unit λ, raw primitive-fiber sums, rational correction factors and corrected values are the existing constructions. The correction-product and translated cancellation statements hold for every primary exponent. The new-prime root-sum argument assumes p does not divide N/p, identifies t=p and uses the proved complete actual root partition from5817. Finite sums use actual Cartan labels or actual level-N points, with explicit Fintype instances where needed. Primitive reindexing uses the original5674 and5458 point equivalences, preserving the actual values of the points. The final prime-root law is for a primitive point a of exact order N and any prime q dividing N: the sum of corrected values at all level-N points b with qb=qa equals the corrected value at qa. It combines the new-prime and previously established repeated-prime cases. This completes the prime case used in source4.10. The composite-multiplier reduction and the extension to other finite-level points remain to be supplied. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Use surjectivity of the original primitive-point equivalence to find the actual Cartan unit representing a.
+2. Construct q as an actual member of the prime-factor type.
+3. Identify the actual translated target with q times a, using the new-prime coe formula and the equivalence inverse law.
+4. Apply the proved translated-target root sum and substitute this actual point equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-new-translated-root-sum`, `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv`, `DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-new-coe`.
+
+**Tests:**
+
+- `SuggestedKubertNewPrimeSumTests.rationalCartanValue_new_prime_root_sum_typed_api` (compatibility): For q prime dividing N, q not dividing N/q and any actual level-N point a of exact order N, the sum of r_N(b) over actual level-N points satisfying qb=qa equals r_N(qa).
+
+**Acceptance:** AtN6,p2 the corrected target value at1/3 is half of[1]−[5], the primitive-root contribution is[1]−[5], and the actual exceptional point2/3 contributes negative one half of[1]−[5]. Omitting that exceptional value fails. AtN2 the zero target has corrected value1 while the nonzero primitive point has value0. AtN9 all three actual3-roots of1/3 give the earlier repeated-prime sum.
+
+**Source:** Published196–197, Proposition4.10: the repeated-prime and new-prime cases of the actual corrected-value distribution relation, including the complete exceptional-root contribution and correction-product split. Completes the new-prime corrected-value sum by retaining the actual exceptional root, and combines it with the prior repeated-prime case for every original primitive point. The finite sums, correction products and reindexing use original point/unit carriers; the subsequent general reduction is left explicit.
+
+### The complete prime-root distribution identity holds at primitive points
+
+`DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-prime-root-sum` — `DirichletPadic.kubertRationalCartanValue_prime_root_sum`
+
+For every prime q dividing N and every actual level-N point a of exact order N, the sum of corrected values r_N(b) over all actual level-N points with qb=qa equals r_N(qa), without assuming whether q divides N/q.
+
+**Hypotheses:** The degree is one and N is positive. Original Cartan units are the existing finite product of truncated-Witt units over the original finite Galois fields. All points lie in the actual one-coordinate rational torus or its native level-N kernel. For p in the actual prime factors of N write t=p raised to v_p(N). The original translated target A=a_p,u=t times P_N(u) and exceptional point B=a_p,uλ have proved order N/t. The actual CRT unit λ, raw primitive-fiber sums, rational correction factors and corrected values are the existing constructions. The correction-product and translated cancellation statements hold for every primary exponent. The new-prime root-sum argument assumes p does not divide N/p, identifies t=p and uses the proved complete actual root partition from5817. Finite sums use actual Cartan labels or actual level-N points, with explicit Fintype instances where needed. Primitive reindexing uses the original5674 and5458 point equivalences, preserving the actual values of the points. The final prime-root law is for a primitive point a of exact order N and any prime q dividing N: the sum of corrected values at all level-N points b with qb=qa equals the corrected value at qa. It combines the new-prime and previously established repeated-prime cases. This completes the prime case used in source4.10. The composite-multiplier reduction and the extension to other finite-level points remain to be supplied. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Split according to whether q divides N/q.
+2. Use the earlier repeated-prime root-sum theorem when it does.
+3. Use the newly proved exceptional-root/new-prime theorem when it does not.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-rational-cartan-value-repeated-prime-root-sum`, `DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-new-prime-root-sum`.
+
+**Tests:**
+
+- `SuggestedKubertNewPrimeSumTests.repeated_three_root_sum_at_nine` (computation): AtN9 the corrected values of all three actual3-roots of1/3 sum to its corrected value, recovering the repeated-prime branch inside the combined theorem.
+- `SuggestedKubertNewPrimeSumTests.rationalCartanValue_prime_root_sum_typed_api` (compatibility): For every prime q dividing N and every actual level-N point a of exact order N, the sum of corrected values r_N(b) over all actual level-N points with qb=qa equals r_N(qa), without assuming whether q divides N/q.
+
+**Acceptance:** AtN6,p2 the corrected target value at1/3 is half of[1]−[5], the primitive-root contribution is[1]−[5], and the actual exceptional point2/3 contributes negative one half of[1]−[5]. Omitting that exceptional value fails. AtN2 the zero target has corrected value1 while the nonzero primitive point has value0. AtN9 all three actual3-roots of1/3 give the earlier repeated-prime sum.
+
+**Source:** Published196–197, Proposition4.10: the repeated-prime and new-prime cases of the actual corrected-value distribution relation, including the complete exceptional-root contribution and correction-product split. Completes the new-prime corrected-value sum by retaining the actual exceptional root, and combines it with the prior repeated-prime case for every original primitive point. The finite sums, correction products and reindexing use original point/unit carriers; the subsequent general reduction is left explicit.
+
+**Remaining:** The complete prime-root corrected-value identity is now proved on the original degree-one level kernels for every primitive point and every prime divisor, combining the repeated-prime case with the actual exceptional-root contribution. The exact correction-product split, primitive-label reindexing and singleton/primitive partition are proved. Complete the general composite-multiplier reduction for source4.10 and extend from primitive points using actual finite levels and the previously proved full-norm compatibility4.8 where appropriate. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.
+
+### Actual correction products and complete prime-root sums validation
+
+All 2183 predecessor nodes, 1278 baseline records, 27 findings, requests and sourceVersions remain whole. This checkpoint adds 10 nodes, 10 named suggested declarations and 15 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2455 reachable nodes, 9870 edges and 1448 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route ends in the original actual correction factors, primitive points and unit equivalences, translated raw fibers and proved exceptional-root partition, or checked native finite sums/products and complementary-divisor interfaces. No root-sum identity, supplied torsor, general distribution or source-freeness package is assumed.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3915 pinned Mathlib modules and 32 pinned Tau Ceti modules. Only 31 Tau module artifacts are available and hash-verified. The 152 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5817 verbatim and adds ten complete lemmas. Totals are185 definitions and1,483 lemmas without placeholders. The public append has10 named declarations and15 typed examples, all new mathematical bodies placeholders. No new native import or library build is added. The separate probe compiles against 3282 pinned Mathlib modules and 10 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native periodicity, low-degree Tate and Teichmuller artifacts, with ten Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact controls through36 levels verify53 local correction-product splits,575 actual translated corrected values,8,757 coefficients each for translated cancellation and primitive corrected-fiber sums,439 new-prime root fibers with7,045 coefficients, and575 all-prime primitive-point root fibers with8,757 coefficients. Exact original residue-unit and rational group-ring arithmetic through level36 checks the correction-product split, every actual translated corrected value and cancellation, primitive corrected-fiber sums, the exceptional-value contribution in every new-prime root fiber, and the full corrected root law for every prime divisor and every original primitive point. The complete native proofs remain the formal evidence; finite arithmetic is a supplementary control. The largest observed discrepancy is 0.
+
+Fresh capture after the actual merge of5817 found all79 canonical inputs unchanged. The whole issue, queue, original winning claim and blocked/unclaimed review390 were checked. All27 Dirichlet source findings and eight source versions remain whole. No new external review or source conclusion is adopted.
+
+The separate partial signature file also compiled with zero errors and 6,393 expected placeholder warnings across 3,914 pinned source modules. It includes all 10 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cf669c81dc90ce30f2dbc13b56bdafcd6487e09e9d70898df3a25f906072e9ee.
