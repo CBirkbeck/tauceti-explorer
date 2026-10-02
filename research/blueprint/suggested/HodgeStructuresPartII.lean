@@ -25,6 +25,7 @@ sheaf monoidal/dual/pullback/filtered interfaces prevent honest native global
 signatures. The exhaustive omission ledger below names every new planned item,
 API and test, rather than replacing any of them by a fictitious Prop field.
 -/
+import Mathlib.RingTheory.Flat.Basic
 import Mathlib.RingTheory.Derivation.Basic
 import Mathlib.RingTheory.Kaehler.Basic
 import Mathlib.LinearAlgebra.TensorProduct.Basic
@@ -1486,3 +1487,66 @@ example (θ : ℚ →ₗ[ℚ] ℚ ⊗[ℚ] ℚ) (u : ℚ →ₗ[ℚ] ℚ) :
 end
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
 /- END HIGGS COEFFICIENT MAP -/
+
+
+/- Flat coefficient injections and horizontal subobjects: same base ring and exact exponent.
+No basis, integrability or global sheaf-gluing assertion is introduced. -/
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+variable {R E Q P : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E]
+variable [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
+
+lemma affineOrderedIterate_natural_zero_iff_of_flat
+    {F : Type*} [AddCommGroup F] [Module R F]
+    [Module.Flat R F] [Module.Flat R Q] [Module.Flat R P]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] P)
+    (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ)
+    (hf : Function.Injective f) (hu : Function.Injective u) (n : ℕ) :
+    (affineOrderedIterate ψ n).comp f = 0 ↔ affineOrderedIterate θ n = 0 := by
+  sorry
+
+lemma affineOrderedIterate_coefficientMap_zero_iff_of_flat
+    [Module.Flat R E] [Module.Flat R Q] [Module.Flat R P]
+    (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) (hu : Function.Injective u) (n : ℕ) :
+    affineOrderedIterate (affineCoefficientMap θ u) n = 0 ↔ affineOrderedIterate θ n = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineCoefficientMap.test_flat_nonsplit
+example (θ : ℤ →ₗ[ℤ] ℤ ⊗[ℤ] ℤ) (n : ℕ) :
+    (affineOrderedIterate (affineCoefficientMap θ ((2 : ℤ) • LinearMap.id)) n = 0 ↔
+      affineOrderedIterate θ n = 0) ∧
+    ¬ ∃ v : ℤ →ₗ[ℤ] ℤ, v.comp ((2 : ℤ) • LinearMap.id) = LinearMap.id := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineCoefficientMap.test_projective_no_basis
+example {R E Q P : Type*} [CommRing R] [AddCommGroup E] [Module R E]
+    [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
+    [Module.Projective R E] [Module.Projective R Q] [Module.Projective R P]
+    (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) (hu : Function.Injective u) (n : ℕ) :
+    affineOrderedIterate (affineCoefficientMap θ u) n = 0 ↔ affineOrderedIterate θ n = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_flat_subobject
+example {R E F Q P : Type*} [CommRing R]
+    [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+    [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
+    [Module.Flat R F] [Module.Flat R Q] [Module.Flat R P]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] P)
+    (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ)
+    (hf : Function.Injective f) (hu : Function.Injective u) (n : ℕ)
+    (hz : affineOrderedIterate ψ n = 0) : affineOrderedIterate θ n = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_restriction_not_ambient
+example :
+    let f := LinearMap.inl ℤ ℤ ℤ
+    let B : (ℤ × ℤ) →ₗ[ℤ] (ℤ × ℤ) := (LinearMap.inr ℤ ℤ ℤ).comp (LinearMap.snd ℤ ℤ ℤ)
+    let ψ := (TensorProduct.rid ℤ (ℤ × ℤ)).symm.toLinearMap.comp B
+    ψ.comp f = 0 ∧ ψ ≠ 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle

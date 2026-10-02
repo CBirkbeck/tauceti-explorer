@@ -14,7 +14,7 @@
     "HodgeStructuresPartII:H.8"
   ],
   "status": "partial",
-  "summary": "General ringed-site Higgs/constant-parameter connection plan retaining the reserved carrier,intrinsic exterior curvature,determinant/gauge,symmetric-action,native all-order and scalar-extension interfaces. This continuation adds five coefficient-change nodes,five API entries and five tests: actual coefficient postcomposition,composition,all-degree iterate comparison,same-bound preservation and reflection through a specified coefficient left inverse. All affine modules are arbitrary; no basis,flatness or integrability assumption is introduced. A nonflat-module counterexample excludes reflection from mere injectivity. The100 inherited mathematical node contracts,149 source obligations,requests,planets and roadmap definition remain. H.0partial,H.1–H.8not_read; no global gluing,pullback exterior-integrability,rank-bound or source-route obligation is closed.",
+  "summary": "General ringed-site Higgs and constant-parameter connection plan with 107 declaration nodes. Native affine ordered iterates now reflect a specified bound under horizontal injections into flat F with flat coefficient modules Q,P; the coefficient-only specialization assumes E,Q,P flat and needs no left inverse or basis. The arbitrary-module split criterion, nonflat counterexamples, all 105 inherited mathematical contracts, 149 routed source obligations and global supplier boundaries remain. H.0 is partial, H.1–H.8 not_read; all nodes unchecked and no source route or global sheaf obligation is closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -981,6 +981,42 @@
         "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
         "provides": "Tensoring any map with a zero second map gives zero.",
         "checked": "Exact statement and proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:Module.Flat",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "sourceLine": 113,
+        "sourceSha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
+        "provides": "The native flat-module predicate and its tensor-product closure instance (same file, lines 233–244); tensor powers are proved flat by induction through native unit/prepend equivalences, not assumed flat.",
+        "checked": "Complete selected statement, surrounding hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name/line checked in the pinned index. Generic flatness and tensor-product API are imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Module.Flat.of_linearEquiv",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "sourceLine": 181,
+        "sourceSha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
+        "provides": "A module linearly equivalent to a flat module is flat. The equivalence is oriented N→M with M flat.",
+        "checked": "Complete selected statement, surrounding hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name/line checked in the pinned index. Generic flatness and tensor-product API are imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Module.Flat.of_projective",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "sourceLine": 227,
+        "sourceSha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
+        "provides": "Every native projective module is flat, via the existing free-module retract criterion; no chosen finite basis is required.",
+        "checked": "Complete selected statement, surrounding hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name/line checked in the pinned index. Generic flatness and tensor-product API are imported, not replanned."
+      },
+      {
+        "ref": "mathlib:TensorProduct.map_injective_of_flat_flat",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "sourceLine": 477,
+        "sourceSha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
+        "provides": "For injective f:E→F and g:A→B, F flat and A flat imply the actual map f⊗g is injective; flatness of E or B is not required by this lemma.",
+        "checked": "Complete selected statement, surrounding hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name/line checked in the pinned index. Generic flatness and tensor-product API are imported, not replanned."
       }
     ]
   },
@@ -1135,7 +1171,17 @@
       "readSections": [
         "Definition10.39.1, all four clauses; Lemma10.39.14, complete equivalence and proof."
       ],
-      "readingExtent": "Faithful zero detection only. Does not establish a Higgs correspondence, sheaf descent or the full source-route inventory."
+      "readingExtent": "Faithful zero detection only. Does not establish a Higgs correspondence, sheaf descent or the full source-route inventory.",
+      "continuationReadings": [
+        {
+          "agent": "Codex — codex-7e92bd",
+          "date": "2026-10-02",
+          "sections": [
+            "Definition 10.39.1 and complete Lemma 10.39.5 statement/proof"
+          ],
+          "scope": "Flatness and preservation of module injections only. The Higgs-specific ordered-iterate reflection is an authored deduction, not a named Stacks theorem."
+        }
+      ]
     },
     {
       "id": "Heuer-J6LwjP-coefficients",
@@ -1147,7 +1193,17 @@
       "readSections": [
         "Definition1.2(1)–(2) and selected introductory setup"
       ],
-      "readingExtent": "Scoped fresh reading only; coefficient-map algebra is an explicit deduction. No full-paper or149-item collation claimed."
+      "readingExtent": "Scoped fresh reading only; coefficient-map algebra is an explicit deduction. No full-paper or149-item collation claimed.",
+      "continuationReadings": [
+        {
+          "agent": "Codex — codex-7e92bd",
+          "date": "2026-10-02",
+          "sections": [
+            "arXiv 2307.01303v3, Definition 1.2(1)–(2) and the introductory Higgs/symmetric-action setup"
+          ],
+          "scope": "Field and horizontal-morphism conventions, including the Tate-twisted forms; no correspondence or full-paper reading claimed."
+        }
+      ]
     },
     {
       "id": "StacksTensor-J6LwjP-coefficients",
@@ -6094,6 +6150,11 @@
           "name": "TwistedHiggsBundle.affineOrderedIterate_baseChange_zero_iff",
           "role": "compatibility",
           "statement": "For a finite basis b of Q and faithfully flat R-algebra S, I_n(θ_S)=0 if and only if I_n(θ)=0, at the identical n≥0. E is an arbitrary R-module."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedIterate_natural_zero_iff_of_flat",
+          "role": "compatibility",
+          "statement": "Let f:E→F and u:Q→P be injective R-linear maps with ψ∘f=(f⊗u)∘θ. If F,Q,P are flat over R, then for every n≥0, I_n(ψ)∘f=0 if and only if I_n(θ)=0. In particular a specified bound on ψ restricts to the same bound on θ. E need not be flat. The left side is the restriction along f, not vanishing on all of F."
         }
       ],
       "tests": [
@@ -6151,6 +6212,16 @@
           "name": "TwistedHiggsBundle.affineOrderedIterate.test_characteristic_two_nonreflection",
           "kind": "non-example",
           "statement": "Over Z/2 with E=F=Q=P=Z/2, let theta(e)=e tensor 1, psi=0, f=id and u=0. The fields intertwine, I_1(psi)=0, and I_1(theta)≠0. Thus arbitrary coefficient maps cannot reflect a fixed bound even when f is an isomorphism."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedIterate.test_flat_subobject",
+          "kind": "compatibility",
+          "statement": "For a horizontal pair of injections f:E→F and u:Q→P with F,Q,P flat, an ambient zero iterate I_n(ψ)=0 gives I_n(θ)=0; E is an arbitrary module."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedIterate.test_restriction_not_ambient",
+          "kind": "non-example",
+          "statement": "Over ℤ let f(a)=(a,0) and ψ(a,b)=(0,b)⊗1. Then ψ∘f=0 and ψ≠0. Restricted vanishing does not assert ambient vanishing, even with free finite modules and the identity coefficient map."
         }
       ],
       "uses": [
@@ -6193,6 +6264,10 @@
         {
           "where": "HodgeStructuresPartII:H.0/affine-base-change-bound-faithful",
           "how": "Promotes the actual scalar-extension fixed-bound API, keeping basis and faithful-flat hypotheses explicit."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-ordered-iterate-flat-subobject",
+          "how": "The promoted exact-bound reflection API identifies the actual restricted iterate; flatness and injectivity remain explicit."
         }
       ]
     },
@@ -7276,6 +7351,10 @@
         {
           "where": "HodgeStructuresPartII:H.0/pullback-nilpotence",
           "how": "Supply the coefficient-map leg after native scalar extension. The sheaf/exterior comparison remains an explicit supplier obligation."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-coefficient-map-bound-flat",
+          "how": "The promoted exact-bound reflection API identifies the actual restricted iterate; flatness and injectivity remain explicit."
         }
       ],
       "api": [
@@ -7303,6 +7382,11 @@
           "name": "TwistedHiggsBundle.affineOrderedIterate_coefficientMap",
           "role": "compatibility",
           "statement": "For every n≥0,I_n(θ_u)=(id_E⊗u^(⊗n))∘I_n(θ),using the existing ordered tensor powers including n=0."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedIterate_coefficientMap_zero_iff_of_flat",
+          "role": "compatibility",
+          "statement": "If E,Q,P are flat R-modules and u:Q→P is injective, then for every n≥0, I_n(θ_u)=0 if and only if I_n(θ)=0, where θ_u=(id_E⊗u)∘θ. No coefficient left inverse, finite basis, finite generation or integrability is required; the same exponent occurs on both sides."
         }
       ],
       "tests": [
@@ -7330,6 +7414,16 @@
           "name": "TwistedHiggsBundle.affineCoefficientMap.test_zero_degree",
           "kind": "computation",
           "statement": "Over the nonzero rational line,the degree0 iterate remains nonzero for every coefficient endomap,even the zero map. A positive-degree collapse cannot erase the tensor-unit identity."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineCoefficientMap.test_flat_nonsplit",
+          "kind": "non-example",
+          "statement": "For E=Q=P=ℤ and u multiplication by 2, every specified ordered bound is equivalent before and after coefficient change, but there is no ℤ-linear v with v∘u=id."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineCoefficientMap.test_projective_no_basis",
+          "kind": "compatibility",
+          "statement": "For native projective R-modules E,Q,P and an injective u:Q→P, the coefficient-changed iterate vanishes exactly when the original iterate does, at every specified degree, without finite generation or any chosen basis."
         }
       ]
     },
@@ -7483,6 +7577,115 @@
         "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-ordered-iterate-flat-subobject",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "declaration": "TwistedHiggsBundle.affineOrderedIterate_natural_zero_iff_of_flat",
+      "title": "Reflect ordered bounds on flat ambient subobjects",
+      "kind": "lemma",
+      "statement": "Let f:E→F and u:Q→P be injective R-linear maps with ψ∘f=(f⊗u)∘θ. If F,Q,P are flat over R, then for every n≥0, I_n(ψ)∘f=0 if and only if I_n(θ)=0. In particular a specified bound on ψ restricts to the same bound on θ. E need not be flat. The left side is the restriction along f, not vanishing on all of F.",
+      "hypotheses": [
+        "R is any commutative ring, and E,F,Q,P are R-modules with their native additive group and module structures. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R P are R-linear. No integrability, rank, reducedness or chosen basis is assumed.",
+        "I_n is the existing ordered iterate with the newest coefficient on the left and the native tensor-unit identity at n=0. The base ring stays fixed. These are affine module statements; restrictions and equality detection for actual sheaf tensors remain E1 supplier obligations.",
+        "F,Q,P are flat R-modules; f and u are injective and satisfy the displayed horizontal equation. No flatness assumption on E is used."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-natural",
+        "mathlib:Module.Flat",
+        "mathlib:Module.Flat.of_linearEquiv",
+        "mathlib:TensorProduct.map_injective_of_flat_flat",
+        "mathlib:TensorPower.algebraMap₀",
+        "mathlib:TensorPower.mulEquiv",
+        "mathlib:TensorPower.cast",
+        "mathlib:TensorPower.cast_tprod",
+        "mathlib:TensorPower.tprod_mul_tprod",
+        "mathlib:PiTensorProduct.subsingletonEquiv",
+        "mathlib:PiTensorProduct.map_tprod",
+        "mathlib:TensorProduct.congr",
+        "mathlib:PiTensorProduct.induction_on"
+      ],
+      "proofSteps": [
+        "Use the native unit R≅Q^⊗0 and the prepend equivalence Q⊗Q^⊗n≅Q^⊗(n+1), formed from the singleton equivalence, tensor-power multiplication and the 1+n=n+1 reindexing. Native flat tensor closure and transport through a linear equivalence prove flatness of Q^⊗n by induction.",
+        "Inductively prove injectivity of u^⊗n. In degree zero its conjugate by the two native unit identifications is id_R. At a successor, the native prepend diagram identifies u^⊗(n+1) with u⊗u^⊗n. Check that diagram on pure tensors with the native tprod multiplication and cast laws; coefficient order is unchanged. Apply the baseline tensor-map injectivity lemma using P flat and Q^⊗n flat. These are local helper deductions in this proof, not new generic carriers or an assumed injection certificate.",
+        "Apply the same baseline tensor-map lemma to f and u^⊗n using F flat and Q^⊗n flat. The existing naturality equality identifies I_n(ψ)∘f with (f⊗u^⊗n)∘I_n(θ). Injectivity of the actual tensor map reflects zero pointwise; postcomposition preserves zero for the other implication.",
+        "If I_n(ψ)=0, its restriction is zero and the equivalence applies. Without surjectivity of f, vanishing on its image gives no vanishing on a complementary summand."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksFaithful-rtOQ9t",
+          "locator": "Definition 10.39.1; Lemma 10.39.5(1)⇒(2)",
+          "match": "Supplies flat tensor preservation of injections. The finite tensor-power induction and ordered Higgs application are authored algebraic deductions."
+        },
+        {
+          "sourceId": "Heuer-J6LwjP-coefficients",
+          "locator": "arXiv 2307.01303v3 Definition 1.2(2)",
+          "match": "Motivates the native field and horizontal equation; this affine reflection is not a theorem asserted by the correspondence source."
+        }
+      ],
+      "acceptance": [
+        "At n=0 both sides detect the zero source E, since f is injective and I_0 is the tensor-unit identity.",
+        "An ambient bound I_n(ψ)=0 restricts to I_n(θ)=0 with no flatness premise on E.",
+        "Over ℤ, f embeds the first summand of ℤ⊕ℤ, θ=0 and ψ(a,b)=(0,b)⊗1. The horizontal equation holds with u=id; ψ∘f=0 but ψ≠0. Thus the conclusion does not replace the restricted iterate by the whole ambient iterate."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-coefficient-map-bound-flat",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "declaration": "TwistedHiggsBundle.affineOrderedIterate_coefficientMap_zero_iff_of_flat",
+      "title": "Reflect ordered bounds through a flat coefficient injection",
+      "kind": "lemma",
+      "statement": "If E,Q,P are flat R-modules and u:Q→P is injective, then for every n≥0, I_n(θ_u)=0 if and only if I_n(θ)=0, where θ_u=(id_E⊗u)∘θ. No coefficient left inverse, finite basis, finite generation or integrability is required; the same exponent occurs on both sides.",
+      "hypotheses": [
+        "R is any commutative ring, and E,F,Q,P are R-modules with their native additive group and module structures. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R P are R-linear. No integrability, rank, reducedness or chosen basis is assumed.",
+        "I_n is the existing ordered iterate with the newest coefficient on the left and the native tensor-unit identity at n=0. The base ring stays fixed. These are affine module statements; restrictions and equality detection for actual sheaf tensors remain E1 supplier obligations.",
+        "For this coefficient-only specialization F=E and f=id_E. E,Q,P are flat over R and u is injective. These are sufficient hypotheses, not a claim of minimal hypotheses for each degree."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-coefficient-map",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-flat-subobject",
+        "mathlib:Module.Flat",
+        "mathlib:Module.Flat.of_projective"
+      ],
+      "proofSteps": [
+        "Instantiate the horizontal reflection theorem with F=E, f=id_E and ψ=θ_u. Its horizontal equation is the definition of coefficient change. Remove composition with the identity.",
+        "Projective coefficients and E satisfy the flatness hypotheses by the native projective-to-flat instance; no basis or finite-rank choice enters this implication.",
+        "The inherited split coefficient result still applies to arbitrary E, even when this flatness hypothesis fails. The two reflection criteria therefore retain their separate hypotheses."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksFaithful-rtOQ9t",
+          "locator": "Definition 10.39.1; Lemma 10.39.5(1)⇒(2)",
+          "match": "Supplies flat tensor preservation of injections. The finite tensor-power induction and ordered Higgs application are authored algebraic deductions."
+        },
+        {
+          "sourceId": "Heuer-J6LwjP-coefficients",
+          "locator": "arXiv 2307.01303v3 Definition 1.2(2)",
+          "match": "Motivates the native field and horizontal equation; this affine reflection is not a theorem asserted by the correspondence source."
+        }
+      ],
+      "acceptance": [
+        "For E=Q=P=ℤ and u multiplication by 2, the equivalence holds for every θ and n, although no ℤ-linear left inverse exists.",
+        "Native projective E,Q,P satisfy the statement without finite generation or a chosen basis.",
+        "The inherited E=ℤ/2, Q=P=ℤ, u=2 counterexample excludes dropping flatness of E from this sufficient criterion.",
+        "Degree zero keeps the actual tensor-unit identity; no positive-degree nilpotence condition is built into the field."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -7578,7 +7781,8 @@
         "Supply the filtered-coefficient/period-lattice adapter for Liu–Zhu Definition 3.5–3.6: its t-adic filtration is not a bounded subbundle filtration over the original period ring. Import graded base-ring and Tate degree identifications from DD.1 and the p-adic consumer; the finite Griffiths/Rees specialization here does not discharge that adapter.",
         "Historical affine proofs remain at commit 9a36f4d1d6743c0202f12020c0df603400149faa. The current suggested file uses admitted planning bodies under protocol section 13. The source augmentation-power generator adapter and same-exponent criterion are plans; a separate Mathlib-only conditional span/kernel proof compiles without admissions, but no exact Tau Ceti compiled import set was available. Supply E1 sheaf symmetric/endomorphism/augmentation quotient interfaces and ordered tensor-power coefficient gluing. Field/reduced-rank bounds, the unbounded period/Tate adapter and spectral-image consumer routing remain open. The finite-basis reconstruction and arbitrary-N ordered coefficient criterion have separate checked native proof prototypes; native change-of-chart and same-bound module/coefficient transport are now supplied as affine plans with a separate checked proof; supply arbitrary scalar extension, restriction and actual sheaf gluing before claiming the coordinate theorem.",
         "The cross-ring affine field and all-order finite-coefficient-basis bound are now planned with a separately checked native proof. Extend the chart proof to finite-projective coefficients, supply scalar-extension/tensor-power coherence for arbitrary Q and actual E1 restriction/gluing. Global source and supplier obligations retain their status.",
-        "Native coefficient postcomposition now has all-degree comparison and exact-bound preservation for arbitrary modules,with reflection through a specified linear left inverse. Combine it with the scalar-extension leg only after actual E1 chart restriction/sheaf tensor-power coherence and equality detection. Exterior-integrability comparisons,finite-projective locality and allglobal source obligations remain open."
+        "Native coefficient postcomposition now has all-degree comparison and exact-bound preservation for arbitrary modules,with reflection through a specified linear left inverse. Combine it with the scalar-extension leg only after actual E1 chart restriction/sheaf tensor-power coherence and equality detection. Exterior-integrability comparisons,finite-projective locality and allglobal source obligations remain open.",
+        "The affine flat-coefficient injection and horizontal-subobject reflection are now explicit plans at each specified exponent. Projectivity supplies flatness without a basis. Still supply arbitrary-Q cross-ring tensor-power coherence, finite-projective chart restriction and actual sheaf equality detection/gluing. Same-ring flatness does not identify a sheaf tensor with a tensor of global sections or discharge exterior integrability."
       ]
     },
     {
@@ -8153,6 +8357,23 @@
         "mathlib:map_list_prod"
       ],
       "ownership": "Same H.0 Higgs-specific owner; no generic E1 tensor construction, parent Hodge definition or new variation carrier is planned."
+    },
+    "flatCoefficientContinuation": {
+      "agent": "Codex — codex-7e92bd",
+      "date": "2026-10-02",
+      "readBase": "c1ce73c82043f8e7f67b701bb7797bf8ebde7ef1",
+      "read": [
+        "Full HodgeStructures and SemisimpleAlgebras upstream README documents for carrier ownership and declaration density.",
+        "Reviewed parent Hodge L0–L3 and E1/D3 coverage entries; reserved algebraicgeometry/higgs-parameter-connections survey entry.",
+        "Native Flat predicate, preservation of injections, equivalence transport, projective/free instances, tensor-flat closure, tensor-map injectivity, TensorPower unit/multiplication/cast and PiTensorProduct map/subsingleton declarations and proofs."
+      ],
+      "boundedSearch": "Flat and finite tensor-product source search found the native flat tensor-map API and no direct finite PiTensorProduct map-injectivity declaration in the inspected files. Generic flatness, tensors and projectivity are imported. The two new declarations concern the existing Higgs-specific ordered iterates; no absence claim about the whole library or new generic supplier target.",
+      "newBaselineRefs": [
+        "mathlib:Module.Flat",
+        "mathlib:Module.Flat.of_linearEquiv",
+        "mathlib:Module.Flat.of_projective",
+        "mathlib:TensorProduct.map_injective_of_flat_flat"
+      ]
     }
   },
   "upstreamNotes": [],
@@ -8894,58 +9115,131 @@
         "Whitespace and allowed-file diff checks pass."
       ]
     },
-    "agent": "Codex — codex-rtOQ9t",
-    "base": "fe93910f0a75056cc4f868bae9a417ec1e4f685a",
+    "historicalScalarExtension": {
+      "agent": "Codex — codex-rtOQ9t",
+      "base": "fe93910f0a75056cc4f868bae9a417ec1e4f685a",
+      "leanCompiled": true,
+      "mathematics": "Partial native affine scalar-extension checkpoint; all implementation statuses remain unchecked.",
+      "freshReading": [
+        "Complete selected TensorProduct/Tower scalar-extension distributor, heterobasic ext/right unit, LinearMap.baseChange and Module.End.baseChangeHom declarations and proofs.",
+        "Complete selected TensorProduct/Basis baseChange and coordinate formula, FaithfullyFlat native class and one-tensor zero detection proof, ordered-list map_list_prod statement/proof.",
+        "All95 inherited mathematical statements, all18 distinct hypothesis groups, all9 own stage descriptions; full current HodgeStructures upstream README and latest/earlier all-order handoff. Nearby StableReduction and JacobianChallenge upstream documents were fully read earlier in this continuous session.",
+        "Reviewed Hodge parentL0–L3 audit rows and E1/D3 supplier rows; current CR.1/E1/DD.1/D3 stage contracts and full reserved key-definition survey entry.",
+        "Fresh Heuer arXivv3 Definition1.2 field/morphism equations; fresh Stacks00H9 Definition10.39.1 and complete Lemma10.39.14 proof. Other source receipts remain historical, not freshly reread correspondence proofs."
+      ],
+      "preservation": "All95 inherited IDs, statements, hypotheses,acceptance contracts,129 APIs and121 tests retained.93 complete node objects unchanged; ordered-iterate adds two consumed APIs/uses,global pullback-nilpotence adds an affine prerequisite and refines its proof route without weakening its statement. Allsix planets,five requests,eleven gap identities,149 paper-item obligations,source findings,35 global signature omissions and allstage IDs/requires retained.",
+      "reason": "The finite-coefficient-basis affine scalar-extension and fixed-exponent comparison are established in a separate actual native proof. Arbitrary-Q coherence, finite-projective chart restriction, sheaf equality detection/gluing,global exterior integrability,Tate/period adapters and all other source decomposition remain open.",
+      "proofPrototype": {
+        "archiveCommit": "dc25c5c1974994ba2e382998b82d187f9b027bd9",
+        "path": "research/blueprint/suggested/HodgeStructuresPartII.lean",
+        "marker": "BEGIN/END ARCHIVED CHECKED HIGGS SCALAR EXTENSION",
+        "sourceSha256": "f922ee36944f958ba59913bf9bef72223e69b22de885590cc37c35beefe8ebb6",
+        "diagnosticsSha256": "31bce2ebd5b7edcb52ff3b03df4417d953573be47f6d5bf29b56b18fb884241b",
+        "lines": 607,
+        "examples": 18,
+        "axiomAudits": 28,
+        "matchedCanonicalDeclarationHeaders": 28,
+        "matchedNewExampleTypes": 4,
+        "errors": 0,
+        "warnings": 0,
+        "admissions": 0,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "exactPublicExtractionVerified": true,
+        "leanVersion": "4.34.0-rc2",
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "runtimeSeconds": 3.8,
+        "maxRSSKiB": 2991956,
+        "availableGiB": 63,
+        "scope": "Standalone actual Mathlib native affine proof. No assumed predicates, replacement carriers, TauCeti compiled imports or global source closure."
+      },
+      "submittedSketch": {
+        "path": "research/blueprint/suggested/HodgeStructuresPartII.lean",
+        "sourceSha256": "ab7b037d990ebfd7e39d242e8819ab8aaaece15e07adf3c171c64893d18e3bc3",
+        "diagnosticsSha256": "c0699f5d698b2734b1774f886f1f3da335303bf55ba8d276acfbde43c41237d0",
+        "examples": 84,
+        "errors": 0,
+        "admittedWarnings": 209,
+        "otherWarnings": 0,
+        "runtimeSeconds": 5.0,
+        "maxRSSKiB": 2960448,
+        "availableGiB": 61,
+        "scope": "Entire exact final Mathlib-only planning file. Every body remains admitted under protocol13; the35 omitted global signatures are still omitted. Diagnostics normalize the source filename to suggested/HodgeStructuresPartII.lean and omit the final timing line."
+      },
+      "projection": {
+        "stage": {
+          "vertices": 3022,
+          "edges": 8663,
+          "acyclic": true
+        },
+        "own": {
+          "vertices": 100,
+          "edges": 189,
+          "acyclic": true
+        },
+        "combinedPrerequisites": {
+          "vertices": 3117,
+          "edges": 8890,
+          "acyclic": true
+        },
+        "virtualSupplierEndpoints": 51,
+        "reachableDeclarations": 101,
+        "unresolvedReferences": 0,
+        "stageEdgesUnchanged": true,
+        "otherRoadmapSkippedPendingLinksUnchanged": true
+      },
+      "checks": [
+        "Indexed check_blueprint:zero errors/zero warnings;100nodes,135API entries,123 required definition/construction tests,125total tests,124baseline entries,six planets,five requests,eleven gaps.",
+        "Actual read-only atlas assembler with candidate injection:100declarations/six planets,zero own skipped/pending links. Stage graph and other roadmaps skipped/pending links equal the base-input control.",
+        "All95 inherited contract IDs/statements/hypotheses/acceptance/implementationStatus and all129APIs/121tests retained;93 complete node objects unchanged. Requests,149-item route manifest and source findings unchanged.",
+        "All28 native headers and four new example types match the canonical signatures. Exact public archive extraction is byte-identical. Native proof has zero admissions and only standard axioms.",
+        "Entire exact final planning file elaborates with84examples,209admission warnings,no errors/no other warnings.",
+        "Allowed-file intake,JSON validity,roadmap/stage preservation and git diff --check pass. One bounded Lean process at a time; no setup/cache/library build/LSP; no owned background compile remains."
+      ]
+    },
+    "agent": "Codex — codex-7e92bd",
+    "readBase": "c1ce73c82043f8e7f67b701bb7797bf8ebde7ef1",
     "leanCompiled": true,
-    "mathematics": "Partial native affine scalar-extension checkpoint; all implementation statuses remain unchecked.",
-    "freshReading": [
-      "Complete selected TensorProduct/Tower scalar-extension distributor, heterobasic ext/right unit, LinearMap.baseChange and Module.End.baseChangeHom declarations and proofs.",
-      "Complete selected TensorProduct/Basis baseChange and coordinate formula, FaithfullyFlat native class and one-tensor zero detection proof, ordered-list map_list_prod statement/proof.",
-      "All95 inherited mathematical statements, all18 distinct hypothesis groups, all9 own stage descriptions; full current HodgeStructures upstream README and latest/earlier all-order handoff. Nearby StableReduction and JacobianChallenge upstream documents were fully read earlier in this continuous session.",
-      "Reviewed Hodge parentL0–L3 audit rows and E1/D3 supplier rows; current CR.1/E1/DD.1/D3 stage contracts and full reserved key-definition survey entry.",
-      "Fresh Heuer arXivv3 Definition1.2 field/morphism equations; fresh Stacks00H9 Definition10.39.1 and complete Lemma10.39.14 proof. Other source receipts remain historical, not freshly reread correspondence proofs."
-    ],
-    "preservation": "All95 inherited IDs, statements, hypotheses,acceptance contracts,129 APIs and121 tests retained.93 complete node objects unchanged; ordered-iterate adds two consumed APIs/uses,global pullback-nilpotence adds an affine prerequisite and refines its proof route without weakening its statement. Allsix planets,five requests,eleven gap identities,149 paper-item obligations,source findings,35 global signature omissions and allstage IDs/requires retained.",
-    "reason": "The finite-coefficient-basis affine scalar-extension and fixed-exponent comparison are established in a separate actual native proof. Arbitrary-Q coherence, finite-projective chart restriction, sheaf equality detection/gluing,global exterior integrability,Tate/period adapters and all other source decomposition remain open.",
+    "mathematics": "Partial native affine flat-reflection checkpoint; every implementation status remains unchecked. H.0 is partial and H.1–H.8 not_read.",
+    "reason": "Flatness supplies actual tensor-map injectivity at every ordered degree. This proves the native same-ring reflection statements in a separate prototype. Arbitrary-Q cross-ring tensor coherence, sheaf restriction/equality detection/gluing, exterior integrability, period/Tate interfaces and source coverage remain open.",
     "proofPrototype": {
-      "archiveCommit": "dc25c5c1974994ba2e382998b82d187f9b027bd9",
+      "archiveCommit": "d94ef3bb3b47d21b8308c595f6e23055cd390a3a",
       "path": "research/blueprint/suggested/HodgeStructuresPartII.lean",
-      "marker": "BEGIN/END ARCHIVED CHECKED HIGGS SCALAR EXTENSION",
-      "sourceSha256": "f922ee36944f958ba59913bf9bef72223e69b22de885590cc37c35beefe8ebb6",
-      "diagnosticsSha256": "31bce2ebd5b7edcb52ff3b03df4417d953573be47f6d5bf29b56b18fb884241b",
-      "lines": 607,
-      "examples": 18,
-      "axiomAudits": 28,
-      "matchedCanonicalDeclarationHeaders": 28,
-      "matchedNewExampleTypes": 4,
+      "marker": "BEGIN/END ARCHIVED CHECKED HIGGS FLAT REFLECTION",
+      "sourceSha256": "b1335d49069b99337ff05089cbfc8658ab2bb0da4e32dd5cedfb64d2d0ad04dc",
+      "diagnosticsSha256": "685d3490ea12048f2b24592c953adb26e7f0669a4e120b52ab293a5518fbe209",
+      "lines": 517,
+      "examples": 9,
       "errors": 0,
-      "warnings": 0,
-      "admissions": 0,
+      "admittedWarnings": 0,
+      "otherWarnings": 0,
+      "timing": "wall=3.30 peak_kb=2433160 exit=0",
+      "axiomAudits": 14,
       "axioms": [
         "propext",
         "Classical.choice",
         "Quot.sound"
       ],
-      "exactPublicExtractionVerified": true,
+      "exactExtractionVerified": true,
+      "availableGiB": 58,
       "leanVersion": "4.34.0-rc2",
-      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-      "runtimeSeconds": 3.8,
-      "maxRSSKiB": 2991956,
-      "availableGiB": 63,
-      "scope": "Standalone actual Mathlib native affine proof. No assumed predicates, replacement carriers, TauCeti compiled imports or global source closure."
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174"
     },
     "submittedSketch": {
       "path": "research/blueprint/suggested/HodgeStructuresPartII.lean",
-      "sourceSha256": "ab7b037d990ebfd7e39d242e8819ab8aaaece15e07adf3c171c64893d18e3bc3",
-      "diagnosticsSha256": "c0699f5d698b2734b1774f886f1f3da335303bf55ba8d276acfbde43c41237d0",
-      "examples": 84,
+      "sourceSha256": "82a282d7a295d3c678c3fdc9462c64b8c6931ebccd4617053b08dc7662121b29",
+      "diagnosticsSha256": "edf8ac99d2d19481735c1bbfb404b5930ce136ec6413a9cef71cab62ba30f54e",
+      "lines": 1552,
+      "examples": 93,
       "errors": 0,
-      "admittedWarnings": 209,
+      "admittedWarnings": 228,
       "otherWarnings": 0,
-      "runtimeSeconds": 5.0,
-      "maxRSSKiB": 2960448,
-      "availableGiB": 61,
-      "scope": "Entire exact final Mathlib-only planning file. Every body remains admitted under protocol13; the35 omitted global signatures are still omitted. Diagnostics normalize the source filename to suggested/HodgeStructuresPartII.lean and omit the final timing line."
+      "timing": "wall=5.30 peak_kb=2965276 exit=0",
+      "availableGiB": 58,
+      "scope": "Entire exact final Mathlib-only planning file; all bodies admitted. No Tau Ceti compiled-import claim."
     },
     "projection": {
       "stage": {
@@ -8954,28 +9248,40 @@
         "acyclic": true
       },
       "own": {
-        "vertices": 100,
-        "edges": 189,
+        "vertices": 107,
+        "edges": 199,
         "acyclic": true
       },
       "combinedPrerequisites": {
-        "vertices": 3117,
-        "edges": 8890,
+        "vertices": 3124,
+        "edges": 8900,
         "acyclic": true
       },
       "virtualSupplierEndpoints": 51,
-      "reachableDeclarations": 101,
+      "reachableDeclarations": 108,
       "unresolvedReferences": 0,
+      "actualBlueprint": {
+        "declarations": 107,
+        "planets": 6,
+        "kinds": {
+          "comparison": 5,
+          "construction": 24,
+          "definition": 12,
+          "lemma": 52,
+          "theorem": 14
+        },
+        "skippedLinks": []
+      },
       "stageEdgesUnchanged": true,
       "otherRoadmapSkippedPendingLinksUnchanged": true
     },
     "checks": [
-      "Indexed check_blueprint:zero errors/zero warnings;100nodes,135API entries,123 required definition/construction tests,125total tests,124baseline entries,six planets,five requests,eleven gaps.",
-      "Actual read-only atlas assembler with candidate injection:100declarations/six planets,zero own skipped/pending links. Stage graph and other roadmaps skipped/pending links equal the base-input control.",
-      "All95 inherited contract IDs/statements/hypotheses/acceptance/implementationStatus and all129APIs/121tests retained;93 complete node objects unchanged. Requests,149-item route manifest and source findings unchanged.",
-      "All28 native headers and four new example types match the canonical signatures. Exact public archive extraction is byte-identical. Native proof has zero admissions and only standard axioms.",
-      "Entire exact final planning file elaborates with84examples,209admission warnings,no errors/no other warnings.",
-      "Allowed-file intake,JSON validity,roadmap/stage preservation and git diff --check pass. One bounded Lean process at a time; no setup/cache/library build/LSP; no owned background compile remains."
+      "Indexed packet checker: zero errors and warnings; 107 nodes, 142 API items, 132 required construction/definition tests and 134 total tests, 131 baseline declarations, six planets, eleven gaps, five requests and zero closed stages.",
+      "Read-only actual atlas assembly: stage, own and combined prerequisite graphs acyclic; zero unresolved references or own skipped/pending links. Stage edges and unrelated skipped/pending links equal the predecessor control.",
+      "All 105 inherited IDs, mathematical statements, hypotheses, acceptance conditions, prerequisites and proof routes retained; 103 whole node objects unchanged. Two existing constructions gain only APIs, tests and uses. All original API/test prefixes, baseline prefix, source obligations, requests, gaps, findings, reserved key and 35 global signature omissions retained.",
+      "Two new declaration headers and four example types match the standalone actual proof exactly; the original suggested prefix is unchanged except the added native Flat import. Exact archive extraction is byte-identical.",
+      "Standalone proof: 517 lines, nine examples including the five inherited coefficient tests, fourteen kernel axiom audits, zero errors, admissions or warnings. Only propext, Classical.choice and Quot.sound occur in the audits. Entire submitted sketch: 93 examples, zero errors, 228 admitted-declaration warnings, zero other warnings.",
+      "Only the five issue deliverables change. The roadmap definition changes its stale summary only; every stage and dependency is preserved. No library build, cache setup, Lake project setup or language server was used. One bounded Lean process at a time; none remains running."
     ]
   },
   "coefficientMapContinuation": {
@@ -9059,5 +9365,28 @@
       "implementationStatusesUnchecked": true
     },
     "checks": "Indexed checker0 errors/warnings; actual assembler3 DAGs acyclic and0 unresolved; current/control stage edges and unrelated skipped/pending links equal; five-file intake and git diff whitespace pass."
+  },
+  "flatCoefficientContinuation": {
+    "agent": "Codex — codex-7e92bd",
+    "date": "2026-10-02",
+    "readBase": "c1ce73c82043f8e7f67b701bb7797bf8ebde7ef1",
+    "claimComment": 5961565617,
+    "botConfirmation": 5961567770,
+    "newNodes": 2,
+    "newAPI": 2,
+    "newTests": 4,
+    "newBaseline": 4,
+    "preservation": {
+      "preservedContracts": 105,
+      "unchangedWholeNodes": 103,
+      "apiAndTestPrefixesPreserved": true,
+      "newDeclarations": 2,
+      "newExamples": 4,
+      "globalOmissionLedgerPreserved": true,
+      "roadmapStagesAndDependenciesPreserved": true,
+      "axiomAudits": 14
+    },
+    "sourceScope": "Fresh selected Heuer field/horizontal conventions and Stacks flatness criterion only; old wider source receipts remain historical. No new source issue or closed obligation.",
+    "proofArchive": "d94ef3bb3b47d21b8308c595f6e23055cd390a3a"
   }
 }
