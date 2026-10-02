@@ -2575,3 +2575,128 @@ The existing additive TauCeti descent, its representative formula and H¹ recove
 The native proof extraction has no admissions and includes eight inherited and nine new typed examples. All nineteen new declaration audits are free of admission dependencies. The suggested file retains admitted signatures under PROTOCOL§13. Its broader Mathlib-only extraction, excluding exactly the TauCeti import and named Abelian section, elaborates; the full TauCeti-importing file remains uncompiled because the pinned LowDegree compiled artifact is missing. The source/extraction receipts and exact reproduction recipe are in the current handoff.
 
 The reserved étale K(π,1) key stays partial. NC.0/NC.3 stay partial and five other stages stay not_read. All nine gaps and sixteen requests remain. In particular this is not a constructed H¹ inflation map, H¹ injectivity, neutral-fibre theorem, finite-quotient transition system or filtered colimit. General unipotent coefficient topologies are unchanged. All Chen/BDMTV routes, the NS supplier A2 and generic-height Part II boundaries remain as stated earlier.
+
+## Actual nonabelian H¹ inflation — codex-rtOQ9t
+
+The preceding checkpoint descends actual cocycles; this continuation descends their gauge classes. The coefficient object is the existing fixed subgroup U^N and the source is the genuine native orbit quotient. All six declarations below have a checked actual proof archive, but the canonical file remains a suggested signature file and all implementation statuses remain unchecked. NC.3 remains partial.
+
+Assume a topological coefficient group U, a group G endowed with a topology, and a jointly continuous G-action by group automorphisms. For normal N, use the native quotient topology on G/N and the native multiplicative action on U^N, **with joint continuity of that quotient action explicit**. This is required to act on continuous quotient cocycles. The pinned TauCeti Invariants helpers inspected here use additive coefficient groups; they are positive prior art and do not automatically give this instance for arbitrary noncommutative U. No compactness, discrete coefficient hypothesis or subgroup refinement is hidden.
+
+### Equality of nonabelian cohomology classes
+
+Declaration: TauCeti.NonabelianCohomology.H1.mk_eq_mk_iff. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-orbit-criterion.
+
+For actual continuous cocycles c,c′, their classes in H¹(G,U) are equal if and only if there is x∈U with x·c=c′, where (x·c)(g)=x c(g)(g•x)⁻¹. The equality criterion uses the genuine gauge action, not multiplication by a coboundary.
+
+Hypotheses: G is a group endowed with a topology. U is a topological group with a group-automorphism action of G whose joint action is continuous. H¹ is the actual twisted-conjugation orbit set of continuous nonabelian cocycles, with the class of the constant identity cocycle as base point.
+
+Proof: Unfold the native orbit-set class map. Native quotient equality is the orbit relation; reverse its arguments to match the stated x·c=c′ orientation. Use the native orbit-relation membership and orbit witness formulas. This promotes the already planned H1.mk_eq_mk_iff API without changing it.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1, mathlib:MulAction.orbitRel_apply, mathlib:MulAction.mem_orbit_iff.
+
+Acceptance: Two gauge-related cocycles have equal classes even if their functions differ. For a trivial action the criterion is conjugacy of homomorphisms.
+
+Source: Kim, arXiv:math/0409456v1, §1 printed p.6, for the ordered cocycle/gauge definitions; the inflation proof is the deduction above, not a numbered source theorem.
+
+### Gauge equivariance of cocycle inflation
+
+Declaration: TauCeti.NonabelianCohomology.Z1.inflate_smul. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-inflation-equivariance.
+
+For x∈U^N and d∈Z¹(G/N,U^N), inflate_N(x·d)=x·inflate_N(d), with x included in U on the right. The products and inverses stay in their printed order.
+
+Hypotheses: G is a group endowed with a topology. U is a topological group with a group-automorphism action of G whose joint action is continuous. H¹ is the actual twisted-conjugation orbit set of continuous nonabelian cocycles, with the class of the constant identity cocycle as base point. N is any normal subgroup of G; G/N has the native quotient topology and acts by the native multiplicative action on the existing subgroup U^N. The joint quotient action on U^N is explicitly assumed continuous. No compactness, openness/closedness of N, finite/discrete coefficient group or commutativity assumption is imposed.
+
+Proof: Evaluate the actual cocycles at any g∈G. The native quotient representative and fixed-subgroup inclusion formulas identify both gauge expressions. Apply actual cocycle extensionality. No representative section or coefficient action on all U through G/N is introduced.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1, mathlib:MulAction.coe_quotient_smul_fixedPoints, mathlib:coe_smul_fixedPoints_of_normal.
+
+Acceptance: A nonidentity fixed gauge element gives the same equality; the assertion holds for noncommutative U.
+
+Source: Kim, arXiv:math/0409456v1, §1 printed p.6, for the ordered cocycle/gauge definitions; the inflation proof is the deduction above, not a numbered source theorem.
+
+### Same-subgroup reflection of gauge witnesses
+
+Declaration: TauCeti.NonabelianCohomology.Z1.inflate_gauge_iff. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-inflation-gauge-reflection.
+
+For d,e∈Z¹(G/N,U^N), there is x∈U with x·inflate_N(d)=inflate_N(e) if and only if there is x∈U^N with x·d=e. This is the same N on both sides, with no replacement by a smaller subgroup.
+
+Hypotheses: G is a group endowed with a topology. U is a topological group with a group-automorphism action of G whose joint action is continuous. H¹ is the actual twisted-conjugation orbit set of continuous nonabelian cocycles, with the class of the constant identity cocycle as base point. N is any normal subgroup of G; G/N has the native quotient topology and acts by the native multiplicative action on the existing subgroup U^N. The joint quotient action on U^N is explicitly assumed continuous. No compactness, openness/closedness of N, finite/discrete coefficient group or commutativity assumption is imposed.
+
+Proof: Evaluate a global gauge equality on each n∈N. Both inflated cocycles take value1, so the existing gauge_witness_fixed theorem forces that very witness into U^N. Use this genuine subgroup element and quotient representative induction, then subtype/cocycle extensionality, to obtain x·d=e. The converse follows by inflation equivariance and inclusion of the fixed gauge witness.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-witness-fixed, AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-inflation-equivariance, AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1, mathlib:QuotientGroup.induction_on.
+
+Acceptance: The forward implication keeps the original witness, rather than assuming a fixed witness or refining N. Infinite U is allowed.
+
+Source: Kim, arXiv:math/0409456v1, §1 printed p.6, for the ordered cocycle/gauge definitions; the inflation proof is the deduction above, not a numbered source theorem.
+
+### Trivial cocycle under inflation
+
+Declaration: TauCeti.NonabelianCohomology.Z1.inflate_one. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation-one.
+
+Inflation of the actual constant identity cocycle on G/N with coefficients U^N is the actual constant identity cocycle on G with coefficients U.
+
+Hypotheses: G and U are groups endowed with topologies, G acts on U by group automorphisms, and N is an arbitrary normal subgroup. The native quotient action on the existing subgroup U^N is used. Joint action continuity and continuous group operations are not required for this identity of actual cocycles.
+
+Proof: Evaluate at every g; the native fixed-subgroup inclusion sends1 to1. Apply cocycle extensionality. This promotes the existing inflate_one API for its consumption by the pointed-set map.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation.
+
+Acceptance: The identity value is that of the coefficient group, rather than an arbitrary selected cocycle.
+
+Source: Kim, arXiv:math/0409456v1, §1 printed p.6, for the ordered cocycle/gauge definitions; the inflation proof is the deduction above, not a numbered source theorem.
+
+### Inflation of nonabelian cohomology classes
+
+Declaration: TauCeti.NonabelianCohomology.H1.inflate. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation.
+
+Construct the pointed-set map inflate_N:H¹(G/N,U^N)→H¹(G,U) by sending the class of d to the class of the actual inflated cocycle g↦d([g]) included in U. It descends the existing cocycle inflation through the actual native gauge-orbit quotients and sends the base point to the base point.
+
+Hypotheses: G is a group endowed with a topology. U is a topological group with a group-automorphism action of G whose joint action is continuous. H¹ is the actual twisted-conjugation orbit set of continuous nonabelian cocycles, with the class of the constant identity cocycle as base point. N is any normal subgroup of G; G/N has the native quotient topology and acts by the native multiplicative action on the existing subgroup U^N. The joint quotient action on U^N is explicitly assumed continuous. No compactness, openness/closedness of N, finite/discrete coefficient group or commutativity assumption is imposed.
+
+Proof: Lift the actual cocycle-to-class function through the native orbit quotient. If the native relation says d=x·e, equivariance and the inverse gauge element show that their inflated classes agree; the native relation has this argument orientation. The representative formula is the quotient-lift computation. The promoted identity-cocycle inflation theorem gives preservation of the distinguished point. Reflection of the distinguished point follows from the separately promoted same-N injectivity result and point preservation. No group structure, additive law, image=fibre assertion or colimit is included in the construction.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-orbit-criterion, AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-inflation-equivariance, AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation-one, mathlib:inv_smul_smul.
+
+Acceptance: The map is independent of the actual quotient cocycle representative. The concrete discrete S₂→S₃ transposition class at N={1} has nonneutral inflation; a constant-basepoint map fails the test.
+
+- API: TauCeti.NonabelianCohomology.H1.inflate_mk. At the actual class of d, H¹ inflation is the actual class of cocycle inflation.
+- API: TauCeti.NonabelianCohomology.H1.inflate_one. Inflation preserves the distinguished class of the identity cocycle.
+- API: TauCeti.NonabelianCohomology.H1.inflate_injective. For this fixed normal subgroup N, inflate_N:H¹(G/N,U^N)→H¹(G,U) is injective. Equality of inflated classes implies equality of source classes at the same N.
+- API: TauCeti.NonabelianCohomology.H1.inflate_eq_one_iff. For a∈H¹(G/N,U^N), inflate_N(a)=1 if and only if a=1. This reflects the neutral point; it does not assert image=neutral restriction fibre.
+
+- Unit test: TauCeti.NonabelianCohomology.H1.inflate.test_one. Inflation of the source distinguished point is the target distinguished point.
+- Unit test: TauCeti.NonabelianCohomology.H1.inflate.test_gauge. For any actual quotient cocycle d and any x∈U^N, inflation of the class of x·d equals inflation of the class of d.
+- Unit test: TauCeti.NonabelianCohomology.H1.inflate.test_neutral_reflection. For every actual source class a, inflate_N(a)=1 if and only if a=1.
+- Unit test: TauCeti.NonabelianCohomology.H1.inflate.test_nonabelian_transposition. Let G=S₂ and U=S₃ with discrete topologies and trivial G-action, N={1}, and c the homomorphism sending the nonidentity element of S₂ to the transposition(01) of S₃. If d is the actual quotient descent of c, then inflate_N([d])≠1. Thus the construction cannot be a constant-basepoint map; the coefficient group is genuinely noncommutative.
+
+- Use: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-injective. Supplies the genuine orbit-set map and representative computation for fixed-N injectivity.
+- Use: AnabelianGeometryAndNonabelianChabauty:NC.3 — open inflation–restriction and filtered-colimit targets. Supplies the actual pointed-set inflation needed before restriction-fibre exactness and reverse-inclusion transitions. It does not supply those later interfaces.
+
+Source: Kim, arXiv:math/0409456v1, §1 printed p.6, for the ordered cocycle/gauge definitions; the inflation proof is the deduction above, not a numbered source theorem.
+
+### Injectivity of nonabelian inflation
+
+Declaration: TauCeti.NonabelianCohomology.H1.inflate_injective. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-injective.
+
+For this fixed normal subgroup N, inflate_N:H¹(G/N,U^N)→H¹(G,U) is injective. Equality of inflated classes implies equality of source classes at the same N.
+
+Hypotheses: G is a group endowed with a topology. U is a topological group with a group-automorphism action of G whose joint action is continuous. H¹ is the actual twisted-conjugation orbit set of continuous nonabelian cocycles, with the class of the constant identity cocycle as base point. N is any normal subgroup of G; G/N has the native quotient topology and acts by the native multiplicative action on the existing subgroup U^N. The joint quotient action on U^N is explicitly assumed continuous. No compactness, openness/closedness of N, finite/discrete coefficient group or commutativity assumption is imposed.
+
+Proof: Apply actual quotient induction to representatives d,e of the two source classes. The representative computation is definitional. The promoted class equality criterion gives a global gauge witness for the inflated cocycles. Same-N gauge reflection gives a genuine U^N witness between d,e, and the same class criterion identifies their source classes.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-orbit-criterion, AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-inflation-gauge-reflection.
+
+Acceptance: Inflation reflects the neutral point. Neither replacing N by a refinement nor injectivity of the underlying cocycle map alone proves this assertion.
+
+Source: Kim, arXiv:math/0409456v1, §1 printed p.6, for the ordered cocycle/gauge definitions; the inflation proof is the deduction above, not a numbered source theorem.
+
+### Native interfaces and exact limits
+
+At Mathlib082e2d3 the native orbit relation takes its first argument in the orbit of its second. MulAction.orbitRel_apply and MulAction.mem_orbit_iff make that orientation explicit; inv_smul_smul handles the inverse witness needed by the quotient lift. Their ambient declarations were read at the pin before citation. Full OfQuotient.lean was read, including the actual multiplicative normal-fixed-subgroup action. Selected TauCeti Invariants additive continuity interfaces were read at f790474; they are not replanned or presented as the generic coefficient-action discharge.
+
+The S₂→S₃ example uses the actual finite permutation groups, discrete topologies, actual cocycle and actual quotient descent. Its nonidentity class cannot be a coboundary because the action is trivial and every coboundary is the identity function. Thus always returning the base point fails. The gauge test additionally checks that the map respects the genuine orbit relation.
+
+Current frontier: Actual H¹ inflation on the native gauge-orbit set, its representative/basepoint formulas and same-N injectivity/neutral-point reflection are now supplied. Joint continuity of the native quotient action on U^N is an explicit hypothesis; the additive native continuous-action helper is not a general multiplicative proof. Still establish that continuity in any intended broader coefficient topology, actual restriction and image=neutral restriction fibre, reverse-inclusion transitions and compact-discrete filtered-colimit bijection, and genuine additive cocycle comparison. All inherited representability, local-condition, source-proof, API/granularity and geometric obligations remain open. The reserved étale K(π,1) contract, all nine pre-existing gaps, sixteen requests, eleven planet objects, every routed source inventory and the RT-AREA-algebraicgeometry/8 A2 Néron–Severi ownership remain binding. Generic height/mixed-extension/local-term work remains with its shared Part II owner; no reverse NC.5 or NC.3→NC.0 dependency is added. The previous reader sections describe their historical checkpoint frontier; this paragraph is the current inflation frontier.
+
+The independently downloaded [exact Kim v1 PDF](https://arxiv.org/pdf/math/0409456v1) retains SHA25600efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941. Fresh reading covers the full continuous-cocycle and gauge-orbit definitions on p.6 and Proposition1 statement on p.5; no full-paper reading, published-version collation, new erratum or torsor-classification closure is claimed.
