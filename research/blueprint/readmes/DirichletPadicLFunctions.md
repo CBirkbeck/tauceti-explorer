@@ -54315,3 +54315,273 @@ Exact integer controls check72 positive moduli,1,588 units,2,487 original prime-
 After actual merge5493, all77 guarded inputs and four predecessor outputs remain unchanged. The issue body, original winning claim and blocked unclaimed review390 are unchanged. Native source statements and ownership boundaries were checked. No new source finding, independent review verdict or supplier request is introduced.
 
 The separate partial signature file also compiled with zero errors and 5,414 expected placeholder warnings across 3,644 pinned source modules. It includes all 10 new named declarations and 17 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: ff870adbd36b3667b81e151b88e72545bc4fa0f5bb2e2973ef556be446094bd7.
+
+
+## Actual primitive-circle coordinates and the degree-one Cartan transfer comparison
+
+Nine L3 nodes identify actual degree-one finite Cartan units with primitive rational-circle points and identify the original Cartan norm with primitive transfer over arbitrary semirings. All1,793 predecessor nodes and1,179 baseline records remain whole.
+
+Kubert186–187 and equations(2.6)–(2.7) are read on the actual degree-one source carriers. Native AddCircle.setAddOrderOfEquiv supplies the primitive rational-circle coordinates; native unit representatives and ZMod.intCast_eq_iff retain arbitrary integer representatives. Existing singleton additive transport identifies the actual circle with the one-coordinate torus. Native coefficient equivalences and the already proved actual reduction/transfer APIs yield the semiring-linear norm comparison. The real-circle-only ZMod.toAddCircle is not substituted for the rational source carrier. No generic circle-order, unit, singleton-product or transfer theory is replanned.
+
+### Actual Cartan units correspond to primitive rational-circle points
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv` — `DirichletPadic.kubertCartanPrimitiveCircleEquiv`
+
+For each positive N construct an actual equivalence c_N:U(1,N)≃{x in Q/Z:addOrderOf(x)=N}. Compose the original finite Cartan equivalence e_N with the native unit-representative identification and the inverse of native AddCircle.setAddOrderOfEquiv at period1. Thus c_N sends the original Cartan tuple u to the actual point[a/N], where a is the least nonnegative representative of e_N(u).
+
+**Hypotheses:** The Cartan degree is exactly one. For positive N, U(1,N) is the actual original product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1); e_N is its already established actual multiplicative equivalence with native units modulo N. The circle is the actual rational quotient AddCircle(1:Q). Its primitive points at level N are the actual subtype defined by additive order exactly N. The one-coordinate source torus is Fin1→AddCircle(1:Q), identified by the native singleton-product additive equivalence. All reductions retain arbitrary positive M dividing N and multiply actual circle points by the integer N/M. Coefficients range over an arbitrary semiring R; the Cartan norm and primitive transfer are the established full-fiber maps, without averaging. Existing native circle finite-order theory, quotient arithmetic, unit representatives, singleton products and coefficient transport are reused. FF.4 retains ownership of generic finite Galois-ring theory. No general-degree coherent basis, unramified local-field comparison, torsor or source lower-rank conclusion is assumed.
+
+**Proof:**
+
+1. The native underlying representative of a unit modulo N is less than N and coprime to N.
+2. Native unitOfCoprime and the native representative identities give the inverse identification with bounded coprime natural numbers, including N=1.
+3. Compose the original finite Cartan equivalence with the inverse of the already existing native circle finite-order-point equivalence. Its target is the exact existing primitivePoints subtype.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-points`, `mathlib:ZMod.val_coe_unit_coprime`, `mathlib:ZMod.val_lt`, `mathlib:ZMod.unitOfCoprime`, `mathlib:ZMod.natCast_zmod_val`, `mathlib:ZMod.val_natCast_of_lt`, `mathlib:AddCircle.setAddOrderOfEquiv`.
+
+**Uses:**
+
+- Kubert187, actual primitive-element identification in degree one: Provides the explicit original Cartan unit to actual rational-circle primitive-point correspondence, preserving integer representatives and every divisibility transition.
+- Kubert187, equations(2.6)–(2.7): Identifies the already constructed Cartan full-lift norm with the actual primitive transfer on the source one-coordinate torus over arbitrary semiring coefficients.
+
+**API:**
+
+- `kubertCartanPrimitiveCircleEquiv_coe` (compatibility): For positive N and actual u in U(1,N), the underlying rational-circle point of c_N(u) is[a/N], with a the canonical natural representative of the actual residue unit e_N(u).
+- `kubertCartanPrimitiveCircleEquiv_intCast` (compatibility): For positive N, actual u in U(1,N) and any integer a whose class modulo N is the underlying value of e_N(u), the underlying point c_N(u) equals[a/N] in the actual rational circle. The integer representative may be negative.
+- `kubertCartanPrimitiveCircleEquiv_one` (compatibility): For every positive N, the Cartan identity tuple maps under c_N to the actual rational-circle point[1/N]. This includes N=1, where[1]=0 and the point has additive order1.
+- `kubertCartanPrimitiveCircleEquiv_reduction` (compatibility): For positive M,N with M dividing N and actual u in U(1,N), primitiveReduction_M,N(c_N(u))=c_M(r_M,N(u)). Equivalently, multiplying the actual point c_N(u) by N/M gives the point associated to the original Cartan reduction of u.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.primitive_circle_modulus_one` (degenerate): The sole original Cartan tuple at modulus1 gives the actual zero point, which has additive order1.
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.primitive_circle_unit5_modulus12` (computation): The original Cartan tuple corresponding to unit5 modulo12 gives the actual rational circle point5/12.
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.primitive_circle_inverse_roundtrip` (characterisation): The inverse recovers each original finite Cartan tuple.
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.nonunit_does_not_give_primitive_point` (non-example): The nonunit2 modulo4 gives the point1/2 of additive order2, so it is not a primitive point of level4.
+
+**Acceptance:** Use the actual rational circle and original finite Cartan tuples. At modulus1 the sole primitive point is0=[1], and its basis vector persists. Unit5 modulo12 gives[5/12]=[-7/12]; reduction to level4 gives[1/4]. The nonunit2 modulo4 gives additive order2. Over characteristic2, transfer1to3 retains both primitive coefficients1.
+
+**Source:** Published186–187, degree-one specialization of the original finite Cartan group and primitive-element identification;187 equations(2.6)–(2.7), equality of primitive full-lift transfer with the Cartan group-ring norm. Constructs the actual degree-one primitive rational-circle bijection from the original finite Cartan group, proves compatibility with every divisibility reduction, and identifies the two already constructed transfer maps by a native semiring-linear coefficient equivalence. General degree remains a separate source input.
+
+### The primitive point has its original residue numerator
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv-coe` — `DirichletPadic.kubertCartanPrimitiveCircleEquiv_coe`
+
+For positive N and actual u in U(1,N), the underlying rational-circle point of c_N(u) is[a/N], with a the canonical natural representative of the actual residue unit e_N(u).
+
+**Hypotheses:** The Cartan degree is exactly one. For positive N, U(1,N) is the actual original product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1); e_N is its already established actual multiplicative equivalence with native units modulo N. The circle is the actual rational quotient AddCircle(1:Q). Its primitive points at level N are the actual subtype defined by additive order exactly N. The one-coordinate source torus is Fin1→AddCircle(1:Q), identified by the native singleton-product additive equivalence. All reductions retain arbitrary positive M dividing N and multiply actual circle points by the integer N/M. Coefficients range over an arbitrary semiring R; the Cartan norm and primitive transfer are the established full-fiber maps, without averaging. Existing native circle finite-order theory, quotient arithmetic, unit representatives, singleton products and coefficient transport are reused. FF.4 retains ownership of generic finite Galois-ring theory. No general-degree coherent basis, unramified local-field comparison, torsor or source lower-rank conclusion is assumed.
+
+**Proof:**
+
+1. Evaluate the explicit inverse of native AddCircle.setAddOrderOfEquiv at period1.
+2. The two preceding maps retain the original Cartan residue and its native natural representative; multiplication by period1 leaves[a/N].
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.cartanPrimitiveCircleEquiv_coe_typed_api` (compatibility): For positive N and actual u in U(1,N), the underlying rational-circle point of c_N(u) is[a/N], with a the canonical natural representative of the actual residue unit e_N(u).
+
+**Acceptance:** Use the actual rational circle and original finite Cartan tuples. At modulus1 the sole primitive point is0=[1], and its basis vector persists. Unit5 modulo12 gives[5/12]=[-7/12]; reduction to level4 gives[1/4]. The nonunit2 modulo4 gives additive order2. Over characteristic2, transfer1to3 retains both primitive coefficients1.
+
+**Source:** Published186–187, degree-one specialization of the original finite Cartan group and primitive-element identification;187 equations(2.6)–(2.7), equality of primitive full-lift transfer with the Cartan group-ring norm. Constructs the actual degree-one primitive rational-circle bijection from the original finite Cartan group, proves compatibility with every divisibility reduction, and identifies the two already constructed transfer maps by a native semiring-linear coefficient equivalence. General degree remains a separate source input.
+
+### Every integer representative gives the same actual primitive point
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv-int-cast` — `DirichletPadic.kubertCartanPrimitiveCircleEquiv_intCast`
+
+For positive N, actual u in U(1,N) and any integer a whose class modulo N is the underlying value of e_N(u), the underlying point c_N(u) equals[a/N] in the actual rational circle. The integer representative may be negative.
+
+**Hypotheses:** The Cartan degree is exactly one. For positive N, U(1,N) is the actual original product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1); e_N is its already established actual multiplicative equivalence with native units modulo N. The circle is the actual rational quotient AddCircle(1:Q). Its primitive points at level N are the actual subtype defined by additive order exactly N. The one-coordinate source torus is Fin1→AddCircle(1:Q), identified by the native singleton-product additive equivalence. All reductions retain arbitrary positive M dividing N and multiply actual circle points by the integer N/M. Coefficients range over an arbitrary semiring R; the Cartan norm and primitive transfer are the established full-fiber maps, without averaging. Existing native circle finite-order theory, quotient arithmetic, unit representatives, singleton products and coefficient transport are reused. FF.4 retains ownership of generic finite Galois-ring theory. No general-degree coherent basis, unramified local-field comparison, torsor or source lower-rank conclusion is assumed.
+
+**Proof:**
+
+1. Use the proved canonical natural-representative formula.
+2. Native ZMod.intCast_eq_iff writes the arbitrary integer a as the canonical representative plus N times an integer.
+3. The two rational fractions therefore differ by that integer; native AddCircle.coe_eq_zero_iff identifies their classes in Q/Z.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv-coe`, `mathlib:ZMod.intCast_eq_iff`, `mathlib:AddCircle.coe_eq_zero_iff`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.negative_integer_representative` (compatibility): The integer-7 represents unit5 modulo12 and gives the same actual point5/12 modulo1.
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.cartanPrimitiveCircleEquiv_intCast_typed_api` (compatibility): For positive N, actual u in U(1,N) and any integer a whose class modulo N is the underlying value of e_N(u), the underlying point c_N(u) equals[a/N] in the actual rational circle. The integer representative may be negative.
+
+**Acceptance:** Use the actual rational circle and original finite Cartan tuples. At modulus1 the sole primitive point is0=[1], and its basis vector persists. Unit5 modulo12 gives[5/12]=[-7/12]; reduction to level4 gives[1/4]. The nonunit2 modulo4 gives additive order2. Over characteristic2, transfer1to3 retains both primitive coefficients1.
+
+**Source:** Published186–187, degree-one specialization of the original finite Cartan group and primitive-element identification;187 equations(2.6)–(2.7), equality of primitive full-lift transfer with the Cartan group-ring norm. Constructs the actual degree-one primitive rational-circle bijection from the original finite Cartan group, proves compatibility with every divisibility reduction, and identifies the two already constructed transfer maps by a native semiring-linear coefficient equivalence. General degree remains a separate source input.
+
+### The Cartan identity gives the source distinguished circle point
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv-one` — `DirichletPadic.kubertCartanPrimitiveCircleEquiv_one`
+
+For every positive N, the Cartan identity tuple maps under c_N to the actual rational-circle point[1/N]. This includes N=1, where[1]=0 and the point has additive order1.
+
+**Hypotheses:** The Cartan degree is exactly one. For positive N, U(1,N) is the actual original product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1); e_N is its already established actual multiplicative equivalence with native units modulo N. The circle is the actual rational quotient AddCircle(1:Q). Its primitive points at level N are the actual subtype defined by additive order exactly N. The one-coordinate source torus is Fin1→AddCircle(1:Q), identified by the native singleton-product additive equivalence. All reductions retain arbitrary positive M dividing N and multiply actual circle points by the integer N/M. Coefficients range over an arbitrary semiring R; the Cartan norm and primitive transfer are the established full-fiber maps, without averaging. Existing native circle finite-order theory, quotient arithmetic, unit representatives, singleton products and coefficient transport are reused. FF.4 retains ownership of generic finite Galois-ring theory. No general-degree coherent basis, unramified local-field comparison, torsor or source lower-rank conclusion is assumed.
+
+**Proof:**
+
+1. The established finite Cartan equivalence preserves the identity unit.
+2. Apply the arbitrary-integer representative formula with integer1, which remains valid at N=1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv-int-cast`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.cartanPrimitiveCircleEquiv_one_typed_api` (compatibility): For every positive N, the Cartan identity tuple maps under c_N to the actual rational-circle point[1/N]. This includes N=1, where[1]=0 and the point has additive order1.
+
+**Acceptance:** Use the actual rational circle and original finite Cartan tuples. At modulus1 the sole primitive point is0=[1], and its basis vector persists. Unit5 modulo12 gives[5/12]=[-7/12]; reduction to level4 gives[1/4]. The nonunit2 modulo4 gives additive order2. Over characteristic2, transfer1to3 retains both primitive coefficients1.
+
+**Source:** Published186–187, degree-one specialization of the original finite Cartan group and primitive-element identification;187 equations(2.6)–(2.7), equality of primitive full-lift transfer with the Cartan group-ring norm. Constructs the actual degree-one primitive rational-circle bijection from the original finite Cartan group, proves compatibility with every divisibility reduction, and identifies the two already constructed transfer maps by a native semiring-linear coefficient equivalence. General degree remains a separate source input.
+
+### Actual primitive-point coordinates preserve all Cartan reductions
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv-reduction` — `DirichletPadic.kubertCartanPrimitiveCircleEquiv_reduction`
+
+For positive M,N with M dividing N and actual u in U(1,N), primitiveReduction_M,N(c_N(u))=c_M(r_M,N(u)). Equivalently, multiplying the actual point c_N(u) by N/M gives the point associated to the original Cartan reduction of u.
+
+**Hypotheses:** The Cartan degree is exactly one. For positive N, U(1,N) is the actual original product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1); e_N is its already established actual multiplicative equivalence with native units modulo N. The circle is the actual rational quotient AddCircle(1:Q). Its primitive points at level N are the actual subtype defined by additive order exactly N. The one-coordinate source torus is Fin1→AddCircle(1:Q), identified by the native singleton-product additive equivalence. All reductions retain arbitrary positive M dividing N and multiply actual circle points by the integer N/M. Coefficients range over an arbitrary semiring R; the Cartan norm and primitive transfer are the established full-fiber maps, without averaging. Existing native circle finite-order theory, quotient arithmetic, unit representatives, singleton products and coefficient transport are reused. FF.4 retains ownership of generic finite Galois-ring theory. No general-degree coherent basis, unramified local-field comparison, torsor or source lower-rank conclusion is assumed.
+
+**Proof:**
+
+1. Let a be the canonical natural representative of the original residue unit e_N(u).
+2. The established finite Cartan reduction comparison shows that a, viewed as an integer modulo M, also represents e_M(r_M,N(u)).
+3. Use the canonical formula at N and the arbitrary-integer formula at M.
+4. Native compatibility of circle coercion with natural scalar multiplication and native Nat.cast_div under M dividing N give (N/M)[a/N]=[a/M].
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv-int-cast`, `DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv-reduction`, `DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-coe`, `mathlib:AddCircle.coe_nsmul`, `mathlib:Nat.cast_div`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.cartanPrimitiveCircleEquiv_reduction_typed_api` (compatibility): For positive M,N with M dividing N and actual u in U(1,N), primitiveReduction_M,N(c_N(u))=c_M(r_M,N(u)). Equivalently, multiplying the actual point c_N(u) by N/M gives the point associated to the original Cartan reduction of u.
+
+**Acceptance:** Use the actual rational circle and original finite Cartan tuples. At modulus1 the sole primitive point is0=[1], and its basis vector persists. Unit5 modulo12 gives[5/12]=[-7/12]; reduction to level4 gives[1/4]. The nonunit2 modulo4 gives additive order2. Over characteristic2, transfer1to3 retains both primitive coefficients1.
+
+**Source:** Published186–187, degree-one specialization of the original finite Cartan group and primitive-element identification;187 equations(2.6)–(2.7), equality of primitive full-lift transfer with the Cartan group-ring norm. Constructs the actual degree-one primitive rational-circle bijection from the original finite Cartan group, proves compatibility with every divisibility reduction, and identifies the two already constructed transfer maps by a native semiring-linear coefficient equivalence. General degree remains a separate source input.
+
+### Actual Cartan group-ring coefficients identify with primitive-point coefficients
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-coefficient-equiv` — `DirichletPadic.kubertCartanPrimitiveCoefficientEquiv`
+
+For every semiring R and positive N, construct an actual R-linear equivalence B_N from native MonoidAlgebra R U(1,N) to finitely supported R-valued functions on the actual primitive points of Fin1→Q/Z at level N. Compose native MonoidAlgebra.coeffLinearEquiv with native Finsupp.domLCongr for c_N followed by the existing primitive-point transport along the inverse of native AddEquiv.piUnique.
+
+**Hypotheses:** The Cartan degree is exactly one. For positive N, U(1,N) is the actual original product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1); e_N is its already established actual multiplicative equivalence with native units modulo N. The circle is the actual rational quotient AddCircle(1:Q). Its primitive points at level N are the actual subtype defined by additive order exactly N. The one-coordinate source torus is Fin1→AddCircle(1:Q), identified by the native singleton-product additive equivalence. All reductions retain arbitrary positive M dividing N and multiply actual circle points by the integer N/M. Coefficients range over an arbitrary semiring R; the Cartan norm and primitive transfer are the established full-fiber maps, without averaging. Existing native circle finite-order theory, quotient arithmetic, unit representatives, singleton products and coefficient transport are reused. FF.4 retains ownership of generic finite Galois-ring theory. No general-degree coherent basis, unramified local-field comparison, torsor or source lower-rank conclusion is assumed.
+
+**Proof:**
+
+1. Use the existing native linear equivalence from the actual group ring to its finitely supported coefficient function.
+2. The constructed actual circle bijection gives primitive rational-circle coordinates.
+3. Native singleton-product additive equivalence identifies the circle with Fin1→circle; the earlier primitiveEquiv preserves exact additive order.
+4. Apply native Finsupp.domLCongr to this composite actual index equivalence. Its scalar ring is the original arbitrary semiring R.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv`, `mathlib:MulEquiv.piUnique`, `mathlib:MonoidAlgebra.coeffLinearEquiv`, `mathlib:Finsupp.domLCongr`.
+
+**Uses:**
+
+- Kubert187, actual primitive-element identification in degree one: Provides the explicit original Cartan unit to actual rational-circle primitive-point correspondence, preserving integer representatives and every divisibility transition.
+- Kubert187, equations(2.6)–(2.7): Identifies the already constructed Cartan full-lift norm with the actual primitive transfer on the source one-coordinate torus over arbitrary semiring coefficients.
+
+**API:**
+
+- `kubertCartanPrimitiveCoefficientEquiv_apply` (compatibility): For positive N, semiring R, actual f in R[U(1,N)] and actual u in U(1,N), the coefficient of B_N(f) at the primitive Fin1 point corresponding to c_N(u) is exactly the original native group-ring coefficient f.coeff(u).
+- `kubertCartanPrimitiveCoefficientEquiv_single` (compatibility): For positive N, semiring R, actual u in U(1,N) and scalar a in R, B_N sends native MonoidAlgebra.single(u,a) to Finsupp.single at the actual primitive Fin1 point corresponding to c_N(u), with the same coefficient a.
+- `kubertCartanPrimitiveCoefficientEquiv_norm` (compatibility): For every semiring R, positive M,N with M dividing N and actual f in R[U(1,M)], B_N(cartanProductNorm_1,M,N(f))=primitiveTransfer_0,M,N(B_M(f)), where the subscript0 on the existing primitive transfer means the source one-coordinate torus Fin(0+1)→Q/Z. Both sides are the actual established full-fiber transfers, including changing prime support and coefficients of positive characteristic.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.coefficient_original_roundtrip` (characterisation): The inverse linear comparison recovers each original Cartan group-ring element.
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.coefficient_linear_combination` (compatibility): The comparison preserves arbitrary semiring-linear combinations on actual group-ring coefficients.
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.coefficient_identity_basis` (degenerate): At every positive level the original Cartan identity basis maps to the basis vector of the actual point1/N, including its nonzero basis vector at modulus1.
+
+**Acceptance:** Use the actual rational circle and original finite Cartan tuples. At modulus1 the sole primitive point is0=[1], and its basis vector persists. Unit5 modulo12 gives[5/12]=[-7/12]; reduction to level4 gives[1/4]. The nonunit2 modulo4 gives additive order2. Over characteristic2, transfer1to3 retains both primitive coefficients1.
+
+**Source:** Published186–187, degree-one specialization of the original finite Cartan group and primitive-element identification;187 equations(2.6)–(2.7), equality of primitive full-lift transfer with the Cartan group-ring norm. Constructs the actual degree-one primitive rational-circle bijection from the original finite Cartan group, proves compatibility with every divisibility reduction, and identifies the two already constructed transfer maps by a native semiring-linear coefficient equivalence. General degree remains a separate source input.
+
+### Primitive coefficients retain the original Cartan coefficient
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-coefficient-equiv-apply` — `DirichletPadic.kubertCartanPrimitiveCoefficientEquiv_apply`
+
+For positive N, semiring R, actual f in R[U(1,N)] and actual u in U(1,N), the coefficient of B_N(f) at the primitive Fin1 point corresponding to c_N(u) is exactly the original native group-ring coefficient f.coeff(u).
+
+**Hypotheses:** The Cartan degree is exactly one. For positive N, U(1,N) is the actual original product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1); e_N is its already established actual multiplicative equivalence with native units modulo N. The circle is the actual rational quotient AddCircle(1:Q). Its primitive points at level N are the actual subtype defined by additive order exactly N. The one-coordinate source torus is Fin1→AddCircle(1:Q), identified by the native singleton-product additive equivalence. All reductions retain arbitrary positive M dividing N and multiply actual circle points by the integer N/M. Coefficients range over an arbitrary semiring R; the Cartan norm and primitive transfer are the established full-fiber maps, without averaging. Existing native circle finite-order theory, quotient arithmetic, unit representatives, singleton products and coefficient transport are reused. FF.4 retains ownership of generic finite Galois-ring theory. No general-degree coherent basis, unramified local-field comparison, torsor or source lower-rank conclusion is assumed.
+
+**Proof:**
+
+1. Native coefficient transport evaluates through the inverse of its actual index equivalence.
+2. Evaluate at the forward image of u and cancel the native equivalence with its inverse.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-coefficient-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.cartanPrimitiveCoefficientEquiv_apply_typed_api` (compatibility): For positive N, semiring R, actual f in R[U(1,N)] and actual u in U(1,N), the coefficient of B_N(f) at the primitive Fin1 point corresponding to c_N(u) is exactly the original native group-ring coefficient f.coeff(u).
+
+**Acceptance:** Use the actual rational circle and original finite Cartan tuples. At modulus1 the sole primitive point is0=[1], and its basis vector persists. Unit5 modulo12 gives[5/12]=[-7/12]; reduction to level4 gives[1/4]. The nonunit2 modulo4 gives additive order2. Over characteristic2, transfer1to3 retains both primitive coefficients1.
+
+**Source:** Published186–187, degree-one specialization of the original finite Cartan group and primitive-element identification;187 equations(2.6)–(2.7), equality of primitive full-lift transfer with the Cartan group-ring norm. Constructs the actual degree-one primitive rational-circle bijection from the original finite Cartan group, proves compatibility with every divisibility reduction, and identifies the two already constructed transfer maps by a native semiring-linear coefficient equivalence. General degree remains a separate source input.
+
+### Original Cartan basis vectors become the actual primitive-point basis vectors
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-coefficient-equiv-single` — `DirichletPadic.kubertCartanPrimitiveCoefficientEquiv_single`
+
+For positive N, semiring R, actual u in U(1,N) and scalar a in R, B_N sends native MonoidAlgebra.single(u,a) to Finsupp.single at the actual primitive Fin1 point corresponding to c_N(u), with the same coefficient a.
+
+**Hypotheses:** The Cartan degree is exactly one. For positive N, U(1,N) is the actual original product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1); e_N is its already established actual multiplicative equivalence with native units modulo N. The circle is the actual rational quotient AddCircle(1:Q). Its primitive points at level N are the actual subtype defined by additive order exactly N. The one-coordinate source torus is Fin1→AddCircle(1:Q), identified by the native singleton-product additive equivalence. All reductions retain arbitrary positive M dividing N and multiply actual circle points by the integer N/M. Coefficients range over an arbitrary semiring R; the Cartan norm and primitive transfer are the established full-fiber maps, without averaging. Existing native circle finite-order theory, quotient arithmetic, unit representatives, singleton products and coefficient transport are reused. FF.4 retains ownership of generic finite Galois-ring theory. No general-degree coherent basis, unramified local-field comparison, torsor or source lower-rank conclusion is assumed.
+
+**Proof:**
+
+1. The native coefficient equivalence retains the original single coefficient.
+2. Apply the existing native Finsupp.domLCongr_single formula to the composite actual primitive-point bijection.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-coefficient-equiv`, `mathlib:Finsupp.domLCongr_single`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.cartanPrimitiveCoefficientEquiv_single_typed_api` (compatibility): For positive N, semiring R, actual u in U(1,N) and scalar a in R, B_N sends native MonoidAlgebra.single(u,a) to Finsupp.single at the actual primitive Fin1 point corresponding to c_N(u), with the same coefficient a.
+
+**Acceptance:** Use the actual rational circle and original finite Cartan tuples. At modulus1 the sole primitive point is0=[1], and its basis vector persists. Unit5 modulo12 gives[5/12]=[-7/12]; reduction to level4 gives[1/4]. The nonunit2 modulo4 gives additive order2. Over characteristic2, transfer1to3 retains both primitive coefficients1.
+
+**Source:** Published186–187, degree-one specialization of the original finite Cartan group and primitive-element identification;187 equations(2.6)–(2.7), equality of primitive full-lift transfer with the Cartan group-ring norm. Constructs the actual degree-one primitive rational-circle bijection from the original finite Cartan group, proves compatibility with every divisibility reduction, and identifies the two already constructed transfer maps by a native semiring-linear coefficient equivalence. General degree remains a separate source input.
+
+### The actual Cartan norm is primitive full-lift transfer in degree one
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-coefficient-equiv-norm` — `DirichletPadic.kubertCartanPrimitiveCoefficientEquiv_norm`
+
+For every semiring R, positive M,N with M dividing N and actual f in R[U(1,M)], B_N(cartanProductNorm_1,M,N(f))=primitiveTransfer_0,M,N(B_M(f)), where the subscript0 on the existing primitive transfer means the source one-coordinate torus Fin(0+1)→Q/Z. Both sides are the actual established full-fiber transfers, including changing prime support and coefficients of positive characteristic.
+
+**Hypotheses:** The Cartan degree is exactly one. For positive N, U(1,N) is the actual original product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1); e_N is its already established actual multiplicative equivalence with native units modulo N. The circle is the actual rational quotient AddCircle(1:Q). Its primitive points at level N are the actual subtype defined by additive order exactly N. The one-coordinate source torus is Fin1→AddCircle(1:Q), identified by the native singleton-product additive equivalence. All reductions retain arbitrary positive M dividing N and multiply actual circle points by the integer N/M. Coefficients range over an arbitrary semiring R; the Cartan norm and primitive transfer are the established full-fiber maps, without averaging. Existing native circle finite-order theory, quotient arithmetic, unit representatives, singleton products and coefficient transport are reused. FF.4 retains ownership of generic finite Galois-ring theory. No general-degree coherent basis, unramified local-field comparison, torsor or source lower-rank conclusion is assumed.
+
+**Proof:**
+
+1. Every actual primitive Fin1 point is the image of an original finite Cartan unit under the constructed bijection and native singleton transport.
+2. Evaluate both sides at such an actual point. The established Cartan norm coefficient formula is pullback through the original Cartan reduction.
+3. The established primitive transfer coefficient formula is pullback through actual multiplication by N/M.
+4. Existing primitiveReduction_equivariant commutes with singleton additive transport; the proved Cartan/circle reduction compatibility then makes the two original coefficients equal.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-coefficient-equiv-apply`, `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv-reduction`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-coeff-apply`, `DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-apply`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-reduction-equivariant`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.characteristic_two_full_fiber` (non-example): Over ZMod2, transfer of the level1 identity basis to level3 has coefficient1 at every primitive point. Both terms remain, so no division by the two-element fiber is allowed.
+- `SuggestedKubertDegreeOnePrimitiveCircleTests.cartanPrimitiveCoefficientEquiv_norm_typed_api` (compatibility): For every semiring R, positive M,N with M dividing N and actual f in R[U(1,M)], B_N(cartanProductNorm_1,M,N(f))=primitiveTransfer_0,M,N(B_M(f)), where the subscript0 on the existing primitive transfer means the source one-coordinate torus Fin(0+1)→Q/Z. Both sides are the actual established full-fiber transfers, including changing prime support and coefficients of positive characteristic.
+
+**Acceptance:** Use the actual rational circle and original finite Cartan tuples. At modulus1 the sole primitive point is0=[1], and its basis vector persists. Unit5 modulo12 gives[5/12]=[-7/12]; reduction to level4 gives[1/4]. The nonunit2 modulo4 gives additive order2. Over characteristic2, transfer1to3 retains both primitive coefficients1.
+
+**Source:** Published186–187, degree-one specialization of the original finite Cartan group and primitive-element identification;187 equations(2.6)–(2.7), equality of primitive full-lift transfer with the Cartan group-ring norm. Constructs the actual degree-one primitive rational-circle bijection from the original finite Cartan group, proves compatibility with every divisibility reduction, and identifies the two already constructed transfer maps by a native semiring-linear coefficient equivalence. General degree remains a separate source input.
+
+**Remaining:** The actual degree-one finite Cartan group now has an explicit bijection with primitive rational-circle points, compatible with every original divisibility reduction. Its actual group-ring coefficient equivalence identifies the full-lift Cartan norm with the existing primitive transfer on the one-coordinate source torus over arbitrary semirings. Next compare the actual finite Cartan action with the source scalar action and construct the compatible Cartan-valued distribution maps of Kubert188, with the printed inverse convention and normalization. General-degree coherent primitive coordinates and unramified integer-ring identification remain open. FF.4 owns finite Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18 gaps and16 requests remain; zero stages close.
+
+### Actual primitive-circle coordinates and the degree-one Cartan transfer comparison validation
+
+All 1793 predecessor nodes, 1179 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 9 nodes, 9 named suggested declarations and 16 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2064 reachable nodes, 8695 edges and 1352 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route terminates in the actual original degree-one finite Cartan equivalence, actual primitive reduction/transfer API, or existing native circle-order, unit-representative, quotient-arithmetic and coefficient transport theory. No new supplier-stage leaf or assumed torsor/rank package is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3648 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5496 verbatim and adds two actual constructions and seven complete lemmas. Totals are129 definitions and1,148 lemmas, plus two routine native primality instances and the retained complete digit non-example, with zero placeholders. The public append contains nine named declarations and16 typed tests; all new mathematical bodies are placeholders. No native import or library build is added. The separate probe compiles against 3030 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact rational controls check48positive moduli,712primitive points,3,560integer representatives,2,711reductions,10,844coefficient comparisons and1,176basis-fiber comparisons. Coefficients include integers and residues modulo2,3,5. At level1 the sole point is0=[1] and its basis vector persists; unit5 modulo12 gives[5/12]=[-7/12] and reduces to[1/4]; characteristic2 transfer1to3 retains both primitive coefficients1. The complete native proof separately checks arbitrary-semiring and actual Cartan-carrier statements. Exact rational arithmetic modulo1 at positive levels1 through48. Verifies actual primitive point denominators, multiple integer representatives, all divisor reductions, and coefficient/full-basis-fiber transfer identities over integers and residues modulo2,3,5. The complete native Lean probe separately proves the statements for the actual full-Witt finite Cartan carriers and arbitrary semiring coefficients. The largest observed discrepancy is 0.
+
+Fresh main after the execution interruption changes five guarded inputs. Protocol sections8 and19 clarify independent-session review and assign previously unowned key definitions once; review390 remains blocked and unclaimed. Eleven new reserved key-definition IDs concern other roadmap owners, with no new Dirichlet assignment. Polylogarithms changes only its independent review and archived review history, preserving all mathematical and source data. The source register changes are screened by owner, citation and full-record keyword checks; none concerns Kubert, the Gross–Koblitz/Robert Gamma sources, DirichletPadicLFunctions or the finite-Galois-ring owner. No source finding is adopted, rejected or independently reviewed here. All four predecessor outputs and the issue body remain unchanged.
+
+The separate partial signature file also compiled with zero errors and 5,439 expected placeholder warnings across 3,644 pinned source modules. It includes all 9 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 8d5a8b086e316071270cafcea653876e3cebae4d8206a26e3cab35caba457555.
