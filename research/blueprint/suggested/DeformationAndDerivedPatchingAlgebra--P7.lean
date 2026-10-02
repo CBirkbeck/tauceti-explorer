@@ -2047,23 +2047,3 @@ example (f : R) (r : ℕ) :
 
 end TotalJets
 end TauCeti.HilbertSamuel
-
-/-
--- BEGIN CHECKED TOTAL JET BASELINE EXPERIMENT
-namespace TauCeti.HilbertSamuel.TotalJetBaselineExperiment
-variable {S : Type*} [CommRing S]
-lemma actual_double_jet (I J : Ideal S) (r : ℕ) :
-    Nonempty (((S ⧸ I) ⧸ (J.map (Ideal.Quotient.mk I)) ^ r) ≃ₐ[S]
-      (S ⧸ (I ⊔ J ^ r))) := by
-  rw [← Ideal.map_pow]
-  exact ⟨DoubleQuot.quotQuotEquivQuotSupₐ S I (J ^ r)⟩
-lemma actual_scalar_length (I J : Ideal S) (r : ℕ) :
-    Module.length S ((S ⧸ I) ⧸ (J.map (Ideal.Quotient.mk I)) ^ r) =
-      Module.length (S ⧸ I) ((S ⧸ I) ⧸ (J.map (Ideal.Quotient.mk I)) ^ r) := by
-  exact Module.length_eq_of_surjective (R := S ⧸ I)
-    (M := (S ⧸ I) ⧸ (J.map (Ideal.Quotient.mk I)) ^ r) Ideal.Quotient.mk_surjective
-#print axioms actual_double_jet
-#print axioms actual_scalar_length
-end TauCeti.HilbertSamuel.TotalJetBaselineExperiment
--- END CHECKED TOTAL JET BASELINE EXPERIMENT
--/

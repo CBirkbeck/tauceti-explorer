@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open.",
+  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1354,6 +1354,83 @@
         "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
         "provides": "For semiring coefficients and a≠0, order(monomial α a)=degree(α), as an ENat.",
         "checked": "Actual statement, surrounding hypotheses and displayed construction/proof personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Exact file hashes and read intervals are in HS-JET-PIN; names are not inferred from search hits."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.truncTotalAlgHom",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Equiv.lean",
+        "provides": "Built total-degree truncation algebra map over MvPolynomial σ k into its variable-ideal-power quotient; σ finite, k commutative.",
+        "checked": "Actual statement, context and displayed construction personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t. Source intervals and hashes are in HS-TOTAL-JET-PIN."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.mem_pow_idealOfVars_iff'",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPolynomial/Ideal.lean",
+        "provides": "Membership in p^r iff every coefficient of total degree below r vanishes, for any variable set and commutative coefficient ring.",
+        "checked": "Actual statement, context and displayed construction personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t. Source intervals and hashes are in HS-TOTAL-JET-PIN."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff_truncTotal",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Trunc.lean",
+        "provides": "Coefficients of total degree below r are unchanged by truncTotal, with finite σ and commutative semiring coefficients.",
+        "checked": "Actual statement, context and displayed construction personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t. Source intervals and hashes are in HS-TOTAL-JET-PIN."
+      },
+      {
+        "ref": "mathlib:Ideal.quotientKerAlgEquivOfSurjective",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "Native algebra first isomorphism theorem for a surjective algebra map.",
+        "checked": "Actual statement, context and displayed construction personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t. Source intervals and hashes are in HS-TOTAL-JET-PIN."
+      },
+      {
+        "ref": "mathlib:Ideal.quotientKerAlgEquivOfSurjective_mk",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "The first-isomorphism equivalence sends each quotient representative to its actual algebra-map image.",
+        "checked": "Actual statement, context and displayed construction personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t. Source intervals and hashes are in HS-TOTAL-JET-PIN."
+      },
+      {
+        "ref": "mathlib:Ideal.quotientEquivAlgOfEq",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "Equal actual ideals give an algebra equivalence of their quotients, preserving representatives.",
+        "checked": "Actual statement, context and displayed construction personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t. Source intervals and hashes are in HS-TOTAL-JET-PIN."
+      },
+      {
+        "ref": "mathlib:Finsupp.finite_of_degree_lt",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Finsupp/Weight.lean",
+        "provides": "For finite σ, the set of finitely supported natural exponent vectors of total degree below r is finite.",
+        "checked": "Actual statement, context and displayed construction personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t. Source intervals and hashes are in HS-TOTAL-JET-PIN."
+      },
+      {
+        "ref": "mathlib:Finsupp.basisSingleOne",
+        "kind": "definition",
+        "module": "Mathlib/LinearAlgebra/Finsupp/VectorSpace.lean",
+        "provides": "The native basis of finitely supported coefficient tuples, with vector single α 1.",
+        "checked": "Actual statement, context and displayed construction personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t. Source intervals and hashes are in HS-TOTAL-JET-PIN."
+      },
+      {
+        "ref": "mathlib:Module.finrank_eq_card_basis'",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Defs.lean",
+        "provides": "For a finite-dimensional vector space, natural finrank cast to a cardinal equals the cardinal of any native basis.",
+        "checked": "Actual statement, context and displayed construction personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t. Source intervals and hashes are in HS-TOTAL-JET-PIN."
+      },
+      {
+        "ref": "mathlib:DoubleQuot.quotQuotEquivQuotSupₐ",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "The built base-algebra equivalence (A/I)/(map J) ≃ A/(I⊔J), for arbitrary ideals of the commutative algebra A.",
+        "checked": "Actual statement, context and displayed construction personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t. Source intervals and hashes are in HS-TOTAL-JET-PIN."
+      },
+      {
+        "ref": "mathlib:Ideal.map_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "Ideal pushforward commutes with every natural ideal power, under a commutative-ring homomorphism.",
+        "checked": "Actual statement, context and displayed construction personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t. Source intervals and hashes are in HS-TOTAL-JET-PIN."
       }
     ]
   },
@@ -1924,6 +2001,30 @@
         "Basic": "fb6303b35ede9edf896a799d46d5656faca3e55f7f05cbfb02b86e3c7bb9b865",
         "QuotientBasic": "564aad5ee0111df700cb30aca030018f26939ed1c307f19ee6d9ac02b6bc4312",
         "LinearMapDefs": "242ce4f144fbc775bc424e6b9e088f583fb485fa72f89135d157b5586a987ae7"
+      }
+    },
+    {
+      "id": "HS-TOTAL-JET-PIN",
+      "title": "Native total jets, monomial coordinates and quotient scalar comparisons",
+      "authors": "The Mathlib contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPowerSeries/Equiv.lean",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Equiv.lean 232–282 complete truncTotalAlgHom; Trunc.lean total cutoff 316–337 and native rectangular truncation signatures; MvPolynomial/Ideal.lean 62–121; quotient Operations.lean 520–552, 762–780, 888–918 and 1026–1067; Finsupp/Weight.lean 244–262; Finsupp/VectorSpace.lean 116–136; FiniteDimensional/Defs.lean 174–187; Ideal/Maps.lean 661–674; Length.lean 126–144 and 285–300. All cited new baseline statements personally read.",
+        "Fresh bounded searches through both pinned trees found no matching total series-jet basis/kernel adapter. The third-isomorphism and surjective-length matches are built and get no new blueprint nodes. This does not assert exhaustive absence from every library.",
+        "Fresh public Stacks 00K4 mathematical Hilbert-function section and 0AZU multiplicity section read; their cumulative exponent conventions remain distinct. Other routed sources retain their historical read/unread status."
+      ],
+      "sourceHashes": {
+        "Mathlib/Data/Finsupp/Weight.lean": "ea22b70af2e5976437b3e01334e70a7d729e424024fc4a70987936f37be8b96c",
+        "Mathlib/LinearAlgebra/FiniteDimensional/Defs.lean": "a3e88c4fe00ba476440d68a1568afecf6be685a488b5b8718f6b2ef969a15fa4",
+        "Mathlib/LinearAlgebra/Finsupp/VectorSpace.lean": "d214f482e40db2f86466ad251bddd69e025bf1948c83e1e45372aae20f20ed2f",
+        "Mathlib/RingTheory/Ideal/Maps.lean": "a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11",
+        "Mathlib/RingTheory/Ideal/Quotient/Operations.lean": "25359917b64f9434dbff99f3033ecba35badb45d0a4e3468aead0ba87743d109",
+        "Mathlib/RingTheory/Length.lean": "28058afb0a726d046c7ef25ef25f86707d64762129baf08106944bcde811b466",
+        "Mathlib/RingTheory/MvPolynomial/Ideal.lean": "76cd75dedb1ee476efad3574f942b2959f5f782e5c78e26e6d74303db04cea93",
+        "Mathlib/RingTheory/MvPowerSeries/Equiv.lean": "27aef74f5d3dc61eefe378d7cbdd9233ae1789e40bedd9e94df667d7093db3a4",
+        "Mathlib/RingTheory/MvPowerSeries/Trunc.lean": "413e3cb0130b634de540bf20a6cab33ae9561f6795ceed473bc5f51372799a2e"
       }
     }
   ],
@@ -7306,6 +7407,304 @@
           "statement": "For k=ℚ, σ=Fin 2, f=X_0^4 and N=0, π_f is bijective, but multiplication by the class of f on R/v is not injective, since that class is zero and [1]≠0."
         }
       ]
+    },
+    {
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "hypotheses": [
+        "σ is finite, k is a commutative ring, R=MvPowerSeries σ k, v is the algebraic ideal span of its native variables and p=MvPolynomial.idealOfVars σ k. The cutoff r is a natural number; r=0 and the empty variable set are allowed."
+      ],
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-kernel",
+      "kind": "lemma",
+      "title": "Kernel of total-degree truncation",
+      "declaration": "TauCeti.HilbertSamuel.truncTotalAlgHom_ker",
+      "statement": "For each r≥0, ker(truncTotalAlgHom σ k r)=v^r as actual ideals of R. The target is the native polynomial ideal quotient k[X_i]/p^r; the truncation map itself is already built.",
+      "proofSteps": [
+        "By native quotient equality, g maps to zero exactly when truncTotal(r,g) belongs to p^r.",
+        "Apply the built polynomial power-ideal membership criterion: every coefficient of degree less than r must vanish. The built coeff_truncTotal identifies these coefficients with those of g.",
+        "Native nat_le_order turns the coefficient vanishing into r≤order(g) in ENat. The preceding variable-ideal-power-order adapter identifies it with g∈v^r. This does not require a domain or a nonzero g.",
+        "At r=0 both the target quotient and source quotient are zero and the kernel is the full ideal v^0; at positive r with no variables it is the zero ideal. No conversion of order(0)=∞ to a natural number occurs."
+      ],
+      "acceptance": [
+        "Uses total degree below r, not a rectangular truncation or an unquotiented polynomial algebra map.",
+        "Includes r=0, the empty variable set and rings with zero divisors unless the statement explicitly requires a field."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
+        "mathlib:MvPowerSeries.truncTotalAlgHom",
+        "mathlib:MvPolynomial.mem_pow_idealOfVars_iff'",
+        "mathlib:MvPowerSeries.coeff_truncTotal",
+        "mathlib:MvPowerSeries.nat_le_order"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§3, polynomial inclusion kernel and total-jet comparison; J02",
+          "excerpt": "total degree",
+          "match": "Canonical integration of the written finite-jet proof, refined to the pinned quotient and coefficient interfaces."
+        },
+        {
+          "sourceId": "HS-TOTAL-JET-PIN",
+          "locator": "Statements and constructions identified in prerequisites, personally read at the exact pin on 2026-10-02",
+          "match": "Built generic maps, finiteness and first/third isomorphism theorems are imported rather than planned again.",
+          "excerpt": "The canonical map"
+        }
+      ]
+    },
+    {
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "hypotheses": [
+        "σ is finite, k is a commutative ring, R=MvPowerSeries σ k, v is the algebraic ideal span of its native variables and p=MvPolynomial.idealOfVars σ k. The cutoff r is a natural number; r=0 and the empty variable set are allowed."
+      ],
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-equivalence",
+      "kind": "construction",
+      "title": "Polynomial and formal total jets",
+      "declaration": "TauCeti.HilbertSamuel.totalJetEquiv",
+      "statement": "Define the canonical k-algebra equivalence E_r:R/v^r ≃ k[X_i]/p^r, by descending the built truncTotalAlgHom. It sends [g] to [truncTotal(r,g)] and its inverse sends the class of a polynomial to the class of its native formal-series inclusion. Both formulas, and multiplication, use the actual ideal quotients.",
+      "proofSteps": [
+        "Restrict the scalar base of the built polynomial-algebra homomorphism to k. Its kernel is total-jet-kernel.",
+        "The map is surjective: every polynomial quotient class [a] is the image of the native polynomial inclusion a∈R, by the existing AlgHom commutation with the polynomial scalar map. This is true for r=0 as well.",
+        "Apply the native quotientKerAlgEquivOfSurjective, after the equality of the kernel with v^r. The native equality-of-ideals algebra equivalence changes only the denominator, preserving every representative.",
+        "The forward representative formula is the built truncTotalAlgHom formula. Its commutation with polynomial inclusion gives the inverse formula. Multiplication follows from the algebra equivalence; never assert that truncTotal itself is multiplicative into the entire polynomial ring."
+      ],
+      "acceptance": [
+        "Uses total degree below r, not a rectangular truncation or an unquotiented polynomial algebra map.",
+        "Includes r=0, the empty variable set and rings with zero divisors unless the statement explicitly requires a field."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-kernel",
+        "mathlib:MvPowerSeries.truncTotalAlgHom",
+        "mathlib:Ideal.quotientKerAlgEquivOfSurjective",
+        "mathlib:Ideal.quotientKerAlgEquivOfSurjective_mk",
+        "mathlib:Ideal.quotientEquivAlgOfEq"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§3, displayed total-jet equivalence; J02",
+          "excerpt": "total degree",
+          "match": "Canonical integration of the written finite-jet proof, refined to the pinned quotient and coefficient interfaces."
+        },
+        {
+          "sourceId": "HS-TOTAL-JET-PIN",
+          "locator": "Statements and constructions identified in prerequisites, personally read at the exact pin on 2026-10-02",
+          "match": "Built generic maps, finiteness and first/third isomorphism theorems are imported rather than planned again.",
+          "excerpt": "The canonical map"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.totalJetEquiv_mk",
+          "role": "simp",
+          "statement": "E_r([g])=[truncTotal(r,g)] for every g∈R."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.totalJetEquiv_symm_mk",
+          "role": "simp",
+          "statement": "E_r⁻¹([a])=[a viewed as a native formal series] for every polynomial a."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.totalJetEquiv_mul",
+          "role": "compatibility",
+          "statement": "E_r(a·b)=E_r(a)·E_r(b) for the actual quotient multiplications."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelTotalJetTest.zero_cutoff",
+          "kind": "degenerate",
+          "statement": "For k=ℚ, σ=Fin 2 and r=0, R/v^0 is zero and the degree<0 exponent index is empty."
+        },
+        {
+          "name": "HilbertSamuelTotalJetTest.residue_cutoff",
+          "kind": "computation",
+          "statement": "For k=ℚ, σ=Fin 2 and r=1, E_1([1])=1 and E_1([X_0])=0."
+        },
+        {
+          "name": "HilbertSamuelTotalJetTest.total_not_rectangular",
+          "kind": "non-example",
+          "statement": "For k=ℚ, σ=Fin 2 and r=2, [X_0X_1]=0 in the total jet. Native rectangular truncation trunc′ with inclusive bound (1,1) retains the nonzero polynomial X_0X_1. A rectangular replacement fails this test."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Plane-curve handoff §3 and J02–J03; shifted-jet length comparison in §4",
+          "how": "Replace actual finite series jets by native polynomial ideal quotients with their multiplication and coefficients fixed."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function and reserved general multiplicity definition",
+          "how": "Supply the finite-jet model used for the plane-curve comparison, without redefining the general Hilbert–Samuel function."
+        }
+      ]
+    },
+    {
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "hypotheses": [
+        "σ is finite, k is a commutative ring, R=MvPowerSeries σ k, v is the algebraic ideal span of its native variables and p=MvPolynomial.idealOfVars σ k. The cutoff r is a natural number; r=0 and the empty variable set are allowed."
+      ],
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-monomial-basis",
+      "kind": "construction",
+      "title": "Total-jet monomial basis",
+      "declaration": "TauCeti.HilbertSamuel.totalJetBasis",
+      "statement": "For each r≥0 define the k-module basis of R/v^r indexed by B_r={α:σ→₀ℕ | degree(α)<r}, whose vector at α is the actual class of monomial(α,1). Its representation of [g] at α is coeff_α(g). In particular the native quotient is finite as a k-module. A field or reduced coefficient ring is unnecessary.",
+      "proofSteps": [
+        "B_r is finite by the built finite_of_degree_lt. A native finitely supported coordinate tuple c defines the polynomial sum Σ_α c_α X^α and hence its actual series jet.",
+        "Conversely take the coefficients below r of a representative g. Changing g by an element of v^r changes none of those coefficients, by variable-ideal-power-order and the native order/coefficient criterion. Finite B_r makes this a genuine finitely supported tuple.",
+        "These two k-linear maps are inverse: the low coefficients of the finite polynomial sum are exactly c; subtracting this sum from g has all coefficients below r zero and therefore belongs to v^r. The same argument is the polynomial membership criterion transported through totalJetEquiv.",
+        "Use the native Finsupp.basisSingleOne through this coordinate equivalence (equivalently Basis.ofRepr) to obtain the displayed basis. Its repr coefficients and basis vectors follow from the two inverse formulas. Finite basis implies Module.Finite; do not merely assert a dimension count.",
+        "At r=0 there are no basis vectors and the quotient is zero. With no variables and r>0 the unique exponent is 0 and the quotient is k. Rings such as Z/4 still have this free basis: coefficients are coordinates, not dimensions of a nonexistent vector space."
+      ],
+      "acceptance": [
+        "Uses total degree below r, not a rectangular truncation or an unquotiented polynomial algebra map.",
+        "Includes r=0, the empty variable set and rings with zero divisors unless the statement explicitly requires a field."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-equivalence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
+        "mathlib:Finsupp.finite_of_degree_lt",
+        "mathlib:Finsupp.basisSingleOne",
+        "mathlib:MvPolynomial.mem_pow_idealOfVars_iff'"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§3, monomial basis and triangular jet count; J02–J03",
+          "excerpt": "total degree",
+          "match": "Canonical integration of the written finite-jet proof, refined to the pinned quotient and coefficient interfaces."
+        },
+        {
+          "sourceId": "HS-TOTAL-JET-PIN",
+          "locator": "Statements and constructions identified in prerequisites, personally read at the exact pin on 2026-10-02",
+          "match": "Built generic maps, finiteness and first/third isomorphism theorems are imported rather than planned again.",
+          "excerpt": "The canonical map"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.totalJetBasis_apply",
+          "role": "simp",
+          "statement": "The α-th basis vector is [monomial(α,1)] for α of total degree below r."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.totalJetBasis_repr_mk",
+          "role": "projection",
+          "statement": "repr([g])(α)=coeff_α(g), independently of the representative."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.totalJetBasis_finite",
+          "role": "instance",
+          "statement": "Module.Finite k (R/v^r), for every finite σ, commutative k and cutoff r."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelTotalJetTest.basis_zero_cutoff",
+          "kind": "degenerate",
+          "statement": "For ℚ and two variables at r=0, every quotient vector has zero coordinate tuple."
+        },
+        {
+          "name": "HilbertSamuelTotalJetTest.basis_dual_variable",
+          "kind": "computation",
+          "statement": "Over F₂ and two variables at r=3, [X_0X_1]≠0 and [X_0³]=0. A basis indexed only by pure powers fails the first assertion; a rectangular basis fails the second."
+        },
+        {
+          "name": "HilbertSamuelTotalJetTest.basis_zero_divisors",
+          "kind": "comparison",
+          "statement": "Over Z/4 at r=1, the constant coefficient 2 of [C(2)] is a basis coordinate and [C(2)]≠0, despite 2²=0. The construction must not assume a coefficient domain."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Plane-curve handoff §3 and J02–J03; shifted-jet length comparison in §4",
+          "how": "Replace actual finite series jets by native polynomial ideal quotients with their multiplication and coefficients fixed."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function and reserved general multiplicity definition",
+          "how": "Supply the finite-jet model used for the plane-curve comparison, without redefining the general Hilbert–Samuel function."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-total-jet-finrank",
+          "how": "Certify finiteness and count the actual monomial basis before computing field length."
+        }
+      ]
+    },
+    {
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "hypotheses": [
+        "k is any field, σ=Fin 2 and r≥0. No characteristic, algebraic-closure or perfectness hypothesis."
+      ],
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-total-jet-finrank",
+      "kind": "lemma",
+      "title": "Dimension of a two-variable total jet",
+      "declaration": "TauCeti.HilbertSamuel.planeTotalJet_finrank",
+      "statement": "For a field k, R=k[[X_0,X_1]], v=(X_0,X_1) and every cutoff r≥0, finrank_k(R/v^r)=binom(r+1,2). Its k-module length is the same finite number by the built length_eq_finrank. This is field length, not yet R-module length.",
+      "proofSteps": [
+        "Use totalJetBasis and its finite-module API. Its index in two variables is the set of pairs (i,j) with i+j<r, by reading the two exponent coordinates.",
+        "For each total degree t<r, map the exponent pair to i∈{0,…,t}; the other coordinate is t−i. These mutually inverse descriptions give t+1 pairs. Sum the disjoint degree slices to obtain 1+…+r=r(r+1)/2=binom(r+1,2), with the empty sum at r=0.",
+        "The native finrank/cardinality-of-basis comparison gives the claimed dimension. Apply the already built Module.length_eq_finrank only with coefficient field k and the proved finite k-module.",
+        "For the Hilbert–Samuel indexing r=N+1 this reads binom(N+2,2). No local-ring/module length equality follows from an arbitrary coefficient inclusion k→R; that separate nilpotent-filtration adapter remains a gap."
+      ],
+      "acceptance": [
+        "Uses total degree below r, not a rectangular truncation or an unquotiented polynomial algebra map.",
+        "Includes r=0, the empty variable set and rings with zero divisors unless the statement explicitly requires a field."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-monomial-basis",
+        "mathlib:Module.finrank_eq_card_basis'",
+        "mathlib:Module.length_eq_finrank"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§3, two-variable monomial count and §4 ambient jet lengths; J03",
+          "excerpt": "total degree",
+          "match": "Canonical integration of the written finite-jet proof, refined to the pinned quotient and coefficient interfaces."
+        },
+        {
+          "sourceId": "HS-TOTAL-JET-PIN",
+          "locator": "Statements and constructions identified in prerequisites, personally read at the exact pin on 2026-10-02",
+          "match": "Built generic maps, finiteness and first/third isomorphism theorems are imported rather than planned again.",
+          "excerpt": "The canonical map"
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelTotalJetTest.field_length_six",
+          "kind": "computation",
+          "statement": "For k=F₂ and r=3, length_k(R/v³)=6. The rectangular cutoff would give 9 rather than 6."
+        }
+      ]
     }
   ],
   "baselineCoverage": [
@@ -7432,7 +7831,7 @@
         "Supply the domain property of regular local rings (Stacks 00NP, through the associated graded ring 00NO), used by regular-local-cohen-macaulay; see the gap.",
         "The reserved general multiplicity strand includes positivity and now the native graded-length definition, adic transition length step, cumulative extended/natural length identities, finite coefficient lengths, rational summation polynomial and conditional graded-to-cumulative tail theorem. Its remaining leaves are associated-graded ring/module structure and finiteness, graded numerical-polynomial induction, degree/dimension and Artin–Rees comparisons, finite top-dimensional localization lengths, regular-local domain theorem and geometric/complete-ring comparisons. Existence of the graded polynomial remains open, so cumulative polynomial existence and the full key definition are not certified closed.",
         "Discharge the nine adic graded-ring and eleven adic graded-module comparison proofs, then register the exact graded ring/module interfaces and decompose the graded Hilbert–Serre induction. Native Rees carriers and native quotient scalar descent are reused. All earlier local algebra, multiplicity, degree/dimension, completion and routed-paper obligations remain open.",
-        "Six jet-map nodes canonically integrate only the first shifted-quotient strand of the plane-curve handoff. Implement their admitted proofs; finish total-jet basis and length comparison, the quotient-of-quotient equivalence/scalar restriction, full tangent-cone kernel, exact jet length and the comparison with the existing intrinsic and ambient-normalized multiplicities. Neither the general Hilbert–Serre induction nor full key-definition closure follows from the shifted-map signatures."
+        "Six shifted-jet and four total-jet nodes now integrate the actual variable-ideal kernel, shifted maps, polynomial equivalence, monomial basis and field dimension. Implement their admitted bodies; prove the R-length/k-dimension adapter using the finite variable-ideal filtration. Built quotient-of-quotient and surjective scalar length restriction are baseline; apply them to the shifted sequence to obtain exact all-index curve lengths, full tangent-cone kernel and the comparison with the general intrinsic/ambient multiplicities. General Hilbert–Serre induction and the key definition remain open."
       ]
     },
     {
@@ -7472,7 +7871,7 @@
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension"
       ],
-      "detail": "The algebraic map targets the existing integral closure. Its interpretation as a continuous map to the complete DVR of integers requires the actual Layer 0 isomorphism and topology transport. The framed formal-smooth lifting assertion remains a separate complete-local construction; the general point theorem permits residue-field extension and does not certify a fixed-residue arithmetic refinement."
+      "detail": "The algebraic map targets the existing integral closure. Its interpretation as a continuous map to the complete DVR of integers requires the actual Layer 0 isomorphism and topology transport. The framed formal-smooth lifting assertion remains a separate complete-local construction; the general point theorem permits residue-field extension and does not certify a fixed-residue arithmetic refinement. The actual assembler projection at the current audit base has no stage path from the requested LocalFieldsRamification layer 0 to R03.4; this inherited supplier request is unchanged and must be reconciled by its owner. Twelve of thirteen scoped dependency/request stage pairs are reachable."
     },
     {
       "title": "Pinned prototype elaboration and full source coverage",
@@ -7483,7 +7882,7 @@
         "DeformationAndDerivedPatchingAlgebra:R03.4/finite-field-of-point-values",
         "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension"
       ],
-      "detail": "The signatures use actual rings, ideals, intermediate fields and integral closures, but were not compiled in a pinned Lean environment. Full source/atlas reconciliation and the remaining eight-stage blueprint are not claimed complete. Current submission CI validates structure/index references, not the Lean proofs."
+      "detail": "Historical prototype omission is resolved by full Mathlib-only elaboration at the exact pin, most recently in totalJetContinuation: zero errors and only admitted-proof warnings. All mathematical implementations and full eight-stage source/atlas reconciliation remain unchecked; native signature validation does not discharge the remaining finiteness, framed-lifting or multiplicity proofs."
     },
     {
       "title": "Regular local rings are domains",
@@ -7610,7 +8009,7 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/jet-below-equation-order",
         "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity"
       ],
-      "detail": "The six finite-variable quotient adapters have written proofs and actual pinned signatures, but their substantive proofs remain admitted and all implementations unchecked. The handoff's remaining plane-curve jet basis, R-length/k-dimension and surjective scalar restriction, actual equivalence R/((f)+v^(N+1))≃(R/(f))/n^(N+1), full graded tangent-cone kernel and exact quotient-length formula still need canonical nodes/signatures. Then compare the resulting eventual polynomial with the existing general construction, retaining nonzero/unit boundaries, positive characteristic, nonreduced equations and ambient normalization. The native truncTotalAlgHom already maps to a polynomial ideal quotient; no competing generic truncation map or order_mul theorem is needed."
+      "detail": "The inherited six shifted-jet nodes and four total-jet kernel/equivalence/basis/dimension nodes have written proofs and actual pinned signatures; substantive implementations remain unchecked. The native double-quotient equivalence, ideal map_pow and surjective scalar length restriction are already built baseline, not missing generic theorems. Remaining: prove R-module length equals k-dimension for finite R-modules annihilated by a variable-ideal power using the actual residue-field action and finite filtration; integrate the built quotient/scalar maps into the existing shifted sequence and derive all-index A-jet lengths; full graded tangent-cone kernel; eventual polynomial comparison with the general Hilbert–Samuel construction, dimension, intrinsic/ambient multiplicity, powers and changes of coefficients/coordinates. Retain nonzero/unit boundaries, positive characteristic and nonreduced equations. Field length of a jet alone does not discharge R-length or geometric multiplicity."
     }
   ],
   "sourceIssues": [],
@@ -8146,5 +8545,112 @@
       }
     },
     "auditBase": "eb645dc85df65608c56fafc4d9ed0e71ab0ca3ce"
+  },
+  "totalJetContinuation": {
+    "agent": "Codex — codex-rtOQ9t",
+    "date": "2026-10-02",
+    "winningClaim": 5958284445,
+    "confirmation": 5958287924,
+    "auditBase": "06d01f00ec9fc6dc86a2b939c1a02a0fe4494c4d",
+    "status": "partial",
+    "nodes": [
+      "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-kernel",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-equivalence",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-monomial-basis",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/plane-total-jet-finrank"
+    ],
+    "preservedNodeObjects": 85,
+    "newBaselineRefs": [
+      "mathlib:MvPowerSeries.truncTotalAlgHom",
+      "mathlib:MvPolynomial.mem_pow_idealOfVars_iff'",
+      "mathlib:MvPowerSeries.coeff_truncTotal",
+      "mathlib:Ideal.quotientKerAlgEquivOfSurjective",
+      "mathlib:Ideal.quotientKerAlgEquivOfSurjective_mk",
+      "mathlib:Ideal.quotientEquivAlgOfEq",
+      "mathlib:Finsupp.finite_of_degree_lt",
+      "mathlib:Finsupp.basisSingleOne",
+      "mathlib:Module.finrank_eq_card_basis'",
+      "mathlib:DoubleQuot.quotQuotEquivQuotSupₐ",
+      "mathlib:Ideal.map_pow"
+    ],
+    "boundary": "Native total-jet prototypes with admitted bodies; mathematical implementations unchecked. The reserved general multiplicity owner and all existing node objects, source issues and requests are unchanged. Built double quotient/scalar restriction are baseline imports, while R-length/k-dimension and the eventual plane-curve multiplicity comparison remain explicit obligations.",
+    "validation": {
+      "lean": {
+        "errors": 0,
+        "admittedWarnings": 253,
+        "otherWarnings": 0,
+        "nativeExamples": 119,
+        "toolchain": "v4.34.0-rc2",
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "availableGiBBeforeInitialCompile": 69,
+        "time": "elapsed=23.61 maxrss=3541096",
+        "suggestedSha256": "d3615237cefa3ce05bf28587d0006351e72dd879c73971162b42b4d1f915f321",
+        "logSha256": "5429d0677cec6e66147c5b59ad075323c978e4f666a29baf07cc7784f1d28073",
+        "boundary": "Full existing Mathlib-only build. All proposed proofs admitted; no Tau Ceti imports, library build, Lake setup/cache or language server."
+      },
+      "baselineExperiment": {
+        "checkedFileSha256": "963d788a81dc563021dfc6365b8605db52386d9dfce81d27af847ed8b91033ad",
+        "logSha256": "5b14cb81263e55f196ed3494cdb9df00c9a52fe8f91fe462f3579f5409c924a5",
+        "fragmentSha256": "923702cd7ecf0c4e7c3ec71d3c540c45c5c2aae5e9ee395965d37709a0e4c93e",
+        "time": "elapsed=23.71 maxrss=3534500",
+        "archiveCommit": "9bc8dab8840a5ba9f68f6bb1f645aa91bd8e3d80",
+        "provedDeclarations": [
+          "actual_double_jet",
+          "actual_scalar_length"
+        ],
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "boundary": "Two actual applications of built generic statements; no admitted axioms in these declarations. This is not a proof of the new jet basis or multiplicity."
+      },
+      "assembler": {
+        "actualAssembler": true,
+        "declarations": 142,
+        "partDeclarations": 89,
+        "partPlanets": 13,
+        "planets": 19,
+        "ownSkippedLinks": [],
+        "stageDAG": {
+          "vertices": 3003,
+          "edges": 8623,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 89,
+          "edges": 135,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3080,
+          "edges": 8848,
+          "acyclic": true
+        },
+        "reachableDeclarations": 90,
+        "externalDeclarations": [
+          "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds"
+        ],
+        "requiredStagePairs": 13,
+        "requiredStagePairsReachable": 12,
+        "inheritedMissingStagePairs": [
+          [
+            "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+            "DeformationAndDerivedPatchingAlgebra:R03.4"
+          ]
+        ],
+        "stageEdgesUnchanged": true,
+        "otherSkipsMatchOriginal": true,
+        "unchangedNodeObjects": 85,
+        "scriptSha256": "bdc303832123649543c03abf2ea3f740745daee849533651c8d7a8ec7b5d583a"
+      },
+      "predecessorRegression": {
+        "cases": 507,
+        "assertions": 25148,
+        "scriptSha256": "ed9dc3d82ba5b988e95634bfd035821efcd4ebda2e552465c757e38b9df73a35",
+        "outputSha256": "058a580c33c92c372851ded432b1740fb069243fa5e19a24943c6a3c86b182d5",
+        "boundary": "The unchanged durable predecessor script reproduced; finite calculations are not arbitrary-series proofs."
+      }
+    }
   }
 }
