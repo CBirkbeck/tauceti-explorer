@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-02T00:59:28Z",
- "exported_at": "2026-10-02T00:59:28Z",
+ "cutoff": "2026-10-02T10:01:21Z",
+ "exported_at": "2026-10-02T10:01:21Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 131,
-  "recent": 4904,
-  "total": 9708,
+  "open": 99,
+  "recent": 5073,
+  "total": 9903,
   "unattributed": {
-   "no_label": 1138,
+   "no_label": 1144,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,20 +28,20 @@
    659,
    1080,
    1649,
-   1116
+   1311
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "016f85b0f925a3bed26fd600ff72ac05626dbebe",
+ "roadmap_head": "16254751660d3e0ba1a1fc9cbcb2f4325b01a383",
  "rows": [
   {
    "activity": {
-    "last": "2026-10-02T00:48:21Z",
-    "open": 4,
-    "recent": 155,
-    "since_report": 6,
-    "total": 391,
+    "last": "2026-10-02T09:50:13Z",
+    "open": 1,
+    "recent": 160,
+    "since_report": 11,
+    "total": 396,
     "weekly": [
      0,
      0,
@@ -58,7 +58,7 @@
      31,
      19,
      42,
-     39
+     44
     ]
    },
    "assessment": {
@@ -154,11 +154,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-30T02:34:46Z",
-    "open": 3,
-    "recent": 64,
-    "since_report": 0,
-    "total": 64,
+    "last": "2026-10-02T08:07:24Z",
+    "open": 1,
+    "recent": 78,
+    "since_report": 14,
+    "total": 78,
     "weekly": [
      0,
      0,
@@ -175,7 +175,7 @@
      0,
      33,
      25,
-     6
+     20
     ]
    },
    "assessment": {
@@ -254,11 +254,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T18:50:12Z",
+    "last": "2026-10-02T05:35:02Z",
     "open": 1,
-    "recent": 78,
-    "since_report": 10,
-    "total": 130,
+    "recent": 79,
+    "since_report": 1,
+    "total": 131,
     "weekly": [
      0,
      0,
@@ -275,7 +275,7 @@
      10,
      22,
      25,
-     18
+     19
     ]
    },
    "assessment": {
@@ -283,12 +283,11 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 10": "nonsingular Weierstrass model and Prop. 6.1.3; general hyperelliptic models and Prop. 6.2.4; plane curves; general Kummer data; Artin–Schreier covers",
-     "Layer 11": "Wronskian Weierstrass-point counts, finiteness for g ≥ 2, PGL₂ and three-point rigidity, the 84(g−1) bound, the Hermitian wild subgroup",
-     "Layer 12": "12A curve definition and k(X) a function field, normalizing P¹ in F (12B), the anti-equivalence (12C), the dualizing-sheaf comparison",
-     "Layer 5": "the completion comparison (complete-DVR completions, A_F into the finite adeles) and a non-rational genus-zero example",
-     "Layer 7": "cotrace semilinearity and tower transitivity (Prop. 3.4.11), the Artin–Schreier acceptance test",
-     "Layer 8": "genus invariance and canonical classes under constant extension, unrestricted Clifford, the genus-drop example, cyclic G_0/G_1, Hilbert's formula, Abhyankar, III.11",
+     "Layer 10": "nonsingular Weierstrass model and Prop. 6.1.3; plane curves; general Kummer data; Artin-Schreier covers",
+     "Layer 11": "Wronskian Weierstrass-point counts, PGL2 and three-point rigidity, finiteness for g at least 2, the 84(g-1) bound, the Hermitian wild subgroup",
+     "Layer 12": "12A curve definition and k(X) a function field, normalizing P1 in F (12B), the anti-equivalence (12C), the dualizing-sheaf comparison",
+     "Layer 5": "the completion comparison: complete-DVR completions and A_F into the finite adeles",
+     "Layer 8": "passage to the algebraic closure, unrestricted Clifford, genus never increases, cyclic G_0/G_1, Hilbert's formula, Abhyankar, III.10-III.11",
      "Layer 9": "local expansions and residues, local components as residues, the residue theorem, independence from x, the elliptic invariant differential"
     },
     "source": "marker"
@@ -355,7 +354,7 @@
     "done",
     "partial",
     "done",
-    "partial",
+    "done",
     "partial",
     "partial",
     "partial",
@@ -365,44 +364,44 @@
    "status": {
     "frontier": [
      {
-      "name": "Genus invariance under constant extension (Layer 8, Theorem 3.6.3)",
-      "text": "— unramifiedness and `ℓ(Con D) = ℓ(D)` are proved for finite separable `k'/k`. What remains is to deduce `g' = g` and that canonical divisors stay canonical, then extend to the algebraic closure and derive Clifford for finite constant fields."
+      "name": "Unrestricted Clifford (Layer 8)",
+      "text": ": genus, degree and `ℓ` are now preserved under finite separable constant extensions. What remains is to pass to `F·k̄` for an algebraic closure and apply the infinite-field Clifford there."
+     },
+     {
+      "name": "Finiteness of `Aut(F/k)` in the hyperelliptic case (Layer 11)",
+      "text": ": automorphisms already restrict to `k(x)`, with kernel the automorphisms over `k(x)`. What remains is `Aut(k(x)/k) ≅ PGL₂(k)` with three-point rigidity, and the preservation of the branch set."
      },
      {
       "name": "Elliptic models (Layer 10)",
-      "text": "— the Weierstrass equations and their normal forms exist in every characteristic. What remains is to prove the equation nonsingular, so that `F` is the function field of an elliptic curve, and then the converse, Proposition 6.1.3."
-     },
-     {
-      "name": "The Hurwitz bound and finiteness of `Aut(F/k)` for `g ≥ 2` (Layer 11)",
-      "text": "— rigidity and the `1/42` triangle bound ([`TauCeti.one_div_forty_two_le_hyperbolic_triangle_deficit`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Data/Rat/HurwitzTriangle.html#TauCeti.one_div_forty_two_le_hyperbolic_triangle_deficit)) are in. Missing are Riemann–Hurwitz for `F/F^G` with its branch analysis, the Wronskian count of Weierstrass points, and uniqueness of the degree-two rational subfield."
-     },
-     {
-      "name": "Normalizing `ℙ¹` in `F` (Layer 12B)",
-      "text": "— the Layer 2 inputs are complete. Missing are the scheme gluing, the finite map to `ℙ¹`, projectivity, and 12A's proof that `k(X)` is a function field."
+      "text": ": what remains is to show that the Weierstrass equation is nonsingular, so that `F` is the function field of an elliptic curve, and to prove the converse, Proposition 6.1.3."
      },
      {
       "name": "Residues (Layer 9, with Layer 5's completion milestone)",
-      "text": "— local expansions, `res_P` with its change-of-uniformizer formula, local components as residues, the residue theorem, and independence of the comparison from `x`."
+      "text": ": what remains is complete-DVR completions, local expansions, `res_P` with its change-of-uniformizer formula, local components as residues, the residue theorem, and independence of the comparison from `x`."
+     },
+     {
+      "name": "Normalizing `ℙ¹` in `F` (Layer 12B)",
+      "text": ": what remains is the scheme gluing, the finite map to `ℙ¹`, projectivity, and 12A's proof that `k(X)` is a function field."
      }
     ],
-    "glance": "Riemann–Roch and the Hurwitz genus formula are proved, and Layers 0 to 4 and Layer 6 are done. Layers 5 and 7 each lack only a few named results. Layers 8 to 12 are genuinely partial, and no layer is untouched.",
+    "glance": "Riemann–Roch and the Hurwitz genus formula are proved, and Layers 0 to 4, 6 and 7 are done. Layer 5 lacks only the completion comparison. Layers 8 to 12 are genuinely partial, and no layer is untouched.",
     "inherited": false,
     "path": "TauCetiRoadmap/AlgebraicCurves/STATUS.md",
     "progress_path": "TauCetiRoadmap/AlgebraicCurves/PROGRESS.md",
-    "report_sha": "851411cee2fc76a2d58042175afb63d617c6a6a35e9a1f53523b645eeff78021",
-    "to_sha": "e440f4eb3fccf5479ede3f5d6a671b4be37c9dde",
-    "ts": "2026-09-30T05:46:25Z"
+    "report_sha": "bd4c82663953717adff12aed1d3068c506b8cdfbcf6e16ba5a41026d4afdca3f",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "algebraic curves — function fields, divisors, and Riemann–Roch",
    "topic": "Algebraic geometry"
   },
   {
    "activity": {
-    "last": "2026-10-01T16:00:33Z",
-    "open": 3,
-    "recent": 59,
-    "since_report": 7,
-    "total": 59,
+    "last": "2026-10-02T09:29:33Z",
+    "open": 4,
+    "recent": 61,
+    "since_report": 9,
+    "total": 61,
     "weekly": [
      0,
      0,
@@ -419,7 +418,7 @@
      2,
      18,
      22,
-     17
+     19
     ]
    },
    "assessment": {
@@ -521,11 +520,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T01:36:59Z",
-    "open": 1,
-    "recent": 34,
-    "since_report": 2,
-    "total": 34,
+    "last": "2026-10-02T08:27:24Z",
+    "open": 0,
+    "recent": 37,
+    "since_report": 5,
+    "total": 37,
     "weekly": [
      0,
      0,
@@ -542,7 +541,7 @@
      0,
      8,
      16,
-     10
+     13
     ]
    },
    "assessment": {
@@ -636,11 +635,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T19:55:39Z",
-    "open": 2,
-    "recent": 54,
-    "since_report": 4,
-    "total": 54,
+    "last": "2026-10-02T09:41:47Z",
+    "open": 1,
+    "recent": 60,
+    "since_report": 7,
+    "total": 60,
     "weekly": [
      0,
      0,
@@ -657,15 +656,19 @@
      9,
      14,
      21,
-     8
+     14
     ]
    },
    "assessment": {
-    "detail": "marker assessed a different README than the one the layers were read from",
+    "detail": null,
     "notes": {},
-    "reason": "invalid-marker",
-    "remaining": {},
-    "source": null
+    "reason": "ok",
+    "remaining": {
+     "Layer 0": "toric-cone intersections, Gordan's lemma, face open immersions for non-regular cones, torus actions on the schemes, the fan scheme over Spec C, non-regular fans, products",
+     "Layer 3": "agreement of cone-orbit charts on overlaps; the open-subfan map as an open holomorphic embedding, with its image and functoriality",
+     "Layer 4": "quotient tori, equivariant character functions, the ray-indexed boundary hypersurfaces, their normal-crossings form, the intersection formula and naturality"
+    },
+    "source": "marker"
    },
    "completed": false,
    "id": "TauCetiRoadmap/AnalyticToricGeometry",
@@ -707,56 +710,56 @@
    "readme_sha": "05b2d6bffced472125097b6703844bc28e57e2c63e58093905dec465e9810257",
    "retired": null,
    "states": [
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed"
+    "partial",
+    "done",
+    "done",
+    "done",
+    "partial",
+    "partial",
+    "untouched",
+    "untouched"
    ],
    "status": {
     "frontier": [
      {
-      "name": "Glue the torus action",
-      "text": "— extend the affine torus actions to the analytic realization and prove the chart inclusions equivariant. This opens Layer 4 and needs only what is now in place."
+      "name": "The toric boundary",
+      "text": "— for each ray, make the closure of its orbit an invariant closed embedded hypersurface; for a nonempty fan, show these cover the complement of the dense torus with multiplicity one, then prove the holomorphic coordinate-hyperplane normal form in regular charts. The orbit closure formula it needs is now in place."
      },
      {
-      "name": "Fan-orbit correspondence and boundary",
-      "text": "— carry the affine orbit-cone correspondence over to the glued manifold, then build the ray-indexed boundary hypersurfaces with their holomorphic normal-crossings normal form."
+      "name": "Open subfans",
+      "text": "— glue the identity-on-points chart comparisons into a map from the realization of an open subfan to the ambient one, prove it an open embedding onto the union of the subfan's charts, functorial for nested subfans, and then holomorphic. Layer 5's restriction results use it."
      },
      {
-      "name": "Functoriality of the realization",
-      "text": "— show a fan equivalence induces a biholomorphism, open subfans give open submanifolds, and a subdivision gives a holomorphic map. Layer 5's gluing of mixed monomial maps along fan morphisms extends this."
+      "name": "Toric maps",
+      "text": "— glue the maps of affine complex points induced by dual semigroups into the chart of the least target cone, prove holomorphy and functoriality, then the cone-by-cone properness criterion and, for nonempty fans, completeness exactly when the realization is compact."
      },
      {
-      "name": "Orbit strata as submanifolds",
-      "text": "— show each affine orbit is holomorphically embedded in its chart. This closes Layer 2."
+      "name": "Orbits as quotient tori",
+      "text": "— identify each orbit with the torus modulo its stabilizer subtorus, and show the cone-orbit charts agree on overlaps; this closes Layer 3, item 2 and Layer 4, item 2."
      },
      {
-      "name": "Torus action on the schemes",
-      "text": "— construct it on the affine and fan schemes, and connect the affine chart to the Toric project's `ToricVariety` instance. Layer 6's equivariant comparison needs this."
+      "name": "The fan scheme over Spec ℂ",
+      "text": "— descend the structure morphisms of the affine charts and glue the affine torus actions. Layer 6's complex points are morphisms over Spec ℂ, so it needs this first."
      }
     ],
-    "glance": "The character calculus (Layer 1) is done, and a regular fan now has a Hausdorff, second-countable complex manifold glued from its affine charts. This settles the core of Layer 3, which lacks only its functoriality items. Layers 0 and 2 are done apart from a few pieces: the torus action on the schemes, and embedding the orbit strata as submanifolds. The theory on the glued manifold (Layers 4 to 6) has not begun.",
+    "glance": "A regular fan has a Hausdorff, second-countable complex manifold glued from its affine charts, the complex torus acts on it holomorphically, and the orbit–cone correspondence holds on it. Layers 1, 2 and the gluing theorem are done; the gluing layer still lacks open subfans and the orbit layer lacks the toric boundary. Toric maps, properness and the algebraic–analytic comparison have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/AnalyticToricGeometry/STATUS.md",
     "progress_path": "TauCetiRoadmap/AnalyticToricGeometry/PROGRESS.md",
-    "report_sha": "9fa44d9f2c566c0c2587ecc9fed7df7367b0656e467be52e56ff16badffa0b10",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "9c927304b9093196541cf1691bcffbbb8375aad6a05bda0d4072d983f6cefb3d",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "analytic toric geometry",
    "topic": "Algebraic geometry"
   },
   {
    "activity": {
-    "last": "2026-10-01T14:47:54Z",
-    "open": 1,
-    "recent": 92,
-    "since_report": 4,
-    "total": 118,
+    "last": "2026-10-02T07:22:54Z",
+    "open": 0,
+    "recent": 94,
+    "since_report": 6,
+    "total": 120,
     "weekly": [
      0,
      0,
@@ -773,7 +776,7 @@
      23,
      27,
      32,
-     7
+     9
     ]
    },
    "assessment": {
@@ -878,11 +881,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T13:06:34Z",
-    "open": 2,
-    "recent": 80,
-    "since_report": 5,
-    "total": 80,
+    "last": "2026-10-02T06:19:29Z",
+    "open": 0,
+    "recent": 83,
+    "since_report": 8,
+    "total": 83,
     "weekly": [
      0,
      0,
@@ -899,7 +902,7 @@
      5,
      24,
      18,
-     33
+     36
     ]
    },
    "assessment": {
@@ -1031,7 +1034,7 @@
    "activity": {
     "last": "2026-10-01T20:54:52Z",
     "open": 1,
-    "recent": 76,
+    "recent": 75,
     "since_report": 2,
     "total": 157,
     "weekly": [
@@ -1275,11 +1278,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T00:48:20Z",
-    "open": 2,
-    "recent": 159,
-    "since_report": 5,
-    "total": 159,
+    "last": "2026-10-02T08:45:13Z",
+    "open": 1,
+    "recent": 163,
+    "since_report": 9,
+    "total": 163,
     "weekly": [
      0,
      0,
@@ -1296,7 +1299,7 @@
      8,
      23,
      84,
-     40
+     44
     ]
    },
    "assessment": {
@@ -1426,11 +1429,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T00:24:41Z",
-    "open": 2,
-    "recent": 91,
-    "since_report": 4,
-    "total": 179,
+    "last": "2026-10-02T07:56:11Z",
+    "open": 1,
+    "recent": 94,
+    "since_report": 7,
+    "total": 182,
     "weekly": [
      8,
      21,
@@ -1447,7 +1450,7 @@
      5,
      21,
      19,
-     42
+     45
     ]
    },
    "assessment": {
@@ -1536,11 +1539,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T03:48:01Z",
+    "last": "2026-10-02T08:22:00Z",
     "open": 2,
-    "recent": 74,
-    "since_report": 6,
-    "total": 250,
+    "recent": 78,
+    "since_report": 10,
+    "total": 254,
     "weekly": [
      0,
      0,
@@ -1557,7 +1560,7 @@
      9,
      21,
      30,
-     11
+     15
     ]
    },
    "assessment": {
@@ -1650,11 +1653,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T00:24:42Z",
-    "open": 1,
-    "recent": 70,
-    "since_report": 8,
-    "total": 88,
+    "last": "2026-10-02T09:50:13Z",
+    "open": 0,
+    "recent": 75,
+    "since_report": 13,
+    "total": 93,
     "weekly": [
      0,
      0,
@@ -1671,7 +1674,7 @@
      5,
      19,
      25,
-     15
+     20
     ]
    },
    "assessment": {
@@ -1788,11 +1791,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T18:54:51Z",
+    "last": "2026-10-02T08:45:13Z",
     "open": 0,
-    "recent": 70,
-    "since_report": 6,
-    "total": 103,
+    "recent": 72,
+    "since_report": 8,
+    "total": 105,
     "weekly": [
      0,
      0,
@@ -1809,7 +1812,7 @@
      11,
      11,
      32,
-     11
+     13
     ]
    },
    "assessment": {
@@ -1916,11 +1919,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T00:15:44Z",
-    "open": 2,
-    "recent": 182,
-    "since_report": 13,
-    "total": 421,
+    "last": "2026-10-02T07:11:58Z",
+    "open": 1,
+    "recent": 185,
+    "since_report": 6,
+    "total": 425,
     "weekly": [
      0,
      0,
@@ -1937,7 +1940,7 @@
      62,
      24,
      36,
-     21
+     25
     ]
    },
    "assessment": {
@@ -1945,13 +1948,13 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 0.5": "Galois descent of function-field maps from Kˢᵉᵖ and of Vélu coefficients; base-change compatibility of isogeny degree, separability, duals and point maps",
-     "Layer 1": "a ring on End and the quadratic degree form, the general dual isogeny, Vélu quotients, Verschiebung, and the formal logarithm",
-     "Layer 2": "Weil pairing alternating, Galois-equivariant and compatible with the dual; the Tate module and its Galois representation",
+     "Layer 0.5": "descent of function-field maps from Kˢᵉᵖ and of Vélu coefficients; base-change compatibility of isogeny degree, separability, duals and point maps",
+     "Layer 1": "the inseparable and descended dual, a ring on End with the quadratic degree form, Vélu quotients, Verschiebung, and the formal logarithm",
+     "Layer 2": "Galois equivariance and field-change functoriality of the Weil pairing; the Tate module and its Galois representation",
      "Layer 3": "the Hasse bound, the ordinary/supersingular dichotomy with its base-change invariance, and the zeta function",
      "Layer 4": "E₀ and the reduction exact sequence, potential good reduction, Néron–Ogg–Shafarevich, Tate's algorithm, and the Tate curve's uniformisation",
      "Layer 4.5a": "semistability under unramified base change and against Tate's-algorithm symbols; the ℚ(√65) curve separating the Weierstrass class from principality of the minimal discriminant",
-     "Layer 4.5b": "Kraus's local and global criteria on (c₄, c₆), and the sharp semi-global model at a representative prime away from 6",
+     "Layer 4.5b": "finite approximation and Kraus's global criterion on (c₄, c₆), then the sharp semi-global model at a representative prime away from 6",
      "Layer 5": "the nonabelian H¹ classification of pointed twists (stretch)",
      "Layer 6": "ĥ(φP) = deg φ · ĥ(P); injectivity of reduction on torsion at good odd primes; the y² = x³ − x + 1 rank computation; ĥ is half the normalisation the README pins",
      "Layer 7": "the forced-discrete cohomology constructor, then Selmer structures, Sel_m and Sha",
@@ -2027,44 +2030,44 @@
    "status": {
     "frontier": [
      {
-      "name": "The dual isogeny in general.",
-      "text": "The kernel of the class-group point map has `deg φ` elements. What remains is to identify that kernel with the isogeny's own kernel, which discharges the hypothesis of the conditional construction."
-     },
-     {
       "name": "The Hasse bound.",
-      "text": "The point count is already a degree. What remains is the degree form on `Hom`: bilinearity of `deg(φ + ψ) − deg φ − deg ψ` and Cauchy–Schwarz. Composition is now additive in the inner variable for Frobenius only, not in general."
+      "text": "The point count is a degree and rigidity is available. What remains is the degree form on `Hom`: bilinearity of `deg(φ + ψ) − deg φ − deg ψ` and Cauchy–Schwarz. Composition is so far additive in the inner variable only when the outer isogeny is separable."
      },
      {
-      "name": "The Weil pairing's theory.",
-      "text": "Next are alternation (which gives nondegeneracy in the first variable), Galois equivariance, and `e_N(φP, Q) = e_N(P, φ̂Q)` once the general dual exists. After that comes the Tate module."
+      "name": "The Weil pairing's Galois equivariance.",
+      "text": "The Galois actions on points, places and divisors are all in place. After it comes the Tate module and its Galois representation."
+     },
+     {
+      "name": "The dual in general.",
+      "text": "The inseparable case through Frobenius, and descent from the separable closure to the ground field, which also gives Verschiebung as the dual of relative Frobenius."
+     },
+     {
+      "name": "Kraus's global criterion.",
+      "text": "The local criterion is proved. The finite-approximation lemma and the ordered patching of `a₁`, `a₃` and `b₂` remain, and then the sharp semi-global model at a prime `v₀ ∤ 6`."
      },
      {
       "name": "The reduction filtration and Tate's algorithm.",
-      "text": "Next come `E₀(K)` and the exact sequence `0 → E₁ → E₀ → Ẽ_ns → 0`, then Tate's algorithm, which Layer 4.5a's semistability test and Layer 8's Szpiro block both wait on."
-     },
-     {
-      "name": "Kraus's criteria.",
-      "text": "The local and global criteria on `(c₄, c₆)` remain, and with them the sharp semi-global model at a prime `v₀ ∤ 6`."
+      "text": "Next come `E₀(K)` and `0 → E₁ → E₀ → Ẽ_ns → 0`, then Tate's algorithm, which Layer 4.5a's semistability test and Layer 8's Szpiro block both wait on."
      }
     ],
-    "glance": "The Mordell–Weil theorem is proved, with the canonical height and regulator built on top of it, and Layer 0's function-field foundation is complete. The Weil pairing exists as a bilinear map but with only part of its theory, and torsion structure, global minimal models and the first local theory have landed. The Hasse bound, the Tate module and Tate's algorithm have not landed, and work on Selmer groups and Sha has not begun.",
+    "glance": "The Mordell–Weil theorem is proved, and Layer 0's function-field foundation is complete. The dual isogeny now exists for separable isogenies over a separably closed field, and the Weil pairing is alternating and compatible with it. Torsion structure, global minimal models and the first local theory are also in. The Hasse bound, the Tate module and Tate's algorithm have not landed, and work on Selmer groups and Sha has not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/EllipticCurves/STATUS.md",
     "progress_path": "TauCetiRoadmap/EllipticCurves/PROGRESS.md",
-    "report_sha": "6c728d1948f1818fe71d8855f914d373d42a8aefa547efd6dcb286c488aae6d3",
-    "to_sha": "e440f4eb3fccf5479ede3f5d6a671b4be37c9dde",
-    "ts": "2026-09-30T05:46:25Z"
+    "report_sha": "4ffea755c65481f36360dffaf70b12814293179a295c71720f01752081c516a7",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "elliptic curves",
    "topic": "Number theory"
   },
   {
    "activity": {
-    "last": "2026-10-01T11:23:13Z",
+    "last": "2026-10-02T07:36:40Z",
     "open": 1,
-    "recent": 83,
-    "since_report": 6,
-    "total": 290,
+    "recent": 85,
+    "since_report": 8,
+    "total": 292,
     "weekly": [
      0,
      9,
@@ -2081,7 +2084,7 @@
      9,
      15,
      37,
-     16
+     18
     ]
    },
    "assessment": {
@@ -2166,11 +2169,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T18:50:13Z",
-    "open": 4,
-    "recent": 62,
-    "since_report": 9,
-    "total": 62,
+    "last": "2026-10-02T08:12:17Z",
+    "open": 2,
+    "recent": 68,
+    "since_report": 6,
+    "total": 68,
     "weekly": [
      0,
      0,
@@ -2187,15 +2190,22 @@
      2,
      16,
      24,
-     20
+     26
     ]
    },
    "assessment": {
-    "detail": "marker assessed a different README than the one the layers were read from",
+    "detail": null,
     "notes": {},
-    "reason": "invalid-marker",
-    "remaining": {},
-    "source": null
+    "reason": "ok",
+    "remaining": {
+     "Layer 1": "meromorphic descent to the coarse quotient with the local order formula ord_z f = m * ord_[z] of the descent",
+     "Layer 2": "Riemannian-volume comparison, Gauss-Bonnet for general polygons, side pairings and cycles, Poincaré and Dirichlet polygon theorems, presentations, triangle groups",
+     "Layer 3": "compactness of the complement of the cusp horodiscs in a finite-area fundamental polygon, which needs Layer 2",
+     "Layer 4": "compactness for general cofinite groups, conjugation functoriality, orbifold signature with its Euler-characteristic and area formula",
+     "Layer 5": "degree-one biholomorphism, ramification divisor, genus, Riemann-Hurwitz, meromorphic descent and extension over cusps, Fuchsian Riemann-Hurwitz",
+     "Layer 6": "signature of X(1), descent and extension of j, degree one, and the biholomorphism X(1) ≃ P^1"
+    },
+    "source": "marker"
    },
    "completed": false,
    "id": "TauCetiRoadmap/FuchsianOrbifolds",
@@ -2234,13 +2244,13 @@
    "readme_sha": "2e84c074124bb13c448176b33ec430d1dc7ef89f5ea62fefb389229a4784e121",
    "retired": null,
    "states": [
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed"
+    "done",
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "partial"
    ],
    "status": {
     "frontier": [
@@ -2249,40 +2259,40 @@
       "text": "— turn a finite holomorphic map of degree one into a biholomorphism whose forward function is that map. Its prerequisites are in place."
      },
      {
-      "name": "Degree of finite-index quotient maps",
-      "text": "— sum the width indices over cusp fibres to get [Γ : Δ], matching the interior result, and conclude that the degree is the index. The generic theorem also needs compact, connected quotients, unproved beyond level one."
+      "name": "Hyperbolic polygons",
+      "text": "— extend Gauss–Bonnet from triangles to convex polygons with ideal vertices, then build side pairings and vertex cycles for the Poincaré polygon theorem."
      },
      {
       "name": "Compactness for every cofinite group",
-      "text": "— feed compact truncated fundamental sets to `compactSpace_of_compact_truncations`. The README's route is through the finite-sided Dirichlet polygon of Layer 2, where only geodesic half-planes exist so far. The same truncation closes Layer 3."
+      "text": "— feed compact truncated fundamental sets to `compactSpace_of_compact_truncations`. The README's route is the Dirichlet polygon, which needs the polygon theory above; the same truncation closes Layer 3."
      },
      {
       "name": "Meromorphic descent and extension",
-      "text": "— descend invariant meromorphic functions to Γ\\ℍ with `ord_z f = m · ord_[z] f̄`, then extend them across cusps using the existing Laurent q-expansion criterion."
+      "text": "— descend invariant meromorphic functions to Γ\\ℍ with the elliptic order formula, then extend them across cusps using the existing Laurent q-expansion criterion."
      },
      {
       "name": "`X(1) ≃ P¹`",
-      "text": "— the modular-forms `JInputs` module now supplies `j`, its invariance and its orders at the elliptic points. What remains is the signature of X(1), the descent and extension of `j`, degree one, and the degree-one theorem. Genus and Riemann-Hurwitz separately wait on the finite-CW Euler characteristic from the AlgebraicTopology roadmap, which does not yet appear in Tau Ceti."
+      "text": "— `j` and its elliptic orders are supplied by the modular-forms roadmap; what remains is the signature of X(1), the descent and extension of `j`, degree one, and the degree-one theorem. Genus and Riemann–Hurwitz separately wait on the finite-CW Euler characteristic from the AlgebraicTopology roadmap, not yet available in Tau Ceti."
      }
     ],
-    "glance": "Layer 0 is done. For every discrete Γ ≤ PSL(2, ℝ), the coarse quotient and its cusp compactification are Riemann surfaces, but compactness is proved only at level one. Degree theory has begun on the generic side and in its application to finite-index maps. Hyperbolic polygons are barely started, and the `j`-function half of Layer 6 has not begun.",
+    "glance": "Layer 0 is done. For every discrete Γ ≤ PSL(2, ℝ) the coarse quotient and its cusp compactification are Riemann surfaces, and finite-index inclusions induce maps of degree equal to the index, but compactness is proved only at level one. Hyperbolic geometry has reached Gauss–Bonnet for triangles, not polygons; degree theory lacks the degree-one theorem, genus and Riemann–Hurwitz; the `j`-function half of Layer 6 has not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/FuchsianOrbifolds/STATUS.md",
     "progress_path": "TauCetiRoadmap/FuchsianOrbifolds/PROGRESS.md",
-    "report_sha": "04b0ec91c7e5d65238807596d8061e923725111f1e0d551d27a70510373db76a",
-    "to_sha": "e440f4eb3fccf5479ede3f5d6a671b4be37c9dde",
-    "ts": "2026-09-30T05:46:25Z"
+    "report_sha": "161209247227009684ad7dcc0a3fad10041bad1d9de203179e78822a35f8ab95",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "Fuchsian groups and orbifold Riemann surfaces",
    "topic": "Analysis"
   },
   {
    "activity": {
-    "last": "2026-10-02T00:15:42Z",
-    "open": 3,
-    "recent": 96,
-    "since_report": 11,
-    "total": 170,
+    "last": "2026-10-02T08:35:59Z",
+    "open": 2,
+    "recent": 98,
+    "since_report": 3,
+    "total": 172,
     "weekly": [
      5,
      11,
@@ -2299,7 +2309,7 @@
      19,
      24,
      19,
-     30
+     32
     ]
    },
    "assessment": {
@@ -2311,10 +2321,10 @@
      "Layer 10": "leaves and taut foliations, the Euler class of an oriented plane bundle, and the Euler-class bound",
      "Layer 11": "the reconciliation: polyhedra of combinatorial manifolds are PL manifolds for layer 1's PLGroupoid, and Whitehead's converse",
      "Layer 2": "Brown's global bicollaring theorem (stated only as a hypothesis) and local flatness of PL embeddings",
-     "Layer 3": "continuity of composition and inversion (a topological group), and the Watanabe statement; Smale is stated, not proved",
-     "Layer 4": "Reidemeister II and III, braid-closure and diagram-realization maps with Reidemeister's and Markov's theorems, sliceness, the Jones and HOMFLY polynomials",
+     "Layer 3": "continuity of inversion (a topological group), and the Watanabe statement; Smale is stated, not proved",
+     "Layer 4": "bracket invariance under Reidemeister II, Reidemeister III, Reidemeister and Markov theorems, PL realization, sliceness, Jones and HOMFLY",
      "Layer 5": "the knot complement as a manifold with torus boundary, Dehn filling along a slope, and the unknot surgery identities",
-     "Layer 6": "the concordance group, topological concordance, the cobordism category, Seifert matrices of actual knots, the τ import and mutation",
+     "Layer 6": "the concordance group, the cobordism category, Seifert matrices of actual knots, the tau import and mutation",
      "Layer 7": "Mostow invariance and metric-independent hyperbolic volume, the Weeks manifold, virtual Haken-ness"
     },
     "source": "marker"
@@ -2389,43 +2399,43 @@
     "frontier": [
      {
       "name": "`Diff(M)` as a topological group",
-      "text": "— composition and inversion must be shown continuous, the latter needing an inverse-function estimate. Watanabe's statement also needs homotopy groups of `Diff(D⁴, ∂)`."
+      "text": "— composition is continuous, so only continuity of inversion remains, which needs an inverse-function estimate. Watanabe's statement also needs the homotopy groups of `Diff(D⁴, ∂)`."
+     },
+     {
+      "name": "Reidemeister invariance of the bracket",
+      "text": "— Reidemeister II can now be performed inside a face, but the bracket has not been shown invariant under it. Reidemeister III has not been defined. Both are needed to make the normalized bracket a link invariant and to define the Jones polynomial."
      },
      {
       "name": "Mostow invariance of hyperbolic volume",
-      "text": "— `hypVolumeOfMetric` exists, but a metric-independent `hypVolume` needs Mostow's theorem in dimension at least 3. The Weeks target further needs the Weeks manifold constructed, by Dehn filling (blocked on layer 5) or by face-pairings."
-     },
-     {
-      "name": "Reidemeister II and III on PD codes",
-      "text": "— PD codes carry no planar or face data, so these moves cannot yet be stated. They would make the normalised bracket a link invariant and give the Jones polynomial."
+      "text": "— a metric-independent volume needs Mostow's theorem in dimension at least 3. The Weeks target also needs the Weeks manifold, which in turn needs Dehn filling (layer 5) or face-pairings."
      },
      {
       "name": "The collar and tubular-neighbourhood theorems",
-      "text": "— `IsCollar` and `IsTubularNeighborhood` have no producer beyond the half-space and zero-section models. These theorems are the missing input for gluing, and through gluing for handles, connected sum, Dehn filling and Heegaard splittings."
+      "text": "— these are the missing input for gluing. Gluing in turn is needed for handles, connected sum, the concordance group, Dehn filling and Heegaard splittings."
      },
      {
       "name": "Seifert matrices of knots",
-      "text": "— the signatures are S-equivalence invariants of matrices, but no knot yet produces a Seifert matrix. That construction is what would connect them to concordance."
+      "text": "— signatures are S-equivalence invariants of matrices, but no knot yet produces a Seifert matrix."
      }
     ],
-    "glance": "No layer is complete. Knot theory (layer 4), the simplicial layer (11) and Riemannian geometry (layer 7) are the most developed; layer 7 now reaches hyperbolic metrics and their volume. The Smale and virtual fibering conjectures are stated but not proved. Layers 8 and 9 have not begun, and layer 10 has only its first definition.",
+    "glance": "No layer is complete. The most developed are knot theory (layer 4), the simplicial layer (11) and Riemannian geometry (layer 7). Layer 4's diagrams now carry planarity and the second Reidemeister move. The Smale and virtual fibering conjectures are stated but not proved. Layers 8 and 9 have not begun, and layer 10 has only its first definition.",
     "inherited": false,
     "path": "TauCetiRoadmap/GeometricTopology/STATUS.md",
     "progress_path": "TauCetiRoadmap/GeometricTopology/PROGRESS.md",
-    "report_sha": "3348d1b568dc75095d433428ed1f83f1793dbf4a0197938290ccd0e105f102cd",
-    "to_sha": "e440f4eb3fccf5479ede3f5d6a671b4be37c9dde",
-    "ts": "2026-09-30T05:46:25Z"
+    "report_sha": "67d3f47de7b4217b9a44f049e8f6df58257f85453da2fa65f1a3bf60feb9b55a",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "geometric topology and the solved Kirby-list problems",
    "topic": "Geometry and topology"
   },
   {
    "activity": {
-    "last": "2026-10-01T11:36:50Z",
-    "open": 2,
-    "recent": 75,
-    "since_report": 5,
-    "total": 77,
+    "last": "2026-10-02T07:32:07Z",
+    "open": 0,
+    "recent": 78,
+    "since_report": 9,
+    "total": 81,
     "weekly": [
      0,
      0,
@@ -2442,7 +2452,7 @@
      8,
      12,
      41,
-     13
+     17
     ]
    },
    "assessment": {
@@ -2563,11 +2573,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T13:28:43Z",
-    "open": 1,
-    "recent": 35,
-    "since_report": 6,
-    "total": 35,
+    "last": "2026-10-02T08:31:08Z",
+    "open": 0,
+    "recent": 37,
+    "since_report": 2,
+    "total": 37,
     "weekly": [
      0,
      0,
@@ -2584,7 +2594,7 @@
      4,
      15,
      11,
-     5
+     7
     ]
    },
    "assessment": {
@@ -2592,15 +2602,14 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 0": "compatibility of the finite-place Hasse invariant with localization, which needs a {±1}-valued local Hasse invariant from Quadratic Form Invariants",
-     "Layer 2": "finiteHasse and its triviality at almost every finite place (2.1, 2.2), and local classification in global notation (2.3); all need a {±1}-valued localHasse",
-     "Layer 3": "GlobalFormInvariants, IsAdmissible with both small-rank exceptions, and admissibility of globalInvariants Q (3.1 to 3.3)",
+     "Layer 2": "local classification in global notation at finite places (2.3)",
+     "Layer 3": "globalInvariants Q and its admissibility (3.3), which needs the value of the Hilbert product formula",
      "Layer 4": "global square theorem (4.2), quadratic Hasse norm adapter (4.3), value of the localized product formula and sign prescription (4.4)",
      "Layer 5": "binary and ternary cases of 5.1 (need 4.2 and 4.3), then Hasse-Minkowski isotropy (5.5) with its counterexamples",
      "Layer 6": "scalar and form representation (6.1, 6.2) and Hasse-Minkowski isometry (6.3), after 5.5",
-     "Layer 7": "local forms of an admissible system, existence with prescribed local behavior (O'Meara 72:1), realization and uniqueness",
+     "Layer 7": "existence with prescribed local behavior (O'Meara 72:1), realization of admissible systems and uniqueness (7.2 to 7.4)",
      "Layer 8": "complete invariant theorem, global Witt kernel, Witt injectivity and the SO kernel corollary",
-     "Layer 9": "examples 9.1 to 9.4: the obstruction at 3, the explicit isometry check, existence over Q(sqrt 5), and small-rank nonexamples"
+     "Layer 9": "examples 9.1 to 9.3: the obstruction at 3, the explicit isometry check, and existence over Q(sqrt 5)"
     },
     "source": "marker"
    },
@@ -2650,14 +2659,14 @@
    "readme_sha": "7ed02427b487abf0507320c21d9fd97a5baefe0eb09b350f278cb6d88340d0fe",
    "retired": null,
    "states": [
-    "partial",
+    "done",
     "done",
     "partial",
-    "untouched",
     "partial",
     "partial",
+    "partial",
     "untouched",
-    "untouched",
+    "partial",
     "untouched",
     "partial"
    ],
@@ -2665,43 +2674,43 @@
     "frontier": [
      {
       "name": "Binary and ternary Hasse–Minkowski",
-      "text": "— the binary case needs the global square theorem (4.2), the ternary case the quadratic Hasse norm adapter (4.3). These rest respectively on Class Field Theory's idele-class norm index `card_ideleClassNormQuotient` and Hasse norm theorem `isGlobalNorm_iff_isLocalNormEverywhere`, neither yet in Tau Ceti. With these two cases, 5.5 is an induction over pieces already proved."
+      "text": "— the binary case needs the global square theorem (4.2), and the ternary case needs the quadratic Hasse norm adapter (4.3). These rest on Class Field Theory's norm index `card_ideleClassNormQuotient` and Hasse norm theorem `isGlobalNorm_iff_isLocalNormEverywhere`, which are not in the library source. With both cases, 5.5 is an induction over pieces that are already proved."
      },
      {
-      "name": "The finite-place Hasse invariant",
-      "text": "— define `finiteHasse` from a `{±1}`-valued local Hasse invariant of the localization, prove it is `1` at almost every place (the good-place Hilbert symbol computation is done), and state local classification in global notation. The supplier's `localHasse` does not exist yet; Tau Ceti has only a Brauer-group-valued Hasse invariant of isometry classes."
+      "name": "Invariants of a global form are admissible (3.3)",
+      "text": "— every condition except the product one is now available. The product condition needs the value of the localized Hilbert product formula, through `hilbertProductFormula` and `hilbertSymbol_eq_cohomological`, neither yet supplied."
+     },
+     {
+      "name": "Local classification in global notation (2.3)",
+      "text": "— at a finite place, two localizations are isometric exactly when their rank, localized discriminant and finite Hasse sign agree. This is a transport of the supplier's local classification, and nothing blocks it."
      },
      {
       "name": "Hilbert sign prescription (4.4)",
-      "text": "— the localized product formula needs its value from Hilbert reciprocity through Quadratic Form Invariants' comparison with the cohomological pairing, and sign prescription needs the norm index. The radicand for the unprescribed form is [already available](https://taucetiproject.github.io/TauCeti/docs/TauCeti/NumberTheory/QuadraticForm/Global/Nonsquare.html#TauCeti.NumberField.QuadraticForm.exists_fieldUnit_not_isSquare_at_places)."
+      "text": "— the inputs for the unprescribed form are in place: a unit negative at every real place, odd valuation forcing a local nonsquare, and the real symbol of global units. The existence half needs the norm index."
      },
      {
-      "name": "The invariant carrier (Layer 3)",
-      "text": "— `GlobalFormInvariants`, admissibility with both small-rank exceptions, and admissibility of the invariants of a global form, once `finiteHasse` and the Hasse product formula exist."
-     },
-     {
-      "name": "Representation, isometry, existence and classification (Layers 6 to 8)",
-      "text": "— these follow Hasse–Minkowski. For 6.1, the local step that a locally represented scalar `a` makes `⟨−a⟩ ⊥ Q` locally isotropic is [already proved](https://taucetiproject.github.io/TauCeti/docs/TauCeti/NumberTheory/QuadraticForm/Global/Predicates.html#QuadraticForm.LocallyRepresentsScalar.isLocallyIsotropic_smul_sq_prod)."
+      "name": "Existence with prescribed local behavior (7.2)",
+      "text": "— O'Meara 72:1. It needs sign prescription and form representation (6.2), so it comes after Hasse–Minkowski."
      }
     ],
-    "glance": "The local groundwork is largely built: Layer 1 (archimedean signatures and classification) is done, and Layer 0 lacks only the finite-place Hasse invariant. Hasse–Minkowski isotropy has its quaternary case and its rank-at-least-five induction step, each conditional on lower ranks, but not the binary and ternary cases. The invariant carrier, representation and isometry, existence, and classification (Layers 3 and 6 to 8) have not begun.",
+    "glance": "The local layers are nearly complete. Layers 0 and 1 are done, the finite-place Hasse sign exists with its finite support, and the admissible-invariant carrier and the local realization of admissible systems are in place. Hasse–Minkowski isotropy is proved in the quaternary case and in the rank-at-least-five induction step, each assuming the lower ranks, but the binary and ternary cases are missing. Representation, isometry and classification (Layers 6 and 8) have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/GlobalQuadraticForms/STATUS.md",
     "progress_path": "TauCetiRoadmap/GlobalQuadraticForms/PROGRESS.md",
-    "report_sha": "1b2abcb091e12aefe7da8b1849a9bb74a6753b534d0a7d1fd2822bf6ac36b0ae",
-    "to_sha": "759eb3ef9658ad1d756b2d42bc5882bb394586c2",
-    "ts": "2026-09-26T20:53:39Z"
+    "report_sha": "9d50e67091f8d9c5ac7afe07e3f93c29d7a4f68b853e6332927f8a17b94e764e",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "global quadratic forms over number fields",
    "topic": "Number theory"
   },
   {
    "activity": {
-    "last": "2026-10-01T10:50:11Z",
-    "open": 2,
-    "recent": 61,
-    "since_report": 10,
-    "total": 94,
+    "last": "2026-10-02T08:25:29Z",
+    "open": 0,
+    "recent": 66,
+    "since_report": 5,
+    "total": 99,
     "weekly": [
      0,
      0,
@@ -2718,7 +2727,7 @@
      5,
      19,
      20,
-     15
+     20
     ]
    },
    "assessment": {
@@ -2726,8 +2735,8 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 1": "products beyond split K0; choice-independence isomorphisms with naturality and cocycle laws",
-     "Layer 2": "products for exact and triangulated K0; complex-level Euler comparison for full exact subcategories",
+     "Layer 1": "choice-independence isomorphisms between presentations, with naturality and cocycle laws",
+     "Layer 2": "complex-level Euler comparison for full exact subcategories of an abelian category",
      "Layer 3": "projective comparison maps up to chain homotopy, graded comparison and horseshoe, linear resolutions",
      "Layer 4": "the graded Cartan map and graded Cartan matrix",
      "Layer 5": "the graded quiver comparison with the path-length grading",
@@ -2788,43 +2797,43 @@
     "frontier": [
      {
       "name": "The graded Cartan map",
-      "text": "— `K₀^gr(proj A) → G₀^gr(mod A)` as a map of Laurent modules, with its graded multiplicity matrix, recovery of the ungraded map at `q = 1`, and the Layer 6 graded Cartan and Gram matrices; it needs graded simples and graded projective covers."
+      "text": "— `K₀^gr(proj A) → G₀^gr(mod A)` as a map of Laurent modules, with its graded multiplicity matrix and recovery of the ungraded map at `q = 1`. This feeds the Layer 6 graded Cartan and Gram matrices, and it needs graded simples and graded projective covers."
      },
      {
       "name": "The graded quiver comparison",
-      "text": "— with the path-length grading on `kQ`, identify the bigraded Ext-Euler form with the graded Ringel form and specialize it to the ungraded one through the Ext comparison hypotheses. The zigzag roadmap compares against this statement."
+      "text": "— for `kQ` with the path-length grading, identify the bigraded Ext-Euler form with the graded Ringel form, and specialize it to the ungraded one through the Ext comparison hypotheses. The zigzag roadmap compares against this statement."
      },
      {
       "name": "Linear resolutions and the Koszul boundary",
-      "text": "— the source has only a generated-in-degree predicate for graded modules; the definition of a linear resolution, its equivalence with diagonal Ext vanishing, and minimality are all still to be done."
+      "text": "— the source has only a generated-in-degree predicate for graded modules. The definition of a linear resolution, its equivalence with diagonal Ext vanishing, and minimality all remain."
      },
      {
       "name": "Projective-resolution calculus",
-      "text": "— comparison maps to a fixed projective resolution that are unique up to chain homotopy, and graded versions of the comparison and horseshoe lemmas."
+      "text": "— comparison maps into a fixed projective resolution that are unique up to chain homotopy, and graded versions of the comparison and horseshoe lemmas."
      },
      {
-      "name": "Products and choice independence",
-      "text": "— product compatibility for exact and triangulated K₀, and canonical isomorphisms between presentations, with their cocycle laws."
+      "name": "Choice independence and the subcategory Euler comparison",
+      "text": "— canonical isomorphisms between presentations, with their naturality and cocycle laws, and the complex-level Euler-class comparison for full exact subcategories with explicit closure hypotheses."
      }
     ],
-    "glance": "Every layer now has its principal theorem, and all five worked examples are proved: the general resolution theorem, the Cartan isomorphism with unimodularity, sesquilinear q-Euler forms with their specializations, and the quiver comparison. What remains is mostly graded refinement (the graded Cartan map, the graded quiver comparison, linear resolutions), homotopy calculus for projective resolutions, and some bookkeeping in Layers 1 and 2.",
+    "glance": "Every layer has its principal theorem, and all five worked examples are proved. Among them are the general resolution theorem, the Cartan isomorphism with unimodularity, sesquilinear q-Euler forms with their specializations, and the quiver comparison. Most of what remains is graded refinement: the graded Cartan map, the graded quiver comparison and linear resolutions. Homotopy calculus for projective resolutions and two bookkeeping items in Layers 1 and 2 are also left.",
     "inherited": false,
     "path": "TauCetiRoadmap/GrothendieckEulerForms/STATUS.md",
     "progress_path": "TauCetiRoadmap/GrothendieckEulerForms/PROGRESS.md",
-    "report_sha": "e7265fd10bca346207166bef555f092ab026eace382c2065ac48a105ec017a74",
-    "to_sha": "e440f4eb3fccf5479ede3f5d6a671b4be37c9dde",
-    "ts": "2026-09-30T05:46:25Z"
+    "report_sha": "f7f06169ef61c0f7aa8be04622c28f0e020238e4f10359f5b0f67768acf5c2c3",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "Grothendieck groups, Cartan maps, and Euler forms",
    "topic": "Algebra and representation theory"
   },
   {
    "activity": {
-    "last": "2026-10-01T18:33:11Z",
+    "last": "2026-10-02T08:27:23Z",
     "open": 2,
-    "recent": 66,
-    "since_report": 5,
-    "total": 182,
+    "recent": 71,
+    "since_report": 10,
+    "total": 187,
     "weekly": [
      23,
      11,
@@ -2841,7 +2850,7 @@
      6,
      11,
      33,
-     11
+     16
     ]
    },
    "assessment": {
@@ -2939,11 +2948,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T22:58:14Z",
-    "open": 3,
-    "recent": 38,
-    "since_report": 4,
-    "total": 65,
+    "last": "2026-10-02T08:00:14Z",
+    "open": 2,
+    "recent": 42,
+    "since_report": 8,
+    "total": 69,
     "weekly": [
      0,
      0,
@@ -2960,7 +2969,7 @@
      4,
      19,
      9,
-     6
+     10
     ]
    },
    "assessment": {
@@ -3035,11 +3044,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T13:35:07Z",
+    "last": "2026-10-02T06:02:10Z",
     "open": 0,
     "recent": 62,
-    "since_report": 8,
-    "total": 87,
+    "since_report": 10,
+    "total": 89,
     "weekly": [
      0,
      0,
@@ -3056,7 +3065,7 @@
      2,
      15,
      30,
-     10
+     12
     ]
    },
    "assessment": {
@@ -3130,11 +3139,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T17:49:26Z",
-    "open": 2,
-    "recent": 36,
-    "since_report": 6,
-    "total": 90,
+    "last": "2026-10-02T09:40:36Z",
+    "open": 0,
+    "recent": 39,
+    "since_report": 9,
+    "total": 93,
     "weekly": [
      0,
      0,
@@ -3151,7 +3160,7 @@
      4,
      1,
      0,
-     27
+     30
     ]
    },
    "assessment": {
@@ -3266,11 +3275,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T12:30:37Z",
-    "open": 9,
-    "recent": 66,
-    "since_report": 4,
-    "total": 139,
+    "last": "2026-10-02T09:05:58Z",
+    "open": 6,
+    "recent": 71,
+    "since_report": 10,
+    "total": 145,
     "weekly": [
      3,
      11,
@@ -3287,7 +3296,7 @@
      7,
      18,
      28,
-     8
+     14
     ]
    },
    "assessment": {
@@ -3378,11 +3387,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T21:00:58Z",
-    "open": 0,
-    "recent": 95,
-    "since_report": 13,
-    "total": 95,
+    "last": "2026-10-02T07:43:35Z",
+    "open": 2,
+    "recent": 98,
+    "since_report": 4,
+    "total": 98,
     "weekly": [
      0,
      0,
@@ -3399,15 +3408,21 @@
      6,
      19,
      33,
-     37
+     40
     ]
    },
    "assessment": {
-    "detail": "marker assessed a different README than the one the layers were read from",
+    "detail": null,
     "notes": {},
-    "reason": "invalid-marker",
-    "remaining": {},
-    "source": null
+    "reason": "ok",
+    "remaining": {
+     "Layer 0": "the worked Q_2(sqrt 2) values; a named totally ramified integral basis",
+     "Layer 1": "the Z_p^N form of the deep-unit isomorphism; finiteness of the torsion group mu(K) and its p-part",
+     "Layer 2": "reduction equivalence with residue extensions, rigidity after fixing residue data, the divisibility-lattice statement",
+     "Layer 3": "tame Galois criterion, finite-level tame-character equivariance and action formula, psiNat-shifted norm and graded norm maps, Hasse-Arf, Q_2(mu_8) witnesses",
+     "Layer 4": "P_K onto each finite G_1, the finite tame criterion for K^t, procyclic tame inertia and the marked Iwasawa presentation, translation lemmas"
+    },
+    "source": "marker"
    },
    "completed": false,
    "id": "TauCetiRoadmap/LocalFieldsRamification",
@@ -3440,53 +3455,53 @@
    "readme_sha": "71341ee291c83402a632980bb8fce9bd196641c27e5589a77c36005b3bc49833",
    "retired": null,
    "states": [
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed"
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "partial"
    ],
    "status": {
     "frontier": [
      {
-      "name": "The upper-numbering quotient theorem",
-      "text": ": (G/H)^v = G^v H/H should now follow from the lower-numbering Herbrand theorem and the ψ tower law. It is the form Hasse–Arf transports along."
+      "name": "The Iwasawa presentation",
+      "text": ": prove tame inertia procyclic with a generator lifting to I_K, then build the marked isomorphism G_K/P_K ≅ ⟨σ, τ | στσ⁻¹ = τ^q⟩ and its Ẑ coordinate. The split sequence and the relation are in place."
+     },
+     {
+      "name": "Wild inertia at finite level",
+      "text": ": P_K is proved to map into G_1(L/K) but not yet onto it, and a finite Galois subextension should lie in K^t exactly when it is tame."
      },
      {
       "name": "The Herbrand-shifted norm",
-      "text": ": N(U(L, ψℕ(i))) ⊆ U(K,i) for Galois L/K, then the four graded norm maps for cyclic totally ramified extensions of prime degree. These use ψℕ and the level-t quotient embedding, both now available."
+      "text": ": N(U(L, ψℕ(i))) ⊆ U(K,i) for Galois L/K, then the four graded norm maps for cyclic totally ramified extensions of prime degree. Serre's norm lemma and the trace computation supply the local input."
      },
      {
       "name": "Hasse–Arf",
-      "text": ": integrality of upper breaks for abelian extensions, via the prime-order quotient induction. It is blocked on the two items above."
+      "text": ": integrality of upper breaks for abelian extensions, by the prime-order induction. The upper-numbering quotient theorem is available, so it waits only on the norm maps."
      },
      {
-      "name": "Wild inertia and the tame character",
-      "text": ": K^t, P_K = Gal(Kˢ/K^t) as the pro-p Sylow subgroup of I_K, and I_K/P_K ≅ Ẑ^{(p')}(1). The finite-level Sylow statement and the tame radical theorem are in place, and the Iwasawa presentation follows these."
-     },
-     {
-      "name": "The deep-unit isomorphism",
-      "text": ": log and exp should be packaged as a topological isomorphism U(K,i) ≅ 𝓂[K]^i and hence ℤ_p^N. The power-class count and openness no longer wait on it."
+      "name": "The finite-level twist",
+      "text": ": θ_0(gσg⁻¹) = θ_0(σ)^q for g acting on the residue field as x ↦ x^q, and the action formula θ_i(στσ⁻¹) = θ_0(σ)^i θ_i(τ). The translation lemmas consume the first."
      }
     ],
-    "glance": "The arithmetic of a single finite extension is essentially in place, and so is the unramified theory up to Gal(K^ur/K) ≅ Ẑ. Every layer still has gaps, though. Layer 3 lacks the norm-side results and Hasse–Arf. Layer 4 has inertia but not wild inertia, the tame character on I_K/P_K, or the Iwasawa presentation.",
+    "glance": "The arithmetic of a single finite extension, the unramified theory up to Gal(K^ur/K) ≅ Ẑ, and Herbrand's theorem in both numberings are in place, and Layer 4 now has wild inertia, the tame character and the Iwasawa relation. Every layer is still partial: Layer 3 lacks the norm maps on the unit filtration and Hasse–Arf, and Layer 4 lacks the Iwasawa presentation itself.",
     "inherited": false,
     "path": "TauCetiRoadmap/LocalFieldsRamification/STATUS.md",
     "progress_path": "TauCetiRoadmap/LocalFieldsRamification/PROGRESS.md",
-    "report_sha": "6672a1ed94d085e79e1c6ef91b95cdc8bbcd60577ecb6177fa91ac975d13690b",
-    "to_sha": "e440f4eb3fccf5479ede3f5d6a671b4be37c9dde",
-    "ts": "2026-09-30T05:46:25Z"
+    "report_sha": "a23af9516379dd9a264c7618a7464c566f8f042ca31527bd48708c65cfb2dc1e",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "local fields and ramification",
    "topic": "Number theory"
   },
   {
    "activity": {
-    "last": "2026-10-01T16:53:49Z",
-    "open": 1,
-    "recent": 25,
-    "since_report": 6,
-    "total": 25,
+    "last": "2026-10-02T01:55:31Z",
+    "open": 0,
+    "recent": 26,
+    "since_report": 7,
+    "total": 26,
     "weekly": [
      0,
      0,
@@ -3503,7 +3518,7 @@
      0,
      0,
      1,
-     24
+     25
     ]
    },
    "assessment": {
@@ -3611,11 +3626,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T21:52:19Z",
+    "last": "2026-10-02T09:21:29Z",
     "open": 1,
-    "recent": 222,
-    "since_report": 9,
-    "total": 491,
+    "recent": 225,
+    "since_report": 5,
+    "total": 494,
     "weekly": [
      0,
      0,
@@ -3632,15 +3647,27 @@
      59,
      53,
      48,
-     21
+     24
     ]
    },
    "assessment": {
-    "detail": "marker assessed a different README than the one the layers were read from",
+    "detail": null,
     "notes": {},
-    "reason": "invalid-marker",
-    "remaining": {},
-    "source": null
+    "reason": "ok",
+    "remaining": {
+     "Layer 0": "Eisenstein spanning, the cusp–Eisenstein decomposition, and the q-expansion of j",
+     "Layer 10": "Analytic curve, Riemann–Roch input, and dimension formulas",
+     "Layer 11": "Summing the upper-triangular contributions, the remaining conjugacy types, and the transfer to cusp forms",
+     "Layer 2": "General-rank polynomial presentation and local–global hand-off",
+     "Layer 3": "Bad-prime newspace stability outside the p² | N case and exact conductor-indexed oldspace",
+     "Layer 4": "The p ‖ N and p | cond χ eigenvalue cases and uniqueness of the primitive pair",
+     "Layer 5": "Cross-level strong multiplicity one and the full coefficient characterization",
+     "Layer 6": "General-nebentypus pseudo-eigenvalues",
+     "Layer 7": "Sharp noncuspidal abscissa and signs beyond trivial nebentypus",
+     "Layer 8": "Injectivity of the period map, general Hecke commutativity on symbols, and the number-field theorem for the coefficient field",
+     "Layer 8G": "The semisimple Hecke-algebra correspondence, conjugate newforms and orbit sizes, and rationality of characteristic polynomials"
+    },
+    "source": "marker"
    },
    "completed": false,
    "id": "TauCetiRoadmap/ModularForms",
@@ -3697,33 +3724,33 @@
    "readme_sha": "d99fb41c43ae15ffb7f5aec03fd2c91f3b56d8671c5594224bff3289f390ee3d",
    "retired": null,
    "states": [
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed"
+    "partial",
+    "done",
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "untouched",
+    "partial",
+    "partial"
    ],
    "status": {
     "frontier": [
      {
-      "name": "The remaining bad-prime cases.",
-      "text": "Prove the `p ‖ N` and `p ∣ cond χ` cases of the `aₚ` classification. The `p² ∣ N` vanishing case alone is now proved."
+      "name": "The coefficient field is a number field.",
+      "text": "Prove the period map injective by the Eichler-integral route: Bol's identity, boundedness of the Eichler integral at every cusp, and the lemma that a bounded holomorphic invariant function of weight `≤ 0` is constant. Hecke commutativity on symbols is the other input to the transfer. This is for weight `≥ 2`; weight one is a separate sublayer."
      },
      {
       "name": "Cross-level strong multiplicity one.",
-      "text": "Compare newforms of unrelated levels `N`, `M`. This settles the uniqueness of the primitive pair. So far only the level is pinned along a divisor chain."
+      "text": "Compare newforms of unrelated levels. Uniqueness of the primitive pair needs it, and so does Layer 8G's conjugate newform `f^σ`, which is defined by uniqueness."
      },
      {
-      "name": "The period map.",
-      "text": "Pair cusp forms with modular symbols and prove injectivity by the Eichler-integral route. General Hecke commutativity on symbols is also still missing, and the transfer to the form side needs it."
+      "name": "The remaining bad-prime cases.",
+      "text": "Prove the `p ‖ N` and `p ∣ cond χ` cases of the `aₚ` classification."
      },
      {
       "name": "The Eisenstein decomposition.",
@@ -3731,27 +3758,27 @@
      },
      {
       "name": "The level-one trace formula.",
-      "text": "Evaluate the remaining upper-triangular contributions and assemble them against the Hurwitz class-number sum."
+      "text": "Sum the upper-triangular contributions, evaluate the remaining conjugacy types, the elliptic ones against Hurwitz class numbers, and transfer from binary forms to `S_k` by the dimension count."
      }
     ],
-    "glance": "The general-level valence formula is proved. Newform spanning and the good-prime spectral theory are in place, and newforms are now full Hecke eigenforms with an Euler product. The conductor, the rest of the bad-prime theory, Eisenstein spanning and the trace formula are partial. Modular symbols have begun, but the Galois and LMFDB layers have not.",
+    "glance": "The general-level valence formula is proved, newforms span the cusp forms and are full Hecke eigenforms with an Euler product, and the Eichler–Shimura period map is built and Hecke-equivariant. The conductor, the bad-prime theory, Eisenstein spanning, the period map's injectivity, Galois stability and the trace formula are partial, and the LMFDB invariant layer has not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/ModularForms/STATUS.md",
     "progress_path": "TauCetiRoadmap/ModularForms/PROGRESS.md",
-    "report_sha": "7f48f661b0e93ede4534c4b3bbe12ce14f47c543b415bbb151d94c4b0654e2c9",
-    "to_sha": "e440f4eb3fccf5479ede3f5d6a671b4be37c9dde",
-    "ts": "2026-09-30T05:46:25Z"
+    "report_sha": "cb07cbf545cbdce67632106a4c9784094f603e6d4768e2b38912c223533e0612",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "modular forms — Hecke theory, newforms, and L-functions",
    "topic": "Number theory"
   },
   {
    "activity": {
-    "last": "2026-10-01T18:36:53Z",
-    "open": 1,
-    "recent": 57,
-    "since_report": 5,
-    "total": 201,
+    "last": "2026-10-02T09:29:33Z",
+    "open": 2,
+    "recent": 59,
+    "since_report": 4,
+    "total": 205,
     "weekly": [
      11,
      16,
@@ -3768,7 +3795,7 @@
      11,
      18,
      12,
-     5
+     9
     ]
    },
    "assessment": {
@@ -3814,36 +3841,36 @@
    "status": {
     "frontier": [
      {
-      "name": "The genus field as a character subfield",
-      "text": "— the character-group description is proved for a prime-discriminant compositum inside the |∏ P|-th cyclotomic field, but not yet for the genus field of ℚ(√d) itself, whose [containment in ℚ(ζ_|D|)](https://taucetiproject.github.io/TauCeti/docs/TauCeti/NumberTheory/Multiquadratic/Cyclotomic/FundamentalDiscriminant.html#TauCeti.Multiquadratic.candidateGenusField_le_adjoin_exp) is already known."
+      "name": "Decomposition at a ramified 2",
+      "text": "— the decomposition type is explicit at every odd prime and at 2 when every radicand is 1 mod 4, but not when 2 ramifies, which is the case the roadmap flags as the trap."
      },
      {
       "name": "Kronecker–Weber beyond exponent two",
-      "text": "— only multiquadratic fields are placed in cyclotomic fields; the ClassFieldTheory roadmap plans the general case as a consequence of its global class field correspondence."
+      "text": "— only multiquadratic fields and the genus field are placed in cyclotomic fields. The ClassFieldTheory roadmap plans the general case as a consequence of its global class field correspondence."
      },
      {
       "name": "Hilbert and ring class fields",
-      "text": "— untouched. The Hilbert class field of ℚ(√d), in which the genus field is the part cut out by Cl(K)/Cl(K)², rests on the existence theorem of class field theory, which the ClassFieldTheory roadmap plans to supply along with ring class fields of quadratic orders."
+      "text": "— untouched. Both rest on the existence theorem of class field theory, which the ClassFieldTheory roadmap plans to supply."
      }
     ],
-    "glance": "All four layers are done, from the degree and Galois theory of multiquadratic fields through the genus field and the 2-rank theorem for real and imaginary quadratic fields alike, and every worked example the roadmap lists is proved. Only the long horizon is open: multiquadratic fields sit in named cyclotomic fields, but Kronecker–Weber for abelian fields of higher exponent and the Hilbert and ring class fields have not begun.",
+    "glance": "All four layers are done. That covers the degree and Galois theory of multiquadratic fields, the genus field and the 2-rank theorem for real and imaginary quadratic fields, and every worked example the roadmap lists. Only the long horizon is open. Multiquadratic fields, and now the genus field itself, are described inside cyclotomic fields. Kronecker–Weber for abelian fields of higher exponent and the Hilbert and ring class fields have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/Multiquadratic/STATUS.md",
     "progress_path": "TauCetiRoadmap/Multiquadratic/PROGRESS.md",
-    "report_sha": "216910cac25778112800fbbe87e82ca3b17b06c2bc5cb224d3ec5b22d45ee021",
-    "to_sha": "759eb3ef9658ad1d756b2d42bc5882bb394586c2",
-    "ts": "2026-09-26T20:53:39Z"
+    "report_sha": "a85ed43b28d23835e221648f3b561e72529f6e0c49a561286b8ef3f58bda313b",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "multiquadratic fields and genus theory",
    "topic": "Number theory"
   },
   {
    "activity": {
-    "last": "2026-10-01T02:29:24Z",
-    "open": 1,
-    "recent": 119,
-    "since_report": 1,
-    "total": 122,
+    "last": "2026-10-02T09:36:30Z",
+    "open": 0,
+    "recent": 122,
+    "since_report": 5,
+    "total": 126,
     "weekly": [
      0,
      0,
@@ -3860,7 +3887,7 @@
      13,
      40,
      42,
-     18
+     22
     ]
    },
    "assessment": {
@@ -3952,7 +3979,7 @@
   {
    "activity": {
     "last": "2026-10-01T16:49:09Z",
-    "open": 2,
+    "open": 3,
     "recent": 56,
     "since_report": 4,
     "total": 171,
@@ -4037,11 +4064,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T20:17:20Z",
-    "open": 1,
-    "recent": 62,
-    "since_report": 9,
-    "total": 90,
+    "last": "2026-10-02T04:56:06Z",
+    "open": 0,
+    "recent": 64,
+    "since_report": 11,
+    "total": 92,
     "weekly": [
      0,
      0,
@@ -4058,7 +4085,7 @@
      4,
      18,
      18,
-     15
+     17
     ]
    },
    "assessment": {
@@ -4195,11 +4222,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T07:09:20Z",
-    "open": 2,
-    "recent": 46,
-    "since_report": 3,
-    "total": 46,
+    "last": "2026-10-02T08:11:42Z",
+    "open": 3,
+    "recent": 48,
+    "since_report": 5,
+    "total": 48,
     "weekly": [
      0,
      0,
@@ -4216,7 +4243,7 @@
      0,
      0,
      33,
-     13
+     15
     ]
    },
    "assessment": {
@@ -4300,11 +4327,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T21:43:35Z",
-    "open": 2,
-    "recent": 87,
-    "since_report": 9,
-    "total": 177,
+    "last": "2026-10-02T09:10:57Z",
+    "open": 1,
+    "recent": 92,
+    "since_report": 14,
+    "total": 182,
     "weekly": [
      1,
      13,
@@ -4321,7 +4348,7 @@
      10,
      18,
      34,
-     21
+     26
     ]
    },
    "assessment": {
@@ -4413,11 +4440,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T21:17:49Z",
-    "open": 1,
-    "recent": 10,
-    "since_report": 8,
-    "total": 10,
+    "last": "2026-10-02T08:59:27Z",
+    "open": 0,
+    "recent": 13,
+    "since_report": 11,
+    "total": 13,
     "weekly": [
      0,
      0,
@@ -4434,7 +4461,7 @@
      0,
      0,
      0,
-     10
+     13
     ]
    },
    "assessment": {
@@ -4527,11 +4554,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T22:54:51Z",
-    "open": 2,
-    "recent": 76,
-    "since_report": 13,
-    "total": 80,
+    "last": "2026-10-02T09:56:53Z",
+    "open": 0,
+    "recent": 80,
+    "since_report": 5,
+    "total": 84,
     "weekly": [
      0,
      0,
@@ -4548,7 +4575,7 @@
      8,
      23,
      18,
-     23
+     27
     ]
    },
    "assessment": {
@@ -4556,11 +4583,7 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 1": "primitivity of the product wreath action and the iterated chain of imprimitivity",
-     "Layer 3": "base change of the discriminant field along F to F'",
-     "Layer 4": "Tschirnhaus transforms, resolvent factors as orbits on cosets, and the C4/D4 split over the discriminant field",
-     "Layer 5": "ResolventSpec.IsGoodPrime, the good-prime condition for reducing a resolvent",
-     "Layer 6": "the 4T1/4T3 split over the discriminant field and the C5/D5 regression theorem"
+     "Layer 4": "Tschirnhaus transport: splitting fields agree, Galois images conjugate, and a subgroup bound carries back to f"
     },
     "source": "marker"
    },
@@ -4605,55 +4628,39 @@
    "retired": null,
    "states": [
     "done",
-    "partial",
+    "done",
+    "done",
     "done",
     "partial",
-    "partial",
-    "partial",
-    "partial",
+    "done",
+    "done",
     "done"
    ],
    "status": {
     "frontier": [
      {
-      "name": "Separating 4T1 from 4T3",
-      "text": "— in the last row of the quartic table, decide the label by whether f stays irreducible over the discriminant field. Both [`TauCeti.hasGaloisLabel_four_zero_or_two_iff`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/FieldTheory/GaloisGroups/Quartic/Basic.html#TauCeti.hasGaloisLabel_four_zero_or_two_iff) and [`TauCeti.discrField`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/FieldTheory/GaloisGroups/Discriminant/Field.html#TauCeti.discrField) exist, and this one step settles the gap in both Layer 4 and Layer 6."
-     },
-     {
-      "name": "The C₅/D₅ regression theorem",
-      "text": "— state that the cyclic quintic and X⁵ − 5X − 12 share a square discriminant and a sextic with a rational root, yet have different labels. Both labels are already proved."
-     },
-     {
-      "name": "Resolvent factors as orbits",
-      "text": "— show that, for a separable specialized resolvent, the factor degrees are the orbit sizes of the Galois image on Sₙ/H. The rational-root corollary is already there."
-     },
-     {
-      "name": "Tschirnhaus transforms",
-      "text": "— the transformed polynomial, admissibility, and transport of a subgroup bound back to f."
-     },
-     {
-      "name": "Remaining small items",
-      "text": "— primitivity of the product wreath action, base change of the discriminant field, and `ResolventSpec.IsGoodPrime`."
+      "name": "Tschirnhaus transport",
+      "text": ": for an admissible T, show that the splitting fields of f and of its transform agree up to an `AlgEquiv` and that their Galois images are conjugate. Then show that a separable transformed resolvent with a root bounds the Galois image of f. The root-set bijection ([`Polynomial.TschirnhausAdmissible.bijOn_rootSet`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/RingTheory/Polynomial/Tschirnhaus.html#Polynomial.TschirnhausAdmissible.bijOn_rootSet)) is the starting point. This is the last open milestone of the roadmap."
      }
     ],
-    "glance": "The summit, Sₙ as a Galois group over ℚ in every degree, is proved, and so is the classification of the transitive subgroups of Sₙ for n ≤ 5, together with its label predicates. Layers 0, 2 and 9 are done, and every other layer is partial. The main work still open is Tschirnhaus transforms, the step that separates C₄ from D₄ over the discriminant field, and primitivity of the product wreath action.",
+    "glance": "Two results are proved: the summit, Sₙ as a Galois group over ℚ in every degree, and the labelled classification of transitive subgroups of Sₙ for n ≤ 5. Every layer is done except Layer 4. There, Tschirnhaus transforms exist, but the step that carries a subgroup bound from the transform back to f is missing.",
     "inherited": false,
     "path": "TauCetiRoadmap/PolynomialGaloisGroups/STATUS.md",
     "progress_path": "TauCetiRoadmap/PolynomialGaloisGroups/PROGRESS.md",
-    "report_sha": "b7da57d6cd8e52e1adc4fbeddd4dbb35c600d404825d7a08d9b73bfa1309b047",
-    "to_sha": "dec7a5857c7d85f2ce63e7890c26b1e99a537057",
-    "ts": "2026-09-30T00:20:29Z"
+    "report_sha": "35d924ae24e0b7965d6941f1cf55d1db72123e4c90a9eeebbd9fcf13947304c8",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "Galois groups of polynomials",
    "topic": "Number theory"
   },
   {
    "activity": {
-    "last": "2026-10-01T20:19:53Z",
-    "open": 2,
-    "recent": 18,
-    "since_report": 7,
-    "total": 18,
+    "last": "2026-10-02T07:51:52Z",
+    "open": 0,
+    "recent": 23,
+    "since_report": 12,
+    "total": 23,
     "weekly": [
      0,
      0,
@@ -4670,7 +4677,7 @@
      0,
      0,
      0,
-     18
+     23
     ]
    },
    "assessment": {
@@ -4754,11 +4761,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T20:38:34Z",
-    "open": 1,
-    "recent": 108,
+    "last": "2026-10-02T09:56:53Z",
+    "open": 3,
+    "recent": 111,
     "since_report": 4,
-    "total": 141,
+    "total": 144,
     "weekly": [
      0,
      0,
@@ -4775,15 +4782,29 @@
      5,
      17,
      51,
-     31
+     34
     ]
    },
    "assessment": {
-    "detail": "marker assessed a different README than the one the layers were read from",
+    "detail": null,
     "notes": {},
-    "reason": "invalid-marker",
-    "remaining": {},
-    "source": null
+    "reason": "ok",
+    "remaining": {
+     "Layer 0": "closure of discrete modules under finite products, subgroups and quotients, as the README lists them",
+     "Layer 1": "closure properties of smooth discrete objects and worked examples",
+     "Layer 10": "filtered coefficient colimits, all-degree Mackey, degree-two agreement of the two corestrictions, naturality of delta",
+     "Layer 11": "reduction to simple modules, cd_p of Z-hat at most 1, the strict-dimension criterion, the class module of strict dimension two",
+     "Layer 12": "graded commutativity beyond bidegrees (0,n) and (1,1), graded-algebra notation",
+     "Layer 13": "the fifth identity, the index-two exact sequence, the D16 pullback, and the general norm from tensor induction on",
+     "Layer 2": "conjugation on open subgroups and the two worked examples over Z_p",
+     "Layer 3": "the canonical class of an inhomogeneous 2-cocycle with trivial F_2 coefficients, used by Layer 13's pullback formula",
+     "Layer 4": "filtered coefficient colimits and their first consequences",
+     "Layer 6": "class-level naturality of cor1 and cor2 in coefficients, conjugation against res and cor, and the worked cor-res example on Z-hat",
+     "Layer 7": "continuous Frobenius reciprocity, naturality of explicit Shapiro, Ind = Coind for open subgroups, and topologicalCoindIsoAlgebraic_shapiro",
+     "Layer 8": "the Bockstein and the worked cup-product example",
+     "Layer 9": "galoisEvens, galoisCharacter and their transported Evens identities and exact sequence, the bridge cup laws, embedding independence, the example over Q"
+    },
+    "source": "marker"
    },
    "completed": false,
    "id": "TauCetiRoadmap/ProfiniteCohomology",
@@ -4843,62 +4864,62 @@
    "readme_sha": "0b2a790b4355294d199b7d6e9a053243858165e033687dd7310c3d4ba5136c68",
    "retired": null,
    "states": [
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed"
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "done",
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "partial"
    ],
    "status": {
     "frontier": [
      {
       "name": "`cd_p ℤ̂ = 1`",
-      "text": ": prove the upper bound, i.e. `H²(ℤ̂, M) = 0` for finite `p`-primary `M`. The lower bound and the finite tests are in place."
+      "text": ": prove `H²(ℤ̂, M) = 0` for finite `p`-primary `M`. The lower bound and the finite tests are in place."
      },
      {
       "name": "Filtered coefficient colimits",
-      "text": ": prove that continuous cohomology preserves filtered colimits of smooth discrete coefficients. Layer 4's remainder and Layer 11's reduction to simple modules wait on it."
+      "text": ": continuous cohomology commutes with filtered colimits of smooth discrete coefficients. Layer 4's remainder, the reduction to simple modules and the strict-dimension criterion wait on it."
      },
      {
-      "name": "Graded commutativity in all bidegrees",
-      "text": ": construct the commutativity homotopy. Only `(0, n)` and `(1, 1)` exist."
+      "name": "The index-two package",
+      "text": ": the exact sequence `H¹(G) → H¹(U) → H¹(G) → H²(G) → H²(U) → H²(G)` built from restriction, corestriction and cup with `χ_U`, the identity `N(res y) = y ⌣ y + χ_U ⌣ y`, and the norm as the pullback of the `D₁₆` extension class, then their transport to `L/K` through `galoisEvens`. The Quadratic Form Invariants roadmap consumes these."
      },
      {
-      "name": "All-degree Mackey and degree-two corestriction agreement",
-      "text": ": lift the degree 0–2 Mackey formula to all-degree corestriction, and identify it with the explicit `cor²`."
+      "name": "Groups of strict dimension two",
+      "text": ": the criterion `scd_p G ≤ n` iff `cd_p G ≤ n` and the `p`-part of `H^{n+1}(U, ℤ)` vanishes for open `U`, then the class module of NSW (3.6.4): for `scd_p G ≤ 2`, `H²(G ⧸ V, V^ab(p))` is cyclic of order the `p`-part of `#(G ⧸ V)`, generated by the extension class."
      },
      {
-      "name": "The Evens norm and `galoisEvens`",
-      "text": ": build the general multiplicative norm on the wreath products now available, then match it with the index-two graph class and its field adapter."
+      "name": "The general Evens norm",
+      "text": ": tensor induction is next, then the norm, its laws, and its agreement with the index-two graph class."
      }
     ],
-    "glance": "The low-degree theory is essentially complete, including Hilbert 90 and Kummer theory. The all-degree theory now has its core: Shapiro, corestriction, dimension shifting, torsion and the finite-quotient colimit theorem, all in every degree. Still missing are filtered coefficient colimits, `cd_p ℤ̂ = 1`, graded commutativity of the cup product in general, and the Evens norm.",
+    "glance": "The low-degree theory is essentially complete, including Hilbert 90 and Kummer theory, and Layer 5's exact sequences are done. The all-degree theory has Shapiro, corestriction, dimension shifting, torsion and the finite-quotient colimit theorem, and `cd_p` is unchanged by passing to subgroups of index prime to `p`. Still missing are filtered coefficient colimits, `cd_p ℤ̂ ≤ 1`, the strict-dimension theory, general graded commutativity, and the Evens norm beyond its index-two graph class.",
     "inherited": false,
     "path": "TauCetiRoadmap/ProfiniteCohomology/STATUS.md",
     "progress_path": "TauCetiRoadmap/ProfiniteCohomology/PROGRESS.md",
-    "report_sha": "d2eec5fc0bfdce025a8191a1efe0287668a76c76493608b18973b101bddcc3d7",
-    "to_sha": "22df7c042dd40104856f178b64774ef6681232e1",
-    "ts": "2026-10-01T07:27:52Z"
+    "report_sha": "cd3590d8606b1af25f5af2480e0bb5ffc11696123d764ce79cfd3acf788df3d0",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "continuous cohomology of profinite groups",
    "topic": "Algebra and representation theory"
   },
   {
    "activity": {
-    "last": "2026-10-02T00:21:09Z",
-    "open": 3,
-    "recent": 231,
-    "since_report": 27,
-    "total": 234,
+    "last": "2026-10-02T04:00:58Z",
+    "open": 1,
+    "recent": 234,
+    "since_report": 16,
+    "total": 238,
     "weekly": [
      0,
      0,
@@ -4915,15 +4936,25 @@
      10,
      16,
      96,
-     105
+     109
     ]
    },
    "assessment": {
-    "detail": "marker assessed a different README than the one the layers were read from",
+    "detail": null,
     "notes": {},
-    "reason": "invalid-marker",
-    "remaining": {},
-    "source": null
+    "reason": "ok",
+    "remaining": {
+     "Layer 0": "confirm the separation-instance chain T1, T2, T3 for totally disconnected groups",
+     "Layer 1": "the finite-support and finite-exponent criterion for natural supernatural numbers",
+     "Layer 3": "the theorem that the pro-p kernel has no nontrivial p-quotient, proPKernel_proPKernel_eq_top",
+     "Layer 4": "confirm the Z_p-module statements of the abelian subsection",
+     "Layer 5": "lifting along an extension class, the pro-p converse of projectivity, and confirming the Golod-Shafarevich inequality",
+     "Layer 7": "pairings into I(chi)/p^i on p-primary modules not killed by p, the canonical character of an open subgroup, and the converse recognition directions",
+     "Layer 8": "the basis corrections for the even-rank branch with image {+-1} x U^(f)",
+     "Layer 9": "Labute Theorem 6 for image {+-1} x U^(f) with f finite, the unified even marked statement and Theorem 2 built on it, and the open-subgroup consequences",
+     "Layer 9 prerequisites": "the factorizations of the relator class in Labute's module for the U^[f] and {+-1} x U^(f) branches"
+    },
+    "source": "marker"
    },
    "completed": false,
    "id": "TauCetiRoadmap/ProfiniteProPGroups",
@@ -4977,60 +5008,60 @@
    "readme_sha": "4a432bdd8ba446c50ca1a84a1e0022bf7faa6df9515a56b46bad363a9d2281f7",
    "retired": null,
    "states": [
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed"
+    "partial",
+    "partial",
+    "done",
+    "partial",
+    "partial",
+    "partial",
+    "done",
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "done"
    ],
    "status": {
     "frontier": [
      {
       "name": "Labute's Theorem 6",
-      "text": "— normal form and uniqueness for even rank with image `{±1} × U^(f)`. The constrained approximation step is [already proved](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Topology/Algebra/Group/Profinite/Demushkin/NormalForm/Two/Even/Approximation.html#TauCeti.freeProP.exists_continuousMulEquiv_apply_demushkinWordTwoEven_zero_eq_of_forall_crossedHom_eq_zero)."
+      "text": "— normal form and uniqueness in even rank for image `{±1} × U^(f)`, `2 ≤ f < ∞`. The [constrained approximation step](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Topology/Algebra/Group/Profinite/Demushkin/NormalForm/Two/Even/Approximation.html#TauCeti.freeProP.exists_continuousMulEquiv_apply_demushkinWordTwoEven_zero_eq_of_forall_crossedHom_eq_zero) and the [orientation image of the normal form](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Topology/Algebra/Group/Profinite/Demushkin/NormalForm/Two/Even/PadicExponent/Character.html#TauCeti.range_demushkinCharacter_eq_unitsPlusMinus_of_equiv_demushkinWordTwoEvenPadic) are in place, and the unified `isDemushkin_marked_of_q_two_even` waits on it."
      },
      {
-      "name": "The even marked classification",
-      "text": "— `isDemushkin_marked_of_q_two_even` and `isDemushkin_marked_of_q_two_rank_two`, and Labute's Theorem 2 in even rank. These follow from Theorems 5 and 6 together with the image table."
+      "name": "Open subgroups and recognition",
+      "text": "— the canonical character of an open subgroup is the restriction of that of `G`. With it come the converse recognition directions and the Layer 9 statement that `n(U)` and `χ(U)` identify `U`."
      },
      {
-      "name": "`cd_p = 2` and the open-subgroup theorem",
-      "text": "— the dimension statement for infinite Demushkin groups, the pairings over `I(χ)/p^i`, and then the open-subgroup theorem. Tate's criterion, the projection formulas and the three-term Euler formula are in place."
+      "name": "Labute's module statements",
+      "text": "— the relator class in `E = ker χ / (ker χ, ker χ)` as `(1 + 2^f + ȳ) z` in the `U^[f]` branch, and as a sum of two such multiples in the `{±1} × U^(f)` branch. Theorem 5 was proved without them."
      },
      {
-      "name": "Labute's module criteria",
-      "text": "— the principal annihilator and the membership criterion for the relator class. Theorem 5 was proved without them, so it is unclear whether the classification still needs them."
+      "name": "Inputs for local Galois groups",
+      "text": "— that the pro-`p` kernel has no nontrivial `p`-quotient, and lifting a homomorphism along an extension class with compact kernel. `LocalGaloisGroups` consumes both."
      },
      {
-      "name": "Golod–Shafarevich",
-      "text": "— the one named Layer 5 inequality still missing."
+      "name": "The converse of projectivity",
+      "text": "— a projective pro-`p` group solves every finite embedding problem with `p`-group kernel."
      }
     ],
-    "glance": "Layers 6 and 10 are complete, covering cohomological dimension and free groups on profinite spaces. The Demushkin classification is done for `q ≠ 2` and in odd rank. In even rank at `q = 2` it is done only on the twisted branch. Demushkin duality has its `𝔽_p`-level statements but not `cd_p = 2` or the open-subgroup theorem.",
+    "glance": "Layers 2, 6 and 10 are complete. The Demushkin classification is done except in even rank with orientation image `{±1} × U^(f)`, `f` finite, which is Labute's Theorem 6, and Demushkin duality now reaches `cd_p = 2` and the open-subgroup theorem. Layers 0, 1, 3, 4 and 5 each lack a few named statements.",
     "inherited": false,
     "path": "TauCetiRoadmap/ProfiniteProPGroups/STATUS.md",
     "progress_path": "TauCetiRoadmap/ProfiniteProPGroups/PROGRESS.md",
-    "report_sha": "2f526d907438b525300e77a850bbe3ca380d74778dda2c4171473f059a149c66",
-    "to_sha": "22df7c042dd40104856f178b64774ef6681232e1",
-    "ts": "2026-10-01T07:27:52Z"
+    "report_sha": "dfb6c04bae3cead4f1fddd4ad40d2749ea5dfc4ce7604bce7d032add27c4365c",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "profinite and pro-`p` groups",
    "topic": "Algebra and representation theory"
   },
   {
    "activity": {
-    "last": "2026-10-01T18:35:23Z",
-    "open": 3,
-    "recent": 93,
-    "since_report": 7,
-    "total": 93,
+    "last": "2026-10-02T09:19:13Z",
+    "open": 0,
+    "recent": 98,
+    "since_report": 12,
+    "total": 98,
     "weekly": [
      0,
      0,
@@ -5047,7 +5078,7 @@
      8,
      18,
      40,
-     26
+     31
     ]
    },
    "assessment": {
@@ -5159,11 +5190,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T00:31:35Z",
+    "last": "2026-10-02T03:56:40Z",
     "open": 0,
-    "recent": 24,
-    "since_report": 10,
-    "total": 24,
+    "recent": 25,
+    "since_report": 2,
+    "total": 25,
     "weekly": [
      0,
      0,
@@ -5180,7 +5211,7 @@
      0,
      0,
      5,
-     19
+     20
     ]
    },
    "assessment": {
@@ -5188,9 +5219,10 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 1": "Sturm-Tarski without the simple-root hypothesis, the Cauchy index, and one-sided and closed-endpoint versions",
-     "Layer 2": "Bezout identities, the gcd-degree criterion, reducta, signed normalization, and the Cauchy index formula",
-     "Layer 3": "recursive BKR reduction, whole-line sign determination, semialgebraic sets, uniform root descriptions"
+     "Layer 1": "the Cauchy index, and one-sided and closed-endpoint versions of Sturm–Tarski",
+     "Layer 2": "subresultant Bezout identities, agreement with remainder sequences, signedPsc, and the Cauchy index formula",
+     "Layer 3": "semialgebraic functions, recursive BKR reduction, whole-line sign determination, uniform root descriptions",
+     "Layer 4": "real root continuity, constancy on connected bases, and the family matching lemma"
     },
     "source": "marker"
    },
@@ -5237,7 +5269,7 @@
     "partial",
     "partial",
     "partial",
-    "untouched",
+    "partial",
     "untouched",
     "untouched",
     "untouched",
@@ -5246,44 +5278,44 @@
    "status": {
     "frontier": [
      {
-      "name": "Sturm–Tarski without squarefreeness",
-      "text": "— remove the simple-root hypothesis from [`Sturm.sum_sign`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Algebra/Polynomial/Sturm/Tarski.html#TauCeti.Sturm.sum_sign), probably through the Cauchy index and its Euclidean recurrence, and add the `[a,b]`, `(a,b]`, `[a,b)` endpoint forms."
+      "name": "The Cauchy index",
+      "text": "— define it with the positive-jump convention and prove its Euclidean recurrence, then add the closed and half-open endpoint forms of Sturm–Tarski. Layer 2's signed subresultant formula depends on it."
      },
      {
-      "name": "The subresultant gcd criterion",
-      "text": "— for nonzero polynomials at their actual degrees, the gcd's degree is the first index with a nonzero principal coefficient. This needs the Bézout identities first; Layer 5 depends on it."
+      "name": "Real roots in families",
+      "text": "— from the complex matching, derive continuity of the ordered real roots, local and then connected-base constancy of their number and multiplicities, and the family matching lemma under fixed pairwise gcd degrees."
      },
      {
-      "name": "Signed subresultants and Cauchy index",
-      "text": "— `signedPsc` and the permanences-minus-variations formula for the Cauchy index of `q/p`, which depend on the Cauchy index still missing from Layer 1."
+      "name": "Signed subresultants",
+      "text": "— the subresultant Bézout identities, `signedPsc`, and permanences minus variations equalling the Cauchy index of `q/p`."
      },
      {
       "name": "Recursive BKR sign determination",
-      "text": "— restrict to realized columns, choose independent rows, and prove counts are preserved when a polynomial is adjoined. The full-matrix inversion is already in place."
+      "text": "— restrict to realized columns, choose independent rows and prove counts are preserved when a polynomial is adjoined. Whole-line sign determination then follows."
      },
      {
-      "name": "Semialgebraic sets and root continuity",
-      "text": "— the intrinsic Boolean-combination definition of Layer 3 and the multiplicity-sensitive root matching of Layer 4. Neither has been started, and both are needed before Collins delineability."
+      "name": "Uniform root descriptions and the Collins projection",
+      "text": "— quantifier-free coefficient-sign descriptions of the `i`th root and its sectors, plus semialgebraic functions. The projection set itself can now be assembled from reducta and principal coefficients; delineability needs the family matching lemma first."
      }
     ],
-    "glance": "Most of the univariate foundations of Layer 1 are in place: ordered real closures, the algebra of real closed fields, IVT, Rolle, Sturm–Tarski and Thom encodings. Layers 2 and 3 have their first definitions and identities. Nothing yet exists for the multivariate and topological layers (4–8).",
+    "glance": "The univariate foundations are nearly complete: real closures, real closed field algebra, Sturm–Tarski in full generality and Thom encodings. Layers 2–4 each have their central first theorem: the subresultant gcd criterion, semialgebraic sets with the full BKR inversion, and continuity of complex roots with multiplicity. Collins delineability, CAD, quantifier elimination, McCallum and Lazard (Layers 5–8) have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/RealAlgebraicGeometry/STATUS.md",
     "progress_path": "TauCetiRoadmap/RealAlgebraicGeometry/PROGRESS.md",
-    "report_sha": "7b0975d8d5360551636a6b8e0a42b99885a04989663fc1da4ce5721c1d24cbbf",
-    "to_sha": "e440f4eb3fccf5479ede3f5d6a671b4be37c9dde",
-    "ts": "2026-09-30T05:46:25Z"
+    "report_sha": "63aa2ef52149ad76856e64a9606ac6cda51baba08c9cd972e216ef9dac93cac8",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "Real algebraic geometry: sign determination and cylindrical decomposition",
    "topic": "Unsorted"
   },
   {
    "activity": {
-    "last": "2026-10-02T00:48:21Z",
-    "open": 6,
-    "recent": 328,
-    "since_report": 40,
-    "total": 1024,
+    "last": "2026-10-02T08:39:29Z",
+    "open": 3,
+    "recent": 329,
+    "since_report": 37,
+    "total": 1031,
     "weekly": [
      22,
      19,
@@ -5300,7 +5332,7 @@
      65,
      73,
      69,
-     81
+     88
     ]
    },
    "assessment": {
@@ -5308,11 +5340,11 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 3": "representability of the fppf quotient by a general subgroup, and affineness when the subgroup is reductive",
+     "Layer 3": "representability of the fppf quotient by a general subgroup, via the line form of Chevalley's theorem; affineness when the subgroup is reductive",
      "Layer 5": "general maximality theorem for the unipotent radical",
      "Layer 6": "characteristic-zero equivalence with linear reductivity and simply connected covers",
      "Layer 7": "general conjugacy of Borels and maximal tori; root datum of an arbitrary reductive group",
-     "Layer 9": "uniform pinned construction from arbitrary root data, the pinned isomorphism theorem, and identification of the explicit carriers with pinned groups"
+     "Layer 9": "uniform pinned construction from arbitrary root data, existence half of the pinned isomorphism theorem, and identification of the explicit carriers with pinned groups"
     },
     "source": "marker"
    },
@@ -5376,44 +5408,44 @@
    "status": {
     "frontier": [
      {
+      "name": "Chevalley's theorem, line form, and representable quotients.",
+      "text": "The subspace stabilizer has to be converted into the stabilizer of a line in an exterior power; the exterior-algebra lemmas for this are in place. That is the input for showing that `G/H` is a scheme, and that it is affine when `H` is reductive."
+     },
+     {
       "name": "Conjugacy of Borels and maximal tori.",
       "text": "Geometric conjugacy is needed for an arbitrary smooth connected group. It is known only for `GLₙ` and `SL₂`, and the general case is what blocks root data."
      },
      {
       "name": "Root datum of an arbitrary reductive group.",
-      "text": "The roots have to be extracted from a maximal torus and `N(T)/T` identified as the Weyl group. That identification now exists for `Sp₂ₘ` on rational points, but the general case needs conjugacy first."
-     },
-     {
-      "name": "Representable quotients.",
-      "text": "It remains to show that the fppf quotient `G/H` is a scheme under suitable hypotheses, and affine when `H` is reductive. Short exact sequences and the finite-dominant case are now available as input."
+      "text": "The roots have to be extracted from a maximal torus, and `N(T)/T` identified with the Weyl group. That identification exists for `Sp₂ₘ` on rational points; the general case needs conjugacy first."
      },
      {
       "name": "The unipotent radical.",
       "text": "It remains to prove that the connected normal smooth unipotent subgroup is maximal in general. The present criteria only recognise it."
      },
      {
-      "name": "Uniform pinned Chevalley–Demazure groups.",
-      "text": "The split group scheme over `ℤ` still has to be built from an arbitrary root datum, with the pinned isomorphism theorem. Each explicit carrier also has to be identified with the pinned simply connected group of its type."
+      "name": "The pinned isomorphism theorem.",
+      "text": "Uniqueness of automorphisms with given action on root subgroups is proved carrier by carrier. Existence for an arbitrary isomorphism of root data is still missing, as is the identification of each carrier with the pinned simply connected group of its type."
      }
     ],
-    "glance": "Four layers are done: the three-way group-scheme dictionary, representation theory, the Lie algebra, and tori and Jordan decomposition. Subgroups and quotients, radicals, reductivity, structure theory and the explicit pinned carriers are partial, and classification has not begun.",
+    "glance": "Four layers are done: the three-way group-scheme dictionary, representation theory, the Lie algebra, and tori and Jordan decomposition. Subgroups and quotients, radicals, reductivity, structure theory and the explicit pinned carriers are partial. Classification has not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/ReductiveGroups/STATUS.md",
     "progress_path": "TauCetiRoadmap/ReductiveGroups/PROGRESS.md",
-    "report_sha": "96018522ea50f6195b1dedbe455434988541fb2e9b5e63607ef15498cad023d2",
-    "to_sha": "22df7c042dd40104856f178b64774ef6681232e1",
-    "ts": "2026-10-01T07:27:52Z"
+    "report_sha": "00c2cb2f58f0d34e06f35831313957222c215c496c9feb7045e3f8d18f30b7ba",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "reductive algebraic groups",
    "topic": "Algebra and representation theory"
   },
   {
    "activity": {
-    "last": "2026-10-02T00:49:28Z",
+    "last": "2026-10-02T09:57:21Z",
     "open": 34,
-    "recent": 382,
-    "since_report": 32,
-    "total": 1090,
+    "recent": 404,
+    "since_report": 38,
+    "total": 1117,
     "weekly": [
      0,
      0,
@@ -5430,7 +5462,7 @@
      69,
      62,
      150,
-     73
+     100
     ]
    },
    "assessment": {
@@ -5456,33 +5488,33 @@
    "status": {
     "frontier": [
      {
-      "name": "The `GL₂(𝔽_q)` character table",
-      "text": ": assemble the `(q²−1)`-square table from the existing value formulas, prove its rows orthonormal, and check `GL₂(𝔽₃)` and the degenerate `GL₂(𝔽₂)`."
+      "name": "The `GL₂(𝔽₃)` instance",
+      "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite, and use it to exclude the Kronecker quiver."
+      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build `G₀(k[G])` with its ring structure, restriction, induction and permutation classes. It is the one prerequisite blocking every `G₀` statement of the modular Artin theorem, whose group-theoretic inputs are now in place."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
       "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to find a finite-dimensional quotient of `U(L)` separating `L`, then assemble the faithful nilpotence-preserving representation."
+      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
      },
      {
       "name": "Spin modules as fundamental representations",
-      "text": ": identify `S`, `S⁺` and `S⁻` with the irreducibles of highest weight `ωₗ` and `ωₗ₋₁` for types `B` and `D`. Irreducibility and the weights are available."
+      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence and the classification of the irreducible characters of `GL₂(𝔽_q)`. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals, the Lie-group correspondence and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "d02d11c35dea69254eecd650872299c835ed736c8be056a0db177d9e4b542981",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "Representation theory",
    "topic": "Algebra and representation theory"
@@ -5494,7 +5526,7 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 7": "Krull intersection for U(L) over the central subalgebra and a separating finite-dimensional quotient",
+     "Layer 7": "Krull intersection for U(L) over the central subalgebra and separating L at a finite stage; the finite-dimensional quotient is proved",
      "Layer 8": "the faithful quotient representation and the positive-characteristic Hochschild theorem"
     },
     "source": "marker"
@@ -5559,33 +5591,33 @@
    "status": {
     "frontier": [
      {
-      "name": "The `GL₂(𝔽_q)` character table",
-      "text": ": assemble the `(q²−1)`-square table from the existing value formulas, prove its rows orthonormal, and check `GL₂(𝔽₃)` and the degenerate `GL₂(𝔽₂)`."
+      "name": "The `GL₂(𝔽₃)` instance",
+      "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite, and use it to exclude the Kronecker quiver."
+      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build `G₀(k[G])` with its ring structure, restriction, induction and permutation classes. It is the one prerequisite blocking every `G₀` statement of the modular Artin theorem, whose group-theoretic inputs are now in place."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
       "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to find a finite-dimensional quotient of `U(L)` separating `L`, then assemble the faithful nilpotence-preserving representation."
+      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
      },
      {
       "name": "Spin modules as fundamental representations",
-      "text": ": identify `S`, `S⁺` and `S⁻` with the irreducibles of highest weight `ωₗ` and `ωₗ₋₁` for types `B` and `D`. Irreducibility and the weights are available."
+      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence and the classification of the irreducible characters of `GL₂(𝔽_q)`. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals, the Lie-group correspondence and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "d02d11c35dea69254eecd650872299c835ed736c8be056a0db177d9e4b542981",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "The Ado–Iwasawa theorem and faithful finite-dimensional Lie representations",
    "topic": "Algebra and representation theory"
@@ -5597,7 +5629,7 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 9": "the assembled square character table with orthonormal rows, and the GL2(F3) and GL2(F2) instances"
+     "Layer 9": "the GL2(F3) worked instance of order 48"
     },
     "source": "marker"
    },
@@ -5661,33 +5693,33 @@
    "status": {
     "frontier": [
      {
-      "name": "The `GL₂(𝔽_q)` character table",
-      "text": ": assemble the `(q²−1)`-square table from the existing value formulas, prove its rows orthonormal, and check `GL₂(𝔽₃)` and the degenerate `GL₂(𝔽₂)`."
+      "name": "The `GL₂(𝔽₃)` instance",
+      "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite, and use it to exclude the Kronecker quiver."
+      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build `G₀(k[G])` with its ring structure, restriction, induction and permutation classes. It is the one prerequisite blocking every `G₀` statement of the modular Artin theorem, whose group-theoretic inputs are now in place."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
       "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to find a finite-dimensional quotient of `U(L)` separating `L`, then assemble the faithful nilpotence-preserving representation."
+      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
      },
      {
       "name": "Spin modules as fundamental representations",
-      "text": ": identify `S`, `S⁺` and `S⁻` with the irreducibles of highest weight `ωₗ` and `ωₗ₋₁` for types `B` and `D`. Irreducibility and the weights are available."
+      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence and the classification of the irreducible characters of `GL₂(𝔽_q)`. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals, the Lie-group correspondence and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "d02d11c35dea69254eecd650872299c835ed736c8be056a0db177d9e4b542981",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "character theory of finite groups, and computing character tables",
    "topic": "Algebra and representation theory"
@@ -5699,6 +5731,7 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
+     "Layer 4": "characters equal Schur polynomials for all partitions, not only one-row and one-column shapes, and the Laurent twist",
      "Layer 6": "the branching rule itself and Gelfand-Tsetlin bases"
     },
     "source": "marker"
@@ -5744,40 +5777,40 @@
     "done",
     "partial",
     "partial",
-    "untouched",
+    "partial",
     "untouched",
     "partial"
    ],
    "status": {
     "frontier": [
      {
-      "name": "The `GL₂(𝔽_q)` character table",
-      "text": ": assemble the `(q²−1)`-square table from the existing value formulas, prove its rows orthonormal, and check `GL₂(𝔽₃)` and the degenerate `GL₂(𝔽₂)`."
+      "name": "The `GL₂(𝔽₃)` instance",
+      "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite, and use it to exclude the Kronecker quiver."
+      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build `G₀(k[G])` with its ring structure, restriction, induction and permutation classes. It is the one prerequisite blocking every `G₀` statement of the modular Artin theorem, whose group-theoretic inputs are now in place."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
       "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to find a finite-dimensional quotient of `U(L)` separating `L`, then assemble the faithful nilpotence-preserving representation."
+      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
      },
      {
       "name": "Spin modules as fundamental representations",
-      "text": ": identify `S`, `S⁺` and `S⁻` with the irreducibles of highest weight `ωₗ` and `ωₗ₋₁` for types `B` and `D`. Irreducibility and the weights are available."
+      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence and the classification of the irreducible characters of `GL₂(𝔽_q)`. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals, the Lie-group correspondence and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "d02d11c35dea69254eecd650872299c835ed736c8be056a0db177d9e4b542981",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "finite-dimensional representations of the classical groups",
    "topic": "Algebra and representation theory"
@@ -5839,33 +5872,33 @@
    "status": {
     "frontier": [
      {
-      "name": "The `GL₂(𝔽_q)` character table",
-      "text": ": assemble the `(q²−1)`-square table from the existing value formulas, prove its rows orthonormal, and check `GL₂(𝔽₃)` and the degenerate `GL₂(𝔽₂)`."
+      "name": "The `GL₂(𝔽₃)` instance",
+      "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite, and use it to exclude the Kronecker quiver."
+      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build `G₀(k[G])` with its ring structure, restriction, induction and permutation classes. It is the one prerequisite blocking every `G₀` statement of the modular Artin theorem, whose group-theoretic inputs are now in place."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
       "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to find a finite-dimensional quotient of `U(L)` separating `L`, then assemble the faithful nilpotence-preserving representation."
+      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
      },
      {
       "name": "Spin modules as fundamental representations",
-      "text": ": identify `S`, `S⁺` and `S⁻` with the irreducibles of highest weight `ωₗ` and `ωₗ₋₁` for types `B` and `D`. Irreducibility and the weights are available."
+      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence and the classification of the irreducible characters of `GL₂(𝔽_q)`. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals, the Lie-group correspondence and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "d02d11c35dea69254eecd650872299c835ed736c8be056a0db177d9e4b542981",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "representations of compact groups and the Peter-Weyl theorem",
    "topic": "Algebra and representation theory"
@@ -5942,33 +5975,33 @@
    "status": {
     "frontier": [
      {
-      "name": "The `GL₂(𝔽_q)` character table",
-      "text": ": assemble the `(q²−1)`-square table from the existing value formulas, prove its rows orthonormal, and check `GL₂(𝔽₃)` and the degenerate `GL₂(𝔽₂)`."
+      "name": "The `GL₂(𝔽₃)` instance",
+      "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite, and use it to exclude the Kronecker quiver."
+      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build `G₀(k[G])` with its ring structure, restriction, induction and permutation classes. It is the one prerequisite blocking every `G₀` statement of the modular Artin theorem, whose group-theoretic inputs are now in place."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
       "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to find a finite-dimensional quotient of `U(L)` separating `L`, then assemble the faithful nilpotence-preserving representation."
+      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
      },
      {
       "name": "Spin modules as fundamental representations",
-      "text": ": identify `S`, `S⁺` and `S⁻` with the irreducibles of highest weight `ωₗ` and `ωₗ₋₁` for types `B` and `D`. Irreducibility and the weights are available."
+      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence and the classification of the irreducible characters of `GL₂(𝔽_q)`. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals, the Lie-group correspondence and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "d02d11c35dea69254eecd650872299c835ed736c8be056a0db177d9e4b542981",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "induction, restriction, and Mackey theory for finite groups",
    "topic": "Algebra and representation theory"
@@ -5980,7 +6013,7 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 2": "the bundled embedded-Lie-subgroup statement, the remaining matrix-group Lie algebras beyond so and sp, and automatic smoothness"
+     "Layer 2": "the Lie algebras of SL and SU as trace-zero matrices, and automatic smoothness of continuous homomorphisms"
     },
     "source": "marker"
    },
@@ -6044,33 +6077,33 @@
    "status": {
     "frontier": [
      {
-      "name": "The `GL₂(𝔽_q)` character table",
-      "text": ": assemble the `(q²−1)`-square table from the existing value formulas, prove its rows orthonormal, and check `GL₂(𝔽₃)` and the degenerate `GL₂(𝔽₂)`."
+      "name": "The `GL₂(𝔽₃)` instance",
+      "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite, and use it to exclude the Kronecker quiver."
+      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build `G₀(k[G])` with its ring structure, restriction, induction and permutation classes. It is the one prerequisite blocking every `G₀` statement of the modular Artin theorem, whose group-theoretic inputs are now in place."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
       "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to find a finite-dimensional quotient of `U(L)` separating `L`, then assemble the faithful nilpotence-preserving representation."
+      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
      },
      {
       "name": "Spin modules as fundamental representations",
-      "text": ": identify `S`, `S⁺` and `S⁻` with the irreducibles of highest weight `ωₗ` and `ωₗ₋₁` for types `B` and `D`. Irreducibility and the weights are available."
+      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence and the classification of the irreducible characters of `GL₂(𝔽_q)`. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals, the Lie-group correspondence and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "d02d11c35dea69254eecd650872299c835ed736c8be056a0db177d9e4b542981",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "Lie groups and the Lie algebra correspondence",
    "topic": "Algebra and representation theory"
@@ -6082,7 +6115,7 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 8": "dim Der(O) = 14 and the identifications with the split g2, f4 and the E-series"
+     "Layer 8": "the upper bound dim Der(O) = 14 and the identifications with the split g2, f4 and the E-series"
     },
     "source": "marker"
    },
@@ -6146,33 +6179,33 @@
    "status": {
     "frontier": [
      {
-      "name": "The `GL₂(𝔽_q)` character table",
-      "text": ": assemble the `(q²−1)`-square table from the existing value formulas, prove its rows orthonormal, and check `GL₂(𝔽₃)` and the degenerate `GL₂(𝔽₂)`."
+      "name": "The `GL₂(𝔽₃)` instance",
+      "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite, and use it to exclude the Kronecker quiver."
+      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build `G₀(k[G])` with its ring structure, restriction, induction and permutation classes. It is the one prerequisite blocking every `G₀` statement of the modular Artin theorem, whose group-theoretic inputs are now in place."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
       "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to find a finite-dimensional quotient of `U(L)` separating `L`, then assemble the faithful nilpotence-preserving representation."
+      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
      },
      {
       "name": "Spin modules as fundamental representations",
-      "text": ": identify `S`, `S⁺` and `S⁻` with the irreducibles of highest weight `ωₗ` and `ωₗ₋₁` for types `B` and `D`. Irreducibility and the weights are available."
+      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence and the classification of the irreducible characters of `GL₂(𝔽_q)`. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals, the Lie-group correspondence and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "d02d11c35dea69254eecd650872299c835ed736c8be056a0db177d9e4b542981",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas",
    "topic": "Algebra and representation theory"
@@ -6184,9 +6217,9 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 0": "the Grothendieck group G0(k[G]) with its universal property and simple-class basis",
+     "Layer 0": "the FDRep to k[G]-module dictionary and G0(k[G]) with its universal property; the generic simple-class basis exists",
      "Layer 2": "the G0 statements: trivial composition factors, l-groups, and permutation classes along an l-power quotient",
-     "Layer 3": "the reduction functor, the lattice defect and its additivity; only the torsion snake sequence exists",
+     "Layer 3": "the reduction functor, the lattice defect and its additivity",
      "Layer 4": "Steps 2-4 in G0 and the export; the Artin coefficients and Step 1 are proved"
     },
     "source": "marker"
@@ -6222,7 +6255,7 @@
    "readme_sha": "1c57e2e522c66e5505e3376ba5e5216ce31f9d55b3617553f1c830f4ccda18c8",
    "retired": null,
    "states": [
-    "untouched",
+    "partial",
     "untouched",
     "partial",
     "partial",
@@ -6231,33 +6264,33 @@
    "status": {
     "frontier": [
      {
-      "name": "The `GL₂(𝔽_q)` character table",
-      "text": ": assemble the `(q²−1)`-square table from the existing value formulas, prove its rows orthonormal, and check `GL₂(𝔽₃)` and the degenerate `GL₂(𝔽₂)`."
+      "name": "The `GL₂(𝔽₃)` instance",
+      "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite, and use it to exclude the Kronecker quiver."
+      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build `G₀(k[G])` with its ring structure, restriction, induction and permutation classes. It is the one prerequisite blocking every `G₀` statement of the modular Artin theorem, whose group-theoretic inputs are now in place."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
       "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to find a finite-dimensional quotient of `U(L)` separating `L`, then assemble the faithful nilpotence-preserving representation."
+      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
      },
      {
       "name": "Spin modules as fundamental representations",
-      "text": ": identify `S`, `S⁺` and `S⁻` with the irreducibles of highest weight `ωₗ` and `ωₗ₋₁` for types `B` and `D`. Irreducibility and the weights are available."
+      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence and the classification of the irreducible characters of `GL₂(𝔽_q)`. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals, the Lie-group correspondence and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "d02d11c35dea69254eecd650872299c835ed736c8be056a0db177d9e4b542981",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "induction theorems in Grothendieck groups of modular representations",
    "topic": "Algebra and representation theory"
@@ -6269,7 +6302,6 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 2": "transport of Krull-Schmidt to QuiverRep",
      "Layer 5": "the dichotomy: finite representation type iff positive definite Tits form (ADE)"
     },
     "source": "marker"
@@ -6313,7 +6345,7 @@
    "states": [
     "done",
     "partial",
-    "partial",
+    "done",
     "partial",
     "done",
     "partial",
@@ -6322,33 +6354,33 @@
    "status": {
     "frontier": [
      {
-      "name": "The `GL₂(𝔽_q)` character table",
-      "text": ": assemble the `(q²−1)`-square table from the existing value formulas, prove its rows orthonormal, and check `GL₂(𝔽₃)` and the degenerate `GL₂(𝔽₂)`."
+      "name": "The `GL₂(𝔽₃)` instance",
+      "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite, and use it to exclude the Kronecker quiver."
+      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build `G₀(k[G])` with its ring structure, restriction, induction and permutation classes. It is the one prerequisite blocking every `G₀` statement of the modular Artin theorem, whose group-theoretic inputs are now in place."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
       "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to find a finite-dimensional quotient of `U(L)` separating `L`, then assemble the faithful nilpotence-preserving representation."
+      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
      },
      {
       "name": "Spin modules as fundamental representations",
-      "text": ": identify `S`, `S⁺` and `S⁻` with the irreducibles of highest weight `ωₗ` and `ωₗ₋₁` for types `B` and `D`. Irreducibility and the weights are available."
+      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence and the classification of the irreducible characters of `GL₂(𝔽_q)`. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals, the Lie-group correspondence and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "d02d11c35dea69254eecd650872299c835ed736c8be056a0db177d9e4b542981",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "quiver representations, path algebras, and Gabriel's theorem",
    "topic": "Algebra and representation theory"
@@ -6406,33 +6438,33 @@
    "status": {
     "frontier": [
      {
-      "name": "The `GL₂(𝔽_q)` character table",
-      "text": ": assemble the `(q²−1)`-square table from the existing value formulas, prove its rows orthonormal, and check `GL₂(𝔽₃)` and the degenerate `GL₂(𝔽₂)`."
+      "name": "The `GL₂(𝔽₃)` instance",
+      "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite, and use it to exclude the Kronecker quiver."
+      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build `G₀(k[G])` with its ring structure, restriction, induction and permutation classes. It is the one prerequisite blocking every `G₀` statement of the modular Artin theorem, whose group-theoretic inputs are now in place."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
       "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to find a finite-dimensional quotient of `U(L)` separating `L`, then assemble the faithful nilpotence-preserving representation."
+      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
      },
      {
       "name": "Spin modules as fundamental representations",
-      "text": ": identify `S`, `S⁺` and `S⁻` with the irreducibles of highest weight `ωₗ` and `ωₗ₋₁` for types `B` and `D`. Irreducibility and the weights are available."
+      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence and the classification of the irreducible characters of `GL₂(𝔽_q)`. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals, the Lie-group correspondence and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "d02d11c35dea69254eecd650872299c835ed736c8be056a0db177d9e4b542981",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "root systems, Weyl groups, and the Cartan-Killing classification",
    "topic": "Algebra and representation theory"
@@ -6508,33 +6540,33 @@
    "status": {
     "frontier": [
      {
-      "name": "The `GL₂(𝔽_q)` character table",
-      "text": ": assemble the `(q²−1)`-square table from the existing value formulas, prove its rows orthonormal, and check `GL₂(𝔽₃)` and the degenerate `GL₂(𝔽₂)`."
+      "name": "The `GL₂(𝔽₃)` instance",
+      "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite, and use it to exclude the Kronecker quiver."
+      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build `G₀(k[G])` with its ring structure, restriction, induction and permutation classes. It is the one prerequisite blocking every `G₀` statement of the modular Artin theorem, whose group-theoretic inputs are now in place."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
       "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to find a finite-dimensional quotient of `U(L)` separating `L`, then assemble the faithful nilpotence-preserving representation."
+      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
      },
      {
       "name": "Spin modules as fundamental representations",
-      "text": ": identify `S`, `S⁺` and `S⁻` with the irreducibles of highest weight `ωₗ` and `ωₗ₋₁` for types `B` and `D`. Irreducibility and the weights are available."
+      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence and the classification of the irreducible characters of `GL₂(𝔽_q)`. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals, the Lie-group correspondence and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "d02d11c35dea69254eecd650872299c835ed736c8be056a0db177d9e4b542981",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "representations of the symmetric group, Specht modules, and Schur-Weyl duality",
    "topic": "Algebra and representation theory"
@@ -6600,33 +6632,33 @@
    "status": {
     "frontier": [
      {
-      "name": "The `GL₂(𝔽_q)` character table",
-      "text": ": assemble the `(q²−1)`-square table from the existing value formulas, prove its rows orthonormal, and check `GL₂(𝔽₃)` and the degenerate `GL₂(𝔽₂)`."
+      "name": "The `GL₂(𝔽₃)` instance",
+      "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite, and use it to exclude the Kronecker quiver."
+      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build `G₀(k[G])` with its ring structure, restriction, induction and permutation classes. It is the one prerequisite blocking every `G₀` statement of the modular Artin theorem, whose group-theoretic inputs are now in place."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
       "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to find a finite-dimensional quotient of `U(L)` separating `L`, then assemble the faithful nilpotence-preserving representation."
+      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
      },
      {
       "name": "Spin modules as fundamental representations",
-      "text": ": identify `S`, `S⁺` and `S⁻` with the irreducibles of highest weight `ωₗ` and `ωₗ₋₁` for types `B` and `D`. Irreducibility and the weights are available."
+      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence and the classification of the irreducible characters of `GL₂(𝔽_q)`. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals, the Lie-group correspondence and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "d02d11c35dea69254eecd650872299c835ed736c8be056a0db177d9e4b542981",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "semisimple algebras, Artin-Wedderburn, and the structure of their modules",
    "topic": "Algebra and representation theory"
@@ -6638,7 +6670,7 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 5": "identifying S, S+ and S- with the highest-weight irreducibles L(omega_l) and L(omega_(l-1))"
+     "Layer 5": "stating S as L(omega_l) in type B, and the type-D half-spin modules as L(omega_l) and L(omega_(l-1))"
     },
     "source": "marker"
    },
@@ -6707,33 +6739,33 @@
    "status": {
     "frontier": [
      {
-      "name": "The `GL₂(𝔽_q)` character table",
-      "text": ": assemble the `(q²−1)`-square table from the existing value formulas, prove its rows orthonormal, and check `GL₂(𝔽₃)` and the degenerate `GL₂(𝔽₂)`."
+      "name": "The `GL₂(𝔽₃)` instance",
+      "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite, and use it to exclude the Kronecker quiver."
+      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build `G₀(k[G])` with its ring structure, restriction, induction and permutation classes. It is the one prerequisite blocking every `G₀` statement of the modular Artin theorem, whose group-theoretic inputs are now in place."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
       "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to find a finite-dimensional quotient of `U(L)` separating `L`, then assemble the faithful nilpotence-preserving representation."
+      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
      },
      {
       "name": "Spin modules as fundamental representations",
-      "text": ": identify `S`, `S⁺` and `S⁻` with the irreducibles of highest weight `ωₗ` and `ωₗ₋₁` for types `B` and `D`. Irreducibility and the weights are available."
+      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence and the classification of the irreducible characters of `GL₂(𝔽_q)`. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals, the Lie-group correspondence and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "d02d11c35dea69254eecd650872299c835ed736c8be056a0db177d9e4b542981",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "Clifford algebras, the Pin and Spin groups, and spin representations",
    "topic": "Algebra and representation theory"
@@ -6836,11 +6868,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T00:24:41Z",
-    "open": 0,
-    "recent": 55,
-    "since_report": 10,
-    "total": 55,
+    "last": "2026-10-02T09:00:31Z",
+    "open": 1,
+    "recent": 58,
+    "since_report": 13,
+    "total": 58,
     "weekly": [
      0,
      0,
@@ -6857,7 +6889,7 @@
      0,
      20,
      21,
-     14
+     17
     ]
    },
    "assessment": {
@@ -6963,11 +6995,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T11:27:58Z",
-    "open": 1,
-    "recent": 63,
-    "since_report": 5,
-    "total": 63,
+    "last": "2026-10-02T07:00:10Z",
+    "open": 2,
+    "recent": 64,
+    "since_report": 6,
+    "total": 64,
     "weekly": [
      0,
      0,
@@ -6984,7 +7016,7 @@
      8,
      20,
      24,
-     11
+     12
     ]
    },
    "assessment": {
@@ -7200,11 +7232,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T15:22:51Z",
+    "last": "2026-10-02T08:48:47Z",
     "open": 0,
-    "recent": 63,
-    "since_report": 6,
-    "total": 89,
+    "recent": 66,
+    "since_report": 9,
+    "total": 92,
     "weekly": [
      0,
      0,
@@ -7221,7 +7253,7 @@
      6,
      22,
      20,
-     12
+     15
     ]
    },
    "assessment": {
@@ -7523,11 +7555,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T17:49:26Z",
-    "open": 2,
-    "recent": 36,
-    "since_report": 3,
-    "total": 90,
+    "last": "2026-10-02T09:40:36Z",
+    "open": 0,
+    "recent": 39,
+    "since_report": 6,
+    "total": 93,
     "weekly": [
      0,
      0,
@@ -7544,7 +7576,7 @@
      4,
      1,
      0,
-     27
+     30
     ]
    },
    "assessment": {
@@ -7628,7 +7660,7 @@
     "last": "2026-10-01T16:02:37Z",
     "open": 0,
     "recent": 2,
-    "since_report": 1,
+    "since_report": 0,
     "total": 58,
     "weekly": [
      0,
@@ -7692,25 +7724,25 @@
    "status": {
     "frontier": [
      {
-      "name": "Ladder operators on `L²`",
-      "text": ": `a` and `a†` exist only on Schwartz space. On `L²` they are unbounded, so extending them there needs unbounded or closed-operator packaging rather than continuous linear maps. The README calls this a downstream target, not a milestone."
+      "name": "Multidimensional Fourier diagonalization",
+      "text": ": the one-dimensional eigenrelation and the product basis are both in place, but their combination on `L²(ℝ^ι)` has not been stated."
      },
      {
-      "name": "Multidimensional Fourier diagonalization",
-      "text": ": the one-dimensional eigenrelation and the product basis are both in place. Their combination on `L²(ℝ^ι)` has not been stated."
+      "name": "Ladder operators on `L²`",
+      "text": ": `a` and `a†` exist only on Schwartz space. On `L²` they are unbounded, so extending them needs closed-operator packaging rather than continuous linear maps. The README treats this as a downstream target, not a milestone."
      },
      {
       "name": "Laguerre and Jacobi",
-      "text": ": these are out of scope by design. The roadmap assigns them a future roadmap, and those families would have to be defined before any `L²` basis statement about them."
+      "text": ": out of scope by design. The roadmap assigns them a separate future roadmap, and the families would have to be defined before any `L²` basis statement about them."
      }
     ],
-    "glance": "Every part of the roadmap is done. The Hermite functions and the Chebyshev polynomials are complete orthonormal bases of their `L²` spaces, built from one family-agnostic layer that also gives the weighted-measure and multidimensional bases. Each basis now carries an explicit expansion and Parseval API, and the Hermite basis has its two main structural consequences: it diagonalizes the `L²` Fourier transform, and on Schwartz space it carries the ladder operators. What is left lies outside the roadmap's own targets.",
+    "glance": "Every part of the roadmap is done. The Hermite functions and the Chebyshev polynomials are complete orthonormal bases of their `L²` spaces. Both are built from one family-agnostic layer that also gives the weighted-measure and multidimensional bases. Each basis carries an explicit expansion and Parseval API. The Hermite basis also has its two main structural consequences: it diagonalizes the `L²` Fourier transform, and on Schwartz space it carries the ladder operators. What is left lies outside the roadmap's own targets.",
     "inherited": false,
     "path": "Completed/OrthogonalL2Bases/STATUS.md",
     "progress_path": "Completed/OrthogonalL2Bases/PROGRESS.md",
-    "report_sha": "dab6ac3469b91a47f4c3b0dfc770fedb5cab3ef3984a1444567ef33cbdc96d92",
-    "to_sha": "e440f4eb3fccf5479ede3f5d6a671b4be37c9dde",
-    "ts": "2026-09-30T05:46:25Z"
+    "report_sha": "2eda6354eafdca7ac9d3358889ab17ae0859530a0aba33ef0b582e0a91cd022f",
+    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
+    "ts": "2026-10-01T19:24:41Z"
    },
    "title": "weighted orthogonal L² bases — completeness, Hilbert-basis structure, and product bases of orthogonal systems",
    "topic": "Analysis"
