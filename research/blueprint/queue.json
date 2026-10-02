@@ -38851,7 +38851,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-PASKUNAS-QUAST-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5517"
   },
   {
    "id": "RT-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
@@ -39180,8 +39181,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CANNING-LARSON-PAYNE-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5520"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5520",
+   "finishedAt": "2026-10-02T01:32:43Z"
   },
   {
    "id": "RT-PAPER-BHATT-MATHEW-23",
