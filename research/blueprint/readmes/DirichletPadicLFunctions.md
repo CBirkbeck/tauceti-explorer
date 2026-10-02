@@ -63603,3 +63603,401 @@ Exact degree-one residue controls through60 levels verify273 local prime/divisor
 Fresh capture after the actual merge of5791 found all79 canonical inputs unchanged from the predecessor. The whole issue, queue, original winning claim and blocked/unclaimed review390 were reread. All27 source findings and eight source versions remain whole; no external review conclusion is adopted.
 
 The separate partial signature file also compiled with zero errors and 6,226 expected placeholder warnings across 3,914 pinned source modules. It includes all 20 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 30f07c2828bf4b2ce22f586ad9fde3d4caa4f7c8023410b2a7d37ea5e2fe1ff5.
+
+
+## Actual local-factor norms and corrected rational-value compatibility
+
+Fifteen L3 lemmas prove exact original local coset-sum and correction-factor norm identities, then the full degree-one corrected rational-value norm compatibility of Kubert4.8 using actual order-prime reindexing. All2,127 predecessor nodes and1,271 baseline records remain whole. General distribution and the image/product comparison remain open.
+
+Published Kubert195–196 Proposition4.8 and the exact local coset-sum ratio were reread against the original full norm2.7, actual primitive-fiber sum4.1 and corrected product4.5. The proof uses native label pushforward and the original norm projection formula to account for every local fiber and i(1). Native finite-sum coefficients, finite-product reindexing and filtering statements were read at the pinned source. The actual point order divides its lower level, so no extra-prime factor is silently inserted. All27 findings and eight source versions remain unchanged.
+
+### The original source-coset indicator is its full basis sum
+
+`DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-coset-sum-eq-sum` — `DirichletPadic.kubertRationalPrimeCosetSum_eq_sum`
+
+With a finite enumeration of the original upper Cartan carrier, s(X_p(N)) equals the sum of the unit-coefficient basis vector [v] over every actual v in X_p(N).
+
+**Hypotheses:** The degree is one, M and N are positive levels with M dividing N, and p is an actual prime divisor of M. Every unit group is the original finite product of actual truncated-Witt unit groups over the original finite Galois fields, with the actual prime-factor inclusion into N. Write f for the original Cartan reduction, f_* for the native group-ring label pushforward summing coefficients on each fiber, and i for the original full-fiber rational linear norm pulling coefficients back along f. The norm is not a unital ring homomorphism. X_p(L), its full rational group-ring sum s(X_p(L)), and ε_p(L)=1−|X_p(L)|⁻¹s(X_p(L)) are the existing actual source coset, full indicator sum and correction factor. The restricted local-kernel reduction F and its positive actual kernel cardinality d_p are already constructed and proved surjective. The complete source-coset fibers have cardinality d_p, so |X_p(N)|=d_p|X_p(M)|. This local multiplicity can differ from the full Cartan reduction kernel cardinality when a new prime enters the level. The corrected rational value is the existing original primitive-fiber sum multiplied by the product of correction factors for primes dividing the actual additive order of the point. It uses the product justified by source findingE27, not the erroneous printed sum. The level inclusion retains the same actual rational-torus point and hence the same additive order. The corrected rational-value norm law is established in this checkpoint for every positive degree-one divisor transition. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain separate open obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Compare the original coefficient functions.
+2. At a unit belonging to the coset, the entire finite sum has exactly its matching basis contribution, of coefficient1.
+3. At a unit outside the coset, every summand has zero coefficient there.
+4. Use the native finite single-term sum theorem and off-diagonal Finsupp basis coefficients.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-sum-coeff`, `mathlib:MonoidAlgebra.coeff_sum`, `mathlib:Finsupp.finsetSum_apply`, `mathlib:Finsupp.single_eq_same`, `mathlib:Finsupp.single_eq_of_ne'`, `mathlib:Finset.prod_eq_single`.
+
+**Tests:**
+
+- `SuggestedKubertFactorNormsTests.rationalPrimeCosetSum_eq_sum_typed_api` (compatibility): With a finite enumeration of the original upper Cartan carrier, s(X_p(N)) equals the sum of the unit-coefficient basis vector [v] over every actual v in X_p(N).
+
+**Acceptance:** For6 dividing18 at p=3 the local coset ratio is1/3. For6 dividing30 at p=2, f_*ε_p(30)=ε_p(6), while i(ε_p(6)) differs from ε_p(30) and includes the required factor i(1). The corrected value of the actual point1/6 at18 has identity coefficient1 and is the full norm of its level6 value. At level2 the corrected primitive value at1/2 is zero, and at level1 the empty product gives1. These cases reject dropping the nonunital factor, assuming every corrected value is nonzero, or replacing the product by the printed sum.
+
+**Source:** Published195–196, Proposition4.8 and its proof, including the local coset-sum norm formula on195 and the final cancellation on196. The corrected rational value is4.5 on194 with the E27 product correction, and the original full-fiber norm is2.7 on187. Proves the exact local coset-sum and correction-factor norm identities on the original degree-one carriers, then proves the full corrected rational-value compatibility of Proposition4.8 using the actual order-prime product and original primitive-fiber norm. Native label pushforward and the already proved full-norm projection formula account for the nonunital identity and all multiplicities.
+
+### The complete finite source-coset lift set has cardinality d_p
+
+`DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-coset-fiber-finset-card` — `DirichletPadic.kubertRationalPrimeCoset_fiber_finset_card`
+
+For u in X_p(M), the filtered finite set of every original upper v satisfying v in X_p(N) and f(v)=u has cardinality d_p.
+
+**Hypotheses:** The degree is one, M and N are positive levels with M dividing N, and p is an actual prime divisor of M. Every unit group is the original finite product of actual truncated-Witt unit groups over the original finite Galois fields, with the actual prime-factor inclusion into N. Write f for the original Cartan reduction, f_* for the native group-ring label pushforward summing coefficients on each fiber, and i for the original full-fiber rational linear norm pulling coefficients back along f. The norm is not a unital ring homomorphism. X_p(L), its full rational group-ring sum s(X_p(L)), and ε_p(L)=1−|X_p(L)|⁻¹s(X_p(L)) are the existing actual source coset, full indicator sum and correction factor. The restricted local-kernel reduction F and its positive actual kernel cardinality d_p are already constructed and proved surjective. The complete source-coset fibers have cardinality d_p, so |X_p(N)|=d_p|X_p(M)|. This local multiplicity can differ from the full Cartan reduction kernel cardinality when a new prime enters the level. The corrected rational value is the existing original primitive-fiber sum multiplied by the product of correction factors for primes dividing the actual additive order of the point. It uses the product justified by source findingE27, not the erroneous printed sum. The level inclusion retains the same actual rational-torus point and hence the same additive order. The corrected rational-value norm law is established in this checkpoint for every positive degree-one divisor transition. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain separate open obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Use the actual original coset-fiber subtype cardinality proved in the preceding transition checkpoint.
+2. Convert native cardinality to finite-type cardinality and then to the filtered finite-set cardinality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-fiber-card`, `mathlib:Nat.card_eq_fintype_card`, `mathlib:Fintype.card_subtype`.
+
+**Tests:**
+
+- `SuggestedKubertFactorNormsTests.rationalPrimeCoset_fiber_finset_card_typed_api` (compatibility): For u in X_p(M), the filtered finite set of every original upper v satisfying v in X_p(N) and f(v)=u has cardinality d_p.
+
+**Acceptance:** For6 dividing18 at p=3 the local coset ratio is1/3. For6 dividing30 at p=2, f_*ε_p(30)=ε_p(6), while i(ε_p(6)) differs from ε_p(30) and includes the required factor i(1). The corrected value of the actual point1/6 at18 has identity coefficient1 and is the full norm of its level6 value. At level2 the corrected primitive value at1/2 is zero, and at level1 the empty product gives1. These cases reject dropping the nonunital factor, assuming every corrected value is nonzero, or replacing the product by the printed sum.
+
+**Source:** Published195–196, Proposition4.8 and its proof, including the local coset-sum norm formula on195 and the final cancellation on196. The corrected rational value is4.5 on194 with the E27 product correction, and the original full-fiber norm is2.7 on187. Proves the exact local coset-sum and correction-factor norm identities on the original degree-one carriers, then proves the full corrected rational-value compatibility of Proposition4.8 using the actual order-prime product and original primitive-fiber norm. Native label pushforward and the already proved full-norm projection formula account for the nonunital identity and all multiplicities.
+
+### Coset-sum pushforward coefficients count the actual local fibers
+
+`DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-coset-sum-push-coeff` — `DirichletPadic.kubertRationalPrimeCosetSum_push_coeff`
+
+The coefficient of f_*s(X_p(N)) at u is d_p if u belongs to X_p(M), and0 otherwise.
+
+**Hypotheses:** The degree is one, M and N are positive levels with M dividing N, and p is an actual prime divisor of M. Every unit group is the original finite product of actual truncated-Witt unit groups over the original finite Galois fields, with the actual prime-factor inclusion into N. Write f for the original Cartan reduction, f_* for the native group-ring label pushforward summing coefficients on each fiber, and i for the original full-fiber rational linear norm pulling coefficients back along f. The norm is not a unital ring homomorphism. X_p(L), its full rational group-ring sum s(X_p(L)), and ε_p(L)=1−|X_p(L)|⁻¹s(X_p(L)) are the existing actual source coset, full indicator sum and correction factor. The restricted local-kernel reduction F and its positive actual kernel cardinality d_p are already constructed and proved surjective. The complete source-coset fibers have cardinality d_p, so |X_p(N)|=d_p|X_p(M)|. This local multiplicity can differ from the full Cartan reduction kernel cardinality when a new prime enters the level. The corrected rational value is the existing original primitive-fiber sum multiplied by the product of correction factors for primes dividing the actual additive order of the point. It uses the product justified by source findingE27, not the erroneous printed sum. The level inclusion retains the same actual rational-torus point and hence the same additive order. The corrected rational-value norm law is established in this checkpoint for every positive degree-one divisor transition. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain separate open obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Write the original upper coset sum as the full finite sum over its actual members.
+2. Native label pushforward sends each unit basis vector to its actual reduced label.
+3. Evaluate a lower coefficient and identify the sum of indicators with the cardinality of the complete coset lift set.
+4. For u in the lower coset use its uniform cardinality d_p; outside the lower coset, reduction preservation proves that the lift set is empty.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-coset-sum-eq-sum`, `DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-coset-fiber-finset-card`, `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-reduction-mem`, `mathlib:MonoidAlgebra.mapDomainRingHom`, `mathlib:MonoidAlgebra.mapDomain_single`, `mathlib:Finset.prod_filter`, `mathlib:Finset.prod_const`.
+
+**Tests:**
+
+- `SuggestedKubertFactorNormsTests.rationalPrimeCosetSum_push_coeff_typed_api` (compatibility): The coefficient of f_*s(X_p(N)) at u is d_p if u belongs to X_p(M), and0 otherwise.
+
+**Acceptance:** For6 dividing18 at p=3 the local coset ratio is1/3. For6 dividing30 at p=2, f_*ε_p(30)=ε_p(6), while i(ε_p(6)) differs from ε_p(30) and includes the required factor i(1). The corrected value of the actual point1/6 at18 has identity coefficient1 and is the full norm of its level6 value. At level2 the corrected primitive value at1/2 is zero, and at level1 the empty product gives1. These cases reject dropping the nonunital factor, assuming every corrected value is nonzero, or replacing the product by the printed sum.
+
+**Source:** Published195–196, Proposition4.8 and its proof, including the local coset-sum norm formula on195 and the final cancellation on196. The corrected rational value is4.5 on194 with the E27 product correction, and the original full-fiber norm is2.7 on187. Proves the exact local coset-sum and correction-factor norm identities on the original degree-one carriers, then proves the full corrected rational-value compatibility of Proposition4.8 using the actual order-prime product and original primitive-fiber norm. Native label pushforward and the already proved full-norm projection formula account for the nonunital identity and all multiplicities.
+
+### The original coset-sum pushforward has local multiplicity
+
+`DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-coset-sum-push` — `DirichletPadic.kubertRationalPrimeCosetSum_push`
+
+The native label pushforward satisfies f_*s(X_p(N))=d_p·s(X_p(M)), with rational scalar multiplication by the actual restricted-kernel cardinality.
+
+**Hypotheses:** The degree is one, M and N are positive levels with M dividing N, and p is an actual prime divisor of M. Every unit group is the original finite product of actual truncated-Witt unit groups over the original finite Galois fields, with the actual prime-factor inclusion into N. Write f for the original Cartan reduction, f_* for the native group-ring label pushforward summing coefficients on each fiber, and i for the original full-fiber rational linear norm pulling coefficients back along f. The norm is not a unital ring homomorphism. X_p(L), its full rational group-ring sum s(X_p(L)), and ε_p(L)=1−|X_p(L)|⁻¹s(X_p(L)) are the existing actual source coset, full indicator sum and correction factor. The restricted local-kernel reduction F and its positive actual kernel cardinality d_p are already constructed and proved surjective. The complete source-coset fibers have cardinality d_p, so |X_p(N)|=d_p|X_p(M)|. This local multiplicity can differ from the full Cartan reduction kernel cardinality when a new prime enters the level. The corrected rational value is the existing original primitive-fiber sum multiplied by the product of correction factors for primes dividing the actual additive order of the point. It uses the product justified by source findingE27, not the erroneous printed sum. The level inclusion retains the same actual rational-torus point and hence the same additive order. The corrected rational-value norm law is established in this checkpoint for every positive degree-one divisor transition. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain separate open obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Compare every lower coefficient.
+2. Use the proved pushforward fiber count and the original coset indicator formula.
+3. Native scalar multiplication gives exactly d_p at each actual lower coset element and zero elsewhere.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-coset-sum-push-coeff`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-sum-coeff`, `mathlib:MonoidAlgebra.coeff_smul_apply`.
+
+**Tests:**
+
+- `SuggestedKubertFactorNormsTests.rationalPrimeCosetSum_push_typed_api` (compatibility): The native label pushforward satisfies f_*s(X_p(N))=d_p·s(X_p(M)), with rational scalar multiplication by the actual restricted-kernel cardinality.
+
+**Acceptance:** For6 dividing18 at p=3 the local coset ratio is1/3. For6 dividing30 at p=2, f_*ε_p(30)=ε_p(6), while i(ε_p(6)) differs from ε_p(30) and includes the required factor i(1). The corrected value of the actual point1/6 at18 has identity coefficient1 and is the full norm of its level6 value. At level2 the corrected primitive value at1/2 is zero, and at level1 the empty product gives1. These cases reject dropping the nonunital factor, assuming every corrected value is nonzero, or replacing the product by the printed sum.
+
+**Source:** Published195–196, Proposition4.8 and its proof, including the local coset-sum norm formula on195 and the final cancellation on196. The corrected rational value is4.5 on194 with the E27 product correction, and the original full-fiber norm is2.7 on187. Proves the exact local coset-sum and correction-factor norm identities on the original degree-one carriers, then proves the full corrected rational-value compatibility of Proposition4.8 using the actual order-prime product and original primitive-fiber norm. Native label pushforward and the already proved full-norm projection formula account for the nonunital identity and all multiplicities.
+
+### Normalization cancels the actual local fiber multiplicity
+
+`DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-coset-inverse-card-mul` — `DirichletPadic.kubertRationalPrimeCoset_inverse_card_mul`
+
+Over the rationals, |X_p(N)| inverse times d_p equals |X_p(M)| inverse.
+
+**Hypotheses:** The degree is one, M and N are positive levels with M dividing N, and p is an actual prime divisor of M. Every unit group is the original finite product of actual truncated-Witt unit groups over the original finite Galois fields, with the actual prime-factor inclusion into N. Write f for the original Cartan reduction, f_* for the native group-ring label pushforward summing coefficients on each fiber, and i for the original full-fiber rational linear norm pulling coefficients back along f. The norm is not a unital ring homomorphism. X_p(L), its full rational group-ring sum s(X_p(L)), and ε_p(L)=1−|X_p(L)|⁻¹s(X_p(L)) are the existing actual source coset, full indicator sum and correction factor. The restricted local-kernel reduction F and its positive actual kernel cardinality d_p are already constructed and proved surjective. The complete source-coset fibers have cardinality d_p, so |X_p(N)|=d_p|X_p(M)|. This local multiplicity can differ from the full Cartan reduction kernel cardinality when a new prime enters the level. The corrected rational value is the existing original primitive-fiber sum multiplied by the product of correction factors for primes dividing the actual additive order of the point. It uses the product justified by source findingE27, not the erroneous printed sum. The level inclusion retains the same actual rational-torus point and hence the same additive order. The corrected rational-value norm law is established in this checkpoint for every positive degree-one divisor transition. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain separate open obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Cast the proved actual source-coset cardinality product into the rationals.
+2. The actual restricted kernel has positive cardinality, so its rational cast is nonzero.
+3. Invert the product and cancel only this proved nonzero multiplicity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-card-mul`, `DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction-kernel-card-pos`.
+
+**Tests:**
+
+- `SuggestedKubertFactorNormsTests.rationalPrimeCoset_inverse_card_mul_typed_api` (compatibility): Over the rationals, |X_p(N)| inverse times d_p equals |X_p(M)| inverse.
+
+**Acceptance:** For6 dividing18 at p=3 the local coset ratio is1/3. For6 dividing30 at p=2, f_*ε_p(30)=ε_p(6), while i(ε_p(6)) differs from ε_p(30) and includes the required factor i(1). The corrected value of the actual point1/6 at18 has identity coefficient1 and is the full norm of its level6 value. At level2 the corrected primitive value at1/2 is zero, and at level1 the empty product gives1. These cases reject dropping the nonunital factor, assuming every corrected value is nonzero, or replacing the product by the printed sum.
+
+**Source:** Published195–196, Proposition4.8 and its proof, including the local coset-sum norm formula on195 and the final cancellation on196. The corrected rational value is4.5 on194 with the E27 product correction, and the original full-fiber norm is2.7 on187. Proves the exact local coset-sum and correction-factor norm identities on the original degree-one carriers, then proves the full corrected rational-value compatibility of Proposition4.8 using the actual order-prime product and original primitive-fiber norm. Native label pushforward and the already proved full-norm projection formula account for the nonunital identity and all multiplicities.
+
+### The genuine local correction factors push forward exactly
+
+`DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-factor-push` — `DirichletPadic.kubertRationalPrimeFactor_push`
+
+The native label pushforward satisfies f_*ε_p(N)=ε_p(M).
+
+**Hypotheses:** The degree is one, M and N are positive levels with M dividing N, and p is an actual prime divisor of M. Every unit group is the original finite product of actual truncated-Witt unit groups over the original finite Galois fields, with the actual prime-factor inclusion into N. Write f for the original Cartan reduction, f_* for the native group-ring label pushforward summing coefficients on each fiber, and i for the original full-fiber rational linear norm pulling coefficients back along f. The norm is not a unital ring homomorphism. X_p(L), its full rational group-ring sum s(X_p(L)), and ε_p(L)=1−|X_p(L)|⁻¹s(X_p(L)) are the existing actual source coset, full indicator sum and correction factor. The restricted local-kernel reduction F and its positive actual kernel cardinality d_p are already constructed and proved surjective. The complete source-coset fibers have cardinality d_p, so |X_p(N)|=d_p|X_p(M)|. This local multiplicity can differ from the full Cartan reduction kernel cardinality when a new prime enters the level. The corrected rational value is the existing original primitive-fiber sum multiplied by the product of correction factors for primes dividing the actual additive order of the point. It uses the product justified by source findingE27, not the erroneous printed sum. The level inclusion retains the same actual rational-torus point and hence the same additive order. The corrected rational-value norm law is established in this checkpoint for every positive degree-one divisor transition. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain separate open obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Expand the existing correction factor as1 minus the normalized full source-coset sum.
+2. Native label pushforward preserves identity and subtraction, and the native scalar compatibility preserves rational scaling.
+3. Use the proved coset-sum pushforward with multiplicity d_p.
+4. The actual cardinality product cancels the multiplicity in the normalization.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-factor`, `DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-coset-sum-push`, `DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-coset-inverse-card-mul`, `mathlib:MonoidAlgebra.mapDomainRingHom`, `mathlib:MonoidAlgebra.mapDomain_smul`.
+
+**Tests:**
+
+- `SuggestedKubertFactorNormsTests.new_prime_factor_pushforward_is_exact` (computation): The actual2-local correction factor at30 pushes to the factor at6, although the full reduction kernel has four elements.
+- `SuggestedKubertFactorNormsTests.rationalPrimeFactor_push_typed_api` (compatibility): The native label pushforward satisfies f_*ε_p(N)=ε_p(M).
+
+**Acceptance:** For6 dividing18 at p=3 the local coset ratio is1/3. For6 dividing30 at p=2, f_*ε_p(30)=ε_p(6), while i(ε_p(6)) differs from ε_p(30) and includes the required factor i(1). The corrected value of the actual point1/6 at18 has identity coefficient1 and is the full norm of its level6 value. At level2 the corrected primitive value at1/2 is zero, and at level1 the empty product gives1. These cases reject dropping the nonunital factor, assuming every corrected value is nonzero, or replacing the product by the printed sum.
+
+**Source:** Published195–196, Proposition4.8 and its proof, including the local coset-sum norm formula on195 and the final cancellation on196. The corrected rational value is4.5 on194 with the E27 product correction, and the original full-fiber norm is2.7 on187. Proves the exact local coset-sum and correction-factor norm identities on the original degree-one carriers, then proves the full corrected rational-value compatibility of Proposition4.8 using the actual order-prime product and original primitive-fiber norm. Native label pushforward and the already proved full-norm projection formula account for the nonunital identity and all multiplicities.
+
+### The local coset-sum norm uses the inverse restricted cardinality
+
+`DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-coset-sum-norm-inverse-card` — `DirichletPadic.kubertRationalPrimeCosetSum_norm_inverse_card`
+
+The original full norm satisfies i(s(X_p(M)))=d_p inverse times s(X_p(N))i(1). The upper factor i(1) is retained.
+
+**Hypotheses:** The degree is one, M and N are positive levels with M dividing N, and p is an actual prime divisor of M. Every unit group is the original finite product of actual truncated-Witt unit groups over the original finite Galois fields, with the actual prime-factor inclusion into N. Write f for the original Cartan reduction, f_* for the native group-ring label pushforward summing coefficients on each fiber, and i for the original full-fiber rational linear norm pulling coefficients back along f. The norm is not a unital ring homomorphism. X_p(L), its full rational group-ring sum s(X_p(L)), and ε_p(L)=1−|X_p(L)|⁻¹s(X_p(L)) are the existing actual source coset, full indicator sum and correction factor. The restricted local-kernel reduction F and its positive actual kernel cardinality d_p are already constructed and proved surjective. The complete source-coset fibers have cardinality d_p, so |X_p(N)|=d_p|X_p(M)|. This local multiplicity can differ from the full Cartan reduction kernel cardinality when a new prime enters the level. The corrected rational value is the existing original primitive-fiber sum multiplied by the product of correction factors for primes dividing the actual additive order of the point. It uses the product justified by source findingE27, not the erroneous printed sum. The level inclusion retains the same actual rational-torus point and hence the same additive order. The corrected rational-value norm law is established in this checkpoint for every positive degree-one divisor transition. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain separate open obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Apply the already proved original full-norm projection formula to the upper coset sum and lower identity.
+2. Replace its native pushforward by d_p times the lower coset sum.
+3. Use linearity of the original norm.
+4. Cancel the positive actual local kernel cardinality over the rationals.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-projection`, `DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-coset-sum-push`, `DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction-kernel-card-pos`.
+
+**Tests:**
+
+- `SuggestedKubertFactorNormsTests.rationalPrimeCosetSum_norm_inverse_card_typed_api` (compatibility): The original full norm satisfies i(s(X_p(M)))=d_p inverse times s(X_p(N))i(1). The upper factor i(1) is retained.
+
+**Acceptance:** For6 dividing18 at p=3 the local coset ratio is1/3. For6 dividing30 at p=2, f_*ε_p(30)=ε_p(6), while i(ε_p(6)) differs from ε_p(30) and includes the required factor i(1). The corrected value of the actual point1/6 at18 has identity coefficient1 and is the full norm of its level6 value. At level2 the corrected primitive value at1/2 is zero, and at level1 the empty product gives1. These cases reject dropping the nonunital factor, assuming every corrected value is nonzero, or replacing the product by the printed sum.
+
+**Source:** Published195–196, Proposition4.8 and its proof, including the local coset-sum norm formula on195 and the final cancellation on196. The corrected rational value is4.5 on194 with the E27 product correction, and the original full-fiber norm is2.7 on187. Proves the exact local coset-sum and correction-factor norm identities on the original degree-one carriers, then proves the full corrected rational-value compatibility of Proposition4.8 using the actual order-prime product and original primitive-fiber norm. Native label pushforward and the already proved full-norm projection formula account for the nonunital identity and all multiplicities.
+
+### Kubert’s exact local source-coset norm formula
+
+`DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-coset-sum-norm` — `DirichletPadic.kubertRationalPrimeCosetSum_norm`
+
+The original full norm satisfies i(s(X_p(M)))=(|X_p(M)|/|X_p(N)|)·s(X_p(N))i(1), with the precise source cardinality ratio.
+
+**Hypotheses:** The degree is one, M and N are positive levels with M dividing N, and p is an actual prime divisor of M. Every unit group is the original finite product of actual truncated-Witt unit groups over the original finite Galois fields, with the actual prime-factor inclusion into N. Write f for the original Cartan reduction, f_* for the native group-ring label pushforward summing coefficients on each fiber, and i for the original full-fiber rational linear norm pulling coefficients back along f. The norm is not a unital ring homomorphism. X_p(L), its full rational group-ring sum s(X_p(L)), and ε_p(L)=1−|X_p(L)|⁻¹s(X_p(L)) are the existing actual source coset, full indicator sum and correction factor. The restricted local-kernel reduction F and its positive actual kernel cardinality d_p are already constructed and proved surjective. The complete source-coset fibers have cardinality d_p, so |X_p(N)|=d_p|X_p(M)|. This local multiplicity can differ from the full Cartan reduction kernel cardinality when a new prime enters the level. The corrected rational value is the existing original primitive-fiber sum multiplied by the product of correction factors for primes dividing the actual additive order of the point. It uses the product justified by source findingE27, not the erroneous printed sum. The level inclusion retains the same actual rational-torus point and hence the same additive order. The corrected rational-value norm law is established in this checkpoint for every positive degree-one divisor transition. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain separate open obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Use the proved equality between the source local ratio and the inverse actual restricted-kernel cardinality.
+2. Apply the preceding original coset-sum norm identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-coset-sum-norm-inverse-card`, `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-card-ratio`.
+
+**Tests:**
+
+- `SuggestedKubertFactorNormsTests.repeated_prime_local_norm_uses_one_third` (computation): The local source-coset ratio for6 dividing18 at p=3 is one third; this is the coefficient multiplying the upper coset sum times the full norm of1.
+- `SuggestedKubertFactorNormsTests.rationalPrimeCosetSum_norm_typed_api` (compatibility): The original full norm satisfies i(s(X_p(M)))=(|X_p(M)|/|X_p(N)|)·s(X_p(N))i(1), with the precise source cardinality ratio.
+
+**Acceptance:** For6 dividing18 at p=3 the local coset ratio is1/3. For6 dividing30 at p=2, f_*ε_p(30)=ε_p(6), while i(ε_p(6)) differs from ε_p(30) and includes the required factor i(1). The corrected value of the actual point1/6 at18 has identity coefficient1 and is the full norm of its level6 value. At level2 the corrected primitive value at1/2 is zero, and at level1 the empty product gives1. These cases reject dropping the nonunital factor, assuming every corrected value is nonzero, or replacing the product by the printed sum.
+
+**Source:** Published195–196, Proposition4.8 and its proof, including the local coset-sum norm formula on195 and the final cancellation on196. The corrected rational value is4.5 on194 with the E27 product correction, and the original full-fiber norm is2.7 on187. Proves the exact local coset-sum and correction-factor norm identities on the original degree-one carriers, then proves the full corrected rational-value compatibility of Proposition4.8 using the actual order-prime product and original primitive-fiber norm. Native label pushforward and the already proved full-norm projection formula account for the nonunital identity and all multiplicities.
+
+### A local correction factor gains the full norm of one
+
+`DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-factor-norm` — `DirichletPadic.kubertRationalPrimeFactor_norm`
+
+The original full norm satisfies i(ε_p(M))=ε_p(N)i(1). In general the factor i(1) cannot be removed.
+
+**Hypotheses:** The degree is one, M and N are positive levels with M dividing N, and p is an actual prime divisor of M. Every unit group is the original finite product of actual truncated-Witt unit groups over the original finite Galois fields, with the actual prime-factor inclusion into N. Write f for the original Cartan reduction, f_* for the native group-ring label pushforward summing coefficients on each fiber, and i for the original full-fiber rational linear norm pulling coefficients back along f. The norm is not a unital ring homomorphism. X_p(L), its full rational group-ring sum s(X_p(L)), and ε_p(L)=1−|X_p(L)|⁻¹s(X_p(L)) are the existing actual source coset, full indicator sum and correction factor. The restricted local-kernel reduction F and its positive actual kernel cardinality d_p are already constructed and proved surjective. The complete source-coset fibers have cardinality d_p, so |X_p(N)|=d_p|X_p(M)|. This local multiplicity can differ from the full Cartan reduction kernel cardinality when a new prime enters the level. The corrected rational value is the existing original primitive-fiber sum multiplied by the product of correction factors for primes dividing the actual additive order of the point. It uses the product justified by source findingE27, not the erroneous printed sum. The level inclusion retains the same actual rational-torus point and hence the same additive order. The corrected rational-value norm law is established in this checkpoint for every positive degree-one divisor transition. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain separate open obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Apply the original full-norm projection formula to the actual upper correction factor and lower identity.
+2. Its native label pushforward is the exact lower correction factor.
+3. Use the lower group-ring identity law; retain the original upper full norm of1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-projection`, `DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-factor-push`.
+
+**Tests:**
+
+- `SuggestedKubertFactorNormsTests.cannot_drop_nonunital_norm_of_one` (non-example): The full norm of the2-local factor from6 to30 is not the upper correction factor alone; the factor i(1) in the theorem is necessary.
+- `SuggestedKubertFactorNormsTests.rationalPrimeFactor_norm_typed_api` (compatibility): The original full norm satisfies i(ε_p(M))=ε_p(N)i(1). In general the factor i(1) cannot be removed.
+
+**Acceptance:** For6 dividing18 at p=3 the local coset ratio is1/3. For6 dividing30 at p=2, f_*ε_p(30)=ε_p(6), while i(ε_p(6)) differs from ε_p(30) and includes the required factor i(1). The corrected value of the actual point1/6 at18 has identity coefficient1 and is the full norm of its level6 value. At level2 the corrected primitive value at1/2 is zero, and at level1 the empty product gives1. These cases reject dropping the nonunital factor, assuming every corrected value is nonzero, or replacing the product by the printed sum.
+
+**Source:** Published195–196, Proposition4.8 and its proof, including the local coset-sum norm formula on195 and the final cancellation on196. The corrected rational value is4.5 on194 with the E27 product correction, and the original full-fiber norm is2.7 on187. Proves the exact local coset-sum and correction-factor norm identities on the original degree-one carriers, then proves the full corrected rational-value compatibility of Proposition4.8 using the actual order-prime product and original primitive-fiber norm. Native label pushforward and the already proved full-norm projection formula account for the nonunital identity and all multiplicities.
+
+### The original norm intertwines actual correction-factor multiplication
+
+`DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-factor-norm-mul` — `DirichletPadic.kubertRationalPrimeFactor_norm_mul`
+
+For every original lower rational group-ring element x, i(xε_p(M))=i(x)ε_p(N).
+
+**Hypotheses:** The degree is one, M and N are positive levels with M dividing N, and p is an actual prime divisor of M. Every unit group is the original finite product of actual truncated-Witt unit groups over the original finite Galois fields, with the actual prime-factor inclusion into N. Write f for the original Cartan reduction, f_* for the native group-ring label pushforward summing coefficients on each fiber, and i for the original full-fiber rational linear norm pulling coefficients back along f. The norm is not a unital ring homomorphism. X_p(L), its full rational group-ring sum s(X_p(L)), and ε_p(L)=1−|X_p(L)|⁻¹s(X_p(L)) are the existing actual source coset, full indicator sum and correction factor. The restricted local-kernel reduction F and its positive actual kernel cardinality d_p are already constructed and proved surjective. The complete source-coset fibers have cardinality d_p, so |X_p(N)|=d_p|X_p(M)|. This local multiplicity can differ from the full Cartan reduction kernel cardinality when a new prime enters the level. The corrected rational value is the existing original primitive-fiber sum multiplied by the product of correction factors for primes dividing the actual additive order of the point. It uses the product justified by source findingE27, not the erroneous printed sum. The level inclusion retains the same actual rational-torus point and hence the same additive order. The corrected rational-value norm law is established in this checkpoint for every positive degree-one divisor transition. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain separate open obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Apply the original projection formula to the actual upper correction factor and lower x.
+2. Use its exact pushforward identity.
+3. The actual Cartan group and rational coefficients are commutative, so commute the two factors on each side.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-projection`, `DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-factor-push`.
+
+**Tests:**
+
+- `SuggestedKubertFactorNormsTests.rationalPrimeFactor_norm_mul_typed_api` (compatibility): For every original lower rational group-ring element x, i(xε_p(M))=i(x)ε_p(N).
+
+**Acceptance:** For6 dividing18 at p=3 the local coset ratio is1/3. For6 dividing30 at p=2, f_*ε_p(30)=ε_p(6), while i(ε_p(6)) differs from ε_p(30) and includes the required factor i(1). The corrected value of the actual point1/6 at18 has identity coefficient1 and is the full norm of its level6 value. At level2 the corrected primitive value at1/2 is zero, and at level1 the empty product gives1. These cases reject dropping the nonunital factor, assuming every corrected value is nonzero, or replacing the product by the printed sum.
+
+**Source:** Published195–196, Proposition4.8 and its proof, including the local coset-sum norm formula on195 and the final cancellation on196. The corrected rational value is4.5 on194 with the E27 product correction, and the original full-fiber norm is2.7 on187. Proves the exact local coset-sum and correction-factor norm identities on the original degree-one carriers, then proves the full corrected rational-value compatibility of Proposition4.8 using the actual order-prime product and original primitive-fiber norm. Native label pushforward and the already proved full-norm projection formula account for the nonunital identity and all multiplicities.
+
+### Finite products of genuine local factors push forward exactly
+
+`DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-factor-prod-push` — `DirichletPadic.kubertRationalPrimeFactor_prod_push`
+
+For any finite set s of actual primes dividing M, f_*(product over p in s of ε_p(N)) equals the product over the same primes of ε_p(M), with the explicit original prime inclusion into N.
+
+**Hypotheses:** The degree is one, M and N are positive levels with M dividing N, and p is an actual prime divisor of M. Every unit group is the original finite product of actual truncated-Witt unit groups over the original finite Galois fields, with the actual prime-factor inclusion into N. Write f for the original Cartan reduction, f_* for the native group-ring label pushforward summing coefficients on each fiber, and i for the original full-fiber rational linear norm pulling coefficients back along f. The norm is not a unital ring homomorphism. X_p(L), its full rational group-ring sum s(X_p(L)), and ε_p(L)=1−|X_p(L)|⁻¹s(X_p(L)) are the existing actual source coset, full indicator sum and correction factor. The restricted local-kernel reduction F and its positive actual kernel cardinality d_p are already constructed and proved surjective. The complete source-coset fibers have cardinality d_p, so |X_p(N)|=d_p|X_p(M)|. This local multiplicity can differ from the full Cartan reduction kernel cardinality when a new prime enters the level. The corrected rational value is the existing original primitive-fiber sum multiplied by the product of correction factors for primes dividing the actual additive order of the point. It uses the product justified by source findingE27, not the erroneous printed sum. The level inclusion retains the same actual rational-torus point and hence the same additive order. The corrected rational-value norm law is established in this checkpoint for every positive degree-one divisor transition. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain separate open obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Use multiplicativity of the existing native label-pushforward ring homomorphism on finite products.
+2. Apply the exact correction-factor pushforward identity at every actual prime in the chosen finite set.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-factor-push`, `mathlib:MonoidAlgebra.mapDomainRingHom`, `mathlib:Finset.prod_congr`.
+
+**Tests:**
+
+- `SuggestedKubertFactorNormsTests.rationalPrimeFactor_prod_push_typed_api` (compatibility): For any finite set s of actual primes dividing M, f_*(product over p in s of ε_p(N)) equals the product over the same primes of ε_p(M), with the explicit original prime inclusion into N.
+
+**Acceptance:** For6 dividing18 at p=3 the local coset ratio is1/3. For6 dividing30 at p=2, f_*ε_p(30)=ε_p(6), while i(ε_p(6)) differs from ε_p(30) and includes the required factor i(1). The corrected value of the actual point1/6 at18 has identity coefficient1 and is the full norm of its level6 value. At level2 the corrected primitive value at1/2 is zero, and at level1 the empty product gives1. These cases reject dropping the nonunital factor, assuming every corrected value is nonzero, or replacing the product by the printed sum.
+
+**Source:** Published195–196, Proposition4.8 and its proof, including the local coset-sum norm formula on195 and the final cancellation on196. The corrected rational value is4.5 on194 with the E27 product correction, and the original full-fiber norm is2.7 on187. Proves the exact local coset-sum and correction-factor norm identities on the original degree-one carriers, then proves the full corrected rational-value compatibility of Proposition4.8 using the actual order-prime product and original primitive-fiber norm. Native label pushforward and the already proved full-norm projection formula account for the nonunital identity and all multiplicities.
+
+### The full norm intertwines the actual finite correction product
+
+`DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-factor-prod-norm-mul` — `DirichletPadic.kubertRationalPrimeFactor_prod_norm_mul`
+
+For every original lower x and finite set s of primes dividing M, i(x times the lower correction product)=i(x) times the corresponding upper correction product.
+
+**Hypotheses:** The degree is one, M and N are positive levels with M dividing N, and p is an actual prime divisor of M. Every unit group is the original finite product of actual truncated-Witt unit groups over the original finite Galois fields, with the actual prime-factor inclusion into N. Write f for the original Cartan reduction, f_* for the native group-ring label pushforward summing coefficients on each fiber, and i for the original full-fiber rational linear norm pulling coefficients back along f. The norm is not a unital ring homomorphism. X_p(L), its full rational group-ring sum s(X_p(L)), and ε_p(L)=1−|X_p(L)|⁻¹s(X_p(L)) are the existing actual source coset, full indicator sum and correction factor. The restricted local-kernel reduction F and its positive actual kernel cardinality d_p are already constructed and proved surjective. The complete source-coset fibers have cardinality d_p, so |X_p(N)|=d_p|X_p(M)|. This local multiplicity can differ from the full Cartan reduction kernel cardinality when a new prime enters the level. The corrected rational value is the existing original primitive-fiber sum multiplied by the product of correction factors for primes dividing the actual additive order of the point. It uses the product justified by source findingE27, not the erroneous printed sum. The level inclusion retains the same actual rational-torus point and hence the same additive order. The corrected rational-value norm law is established in this checkpoint for every positive degree-one divisor transition. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain separate open obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Apply the original full-norm projection formula to the actual upper finite correction product and lower x.
+2. Use the exact product pushforward identity.
+3. Commute the original rational Cartan group-ring factors.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-projection`, `DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-factor-prod-push`.
+
+**Tests:**
+
+- `SuggestedKubertFactorNormsTests.empty_local_product_keeps_full_norm` (degenerate): With no chosen local factors the operator formula retains the original full norm of1, which differs from the upper identity for6 dividing30.
+- `SuggestedKubertFactorNormsTests.rationalPrimeFactor_prod_norm_mul_typed_api` (compatibility): For every original lower x and finite set s of primes dividing M, i(x times the lower correction product)=i(x) times the corresponding upper correction product.
+
+**Acceptance:** For6 dividing18 at p=3 the local coset ratio is1/3. For6 dividing30 at p=2, f_*ε_p(30)=ε_p(6), while i(ε_p(6)) differs from ε_p(30) and includes the required factor i(1). The corrected value of the actual point1/6 at18 has identity coefficient1 and is the full norm of its level6 value. At level2 the corrected primitive value at1/2 is zero, and at level1 the empty product gives1. These cases reject dropping the nonunital factor, assuming every corrected value is nonzero, or replacing the product by the printed sum.
+
+**Source:** Published195–196, Proposition4.8 and its proof, including the local coset-sum norm formula on195 and the final cancellation on196. The corrected rational value is4.5 on194 with the E27 product correction, and the original full-fiber norm is2.7 on187. Proves the exact local coset-sum and correction-factor norm identities on the original degree-one carriers, then proves the full corrected rational-value compatibility of Proposition4.8 using the actual order-prime product and original primitive-fiber norm. Native label pushforward and the already proved full-norm projection formula account for the nonunital identity and all multiplicities.
+
+### The actual order-prime product is independent of extra level primes
+
+`DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-factor-order-product` — `DirichletPadic.kubertRationalPrimeFactor_order_product`
+
+If a natural number d divides M, the product over primes of N of ε_p(N) when p divides d equals the product over primes of M with the same condition, mapped into the actual prime factors of N. All omitted factors are1.
+
+**Hypotheses:** The degree is one, M and N are positive levels with M dividing N, and p is an actual prime divisor of M. Every unit group is the original finite product of actual truncated-Witt unit groups over the original finite Galois fields, with the actual prime-factor inclusion into N. Write f for the original Cartan reduction, f_* for the native group-ring label pushforward summing coefficients on each fiber, and i for the original full-fiber rational linear norm pulling coefficients back along f. The norm is not a unital ring homomorphism. X_p(L), its full rational group-ring sum s(X_p(L)), and ε_p(L)=1−|X_p(L)|⁻¹s(X_p(L)) are the existing actual source coset, full indicator sum and correction factor. The restricted local-kernel reduction F and its positive actual kernel cardinality d_p are already constructed and proved surjective. The complete source-coset fibers have cardinality d_p, so |X_p(N)|=d_p|X_p(M)|. This local multiplicity can differ from the full Cartan reduction kernel cardinality when a new prime enters the level. The corrected rational value is the existing original primitive-fiber sum multiplied by the product of correction factors for primes dividing the actual additive order of the point. It uses the product justified by source findingE27, not the erroneous printed sum. The level inclusion retains the same actual rational-torus point and hence the same additive order. The corrected rational-value norm law is established in this checkpoint for every positive degree-one divisor transition. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain separate open obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Rewrite each conditional product as a finite product filtered by divisibility into d.
+2. Use the explicit original prime-factor inclusion M to N for the forward indexing map.
+3. It is injective by the underlying prime values.
+4. For reverse indexing, a prime dividing d also divides M because d divides M, so it gives an actual lower prime-factor element.
+5. Apply the native finite-product reindexing theorem; the actual factors are identical under this explicit prime inclusion.
+
+**Prerequisites:** `mathlib:Finset.prod_filter`, `mathlib:Finset.prod_bij`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-factor`.
+
+**Tests:**
+
+- `SuggestedKubertFactorNormsTests.order_one_has_empty_correction_product` (degenerate): At actual order1 every prime-factor correction is omitted and the resulting product at30 is1.
+- `SuggestedKubertFactorNormsTests.rationalPrimeFactor_order_product_typed_api` (compatibility): If a natural number d divides M, the product over primes of N of ε_p(N) when p divides d equals the product over primes of M with the same condition, mapped into the actual prime factors of N. All omitted factors are1.
+
+**Acceptance:** For6 dividing18 at p=3 the local coset ratio is1/3. For6 dividing30 at p=2, f_*ε_p(30)=ε_p(6), while i(ε_p(6)) differs from ε_p(30) and includes the required factor i(1). The corrected value of the actual point1/6 at18 has identity coefficient1 and is the full norm of its level6 value. At level2 the corrected primitive value at1/2 is zero, and at level1 the empty product gives1. These cases reject dropping the nonunital factor, assuming every corrected value is nonzero, or replacing the product by the printed sum.
+
+**Source:** Published195–196, Proposition4.8 and its proof, including the local coset-sum norm formula on195 and the final cancellation on196. The corrected rational value is4.5 on194 with the E27 product correction, and the original full-fiber norm is2.7 on187. Proves the exact local coset-sum and correction-factor norm identities on the original degree-one carriers, then proves the full corrected rational-value compatibility of Proposition4.8 using the actual order-prime product and original primitive-fiber norm. Native label pushforward and the already proved full-norm projection formula account for the nonunital identity and all multiplicities.
+
+### The full actual order correction product pushes to the lower one
+
+`DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-factor-order-product-push` — `DirichletPadic.kubertRationalPrimeFactor_order_product_push`
+
+If d divides M, the native pushforward of the correction product over all primes of N dividing d equals the original correction product over all primes of M dividing d.
+
+**Hypotheses:** The degree is one, M and N are positive levels with M dividing N, and p is an actual prime divisor of M. Every unit group is the original finite product of actual truncated-Witt unit groups over the original finite Galois fields, with the actual prime-factor inclusion into N. Write f for the original Cartan reduction, f_* for the native group-ring label pushforward summing coefficients on each fiber, and i for the original full-fiber rational linear norm pulling coefficients back along f. The norm is not a unital ring homomorphism. X_p(L), its full rational group-ring sum s(X_p(L)), and ε_p(L)=1−|X_p(L)|⁻¹s(X_p(L)) are the existing actual source coset, full indicator sum and correction factor. The restricted local-kernel reduction F and its positive actual kernel cardinality d_p are already constructed and proved surjective. The complete source-coset fibers have cardinality d_p, so |X_p(N)|=d_p|X_p(M)|. This local multiplicity can differ from the full Cartan reduction kernel cardinality when a new prime enters the level. The corrected rational value is the existing original primitive-fiber sum multiplied by the product of correction factors for primes dividing the actual additive order of the point. It uses the product justified by source findingE27, not the erroneous printed sum. The level inclusion retains the same actual rational-torus point and hence the same additive order. The corrected rational-value norm law is established in this checkpoint for every positive degree-one divisor transition. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain separate open obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Use the proved exact reindexing to the actual lower prime factors.
+2. Push through the native finite product.
+3. When a lower prime divides d, use the exact local correction-factor pushforward; otherwise use preservation of1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-factor-order-product`, `DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-factor-push`, `mathlib:MonoidAlgebra.mapDomainRingHom`, `mathlib:Finset.prod_congr`.
+
+**Tests:**
+
+- `SuggestedKubertFactorNormsTests.rationalPrimeFactor_order_product_push_typed_api` (compatibility): If d divides M, the native pushforward of the correction product over all primes of N dividing d equals the original correction product over all primes of M dividing d.
+
+**Acceptance:** For6 dividing18 at p=3 the local coset ratio is1/3. For6 dividing30 at p=2, f_*ε_p(30)=ε_p(6), while i(ε_p(6)) differs from ε_p(30) and includes the required factor i(1). The corrected value of the actual point1/6 at18 has identity coefficient1 and is the full norm of its level6 value. At level2 the corrected primitive value at1/2 is zero, and at level1 the empty product gives1. These cases reject dropping the nonunital factor, assuming every corrected value is nonzero, or replacing the product by the printed sum.
+
+**Source:** Published195–196, Proposition4.8 and its proof, including the local coset-sum norm formula on195 and the final cancellation on196. The corrected rational value is4.5 on194 with the E27 product correction, and the original full-fiber norm is2.7 on187. Proves the exact local coset-sum and correction-factor norm identities on the original degree-one carriers, then proves the full corrected rational-value compatibility of Proposition4.8 using the actual order-prime product and original primitive-fiber norm. Native label pushforward and the already proved full-norm projection formula account for the nonunital identity and all multiplicities.
+
+### The original corrected rational values commute with full norms
+
+`DirichletPadicLFunctions:L3/kubert-factor-norm-rational-cartan-value-norm` — `DirichletPadic.kubertRationalCartanValue_norm`
+
+For every actual point a killed by M, the original full norm sends r_M(a) to r_N(a), where the upper point is the native inclusion of the same rational-torus point into the level-N kernel. This proves the degree-one corrected rational-value compatibility in source Proposition4.8.
+
+**Hypotheses:** The degree is one, M and N are positive levels with M dividing N, and p is an actual prime divisor of M. Every unit group is the original finite product of actual truncated-Witt unit groups over the original finite Galois fields, with the actual prime-factor inclusion into N. Write f for the original Cartan reduction, f_* for the native group-ring label pushforward summing coefficients on each fiber, and i for the original full-fiber rational linear norm pulling coefficients back along f. The norm is not a unital ring homomorphism. X_p(L), its full rational group-ring sum s(X_p(L)), and ε_p(L)=1−|X_p(L)|⁻¹s(X_p(L)) are the existing actual source coset, full indicator sum and correction factor. The restricted local-kernel reduction F and its positive actual kernel cardinality d_p are already constructed and proved surjective. The complete source-coset fibers have cardinality d_p, so |X_p(N)|=d_p|X_p(M)|. This local multiplicity can differ from the full Cartan reduction kernel cardinality when a new prime enters the level. The corrected rational value is the existing original primitive-fiber sum multiplied by the product of correction factors for primes dividing the actual additive order of the point. It uses the product justified by source findingE27, not the erroneous printed sum. The level inclusion retains the same actual rational-torus point and hence the same additive order. The corrected rational-value norm law is established in this checkpoint for every positive degree-one divisor transition. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain separate open obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. The actual additive order of a divides M by the existing level-order theorem.
+2. Use the upper correction product indexed by the primes dividing that actual order.
+3. Apply the original full-norm projection formula to that upper product and the original lower primitive-fiber sum.
+4. Its native pushforward is the exact lower correction product, while the full norm of the primitive-fiber sum is the original upper primitive-fiber sum.
+5. The level inclusion preserves the actual point value and its additive order. Expand the existing corrected-value definitions and commute the actual rational group-ring factors.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-cartan-value`, `DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd`, `DirichletPadicLFunctions:L3/kubert-factor-norm-rational-prime-factor-order-product-push`, `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-projection`, `DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-norm`, `DirichletPadicLFunctions:L3/kubert-generator-product-level-mono`.
+
+**Tests:**
+
+- `SuggestedKubertFactorNormsTests.actual_one_sixth_at_eighteen_has_identity_coefficient_one` (computation): The corrected value of the actual circle point1/6 at level18 has identity coefficient1, matching its full norm from level6.
+- `SuggestedKubertFactorNormsTests.corrected_value_can_vanish` (non-example): The corrected value of the primitive point1/2 at level2 is zero, despite its nonzero raw primitive-fiber sum. Norm compatibility does not imply nonvanishing of every corrected value.
+- `SuggestedKubertFactorNormsTests.level_one_retains_empty_product_identity` (degenerate): The corrected value at the zero point of level1 is the identity, retaining the corrected empty product convention.
+- `SuggestedKubertFactorNormsTests.rationalCartanValue_norm_typed_api` (compatibility): For every actual point a killed by M, the original full norm sends r_M(a) to r_N(a), where the upper point is the native inclusion of the same rational-torus point into the level-N kernel. This proves the degree-one corrected rational-value compatibility in source Proposition4.8.
+
+**Acceptance:** For6 dividing18 at p=3 the local coset ratio is1/3. For6 dividing30 at p=2, f_*ε_p(30)=ε_p(6), while i(ε_p(6)) differs from ε_p(30) and includes the required factor i(1). The corrected value of the actual point1/6 at18 has identity coefficient1 and is the full norm of its level6 value. At level2 the corrected primitive value at1/2 is zero, and at level1 the empty product gives1. These cases reject dropping the nonunital factor, assuming every corrected value is nonzero, or replacing the product by the printed sum.
+
+**Source:** Published195–196, Proposition4.8 and its proof, including the local coset-sum norm formula on195 and the final cancellation on196. The corrected rational value is4.5 on194 with the E27 product correction, and the original full-fiber norm is2.7 on187. Proves the exact local coset-sum and correction-factor norm identities on the original degree-one carriers, then proves the full corrected rational-value compatibility of Proposition4.8 using the actual order-prime product and original primitive-fiber norm. Native label pushforward and the already proved full-norm projection formula account for the nonunital identity and all multiplicities.
+
+**Remaining:** The actual degree-one corrected rational values now commute with every original full-fiber Cartan norm, proving the source4.8 compatibility with the E27-corrected product. The local source-coset norm ratio, correction-factor pushforward and nonunital norm identities, finite products and actual order-prime reindexing are complete. Next prove the general distribution relation4.10, then identify the corrected rational-value image with the product of the already constructed local integral lattices in4.13. Full rational image, source freeness, lower rank and internal-to-global injection still require these separate arguments; general-degree primitive coordinates and local-field comparisons remain open.
+
+### Actual local-factor norms and corrected rational-value compatibility validation
+
+All 2127 predecessor nodes, 1271 baseline records, 27 findings, requests and sourceVersions remain whole. This checkpoint adds 15 nodes, 15 named suggested declarations and 23 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2404 reachable nodes, 9702 edges and 1438 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route ends in the original actual Cartan norms, local coset fibers, correction factors and primitive-fiber sums, or checked native group-ring and finite-product interfaces. No local norm, prime-index comparison, distribution, source-freeness or lower-rank package is assumed.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3915 pinned Mathlib modules and 32 pinned Tau Ceti modules. Only 31 Tau module artifacts are available and hash-verified. The 152 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5797 verbatim and adds fifteen complete lemmas. Totals are183 definitions and1,434 lemmas without placeholders. The public append has15 named declarations and23 typed examples, all new mathematical bodies placeholders. No new native import or library build is added. The separate probe compiles against 3282 pinned Mathlib modules and 10 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native periodicity, low-degree Tate and Teichmuller artifacts, with ten Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact rational controls through36 levels verify134 local transitions,856 coefficients each for local coset and correction-factor pushforward,1,369 coefficients each for local coset norms, factor norms and factor multiplication operators, and1,098 actual order-product and corrected-value transitions with14,254 corrected-value norm coefficients. Explicit cases retain i(1), vanishing corrected primitive values and the level-one empty product. Exact rational group-ring convolution on the actual degree-one residue-unit model through level36 checks all common-prime coset and factor pushforwards, the nonunital full norms and correction-factor multiplication operators. Every point at every divisor level is checked for the actual order-prime product and corrected-value norm. Explicit controls reject dropping i(1), distinguish zero corrected values from nonzero primitive fibers, and retain the empty prime product at level1. These controls supplement the complete native proofs and are not formal certification. The largest observed discrepancy is 0.
+
+Fresh capture after the actual merge of5797 found all79 canonical inputs unchanged from the predecessor. The whole issue, queue, original winning claim and blocked/unclaimed review390 were reread. All27 source findings and eight source versions remain whole; no external review conclusion is adopted.
+
+The separate partial signature file also compiled with zero errors and 6,264 expected placeholder warnings across 3,914 pinned source modules. It includes all 15 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: eb45266f58496d88a60146e332320f77005703e91a1675bce5fede6b65e1de97.

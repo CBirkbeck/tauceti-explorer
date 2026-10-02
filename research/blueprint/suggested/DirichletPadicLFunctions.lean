@@ -30780,3 +30780,224 @@ example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
       (Nat.card (kubertRationalPrimeKernelReduction M N hMN p).ker : ℚ)⁻¹ := by sorry
 
 end DirichletPadic.SuggestedKubertFactorTransitionsTests
+
+/- Actual local-factor and corrected rational-value norm compatibility. -/
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertRationalPrimeCosetSum_eq_sum (N : ℕ+) (p : (N : ℕ).primeFactors)
+    [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)] :
+    kubertRationalPrimeCosetSum N p=
+      ∑ v ∈ Finset.univ.filter (fun v : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) => v ∈ kubertRationalPrimeCoset N p),
+        MonoidAlgebra.single v (1 : ℚ) := by sorry
+
+lemma kubertRationalPrimeCoset_fiber_finset_card (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    (u : (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hu : u ∈ kubertRationalPrimeCoset M p) :
+    (Finset.univ.filter (fun v : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) => v ∈ kubertRationalPrimeCoset N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors) ∧ kubertCartanProductReduction 1 M N hMN v=u)).card=
+      Nat.card (kubertRationalPrimeKernelReduction M N hMN p).ker := by sorry
+
+lemma kubertRationalPrimeCosetSum_push_coeff (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) (u : (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (MonoidAlgebra.mapDomainRingHom ℚ (kubertCartanProductReduction 1 M N hMN) (kubertRationalPrimeCosetSum N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors))).coeff u=
+      if u ∈ kubertRationalPrimeCoset M p then (Nat.card (kubertRationalPrimeKernelReduction M N hMN p).ker : ℚ) else 0 := by sorry
+
+lemma kubertRationalPrimeCosetSum_push (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) :
+    MonoidAlgebra.mapDomainRingHom ℚ (kubertCartanProductReduction 1 M N hMN) (kubertRationalPrimeCosetSum N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors))=
+      (Nat.card (kubertRationalPrimeKernelReduction M N hMN p).ker : ℚ) • kubertRationalPrimeCosetSum M p := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertRationalPrimeCoset_inverse_card_mul (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) :
+    (Nat.card (kubertRationalPrimeCoset N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors)) : ℚ)⁻¹ * (Nat.card (kubertRationalPrimeKernelReduction M N hMN p).ker : ℚ)=(Nat.card (kubertRationalPrimeCoset M p) : ℚ)⁻¹ := by sorry
+
+lemma kubertRationalPrimeFactor_push (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) :
+    MonoidAlgebra.mapDomainRingHom ℚ (kubertCartanProductReduction 1 M N hMN) (kubertRationalPrimeFactor N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors))=kubertRationalPrimeFactor M p := by sorry
+
+lemma kubertRationalPrimeCosetSum_norm_inverse_card (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) :
+    kubertCartanProductNorm 1 ℚ M N hMN (kubertRationalPrimeCosetSum M p)=(Nat.card (kubertRationalPrimeKernelReduction M N hMN p).ker : ℚ)⁻¹ • ((kubertRationalPrimeCosetSum N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors)) * kubertCartanProductNorm 1 ℚ M N hMN 1) := by sorry
+
+lemma kubertRationalPrimeCosetSum_norm (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) :
+    kubertCartanProductNorm 1 ℚ M N hMN (kubertRationalPrimeCosetSum M p)=
+      ((Nat.card (kubertRationalPrimeCoset M p) : ℚ)/Nat.card (kubertRationalPrimeCoset N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors))) •
+        ((kubertRationalPrimeCosetSum N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors)) * kubertCartanProductNorm 1 ℚ M N hMN 1) := by sorry
+
+lemma kubertRationalPrimeFactor_norm (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) :
+    kubertCartanProductNorm 1 ℚ M N hMN (kubertRationalPrimeFactor M p)=(kubertRationalPrimeFactor N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors)) * kubertCartanProductNorm 1 ℚ M N hMN 1 := by sorry
+
+lemma kubertRationalPrimeFactor_norm_mul (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) (x : MonoidAlgebra ℚ (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanProductNorm 1 ℚ M N hMN (x * kubertRationalPrimeFactor M p)=(kubertCartanProductNorm 1 ℚ M N hMN x) * kubertRationalPrimeFactor N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertRationalPrimeFactor_prod_push (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (s : Finset (M : ℕ).primeFactors) :
+    MonoidAlgebra.mapDomainRingHom ℚ (kubertCartanProductReduction 1 M N hMN) (∏ p ∈ s,kubertRationalPrimeFactor N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors))=
+      ∏ p ∈ s,kubertRationalPrimeFactor M p := by sorry
+
+lemma kubertRationalPrimeFactor_prod_norm_mul (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (s : Finset (M : ℕ).primeFactors) (x : MonoidAlgebra ℚ (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanProductNorm 1 ℚ M N hMN (x * ∏ p ∈ s,kubertRationalPrimeFactor M p)=(kubertCartanProductNorm 1 ℚ M N hMN x) * ∏ p ∈ s,kubertRationalPrimeFactor N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors) := by sorry
+
+lemma kubertRationalPrimeFactor_order_product (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (d : ℕ) (hd : d ∣ (M : ℕ)) :
+    (∏ p : (N : ℕ).primeFactors,if p.val ∣ d then kubertRationalPrimeFactor N p else 1)=
+      ∏ p : (M : ℕ).primeFactors,if p.val ∣ d then kubertRationalPrimeFactor N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors) else 1 := by sorry
+
+lemma kubertRationalPrimeFactor_order_product_push (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (d : ℕ) (hd : d ∣ (M : ℕ)) :
+    MonoidAlgebra.mapDomainRingHom ℚ (kubertCartanProductReduction 1 M N hMN)
+      (∏ p : (N : ℕ).primeFactors,if p.val ∣ d then kubertRationalPrimeFactor N p else 1)=
+      ∏ p : (M : ℕ).primeFactors,if p.val ∣ d then kubertRationalPrimeFactor M p else 1 := by sorry
+
+lemma kubertRationalCartanValue_norm (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (M : ℕ)).ker) :
+    kubertCartanProductNorm 1 ℚ M N hMN (kubertRationalCartanValue M a)=
+      kubertRationalCartanValue N (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) a) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertFactorNormsTests
+open scoped Classical BigOperators
+noncomputable section
+-- repeated_prime_local_norm_uses_one_third
+example : (Nat.card (kubertRationalPrimeCoset 6 ⟨3,by sorry⟩) : ℚ)/Nat.card (kubertRationalPrimeCoset 18 ⟨3,by sorry⟩)=1/3 := by sorry
+-- new_prime_factor_pushforward_is_exact
+example : MonoidAlgebra.mapDomainRingHom ℚ (kubertCartanProductReduction 1 6 30 (by sorry)) (kubertRationalPrimeFactor 30 ⟨2,by sorry⟩)=kubertRationalPrimeFactor 6 ⟨2,by sorry⟩ := by sorry
+-- cannot_drop_nonunital_norm_of_one
+example : kubertCartanProductNorm 1 ℚ 6 30 (by sorry) (kubertRationalPrimeFactor 6 ⟨2,by sorry⟩)≠kubertRationalPrimeFactor 30 ⟨2,by sorry⟩ := by sorry
+-- empty_local_product_keeps_full_norm
+example : kubertCartanProductNorm 1 ℚ 6 30 (by sorry) 1≠1 := by sorry
+-- order_one_has_empty_correction_product
+example : (∏ p : (30 : ℕ).primeFactors,if p.val ∣ 1 then kubertRationalPrimeFactor 30 p else 1)=1 := by sorry
+-- actual_one_sixth_at_eighteen_has_identity_coefficient_one
+example : (kubertRationalCartanValue 18 ⟨(fun _ : Fin 1 => ((1/6 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩).coeff 1=1 := by sorry
+-- corrected_value_can_vanish
+example : kubertRationalCartanValue 2 ⟨(fun _ : Fin 1 => ((1/2 : ℚ) : AddCircle (1 : ℚ))),by sorry⟩=0 := by sorry
+-- level_one_retains_empty_product_identity
+example : kubertRationalCartanValue 1 0=1 := by sorry
+end
+end DirichletPadic.SuggestedKubertFactorNormsTests
+namespace DirichletPadic.SuggestedKubertFactorNormsTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+
+-- rationalPrimeCosetSum_eq_sum_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors)
+    [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)] :
+    kubertRationalPrimeCosetSum N p=
+      ∑ v ∈ Finset.univ.filter (fun v : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) => v ∈ kubertRationalPrimeCoset N p),
+        MonoidAlgebra.single v (1 : ℚ) := by sorry
+
+-- rationalPrimeCoset_fiber_finset_card_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    (u : (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hu : u ∈ kubertRationalPrimeCoset M p) :
+    (Finset.univ.filter (fun v : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) => v ∈ kubertRationalPrimeCoset N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors) ∧ kubertCartanProductReduction 1 M N hMN v=u)).card=
+      Nat.card (kubertRationalPrimeKernelReduction M N hMN p).ker := by sorry
+
+-- rationalPrimeCosetSum_push_coeff_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) (u : (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (MonoidAlgebra.mapDomainRingHom ℚ (kubertCartanProductReduction 1 M N hMN) (kubertRationalPrimeCosetSum N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors))).coeff u=
+      if u ∈ kubertRationalPrimeCoset M p then (Nat.card (kubertRationalPrimeKernelReduction M N hMN p).ker : ℚ) else 0 := by sorry
+
+-- rationalPrimeCosetSum_push_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) :
+    MonoidAlgebra.mapDomainRingHom ℚ (kubertCartanProductReduction 1 M N hMN) (kubertRationalPrimeCosetSum N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors))=
+      (Nat.card (kubertRationalPrimeKernelReduction M N hMN p).ker : ℚ) • kubertRationalPrimeCosetSum M p := by sorry
+
+end DirichletPadic.SuggestedKubertFactorNormsTests
+
+namespace DirichletPadic.SuggestedKubertFactorNormsTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic DirichletPadic
+
+-- rationalPrimeCoset_inverse_card_mul_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) :
+    (Nat.card (kubertRationalPrimeCoset N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors)) : ℚ)⁻¹ * (Nat.card (kubertRationalPrimeKernelReduction M N hMN p).ker : ℚ)=(Nat.card (kubertRationalPrimeCoset M p) : ℚ)⁻¹ := by sorry
+
+-- rationalPrimeFactor_push_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) :
+    MonoidAlgebra.mapDomainRingHom ℚ (kubertCartanProductReduction 1 M N hMN) (kubertRationalPrimeFactor N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors))=kubertRationalPrimeFactor M p := by sorry
+
+-- rationalPrimeCosetSum_norm_inverse_card_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) :
+    kubertCartanProductNorm 1 ℚ M N hMN (kubertRationalPrimeCosetSum M p)=(Nat.card (kubertRationalPrimeKernelReduction M N hMN p).ker : ℚ)⁻¹ • ((kubertRationalPrimeCosetSum N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors)) * kubertCartanProductNorm 1 ℚ M N hMN 1) := by sorry
+
+-- rationalPrimeCosetSum_norm_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) :
+    kubertCartanProductNorm 1 ℚ M N hMN (kubertRationalPrimeCosetSum M p)=
+      ((Nat.card (kubertRationalPrimeCoset M p) : ℚ)/Nat.card (kubertRationalPrimeCoset N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors))) •
+        ((kubertRationalPrimeCosetSum N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors)) * kubertCartanProductNorm 1 ℚ M N hMN 1) := by sorry
+
+-- rationalPrimeFactor_norm_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) :
+    kubertCartanProductNorm 1 ℚ M N hMN (kubertRationalPrimeFactor M p)=(kubertRationalPrimeFactor N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors)) * kubertCartanProductNorm 1 ℚ M N hMN 1 := by sorry
+
+-- rationalPrimeFactor_norm_mul_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (p : (M : ℕ).primeFactors) (x : MonoidAlgebra ℚ (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanProductNorm 1 ℚ M N hMN (x * kubertRationalPrimeFactor M p)=(kubertCartanProductNorm 1 ℚ M N hMN x) * kubertRationalPrimeFactor N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors) := by sorry
+
+end DirichletPadic.SuggestedKubertFactorNormsTests
+
+namespace DirichletPadic.SuggestedKubertFactorNormsTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+-- rationalPrimeFactor_prod_push_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (s : Finset (M : ℕ).primeFactors) :
+    MonoidAlgebra.mapDomainRingHom ℚ (kubertCartanProductReduction 1 M N hMN) (∏ p ∈ s,kubertRationalPrimeFactor N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors))=
+      ∏ p ∈ s,kubertRationalPrimeFactor M p := by sorry
+
+-- rationalPrimeFactor_prod_norm_mul_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (s : Finset (M : ℕ).primeFactors) (x : MonoidAlgebra ℚ (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanProductNorm 1 ℚ M N hMN (x * ∏ p ∈ s,kubertRationalPrimeFactor M p)=(kubertCartanProductNorm 1 ℚ M N hMN x) * ∏ p ∈ s,kubertRationalPrimeFactor N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors) := by sorry
+
+-- rationalPrimeFactor_order_product_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (d : ℕ) (hd : d ∣ (M : ℕ)) :
+    (∏ p : (N : ℕ).primeFactors,if p.val ∣ d then kubertRationalPrimeFactor N p else 1)=
+      ∏ p : (M : ℕ).primeFactors,if p.val ∣ d then kubertRationalPrimeFactor N (⟨p.val, Nat.mem_primeFactors.mpr ⟨Nat.prime_of_mem_primeFactors p.property, (Nat.dvd_of_mem_primeFactors p.property).trans hMN, N.ne_zero⟩⟩ : (N : ℕ).primeFactors) else 1 := by sorry
+
+-- rationalPrimeFactor_order_product_push_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (d : ℕ) (hd : d ∣ (M : ℕ)) :
+    MonoidAlgebra.mapDomainRingHom ℚ (kubertCartanProductReduction 1 M N hMN)
+      (∏ p : (N : ℕ).primeFactors,if p.val ∣ d then kubertRationalPrimeFactor N p else 1)=
+      ∏ p : (M : ℕ).primeFactors,if p.val ∣ d then kubertRationalPrimeFactor M p else 1 := by sorry
+
+-- rationalCartanValue_norm_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (M : ℕ)).ker) :
+    kubertCartanProductNorm 1 ℚ M N hMN (kubertRationalCartanValue M a)=
+      kubertRationalCartanValue N (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) a) := by sorry
+
+end DirichletPadic.SuggestedKubertFactorNormsTests
