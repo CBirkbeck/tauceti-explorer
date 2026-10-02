@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "A partial continuation: twelve declaration-sized NC.0 nodes plan the reserved coefficient-class-aware étale K(π,1) interface, its transports, finite-cover/raw-homotopy comparisons and tested field, curve, product and Artin-tower contracts. The eight-node NC.3 checkpoint is retained, with its twisting equivalence correctly treated as an unpointed bijection unless the target is repointed at the twisting class. All stages remain open; exact foundational/source proof gaps and supplier requests are recorded. This continuation splits the inherited subgroup exactness bundle: connecting cocycle, its image, change of lift, triviality criterion, fixed-orbit fibres and normal-kernel exactness. The preserved exact-sequence ID now states the single inclusion-kernel theorem. Quotient-level H⁰ packaging remains a precise gap.",
+  "summary": "Partial NC.0/NC.3 continuation: retain the reserved étale K(π,1) interface and all inherited source inventories; add the actual invariant-coset projection, connecting map, initial invariant-group exactness and quotient-level boundary fibres. No stage is closed or implementation claimed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -296,6 +296,69 @@
         "module": "Mathlib/Topology/Maps/Basic.lean",
         "provides": "For an embedding g and any f between topological spaces, Continuous f iff Continuous (g ∘ f). Transfers continuity to subgroup-valued preimages.",
         "checked": "Complete statement, local variables and embedding hypotheses read personally at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact canonical name confirmed in the pinned index."
+      },
+      {
+        "ref": "mathlib:MulAction.quotient",
+        "kind": "instance",
+        "module": "Mathlib/GroupTheory/GroupAction/Quotient.lean",
+        "provides": "Existing group action on the coset quotient under QuotientAction.",
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 83."
+      },
+      {
+        "ref": "mathlib:MulAction.Quotient.smul_mk",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/GroupAction/Quotient.lean",
+        "provides": "The descended action sends the class of b to the class of g acting on b.",
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 93."
+      },
+      {
+        "ref": "mathlib:MulAction.fixedPoints",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
+        "provides": "The subset of a native action carrier fixed by all scalars.",
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 116."
+      },
+      {
+        "ref": "mathlib:MulAction.mem_fixedPoints",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
+        "provides": "Membership iff every scalar fixes the element.",
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 133."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.eq",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/Coset/Defs.lean",
+        "provides": "Equality of left cosets iff the ordered difference a⁻¹b belongs to the subgroup.",
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 198."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.out_eq'",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/Coset/Defs.lean",
+        "provides": "The chosen representative maps to the original native coset.",
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 204."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.mk_out_eq_mul",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/Coset/Defs.lean",
+        "provides": "A chosen representative of the class of b is b times an element of the subgroup.",
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 216."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.leftRel_apply",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/Coset/Defs.lean",
+        "provides": "Existing left-coset relation identified with ordered difference subgroup membership.",
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 71."
+      },
+      {
+        "ref": "mathlib:MulAction.left_quotientAction",
+        "kind": "instance",
+        "module": "Mathlib/GroupTheory/GroupAction/Quotient.lean",
+        "provides": "Left multiplication descends to the coset set for every subgroup, without normality.",
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 67."
       }
     ]
   },
@@ -368,6 +431,18 @@
         "03QQ: personally read Lemmas 59.59.1–2 and their proofs identifying abelian étale sheaves with continuous Galois modules and derived cohomology on Spec K.",
         "03RQ: personally read Lemma 59.69.1 and its proof giving H²(X,μ_n) ≅ Z/n for algebraically closed smooth projective curves with n invertible; referenced Picard/Kummer inputs are imported from SF.2.",
         "03N8 was read as supporting motivation for the projective-line test; its introductory sketch is not a substitute for the curve-cohomology theorem."
+      ]
+    },
+    {
+      "id": "kim-siegel-quotient-continuation",
+      "title": "The motivic fundamental group of P¹ ∖ {0,1,∞} and the theorem of Siegel — fresh invariant-coset continuation reading",
+      "authors": "Minhyong Kim",
+      "edition": "arXiv:math/0409456v1; selected passages read 2026-10-02 by Codex codex-rtOQ9t.",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941",
+      "readSections": [
+        "Personally read printed pp. 5–9, including Proposition 1 and the continuous cocycle/gauge conventions, Proposition 2’s printed representability proof and the nonnormal coefficient-subgroup exactness passage on p. 9. The latter is the primary motivation for this checkpoint; the eleven general topological-group statements are direct elementary derivations, not separately named source theorems.",
+        "Printed p. 10 was subsequently read through Proposition 3 and its proof while rechecking the quoted subgroup passage. Earlier pp. 2–4, later sections and externally cited proofs were not freshly read. No representability or unipotent-point-topology node is completed here. Historical source receipts remain unchanged."
       ]
     }
   ],
@@ -2029,6 +2104,569 @@
         "name": "TauCeti.EtaleKPiOne.artin_tower_charZero"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-action",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Equivariant subgroup coset action",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.quotientAction_range",
+      "statement": "Equivariance of i makes the existing G-action on B descend to Mathlib’s left coset set B/i(A), by supplying MulAction.QuotientAction G i(A). Its action on representatives is g·[b]=[g·b]. This quotient is a set even when i(A) is nonnormal.",
+      "hypotheses": [
+        "Groups G,A,B, actions by automorphisms on A and B, and an equivariant homomorphism i. Topology and injectivity are unnecessary for this set-action lemma."
+      ],
+      "proofSteps": [
+        "If b⁻¹b′=i(a), then (g·b)⁻¹(g·b′)=g·(b⁻¹b′)=i(g·a). This is exactly the existing QuotientAction compatibility field.",
+        "Install that proposition locally and use the pinned MulAction.quotient instance. Do not rebuild a quotient relation or assert group operations on B/i(A)."
+      ],
+      "prerequisites": [
+        "mathlib:MulDistribMulAction",
+        "mathlib:MulAction.QuotientAction",
+        "mathlib:MulAction.quotient",
+        "mathlib:QuotientGroup.leftRel_apply"
+      ],
+      "acceptance": [
+        "The subgroup generated by a transposition in S₃, with trivial G-action, qualifies and gives three left cosets. Normality would wrongly exclude it."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-quotient-continuation",
+          "locator": "§1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness)",
+          "excerpt": "pointed sets",
+          "match": "Direct elementary derivation in the stated topological-group scope, using Kim’s cocycle convention and nonnormal-subgroup exactness motivation. This is not a separately named theorem of Kim or a claim of representability."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.quotientAction_range"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/fixed-coset-criterion",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Invariant coset membership criterion",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.fixed_coset_iff",
+      "statement": "With the descended action, [b] belongs to the existing fixed-point set (B/i(A))^G if and only if b⁻¹(g·b) lies in i(A) for every g. This identifies the genuine invariant-coset carrier with the membership hypothesis of connectingCocycle.",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups. G acts continuously on A and B by automorphisms.",
+        "i:A → B is a group homomorphism, a closed embedding and G-equivariant. No normality of i(A) and no continuous section of the coset projection are assumed."
+      ],
+      "proofSteps": [
+        "Use MulAction.mem_fixedPoints to test each g. Quotient.smul_mk identifies g·[b] with [g·b].",
+        "Apply QuotientGroup.eq to [b]=[g·b], reversing the fixedness equality if necessary. The difference is b⁻¹(g·b), in that order."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-action",
+        "mathlib:MulAction.fixedPoints",
+        "mathlib:MulAction.mem_fixedPoints",
+        "mathlib:MulAction.Quotient.smul_mk",
+        "mathlib:QuotientGroup.eq"
+      ],
+      "acceptance": [
+        "For C₂ acting by negation on C₄ with subgroup {0,2}, both cosets are invariant, although the odd coset has no fixed representative."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-quotient-continuation",
+          "locator": "§1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness)",
+          "excerpt": "pointed sets",
+          "match": "Direct elementary derivation in the stated topological-group scope, using Kim’s cocycle convention and nonnormal-subgroup exactness motivation. This is not a separately named theorem of Kim or a claim of representability."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.fixed_coset_iff"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-coset-projection",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Projection of invariant elements to cosets",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.invariantCoset",
+      "statement": "Construct π⁰:B^G → (B/i(A))^G by sending the actual fixed element b to its left coset [b]. Here B^G is the native fixed-point subgroup and (B/i(A))^G is the native fixed-point subset of the native coset type. The base point is π⁰(1); no group structure is imposed on the coset set.",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups. G acts continuously on A and B by automorphisms.",
+        "i:A → B is a group homomorphism, a closed embedding and G-equivariant. No normality of i(A) and no continuous section of the coset projection are assumed."
+      ],
+      "proofSteps": [
+        "The quotient class of b is fixed because every g fixes b. Package the class and this proof in the existing fixed-point subset.",
+        "Use a local abbreviation InvariantCosets only to instantiate the two existing Mathlib carriers with the descended action; it is not a second invariant or quotient definition.",
+        "The representative projection is literal. Right multiplication by an element of i(A^G) changes no left coset."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/fixed-coset-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
+        "mathlib:FixedPoints.subgroup",
+        "mathlib:QuotientGroup.eq"
+      ],
+      "acceptance": [
+        "The construction accepts a nonnormal subgroup. π⁰ is a pointed-set map, not claimed to be a homomorphism on a nonexistent quotient group."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-quotient-continuation",
+          "locator": "§1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness)",
+          "excerpt": "pointed sets",
+          "match": "Direct elementary derivation in the stated topological-group scope, using Kim’s cocycle convention and nonnormal-subgroup exactness motivation. This is not a separately named theorem of Kim or a claim of representability."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.invariantCoset"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariants-kernel",
+          "how": "Its base-point fibre is exactly the image of A^G in B^G."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-coset-kernel",
+          "how": "Its image is exactly the kernel of the connecting map."
+        },
+        {
+          "where": "Kim §1, printed p. 9; NC.3 crystalline-condition consumer",
+          "how": "Prepares the initial invariant-group portion of the subgroup exact sequence."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.invariantCoset_apply",
+          "role": "projection",
+          "statement": "The underlying coset of π⁰(b) is exactly [b]. Promoted to invariant-coset-image."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.invariantCoset_one",
+          "role": "simp",
+          "statement": "The underlying coset of π⁰(1) is [1], specifying the distinguished point without assuming a quotient group."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.invariantCoset_mul_image",
+          "role": "compatibility",
+          "statement": "For b∈B^G and a∈A^G, π⁰(b·i(a))=π⁰(b)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.invariantCoset_identity",
+          "kind": "degenerate",
+          "statement": "For i=id_B and every b∈B^G, π⁰(b)=π⁰(1): the coset space is a singleton."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.invariantCoset_trivial_subgroup",
+          "kind": "characterisation",
+          "statement": "If i(A) is the trivial subgroup, π⁰:B^G → (B/i(A))^G is injective. A constant projection fails whenever B^G has two elements."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.invariantCoset_nonnormal",
+          "kind": "computation",
+          "statement": "For discrete G=C₂ acting trivially on B=S₃ and A the subgroup {1,(01)}, the native invariant-coset type has cardinality three. The subgroup is nonnormal; a quotient-group requirement is invalid."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-coset-image",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Underlying invariant coset projection",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.invariantCoset_apply",
+      "statement": "For b∈B^G, the underlying coset of π⁰(b) equals [b] in B/i(A).",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups. G acts continuously on A and B by automorphisms.",
+        "i:A → B is a group homomorphism, a closed embedding and G-equivariant. No normality of i(A) and no continuous section of the coset projection are assumed."
+      ],
+      "proofSteps": [
+        "Unfold the subtype packaging of invariantCoset. The underlying value is the existing canonical quotient class."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-coset-projection"
+      ],
+      "acceptance": [
+        "The identity representative gives the distinguished coset [1]."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-quotient-continuation",
+          "locator": "§1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness)",
+          "excerpt": "pointed sets",
+          "match": "Direct elementary derivation in the stated topological-group scope, using Kim’s cocycle convention and nonnormal-subgroup exactness motivation. This is not a separately named theorem of Kim or a claim of representability."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.invariantCoset_apply"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-map",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Connecting map on invariant cosets",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.connecting",
+      "statement": "Construct δ:(B/i(A))^G → H¹(G,A) on the actual invariant coset set. For an invariant coset q choose a representative b and put δ(q)=[c_b], where i(c_b(g))=b⁻¹(g·b). The result is independent of the representative. The source is a pointed set with point π⁰(1); δ sends that point to the H¹ base point.",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups. G acts continuously on A and B by automorphisms.",
+        "i:A → B is a group homomorphism, a closed embedding and G-equivariant. No normality of i(A) and no continuous section of the coset projection are assumed."
+      ],
+      "proofSteps": [
+        "Choose b as the existing quotient representative q.out. QuotientGroup.out_eq′ and fixed-coset-criterion turn q’s actual fixedness proof into the membership required by connectingCocycle.",
+        "Apply the previously planned continuous connectingCocycle and take its class in the previously planned orbit quotient H¹. Continuity is already supplied by the embedding argument; this definition is not an arbitrary function admitted into H¹.",
+        "Any second representative is b·i(a) for some a by QuotientGroup.eq and range membership (or mk_out_eq_mul). The old change-of-lift theorem gauges c_b by a⁻¹ and hence preserves its H¹ class.",
+        "An invariant representative has trivial connecting cocycle; apply this to 1 to get preservation of the distinguished point. No topology on the coset set or continuous quotient section is needed for the set-valued map."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/fixed-coset-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-cocycle",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-change-lift",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "mathlib:QuotientGroup.out_eq'",
+        "mathlib:QuotientGroup.mk_out_eq_mul"
+      ],
+      "acceptance": [
+        "The negation action on C₄ gives a nontrivial boundary on its odd invariant coset modulo {0,2}. A constant boundary map fails this test."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-quotient-continuation",
+          "locator": "§1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness)",
+          "excerpt": "pointed sets",
+          "match": "Direct elementary derivation in the stated topological-group scope, using Kim’s cocycle convention and nonnormal-subgroup exactness motivation. This is not a separately named theorem of Kim or a claim of representability."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.connecting"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Kim §1, printed p. 9",
+          "how": "The actual boundary in the displayed nonnormal coefficient-subgroup exact sequence."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-coset-kernel and AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-image-kernel",
+          "how": "Use the actual function’s fibres and image to express pointed-set exactness."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-quotient-fibres",
+          "how": "Compute its fibres as left B^G-orbits."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.connecting_mk",
+          "role": "projection",
+          "statement": "For an admissible representative b of q, δ(q)=[c_b]. Promoted to connecting-map-lift."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.connecting_invariantCoset",
+          "role": "simp",
+          "statement": "For b∈B^G, δ(π⁰(b))=1. In particular δ preserves the distinguished point."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.connecting_change_representative",
+          "role": "compatibility",
+          "statement": "If q and q′ have representatives b and b·i(a), then δ(q′)=δ(q). This compares actual coset inputs, not only their lift cocycles."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.connecting_coset_fixed",
+          "kind": "degenerate",
+          "statement": "For every equivariant closed embedding i and b∈B^G, the actual coset-map value δ(π⁰(b)) is the base point."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.connecting_coset_identity",
+          "kind": "compatibility",
+          "statement": "For i=id_B, δ(q)=1 for every invariant coset q, agreeing with c_b=coboundary(b⁻¹)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.connecting_coset_nontrivial",
+          "kind": "non-example",
+          "statement": "For discrete G=C₂, A=C₂ with trivial action, B=C₄ with negation action, and i(a)=2a (doubling natural representatives modulo 4), the invariant odd coset q=[1] has δ(q)≠1. Its cocycle sends the nonidentity of G to the nonidentity of A; A-coboundaries are trivial. No fixed lift of q exists."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-map-lift",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Representative formula for the connecting map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.connecting_mk",
+      "statement": "If q∈(B/i(A))^G is represented by b and b⁻¹(g·b)∈i(A) for every g, then δ(q)=[c_b] with the already planned continuous connecting cocycle. This holds for every proof of membership and every representative.",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups. G acts continuously on A and B by automorphisms.",
+        "i:A → B is a group homomorphism, a closed embedding and G-equivariant. No normality of i(A) and no continuous section of the coset projection are assumed."
+      ],
+      "proofSteps": [
+        "Compare the chosen representative q.out with b using equality of their actual left cosets. The existing coset equality criterion provides a∈A with q.out=b·i(a).",
+        "The old connectingCocycle_change_lift identifies the two cocycles by the gauge a⁻¹; the inherited H¹ orbit quotient gives equality of classes. Proof irrelevance and uniqueness of the lifted cocycle dispose of membership witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-change-lift",
+        "mathlib:QuotientGroup.eq",
+        "mathlib:QuotientGroup.out_eq'"
+      ],
+      "acceptance": [
+        "Both even lifts represent the even coset of C₄/{0,2}, and both odd lifts represent the odd coset. The class remains unchanged within each pair."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-quotient-continuation",
+          "locator": "§1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness)",
+          "excerpt": "pointed sets",
+          "match": "Direct elementary derivation in the stated topological-group scope, using Kim’s cocycle convention and nonnormal-subgroup exactness motivation. This is not a separately named theorem of Kim or a claim of representability."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.connecting_mk"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariants-injection",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Injectivity on invariant subgroups",
+      "kind": "theorem",
+      "declarationName": "TauCeti.NonabelianCohomology.H0.map_injective",
+      "statement": "The map i⁰:A^G → B^G induced by an equivariant closed embedding i is injective. Thus its base-point fibre is {1}, giving the initial exactness at A^G in 1 → A^G → B^G → (B/i(A))^G.",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups. G acts continuously on A and B by automorphisms.",
+        "i:A → B is a group homomorphism, a closed embedding and G-equivariant. No normality of i(A) and no continuous section of the coset projection are assumed."
+      ],
+      "proofSteps": [
+        "Equality of mapped fixed elements gives equality of their values under i. A closed embedding is injective. Apply that injectivity and subtype extensionality."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles"
+      ],
+      "acceptance": [
+        "For the doubling C₂ ↪ C₄ with the actions above, A^G=C₂ maps bijectively onto B^G={0,2}."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-quotient-continuation",
+          "locator": "§1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness)",
+          "excerpt": "pointed sets",
+          "match": "Direct elementary derivation in the stated topological-group scope, using Kim’s cocycle convention and nonnormal-subgroup exactness motivation. This is not a separately named theorem of Kim or a claim of representability."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H0.map_injective"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariants-kernel",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Exactness at the invariant ambient group",
+      "kind": "theorem",
+      "declarationName": "TauCeti.NonabelianCohomology.invariantCoset_eq_base_iff",
+      "statement": "For b∈B^G, π⁰(b)=π⁰(1) if and only if b lies in the image of i⁰:A^G → B^G. This is pointed-set exactness at B^G for a subgroup that need not be normal.",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups. G acts continuously on A and B by automorphisms.",
+        "i:A → B is a group homomorphism, a closed embedding and G-equivariant. No normality of i(A) and no continuous section of the coset projection are assumed."
+      ],
+      "proofSteps": [
+        "By invariant-coset-image and the native quotient equality criterion, π⁰(b)=π⁰(1) says b∈i(A). Choose a∈A with i(a)=b.",
+        "Since b is fixed, equivariance gives i(g·a)=g·i(a)=i(a); injectivity of i proves that a is fixed. Its subtype is a preimage under i⁰.",
+        "Conversely an image element has coset [1], directly by range membership. Subtype extensionality identifies the actual fixed-coset elements."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-coset-image",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariants-injection",
+        "mathlib:QuotientGroup.eq"
+      ],
+      "acceptance": [
+        "With trivial C₂-action on S₃ and the transposition subgroup, the base-coset fibre has two elements, precisely A^G, while there are three invariant cosets."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-quotient-continuation",
+          "locator": "§1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness)",
+          "excerpt": "pointed sets",
+          "match": "Direct elementary derivation in the stated topological-group scope, using Kim’s cocycle convention and nonnormal-subgroup exactness motivation. This is not a separately named theorem of Kim or a claim of representability."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.invariantCoset_eq_base_iff"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-coset-kernel",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Exactness at invariant cosets",
+      "kind": "theorem",
+      "declarationName": "TauCeti.NonabelianCohomology.connecting_eq_one_iff_mem_range",
+      "statement": "For q∈(B/i(A))^G, δ(q)=1 if and only if q is in the image of π⁰:B^G → (B/i(A))^G. Thus vanishing of the actual connecting class is equivalent to existence of a G-fixed representative of the coset.",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups. G acts continuously on A and B by automorphisms.",
+        "i:A → B is a group homomorphism, a closed embedding and G-equivariant. No normality of i(A) and no continuous section of the coset projection are assumed."
+      ],
+      "proofSteps": [
+        "Choose b=q.out and use connecting-map-lift to evaluate δ(q). The old connecting_eq_one_iff says [c_b]=1 exactly when b·i(a) is fixed for some a∈A.",
+        "Such a fixed lift t represents q by the native coset equality criterion. Package t in B^G and use invariant-coset-image to obtain q=π⁰(t).",
+        "Conversely q=π⁰(t) is represented by fixed t; evaluate δ by connecting-map-lift and use connectingCocycle_eq_one_of_fixed."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-map-lift",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-class-zero",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-coset-image",
+        "mathlib:QuotientGroup.eq"
+      ],
+      "acceptance": [
+        "For negation on C₄ modulo {0,2}, only the even coset is in this kernel: the odd coset is invariant but has no fixed lift."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-quotient-continuation",
+          "locator": "§1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness)",
+          "excerpt": "pointed sets",
+          "match": "Direct elementary derivation in the stated topological-group scope, using Kim’s cocycle convention and nonnormal-subgroup exactness motivation. This is not a separately named theorem of Kim or a claim of representability."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.connecting_eq_one_iff_mem_range"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-image-kernel",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Exactness at nonabelian first cohomology",
+      "kind": "theorem",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.map_eq_one_iff_mem_range_connecting",
+      "statement": "For x∈H¹(G,A), i_*(x)=1 in H¹(G,B) if and only if x lies in the image of the actual map δ:(B/i(A))^G → H¹(G,A). This is the lift-form inclusion-kernel theorem transported to the native coset carrier.",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups. G acts continuously on A and B by automorphisms.",
+        "i:A → B is a group homomorphism, a closed embedding and G-equivariant. No normality of i(A) and no continuous section of the coset projection are assumed."
+      ],
+      "proofSteps": [
+        "The existing exact_H1_of_subgroup supplies b and a continuous cocycle c with x=[c] and i(c(g))=b⁻¹(g·b). This proves membership for each g.",
+        "Use fixed-coset-criterion to package [b] as an invariant coset. Uniqueness of connectingCocycle and connecting-map-lift show that δ([b])=[c]=x.",
+        "Conversely choose a representative of an invariant coset. Its connecting cocycle maps to the B-coboundary of b⁻¹, so the already planned inclusion-kernel theorem kills its class."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/fixed-coset-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-map-lift",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-cocycle-image"
+      ],
+      "acceptance": [
+        "For C₂ ↪ C₄ as above, both H¹(C₂,C₂) classes are killed in H¹(C₂,C₄), and the two invariant cosets supply precisely those two classes. This concerns the fibre over 1, not arbitrary untwisted fibres."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-quotient-continuation",
+          "locator": "§1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness)",
+          "excerpt": "pointed sets",
+          "match": "Direct elementary derivation in the stated topological-group scope, using Kim’s cocycle convention and nonnormal-subgroup exactness motivation. This is not a separately named theorem of Kim or a claim of representability."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.map_eq_one_iff_mem_range_connecting"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-quotient-fibres",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Invariant ambient group orbits in boundary fibres",
+      "kind": "theorem",
+      "declarationName": "TauCeti.NonabelianCohomology.connecting_eq_connecting_iff",
+      "statement": "For invariant cosets q,q′, δ(q)=δ(q′) if and only if q′=[t·b] for some t∈B^G and a representative b of q. Equivalently the fibres of δ are exactly the left B^G-orbits on the existing coset set. In the suggested form b is q.out; the condition is independent of that choice.",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups. G acts continuously on A and B by automorphisms.",
+        "i:A → B is a group homomorphism, a closed embedding and G-equivariant. No normality of i(A) and no continuous section of the coset projection are assumed."
+      ],
+      "proofSteps": [
+        "Represent q and q′ by b and b′ and evaluate both boundaries by connecting-map-lift.",
+        "The old connecting_classes_eq_iff gives a fixed t∈B and a∈A with b′=t·b·i(a). The native coset equality criterion erases the right i(a) factor, giving q′=[t·b].",
+        "Conversely q′=[t·b] supplies a right factor i(a) between representatives. Apply the same fixed-orbit criterion and connecting-map-lift.",
+        "Left translation is well-defined because (t·b)⁻¹(t·b′)=b⁻¹b′. If t is fixed, g·[t·b]=[t·(g·b)]=[t·b]. This is the existing left coset action restricted to B^G, not quotient multiplication."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-map-lift",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-fixed-orbits",
+        "mathlib:QuotientGroup.eq",
+        "mathlib:MulAction.left_quotientAction"
+      ],
+      "acceptance": [
+        "With trivial G-action on S₃ all three transposition-subgroup cosets form one left B^G-orbit and δ is trivial. For negation on C₄, B^G={0,2} fixes both cosets individually; their δ values differ."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-quotient-continuation",
+          "locator": "§1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness)",
+          "excerpt": "pointed sets",
+          "match": "Direct elementary derivation in the stated topological-group scope, using Kim’s cocycle convention and nonnormal-subgroup exactness motivation. This is not a separately named theorem of Kim or a claim of representability."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.connecting_eq_connecting_iff"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -2150,7 +2788,7 @@
         "Representability: Kim 2005 Propositions 2–3 (H¹(G, U) and H⁰(G, U(B)/U) represented by affine pro-varieties under finite-dimensionality and H⁰-vanishing hypotheses), with the topologies on U(B ⊗_K R) of Kim §1 Lemmas 1–5; the unipotent-group inputs (lower central series, algebraic splittings of central extensions).",
         "Local conditions and Selmer varieties: unramified and crystalline conditions (Kim 2009 §3, Lemma 5: the image of H⁰(G_v, U(B_cr ⊗ R)/U(R)) → H¹(G_v, U(R))), bad-place conditions, the global Selmer variety, and dimension calculations; depth-one agreement with the Kummer map and Selmer group of the Jacobian (HeightsRationalPointsAndObstructions RP.1) and a nontrivial depth-two obstruction.",
         "Inflation–restriction for nonabelian H¹ (Serre, Galois Cohomology I §5.8), not in a freely readable source consulted here.",
-        "The subgroup exactness bundle is split into lift-form declarations. Supply the invariant-coset quotient/action and initial H⁰ exactness; split continuous-cocycles, functoriality and central-extension and complete every inherited omitted API/test. No stage is closed."
+        "The invariant-coset projection, actual connecting map and initial H⁰ exactness are now outlined with native carriers. Split continuous-cocycles, functoriality and central-extension and complete every inherited omitted API/test. Representability, local conditions, Selmer varieties and all recorded source-proof gaps remain open; no stage is closed."
       ]
     },
     {
@@ -2260,16 +2898,6 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.3"
       ],
       "detail": "The inherited exact-sequence ID is now one inclusion-kernel theorem, with six new nodes separating connecting construction/image/change, triviality, fixed-orbit fibres and normal exactness. All twenty prior IDs survive. continuous-cocycles, functoriality and central-extension still bundle independent declarations and need granular continuation; inherited omitted APIs/tests remain open. Twisting needs its target repointed at [c]."
-    },
-    {
-      "title": "Invariant-coset quotient map and initial H⁰ exactness packaging",
-      "neededBy": [
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-cocycle",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-class-zero",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-fixed-orbits",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence"
-      ],
-      "detail": "Lift-form declarations supply the actual connecting cocycle, representative independence, triviality, inclusion kernel and fixed-orbit fibres. The inherited target 1 → A^G → B^G → (B/i(A))^G still needs separate native quotient-set construction/action descent, its connecting class map, and declaration-sized exactness at A^G and B^G. This continuation does not silently delete those targets or treat the lift form as the full typed quotient API. The subgroup need not be normal; a quotient group carrier would be wrong."
     }
   ],
   "sourceIssues": [],
@@ -2319,6 +2947,13 @@
       "kind": "arXiv",
       "url": "https://arxiv.org/pdf/math/0409456v1",
       "citation": "Kim, arXiv:math/0409456v1; fresh selected continuation read, printed pp. 5–10",
+      "read": "2026-10-02",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941"
+    },
+    {
+      "kind": "arXiv",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "citation": "Kim arXiv:math/0409456v1; fresh Codex codex-rtOQ9t invariant-coset read, printed pp. 5–9 and p. 10 through Proposition 3 proof.",
       "read": "2026-10-02",
       "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941"
     }
@@ -2761,6 +3396,21 @@
         "JacobianChallenge and StableReduction upstream documents were read earlier in this continuous worker loop, not freshly reread for this checkpoint."
       ],
       "scope": "Six new NC.3 nodes and narrowed existing exact-sequence theorem; inherited NC.0 and routed inventory preserved. No completed Selmer or K(pi,1) implementation claimed."
+    },
+    {
+      "agent": "Codex — codex-rtOQ9t",
+      "date": "2026-10-02",
+      "claim": 5953110496,
+      "confirmation": 5953113784,
+      "base": "04500e78b7d37fa3a04da7962a7d9f4d58fbfe16",
+      "checked": [
+        "Full issue read before claim; confirmed winning bot reply and freshly fetched identical full issue body after confirmation. All seven reviewed NC audit rows, current stage contracts and seventeen touching atlas edges read.",
+        "Screened all current link packets: zero asserted matching links/overlaps and 29 negative examined entries. The accepted RS-29 path-torsor ownership and RS-03 forwarded elliptic Selmer links were read separately; inherited requests and inventories are preserved.",
+        "Fresh selected Kim primary passages and independently verified v1 PDF SHA-256. All added native coset/action baseline statements read with local hypotheses. The old forty baseline records remain historical, except fresh corroborating fixed-point/coset statements noted in this receipt.",
+        "JacobianChallenge and Multiquadratic upstream README documents read in full. ProfiniteCohomology only partially read; no full-read claim for that long document.",
+        "All twenty-six inherited node objects, eleven requests, source inventories, source issues and structural proposals preserved unchanged. The addressed invariant-coset packaging gap is removed; nine other gap objects remain unchanged."
+      ],
+      "scope": "Eleven new NC.3 nodes, two constructions, six native APIs and six typed tests. All stages remain partial/not_read; all implementationStatus values remain unchecked."
     }
   ]
 }

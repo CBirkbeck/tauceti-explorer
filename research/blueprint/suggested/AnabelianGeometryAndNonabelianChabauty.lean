@@ -250,6 +250,154 @@ theorem exact_H1_of_normal (i : A →* B) (hi : Topology.IsClosedEmbedding i)
     (hπG : ∀ (g : G) (b : B), π (g • b) = g • π b) (hker : π.ker = i.range) (y : H1 G B) :
     H1.map π hπ hπG y = 1 ↔ y ∈ Set.range (H1.map i hi.continuous hiG) := by sorry
 
+/-- NC.3/quotient-action: equivariance makes the existing coset action available. -/
+theorem quotientAction_range (i : A →* B)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) :
+    MulAction.QuotientAction G i.range := by sorry
+
+/-- Not a new quotient or invariant carrier: a local abbreviation for Mathlib's
+fixed-point subset of its left coset type, with the descended action. -/
+abbrev InvariantCosets (i : A →* B)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) : Type v :=
+  letI : MulAction.QuotientAction G i.range := quotientAction_range i hG
+  MulAction.fixedPoints G (B ⧸ i.range)
+
+/-- NC.3/fixed-coset-criterion. No normality is needed. -/
+theorem fixed_coset_iff (i : A →* B)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (b : B) :
+    letI : MulAction.QuotientAction G i.range := quotientAction_range i hG
+    (QuotientGroup.mk b : B ⧸ i.range) ∈ MulAction.fixedPoints G (B ⧸ i.range) ↔
+      ∀ g : G, b⁻¹ * (g • b) ∈ i.range := by sorry
+
+/-- NC.3/invariant-coset-projection: the map from invariant elements to invariant cosets. -/
+def invariantCoset (i : A →* B)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (b : H0 G B) :
+    InvariantCosets i hG := by
+  letI : MulAction.QuotientAction G i.range := quotientAction_range i hG
+  exact ⟨QuotientGroup.mk b.val, by sorry⟩
+
+/-- NC.3/invariant-coset-image; promoted projection API. -/
+theorem invariantCoset_apply (i : A →* B)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (b : H0 G B) :
+    (invariantCoset i hG b).val = (QuotientGroup.mk b.val : B ⧸ i.range) := by sorry
+
+theorem invariantCoset_one (i : A →* B)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) :
+    (invariantCoset i hG (1 : H0 G B)).val = (QuotientGroup.mk (1 : B) : B ⧸ i.range) :=
+  by sorry
+
+theorem invariantCoset_mul_image (i : A →* B)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (b : H0 G B) (a : H0 G A) :
+    invariantCoset i hG (b * H0.map i hG a) = invariantCoset i hG b := by sorry
+
+/-- NC.3/connecting-map: the actual map on Mathlib's invariant cosets.
+Choice of a representative is allowed; the representative formula below proves
+independence. The chosen function is a class of the already planned continuous cocycle. -/
+def connecting (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (q : InvariantCosets i hG) : H1 G A := by
+  letI : MulAction.QuotientAction G i.range := quotientAction_range i hG
+  exact H1.mk (connectingCocycle i hi hG q.val.out (by sorry))
+
+/-- NC.3/connecting-map-lift; promoted representative API. -/
+theorem connecting_mk (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a)
+    (q : InvariantCosets i hG) (b : B)
+    (hb : ∀ g : G, b⁻¹ * (g • b) ∈ i.range)
+    (hq : q.val = (QuotientGroup.mk b : B ⧸ i.range)) :
+    connecting i hi hG q = H1.mk (connectingCocycle i hi hG b hb) := by sorry
+
+theorem connecting_invariantCoset (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (b : H0 G B) :
+    connecting i hi hG (invariantCoset i hG b) = 1 := by sorry
+
+theorem connecting_change_representative (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (q q' : InvariantCosets i hG)
+    (b : B) (a : A) (hq : q.val = (QuotientGroup.mk b : B ⧸ i.range))
+    (hq' : q'.val = (QuotientGroup.mk (b * i a) : B ⧸ i.range)) :
+    connecting i hi hG q' = connecting i hi hG q := by sorry
+
+/-- NC.3/invariants-injection: exactness at the initial invariant subgroup. -/
+theorem H0.map_injective (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) :
+    Function.Injective (H0.map i hG) := by sorry
+
+/-- NC.3/invariants-kernel: exactness at `B^G`. -/
+theorem invariantCoset_eq_base_iff (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (b : H0 G B) :
+    invariantCoset i hG b = invariantCoset i hG (1 : H0 G B) ↔
+      b ∈ Set.range (H0.map i hG) := by sorry
+
+/-- NC.3/invariant-coset-kernel: exactness at the invariant coset set. -/
+theorem connecting_eq_one_iff_mem_range (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (q : InvariantCosets i hG) :
+    connecting i hi hG q = 1 ↔ q ∈ Set.range (invariantCoset i hG) := by sorry
+
+/-- NC.3/connecting-image-kernel: the inclusion-kernel theorem with the actual boundary map. -/
+theorem H1.map_eq_one_iff_mem_range_connecting (i : A →* B)
+    (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (x : H1 G A) :
+    H1.map i hi.continuous hG x = 1 ↔ x ∈ Set.range (connecting i hi hG) := by sorry
+
+/-- NC.3/connecting-quotient-fibres: explicit left `B^G`-orbits on the existing coset set.
+The formula uses a representative only to express the existing left translation. -/
+theorem connecting_eq_connecting_iff (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (q q' : InvariantCosets i hG) :
+    connecting i hi hG q = connecting i hi hG q' ↔
+      ∃ t : H0 G B, q'.val = (QuotientGroup.mk (t.val * q.val.out) : B ⧸ i.range) := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.invariantCoset_identity
+example (b : H0 G B) :
+    invariantCoset (MonoidHom.id B) (fun (_ : G) _ => rfl) b =
+      invariantCoset (MonoidHom.id B) (fun (_ : G) _ => rfl) (1 : H0 G B) := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.invariantCoset_trivial_subgroup
+example (i : A →* B) (hG : ∀ (g : G) (a : A), i (g • a) = g • i a)
+    (hrange : i.range = ⊥) : Function.Injective (invariantCoset i hG) := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.invariantCoset_nonnormal
+-- Both actions are specified to be trivial; `K` is the two-element transposition subgroup.
+example (K : Subgroup (Equiv.Perm (Fin 3)))
+    [MulDistribMulAction (Multiplicative (ZMod 2)) K]
+    [MulDistribMulAction (Multiplicative (ZMod 2)) (Equiv.Perm (Fin 3))]
+    (hK : ∀ b : Equiv.Perm (Fin 3), b ∈ K ↔ b = 1 ∨ b = Equiv.swap 0 1)
+    (hA : ∀ (g : Multiplicative (ZMod 2)) (a : K), g • a = a)
+    (hB : ∀ (g : Multiplicative (ZMod 2)) (b : Equiv.Perm (Fin 3)), g • b = b)
+    (hG : ∀ (g : Multiplicative (ZMod 2)) (a : K), K.subtype (g • a) = g • K.subtype a) :
+    Nat.card (InvariantCosets K.subtype hG) = 3 := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.connecting_coset_fixed
+example (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (b : H0 G B) :
+    connecting i hi hG (invariantCoset i hG b) = 1 := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.connecting_coset_identity
+example (hi : Topology.IsClosedEmbedding (MonoidHom.id B))
+    (q : InvariantCosets (MonoidHom.id B) (fun (_ : G) _ => rfl)) :
+    connecting (MonoidHom.id B) hi (fun (_ : G) _ => rfl) q = 1 := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.connecting_coset_nontrivial
+-- Discrete C2 acts trivially on A=C2 and by negation on B=C4; i doubles representatives.
+-- The odd coset is fixed but has no fixed lift, so its actual boundary class is nontrivial.
+example [TopologicalSpace (Multiplicative (ZMod 2))]
+    [DiscreteTopology (Multiplicative (ZMod 2))]
+    [TopologicalSpace (Multiplicative (ZMod 4))]
+    [DiscreteTopology (Multiplicative (ZMod 4))]
+    [MulDistribMulAction (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2))]
+    [MulDistribMulAction (Multiplicative (ZMod 2)) (Multiplicative (ZMod 4))]
+    [ContinuousSMul (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2))]
+    [ContinuousSMul (Multiplicative (ZMod 2)) (Multiplicative (ZMod 4))]
+    (i : Multiplicative (ZMod 2) →* Multiplicative (ZMod 4))
+    (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g a : Multiplicative (ZMod 2)), i (g • a) = g • i a)
+    (hi2 : ∀ a : Multiplicative (ZMod 2), (i a).toAdd = 2 * (a.toAdd.val : ZMod 4))
+    (hA : ∀ g a : Multiplicative (ZMod 2), g • a = a)
+    (hB : ∀ (g : Multiplicative (ZMod 2)) (b : Multiplicative (ZMod 4)),
+      (g • b).toAdd = if g.toAdd = 0 then b.toAdd else -b.toAdd)
+    (q : InvariantCosets i hG)
+    (hq : q.val = (QuotientGroup.mk (Multiplicative.ofAdd (1 : ZMod 4)) :
+      Multiplicative (ZMod 4) ⧸ i.range)) : connecting i hi hG q ≠ 1 := by sorry
+
+
 /-- NC.3/central-extension (a): a `Z`-valued cocycle acts on `B`-valued ones by pointwise
 multiplication when `Z` is central. -/
 def Z1.centralSMul (i : A →* B) (hcentral : ∀ (a : A) (b : B), i a * b = b * i a)
