@@ -567,7 +567,7 @@ def route_job(route, by_id):
     return "DESIGN-" + rid if "DESIGN-" + rid in by_id else None
 
 
-def keydef_owners(entries, routes, jobs, states, suppliers_of, titles, decisions=None):
+def keydef_owners(entries, routes, jobs, states, suppliers_of, titles, decisions=None, previous=None):
     """{key definition id: assignment} for each promoted key definition that no layer plans (PROTOCOL.md section 19).
 
     Its owner is one queued job that plans it once, as generally as all its uses need: the roadmap the
@@ -576,12 +576,22 @@ def keydef_owners(entries, routes, jobs, states, suppliers_of, titles, decisions
     foundational (the one whose roadmap supplies most of the others), then the one receiving most items.
     The other queued jobs receiving its items cite it under a reserved node id. Owner None: no queued job
     receives any of its items, which the maintainer must route.
+    An assignment stands once made (previous: {key definition id: assignment}, the last owners.json) while
+    its job is not withdrawn and the maintainer names no other roadmap: by then its owner may be planning
+    the definition under the reserved id, and its importers citing it. Only new assignments wait for jobs
+    nobody has taken; on 2026-10-02 the owners claimed that day were about to lose theirs to other jobs.
     entries: [(survey file, entry)]; routes: {catalogue item: accepted paper route};
     suppliers_of: {roadmap: its suppliers, transitively}; titles: {roadmap id: title} of the atlas's roadmaps."""
     by_id = {j["id"]: j for j in jobs}
 
+    def state(jid):
+        return states.get(jid, by_id[jid].get("state", "pending"))
+
     def live(jid):
-        return jid in by_id and by_id[jid]["kind"] in ("blueprint", "design") and states.get(jid, by_id[jid].get("state", "pending")) == "pending"
+        return jid in by_id and by_id[jid]["kind"] in ("blueprint", "design") and state(jid) == "pending"
+
+    def standing(jid):
+        return jid in by_id and by_id[jid]["kind"] in ("blueprint", "design") and state(jid) not in ("superseded", "failed")
 
     def roadmap(jid):
         return (by_id[jid].get("roadmapIds") or [None])[0]
@@ -619,7 +629,10 @@ def keydef_owners(entries, routes, jobs, states, suppliers_of, titles, decisions
         owner, reason = None, "no queued job receives its items"
         decided = (decisions or {}).get(entry["id"])
         named = decided or entry.get("plannedBy")
-        if named:
+        earlier = (previous or {}).get(entry["id"]) or {}
+        if standing(earlier.get("owner")) and (not named or roadmap(earlier["owner"]) == named):
+            owner, reason = earlier["owner"], earlier.get("reason") or "assigned earlier"
+        elif named:
             who = "the maintainer decided on" if decided else "its survey names"
             options = [jid for jid in sorted(by_id) if live(jid) and roadmap(jid) == named]
             owner = max(options, key=lambda jid: (counts.get(jid, 0), -by_id[jid].get("order", 0)), default=None)
@@ -638,7 +651,8 @@ def keydef_owners(entries, routes, jobs, states, suppliers_of, titles, decisions
         assigned[entry["id"]] = {
             "name": entry.get("name", entry["id"]), "survey": where, "owner": owner, "roadmap": rid, "title": title,
             "reserved": f"{roadmap(owner)}:key/{slug}" if owner else None, "reason": reason,
-            "importers": sorted(jid for jid in counts if jid != owner), "items": sum(counts.values()), "unrouted": unrouted}
+            "importers": sorted((set(counts) | {jid for jid in earlier.get("importers") or [] if standing(jid)}) - {owner}),
+            "items": sum(counts.values()), "unrouted": unrouted}
     return assigned
 
 
@@ -1717,8 +1731,10 @@ def main():
     key_entries = promoted_keydefs()
     decisions_path = BP / "keydefs" / "assign.json"
     decisions = json.loads(decisions_path.read_text()).get("assign", {}) if decisions_path.exists() else {}
+    owners_path = BP / "keydefs" / "owners.json"
+    previous_owners = json.loads(owners_path.read_text()).get("definitions", {}) if owners_path.exists() else {}
     owned_by = keydef_owners(key_entries, item_routes, jobs, states, suppliers_of,
-                             {rid: r.get("title", rid) for rid, r in roadmaps.items()}, decisions)
+                             {rid: r.get("title", rid) for rid, r in roadmaps.items()}, decisions, previous_owners)
     keydefs_owned, keydefs_cited = defaultdict(dict), defaultdict(dict)
     for kid, assignment in owned_by.items():
         if assignment["owner"]:
