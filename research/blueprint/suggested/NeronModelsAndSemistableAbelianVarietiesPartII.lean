@@ -17,6 +17,7 @@ The two partial data structures below are not substitutes for their mathematical
 -/
 
 import Mathlib.Algebra.Category.Ring.Constructions
+import Mathlib.Algebra.QuadraticDiscriminant
 import Mathlib.AlgebraicGeometry.Scheme
 import Mathlib.AlgebraicGeometry.Limits
 import Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion
@@ -1766,3 +1767,442 @@ example : Nat.card {t : ZMod 2 // t ^ 2 = 0} = 1 := by sorry
 end
 end TauCeti.GenusOne.QuadraticPinch
 /- END QUADRATIC POINT PARAMETRIZATION -/
+
+/- BEGIN QUADRATIC ROOT BRANCH COUNTS -/
+namespace TauCeti.GenusOne.QuadraticPinch
+noncomputable section
+variable {k : Type*} [Field k]
+
+open scoped Classical
+
+lemma quadraticRootCount_branch [Finite k] (a b : k) (hd : discrim 1 a b ≠ 0) :
+    Nat.card {t : k // t ^ 2 + a * t + b = 0} =
+      if ∃ t : k, t ^ 2 + a * t + b = 0 then 2 else 0 := by
+  sorry
+
+lemma pointCount_branch [Finite k] (a b : k) (hd : discrim 1 a b ≠ 0) :
+    (⟨a,-b,0,0,0⟩ : WeierstrassCurve k).pointCount =
+      if ∃ t : k, t ^ 2 + a * t + b = 0 then Nat.card k else Nat.card k + 2 := by
+  sorry
+
+lemma frobeniusTrace_branch [Finite k] (a b : k) (hd : discrim 1 a b ≠ 0) :
+    (⟨a,-b,0,0,0⟩ : WeierstrassCurve k).frobeniusTrace =
+      if ∃ t : k, t ^ 2 + a * t + b = 0 then 1 else -1 := by
+  sorry
+
+lemma pointCount_field_map {l : Type*} [Field l] [Finite l]
+    (f : k →+* l) (a b : k) (hd : discrim 1 a b ≠ 0) :
+    (⟨f a,-f b,0,0,0⟩ : WeierstrassCurve l).pointCount =
+      if ∃ t : l, t ^ 2 + f a * t + f b = 0 then Nat.card l else Nat.card l + 2 := by
+  sorry
+
+-- test: QuadraticPinch.quadraticRootCount_branch.test_binary_split
+example : Nat.card {t : ZMod 2 // t ^ 2 + 1 * t + 0 = 0} = 2 := by
+  sorry
+
+-- test: QuadraticPinch.quadraticRootCount_branch.test_binary_nonsplit
+example : Nat.card {t : ZMod 2 // t ^ 2 + 1 * t + 1 = 0} = 0 := by
+  sorry
+
+-- test: QuadraticPinch.pointCount_branch.test_odd_split
+example : (⟨0,1,0,0,0⟩ : WeierstrassCurve (ZMod 3)).pointCount = 3 := by
+  sorry
+
+-- test: QuadraticPinch.frobeniusTrace_branch.test_odd_nonsplit
+example : (⟨0,-1,0,0,0⟩ : WeierstrassCurve (ZMod 3)).frobeniusTrace = -1 := by
+  sorry
+
+-- test: QuadraticPinch.frobeniusTrace_branch.test_repeated_excluded
+example : discrim (1 : ZMod 3) 1 1 = 0 ∧
+    (⟨1,-1,0,0,0⟩ : WeierstrassCurve (ZMod 3)).frobeniusTrace = 0 := by
+  sorry
+
+-- test: QuadraticPinch.pointCount_field_map.test_identity
+example [Finite k] (a b : k) (hd : discrim 1 a b ≠ 0) :
+    (⟨a,-b,0,0,0⟩ : WeierstrassCurve k).pointCount =
+      if ∃ t : k, t ^ 2 + a * t + b = 0 then Nat.card k else Nat.card k + 2 := by
+  sorry
+
+end
+end TauCeti.GenusOne.QuadraticPinch
+/- END QUADRATIC ROOT BRANCH COUNTS -/
+
+/-
+Checked fixture credit: exact PointCount public namespace section at TauCeti f790474.
+Copyright (c) 2026 The Tau Ceti contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: The Tau Ceti contributors.
+This is a pinned library fixture, never a new submitted library definition.
+BEGIN ARCHIVED CHECKED QUADRATIC ROOT BRANCHES
+import Mathlib
+
+namespace TauCeti
+
+variable {F : Type*} [Field F] (W : WeierstrassCurve F)
+
+/-- **The number of `F`-points of the projective Weierstrass model**, the singular point included
+when there is one: `Nat.card` of the solutions of the affine equation, singular or not, plus one
+for the point at infinity. It is the honest count whenever that solution type is finite. -/
+noncomputable def _root_.WeierstrassCurve.pointCount : ℕ :=
+  Nat.card {p : F × F // W.toAffine.Equation p.1 p.2} + 1
+
+/-- The defining equation of `pointCount`. -/
+@[simp]
+-- Needed as a lemma rather than left to unfolding: `pointCount`'s body is not exposed across a
+-- module boundary, so `rfl` for this equation fails in a downstream file.
+theorem _root_.WeierstrassCurve.pointCount_def :
+    W.pointCount = Nat.card {p : F × F // W.toAffine.Equation p.1 p.2} + 1 := (rfl)
+
+/-- **On an elliptic model the projective count is the cardinality of Mathlib's point type.**
+An elliptic model has no singular point to include, so the solutions of the equation are exactly
+the nonsingular ones, and the point at infinity is the one Mathlib's type adjoins. -/
+theorem _root_.WeierstrassCurve.pointCount_eq_card_point
+    [Finite {p : F × F // W.toAffine.Equation p.1 p.2}] [W.IsElliptic] :
+    W.pointCount = Nat.card W.toAffine.Point := by
+  rw [WeierstrassCurve.pointCount_def, Nat.card_congr W.toAffine.pointEquiv]
+  -- `WithZero` is the `Option` the cardinality lemma is stated for
+  exact Finite.card_option.symm
+
+/-- **The Frobenius trace** `a_q = q + 1 − #W(F)` of a Weierstrass model over a finite field of
+`q` elements, measured against `pointCount`.
+
+Taken against that count the formula returns the classical local invariant at *every* Weierstrass
+model: `a_q` at an elliptic one, and `1`, `−1`, `0` at split multiplicative, nonsplit
+multiplicative and additive reduction. That is why it carries no ellipticity hypothesis. It is
+elliptic-specific only in its reading as a *trace*, which rests on the identity
+`deg (1 − π_q) = #E(𝔽_q)`. -/
+noncomputable def _root_.WeierstrassCurve.frobeniusTrace [Finite F] : ℤ :=
+  -- `q` is a number only because the base is finite, so the count is taken through that
+  -- finiteness; `frobeniusTrace_def` restates it with `Nat.card`, the form the API is phrased in
+  have : Fintype F := Fintype.ofFinite F
+  (Fintype.card F : ℤ) + 1 - W.pointCount
+
+/-- The defining equation of `frobeniusTrace`. -/
+@[simp]
+theorem _root_.WeierstrassCurve.frobeniusTrace_def [Finite F] :
+    W.frobeniusTrace = (Nat.card F : ℤ) + 1 - W.pointCount := by
+  simp only [WeierstrassCurve.frobeniusTrace, @Nat.card_eq_fintype_card F (Fintype.ofFinite F)]
+
+/-- **Over a finite field, on an elliptic model the trace is measured against Mathlib's point
+type**, which is the classical `a_q`. -/
+theorem _root_.WeierstrassCurve.frobeniusTrace_eq_card_point [Finite F] [W.IsElliptic] :
+    W.frobeniusTrace = (Nat.card F : ℤ) + 1 - Nat.card W.toAffine.Point := by
+  rw [WeierstrassCurve.frobeniusTrace_def, WeierstrassCurve.pointCount_eq_card_point]
+
+end TauCeti
+
+namespace TauCeti.GenusOne.QuadraticPinch
+noncomputable section
+variable {k : Type*} [Field k]
+
+lemma parameter_equation (a b t : k) :
+    (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation
+      (t ^ 2 + a * t + b) (t * (t ^ 2 + a * t + b)) := by
+  rw [WeierstrassCurve.Affine.equation_iff]
+  dsimp
+  ring
+
+lemma affine_zero_x (a b y : k)
+    (h : (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation 0 y) : y = 0 := by
+  rw [WeierstrassCurve.Affine.equation_iff] at h
+  simp only [mul_zero, zero_mul, zero_pow (by decide : 3 ≠ 0),
+    zero_pow (by decide : 2 ≠ 0), add_zero] at h
+  exact sq_eq_zero_iff.mp h
+
+lemma parameter_recovery (a b x y : k)
+    (h : (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation x y)
+    (hx : x ≠ 0) : (y / x) ^ 2 + a * (y / x) + b = x := by
+  rw [WeierstrassCurve.Affine.equation_iff] at h
+  dsimp at h
+  field_simp
+  linear_combination h
+
+def affineParamEquiv (a b : k) :
+    {p : k × k // (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation p.1 p.2} ≃
+      Option {t : k // t ^ 2 + a * t + b ≠ 0} := by
+  classical
+  refine
+    { toFun := fun p => if hx : p.1.1 = 0 then none else
+        some ⟨p.1.2 / p.1.1, by rw [parameter_recovery a b _ _ p.2 hx]; exact hx⟩
+      invFun := fun p => match p with
+        | none => ⟨(0,0), by
+            rw [WeierstrassCurve.Affine.equation_iff]; simp⟩
+        | some t => ⟨(t.1 ^ 2 + a * t.1 + b, t.1 * (t.1 ^ 2 + a * t.1 + b)),
+            parameter_equation a b t.1⟩
+      left_inv := ?_
+      right_inv := ?_ }
+  · intro p
+    dsimp
+    split_ifs with hx
+    · apply Subtype.ext
+      apply Prod.ext
+      · exact hx.symm
+      · exact (affine_zero_x a b p.1.2 (by simpa [hx] using p.2)).symm
+    · apply Subtype.ext
+      apply Prod.ext
+      · exact parameter_recovery a b _ _ p.2 hx
+      · dsimp
+        rw [parameter_recovery a b _ _ p.2 hx]
+        exact div_mul_cancel₀ _ hx
+  · intro p
+    cases p with
+    | none => simp
+    | some t =>
+      dsimp
+      simp only [t.2, dite_false]
+      congr 2
+      exact mul_div_cancel_right₀ _ t.2
+
+lemma affineParamEquiv_origin (a b : k) :
+    affineParamEquiv a b ⟨(0,0), by
+      rw [WeierstrassCurve.Affine.equation_iff]; simp⟩ = none := by
+  simp [affineParamEquiv]
+
+lemma affineParamEquiv_symm_none (a b : k) :
+    ((affineParamEquiv a b).symm none).1 = (0,0) := by rfl
+
+lemma affineParamEquiv_symm_some (a b : k) (t : {t : k // t ^ 2 + a * t + b ≠ 0}) :
+    ((affineParamEquiv a b).symm (some t)).1 =
+      (t.1 ^ 2 + a * t.1 + b, t.1 * (t.1 ^ 2 + a * t.1 + b)) := by rfl
+
+lemma affineParamEquiv_nonzero (a b : k)
+    (p : {p : k × k // (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation p.1 p.2})
+    (hx : p.1.1 ≠ 0) :
+    Option.map Subtype.val (affineParamEquiv a b p) = some (p.1.2 / p.1.1) := by
+  simp [affineParamEquiv, hx]
+
+lemma affine_card_balance [Finite k] (a b : k) :
+    Nat.card {p : k × k // (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation p.1 p.2} +
+      Nat.card {t : k // t ^ 2 + a * t + b = 0} = Nat.card k + 1 := by
+  classical
+  let := Fintype.ofFinite k
+  rw [Nat.card_congr (affineParamEquiv a b), Nat.card_eq_fintype_card]
+  simp only [Fintype.card_option]
+  simp only [Nat.card_eq_fintype_card]
+  have h : Fintype.card {t : k // t ^ 2 + a * t + b ≠ 0} =
+      Fintype.card k - Fintype.card {t : k // t ^ 2 + a * t + b = 0} :=
+    Fintype.card_subtype_compl (fun t : k => t ^ 2 + a * t + b = 0)
+  rw [h]
+  have hle := Fintype.card_subtype_le (fun t : k => t ^ 2 + a * t + b = 0)
+  omega
+
+lemma pointCount_balance [Finite k] (a b : k) :
+    (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).pointCount +
+      Nat.card {t : k // t ^ 2 + a * t + b = 0} = Nat.card k + 2 := by
+  rw [WeierstrassCurve.pointCount_def]
+  have := affine_card_balance a b
+  omega
+
+lemma frobeniusTrace_roots [Finite k] (a b : k) :
+    (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).frobeniusTrace =
+      (Nat.card {t : k // t ^ 2 + a * t + b = 0} : ℤ) - 1 := by
+  rw [WeierstrassCurve.frobeniusTrace_def]
+  have := pointCount_balance a b
+  omega
+end
+end TauCeti.GenusOne.QuadraticPinch
+
+namespace TauCeti.GenusOne.QuadraticPinch
+noncomputable section
+-- test: QuadraticPinch.affineParamEquiv.test_origin
+example (a b : ℚ) : affineParamEquiv a b ⟨(0,0), by
+    rw [WeierstrassCurve.Affine.equation_iff]; simp⟩ = none := by
+  exact affineParamEquiv_origin a b
+
+-- test: QuadraticPinch.affineParamEquiv.test_nonsplit
+example : ((affineParamEquiv (1 : ZMod 2) 1).symm
+    (some ⟨0, by decide⟩)).1 = (1,0) := by
+  rw [affineParamEquiv_symm_some]
+  decide
+
+-- test: QuadraticPinch.affineParamEquiv.test_cusp
+example : ((affineParamEquiv (0 : ZMod 2) 0).symm
+    (some ⟨1, by decide⟩)).1 = (1,1) := by
+  rw [affineParamEquiv_symm_some]
+  decide
+
+-- test: QuadraticPinch.pointCount_balance.test_three_forms
+example :
+    (⟨1, 0, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).pointCount = 2 ∧
+    (⟨1, 1, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).pointCount = 4 ∧
+    (⟨0, 0, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).pointCount = 3 := by
+  have hsplit := pointCount_balance (1 : ZMod 2) 0
+  have hnonsplit := pointCount_balance (1 : ZMod 2) 1
+  have hcusp := pointCount_balance (0 : ZMod 2) 0
+  have hs : Nat.card {t : ZMod 2 // t ^ 2 + 1 * t + 0 = 0} = 2 := by
+    rw [Nat.card_eq_fintype_card]; decide
+  have hn : Nat.card {t : ZMod 2 // t ^ 2 + 1 * t + 1 = 0} = 0 := by
+    rw [Nat.card_eq_fintype_card]; decide
+  have hc : Nat.card {t : ZMod 2 // t ^ 2 + 0 * t + 0 = 0} = 1 := by
+    rw [Nat.card_eq_fintype_card]; decide
+  rw [hs] at hsplit
+  rw [hn] at hnonsplit
+  rw [hc] at hcusp
+  have hneg : (-1 : ZMod 2) = 1 := by decide
+  simp only [hneg] at hnonsplit
+  norm_num only [Nat.card_eq_fintype_card, ZMod.card] at hsplit hnonsplit hcusp
+  constructor
+  · omega
+  constructor <;> omega
+
+-- test: QuadraticPinch.frobeniusTrace_roots.test_three_forms
+example :
+    (⟨1, 0, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).frobeniusTrace = 1 ∧
+    (⟨1, 1, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).frobeniusTrace = -1 ∧
+    (⟨0, 0, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).frobeniusTrace = 0 := by
+  have hsplit := frobeniusTrace_roots (1 : ZMod 2) 0
+  have hnonsplit := frobeniusTrace_roots (1 : ZMod 2) 1
+  have hcusp := frobeniusTrace_roots (0 : ZMod 2) 0
+  have hs : Nat.card {t : ZMod 2 // t ^ 2 + 1 * t + 0 = 0} = 2 := by
+    rw [Nat.card_eq_fintype_card]; decide
+  have hn : Nat.card {t : ZMod 2 // t ^ 2 + 1 * t + 1 = 0} = 0 := by
+    rw [Nat.card_eq_fintype_card]; decide
+  have hc : Nat.card {t : ZMod 2 // t ^ 2 + 0 * t + 0 = 0} = 1 := by
+    rw [Nat.card_eq_fintype_card]; decide
+  rw [hs] at hsplit
+  rw [hn] at hnonsplit
+  rw [hc] at hcusp
+  have hneg : (-1 : ZMod 2) = 1 := by decide
+  simp only [hneg] at hnonsplit
+  norm_num only [Nat.card_eq_fintype_card, ZMod.card] at hsplit hnonsplit hcusp
+  constructor
+  · omega
+  constructor <;> omega
+
+-- test: QuadraticPinch.affine_card_balance.test_distinct_double_root
+example : Nat.card {t : ZMod 2 // t ^ 2 = 0} = 1 := by
+  rw [Nat.card_eq_fintype_card]; decide
+end
+end TauCeti.GenusOne.QuadraticPinch
+
+namespace TauCeti.GenusOne.QuadraticPinch
+noncomputable section
+variable {k : Type*} [Field k]
+
+open scoped Classical
+
+lemma quadraticRootCount_branch [Finite k] (a b : k) (hd : discrim 1 a b ≠ 0) :
+    Nat.card {t : k // t ^ 2 + a * t + b = 0} =
+      if ∃ t : k, t ^ 2 + a * t + b = 0 then 2 else 0 := by
+  classical
+  let := Fintype.ofFinite k
+  split_ifs with hx
+  · obtain ⟨r,hr⟩ := hx
+    have hr' : r * r - (-a) * r + b = 0 := by simpa [sq] using hr
+    obtain ⟨s,hs,hadd,hmul⟩ := vieta_formula_quadratic hr'
+    have hneq : r ≠ s := by
+      intro heq
+      have hz : 2 * r + a = 0 := by rw [← heq] at hadd; linear_combination hadd
+      have hdisc : discrim 1 a b = (2 * r + a) ^ 2 := by
+        simpa only [one_mul,mul_one,sq] using
+          (discrim_eq_sq_of_quadratic_eq_zero
+            (show (1 : k) * (r * r) + a * r + b = 0 by simpa [sq] using hr))
+      apply hd
+      rw [hdisc,hz,zero_pow (by decide : 2 ≠ 0)]
+    have hroots (z : k) : z ^ 2 + a * z + b = 0 ↔ z = r ∨ z = s := by
+      have hfactor : z ^ 2 + a * z + b = (z-r)*(z-s) := by
+        linear_combination z * hadd - hmul
+      rw [hfactor,mul_eq_zero,sub_eq_zero,sub_eq_zero]
+    rw [Nat.card_eq_fintype_card,
+      Fintype.card_of_subtype ({r,s} : Finset k) (by
+        intro z; simp only [Finset.mem_insert,Finset.mem_singleton]; exact (hroots z).symm)]
+    simp [hneq]
+  · rw [Nat.card_eq_fintype_card,
+      Fintype.card_of_subtype (∅ : Finset k) (by
+        intro z
+        simp only [Finset.notMem_empty,false_iff]
+        intro hz; exact hx ⟨z,hz⟩)]
+    rfl
+
+lemma pointCount_branch [Finite k] (a b : k) (hd : discrim 1 a b ≠ 0) :
+    (⟨a,-b,0,0,0⟩ : WeierstrassCurve k).pointCount =
+      if ∃ t : k, t ^ 2 + a * t + b = 0 then Nat.card k else Nat.card k + 2 := by
+  classical
+  have h := pointCount_balance a b
+  have hr := quadraticRootCount_branch a b hd
+  split_ifs with hx
+  · simp only [hx,↓reduceIte] at hr
+    rw [hr] at h
+    omega
+  · simp only [hx,↓reduceIte] at hr
+    rw [hr] at h
+    omega
+
+lemma frobeniusTrace_branch [Finite k] (a b : k) (hd : discrim 1 a b ≠ 0) :
+    (⟨a,-b,0,0,0⟩ : WeierstrassCurve k).frobeniusTrace =
+      if ∃ t : k, t ^ 2 + a * t + b = 0 then 1 else -1 := by
+  classical
+  rw [frobeniusTrace_roots,quadraticRootCount_branch a b hd]
+  split_ifs <;> norm_num
+
+lemma pointCount_field_map {l : Type*} [Field l] [Finite l]
+    (f : k →+* l) (a b : k) (hd : discrim 1 a b ≠ 0) :
+    (⟨f a,-f b,0,0,0⟩ : WeierstrassCurve l).pointCount =
+      if ∃ t : l, t ^ 2 + f a * t + f b = 0 then Nat.card l else Nat.card l + 2 := by
+  classical
+  apply pointCount_branch
+  have hm : discrim (1 : l) (f a) (f b) = f (discrim 1 a b) := by
+    simp only [discrim,map_sub,map_pow,map_mul,map_ofNat,map_one]
+  rw [hm]
+  exact fun h => hd (f.injective (h.trans f.map_zero.symm))
+
+-- test: QuadraticPinch.quadraticRootCount_branch.test_binary_split
+example : Nat.card {t : ZMod 2 // t ^ 2 + 1 * t + 0 = 0} = 2 := by
+  rw [quadraticRootCount_branch 1 0 (by decide)]
+  have h : ∃ t : ZMod 2, t ^ 2 + 1 * t + 0 = 0 := ⟨0,by decide⟩
+  simp only [h,↓reduceIte]
+
+-- test: QuadraticPinch.quadraticRootCount_branch.test_binary_nonsplit
+example : Nat.card {t : ZMod 2 // t ^ 2 + 1 * t + 1 = 0} = 0 := by
+  rw [quadraticRootCount_branch 1 1 (by decide)]
+  have h : ¬∃ t : ZMod 2, t ^ 2 + 1 * t + 1 = 0 := by decide
+  simp only [h,↓reduceIte]
+
+-- test: QuadraticPinch.pointCount_branch.test_odd_split
+example : (⟨0,1,0,0,0⟩ : WeierstrassCurve (ZMod 3)).pointCount = 3 := by
+  have h := pointCount_branch (0 : ZMod 3) (-1) (by decide)
+  have hr : ∃ t : ZMod 3, t ^ 2 + 0 * t + (-1) = 0 := ⟨1,by decide⟩
+  simpa only [neg_neg,hr,↓reduceIte,Nat.card_eq_fintype_card,ZMod.card] using h
+
+-- test: QuadraticPinch.frobeniusTrace_branch.test_odd_nonsplit
+example : (⟨0,-1,0,0,0⟩ : WeierstrassCurve (ZMod 3)).frobeniusTrace = -1 := by
+  rw [frobeniusTrace_branch 0 1 (by decide)]
+  have hr : ¬∃ t : ZMod 3, t ^ 2 + 0 * t + 1 = 0 := by decide
+  simp only [hr,↓reduceIte]
+
+-- test: QuadraticPinch.frobeniusTrace_branch.test_repeated_excluded
+example : discrim (1 : ZMod 3) 1 1 = 0 ∧
+    (⟨1,-1,0,0,0⟩ : WeierstrassCurve (ZMod 3)).frobeniusTrace = 0 := by
+  constructor
+  · decide
+  · rw [frobeniusTrace_roots]
+    have hr : Nat.card {t : ZMod 3 // t ^ 2 + 1 * t + 1 = 0} = 1 := by
+      rw [Nat.card_eq_fintype_card]; decide
+    rw [hr]; norm_num
+
+-- test: QuadraticPinch.pointCount_field_map.test_identity
+example [Finite k] (a b : k) (hd : discrim 1 a b ≠ 0) :
+    (⟨a,-b,0,0,0⟩ : WeierstrassCurve k).pointCount =
+      if ∃ t : k, t ^ 2 + a * t + b = 0 then Nat.card k else Nat.card k + 2 :=
+  pointCount_field_map (RingHom.id k) a b hd
+
+end
+end TauCeti.GenusOne.QuadraticPinch
+
+#print axioms TauCeti.GenusOne.QuadraticPinch.parameter_equation
+#print axioms TauCeti.GenusOne.QuadraticPinch.affine_zero_x
+#print axioms TauCeti.GenusOne.QuadraticPinch.parameter_recovery
+#print axioms TauCeti.GenusOne.QuadraticPinch.affineParamEquiv
+#print axioms TauCeti.GenusOne.QuadraticPinch.affineParamEquiv_origin
+#print axioms TauCeti.GenusOne.QuadraticPinch.affineParamEquiv_symm_none
+#print axioms TauCeti.GenusOne.QuadraticPinch.affineParamEquiv_symm_some
+#print axioms TauCeti.GenusOne.QuadraticPinch.affineParamEquiv_nonzero
+#print axioms TauCeti.GenusOne.QuadraticPinch.affine_card_balance
+#print axioms TauCeti.GenusOne.QuadraticPinch.pointCount_balance
+#print axioms TauCeti.GenusOne.QuadraticPinch.frobeniusTrace_roots
+#print axioms TauCeti.GenusOne.QuadraticPinch.quadraticRootCount_branch
+#print axioms TauCeti.GenusOne.QuadraticPinch.pointCount_branch
+#print axioms TauCeti.GenusOne.QuadraticPinch.frobeniusTrace_branch
+#print axioms TauCeti.GenusOne.QuadraticPinch.pointCount_field_map
+END ARCHIVED CHECKED QUADRATIC ROOT BRANCHES
+-/
