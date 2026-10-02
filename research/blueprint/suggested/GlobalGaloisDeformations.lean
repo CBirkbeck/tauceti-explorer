@@ -12,6 +12,15 @@ import Mathlib.Tactic.LinearCombination
 import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.RingTheory.Polynomial.Basic
 import Mathlib.Data.ZMod.Defs
+import Mathlib.Algebra.Field.ZMod
+import Mathlib.RingTheory.AdicCompletion.Basic
+import Mathlib.RingTheory.Noetherian.Defs
+import Mathlib.RingTheory.LocalRing.ResidueField.Basic
+import Mathlib.LinearAlgebra.Dimension.RankNullity
+import Mathlib.LinearAlgebra.Dimension.DivisionRing
+import Mathlib.LinearAlgebra.Dimension.Constructions
+import Mathlib.LinearAlgebra.Pi
+import Mathlib.LinearAlgebra.Quotient.Basic
 
 /-!
 # Suggested Lean forms: global Galois deformations (GlobalGaloisDeformations, R04.1–R04.6, G7–G8)
@@ -24,7 +33,8 @@ contributors and reviewers converge on names and signatures. Every proof of a ne
 Pinned baseline: Mathlib `082e2d3`, Tau Ceti `f790474`. This file imports Mathlib only.
 
 Fix revision: Codex codex-5ebb6f, 30 September 2026, Refs #5142. Independent REV-FIX records needs_changes (2 October 2026, Refs #5143).
-No existing compiled build was available at the pins; no compilation of this revision is claimed.
+The earlier revision did not claim compilation. FIX-RT-BP-GlobalGaloisDeformations (#5719)
+repairs the signatures and adds the regressions below; its fresh elaboration receipt is in the fixes report.
 R04.5 imports the finite-image classification, invariants, H¹ vanishing and adjoint submodule
 list from R01.4. The missing supplier is not replaced by numerical group-order tests or an axiom.
 KW II author-final numbering: generators Lemma 4.4; relations Lemma 4.6; dimension Proposition 4.5.
@@ -37,9 +47,13 @@ actual rank/determinant assumptions and are not evidence that the missing arithm
 
 ## Conventions
 
-* A coefficient ring is a commutative topological ring `A` with a surjective ring map
-  `π : A →+* 𝔽` onto the residue field; the categories `Art_𝒪` and `C_𝒪` themselves are imported
-  from DeformationAndDerivedPatchingAlgebra R03.1 and are not re-declared here.
+* The raw `Lift` carrier only records a commutative ring, topology and a reduction map.
+  It does NOT turn that map into a residue map. Source coefficient rings are local,
+  with `π` surjective and `RingHom.ker π = IsLocalRing.maximalIdeal A`.
+  The normalization theorem explicitly requires these hypotheses. The trace theorem
+  additionally requires Noetherianity and maximal-ideal adic completeness (Gee's C_𝒪);
+  its Artinian-local variant is Kisin's Lecture 1 theorem. The actual coefficient
+  categories and their topology remain imports from R03.1, never new local carriers.
 * `Γ̂_n(A) = ker (GL_n(A) → GL_n(𝔽))`; deformations are lifts modulo conjugation by `Γ̂_n(A)`
   (strict equivalence), not by all of `GL_n(A)`.
 * Continuity of a lift is continuity of its matrix entries.
@@ -119,8 +133,10 @@ def IsSchur : Prop :=
 variable {A : Type*} [CommRing A] [TopologicalSpace A] (π : A →+* 𝔽)
 
 /-- **`R04.1/strict-vs-full-conjugacy`**. For Schur `ρ̄`, `GL_n(A)`-conjugate lifts are strictly
-conjugate. -/
-theorem strict_of_full (hS : IsSchur n ρbar) (hπ : Function.Surjective π) (ρ ρ' : Lift n ρbar π)
+conjugate over a LOCAL coefficient ring with its genuine residue map. Surjectivity alone
+is insufficient: see the integral S₃ regression below. -/
+theorem strict_of_full [IsLocalRing A]
+    (hres : RingHom.ker π = IsLocalRing.maximalIdeal A) (hS : IsSchur n ρbar) (hπ : Function.Surjective π) (ρ ρ' : Lift n ρbar π)
     (a : GL (Fin n) A) (h : ∀ g, ρ'.toHom g = a * ρ.toHom g * a⁻¹) :
     ∃ b ∈ strictKernel n π, ∀ g, ρ'.toHom g = b * ρ.toHom g * b⁻¹ := sorry
 
@@ -160,9 +176,21 @@ section Carayol
 
 variable {A : Type*} [CommRing A] [TopologicalSpace A] (π : A →+* 𝔽)
 
-/-- **`R04.2/carayol-trace-theorem`** (2): for absolutely irreducible `ρ̄` (here: Schur and
-spanning all matrices), lifts with the same traces are strictly conjugate. -/
-theorem strictly_conj_of_trace_eq
+/-- **`R04.2/carayol-trace-theorem`** (2), Gee Lemma 3.7 on complete Noetherian
+LOCAL rings. The spanning hypothesis is Burnside's condition; a nonlocal ring with a
+surjective map to the same field is not an admissible coefficient object. -/
+theorem strictly_conj_of_trace_eq [IsLocalRing A] [IsNoetherianRing A]
+    [IsAdicComplete (IsLocalRing.maximalIdeal A) A]
+    (hπ : Function.Surjective π) (hres : RingHom.ker π = IsLocalRing.maximalIdeal A)
+    (habs : Submodule.span 𝔽 (Set.range fun g ↦ (ρbar g : Matrix (Fin n) (Fin n) 𝔽)) = ⊤)
+    (ρ ρ' : Lift n ρbar π) (htr : ∀ g, (ρ.toHom g : Matrix (Fin n) (Fin n) A).trace =
+      (ρ'.toHom g : Matrix (Fin n) (Fin n) A).trace) :
+    ∃ a ∈ strictKernel n π, ∀ g, ρ'.toHom g = a * ρ.toHom g * a⁻¹ := sorry
+
+/-- The separate Artinian-local form (Kisin Lecture 1, Theorem 1.4.1).
+This is a prototype for the imported Art_𝒪 category, not a restriction of the packet's C_𝒪 theorem. -/
+theorem strictly_conj_of_trace_eq_artinian [IsLocalRing A] [IsArtinianRing A]
+    (hπ : Function.Surjective π) (hres : RingHom.ker π = IsLocalRing.maximalIdeal A)
     (habs : Submodule.span 𝔽 (Set.range fun g ↦ (ρbar g : Matrix (Fin n) (Fin n) 𝔽)) = ⊤)
     (ρ ρ' : Lift n ρbar π) (htr : ∀ g, (ρ.toHom g : Matrix (Fin n) (Fin n) A).trace =
       (ρ'.toHom g : Matrix (Fin n) (Fin n) A).trace) :
@@ -270,10 +298,26 @@ theorem factor_through_localConditions (A) [IsReduced A] [Module.Flat 𝒪 A] [M
     ∃! φ : D.unframedRing →ₐ[𝒪] A, φ.comp D.univRep = ρ
 -- R04.4/inertia-rigid-deformations
 theorem inertiaRigid_dim (C : irreducibleComponent (R□φ0fl ρ₀)) : absDim C = d ^ 2
--- R04.3/relative-tangent-space (T nonempty, p > 2, finite S and T; the constant is #T − 1)
+-- R04.3/relative-tangent-space, exact R02.5/D8 request; L2 owns the mapping fibre.
+-- M = ad ρbar, M0 = ker trace. Cglob⁰ = C⁰(G,M), Cglobⁱ = Cⁱ(G,M0) for i>0.
+-- Cloc⁰ = ⊕_{v∈T} C⁰(Gv,M).
+-- Cloc¹ = ⊕_T C¹(Gv,M0) ⊕ ⊕_{S\\T} C¹(Gv,M0)/Ltilde_v.
+-- Here Ltilde_v ⊆ Z¹ ⊆ C¹ is the preimage of L_v under Z¹ → H¹.
+-- Clocⁱ = ⊕_S Cⁱ(Gv,M0) for i≥2; all negative terms are zero.
+-- Crelⁱ = Cglobⁱ ⊕ Cloc^(i-1) = Cone(res)[-1],
+-- d(φ,ψ) = (dφ,res φ-dψ). In degree zero the full-adjoint commutator lands in M0.
+-- Its LES begins 0→H⁰rel→H⁰(G,M)→⊕_T H⁰(Gv,M)→H¹rel→H¹(G,M0)→… .
+-- The dual ordinary Selmer kernel (conditions L_v^⊥ only at S\\T) is DISTINCT.
+-- T nonempty, p>2, p∤n, T contains all p-adic places, all finite, Schur residual:
+-- H⁰rel=0 and the EXISTING E3 correction gives #T-1, not #T.
+-- Use ℤ for the Euler identity; Nat subtraction would truncate negative summands.
 theorem relTangent_finrank (hT : T.Nonempty) :
-    finrank 𝔽 (relTangent D T) = T.card - 1 - (∑ v ∈ infPlaces F, h0 v ad0) +
-      (∑ v ∈ S \ T, (finrank 𝔽 (L v) - h0 v ad0)) + dualSelmerDim D T - h0Global ad0Twist
+    (finrank 𝔽 (relTangent D T) : ℤ) = (T.card : ℤ) - 1 -
+      (∑ v ∈ infPlaces F, (h0 v ad0 : ℤ)) +
+      (∑ v ∈ S \\ T, ((finrank 𝔽 (L v) : ℤ) - (h0 v ad0 : ℤ))) +
+      (dualSelmerDim D T : ℤ) - (h0Global ad0Twist : ℤ)
+-- T empty has H⁰rel=k and ordinary fixed-determinant Selmer H¹. It does NOT
+-- inherit the formula's assumption T contains all p-adic places.
 -- G8/variable-determinant-problem and variable-determinant-representability (ACC+ 6.2.2–6.2.4)
 structure GlobalDeformationProblem where
   S : Finset (FinitePlace F)
@@ -329,7 +373,27 @@ Its contract cannot be obtained by renaming the enormous-image theorem.
 These comments replace the incomplete exists_twPresentation sketch, whose
 omitted field/framing/cardinality hypotheses made it unsuitable as a signature.
 The new tests below are expressible at the baseline; the arithmetic signature
-must wait for its named suppliers. This file has not been compiled in this fix.
+must wait for its named suppliers. That earlier round did not claim compilation. The #5719 fixes report records the fresh check.
+-/
+
+/- FIX-RT-BP-GlobalGaloisDeformations/3 source-specific supplier boundary.
+KW II Lemma 5.3 retains p>2 and cyclotomic absolute irreducibility. It does NOT
+assume irreducibility of the whole adjoint. R01.4 must export: for E=K F(ζ_p^N),
+M=(ad⁰ ρbar)^*(1), every nonzero irreducible constituent V occurring in the span
+of a restricted nonzero cocycle has a cyclotomically trivial σ whose residual
+matrix has distinct eigenvalues and V → M/(σ-1)M is nonzero. For p>2 the trace
+pairing identifies M with ad⁰(1), only under its stated rank-two hypotheses.
+Taylor, On the meromorphic continuation of degree two L-functions, Documenta
+Math. Extra Volume Coates (2006), Lemma 2.5, printed pp.749–750, physical pp.21–22,
+is KW's reference [59], NOT Remarks on a conjecture of Fontaine and Mazur [58].
+Its detector splits ad⁰=V⊕W: W=0, dim W=1 (induced case, choose outside the
+inducing quadratic field), dim W=2 (choose inside that field where χ/χᶜ≠1).
+For p=3 use KW II Lemmas 5.2(1), 5.3 and the constituent argument cited there;
+Taylor's l>3 cyclotomic-degree/vanishing proof is NOT a p=3 justification.
+R02.6 separately supplies H¹(Gal(E/F),M)=0 for the exact KW hypotheses.
+Gee's p≥5 SL₂-image branch may use full-adjoint irreducibility and spanning.
+Both branches then use the EXISTING chebotarev-selmer-selection, including its
+padding class. No finite-image axiom, dummy cohomology or second selector is added.
 -/
 
 end TauCeti.GaloisDeformation
@@ -437,5 +501,136 @@ example : Matrix.trace (1 : Matrix (Fin 3) (Fin 3) (ZMod 3)) = 0 := by
 
 /-- `G7/enormous-taylor-wiles-presentation`: `−n²[F⁺ : ℚ] + q·n = qn − n²[F⁺ : ℚ]`. -/
 example (q n f : ℤ) : -(n ^ 2 * f) + q * n = q * n - n ^ 2 * f := by ring
+
+/- #5719 regression helpers are only abbreviations for existing matrices, linear
+maps and Submodule quotients; they do not replace any supplier construction. -/
+
+private abbrev Cℤ : Matrix (Fin 2) (Fin 2) ℤ := !![0, -1; 1, -1]
+private abbrev Sℤ : Matrix (Fin 2) (Fin 2) ℤ := !![0, 1; 1, 0]
+private abbrev aℤ : Matrix (Fin 2) (Fin 2) ℤ := !![2, 5; 5, 12]
+private abbrev aℤinv : Matrix (Fin 2) (Fin 2) ℤ := !![-12, 5; 5, -2]
+
+/-- /1: the integral matrices generate S₃, and a is an integral unit matrix. -/
+example : Cℤ ^ 3 = 1 ∧ Sℤ ^ 2 = 1 ∧ Sℤ * Cℤ * Sℤ = Cℤ ^ 2 ∧
+    aℤ * aℤinv = 1 ∧ aℤinv * aℤ = 1 := by decide
+
+/-- /1: a reduces to 2I, not I, modulo 5; only ±1 are integral scalar units. -/
+example : aℤ.map (Int.castRingHom (ZMod 5)) =
+    (2 : ZMod 5) • (1 : Matrix (Fin 2) (Fin 2) (ZMod 5)) ∧
+    aℤ.map (Int.castRingHom (ZMod 5)) ≠ 1 ∧
+    (-aℤ).map (Int.castRingHom (ZMod 5)) ≠ 1 := by decide
+
+/-- /1: the integral common centralizer of C and S consists of scalar matrices. -/
+example (x y z w : ℤ)
+    (hC : !![x,y;z,w] * Cℤ = Cℤ * !![x,y;z,w])
+    (hS : !![x,y;z,w] * Sℤ = Sℤ * !![x,y;z,w]) :
+    y = 0 ∧ z = 0 ∧ x = w := by
+  have hc00 := congrArg (fun M : Matrix (Fin 2) (Fin 2) ℤ => M 0 0) hC
+  have hc01 := congrArg (fun M : Matrix (Fin 2) (Fin 2) ℤ => M 0 1) hC
+  have hs00 := congrArg (fun M : Matrix (Fin 2) (Fin 2) ℤ => M 0 0) hS
+  simp [Matrix.mul_apply, Fin.sum_univ_two] at hc00 hc01 hs00
+  omega
+
+/-- /1: the local-residue condition genuinely supplies the missing scalar unit. -/
+example {A : Type*} [CommRing A] [IsLocalRing A] [IsArtinianRing A]
+    (π : A →+* ZMod 5) (hres : RingHom.ker π = IsLocalRing.maximalIdeal A)
+    (c : A) (hc : π c ≠ 0) : IsUnit c := by
+  by_contra hu
+  have hm : c ∈ IsLocalRing.maximalIdeal A := hu
+  have hk : c ∈ RingHom.ker π := hres.symm ▸ hm
+  exact hc (RingHom.mem_ker.mp hk)
+
+/-- /1 allowed Artinian-local A=Z/25, residue F₅: 2 lifts a residue scalar and is a unit.
+The inverse 13 normalizes the same conjugator to the strict kernel. -/
+example : (2 * 13 : ZMod 25) = 1 ∧
+    ((13 : ZMod 25) • (aℤ.map (Int.castRingHom (ZMod 25)))).map
+      (ZMod.castHom (by norm_num : 5 ∣ 25) (ZMod 5)) = 1 := by decide
+
+/-- /1: the normalized Artinian-local matrix is still invertible. -/
+example :
+    ((13 : ZMod 25) • (aℤ.map (Int.castRingHom (ZMod 25)))) *
+      ((2 : ZMod 25) • (aℤinv.map (Int.castRingHom (ZMod 25)))) = 1 := by decide
+
+local instance : Fact (Nat.Prime 3) := ⟨by decide⟩
+
+private abbrev diagonal (m : ℕ) : ZMod 3 →ₗ[ZMod 3] (Fin m → ZMod 3) :=
+  LinearMap.pi fun _ => LinearMap.id
+
+private abbrev scalarFrames (m : ℕ) :=
+  (Fin m → ZMod 3) ⧸ (diagonal m).range
+
+/-- /2 rank one: trace-zero matrices vanish, but scalar framings need not. -/
+example (M : Matrix (Fin 1) (Fin 1) (ZMod 3)) (h : M.trace = 0) : M = 0 := by
+  ext i j
+  fin_cases i
+  fin_cases j
+  simpa [Matrix.trace, Fin.sum_univ_one] using h
+
+/-- /2: the scalar boundary is the diagonal map, injective for two framings. -/
+example : Function.Injective (diagonal 2) := by
+  intro x y h
+  exact congrFun h 0
+
+/-- /2: two framings leave exactly one actual quotient direction, k²/diag(k). -/
+example : Module.finrank (ZMod 3) (scalarFrames 2) = 1 := by
+  have hi : Function.Injective (diagonal 2) := fun _ _ h => congrFun h 0
+  have hr := LinearMap.finrank_range_of_inj hi
+  have hd := (diagonal 2).range.finrank_quotient_add_finrank
+  simp only [CommSemiring.finrank_self] at hr
+  rw [hr, Module.finrank_fin_fun] at hd
+  exact Nat.add_right_cancel (hd.trans (by rfl))
+
+/-- /2: the two-framing quotient is not zero: the frame (0,1) is not diagonal. -/
+example : (Submodule.Quotient.mk ![0,1] : scalarFrames 2) ≠ 0 := by
+  intro h
+  obtain ⟨c,hc⟩ := LinearMap.mem_range.mp
+    ((Submodule.Quotient.mk_eq_zero (diagonal 2).range).mp h)
+  have h0 := congrFun hc 0
+  have h1 := congrFun hc 1
+  change c = 0 at h0
+  change c = 1 at h1
+  norm_num [h0] at h1
+
+/-- /2: one framing is killed by the diagonal scalar change, so its quotient has dimension 0. -/
+example : Module.finrank (ZMod 3) (scalarFrames 1) = 0 := by
+  have hi : Function.Injective (diagonal 1) := fun _ _ h => congrFun h 0
+  have hr := LinearMap.finrank_range_of_inj hi
+  have hd := (diagonal 1).range.finrank_quotient_add_finrank
+  simp only [CommSemiring.finrank_self] at hr
+  rw [hr, Module.finrank_fin_fun] at hd
+  exact Nat.add_right_cancel (hd.trans (by rfl))
+
+/-- /2: no framings give zero H¹ frame directions, but all scalars remain in ker d⁰. -/
+example : Module.finrank (ZMod 3) (scalarFrames 0) = 0 ∧
+    (diagonal 0).ker = ⊤ := by
+  constructor
+  · have hd := (diagonal 0).range.finrank_quotient_add_finrank
+    rw [Module.finrank_fin_fun] at hd
+    change Module.finrank (ZMod 3) ((Fin 0 → ZMod 3) ⧸ (diagonal 0).range) = 0
+    omega
+  · ext x
+    simp [LinearMap.mem_ker, diagonal, funext_iff]
+
+private abbrev C₅ : Matrix (Fin 2) (Fin 2) (ZMod 5) := Cℤ.map (Int.castRingHom _)
+private abbrev S₅ : Matrix (Fin 2) (Fin 2) (ZMod 5) := Sℤ.map (Int.castRingHom _)
+private abbrev J₅ : Matrix (Fin 2) (Fin 2) (ZMod 5) := C₅ - C₅ ^ 2
+
+/-- /3: J spans a nonzero trace-zero sign line in the adjoint of the S₃ representation. -/
+example : J₅.trace = 0 ∧ J₅ ≠ 0 ∧
+    C₅ * J₅ * C₅ ^ 2 = J₅ ∧ S₅ * J₅ * S₅ = -J₅ := by decide
+
+/-- /3: the sign line is proper even inside ad⁰: diag(1,-1) is not in it. -/
+example : !![(1 : ZMod 5),0;0,-1] ∉ Submodule.span (ZMod 5) {J₅} := by
+  rw [Submodule.mem_span_singleton]
+  decide
+
+/-- /3: all scalar multiples stay in the sign line under the two generators. -/
+example (t : ZMod 5) :
+    C₅ * (t • J₅) * C₅ ^ 2 = t • J₅ ∧ S₅ * (t • J₅) * S₅ = -(t • J₅) := by
+  fin_cases t <;> decide
+
+/-- /1 and /3: I,C,S,CS form a basis of M₂(F₅), witnessed by their flattened determinant.
+This tests residual absolute irreducibility, not irreducibility of the adjoint. -/
+example : (!![(1 : ZMod 5),0,0,1;0,-1,1,-1;0,1,1,0;-1,0,-1,1]).det ≠ 0 := by decide
 
 end TauCeti.GaloisDeformation.SuggestedTest
