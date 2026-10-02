@@ -1462,6 +1462,66 @@ theorem affineTorsorComparison.surjective_iff (f : A) (n : ℕ) [NeZero n] :
 theorem affineTorsorComparison.bijective_iff (f : A) (n : ℕ) [NeZero n] :
     Function.Bijective (affineTorsorComparison f n) ↔ n = 1 ∨ IsUnit f := by sorry
 
+/-- The inverse of the root on a specified unit chart. -/
+lemma affineRoot.unit_mul_inverse (v : Aˣ) (n : ℕ) [NeZero n] :
+    AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) *
+      (algebraMap A (AffineRing (v : A) n) ((v⁻¹ : Aˣ) : A) *
+        AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ^ (n - 1)) = 1 := by
+  let x := AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A))
+  calc
+    _ = algebraMap A (AffineRing (v : A) n) ((v⁻¹ : Aˣ) : A) * x ^ n := by
+      change x * (_ * x ^ (n - 1)) = _
+      rw [mul_left_comm, ← pow_succ', Nat.sub_add_cancel (by have := NeZero.ne n; omega)]
+    _ = 1 := by rw [affineRoot.pow_eq, ← map_mul]; simp
+
+/-- The actual comparison promoted to an algebra equivalence on the unit locus. -/
+def affineTorsorComparison.unitEquiv (v : Aˣ) (n : ℕ) [NeZero n] :
+    (AffineRing (v : A) n ⊗[A] AffineRing (v : A) n) ≃ₐ[A]
+      (MuHopf A n ⊗[A] AffineRing (v : A) n) :=
+  AlgEquiv.ofBijective (affineTorsorComparison (v : A) n)
+    ((affineTorsorComparison.bijective_iff (v : A) n).mpr (Or.inr v.isUnit))
+
+lemma affineTorsorComparison.unitEquiv_toAlgHom (v : Aˣ) (n : ℕ) [NeZero n] :
+    (affineTorsorComparison.unitEquiv v n).toAlgHom =
+      affineTorsorComparison (v : A) n := rfl
+
+lemma affineTorsorComparison.unitEquiv_symm_character (v : Aˣ) (n : ℕ) [NeZero n] :
+    (affineTorsorComparison.unitEquiv v n).symm
+      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod n)) (1 : A) ⊗ₜ[A]
+        (1 : AffineRing (v : A) n)) =
+      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ⊗ₜ[A]
+        (algebraMap A (AffineRing (v : A) n) ((v⁻¹ : Aˣ) : A) *
+          AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ^ (n - 1)) := by
+  apply (affineTorsorComparison.unitEquiv v n).symm_apply_eq.mpr
+  simp only [unitEquiv, AlgEquiv.ofBijective_apply]
+  rw [affineTorsorComparison.tmul, affineCoaction.root,
+    Algebra.TensorProduct.tmul_mul_tmul, mul_one, affineRoot.unit_mul_inverse]
+
+lemma affineTorsorComparison.unitEquiv_symm_right (v : Aˣ) (n : ℕ) [NeZero n]
+    (b : AffineRing (v : A) n) :
+    (affineTorsorComparison.unitEquiv v n).symm
+      ((1 : MuHopf A n) ⊗ₜ[A] b) = (1 : AffineRing (v : A) n) ⊗ₜ[A] b := by
+  apply (affineTorsorComparison.unitEquiv v n).symm_apply_eq.mpr
+  simpa only [unitEquiv, AlgEquiv.ofBijective_apply] using
+    (affineTorsorComparison.right_factor (v : A) n b).symm
+
+/-- The inverse on every native character/right-factor tensor. -/
+lemma affineTorsorComparison.unitEquiv_symm_character_tmul (v : Aˣ) (n : ℕ)
+    [NeZero n] (i : ℕ) (b : AffineRing (v : A) n) :
+    (affineTorsorComparison.unitEquiv v n).symm
+      (MonoidAlgebra.single (Multiplicative.ofAdd (i : ZMod n)) (1 : A) ⊗ₜ[A] b) =
+      (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ^ i) ⊗ₜ[A]
+        ((algebraMap A (AffineRing (v : A) n) ((v⁻¹ : Aˣ) : A) *
+          AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ^ (n - 1)) ^ i * b) := by
+  have hg : MonoidAlgebra.single (Multiplicative.ofAdd (i : ZMod n)) (1 : A) ⊗ₜ[A] b =
+      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod n)) (1 : A) ⊗ₜ[A]
+        (1 : AffineRing (v : A) n)) ^ i * ((1 : MuHopf A n) ⊗ₜ[A] b) := by
+    simp only [Algebra.TensorProduct.tmul_pow, affineCharacter.pow, one_pow,
+      Algebra.TensorProduct.tmul_mul_tmul, mul_one, one_mul]
+  rw [hg, map_mul, map_pow, affineTorsorComparison.unitEquiv_symm_character,
+    affineTorsorComparison.unitEquiv_symm_right, Algebra.TensorProduct.tmul_pow,
+    Algebra.TensorProduct.tmul_mul_tmul, mul_one]
+
 /-- The algebra equivalence is fixed by the original comparison and the
 inverse image of the character generator. This includes characteristic
 which divides n; no inverse of n occurs. -/
@@ -1475,7 +1535,10 @@ theorem affineTorsorComparison.unit_inverse (v : Aˣ) (n : ℕ) [NeZero n] :
           (algebraMap A (AffineRing (v : A) n) ((v⁻¹ : Aˣ) : A) *
             AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ^ (n - 1)) ∧
       ∀ b : AffineRing (v : A) n,
-        e.symm ((1 : MuHopf A n) ⊗ₜ[A] b) = (1 : AffineRing (v : A) n) ⊗ₜ[A] b := by sorry
+        e.symm ((1 : MuHopf A n) ⊗ₜ[A] b) = (1 : AffineRing (v : A) n) ⊗ₜ[A] b := by
+  refine ⟨affineTorsorComparison.unitEquiv v n, rfl,
+    affineTorsorComparison.unitEquiv_symm_character v n, ?_⟩
+  exact affineTorsorComparison.unitEquiv_symm_right v n
 
 /-- Determinant of the matrix supplied by the monomial formula. The same
 pair ordering is used on rows and columns. -/
@@ -1504,7 +1567,19 @@ example [Subsingleton A] (f : A) (n : ℕ) [NeZero n] :
 -- affineTorsorComparison.test_branch_kernel: an actual nonzero source tensor.
 example (k : Type u) [Field k] :
     let x := AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (0 : k))
-    x ⊗ₜ[k] x ≠ 0 ∧ affineTorsorComparison (0 : k) 2 (x ⊗ₜ[k] x) = 0 := by sorry
+    x ⊗ₜ[k] x ≠ 0 ∧ affineTorsorComparison (0 : k) 2 (x ⊗ₜ[k] x) = 0 := by
+  dsimp only
+  constructor
+  · intro hz
+    have hc := congrArg (fun z => affineTorsorComparison.sourceCoordinateEquiv (0 : k) 2 z (1,1)) hz
+    have hm := affineTorsorComparison.sourceCoordinateEquiv_monomial (0 : k) 2 (1,1)
+    simp only [Fin.val_one, pow_one] at hm
+    simp only [hm, map_zero, Pi.zero_apply, Pi.single_eq_same] at hc
+    exact one_ne_zero hc
+  · have hm := affineTorsorComparison.monomial (0 : k) 2 1 1
+    norm_num at hm
+    simpa using hm
+
 
 -- affineTorsorComparison.test_regular_nonunit: injective does not mean torsor.
 example : Function.Injective (affineTorsorComparison (2 : ℤ) 2) ∧
@@ -1521,12 +1596,48 @@ example :
 example :
     let x := AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (1 : ZMod 2))
     Function.Bijective (affineTorsorComparison (1 : ZMod 2) 2) ∧
-      x - 1 ≠ 0 ∧ (x - 1) ^ 2 = 0 := by sorry
+      x - 1 ≠ 0 ∧ (x - 1) ^ 2 = 0 := by
+  dsimp only
+  refine ⟨(affineTorsorComparison.bijective_iff (1 : ZMod 2) 2).mpr
+    (Or.inr isUnit_one), ?_, ?_⟩
+  · intro hz
+    have hx := sub_eq_zero.mp hz
+    have hc := congrArg (fun z => affineTorsorComparison.sourceCoordinateEquiv (1 : ZMod 2) 2
+      (z ⊗ₜ[ZMod 2] (1 : AffineRing (1 : ZMod 2) 2)) (1,0)) hx
+    have h1 := affineTorsorComparison.sourceCoordinateEquiv_monomial (1 : ZMod 2) 2 (1,0)
+    have h0 := affineTorsorComparison.sourceCoordinateEquiv_monomial (1 : ZMod 2) 2 (0,0)
+    norm_num at h1 h0
+    rw [h1,h0] at hc
+    norm_num [Pi.single_apply] at hc
+  · have ht := affineRoot.pow_eq (1 : ZMod 2) 2
+    simp only [map_one] at ht
+    have htwo : (2 : AffineRing (1 : ZMod 2) 2) = 0 := by
+      have h := congrArg (algebraMap (ZMod 2) (AffineRing (1 : ZMod 2) 2))
+        (by decide : (2 : ZMod 2) = 0)
+      rw [map_ofNat, map_zero] at h
+      exact h
+    rw [sub_sq,ht,htwo]
+    simp
+    have h := congrArg (algebraMap (ZMod 2) (AffineRing (1 : ZMod 2) 2))
+      (by decide : (1 : ZMod 2) + 1 = 0)
+    simpa using h
+
 
 -- affineTorsorComparison.test_nonflat_kernel: coordinate maps base change,
 -- but their kernels need not commute with the nonflat coefficient change Z→F2.
 example : Function.Injective (affineTorsorComparison (2 : ℤ) 2) ∧
-    ¬ Function.Injective (affineTorsorComparison (0 : ZMod 2) 2) := by sorry
+    ¬ Function.Injective (affineTorsorComparison (0 : ZMod 2) 2) := by
+  constructor
+  · apply (affineTorsorComparison.injective_iff (2 : ℤ) 2).mpr
+    right
+    intro a b h
+    exact mul_left_cancel₀ (by decide : (2 : ℤ) ≠ 0) h
+  · rw [affineTorsorComparison.injective_iff]
+    simp only [show ¬ (2 : ℕ) = 1 by decide, false_or]
+    intro hi
+    have h := hi (show (0 : ZMod 2) * 0 = 0 * 1 by simp)
+    exact zero_ne_one h
+
 
 -- affineTorsorComparison.test_cokernel_nonreduced: retain A/(f), not
 -- its reduction. The quotient for f=4 over Z/8 has an element of order four.
@@ -1535,7 +1646,61 @@ example :
       LinearMap.range (affineTorsorComparison (4 : ZMod 8) 2).toLinearMap)
     Nonempty (C ≃ₗ[ZMod 8]
       ((ZMod 8) ⧸ (Ideal.span ({(4 : ZMod 8)} : Set (ZMod 8))))) ∧
-      ∃ z : C, (2 : ZMod 8) • z ≠ 0 ∧ (4 : ZMod 8) • z = 0 := by sorry
+      ∃ z : C, (2 : ZMod 8) • z ≠ 0 ∧ (4 : ZMod 8) • z = 0 := by
+  dsimp only
+  let L := {p : Fin 2 × Fin 2 // p.2.val < p.1.val}
+  let : Unique L :=
+    { default := ⟨(1,0), by decide⟩
+      uniq := by
+        intro p
+        apply Subtype.ext
+        apply Prod.ext
+        · apply Fin.ext
+          have := p.val.1.isLt
+          have := p.val.2.isLt
+          have := p.property
+          dsimp only at *
+          omega
+        · apply Fin.ext
+          have := p.val.1.isLt
+          have := p.val.2.isLt
+          have := p.property
+          dsimp only at *
+          omega }
+  constructor
+  · exact ⟨(affineTorsorComparison.cokernelCoordinateEquiv (4 : ZMod 8) 2).trans
+      (LinearEquiv.funUnique L (ZMod 8)
+        ((ZMod 8) ⧸ (Ideal.span ({(4 : ZMod 8)} : Set (ZMod 8)))))⟩
+  · refine ⟨Submodule.Quotient.mk
+      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 8) ⊗ₜ[ZMod 8]
+        (1 : AffineRing (4 : ZMod 8) 2)), ?_⟩
+    let b := MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 8) ⊗ₜ[ZMod 8]
+      (1 : AffineRing (4 : ZMod 8) 2)
+    have hm : affineTorsorComparison.targetCoordinateEquiv (4 : ZMod 8) 2 b =
+        Pi.single (1,0) 1 := by
+      simpa only [b, Fin.val_one, Fin.val_zero, Nat.cast_zero, Nat.cast_one, pow_zero] using
+        affineTorsorComparison.targetCoordinateEquiv_monomial (4 : ZMod 8) 2 (1,0)
+    constructor
+    · intro hz
+      have he := congrArg (fun z => affineTorsorComparison.cokernelCoordinateEquiv (4 : ZMod 8) 2 z
+        ⟨(1,0), by decide⟩) hz
+      rw [map_smul, map_zero, Pi.smul_apply, Pi.zero_apply] at he
+      rw [affineTorsorComparison.cokernelCoordinateEquiv_mk, hm, Pi.single_eq_same] at he
+      change Ideal.Quotient.mk (Ideal.span ({(4 : ZMod 8)} : Set (ZMod 8))) 2 = 0 at he
+      obtain ⟨a, ha⟩ := Ideal.mem_span_singleton'.mp (Ideal.Quotient.eq_zero_iff_mem.mp he)
+      exact (by decide : ∀ a : ZMod 8, a * 4 ≠ 2) a ha
+    · apply (affineTorsorComparison.cokernelCoordinateEquiv (4 : ZMod 8) 2).injective
+      funext p
+      rw [map_smul, map_zero, Pi.smul_apply, Pi.zero_apply]
+      rw [affineTorsorComparison.cokernelCoordinateEquiv_mk, hm]
+      change (4 : ZMod 8) • Ideal.Quotient.mk (Ideal.span ({(4 : ZMod 8)} : Set (ZMod 8)))
+        ((Pi.single (1,0) (1 : ZMod 8) : (Fin 2 × Fin 2) → ZMod 8) p.val) = 0
+      by_cases hp : p.val = (1,0)
+      · rw [hp, Pi.single_eq_same]
+        change Ideal.Quotient.mk (Ideal.span ({(4 : ZMod 8)} : Set (ZMod 8))) 4 = 0
+        exact Ideal.Quotient.eq_zero_iff_mem.mpr (Ideal.mem_span_singleton_self _)
+      · simp [Pi.single_eq_of_ne hp]
+
 
 end AffineTorsorComparison
 end TauCeti.RootStack
@@ -1645,5 +1810,59 @@ example (f : A) :
       f • (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : A) ⊗ₜ[A]
         (1 : AffineRing f 2)) := by
   sorry
+
+end TauCeti.RootStack
+
+/-! Unit chart acceptance computations. -/
+namespace TauCeti.RootStack
+variable {A : Type u} [CommRing A]
+open scoped TensorProduct
+
+-- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_one
+example (v : Aˣ) :
+    (affineTorsorComparison.unitEquiv v 1).symm
+      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 1)) (1 : A) ⊗ₜ[A]
+        (1 : AffineRing (v : A) 1)) = 1 := by
+  have hg : (1 : ZMod 1) = 0 := Subsingleton.elim _ _
+  rw [hg, ofAdd_zero, ← MonoidAlgebra.one_def, ← Algebra.TensorProduct.one_def]
+  exact (affineTorsorComparison.unitEquiv v 1).symm.map_one
+
+-- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_wild
+example :
+    (affineTorsorComparison.unitEquiv (1 : (ZMod 2)ˣ) 2).symm
+      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 2) ⊗ₜ[ZMod 2]
+        (1 : AffineRing (1 : ZMod 2) 2)) =
+      AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (1 : ZMod 2)) ⊗ₜ[ZMod 2]
+        AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (1 : ZMod 2)) := by
+  simpa using affineTorsorComparison.unitEquiv_symm_character (1 : (ZMod 2)ˣ) 2
+
+-- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_coefficient
+example :
+    let v : (ZMod 5)ˣ := ⟨2,3,by decide,by decide⟩
+    (affineTorsorComparison.unitEquiv v 2).symm
+      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 5) ⊗ₜ[ZMod 5]
+        (1 : AffineRing (2 : ZMod 5) 2)) =
+      AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 5)) ⊗ₜ[ZMod 5]
+        (algebraMap (ZMod 5) (AffineRing (2 : ZMod 5) 2) 3 *
+          AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 5))) := by
+  dsimp only
+  have h := affineTorsorComparison.unitEquiv_symm_character
+    (⟨2,3,by decide,by decide⟩ : (ZMod 5)ˣ) 2
+  change _ = _ ⊗ₜ[ZMod 5] (algebraMap (ZMod 5) (AffineRing (2 : ZMod 5) 2) 3 * _ ^ (2 - 1)) at h
+  simp only [Nat.reduceSub, pow_one] at h
+  exact h
+
+-- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_zero_ring
+example [Subsingleton A] (v : Aˣ) (n : ℕ) [NeZero n]
+    (z : MuHopf A n ⊗[A] AffineRing (v : A) n) :
+    (affineTorsorComparison.unitEquiv v n).symm z = 0 := by
+  let : Subsingleton (AffineRing (v : A) n ⊗[A] AffineRing (v : A) n) := Module.subsingleton A _
+  exact Subsingleton.elim _ _
+
+-- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_right_factor
+example (v : Aˣ) (n : ℕ) [NeZero n] (b : AffineRing (v : A) n) :
+    (affineTorsorComparison.unitEquiv v n).symm
+      ((1 : MuHopf A n) ⊗ₜ[A] b) = (1 : AffineRing (v : A) n) ⊗ₜ[A] b := by
+  exact affineTorsorComparison.unitEquiv_symm_right v n b
 
 end TauCeti.RootStack
