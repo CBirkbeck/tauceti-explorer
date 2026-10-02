@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "Partial NC.0/NC.3 continuation: retain the reserved étale K(π,1) interface and all inherited source inventories; add the actual invariant-coset projection, connecting map, initial invariant-group exactness and quotient-level boundary fibres. No stage is closed or implementation claimed. The NC.0 continuation adds the direct finite-étale cohomological criterion, transfer to every finite cover, componentwise finite-étale invariance and two-cover coefficient dévissage with a separate constant-prime-field criterion. These extend the retained constant-coefficient criterion to prime-supported finite coefficients on connected noetherian schemes; the raw-homotopy equivalence retains its separate narrower scope. All stages and supplier proof leaves remain open. The characteristic-zero smooth-curve proof is now split into connected prime-degree covers, degree-two prime and prime-power killing, the geometric all-cover criterion, geometric killing-cover descent and separable-closure invariance. The curve theorem uses this cohomological route rather than raw homotopy. Generic curve, Picard/Kummer and limit interfaces are supplier requests, not completed foundations.",
+  "summary": "Partial NC.0/NC.3 continuation: retain the reserved étale K(π,1) interface and all inherited source inventories; add the actual invariant-coset projection, connecting map, initial invariant-group exactness and quotient-level boundary fibres. No stage is closed or implementation claimed. The NC.0 continuation adds the direct finite-étale cohomological criterion, transfer to every finite cover, componentwise finite-étale invariance and two-cover coefficient dévissage with a separate constant-prime-field criterion. These extend the retained constant-coefficient criterion to prime-supported finite coefficients on connected noetherian schemes; the raw-homotopy equivalence retains its separate narrower scope. All stages and supplier proof leaves remain open. The characteristic-zero smooth-curve proof is now split into connected prime-degree covers, degree-two prime and prime-power killing, the geometric all-cover criterion, geometric killing-cover descent and separable-closure invariance. The curve theorem uses this cohomological route rather than raw homotopy. Generic curve, Picard/Kummer and limit interfaces are supplier requests, not completed foundations. The characteristic-zero product theorem retains its public statement and reserved owner, with three explicit finitary proof assemblies for finite positive-degree families, arbitrary product-cover classes and binary geometric closure.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -450,6 +450,55 @@
         "module": "Mathlib/SetTheory/Cardinal/Finite.lean",
         "provides": "Nat.card (ZMod n)=n; for n=0 the cardinal-to-natural convention gives zero and is not finiteness.",
         "checked": "Complete statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; generated instance corroborated by the Mathlib-only smoke fragment."
+      },
+      {
+        "ref": "mathlib:Subgroup.prod",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/Basic.lean",
+        "provides": "Native product of arbitrary subgroups of two groups; no normality.",
+        "checked": "Full statement, ambient hypotheses and definition/proof read in pinned source on 2026-10-02 by Codex — codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:Subgroup.prod_le_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Subgroup/Basic.lean",
+        "provides": "A product lies in J iff the two subgroup images along the factor inclusions lie in J.",
+        "checked": "Full statement, ambient hypotheses and definition/proof read in pinned source on 2026-10-02 by Codex — codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:Subgroup.map_le_iff_le_comap",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Subgroup/Map.lean",
+        "provides": "Map/comap Galois connection for arbitrary subgroup inclusions.",
+        "checked": "Full statement, ambient hypotheses and definition/proof read in pinned source on 2026-10-02 by Codex — codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:OpenSubgroup.comap",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/OpenSubgroup.lean",
+        "provides": "Preimage of an open subgroup by a continuous monoid homomorphism.",
+        "checked": "Full statement, ambient hypotheses and definition/proof read in pinned source on 2026-10-02 by Codex — codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:OpenSubgroup.prod",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/OpenSubgroup.lean",
+        "provides": "Product of open subgroups, with the product topology.",
+        "checked": "Full statement, ambient hypotheses and definition/proof read in pinned source on 2026-10-02 by Codex — codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:Subgroup.quotient_finite_of_isOpen",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Algebra/OpenSubgroup.lean",
+        "provides": "Open subgroup coset sets in a compact group with separately continuous multiplication are finite; no normality.",
+        "checked": "Full statement, ambient hypotheses and definition/proof read in pinned source on 2026-10-02 by Codex — codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:MonoidHom.eqLocus",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
+        "provides": "The native equalizer subgroup used for diagonal finite-group regression fixtures.",
+        "checked": "Full statement, ambient hypotheses and definition/proof read in pinned source on 2026-10-02 by Codex — codex-rtOQ9t."
       }
     ]
   },
@@ -498,7 +547,8 @@
       "readSections": [
         "Personally read the finite-cover convention and Lemma 2.1 with proof (pp. 821–822); §2.3, definition, Lemma 2.7 and Proposition 2.8 with their printed proofs (pp. 826–828); Appendix A.3, Lemmas A.14–A.15, Proposition A.16 and Definition A.17/Corollary A.18 with proofs (pp. 861–866); Definition 6.1 and M₀,n example (p. 845).",
         "Schmidt 1996 Proposition 15, Artin–Mazur Theorems 4.3/11.1, Friedlander Theorem 11.5, Isaksen model-category leaves and cited SGA Künneth proofs were not separately acquired/read; their exact roles are requests/gaps. Reconstruction proofs in §4–§6 were not read.",
-        "Fresh codex-a71f92 reading: §2.3 and Lemma 2.7(a–b), printed pp.826–827. Proposition 15's parsed proof was acquired separately; the direct characteristic-zero cohomological route replaces the smooth-curve node's raw dependency, without changing the raw-homotopy proof obligations."
+        "Fresh codex-a71f92 reading: §2.3 and Lemma 2.7(a–b), printed pp.826–827. Proposition 15's parsed proof was acquired separately; the direct characteristic-zero cohomological route replaces the smooth-curve node's raw dependency, without changing the raw-homotopy proof obligations.",
+        "Fresh codex-rtOQ9t: §2.3 definition and Lemma 2.7(b) complete printed proof, pp.826–827. The three finitary product assemblies are deductions with open IG.0/SF.2 proof leaves; no fresh closure of SGA or Artin–Mazur is claimed."
       ]
     },
     {
@@ -595,6 +645,17 @@
       "readSections": [
         "03Q4 §59.51 through Theorem 59.51.3 and Lemma 59.51.5, including the printed proofs; 09YQ Theorem 59.51.3 statement; 03RV Lemma 59.64.4 statement and printed finite-étale representability/descent proof; 07RR Lemma 32.8.15 statement and proof.",
         "01ZM Lemma 32.10.1 could not be retrieved in repeated web attempts. Generic finite-presentation morphism/property descent, finite-group-structure descent and the inverse-site cohomology lemma 21.16.6 remain an explicit supplier request; no complete transitive limit proof claimed."
+      ]
+    },
+    {
+      "id": "stacks-product-kunneth-20261002",
+      "title": "Künneth in étale cohomology",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online Section 59.97, retrieved 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/0F13",
+      "sha256": "f2499b9e1cc7010c62c2ce8c92512a4f1c37539bf9b609d931c49e428de2932e",
+      "readSections": [
+        "Freshly read Lemma 59.97.9 and its complete printed proof; the canonical map in 59.97.8 and its reduction to 59.97.7. Transitive finiteness/base-change and generic field-complex proof closure remain supplier obligations."
       ]
     }
   ],
@@ -2216,17 +2277,20 @@
         "Each factor is a geometrically connected geometrically unibranch variety; k has characteristic zero; full finite coefficients."
       ],
       "proofSteps": [
-        "IG.1 and SF.2 supply the geometric-base-change equivalence of the finite-cover criterion, so reduce to algebraically closed k as in Schmidt–Stix Lemma 2.7(b). This is an explicitly requested theorem, not arbitrary base-change invariance.",
-        "IG.0 supplies the characteristic-zero product theorem for geometric π₁. It makes product covers cofinal among finite covers: an open subgroup of the profinite product contains a product of open subgroups.",
-        "SF.2 supplies natural derived finite-torsion étale Künneth, with its Tor contributions, and its filtered finite-cover cohomology compatibility. These identify the vanishing of positive universal-cover cohomology for the product from that of the factors; no unsupported tensor-only formula is used.",
-        "Apply finite-cover-effacement, then descend via the same requested geometric-base-change equivalence. Iterate for finitely many factors, with Spec k as the empty product."
+        "Use the already owned separable-base-change equivalence to pass to the algebraic closure of k; characteristic zero identifies the separable and algebraic closures. Its finite-cover/class descent and eventual-zero continuity inputs remain open, and no restriction-map injectivity is asserted.",
+        "For two geometric factors apply geometric-product. Its product-cover-effacement proof kills one prime-field class on every arbitrary connected finite cover, using connected product refinements and finite families including degree one.",
+        "Induct on the finite number of factors. The empty product is Spec k by field; the one-factor case is the hypothesis. Import product stability of the geometric conditions so every induction step satisfies geometric-product.",
+        "Apply separable-base-change back over k. The geometric rectangular-subgroup argument is not applied to the two arithmetic groups: their product group over k is a fibre product over G_k."
       ],
       "acceptance": [
-        "Over nonclosed k the arithmetic product π₁ is a fibre product over G_k, not a direct product. No positive-characteristic product theorem is asserted."
+        "Over nonclosed k the arithmetic product π₁ is a fibre product over G_k, not a direct product. No positive-characteristic product theorem is asserted.",
+        "The empty product is Spec k and the one-factor product is the original variety. Every binary step imports geometric connectedness and geometric-unibranch stability.",
+        "No further universal-cover filtered cohomology interchange is needed specifically for this product assembly; affine-transition continuity remains necessary in its separable-base-change prerequisite."
       ],
       "prerequisites": [
         "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
-        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-product",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/separable-base-change",
         "AnabelianGeometryAndNonabelianChabauty:NC.0/field",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
@@ -3444,6 +3508,174 @@
         "name": "TauCeti.EtaleKPiOne.separableClosure_iff"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "title": "One cover kills a finite family of positive-degree classes",
+      "kind": "lemma",
+      "declarationName": "TauCeti.EtaleKPiOne.exists_connected_cover_kills_finiteFamily",
+      "statement": "Let W be a connected noetherian scheme with a geometric point and the full finite-coefficient étale K(π,1) property. For any finite index set I, primes p_i, positive degrees q_i and classes a_i in H^{q_i}_et(W,F_{p_i}), with constant coefficients, there is a pointed connected finite étale surjective f:W′→W such that f*a_i=0 for every i. The cover may depend on the entire finite family.",
+      "hypotheses": [
+        "The full canonical finite-coefficient property of W; I is finite and every q_i>0. A lift of the geometric point is selected on each cover. No uniform cover for all classes or degrees is asserted."
+      ],
+      "proofSteps": [
+        "Use all-coefficient-effacement with each constant finite F_{p_i} sheaf to choose one finite étale surjective cover killing a_i. This criterion covers every q_i>0, including degree one; the prime-field criterion stated only in degrees at least two cannot replace it here.",
+        "Use IG.0's pointed finite-cover dictionary and connected-component/refinement contract: take the finite fibre product of the chosen covers over W and its connected component through the tuple of chosen geometric lifts. That component is finite étale surjective over connected noetherian W and maps to every chosen cover.",
+        "Use SF.2's canonical pullback composition and zero-preservation: each class remains zero after refinement. For I empty choose id_W. The connected component is selected using the chosen point, not a normality assumption."
+      ],
+      "acceptance": [
+        "The empty family is killed by the identity cover; a family of zero classes also needs no enlargement.",
+        "A family containing a degree-one class is included. In the elementary H¹ torsor argument, the finite étale F_p torsor acquires a section after pullback to itself and then to its chosen connected component.",
+        "Only finitely many killing covers are intersected. No claim of an open subgroup simultaneously killing infinitely many classes is used."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/all-coefficient-effacement",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "schmidt-stix-2016",
+          "locator": "Lemma 2.7(b), full printed proof, p.827",
+          "excerpt": "from the Künneth-formula",
+          "match": "Explicit finitary decomposition of the cited product argument; this intermediate assembly is a deduction, not a separately printed theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EtaleKPiOne/Products",
+        "namespace": "TauCeti.EtaleKPiOne",
+        "name": "TauCeti.EtaleKPiOne.exists_connected_cover_kills_finiteFamily"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/product-cover-effacement",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "title": "Prime-field effacement on every cover of a product",
+      "kind": "lemma",
+      "declarationName": "TauCeti.EtaleKPiOne.exists_product_refinement_kills_primeField_class",
+      "statement": "Let X,Y be geometrically connected geometrically unibranch varieties over an algebraically closed characteristic-zero field k, each with the full finite-coefficient étale K(π,1) property. For a pointed connected finite étale cover Z→X×_kY, a prime p, q>0 and c∈H^q_et(Z,F_p), there are pointed connected finite étale covers X″→X and Y″→Y and a finite étale surjective map h:X″×_kY″→Z over X×_kY such that h*c=0. The two covers may depend on Z,p,q,c; Z itself need not be a product or a Galois cover.",
+      "hypotheses": [
+        "Algebraically closed k of characteristic zero; separated finite-type geometrically connected geometrically unibranch X and Y; their full canonical finite-coefficient properties; constant F_p with p prime and q>0."
+      ],
+      "proofSteps": [
+        "IG.0 supplies the projection-compatible geometric π₁ product isomorphism and pointed covers/finite-continuous-set dictionary. If K is the open subgroup for Z in G×H, take U=i_G⁻¹K and V=i_H⁻¹K with i_G(g)=(g,1), i_H(h)=(1,h). Use native OpenSubgroup.comap/prod, Subgroup.prod_le_iff and map_le_iff_le_comap to obtain U×V≤K, maximal among such rectangles. Compactness makes both coset sets finite without requiring K normal.",
+        "The same IG.0 dictionary realizes U,V as connected covers X′,Y′, and the equivariant surjection (G×H)/(U×V)→(G×H)/K as a finite étale surjective map X′×Y′→Z. This realizes a domination, not an isomorphism with Z.",
+        "Pull c back to X′×Y′. SF.2 supplies the canonical, pullback-natural external-product isomorphism ⊕_{i+j=q} H^i_et(X′,F_p)⊗_{F_p}H^j_et(Y′,F_p)→H^q_et(X′×Y′,F_p). It is the constant-prime-field specialization of Stacks 59.97.9 followed by the generic complexes-over-a-field comparison. Every tensor and the direct sum have finite support; no choice of cohomology basis or finite-dimensionality is needed.",
+        "Write the pulled-back class as a finite sum of a_s×b_s. For each summand choose a_s if its degree is positive, and otherwise b_s, whose degree is then q>0. Finite-etale-invariance gives the full property of X′ and Y′. Apply positive-family-effacement to the two finite designated families to get X″→X′ and Y″→Y′. Degree one, including an H¹⊗H¹ summand in degree two, must be included.",
+        "Naturality and bilinearity of the actual external product make every pulled-back summand zero, hence kill c. Compose the refinement with X′×Y′→Z. Product/base-change/composition preservation of finite étaleness and surjectivity are imported from IG.0/SF.2, as are connectedness and geometric-unibranch stability."
+      ],
+      "acceptance": [
+        "For the diagonal K in C₂×C₂, the quotient has two cosets while the largest contained product subgroup is trivial and has four cosets. The proof requires a product refinement, not that the original cover be a product.",
+        "The diagonal in S₃×S₃ is nonnormal, yet its finite coset set and the rectangular domination are valid. No quotient-group structure is required.",
+        "For graded F₂ spaces having generators in degrees 0,1,2, maps killing degree two but preserving degree one retain the nonzero H¹⊗H¹ coordinate in total degree two. Killing every positive-degree designated factor removes it.",
+        "For R=Z/4 and the free cochain complex C=[R --2→ R] in degrees 0,1, both H⁰(C)⊗_R H⁰(C) and H⁰(C⊗_R C) have order two, but the canonical map is zero: the generating cycles 2⊗2 map to 4=0. An abstract isomorphism or a degreewise tensor formula over arbitrary torsion coefficients cannot replace the prime-field canonical map."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-etale-invariance",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "SchemeAndStackFoundations:SF.2",
+        "mathlib:Subgroup.prod",
+        "mathlib:Subgroup.prod_le_iff",
+        "mathlib:Subgroup.map_le_iff_le_comap",
+        "mathlib:OpenSubgroup.comap",
+        "mathlib:OpenSubgroup.prod",
+        "mathlib:Subgroup.quotient_finite_of_isOpen"
+      ],
+      "sources": [
+        {
+          "sourceId": "schmidt-stix-2016",
+          "locator": "Lemma 2.7(b), full printed proof, p.827",
+          "excerpt": "from the Künneth-formula",
+          "match": "Explicit finitary decomposition of the cited product argument; this intermediate assembly is a deduction, not a separately printed theorem."
+        },
+        {
+          "sourceId": "stacks-product-kunneth-20261002",
+          "locator": "Section 59.97, Lemma 59.97.9 and printed proof; canonical map in 59.97.8",
+          "excerpt": "finite type schemes",
+          "match": "The natural derived comparison permits nonproper factors and invertible coefficient order. Its field-coefficient degreewise specialization and all transitive proof leaves remain explicit supplier obligations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EtaleKPiOne/Products",
+        "namespace": "TauCeti.EtaleKPiOne",
+        "name": "TauCeti.EtaleKPiOne.exists_product_refinement_kills_primeField_class"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.EtaleKPiOne.ProductSmoke.diagonal_C2",
+          "kind": "non-example",
+          "statement": "For the diagonal K in C₂×C₂, the quotient has two cosets while the largest contained product subgroup is trivial and has four cosets. The proof requires a product refinement, not that the original cover be a product."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.ProductSmoke.diagonal_S3_nonnormal",
+          "kind": "non-example",
+          "statement": "The diagonal in S₃×S₃ is nonnormal, yet its finite coset set and the rectangular domination are valid. No quotient-group structure is required."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.ProductSmoke.mixed_degree_one",
+          "kind": "non-example",
+          "statement": "For graded F₂ spaces having generators in degrees 0,1,2, maps killing degree two but preserving degree one retain the nonzero H¹⊗H¹ coordinate in total degree two. Killing every positive-degree designated factor removes it."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.ProductSmoke.nonfield_canonical_map",
+          "kind": "non-example",
+          "statement": "For a,b in Z/4 with 2a=2b=0, ab=0; nevertheless 2 is nonzero and satisfies 2·2=0. This exact arithmetic fixture detects the zero canonical cycle-product map in the free complex [Z/4 --2→ Z/4]; its homology/tensor bridge is an explicitly untyped generic input."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-product",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "title": "Binary geometric products preserve the full property",
+      "kind": "theorem",
+      "declarationName": "TauCeti.EtaleKPiOne.product_algebraicallyClosed",
+      "statement": "Over an algebraically closed characteristic-zero field k, the product X×_kY of two geometrically connected geometrically unibranch k-varieties with the full finite-coefficient étale K(π,1) property has that full property, defined by the canonical comparisons in all degrees and with its full profinite fundamental group.",
+      "hypotheses": [
+        "Both factors are separated finite-type geometrically connected geometrically unibranch k-varieties; k algebraically closed of characteristic zero; all finite coefficients."
+      ],
+      "proofSteps": [
+        "Use the imported product-stability contracts to ensure the product is connected noetherian and geometrically unibranch.",
+        "For every connected finite étale Z→X×Y, every prime p and q≥2, product-cover-effacement supplies a finite étale surjective refinement killing each constant-F_p class.",
+        "Apply the already owned prime-field-effacement criterion with P the set of all primes. Its coefficient trivialization and dévissage recover every finite continuous coefficient module, not merely constant F_p. Preserve the canonical comparison and the full fundamental group."
+      ],
+      "acceptance": [
+        "The conclusion is not the vanishing of H^q_et(X×Y,F_p). It is that the canonical group-to-sheaf comparison is an isomorphism.",
+        "The two factors may be nonproper. No maximal-pro-p quotient or universal one-cover killing assertion is substituted."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/product-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-field-effacement",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "schmidt-stix-2016",
+          "locator": "Lemma 2.7(b), full printed proof, p.827",
+          "excerpt": "from the Künneth-formula",
+          "match": "Explicit finitary decomposition of the cited product argument; this intermediate assembly is a deduction, not a separately printed theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EtaleKPiOne/Products",
+        "namespace": "TauCeti.EtaleKPiOne",
+        "name": "TauCeti.EtaleKPiOne.product_algebraicallyClosed"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -3504,9 +3736,12 @@
     },
     {
       "supplier": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
-      "need": "Characteristic-zero geometric product π₁ theorem for geometrically connected geometrically unibranch varieties over algebraically closed k, SGA 1 XIII Proposition 4.6; cofinality of product finite covers by profinite open subgroups. Arithmetic π₁ over nonclosed k is not an ordinary product.",
+      "need": "Characteristic-zero geometric product π₁ theorem for geometrically connected geometrically unibranch varieties over algebraically closed k, SGA 1 XIII Proposition 4.6; cofinality of product finite covers by profinite open subgroups. Arithmetic π₁ over nonclosed k is not an ordinary product. Supply the projection-compatible isomorphism, not merely an abstract group isomorphism. The pointed finite π-set/cover dictionary must realize each open subgroup (not only normal subgroups), inclusions as finite étale surjective maps of connected covers, geometric lifts and connected components of finite common refinements. The canonical rectangle is given by existing subgroup comaps, not a new NC carrier. Its product cover dominates the given cover. Preserve the strong-desingularizability/characteristic-zero resolution boundary in SGA 1 XIII 4.6; no unrestricted positive-characteristic theorem is inferred.",
       "neededBy": [
-        "AnabelianGeometryAndNonabelianChabauty:NC.0/products"
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/products",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/product-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-product"
       ]
     },
     {
@@ -3518,9 +3753,12 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "For characteristic-zero geometrically connected geometrically unibranch varieties, equivalence of the full finite-cover effacement condition over k and its algebraic closure, including descent of finite covers/classes. Natural derived finite-torsion Künneth with Tor terms and filtered universal-finite-cover cohomology compatibility must yield product effacement; audit SGA 4½ Théorème de finitude Corollary 1.11.",
+      "need": "Retain the natural derived finite-torsion Künneth contract, with its Tor concerns and the original SGA 4½ finitude 1.11 source obligation. For this product assembly export precisely the canonical, pullback-natural external-product isomorphism ⊕_{i+j=q}H^i_et(W,F_p)⊗_{F_p}H^j_et(T,F_p)→H^q_et(W×T,F_p), for finite-type W,T over algebraically closed characteristic-zero k, p prime. Ordinary étale cohomology is intended; neither factor is required proper. Read Stacks 59.97.9's derived map, import/audit the generic complexes-over-a-field bridge from its homological owner, and verify that it induces external products and commutes with pullbacks. This supplier integrates that general bridge rather than NC.0 constructing a parallel derived category. Establish bilinearity, zero-preservation, pullback composition and stability of the geometric/product conditions. The product proof now uses finitary class killing and the already owned separable-base-change node; it does not need a new universal-finite-cover cohomology interchange specifically for products. The original separable-cover/class descent and coefficient continuity obligation is retained in request 16.",
       "neededBy": [
-        "AnabelianGeometryAndNonabelianChabauty:NC.0/products"
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/products",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/product-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-product"
       ]
     },
     {
@@ -3552,10 +3790,11 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "Natural étale cohomology long exact sequences of short exact finite locally constant abelian coefficients, exact pullback along finite étale maps, naturality in coefficient maps and composition of pullbacks. The extension effacement assembly kills the quotient class on a first cover, lifts after that cover and kills the subobject lift on a second cover; do not assume the coefficient sequence splits. Also supply the generic finite abelian coefficient filtration by finite F_p-vector layers, constant finite-sum cohomology and finite common refinements of class-killing covers, after monodromy trivialization; NC.0 imports this coefficient infrastructure.",
+      "need": "Natural étale cohomology long exact sequences of short exact finite locally constant abelian coefficients, exact pullback along finite étale maps, naturality in coefficient maps and composition of pullbacks. The extension effacement assembly kills the quotient class on a first cover, lifts after that cover and kills the subobject lift on a second cover; do not assume the coefficient sequence splits. Also supply the generic finite abelian coefficient filtration by finite F_p-vector layers, constant finite-sum cohomology and finite common refinements of class-killing covers, after monodromy trivialization; NC.0 imports this coefficient infrastructure. The degree-one finite étale F_p torsor pullback has its diagonal section; choosing its pointed connected component still trivializes the class. This is an explicit leaf of the existing all-positive-degree effacement criterion, needed by finite-family product killing.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-extension",
-        "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-field-effacement"
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-field-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement"
       ]
     },
     {
@@ -3591,7 +3830,8 @@
       "remaining": [
         "Fundamental groupoids and sections: import the finite-étale fibre functor and Galois category from InverseGaloisAndArithmeticFundamentalGroups IG.0 and the arithmetic exact sequence from IG.1; construct path torsors (torsors in the sense of NC.3/torsor-classification) and the section of a rational point, base-point change and conjugacy independence; tangential base points on P¹ ∖ {0, 1, ∞} from PeriodsAndSpecialValues PS.9. Settle the path-torsor ownership overlap with IG.6.",
         "Close exact IG.0/SF.2/SF.3/ProfiniteCohomology inputs of the coefficient dictionary, canonical ε, finite direct image/base-change/ρ/Leray, all-degree class killing, coefficient long exact sequences, Kummer/Picard curve cohomology, degree/genus formulas and separable limit/property descent. The curve proof is now granular and cohomological; type all six new curve/descent declarations and six tests once genuine interfaces exist. Raw-homotopy comparison, products and elementary fibrations remain separately open.",
-        "Read/decompose Chen 2024 /57–58 tangential specialization ⟨γ_t⟩\\Y_t ≅ Y_x, functorial in finite covers, and good/symmetric-path consumers, distinct from reconstruction."
+        "Read/decompose Chen 2024 /57–58 tangential specialization ⟨γ_t⟩\\Y_t ≅ Y_x, functorial in finite covers, and good/symmetric-path consumers, distinct from reconstruction.",
+        "Supply and type the three product assembly nodes: pointed common refinements and projection-compatible geometric π₁ from IG.0, canonical prime-field external products with the generic field-complex bridge from SF.2, and all inherited separable descent/continuity. The finite-family proof includes degree one; no full geometric suggested signature is claimed."
       ]
     },
     {
@@ -3680,9 +3920,12 @@
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison",
         "AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve",
-        "AnabelianGeometryAndNonabelianChabauty:NC.0/products"
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/products",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/product-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-product"
       ],
-      "detail": "The characteristic-zero smooth-curve node now uses the freshly split direct cohomological route (connected prime-degree covers, actual degree-two killing and separable-closure descent), not raw-homotopy-comparison. Its SF.2/SF.3/IG.0 inputs remain precise open requests, including generic Kummer/cohomology and curve-degree/genus facts and the limit/property-descent proofs. Schmidt 1996 Proposition 15's parsed proof was read, but its scanned degree diagram was not visually inspected. Artin–Mazur 4.3/11.1 and raw comparison remain separate proof leaves, and products still use SGA 1 XIII 4.6 and SGA 4½ finitude 1.11. No delegated leaf is closed merely by the new assembly."
+      "detail": "The characteristic-zero smooth-curve node now uses the freshly split direct cohomological route (connected prime-degree covers, actual degree-two killing and separable-closure descent), not raw-homotopy-comparison. Its SF.2/SF.3/IG.0 inputs remain precise open requests, including generic Kummer/cohomology and curve-degree/genus facts and the limit/property-descent proofs. Schmidt 1996 Proposition 15's parsed proof was read, but its scanned degree diagram was not visually inspected. Artin–Mazur 4.3/11.1 and raw comparison remain separate proof leaves, and products still use SGA 1 XIII 4.6 and SGA 4½ finitude 1.11. No delegated leaf is closed merely by the new assembly. The product proof now has three finitary nodes: positive families, class killing on an arbitrary product cover, and geometric binary closure. SGA geometric π₁ product/dictionary, canonical prime-field external products with the field-complex bridge, connected common refinements and geometric-condition stability remain open. Their exact supplier contracts have been refined; no leaf is certified closed."
     },
     {
       "title": "Typed étale comparison carrier and suggested signatures",
@@ -3709,9 +3952,12 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-power-degree-two-killing",
         "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-smooth-curve",
         "AnabelianGeometryAndNonabelianChabauty:NC.0/separable-killing-descent",
-        "AnabelianGeometryAndNonabelianChabauty:NC.0/separable-base-change"
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/separable-base-change",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/product-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-product"
       ],
-      "detail": "Native schemes, local noetherianity, small étale topology, abstract Galois categories, affine finite étale fibres and all-degree continuousCohomology exist. Actual non-affine profinite π, finite-coefficient/sheaf dictionary and canonical all-degree ε are not supplied at the pins. Every new declaration/API/test has an explicit mathematical omission entry in the suggested file, not a dummy Prop field, invented carrier or fabricated signature. Native smoke forms test only existing carriers. The key is planned, not formalised. The five finite-cover assembly contracts and the constant-F₃ degree-three boundary test have explicit mathematical omission entries. Actual μ_f, bc, ρ/Leray and ε interfaces are missing; no fabricated Lean carrier is introduced. Native discrete Shapiro smoke forms are separate existing-library type checks, not signatures of geometric results. The six curve/descent declarations and six new exact tests are mathematical omission contracts. Existing arithmetic smoke examples test ZMod carriers only, not geometric covers, H² or descent."
+      "detail": "Native schemes, local noetherianity, small étale topology, abstract Galois categories, affine finite étale fibres and all-degree continuousCohomology exist. Actual non-affine profinite π, finite-coefficient/sheaf dictionary and canonical all-degree ε are not supplied at the pins. Every new declaration/API/test has an explicit mathematical omission entry in the suggested file, not a dummy Prop field, invented carrier or fabricated signature. Native smoke forms test only existing carriers. The key is planned, not formalised. The five finite-cover assembly contracts and the constant-F₃ degree-three boundary test have explicit mathematical omission entries. Actual μ_f, bc, ρ/Leray and ε interfaces are missing; no fabricated Lean carrier is introduced. Native discrete Shapiro smoke forms are separate existing-library type checks, not signatures of geometric results. The six curve/descent declarations and six new exact tests are mathematical omission contracts. Existing arithmetic smoke examples test ZMod carriers only, not geometric covers, H² or descent. The three product assembly declarations remain explicit mathematical omissions for genuine scheme/finite-cover/cohomology interfaces. Four finite-group/graded/nonfield regression examples and seven baseline smoke signatures elaborate only on existing carriers; they do not type the geometric assemblies."
     },
     {
       "title": "M₀,n moduli and forgetting-mark fibrations are imported",
@@ -3850,6 +4096,13 @@
       "url": "https://stacks.math.columbia.edu/tag/07RR",
       "citation": "Stacks Project tag 07RR; selected statement and printed proof",
       "read": "2026-10-02"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/0F13",
+      "citation": "Stacks Project, Section 59.97, online HTML, selected derived Künneth passages",
+      "read": "2026-10-02",
+      "sha256": "f2499b9e1cc7010c62c2ce8c92512a4f1c37539bf9b609d931c49e428de2932e"
     }
   ],
   "restructure": [
@@ -3904,9 +4157,12 @@
             "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-power-degree-two-killing",
             "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-smooth-curve",
             "AnabelianGeometryAndNonabelianChabauty:NC.0/separable-killing-descent",
-            "AnabelianGeometryAndNonabelianChabauty:NC.0/separable-base-change"
+            "AnabelianGeometryAndNonabelianChabauty:NC.0/separable-base-change",
+            "AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement",
+            "AnabelianGeometryAndNonabelianChabauty:NC.0/product-cover-effacement",
+            "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-product"
           ],
-          "detail": "Selected primary definition/Lemma 2.7 read; characteristic-zero curves now have an explicit cohomological prime-cover/descent proof decomposition. Generic supplier interfaces and raw/product delegated proof gaps remain open."
+          "detail": "Selected primary definition/Lemma 2.7 read; characteristic-zero curves now have an explicit cohomological prime-cover/descent proof decomposition. Generic supplier interfaces and raw/product delegated proof gaps remain open. Product closure now has a finitary all-covers prime-field decomposition; canonical geometric supplier leaves remain open."
         },
         {
           "item": "PAPER-SCHMIDT-STIX-16/31",
@@ -4485,6 +4741,111 @@
           "C2CocycleIdentities": 8,
           "C2CoboundaryNonexamples": 2,
           "eventualZeroToyChains": 12
+        }
+      }
+    },
+    {
+      "agent": "Codex — codex-rtOQ9t",
+      "date": "2026-10-02",
+      "base": "69d94f1efd07fe83f441f675ae4e04323c5c9bf6",
+      "claim": 5957941214,
+      "confirmation": 5957944301,
+      "scope": "Three finitary product proof assemblies; original finite-product theorem unchanged; four finite regression contracts and eleven Mathlib-only examples.",
+      "preservation": {
+        "unchangedOldNodeObjects": 47,
+        "oldNodes": 48,
+        "allOldIds": true,
+        "existingProductStatement": true,
+        "existingProductHypotheses": true,
+        "existingProductPlanet": true,
+        "keyDefinitionUnchanged": true,
+        "otherSourceRouteInventoriesUnchanged": true,
+        "sourceIssuesUnchanged": true,
+        "restructureUnchanged": true,
+        "implementationStatus": "unchecked"
+      },
+      "baseline": {
+        "newStatementReads": 7,
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+        "searched": "Pinned declaration index and both algebraic-geometry trees for étale K(π,1), geometric π₁ products and canonical scheme-cohomology interfaces; generic tensor/Künneth names searched in Mathlib Algebra/Homology and TauCeti. Only the precise audited interfaces are treated as missing, not generic group products."
+      },
+      "checked": [
+        "Whole issue reread after winning bot claim; all seven reviewed AUDIT-08 rows read, with REV-AUDIT-08 metadata.",
+        "Current IG packet has fifteen IG.2 specialization nodes only, current SF packet has twenty-nine SF.0 henselization nodes only. Requested IG.0/IG.1/SF.2 geometry is not supplied by either packet. Relevant full stage descriptions and seventeen touching stage edges read; no asserted link or overlap in link maps touches this roadmap.",
+        "Schmidt–Stix published §2.3 and Lemma 2.7(b) complete proof, pp.826–827; Stacks 59.97.9 and full printed proof plus canonical 59.97.8 map/reduction freshly read. The published PDF hash matches the inherited version. SGA, transitive finiteness/base-change and generic complexes-over-a-field proof closure remain open.",
+        "JacobianChallenge fully reread; StableReduction's full document was read earlier in this continuous worker run. No full fresh reading of AlgebraicCurves, Kim, Chen, BDMTV or reconstruction proofs is claimed."
+      ],
+      "lean": {
+        "fullSuggestedCompiled": false,
+        "reason": "No certified existing combined build at both exact pins. No setup/cache/library build attempted.",
+        "fragment": {
+          "examples": 11,
+          "errors": 0,
+          "admittedProofWarnings": 11,
+          "otherWarnings": 0,
+          "sha256": "10532de8baaac004a130332f74888b8b528baa96d74ab5fe5954ebabc9555c28",
+          "logSha256": "23a2581c5468eb9a9828bca7a55ff526b307fa6a24b41fbe2b945cf0e113d0e7",
+          "fullSuggestedSha256": "694512000e6a677ca165879d04a9db948c2b02fba1d3ad2159f86fec023b9823",
+          "minimumAvailableGiB": 69
+        },
+        "baselineExperiment": {
+          "declarations": 4,
+          "errors": 0,
+          "warnings": 0,
+          "admittedAxioms": false,
+          "sha256": "6a68faadef90564b7a2b66a7b8ad06a996cc25ffc94a194c6dea2f748f7ec821",
+          "logSha256": "50d1f9d5adfe54b5f824ec13f6bdecce70373c20bcfac19f2bd69811fd331fb2",
+          "allowedArchiveCommit": "f42004946da377d34f33dbeb36f34c694f3a8b3f",
+          "scope": "Native subgroup rectangle maximality/containment, openness and finite coset sets only; no cover or cohomology theorem."
+        }
+      },
+      "validation": {
+        "packetErrors": 0,
+        "packetWarnings": 0,
+        "indexed": true,
+        "projection": {
+          "actualAssembler": true,
+          "declarations": 51,
+          "planets": 11,
+          "ownSkippedLinks": [],
+          "stageDAG": {
+            "vertices": 3018,
+            "edges": 8655,
+            "acyclic": true
+          },
+          "ownDeclarationDAG": {
+            "vertices": 51,
+            "edges": 102,
+            "acyclic": true
+          },
+          "stagesAndReachableDeclarations": {
+            "vertices": 3058,
+            "edges": 8844,
+            "acyclic": true
+          },
+          "reachableDeclarations": 51,
+          "externalDeclarations": [],
+          "requiredStagePairsReachable": 20,
+          "stageEdgesUnchanged": true,
+          "otherSkipsMatchOriginal": true,
+          "unchangedNodeObjects": 47,
+          "scriptSha256": "e96a2c78b6257837f04d78a8d707578c3cc9d7368ed565a73beb670ee420241a"
+        },
+        "model": {
+          "scriptSha256": "b1e1e27b8cec45973ecb4bb0b27b5e3964c34a839554b408d5b5b37469ec1e3b",
+          "logSha256": "81ec6877ba7ac4e2116551d145028a806016a1903239502c1bebcde6f453b1fb",
+          "counts": {
+            "coset_surjections": 552,
+            "equivariance_checks": 101875,
+            "graded_positive_degree_values": 18,
+            "group_pairs": 36,
+            "maximal_rectangle_tests": 10597,
+            "nonnormal_subgroups": 186,
+            "representative_checks": 10111,
+            "subgroups": 552
+          },
+          "scope": "Finite group/graded/arithmetic models, not geometric proofs."
         }
       }
     }
