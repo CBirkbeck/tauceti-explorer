@@ -1,3 +1,4 @@
+import Mathlib.Data.ZMod.Basic
 import Mathlib.RepresentationTheory.Homological.GroupCohomology.Shapiro
 import Mathlib.AlgebraicGeometry.Noetherian
 import Mathlib.AlgebraicGeometry.Sites.Etale
@@ -917,3 +918,86 @@ Node: AnabelianGeometryAndNonabelianChabauty:NC.0/prime-field-effacement
 Contract: For a connected noetherian scheme X with geometric point x and a set of primes P, Is(X,x;P-supported finite coefficients) holds iff for every connected finite étale cover Y→X, every p∈P, every q≥2 and every α∈H^q_et(Y,F_p) with constant coefficients, there is a finite étale surjective Z→Y killing α. The prime-field and cover quantifiers are both essential. No assumption of a composition series of trivial π-modules is made.
 Missing: actual finite-cover/coefficient/sheaf and canonical cohomology maps, coefficient filtration and finite-sum comparisons from the precise supplier interfaces. No empty predicate or artificial carrier is introduced.
 -/
+
+/-
+# NC.0 smooth-curve and separable-descent mathematical omission contracts
+
+OMITTED TauCeti.EtaleKPiOne.exists_connected_primeDegree_cover
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/connected-prime-degree-cover
+Contract: For a connected smooth projective curve C of genus g≥1 over an algebraically closed characteristic-zero field k and a prime p, there exists a connected finite étale surjective k-morphism f:D→C of degree exactly p. The cover can be chosen to be a torsor under the constant additive group F_p; its translation action is induced by a nonzero continuous character of the full π₁ᵉᵗ(C,x).
+Missing: the actual finite-cover/coefficient/ε interfaces from IG.0/SF.2, curve Picard/degree/genus data from SF.3, and canonical Kummer or affine-transition limit maps specified in the packet requests. No dummy predicate, artificial carrier or geometric theorem signature is introduced.
+
+OMITTED TauCeti.EtaleKPiOne.primeDegree_cover_kills_H2
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/prime-cover-degree-two-killing
+Contract: Let f:D→C be a connected finite étale cover of degree p between connected smooth projective curves over an algebraically closed characteristic-zero field, with p prime. Then f*:H²_et(C,μ_p)→H²_et(D,μ_p) is the zero homomorphism. After choosing one primitive pth root on the common base field, the same holds for constant F_p coefficients. This conclusion does not require genus≥1 once the cover is given.
+Missing: the actual finite-cover/coefficient/ε interfaces from IG.0/SF.2, curve Picard/degree/genus data from SF.3, and canonical Kummer or affine-transition limit maps specified in the packet requests. No dummy predicate, artificial carrier or geometric theorem signature is introduced.
+
+OMITTED TauCeti.EtaleKPiOne.exists_primePower_cover_kills_H2
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/prime-power-degree-two-killing
+Contract: For C a connected smooth projective curve of genus g≥1 over an algebraically closed characteristic-zero field k, a prime p and a≥0, there exists a connected finite étale surjective f:D→C of degree p^a, given by a tower of a connected degree-p covers, such that f*:H²_et(C,μ_(p^a))→H²_et(D,μ_(p^a)) is zero. For a=0 the identity cover and the zero coefficient μ_1 give the assertion. The composite cover need not be Galois over C.
+Missing: the actual finite-cover/coefficient/ε interfaces from IG.0/SF.2, curve Picard/degree/genus data from SF.3, and canonical Kummer or affine-transition limit maps specified in the packet requests. No dummy predicate, artificial carrier or geometric theorem signature is introduced.
+
+OMITTED TauCeti.EtaleKPiOne.smooth_curve_algebraicallyClosed
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-smooth-curve
+Contract: For a connected smooth separated finite-type curve C over an algebraically closed characteristic-zero field, if C is affine or its smooth projective compactification has genus≥1, then Is(C,x;all finite coefficients) holds at every geometric point x. More explicitly, on every connected finite étale Y→C every class α∈H^q_et(Y,F_p), p prime and q≥2, dies on a finite étale surjective cover of Y. In the affine case and in degrees q≥3 the identity cover suffices.
+Missing: the actual finite-cover/coefficient/ε interfaces from IG.0/SF.2, curve Picard/degree/genus data from SF.3, and canonical Kummer or affine-transition limit maps specified in the packet requests. No dummy predicate, artificial carrier or geometric theorem signature is introduced.
+
+OMITTED TauCeti.EtaleKPiOne.descend_separable_killing_cover
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/separable-killing-descent
+Contract: Let k have characteristic zero with fixed separable closure k_s, X a separated finite-type k-scheme, F a finite locally constant abelian étale sheaf, q>0 and α∈H^q_et(X,F). If a finite étale surjective cover h_s:Z_s→X_(k_s) kills α_(k_s), then there exist a finite separable k⊆k′⊆k_s and a finite étale surjective h′:Z′→X_(k′), whose base change is h_s up to X_(k_s)-isomorphism after a possible further finite extension, such that h′*α_(k′)=0. Thus the composite Z′→X is finite étale surjective and kills α. Neither Z_s nor Z′ is required to be connected.
+Missing: the actual finite-cover/coefficient/ε interfaces from IG.0/SF.2, curve Picard/degree/genus data from SF.3, and canonical Kummer or affine-transition limit maps specified in the packet requests. No dummy predicate, artificial carrier or geometric theorem signature is introduced.
+
+OMITTED TauCeti.EtaleKPiOne.separableClosure_iff
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/separable-base-change
+Contract: For a geometrically connected separated finite-type scheme X over a characteristic-zero field k, with separable closure k_s and a geometric point x over k_s, Is(X,x;all finite coefficients) holds iff Is(X_(k_s),x;all finite coefficients) holds. Both sides use their own full profinite fundamental groups and their canonical ε maps; their étale cohomology groups are not asserted to be equal.
+Missing: the actual finite-cover/coefficient/ε interfaces from IG.0/SF.2, curve Picard/degree/genus data from SF.3, and canonical Kummer or affine-transition limit maps specified in the packet requests. No dummy predicate, artificial carrier or geometric theorem signature is introduced.
+
+OMITTED TauCeti.EtaleKPiOne.tests.prime_degree_cover
+Test: For a smooth projective genus-one curve over algebraically closed characteristic-zero k and prime p=3, a nonzero character π₁→F₃ gives a connected degree-3 étale cover; the zero character gives three disconnected copies. Multiplication-by-3 on an elliptic curve has degree 9, not 3.
+Missing: genuine geometric cover, curve cohomology and canonical restriction-map carriers. Arithmetic checks below are not replacements for this exact test.
+
+OMITTED TauCeti.EtaleKPiOne.tests.prime_to_degree_does_not_kill
+Test: For a smooth projective elliptic curve over algebraically closed characteristic-zero k, multiplication-by-2 has degree 4 and induces multiplication by 4=1 on H²_et(E,μ₃)≅Z/3. Thus this finite étale cover does not kill a nonzero degree-two class.
+Missing: genuine geometric cover, curve cohomology and canonical restriction-map carriers. Arithmetic checks below are not replacements for this exact test.
+
+OMITTED TauCeti.EtaleKPiOne.tests.prime_power_tower
+Test: For genus≥1, p=3,a=2, a degree-3 étale cover multiplies H²(μ₉) by 3 and does not kill the generator; a tower of two connected degree-3 covers has degree 9 and kills all H²(μ₉) classes.
+Missing: genuine geometric cover, curve cohomology and canonical restriction-map carriers. Arithmetic checks below are not replacements for this exact test.
+
+OMITTED TauCeti.EtaleKPiOne.tests.tower_exponent_zero
+Test: At a=0 the prime-power tower is the identity, coefficient μ₁ is zero and H²(C,μ₁)=0. This boundary is not the infinite coefficient n=0.
+Missing: genuine geometric cover, curve cohomology and canonical restriction-map carriers. Arithmetic checks below are not replacements for this exact test.
+
+OMITTED TauCeti.EtaleKPiOne.tests.genus_after_prime_cover
+Test: For a connected étale degree-3 cover of a smooth projective genus-2 curve over an algebraically closed characteristic-zero field, unramified Riemann–Hurwitz gives genus 4; a second degree-3 step gives genus 10. For genus one every such step retains genus one.
+Missing: genuine geometric cover, curve cohomology and canonical restriction-map carriers. Arithmetic checks below are not replacements for this exact test.
+
+OMITTED TauCeti.EtaleKPiOne.tests.arithmetic_restriction_not_injective
+Test: For k=R, k_s=C and X=Spec R with constant Z/2 coefficients, H²_et(X,Z/2)≅Z/2 but H²_et(Spec C,Z/2)=0. Both spectra have the full K(π,1) property. Separable-closure invariance is not injectivity of cohomology restriction; the finite cover Spec C→Spec R kills the nonzero class.
+Missing: genuine geometric cover, curve cohomology and canonical restriction-map carriers. Arithmetic checks below are not replacements for this exact test.
+
+REFINED TauCeti.EtaleKPiOne.smooth_curve_charZero
+Contract: For a geometrically connected smooth curve C over a characteristic-zero field k, if C is affine or its smooth proper model has genus at least one, then Is(C,x;all finite coefficients) holds for every geometric point x.
+Proof route: connected prime-degree curve cover, degree-two killing, prime-field criterion on all finite covers, then separable-closure invariance. The inherited statement is unchanged; raw-homotopy-comparison is no longer a prerequisite. Its actual geometric signature is still omitted.
+-/
+
+
+/- Arithmetic smoke examples only. No geometric statement is represented. -/
+noncomputable section
+namespace TauCeti.EtaleKPiOne.ArithmeticSmoke
+example (p : ℕ) [Fact p.Prime] : IsSimpleAddGroup (ZMod p) := by sorry
+example (p : ℕ) [NeZero p] : Fintype.card (ZMod p) = p := by sorry
+example (p : ℕ) (x : ZMod p) : (p : ZMod p) * x = 0 := by sorry
+example (n : ℕ) : addOrderOf (1 : ZMod n) = n := by sorry
+example (d n : ℕ) (h : Nat.Coprime d n) :
+    (ZMod.unitOfCoprime d h : ZMod n) *
+      ((ZMod.unitOfCoprime d h)⁻¹ : (ZMod n)ˣ) = 1 := by sorry
+example (d n : ℕ) (h : Nat.Coprime d n) :
+    Function.Bijective (fun x : ZMod n => (d : ZMod n) * x) := by sorry
+example : (3 : ZMod 9) * 1 ≠ 0 := by sorry
+example (x : ZMod 9) : (9 : ZMod 9) * x = 0 := by sorry
+example (x : ZMod 3) : (4 : ZMod 3) * x = x := by sorry
+example : (2 : ZMod 3) * 1 ≠ 0 := by sorry
+example (x : ZMod 1) : x = 0 := by sorry
+example (a : ℕ) : ((3 ^ a : ℕ) : ZMod (3 ^ a)) = 0 := by sorry
+end TauCeti.EtaleKPiOne.ArithmeticSmoke

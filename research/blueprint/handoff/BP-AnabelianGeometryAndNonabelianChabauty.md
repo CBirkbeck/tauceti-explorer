@@ -1,3 +1,266 @@
+# BP-AnabelianGeometryAndNonabelianChabauty — curve-effacement checkpoint
+
+Worker: Codex — codex-a71f92. Refs #1020. Date: 2026-10-02.
+Immutable audit/publication base: 22338bf4456c3e008e75de86d3bc9f132f7cf126.
+Winning claim: [5955891736](https://github.com/CBirkbeck/tauceti-explorer/issues/1020#issuecomment-5955891736).
+Bot confirmation: [5955894275](https://github.com/CBirkbeck/tauceti-explorer/issues/1020#issuecomment-5955894275).
+
+## Outcome and preservation
+
+Six new NC.0 declarations split the characteristic-zero smooth-curve proof:
+connected prime-degree covers, degree-two prime killing, prime-power tower
+killing, geometric all-cover effacement, descent of a geometric killing cover,
+and separable-closure invariance of the full K(π,1) predicate. All 42 old IDs
+and all old theorem statements survive. Forty old node objects are unchanged.
+The reserved definition appends six discriminating tests, one source use and
+seven baseline references. The old smooth-curve node changes only its proof,
+prerequisites and source explanation, retaining its statement, scope and planet.
+
+The current packet has 48 nodes: 3 definitions, 4 constructions, 14 lemmas,
+21 theorems and 6 comparisons; 52 API items (40 on definitions/constructions),
+38 test contracts, 11 planets, 62 baseline declarations, 9 gap groups and
+16 requests. The seven stage IDs and status values survive; no stage is closed.
+All implementationStatus values are unchecked. No generic geometry carrier
+or second Picard/cohomology/fundamental-group owner is introduced.
+
+## Mathematical checks and exact boundary
+
+The nonzero degree-one character π→F_p is obtained from Kummer/Jacobian
+p-torsion and the canonical H¹ comparison for any connected scheme. It
+does not assume that the curve is already K(π,1). Its translation π-set has
+p points and is transitive; the zero character gives p disconnected copies.
+
+The actual canonical H² pullback is multiplication by cover degree. A degree-p
+cover kills μ_p, but does not kill μ_(p²); a tower of two degree-p covers does.
+The prime-power tower need not be Galois as a composite. Its genus stays
+positive by the imported unramified Riemann–Hurwitz formula. The exponent
+zero boundary means coefficient n=1, not the nonfinite coefficient n=0.
+
+The geometric theorem verifies constant prime-field effacement on every
+connected finite cover, then uses the already owned coefficient dévissage.
+Affine curve étale vanishing is imported separately from coherent Serre
+vanishing. A nonaffine smooth separated finite-type curve is projective.
+
+Separable descent has two distinct stages: descend the finite cover and its
+properties, then enlarge the finite field again until the pulled-back class
+is zero. Continuity gives eventual zero, not injectivity of restriction.
+Conversely, geometric coefficient group operations and a class descend to
+finite stages before finite-étale invariance is applied. No properness or
+arbitrary-extension cohomology invariance is assumed. The explicit
+Spec R / Spec C test shows why identifying the two H² groups is wrong.
+
+Generic Kummer/Picard computations and pullback-degree are requested from
+SF.2, with curve geometry/Jacobian torsion and genus from SF.3. IG.0 supplies
+finite π-set/covers and connectedness. A separate SF.2 continuity request
+names qcqs, affine transitions, group-operation descent and eventual
+vanishing. These are open precise requests, not proof certificates.
+
+The reserved key AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1
+remains the unique owner; its coefficient class and all canonical degrees
+remain part of the data, on the full π, never an implicit pro-p quotient.
+RT-AREA-algebraicgeometry/8 remains handled by the existing exact A2 NS=Pic/Pic⁰,
+symmetric-Hom injection and finite-generation/rank request. NC.5 imports NS
+and the generic height supplier; no duplicate or reverse height dependency.
+The routed 19 NC.5 and 17 NC.2 BDMTV items, E9/E10, /58-versus-/93 split and
+Chen /57–58 remain preserved not-read obligations.
+
+## Sources actually read in this continuation
+
+- Schmidt, version-of-record Compositio 100 (1996), Proposition 15 and its
+  parsed proof pp.243–244, with §3/Proposition 13 context pp.242–243.
+  PDF SHA-256 dc0350a302b5bc02de91a368790d40be1292dbcdcad108d21c08426affae1791.
+  Scanned equations/degree diagram are omitted by parsing; p.244 screenshot
+  failed and was not visually inspected. The direct degree formula was
+  independently read in Stacks 0AMB, rather than claiming this image read.
+- Schmidt–Stix published §2.3/Lemma 2.7 pp.826–827, including its references.
+  The broader raw any-field theorem is not narrowed in the source; this
+  packet retains its original characteristic-zero geometric curve scope.
+- Achinger arXiv:1407.0337v1 Proposition 3.4(c), entire finite-separable and
+  separable-closure proof paragraph, printed p.8.
+  PDF SHA-256 7c26b2ca8df1b73bd6acd89872955cd6a1137de0933a948914f8cc5689d86791.
+  Its general field-extension proof and all transitive limit leaves are
+  not claimed closed by the algebraic separable case.
+- Stacks 03RQ, 0AMB and 03RR, complete statements and printed proofs;
+  03PL Kummer proof; 03P8, 03RM, 0BA0 and 03RP statements/printed proofs.
+  The representability, Tsen/Brauer, abelian multiplication, degree-pullback
+  and curve/function-field supplier proof leaves remain open.
+- Stacks 03Q4 through 59.51.3 and 59.51.5 proofs, 09YQ statement,
+  03RV finite-locally-constant representability proof and 07RR
+  surjectivity-descent proof. 01ZM retrieval failed repeatedly;
+  generic 32.10.1/32.8 and inverse-site cohomology 21.16.6 remain requests.
+  No unpublished source mistake was identified in the selected scope.
+
+Reviewed NC.0–NC.6 audit, all seven stages and seventeen touching atlas edges
+were read. All 29 matching link files have only negative examined entries.
+Current SF/IG packets were checked for exact suppliers; no adequate node was
+found for these requested interfaces. Seven new pinned Mathlib statements
+were read completely. The native TauCeti NumericalType torsion file was read:
+its finite multidegree Picard group is not Pic⁰ of the smooth curve.
+Earlier receipts are historical, not fresh whole-paper/full-library reads.
+JacobianChallenge and StableReduction upstream readers were fully read in
+the continuous worker run; AlgebraicCurves ownership conventions freshly
+inspected. Current WORKERS/PROTOCOL changes were checked at the immutable base.
+
+## Verification
+
+The full suggested file was **not compiled**: the existing exact Mathlib build
+has no matching built TauCeti imports. Twelve exact Mathlib-only arithmetic
+examples elaborated successfully with twelve admitted-proof warnings and no
+other warnings or errors. Fragment SHA-256
+a563d7f57368952f0ad6367b42809f52f2dda6319e14c477844ba563db3d3b2e.
+They check the native prime-order additive group/cardinality, degree-as-scalar
+zero, coprime-degree inverse/bijectivity and the n=1/power boundaries.
+No geometric declaration, cover, cohomology comparison or descent signature
+was elaborated. All six declarations and six tests have explicit mathematical
+omission contracts rather than fake predicates. The full inherited native
+body is preserved; one individual Mathlib import and the new ledger/arithmetic
+block are added. No background compiler is left running.
+
+Exact dependency-free finite regression passed:
+5,184 degree maps/168,480 values; 251,680 composition values; 611 prime-power
+values; 135 abelian-character models/28,712 additivity checks/135 orbit checks;
+168 genus steps; 8 C₂ cocycle identities/2 coboundary nonexamples; 12 eventual-zero
+toy chains. Model SHA-256
+e9d0508a7f2f3a9e58b4f9e57636e971f0f1c67ad4bfec38ce5a3f23fe2250ba.
+These are finite arithmetic/character sanity checks, not geometric constructions,
+cohomology comparison proofs or universal proofs. The exact script is below.
+The inherited S₃ regression receipt is preserved but was not rerun here.
+
+Packet checker, exact intake, preservation/privacy and actual atlas assembly
+checks are recorded after their execution below. Only this job's four allowed
+files are published. The shared checkout stays read-only.
+
+## Precise continuation
+
+First supply/type the actual IG.0 finite-cover/character and SF.2 coefficient,
+canonical ε, Kummer-degree and continuity interfaces, and SF.3 curve/Jacobian/genus
+inputs. The six new lemmas now expose every substantial curve assembly step.
+Do not mark them closed while their generic proof leaves remain requests.
+Then split the product K(π,1) argument's Künneth and product-cover inputs, and
+the elementary-fibration/raw-homotopy route after its foundational owner is
+reconciled. Tangential Chen paths/specialization remain an independent NC.0
+target, not supplied by the curve K(π,1) proof. NC.3 continuous-cocycles,
+functoriality, central-extension/twisting granularity and omitted native APIs
+remain; representability and local Selmer conditions are unstarted. Read
+NC.1 reconstruction and the full NC.2/NC.5 BDMTV routes to source closure.
+
+## Durable exact finite-model script
+
+```python
+"""Exact finite arithmetic regressions, not scheme/cohomology proofs."""
+from itertools import product
+from math import gcd
+import json
+
+counts = {"degree_maps": 0, "degree_values": 0, "composition_values": 0,
+          "prime_power_values": 0, "characters": 0, "character_additivity": 0,
+          "translation_orbits": 0, "genus_steps": 0, "C2_cocycle_identities": 0,
+          "C2_coboundary_nonexamples": 0, "eventual_zero_cases": 0}
+
+for n in range(1, 65):
+    for d in range(81):
+        values = [(d*x) % n for x in range(n)]
+        assert values.count(0) == gcd(d,n)
+        assert len(set(values)) == n // gcd(d,n)
+        assert (len(set(values)) == n) == (gcd(d,n) == 1)
+        assert (set(values) == {0}) == (d % n == 0)
+        if gcd(d,n) == 1:
+            inverse = pow(d, -1, n)
+            assert all(inverse*y % n == x for x,y in enumerate(values))
+        counts["degree_maps"] += 1
+        counts["degree_values"] += n
+    for d,e in product(range(11), repeat=2):
+        for x in range(n):
+            assert e*(d*x % n) % n == (d*e*x) % n
+            counts["composition_values"] += 1
+
+for p in (2,3,5,7):
+    for a in range(4):
+        n = p**a
+        for x in range(n):
+            assert (p**a*x) % n == 0
+            counts["prime_power_values"] += 1
+        if a > 1:
+            assert p % n != 0
+        for g in range(1,8):
+            tower_genus = g
+            for step in range(a):
+                tower_genus = 1+p*(tower_genus-1)
+                assert tower_genus >= 1
+                counts["genus_steps"] += 1
+            assert tower_genus == 1+p**a*(g-1)
+
+assert (3*1) % 9 == 3 and all(9*x % 9 == 0 for x in range(9))
+assert all(4*x % 3 == x for x in range(3))
+assert 1+3*(2-1) == 4 and 1+9*(2-1) == 10
+
+# Model the abelian character group supplied by H1, not a geometric pi1.
+for p,g in ((2,1),(2,2),(3,1),(3,2),(5,1)):
+    vectors = list(product(range(p), repeat=2*g))
+    for coefficients in vectors:
+        character = lambda v: sum(a*x for a,x in zip(coefficients,v)) % p
+        image = {character(v) for v in vectors}
+        nonzero = any(coefficients)
+        assert image == (set(range(p)) if nonzero else {0})
+        # It suffices to check additivity against every standard basis vector.
+        for v in vectors:
+            for j in range(2*g):
+                e = tuple(int(i == j) for i in range(2*g))
+                w = tuple((x+y) % p for x,y in zip(v,e))
+                assert character(w) == (character(v)+character(e)) % p
+                counts["character_additivity"] += 1
+        orbits = {frozenset((a+b) % p for b in image) for a in range(p)}
+        assert len(orbits) == (1 if nonzero else p)
+        counts["characters"] += 1
+        counts["translation_orbits"] += 1
+
+# The arithmetic restriction test has a concrete nonzero C2/F2 class.
+c = lambda g,h: g*h % 2
+for g,h,k in product(range(2), repeat=3):
+    assert (c(h,k)+c(g,(h+k)%2)-c((g+h)%2,k)-c(g,h)) % 2 == 0
+    counts["C2_cocycle_identities"] += 1
+for b1 in range(2):
+    b = lambda g: b1*g
+    assert (b(1)-b(0)+b(1)) % 2 == 0 != c(1,1)
+    counts["C2_coboundary_nonexamples"] += 1
+
+# A filtered-colimit zero must be realized at a later stage, not the first.
+for zero_stage in range(1,13):
+    value = 1
+    assert value != 0
+    for stage in range(1, zero_stage+1):
+        value = 0 if stage == zero_stage else value
+    assert value == 0
+    counts["eventual_zero_cases"] += 1
+
+print(json.dumps({"status":"pass", "scope":"finite arithmetic and character models only",
+                  "counts":counts}, sort_keys=True))
+```
+
+## Executed local validation receipt
+
+The actual indexed checker returned zero errors and zero warnings: 48 nodes,
+40 definition/construction API items, 38 unit tests, 11 planets and 62 baseline
+records. The actual intake accepts all four files. Forty inherited node objects
+and every old statement are preserved; all six new statements/names and six
+tests match the reader and explicit omission ledger. A prose compiler-warning
+token in the inherited reader was corrected to “admitted-proof warnings”.
+
+The actual atlas assembly at the immutable audit tree, with only this packet
+and reader overlaid, has 2,967 stages and 8,655 edges, acyclic. All five expected
+supplier stage edges are present; no pending or skipped links. The dependency
+subgraph reachable from this packet has 114 vertices, acyclic. These graph
+checks do not close any mathematical gap. Full suggested-file SHA-256:
+dbb822138c0790d3b0fc898ad09c9c0b29c3a67550123180dd7412b6d17af733.
+JSON, allowed paths, privacy and whitespace checks passed. Validation is
+read-only against Git blobs; no shared checkout, atlas data or scripts changed.
+
+## Historical handoff
+
+The complete preceding handoff is retained below for its exact formulas,
+source boundaries and reproducible S₃ script; it describes earlier checkpoints,
+not the current counts or fresh checks.
+
 # Current checkpoint — finite-cover cohomological assembly
 
 Codex — codex-5ebb6f, 2 October 2026. Refs #1020.
