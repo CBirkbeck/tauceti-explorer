@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded. The affine invariant-ring step is factored through the native μ_n Hopf coaction, its axioms, root weights and point comparison; geometric carriers remain open. Six native root-trivialization comparison nodes now expose the computed unit coefficient and root-arrow scalar equations; no geometric carrier or generic section tensor operation is duplicated.",
+  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded. The affine invariant-ring step is factored through the native μ_n Hopf coaction, its axioms, root weights and point comparison; geometric carriers remain open. Six native root-trivialization comparison nodes now expose the computed unit coefficient and root-arrow scalar equations; no geometric carrier or generic section tensor operation is duplicated. Continuation supplies fpqc descent and thirteen finite/infinite root-transition/Kummer proof leaves; it corrects the inherited infinite H1 topology and separates ordinary stacks, algebraic properties and coarse suppliers.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -331,6 +331,90 @@
         "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
         "provides": "Module morphisms act linearly on native sections over the ring of functions on an open.",
         "checked": "Statement and required parameters read at the exact pin on 2026-10-02; blob 66714c284c23f2edc7a26e4da06c91512790b4a1."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.fpqcTopology",
+        "module": "Mathlib/AlgebraicGeometry/Sites/Fpqc.lean",
+        "provides": "The pinned topology from jointly surjective quasi-compact families of flat scheme morphisms; it is subcanonical. Infinite torsors use this topology.",
+        "checked": "Actual statement and parameters read at Mathlib082e2d3 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceBlobSha256": "258918aa1cfc26d5244255741a1c96abdd4f909f07b460cbd71ea305d835f708"
+      },
+      {
+        "ref": "mathlib:Module.FaithfullyFlat.of_linearEquiv",
+        "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+        "provides": "Faithful flatness is transported through a linear equivalence; this works without a nonzero-ring assumption.",
+        "checked": "Actual statement and parameters read at Mathlib082e2d3 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceBlobSha256": "192d565083c2a68f0bd28a1cc258c7ad0f4322446e201b84297a98a6e18e6e8a"
+      },
+      {
+        "ref": "mathlib:Module.FaithfullyFlat.finsupp",
+        "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+        "provides": "A free Finsupp module on a nonempty index type is faithfully flat, including a zero coefficient ring.",
+        "checked": "Actual statement and parameters read at Mathlib082e2d3 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceBlobSha256": "192d565083c2a68f0bd28a1cc258c7ad0f4322446e201b84297a98a6e18e6e8a"
+      },
+      {
+        "ref": "mathlib:Nat.dvd_factorial",
+        "module": "Mathlib/Data/Nat/Factorial/Basic.lean",
+        "provides": "A positive m dividing a factorial once m≤n; gives cofinality of the factorial subsequence.",
+        "checked": "Actual statement and parameters read at Mathlib082e2d3 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceBlobSha256": "7e74e5fe77931379299dc2f05ee98e7ede1cda2c58f3586cf5ef4884d989d6c3"
+      },
+      {
+        "ref": "mathlib:Nat.factorial_dvd_factorial",
+        "module": "Mathlib/Data/Nat/Factorial/Basic.lean",
+        "provides": "Factorials respect divisibility as their indices increase.",
+        "checked": "Actual statement and parameters read at Mathlib082e2d3 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceBlobSha256": "7e74e5fe77931379299dc2f05ee98e7ede1cda2c58f3586cf5ef4884d989d6c3"
+      },
+      {
+        "ref": "mathlib:nonempty_sections_of_finite_cofiltered_system",
+        "module": "Mathlib/CategoryTheory/CofilteredSystem.lean",
+        "provides": "A Type-valued functor on a cofiltered-or-empty category, whose values are finite and nonempty, has a compatible section; no surjectivity of transition maps is required.",
+        "checked": "Actual statement and parameters read at Mathlib082e2d3 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceBlobSha256": "8eefa76f38bbefc7d03d7973d8fcea24779ecfd217c488eb896e04d4872bf80b"
+      },
+      {
+        "ref": "mathlib:rootsOfUnityEquivNthRoots",
+        "module": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
+        "provides": "For positive n and a commutative domain, rootsOfUnity n R is equivalent to the roots of X^n−1; the following pinned instance proves it finite.",
+        "checked": "Actual statement and parameters read at Mathlib082e2d3 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceBlobSha256": "6c5e4fe6b0390435bdb3d54eda8cc33eaff1505ebcc8794afbbe512f688ef2c0"
+      },
+      {
+        "ref": "mathlib:Polynomial.irreducible_of_eisenstein_criterion",
+        "module": "Mathlib/RingTheory/Polynomial/Eisenstein/Criterion.lean",
+        "provides": "Eisenstein irreducibility for a primitive positive-degree polynomial at a prime ideal, with the constant coefficient outside its square.",
+        "checked": "Actual statement and parameters read at Mathlib082e2d3 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceBlobSha256": "eab7a932640af3869c49ca0804110b715b90b714f7ae203f067c0de0606ae8a2"
+      },
+      {
+        "ref": "mathlib:Polynomial.IsPrimitive.Int.irreducible_iff_irreducible_map_cast",
+        "module": "Mathlib/RingTheory/Polynomial/GaussLemma.lean",
+        "provides": "Gauss irreducibility comparison from a primitive integer polynomial to its rational-coefficient polynomial.",
+        "checked": "Actual statement and parameters read at Mathlib082e2d3 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceBlobSha256": "df5e74401f4d1d03635fd82228b6efab30366d870e68d98ba31f41ef2d59cc38"
+      },
+      {
+        "ref": "mathlib:minpoly.eq_of_irreducible_of_monic",
+        "module": "Mathlib/FieldTheory/Minpoly/Field.lean",
+        "provides": "An irreducible monic polynomial vanishing at x is its minimal polynomial over the field.",
+        "checked": "Actual statement and parameters read at Mathlib082e2d3 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceBlobSha256": "ca3b5096bab21a1967ffa07168ccf13609c1b7aa67bc3f92078e674edc371269"
+      },
+      {
+        "ref": "mathlib:minpoly.natDegree_le",
+        "module": "Mathlib/FieldTheory/Minpoly/Finite.lean",
+        "provides": "The minimal polynomial degree is bounded by the ambient module finrank for a finite free algebra.",
+        "checked": "Actual statement and parameters read at Mathlib082e2d3 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceBlobSha256": "d3611bc7adb98be5ace5040c4c30e41bf033ea078b1316fd0e2e63214e156b7b"
+      },
+      {
+        "ref": "mathlib:finite_of_finite_type_of_isJacobsonRing",
+        "module": "Mathlib/RingTheory/Jacobson/Ring.lean",
+        "provides": "A finite-type field algebra over a Jacobson ring is finite as a module; used over Q for a closed point of a nonempty finite-type chart.",
+        "checked": "Actual statement and parameters read at Mathlib082e2d3 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceBlobSha256": "e086aae1aed6c6f3f433046c715502acd8cb5285fca857b8ab6fda3ada986a54"
       }
     ]
   },
@@ -377,7 +461,7 @@
       "id": "B24",
       "title": "On the birational section conjecture with strong birationality assumptions",
       "authors": "Giulio Bresciani",
-      "edition": "Inventiones Mathematicae 236 (2024), 129–150, open-access version of record",
+      "edition": "Inventiones Mathematicae 235 (2024), 129–150; online 26 September 2023, open-access version of record",
       "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf",
       "sha256": "77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148",
       "accessed": "2026-10-02",
@@ -755,7 +839,9 @@
         "SchemeAndStackFoundations:SF.1",
         "mathlib:CategoryTheory.Pseudofunctor.Grothendieck",
         "mathlib:CategoryTheory.Pseudofunctor.IsStack",
-        "mathlib:AlgebraicGeometry.Scheme.fppfTopology"
+        "mathlib:AlgebraicGeometry.Scheme.fppfTopology",
+        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "DiamondsAndVStacks:D0"
       ],
       "proofSteps": [
         "Use the supplier’s line-bundle pullback and descent, retaining the root isomorphism and section equation.",
@@ -855,7 +941,9 @@
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:key/root-stacks",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "DiamondsAndVStacks:D0"
       ],
       "proofSteps": [
         "Unpack a two-pullback object: (x,(M,t),φ) with φ identifying (Mⁿ,tⁿ) and (L_x,s_x).",
@@ -935,7 +1023,10 @@
         "FunctionFieldArithmeticPartII:RS.0/affine-coaction-coassoc",
         "FunctionFieldArithmeticPartII:RS.0/native-point-action",
         "FunctionFieldArithmeticPartII:RS.0/root-trivialization-equation",
-        "FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars"
+        "FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars",
+        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "DiamondsAndVStacks:D0",
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
       "proofSteps": [
         "Use root-trivialization-equation and root-arrow-scalars on native trivializations: objects have unit u with u zⁿ=f and arrows have z_b=w z_a, u_b wⁿ=u_a. The generic quotient-stack/torsor construction remains SF.1; these scalar equations are its actual root-specific input.",
@@ -978,7 +1069,9 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.1/base-change",
         "FunctionFieldArithmeticPartII:RS.1/affine-chart",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "DiamondsAndVStacks:D0"
       ],
       "proofSteps": [
         "Pull the chart back to the geometric field, keeping the quotient ring tⁿ.",
@@ -1021,7 +1114,8 @@
         "FunctionFieldArithmeticPartII:RS.1/affine-chart",
         "FunctionFieldArithmeticPartII:RS.1/base-change",
         "SchemeAndStackFoundations:SF.1",
-        "FunctionFieldArithmeticPartII:RS.1/affine-invariants"
+        "FunctionFieldArithmeticPartII:RS.1/affine-invariants",
+        "AlgebraicModuliForArithmeticGeometry:R09.5"
       ],
       "proofSteps": [
         "Apply the affine-invariants theorem to the actual Hopf coaction, in arbitrary characteristic. The native monic basis also gives faithful coefficient inclusion in the nontrivial case.",
@@ -1060,7 +1154,8 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.1/affine-chart",
         "FunctionFieldArithmeticPartII:RS.1/closed-fibre",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
       "proofSteps": [
         "Locally choose a regular parameter f cutting out D; the equation tⁿ=f replaces that parameter and gives a regular chart.",
@@ -1177,18 +1272,22 @@
       ],
       "title": "Infinite root stacks",
       "kind": "definition",
-      "statement": "Define √[∞]{(L,s)/X} as the two-inverse limit of the finite root stacks indexed by positive integers ordered by divisibility. Its objects over T are compatible finite root objects with transition isomorphisms satisfying cocycles; its arrows are compatible systems of root isomorphisms. It is a fibred stack, not asserted to be an algebraic stack of finite type.",
+      "statement": "Define √[infinity]{(L,s)/X} as the two-inverse limit of the finite root stacks indexed by positive integers ordered by divisibility, on the fpqc scheme site. Its objects over T are compatible finite root objects with transition isomorphisms satisfying cocycles; arrows are compatible systems of root isomorphisms. It is an fpqc stack, hence also an fppf stack by restriction, and is not asserted to be an algebraic stack of finite presentation. Its affine quotient uses fpqc torsors.",
       "hypotheses": [
-        "The exponent n is a positive integer; the scheme or stack base and all base changes use the stated fppf topology."
+        "All finite exponents are positive. Infinite root objects and quotient torsors use the fpqc scheme site."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/transition",
-        "mathlib:CategoryTheory.Pseudofunctor.IsStack"
+        "mathlib:CategoryTheory.Pseudofunctor.IsStack",
+        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "DiamondsAndVStacks:D0",
+        "FunctionFieldArithmeticPartII:RS.1/root-fpqc-descent",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent"
       ],
       "proofSteps": [
-        "Construct the object and arrow groupoids as coherent systems; compatibility equations define composition.",
-        "Descent is performed componentwise and the transition/cocycle equations descend as equalities.",
-        "For an effective Cartier divisor this agrees with the P=N specialization of the infinite log root stack by TV Proposition 3.5, without planning general logarithmic structures."
+        "Use the already planned compatible-family carrier, retaining objects, arrows and unit/composition equations.",
+        "Every finite root is an fpqc stack by root-fpqc-descent. Apply the imported limit-stack-descent theorem to those components and their finite transitions.",
+        "For a single effective Cartier divisor, TV17 Proposition3.5 identifies the compatible system with its logarithmic infinite root. The local quotient comparison is its separate infinite-affine-quotient leaf."
       ],
       "acceptance": [
         "A set-theoretic inverse limit of isomorphism classes discards coherent automorphism data and is insufficient."
@@ -1265,7 +1364,7 @@
       "kind": "lemma",
       "statement": "For f:Y→X the canonical map √[∞]{(f*L,f*s)/Y}→Y×_X√[∞]{(L,s)/X} is an equivalence, compatible with every finite projection.",
       "hypotheses": [
-        "The exponent n is a positive integer; the scheme or stack base and all base changes use the stated fppf topology."
+        "Finite roots are defined fppf and satisfy the stronger fpqc descent theorem. Infinite systems and infinite torsors use fpqc descent."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/infinite-root-stack",
@@ -1341,7 +1440,7 @@
       "kind": "theorem",
       "statement": "The reduced closed fibre of the infinite root of a DVR with residue field k is the inverse system of the root gerbes of the normal line, banded by lim_n μ_n=Ẑ(1). It is noncanonically equivalent to B_kẐ(1); a chosen trivialization of the normal line gives a compatible neutralization. The neutralization is not part of the canonical root stack.",
       "hypotheses": [
-        "The exponent n is a positive integer; the scheme or stack base and all base changes use the stated fppf topology."
+        "Finite roots are defined fppf and satisfy the stronger fpqc descent theorem. Infinite systems and infinite torsors use fpqc descent."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/dvr-roots",
@@ -1383,21 +1482,28 @@
       ],
       "title": "Kummer classes of infinite-gerbe points",
       "kind": "comparison",
-      "statement": "After choosing a neutralization, the isomorphism classes of k-points of the infinite reduced DVR gerbe identify with H¹_fppf(k,Ẑ(1)) and lim_n k×/(k×)ⁿ. This is an identification of isomorphism classes with a chosen origin; the full groupoid still has Ẑ(1)(k) automorphisms.",
+      "statement": "After choosing a neutralization of the infinite reduced DVR gerbe over k, its k-points up to isomorphism identify with H1_fpqc(k,G), where G=lim_n μ_n, and with lim_n H1_fppf(k,μ_n)=lim_n k×/(k×)^n. Infinite torsors are fpqc; the finite Kummer calculation is fppf. The full groupoid retains G(k) automorphisms, and changing the neutralization changes the chosen origin.",
       "hypotheses": [
-        "The exponent n is a positive integer; the scheme or stack base and all base changes use the stated fppf topology."
+        "A DVR with residue field k of arbitrary characteristic and a chosen compatible neutralization.",
+        "G is the fpqc inverse-limit sheaf of all μ_n, with power transition maps."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/dvr-infinite-gerbe",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.2",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-limit-iso-detection",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-limit-class-lift"
       ],
       "proofSteps": [
-        "Use the torsor classification of points of the neutralized classifying gerbe.",
-        "At each exponent apply the fppf Kummer sequence and H¹(k,G_m)=0.",
-        "Pass through the compatible μ_n torsor system; the inverse-system obstruction vanishes by the Mittag–Leffler property of the finite groups μ_n(k)."
+        "The neutralization identifies the reduced gerbe with fpqc G-torsors.",
+        "The Kummer torsor-limit comparison gives its actual finite tower, including the quotient identifications.",
+        "Apply kummer-limit-iso-detection for injectivity on classes and kummer-limit-class-lift for surjectivity; do not commute isomorphism classes with limits without these leaves.",
+        "Apply the exact finite fppf Kummer comparison at each exponent and retain its transition maps. The result is an identification with a chosen origin, not a loss of the automorphism groupoid."
       ],
       "acceptance": [
-        "Changing neutralization translates the Kummer classes; no canonical origin is asserted."
+        "Changing neutralization translates the Kummer classes; no canonical origin is asserted.",
+        "The compatible roots-of2 torsor overQ is retained despite having no fppf local trivialization; H1_fppf(k,G) is not substituted for H1_fpqc(k,G)."
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
@@ -1428,7 +1534,9 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:key/root-stacks",
         "SchemeAndStackFoundations:SF.3",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "DiamondsAndVStacks:D0"
       ],
       "proofSteps": [
         "Import the ordinary line-bundle Picard stack and restriction to R.",
@@ -1520,7 +1628,9 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:GC.0/root-picard",
         "SchemeAndStackFoundations:SF.1",
-        "SchemeAndStackFoundations:SF.3"
+        "SchemeAndStackFoundations:SF.3",
+        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "DiamondsAndVStacks:D0"
       ],
       "proofSteps": [
         "Trivialize K_R fppf-locally; ι supplies the rigidification γ.",
@@ -5193,13 +5303,653 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.1/root-fpqc-descent",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.1"
+      ],
+      "title": "Fpqc descent of finite root data",
+      "kind": "theorem",
+      "statement": "For every positive n and line bundle with section (L,s), the finite root-object pseudofunctor is a stack for the pinned fpqc topology, including on scheme test objects over a stack base. Thus its fppf restriction and its fpqc construction give the same root objects and arrows on every test scheme; the stronger descent assertion is a theorem, not an automatic change of topology.",
+      "hypotheses": [
+        "Any fpqc scheme cover; a fixed (L,s) and positive n.",
+        "Tensor and unit pullback comparisons are the explicit JAC-A contract."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:key/root-stacks",
+        "mathlib:AlgebraicGeometry.Scheme.fpqcTopology",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent",
+        "FunctionFieldArithmeticPartII:RS.0/tensor-power",
+        "FunctionFieldArithmeticPartII:RS.0/section-power"
+      ],
+      "proofSteps": [
+        "Apply the imported QCoh descent equivalence to the root line; rank-one finite-local-free detection makes the descended module invertible.",
+        "Regard a section as a module map O→M. Fullness descends that map, and the unit comparison identifies its domain.",
+        "Tensor/pullback comparisons identify the power of the descended line with the descent of the local powers. Descend the power isomorphisms and their inverses using full faithfulness.",
+        "The displayed section equation holds after the covering pullbacks; faithfulness makes it hold globally.",
+        "Apply the same full faithfulness to isomorphisms of root data and check their section and power equations; this proves effective object descent and sheaf descent for arrows."
+      ],
+      "acceptance": [
+        "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition3.10 proof p.16 and Definition3.8 p.15; fpqc quotient description; QCoh supplier is Stacks023T",
+          "excerpt": "fpqc",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Fpqc root descent"
+      }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/affine-transition",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Affine divisibility transition",
+      "kind": "construction",
+      "statement": "For B_n=A[T]/(T^n−f) and positive n,m, construct the A-algebra homomorphism j_(n,m):B_n→B_(nm) sending its distinguished root to the mth power of the target root. Constants are unchanged. This is the contravariant affine-chart map for the stack transition from an nmth root to an nth root.",
+      "hypotheses": [
+        "A is any commutative ring; all exponents appearing as denominators are positive."
+      ],
+      "prerequisites": [
+        "mathlib:AdjoinRoot",
+        "mathlib:AdjoinRoot.liftAlgHom",
+        "mathlib:AdjoinRoot.eval₂_root",
+        "mathlib:AdjoinRoot.algHom_ext"
+      ],
+      "proofSteps": [
+        "In B_(nm), compute (root^m)^n=root^(mn)=f using its defining equation.",
+        "Apply the native algebra quotient lift, keeping the given A-algebra structures.",
+        "Use the native algebra-hom extensionality to verify the root/constant specification uniquely."
+      ],
+      "acceptance": [
+        "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Section3.1 pp.14–16, P=N specialization",
+          "excerpt": "Corollary 3.13.",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.RootStack.affineTransition.root",
+          "role": "simp",
+          "statement": "j_(n,m)(root_n)=root_(nm)^m."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTransition.constant",
+          "role": "simp",
+          "statement": "j_(n,m) fixes the image of every coefficient in A."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTransition.unique",
+          "role": "extensionality",
+          "statement": "An A-algebra map with the displayed root image equals j_(n,m)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTransition.test_one",
+          "kind": "degenerate",
+          "statement": "The m=1 map is identity, with the evident exponent identification."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTransition.test_four_to_two",
+          "kind": "computation",
+          "statement": "For n=m=2 the coarse chart root maps to the square of the fourth-root chart variable."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTransition.test_nilpotent",
+          "kind": "non-example",
+          "statement": "For f=0, n=m=2 over a field, the source nilpotent root maps to the nonzero square of the target variable in k[u]/u^4; it is not killed."
+        }
+      ],
+      "uses": [
+        {
+          "where": "TV17 Proposition3.2 and Section3.1",
+          "how": "Makes the ring maps in the divisibility inverse system concrete."
+        },
+        {
+          "where": "Bresciani p.135",
+          "how": "The finite DVR root tower uses these maps before taking its limit."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/affine-transition-composition",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Composition of affine root transitions",
+      "kind": "lemma",
+      "statement": "With target exponents identified by associativity, j_(nm,k)∘j_(n,m)=j_(n,mk). The m=1 map is identity. These are equalities of actual algebra maps, not merely matches of closed points.",
+      "hypotheses": [
+        "A is any commutative ring; all exponents appearing as denominators are positive."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition",
+        "mathlib:AdjoinRoot.algHom_ext"
+      ],
+      "proofSteps": [
+        "Both maps fix every coefficient.",
+        "Both send root_n to (root_(nmk)^k)^m=root_(nmk)^(mk).",
+        "Apply the native algebra-hom extensionality; at m=1 its root value is root_n."
+      ],
+      "acceptance": [
+        "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition3.2 p.13 and Section3.1 root charts",
+          "excerpt": "Proposition 3.2.",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/affine-transition-iterated",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "The transition as an iterated monic quotient",
+      "kind": "comparison",
+      "statement": "Using j_(n,m) to make B_(nm) a B_n-algebra, there is a B_n-algebra equivalence B_n[U]/(U^m−root_n)≃B_(nm). It sends U to root_(nm), and coefficient root_n to root_(nm)^m.",
+      "hypotheses": [
+        "A is any commutative ring; all exponents appearing as denominators are positive."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition",
+        "mathlib:AdjoinRoot.liftAlgHom",
+        "mathlib:AdjoinRoot.algHom_ext",
+        "mathlib:AdjoinRoot.eval₂_root"
+      ],
+      "proofSteps": [
+        "Construct the forward quotient lift by U↦root_(nm); its defining equation is exactly the transition root formula.",
+        "Give the iterated quotient its inherited A-algebra structure. Its new root has nmth power f, so the native quotient lift constructs the inverse A-algebra map.",
+        "Check that the inverse respects B_n coefficients by the transition formula, upgrading it to a B_n-algebra map.",
+        "Check both composites on their distinguished roots using native quotient extensionality."
+      ],
+      "acceptance": [
+        "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Section3.1 pp.14–16, P=N specialization",
+          "excerpt": "Corollary 3.13.",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/affine-transition-basis",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "The finite-free transition basis",
+      "kind": "construction",
+      "statement": "B_(nm), as a B_n-module through j_(n,m), has a specified basis indexed by Fin m, whose ith vector is root_(nm)^i. The assertion includes the zero ring; it supplies a linear equivalence with Fin m→₀B_n.",
+      "hypotheses": [
+        "A is any commutative ring; all exponents appearing as denominators are positive."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-iterated",
+        "mathlib:AdjoinRoot.powerBasis'"
+      ],
+      "proofSteps": [
+        "For a nonzero coefficient ring, the monic polynomial U^m−root_n has natDegree m; use the pinned monic power basis.",
+        "Transport the basis through the iterated quotient equivalence.",
+        "For a zero coefficient ring both the module and the Finsupp module are singleton; the unique linear equivalence gives the same indexed basis without claiming the polynomial has positive degree."
+      ],
+      "acceptance": [
+        "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Section3.1 pp.14–16, P=N specialization",
+          "excerpt": "Corollary 3.13.",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.RootStack.affineTransitionBasis.apply",
+          "role": "simp",
+          "statement": "The ith basis vector is root_(nm)^i."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTransitionBasis.repr",
+          "role": "data",
+          "statement": "Every element has unique coefficients in B_n at powers 0,…,m−1."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTransitionBasis.repr_symm",
+          "role": "simp",
+          "statement": "The inverse coefficient map forms the displayed finite sum of powers."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTransitionBasis.test_one",
+          "kind": "degenerate",
+          "statement": "At m=1 the basis has one vector, namely1."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTransitionBasis.test_four",
+          "kind": "computation",
+          "statement": "At n=m=2 every class is uniquely a+b*u with a,b in B_2."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTransitionBasis.test_zeroRing",
+          "kind": "non-example",
+          "statement": "For the zero ring the indexed basis is still valid although the defining polynomial has natDegree0; no nontriviality premise excludes this case."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Infinite affine root quotient",
+          "how": "Faithful flatness of chart transitions ensures the colimit chart is a valid fpqc cover."
+        },
+        {
+          "where": "Kummer torsor tower",
+          "how": "Finite monic root charts retain effective, nonempty covers without invertibility of n."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/affine-transition-faithfully-flat",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Faithful flatness of root chart transitions",
+      "kind": "theorem",
+      "statement": "For all positive n,m, j_(n,m):B_n→B_(nm) is finite free and faithfully flat. Its Spec map is finite, flat and surjective. This statement concerns chart morphisms; the corresponding map of root stacks need not be representable.",
+      "hypotheses": [
+        "A is any commutative ring; all exponents appearing as denominators are positive."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-basis",
+        "mathlib:Module.FaithfullyFlat.finsupp",
+        "mathlib:Module.FaithfullyFlat.of_linearEquiv",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "proofSteps": [
+        "The specified basis gives finite freeness.",
+        "Fin m is nonempty because m>0; its Finsupp module is faithfully flat by the existing instance.",
+        "Transport faithful flatness through the coefficient linear equivalence.",
+        "Use the supplier’s affine ring/scheme comparison for the Spec properties; at a branch point the root-stack map has a nontrivial stabilizer kernel when m>1, so it is not inferred representable."
+      ],
+      "acceptance": [
+        "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Section3.1 pp.14–16, P=N specialization",
+          "excerpt": "Corollary 3.13.",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite-free root transitions"
+      }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Factorial reindexing of the root limit",
+      "kind": "comparison",
+      "statement": "Restriction of compatible root systems from all positive divisibility indices to 1!,2!,3!,… is an equivalence of groupoids, naturally over every test scheme. It preserves actual root arrows and transition isomorphisms, not merely their isomorphism classes.",
+      "hypotheses": [
+        "A fixed pair (L,s), positive divisibility indices and the coherent finite transition maps."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/infinite-root-stack",
+        "mathlib:Nat.dvd_factorial",
+        "mathlib:Nat.factorial_dvd_factorial"
+      ],
+      "proofSteps": [
+        "The factorial subsequence is increasing for divisibility, and each positive n divides N! once N≥n.",
+        "Extend a factorial root system to level n by taking its finite transition from a factorial multiple. For two choices use a larger factorial and the supplied transition isomorphisms to compare them.",
+        "The root-system cocycles make this comparison independent of refinements and make the extended transitions coherent.",
+        "Perform the same extension on arrows; restriction and extension have componentwise natural inverse comparisons."
+      ],
+      "acceptance": [
+        "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition3.5 and Remark3.6 p.14, cofinal systems",
+          "excerpt": "cofinal",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "The fpqc Kummer torsor tower",
+      "kind": "theorem",
+      "statement": "Over a field k let G=lim_(n|m) μ_n in the fpqc topology, with transition μ_(nm)→μ_n given by the mth power. The groupoid of fpqc G-torsors is equivalent to the two-limit of the groupoids of finite μ_n-torsors, with specified quotient comparisons and their cocycles. No finite-presentation or etale-local-triviality assertion for G is made.",
+      "hypotheses": [
+        "A field k of arbitrary characteristic.",
+        "Infinite torsors are fpqc; finite μ_n torsors may be computed fppf."
+      ],
+      "prerequisites": [
+        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence",
+        "SchemeAndStackFoundations:SF.1",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
+        "DiamondsAndVStacks:D0"
+      ],
+      "proofSteps": [
+        "The compatible trivial finite torsors give an actual k-object of the two-limit; nonemptiness is supplied rather than assumed away.",
+        "Apply the imported affine fpqc limit-gerbe theorem. Its automorphism sheaf at that object is exactly G, because an automorphism is a compatible sequence of finite translations.",
+        "Use the imported neutralization equivalence with that fixed object. Evaluation at each level is extension of torsors through G→μ_n.",
+        "On an affine cover the inverse is the compatible affine limit of finite torsors; the exact affine faithful-flat limit contract remains TOWER-AFF."
+      ],
+      "acceptance": [
+        "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "B24",
+          "locator": "p.133 fpqc classifying-stack convention; p.135 infinite root gerbe",
+          "excerpt": "fpqc",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Infinite Kummer torsors"
+      }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/kummer-limit-iso-detection",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Finite stages detect Kummer tower isomorphisms",
+      "kind": "lemma",
+      "statement": "Two compatible finite μ_n-torsor towers over a field k are isomorphic if their n-th torsors are isomorphic for every positive n. Individual finite-stage isomorphisms need not be chosen compatibly in advance.",
+      "hypotheses": [
+        "Compatible finite μ_n-torsor towers over a field; equality of their finite-stage isomorphism classes."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe",
+        "mathlib:nonempty_sections_of_finite_cofiltered_system",
+        "mathlib:rootsOfUnityEquivNthRoots"
+      ],
+      "proofSteps": [
+        "For each n take the set of equivariant k-isomorphisms between the two nth torsors. It is nonempty by the premise.",
+        "Once one isomorphism is fixed, this set is a torsor for μ_n(k); the pinned roots-of-unity equivalence and finite instance make it finite, even when μ_n is not etale.",
+        "The coherent tower quotient maps induce the restriction maps on these finite sets. Positive divisibility gives a cofiltered index category.",
+        "Apply the existing nonempty finite-system theorem to obtain a compatible sequence of isomorphisms. The groupoid limit comparison turns it into the required arrow."
+      ],
+      "acceptance": [
+        "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "B24",
+          "locator": "p.135 H1/Kummer inverse-limit statement, with the native finite-isomorphism proof supplied here",
+          "excerpt": "non-canonical",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/kummer-limit-class-lift",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Compatible Kummer classes lift to a torsor tower",
+      "kind": "lemma",
+      "statement": "Every element of lim_n H1_fppf(k,μ_n) is the finite-stage class family of a coherent finite torsor tower, hence of an fpqc G-torsor. Compatible classes are converted to actual quotient isomorphisms, rather than treated as a preexisting compatible object.",
+      "hypotheses": [
+        "A field k; a compatible family of finite torsor classes.",
+        "The finite torsor/H1 comparison is the stated SF.2 contract."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "proofSteps": [
+        "On the factorial subsequence choose a representative torsor at each level.",
+        "Equality of adjacent pushed-forward classes supplies an equivariant isomorphism from the quotient of the next torsor to the preceding torsor.",
+        "Compose these adjacent isomorphisms to obtain all transitions; a linearly ordered chain has no additional independent composition choices.",
+        "Extend the actual tower along the factorial cofinality equivalence and apply the fpqc torsor-limit comparison."
+      ],
+      "acceptance": [
+        "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "B24",
+          "locator": "p.135 inverse-limit Kummer statement; TV17 Remark3.6 for cofinality",
+          "excerpt": "non-canonical",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "The infinite affine fpqc root quotient",
+      "kind": "theorem",
+      "statement": "For B_n=A[T]/(T^n−f) with the displayed divisibility maps, put B_infinity=colim_n B_n and G=lim_n μ_n, with its diagonalizable grading action. The infinite root stack of (O_A,f) is [Spec B_infinity/G] as an fpqc quotient stack. Its morphism groupoids and finite projections agree with the two-limit of the finite roots. This is not asserted to be an algebraic stack of finite presentation.",
+      "hypotheses": [
+        "Any commutative ring A and f∈A.",
+        "Infinite quotient and torsors use the fpqc topology; TOWER-AFF is an explicit supplier obligation."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-composition",
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-faithfully-flat",
+        "FunctionFieldArithmeticPartII:RS.2/infinite-root-stack",
+        "FunctionFieldArithmeticPartII:RS.1/root-fpqc-descent",
+        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "SchemeAndStackFoundations:SF.1",
+        "DiamondsAndVStacks:D0"
+      ],
+      "proofSteps": [
+        "For every compatible root system over T, form the finite frame torsors respecting its power identifications. Their maps are the finite μ transitions and are affine faithfully flat.",
+        "The TOWER-AFF contract makes their inverse limit an affine fpqc G-torsor; its universal frames give an equivariant map to Spec B_infinity.",
+        "Conversely an equivariant G-torsor map supplies the finite root data by finite quotient and the root-coordinate functions.",
+        "Compare the two constructions on objects and torsor arrows, with their finite-stage and base-change coherence."
+      ],
+      "acceptance": [
+        "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Definition3.8, Proposition3.10 with proof and Corollary3.13 pp.15–16, P=N",
+          "excerpt": "fpqc",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Infinite affine root charts"
+      }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/kummer-degree-bound",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "A degree bound for roots of two",
+      "kind": "lemma",
+      "statement": "If K/Q is a finite field extension and x∈K satisfies x^n=2 for positive n, then n≤[K:Q]. In particular no finite extension of Q contains compatible nth roots of2 for every positive n.",
+      "hypotheses": [
+        "K is a field with a Q-algebra structure and finite dimension over Q; n>0."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.irreducible_of_eisenstein_criterion",
+        "mathlib:Polynomial.IsPrimitive.Int.irreducible_iff_irreducible_map_cast",
+        "mathlib:minpoly.eq_of_irreducible_of_monic",
+        "mathlib:minpoly.natDegree_le"
+      ],
+      "proofSteps": [
+        "The monic integer polynomial X^n−2 satisfies Eisenstein at (2): nonleading coefficients are divisible by2 and its constant coefficient is not divisible by4.",
+        "Gauss comparison makes X^n−2 irreducible over Q.",
+        "Its root equation and monicity identify it with minpoly_Q(x).",
+        "The native degree bound gives n≤finrank_Q K. Choose n larger than that dimension to exclude roots at all levels."
+      ],
+      "acceptance": [
+        "For K=Q, only the n=1 case can have a root of2. A quadratic field may contain a square root but cannot contain a cube root of2. All positive n, including composite n, are covered by Eisenstein."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "B24",
+          "locator": "p.133 finite versus infinite torsor topology; explicit counterexample derivation by the listed Eisenstein and minimal-polynomial statements",
+          "excerpt": "fpqc",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/kummer-tower-not-fppf",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "An infinite Kummer torsor requiring fpqc descent",
+      "kind": "theorem",
+      "statement": "Over Q, the compatible finite torsors P_n=Spec Q[T]/(T^n−2) define an fpqc G=lim_n μ_n torsor P_infinity. It has no section after any nonempty fppf Q-cover. Each individual P_n is fppf-locally trivial, so replacing all infinite torsors by fppf-locally trivial G-torsors loses this point of the infinite classifying gerbe.",
+      "hypotheses": [
+        "Base field Q; all positive root exponents.",
+        "The finite-type chart and closed-point residue comparison are the exact SF.1 contract."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-faithfully-flat",
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-composition",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-degree-bound",
+        "mathlib:finite_of_finite_type_of_isJacobsonRing",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "proofSteps": [
+        "The element2 is a unit; each finite root chart is a μ_n torsor. The transition equations provide a coherent tower.",
+        "The fpqc torsor-limit comparison constructs P_infinity; the finite-free transition calculation also exhibits its affine fpqc cover.",
+        "Suppose it has a section on a nonempty fppf Q-scheme. Choose a nonempty affine finite-type open chart and a closed point. Its residue field is finite over Q by the pinned Zariski lemma.",
+        "Specialize the section to that field. It would contain an nth root of2 for every n, contradicting the degree-bound leaf."
+      ],
+      "acceptance": [
+        "Every finite P_n is an fppf torsor, while their actual fpqc limit admits no nonempty fppf trivializing cover. The contradiction retains the finite residue-field degree, rather than choosing a field of unbounded degree."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "B24",
+          "locator": "p.133 fpqc necessity for non-finite-type groups; explicit all-roots-of2 example supplied here",
+          "excerpt": "fpqc",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
     {
       "id": "STACK-GEOM",
       "supplier": "SchemeAndStackFoundations:SF.1",
-      "need": "Supply algebraic stacks with representable diagonals, two-fibre products and two-Yoneda; quotient stacks of schemes by flat finitely presented affine groups (including non-smooth μ_p), torsor presentations, base change, coarse-space universal properties for finite diagonalizable actions and the precise regular/DM/properness criteria. Supply line-bundle-with-section classifying [A¹/G_m], not this roadmap’s finite roots. No stage-level reverse edge from all of SF.1 to this root-stack packet is introduced.",
+      "need": "Supply the algebraic-space representable-diagonal and atlas interface, scheme/space chart fibre products and effective fpqc descent of affine schemes and their morphisms. Identify faithful flatness of an affine ring map with flatness and surjectivity of its Spec map. Ordinary quotient stacks/two-fibre products are imported from D0; algebraicity of finite root quotients is requested from R09.4 and their coarse universal property from R09.5. No foundational stack carrier or root stack is rebuilt here.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:key/root-stacks",
         "FunctionFieldArithmeticPartII:RS.1/two-pullback",
@@ -5302,6 +6052,58 @@
         "FunctionFieldArithmeticPartII:RS.0/section-power-in-trivialization",
         "FunctionFieldArithmeticPartII:RS.0/section-power-transport"
       ]
+    },
+    {
+      "id": "ORDINARY-STACKS",
+      "supplier": "DiamondsAndVStacks:D0",
+      "need": "On the fixed fpqc scheme site, use the existing ordinary quotient/two-fibre-product node and supply [A1/Gm] as the stack of native invertible modules with sections, with its monoidal power maps. The inverse-system carrier must retain transition isomorphisms and cocycles. Infinite affine-group quotients use fpqc torsors and do not assert algebraic finite presentation.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:key/root-stacks",
+        "FunctionFieldArithmeticPartII:RS.1/two-pullback",
+        "FunctionFieldArithmeticPartII:RS.1/affine-chart",
+        "FunctionFieldArithmeticPartII:RS.1/closed-fibre",
+        "FunctionFieldArithmeticPartII:RS.2/infinite-root-stack",
+        "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
+        "FunctionFieldArithmeticPartII:GC.0/root-picard",
+        "FunctionFieldArithmeticPartII:GC.0/square-action-quotient"
+      ]
+    },
+    {
+      "id": "ROOT-ALGEBRAIC",
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "need": "Apply the algebraic quotient criterion to [Spec A[t]/(t^n-f)/μ_n] for finite flat diagonalizable μ_n, using a smooth atlas obtained through μ_n→Gm. Supply inertia/DM criteria with actual branch-point and exponent-invertibility hypotheses and the regularity comparison. This is the general algebraic-stack criterion owned by R09.4, not the root construction itself. Do not call the infinite fpqc quotient algebraic of finite presentation.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:RS.1/affine-chart",
+        "FunctionFieldArithmeticPartII:RS.1/regular-dm"
+      ]
+    },
+    {
+      "id": "ROOT-COARSE",
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.5",
+      "need": "For a finite diagonalizable group acting on an affine scheme, give the quotient stack’s coarse-space universal property from its invariant algebra, with compatibility under arbitrary base change in this linearly reductive case. Distinguish it from general finite-inertia flat/tame base-change statements and from a fine moduli object.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:RS.1/coarse-space"
+      ]
+    },
+    {
+      "id": "TOWER-AFF",
+      "supplier": "SchemeAndStackFoundations:SF.1",
+      "need": "For a positive-divisibility system of finite μ_n frame torsors over any test scheme T, with affine faithfully flat transition maps inducing μ_(nm)→μ_n, prove the affine inverse limit is faithfully flat over T and an fpqc lim μ_n torsor. Finite quotient gives the original torsors, with all comparisons and arrows; filtered colimit commutes with the tensor products in the torsor equation. Supply the finite-type affine-chart/closed-point residue-field comparison over Q used in the non-fppf example.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
+        "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-tower-not-fppf"
+      ]
+    },
+    {
+      "id": "KUMMER-FINITE",
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "For every positive n over an arbitrary field k, the fppf Kummer sequence is exact and identifies μ_n torsor classes with H1_fppf(k,μ_n)=k×/(k×)^n, using H1(k,Gm)=Pic(k)=0. Retain the actual quotient maps μ_(nm)→μ_n and compatibility on classes. Identify torsor classes with derived H1 on the fpqc site for the affine inverse-limit band G. No assertion that every fpqc G-torsor is fppf-locally trivial is allowed.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:RS.2/kummer-limit-class-lift",
+        "FunctionFieldArithmeticPartII:RS.2/dvr-kummer-classes"
+      ]
     }
   ],
   "coverage": [
@@ -5319,7 +6121,9 @@
       "remaining": [
         "Resolve supplier contract STACK-GEOM.",
         "Resolve supplier contract JAC-A.",
-        "Resolve recorded gap LEAN-GEOMETRY."
+        "Resolve recorded gap LEAN-GEOMETRY.",
+        "Complete the imported arbitrary-QCoh fpqc equivalence and its tensor/unit comparisons before root-fpqc-descent closes.",
+        "Resolve the D0 ordinary quotient, R09.4 algebraicity and R09.5 coarse contracts under the accepted ownership boundary."
       ]
     },
     {
@@ -5328,7 +6132,10 @@
       "remaining": [
         "Resolve supplier contract STACK-GEOM.",
         "Resolve supplier contract JAC-A.",
-        "Resolve recorded gap LEAN-GEOMETRY."
+        "Resolve recorded gap LEAN-GEOMETRY.",
+        "Complete the native finite affine transition, iterated quotient, finite-free basis and faithful-flatness proofs.",
+        "Complete TOWER-AFF, KUMMER-FINITE and TOWER-TYPING. Infinite torsors and H1 use fpqc; finite Kummer remains fppf. Preserve the roots-of2 counterexample.",
+        "Finish coherent factorial reindexing, infinite affine quotient and finite-stage injectivity/surjectivity on Kummer classes; neither set limits nor field points replace these comparisons."
       ]
     },
     {
@@ -5534,7 +6341,14 @@
         "FunctionFieldArithmeticPartII:GC.6/trace-character",
         "FunctionFieldArithmeticPartII:GC.6/closed-point-trace",
         "FunctionFieldArithmeticPartII:GC.6/away-ramification-generation",
-        "FunctionFieldArithmeticPartII:GC.6/quadratic-trace"
+        "FunctionFieldArithmeticPartII:GC.6/quadratic-trace",
+        "FunctionFieldArithmeticPartII:RS.1/root-fpqc-descent",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-limit-iso-detection",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-limit-class-lift",
+        "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-tower-not-fppf"
       ]
     },
     {
@@ -5549,6 +6363,19 @@
         "FunctionFieldArithmeticPartII:RS.0/root-trivialization-equation",
         "FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars",
         "FunctionFieldArithmeticPartII:RS.0/section-power-transport"
+      ]
+    },
+    {
+      "id": "TOWER-TYPING",
+      "title": "Typed infinite fpqc comparison and root-limit coherence",
+      "detail": "The finite affine maps/basis and root-specific proof leaves are explicit. Complete the TOWER-AFF limit-torsor verification on native affine schemes and the factorial compatible-object comparison with the actual root groupoid carrier. The infinite quotient/Kummer/geometric signatures still need those carriers; native finite algebra signatures do not certify the infinite comparison.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-limit-iso-detection",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-limit-class-lift",
+        "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+        "FunctionFieldArithmeticPartII:RS.2/kummer-tower-not-fppf"
       ]
     }
   ],
@@ -6162,7 +6989,7 @@
         "FunctionFieldArithmeticPartII"
       ],
       "detail": "The YZ19 extraction’s earlier SF.1 generic-root assignment predates this issue’s explicit reserved canonical owner.",
-      "proposal": "SF.1 supplies quotient-stack, atlas, two-pullback, descent and classifying-pair infrastructure. The single owner for finite/infinite roots, root-fibre calculation and DVR tower is FunctionFieldArithmeticPartII:key/root-stacks and the RS.0–RS.2 API. Update YZ19/160 and Bresciani/36–37 consumers to those node IDs. Do not rebuild roots in SF.1, anabelian consumers or the AV sibling; do not add a broad SF.1↔root-stack cycle."
+      "proposal": "D0 supplies ordinary quotient groupoids, two-fibre products and the classifying-pair carrier. SF.1 supplies scheme/affine descent and chart comparisons. R09.4 supplies finite-quotient algebraicity and R09.5 the coarse universal property. The single owner for finite/infinite roots, root-fibre calculations and DVR towers is FunctionFieldArithmeticPartII:key/root-stacks and RS.0–RS.2. Update YZ19/160 and Bresciani/36–37 consumers to those node IDs. Do not add a broad SF.1 reverse dependency creating a cycle."
     },
     {
       "action": "rescope",
@@ -6744,15 +7571,46 @@
     }
   },
   "continuationBoundary": {
-    "agent": "Codex — codex-J6LwjP",
+    "agent": "Codex — codex-5ebb6f",
     "date": "2026-10-02",
-    "addedNodes": 6,
-    "preservedNodeIds": 85,
-    "scope": "Native root-object trivialization comparison only; mathematical implementation and all ten stages remain unchecked/partial.",
+    "addedNodes": 13,
+    "preservedNodeIds": 91,
+    "scope": "Fpqc root descent, finite affine transitions and infinite Kummer comparison; all stages remain partial/unchecked.",
     "sourceReads": [
-      "AGV08 arXiv v2 Appendix B.1–B.2 pp.52–54; downloaded hash matches the preserved receipt."
+      "TV17 Propositions3.2–3.5, Remark3.6 and Section3.1 Definitions3.8/Remark3.9, Proposition3.10 with proof, Lemma3.12, Corollary3.13 pp.13–16; exact downloaded hash matches inherited receipt.",
+      "B24 p.133 fpqc convention and p.135 infinite DVR/Kummer passage, with original front matter. Other source/errata receipts remain attributed to preceding workers."
     ],
     "compiled": false,
-    "reason": "Existing Mathlib build found, but no Tau Ceti build at f790474 with the needed native imports was found. No library build/cache/project was created."
-  }
+    "reason": "No existing Tau Ceti build at the exact pin; no build/cache/LSP started."
+  },
+  "continuationCorrections": [
+    {
+      "where": "FunctionFieldArithmeticPartII:RS.2/dvr-kummer-classes",
+      "kind": "internal-topology-correction",
+      "previous": "H1_fppf(k,lim μ_n)",
+      "corrected": "H1_fpqc(k,lim μ_n), compared to the inverse limit of finite H1_fppf(k,μ_n).",
+      "reason": "TV17 Definition3.8 uses the fpqc quotient and Bresciani p.133 explicitly requires fpqc for non-finite-type groups. The roots-of2 example is a concrete obstruction to fppf local triviality. This corrects the inherited packet, not the source."
+    },
+    {
+      "where": "sources/B24/edition",
+      "kind": "internal-bibliography-correction",
+      "previous": "Inventiones236",
+      "corrected": "Inventiones235",
+      "reason": "The accessed version-of-record PDF front matter prints volume235. No mathematical source erratum is asserted."
+    }
+  ],
+  "continuationHistory": [
+    {
+      "agent": "Codex — codex-J6LwjP",
+      "date": "2026-10-02",
+      "addedNodes": 6,
+      "preservedNodeIds": 85,
+      "scope": "Native root-object trivialization comparison only; mathematical implementation and all ten stages remain unchecked/partial.",
+      "sourceReads": [
+        "AGV08 arXiv v2 Appendix B.1–B.2 pp.52–54; downloaded hash matches the preserved receipt."
+      ],
+      "compiled": false,
+      "reason": "Existing Mathlib build found, but no Tau Ceti build at f790474 with the needed native imports was found. No library build/cache/project was created."
+    }
+  ]
 }
