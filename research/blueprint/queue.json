@@ -38118,8 +38118,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5512"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5512",
+   "finishedAt": "2026-10-02T00:01:49Z"
   },
   {
    "id": "RT-PAPER-FRESAN-SABBAH-YU-22",
