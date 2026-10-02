@@ -34354,7 +34354,8 @@
     "REV-PAPER-BHATT-SCHOLZE-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BHATT-SCHOLZE-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4070"
   },
   {
    "id": "RT-PAPER-FINTZEN-21",
@@ -34585,8 +34586,9 @@
     "REV-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4080"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4080",
+   "finishedAt": "2026-10-02T05:57:33Z"
   },
   {
    "id": "RT-PAPER-LI-LIU-21",
