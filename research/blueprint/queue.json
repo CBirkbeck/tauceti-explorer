@@ -47023,7 +47023,8 @@
     "FIX-RT-RS-23"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5552"
   },
   {
    "id": "RT-RS-24",
