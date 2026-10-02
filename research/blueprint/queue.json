@@ -34239,7 +34239,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DADDEZIO-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5499"
   },
   {
    "id": "RT-PAPER-DITTMANN-POP-23",
@@ -38853,8 +38854,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-PASKUNAS-QUAST-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5517"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5517",
+   "finishedAt": "2026-10-02T01:59:22Z"
   },
   {
    "id": "RT-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
@@ -40102,7 +40104,8 @@
     "REV-PAPER-VENKATESH-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-VENKATESH-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4252"
   },
   {
    "id": "REV-RT-PAPER-VENKATESH-19",
