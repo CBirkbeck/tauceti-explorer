@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-layer partial design with111 declarations,37 API contracts,32 tests and28 planets; all78 routed Schröer items and21 source findings preserved. Twelve additional finite-pinching declarations verify the general algebraic-space existence source and separate it from the scheme criterion. Exact foundational exports, full algebraic-space signatures, geometric model and completeness certificates remain open; no stage or reserved key is closed. Continuation supplies twelve declaration-sized binary-model, discriminant, coefficient/orbit, point-count and native cyclic-group plans with sixteen explicit transformation witnesses. All111 inherited nodes,78 routed items and21 source findings are retained; scheme presentation and all other source/proof gaps remain explicit. The common-ideal conductor reconstruction now separates the canonical native comparison, kernel intersection, compatible-pair lifting and cartesian criterion; affine conductor reconstruction is stated without geometric finiteness/reducedness hypotheses.",
+  "summary": "Seven-stage partial continuation with 137 declaration targets. The native global Scheme conductor is decomposed into its annihilator comparison, finite flat/localization adapters, ideal-sheaf datum, quotient charts, canonical induced map, geometric/categorical squares and recomputed flat comparison. All 128 inherited IDs, 78 routed items, 21 source findings and 20 requests remain; 76 canonical upstream imports are restored and their obsolete encoding gap is removed. The generic annihilator theorem stays at SF.0. No stage, reserved key or implementation is closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -282,6 +282,312 @@
         "module": "Mathlib/Algebra/Category/Ring/Basic.lean",
         "provides": "The ring equivalence gives an isomorphism of the existing commutative-ring category.",
         "checked": "Actual complete statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:Module.annihilator",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "line": 860,
+        "provides": "Native Module.annihilator used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11"
+      },
+      {
+        "ref": "mathlib:Module.mem_annihilator",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "line": 862,
+        "provides": "Native Module.mem_annihilator used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11"
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.mk_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "line": 98,
+        "provides": "Native Submodule.Quotient.mk_eq_zero used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3"
+      },
+      {
+        "ref": "mathlib:Submodule.mem_span_singleton",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
+        "line": 447,
+        "provides": "Native Submodule.mem_span_singleton used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "85ab3958143d9d498abcc3dc17b63cb585602e812039c5af89b7be98d78532c8"
+      },
+      {
+        "ref": "mathlib:Module.Finite",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+        "line": 117,
+        "provides": "Native Module.Finite used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "0f8bfdc780efe93d11d1256896a310bd32111114ddba302adfaa42596186d760"
+      },
+      {
+        "ref": "mathlib:Module.Finite.exists_fin",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+        "line": 147,
+        "provides": "Native Module.Finite.exists_fin used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "0f8bfdc780efe93d11d1256896a310bd32111114ddba302adfaa42596186d760"
+      },
+      {
+        "ref": "mathlib:Module.Flat.lTensor_exact",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "line": 323,
+        "provides": "Native Module.Flat.lTensor_exact used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de"
+      },
+      {
+        "ref": "mathlib:Module.Flat.lTensor_preserves_injective_linearMap",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "line": 131,
+        "provides": "Native Module.Flat.lTensor_preserves_injective_linearMap used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de"
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.includeRight",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+        "line": 323,
+        "provides": "Native Algebra.TensorProduct.includeRight used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "cba9811297c237c238931cebf7d482399f6bdf9d418245b01a427adb03a0a931"
+      },
+      {
+        "ref": "mathlib:IsLocalization.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Localization/Defs.lean",
+        "line": 604,
+        "provides": "Native IsLocalization.map used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "b4861bdfcdc514706866e0f7707cba5fcee922b10fb56e9482f7b702b3a6be8d"
+      },
+      {
+        "ref": "mathlib:IsLocalization.map_mk'",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Defs.lean",
+        "line": 621,
+        "provides": "Native IsLocalization.map_mk' used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "b4861bdfcdc514706866e0f7707cba5fcee922b10fb56e9482f7b702b3a6be8d"
+      },
+      {
+        "ref": "mathlib:IsLocalization.map_injective_of_injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Defs.lean",
+        "line": 715,
+        "provides": "Native IsLocalization.map_injective_of_injective used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "b4861bdfcdc514706866e0f7707cba5fcee922b10fb56e9482f7b702b3a6be8d"
+      },
+      {
+        "ref": "mathlib:IsLocalization.flat",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Flat/Localization.lean",
+        "line": 37,
+        "provides": "Native IsLocalization.flat used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "fc8269870f94101108ba2670a43304df250d16d55bfac2baa3eb4b19ee6ec27d"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData",
+        "kind": "structure",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+        "line": 65,
+        "provides": "Native AlgebraicGeometry.Scheme.IdealSheafData used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "0905bec48c1b08774612de0ead1b8c2de732f5acf993f2b15a159cd18b43f661"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdeals",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+        "line": 104,
+        "provides": "Native AlgebraicGeometry.Scheme.IdealSheafData.ofIdeals used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "0905bec48c1b08774612de0ead1b8c2de732f5acf993f2b15a159cd18b43f661"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdeals_ideal",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+        "line": 124,
+        "provides": "Native AlgebraicGeometry.Scheme.IdealSheafData.ofIdeals_ideal used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "0905bec48c1b08774612de0ead1b8c2de732f5acf993f2b15a159cd18b43f661"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.map_ideal",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+        "line": 221,
+        "provides": "Native AlgebraicGeometry.Scheme.IdealSheafData.map_ideal used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "0905bec48c1b08774612de0ead1b8c2de732f5acf993f2b15a159cd18b43f661"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subscheme",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+        "line": 454,
+        "provides": "Native AlgebraicGeometry.Scheme.IdealSheafData.subscheme used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "9a27a935041fa94d3a8c74e809f3f61377c269308bc337889b86f605f840bcd1"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+        "line": 472,
+        "provides": "Native AlgebraicGeometry.Scheme.IdealSheafData.subschemeι used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "9a27a935041fa94d3a8c74e809f3f61377c269308bc337889b86f605f840bcd1"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeObjIso",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+        "line": 533,
+        "provides": "Native AlgebraicGeometry.Scheme.IdealSheafData.subschemeObjIso used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "9a27a935041fa94d3a8c74e809f3f61377c269308bc337889b86f605f840bcd1"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+        "line": 539,
+        "provides": "Native AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "9a27a935041fa94d3a8c74e809f3f61377c269308bc337889b86f605f840bcd1"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "line": 39,
+        "provides": "Native AlgebraicGeometry.Scheme.IdealSheafData.comap used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "92823402794fe88033b38f1caf8e9f1bbcd94d59db27466babad38b9d681a791"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "line": 43,
+        "provides": "Native AlgebraicGeometry.Scheme.IdealSheafData.comapIso used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "92823402794fe88033b38f1caf8e9f1bbcd94d59db27466babad38b9d681a791"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso_hom_snd",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "line": 218,
+        "provides": "Native AlgebraicGeometry.Scheme.IdealSheafData.comapIso_hom_snd used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "92823402794fe88033b38f1caf8e9f1bbcd94d59db27466babad38b9d681a791"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeMap_subschemeι",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "line": 213,
+        "provides": "Native AlgebraicGeometry.Scheme.IdealSheafData.subschemeMap_subschemeι used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "92823402794fe88033b38f1caf8e9f1bbcd94d59db27466babad38b9d681a791"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.app_injective",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/SchemeTheoreticallyDominant.lean",
+        "line": 74,
+        "provides": "Native AlgebraicGeometry.Scheme.Hom.app_injective used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "b5af1f05d4c22e07d4ee44d4a5cf603f9a2e2a75a0a54848bce4d8d6eb39cc80"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/SchemeTheoreticallyDominant.lean",
+        "line": 38,
+        "provides": "Native AlgebraicGeometry.IsSchemeTheoreticallyDominant used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "b5af1f05d4c22e07d4ee44d4a5cf603f9a2e2a75a0a54848bce4d8d6eb39cc80"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isDominant",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/SchemeTheoreticallyDominant.lean",
+        "line": 61,
+        "provides": "Native AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isDominant used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "b5af1f05d4c22e07d4ee44d4a5cf603f9a2e2a75a0a54848bce4d8d6eb39cc80"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isPullback",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/SchemeTheoreticallyDominant.lean",
+        "line": 114,
+        "provides": "Native AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isPullback used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "b5af1f05d4c22e07d4ee44d4a5cf603f9a2e2a75a0a54848bce4d8d6eb39cc80"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Cover.glueMorphisms",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Gluing.lean",
+        "line": 448,
+        "provides": "Native AlgebraicGeometry.Scheme.Cover.glueMorphisms used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "248cedfb7dfe56b6c80d823eb84bb846939739d3d99a85554173abe2c5e262ac"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Cover.hom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/Gluing.lean",
+        "line": 460,
+        "provides": "Native AlgebraicGeometry.Scheme.Cover.hom_ext used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "248cedfb7dfe56b6c80d823eb84bb846939739d3d99a85554173abe2c5e262ac"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdealTop",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+        "line": 466,
+        "provides": "Native AlgebraicGeometry.Scheme.IdealSheafData.ofIdealTop used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "0905bec48c1b08774612de0ead1b8c2de732f5acf993f2b15a159cd18b43f661"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsNoetherian",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Noetherian.lean",
+        "line": 279,
+        "provides": "Native AlgebraicGeometry.IsNoetherian used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "f2ff8d31ec92792e805089a17226bac0c1c23ad57dc742e690db0b214dbeba79"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.pullbackSnd",
+        "kind": "instance",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/SchemeTheoreticallyDominant.lean",
+        "line": 94,
+        "provides": "Native AlgebraicGeometry.IsSchemeTheoreticallyDominant.pullbackSnd used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
+        "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
+        "sha256": "b5af1f05d4c22e07d4ee44d4a5cf603f9a2e2a75a0a54848bce4d8d6eb39cc80"
       }
     ]
   },
@@ -320,7 +626,15 @@
         "date": "2026-10-02",
         "extent": "Printed pp555–557 in full: introduction boundary, §1.1 ring/underlying-set criterion, Lemma1.2 and Lemma1.3 including converse, §1.3.1/1.3.2, Lemma1.4 and beginning of Remark1.5. No new full-paper reading claim.",
         "sha256": "4f1f2438ad6d757d67d2ecf154b1bc920d210d8abd54c02e6acd020805629d91"
-      }
+      },
+      "continuationReadings": [
+        {
+          "agent": "Codex codex-5ebb6f",
+          "date": "2026-10-02",
+          "extent": "Selected fresh reading: Ferrand printed pp553–557 and565–569; Witaszek pp674–675 Definition2.27 and Lemma2.28, including visual inspection of both Witaszek pages. No fresh full-paper reading is claimed.",
+          "sha256": "4f1f2438ad6d757d67d2ecf154b1bc920d210d8abd54c02e6acd020805629d91"
+        }
+      ]
     },
     {
       "id": "witaszek",
@@ -332,6 +646,14 @@
       "accessed": "2026-10-02",
       "readSections": [
         "§2.4, Definition 2.17 and Lemmas 2.18–2.26; §2.5 Definition 2.27 and Lemma 2.28"
+      ],
+      "continuationReadings": [
+        {
+          "agent": "Codex codex-5ebb6f",
+          "date": "2026-10-02",
+          "extent": "Selected fresh reading: Ferrand printed pp553–557 and565–569; Witaszek pp674–675 Definition2.27 and Lemma2.28, including visual inspection of both Witaszek pages. No fresh full-paper reading is claimed.",
+          "sha256": "d71bd9254d80145a84f13059f18d37d6f777008900ab907b14d195bb61414ea0"
+        }
       ]
     },
     {
@@ -489,6 +811,42 @@
       "readSections": [
         "This continuation: Lemma67.50.1 and Proposition67.50.2, their statements and complete displayed proofs. Recursive cited prerequisites are SF.1 requests, not silently claimed closed."
       ]
+    },
+    {
+      "id": "stacks-07T8",
+      "title": "Finite-module annihilators and flat base change",
+      "authors": "The Stacks Project Authors",
+      "edition": "Public HTML retrieved 2 October2026; tag-stable identity",
+      "url": "https://stacks.math.columbia.edu/tag/07T8",
+      "sha256": "09f951f7a17951a7e273a51ec2520181edef236040a149e9d4d98e7d5cd0a19c",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Full displayed statement and proof; general foundational results are imported or explicitly requested."
+      ]
+    },
+    {
+      "id": "stacks-0BBY",
+      "title": "Finite intersections after flat scalar extension",
+      "authors": "The Stacks Project Authors",
+      "edition": "Public HTML retrieved 2 October2026; tag-stable identity",
+      "url": "https://stacks.math.columbia.edu/tag/0BBY",
+      "sha256": "467b603439da657cd2cac75c94aaef5ddc4d7340c76b1d3e10c093f23cbef50f",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Full displayed statement and proof; general foundational results are imported or explicitly requested."
+      ]
+    },
+    {
+      "id": "stacks-0E25",
+      "title": "Geometric and categorical Scheme pinching",
+      "authors": "The Stacks Project Authors",
+      "edition": "Public HTML retrieved 2 October2026; tag-stable identity",
+      "url": "https://stacks.math.columbia.edu/tag/0E25",
+      "sha256": "b52f9b9dcecad662b267fd703d489c46e43678d9a777caff570fb31537834ee2",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Full displayed statement and proof; general foundational results are imported or explicitly requested."
+      ]
     }
   ],
   "nodes": [
@@ -601,6 +959,11 @@
           "name": "FerrandPushout.isScheme_iff",
           "role": "characterisation",
           "statement": "For a finite pinching datum whose three components Y,Z,Z′ are schemes, its algebraic-space pushout P is a scheme if and only if for every point z′∈Z′ the finite set i(g⁻¹(z′)) lies in an affine open of Y. Under this condition the canonical scheme pushout agrees with P, including universality against algebraic-space targets."
+        },
+        {
+          "name": "FerrandPushout.conductor_global",
+          "role": "characterisation",
+          "statement": "For a finite surjective morphism of reduced Noetherian schemes, the actual globally constructed conductor subschemes and induced map give a geometric and categorical Scheme pushout, with the native cartesian comparison and flat-recomputed conductor compatibility; no birational hypothesis is imposed."
         }
       ],
       "tests": [
@@ -1064,7 +1427,7 @@
       "proofSteps": [
         "Use the arbitrary-subring conductor reconstruction lemma for the affine ring identity; its common-ideal kernel and compatible-pair lifting are explicit prerequisite nodes.",
         "If b mod I is represented by a∈A, then b−a∈I⊂A, giving the inverse.",
-        "Localize the conductor to glue these identities for finite reduced Noetherian schemes."
+        "The global Scheme comparison is supplied separately by conductor-scheme-geometric and conductor-scheme-pushout, using the native conductor subschemes; the affine ring identity alone does not establish global gluing."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ring-cartesian",
@@ -1145,7 +1508,9 @@
       ],
       "prerequisites": [
         "tauceti:TauCeti.Model",
-        "SchemeAndStackFoundations:SF.3"
+        "SchemeAndStackFoundations:SF.3",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
       ],
       "sources": [
         {
@@ -1217,10 +1582,6 @@
           "kind": "compatibility",
           "statement": "A localized fibration retains the schematic multiple fiber, even if its reduction is smooth."
         }
-      ],
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
       ]
     },
     {
@@ -1238,7 +1599,9 @@
         "Take a positive gcd on the nonempty support; form the quotient coefficients without truncating division."
       ],
       "prerequisites": [
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion"
       ],
       "sources": [
         {
@@ -1316,10 +1679,6 @@
           "kind": "non-example",
           "statement": "A connected negative-definite exceptional divisor cannot be of fiber type."
         }
-      ],
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion"
       ]
     },
     {
@@ -1339,7 +1698,8 @@
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/genus-one-fibration",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/fiber-type-divisor",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
       ],
       "sources": [
         {
@@ -1411,9 +1771,6 @@
           "kind": "degenerate",
           "statement": "I₀ is smooth and is neither singular multiplicative nor additive."
         }
-      ],
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
       ]
     },
     {
@@ -1514,7 +1871,9 @@
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/fiber-type-divisor",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -1534,11 +1893,7 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Kodaira classification"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      }
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/small-conductor-classification",
@@ -1559,7 +1914,8 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-square",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/canonical-type-classification",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
       ],
       "sources": [
         {
@@ -1576,10 +1932,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G1",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/nonsplit-i1",
@@ -1597,7 +1950,8 @@
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/small-conductor-classification"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/small-conductor-classification",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
       ],
       "sources": [
         {
@@ -1614,10 +1968,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G1",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/nonsplit-i2",
@@ -1635,7 +1986,8 @@
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/small-conductor-classification"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/small-conductor-classification",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
       ],
       "sources": [
         {
@@ -1652,10 +2004,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G1",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/component-descent",
@@ -1712,7 +2061,8 @@
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/component-descent",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
       ],
       "sources": [
         {
@@ -1729,10 +2079,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G1",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/count-16",
@@ -1889,7 +2236,8 @@
         "Apply surjectivity of x↦x⁻¹Frob_q(x) and the Frobenius descent argument of Lang Theorem2 to obtain a fixed point."
       ],
       "prerequisites": [
-        "AlgebraicModuliForArithmeticGeometry:A0-extension"
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
       ],
       "sources": [
         {
@@ -1906,10 +2254,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G1",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/finite-field-p1-forms",
@@ -1926,7 +2271,8 @@
         "For the degree1 version use Riemann–Roch to obtain two sections and a degree1 morphism to P¹, then finite degree1 normality gives the isomorphism."
       ],
       "prerequisites": [
-        "AlgebraicModuliForArithmeticGeometry:R09.3"
+        "AlgebraicModuliForArithmeticGeometry:R09.3",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "sources": [
         {
@@ -1943,10 +2289,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G1",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E1",
@@ -1967,7 +2310,8 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
       ],
       "sources": [
         {
@@ -1984,10 +2328,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G1",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E2",
@@ -2008,7 +2349,8 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
       ],
       "sources": [
         {
@@ -2025,10 +2367,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G1",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E3",
@@ -2049,7 +2388,8 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
       ],
       "sources": [
         {
@@ -2066,10 +2406,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G1",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E4",
@@ -2090,7 +2427,8 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
       ],
       "sources": [
         {
@@ -2107,10 +2445,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G1",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E5",
@@ -2131,7 +2466,8 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
       ],
       "sources": [
         {
@@ -2148,10 +2484,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G1",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/five-f2-classes",
@@ -2175,7 +2508,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E4",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E5",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-count-classifier",
-        "SchemeAndStackFoundations:SF.3"
+        "SchemeAndStackFoundations:SF.3",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
       ],
       "sources": [
         {
@@ -2195,11 +2530,7 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Five elliptic curves over F₂"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
-      ]
+      }
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/transverse-divisor",
@@ -2219,7 +2550,8 @@
       "prerequisites": [
         "tauceti:TauCeti.Model",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/fiber-type-divisor",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -2239,10 +2571,7 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Transverse divisor"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      }
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/normal-dominating-model",
@@ -2265,7 +2594,8 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/transverse-divisor",
         "tauceti:TauCeti.Model",
         "SchemeAndStackFoundations:SF.0",
-        "SchemeAndStackFoundations:SF.3"
+        "SchemeAndStackFoundations:SF.3",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -2282,10 +2612,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G2",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/cohomology-adapter",
@@ -2305,7 +2632,8 @@
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/normal-dominating-model",
         "AlgebraicModuliForArithmeticGeometry:A0-extension",
-        "SchemeAndStackFoundations:SF.3"
+        "SchemeAndStackFoundations:SF.3",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "sources": [
         {
@@ -2322,10 +2650,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G2",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/domination-genus",
@@ -2345,7 +2670,8 @@
       "prerequisites": [
         "SchemeAndStackFoundations:SF.3",
         "SchemeAndStackFoundations:SF.5",
-        "AlgebraicModuliForArithmeticGeometry:A0-extension"
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
       ],
       "sources": [
         {
@@ -2362,10 +2688,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G2",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/equality-regular",
@@ -2384,7 +2707,8 @@
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/domination-genus",
-        "SchemeAndStackFoundations:SF.3"
+        "SchemeAndStackFoundations:SF.3",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
       ],
       "sources": [
         {
@@ -2401,10 +2725,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G2",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/unique-dominating-component",
@@ -2460,7 +2781,8 @@
         "Translate the image of the origin to the origin; the resulting pointed map between elliptic curves is an isogeny."
       ],
       "prerequisites": [
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/unique-dominating-component"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/unique-dominating-component",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
       ],
       "sources": [
         {
@@ -2480,10 +2802,7 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Multiple-fiber isogeny"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
-      ]
+      }
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/extension-counts",
@@ -2500,7 +2819,8 @@
         "The schematic fiber and its reduction have the same field-valued points."
       ],
       "prerequisites": [
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/multiple-fiber-isogeny"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/multiple-fiber-isogeny",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
       ],
       "sources": [
         {
@@ -2517,10 +2837,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G2",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/f2-isomorphism",
@@ -2612,7 +2929,9 @@
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarieties:R11.2",
-        "NeronModelsAndSemistableAbelianVarieties:R11.4"
+        "NeronModelsAndSemistableAbelianVarieties:R11.4",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
       ],
       "sources": [
         {
@@ -2638,11 +2957,7 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Torsor fiber comparison"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
-      ]
+      }
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/canonical-bundle",
@@ -2664,7 +2979,8 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/fiber-type-divisor",
         "SchemeAndStackFoundations:SF.3",
         "SchemeAndStackFoundations:SF.4",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -2684,10 +3000,7 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Canonical bundle formula"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      }
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/canonical-degree",
@@ -2705,7 +3018,8 @@
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/canonical-bundle",
-        "SchemeAndStackFoundations:SF.3"
+        "SchemeAndStackFoundations:SF.3",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "sources": [
         {
@@ -2722,10 +3036,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G3",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/tame-wild",
@@ -2784,7 +3095,8 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/canonical-bundle",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/canonical-degree",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/tame-wild",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "sources": [
         {
@@ -2804,10 +3116,7 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Rational Jacobian invariants"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/rational-picard-lattice",
@@ -2829,7 +3138,8 @@
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/rational-canonical",
         "SchemeAndStackFoundations:SF.5",
-        "tauceti:TauCeti.IntegralLattice"
+        "tauceti:TauCeti.IntegralLattice",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -2846,10 +3156,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G3",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/fiber-section-plane",
@@ -2907,7 +3214,8 @@
       ],
       "prerequisites": [
         "SchemeAndStackFoundations:SF.3",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -2924,10 +3232,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G3",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/shioda-tate",
@@ -2947,7 +3252,8 @@
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/generic-picard-restriction",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/genus-one-fibration",
-        "AlgebraicModuliForArithmeticGeometry:A0-extension"
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
       ],
       "sources": [
         {
@@ -2964,10 +3270,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G3",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/even-complement",
@@ -3029,7 +3332,9 @@
         "Refine the existing coefficient structure by five concrete degree bounds.",
         "Define the inverse-chart polynomial by coefficient reversal in its specified weight."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ],
       "sources": [
         {
           "sourceId": "schroer",
@@ -3111,9 +3416,6 @@
           "kind": "characterisation",
           "statement": "Every coefficient of weight i is recovered by a second reversal."
         }
-      ],
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
       ]
     },
     {
@@ -3135,7 +3437,8 @@
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/rational-canonical",
-        "SchemeAndStackFoundations:SF.3"
+        "SchemeAndStackFoundations:SF.3",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "sources": [
         {
@@ -3152,10 +3455,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G3",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/pushforward-splitting",
@@ -3174,7 +3474,8 @@
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/positive-section-cohomology",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/rational-canonical",
-        "SchemeAndStackFoundations:SF.3"
+        "SchemeAndStackFoundations:SF.3",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "sources": [
         {
@@ -3191,10 +3492,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G3",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/relative-cubic-contraction",
@@ -3217,7 +3515,8 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/pushforward-splitting",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/positive-section-cohomology",
         "AlgebraicModuliForArithmeticGeometry:R09.1",
-        "SchemeAndStackFoundations:SF.4"
+        "SchemeAndStackFoundations:SF.4",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -3237,10 +3536,7 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Weierstrass contraction"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      }
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation",
@@ -3299,7 +3595,8 @@
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/bounded-weierstrass"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/bounded-weierstrass",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
       ],
       "sources": [
         {
@@ -3316,10 +3613,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G3",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/quasielliptic-characteristic",
@@ -3380,7 +3674,8 @@
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/genus-one-fibration",
-        "AlgebraicModuliForArithmeticGeometry:A0-extension"
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
       ],
       "sources": [
         {
@@ -3397,10 +3692,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G3",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
@@ -3785,7 +4077,8 @@
         "Until then this is an explicit aggregation target with incomplete granularity, never a proved source theorem."
       ],
       "prerequisites": [
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
       ],
       "sources": [
         {
@@ -3802,10 +4095,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G6",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/reducible-additive",
@@ -3863,7 +4153,8 @@
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/reducible-additive",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation",
-        "mathlib:WeierstrassCurve.j_eq_zero_iff_of_char_two"
+        "mathlib:WeierstrassCurve.j_eq_zero_iff_of_char_two",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
       ],
       "sources": [
         {
@@ -3880,10 +4171,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G4",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/small-additive",
@@ -4294,7 +4582,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -4312,11 +4602,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-2",
@@ -4340,7 +4626,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -4358,11 +4646,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-3",
@@ -4386,7 +4670,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -4404,11 +4690,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-4",
@@ -4432,7 +4714,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -4450,11 +4734,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-5",
@@ -4478,7 +4758,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -4496,11 +4778,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-6",
@@ -4524,7 +4802,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -4542,11 +4822,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-7",
@@ -4570,7 +4846,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -4588,11 +4866,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-8",
@@ -4616,7 +4890,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -4634,11 +4910,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-9",
@@ -4662,7 +4934,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -4680,11 +4954,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-10",
@@ -4708,7 +4978,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -4726,11 +4998,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-11",
@@ -4754,7 +5022,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -4772,11 +5042,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-12",
@@ -4800,7 +5066,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -4818,11 +5086,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-13",
@@ -4846,7 +5110,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -4864,11 +5130,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-14",
@@ -4892,7 +5154,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -4910,11 +5174,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/nonrational-nonzero-j",
@@ -4945,7 +5205,8 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-12",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-13",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-14",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
       ],
       "sources": [
         {
@@ -4962,10 +5223,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/nonrational-zero-j",
@@ -4985,7 +5243,8 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-9",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-10",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-11",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
       ],
       "sources": [
         {
@@ -5002,10 +5261,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G5",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.6/a2-normalization",
@@ -5061,7 +5317,8 @@
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.6/a2-normalization",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation",
-        "AlgebraicModuliForArithmeticGeometry:R09.1"
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
       ],
       "sources": [
         {
@@ -5078,10 +5335,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G6",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.6/finite-rejection-certificate",
@@ -5105,7 +5359,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/lang-configuration-inputs",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
@@ -5122,11 +5378,7 @@
         "module": "TauCeti/AlgebraicGeometry/GenusOne/G6",
         "namespace": "TauCeti.GenusOne"
       },
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.6/completeness",
@@ -6605,12 +6857,539 @@
         "namespace": "TauCeti.GenusOne.AffinePinching"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-annihilator",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Conductor as the annihilator of the quotient",
+      "kind": "comparison",
+      "statement": "For commutative rings A,B and an A-algebra B, let f:A→B be the structure map and let M=B/(A·1) be the native A-module quotient. The A-ideal f⁻¹(c(im f,B)) equals Ann_A(M). This identity requires no injectivity, finiteness, reducedness or Noetherian hypothesis.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The native submodule A·1 is exactly im f, since a·1=f(a).",
+        "A scalar a annihilates M exactly when f(a)b belongs to im f for every b∈B. Use the native quotient-zero criterion and native module annihilator; this is precisely membership in the preimage of the already planned subring conductor."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor",
+        "mathlib:Module.annihilator",
+        "mathlib:Module.mem_annihilator",
+        "mathlib:Submodule.Quotient.mk_eq_zero",
+        "mathlib:Submodule.mem_span_singleton"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "Introduction, printed p554, conductor described as the annihilator of A′/A",
+          "excerpt": "conducteur",
+          "match": "Extend the stated inclusion formulation to a ring-map image by the same elementwise calculation."
+        }
+      ],
+      "acceptance": [
+        "The identity inclusion gives the unit ideal and a zero quotient module.",
+        "A proper field extension has zero conductor, although it is finite and need not be birational."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "conductor_eq_annihilator"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Recomputing a conductor after flat scalar extension",
+      "kind": "lemma",
+      "statement": "Let A→B be an injective finite homomorphism of commutative rings and let F be a flat A-algebra. Write B_F=B⊗_A F and f_F:F→B_F, x↦1⊗x. If I=f⁻¹(c(im f,B)), then I·F=f_F⁻¹(c(im f_F,B_F)). The map f_F is injective. Neither Noetherianity nor reducedness of F is required; nonflat base change is excluded.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply native flat tensor injectivity to A→B, identifying A⊗_A F with F; this gives the actual inclusion f_F.",
+        "Native flat exactness identifies (B/(A·1))⊗_A F with B_F/(F·1). The quotient is a finite A-module because B is finite.",
+        "Invoke the requested general finite-module annihilator base-change export (Stacks07T8, with its finite-intersection input0BBY) at SF.0. Transport both annihilators through conductor-annihilator to get exactly the equality of ideals in F."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-annihilator",
+        "mathlib:Module.Finite",
+        "mathlib:Module.Flat.lTensor_exact",
+        "mathlib:Module.Flat.lTensor_preserves_injective_linearMap",
+        "mathlib:Algebra.TensorProduct.includeRight",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-07T8",
+          "locator": "Lemma10.40.4, complete displayed statement and proof, accessed 2 October2026",
+          "excerpt": "flat",
+          "match": "Apply the finite-module annihilator formula to B/A; the generic annihilator theorem is requested at SF.0, not replanned here."
+        },
+        {
+          "sourceId": "witaszek",
+          "locator": "Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses",
+          "excerpt": "conductor",
+          "match": "Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization."
+        }
+      ],
+      "acceptance": [
+        "A[ε]/(ε²) is free over A, so the recomputed conductor is I⊕εI; nilpotents in a flat target are allowed.",
+        "For A=k[t²,t³]⊂B=k[t] and F=A/(t²), the class of t³ is nonzero in F and maps to zero in B⊗_A F=k[t]/(t²). Thus the native inclusion premise fails for this nonflat quotient."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "conductor_flat_baseChange"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-localization",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Conductor localization with a common denominator",
+      "kind": "lemma",
+      "statement": "For a finite injective ring map f:A→B, a multiplicative subset S⊂A and the actual localized map f_S:S⁻¹A→f(S)⁻¹B, the ideal S⁻¹(f⁻¹(c(im f,B))) equals f_S⁻¹(c(im f_S,f(S)⁻¹B)). Zero divisors and the zero localization are allowed.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Localization is a flat scalar extension by the pinned IsLocalization.flat theorem.",
+        "Use conductor-finite-flat-base-change and the canonical tensor/localization comparison from SF.0. Identify its scalar map with the native IsLocalization.map by its representative equation.",
+        "The finite-generation argument is load-bearing: for generators b₁,…,bₙ of B/A, clear the finitely many denominators annihilating the bᵢ and multiply them to obtain one element of S. No domain cancellation or localization-injectivity assumption is used."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change",
+        "mathlib:IsLocalization.flat",
+        "mathlib:IsLocalization.map",
+        "mathlib:IsLocalization.map_mk'",
+        "mathlib:IsLocalization.map_injective_of_injective",
+        "mathlib:Module.Finite.exists_fin",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-07T8",
+          "locator": "Lemma10.40.4, complete displayed statement and proof, accessed 2 October2026",
+          "excerpt": "flat",
+          "match": "Apply the finite-module annihilator formula to B/A; the generic annihilator theorem is requested at SF.0, not replanned here."
+        },
+        {
+          "sourceId": "witaszek",
+          "locator": "Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses",
+          "excerpt": "conductor",
+          "match": "Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization."
+        }
+      ],
+      "acceptance": [
+        "Localizing the cusp inclusion at t² kills its quotient B/A and gives the unit conductor.",
+        "Localizing at a nilpotent may give the zero ring; the formula still holds.",
+        "Keep the native localized map, rather than identifying two unrelated ring types."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "conductor_localization"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "The global conductor ideal-sheaf datum",
+      "kind": "definition",
+      "statement": "For a finite schematically dominant scheme morphism f:Y→P, define I_f in the native P.IdealSheafData by assigning to an affine U⊂P the ideal f_U⁻¹(c(im f_U,Γ(Y,f⁻¹U))). Here f_U is the actual section-ring map; finiteness makes f⁻¹U affine and scheme-theoretic dominance makes f_U injective. The finite-localization comparison gives the required basic-open compatibility. Its native closed subscheme C_f is defined by the full ideal, not its radical.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the pinned IsFinite and Scheme.Hom.app_injective statements to obtain the chartwise finite inclusions.",
+        "Apply conductor-finite-localization to the section of any principal affine open. The structure-sheaf localization comparisons identify the resulting maps with restrictions.",
+        "Build the native IdealSheafData with these ideals and restriction identities. Equivalently use its native ofIdeals constructor and prove that its chart ideals equal the displayed family; taking the largest compatible subfamily is not silently assumed to preserve arbitrary input ideals.",
+        "Use the native subscheme/subschemeι constructors for C_f. They already supply closedness and the section-ring quotient comparisons."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-localization",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdeals",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdeals_ideal",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subscheme",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.app_injective",
+        "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant",
+        "mathlib:AlgebraicGeometry.IsFinite",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "witaszek",
+          "locator": "Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses",
+          "excerpt": "conductor",
+          "match": "Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization."
+        }
+      ],
+      "acceptance": [
+        "For f=id_P the conductor ideal-sheaf datum is the unit ideal, so its closed subscheme is empty.",
+        "For Spec k[t]→Spec k[t²,t³], the target conductor is (t²,t³) and its extended ideal in k[t] is (t²); retain the double-point overlap.",
+        "For a nontrivial finite field extension E/k the conductor ideal sheaf on Spec k is zero, so the conductor subschemes are the whole source and target; it is not the normalization-isomorphism case.",
+        "On an affine scheme the construction agrees with the pinned IdealSheafData.ofIdealTop under its native global-section comparison."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "conductorIdealSheaf",
+      "uses": [
+        {
+          "where": "Witaszek Definition2.27 and Lemma2.28",
+          "how": "Supply the actual conductor subschemes and maps for geometric pinching and line-bundle patching."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison",
+          "how": "Compare recomputed conductors, including nilpotents, with the actual flat pullback of the original square."
+        }
+      ],
+      "api": [
+        {
+          "name": "ConductorIdealSheaf.mem_affine",
+          "role": "characterisation",
+          "statement": "For an affine U⊂P, a∈I_f(U) exactly when f_U(a)b lies in im f_U for every b∈Γ(Y,f⁻¹U)."
+        },
+        {
+          "name": "ConductorIdealSheaf.greatest",
+          "role": "universal-property",
+          "statement": "For an ideal-sheaf datum K on P, K≤I_f exactly when for every affine U and a∈K(U), f_U(a)Γ(Y,f⁻¹U)⊂im f_U."
+        },
+        {
+          "name": "ConductorIdealSheaf.affine_compat",
+          "role": "compatibility",
+          "statement": "If P is affine, I_f is the native ofIdealTop of f_top⁻¹(c(im f_top,Γ(Y,⊤))); the quotient subscheme is the existing ideal-sheaf subscheme."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorIdealSheaf.test_identity",
+          "kind": "degenerate",
+          "statement": "For f=id_P the conductor ideal-sheaf datum is the unit ideal, so its closed subscheme is empty."
+        },
+        {
+          "name": "ConductorIdealSheaf.test_cusp",
+          "kind": "computation",
+          "statement": "For Spec k[t]→Spec k[t²,t³], the target conductor is (t²,t³) and its extended ideal in k[t] is (t²); retain the double-point overlap."
+        },
+        {
+          "name": "ConductorIdealSheaf.test_field_extension",
+          "kind": "non-example",
+          "statement": "For a nontrivial finite field extension E/k the conductor ideal sheaf on Spec k is zero, so the conductor subschemes are the whole source and target; it is not the normalization-isomorphism case."
+        },
+        {
+          "name": "ConductorIdealSheaf.test_affine_compat",
+          "kind": "compatibility",
+          "statement": "On an affine scheme the construction agrees with the pinned IdealSheafData.ofIdealTop under its native global-section comparison."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-quotients",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "The two native conductor quotient charts",
+      "kind": "lemma",
+      "statement": "Let f:Y→P be finite and schematically dominant, I=I_f, J=I.comap f, C=I.subscheme and D=J.subscheme. For every affine U⊂P set A=Γ(P,U), B=Γ(Y,f⁻¹U), f_U:A→B and K=c(im f_U,B). Then I(U)=f_U⁻¹K, J(f⁻¹U)=K, and the native quotient-chart identifications give Γ(C,C→P⁻¹U)≅A/I(U) and Γ(D,D→Y⁻¹f⁻¹U)≅B/K, compatibly with the actual inclusion and quotient maps.",
+      "hypotheses": [],
+      "proofSteps": [
+        "I(U) is the chart ideal of conductor-ideal-sheaf. The common ideal K is contained in im f_U; consequently its inverse image extends back to K, by elementwise lifting.",
+        "Compute J on affine charts from the existing pullback of the closed subscheme, using the native comapIso and the affine tensor-quotient comparison at SF.0. This is the scheme pullback, not a separately defined conductor subscheme.",
+        "Apply the native subschemeObjIso and subschemeι_app statements to both ideal-sheaf data. Transport their ring maps, not just their abstract quotient types."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ring-cartesian",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeObjIso",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "witaszek",
+          "locator": "Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses",
+          "excerpt": "conductor",
+          "match": "Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization."
+        },
+        {
+          "sourceId": "ferrand",
+          "locator": "Introduction, printed p554; Lemma1.3 pp556–557 and Theorem5.1/proof pp568–569",
+          "excerpt": "conducteur",
+          "match": "Specialize the existing arbitrary-subring conductor reconstruction; the global ringed-space comparison is separately proved."
+        }
+      ],
+      "acceptance": [
+        "In the cusp, D has ring k[t]/(t²), not k; the statement distinguishes schematic conductor from reduced support.",
+        "In a proper finite field extension, K=0 and both quotient charts are the original rings."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "conductor_affine_quotients"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "The canonical map between conductor subschemes",
+      "kind": "construction",
+      "statement": "For finite schematically dominant f:Y→P put I=I_f and J=I.comap f. Define g_f:J.subscheme→I.subscheme as the composite of the native comapIso with the second projection of Y×_P I.subscheme. The first projection is the native closed inclusion i_f, and j_f is I.subschemeι. No independent cartesian-square predicate or algebraic-space carrier is introduced.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the native IdealSheafData.comapIso and its two projection equations to specify g_f.",
+        "Import the already proved cartesian comparison and stability of finiteness under base change. These general results are baseline citations and API compatibility facts, not new mathematical nodes.",
+        "Use conductor-affine-quotients to identify g_f on every affine chart with the native quotient map."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-quotients",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso_hom_snd",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeMap_subschemeι",
+        "mathlib:AlgebraicGeometry.IsFinite"
+      ],
+      "sources": [
+        {
+          "sourceId": "witaszek",
+          "locator": "Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses",
+          "excerpt": "conductor",
+          "match": "Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization."
+        }
+      ],
+      "acceptance": [
+        "For f=id_P both conductor subschemes are empty and the induced map is an isomorphism.",
+        "For the cusp normalization the source conductor D is nonreduced and C is reduced; g:D→C retains the full nilpotent parameter.",
+        "For a proper finite extension E/k both conductor inclusions are isomorphisms while the induced conductor map is not an isomorphism.",
+        "Under the actual affine quotient-chart comparisons, g is the Spec map of the native induced quotient map A/I→B/K."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "conductorMap",
+      "uses": [
+        {
+          "where": "Witaszek Definition2.27 and Lemma2.28",
+          "how": "Supply the actual conductor subschemes and maps for geometric pinching and line-bundle patching."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison",
+          "how": "Compare recomputed conductors, including nilpotents, with the actual flat pullback of the original square."
+        }
+      ],
+      "api": [
+        {
+          "name": "conductorMap_square",
+          "role": "functoriality",
+          "statement": "The actual induced map g_f:D_f→C_f satisfies i_f∘f=g_f∘j_f in categorical composition order i_f≫f=g_f≫j_f."
+        },
+        {
+          "name": "conductorMap_isPullback",
+          "role": "compatibility",
+          "statement": "The induced square is the native cartesian square supplied by IdealSheafData.comapIso; all maps agree with its projections."
+        },
+        {
+          "name": "conductorMap_isFinite",
+          "role": "compatibility",
+          "statement": "The induced map D_f→C_f is finite because it is the base change of the finite morphism f."
+        }
+      ],
+      "tests": [
+        {
+          "name": "conductorMap.test_identity",
+          "kind": "degenerate",
+          "statement": "For f=id_P both conductor subschemes are empty and the induced map is an isomorphism."
+        },
+        {
+          "name": "conductorMap.test_cusp",
+          "kind": "computation",
+          "statement": "For the cusp normalization the source conductor D is nonreduced and C is reduced; g:D→C retains the full nilpotent parameter."
+        },
+        {
+          "name": "conductorMap.test_field_extension",
+          "kind": "non-example",
+          "statement": "For a proper finite extension E/k both conductor inclusions are isomorphisms while the induced conductor map is not an isomorphism."
+        },
+        {
+          "name": "conductorMap.test_affine_map",
+          "kind": "compatibility",
+          "statement": "Under the actual affine quotient-chart comparisons, g is the Spec map of the native induced quotient map A/I→B/K."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-geometric",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Global geometric conductor reconstruction",
+      "kind": "theorem",
+      "statement": "For a finite schematically dominant scheme morphism f:Y→P, the canonical square D_f→Y, D_f→C_f, Y→P, C_f→P is a geometric Ferrand pushout in Scheme. In particular its every-open structure-sheaf comparison is a pullback and its underlying space is the topological pushout. This derived generalization needs no Noetherian or reduced hypothesis; Witaszek’s finite-surjective reduced Noetherian case follows from native dominance. No birationality is required.",
+      "hypotheses": [],
+      "proofSteps": [
+        "On an affine U⊂P, use conductor-affine-quotients and the already planned arbitrary-subring conductor reconstruction to identify A with B×_(B/K)(A/I).",
+        "Apply affine-existence to the quotient map B→B/K and finite map A/I→B/K. The latter is finite because it is a quotient of the finite A-module B.",
+        "The resulting geometric square is the restriction of the one canonical native conductor square, by conductor-induced-map. Thus the topological quotient identifications agree on overlapping affine opens.",
+        "The sheaf comparison agrees on a basis by localization, hence is an isomorphism of the actual structure sheaves and gives the ring pullback on every open. Glue this sheaf comparison and the local quotient topology; do not infer every-open section equality from global sections alone.",
+        "For Witaszek’s hypotheses, a finite surjective map is dominant and the reduced target makes it scheme-theoretically dominant by the pinned theorem."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-quotients",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ring-cartesian",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-existence",
+        "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isDominant",
+        "mathlib:AlgebraicGeometry.Scheme.Cover.hom_ext",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "witaszek",
+          "locator": "Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses",
+          "excerpt": "conductor",
+          "match": "Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization."
+        },
+        {
+          "sourceId": "ferrand",
+          "locator": "Introduction, printed p554; Lemma1.3 pp556–557 and Theorem5.1/proof pp568–569",
+          "excerpt": "conducteur",
+          "match": "Specialize the existing arbitrary-subring conductor reconstruction; the global ringed-space comparison is separately proved."
+        }
+      ],
+      "acceptance": [
+        "The cusp square has a nonreduced overlap and is still geometric.",
+        "A finite field extension of degree greater than one gives the trivial whole-conductor square and is covered without birationality.",
+        "All sheaf maps refer to the canonical constructed subschemes."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "conductor_global_geometric"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-pushout",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "The conductor square as a Scheme pushout",
+      "kind": "theorem",
+      "statement": "For finite schematically dominant f:Y→P, the same canonical conductor square is a categorical pushout in Scheme: every compatible pair Y→T and C_f→T extends uniquely to P→T for every scheme T. Its native cartesian comparison remains the one supplied by the existing comapIso.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply conductor-scheme-geometric and the existing GeometricPushout.lift contract: the closed inclusion D_f→Y and finite induced conductor map satisfy its finite Ferrand alternative.",
+        "Express existence and uniqueness as the colimit property of the actual square. Do not restrict T to affine schemes and do not assert an algebraic-space target theorem from a Scheme signature."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-geometric",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts",
+        "mathlib:CategoryTheory.IsPushout"
+      ],
+      "sources": [
+        {
+          "sourceId": "witaszek",
+          "locator": "Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses",
+          "excerpt": "conductor",
+          "match": "Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization."
+        },
+        {
+          "sourceId": "ferrand",
+          "locator": "Introduction, printed p554; Lemma1.3 pp556–557 and Theorem5.1/proof pp568–569",
+          "excerpt": "conducteur",
+          "match": "Specialize the existing arbitrary-subring conductor reconstruction; the global ringed-space comparison is separately proved."
+        }
+      ],
+      "acceptance": [
+        "The identity finite map gives the pushout of P←empty→empty.",
+        "The universal property is checked on arbitrary scheme targets."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "conductor_global_isPushout"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "The recomputed conductor after flat scheme base change",
+      "kind": "comparison",
+      "statement": "For finite schematically dominant f:Y→P and a flat q:T→P, put f_T:Y×_P T→T. Its native recomputed conductor ideal-sheaf datum equals I_f.comap q. The induced conductor square is therefore canonically the actual pullback of the original square, including its quotient subschemes and maps. No reducedness, Noetherianity or quasi-compactness is required of T, and no nonflat recomputation claim is made.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The pinned scheme-theoretic-dominance theorem and finite base-change stability supply the hypotheses of conductorIdealSheaf f_T.",
+        "On an affine T-chart mapping into an affine P-chart, compute the pulled-back rings and use conductor-finite-flat-base-change; flatness retains the inclusion and the finite quotient module. Refine T by such charts rather than assuming q is affine.",
+        "Native ideal-sheaf extensionality and restriction compatibility give equality of ideal-sheaf data. Its existing comapIso supplies the canonical quotient-subscheme comparison; use the projection equations to identify the induced conductor map.",
+        "The old flat-base-change geometric-pushout theorem transports the geometric square. The new content is that these pulled-back closed loci are exactly the recomputed conductors, not just that an old geometric square stays geometric."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-geometric",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/flat-base-change",
+        "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isPullback",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.map_ideal",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-07T8",
+          "locator": "Lemma10.40.4, complete displayed statement and proof, accessed 2 October2026",
+          "excerpt": "flat",
+          "match": "Apply the finite-module annihilator formula to B/A; the generic annihilator theorem is requested at SF.0, not replanned here."
+        },
+        {
+          "sourceId": "witaszek",
+          "locator": "Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses",
+          "excerpt": "conductor",
+          "match": "Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization."
+        }
+      ],
+      "acceptance": [
+        "Flat dual-number thickening is allowed although its rings are nonreduced.",
+        "The cusp quotient by t² loses injectivity, so the nonflat counterexample is excluded by an actual necessary hypothesis."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "conductor_global_flat_comparison"
     }
   ],
   "requests": [
     {
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "Ring quotient/tensor quotient and localization APIs for arbitrary commutative rings; the finite-algebra principal-open separation and finite closed-map arguments in Ferrand7.1B. Monogenic conductor is only a compatibility input. EGAIV4 18.5.11(c) henselian local-component theorem and the regular-local horizontal parameter argument. Its finite-component theorem does not itself construct a Cartier divisor or identify the length-m schematic fiber. Henselization of an excellent DVR remains excellent with unchanged residue field; base change preserves the regular-model and special-fiber hypotheses needed for the multiple-fiber proof. Flat tensor exactness for the affine fiber-product sequence and classification of commutative length-two algebras over a field.",
+      "need": "Ring quotient/tensor quotient and localization APIs for arbitrary commutative rings; the finite-algebra principal-open separation and finite closed-map arguments in Ferrand7.1B. Monogenic conductor is only a compatibility input. EGAIV4 18.5.11(c) henselian local-component theorem and the regular-local horizontal parameter argument. Its finite-component theorem does not itself construct a Cartier divisor or identify the length-m schematic fiber. Henselization of an excellent DVR remains excellent with unchanged residue field; base change preserves the regular-model and special-fiber hypotheses needed for the multiple-fiber proof. Flat tensor exactness for the affine fiber-product sequence and classification of commutative length-two algebras over a field. For the native global-conductor continuation, export the generic finite-module flat-annihilator equality Ann_A(M)·F=Ann_F(M⊗_A F) for finite M and flat F (Stacks07T8, with finite-intersection compatibility0BBY), together with native quotient/tensor and affine section/localization comparison maps. This generic theorem belongs to SF.0; Part II supplies only its conductor-specific specialization.",
       "neededBy": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/cartesian-affine",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/compatible-affine-neighbourhoods",
@@ -6620,7 +7399,13 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/small-conductor-classification",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/multiple-fiber-isogeny",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/normal-dominating-model",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/transverse-divisor"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/transverse-divisor",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-localization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-quotients",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-geometric",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison"
       ]
     },
     {
@@ -6915,7 +7700,8 @@
       "remaining": [
         "Algebraic-space exports and signatures for the verified pinching chain",
         "Suggested signatures for unbuilt geometric conditions",
-        "Replace unresolved supplier stage requests and typed upstream imports by exact verified exports."
+        "Replace unresolved supplier stage requests by exact verified exports.",
+        "Global conductor signatures remain uncompiled; the generic finite-module annihilator and exact affine quotient/localization exports are requested at SF.0."
       ]
     },
     {
@@ -6926,9 +7712,8 @@
         "Lang general theorem owner and proof closure",
         "Quasielliptic generality beyond the smooth model supplier",
         "General Lang theorem for projective-line forms",
-        "Canonical upstream stage imports and checker encoding",
         "Suggested signatures for unbuilt geometric conditions",
-        "Replace unresolved supplier stage requests and typed upstream imports by exact verified exports.",
+        "Replace unresolved supplier stage requests by exact verified exports.",
         "Pointed genus-one scheme to binary-equation classification adapter; finite coefficient, count and cyclic-group calculations have explicit source-decomposed witnesses."
       ]
     },
@@ -6938,9 +7723,8 @@
       "remaining": [
         "EGA and Raynaud source-level adapter closure",
         "LLR recursive proof prerequisites",
-        "Canonical upstream stage imports and checker encoding",
         "Henselization adapter for the multiple-fiber isogeny",
-        "Replace unresolved supplier stage requests and typed upstream imports by exact verified exports."
+        "Replace unresolved supplier stage requests by exact verified exports."
       ]
     },
     {
@@ -6951,8 +7735,7 @@
         "Rational-surface classification proof source",
         "Quasielliptic generality beyond the smooth model supplier",
         "Tsen primary proof and foundational ownership",
-        "Canonical upstream stage imports and checker encoding",
-        "Replace unresolved supplier stage requests and typed upstream imports by exact verified exports."
+        "Replace unresolved supplier stage requests by exact verified exports."
       ]
     },
     {
@@ -6960,8 +7743,7 @@
       "status": "partial",
       "remaining": [
         "William Lang2000 source acquisition and decomposition",
-        "Canonical upstream stage imports and checker encoding",
-        "Replace unresolved supplier stage requests and typed upstream imports by exact verified exports."
+        "Replace unresolved supplier stage requests by exact verified exports."
       ]
     },
     {
@@ -6969,8 +7751,7 @@
       "status": "partial",
       "remaining": [
         "Actual resolved model certificates",
-        "Canonical upstream stage imports and checker encoding",
-        "Replace unresolved supplier stage requests and typed upstream imports by exact verified exports."
+        "Replace unresolved supplier stage requests by exact verified exports."
       ]
     },
     {
@@ -6979,8 +7760,7 @@
       "remaining": [
         "William Lang2000 source acquisition and decomposition",
         "Completeness, minimality, resolution and orbit proof",
-        "Canonical upstream stage imports and checker encoding",
-        "Replace unresolved supplier stage requests and typed upstream imports by exact verified exports."
+        "Replace unresolved supplier stage requests by exact verified exports."
       ]
     }
   ],
@@ -7114,70 +7894,8 @@
       ]
     },
     {
-      "title": "Canonical upstream stage imports and checker encoding",
-      "detail": "All exact upstream IDs and consuming nodes are retained in upstreamPrerequisites and requests, and in the roadmap requires edges. The stock checker parses tauceti: stage IDs as baseline declarations before looking them up as stages. They are not fictional baseline declarations. This partial packet therefore leaves their node-level integration open explicitly, and the independent dependency check includes the typed edges. A continuation must restore canonical prerequisites after the checker supports upstream stage IDs or replace them with exact genuine upstream declaration/node exports.",
-      "neededBy": [
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/genus-one-fibration",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/finite-field-p1-forms",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/cohomology-adapter",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/canonical-degree",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/rational-canonical",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/positive-section-cohomology",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/pushforward-splitting",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/llr-kodaira-comparison",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/shioda-tate",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-minimal-jacobian",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/fiber-type-divisor",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/canonical-type-classification",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/transverse-divisor",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/normal-dominating-model",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/canonical-bundle",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/rational-picard-lattice",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/generic-picard-restriction",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/relative-cubic-contraction",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-1",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-2",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-3",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-4",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-5",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-6",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-7",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-8",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-9",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-10",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-11",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-12",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-13",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-14",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.6/finite-rejection-certificate",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/bounded-weierstrass",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/coefficient-nondegeneracy",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/lang-configuration-inputs",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/unique-additive",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/nonrational-nonzero-j",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/nonrational-zero-j",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/small-conductor-classification",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/nonsplit-i1",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/nonsplit-i2",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/count-15",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/equality-regular",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/lang-genus-one",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/five-f2-classes",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/domination-genus",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/multiple-fiber-isogeny",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.6/admissible-transformations",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E1",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E2",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E3",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E4",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E5",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/extension-counts"
-      ]
-    },
-    {
       "title": "Suggested signatures for unbuilt geometric conditions",
-      "detail": "The suggested file gives genuine scheme/ring/Weierstrass forms and a name-by-name omission ledger. The full genus-one contraction, fiber-type/intersection predicates, Kodaira realization and degeneracy tests need unbuilt owner exports. Their omitted conditions are not replaced by opaque proposition fields. Every API/test name is listed, but a signature using the completed geometric definition cannot yet be claimed to elaborate. Reconcile this ledger with exact supplier types before closing any such definition.",
+      "detail": "The suggested file gives genuine scheme/ring/Weierstrass forms and a name-by-name omission ledger. The full genus-one contraction, fiber-type/intersection predicates, Kodaira realization and degeneracy tests need unbuilt owner exports. Their omitted conditions are not replaced by opaque proposition fields. Every API/test name is listed, but a signature using the completed geometric definition cannot yet be claimed to elaborate. Reconcile this ledger with exact supplier types before closing any such definition. The global Scheme conductor subschemes, induced map, geometric/categorical squares and flat-recomputed comparison now have actual native signatures. Their elaboration and requested SF.0 annihilator/affine adapters remain unchecked; the general algebraic-space and proper nonsplit-node signatures stay omitted.",
       "neededBy": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/genus-one-fibration",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/fiber-type-divisor",
@@ -8769,5 +9487,445 @@
     "leanReason": "The entire file imports Tau Ceti modules, and no existing build at the exact Tau Ceti pin was found. No project/cache setup, library build or language server started.",
     "suggestedSha256": "ef166fa314cc1f1021a86372a444d4a6a0029dbf51ef97023142bd454ce5f0ad",
     "implementationStatus": "unchecked"
+  },
+  "globalConductorContinuation": {
+    "agent": "Codex codex-5ebb6f",
+    "date": "2026-10-02",
+    "previousNodes": 128,
+    "newNodes": [
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-annihilator",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-localization",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-quotients",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-geometric",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-pushout",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison"
+    ],
+    "addedBaseline": [
+      "mathlib:Module.annihilator",
+      "mathlib:Module.mem_annihilator",
+      "mathlib:Submodule.Quotient.mk_eq_zero",
+      "mathlib:Submodule.mem_span_singleton",
+      "mathlib:Module.Finite",
+      "mathlib:Module.Finite.exists_fin",
+      "mathlib:Module.Flat.lTensor_exact",
+      "mathlib:Module.Flat.lTensor_preserves_injective_linearMap",
+      "mathlib:Algebra.TensorProduct.includeRight",
+      "mathlib:IsLocalization.map",
+      "mathlib:IsLocalization.map_mk'",
+      "mathlib:IsLocalization.map_injective_of_injective",
+      "mathlib:IsLocalization.flat",
+      "mathlib:AlgebraicGeometry.Scheme.IdealSheafData",
+      "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdeals",
+      "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdeals_ideal",
+      "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.map_ideal",
+      "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subscheme",
+      "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι",
+      "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeObjIso",
+      "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app",
+      "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap",
+      "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso",
+      "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso_hom_snd",
+      "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeMap_subschemeι",
+      "mathlib:AlgebraicGeometry.Scheme.Hom.app_injective",
+      "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant",
+      "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isDominant",
+      "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isPullback",
+      "mathlib:AlgebraicGeometry.Scheme.Cover.glueMorphisms",
+      "mathlib:AlgebraicGeometry.Scheme.Cover.hom_ext",
+      "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdealTop",
+      "mathlib:AlgebraicGeometry.IsNoetherian",
+      "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.pullbackSnd"
+    ],
+    "restoredUpstreamImports": [
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/genus-one-fibration",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/genus-one-fibration",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/fiber-type-divisor",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/fiber-type-divisor",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/canonical-type-classification",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/canonical-type-classification",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/small-conductor-classification",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/nonsplit-i1",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/nonsplit-i2",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/count-15",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/lang-genus-one",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/finite-field-p1-forms",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E1",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E2",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E3",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E4",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E5",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/five-f2-classes",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/five-f2-classes",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/transverse-divisor",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/normal-dominating-model",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/cohomology-adapter",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/domination-genus",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/equality-regular",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/multiple-fiber-isogeny",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/extension-counts",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/llr-kodaira-comparison",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/llr-kodaira-comparison",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/canonical-bundle",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/canonical-degree",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/rational-canonical",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/rational-picard-lattice",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/generic-picard-restriction",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/shioda-tate",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/bounded-weierstrass",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/positive-section-cohomology",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/pushforward-splitting",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/relative-cubic-contraction",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/coefficient-nondegeneracy",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-minimal-jacobian",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/lang-configuration-inputs",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.4/unique-additive",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-1",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-1",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-2",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-2",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-3",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-3",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-4",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-4",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-5",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-5",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-6",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-6",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-7",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-7",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-8",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-8",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-9",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-9",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-10",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-10",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-11",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-11",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-12",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-12",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-13",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-13",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-14",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-14",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/nonrational-nonzero-j",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.5/nonrational-zero-j",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.6/admissible-transformations",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.6/finite-rejection-certificate",
+        "stage": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      },
+      {
+        "node": "NeronModelsAndSemistableAbelianVarietiesPartII:G.6/finite-rejection-certificate",
+        "stage": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      }
+    ],
+    "resolvedGap": "Canonical upstream stage imports and checker encoding",
+    "leanCompiled": false,
+    "sourceScope": "Selected conductor passages and three full Stacks displayed proofs; inherited receipts retain their attribution.",
+    "verification": {
+      "checker": "Indexed scripts/check_blueprint.py: 0 errors, 0 warnings.",
+      "preservation": "All 128 inherited node IDs/statements and all 78 routes, 21 source findings and the finite F2 certificate preserved; exact pinned index/source-hash and native-reader parity checked.",
+      "ownDeclarationGraph": {
+        "vertices": 137,
+        "edges": 367
+      },
+      "atlasStageAndExistingBoundaryGraph": {
+        "vertices": 3042,
+        "edges": 8726
+      },
+      "combinedDeclarationGraph": {
+        "vertices": 3218,
+        "edges": 9489
+      },
+      "existingUnrelatedAtlasBoundaryCount": 51,
+      "atlasScope": "Read-only actual scripts/build.assemble, add_new_roadmaps and merge_blueprints. All own required edges and 76 restored imports resolve; no own pending/skipped links. Existing unrelated UPSTREAM boundary vertices are retained when checking the full graph.",
+      "finiteChecks": {
+        "totalAssertions": 859,
+        "checks": {
+          "common ideal contained in A": 55,
+          "ideal in B": 55,
+          "annihilator of B/A": 55,
+          "ring reconstruction compatible pairs": 55,
+          "ring reconstruction injective": 55,
+          "principal localization conductor": 466,
+          "flat dual-number conductor": 55,
+          "flat nilpotent retained": 55,
+          "nonflat cusp v survives": 1,
+          "nonflat cusp v killed in B quotient": 1,
+          "nonflat induced map not injective": 1,
+          "cusp conductor exact": 1,
+          "proper finite field extension zero conductor": 2,
+          "identity unit conductor": 2
+        },
+        "rings": [
+          {
+            "ring": "F2[t]/t^1",
+            "unitalSubrings": 1
+          },
+          {
+            "ring": "F2[t]/t^2",
+            "unitalSubrings": 2
+          },
+          {
+            "ring": "F2[t]/t^3",
+            "unitalSubrings": 3
+          },
+          {
+            "ring": "F2[t]/t^4",
+            "unitalSubrings": 6
+          },
+          {
+            "ring": "F2[t]/t^5",
+            "unitalSubrings": 9
+          },
+          {
+            "ring": "F2[t]/t^6",
+            "unitalSubrings": 24
+          },
+          {
+            "ring": "F2[t]/t^3 x F2",
+            "unitalSubrings": 6
+          },
+          {
+            "ring": "F4",
+            "unitalSubrings": 2
+          },
+          {
+            "ring": "F8",
+            "unitalSubrings": 2
+          }
+        ],
+        "scope": "Finite F2 rings only; no proof of geometric gluing, infinite-ring generality or Lean elaboration.",
+        "negative": "The nonflat cusp quotient has a nonzero v mapping to zero."
+      },
+      "leanCompiled": false,
+      "reason": "No existing build at both pinned commits; no Lake project/cache/build/server was created."
+    }
   }
 }
