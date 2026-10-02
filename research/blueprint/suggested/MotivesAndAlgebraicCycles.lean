@@ -24,6 +24,14 @@ FIX-RT-AREA-iwasawa-3~2 (Codex codex-5ebb6f, 30 September 2026): the added Tate 
 localized-comparison and regression signatures have not been compiled. The preceding
 compilation account belongs to the independent review of the input file.
 
+REV-FIX-RT-AREA-algebraicgeometry (Codex codex-J6LwjP, 2 October 2026):
+Review status is needs_changes. The C5 supplier routing is correct, but PeriodData
+currently encodes only pullback naturality of its linear comparison. A typed unital
+multiplicative comparison, also compatible with connecting edges, must be supplied
+and passed to periodPoint and formal-period evaluation. The comments below expose
+this missing contract; they do not repair the signatures. No Lean was compiled in
+this review. The reader also requires reconciliation with the current partial packet.
+
 Objects another roadmap owns appear as parameters of a structure or as `variable`s,
 never as invented definitions; each carries a docstring naming its owner:
 
@@ -37,7 +45,8 @@ never as invented definitions; each carries a docstring naming its owner:
   homology of complex points and relative de Rham cohomology of pairs over `ℚ`
   (`PairDiagram.PairHomology`, `PeriodData`); Betti, de Rham and `ℓ`-adic data with Galois
   actions for the conjectures of MC.7;
-* ComplexComparisonPartII C5 (the Betti–de Rham comparison, which it owns), C4 and
+* ComplexComparisonPartII C5 (the Betti–de Rham comparison, which it owns; comparison
+  for arbitrary relative pairs is a requested extension or needs a named alternate owner), C4 and
   SchemeAndStackFoundations SF.6 (the etale–Betti comparison): the comparison isomorphisms,
   the Hodge filtration and Chow's theorem (MC.6, MC.7);
 * MotivicEtaleKTheory M.5a: the category `DM^{eff,-}_Nis(k, R)`, finite correspondences, the
@@ -7862,7 +7871,9 @@ de Rham cohomology `H^d_dR(X, Y)` of pairs of varieties over `ℚ`, with pullbac
 maps of triples and the exterior product; the cross product in singular homology; the classes
 `1`, `[pt]`, `dX/X` and `[S¹]`; and the comparison isomorphism
 `H^d_dR(X, Y) ⊗ ℂ ≅ H^d(X(ℂ), Y(ℂ); ℚ) ⊗ ℂ`, natural for maps of pairs and compatible with the
-connecting maps. -/
+connecting maps. This describes the requested supplier contract. The current fields
+below encode only pullback naturality of comparison; its unit, product and connecting-map
+compatibilities still need typed hypotheses before the period-point API is valid. -/
 structure PeriodData (Hs : PairHomology) where
   /-- `H^d_dR(X, Y)`. -/
   HdR : ∀ (X : Var) (_ : Closeds X.obj.left), ℤ → Type
@@ -7889,7 +7900,9 @@ structure PeriodData (Hs : PairHomology) where
   dlog : HdR Var.gm Var.gmOne 1
   /-- The class of the unit circle in `H_1(ℂ^*, {1}; ℚ)`. -/
   circle : Hs.H Var.gm Var.gmOne 1
-  /-- The comparison isomorphism (ComplexComparisonPartII:C5). -/
+  /-- The comparison isomorphism, requested from ComplexComparisonPartII:C5 as an
+extension to relative pairs. Linear invertibility alone is insufficient: unit, product
+and connecting-edge compatibility remain to be encoded (see the packet gap). -/
   comparison : ∀ v : Vertex,
     ℂ ⊗[ℚ] HdR v.X v.Y v.i ≃ₗ[ℂ] ℂ ⊗[ℚ] Module.Dual ℚ (Hs.H v.X v.Y v.i)
   comparison_natural : ∀ {X X' : Var} {Y : Closeds X.obj.left} {Y' : Closeds X'.obj.left}
@@ -8136,7 +8149,10 @@ variable (Hs : PairHomology) (dR : PeriodData Hs) (P : (good Hs).ProductStructur
 
 /-- MC.6/period-point: the comparison isomorphism `φ : H^*_dR ⊗ ℂ ≅ H^* ⊗ ℂ` (C5) as a complex
 point of `X_{1,2} = Iso⊗(H^*_dR, H^*)`, the `ℚ`-algebra map `per : A_{1,2} ⟶ ℂ`,
-`(p, ω, γ) ↦ γ(φ_p(ω))`. No rational point of `X_{1,2}` is asserted. -/
+`(p, ω, γ) ↦ γ(φ_p(ω))`. This contract requires a unital multiplicative comparison
+compatible with every diagram edge. PeriodData currently does not encode that input;
+the signature and its dependent evaluation APIs remain incomplete until it is passed.
+No rational point of `X_{1,2}` is asserted. -/
 def periodPoint :
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
     ComparisonAlgebra (deRhamGood Hs dR) (goodRep Hs) →ₐ[ℚ] ℂ := sorry
