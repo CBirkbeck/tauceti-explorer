@@ -1,3 +1,4 @@
+import Mathlib.RepresentationTheory.Homological.GroupCohomology.Shapiro
 import Mathlib.AlgebraicGeometry.Noetherian
 import Mathlib.AlgebraicGeometry.Sites.Etale
 import Mathlib.RingTheory.Etale.Finite
@@ -615,7 +616,7 @@ Missing: actual geometric π, finite coefficient/sheaf dictionary and canonical 
 
 OMITTED TauCeti.EtaleKPiOne.iff_finiteCover_effacement
 Node: AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement
-Contract: For a connected geometrically unibranch variety X over a field, the full finite-coefficient property holds iff, for every connected finite étale cover X′ → X, every finite abelian group A regarded as a constant sheaf on X′, every i ≥ 2 and every α ∈ Hⁱ_et(X′,A), there is a further finite étale surjective cover X″ → X′ on which α restricts to zero.
+Contract: For a connected noetherian scheme X with geometric point x and a set of primes P, Is(X,x;P-supported finite coefficients) holds iff, for every connected finite étale cover Y→X, every finite abelian group A whose order has prime factors in P, every q≥2 and α∈H^q_et(Y,A) for the constant sheaf A, there exists a finite étale surjective Z→Y killing α. All primes recover the previous full-coefficient criterion for geometrically unibranch varieties. Every finite cover Y is quantified; constant coefficients only on X are insufficient.
 Missing: actual geometric π, finite coefficient/sheaf dictionary and canonical ε; use the exact supplier requests and source-proof gaps of this node.
 
 OMITTED TauCeti.EtaleKPiOne.iff_raw_etale_aspherical
@@ -869,4 +870,50 @@ EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.Torsor.classOf
 node: A (G, U)-torsor is a topological space P with a continuous right action of U that is free and transitive, such that for one (equivalently every) p ∈ P the orbit map U → P, u ↦ p·u, is a homeomorphism, together with a continuous left action of G satisfying g•(p·u) = (g•p)·(g•u). For p ∈ P let c_p(g) ∈ U be the unique element with g•p = p·c_p(g). Then c_p ∈ Z¹(G, U), c_{p·u} = u⁻¹·c_p under the twisted-conjugation action, so [P] := [c_p] ∈ H¹(G, U) is independent of p and of the isomorphism class of P; P ↦ [P] is a bijection from isomorphism classes of (G, U)-torsors to H¹(G, U), the trivial torsor U corresponds to the base point, and P has a G-fixed point iff [P] is the base point. The inverse sends [c] to U with the twisted G-action g ∗ u := c(g)·(g•u).
 Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
 
+-/
+
+/-
+# NC.0 finite-cover assembly — mathematical omission contracts
+
+OMITTED TauCeti.EtaleKPiOne.effacement_of_finiteEtale
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-finite-cover-transfer
+Contract: Assume every positive-degree étale cohomology class on X with every allowed coefficient can be killed by some finite étale surjective cover of X. For a finite étale map f:Y→X, any allowed coefficient F on Y, q>0 and α∈H^q_et(Y,F), there exists a finite étale surjective g:X′→X such that its base change g′:Y×_X X′→Y kills α. Y need not be connected and f need not be normal or surjective. The specified equality is g′* μ_f(α′)=μ_f′(bc_*(g*α′)), where μ_f:H^q_et(X,f_*F)→H^q_et(Y,F) is the pullback/counit isomorphism and α′=μ_f⁻¹(α).
+Missing: actual finite-étale fundamental group, finite coefficient/sheaf dictionary and canonical ε; μ_f, base change, ρ/Leray and coefficient long exact sequence maps in the exact supplier requests. No surrogate Prop field or arbitrary cohomology carrier is introduced.
+
+OMITTED TauCeti.EtaleKPiOne.iff_allCoefficient_effacement
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/all-coefficient-effacement
+Contract: Is(X,x;P-supported finite coefficients) holds iff for every allowed finite locally constant abelian sheaf F, every q>0 and every α∈H^q_et(X,F), some finite étale surjective g:X′→X satisfies g*α=0. The K(π,1) side uses the canonical ε^q, all nonnegative degrees and the full π; the killing cover may depend on F,q,α. This equivalence is asserted for connected noetherian schemes without a geometric-unibranch restriction.
+Missing: actual finite-étale fundamental group, finite coefficient/sheaf dictionary and canonical ε; μ_f, base change, ρ/Leray and coefficient long exact sequence maps in the exact supplier requests. No surrogate Prop field or arbitrary cohomology carrier is introduced.
+
+OMITTED TauCeti.EtaleKPiOne.finiteEtale_iff
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/finite-etale-invariance
+Contract: For f:Y→X finite étale surjective, Is(X,x;P-supported finite coefficients) holds iff every connected component of Y has the corresponding property at any geometric point above it. This includes full and p-primary coefficients. It is not asserted for an arbitrary coefficient class lacking closure under finite-étale direct image and pullback; Y may be disconnected.
+Missing: actual finite-étale fundamental group, finite coefficient/sheaf dictionary and canonical ε; μ_f, base change, ρ/Leray and coefficient long exact sequence maps in the exact supplier requests. No surrogate Prop field or arbitrary cohomology carrier is introduced.
+
+OMITTED TauCeti.EtaleKPiOne.effacement_of_shortExact
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-extension
+Contract: Let 0→F′→F→F″→0 be a short exact sequence of allowed finite locally constant abelian sheaves on X. Assume that for every finite étale Y→X and every q>0 every class with coefficients F′|Y and every class with coefficients F″|Y dies after a finite étale surjective cover of Y. Then the same property holds for F|Y. No filtration by trivial one-dimensional π-modules is assumed.
+Missing: actual finite-étale fundamental group, finite coefficient/sheaf dictionary and canonical ε; μ_f, base change, ρ/Leray and coefficient long exact sequence maps in the exact supplier requests. No surrogate Prop field or arbitrary cohomology carrier is introduced.
+
+OMITTED TauCeti.EtaleKPiOne.tests.constantFp_not_pro_p_cohomology
+Contract: For S₃ with trivial F₃ coefficients the maximal pro-3 quotient is trivial, yet H³(S₃,F₃) is nonzero: the explicit normalized bar 3-cocycle c and cycle z in the reader pair to 1 mod 3. Even constant F_p coefficients in positive degrees do not generally permit replacing the full group by its maximal pro-p quotient. This is a group-cohomology boundary test, not a claim that a scheme with fundamental group S₃ is K(π,1).
+Missing: the native finite S₃ representation and explicit normalized degree-three cocycle/cycle-to-groupCohomology bridge. The finite Python regression and reader give the exact formula; this entry is not a Lean test or a geometric theorem.
+-/
+
+
+/- Existing discrete Shapiro carriers only. These are baseline compatibility
+smoke forms, not proposed geometric declarations or a full-file compilation. -/
+noncomputable section
+open CategoryTheory Rep
+universe u
+variable {k G : Type u} [CommRing k] [Group G] {H : Subgroup G} (A : Rep k H) (n : ℕ)
+example : groupCohomology (coind H.subtype A) n ≅ groupCohomology A n := by sorry
+example : (groupCohomology.coindIso A n).hom ≫ (groupCohomology.coindIso A n).inv = 𝟙 _ := by sorry
+example : (groupCohomology.coindIso A n).inv ≫ (groupCohomology.coindIso A n).hom = 𝟙 _ := by sorry
+
+/-
+OMITTED TauCeti.EtaleKPiOne.iff_primeField_effacement
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/prime-field-effacement
+Contract: For a connected noetherian scheme X with geometric point x and a set of primes P, Is(X,x;P-supported finite coefficients) holds iff for every connected finite étale cover Y→X, every p∈P, every q≥2 and every α∈H^q_et(Y,F_p) with constant coefficients, there is a finite étale surjective Z→Y killing α. The prime-field and cover quantifiers are both essential. No assumption of a composition series of trivial π-modules is made.
+Missing: actual finite-cover/coefficient/sheaf and canonical cohomology maps, coefficient filtration and finite-sum comparisons from the precise supplier interfaces. No empty predicate or artificial carrier is introduced.
 -/
