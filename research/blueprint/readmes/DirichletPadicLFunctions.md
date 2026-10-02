@@ -66385,3 +66385,329 @@ Fresh capture after actual merge5838 finds all79 canonical inputs unchanged. The
 The separate partial signature file also compiled with zero errors and 6,479 expected placeholder warnings across 3,914 pinned source modules. It includes all 12 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1d4aa427b2390abdc0b6f585c31ded459ef15932571350661b550d0765ca6e71.
 
 The indexed blueprint checker reports zero errors and 26 advisory short-API warnings, including 26 inherited warnings. No new short-API warning is introduced.
+
+
+## Corrected values and the original Cartan actions
+
+Twelve L3 nodes connect the corrected finite values, original global point function and original global quotient map to the existing Cartan actions, with actual primitive and raw-coefficient comparisons. All2,228 predecessor nodes and1,283 baseline records remain whole. Finite image identification, rational spanning and quotient injectivity remain open.
+
+Kubert197–198 Theorem4.11, especially the displayed Cartan covariance and image-module argument on198, was reread as a page image. Original5684 finite primitive-coordinate action,5737 actual global circle action,5474 Witt representation,5734 norm-limit representation,5739 original quotient action and5844 corrected global quotient were read and reused. Pinned native coordinatewise additive equivalence, additive-order preservation and group-ring left-basis coefficient formula were read; their existing baseline records are preserved. No source, baseline record, finding or source version is added.
+
+### The actual Cartan equivalence on the original rational torus
+
+`DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-torus-equiv` — `DirichletPadic.kubertCartanTorusEquiv`
+
+For every element g of the existing global degree-one Cartan group, construct the additive equivalence of the original one-coordinate rational torus by applying the existing global circle equivalence at each coordinate.
+
+**Hypotheses:** The degree is one. The original point carrier is the one-coordinate function group with rational additive-circle values and period1. The acting group is the existing product, over actual rational primes, of the unit groups of degree-one Witt vectors. The action on the original torus is the native coordinatewise additive equivalence induced by the existing actual global circle action. Its level-N group element is the existing truncated-Witt Cartan projection. No new acting group or assumed action is introduced. At every positive level N, the finite rational Cartan group ring, raw primitive sum and corrected value r_N are the original constructions. The sourceE27 product correction is preserved. The transformed actual point stays in the same original kernel because an additive equivalence commutes with multiplication by N. The raw coefficient identity is proved on actual primitive coordinates. The additive order of the transformed point is unchanged, so the correction product has exactly the same prime factors. Multiplication by the actual projected unit basis element gives the finite value action. The global target is the original rational-module full-norm direct limit with its existing Cartan representation. The corrected global quotient is exactly the original ordinary relation quotient. Its action is the already defined generic quotient equivalence applied to this actual torus equivalence. The quotient statements use finite enumerations of all actual positive-multiplier root fibers, as in the original quotient universal property. No quotient injectivity, replacement source module or assumed equivariance is used. The resulting equivariance is input to the integral image-module argument in source4.11. Rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Apply the native coordinatewise additive equivalence construction to the existing actual circle equivalence.
+2. Its point function and inverse are coordinatewise, retaining exactly the original torus carrier.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-circle-equiv`, `mathlib:MulEquiv.piCongrRight`.
+
+**Uses:**
+
+- Kubert198, proof of Theorem4.11: Acts on the exact point carrier of the corrected finite values, supplying the actual projected-unit covariance needed for the image-module argument.
+- Kubert Section2 and197–198, original limit and distribution quotient: Its original additive-equivalence structure preserves roots and supplies the existing quotient-equivalence construction, allowing the corrected map to intertwine the existing norm-limit representation.
+
+**API:**
+
+- `kubertCartanTorusEquiv_apply` (compatibility): At each original coordinate, the constructed Cartan torus equivalence equals the existing global circle equivalence applied to the original point coordinate.
+- `kubertCartanTorusEquiv_one` (compatibility): The torus equivalence attached to the identity of the existing Cartan group is the identity additive equivalence of the original rational torus.
+- `kubertCartanTorusEquiv_mul` (compatibility): The torus equivalence of a product gh is the equivalence for h followed by the equivalence for g.
+- `kubertCartanTorusEquiv_symm` (compatibility): The inverse of the actual torus equivalence for g equals the torus equivalence for its group inverse.
+- `kubertCartanTorusEquiv_primitive` (compatibility): For every positive N and original finite Cartan unit u, the actual torus equivalence for g sends the original primitive point labelled by u to the original primitive point labelled by the product of the level-N projection of g with u.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedEquivarianceTests.the_actual_zero_point_is_fixed` (degenerate): Every actual Cartan element fixes the zero point in the original one-coordinate rational torus.
+- `SuggestedKubertCorrectedEquivarianceTests.the_original_inverse_recovers_each_point` (compatibility): Applying the inverse Cartan element after the given element recovers every original torus point.
+- `SuggestedKubertCorrectedEquivarianceTests.the_level_six_five_action_is_nontrivial` (non-example): If an actual Cartan element projects to the original level6 unit corresponding to5, it sends1/6 to5/6 and does not fix1/6.
+
+**Acceptance:** Every actual Cartan element fixes the zero torus point and its inverse recovers every original point. An element whose level6 projection is the original unit5 sends1/6 to5/6 and does not fix1/6. The corrected level6 values at these two primitive points are negatives, namely[1]−[5] and[5]−[1]. The nonzero global corrected zero-point value is fixed by the existing norm-limit representation.
+
+**Source:** Published197–198, proof of Theorem4.11, especially the displayed Cartan equivariance at the top of198 and the conclusion that the finite corrected image is a Cartan module. Actual Cartan actions and group rings are set up in Section2; corrected values are4.5 with preservedE27. Proves the actual corrected value equivariance needed for the source image-module argument, beginning with primitive coordinates and the raw coefficient action. Carries it into the original norm limit and original ordinary quotient through existing native maps. The subsequent admissible generation, rational spanning and image/product claims are not assumed.
+
+### The torus action is the existing circle action coordinatewise
+
+`DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-torus-equiv-apply` — `DirichletPadic.kubertCartanTorusEquiv_apply`
+
+At each original coordinate, the constructed Cartan torus equivalence equals the existing global circle equivalence applied to the original point coordinate.
+
+**Hypotheses:** The degree is one. The original point carrier is the one-coordinate function group with rational additive-circle values and period1. The acting group is the existing product, over actual rational primes, of the unit groups of degree-one Witt vectors. The action on the original torus is the native coordinatewise additive equivalence induced by the existing actual global circle action. Its level-N group element is the existing truncated-Witt Cartan projection. No new acting group or assumed action is introduced. At every positive level N, the finite rational Cartan group ring, raw primitive sum and corrected value r_N are the original constructions. The sourceE27 product correction is preserved. The transformed actual point stays in the same original kernel because an additive equivalence commutes with multiplication by N. The raw coefficient identity is proved on actual primitive coordinates. The additive order of the transformed point is unchanged, so the correction product has exactly the same prime factors. Multiplication by the actual projected unit basis element gives the finite value action. The global target is the original rational-module full-norm direct limit with its existing Cartan representation. The corrected global quotient is exactly the original ordinary relation quotient. Its action is the already defined generic quotient equivalence applied to this actual torus equivalence. The quotient statements use finite enumerations of all actual positive-multiplier root fibers, as in the original quotient universal property. No quotient injectivity, replacement source module or assumed equivariance is used. The resulting equivariance is input to the integral image-module argument in source4.11. Rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Evaluate the native coordinatewise equivalence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-torus-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedEquivarianceTests.cartanTorusEquiv_apply_typed_api` (compatibility): At each original coordinate, the constructed Cartan torus equivalence equals the existing global circle equivalence applied to the original point coordinate.
+
+**Acceptance:** Every actual Cartan element fixes the zero torus point and its inverse recovers every original point. An element whose level6 projection is the original unit5 sends1/6 to5/6 and does not fix1/6. The corrected level6 values at these two primitive points are negatives, namely[1]−[5] and[5]−[1]. The nonzero global corrected zero-point value is fixed by the existing norm-limit representation.
+
+**Source:** Published197–198, proof of Theorem4.11, especially the displayed Cartan equivariance at the top of198 and the conclusion that the finite corrected image is a Cartan module. Actual Cartan actions and group rings are set up in Section2; corrected values are4.5 with preservedE27. Proves the actual corrected value equivariance needed for the source image-module argument, beginning with primitive coordinates and the raw coefficient action. Carries it into the original norm limit and original ordinary quotient through existing native maps. The subsequent admissible generation, rational spanning and image/product claims are not assumed.
+
+### The original Cartan identity fixes the whole torus
+
+`DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-torus-equiv-one` — `DirichletPadic.kubertCartanTorusEquiv_one`
+
+The torus equivalence attached to the identity of the existing Cartan group is the identity additive equivalence of the original rational torus.
+
+**Hypotheses:** The degree is one. The original point carrier is the one-coordinate function group with rational additive-circle values and period1. The acting group is the existing product, over actual rational primes, of the unit groups of degree-one Witt vectors. The action on the original torus is the native coordinatewise additive equivalence induced by the existing actual global circle action. Its level-N group element is the existing truncated-Witt Cartan projection. No new acting group or assumed action is introduced. At every positive level N, the finite rational Cartan group ring, raw primitive sum and corrected value r_N are the original constructions. The sourceE27 product correction is preserved. The transformed actual point stays in the same original kernel because an additive equivalence commutes with multiplication by N. The raw coefficient identity is proved on actual primitive coordinates. The additive order of the transformed point is unchanged, so the correction product has exactly the same prime factors. Multiplication by the actual projected unit basis element gives the finite value action. The global target is the original rational-module full-norm direct limit with its existing Cartan representation. The corrected global quotient is exactly the original ordinary relation quotient. Its action is the already defined generic quotient equivalence applied to this actual torus equivalence. The quotient statements use finite enumerations of all actual positive-multiplier root fibers, as in the original quotient universal property. No quotient injectivity, replacement source module or assumed equivariance is used. The resulting equivariance is input to the integral image-module argument in source4.11. Rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Apply additive-equivalence and function extensionality.
+2. Use the existing global circle identity law at each actual coordinate.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-torus-equiv`, `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-one`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedEquivarianceTests.cartanTorusEquiv_one_typed_api` (compatibility): The torus equivalence attached to the identity of the existing Cartan group is the identity additive equivalence of the original rational torus.
+
+**Acceptance:** Every actual Cartan element fixes the zero torus point and its inverse recovers every original point. An element whose level6 projection is the original unit5 sends1/6 to5/6 and does not fix1/6. The corrected level6 values at these two primitive points are negatives, namely[1]−[5] and[5]−[1]. The nonzero global corrected zero-point value is fixed by the existing norm-limit representation.
+
+**Source:** Published197–198, proof of Theorem4.11, especially the displayed Cartan equivariance at the top of198 and the conclusion that the finite corrected image is a Cartan module. Actual Cartan actions and group rings are set up in Section2; corrected values are4.5 with preservedE27. Proves the actual corrected value equivariance needed for the source image-module argument, beginning with primitive coordinates and the raw coefficient action. Carries it into the original norm limit and original ordinary quotient through existing native maps. The subsequent admissible generation, rational spanning and image/product claims are not assumed.
+
+### Actual Cartan multiplication composes the torus actions
+
+`DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-torus-equiv-mul` — `DirichletPadic.kubertCartanTorusEquiv_mul`
+
+The torus equivalence of a product gh is the equivalence for h followed by the equivalence for g.
+
+**Hypotheses:** The degree is one. The original point carrier is the one-coordinate function group with rational additive-circle values and period1. The acting group is the existing product, over actual rational primes, of the unit groups of degree-one Witt vectors. The action on the original torus is the native coordinatewise additive equivalence induced by the existing actual global circle action. Its level-N group element is the existing truncated-Witt Cartan projection. No new acting group or assumed action is introduced. At every positive level N, the finite rational Cartan group ring, raw primitive sum and corrected value r_N are the original constructions. The sourceE27 product correction is preserved. The transformed actual point stays in the same original kernel because an additive equivalence commutes with multiplication by N. The raw coefficient identity is proved on actual primitive coordinates. The additive order of the transformed point is unchanged, so the correction product has exactly the same prime factors. Multiplication by the actual projected unit basis element gives the finite value action. The global target is the original rational-module full-norm direct limit with its existing Cartan representation. The corrected global quotient is exactly the original ordinary relation quotient. Its action is the already defined generic quotient equivalence applied to this actual torus equivalence. The quotient statements use finite enumerations of all actual positive-multiplier root fibers, as in the original quotient universal property. No quotient injectivity, replacement source module or assumed equivariance is used. The resulting equivariance is input to the integral image-module argument in source4.11. Rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Compare actual coordinate functions.
+2. Apply the existing multiplication law of the global circle action.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-torus-equiv`, `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-mul`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedEquivarianceTests.cartanTorusEquiv_mul_typed_api` (compatibility): The torus equivalence of a product gh is the equivalence for h followed by the equivalence for g.
+
+**Acceptance:** Every actual Cartan element fixes the zero torus point and its inverse recovers every original point. An element whose level6 projection is the original unit5 sends1/6 to5/6 and does not fix1/6. The corrected level6 values at these two primitive points are negatives, namely[1]−[5] and[5]−[1]. The nonzero global corrected zero-point value is fixed by the existing norm-limit representation.
+
+**Source:** Published197–198, proof of Theorem4.11, especially the displayed Cartan equivariance at the top of198 and the conclusion that the finite corrected image is a Cartan module. Actual Cartan actions and group rings are set up in Section2; corrected values are4.5 with preservedE27. Proves the actual corrected value equivariance needed for the source image-module argument, beginning with primitive coordinates and the raw coefficient action. Carries it into the original norm limit and original ordinary quotient through existing native maps. The subsequent admissible generation, rational spanning and image/product claims are not assumed.
+
+### The inverse torus action comes from the inverse Cartan element
+
+`DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-torus-equiv-symm` — `DirichletPadic.kubertCartanTorusEquiv_symm`
+
+The inverse of the actual torus equivalence for g equals the torus equivalence for its group inverse.
+
+**Hypotheses:** The degree is one. The original point carrier is the one-coordinate function group with rational additive-circle values and period1. The acting group is the existing product, over actual rational primes, of the unit groups of degree-one Witt vectors. The action on the original torus is the native coordinatewise additive equivalence induced by the existing actual global circle action. Its level-N group element is the existing truncated-Witt Cartan projection. No new acting group or assumed action is introduced. At every positive level N, the finite rational Cartan group ring, raw primitive sum and corrected value r_N are the original constructions. The sourceE27 product correction is preserved. The transformed actual point stays in the same original kernel because an additive equivalence commutes with multiplication by N. The raw coefficient identity is proved on actual primitive coordinates. The additive order of the transformed point is unchanged, so the correction product has exactly the same prime factors. Multiplication by the actual projected unit basis element gives the finite value action. The global target is the original rational-module full-norm direct limit with its existing Cartan representation. The corrected global quotient is exactly the original ordinary relation quotient. Its action is the already defined generic quotient equivalence applied to this actual torus equivalence. The quotient statements use finite enumerations of all actual positive-multiplier root fibers, as in the original quotient universal property. No quotient injectivity, replacement source module or assumed equivariance is used. The resulting equivariance is input to the integral image-module argument in source4.11. Rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Compare actual coordinate functions.
+2. Use the existing inverse formula for the global circle equivalence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-torus-equiv`, `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-circle-equiv-symm`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedEquivarianceTests.cartanTorusEquiv_symm_typed_api` (compatibility): The inverse of the actual torus equivalence for g equals the torus equivalence for its group inverse.
+
+**Acceptance:** Every actual Cartan element fixes the zero torus point and its inverse recovers every original point. An element whose level6 projection is the original unit5 sends1/6 to5/6 and does not fix1/6. The corrected level6 values at these two primitive points are negatives, namely[1]−[5] and[5]−[1]. The nonzero global corrected zero-point value is fixed by the existing norm-limit representation.
+
+**Source:** Published197–198, proof of Theorem4.11, especially the displayed Cartan equivariance at the top of198 and the conclusion that the finite corrected image is a Cartan module. Actual Cartan actions and group rings are set up in Section2; corrected values are4.5 with preservedE27. Proves the actual corrected value equivariance needed for the source image-module argument, beginning with primitive coordinates and the raw coefficient action. Carries it into the original norm limit and original ordinary quotient through existing native maps. The subsequent admissible generation, rational spanning and image/product claims are not assumed.
+
+### The original primitive coordinates transform by the projected unit
+
+`DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-torus-equiv-primitive` — `DirichletPadic.kubertCartanTorusEquiv_primitive`
+
+For every positive N and original finite Cartan unit u, the actual torus equivalence for g sends the original primitive point labelled by u to the original primitive point labelled by the product of the level-N projection of g with u.
+
+**Hypotheses:** The degree is one. The original point carrier is the one-coordinate function group with rational additive-circle values and period1. The acting group is the existing product, over actual rational primes, of the unit groups of degree-one Witt vectors. The action on the original torus is the native coordinatewise additive equivalence induced by the existing actual global circle action. Its level-N group element is the existing truncated-Witt Cartan projection. No new acting group or assumed action is introduced. At every positive level N, the finite rational Cartan group ring, raw primitive sum and corrected value r_N are the original constructions. The sourceE27 product correction is preserved. The transformed actual point stays in the same original kernel because an additive equivalence commutes with multiplication by N. The raw coefficient identity is proved on actual primitive coordinates. The additive order of the transformed point is unchanged, so the correction product has exactly the same prime factors. Multiplication by the actual projected unit basis element gives the finite value action. The global target is the original rational-module full-norm direct limit with its existing Cartan representation. The corrected global quotient is exactly the original ordinary relation quotient. Its action is the already defined generic quotient equivalence applied to this actual torus equivalence. The quotient statements use finite enumerations of all actual positive-multiplier root fibers, as in the original quotient universal property. No quotient injectivity, replacement source module or assumed equivariance is used. The resulting equivariance is input to the integral image-module argument in source4.11. Rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Use the native singleton-coordinate additive equivalence to compare the actual torus points.
+2. Evaluate the existing global circle action at the original level-N primitive point.
+3. Apply the existing finite Cartan action on the original primitive circle coordinates.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-torus-equiv`, `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-circle-equiv-apply`, `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-level`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv-coordinates`, `mathlib:MulEquiv.piUnique`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedEquivarianceTests.cartanTorusEquiv_primitive_typed_api` (compatibility): For every positive N and original finite Cartan unit u, the actual torus equivalence for g sends the original primitive point labelled by u to the original primitive point labelled by the product of the level-N projection of g with u.
+
+**Acceptance:** Every actual Cartan element fixes the zero torus point and its inverse recovers every original point. An element whose level6 projection is the original unit5 sends1/6 to5/6 and does not fix1/6. The corrected level6 values at these two primitive points are negatives, namely[1]−[5] and[5]−[1]. The nonzero global corrected zero-point value is fixed by the existing norm-limit representation.
+
+**Source:** Published197–198, proof of Theorem4.11, especially the displayed Cartan equivariance at the top of198 and the conclusion that the finite corrected image is a Cartan module. Actual Cartan actions and group rings are set up in Section2; corrected values are4.5 with preservedE27. Proves the actual corrected value equivariance needed for the source image-module argument, beginning with primitive coordinates and the raw coefficient action. Carries it into the original norm limit and original ordinary quotient through existing native maps. The subsequent admissible generation, rational spanning and image/product claims are not assumed.
+
+### The actual raw primitive sum transforms by the projected basis element
+
+`DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-rational-primitive-sum-action` — `DirichletPadic.kubertCartanRationalPrimitiveSum_action`
+
+For any actual level-N point a, the original raw primitive sum of its Cartan-transformed point equals the product of the group-ring basis element of the actual projected unit with the original raw primitive sum of a.
+
+**Hypotheses:** The degree is one. The original point carrier is the one-coordinate function group with rational additive-circle values and period1. The acting group is the existing product, over actual rational primes, of the unit groups of degree-one Witt vectors. The action on the original torus is the native coordinatewise additive equivalence induced by the existing actual global circle action. Its level-N group element is the existing truncated-Witt Cartan projection. No new acting group or assumed action is introduced. At every positive level N, the finite rational Cartan group ring, raw primitive sum and corrected value r_N are the original constructions. The sourceE27 product correction is preserved. The transformed actual point stays in the same original kernel because an additive equivalence commutes with multiplication by N. The raw coefficient identity is proved on actual primitive coordinates. The additive order of the transformed point is unchanged, so the correction product has exactly the same prime factors. Multiplication by the actual projected unit basis element gives the finite value action. The global target is the original rational-module full-norm direct limit with its existing Cartan representation. The corrected global quotient is exactly the original ordinary relation quotient. Its action is the already defined generic quotient equivalence applied to this actual torus equivalence. The quotient statements use finite enumerations of all actual positive-multiplier root fibers, as in the original quotient universal property. No quotient injectivity, replacement source module or assumed equivariance is used. The resulting equivariance is input to the integral image-module argument in source4.11. Rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Compare the actual original group-ring coefficients.
+2. The raw coefficient criterion is the original scalar-root equality at a primitive coordinate; left basis multiplication shifts the coordinate by the inverse projected unit.
+3. The actual torus additive equivalence preserves additive order.
+4. Use its proved primitive-coordinate action, natural-scalar compatibility and injectivity to identify the two original root equalities.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-torus-equiv-primitive`, `DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-coeff`, `mathlib:MulEquiv.orderOf_eq`, `mathlib:MonoidAlgebra.coeff_single_mul_apply`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedEquivarianceTests.cartanRationalPrimitiveSum_action_typed_api` (compatibility): For any actual level-N point a, the original raw primitive sum of its Cartan-transformed point equals the product of the group-ring basis element of the actual projected unit with the original raw primitive sum of a.
+
+**Acceptance:** Every actual Cartan element fixes the zero torus point and its inverse recovers every original point. An element whose level6 projection is the original unit5 sends1/6 to5/6 and does not fix1/6. The corrected level6 values at these two primitive points are negatives, namely[1]−[5] and[5]−[1]. The nonzero global corrected zero-point value is fixed by the existing norm-limit representation.
+
+**Source:** Published197–198, proof of Theorem4.11, especially the displayed Cartan equivariance at the top of198 and the conclusion that the finite corrected image is a Cartan module. Actual Cartan actions and group rings are set up in Section2; corrected values are4.5 with preservedE27. Proves the actual corrected value equivariance needed for the source image-module argument, beginning with primitive coordinates and the raw coefficient action. Carries it into the original norm limit and original ordinary quotient through existing native maps. The subsequent admissible generation, rational spanning and image/product claims are not assumed.
+
+### The corrected finite values respect the actual Cartan action
+
+`DirichletPadicLFunctions:L3/kubert-corrected-equivariance-rational-cartan-value-action` — `DirichletPadic.kubertRationalCartanValue_action`
+
+For any actual level-N point a and original global Cartan element g, the corrected value at the Cartan-transformed point equals the original projected-unit basis element multiplied by r_N(a).
+
+**Hypotheses:** The degree is one. The original point carrier is the one-coordinate function group with rational additive-circle values and period1. The acting group is the existing product, over actual rational primes, of the unit groups of degree-one Witt vectors. The action on the original torus is the native coordinatewise additive equivalence induced by the existing actual global circle action. Its level-N group element is the existing truncated-Witt Cartan projection. No new acting group or assumed action is introduced. At every positive level N, the finite rational Cartan group ring, raw primitive sum and corrected value r_N are the original constructions. The sourceE27 product correction is preserved. The transformed actual point stays in the same original kernel because an additive equivalence commutes with multiplication by N. The raw coefficient identity is proved on actual primitive coordinates. The additive order of the transformed point is unchanged, so the correction product has exactly the same prime factors. Multiplication by the actual projected unit basis element gives the finite value action. The global target is the original rational-module full-norm direct limit with its existing Cartan representation. The corrected global quotient is exactly the original ordinary relation quotient. Its action is the already defined generic quotient equivalence applied to this actual torus equivalence. The quotient statements use finite enumerations of all actual positive-multiplier root fibers, as in the original quotient universal property. No quotient injectivity, replacement source module or assumed equivariance is used. The resulting equivariance is input to the integral image-module argument in source4.11. Rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Unfold the original corrected value as the original raw primitive sum times its correction product.
+2. Apply the proved raw primitive-sum action.
+3. The actual additive equivalence preserves the point order, so the set of primes entering the correction product is unchanged.
+4. Associate multiplication in the original rational group ring.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-rational-primitive-sum-action`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-cartan-value`, `mathlib:MulEquiv.orderOf_eq`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedEquivarianceTests.level_six_inversion_negates_the_corrected_primitive_value` (computation): At level6 the actual corrected value at5/6 is the negative of that at1/6, as multiplication by the original unit5 sends[1]−[5] to its negative.
+- `SuggestedKubertCorrectedEquivarianceTests.rationalCartanValue_action_typed_api` (compatibility): For any actual level-N point a and original global Cartan element g, the corrected value at the Cartan-transformed point equals the original projected-unit basis element multiplied by r_N(a).
+
+**Acceptance:** Every actual Cartan element fixes the zero torus point and its inverse recovers every original point. An element whose level6 projection is the original unit5 sends1/6 to5/6 and does not fix1/6. The corrected level6 values at these two primitive points are negatives, namely[1]−[5] and[5]−[1]. The nonzero global corrected zero-point value is fixed by the existing norm-limit representation.
+
+**Source:** Published197–198, proof of Theorem4.11, especially the displayed Cartan equivariance at the top of198 and the conclusion that the finite corrected image is a Cartan module. Actual Cartan actions and group rings are set up in Section2; corrected values are4.5 with preservedE27. Proves the actual corrected value equivariance needed for the source image-module argument, beginning with primitive coordinates and the raw coefficient action. Carries it into the original norm limit and original ordinary quotient through existing native maps. The subsequent admissible generation, rational spanning and image/product claims are not assumed.
+
+### The finite corrected value action is the existing Witt representation
+
+`DirichletPadicLFunctions:L3/kubert-corrected-equivariance-rational-cartan-value--witt-equivariant` — `DirichletPadic.kubertRationalCartanValue_Witt_equivariant`
+
+The corrected finite value at the actual transformed point equals the existing level-N Witt representation of g applied to the original corrected value.
+
+**Hypotheses:** The degree is one. The original point carrier is the one-coordinate function group with rational additive-circle values and period1. The acting group is the existing product, over actual rational primes, of the unit groups of degree-one Witt vectors. The action on the original torus is the native coordinatewise additive equivalence induced by the existing actual global circle action. Its level-N group element is the existing truncated-Witt Cartan projection. No new acting group or assumed action is introduced. At every positive level N, the finite rational Cartan group ring, raw primitive sum and corrected value r_N are the original constructions. The sourceE27 product correction is preserved. The transformed actual point stays in the same original kernel because an additive equivalence commutes with multiplication by N. The raw coefficient identity is proved on actual primitive coordinates. The additive order of the transformed point is unchanged, so the correction product has exactly the same prime factors. Multiplication by the actual projected unit basis element gives the finite value action. The global target is the original rational-module full-norm direct limit with its existing Cartan representation. The corrected global quotient is exactly the original ordinary relation quotient. Its action is the already defined generic quotient equivalence applied to this actual torus equivalence. The quotient statements use finite enumerations of all actual positive-multiplier root fibers, as in the original quotient universal property. No quotient injectivity, replacement source module or assumed equivariance is used. The resulting equivariance is input to the integral image-module argument in source4.11. Rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Apply the proved multiplication formula for the corrected value.
+2. Compare the original coefficients of left basis multiplication with the existing Witt representation coefficient formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-equivariance-rational-cartan-value-action`, `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-representation-coeff`, `mathlib:MonoidAlgebra.coeff_single_mul_apply`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedEquivarianceTests.rationalCartanValue_Witt_equivariant_typed_api` (compatibility): The corrected finite value at the actual transformed point equals the existing level-N Witt representation of g applied to the original corrected value.
+
+**Acceptance:** Every actual Cartan element fixes the zero torus point and its inverse recovers every original point. An element whose level6 projection is the original unit5 sends1/6 to5/6 and does not fix1/6. The corrected level6 values at these two primitive points are negatives, namely[1]−[5] and[5]−[1]. The nonzero global corrected zero-point value is fixed by the existing norm-limit representation.
+
+**Source:** Published197–198, proof of Theorem4.11, especially the displayed Cartan equivariance at the top of198 and the conclusion that the finite corrected image is a Cartan module. Actual Cartan actions and group rings are set up in Section2; corrected values are4.5 with preservedE27. Proves the actual corrected value equivariance needed for the source image-module argument, beginning with primitive coordinates and the raw coefficient action. Carries it into the original norm limit and original ordinary quotient through existing native maps. The subsequent admissible generation, rational spanning and image/product claims are not assumed.
+
+### The corrected global value respects the original norm-limit action
+
+`DirichletPadicLFunctions:L3/kubert-corrected-equivariance-rational-cartan-global-value-equivariant` — `DirichletPadic.kubertRationalCartanGlobalValue_equivariant`
+
+The corrected global value at the actual Cartan-transformed rational torus point equals the original norm-limit representation of g applied to the corrected global value at that point.
+
+**Hypotheses:** The degree is one. The original point carrier is the one-coordinate function group with rational additive-circle values and period1. The acting group is the existing product, over actual rational primes, of the unit groups of degree-one Witt vectors. The action on the original torus is the native coordinatewise additive equivalence induced by the existing actual global circle action. Its level-N group element is the existing truncated-Witt Cartan projection. No new acting group or assumed action is introduced. At every positive level N, the finite rational Cartan group ring, raw primitive sum and corrected value r_N are the original constructions. The sourceE27 product correction is preserved. The transformed actual point stays in the same original kernel because an additive equivalence commutes with multiplication by N. The raw coefficient identity is proved on actual primitive coordinates. The additive order of the transformed point is unchanged, so the correction product has exactly the same prime factors. Multiplication by the actual projected unit basis element gives the finite value action. The global target is the original rational-module full-norm direct limit with its existing Cartan representation. The corrected global quotient is exactly the original ordinary relation quotient. Its action is the already defined generic quotient equivalence applied to this actual torus equivalence. The quotient statements use finite enumerations of all actual positive-multiplier root fibers, as in the original quotient universal property. No quotient injectivity, replacement source module or assumed equivariance is used. The resulting equivariance is input to the integral image-module argument in source4.11. Rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Use the positive actual point order as a containing level for the original point and its transform.
+2. Evaluate both global corrected values in that same original finite level.
+3. Apply corrected finite Witt equivariance.
+4. Use the existing compatibility of the norm-limit representation with the original inclusion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-equivariance-rational-cartan-value--witt-equivariant`, `DirichletPadicLFunctions:L3/kubert-corrected-global-rational-torus-order-pos`, `DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-value-level`, `DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-representation-of`, `mathlib:pow_orderOf_eq_one`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedEquivarianceTests.the_nonzero_global_zero_point_value_is_invariant` (compatibility): The nonzero global corrected value of the actual zero point is fixed by the original norm-limit representation.
+- `SuggestedKubertCorrectedEquivarianceTests.rationalCartanGlobalValue_equivariant_typed_api` (compatibility): The corrected global value at the actual Cartan-transformed rational torus point equals the original norm-limit representation of g applied to the corrected global value at that point.
+
+**Acceptance:** Every actual Cartan element fixes the zero torus point and its inverse recovers every original point. An element whose level6 projection is the original unit5 sends1/6 to5/6 and does not fix1/6. The corrected level6 values at these two primitive points are negatives, namely[1]−[5] and[5]−[1]. The nonzero global corrected zero-point value is fixed by the existing norm-limit representation.
+
+**Source:** Published197–198, proof of Theorem4.11, especially the displayed Cartan equivariance at the top of198 and the conclusion that the finite corrected image is a Cartan module. Actual Cartan actions and group rings are set up in Section2; corrected values are4.5 with preservedE27. Proves the actual corrected value equivariance needed for the source image-module argument, beginning with primitive coordinates and the raw coefficient action. Carries it into the original norm limit and original ordinary quotient through existing native maps. The subsequent admissible generation, rational spanning and image/product claims are not assumed.
+
+### The actual global quotient map intertwines the existing actions
+
+`DirichletPadicLFunctions:L3/kubert-corrected-equivariance-rational-cartan-global-distribution-intertwines` — `DirichletPadic.kubertRationalCartanGlobalDistribution_intertwines`
+
+As additive homomorphisms on the original global ordinary quotient, composing the corrected global map with the existing quotient equivalence induced by the actual torus Cartan action equals composing it with the original norm-limit representation.
+
+**Hypotheses:** The degree is one. The original point carrier is the one-coordinate function group with rational additive-circle values and period1. The acting group is the existing product, over actual rational primes, of the unit groups of degree-one Witt vectors. The action on the original torus is the native coordinatewise additive equivalence induced by the existing actual global circle action. Its level-N group element is the existing truncated-Witt Cartan projection. No new acting group or assumed action is introduced. At every positive level N, the finite rational Cartan group ring, raw primitive sum and corrected value r_N are the original constructions. The sourceE27 product correction is preserved. The transformed actual point stays in the same original kernel because an additive equivalence commutes with multiplication by N. The raw coefficient identity is proved on actual primitive coordinates. The additive order of the transformed point is unchanged, so the correction product has exactly the same prime factors. Multiplication by the actual projected unit basis element gives the finite value action. The global target is the original rational-module full-norm direct limit with its existing Cartan representation. The corrected global quotient is exactly the original ordinary relation quotient. Its action is the already defined generic quotient equivalence applied to this actual torus equivalence. The quotient statements use finite enumerations of all actual positive-multiplier root fibers, as in the original quotient universal property. No quotient injectivity, replacement source module or assumed equivariance is used. The resulting equivariance is input to the integral image-module argument in source4.11. Rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Apply the existing generator extensionality theorem for the original global ordinary quotient.
+2. Evaluate the existing quotient equivalence on an original point class.
+3. Use the corrected global quotient point-value formula and proved global point-value equivariance.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-equivariance-cartan-torus-equiv`, `DirichletPadicLFunctions:L3/kubert-corrected-equivariance-rational-cartan-global-value-equivariant`, `DirichletPadicLFunctions:L3/kubert-quotient-action-quotient-equiv-of`, `DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-distribution-of`, `DirichletPadicLFunctions:L3/kubert-hom-ext`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedEquivarianceTests.rationalCartanGlobalDistribution_intertwines_typed_api` (compatibility): As additive homomorphisms on the original global ordinary quotient, composing the corrected global map with the existing quotient equivalence induced by the actual torus Cartan action equals composing it with the original norm-limit representation.
+
+**Acceptance:** Every actual Cartan element fixes the zero torus point and its inverse recovers every original point. An element whose level6 projection is the original unit5 sends1/6 to5/6 and does not fix1/6. The corrected level6 values at these two primitive points are negatives, namely[1]−[5] and[5]−[1]. The nonzero global corrected zero-point value is fixed by the existing norm-limit representation.
+
+**Source:** Published197–198, proof of Theorem4.11, especially the displayed Cartan equivariance at the top of198 and the conclusion that the finite corrected image is a Cartan module. Actual Cartan actions and group rings are set up in Section2; corrected values are4.5 with preservedE27. Proves the actual corrected value equivariance needed for the source image-module argument, beginning with primitive coordinates and the raw coefficient action. Carries it into the original norm limit and original ordinary quotient through existing native maps. The subsequent admissible generation, rational spanning and image/product claims are not assumed.
+
+### Every original global quotient class has the expected equivariant image
+
+`DirichletPadicLFunctions:L3/kubert-corrected-equivariance-rational-cartan-global-distribution-equivariant` — `DirichletPadic.kubertRationalCartanGlobalDistribution_equivariant`
+
+For every class in the original global ordinary quotient, its image after the existing Cartan-induced quotient equivalence equals the original norm-limit representation applied to its corrected global image.
+
+**Hypotheses:** The degree is one. The original point carrier is the one-coordinate function group with rational additive-circle values and period1. The acting group is the existing product, over actual rational primes, of the unit groups of degree-one Witt vectors. The action on the original torus is the native coordinatewise additive equivalence induced by the existing actual global circle action. Its level-N group element is the existing truncated-Witt Cartan projection. No new acting group or assumed action is introduced. At every positive level N, the finite rational Cartan group ring, raw primitive sum and corrected value r_N are the original constructions. The sourceE27 product correction is preserved. The transformed actual point stays in the same original kernel because an additive equivalence commutes with multiplication by N. The raw coefficient identity is proved on actual primitive coordinates. The additive order of the transformed point is unchanged, so the correction product has exactly the same prime factors. Multiplication by the actual projected unit basis element gives the finite value action. The global target is the original rational-module full-norm direct limit with its existing Cartan representation. The corrected global quotient is exactly the original ordinary relation quotient. Its action is the already defined generic quotient equivalence applied to this actual torus equivalence. The quotient statements use finite enumerations of all actual positive-multiplier root fibers, as in the original quotient universal property. No quotient injectivity, replacement source module or assumed equivariance is used. The resulting equivariance is input to the integral image-module argument in source4.11. Rational spanning, source4.13 image/product, universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Evaluate the proved additive-homomorphism intertwining identity at the original quotient class.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-equivariance-rational-cartan-global-distribution-intertwines`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedEquivarianceTests.rationalCartanGlobalDistribution_equivariant_typed_api` (compatibility): For every class in the original global ordinary quotient, its image after the existing Cartan-induced quotient equivalence equals the original norm-limit representation applied to its corrected global image.
+
+**Acceptance:** Every actual Cartan element fixes the zero torus point and its inverse recovers every original point. An element whose level6 projection is the original unit5 sends1/6 to5/6 and does not fix1/6. The corrected level6 values at these two primitive points are negatives, namely[1]−[5] and[5]−[1]. The nonzero global corrected zero-point value is fixed by the existing norm-limit representation.
+
+**Source:** Published197–198, proof of Theorem4.11, especially the displayed Cartan equivariance at the top of198 and the conclusion that the finite corrected image is a Cartan module. Actual Cartan actions and group rings are set up in Section2; corrected values are4.5 with preservedE27. Proves the actual corrected value equivariance needed for the source image-module argument, beginning with primitive coordinates and the raw coefficient action. Carries it into the original norm limit and original ordinary quotient through existing native maps. The subsequent admissible generation, rational spanning and image/product claims are not assumed.
+
+**Remaining:** The original corrected finite values, global point function and global quotient map now respect the actual original Cartan actions. The proof includes the coordinatewise original torus equivalence, primitive-coordinate covariance, raw coefficient covariance and the original quotient intertwining identity. Next identify the actual finite corrected image with the integer span of original point values and prove its integral Cartan-module closure, then source4.11 rational spanning and4.13 image/product. Universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.
+
+### Corrected values and the original Cartan actions validation
+
+All 2228 predecessor nodes, 1283 baseline records, 27 findings, requests and sourceVersions remain whole. This checkpoint adds 12 nodes, 12 named suggested declarations and 16 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2502 reachable nodes, 10012 edges and 1449 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route ends in the original corrected values, actual circle/primitive actions, existing Witt and norm-limit representations, original quotient universal properties or checked native coordinate equivalences and coefficient formulas. No supplied equivariance package, quotient injectivity, rational spanning or source freeness is assumed.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3915 pinned Mathlib modules and 32 pinned Tau Ceti modules. Only 31 Tau module artifacts are available and hash-verified. The 152 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5844 verbatim and adds one complete construction and eleven complete lemmas. Totals are190 definitions and1,526 lemmas without placeholders. The public append has12 named declarations and16 typed examples, all new mathematical bodies placeholders. No native import or library build is added. The separate probe compiles against 3282 pinned Mathlib modules and 10 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native periodicity, low-degree Tate and Teichmuller artifacts, with ten Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact controls through36 levels verify9,519 actual point actions,6,422 primitive-coordinate products,171,499 raw and171,499 corrected coefficients,396 integer-word action comparisons with6,422 coefficients,1,479 norm-action squares with21,475 coefficients, and396 invariant zero-point values. Exact finite degree-one Cartan actions through36 levels use every original residue unit, actual rational point and original group-ring coefficient. They check point orders and inverse actions, primitive coordinates, raw and corrected coefficient translation, integer-word quotient images, full-norm equivariance squares and the invariant zero-point value. The specific level6 unit5 negates the corrected primitive value. These finite controls do not imply source freeness, quotient injectivity or rational spanning. The largest observed discrepancy is 0.
+
+Fresh capture after actual5844 merge finds all79 canonical inputs unchanged. The complete unchanged issue, queue, original winning claim and blocked/unclaimed review390 were checked. All27 findings and eight source versions remain whole; no new independent review or source correction is adopted.
+
+The separate partial signature file also compiled with zero errors and 6,507 expected placeholder warnings across 3,914 pinned source modules. It includes all 12 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2fb47327215332a833999299c9e8b765c8e11afee26fa5760821ebd3c600245e.
+
+The indexed blueprint checker reports zero errors and 26 advisory short-API warnings, including 26 inherited warnings. No new short-API warning is introduced.
