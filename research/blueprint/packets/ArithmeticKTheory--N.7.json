@@ -889,7 +889,7 @@
    ],
    "title": "Vandiver's conjecture, and keeping the conditional results apart",
    "kind": "comparison",
-   "statement": "Import Vandiver(l) from its single owner IntegralIwasawaTheory L3: for a prime l it is nondivisibility by l of the class number of Q(mu_l)^+, identified with the pinned maximal real subfield of CyclotomicField l Q. This node does not define a second predicate. Vandiver's conjecture asserts that for an irregular prime l the Picard group of the ring of integers of the maximal real subfield of the l-th cyclotomic field has no l-torsion; equivalently, that the representation of the Galois group on the modulo-l Picard group of the full cyclotomic field is a sum of odd twists of the roots of unity, which says that complex conjugation acts as minus one on the l-torsion. It has been verified for all primes up to a hundred and sixty-three million and is open. Under it, the K-groups of the integers are given by an explicit table, and in particular the groups K_{4i}(Z) with 4i ≥ 8 vanish (K_4(Z) = 0 is a theorem, of Rognes); unconditionally those higher groups are known only to have order a product of irregular primes greater than ten to the eighth, and their vanishing is equivalent to Vandiver's conjecture. Every statement of this roadmap that uses the conjecture says so in its hypotheses, and no definition of regularity contains it.",
+   "statement": "Import Vandiver(l) from its single owner IntegralIwasawaTheory L3: for a prime l it is nondivisibility by l of the class number of Q(mu_l)^+, identified with the pinned maximal real subfield of CyclotomicField l Q. This node does not define a second predicate. Vandiver's conjecture asserts that for an irregular prime l the Picard group of the ring of integers of the maximal real subfield of the l-th cyclotomic field has no l-torsion; equivalently, that the representation of the Galois group on the modulo-l Picard group of the full cyclotomic field is a sum of odd twists of the roots of unity, which says that complex conjugation acts as minus one on the l-torsion. The 2013 source reports verification for all primes up to a hundred and sixty-three million and treats the global conjecture as open; this is historical source evidence, not a claim about the latest verification bound or current status. Under it, the K-groups of the integers are given by an explicit table, and in particular the groups K_{4i}(Z) with 4i ≥ 8 vanish (K_4(Z) = 0 is a theorem, of Rognes); the 2013 source states unconditionally that those higher groups have order a product of irregular primes greater than ten to the eighth, and their joint vanishing for all i ≥ 2 is equivalent to the global Vandiver conjecture at every odd prime. Every statement of this roadmap that uses the conjecture says so in its hypotheses, and no definition of regularity contains it.",
    "hypotheses": [
     "l is an irregular prime; the real subfield is the fixed field of complex conjugation.",
     "The equivalence between the two forms of the conjecture uses that complex conjugation is the unique element of order two in the Galois group, which the source records.",
@@ -898,7 +898,7 @@
    ],
    "proofSteps": [
     "Import IntegralIwasawaTheory L3's predicate, whose exact contract is l not dividing the class number of the maximal real subfield of Q(mu_l). Prove the comparison to the odd-character condition on the full cyclotomic class group; do not introduce a second definition.",
-    "Record the verification bound and the historical remark that the statement was discussed by Kummer and Kronecker long before Vandiver.",
+    "Record the verification bound as historical to the 2013 source, without claiming it is the current bound, and the historical remark that the statement was discussed by Kummer and Kronecker long before Vandiver.",
     "State the conditional theorem: under the conjecture the K-groups of the integers are given by the explicit table.",
     "State the unconditional order restriction for K_{4i}(Z), i≥2, and the equivalence of their joint vanishing with the global Vandiver conjecture at every odd prime. A hypothesis at one irregular prime is not the global conjecture; K_4(Z)=0 is an unconditional imported result.",
     "State the discipline: a theorem conditional on the conjecture is labelled conditional, and the definition of a regular prime does not mention it."
@@ -1433,9 +1433,9 @@
  ],
  "review": {
   "status": "needs_changes",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
-  "date": "2026-09-30",
-  "notes": "Codex session codex-J6LwjP; follows independent-review-REV-ArithmeticKTheory--N.7. The independent lower bound four for ℚ(√5) is valid, but /11 still lacks the generation proof giving the upper bound. The Gaussian empty presentation likewise lacks its span proof. Corrected misleading completed-certificate wording and made export to B.3 conditional. These missing proofs must be supplied independently of Birch–Tate. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+  "reviewer": "independent-review-REV-FIX-RT-BP-ArithmeticKTheory--N.7",
+  "date": "2026-10-02",
+  "notes": "Codex session codex-rtOQ9t, independent of fixer codex-a71f92 (PR #5594). Both RT-BP-ArithmeticKTheory--N.7 findings are addressed: remaining True/unstated-Prop/arbitrary-eigenspace placeholders removed; actual cyclotomic residue quotient gives unit order l-1 under primality alone; unavailable interfaces carry precise mathematical contracts; Vandiver predicate has sole owner IntegralIwasawaTheory L3 with a request and an acyclic import. Corrected Vandiver packet prose to label the 2013 verification/order bounds historical and quantify joint K4i(Z) vanishing against the global conjecture at every odd prime. Seven added pinned baseline declarations and primary source pages checked; pinned checker 0 errors/0 warnings, 24 internal edges and L3 import overlay acyclic; finite residue/Bernoulli/Bott controls passed. Follows independent-review-REV-FIX-RT-AREA-ktheory-1, preserved verbatim in history. Overall needs_changes remains because N.8 still lacks independent Gaussian span and Q(sqrt(5)) upper-generation proofs; its lower bound and Birch-Tate numerical equality cannot replace these. All N.8 nodes, suggested bytes, four gaps, ten requests and provenance preserved. Lean not compiled: no existing build at both pins. Report: research/blueprint/reviews/REV-FIX-RT-BP-ArithmeticKTheory--N.7.md."
  },
  "sourceVersions": [
   {
@@ -1535,6 +1535,12 @@
      "note": "corrected: the source says the odd part was proved by Wiles (for totally real fields) with no abelian restriction; the packet restricted it to abelian fields, which would forbid legitimate uses; page fixed (515)."
     }
    ]
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+   "date": "2026-09-30",
+   "notes": "Codex session codex-J6LwjP; follows independent-review-REV-ArithmeticKTheory--N.7. The independent lower bound four for ℚ(√5) is valid, but /11 still lacks the generation proof giving the upper bound. The Gaussian empty presentation likewise lacks its span proof. Corrected misleading completed-certificate wording and made export to B.3 conditional. These missing proofs must be supplied independently of Birch–Tate. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
   }
  ]
 }
