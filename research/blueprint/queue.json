@@ -48232,8 +48232,9 @@
     "FIX-RT-BP-EllipticCurveModularity"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-EllipticCurveModularity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5191"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5191",
+   "finishedAt": "2026-10-02T04:27:28Z"
   },
   {
    "id": "RT-BP-EllipticKTheory",
@@ -53265,7 +53266,8 @@
     "FIX-RT-AREA-padic-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5151"
   },
   {
    "id": "RT-AREA-padic-2",
