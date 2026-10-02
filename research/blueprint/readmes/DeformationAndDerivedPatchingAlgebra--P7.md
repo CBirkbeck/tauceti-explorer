@@ -1,14 +1,16 @@
 # Commutative algebra for deformation theory and patching — part P7
 
+Current continuation by Codex — `codex-J6LwjP`, 2 October 2026 (Section 11): 61 nodes (32 lemmas, fourteen theorems, eight definitions and seven constructions), 69 API entries, 55 definition/construction tests plus four inherited lemma tests, thirteen planets, 140 baseline references, fourteen gaps and two requests. All stages remain open. The current full suggested file compiled with zero errors and only admitted-proof warnings; earlier no-compilation statements below are dated history.
+
 ## Scope of this checkpoint
 
 The part comprises P7–P9 and R03.1–R03.5. This partial blueprint retains the existing finite-prime-filtration input of R03.3, adds a five-node refinement of the R03.4 characteristic-zero-point argument, and adds four R03.3 nodes on catenarity and on freeness over a regular local base (Section 5a). Before the continuation in Section 5b, the packet had 46 baseline references and one object definition, the catenary predicate. Section 5b preserves those nine nodes and adds fourteen Hilbert–Samuel nodes; the combined packet has 62 baseline references. The field, quotient, integral-closure and local-field constructions are reused from their existing owners. The stage coverage records retain the remaining work explicitly.
 
 The codex-rtOQ9t continuation in Section 9 adds four R03.3 positivity lemmas to the forty-node checkpoint. At that checkpoint the packet had 44 nodes (24 lemmas, 11 theorems, 7 definitions and 2 constructions), 44 API items, 35 definition/construction unit tests, 11 planets, 99 pinned baseline references, 14 gap groups and 2 supplier requests. Four further typed acceptance examples distinguish the polynomial-sign hypotheses. All eight scoped stages remain partial. The positivity deduction is written conditional on the existing eventual-polynomial construction, whose proof obligations remain open.
 
-Source inspections and compilation reports in Sections 1–8 are inherited receipts from the named earlier workers. Section 9 records the positivity continuation's fresh reads and checks; Section 10 records the cumulative continuation. An earlier file elaborated; the changed file has not been compiled.
+Source inspections and compilation reports in Sections 1–8 are inherited receipts from the named earlier workers. Section 9 records the positivity continuation's fresh reads and checks; Section 10 records the cumulative continuation. Those are historical elaboration receipts. Section 11 records the current full-file compilation.
 
-The current cumulative continuation in Section 10 adds eight R03.3 nodes and narrows the cumulative-identity and rational-antidifference obligations. The packet has 52 nodes (28 lemmas, 13 theorems, 8 definitions and 3 constructions), 57 API items, 43 definition/construction unit tests plus 4 inherited lemma acceptance tests, 12 planets, 119 baseline references, 14 gap groups and 2 supplier requests. The cumulative polynomial is constructed only conditional on a supplied graded polynomial tail; the associated-graded ring/module structure and graded polynomiality remain gaps. All eight stages remain open: P7, R03.3 and R03.4 are partial; P8, P9, R03.1, R03.2 and R03.5 retain not_read status. All implementations are unchecked.
+The earlier cumulative continuation in Section 10 adds eight R03.3 nodes and narrows the cumulative-identity and rational-antidifference obligations. The packet has 52 nodes (28 lemmas, 13 theorems, 8 definitions and 3 constructions), 57 API items, 43 definition/construction unit tests plus 4 inherited lemma acceptance tests, 12 planets, 119 baseline references, 14 gap groups and 2 supplier requests. The cumulative polynomial is constructed only conditional on a supplied graded polynomial tail; the associated-graded ring/module structure and graded polynomiality remain gaps. All eight stages remain open: P7, R03.3 and R03.4 are partial; P8, P9, R03.1, R03.2 and R03.5 retain not_read status. All implementations are unchecked.
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The five prime-filtration declarations in Sections 1–4 are in the same Mathlib module, `Mathlib/RingTheory/Ideal/AssociatedPrime/Finiteness.lean`; its inspected Git blob is `8981a4233c39016cfd51e882d7da6d90c368dec9`.
 
@@ -1626,3 +1628,222 @@ The cumulative-existence node in Section 5b consumes finite graded lengths and t
 Fresh source inspection covers the pinned adic transition/inclusion file, the selected native quotient, length, torsion-action and finite-conversion statements, and the Bernoulli power-sum and polynomial-expansion statements listed in HS-CUMUL-PIN and HS-SUM-PIN. Stacks [00K4](https://stacks.math.columbia.edu/tag/00K4) and [00JZ](https://stacks.math.columbia.edu/tag/00JZ) were reread at the cited passages; downloaded HTML hashes are `e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932` and `9e111a9d48c6a3bb8ede444e6f7e92c4b4bd0ec28898427bea06b1da4e6dccf8`.
 
 No fresh full rereading of all inherited deformation or P7 papers is claimed. Their sources, source issues, supplier requests and remaining stage targets are retained. The only inherited mathematical node refined is the cumulative-existence proof route. Forty-three inherited nodes are unchanged. The changed suggested file is not compiled: no existing pinned build was available, and no build, cache download or language server was started. Historical successful compilation receipts do not cover these forms.
+
+## 11. Adic graded ring through the native Rees quotient — codex-J6LwjP
+
+Partial continuation: preserve all 52 inherited nodes exactly and add nine R03.3 declarations comparing the native Rees quotient with the ordinary adic graded ring, its homogeneous pieces, multiplication, finite direct-sum expansion and degree-one generation. Reuse native Rees ring/module and finiteness APIs. All eight stages remain open; module/action comparison, Hilbert–Serre, dimension and the remaining source worklists are explicit gaps. Full Mathlib-only suggested file elaborates; every implementation remains unchecked.
+
+Use Gr_q(A)=Rees(q)/(q Rees(q)), with the actual A/q scalar map. Rees ring/module and finiteness are pinned baseline inputs. The comparison to the ordinary graded ring is established by the named proof route below; mathematical proofs are unchecked. This is an ordinary adic specialization, not a second generic DD.1 filtered/Rees carrier.
+
+### Adic graded ring from the native Rees quotient
+
+Declaration: `TauCeti.HilbertSamuel.adicGradedRing` (`DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-ring`).
+
+Define Gr_q(A)=Rees(q)/(q.map(algebraMap A Rees(q))), using the existing Rees subalgebra of A[T] and the existing ideal quotient. The coefficient map gives its actual A/q-algebra structure. This ring is identified with the direct sum of q^n/q^(n+1) by the separate comparison nodes, not assumed as a record property.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and degrees are natural numbers. No local, Noetherian, domain or proper-ideal premise is imposed unless explicitly stated.
+
+Proof route:
+
+1. Use reesAlgebra q, whose coefficient-n condition is a_n∈q^n, and form the mapped coefficient ideal J=q Rees(q). Take the existing quotient ring Rees(q)/J; multiplication and ring laws are inherited.
+2. Ideal.le_comap_map and algebraQuotientOfLEComap give the actual A/q scalar structure. For q=0 only constants remain in Rees(q); for q=A the quotient is the zero ring.
+3. For a Noetherian A, use the existing Noetherian Rees instance and existing Noetherian quotient instance. This specialization introduces no new general Noetherian theorem.
+
+Prerequisites: `mathlib:reesAlgebra`, `mathlib:Ideal.map`, `mathlib:Ideal.Quotient.algebraQuotientOfLEComap`, `mathlib:reesAlgebra.fg`, `mathlib:Ideal.Quotient.isNoetherianRing`.
+
+Acceptance: Gr_0(A)≃A, whereas Gr_A(A)=0. For A=Z/4 and q=(2), the degree-one class of 2 is nonzero with square zero; the graded ring is not merely A/q.
+
+API:
+
+- `TauCeti.HilbertSamuel.adicGradedRing_zero` (compatibility): For q=0 the native Rees quotient is isomorphic to A as an A-algebra.
+- `TauCeti.HilbertSamuel.adicGradedRing_top` (simp): For q=A the native Rees quotient is subsingleton.
+- `TauCeti.HilbertSamuel.adicGradedRing_noetherian` (compatibility): For Noetherian A, the native quotient is Noetherian, by the existing Rees and ideal-quotient instances.
+
+Typed tests:
+
+- `HilbertSamuelAdicTest.field_zero_ideal` (computation): For a field k, Gr_0(k) is k as a k-algebra.
+- `HilbertSamuelAdicTest.unit_ideal` (degenerate): For any A and q=A, Gr_q(A) is the zero ring.
+- `HilbertSamuelAdicTest.dual_numbers_nonfield` (non-example): For A=Z/4 and q=(2), Gr_q(A) has a nonzero square-zero element, distinguishing it from A/q=F2.
+
+### Coefficients of the Rees coefficient ideal
+
+Declaration: `TauCeti.HilbertSamuel.mem_reesCoefficientIdeal_iff` (`DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-ideal`).
+
+For p∈Rees(q), p∈q Rees(q) if and only if its coefficient in every degree n belongs to q^(n+1).
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and degrees are natural numbers. No local, Noetherian, domain or proper-ideal premise is imposed unless explicitly stated.
+
+Proof route:
+
+1. The mapped ideal is the span of constant images of elements of q. An ideal-span induction shows each product C(a)p has coefficient a·p_n∈q·q^n=q^(n+1); sums preserve the condition.
+2. Conversely expand p into finitely many monomials. For p_n∈q^(n+1)=q·q^n, use smul_induction_on to express it as a finite sum of a·b with a∈q,b∈q^n. Each monomial is C(a) times the native degree-n Rees monomial bT^n. Sum the expressions over the finite polynomial support. This uses no finite generation of q.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-ring`, `mathlib:Ideal.map`, `mathlib:Submodule.smul_induction_on`, `mathlib:Ideal.mul_mem_mul`, `mathlib:Polynomial.as_sum_support`, `mathlib:reesAlgebra.monomial_mem`.
+
+Acceptance: Use q^(n+1), not q^n, in the denominator criterion. For q=(2) in Z/4, 2T lies in Rees(q) but not q Rees(q).
+
+### Monomial map into the adic graded ring
+
+Declaration: `TauCeti.HilbertSamuel.adicMonomial` (`DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-map`).
+
+For n≥0, define an A-linear map μ_n:q^n→Gr_q(A) sending a to the class of aT^n in the native Rees quotient.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and degrees are natural numbers. No local, Noetherian, domain or proper-ideal premise is imposed unless explicitly stated.
+
+Proof route:
+
+1. Form the actual polynomial monomial with its reesAlgebra.monomial_mem proof. Compose with Ideal.Quotient.mk; the native definition specifies this function exactly.
+2. Additivity and A-linearity follow from polynomial monomial linearity, the Rees subtype scalar action and quotient scalar action. The separately named kernel theorem is needed to descend through the native degree quotient.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-ring`, `mathlib:reesAlgebra.monomial_mem`.
+
+Acceptance: For q=0 and n=0 this is the coefficient algebra map. For q=(2)⊂Z/4, μ_1(2) survives; for q=A every monomial class vanishes.
+
+API:
+
+- `TauCeti.HilbertSamuel.adicMonomial_eq` (characterisation): μ_n(a) is exactly the native ideal-quotient class of the native Rees monomial aT^n.
+
+Typed tests:
+
+- `HilbertSamuelAdicTest.monomial_degree_zero` (compatibility): For q=0, μ_0(a) agrees with algebraMap A Gr_0(A).
+- `HilbertSamuelAdicTest.monomial_two_survives` (computation): For q=(2) in Z/4, μ_1(2)≠0.
+- `HilbertSamuelAdicTest.monomial_top_zero` (degenerate): For q=A and every n, μ_n(a)=0 for all a∈q^n.
+
+### Kernel of the adic monomial map
+
+Declaration: `TauCeti.HilbertSamuel.adicMonomial_ker` (`DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-kernel`).
+
+The kernel of μ_n:q^n→Gr_q(A) is q·top_{q^n}, the native submodule of the ideal subtype. Under the subtype inclusion its elements are exactly q^(n+1).
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and degrees are natural numbers. No local, Noetherian, domain or proper-ideal premise is imposed unless explicitly stated.
+
+Proof route:
+
+1. Use Ideal.Quotient.eq_zero_iff_mem and rees-coefficient-ideal for the single monomial: its only possibly nonzero coefficient is a in degree n.
+2. Identify q·top_{q^n} with those a∈q^n lying in q·q^n=q^(n+1). In the forward direction induct on scalar sums; in the reverse direction lift each summand a·b, b∈q^n, to the actual ideal subtype and sum. No ambient quotient of the wrong type is used.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-map`, `DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-ideal`, `mathlib:Ideal.Quotient.eq_zero_iff_mem`, `mathlib:Submodule.smul_induction_on`.
+
+Acceptance: At n=0 the kernel corresponds to q inside A. The degree-one denominator for q=(2)⊂Z/4 is zero.
+
+### Native degree-piece inclusion
+
+Declaration: `TauCeti.HilbertSamuel.adicPieceInclusion` (`DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-inclusion`).
+
+Let G_n=(q^n)/(q·top_{q^n}), using the existing ideal subtype, quotient and A/q action. Descend μ_n to an injective A-linear map ι_n:G_n→Gr_q(A).
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and degrees are natural numbers. No local, Noetherian, domain or proper-ideal premise is imposed unless explicitly stated.
+
+Proof route:
+
+1. Use Submodule.liftQ with adic-monomial-kernel. The value on a quotient representative is exactly μ_n(a).
+2. If the image is zero, kernel equality places the representative in the denominator, giving injectivity. The inherited graded-function quotient for M=A is canonically linearly equivalent after identifying q^n·top_A with q^n; that scalar-transport adapter is retained as a requirement in the gap, not claimed definitionally equal.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-kernel`, `mathlib:Submodule.liftQ`.
+
+Acceptance: Do not use q^n as a denominator in the ambient A rather than as the quotient carrier. Positive-degree pieces for a zero ideal vanish; the degree-one Z/4 class survives; all unit-ideal pieces vanish.
+
+API:
+
+- `TauCeti.HilbertSamuel.adicPieceInclusion_mk` (compatibility): ι_n([a])=μ_n(a) on native quotient representatives.
+- `TauCeti.HilbertSamuel.adicPieceInclusion_injective` (characterisation): The native piece inclusion is injective for every q and n.
+
+Typed tests:
+
+- `HilbertSamuelAdicTest.piece_field_higher_zero` (computation): For a field k and q=0, every G_(n+1) is zero.
+- `HilbertSamuelAdicTest.piece_two_injective` (non-example): For q=(2) in Z/4 the degree-one map is injective and takes [2] to a nonzero element.
+- `HilbertSamuelAdicTest.piece_unit_zero` (degenerate): For q=A every native degree piece is zero.
+
+### Multiplication of homogeneous adic classes
+
+Declaration: `TauCeti.HilbertSamuel.adicMonomial_mul` (`DeformationAndDerivedPatchingAlgebra:R03.3/adic-homogeneous-product`).
+
+For a∈q^n and b∈q^m, μ_n(a)μ_m(b)=μ_(n+m)(ab), with ab∈q^(n+m). This fixes the multiplicative grading on the quotient ring.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and degrees are natural numbers. No local, Noetherian, domain or proper-ideal premise is imposed unless explicitly stated.
+
+Proof route:
+
+1. Use Ideal.mul_mem_mul and pow_add for the degree n+m membership proof. Apply the native Polynomial.monomial_mul_monomial identity in Rees(q), then map it through Ideal.Quotient.mk.
+2. Changing either representative by its q^(degree+1) denominator changes the product by q^(n+m+1); kernel equality therefore descends the formula to pieces. Under the direct-sum equivalence the transported ring multiplication has degree addition.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-map`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-kernel`, `mathlib:Polynomial.monomial_mul_monomial`, `mathlib:Ideal.mul_mem_mul`.
+
+Acceptance: The exponent is n+m, never max(n,m). For Z/4,q=(2), μ_1(2)^2=0 although μ_1(2)≠0.
+
+### Bijectivity of finite homogeneous expansion
+
+Declaration: `TauCeti.HilbertSamuel.adicExpansion_bijective` (`DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-bijective`).
+
+The existing direct-sum linear map Σ_nι_n:⊕_(n≥0)G_n→Gr_q(A) is bijective. Only finitely supported sums occur.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and degrees are natural numbers. No local, Noetherian, domain or proper-ideal premise is imposed unless explicitly stated.
+
+Proof route:
+
+1. Build adicExpansion by DirectSum.toModule applied to ι_n. Surjectivity: choose a Rees polynomial representing the quotient class and expand its finitely many coefficients by Polynomial.as_sum_support.
+2. Injectivity: represent the finitely many nonzero direct-sum coordinates by coefficients a_n∈q^n. If their monomial sum lies in q Rees(q), the coefficient criterion gives each a_n∈q^(n+1); the kernel theorem then kills every quotient coordinate. Choices are finite and only prove the comparison, not a new ring carrier.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-inclusion`, `DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-ideal`, `mathlib:DirectSum.toModule`, `mathlib:DirectSum.toModule_lof`, `mathlib:Polynomial.as_sum_support`.
+
+Acceptance: The direct sum must not be replaced by a product permitting infinitely many coefficients. The unit ideal gives zero on both sides, so bijectivity requires no nontrivial-ring hypothesis.
+
+### Direct-sum comparison for the adic graded ring
+
+Declaration: `TauCeti.HilbertSamuel.adicDirectSumEquiv` (`DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-direct-sum`).
+
+Define the A-linear equivalence E:⊕_nG_n≃Gr_q(A) from the actual expansion map and its bijectivity. It sends the n-th homogeneous inclusion to ι_n. Transporting ring multiplication through E yields the ordinary adic graded ring of Stacks 10.59.5, with the product law fixed by adic-homogeneous-product.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and degrees are natural numbers. No local, Noetherian, domain or proper-ideal premise is imposed unless explicitly stated.
+
+Proof route:
+
+1. Use LinearEquiv.ofBijective on adicExpansion. The comparison is with the already defined Rees quotient, so it does not create a second independent associated-graded carrier.
+2. Use DirectSum.toModule_lof for the homogeneous generator law. Transport the native quotient ring structure along E; adic-homogeneous-product gives degree n+m multiplication. The generic DirectSum/graded carrier and generic filtered/Rees theory are imported rather than newly designed.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-bijective`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-homogeneous-product`, `mathlib:LinearEquiv.ofBijective`, `mathlib:DirectSum.toModule_lof`.
+
+Acceptance: Retain only finite support in the ordinary direct sum. The equivalence fixes the representative formula, not merely equality of dimensions or cardinalities.
+
+API:
+
+- `TauCeti.HilbertSamuel.adicDirectSumEquiv_lof` (compatibility): E(lofn(x))=ι_n(x) for each native homogeneous quotient class.
+- `TauCeti.HilbertSamuel.adicDirectSumEquiv_coe` (characterisation): The underlying linear map of E is exactly the finite homogeneous expansion map.
+
+Typed tests:
+
+- `HilbertSamuelAdicTest.expansion_degree_zero` (compatibility): For q=0, E sends the degree-zero inclusion to ι_0.
+- `HilbertSamuelAdicTest.expansion_nilpotent_degree` (non-example): For Z/4,q=(2), some degree-one direct-sum element maps to a nonzero graded-ring element.
+- `HilbertSamuelAdicTest.expansion_unit_zero` (degenerate): For q=A the whole ordinary direct sum is zero.
+
+### Degree-one generation of the adic graded ring
+
+Declaration: `TauCeti.HilbertSamuel.adicGradedRing_generated_degree_one` (`DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-generation`).
+
+Gr_q(A), as an A/q-algebra, is generated by the degree-one classes μ_1(a), a∈q, for every ideal q. No finite-generation assumption is made.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and degrees are natural numbers. No local, Noetherian, domain or proper-ideal premise is imposed unless explicitly stated.
+
+Proof route:
+
+1. The existing adjoin_monomial_eq_reesAlgebra states that the native Rees algebra is generated over A by degree-one monomials. Map this equality through the surjective ideal-quotient map.
+2. Each coefficient in A maps through the actual A/q algebra map. Thus a finite algebra expression in native degree-one monomials descends to an expression over A/q in μ_1(q), proving Algebra.adjoin(A/q,range μ_1)=top. This is generation by the whole degree-one set; a finite generating list requires q.FG.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-map`, `mathlib:adjoin_monomial_eq_reesAlgebra`, `mathlib:Ideal.Quotient.algebraQuotientOfLEComap`.
+
+Acceptance: For q=0 the generator set is zero and the coefficient algebra already supplies everything. A Noetherian q has a finite generating list; do not preassume this for arbitrary rings.
+
+### Remaining comparison and source boundary
+
+The nine new ring nodes give an explicit Rees-quotient comparison, homogeneous law, direct-sum expansion and degree-one generation plan; their implementation proofs remain unchecked. Native Rees algebra, Noetherianity and Ideal.Filtration Rees-module carriers/generation/finiteness are already baseline. Remaining: form the native quotient of the stable adic Rees module by q, prove its coefficient denominator, identify each degree with the inherited G_n for arbitrary M, construct the action of this same quotient ring and its A/q scalar towers, carry native degree-zero generation/finiteness to the quotient, and supply the graded-ring/module interfaces required by Hilbert–Serre. For M=A compare q^n·top_A with the ideal subtype q^n explicitly. Do not construct another generic Rees or filtered/stable-category carrier, or claim the increasing Tau Ceti word filtration supplies the decreasing adic object.
+
+Fresh source reading: complete mathematical statements/proofs of [Stacks 00K4](https://stacks.math.columbia.edu/tag/00K4), and complete Definition 10.70.1 in [052P](https://stacks.math.columbia.edu/tag/052P). The Rees quotient and coefficient proofs are explicit derivations; the source is not attributed a verbatim theorem it does not state here. Pinned ReesAlgebra was read in full and Filtration at the packet’s recorded passages. Earlier paper-version and errata receipts remain historical. No new source issue, external dependency or ownership transfer is claimed.
+
+The full current Mathlib-only suggested file compiled with zero errors and only admitted-proof warnings; final receipts are in the handoff. All eight stages, every routed-source obligation and both supplier requests remain open.
+
+Additional specialized API laws, with native signatures:
+
+- `TauCeti.HilbertSamuel.adicMonomial_add` (relation): μ_n(a+b)=μ_n(a)+μ_n(b) for elements of q^n.
+- `TauCeti.HilbertSamuel.adicMonomial_smul` (compatibility): μ_n(c·a)=c·μ_n(a) for every c∈A and a∈q^n.
+- `TauCeti.HilbertSamuel.adicPieceInclusion_zero` (simp): The native degree-piece inclusion sends zero to zero.
+- `TauCeti.HilbertSamuel.adicDirectSumEquiv_symm_inclusion` (compatibility): E⁻¹(ι_n(x))=lofn(x), fixing the inverse comparison on every homogeneous piece.
