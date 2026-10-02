@@ -39808,8 +39808,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5524"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5524",
+   "finishedAt": "2026-10-02T02:44:05Z"
   },
   {
    "id": "RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
@@ -53430,7 +53431,8 @@
     "REV-FIX-RT-AREA-padic-2~2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-2~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5537"
   },
   {
    "id": "REV-FIX-RT-AREA-padic-2~3",
