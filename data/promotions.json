@@ -261,22 +261,22 @@
    ]
   },
   "research/blueprint/packets/AdicEtaleGeometry.json": {
-   "promotedAt": "2026-09-28T15:46:47Z",
-   "review": "41176a02cc56b4d7",
-   "reviewDate": "2026-09-28",
-   "reviewer": "independent-review-REV-AdicEtaleGeometry",
-   "sha256": "83b84ccbd58958b2d07727f9ad6415acd444d7ec985776ca045cb842853e7eb9",
+   "promotedAt": "2026-10-02T04:47:29Z",
+   "review": "3799ea1e23ceff17",
+   "reviewDate": "2026-10-02",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-padic-1~2",
+   "sha256": "99497353570273dc940038827e1a5eef68adcf05099ff390767a11a2f7cc8d45",
    "to": [
     "data/blueprints/AdicEtaleGeometry.json",
     "data/blueprints/AdicEtaleGeometry.md"
    ]
   },
   "research/blueprint/packets/AdicSpacesPartII.json": {
-   "promotedAt": "2026-10-02T04:15:10Z",
-   "review": "57198d8a84a5aada",
+   "promotedAt": "2026-10-02T04:47:29Z",
+   "review": "d7c1b9f45337c704",
    "reviewDate": "2026-10-02",
-   "reviewer": "independent-review-REV-FIX-RT-AREA-padic-2~3",
-   "sha256": "892734ede7ee7a19e6d802c60ce4cecf2eb36cc1f091f51766831c068e8f1dfc",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-padic-1~2",
+   "sha256": "e45a2b12a1dba869acdbe200a2e6034876ace6c72b51a1fa40114c27c12ea6c4",
    "to": [
     "data/blueprints/AdicSpacesPartII.json",
     "data/blueprints/AdicSpacesPartII.md"
