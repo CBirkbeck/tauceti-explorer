@@ -48456,8 +48456,9 @@
     "REV-GlobalGaloisDeformations"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-GlobalGaloisDeformations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4445"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4445",
+   "finishedAt": "2026-10-02T03:30:21Z"
   },
   {
    "id": "RT-BP-HabiroCohomologyFoundations--HQ.1",
@@ -48695,7 +48696,8 @@
     "FIX-RT-BP-K2SymbolsBrauer--T.3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-K2SymbolsBrauer--T.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5558"
   },
   {
    "id": "RT-BP-SmallRamificationAndAbelianVarietyBaseCases",
