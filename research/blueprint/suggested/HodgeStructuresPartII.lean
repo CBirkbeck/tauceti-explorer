@@ -1419,3 +1419,70 @@ end ScalarExtension
 
 
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+/- BEGIN HIGGS COEFFICIENT MAP -/
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+variable {R E Q P T : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E]
+variable [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
+variable [AddCommGroup T] [Module R T]
+
+def affineCoefficientMap (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) :
+    E →ₗ[R] E ⊗[R] P := by sorry
+
+lemma affineCoefficientMap_apply (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) (e : E) :
+    affineCoefficientMap θ u e = TensorProduct.map (LinearMap.id : E →ₗ[R] E) u (θ e) := by sorry
+
+lemma affineCoefficientMap_id (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineCoefficientMap θ (LinearMap.id : Q →ₗ[R] Q) = θ := by sorry
+
+lemma affineCoefficientMap_zero (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineCoefficientMap θ (0 : Q →ₗ[R] P) = 0 := by sorry
+
+lemma affineCoefficientMap_comp (θ : E →ₗ[R] E ⊗[R] Q)
+    (u : Q →ₗ[R] P) (v : P →ₗ[R] T) :
+    affineCoefficientMap (affineCoefficientMap θ u) v = affineCoefficientMap θ (v.comp u) := by sorry
+
+lemma affineOrderedIterate_coefficientMap (θ : E →ₗ[R] E ⊗[R] Q)
+    (u : Q →ₗ[R] P) (n : ℕ) :
+    affineOrderedIterate (affineCoefficientMap θ u) n =
+      (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
+        (PiTensorProduct.map (fun _ : Fin n => u))).comp (affineOrderedIterate θ n) := by sorry
+
+lemma affineOrderedIterate_coefficientMap_zero (θ : E →ₗ[R] E ⊗[R] Q)
+    (u : Q →ₗ[R] P) (n : ℕ) (hz : affineOrderedIterate θ n = 0) :
+    affineOrderedIterate (affineCoefficientMap θ u) n = 0 := by sorry
+
+lemma affineOrderedIterate_coefficientMap_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
+    (u : Q →ₗ[R] P) (v : P →ₗ[R] Q) (hvu : v.comp u = LinearMap.id) (n : ℕ) :
+    affineOrderedIterate (affineCoefficientMap θ u) n = 0 ↔ affineOrderedIterate θ n = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineCoefficientMap.test_identity
+example (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineCoefficientMap θ (LinearMap.id : Q →ₗ[R] Q) = θ := by sorry
+
+-- test: TwistedHiggsBundle.affineCoefficientMap.test_split_all_orders
+example (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    affineOrderedIterate (affineCoefficientMap θ (LinearMap.inl R Q P)) n = 0 ↔
+      affineOrderedIterate θ n = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineCoefficientMap.test_zero_erases
+example :
+    (TensorProduct.rid ℚ ℚ).symm.toLinearMap ≠ 0 ∧
+      affineCoefficientMap (TensorProduct.rid ℚ ℚ).symm.toLinearMap (0 : ℚ →ₗ[ℚ] ℚ) = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineCoefficientMap.test_injective_not_tensor_injective
+example :
+    Function.Injective ((2 : ℤ) • (LinearMap.id : ℤ →ₗ[ℤ] ℤ)) ∧
+    (TensorProduct.rid ℤ (ZMod 2)).symm.toLinearMap ≠ 0 ∧
+    affineCoefficientMap (TensorProduct.rid ℤ (ZMod 2)).symm.toLinearMap
+      ((2 : ℤ) • (LinearMap.id : ℤ →ₗ[ℤ] ℤ)) = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineCoefficientMap.test_zero_degree
+example (θ : ℚ →ₗ[ℚ] ℚ ⊗[ℚ] ℚ) (u : ℚ →ₗ[ℚ] ℚ) :
+    affineOrderedIterate (affineCoefficientMap θ u) 0 ≠ 0 := by sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+/- END HIGGS COEFFICIENT MAP -/
