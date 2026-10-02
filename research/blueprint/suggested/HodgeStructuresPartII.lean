@@ -5,7 +5,7 @@ forms so that contributors and reviewers converge on names and signatures.
 Partial continuation for DESIGN-HodgeStructuresPartII, issue #3371.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-AUGMENTATION GENERATOR CONTINUATION: all suggested declaration, API and test
+ORDERED TENSOR-POWER CONTINUATION: all suggested declaration, API and test
 bodies are admitted planning sketches under PROTOCOL section 13. Historical
 actual affine proofs are retained at commit
 9a36f4d1d6743c0202f12020c0df603400149faa, with their own immutable receipts.
@@ -52,6 +52,8 @@ import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.RingTheory.Ideal.Operations
 
 import Mathlib.Data.ZMod.Basic
+import Mathlib.LinearAlgebra.TensorPower.Pairing
+import Mathlib.LinearAlgebra.PiTensorProduct.Basis
 
 noncomputable section
 open scoped Matrix
@@ -973,6 +975,84 @@ example :
     affineContractions (affineOrderedSquare θ)
         ((TensorProduct.lid ℚ ℚ).toLinearMap.comp (TensorProduct.map v w)) ≠
       affineContractions θ w * affineContractions θ v := by sorry
+
+/- Native all-order affine continuation. General sheaf comparison remains open. -/
+noncomputable def affineOrderedStep (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    (E ⊗[R] (⨂[R]^n Q)) →ₗ[R] E ⊗[R] (⨂[R]^(n+1) Q) := sorry
+
+noncomputable def affineOrderedIterate (θ : E →ₗ[R] E ⊗[R] Q) :
+    (n : ℕ) → E →ₗ[R] E ⊗[R] (⨂[R]^n Q) := sorry
+
+theorem affineOrderedIterate_zero (θ : E →ₗ[R] E ⊗[R] Q) (e : E) :
+    affineOrderedIterate θ 0 e = e ⊗ₜ[R]
+      (TensorPower.algebraMap₀ (R := R) (M := Q) 1) := sorry
+
+theorem affineOrderedIterate_succ (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    affineOrderedIterate θ (n+1) = (affineOrderedStep θ n).comp
+      (affineOrderedIterate θ n) := sorry
+
+theorem affineOrderedStep_contraction (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ)
+    (η : E →ₗ[R] E ⊗[R] (⨂[R]^n Q)) (v : Module.Dual R Q)
+    (vs : Fin n → Module.Dual R Q) :
+    affineContractions ((affineOrderedStep θ n).comp η)
+      (TensorPower.multilinearMapToDual R Q (n+1) (Fin.cons v vs)) =
+      affineContractions θ v *
+        affineContractions η (TensorPower.multilinearMapToDual R Q n vs) := sorry
+
+theorem affineOrderedIterate_contraction (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ)
+    (vs : Fin n → Module.Dual R Q) :
+    affineContractions (affineOrderedIterate θ n)
+      (TensorPower.multilinearMapToDual R Q n vs) =
+      (List.ofFn (fun i => affineContractions θ (vs i))).prod := sorry
+
+theorem affineTensorPower_coordinate {I : Type*} [Fintype I]
+    (b : Module.Basis I R Q) (n : ℕ) (p : Fin n → I) :
+    (Basis.piTensorProduct (fun _ : Fin n => b)).coord p =
+      TensorPower.multilinearMapToDual R Q n (fun i => b.coord (p i)) := sorry
+
+theorem affineOrderedIterate_eq_zero_iff {I : Type*} [Fintype I]
+    (b : Module.Basis I R Q) (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    affineOrderedIterate θ n = 0 ↔ ∀ p : Fin n → I,
+      (List.ofFn (fun i => affineContractions θ (b.coord (p i)))).prod = 0 := sorry
+
+theorem affineOrderedStep_zero (n : ℕ) :
+    affineOrderedStep (0 : E →ₗ[R] E ⊗[R] Q) n = 0 := sorry
+
+theorem affineOrderedStep_add (θ η : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    affineOrderedStep (θ+η) n = affineOrderedStep θ n + affineOrderedStep η n := sorry
+
+theorem affineOrderedIterate_zero_field (n : ℕ) :
+    affineOrderedIterate (0 : E →ₗ[R] E ⊗[R] Q) (n+1) = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_unit_boundary
+example (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineContractions (affineOrderedIterate θ 0)
+      (TensorPower.multilinearMapToDual R Q 0 Fin.elim0) = LinearMap.id := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_zero
+example (n : ℕ) : affineOrderedIterate (0 : E →ₗ[R] E ⊗[R] Q) (n+1) = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_scalar_nonzero
+example [Nontrivial R] (n : ℕ) :
+    affineOrderedIterate ((TensorProduct.rid R R).symm.toLinearMap) n ≠ 0 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_nonreduced_nilpotent
+example :
+    let θ : (ZMod 4) →ₗ[ZMod 4] (ZMod 4) ⊗[ZMod 4] (ZMod 4) :=
+      (2 : ZMod 4) • (TensorProduct.rid (ZMod 4) (ZMod 4)).symm.toLinearMap
+    affineOrderedIterate θ 2 = 0 ∧ θ ≠ 0 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedStep.test_zero
+example (n : ℕ) : affineOrderedStep (0 : E →ₗ[R] E ⊗[R] Q) n = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedStep.test_empty_coefficients
+example [Subsingleton Q] (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    affineOrderedStep θ n = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedStep.test_scalar_nonzero
+example [Nontrivial R] (n : ℕ) :
+    affineOrderedStep ((TensorProduct.rid R R).symm.toLinearMap) n ≠ 0 := sorry
+
 /-- Affine adapter for the existing symmetric algebra, into actual endomorphisms.
 Global sheaf algebra/endomorphism and restriction coherence are supplied by E1.
 The affine lift uses existing native TensorAlgebra and RingCon objects. -/
