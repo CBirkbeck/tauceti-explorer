@@ -1716,6 +1716,168 @@ example (J : GrothendieckTopology C) [F.IsPrestack J]
     (x : F.obj (.mk (op U))) [Subsingleton (Aut x)] :
     coverAut F J R hR z hz x = 1 := by sorry
 
+/-- R09.4/band-center-cover-naturality: compare every fibre morphism on the cover. -/
+lemma coverAut_naturality (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    {x y : F.obj (.mk (op U))} (f : x ⟶ y) :
+    f ≫ (coverAut F J R hR z hz y).hom =
+      (coverAut F J R hR z hz x).hom ≫ f := by
+  apply (F.isPrestackFor' R hR).fullyFaithful.map_injective
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  change (F.map i.obj.hom.op.toLoc).toFunctor.map
+      (f ≫ (coverAut F J R hR z hz y).hom) =
+    (F.map i.obj.hom.op.toLoc).toFunctor.map
+      ((coverAut F J R hR z hz x).hom ≫ f)
+  rw [Functor.map_comp, Functor.map_comp, coverAut_map_hom, coverAut_map_hom]
+  exact (val F (z i) i.obj.left (𝟙 i.obj.left)).val.naturality
+    ((F.map i.obj.hom.op.toLoc).toFunctor.map f)
+
+/-- R09.4/band-center-cover-inverse: descend the inverse family with its matching proof. -/
+lemma coverAut_inv (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (x : F.obj (.mk (op U))) :
+    coverAut F J R hR (fun i => (z i)⁻¹)
+      (fun i j g => by rw [map_inv, hz]) x = (coverAut F J R hR z hz x)⁻¹ := by
+  symm
+  apply coverAut_unique
+  intro i
+  have he : (F.map i.obj.hom.op.toLoc).toFunctor.mapIso
+      (coverAut F J R hR z hz x) =
+      eval F (𝟙 i.obj.left) ((F.map i.obj.hom.op.toLoc).toFunctor.obj x) (z i) := by
+    apply Iso.ext
+    exact coverAut_map_hom F J R hR z hz x i
+  rw [map_inv]
+  exact congrArg Iso.inv he
+
+/-- R09.4/band-center-cover-center: the actual unit of the centre of F(U). -/
+noncomputable def coverCenter (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i) :
+    (CatCenter (F.obj (.mk (op U))))ˣ :=
+  (Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op U))))).symm
+    (NatIso.ofComponents (fun x => coverAut F J R hR z hz x)
+      (fun f => coverAut_naturality F J R hR z hz f))
+
+lemma coverCenter_app_hom (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (x : F.obj (.mk (op U))) :
+    (coverCenter F J R hR z hz).val.app x =
+      (coverAut F J R hR z hz x).hom := rfl
+
+lemma coverCenter_app_inv (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (x : F.obj (.mk (op U))) :
+    (coverCenter F J R hR z hz).inv.app x =
+      (coverAut F J R hR z hz x).inv := rfl
+
+lemma coverCenter_map_hom (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (x : F.obj (.mk (op U))) (i : R.arrows.category) :
+    (F.map i.obj.hom.op.toLoc).toFunctor.map ((coverCenter F J R hR z hz).val.app x) =
+      (val F (z i) i.obj.left (𝟙 i.obj.left)).val.app
+        ((F.map i.obj.hom.op.toLoc).toFunctor.obj x) :=
+  coverAut_map_hom F J R hR z hz x i
+
+lemma coverCenter_one (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U) :
+    coverCenter F J R hR (fun _ => 1) (fun _ _ _ => map_one _) = 1 := by
+  apply Units.ext
+  apply CatCenter.ext
+  intro x
+  exact congrArg Iso.hom (coverAut_one F J R hR x)
+
+lemma coverCenter_inv (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i) :
+    coverCenter F J R hR (fun i => (z i)⁻¹)
+      (fun i j g => by rw [map_inv, hz]) = (coverCenter F J R hR z hz)⁻¹ := by
+  apply Units.ext
+  apply CatCenter.ext
+  intro x
+  exact congrArg Iso.hom (coverAut_inv F J R hR z hz x)
+
+/-- Uniqueness requires local component agreement at every x, not one chosen object. -/
+lemma coverCenter_unique (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (a : (CatCenter (F.obj (.mk (op U))))ˣ)
+    (ha : ∀ (x : F.obj (.mk (op U))) (i : R.arrows.category),
+      (F.map i.obj.hom.op.toLoc).toFunctor.map (a.val.app x) =
+        (val F (z i) i.obj.left (𝟙 i.obj.left)).val.app
+          ((F.map i.obj.hom.op.toLoc).toFunctor.obj x)) :
+    a = coverCenter F J R hR z hz := by
+  apply Units.ext
+  apply CatCenter.ext
+  intro x
+  exact congrArg Iso.hom (coverAut_unique F J R hR z hz x
+    ((Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op U)))) a).app x) (ha x))
+
+lemma coverCenter_existing (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U) (s : IntrinsicBandSection F U) :
+    coverCenter F J R hR (fun i => restrict F i.obj.hom s)
+      (fun i j g => by rw [restrict_comp, Over.w g.hom]) = val F s U (𝟙 U) := by
+  symm
+  apply coverCenter_unique
+  intro x i
+  simpa only [restrict_apply, Category.comp_id, Category.id_comp] using
+    compatible F s U i.obj.left (𝟙 U) i.obj.hom x
+
+-- BandCenterCoverTests.center_one
+example (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U) :
+    coverCenter F J R hR (fun _ => 1) (fun _ _ _ => map_one _) = 1 :=
+  coverCenter_one F J R hR
+
+-- BandCenterCoverTests.center_inverse
+example (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i) :
+    coverCenter F J R hR (fun i => (z i)⁻¹)
+      (fun i j g => by rw [map_inv, hz]) = (coverCenter F J R hR z hz)⁻¹ :=
+  coverCenter_inv F J R hR z hz
+
+-- BandCenterCoverTests.center_existing
+example (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U) (s : IntrinsicBandSection F U) :
+    coverCenter F J R hR (fun i => restrict F i.obj.hom s)
+      (fun i j g => by rw [restrict_comp, Over.w g.hom]) = val F s U (𝟙 U) :=
+  coverCenter_existing F J R hR s
+
+-- BandCenterCoverTests.center_empty_fibre
+example (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U) [IsEmpty (F.obj (.mk (op U)))]
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i) : coverCenter F J R hR z hz = 1 := by
+  apply Units.ext
+  apply CatCenter.ext
+  intro x
+  exact isEmptyElim x
+
 /-- R09.4/band-center-sheaf: glue hom AND inverse via existing Hom sheaves. -/
 theorem isSheaf (J : GrothendieckTopology C) [F.IsPrestack J]
     (hIso : ∀ (U : C) {x y : F.obj (.mk (op U))} (f : x ⟶ y), IsIso f) :
