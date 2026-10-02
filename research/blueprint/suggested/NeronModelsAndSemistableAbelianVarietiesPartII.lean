@@ -19,6 +19,10 @@ import Mathlib.AlgebraicGeometry.Limits
 import Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion
 import Mathlib.AlgebraicGeometry.Morphisms.Finite
 import Mathlib.AlgebraicGeometry.Morphisms.Flat
+import Mathlib.AlgebraicGeometry.Morphisms.OpenImmersion
+import Mathlib.AlgebraicGeometry.Morphisms.QuasiSeparated
+import Mathlib.AlgebraicGeometry.Morphisms.UniversallyClosed
+import Mathlib.AlgebraicGeometry.Morphisms.UniversallyInjective
 import Mathlib.AlgebraicGeometry.Morphisms.Proper
 import Mathlib.AlgebraicGeometry.Morphisms.Smooth
 import Mathlib.CategoryTheory.Limits.Shapes.Pullback.IsPullback.Defs
@@ -197,10 +201,50 @@ lemma of_affine {B C A' : CommRingCat.{u}} (p : B ⟶ C) (q : A' ⟶ C)
       (Spec.map (CommRingCat.pullbackCone p q).fst)
       (Spec.map (CommRingCat.pullbackCone p q).snd) := by sorry
 
+/-- Finite Ferrand pinching or the full Scheme case of Witaszek 2.17 and 2.25.
+Representability is automatic in Scheme. The second alternative is not assumed finite. -/
 lemma lift (h : GeometricPushout i g a b)
-    (hi : IsClosedImmersion i) (hg : IsFinite g)
+    (hdatum : (IsClosedImmersion i ∧ IsFinite g) ∨
+      (QuasiCompact i ∧ QuasiSeparated i ∧
+        UniversallyInjective g ∧ UniversallyClosed g ∧ Surjective g ∧
+        UniversallyInjective a ∧ UniversallyClosed a ∧ Surjective a))
     {T : Scheme.{u}} (y : Y ⟶ T) (z : Z' ⟶ T) (hc : i ≫ y = g ≫ z) :
     ∃! m : P ⟶ T, a ≫ m = y ∧ b ≫ m = z := by sorry
+
+/-- The actual three cartesian base changes and all maps of their induced square.
+The first alternative is finite Ferrand pinching. The second is Witaszek's qcqs
+universal-homeomorphism case; no finiteness is added to that alternative.
+Universally closed, universally injective and surjective means universal
+homeomorphism. Representability is automatic for the Scheme carrier.
+Sources: Temkin--Tyomkin 3.2.4(ii), 6.3.2(i); Witaszek 2.17 and 2.23. -/
+lemma flat_baseChange (h : GeometricPushout i g a b)
+    (hdatum : (IsClosedImmersion i ∧ IsFinite g) ∨
+      (QuasiCompact i ∧ QuasiSeparated i ∧
+        UniversallyInjective g ∧ UniversallyClosed g ∧ Surjective g ∧
+        UniversallyInjective a ∧ UniversallyClosed a ∧ Surjective a))
+    {Z1 Y1 Z1' P1 : Scheme.{u}}
+    (q : P1 ⟶ P) (hq : Flat q)
+    (i1 : Z1 ⟶ Y1) (g1 : Z1 ⟶ Z1') (a1 : Y1 ⟶ P1) (b1 : Z1' ⟶ P1)
+    (z : Z1 ⟶ Z) (y : Y1 ⟶ Y) (z' : Z1' ⟶ Z')
+    (hc : i1 ≫ a1 = g1 ≫ b1)
+    (hi : i1 ≫ y = z ≫ i) (hg : g1 ≫ z' = z ≫ g)
+    (hY : IsPullback y a1 a q) (hZ' : IsPullback z' b1 b q)
+    (hZ : IsPullback z (i1 ≫ a1) (i ≫ a) q) :
+    GeometricPushout i1 g1 a1 b1 := by sorry
+
+/-- Scheme specialization of Witaszek Definition 2.17. Under the retained qcqs
+and universal-homeomorphism hypotheses the topological pushout condition is
+a consequence, while the structure-sheaf pullback remains essential.
+The right side is the actual section-ring condition on every open, not an
+unconstrained predicate naming that condition. -/
+lemma witaszek_iff (hc : i ≫ a = g ≫ b)
+    [QuasiCompact i] [QuasiSeparated i]
+    [UniversallyInjective g] [UniversallyClosed g] [Surjective g]
+    [UniversallyInjective a] [UniversallyClosed a] [Surjective a] :
+    GeometricPushout i g a b ↔
+      ∀ U : P.Opens, IsPullback (a.app U) (b.app U)
+        (i.appLE (a ⁻¹ᵁ U) ((i ≫ a) ⁻¹ᵁ U) (by sorry))
+        (g.appLE (b ⁻¹ᵁ U) ((i ≫ a) ⁻¹ᵁ U) (by sorry)) := by sorry
 
 -- GeometricPushout.node: the affine ring in the split-node example.
 example (k : Type u) [Field k] (h : (2 : k) ≠ 0) :
@@ -218,13 +262,61 @@ example (k : Type u) [Field k] :
 example (h : GeometricPushout i g a b) [IsClosedImmersion i] [IsFinite g] [IsIso g] :
     IsIso a := by sorry
 
--- GeometricPushout.topological_not_geometric: the missing ring section is made explicit.
--- The signature asserting failure of the associated geometric square is in the omission ledger.
+-- Monomial witness for GeometricPushout.topological_not_geometric below.
 example (k : Type u) [Field k] :
     Polynomial.X ^ 3 ∉
       Algebra.adjoin k ({Polynomial.X ^ 2, Polynomial.X ^ 5} : Set k[X]) := by sorry
 
+-- GeometricPushout.topological_not_geometric: the full actual Scheme square.
+-- Its section-ring pullback contains the compatible pair (X^3,0), missing from S.
+example (k : Type u) [Field k] :
+    let S : Subring k[X] :=
+      (Algebra.adjoin k ({Polynomial.X ^ 2, Polynomial.X ^ 5} : Set k[X])).toSubring
+    let I : Ideal k[X] := Ideal.span ({Polynomial.X ^ 2} : Set k[X])
+    let p : k[X] →+* (k[X] ⧸ I) := Ideal.Quotient.mk I
+    let q : k →+* (k[X] ⧸ I) := p.comp Polynomial.C
+    let e : S →+* k := (Polynomial.evalRingHom (0 : k)).comp S.subtype
+    let i := Spec.map (CommRingCat.ofHom p)
+    let g := Spec.map (CommRingCat.ofHom q)
+    let a := Spec.map (CommRingCat.ofHom S.subtype)
+    let b := Spec.map (CommRingCat.ofHom e)
+    IsPushout (Scheme.forgetToTop.map i) (Scheme.forgetToTop.map g)
+        (Scheme.forgetToTop.map a) (Scheme.forgetToTop.map b) ∧
+      (UniversallyInjective a ∧ UniversallyClosed a ∧ Surjective a) ∧
+      (UniversallyInjective g ∧ UniversallyClosed g ∧ Surjective g) ∧
+      ¬ GeometricPushout i g a b := by sorry
+
 end GeometricPushout
+
+namespace FerrandPushout
+
+/-- Complements are actual open subschemes, specified by their open immersions
+and image sets. The result is the unique scheme isomorphism commuting with
+those immersions and a, not merely a bijection of the underlying complements.
+Source: Temkin--Tyomkin 3.2.4(iii), 4.4.2(iii). -/
+lemma complementIso (h : GeometricPushout i g a b)
+    (hi : IsClosedImmersion i) (hg : IsFinite g)
+    {U V : Scheme.{u}} (jU : U ⟶ Y) (jV : V ⟶ P)
+    [IsOpenImmersion jU] [IsOpenImmersion jV]
+    (hU : Set.range jU = (Set.range i)ᶜ)
+    (hV : Set.range jV = (Set.range b)ᶜ) :
+    ∃! e : U ≅ V, e.hom ≫ jV = jU ≫ a := by sorry
+
+/-- The full affine conductor square in native Scheme and ring-map carriers.
+No birational hypothesis is imposed. The finite, reduced and Noetherian
+hypotheses match the geometric API, not the unconditional ring reconstruction.
+Sources: Witaszek Definition 2.27; G.0/conductor-ring-cartesian and affine-existence. -/
+lemma conductor {B : Type u} [CommRing B] [IsReduced B] [IsNoetherianRing B]
+    (S : Subring B) [IsReduced S] [IsNoetherianRing S] (hfin : S.subtype.Finite) :
+    GeometricPushout
+      (Spec.map (CommRingCat.ofHom (Ideal.Quotient.mk S.conductor)))
+      (Spec.map (CommRingCat.ofHom
+        (Ideal.quotientMap S.conductor S.subtype le_rfl)))
+      (Spec.map (CommRingCat.ofHom S.subtype))
+      (Spec.map (CommRingCat.ofHom
+        (Ideal.Quotient.mk (S.conductor.comap S.subtype)))) := by sorry
+
+end FerrandPushout
 
 /-- Affine Ferrand existence in the actual Scheme carrier: G.0/affine-existence.
 The universal property is in schemes; extension to algebraic-space targets is a separate
@@ -426,17 +518,13 @@ This ledger is part of the partial-signature gap, not a claim that commented dec
 elaborate. It records each missing full form by its packet name. No `True` surrogate theorem,
 invented opaque predicate, or unconstrained proposition field replaces the missing conditions.
 
-* GeometricPushout.flat_baseChange: the four actual scheme pullbacks, their induced maps and
-  qcqs flat pushforward comparison; retain the Ferrand or complete Witaszek hypotheses.
-* GeometricPushout.witaszek_iff: the actual qcqs and representable universal-homeomorphism
-  predicate from SF.1, and Witaszek's sheaf square. General squares are not all radicial.
-* FerrandPushout.complementIso: the actual open-subscheme complements and induced isomorphism.
-* FerrandPushout.conductor: conductor quotient diagrams of reduced Noetherian finite inclusions,
-  with the exact quotient/subring ring maps and their Spec comparison.
+The Scheme forms of GeometricPushout.lift, flat_baseChange, witaszek_iff,
+FerrandPushout.complementIso and conductor, and the full topological_not_geometric test
+now appear above. Their algebraic-space extensions remain in the SF.1/SF.3 boundary:
+these Scheme forms do not replace small-etale-site statements or space-valued targets.
+
 * GeometricPushout.nonsplit_node: the pinched proper curve, its normalization and conductor,
   the separable quadratic point and its two conjugate geometric branches.
-* GeometricPushout.topological_not_geometric: the full universal-homeomorphism square for
-  k[t²,t⁵] and V(t²)→Spec k fails the section-ring pullback. The missing t³ test appears above.
 
 * GenusOneFibration: dimension2/1, geometric integrality, the contraction, actual generic-fiber
   regularity and coherent genus, relative minimality and the Jacobian's zero-section are omitted
@@ -492,7 +580,8 @@ scheme-existence signature appears above; these names locate all remaining named
 
 * G.0/affine-existence: ferrand_affine_existence above is now the full actual Scheme form;
   universality against algebraic-space targets remains in the new space ledger below.
-* G.0/conductor-square: the canonical conductor pullback and geometric quotient comparison.
+* G.0/conductor-square: the affine geometric form is FerrandPushout.conductor above;
+  global conductor-subsheme gluing and its canonical cartesian comparison remain omitted.
 * G.1/canonical-type-classification: full geometric Kodaira incidence, not just the root graph.
 * G.1/five-f2-classes: actual pointed elliptic-curve isomorphism classes, not coefficient equality.
 * G.2/transverse-divisor: regular horizontal DVR Cartier divisor, intersection Spec k, length m.
