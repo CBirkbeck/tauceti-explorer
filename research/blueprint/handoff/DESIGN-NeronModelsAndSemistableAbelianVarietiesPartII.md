@@ -1,3 +1,161 @@
+# Quadratic normal forms and native generation — current checkpoint
+
+Codex — `codex-a71f92`. Refs #3378. 2 October2026.
+Bot-confirmed claim5957071769 /5957074220; whole issue reread.
+Immutable read base: `d0ee3b9e6c08178c5731865831db82b409306dbb`.
+
+Partial checkpoint, not a completed blueprint or a formalisation. Four new
+lemma nodes make the quadratic polynomial decomposition and parity/uniqueness
+arguments declaration-sized. The existing algebra gains one actual polynomial
+spanning API and three characteristic-two/degree-boundary tests. Its generation
+adjoin equality and cusp test now have native proofs. All154 inherited IDs and
+mathematical statements are preserved;151 inherited node objects are unchanged.
+The three refined objects are algebra, generation and presentation.
+
+Inventory:158 nodes (12 definitions,3 constructions,112 lemmas,26 theorems,
+5 comparisons);61 API items,60 definition/construction unit tests,29 planets,
+98 exact-pin baseline declarations,17 gap groups and23 requests. Seven partial
+stages,78 routed items and21 source findings remain. Every implementation status
+is unchecked. No planet or route changes.
+
+## Mathematical advance and exact boundary
+
+Write q=t²+at+b. Native polynomial induction gives h=P(q)+tQ(q).
+The multiplication-by-t update is
+(P,Q) ↦ ((t−b)Q,P−aQ), verified using t²=q−at−b.
+The nonzero second summand has odd degree; P(q) has even natural degree.
+This proves injectivity of (P,Q)↦P(q)+tQ(q). Applying it to (P,tQ)
+and cancelling t proves injectivity of (P,Q)↦P(q)+tqQ(q).
+These statements include characteristic2, repeated roots and inseparable
+quadratics; no separability assumption is inserted.
+
+For f=c+qh in the already owned A_q, this yields
+f=(C(c)+tP)(q)+tqQ(q). Native aeval into the actual subalgebra
+k[q,tq] proves inclusion, and native adjoin_le proves the reverse inclusion.
+The cusp equality is the a=b=0 instance.
+
+The existing generation statement also specifies a vector-space basis and all
+its degrees. Its complete native Basis/coefficient interface remains omitted,
+with the full mathematical proof outline preserved in the packet/reader.
+The full presentation signature remains admitted: the new injectivity helper
+certifies zero coordinates of a chosen remainder, not native bivariate division,
+range/kernel equality or the canonical quotient isomorphism. Finite inclusion
+is still admitted; fraction-field/normalization and all global geometric,
+nodal, P¹/cohomological and finite-extension count exports remain open.
+The final native omission ledger names these exact interfaces.
+
+The reserved general Ferrand key node is unchanged. This is a coordinate
+consumer refinement, not a new general polynomial/subalgebra/normalization
+carrier. Existing supplier requests and all source findings are unchanged.
+
+## Fresh evidence and provenance
+
+Read the current WORKERS, PROTOCOL, expansion source-faithfulness rules and
+UPSTREAM_GUIDE. The two previously read nearby upstream roadmaps remain the
+style guides; no fresh rereading receipt is claimed. Read all154 current
+mathematical statements and focused definition/API/native contracts.
+
+Read the reviewed parent R11.1–R11.6 and SF.0 rows (AUDIT01/10 accepted reviews),
+the reserved Ferrand entry, Schröer's routed brief and78 item IDs, current
+atlas parent/SF.0 descriptions, and accepted RS-25 parent/supplier owner records.
+Current atlas extracts and blueprint links contain no PartII stage-edge/link
+entry. No atlas, supplier or audit file is changed.
+
+Fresh parsed reading: Schröer v3 §3, printed pp9–11, its conductor squares and
+displayed Proposition3.1–3.2 proofs; Stacks0ECH Situation37.67.1 and1–5 with
+displayed proofs. PDF screenshot attempts failed; no fresh visual diagram audit,
+whole-paper reading or full Ferrand reread is claimed. New normal-form statements
+are derived coordinate adapters, not attributed as printed source lemmas.
+Public receipts:
+[Schröer v3](https://arxiv.org/pdf/2004.07025v3), SHA-256
+`ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61`;
+[Stacks0ECH](https://stacks.math.columbia.edu/tag/0ECH), SHA-256
+`f463dad9e8b6d26c33a0648fe580b0353831006054091d44fb47009579b78c14`.
+The nine newly cited baseline declarations' full statements and ambient
+hypotheses were read at Mathlib082e2d3. The native AdjoinRoot power-basis
+construction was inspected as a near-match: it concerns k[t]/(q), not the
+composed-polynomial subalgebra or the pinching normal forms.
+
+All preceding receipts remain attributed. In particular, the preserved
+projective checkpoint below and its133,830 finite assertions were not rerun.
+No new finite-model experiment is claimed; the three added tests are actual
+native Lean examples, including a counterexample when q=t.
+
+## Exact elaboration and proof-axiom audit
+
+An existing Mathlib build at the exact082e2d37e8b0463410cdb532e111cd43d5a66174
+pin was reused. No build/project/cache installation or Lean language server
+was started. Available memory was71GB; one Lean process ran at a time.
+Both commands exited0: extraction2.19s; axiom audit2.24s.
+Twenty examples; zero errors; six warnings, all inherited admitted declarations.
+Full combined-file compilation is false: required Tau Ceti artifacts are absent.
+
+Extraction recipe from the published suggested file: retain all individual
+Mathlib import lines, add Lean.Elab.Tactic.Omega, the same open statements,
+universe and noncomputable section; append the actual Subring namespace through
+its end before AffinePinching; append the final QuadraticPinch namespace
+through finite_normalization, stopping before the proper-point-pushout marker;
+close that namespace. Do not include earlier geometry, finite-F₂ or global
+conductor blocks; do not replace any carrier/import with a mock. Only blank-line
+normalization is immaterial to the excerpt-parity check.
+
+SHA-256 receipts:
+suggested `6dce27f48b79cf0fa8fabc69a65aaf76ebb1d97e94ff537504509434da61d274`;
+extraction `d571654115830d41149a0c64de7d40ec45b7287113bc4af7397e1d33d802face`;
+audit source `cb9eff36522333db28498fc8d47b7ac7ba6794c78bfe951944f94b87fce37844`;
+normalized extraction log
+`0a4f3a6420875c2fb54633cc0964905afc9063ef60fe3f1ef863f69372073712`;
+normalized axiom log
+`ebaa01f4877eb25f03fe31d3db34a7b9202da4fe23d043588e4bfd62f495e3a6`.
+
+The six admitted declarations are the old Subring cusp/node tests, quadratic
+split/F₄ tests, presentation and finite inclusion. The new/proved
+exists_normal_form, normal_form_degrees, normal_form_injective,
+pinch_normal_form_injective, pinch_spanning and generation declarations each
+depend only on propext, Classical.choice and Quot.sound; no admitted axiom
+dependency. The exact normalized audit log is preserved here:
+
+```text
+Audit.lean:87:0: warning: declaration uses `sorry`
+Audit.lean:92:0: warning: declaration uses `sorry`
+Audit.lean:293:0: warning: declaration uses `sorry`
+Audit.lean:297:0: warning: declaration uses `sorry`
+Audit.lean:460:6: warning: declaration uses `sorry`
+Audit.lean:494:6: warning: declaration uses `sorry`
+'TauCeti.GenusOne.QuadraticPinch.exists_normal_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normal_form_degrees' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normal_form_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.pinch_normal_form_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.pinch_spanning' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.generation' depends on axioms: [propext, Classical.choice, Quot.sound]
+```
+
+## Validation and continuation
+
+Actual pinned-tree checker: zero errors and zero warnings. Actual intake path,
+JSON and privacy checks passed. Exact native excerpt/API/test parity passed.
+Both the original read base and publication-parent1197be4c4c5ee30267a64a8d85aef8ff67abff8f
+passed actual atlas assembly:2992 stages,8727 edges, acyclic;158 declarations,
+29 planets, no pending or skipped links. All55 expected supplier-stage edges
+are present. The combined backward dependency graph reaches504 vertices and
+is acyclic;411 own declaration edges. The whole predecessor handoff is preserved
+byte-for-byte modulo its final newline; all154 mathematical statements survive.
+All five target blobs were unchanged at the fresh publication parent; current
+protocols, reviewed audit, atlas snapshot and checker/intake/build scripts were
+also unchanged. Roadmap definition is untouched; only four deliverables change.
+Keep every gap open. The next mathematical work should construct
+the native Basis/representation interface and integrate the full existing
+presentation argument using actual bivariate division and quotient maps.
+Then integrate the preserved projective/cohomological proof into declaration-sized
+nodes and exact supplier requests. Do not claim the projective surface/model
+classification closed.
+
+The earlier complete projective checkpoint and its reproduction program follow
+unchanged. Its “current” language refers to that historical checkpoint, not to
+a fresh execution by this worker.
+
+---
+
 # Quadratic pinching: projective models, branches and cohomology
 
 Agent: ChatGPT — `gpt6astra-20261002-7d2f90`. Refs #3378.

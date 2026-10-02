@@ -4,8 +4,10 @@ definitive. These statements suggest Lean forms so contributors and reviewers ca
 on names and signatures. Nothing here claims an implementation.
 
 Pinned baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
-TauCeti f790474821cf4256814db967cb154e7af3d0c369. NOT COMPILED: no existing build at
-these commits was available. Every proof is a prototype `sorry`.
+TauCeti f790474821cf4256814db967cb154e7af3d0c369. The full combined file is NOT
+COMPILED: required Tau Ceti artifacts are unavailable. An exact Mathlib-only affine
+extraction is checked at the Mathlib pin; its six warnings are inherited `sorry`
+declarations. Native proof bodies are planning prototypes, not implementation claims.
 
 The packet is partial. Missing geometric conditions are explicitly omitted, never represented
 by arbitrary proposition parameters or a definition of a proposition by `sorry`. The final
@@ -51,6 +53,11 @@ import Mathlib.Algebra.Polynomial.RingDivision
 import Mathlib.Algebra.Algebra.Subalgebra.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.NormNum
+import Mathlib.Algebra.Polynomial.Degree.Lemmas
+import Mathlib.Algebra.Polynomial.AlgebraMap
+import Mathlib.Algebra.Algebra.Subalgebra.Lattice
+import Mathlib.Tactic.LinearCombination
+import Lean.Elab.Tactic.Omega
 
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
 open scoped Polynomial
@@ -678,7 +685,8 @@ The two test contracts above remain omissions, not Scheme-only substitutes for s
 GeometricPushout above is the actual Scheme specialization; the general algebraic-space
 extension must use its small étale structure sheaf, not only Zariski-open section rings.
 The affine theorem above closes the old affine-signature omission only. This file remains
-NOT COMPILED at either pin, with every proof a prototype.
+Historical receipt for this earlier block: NOT COMPILED at either pin. The current
+check covers only the actual Subring and final QuadraticPinch affine namespaces.
 -/
 
 
@@ -1017,14 +1025,158 @@ lemma mem_algebra (q f : k[X]) :
 lemma constants (q : k[X]) (c : k) : Polynomial.C c ∈ algebra q := by
   exact (mem_algebra q _).mpr ⟨c, 0, by simp⟩
 
+-- node: G.1/quadratic-normal-form-exists
+lemma exists_normal_form (a b : k) (h : k[X]) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    ∃ P Q : k[X], h = P.comp q + Polynomial.X * Q.comp q := by
+  dsimp
+  let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+  change ∃ P Q : k[X], h = P.comp q + Polynomial.X * Q.comp q
+  induction h using Polynomial.induction_on with
+  | C c => exact ⟨Polynomial.C c, 0, by simp⟩
+  | add f g hf hg =>
+    obtain ⟨P, Q, hP⟩ := hf
+    obtain ⟨R, S, hR⟩ := hg
+    exact ⟨P + R, Q + S, by simp only [Polynomial.add_comp]; rw [hP, hR]; ring⟩
+  | monomial n c ih =>
+    obtain ⟨P, Q, hP⟩ := ih
+    refine ⟨(Polynomial.X - Polynomial.C b) * Q,
+      P - Polynomial.C a * Q, ?_⟩
+    rw [pow_succ, ← mul_assoc, hP]
+    simp only [Polynomial.mul_comp, Polynomial.sub_comp, Polynomial.X_comp,
+      Polynomial.C_comp]
+    dsimp [q]
+    ring
+
+-- node: G.1/quadratic-normal-form-degrees
+lemma normal_form_degrees (q P Q : k[X]) (hd : q.natDegree = 2) (hQ : Q ≠ 0) :
+    (P.comp q).natDegree = 2 * P.natDegree ∧
+      (Polynomial.X * Q.comp q).natDegree = 2 * Q.natDegree + 1 := by
+  have hn : Q.comp q ≠ 0 := by
+    intro hz
+    rcases Polynomial.comp_eq_zero_iff.mp hz with hz | ⟨_, hc⟩
+    · exact hQ hz
+    · have hh := congrArg Polynomial.natDegree hc
+      simp [hd] at hh
+  constructor
+  · rw [Polynomial.natDegree_comp, hd, Nat.mul_comm]
+  · rw [Polynomial.natDegree_X_mul hn, Polynomial.natDegree_comp, hd, Nat.mul_comm]
+
+-- node: G.1/quadratic-normal-form-injective
+lemma normal_form_injective (q : k[X]) (hd : q.natDegree = 2) :
+    Function.Injective (fun z : k[X] × k[X] => z.1.comp q + Polynomial.X * z.2.comp q) := by
+  have hzero (P Q : k[X]) (hz : P.comp q + Polynomial.X * Q.comp q = 0) :
+      P = 0 ∧ Q = 0 := by
+    have hQ : Q = 0 := by
+      by_contra hne
+      obtain ⟨hPdeg, hQdeg⟩ := normal_form_degrees q P Q hd hne
+      have he : P.comp q = -(Polynomial.X * Q.comp q) := eq_neg_of_add_eq_zero_left hz
+      have hh := congrArg Polynomial.natDegree he
+      rw [Polynomial.natDegree_neg, hPdeg, hQdeg] at hh
+      omega
+    have hPcomp : P.comp q = 0 := by simpa [hQ] using hz
+    have hP : P = 0 := by
+      rcases Polynomial.comp_eq_zero_iff.mp hPcomp with hp | ⟨_, hc⟩
+      · exact hp
+      · have hh := congrArg Polynomial.natDegree hc
+        simp [hd] at hh
+    exact ⟨hP, hQ⟩
+  intro z w he
+  have hz : (z.1 - w.1).comp q + Polynomial.X * (z.2 - w.2).comp q = 0 := by
+    simp only [Polynomial.sub_comp]
+    linear_combination he
+  obtain ⟨hP, hQ⟩ := hzero _ _ hz
+  exact Prod.ext (sub_eq_zero.mp hP) (sub_eq_zero.mp hQ)
+
+-- node: G.1/quadratic-pinch-normal-form-injective
+lemma pinch_normal_form_injective (q : k[X]) (hd : q.natDegree = 2) :
+    Function.Injective (fun z : k[X] × k[X] =>
+      z.1.comp q + Polynomial.X * q * z.2.comp q) := by
+  intro z w he
+  have hn := normal_form_injective q hd (a₁ := (z.1, Polynomial.X * z.2))
+    (a₂ := (w.1, Polynomial.X * w.2))
+  have hp : (z.1, Polynomial.X * z.2) = (w.1, Polynomial.X * w.2) := by
+    apply hn
+    simpa only [Polynomial.mul_comp, Polynomial.X_comp, mul_assoc] using he
+  have hP := congrArg (fun r : k[X] × k[X] => r.1) hp
+  have hQ := congrArg (fun r : k[X] × k[X] => r.2) hp
+  exact Prod.ext hP (mul_left_cancel₀ Polynomial.X_ne_zero hQ)
+
+-- API: QuadraticPinch.pinch_spanning
+lemma pinch_spanning (a b : k) (f : k[X]) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    f ∈ algebra q → ∃ P Q : k[X], f = P.comp q + Polynomial.X * q * Q.comp q := by
+  dsimp
+  let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+  change f ∈ algebra q → ∃ P Q : k[X], f = P.comp q + Polynomial.X * q * Q.comp q
+  intro hf
+  obtain ⟨c, h, hh⟩ := (mem_algebra q f).mp hf
+  obtain ⟨P, Q, hform⟩ := exists_normal_form a b h
+  refine ⟨Polynomial.C c + Polynomial.X * P, Q, ?_⟩
+  change h = P.comp q + Polynomial.X * Q.comp q at hform
+  rw [hh, hform]
+  simp only [Polynomial.add_comp, Polynomial.C_comp, Polynomial.mul_comp, Polynomial.X_comp]
+  ring
+
+-- test: QuadraticPinch.test_normal_form_char2
+example (h : (ZMod 2)[X]) :
+    let q : (ZMod 2)[X] := Polynomial.X ^ 2 + Polynomial.X + 1
+    ∃ P Q : (ZMod 2)[X], h = P.comp q + Polynomial.X * Q.comp q := by
+  simpa using exists_normal_form (1 : ZMod 2) 1 h
+
+-- test: QuadraticPinch.test_normal_form_inseparable
+example :
+    Function.Injective (fun z : (ZMod 2)[X] × (ZMod 2)[X] =>
+      z.1.comp (Polynomial.X ^ 2) + Polynomial.X * Polynomial.X ^ 2 *
+        z.2.comp (Polynomial.X ^ 2)) := by
+  apply pinch_normal_form_injective
+  simp
+
+-- test: QuadraticPinch.test_linear_not_injective
+example :
+    ¬ Function.Injective (fun z : k[X] × k[X] => z.1.comp Polynomial.X +
+      Polynomial.X * z.2.comp Polynomial.X) := by
+  intro hi
+  have he : ((Polynomial.X : k[X]), (0 : k[X])) = (0, 1) := hi (by simp)
+  have hx := congrArg (fun r : k[X] × k[X] => r.1.coeff 1) he
+  simp at hx
+
 -- node: G.1/quadratic-pinch-generation; API: QuadraticPinch.generation
 lemma generation (a b : k) :
     let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
-    algebra q = Algebra.adjoin k ({q, Polynomial.X * q} : Set k[X]) := by sorry
+    algebra q = Algebra.adjoin k ({q, Polynomial.X * q} : Set k[X]) := by
+  dsimp
+  let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+  let S := Algebra.adjoin k ({q, Polynomial.X * q} : Set k[X])
+  change algebra q = S
+  have hq : q ∈ S := Algebra.subset_adjoin (by simp)
+  have hXq : Polynomial.X * q ∈ S := Algebra.subset_adjoin (by simp)
+  have hc (P : k[X]) : P.comp q ∈ S := by
+    have hm := (Polynomial.aeval (⟨q, hq⟩ : S) P).property
+    simpa only [Polynomial.aeval_subalgebra_coe, ← Polynomial.comp_eq_aeval] using hm
+  apply le_antisymm
+  · intro f hf
+    obtain ⟨c, h, hh⟩ := (mem_algebra q f).mp hf
+    obtain ⟨P, Q, hform⟩ := exists_normal_form a b h
+    change h = P.comp q + Polynomial.X * Q.comp q at hform
+    rw [hh, hform]
+    have he : Polynomial.C c + q * (P.comp q + Polynomial.X * Q.comp q) =
+        Polynomial.C c + (q * P.comp q + (Polynomial.X * q) * Q.comp q) := by ring
+    rw [he]
+    exact S.add_mem (S.algebraMap_mem c) (S.add_mem (S.mul_mem hq (hc P))
+      (S.mul_mem hXq (hc Q)))
+  · apply Algebra.adjoin_le
+    intro f hf
+    rcases Set.mem_insert_iff.mp hf with rfl | hf
+    · exact (mem_algebra q q).mpr ⟨0, 1, by simp⟩
+    · have he : f = Polynomial.X * q := Set.mem_singleton_iff.mp hf
+      rw [he]
+      exact (mem_algebra q _).mpr ⟨0, Polynomial.X, by simp [mul_comm]⟩
 
 -- test: QuadraticPinch.test_cusp
 example : algebra (Polynomial.X ^ 2 : k[X]) =
-    Algebra.adjoin k ({Polynomial.X ^ 2, Polynomial.X ^ 3} : Set k[X]) := by sorry
+    Algebra.adjoin k ({Polynomial.X ^ 2, Polynomial.X ^ 3} : Set k[X]) := by
+  simpa [pow_succ, mul_assoc] using (generation (0 : k) 0)
 
 -- test: QuadraticPinch.test_split
 example (h : (2 : k) ≠ 0) (f : k[X]) :
@@ -1254,7 +1406,16 @@ end TauCeti.GenusOne.QuadraticPinch
 These targets are mathematical nodes in the reader, with their proof outlines and
 supplier requests. They have no invented Prop fields or opaque geometric predicates.
 
-* QuadraticPinch.finite_normalization: the native finite-inclusion part is above.
+* QuadraticPinch.generation: its adjoin equality is proved above. The reader's
+  complete vector-space Basis, native coefficient representation and degree-family
+  statement are not yet signatures here. Pinch spanning and uniqueness do not by
+  themselves construct that Basis object.
+* QuadraticPinch.presentation: the full range/kernel signature is above, admitted.
+  Add native bivariate transport, monic division in V, and the canonical first-
+  isomorphism/quotient map. Pinch normal-form injectivity certifies only that a
+  chosen remainder has zero coefficients when its image vanishes.
+* QuadraticPinch.finite_normalization: the native finite-inclusion signature is above,
+  admitted.
   Add the canonical localization-at-q isomorphism commuting with the inclusion,
   the fraction-field identification and SR.1's actual normalization comparison.
 * QuadraticPinch.tangent_branches: the native hypersurface and quadratic equation
@@ -1276,3 +1437,4 @@ supplier requests. They have no invented Prop fields or opaque geometric predica
   needs these exact P1 and branch exports. The generic proper-field-point
   existence theorem above supplies existence/properness only; it is not that test.
 -/
+
