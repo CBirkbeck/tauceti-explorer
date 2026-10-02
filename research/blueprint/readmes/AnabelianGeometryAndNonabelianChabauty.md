@@ -1,6 +1,6 @@
 # Anabelian geometry and nonabelian Chabauty
 
-The NC.0 plan develops the finite-étale cohomological criterion for étale K(π,1), its transfer to covers, finite-étale invariance, coefficient dévissage and the characteristic-zero smooth-curve proof by connected prime covers and separable descent. It retains the reserved definition and the NC.3 nonabelian subgroup exactness on actual invariant cosets. Every declaration is a plan, and no stage is closed.
+The NC.0 plan develops the finite-étale cohomological criterion for étale K(π,1), its transfer to covers, finite-étale invariance, coefficient dévissage and the characteristic-zero smooth-curve proof by connected prime covers and separable descent. It retains the reserved definition and the NC.3 nonabelian subgroup exactness on actual invariant cosets. The NC.3 finite-quotient layer also specifies reverse-inclusion transitions and the inflation-induced colimit for compact G and discrete U. Every declaration is a plan, and no stage is closed.
 
 ## Scope, ownership and conventions
 
@@ -3017,3 +3017,348 @@ Dependencies: AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-fixed-action-
 Kim's arXiv:math/0409456v1 §1, printed pp.5–7, supplies the motivating continuous cocycle and gauge definitions (short verification excerpt: “continuous 1-cocycles”). The continuity adapter and pointed equivalence are authored deductions from these definitions and the listed native library and packet statements, not numbered results attributed to Kim. The standard open-quotient, induced-topology and native equivalence theories are imported from Mathlib, not planned anew. The prior additive fixed-point and inflation interfaces are not declared identical to these multiplicative carriers; a genuine additive comparison remains a separate obligation.
 
 The quotient-action continuity conclusion applies in the separately-continuous-multiplication scope. Earlier results stated for a group carrying an arbitrary topology retain their explicit quotient-action continuity assumption outside that scope. Source-proof closure for representability, points of topological unipotent groups, the geometric K(π,1) key definition, Chen and BDMTV additions, and existing supplier requests is unchanged. No additional planet is needed for these supporting declarations: the existing eleven planet choices and all seven stage targets remain in place.
+
+
+## NC.3 — finite-quotient transitions and the inflation colimit
+
+Let G be a compact topological group and U a discrete group with a jointly continuous action of G by automorphisms. For every open normal N, the native fixed subgroup U^N has its native G/N-action. The diagram is indexed by reverse inclusion: N→M means M≤N. Its value at N is H¹(G/N,U^N). The comparison sends the native colimit class of a quotient cocycle to the class of its actual inflation.
+
+The cocycle transition is obtained by inflating from N and descending to M. Thus its value at [g]_M is the inclusion of d([g]_N). Inflation of the transitioned cocycle equals inflation of the original. That identity descends through the actual gauge-orbit quotients, using same-subgroup inflation injectivity to establish well-definedness. The identity and composition laws give a native functor, and the comparison maps give a native cocone with apex H¹(G,U).
+
+Every ambient class has a finite-level representative: choose an actual continuous cocycle, find an open normal subgroup in its identity fibre by the compact/discrete killing lemma, and descend the cocycle itself. If two finite-level classes inflate equally, transition both to the intersection of their subgroups. Their inflations are equal, so same-subgroup injectivity makes the transitioned classes equal. Mathlib’s existing filtered-colimit criterion now proves universality of this specified cocone. Native colimit uniqueness supplies the equivalence E, with E(ι_N(a))=inflate_N(a). The inverse at an inflated class is its native colimit inclusion, and all distinguished classes map to 1.
+
+Only the surjectivity and finite-quotient conclusions use compactness/discreteness. Cocycle transitions work for arbitrary normal subgroups of groups with topologies. Class transitions require the continuous gauge actions; separately continuous multiplication on G supplies quotient-action continuity. Neither U’s commutativity nor finiteness is imposed. There is no group structure asserted on H¹, no assumption that the G-action on all U factors through G/N, and no assertion that p-adic unipotent coefficients are discrete.
+
+Poonen’s §1.3.5, printed pp.11–12, motivates the finite-to-infinite passage; Kim’s §1 fixes the continuous cocycle/gauge convention. The detailed compact/discrete argument is an authored deduction from the specified interfaces. TauCeti already has the additive transition and colimit in ContCohomology.FiniteQuotient. Those are existing abelian mathematics; the canonical cocycle conversion and commuting comparison of the two transition/colimit systems remain required here. Generic additive cohomology is not rebuilt.
+
+The open [Mathlib nonabelian cohomology PR #31613](https://github.com/leanprover-community/mathlib4/pull/31613), inspected at 9dc1e337689fa7ba4fefa52b4874660bdd3a3619, develops algebraic cocycles and gauge classes in additive notation. It is not part of this baseline and does not impose continuity in the inspected definitions. Its API is the upstream comparison target upon adoption; the continuous-carrier bridge must carry both the cocycle law and gauge convention.
+
+The tests use the actual carriers throughout. In particular, for discrete S₂ acting trivially on S₃, the homomorphism taking the nonidentity element to (01) gives a nonneutral H¹ class: every coboundary for a trivial action is identity. The native colimit therefore has distinct preimages of this class and the distinguished class. A singleton substitute for the colimit fails this test.
+
+### Injectivity of actual quotient-cocycle inflation
+
+Declaration: TauCeti.NonabelianCohomology.Z1.inflate_injective. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation-injective.
+
+For every normal N, inflation Z¹(G/N,U^N)→Z¹(G,U) is injective.
+
+Hypotheses:
+
+- G and U are groups with topologies, with a G-action on U by group automorphisms. Use the actual continuous ordered cocycles c(gh)=c(g)(g•c(h)), native quotient topologies and native fixed coefficient subgroups.
+- N is a normal subgroup of G. No compactness, openness/closedness, discrete coefficients, continuity of the action or commutativity is required for cocycle inflation injectivity.
+
+Construction or proof:
+
+1. If two cocycles have equal inflations, descend both to N and apply the existing descend-inflate identity. This promotes the inherited API without changing its signature or adding a second declaration.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/descend-inflated-cocycle.
+
+Sources: Kim, arXiv:math/0409456v1 §1, pp.5–7 (definitions); Poonen, §1.3.5, pp.11–12 (finite-to-infinite motivation). The proof above is a deduction from the named inputs.
+
+### Reverse-inclusion transition of quotient cocycles
+
+Declaration: TauCeti.NonabelianCohomology.Z1.transition. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition.
+
+For M≤N, construct tᴺ_M:Z¹(G/N,U^N)→Z¹(G/M,U^M) by descending inflate_N(d) to M. On representatives its underlying U-value at [g]_M is d([g]_N). Thus it combines pullback along G/M→G/N with inclusion U^N→U^M.
+
+Hypotheses:
+
+- G and U are groups with topologies, with a G-action on U by group automorphisms. Use the actual continuous ordered cocycles c(gh)=c(g)(g•c(h)), native quotient topologies and native fixed coefficient subgroups.
+- M≤N are normal subgroups of G. Neither openness/closedness nor compactness, commutativity or discreteness is required for cocycle transitions.
+
+Construction or proof:
+
+1. inflate_N(d) is identically 1 on N, hence on M. Apply the existing actual descent to M; its representative formula gives the stated value.
+2. Inflating the result recovers inflate_N(d). Same-subgroup cocycle injectivity then proves identity, composition, preservation of the identity cocycle and injectivity. No choice of quotient representative or new coefficient action is introduced.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-descent, AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/inflate-descended-cocycle, AnabelianGeometryAndNonabelianChabauty:NC.3/descend-inflated-cocycle, AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation-injective, AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation-one.
+
+API:
+
+- TauCeti.NonabelianCohomology.Z1.transition_apply: The underlying U-value of tᴺ_M(d) at [g]_M is d([g]_N).
+- TauCeti.NonabelianCohomology.Z1.inflate_transition: inflate_M(tᴺ_M(d))=inflate_N(d).
+- TauCeti.NonabelianCohomology.Z1.transition_refl: tᴺ_N(d)=d.
+- TauCeti.NonabelianCohomology.Z1.transition_trans: For P≤M≤N, tᴹ_P(tᴺ_M(d))=tᴺ_P(d).
+- TauCeti.NonabelianCohomology.Z1.transition_one: tᴺ_M(1)=1.
+- TauCeti.NonabelianCohomology.Z1.transition_injective: Each transition on actual quotient cocycles is injective.
+
+Tests:
+
+- TauCeti.NonabelianCohomology.Z1.transition.test_one: The identity quotient cocycle maps to the identity cocycle.
+- TauCeti.NonabelianCohomology.Z1.transition.test_value: At the class of each actual g∈G, the underlying value is exactly d([g]_N). Reversing the subgroup inclusion or forgetting the fixed coefficient target fails this interface.
+- TauCeti.NonabelianCohomology.Z1.transition.test_identity: The self-transition fixes every actual cocycle, including nonidentity ones.
+
+Sources: Kim, arXiv:math/0409456v1 §1, pp.5–7 (definitions); Poonen, §1.3.5, pp.11–12 (finite-to-infinite motivation). The proof above is a deduction from the named inputs.
+
+### Inflation commutes with cocycle transition
+
+Declaration: TauCeti.NonabelianCohomology.Z1.inflate_transition. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition-inflation.
+
+For M≤N, inflate_M(tᴺ_M(d))=inflate_N(d).
+
+Hypotheses:
+
+- G and U are groups with topologies, with a G-action on U by group automorphisms. Use the actual continuous ordered cocycles c(gh)=c(g)(g•c(h)), native quotient topologies and native fixed coefficient subgroups.
+- M≤N are normal subgroups of G. Neither openness/closedness nor compactness, commutativity or discreteness is required for cocycle transitions.
+
+Construction or proof:
+
+1. Apply recovery after actual descent to the inflated N-level cocycle. This promotes the transition API for use in orbit descent.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition, AnabelianGeometryAndNonabelianChabauty:NC.3/inflate-descended-cocycle.
+
+Sources: Kim, arXiv:math/0409456v1 §1, pp.5–7 (definitions); Poonen, §1.3.5, pp.11–12 (finite-to-infinite motivation). The proof above is a deduction from the named inputs.
+
+### Reverse-inclusion transition on nonabelian cohomology
+
+Declaration: TauCeti.NonabelianCohomology.H1.transition. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition.
+
+For M≤N, construct the pointed map tᴺ_M:H¹(G/N,U^N)→H¹(G/M,U^M) sending [d] to [tᴺ_M(d)]. These are actual gauge-orbit sets; no group law on H¹ is imposed.
+
+Hypotheses:
+
+- G and U are groups with topologies, with a G-action on U by group automorphisms. Use the actual continuous ordered cocycles c(gh)=c(g)(g•c(h)), native quotient topologies and native fixed coefficient subgroups.
+- M≤N are normal subgroups of G. Neither openness/closedness nor compactness, commutativity or discreteness is required for cocycle transitions.
+- U is a topological group. The joint ambient G-action and joint native quotient actions on U^M and U^N are continuous. For a third subgroup P≤M the same continuity is required at P. Separately continuous multiplication on G supplies all quotient-action instances via quotient-fixed-action-continuity.
+
+Construction or proof:
+
+1. Lift the cocycle transition through the native orbit quotient. For gauge-equivalent representatives, their M-level images have equal inflations by cocycle-transition-inflation and well-defined N-level inflation. Same-M H¹ inflation injectivity makes the images equal.
+2. The representative formula is definitional. Identity, composition and injectivity follow by applying same-subgroup inflation injectivity. Basepoint preservation uses inflation of the identity class.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition, AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-injective, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-orbit-criterion, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-one.
+
+API:
+
+- TauCeti.NonabelianCohomology.H1.transition_mk: tᴺ_M([d])=[tᴺ_M(d)].
+- TauCeti.NonabelianCohomology.H1.inflate_transition: inflate_M(tᴺ_M(a))=inflate_N(a).
+- TauCeti.NonabelianCohomology.H1.transition_refl: tᴺ_N(a)=a.
+- TauCeti.NonabelianCohomology.H1.transition_trans: For P≤M≤N, tᴹ_P(tᴺ_M(a))=tᴺ_P(a).
+- TauCeti.NonabelianCohomology.H1.transition_one: The distinguished class maps to the distinguished class.
+- TauCeti.NonabelianCohomology.H1.transition_injective: Each pointed-set transition is injective.
+
+Tests:
+
+- TauCeti.NonabelianCohomology.H1.transition.test_one: tᴺ_M(1)=1.
+- TauCeti.NonabelianCohomology.H1.transition.test_gauge: For every x∈U^N and d, transitioning [x·d] gives [tᴺ_M(d)].
+- TauCeti.NonabelianCohomology.H1.transition.test_nonneutral: For every a≠1, tᴺ_M(a)≠1. The actual S₂→S₃ transposition class supplies a nonneutral input; collapsing classes to the basepoint fails.
+
+Sources: Kim, arXiv:math/0409456v1 §1, pp.5–7 (definitions); Poonen, §1.3.5, pp.11–12 (finite-to-infinite motivation). The proof above is a deduction from the named inputs.
+
+### Inflation commutes with cohomology transition
+
+Declaration: TauCeti.NonabelianCohomology.H1.inflate_transition. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-inflation.
+
+For M≤N and every class a, inflate_M(tᴺ_M(a))=inflate_N(a).
+
+Hypotheses:
+
+- G and U are groups with topologies, with a G-action on U by group automorphisms. Use the actual continuous ordered cocycles c(gh)=c(g)(g•c(h)), native quotient topologies and native fixed coefficient subgroups.
+- M≤N are normal subgroups of G. Neither openness/closedness nor compactness, commutativity or discreteness is required for cocycle transitions.
+- U is a topological group. The joint ambient G-action and joint native quotient actions on U^M and U^N are continuous. For a third subgroup P≤M the same continuity is required at P. Separately continuous multiplication on G supplies all quotient-action instances via quotient-fixed-action-continuity.
+
+Construction or proof:
+
+1. Choose a representative and apply the cocycle identity, then take its actual gauge class.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition, AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation.
+
+Sources: Kim, arXiv:math/0409456v1 §1, pp.5–7 (definitions); Poonen, §1.3.5, pp.11–12 (finite-to-infinite motivation). The proof above is a deduction from the named inputs.
+
+### Identity law for quotient cohomology transition
+
+Declaration: TauCeti.NonabelianCohomology.H1.transition_refl. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-identity.
+
+For every class a at N, tᴺ_N(a)=a.
+
+Hypotheses:
+
+- G and U are groups with topologies, with a G-action on U by group automorphisms. Use the actual continuous ordered cocycles c(gh)=c(g)(g•c(h)), native quotient topologies and native fixed coefficient subgroups.
+- M≤N are normal subgroups of G. Neither openness/closedness nor compactness, commutativity or discreteness is required for cocycle transitions.
+- U is a topological group. The joint ambient G-action and joint native quotient actions on U^M and U^N are continuous. For a third subgroup P≤M the same continuity is required at P. Separately continuous multiplication on G supplies all quotient-action instances via quotient-fixed-action-continuity.
+
+Construction or proof:
+
+1. Both classes have the same N-level inflation by the promoted compatibility. Apply its injectivity.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-injective.
+
+Sources: Kim, arXiv:math/0409456v1 §1, pp.5–7 (definitions); Poonen, §1.3.5, pp.11–12 (finite-to-infinite motivation). The proof above is a deduction from the named inputs.
+
+### Composition law for quotient cohomology transition
+
+Declaration: TauCeti.NonabelianCohomology.H1.transition_trans. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-composition.
+
+For P≤M≤N, tᴹ_P(tᴺ_M(a))=tᴺ_P(a).
+
+Hypotheses:
+
+- G and U are groups with topologies, with a G-action on U by group automorphisms. Use the actual continuous ordered cocycles c(gh)=c(g)(g•c(h)), native quotient topologies and native fixed coefficient subgroups.
+- M≤N are normal subgroups of G. Neither openness/closedness nor compactness, commutativity or discreteness is required for cocycle transitions.
+- U is a topological group. The joint ambient G-action and joint native quotient actions on U^M and U^N are continuous. For a third subgroup P≤M the same continuity is required at P. Separately continuous multiplication on G supplies all quotient-action instances via quotient-fixed-action-continuity.
+
+Construction or proof:
+
+1. Inflate both sides from P. Use the promoted compatibility twice on the left and once on the right, then same-P injectivity.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-injective.
+
+Sources: Kim, arXiv:math/0409456v1 §1, pp.5–7 (definitions); Poonen, §1.3.5, pp.11–12 (finite-to-infinite motivation). The proof above is a deduction from the named inputs.
+
+### The reverse-inclusion quotient cohomology diagram
+
+Declaration: TauCeti.NonabelianCohomology.H1.quotientDiagram. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-quotient-diagram.
+
+Construct the native functor F from the order dual of OpenNormalSubgroup G to types, with F(N)=H¹(G/N,U^N) and F(N→M)=tᴺ_M. Identity and composition are the promoted transition laws.
+
+Hypotheses:
+
+- G is a group with a topology and separately continuous multiplication. U is a topological group with a jointly continuous G-action by automorphisms.
+- Index by the order dual of native open normal subgroups: an arrow N→M means M≤N. At N use H¹(G/N,U^N), not coefficients U unless N acts trivially. No compactness or discreteness is required for the diagram or inflation cocone.
+
+Construction or proof:
+
+1. Use the native preorder category on the order dual. Its arrow N→M is exactly M≤N.
+2. Supply quotient-action continuity locally from the existing lemma. Set object and map fields to the actual H¹ carrier and transition; fill the functor laws from their promoted declarations.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-identity, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-composition, AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-fixed-action-continuity.
+
+API:
+
+- TauCeti.NonabelianCohomology.H1.quotientDiagram_map_apply: The diagram map for N→M applied to a is exactly tᴺ_M(a).
+- TauCeti.NonabelianCohomology.H1.quotientDiagram_obj: The object at N is exactly H¹(G/N,U^N).
+- TauCeti.NonabelianCohomology.H1.quotientDiagram_map_id: The identity diagram arrow fixes each class.
+
+Tests:
+
+- TauCeti.NonabelianCohomology.H1.quotientDiagram.test_identity: The identity arrow acts as the identity on every quotient class.
+- TauCeti.NonabelianCohomology.H1.quotientDiagram.test_composition: On every class, F(f≫g)=F(g)∘F(f).
+- TauCeti.NonabelianCohomology.H1.quotientDiagram.test_coefficients: The object at N is exactly H¹(G/N,U^N), with the native fixed subgroup, not H¹(G/N,U) with an assumed action.
+
+Sources: Kim, arXiv:math/0409456v1 §1, pp.5–7 (definitions); Poonen, §1.3.5, pp.11–12 (finite-to-infinite motivation). The proof above is a deduction from the named inputs.
+
+### The native inflation cocone
+
+Declaration: TauCeti.NonabelianCohomology.H1.inflationCocone. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-cocone.
+
+Construct a native cocone on F with apex H¹(G,U) whose leg at N is exactly inflate_N. Its naturality is inflate_M∘tᴺ_M=inflate_N.
+
+Hypotheses:
+
+- G is a group with a topology and separately continuous multiplication. U is a topological group with a jointly continuous G-action by automorphisms.
+- Index by the order dual of native open normal subgroups: an arrow N→M means M≤N. At N use H¹(G/N,U^N), not coefficients U unless N acts trivially. No compactness or discreteness is required for the diagram or inflation cocone.
+
+Construction or proof:
+
+1. Take the actual ambient H¹ as apex and inflation as each leg. The promoted compatibility proves the cocone naturality equation on every class.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-quotient-diagram, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation.
+
+API:
+
+- TauCeti.NonabelianCohomology.H1.inflationCocone_app: The leg at N applied to a is inflate_N(a).
+- TauCeti.NonabelianCohomology.H1.inflationCocone_pt: The apex is the actual ambient H¹(G,U).
+- TauCeti.NonabelianCohomology.H1.inflationCocone_naturality: For each arrow N→M, its transition followed by the M-leg equals the N-leg on each class.
+
+Tests:
+
+- TauCeti.NonabelianCohomology.H1.inflationCocone.test_representative: At [d], the cocone leg is the actual class [inflate_N(d)].
+- TauCeti.NonabelianCohomology.H1.inflationCocone.test_one: Every leg sends the distinguished quotient class to the distinguished ambient class.
+- TauCeti.NonabelianCohomology.H1.inflationCocone.test_commutes: Every transition followed by its target leg equals its source leg on every input class.
+
+Sources: Kim, arXiv:math/0409456v1 §1, pp.5–7 (definitions); Poonen, §1.3.5, pp.11–12 (finite-to-infinite motivation). The proof above is a deduction from the named inputs.
+
+### Every compact-discrete class comes from a finite quotient
+
+Declaration: TauCeti.NonabelianCohomology.H1.exists_quotient_class. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-finite-quotient-surjectivity.
+
+For every a∈H¹(G,U), there exist an open normal N and b∈H¹(G/N,U^N) with inflate_N(b)=a.
+
+Hypotheses:
+
+- G is a compact topological group, with no total-disconnectedness or Hausdorff assumption required by this proof. U is a discrete group with a jointly continuous G-action by automorphisms; U need not be finite or abelian.
+- The diagram and cocone are the specified native ones on reverse inclusion of all open normal subgroups. Compactness makes every G/N finite. This assertion does not replace the non-discrete topologies used for unipotent p-adic coefficients.
+
+Construction or proof:
+
+1. Choose an actual continuous cocycle representative c of a.
+2. The existing compact/discrete normal-killing theorem supplies N with c identically 1 on N. Descend c to G/N with values in U^N. Inflation recovers c literally, so its orbit class inflates to a. No coboundary correction is needed in this step.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-orbit-criterion, AnabelianGeometryAndNonabelianChabauty:NC.3/discrete-normal-killing, AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-descent, AnabelianGeometryAndNonabelianChabauty:NC.3/inflate-descended-cocycle, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-fixed-action-continuity.
+
+Sources: Kim, arXiv:math/0409456v1 §1, pp.5–7 (definitions); Poonen, §1.3.5, pp.11–12 (finite-to-infinite motivation). The proof above is a deduction from the named inputs.
+
+### Filteredness of reverse-inclusion open normal subgroups
+
+Declaration: TauCeti.NonabelianCohomology.H1.quotientIndex_isFiltered. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-quotient-index-filtered.
+
+The native preorder category on the order dual of OpenNormalSubgroup G is filtered.
+
+Hypotheses:
+
+- G is a group with a topology; no continuity, compactness or coefficient group is required.
+
+Construction or proof:
+
+1. The top subgroup is an open normal subgroup, so the indexing type is nonempty. Its existing infimum gives N∩M and the two reverse-inclusion arrows. Parallel arrows in a preorder agree. Apply the existing semilattice-sup filteredness instance to the order dual; do not construct a competing category.
+
+Prerequisites: mathlib:OpenNormalSubgroup.instSemilatticeInfOpenNormalSubgroup, mathlib:CategoryTheory.IsFiltered.
+
+Sources: Kim, arXiv:math/0409456v1 §1, pp.5–7 (definitions); Poonen, §1.3.5, pp.11–12 (finite-to-infinite motivation). The proof above is a deduction from the named inputs.
+
+### Nonabelian finite-quotient colimit theorem
+
+Declaration: TauCeti.NonabelianCohomology.H1.inflationCoconeIsColimit. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-colimit.
+
+The specified inflation cocone is a colimit of F in the native category of types. For any cocone with apex X there is a unique map H¹(G,U)→X whose composite with every inflate_N is the specified N-leg.
+
+Hypotheses:
+
+- G is a compact topological group, with no total-disconnectedness or Hausdorff assumption required by this proof. U is a discrete group with a jointly continuous G-action by automorphisms; U need not be finite or abelian.
+- The diagram and cocone are the specified native ones on reverse inclusion of all open normal subgroups. Compactness makes every G/N finite. This assertion does not replace the non-discrete topologies used for unipotent p-adic coefficients.
+
+Construction or proof:
+
+1. Apply the native isColimitOf criterion to the actual inflation cocone. Its surjectivity input is h1-finite-quotient-surjectivity.
+2. For a at N and b at M with equal ambient inflations, take K=N∩M. The two transitioned classes at K have equal inflations by h1-transition-inflation, so they are equal by same-K inflation injectivity.
+3. The native criterion constructs the universal map using a finite-level representative; common refinement proves independence and uniqueness. This proves universality of the named maps, not merely existence of an abstract bijection.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-cocone, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-finite-quotient-surjectivity, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-quotient-index-filtered, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-injective, mathlib:CategoryTheory.Limits.Types.FilteredColimit.isColimitOf, mathlib:OpenNormalSubgroup.instSemilatticeInfOpenNormalSubgroup.
+
+Sources: Kim, arXiv:math/0409456v1 §1, pp.5–7 (definitions); Poonen, §1.3.5, pp.11–12 (finite-to-infinite motivation). The proof above is a deduction from the named inputs.
+
+### The inflation-induced finite-quotient equivalence
+
+Declaration: TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-finite-quotient-equivalence.
+
+Construct E:colim_N H¹(G/N,U^N) ≃ H¹(G,U) from the native colimit and the proved inflation cocone. Specify E(ι_N(a))=inflate_N(a), E⁻¹(inflate_N(a))=ι_N(a), and E(ι_N(1))=1 for every N.
+
+Hypotheses:
+
+- G is a compact topological group, with no total-disconnectedness or Hausdorff assumption required by this proof. U is a discrete group with a jointly continuous G-action by automorphisms; U need not be finite or abelian.
+- The diagram and cocone are the specified native ones on reverse inclusion of all open normal subgroups. Compactness makes every G/N finite. This assertion does not replace the non-discrete topologies used for unipotent p-adic coefficients.
+
+Construction or proof:
+
+1. Use the library-generated colimit dual of native limit uniqueness to compare the chosen colimit with the actual inflation cocone. Convert that native type isomorphism to an equivalence with Iso.toEquiv.
+2. The generated cocone-leg compatibility fixes the forward map at every ι_N(a). Apply the native equivalence inverse law to get the inverse formula. Basepoint preservation follows from h1-inflation-one.
+3. The indexed baseline entries name the source declarations whose to_dual attributes generate IsColimit.coconePointUniqueUpToIso, its leg compatibility and colimit.isColimit; the generated declarations were exercised by the checked proof.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-colimit, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-one, mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso, mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso_inv_comp, mathlib:CategoryTheory.Limits.limit.isLimit, mathlib:CategoryTheory.Iso.toEquiv, mathlib:Equiv.symm_apply_apply, mathlib:Equiv.apply_symm_apply.
+
+API:
+
+- TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv_ι: E(ι_N(a))=inflate_N(a).
+- TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv_symm_inflate: E⁻¹(inflate_N(a))=ι_N(a).
+- TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv_one: E(ι_N(1))=1 for every N. These images define the common distinguished colimit class.
+
+Tests:
+
+- TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_target_round_trip: For every actual ambient class a, E(E⁻¹(a))=a.
+- TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_one: E maps the distinguished class coming from any level to 1.
+- TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_inflated_inverse: The inverse at an inflated class is exactly its native colimit inclusion.
+- TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_nonneutral: For a≠1 at any quotient level, E(ι_N(a))≠1.
+- TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_transposition: Give S₂ and S₃ discrete topologies and let S₂ act trivially on S₃. The cocycle sending the nonidentity element of S₂ to (01)∈S₃ defines a class c≠1. In the actual native colimit E⁻¹([c])≠E⁻¹(1), as checked by evaluating a hypothetical coboundary at the transposition.
+
+Sources: Kim, arXiv:math/0409456v1 §1, pp.5–7 (definitions); Poonen, §1.3.5, pp.11–12 (finite-to-infinite motivation). The proof above is a deduction from the named inputs.
+
+Required continuation: Reverse-inclusion cocycle and H¹ transitions, their native type-valued diagram, actual inflation cocone and compact/discrete finite-quotient equivalence are specified. The colimit requires discrete U and does not extend the unipotent p-adic topology by assumption. Genuine additive cocycle conversion, compatibility with the existing TauCeti additive transition/colimit, representability, local conditions, inherited API/granularity and all geometric source/supplier obligations remain open. All existing stage scope, reserved étale K(π,1) contracts, planets, requests and source inventories are retained.

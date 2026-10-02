@@ -1,3 +1,184 @@
+# BP-AnabelianGeometryAndNonabelianChabauty — finite-quotient colimit checkpoint
+
+Codex — codex-7e92bd; 2 October 2026; Refs #1020. Confirmed claim5962443218, bot5962445387; basee6c62ea553479b4ac4f7d23af94e3e35547ee89b.
+
+## Result and precise boundary
+
+Thirteen nodes extend the actual continuous nonabelian cohomology interface: one promotes inherited cocycle-inflation injectivity, and twelve specify reverse-inclusion transitions, their inflation compatibility and functor laws, the native diagram/cocone, finite-level representatives, filteredness and the inflation-induced colimit equivalence. Five new construction nodes carry21 API items and17 typed tests. All88 incoming node objects are unchanged. Every implementationStatus remains unchecked; no stage closes.
+
+For M≤N, transition pulls back along G/M→G/N and includes U^N into U^M. It is constructed by actual inflation followed by actual descent, and inflation is unchanged by transition. The pointed H¹ map is well-defined by same-M inflation injectivity. Identity and composition give a native functor on the order dual of open normal subgroups. Its native cocone has the actual ambient H¹ as apex and actual inflation as its legs.
+
+For compact topological G and discrete U with continuous automorphism action, every class comes from an open normal quotient. Equal inflated classes agree after transition to the intersection of their subgroups. Mathlib's existing isColimitOf criterion proves universality of the specified inflation cocone. Native colimit uniqueness gives an equivalence whose forward value at each colimit inclusion is inflation; its inverse and distinguished-class formulas are explicit.
+
+The diagram itself requires only separately continuous multiplication on G and topological U with jointly continuous action. Compactness/discreteness enter the finite-level representative and colimit conclusions; no total disconnectedness, Hausdorffness, finite U or commutativity is added. H¹ stays a pointed set. The actual S₂→S₃ transposition test proves that the colimit has two distinct elements, so a singleton substitute fails.
+
+Reverse-inclusion cocycle and H¹ transitions, their native type-valued diagram, actual inflation cocone and compact/discrete finite-quotient equivalence are specified. The colimit requires discrete U and does not extend the unipotent p-adic topology by assumption. Genuine additive cocycle conversion, compatibility with the existing TauCeti additive transition/colimit, representability, local conditions, inherited API/granularity and all geometric source/supplier obligations remain open.
+
+## Preservation, reading and prior art
+
+All88 complete inherited node objects,107 baseline entries,16 requests,9 gap identities, sourceIssues/sourceVersions, sourceCoverage, previous continuation receipts,11 planets, the seven-stage scope, reserved étale K(π,1) contract and restructuring proposals are preserved. Only the final gap and NC.3 remaining-work lists gain a scope-qualified continuation. No NC.3→NC.0 or reverse NC.5 dependency is introduced. A2 Néron–Severi and generic height/mixed-extension/local-term ownership stay unchanged.
+
+The whole issue was read before and after confirmed claim. Fresh work read the campaign README, all seven reviewed library rows, the seven stage descriptions and17 touching edges, affected cocycle/H¹ contracts, all980 inherited native proof lines, the reserved key entry, relevant audit and restructure records, and the predecessor handoff. This does not claim fresh reading of every old node's proof, every historical reader paragraph or the full Chen/BDMTV/geometric sources. JacobianChallenge was read in full; HodgeStructures was read in full earlier in this continuous worker session. ProfiniteCohomology §§1–2 and Layers4/10 were read for the additive ownership boundary.
+
+The exact Kim arXiv v1 PDF was downloaded with SHA25600efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941. Parsed printedpp.5–7 cover the cocycle/gauge definitions and complete Proposition1 proof; only the beginning of Proposition2 was read. The Poonen author PDF was downloaded with SHA25642e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579; Definition1.3.14 and the complete Proposition1.3.15 proof on printedpp.11–12 were freshly read. No new source error, whole-paper/book audit, visual collation or Serre reading is claimed. The general transition/colimit proof is an authored deduction, not a numbered source theorem.
+
+Nine positive baseline entries were added after reading their statements and ambient assumptions at the exact pins. Three indexed entries name native limit declarations whose read to_dual attributes generate the colimit operations actually exercised by the proof; the index omits those generated names. No generated theorem is presented as a handwritten source declaration. TauCeti's additive explicitFiniteQuotientTransition1 and explicitFiniteQuotientColimit1 were read as existing prior art; the latter assumes total disconnectedness and abelian coefficients. Their canonical comparison is still required, not replaced by a renamed additive theory.
+
+[Open Mathlib PR31613](https://github.com/leanprover-community/mathlib4/pull/31613) was inspected at9dc1e337689fa7ba4fefa52b4874660bdd3a3619. The first265 lines give algebraic H0/Z1/H1 and coefficient maps in additive notation, without topology; remaining declaration names were screened. It is not pinned baseline content. No PR code was copied. A bounded Zulip web search found no matching continuous finite-quotient implementation; no exhaustive search claim is made.
+
+## Lean evidence and reproduction
+
+The [immutable proof archive](https://github.com/CBirkbeck/tauceti-explorer/blob/2d1e149f4d80cca089bd4e1ce9f639bb664e0361/research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean) contains the exact1353-line actual fragment in a nested comment. After two additional imports, its inherited980-line block is byte-identical to the previous proof, SHA2564312f7348e1e8b59a6fc5fa8fb7739bd3d5e21529e30015a5691fca6bd56b769. The final file removes the archive comment, leaving proposed signatures and admitted proofs. The functor's object/map data and cocone's apex/leg data remain transparent to type dependent APIs, with their laws admitted. The46 new declaration/example headers agree between native and submitted extensions; the promoted existing injectivity API is not redeclared.
+
+Actual Native.lean:53examples,65kernel audits,zero errors/warnings/admissions or admission dependencies. Source SHA256dcbf5a525aefe9fe86c8d39a5480a945d11d7d5b450abc95776573f355483974; normalized diagnostic SHA2560b6cdcaed625daac294580c6bd37513a50edda092c9d63e4ffc3615634dc3cd2;9.35seconds,maxRSS3548664KiB,52GiB available before the run.
+
+Submitted Mathlib-only Sketch.lean:1850lines,95examples,zero errors,232expected admission warnings andzero other warnings. Source SHA256899b77ef1a85012d3fa6cf2cbead272a42ca226b830f9ec59a72da9a94536b34; normalized diagnostic SHA256d72e37f01d51e5822926f38081771404b868764f6b349bb34e684c1efd3f9baf;11.21seconds,maxRSS3560688KiB,53GiB available. It removes only TauCeti imports and the named Abelian section. The full suggested file was not compiled: the existing exact-pin build lacks the TauCeti ContCohomology.LowDegree artifact. No library build, Lake setup/update/cache download or language server was run. Every compiler exited and only one ran at a time.
+
+From a repository root after fetching the immutable archive, pass an existing reviewer-owned scratch directory as the first argument:
+
+```python
+from pathlib import Path
+import hashlib,subprocess,sys
+out=Path(sys.argv[1]);assert out.is_dir()
+proof='2d1e149f4d80cca089bd4e1ce9f639bb664e0361'
+path='research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean'
+archive=subprocess.check_output(['git','show',proof+':'+path],text=True)
+canonical,nested=archive.split('\n/- BEGIN ARCHIVED CHECKED NONABELIAN FINITE QUOTIENT COLIMIT\n',1)
+native=nested.split('END ARCHIVED CHECKED NONABELIAN FINITE QUOTIENT COLIMIT -/\n',1)[0]
+assert hashlib.sha256(native.encode()).hexdigest()=='dcbf5a525aefe9fe86c8d39a5480a945d11d7d5b450abc95776573f355483974'
+broad='\n'.join(line for line in canonical.splitlines() if not line.startswith('import TauCeti.'))+'\n'
+a=broad.index('section Abelian');z=broad.index('end Abelian',a)+len('end Abelian')
+broad=broad[:a]+broad[z:]
+assert hashlib.sha256(broad.encode()).hexdigest()=='899b77ef1a85012d3fa6cf2cbead272a42ca226b830f9ec59a72da9a94536b34'
+(out/'Native.lean').write_text(native)
+(out/'Sketch.lean').write_text(broad)
+```
+
+Run the files separately with lake env lean in an existing exact-pin build, respecting WORKERS memory/time limits. To normalize a diagnostic hash, omit the timing footer beginning at Command being timed, replace the absolute invocation filename by Native.lean or Sketch.lean, strip outer whitespace and add one final newline. These checks concern the specified fragment, not full-file implementation or stage closure. Retained worker evidence consists of Native.lean,Sketch.lean,native.log,sketch.log,lean-evidence.json,graph.py,graph.json,packet-check.json,preservation.json and submission receipts; other task scratch is removed after PR opening.
+
+## Packet and atlas validation
+
+101nodes:3definitions,17constructions,48lemmas,27theorems,6comparisons;110raw APIs/95raw tests,98required APIs/84required tests;116baseline declarations,11planets,16requests,9gaps,zero closed stages. Indexed packet check and actual deliverable intake:zero errors/warnings. Preservation checks, exact proof extraction and native/sketch header agreement pass.
+
+The actual read-only assembler, with candidate and original forced separately as promotion inputs, gives stage graph3018vertices/8655edges, own graph101vertices/231edges and combined graph3108vertices/8922edges, all acyclic. All101 reachable declarations resolve;51existing virtual supplier endpoints remain; all20 required supplier paths are reachable. Own skipped/pending links are empty; stage edges and other-roadmap skipped/pending links are unchanged. No synthetic realises attachment or site output is introduced. Governing protocols, all four own incoming deliverables, reviewed coverage, reserved IDs and checker/intake/assembler code were checked unchanged at fetched main766de57f; graph counts above are explicitly for the recorded mathematical base.
+
+The validator below runs from the repository root, taking the original packet JSON from basee6c62ea553479b4ac4f7d23af94e3e35547ee89b as its first argument. It imports the repository's actual assembler and checks. Set PYTHONDONTWRITEBYTECODE=1. Validator SHA2565b9f7e73cf3ebe437a5fc980a7411203fe0dd3bf40b573625fdb72eb0c6ae443.
+
+```python
+"""Read-only actual atlas assembly with the candidate injected as promotion inputs."""
+from pathlib import Path
+import sys,json,copy,collections
+root=Path.cwd();sys.path.insert(0,str(root/'scripts'))
+import build,blueprints,check_blueprint
+rid='AnabelianGeometryAndNonabelianChabauty'
+p=json.loads((root/'research/blueprint/packets'/f'{rid}.json').read_text())
+r=next(x for x in json.loads((root/'data/atlas.json').read_text())['roadmaps'] if x['id']==rid)
+a0=json.loads((root/'data/atlas.json').read_text())
+packets,documents,definitions=blueprints.load_promoted(root)
+packets=[x for x in packets if x[1].get('roadmapId')!=rid]+[(rid,p)]
+documents[rid]=f'research/blueprint/readmes/{rid}.md'
+definitions=[x for x in definitions if x['id']!=rid]
+if not any(x['id']==rid for x in a0['roadmaps']):definitions.append(r)
+build.load_promoted=lambda *args:(copy.deepcopy(packets),copy.deepcopy(documents),copy.deepcopy(definitions))
+a,*rest=build.assemble(require_distances=False)
+ctx=check_blueprint.world()
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for path in sorted((root/folder).glob('*.json')):
+  q=json.loads(path.read_text())
+  for n in q.get('nodes',[]):world.setdefault(n['id'],n)
+world.update({n['id']:n for n in p['nodes']})
+stages={s['id']:s for s in a['stages']}
+stageids=set(stages)|set(ctx[1])
+stageedges={(e['source'],e['target']) for e in a['stageEdges']}
+virtual={v for e in stageedges for v in e}-set(stages)
+
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ out=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in out[s]:out[s].add(t);indeg[t]+=1
+ stack=[v for v,k in indeg.items() if k==0];count=0
+ while stack:
+  x=stack.pop();count+=1
+  for y in out[x]:
+   indeg[y]-=1
+   if indeg[y]==0:stack.append(y)
+ assert count==len(vertices),f'cycle: {[v for v,k in indeg.items() if k][:15]}'
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+
+own={n['id']:n for n in p['nodes']}
+ownedges={(q,n['id']) for n in p['nodes'] for q in n.get('prerequisites',[]) if q in own}
+stack=list(own);seen=set();dep=set();unresolved=set()
+while stack:
+ nid=stack.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ n=world[nid]
+ for q in n.get('prerequisites',[]):
+  if q.startswith(('mathlib:','tauceti:')) and q not in stageids:continue
+  dep.add((q,nid))
+  if q in world:stack.append(q)
+  elif q not in stageids:unresolved.add(q)
+assert not unresolved,sorted(unresolved)
+# Include actual recorded parent metadata and request edges, not synthetic realises attachments.
+parents={(node['parentStageId'],node['id']) for node in p['nodes']
+         if node.get('parentStageId') in own}
+requests={(request['supplier'],consumer) for request in p.get('requests',[])
+          for consumer in request.get('neededBy',[]) if consumer in own or consumer in stageids}
+dep |= parents | requests
+report={'stage':dag(stages,stageedges),'own':dag(own,ownedges),'combinedPrerequisites':dag(set(stages)|seen,stageedges|dep),'virtualSupplierEndpoints':len(virtual),'reachableDeclarations':len(seen),'unresolvedReferences':len(unresolved)}
+roadmap=next(x for x in a['roadmaps'] if x['id']==rid)
+assert roadmap['blueprint']['declarations']==len(own)
+assert roadmap['blueprint']['planets']==11
+assert not roadmap['blueprint']['skippedLinks'],roadmap['blueprint']['skippedLinks']
+assert not roadmap.get('pendingLinks',[]),roadmap.get('pendingLinks',[])
+report['actualBlueprint']={k:roadmap['blueprint'][k] for k in ['declarations','planets','kinds','skippedLinks']}
+# The original packet is used as a second promotion input to check projection preservation.
+p0=json.loads(sys.argv[1] and Path(sys.argv[1]).read_text()) if len(sys.argv)>1 else p
+r0=copy.deepcopy(r)
+basepackets=[x for x in packets if x[1].get('roadmapId')!=rid]+[(rid,p0)]
+build.load_promoted=lambda *args:(copy.deepcopy(basepackets),copy.deepcopy(documents),copy.deepcopy(definitions))
+b,*_=build.assemble(require_distances=False)
+bedges={(e['source'],e['target']) for e in b['stageEdges']}
+assert stageedges==bedges
+report['stageEdgesUnchanged']=True
+control={x['id']:(x.get('blueprint',{}).get('skippedLinks',[]),x.get('pendingLinks',[])) for x in a['roadmaps'] if x['id']!=rid}
+control0={x['id']:(x.get('blueprint',{}).get('skippedLinks',[]),x.get('pendingLinks',[])) for x in b['roadmaps'] if x['id']!=rid}
+assert control==control0
+report['otherRoadmapSkippedPendingLinksUnchanged']=True
+# Check all original in-roadmap dependencies and explicit request supplier paths.
+stageout=collections.defaultdict(set)
+for source,target in stageedges:stageout[source].add(target)
+def reachable(source,target):
+ todo=[source];done=set()
+ while todo:
+  x=todo.pop()
+  if x==target:return True
+  if x in done:continue
+  done.add(x);todo.extend(stageout[x]-done)
+ return False
+pairs={(e['source'],e['target']) for e in a0['stageEdges'] if e['target'].startswith(rid+':')}
+for node in p['nodes']:
+ for q in node.get('prerequisites',[]):
+  if q in stageids and q not in world and q != node['parentStageId']:pairs.add((q,node['parentStageId']))
+for request in p.get('requests',[]):
+ for consumer in request.get('neededBy',[]):
+  if consumer in own:pairs.add((request['supplier'],own[consumer]['parentStageId']))
+  elif consumer in stageids:pairs.add((request['supplier'],consumer))
+assert all(reachable(source,target) for source,target in pairs),[(s,t) for s,t in pairs if not reachable(s,t)]
+report['requiredStagePairs']=len(pairs)
+report['requiredStagePairsReachable']=len(pairs)
+
+print(json.dumps(report,ensure_ascii=False,indent=2))
+```
+
+## Resume
+
+The next mathematical work is the explicit additive cocycle conversion and its compatibility with existing TauCeti finite-quotient maps, then the remaining source-qualified representability/local conditions or geometric supplier work. General p-adic unipotent coefficients must retain their real topology. The historical receipts below keep their original authorship and checkpoint scope; the finite-quotient result above supersedes only their D5-open wording.
+
+---
+
 # BP-AnabelianGeometryAndNonabelianChabauty — quotient-action continuity checkpoint
 
 Codex — codex-a71f92; 2 October 2026; Refs #1020. Winning claim5961993804, bot confirmation5961996040. The whole26779-character issue was read before claiming and again after confirmation. Mathematical base9f4ec81d1839ece8d10129830133db03a6d5d430; publication audit basea6094bd6d7c7856944d7cf3b905c7e9bf11d90fd.

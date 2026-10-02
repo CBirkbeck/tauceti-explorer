@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-02T10:01:21Z",
- "exported_at": "2026-10-02T10:01:21Z",
+ "cutoff": "2026-10-02T22:27:17Z",
+ "exported_at": "2026-10-02T22:27:17Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 99,
-  "recent": 5073,
-  "total": 9903,
+  "open": 118,
+  "recent": 5275,
+  "total": 10127,
   "unattributed": {
-   "no_label": 1144,
+   "no_label": 1148,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,20 +28,20 @@
    659,
    1080,
    1649,
-   1311
+   1535
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "16254751660d3e0ba1a1fc9cbcb2f4325b01a383",
+ "roadmap_head": "147b58597bccbc1c2a0f2a898658252adee90eb7",
  "rows": [
   {
    "activity": {
-    "last": "2026-10-02T09:50:13Z",
-    "open": 1,
-    "recent": 160,
-    "since_report": 11,
-    "total": 396,
+    "last": "2026-10-02T21:40:58Z",
+    "open": 3,
+    "recent": 163,
+    "since_report": 5,
+    "total": 399,
     "weekly": [
      0,
      0,
@@ -58,7 +58,7 @@
      31,
      19,
      42,
-     44
+     47
     ]
    },
    "assessment": {
@@ -68,8 +68,9 @@
     "remaining": {
      "Layer 0": "noetherianity of K⟨X₁,…,Xₙ⟩ for n ≥ 2 (BGR 5.2.6), hence strong noetherianness of complete rank-one fields and the ℚ_p⟨T₁,…,Tₙ⟩ example",
      "Layer 2": "Example 7.57: classification of the points and rational subdomains of the closed unit disc",
-     "Layer 4": "Lemma 8.34 for arbitrary finite rational covers, sheafiness, all-degree Čech exactness, Theorem 8.28(b), Corollary 8.35, the Buzzard-Verberkmoes theorem",
-     "Layer 6": "perfectoid-field packaging of A_inf, the locus 𝒴, power comparison, Frobenius windows, interval rings, charts"
+     "Layer 4": "Lemma 8.34 for standard and arbitrary rational covers, sheafiness, all-degree Čech exactness, Theorem 8.28(b), Corollary 8.35, Buzzard-Verberkmoes",
+     "Layer 5": "closed immersions, morphisms locally of finite type, gluing, the disc examples",
+     "Layer 6": "nonemptiness and Gauss point of 𝒴, Frobenius windows, the quotient 𝒳, interval rings, charts"
     },
     "source": "marker"
    },
@@ -115,50 +116,50 @@
     "partial",
     "done",
     "partial",
-    "untouched",
+    "partial",
     "partial"
    ],
    "status": {
     "frontier": [
      {
       "name": "Tate acyclicity for finite rational covers",
-      "text": ": run Lemma 8.34's induction from Laurent covers to standard covers to arbitrary finite covers. Then deduce sheafiness through the rational-open criterion, and all-degree Čech exactness through the augmentation criterion."
+      "text": "— pass from Laurent covers to standard rational covers (Lemma 8.34(ii)), then deduce sheafiness through the rational-open criterion and all-degree Čech exactness through the augmentation criterion."
      },
      {
       "name": "Buzzard–Verberkmoes",
-      "text": ": the Laurent step holds on every rational subset of a stably uniform affinoid. The same passage to arbitrary rational covers remains, now without noetherian hypotheses."
+      "text": "— the same passage to arbitrary rational covers is needed on stably uniform affinoids, where so far only the two-piece Laurent step holds."
      },
      {
-      "name": "Affinoid and general adic spaces",
-      "text": ": once some ring is proved sheafy, Layer 5 can define affinoid adic spaces in `𝒱`, then open subspaces and gluing. It is not yet proved that `Spa(A,A⁺)` itself lies in `(PreAd)`, that is, that its presheaf is adapted to all affinoid opens rather than just to rational ones."
+      "name": "First examples of adic spaces",
+      "text": "— once a ring is proved sheafy, the affinoid criterion gives `Spa(K,K°)` and the closed disc. Gluing, closed immersions and morphisms locally of finite type remain to be built."
+     },
+     {
+      "name": "Frobenius windows on `𝒴`",
+      "text": "— prove `𝒴` nonempty with an explicit Gauss point, then define the windows `U_n`, `V_n` as rational subsets and prove they cover `𝒴` and are wandering."
      },
      {
       "name": "Noetherianity of `K⟨X₁,…,Xₙ⟩`",
-      "text": ": the induction needs Weierstrass division over `K⟨X₁,…,Xₙ₋₁⟩`, not just over the field. Until it is done, the strongly noetherian Tate rings of Layer 4 have no example here beyond `K⟨T⟩`."
-     },
-     {
-      "name": "The locus `𝒴` in `Spa(A_inf, A_inf)`",
-      "text": ": define `D(p) ∩ D([ϖ])`, and prove it is open, nonempty and Frobenius-stable, with an explicit Gauss point."
+      "text": "— Weierstrass theory now holds over the right kind of base ring. The induction over `K⟨X₁,…,Xₙ₋₁⟩` remains to be run."
      }
     ],
-    "glance": "Layers 1 and 3 are done; Layer 3 was completed by Wedhorn's pre-adic spaces. Layer 4 has Lemma 8.33 on every rational subset and the Laurent case of Buzzard–Verberkmoes, but no sheafiness theorem yet. Layers 0 and 2 each lack a few specified items, Layer 6 has `A_inf` as a non-Tate Huber ring and nothing beyond, and Layer 5 has not begun.",
+    "glance": "Layers 1 and 3 are done. Layer 4 glues sections over every finite Laurent cover but has no sheafiness theorem yet. Layer 5 has adic spaces and open subspaces but nothing that depends on a ring being sheafy. Layers 0 and 2 each lack a few specified items. Layer 6 has `A_inf` and the open locus `𝒴` with its Frobenius dynamics, but no windows or charts.",
     "inherited": false,
     "path": "TauCetiRoadmap/AdicSpaces/STATUS.md",
     "progress_path": "TauCetiRoadmap/AdicSpaces/PROGRESS.md",
-    "report_sha": "c108ba7c929298b4e8522e96e899796ff9b45882bfd7d0ca5278dff8ebadebee",
-    "to_sha": "22df7c042dd40104856f178b64774ef6681232e1",
-    "ts": "2026-10-01T07:27:52Z"
+    "report_sha": "fdd24a0d1d14a41c2a5e2b921b4312adcae223ffeb912ae1fa719028aa3971e3",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "foundations of adic spaces",
    "topic": "Algebraic geometry"
   },
   {
    "activity": {
-    "last": "2026-10-02T08:07:24Z",
-    "open": 1,
-    "recent": 78,
-    "since_report": 14,
-    "total": 78,
+    "last": "2026-10-02T21:53:55Z",
+    "open": 0,
+    "recent": 83,
+    "since_report": 12,
+    "total": 83,
     "weekly": [
      0,
      0,
@@ -175,7 +176,7 @@
      0,
      33,
      25,
-     20
+     25
     ]
    },
    "assessment": {
@@ -234,31 +235,31 @@
     "frontier": [
      {
       "name": "Nothing remains within scope.",
-      "text": "Every milestone the README lists is proved. The README deliberately excludes decoding, cyclic and Reed-Solomon codes, theta series, glue tables and the Mathieu groups, so any further work here is API polish or new roadmap material, not an open target."
+      "text": "Every milestone the README lists is proved. The README excludes decoding, cyclic and Reed-Solomon codes, theta series, glue tables and the Mathieu groups, so further work here is API polish or new roadmap material, not an open target."
      },
      {
       "name": "Downstream use of the named lattices",
-      "text": "— the Golay Construction A lattice and the `A₂`/`D₄` Lagrangians are packaged as reusable input for explicit lattice constructions. Whether a consuming roadmap picks them up is outside this one."
+      "text": "— the Golay Construction A lattice and the `A₂` and `D₄` Lagrangians are packaged as input for explicit lattice constructions. Whether another roadmap uses them is outside this one."
      }
     ],
-    "glance": "All seven layers now have their milestones proved. That includes the roadmap's end-to-end test: the extended binary Golay code, verified from its displayed matrix, has a Construction A lattice that is literally the gluing of `2ℤ²⁴` along the code, even and unimodular with trivial `C⊥/C`. This window supplied the last missing pieces, Layer 2's Hamming support lemmas and a reusable Frobenius involution for Hermitian duality over `F₄`.",
+    "glance": "All seven layers have their milestones proved, including the roadmap's end-to-end test. The extended binary Golay code is built from its displayed matrix and verified, and its Construction A lattice is literally the gluing of `2ℤ²⁴` along the code: an even unimodular lattice with trivial `C⊥/C`. Recent work extends the general API, mainly by giving additive codes the operations and duality formulas that linear codes had.",
     "inherited": false,
     "path": "TauCetiRoadmap/AlgebraicCodingTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/AlgebraicCodingTheory/PROGRESS.md",
-    "report_sha": "6cc7fef097281e63875ab67069618e58a2285c21ddca879dfe52f7af4b2262fa",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "b7c10e0225dd5252ee1156d06848622b5f630368bbf04af7e51adfc43232943d",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "algebraic codes and code-lattice constructions",
    "topic": "Algebra and representation theory"
   },
   {
    "activity": {
-    "last": "2026-10-02T05:35:02Z",
-    "open": 1,
-    "recent": 79,
-    "since_report": 1,
-    "total": 131,
+    "last": "2026-10-02T21:53:04Z",
+    "open": 3,
+    "recent": 88,
+    "since_report": 10,
+    "total": 140,
     "weekly": [
      0,
      0,
@@ -275,7 +276,7 @@
      10,
      22,
      25,
-     19
+     28
     ]
    },
    "assessment": {
@@ -397,11 +398,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T09:29:33Z",
-    "open": 4,
-    "recent": 61,
-    "since_report": 9,
-    "total": 61,
+    "last": "2026-10-02T19:47:28Z",
+    "open": 1,
+    "recent": 66,
+    "since_report": 14,
+    "total": 66,
     "weekly": [
      0,
      0,
@@ -418,7 +419,7 @@
      2,
      18,
      22,
-     19
+     24
     ]
    },
    "assessment": {
@@ -520,11 +521,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T08:27:24Z",
-    "open": 0,
-    "recent": 37,
-    "since_report": 5,
-    "total": 37,
+    "last": "2026-10-02T15:49:26Z",
+    "open": 1,
+    "recent": 38,
+    "since_report": 6,
+    "total": 38,
     "weekly": [
      0,
      0,
@@ -541,7 +542,7 @@
      0,
      8,
      16,
-     13
+     14
     ]
    },
    "assessment": {
@@ -635,11 +636,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T09:41:47Z",
-    "open": 1,
-    "recent": 60,
-    "since_report": 7,
-    "total": 60,
+    "last": "2026-10-02T18:56:14Z",
+    "open": 3,
+    "recent": 63,
+    "since_report": 10,
+    "total": 63,
     "weekly": [
      0,
      0,
@@ -656,7 +657,7 @@
      9,
      14,
      21,
-     14
+     17
     ]
    },
    "assessment": {
@@ -755,11 +756,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T07:22:54Z",
+    "last": "2026-10-02T15:26:03Z",
     "open": 0,
-    "recent": 94,
-    "since_report": 6,
-    "total": 120,
+    "recent": 95,
+    "since_report": 7,
+    "total": 121,
     "weekly": [
      0,
      0,
@@ -776,7 +777,7 @@
      23,
      27,
      32,
-     9
+     10
     ]
    },
    "assessment": {
@@ -881,11 +882,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T06:19:29Z",
+    "last": "2026-10-02T21:59:10Z",
     "open": 0,
-    "recent": 83,
-    "since_report": 8,
-    "total": 83,
+    "recent": 87,
+    "since_report": 12,
+    "total": 87,
     "weekly": [
      0,
      0,
@@ -902,7 +903,7 @@
      5,
      24,
      18,
-     36
+     40
     ]
    },
    "assessment": {
@@ -1147,7 +1148,7 @@
   {
    "activity": {
     "last": "2026-09-30T03:07:58Z",
-    "open": 0,
+    "open": 1,
     "recent": 92,
     "since_report": 0,
     "total": 95,
@@ -1278,11 +1279,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T08:45:13Z",
+    "last": "2026-10-02T21:03:41Z",
     "open": 1,
-    "recent": 163,
-    "since_report": 9,
-    "total": 163,
+    "recent": 168,
+    "since_report": 14,
+    "total": 168,
     "weekly": [
      0,
      0,
@@ -1299,7 +1300,7 @@
      8,
      23,
      84,
-     44
+     49
     ]
    },
    "assessment": {
@@ -1429,11 +1430,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T07:56:11Z",
-    "open": 1,
-    "recent": 94,
-    "since_report": 7,
-    "total": 182,
+    "last": "2026-10-02T22:02:13Z",
+    "open": 0,
+    "recent": 100,
+    "since_report": 14,
+    "total": 189,
     "weekly": [
      8,
      21,
@@ -1450,7 +1451,7 @@
      5,
      21,
      19,
-     45
+     52
     ]
    },
    "assessment": {
@@ -1539,11 +1540,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T08:22:00Z",
-    "open": 2,
-    "recent": 78,
-    "since_report": 10,
-    "total": 254,
+    "last": "2026-10-02T20:23:19Z",
+    "open": 3,
+    "recent": 83,
+    "since_report": 7,
+    "total": 259,
     "weekly": [
      0,
      0,
@@ -1560,7 +1561,7 @@
      9,
      21,
      30,
-     15
+     20
     ]
    },
    "assessment": {
@@ -1568,7 +1569,7 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "L6": "polygons with a vertex at infinity, and a general univalence criterion for the converse beyond convex or certified polygons"
+     "L6": "polygons with a vertex at infinity (domain-side theorem), and a general univalence criterion for the converse beyond convex or certified polygons"
     },
     "source": "marker"
    },
@@ -1621,15 +1622,11 @@
     "frontier": [
      {
       "name": "Unbounded polygons.",
-      "text": "Extend the forward Schwarz–Christoffel theorem to polygonal domains with a vertex at infinity. The primitive already has a vertex at infinity and unbounded boundary edges, but the domain-side theorem assumes boundedness."
+      "text": "The primitive's boundary is now known to be [finite sides closed off by two infinite rays](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Infinity/Ray.html#TauCeti.range_schwarzChristoffelBoundary_of_neg_one_le_sum) when the total exponent is at least −1. Two things are still missing: that this chain is simple and bounds the image, and the domain-side forward theorem, which still assumes boundedness."
      },
      {
       "name": "Univalence for general exponent data.",
       "text": "Find a checkable criterion that makes the Schwarz–Christoffel primitive univalent for arbitrary nonconvex data. Today the converse needs either simplicity of the boundary or explicit vertex-separation and height checks."
-     },
-     {
-      "name": "Uniqueness of Schwarz–Christoffel parameters.",
-      "text": "Prevertices can be normalized to put one at `0` and another at distance `1`, but no uniqueness statement for the resulting parameters has been established."
      },
      {
       "name": "Prime ends.",
@@ -1640,24 +1637,24 @@
       "text": "If Mathlib's Riemann mapping theorem lands, the roadmap calls for deleting the local one and re-proving the L0–L2 prerequisites from Mathlib's lemmas. The supplied material does not show this has happened."
      }
     ],
-    "glance": "All seven layers now have their central theorems: the Riemann mapping summit, Carathéodory's correspondence for Jordan domains, and now the Schwarz–Christoffel theorem for bounded polygonal Jordan domains. What remains is either outside the stated milestones (prime ends, unbounded polygons, a general univalence criterion for the converse) or bookkeeping against Mathlib's own Riemann mapping work.",
+    "glance": "All seven layers have their central theorems: the Riemann mapping summit, Carathéodory's correspondence for Jordan domains, and the Schwarz–Christoffel theorem for bounded polygonal Jordan domains, which is now unique once three prevertices are fixed. What remains lies outside the stated milestones: polygons with a vertex at infinity, a general univalence criterion for the converse, and prime ends. There is also the bookkeeping against Mathlib's own Riemann mapping work.",
     "inherited": false,
     "path": "TauCetiRoadmap/ConformalMapping/STATUS.md",
     "progress_path": "TauCetiRoadmap/ConformalMapping/PROGRESS.md",
-    "report_sha": "028f7263710e8635bf157aa568cf7bbba6fde2aa631f587012bfa77cfc35fbe6",
-    "to_sha": "dec7a5857c7d85f2ce63e7890c26b1e99a537057",
-    "ts": "2026-09-30T00:20:29Z"
+    "report_sha": "ce5da26f9f9552858cfd044e6ac7ea486601b3342a8df350d408e0dee431797d",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "Conformal mapping and the geometric theory of holomorphic functions",
    "topic": "Analysis"
   },
   {
    "activity": {
-    "last": "2026-10-02T09:50:13Z",
+    "last": "2026-10-02T16:36:19Z",
     "open": 0,
-    "recent": 75,
-    "since_report": 13,
-    "total": 93,
+    "recent": 76,
+    "since_report": 5,
+    "total": 95,
     "weekly": [
      0,
      0,
@@ -1674,7 +1671,7 @@
      5,
      19,
      25,
-     20
+     22
     ]
    },
    "assessment": {
@@ -1682,10 +1679,10 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 0": "dependent multilinear maps along composable paths in a graded quiver",
-     "Layer 1": "bimodules, extension of scalars, module tensor and internal Hom, DG Yoneda embedding, tensor DG categories",
-     "Layer 2": "homotopies and homotopy inverses, A-infinity categories, functors, modules, bimodules, unit strictification",
-     "Layer 3": "tree-sum transfer, Kadeishvili's theorem, intrinsic formality, the module equivalence",
+     "Layer 0": "signed substitution and brace operations for operations along composable paths in a graded quiver",
+     "Layer 1": "bimodules, extension of scalars, module tensor and internal Hom, DG Yoneda embedding",
+     "Layer 2": "tensor products, homotopies and homotopy inverses, A-infinity categories, functors, modules, bimodules, unit strictification",
+     "Layer 3": "tree-sum formulas, naturality, filtered perturbation lemma, intrinsic formality, category/module versions, the module equivalence",
      "Layer 4": "cobar, twisting cochains, U(A), twisted operations and the complete-filtration regime"
     },
     "source": "marker"
@@ -1758,44 +1755,44 @@
    "status": {
     "frontier": [
      {
-      "name": "Homological transfer",
-      "text": "— assemble the perturbation lemma, the tensor trick and the proved invertibility for the higher bar differential into a transferred `A∞` structure on a contraction's target with an `A∞` quasi-isomorphism. Then prove Kadeishvili's theorem over a field."
+      "name": "Kadeishvili beyond algebras",
+      "text": "— the category, module and bimodule versions of the minimal model, then the module equivalence `D(A) ≃ D_∞(H*A, m₂, m₃, …)`. These need `A∞` categories and modules, and the module equivalence also needs Layer 6."
      },
      {
-      "name": "`A∞` categories and modules (Layer 2)",
-      "text": "— `A∞` categories on graded linear quivers are the next definition. They need the one missing Layer 0 item, dependent multilinear maps along composable paths."
+      "name": "`A∞` categories (Layer 2)",
+      "text": "— define them on graded linear quivers using the new path operations. This first needs signed substitution of path operations, the last Layer 0 item."
      },
      {
-      "name": "DG bimodules and tensor products (Layer 1)",
-      "text": "— `(A,B)`-bimodules, extension of scalars, tensor and internal Hom, the Yoneda embedding for DG categories, and tensor DG categories."
+      "name": "`A∞` modules",
+      "text": "— the comodule-coderivation structure `b^M`, whose square-zero criterion now exists for graded coderivations of comodules, with module morphisms and the Yoneda lemma."
      },
      {
       "name": "`A∞` homotopies and homotopy inverses",
-      "text": "— define homotopies of `A∞` morphisms, and prove that quasi-isomorphisms are invertible up to homotopy over a field."
+      "text": "— homotopies of `A∞` morphisms, and the theorem that quasi-isomorphisms are invertible up to homotopy over a field."
      },
      {
-      "name": "Bar–cobar and twisting (Layer 4)",
-      "text": "— the cobar construction and twisting cochains are the next targets, along with twisted operations for Maurer–Cartan elements in the finite and complete-filtration regimes."
+      "name": "Tree formulas and filtered transfer",
+      "text": "— identify the transferred operations with planar-tree sums in all arities and prove the perturbation lemma for complete filtered contractions."
      }
     ],
-    "glance": "Layer 0 is nearly done. Its one open item is the dependent multilinear maps along paths in a graded quiver. Layers 1 and 2 are substantially started at the level of single-object DG and `A∞` algebras and DG categories, but bimodules, `A∞` categories and `A∞` modules are still missing. Layer 3 has minimality, formality and the perturbation lemma but not the transfer theorem, and Layer 4 has only the bar construction and Maurer–Cartan elements. Layers 5–11 have not begun.",
+    "glance": "Layer 3 has reached its first summit: Kadeishvili's minimal-model theorem, for `A∞` algebras over a field, including uniqueness. Layers 0–4 are all partial. The single-object theory is far ahead of the many-object and module theory, since there are still no `A∞` categories, `A∞` modules or DG bimodules. Layers 5–11 have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/DGAInfinity/STATUS.md",
     "progress_path": "TauCetiRoadmap/DGAInfinity/PROGRESS.md",
-    "report_sha": "d08d38ca3edcbde77eeacc2a1f4abeb602697df9edd6e16aa8357fe534622f63",
-    "to_sha": "dec7a5857c7d85f2ce63e7890c26b1e99a537057",
-    "ts": "2026-09-30T00:20:29Z"
+    "report_sha": "c4e696bd7682f04eba66827fdbb67ac7bb3bab154851d5da87f12737d62ff7f3",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "DG and A-infinity algebras, categories, and modules",
    "topic": "Algebra and representation theory"
   },
   {
    "activity": {
-    "last": "2026-10-02T08:45:13Z",
+    "last": "2026-10-02T11:14:42Z",
     "open": 0,
     "recent": 72,
-    "since_report": 8,
-    "total": 105,
+    "since_report": 9,
+    "total": 106,
     "weekly": [
      0,
      0,
@@ -1812,7 +1809,7 @@
      11,
      11,
      32,
-     13
+     14
     ]
    },
    "assessment": {
@@ -1919,11 +1916,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T07:11:58Z",
-    "open": 1,
-    "recent": 185,
-    "since_report": 6,
-    "total": 425,
+    "last": "2026-10-02T21:52:32Z",
+    "open": 4,
+    "recent": 188,
+    "since_report": 9,
+    "total": 428,
     "weekly": [
      0,
      0,
@@ -1940,7 +1937,7 @@
      62,
      24,
      36,
-     25
+     28
     ]
    },
    "assessment": {
@@ -2063,11 +2060,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T07:36:40Z",
-    "open": 1,
-    "recent": 85,
-    "since_report": 8,
-    "total": 292,
+    "last": "2026-10-02T19:37:36Z",
+    "open": 0,
+    "recent": 88,
+    "since_report": 12,
+    "total": 296,
     "weekly": [
      0,
      9,
@@ -2084,7 +2081,7 @@
      9,
      15,
      37,
-     18
+     22
     ]
    },
    "assessment": {
@@ -2169,11 +2166,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T08:12:17Z",
-    "open": 2,
-    "recent": 68,
-    "since_report": 6,
-    "total": 68,
+    "last": "2026-10-02T22:15:20Z",
+    "open": 3,
+    "recent": 75,
+    "since_report": 13,
+    "total": 75,
     "weekly": [
      0,
      0,
@@ -2190,7 +2187,7 @@
      2,
      16,
      24,
-     26
+     33
     ]
    },
    "assessment": {
@@ -2288,11 +2285,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T08:35:59Z",
+    "last": "2026-10-02T20:25:16Z",
     "open": 2,
-    "recent": 98,
-    "since_report": 3,
-    "total": 172,
+    "recent": 101,
+    "since_report": 7,
+    "total": 176,
     "weekly": [
      5,
      11,
@@ -2309,7 +2306,7 @@
      19,
      24,
      19,
-     32
+     36
     ]
    },
    "assessment": {
@@ -2431,11 +2428,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T07:32:07Z",
-    "open": 0,
-    "recent": 78,
-    "since_report": 9,
-    "total": 81,
+    "last": "2026-10-02T21:07:20Z",
+    "open": 1,
+    "recent": 82,
+    "since_report": 13,
+    "total": 85,
     "weekly": [
      0,
      0,
@@ -2452,7 +2449,7 @@
      8,
      12,
      41,
-     17
+     21
     ]
    },
    "assessment": {
@@ -2573,11 +2570,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T08:31:08Z",
+    "last": "2026-10-02T12:01:50Z",
     "open": 0,
-    "recent": 37,
-    "since_report": 2,
-    "total": 37,
+    "recent": 39,
+    "since_report": 4,
+    "total": 39,
     "weekly": [
      0,
      0,
@@ -2594,7 +2591,7 @@
      4,
      15,
      11,
-     7
+     9
     ]
    },
    "assessment": {
@@ -2706,11 +2703,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T08:25:29Z",
+    "last": "2026-10-02T19:56:15Z",
     "open": 0,
-    "recent": 66,
-    "since_report": 5,
-    "total": 99,
+    "recent": 68,
+    "since_report": 7,
+    "total": 101,
     "weekly": [
      0,
      0,
@@ -2727,7 +2724,7 @@
      5,
      19,
      20,
-     20
+     22
     ]
    },
    "assessment": {
@@ -2829,11 +2826,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T08:27:23Z",
-    "open": 2,
-    "recent": 71,
-    "since_report": 10,
-    "total": 187,
+    "last": "2026-10-02T18:23:41Z",
+    "open": 1,
+    "recent": 74,
+    "since_report": 6,
+    "total": 190,
     "weekly": [
      23,
      11,
@@ -2850,7 +2847,7 @@
      6,
      11,
      33,
-     16
+     19
     ]
    },
    "assessment": {
@@ -2858,11 +2855,11 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Lane F0": "Fredholm sections of Banach bundles; Fredholmness and index of the strip operator d/ds + A(s)",
+     "Lane F0": "regular zeros of Fredholm sections of Banach bundles as manifolds; Fredholmness and index of the strip operator d/ds + A(s)",
      "Lane F1": "Sobolev spaces on strips, trace, Calderon-Zygmund, totally real boundary regularity, Riemann-Roch, Maslov index for paths",
-     "Lane F2": "local theory, Gromov compactness, transversality and gluing (F2.2-F2.5)",
+     "Lane F2": "local theory, the rest of Gromov compactness, transversality and gluing",
      "Lane F3": "the exact Floer complex: action functional, strip moduli, d^2 = 0, continuation maps",
-     "Lane F4": "spin^c structures, nearly-symmetric J and energy bounds, the HF-hat complex and its invariance",
+     "Lane F4": "spin^c structures, nearly-symmetric J, energy equals domain area, the HF-hat complex and its invariance",
      "Lane M": "smooth stable/unstable manifolds, Morse-Smale transversality, compactness and gluing, the Morse complex and its homology"
     },
     "source": "marker"
@@ -2916,32 +2913,32 @@
     "frontier": [
      {
       "name": "Smooth stable and unstable manifolds",
-      "text": "— upgrade the Lipschitz graphs, which are already flat at the critical point, to `C¹` embedded disks, and transport them to manifolds. Morse–Smale transversality depends on this step."
+      "text": "— upgrade the Lipschitz graphs, already flat at the critical point, to `C¹` embedded disks on manifolds. Morse–Smale transversality waits on this."
      },
      {
       "name": "Morse–Smale moduli and the Morse complex",
-      "text": "— perturb to make stable and unstable manifolds transverse, then prove broken-trajectory compactness and gluing to get `∂² = 0`. The acceptance check is spheres and tori, whose Morse functions are already Morse."
+      "text": "— make stable and unstable manifolds transverse, then prove broken-trajectory compactness and gluing to get `∂² = 0`. Spheres and tori are the acceptance check."
      },
      {
       "name": "Fredholm sections and the strip operator",
-      "text": "— lift the map-level regular-value theory to Banach bundles and prove `d/ds + A(s)` Fredholm. This needs Lane F1's Sobolev spaces on strips."
+      "text": "— prove that regular zeros of a Fredholm section form a manifold of dimension the index, and that `d/ds + A(s)` is Fredholm. The second needs Lane F1's Sobolev spaces on strips."
      },
      {
       "name": "The Cauchy–Riemann elliptic package",
-      "text": "— build `W^{k,p}` spaces on strips, the trace, Calderón–Zygmund estimates, totally real boundary regularity, and the Maslov index for paths with Riemann–Roch. This remains the long pole."
+      "text": "— `W^{k,p}` on strips, trace, Calderón–Zygmund, totally real boundary regularity, and the Maslov index for paths with Riemann–Roch. This is still the long pole."
      },
      {
-      "name": "Positivity and admissibility in `Sym^g(Σ)`",
-      "text": "— turn the basepoint-divisor intersection theory into `n_z(φ) ≥ 0` for holomorphic disks, and state weak admissibility through the Gordan–Stiemke alternatives."
+      "name": "Energy bounds for disks in `Sym^g(Σ)`",
+      "text": "— show that a holomorphic disk's energy is the area of its domain and that `n_z(φ) ≥ 0`. The admissibility finiteness then becomes OS's energy bound."
      }
     ],
-    "glance": "The Morse–Sard and Sard–Smale summits are complete, Lane M now reaches the local stable- and unstable-manifold theorem, and `Sym^g(Σ)` exists as a complex analytic manifold. Every lane from F0 to F4 is partial. No chain complex has been built: Morse homology, Floer homology, holomorphic `HF̂`, Lane F5 and the reconciliations have not begun.",
+    "glance": "The Morse–Sard and Sard–Smale summits are complete. Lane M reaches the local stable-manifold theorem, and `Sym^g(Σ)` is a complex analytic manifold with weak admissibility characterized on domains. Every lane from F0 to F4 is partial. No chain complex has been built: Morse homology, Floer homology, holomorphic `HF̂`, Lane F5 and the reconciliations have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/HeegaardFloer/STATUS.md",
     "progress_path": "TauCetiRoadmap/HeegaardFloer/PROGRESS.md",
-    "report_sha": "e60ef6ac8530b4e776f1fb52fe43ea8b60880cba12aa7bc3b2aa9715c866f0ce",
-    "to_sha": "dec7a5857c7d85f2ce63e7890c26b1e99a537057",
-    "ts": "2026-09-30T00:20:29Z"
+    "report_sha": "6012941b0fd83933d626bbf0f0c82c784240d6c9aa8d2ab550b0051d178c5931",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "Heegaard Floer homology, analytically",
    "topic": "Geometry and topology"
@@ -3044,11 +3041,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T06:02:10Z",
+    "last": "2026-10-02T16:05:11Z",
     "open": 0,
-    "recent": 62,
-    "since_report": 10,
-    "total": 89,
+    "recent": 67,
+    "since_report": 6,
+    "total": 94,
     "weekly": [
      0,
      0,
@@ -3065,17 +3062,14 @@
      2,
      15,
      30,
-     12
+     17
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
     "reason": "ok",
-    "remaining": {
-     "Layer 2": "define criticality for fixed-endpoint variations and prove that critical curves of the energy are geodesics",
-     "Layer 4": "smooth Riemannian isometries preserve geodesics, maximal intervals and exponential-map values"
-    },
+    "remaining": {},
     "source": "marker"
    },
    "completed": false,
@@ -3111,39 +3105,39 @@
    "states": [
     "done",
     "done",
-    "partial",
     "done",
-    "partial"
+    "done",
+    "done"
    ],
    "status": {
     "frontier": [
      {
-      "name": "Critical points of energy are geodesics",
-      "text": "— define criticality as a vanishing derivative for every fixed-endpoint variation. Then prove the converse of [`TauCeti.Manifold.IsGeodesicCurveOn.hasDerivAt_energy_zero`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Geometry/Manifold/Riemannian/Geodesic/FirstVariation.html#TauCeti.Manifold.IsGeodesicCurveOn.hasDerivAt_energy_zero): build variations whose field is a bump times the covariant acceleration, and apply the fixed-endpoint first-variation formula."
+      "name": "Nothing remains on this roadmap.",
+      "text": "Every milestone in the README is proved and the Riemannian source tree contains no `sorry`. Further work belongs downstream, starting with the constant-curvature model spaces, which can now consume isometry transport."
      },
      {
-      "name": "Isometries carry geodesics and exponential maps",
-      "text": "— naturality of velocity and of the along-curve derivative is in place. What remains is to show that `Φ ∘ γ` is a geodesic whenever `γ` is, and then to deduce equality of maximal intervals and `Φ (exp_p v) = exp_{Φ p} (dΦ v)`. The constant-curvature model spaces downstream consume this."
+      "name": "Metric isometries",
+      "text": "— the README deliberately leaves out the Myers–Steenrod theorem, that a distance-preserving bijection is a smooth Riemannian isometry. Transport for a bare metric `IsometryEquiv` would need it as a separate milestone."
      }
     ],
-    "glance": "The summit is reached: the Hopf–Rinow theorem and do Carmo's compactness corollary are proved, on top of a complete geodesic, exponential-map and normal-neighbourhood theory. Two pieces remain. The variational characterization of geodesics has only its \"geodesic ⇒ critical\" half, and Riemannian isometries are not yet shown to carry geodesics or exponential maps.",
+    "glance": "Every layer is done. The Hopf–Rinow theorem and do Carmo's compactness corollary sit on a complete geodesic, exponential-map and normal-neighbourhood theory. The variational characterization of geodesics and transport along smooth Riemannian isometries, the last two open pieces, are now proved.",
     "inherited": false,
     "path": "TauCetiRoadmap/HopfRinow/STATUS.md",
     "progress_path": "TauCetiRoadmap/HopfRinow/PROGRESS.md",
-    "report_sha": "5f4cd73bd13b354dd0aafcf8774242cf3697afc782f3c92747767c48aab0ff04",
-    "to_sha": "e440f4eb3fccf5479ede3f5d6a671b4be37c9dde",
-    "ts": "2026-09-30T05:46:25Z"
+    "report_sha": "1c51518855f4bf52ae449e333de2ccc6d6f8e4fa8cfeae005f3cd154fac86abf",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "geodesics, the exponential map, and the Hopf–Rinow theorem",
    "topic": "Geometry and topology"
   },
   {
    "activity": {
-    "last": "2026-10-02T09:40:36Z",
+    "last": "2026-10-02T22:13:22Z",
     "open": 0,
-    "recent": 39,
-    "since_report": 9,
-    "total": 93,
+    "recent": 42,
+    "since_report": 12,
+    "total": 96,
     "weekly": [
      0,
      0,
@@ -3160,7 +3154,7 @@
      4,
      1,
      0,
-     30
+     33
     ]
    },
    "assessment": {
@@ -3275,11 +3269,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T09:05:58Z",
-    "open": 6,
-    "recent": 71,
-    "since_report": 10,
-    "total": 145,
+    "last": "2026-10-02T19:25:41Z",
+    "open": 5,
+    "recent": 72,
+    "since_report": 12,
+    "total": 147,
     "weekly": [
      3,
      11,
@@ -3296,7 +3290,7 @@
      7,
      18,
      28,
-     14
+     16
     ]
    },
    "assessment": {
@@ -3387,11 +3381,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T07:43:35Z",
-    "open": 2,
-    "recent": 98,
-    "since_report": 4,
-    "total": 98,
+    "last": "2026-10-02T21:36:38Z",
+    "open": 1,
+    "recent": 105,
+    "since_report": 11,
+    "total": 105,
     "weekly": [
      0,
      0,
@@ -3408,7 +3402,7 @@
      6,
      19,
      33,
-     40
+     47
     ]
    },
    "assessment": {
@@ -3497,11 +3491,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T01:55:31Z",
-    "open": 0,
-    "recent": 26,
-    "since_report": 7,
-    "total": 26,
+    "last": "2026-10-02T19:26:25Z",
+    "open": 1,
+    "recent": 28,
+    "since_report": 9,
+    "total": 28,
     "weekly": [
      0,
      0,
@@ -3518,7 +3512,7 @@
      0,
      0,
      1,
-     25
+     27
     ]
    },
    "assessment": {
@@ -3626,11 +3620,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T09:21:29Z",
-    "open": 1,
-    "recent": 225,
-    "since_report": 5,
-    "total": 494,
+    "last": "2026-10-02T19:47:28Z",
+    "open": 3,
+    "recent": 226,
+    "since_report": 8,
+    "total": 497,
     "weekly": [
      0,
      0,
@@ -3647,7 +3641,7 @@
      59,
      53,
      48,
-     24
+     27
     ]
    },
    "assessment": {
@@ -3774,11 +3768,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T09:29:33Z",
-    "open": 2,
-    "recent": 59,
-    "since_report": 4,
-    "total": 205,
+    "last": "2026-10-02T16:53:33Z",
+    "open": 0,
+    "recent": 63,
+    "since_report": 8,
+    "total": 209,
     "weekly": [
      11,
      16,
@@ -3795,7 +3789,7 @@
      11,
      18,
      12,
-     9
+     13
     ]
    },
    "assessment": {
@@ -3866,11 +3860,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T09:36:30Z",
+    "last": "2026-10-02T21:24:26Z",
     "open": 0,
-    "recent": 122,
-    "since_report": 5,
-    "total": 126,
+    "recent": 124,
+    "since_report": 7,
+    "total": 128,
     "weekly": [
      0,
      0,
@@ -3887,7 +3881,7 @@
      13,
      40,
      42,
-     22
+     24
     ]
    },
    "assessment": {
@@ -3978,11 +3972,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T16:49:09Z",
+    "last": "2026-10-02T21:28:37Z",
     "open": 3,
-    "recent": 56,
-    "since_report": 4,
-    "total": 171,
+    "recent": 59,
+    "since_report": 8,
+    "total": 175,
     "weekly": [
      3,
      19,
@@ -3999,7 +3993,7 @@
      5,
      18,
      16,
-     8
+     12
     ]
    },
    "assessment": {
@@ -4064,11 +4058,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T04:56:06Z",
-    "open": 0,
-    "recent": 64,
-    "since_report": 11,
-    "total": 92,
+    "last": "2026-10-02T18:23:24Z",
+    "open": 1,
+    "recent": 66,
+    "since_report": 2,
+    "total": 94,
     "weekly": [
      0,
      0,
@@ -4085,7 +4079,7 @@
      4,
      18,
      18,
-     17
+     19
     ]
    },
    "assessment": {
@@ -4093,11 +4087,12 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 13": "everything beyond the finite entropy minimiser: static Schroedinger problem, entropic duality, Sinkhorn convergence",
-     "Layer 2": "Polish duality for costs bounded below by a split sum, with dual attainment, Borel-cost regimes, the Schachermayer-Teichmann converse",
+     "Layer 12": "Polish-support radius identity, CAT(0) uniqueness, and all Wasserstein barycenter items 3-8",
+     "Layer 13": "Nutz existence of the Schroedinger minimiser, entropic duality, Sinkhorn, zero-temperature limit",
+     "Layer 2": "duality for costs bounded below by a split sum, dual attainment under a split envelope, Borel-cost regimes, the Schachermayer-Teichmann converse",
      "Layer 3": "the measured-metric carrier (item 9) and the bounded-Lipschitz Kantorovich-Rubinstein variant",
-     "Layer 4": "Pratelli Theorem B for unbounded continuous costs and the graph-plan convergence-in-measure theorem",
-     "Layer 5": "Fenchel-Moreau, finite-dimensional convex API with Rademacher, Brenier and its extensions"
+     "Layer 4": "Pratelli Theorem B for unbounded or infinite continuous costs",
+     "Layer 5": "Fenchel-Moreau, relative-interior potential uniqueness, rectifiable-null sources, Gangbo-McCann, polar factorization"
     },
     "source": "marker"
    },
@@ -4180,7 +4175,7 @@
     "untouched",
     "untouched",
     "untouched",
-    "untouched",
+    "partial",
     "partial",
     "untouched",
     "untouched",
@@ -4189,44 +4184,44 @@
    "status": {
     "frontier": [
      {
-      "name": "Polish lower-semicontinuous duality",
-      "text": "(Layer 2, item 4) — extend the bounded-continuous theorem to costs `c ≥ a ⊕ b` with upper semicontinuous integrable `a, b`, and dual attainment under a split upper envelope. The attainment and certificate machinery is now in place."
+      "name": "Pratelli's Theorem B",
+      "text": "(Layer 4, item 3) — Monge equals Kantorovich for unbounded or infinite continuous costs with atomless source; density of graph plans and the graph-convergence theorem are in place."
      },
      {
-      "name": "Brenier's theorem",
-      "text": "(Layer 5, item 5) — the finite-dimensional specialisation and Rademacher differentiability of convex potentials (item 2) are the missing prerequisites; Rockafellar, the quadratic `c`-transform identification, and the twist-to-map pipeline are ready."
+      "name": "General Polish duality",
+      "text": "(Layer 2, item 4) — extend from nonnegative costs to `c ≥ a ⊕ b` with integrable upper semicontinuous `a, b`, and prove dual attainment under a split upper envelope."
      },
      {
-      "name": "Pratelli's Theorem B and graph-plan convergence",
-      "text": "(Layer 4, items 3–4) — Monge equals Kantorovich for unbounded or infinite continuous costs with atomless source, and narrow convergence of graph plans versus convergence in measure."
+      "name": "Entropic minimisers",
+      "text": "(Layer 13A, items 2–3) — Nutz's existence and uniqueness of the Schrödinger minimiser, then the Gibbs density and potentials; the definitions and Gibbs identity are ready."
+     },
+     {
+      "name": "Brenier beyond the core",
+      "text": "(Layer 5, items 1, 7, 8) — Fenchel–Moreau, the rectifiable-null source theorem, and Gangbo–McCann for strictly convex `h(x - y)`; Monge–Ampère (Layer 6) needs Alexandrov differentiability first."
      },
      {
       "name": "Schachermayer–Teichmann",
-      "text": "(Layer 2, item 7) — finite-cost plans concentrated on `c`-cyclically monotone sets are optimal, on Polish spaces for finite lower semicontinuous costs; needs the contact-potential construction."
-     },
-     {
-      "name": "Layer 3 closure and Layer 12 start",
-      "text": "— the measured-metric carrier and the bounded-Lipschitz duality variant; Fréchet barycenters on proper metric spaces are self-contained, and the Gaussian geometric-mean identities are ready for the Gaussian barycenter."
+      "text": "(Layer 2, item 7) — optimality of finite-cost plans concentrated on `c`-cyclically monotone sets for finite lower semicontinuous costs on Polish spaces."
      }
     ],
-    "glance": "Layers 0 and 1 are done, and Layer 3 (Wasserstein distances) is done except for the measured-metric carrier and a bounded-Lipschitz variant of Kantorovich–Rubinstein. Layer 2 lacks its Polish summit beyond bounded continuous costs; Layers 4 (Monge), 5 (convex analysis, Brenier) and 13 (entropic transport) are partial; everything else has not begun.",
+    "glance": "Layers 0 and 1 are done, Layer 3 (Wasserstein distances) is done except for the measured-metric carrier and a bounded-Lipschitz variant, and Brenier's theorem now stands at the centre of Layer 5. Kantorovich duality, the Monge problem, barycenters and entropic transport are partial; Layers 6–11 and 14–16 have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/OptimalTransport/STATUS.md",
     "progress_path": "TauCetiRoadmap/OptimalTransport/PROGRESS.md",
-    "report_sha": "c51b80056bc26da725dd2ac3db46190f74b6040ae4effabc2ed8be7b895ec134",
-    "to_sha": "e440f4eb3fccf5479ede3f5d6a671b4be37c9dde",
-    "ts": "2026-09-30T05:46:25Z"
+    "report_sha": "85d32deb8dd97764570481f6b54e140e9ce860a33d8f784e148659117858ea4b",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "optimal transport and Wasserstein geometry",
    "topic": "Analysis"
   },
   {
    "activity": {
-    "last": "2026-10-02T08:11:42Z",
-    "open": 3,
-    "recent": 48,
-    "since_report": 5,
-    "total": 48,
+    "last": "2026-10-02T19:06:45Z",
+    "open": 1,
+    "recent": 52,
+    "since_report": 9,
+    "total": 52,
     "weekly": [
      0,
      0,
@@ -4243,7 +4238,7 @@
      0,
      0,
      33,
-     15
+     19
     ]
    },
    "assessment": {
@@ -4327,11 +4322,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T09:10:57Z",
+    "last": "2026-10-02T13:09:30Z",
     "open": 1,
-    "recent": 92,
-    "since_report": 14,
-    "total": 182,
+    "recent": 93,
+    "since_report": 5,
+    "total": 184,
     "weekly": [
      1,
      13,
@@ -4348,7 +4343,7 @@
      10,
      18,
      34,
-     26
+     28
     ]
    },
    "assessment": {
@@ -4358,8 +4353,8 @@
     "remaining": {
      "Lane A": "Meyers-Serrin on a general domain, trace and extension for Lipschitz boundary, the p = n embedding, agreement with Bessel-potential spaces",
      "Lane B": "Riesz-Thorin, the Calderon-Zygmund decomposition and singular integrals, Mihlin-Hormander, BMO and John-Nirenberg",
-     "Lane C": "Harnack for general elliptic L, Poisson-integral solution on the ball, Perron's method with barriers",
-     "Lane E": "De Giorgi Hoelder continuity, H^k bootstrapping for variable coefficients, W^{2,p} and Schauder estimates"
+     "Lane C": "Harnack for general elliptic L, Poisson-integral solution on the n-ball, Perron's method with barriers",
+     "Lane E": "the De Giorgi Hoelder-continuity statement and weak Harnack, H^k bootstrapping for variable coefficients, W^{2,p} and Schauder estimates"
     },
     "source": "marker"
    },
@@ -4408,11 +4403,11 @@
     "frontier": [
      {
       "name": "De Giorgi Hölder continuity.",
-      "text": "Local boundedness and the isoperimetric level-set inequality are in place. What remains is oscillation decay, and with it Hölder continuity and the weak Harnack inequality. Lower-order terms have yet to be admitted."
+      "text": "The oscillation estimate is proved. What remains is turning it into a locally Hölder-continuous representative on compact subsets, and proving the weak Harnack inequality. Lower-order terms and `n = 2` have yet to be admitted."
      },
      {
-      "name": "The Dirichlet problem on the ball by Poisson integral.",
-      "text": "The kernel's far-field mass is shown to vanish at a boundary point. It remains to show that the Poisson integral of continuous data is harmonic and attains its boundary values. After that comes Perron's method with barriers."
+      "name": "The Dirichlet problem on the `n`-ball by Poisson integral.",
+      "text": "The planar case is done. In higher dimensions the Green kernel and the vanishing of its far-field mass are in place, but harmonicity and boundary attainment of the Poisson integral are not. Perron's method with barriers comes after that."
      },
      {
       "name": "Higher interior regularity.",
@@ -4420,31 +4415,31 @@
      },
      {
       "name": "Meyers-Serrin, trace and extension.",
-      "text": "Density is now known on `ℝⁿ` at every order. On a general domain it needs no boundary regularity. Trace and extension for `W^{1,p}(Ω)` need Lipschitz `∂Ω`."
+      "text": "Density is known on `ℝⁿ`. On a general domain it needs no boundary regularity. Trace and extension need Lipschitz `∂Ω`."
      },
      {
       "name": "Calderón-Zygmund.",
       "text": "The decomposition, singular integrals and BMO have not begun. They are prerequisites for `W^{2,p}` and Schauder estimates."
      }
     ],
-    "glance": "Lane D is complete, from the weak formulation through to the Dirichlet spectrum. Lane E has started on its deepest theorem: De Giorgi's local boundedness is proved, and so is interior `H²` regularity for constant principal coefficients. Lane C has maximum principles, Hopf's lemma and Harnack in every dimension, plus Green's functions of the ball and the half-space, but not Perron's method. Lanes A and B are partial, and Lane F has not begun.",
+    "glance": "Lane D is complete, from the weak formulation through to the Dirichlet spectrum. Lane E has most of De Giorgi's theorem: local boundedness and the interior oscillation estimate are proved for `n ≥ 3`, though the Hölder-continuity statement has not yet been extracted. Lanes A, B and C are partial, and Lane F has not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/PDE/STATUS.md",
     "progress_path": "TauCetiRoadmap/PDE/PROGRESS.md",
-    "report_sha": "3d86bae1c7da2f6832c8885c7aa79f4ffef1d9f25570d6c5456056097d8c2074",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "ddfd2c7dfb8f36849f76529023c5bb322d71ed7dc261e8603a76fce76c613cfd",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "partial differential equations",
    "topic": "Analysis"
   },
   {
    "activity": {
-    "last": "2026-10-02T08:59:27Z",
+    "last": "2026-10-02T14:49:31Z",
     "open": 0,
-    "recent": 13,
-    "since_report": 11,
-    "total": 13,
+    "recent": 17,
+    "since_report": 6,
+    "total": 17,
     "weekly": [
      0,
      0,
@@ -4461,7 +4456,7 @@
      0,
      0,
      0,
-     13
+     17
     ]
    },
    "assessment": {
@@ -4469,10 +4464,7 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 1": "the defect level sets, the central-series correction step, and the compactness limit with c 0 = 1",
-     "Layer 2": "the peripheral-power theorem itself (needs Layer 1) and the transfer to other conjugates of the cusp",
-     "Layer 3": "peripheralAut and its exponent, closedness, the reflection, permutation symmetries, the principal-unit section",
-     "Layer 4": "the dyadic specialization of Layers 1, 2 and 3.5 in both conventions",
+     "Layer 3": "the permutation symmetries of 3.4: IsPeripheralPermAut, its subgroup, permData for r at least 2, and the rank-two swap and rotation",
      "Layer 5": "not a target here; it belongs to the arithmetic successor of BelyiMaps"
     },
     "source": "marker"
@@ -4512,53 +4504,37 @@
    "retired": null,
    "states": [
     "done",
-    "untouched",
+    "done",
+    "done",
     "partial",
-    "untouched",
-    "untouched",
+    "done",
     "untouched"
    ],
    "status": {
     "frontier": [
      {
-      "name": "The reflection and the permutation symmetries (Layer 3.3, 3.4)",
-      "text": "— these need only Layer 0 and the automorphism criterion, both now in place, so they can proceed alongside Layer 1. Still to do: the reflection of exponent `-1` with explicit conjugators, the rank-two inversion, the proved rank-three failure of plain inversion, and `IsPeripheralPermAut` with `permData` for `r ≥ 2`."
-     },
-     {
-      "name": "The peripheral product identity (Layer 1)",
-      "text": "— the level sets of the defect, the correction step through the closed lower central series (the only place the unit hypothesis is used), and the compactness limit that keeps `c 0 = 1`. None of this exists yet. It depends on ProfiniteArithmetic's graded pieces, bracket and spanning theorem."
-     },
-     {
-      "name": "The peripheral-power theorem (Layer 2)",
-      "text": "— once Layer 1 lands, this should be a short assembly of the identity with the criterion already proved, followed by transfer to other conjugates of the cusp via BelyiMaps' `conjugation_transfer`."
-     },
-     {
-      "name": "The group of peripheral automorphisms (Layer 3.1, 3.2, 3.5)",
-      "text": "— the subgroup, its exponent homomorphism, closedness, continuity of the exponent, and the section over the principal units. All wait on Layer 2 for surjectivity, and the section also needs ProfiniteArithmetic 1.2."
-     },
-     {
-      "name": "The dyadic instance (Layer 4)",
-      "text": "— the specialization to `p = 2`, `r = 2` in consumer shape, in both conventions for the third element. It follows once Layers 1, 2 and 3.5 are in place."
+      "name": "Permutation symmetries (Layer 3.4)",
+      "text": "— the predicate `IsPeripheralPermAut` and the subgroup it defines. Still to do: uniqueness of the permutation and exponent for `r ≥ 2`, the homomorphism `permData`, the stated rank-one failure, and the rank-two swap and rotation. Everything it needs is in place."
      }
     ],
-    "glance": "Layer 0, the peripheral system and its predicate, is done. The automorphism criterion from Layer 2 is proved, but the roadmap's mathematical core has not started: the peripheral product identity (Layer 1), the peripheral-power theorem, the group of peripheral automorphisms, and the dyadic instance.",
+    "glance": "The summit is reached. The peripheral product identity and the peripheral-power theorem are proved for every `p`-adic unit, the group of peripheral automorphisms has its exponent character, closedness and principal-unit section, and the dyadic instance is stated in consumer shape. The one piece of the roadmap not yet begun is the permutation symmetries of Layer 3.4.",
     "inherited": false,
     "path": "TauCetiRoadmap/PeripheralActions/STATUS.md",
     "progress_path": "TauCetiRoadmap/PeripheralActions/PROGRESS.md",
-    "report_sha": "67a10a8ba0d450200dc0b92dc4923fdd9995e0767ce2ee60da453aba5eb6d6ea",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "3940904b1daf529762103e20d41855ebd58d49fd75627422511976c57c860c08",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "peripheral actions on free pro-`p` groups",
    "topic": "Unsorted"
   },
   {
    "activity": {
-    "last": "2026-10-02T09:56:53Z",
+    "last": "2026-10-02T21:25:47Z",
     "open": 0,
-    "recent": 80,
-    "since_report": 5,
-    "total": 84,
+    "recent": 84,
+    "since_report": 9,
+    "total": 88,
     "weekly": [
      0,
      0,
@@ -4575,7 +4551,7 @@
      8,
      23,
      18,
-     27
+     31
     ]
    },
    "assessment": {
@@ -4656,11 +4632,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T07:51:52Z",
+    "last": "2026-10-02T19:58:17Z",
     "open": 0,
-    "recent": 23,
-    "since_report": 12,
-    "total": 23,
+    "recent": 24,
+    "since_report": 3,
+    "total": 24,
     "weekly": [
      0,
      0,
@@ -4677,7 +4653,7 @@
      0,
      0,
      0,
-     23
+     24
     ]
    },
    "assessment": {
@@ -4685,10 +4661,9 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 0": "the decomposition of the profinite integers into the product of the l-adic integers, the idempotents, the unit group and character assembly",
-     "Layer 1": "zpowHat and closedZpowers, the l-parts, and the comparison of profinite powers with l-adic powers",
-     "Layer 2": "the congruence topology and profiniteness, the actions and functoriality of 2.3, and the pro-p automorphism theorems of 2.4",
-     "Layer 3": "the Lie ring and Z_p-Lie algebra on the graded sum, finite generation of the pieces, and the degree-one basis of a free pro-p group"
+     "Layer 1": "the unit-exponent identity closedZpowers (x ^[l] u) = closedZpowers x",
+     "Layer 2": "the pro-p automorphism theorem of 2.4, the action on closed subgroups up to conjugacy, and the outer action of an extension",
+     "Layer 3": "LieRing and LieAlgebra Z_p on the graded sum, the graded map to the lower p-series, and finite generation of the pieces"
     },
     "source": "marker"
    },
@@ -4720,7 +4695,7 @@
    "readme_sha": "40b35091ae14fe4526f5a9a9af67374955e9e77cf838dc3d6738cab947c2bbc0",
    "retired": null,
    "states": [
-    "partial",
+    "done",
     "partial",
     "partial",
     "partial"
@@ -4728,44 +4703,44 @@
    "status": {
     "frontier": [
      {
-      "name": "The decomposition `ẑ ≃ ∏ ℤ_ℓ` and the idempotents `ω_ℓ`",
-      "text": "— this is what remains of 0.3, by the Chinese remainder theorem at each level. The idempotents then unlock the `ℓ`-parts of 1.2 and the units of 0.4."
+      "name": "The `ℓ`-unit identity for closed procyclic subgroups",
+      "text": "— prove `closedZpowers (x ^[ℓ] u) = closedZpowers x` for `u ∈ ℤ_ℓˣ`, which closes Layer 1."
      },
      {
-      "name": "The congruence topology on `ContinuousAut`",
-      "text": "— the initial topology through [`mapQuotient`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Topology/Algebra/Group/ContinuousAut/Quotient.html#TauCeti.ContinuousAut.mapQuotient) into discrete targets, then profiniteness for topologically finitely generated `G`. The actions of 2.3 and the pro-`p` theorems of 2.4 all wait on this."
+      "name": "The pro-`p` automorphism theorem",
+      "text": "— for topologically finitely generated pro-`p` `G`, the kernel to `MulAut (G ⧸ proPFrattini p G)` is open and pro-`p`. The finite theorem and profiniteness of `ContinuousAut G` are both in place."
      },
      {
       "name": "The graded Lie algebra",
-      "text": "— assemble `⨁ gr_n` into a `LieRing` and, for pro-`p` groups, a `LieAlgebra ℤ_[p]`. Alternation, Jacobi and bilinearity are already proved degreewise, so this is assembly work."
+      "text": "— assemble `⨁ gr_n` into a `LieRing` and, for pro-`p` groups, a `LieAlgebra ℤ_[p]`. Alternation, Jacobi and `ℤ_p`-bilinearity are already proved degreewise."
      },
      {
-      "name": "The degree-one basis of a free pro-`p` group",
-      "text": "— build the Heisenberg detecting homomorphisms, then use them with the one-term spanning theorem to prove the `ℤ_p`-basis `[x̄_i, x̄_j]`."
+      "name": "The remaining actions of 2.3",
+      "text": "— the action of `ContinuousOut G` on closed subgroups up to conjugacy, and the outer action `E ⧸ N →* ContinuousOut N` of an extension with its continuity."
      },
      {
-      "name": "The profinite power and its `ℓ`-adic comparison",
-      "text": "— name `x ^ᶻ a` and `closedZpowers`, and prove `x ^ᶻ a = x ^[ℓ] (component ℓ a)` on pro-`ℓ` groups through the maximal pro-`ℓ` quotient of `ẑ`."
+      "name": "Finite generation of the graded pieces",
+      "text": "— each `gr_n` of a topologically finitely generated pro-`p` group is a finitely generated `ℤ_p`-module, by induction from the one-term spanning theorem. The graded map to the lower `p`-series is the other missing piece of 3.2."
      }
     ],
-    "glance": "Every layer has begun and none is finished. The closed lower central series (Layer 3) is furthest along: the series, its graded pieces and the spanning theorem are in place, but the graded Lie algebra itself and the degree-one basis for free pro-`p` groups are missing. `ẑ` has its ring structure and its description as an inverse limit, but not its decomposition into `∏ ℤ_ℓ` or its units. The automorphism groups exist, but have no topology yet.",
+    "glance": "Layer 0, the ring `ẑ` with its decomposition and units, is done, and Layer 1 is done apart from one unit-exponent identity. In Layers 2 and 3 the hardest named targets are in: the profinite congruence topology, the finite Frattini theorem and the degree-one basis of a free pro-`p` group. What remains there is the pro-`p` automorphism theorem, two actions, and the assembly of the graded pieces into a Lie algebra.",
     "inherited": false,
     "path": "TauCetiRoadmap/ProfiniteArithmetic/STATUS.md",
     "progress_path": "TauCetiRoadmap/ProfiniteArithmetic/PROGRESS.md",
-    "report_sha": "39769cf92888834a78c1e138180642d989f46345a7ebfd9c9c4555f240e0a4fa",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "70d456956dd9ba00e6e3442e55803e0314169ab289dc00c605238f08475887c6",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "profinite integers, profinite powers, and continuous automorphisms",
    "topic": "Unsorted"
   },
   {
    "activity": {
-    "last": "2026-10-02T09:56:53Z",
-    "open": 3,
-    "recent": 111,
-    "since_report": 4,
-    "total": 144,
+    "last": "2026-10-02T19:57:25Z",
+    "open": 1,
+    "recent": 118,
+    "since_report": 11,
+    "total": 151,
     "weekly": [
      0,
      0,
@@ -4782,7 +4757,7 @@
      5,
      17,
      51,
-     34
+     41
     ]
    },
    "assessment": {
@@ -4915,11 +4890,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T04:00:58Z",
-    "open": 1,
-    "recent": 234,
-    "since_report": 16,
-    "total": 238,
+    "last": "2026-10-02T21:14:46Z",
+    "open": 2,
+    "recent": 239,
+    "since_report": 5,
+    "total": 243,
     "weekly": [
      0,
      0,
@@ -4936,7 +4911,7 @@
      10,
      16,
      96,
-     109
+     114
     ]
    },
    "assessment": {
@@ -4948,10 +4923,7 @@
      "Layer 1": "the finite-support and finite-exponent criterion for natural supernatural numbers",
      "Layer 3": "the theorem that the pro-p kernel has no nontrivial p-quotient, proPKernel_proPKernel_eq_top",
      "Layer 4": "confirm the Z_p-module statements of the abelian subsection",
-     "Layer 5": "lifting along an extension class, the pro-p converse of projectivity, and confirming the Golod-Shafarevich inequality",
-     "Layer 7": "pairings into I(chi)/p^i on p-primary modules not killed by p, the canonical character of an open subgroup, and the converse recognition directions",
-     "Layer 8": "the basis corrections for the even-rank branch with image {+-1} x U^(f)",
-     "Layer 9": "Labute Theorem 6 for image {+-1} x U^(f) with f finite, the unified even marked statement and Theorem 2 built on it, and the open-subgroup consequences",
+     "Layer 5": "5.7, the pro-p converse of projectivity, hasPGroupSolutions_of_isProjective",
      "Layer 9 prerequisites": "the factorizations of the relator class in Labute's module for the U^[f] and {+-1} x U^(f) branches"
     },
     "source": "marker"
@@ -5015,53 +4987,53 @@
     "partial",
     "partial",
     "done",
+    "done",
+    "done",
     "partial",
-    "partial",
-    "partial",
-    "partial",
+    "done",
     "done"
    ],
    "status": {
     "frontier": [
      {
-      "name": "Labute's Theorem 6",
-      "text": "— normal form and uniqueness in even rank for image `{±1} × U^(f)`, `2 ≤ f < ∞`. The [constrained approximation step](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Topology/Algebra/Group/Profinite/Demushkin/NormalForm/Two/Even/Approximation.html#TauCeti.freeProP.exists_continuousMulEquiv_apply_demushkinWordTwoEven_zero_eq_of_forall_crossedHom_eq_zero) and the [orientation image of the normal form](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Topology/Algebra/Group/Profinite/Demushkin/NormalForm/Two/Even/PadicExponent/Character.html#TauCeti.range_demushkinCharacter_eq_unitsPlusMinus_of_equiv_demushkinWordTwoEvenPadic) are in place, and the unified `isDemushkin_marked_of_q_two_even` waits on it."
-     },
-     {
-      "name": "Open subgroups and recognition",
-      "text": "— the canonical character of an open subgroup is the restriction of that of `G`. With it come the converse recognition directions and the Layer 9 statement that `n(U)` and `χ(U)` identify `U`."
-     },
-     {
-      "name": "Labute's module statements",
-      "text": "— the relator class in `E = ker χ / (ker χ, ker χ)` as `(1 + 2^f + ȳ) z` in the `U^[f]` branch, and as a sum of two such multiples in the `{±1} × U^(f)` branch. Theorem 5 was proved without them."
-     },
-     {
-      "name": "Inputs for local Galois groups",
-      "text": "— that the pro-`p` kernel has no nontrivial `p`-quotient, and lifting a homomorphism along an extension class with compact kernel. `LocalGaloisGroups` consumes both."
+      "name": "The pro-`p` kernel has no nontrivial `p`-quotient",
+      "text": "— the Layer 3 statement `proPKernel_proPKernel_eq_top`. `LocalGaloisGroups` consumes it together with the lifting theorem that just landed."
      },
      {
       "name": "The converse of projectivity",
-      "text": "— a projective pro-`p` group solves every finite embedding problem with `p`-group kernel."
+      "text": "— a projective pro-`p` group solves every finite embedding problem with `p`-group kernel, which makes projectivity equivalent to that solvability for pro-`p` groups."
+     },
+     {
+      "name": "Labute's module statements",
+      "text": "— in `E = ker χ / (ker χ, ker χ)`, the relator class is `(1 + 2^f + ȳ) z` in the `U^[f]` branch and a sum of two such multiples in the `{±1} × U^(f)` branch. Theorems 5 and 6 were proved without them, so they no longer block anything, but they remain the README's stated milestones."
+     },
+     {
+      "name": "Natural supernatural numbers",
+      "text": "— the Layer 1 criterion that a supernatural number is natural exactly when it has finite support and finite exponents."
+     },
+     {
+      "name": "Foundational confirmations",
+      "text": "— the separation-instance chain for totally disconnected groups in Layer 0, and the `ℤ_p`-module statements of Layer 4's abelian subsection."
      }
     ],
-    "glance": "Layers 2, 6 and 10 are complete. The Demushkin classification is done except in even rank with orientation image `{±1} × U^(f)`, `f` finite, which is Labute's Theorem 6, and Demushkin duality now reaches `cd_p = 2` and the open-subgroup theorem. Layers 0, 1, 3, 4 and 5 each lack a few named statements.",
+    "glance": "Layers 2, 6, 7, 8, 9 and 10 are done. Layer 9 is the summit, the classification of Demushkin groups, and it is now proved in every case. Layers 0, 1, 3, 4 and 5 each lack a few named statements. The Layer 9 prerequisites still lack Labute's module factorizations, which the classification ended up not needing.",
     "inherited": false,
     "path": "TauCetiRoadmap/ProfiniteProPGroups/STATUS.md",
     "progress_path": "TauCetiRoadmap/ProfiniteProPGroups/PROGRESS.md",
-    "report_sha": "dfb6c04bae3cead4f1fddd4ad40d2749ea5dfc4ce7604bce7d032add27c4365c",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "38892e18178c216602fcb75ecb85b64146a732049185605174fb7467c7690777",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "profinite and pro-`p` groups",
    "topic": "Algebra and representation theory"
   },
   {
    "activity": {
-    "last": "2026-10-02T09:19:13Z",
-    "open": 0,
-    "recent": 98,
-    "since_report": 12,
-    "total": 98,
+    "last": "2026-10-02T21:15:37Z",
+    "open": 2,
+    "recent": 107,
+    "since_report": 13,
+    "total": 107,
     "weekly": [
      0,
      0,
@@ -5078,7 +5050,7 @@
      8,
      18,
      40,
-     31
+     40
     ]
    },
    "assessment": {
@@ -5089,11 +5061,11 @@
      "Layer 0": "the comparison of diagonal chains with Serre's contiguous orthogonal bases (Serre IV Thm 5)",
      "Layer 1": "Witt decomposition for forms with a radical, and the Witt index as the dimension of a maximal totally isotropic subspace (Lam I.4.4)",
      "Layer 3": "a second construction of discr through the descent principle with its agreement lemma; Lam's c and the Wall caution in the invariant dictionary",
-     "Layer 5": "the odd-dimensional even Clifford subalgebra, cliffordInvariant with the Lam V.3.20 comparison, and the homomorphism from I² to Br(K)[2] killing I³",
-     "Layer 6": "graded-piece adapters; the Q_2 closed formula and 8x8 table; hilbertSymbol_eq_cohomological and the product formula; 6D; 6E",
-     "Layer 7": "crossed-product items 7-8 (mutual inverse, inflation), the comparison isomorphism and iota, iota of (a,b) as a cup product, and 7C",
+     "Layer 5": "centrality of the odd-dimensional even Clifford algebra, cliffordInvariant with the Lam V.3.20 comparison, and the homomorphism from I2 to Br(K)[2] killing I3",
+     "Layer 6": "6D classification beyond dimension two, realization, unique anisotropic quaternary form; Q_2 formula and table; cohomological comparison and product formula; 6E",
+     "Layer 7": "the comparison isomorphism Br(K) = H2 with its crossed-product equation, iota on 2-torsion, iota of (a,b) as a cup product, and 7C",
      "Layer 8": "w2 isometry invariance and the descended w1, w2 on classes; orthogonal-sum identities; w2 as the image of the Hasse invariant; the Clifford comparison",
-     "Layer 9": "the Galois wrappers for res, cor and the Evens norm, then the relative Stiefel-Whitney formula, which needs Layer 8"
+     "Layer 9": "the carrier wrappers and the Evens norm along L/K, then the relative Stiefel-Whitney formula, which needs Layer 8"
     },
     "source": "marker"
    },
@@ -5158,43 +5130,43 @@
     "frontier": [
      {
       "name": "The local classification (6D)",
-      "text": "— `(dim, d, s)` classifies, realization, isotropy by rank and `u(K) = 4`. Every 6C input it lists is now in."
-     },
-     {
-      "name": "The Clifford invariant",
-      "text": "— central simplicity of the even subalgebra in odd dimension, invariance under isometry, the Lam V.3.20 comparison, then `I² → Br(K)[2]` vanishing on `I³`. The even-dimensional case and the generation inputs are in."
+      "text": ": extend the classification by `(dim, d, s)` from dimension two to all dimensions. Then prove realization of admissible triples and the uniqueness of the anisotropic quaternary form."
      },
      {
       "name": "The comparison `Br(K) ≅ H²`",
-      "text": "— show that the crossed-product and cocycle maps are mutually inverse, inflate into continuous cohomology, then assemble `ι` and prove `ι[(a,b)] = (a) ∪ (b)`. The cup-norm theorem of 7C follows from that."
+      "text": ": every crossed-product and inflation input is in. What remains is to assemble the equivalence with its defining equation on crossed products, restrict it to `ι` on 2-torsion, and prove `ι[(a,b)] = (a) ∪ (b)` from the quadratic-cocycle computation. The cup-norm theorem of 7C follows."
+     },
+     {
+      "name": "The Clifford invariant",
+      "text": ": prove centrality of `C⁰(q)` in odd dimension and invariance under isometry, then the Lam V.3.20 comparison and `I² → Br(K)[2]` vanishing on `I³`."
      },
      {
       "name": "Descended Stiefel-Whitney classes",
-      "text": "— `w₂` invariance under the binary step needs the cup identity `(a)(b) = (c)(d)` for `⟨a,b⟩ ≅ ⟨c,d⟩`, so it waits on 7C."
+      "text": ": `w₂` invariance under the binary step needs the cup identity `(a)(b) = (c)(d)` for `⟨a,b⟩ ≅ ⟨c,d⟩`, so it waits on 7C."
      },
      {
       "name": "The relative Stiefel-Whitney formula",
-      "text": "— the transfer side is ready, but the formula needs Layer 8's descended classes and the index-two Evens norm along `L/K`. No Evens norm appears in the Tau Ceti source yet."
+      "text": ": the transfer and the Kummer restriction and corestriction formulas are in. It still needs Layer 8's descended classes and an Evens norm along `L/K`; only an abstract index-two Evens class exists so far."
      }
     ],
-    "glance": "Quaternion algebras (Layer 2) and the Witt ring (Layer 4) are done. The local Hilbert symbol is now bimultiplicative in every residue characteristic and carries a local Hasse invariant. Every other layer is partial: the Brauer-group comparison has its crossed-product half, the Scharlau transfer is complete but the relative Stiefel-Whitney formula has not begun, and neither the Clifford invariant nor the local classification exists yet.",
+    "glance": "Quaternion algebras (Layer 2) and the Witt ring (Layer 4) are done. Over a local field the Hilbert symbol is bimultiplicative and isotropy is decided rank by rank, but the classification is proved only up to dimension two. The crossed-product half of `Br(K) ≅ H²` is complete, though the isomorphism itself is not assembled. The Clifford invariant and the relative Stiefel-Whitney formula have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/QuadraticFormInvariants/STATUS.md",
     "progress_path": "TauCetiRoadmap/QuadraticFormInvariants/PROGRESS.md",
-    "report_sha": "a0f6fbb1e8a7644136119e5c0694bb82aadc151dc6407fe267fcaef84fed1ea1",
-    "to_sha": "e440f4eb3fccf5479ede3f5d6a671b4be37c9dde",
-    "ts": "2026-09-30T05:46:25Z"
+    "report_sha": "d637739be8b2289092377bcd5e69b6bab25ebff5a101803c0e28796a06633cb5",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "quadratic forms and cohomological invariants",
    "topic": "Number theory"
   },
   {
    "activity": {
-    "last": "2026-10-02T03:56:40Z",
+    "last": "2026-10-02T22:09:41Z",
     "open": 0,
-    "recent": 25,
-    "since_report": 2,
-    "total": 25,
+    "recent": 28,
+    "since_report": 5,
+    "total": 28,
     "weekly": [
      0,
      0,
@@ -5211,7 +5183,7 @@
      0,
      0,
      5,
-     20
+     23
     ]
    },
    "assessment": {
@@ -5311,11 +5283,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T08:39:29Z",
-    "open": 3,
-    "recent": 329,
-    "since_report": 37,
-    "total": 1031,
+    "last": "2026-10-02T22:22:47Z",
+    "open": 4,
+    "recent": 332,
+    "since_report": 12,
+    "total": 1040,
     "weekly": [
      22,
      19,
@@ -5332,7 +5304,7 @@
      65,
      73,
      69,
-     88
+     97
     ]
    },
    "assessment": {
@@ -5340,10 +5312,10 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 3": "representability of the fppf quotient by a general subgroup, via the line form of Chevalley's theorem; affineness when the subgroup is reductive",
+     "Layer 3": "faithful flatness and exact kernel of G to G/N; representability of G/H for general H via the line form of Chevalley's theorem; affineness for reductive H",
      "Layer 5": "general maximality theorem for the unipotent radical",
      "Layer 6": "characteristic-zero equivalence with linear reductivity and simply connected covers",
-     "Layer 7": "general conjugacy of Borels and maximal tori; root datum of an arbitrary reductive group",
+     "Layer 7": "general conjugacy of Borels and maximal tori beyond GLn and SLn; root datum of an arbitrary reductive group",
      "Layer 9": "uniform pinned construction from arbitrary root data, existence half of the pinned isomorphism theorem, and identification of the explicit carriers with pinned groups"
     },
     "source": "marker"
@@ -5408,16 +5380,16 @@
    "status": {
     "frontier": [
      {
+      "name": "Takeuchi's theorem for `G ⧸ N`.",
+      "text": "Over a field, the projection onto the coinvariants must be shown faithfully flat with kernel exactly `N`. Then `G ⧸ N` represents the fppf quotient sheaf, and every normal subgroup sits in a short exact sequence."
+     },
+     {
       "name": "Chevalley's theorem, line form, and representable quotients.",
-      "text": "The subspace stabilizer has to be converted into the stabilizer of a line in an exterior power; the exterior-algebra lemmas for this are in place. That is the input for showing that `G/H` is a scheme, and that it is affine when `H` is reductive."
+      "text": "The subspace stabilizer has to become the stabilizer of a line in an exterior power. Exterior powers are now subcomodules, so what remains is the top-degree argument, then representability of `G/H` and affineness when `H` is reductive."
      },
      {
-      "name": "Conjugacy of Borels and maximal tori.",
-      "text": "Geometric conjugacy is needed for an arbitrary smooth connected group. It is known only for `GLₙ` and `SL₂`, and the general case is what blocks root data."
-     },
-     {
-      "name": "Root datum of an arbitrary reductive group.",
-      "text": "The roots have to be extracted from a maximal torus, and `N(T)/T` identified with the Weyl group. That identification exists for `Sp₂ₘ` on rational points; the general case needs conjugacy first."
+      "name": "Conjugacy of Borels and root data in general.",
+      "text": "Geometric conjugacy is needed for an arbitrary smooth connected group; so far it is known, as containment in a conjugate of the upper-triangular group, only for `GLₙ` and `SLₙ`. It blocks extracting the root datum of an arbitrary reductive group and identifying `N(T)/T` with its Weyl group."
      },
      {
       "name": "The unipotent radical.",
@@ -5428,24 +5400,24 @@
       "text": "Uniqueness of automorphisms with given action on root subgroups is proved carrier by carrier. Existence for an arbitrary isomorphism of root data is still missing, as is the identification of each carrier with the pinned simply connected group of its type."
      }
     ],
-    "glance": "Four layers are done: the three-way group-scheme dictionary, representation theory, the Lie algebra, and tori and Jordan decomposition. Subgroups and quotients, radicals, reductivity, structure theory and the explicit pinned carriers are partial. Classification has not begun.",
+    "glance": "Four layers are done: the three-way group-scheme dictionary, representation theory, the Lie algebra, and tori with Jordan decomposition. Subgroups and quotients, radicals, reductivity, structure theory and the explicit pinned carriers are partial. Classification has not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/ReductiveGroups/STATUS.md",
     "progress_path": "TauCetiRoadmap/ReductiveGroups/PROGRESS.md",
-    "report_sha": "00c2cb2f58f0d34e06f35831313957222c215c496c9feb7045e3f8d18f30b7ba",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "164d50a11defde52b7d1ba175e82f1858b8152bc943fac7c8b3e1f84c0d47580",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "reductive algebraic groups",
    "topic": "Algebra and representation theory"
   },
   {
    "activity": {
-    "last": "2026-10-02T09:57:21Z",
-    "open": 34,
-    "recent": 404,
-    "since_report": 38,
-    "total": 1117,
+    "last": "2026-10-02T21:27:32Z",
+    "open": 37,
+    "recent": 449,
+    "since_report": 56,
+    "total": 1165,
     "weekly": [
      0,
      0,
@@ -5462,7 +5434,7 @@
      69,
      62,
      150,
-     100
+     148
     ]
    },
    "assessment": {
@@ -5492,29 +5464,29 @@
       "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
+      "name": "Positive-characteristic Ado",
+      "text": ": prove that `U(L)` has no zero divisors and that `ι` is injective for nonabelian `L`. These are the PBW consequences that AdoIwasawa Layer 1 expects from the highest-weight roadmap. After that, state the faithful nilpotence-preserving theorem and `adoCharP`."
+     },
+     {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
+      "text": ": show that finite representation type forces a positive definite Tits form. Positive definiteness already gives finite type, finite type passes to subquivers and to reflected quivers, and it rules out loops and parallel arrows. The extended Dynkin quivers still have to be shown to be of infinite type."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, ring structure, and restriction, induction and permutation classes. This is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
-      "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
-     },
-     {
-      "name": "Spin modules as fundamental representations",
-      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
+      "name": "The cyclotomic splitting field",
+      "text": ": show that `ℚ(ζ_e)` realizes every irreducible representation. The README warns that this needs character-field and Schur-index descent, not just Brauer's theorem."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete, the last including character completeness on top of Peter–Weyl. The Weyl character formula, Brauer induction and Brauer's characterization, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)` are also done; the table still lacks its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality has not begun, and neither have the Lie-group layers from Lie's third theorem onward.",
     "inherited": false,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "ce29a3dabbe140dbe343193051c5d2fcab989a0fef1164184ed987462a3ae9c1",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "Representation theory",
    "topic": "Algebra and representation theory"
@@ -5526,8 +5498,8 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 7": "Krull intersection for U(L) over the central subalgebra and separating L at a finite stage; the finite-dimensional quotient is proved",
-     "Layer 8": "the faithful quotient representation and the positive-characteristic Hochschild theorem"
+     "Layer 1": "injectivity of the canonical map and absence of zero divisors in U(L) for nonabelian L",
+     "Layer 8": "discharge the no-zero-divisors hypothesis and injectivity of the canonical map, then state the faithful theorem and adoCharP"
     },
     "source": "marker"
    },
@@ -5584,7 +5556,7 @@
     "partial",
     "partial",
     "partial",
-    "partial",
+    "done",
     "partial",
     "untouched"
    ],
@@ -5595,29 +5567,29 @@
       "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
+      "name": "Positive-characteristic Ado",
+      "text": ": prove that `U(L)` has no zero divisors and that `ι` is injective for nonabelian `L`. These are the PBW consequences that AdoIwasawa Layer 1 expects from the highest-weight roadmap. After that, state the faithful nilpotence-preserving theorem and `adoCharP`."
+     },
+     {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
+      "text": ": show that finite representation type forces a positive definite Tits form. Positive definiteness already gives finite type, finite type passes to subquivers and to reflected quivers, and it rules out loops and parallel arrows. The extended Dynkin quivers still have to be shown to be of infinite type."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, ring structure, and restriction, induction and permutation classes. This is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
-      "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
-     },
-     {
-      "name": "Spin modules as fundamental representations",
-      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
+      "name": "The cyclotomic splitting field",
+      "text": ": show that `ℚ(ζ_e)` realizes every irreducible representation. The README warns that this needs character-field and Schur-index descent, not just Brauer's theorem."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete, the last including character completeness on top of Peter–Weyl. The Weyl character formula, Brauer induction and Brauer's characterization, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)` are also done; the table still lacks its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality has not begun, and neither have the Lie-group layers from Lie's third theorem onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "ce29a3dabbe140dbe343193051c5d2fcab989a0fef1164184ed987462a3ae9c1",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "The Ado–Iwasawa theorem and faithful finite-dimensional Lie representations",
    "topic": "Algebra and representation theory"
@@ -5697,29 +5669,29 @@
       "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
+      "name": "Positive-characteristic Ado",
+      "text": ": prove that `U(L)` has no zero divisors and that `ι` is injective for nonabelian `L`. These are the PBW consequences that AdoIwasawa Layer 1 expects from the highest-weight roadmap. After that, state the faithful nilpotence-preserving theorem and `adoCharP`."
+     },
+     {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
+      "text": ": show that finite representation type forces a positive definite Tits form. Positive definiteness already gives finite type, finite type passes to subquivers and to reflected quivers, and it rules out loops and parallel arrows. The extended Dynkin quivers still have to be shown to be of infinite type."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, ring structure, and restriction, induction and permutation classes. This is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
-      "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
-     },
-     {
-      "name": "Spin modules as fundamental representations",
-      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
+      "name": "The cyclotomic splitting field",
+      "text": ": show that `ℚ(ζ_e)` realizes every irreducible representation. The README warns that this needs character-field and Schur-index descent, not just Brauer's theorem."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete, the last including character completeness on top of Peter–Weyl. The Weyl character formula, Brauer induction and Brauer's characterization, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)` are also done; the table still lacks its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality has not begun, and neither have the Lie-group layers from Lie's third theorem onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "ce29a3dabbe140dbe343193051c5d2fcab989a0fef1164184ed987462a3ae9c1",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "character theory of finite groups, and computing character tables",
    "topic": "Algebra and representation theory"
@@ -5788,29 +5760,29 @@
       "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
+      "name": "Positive-characteristic Ado",
+      "text": ": prove that `U(L)` has no zero divisors and that `ι` is injective for nonabelian `L`. These are the PBW consequences that AdoIwasawa Layer 1 expects from the highest-weight roadmap. After that, state the faithful nilpotence-preserving theorem and `adoCharP`."
+     },
+     {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
+      "text": ": show that finite representation type forces a positive definite Tits form. Positive definiteness already gives finite type, finite type passes to subquivers and to reflected quivers, and it rules out loops and parallel arrows. The extended Dynkin quivers still have to be shown to be of infinite type."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, ring structure, and restriction, induction and permutation classes. This is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
-      "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
-     },
-     {
-      "name": "Spin modules as fundamental representations",
-      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
+      "name": "The cyclotomic splitting field",
+      "text": ": show that `ℚ(ζ_e)` realizes every irreducible representation. The README warns that this needs character-field and Schur-index descent, not just Brauer's theorem."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete, the last including character completeness on top of Peter–Weyl. The Weyl character formula, Brauer induction and Brauer's characterization, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)` are also done; the table still lacks its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality has not begun, and neither have the Lie-group layers from Lie's third theorem onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "ce29a3dabbe140dbe343193051c5d2fcab989a0fef1164184ed987462a3ae9c1",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "finite-dimensional representations of the classical groups",
    "topic": "Algebra and representation theory"
@@ -5867,7 +5839,7 @@
     "done",
     "done",
     "done",
-    "partial"
+    "done"
    ],
    "status": {
     "frontier": [
@@ -5876,29 +5848,29 @@
       "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
+      "name": "Positive-characteristic Ado",
+      "text": ": prove that `U(L)` has no zero divisors and that `ι` is injective for nonabelian `L`. These are the PBW consequences that AdoIwasawa Layer 1 expects from the highest-weight roadmap. After that, state the faithful nilpotence-preserving theorem and `adoCharP`."
+     },
+     {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
+      "text": ": show that finite representation type forces a positive definite Tits form. Positive definiteness already gives finite type, finite type passes to subquivers and to reflected quivers, and it rules out loops and parallel arrows. The extended Dynkin quivers still have to be shown to be of infinite type."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, ring structure, and restriction, induction and permutation classes. This is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
-      "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
-     },
-     {
-      "name": "Spin modules as fundamental representations",
-      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
+      "name": "The cyclotomic splitting field",
+      "text": ": show that `ℚ(ζ_e)` realizes every irreducible representation. The README warns that this needs character-field and Schur-index descent, not just Brauer's theorem."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete, the last including character completeness on top of Peter–Weyl. The Weyl character formula, Brauer induction and Brauer's characterization, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)` are also done; the table still lacks its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality has not begun, and neither have the Lie-group layers from Lie's third theorem onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "ce29a3dabbe140dbe343193051c5d2fcab989a0fef1164184ed987462a3ae9c1",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "representations of compact groups and the Peter-Weyl theorem",
    "topic": "Algebra and representation theory"
@@ -5910,7 +5882,7 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 6": "Brauer's characterization of characters and the cyclotomic splitting-field corollary",
+     "Layer 6": "the cyclotomic splitting-field corollary",
      "Layer 7": "the Clifford obstruction class in the second cohomology of the inertia quotient"
     },
     "source": "marker"
@@ -5979,29 +5951,29 @@
       "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
+      "name": "Positive-characteristic Ado",
+      "text": ": prove that `U(L)` has no zero divisors and that `ι` is injective for nonabelian `L`. These are the PBW consequences that AdoIwasawa Layer 1 expects from the highest-weight roadmap. After that, state the faithful nilpotence-preserving theorem and `adoCharP`."
+     },
+     {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
+      "text": ": show that finite representation type forces a positive definite Tits form. Positive definiteness already gives finite type, finite type passes to subquivers and to reflected quivers, and it rules out loops and parallel arrows. The extended Dynkin quivers still have to be shown to be of infinite type."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, ring structure, and restriction, induction and permutation classes. This is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
-      "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
-     },
-     {
-      "name": "Spin modules as fundamental representations",
-      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
+      "name": "The cyclotomic splitting field",
+      "text": ": show that `ℚ(ζ_e)` realizes every irreducible representation. The README warns that this needs character-field and Schur-index descent, not just Brauer's theorem."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete, the last including character completeness on top of Peter–Weyl. The Weyl character formula, Brauer induction and Brauer's characterization, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)` are also done; the table still lacks its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality has not begun, and neither have the Lie-group layers from Lie's third theorem onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "ce29a3dabbe140dbe343193051c5d2fcab989a0fef1164184ed987462a3ae9c1",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "induction, restriction, and Mackey theory for finite groups",
    "topic": "Algebra and representation theory"
@@ -6081,29 +6053,29 @@
       "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
+      "name": "Positive-characteristic Ado",
+      "text": ": prove that `U(L)` has no zero divisors and that `ι` is injective for nonabelian `L`. These are the PBW consequences that AdoIwasawa Layer 1 expects from the highest-weight roadmap. After that, state the faithful nilpotence-preserving theorem and `adoCharP`."
+     },
+     {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
+      "text": ": show that finite representation type forces a positive definite Tits form. Positive definiteness already gives finite type, finite type passes to subquivers and to reflected quivers, and it rules out loops and parallel arrows. The extended Dynkin quivers still have to be shown to be of infinite type."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, ring structure, and restriction, induction and permutation classes. This is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
-      "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
-     },
-     {
-      "name": "Spin modules as fundamental representations",
-      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
+      "name": "The cyclotomic splitting field",
+      "text": ": show that `ℚ(ζ_e)` realizes every irreducible representation. The README warns that this needs character-field and Schur-index descent, not just Brauer's theorem."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete, the last including character completeness on top of Peter–Weyl. The Weyl character formula, Brauer induction and Brauer's characterization, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)` are also done; the table still lacks its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality has not begun, and neither have the Lie-group layers from Lie's third theorem onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "ce29a3dabbe140dbe343193051c5d2fcab989a0fef1164184ed987462a3ae9c1",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "Lie groups and the Lie algebra correspondence",
    "topic": "Algebra and representation theory"
@@ -6183,29 +6155,29 @@
       "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
+      "name": "Positive-characteristic Ado",
+      "text": ": prove that `U(L)` has no zero divisors and that `ι` is injective for nonabelian `L`. These are the PBW consequences that AdoIwasawa Layer 1 expects from the highest-weight roadmap. After that, state the faithful nilpotence-preserving theorem and `adoCharP`."
+     },
+     {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
+      "text": ": show that finite representation type forces a positive definite Tits form. Positive definiteness already gives finite type, finite type passes to subquivers and to reflected quivers, and it rules out loops and parallel arrows. The extended Dynkin quivers still have to be shown to be of infinite type."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, ring structure, and restriction, induction and permutation classes. This is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
-      "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
-     },
-     {
-      "name": "Spin modules as fundamental representations",
-      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
+      "name": "The cyclotomic splitting field",
+      "text": ": show that `ℚ(ζ_e)` realizes every irreducible representation. The README warns that this needs character-field and Schur-index descent, not just Brauer's theorem."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete, the last including character completeness on top of Peter–Weyl. The Weyl character formula, Brauer induction and Brauer's characterization, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)` are also done; the table still lacks its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality has not begun, and neither have the Lie-group layers from Lie's third theorem onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "ce29a3dabbe140dbe343193051c5d2fcab989a0fef1164184ed987462a3ae9c1",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas",
    "topic": "Algebra and representation theory"
@@ -6268,29 +6240,29 @@
       "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
+      "name": "Positive-characteristic Ado",
+      "text": ": prove that `U(L)` has no zero divisors and that `ι` is injective for nonabelian `L`. These are the PBW consequences that AdoIwasawa Layer 1 expects from the highest-weight roadmap. After that, state the faithful nilpotence-preserving theorem and `adoCharP`."
+     },
+     {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
+      "text": ": show that finite representation type forces a positive definite Tits form. Positive definiteness already gives finite type, finite type passes to subquivers and to reflected quivers, and it rules out loops and parallel arrows. The extended Dynkin quivers still have to be shown to be of infinite type."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, ring structure, and restriction, induction and permutation classes. This is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
-      "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
-     },
-     {
-      "name": "Spin modules as fundamental representations",
-      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
+      "name": "The cyclotomic splitting field",
+      "text": ": show that `ℚ(ζ_e)` realizes every irreducible representation. The README warns that this needs character-field and Schur-index descent, not just Brauer's theorem."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete, the last including character completeness on top of Peter–Weyl. The Weyl character formula, Brauer induction and Brauer's characterization, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)` are also done; the table still lacks its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality has not begun, and neither have the Lie-group layers from Lie's third theorem onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "ce29a3dabbe140dbe343193051c5d2fcab989a0fef1164184ed987462a3ae9c1",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "induction theorems in Grothendieck groups of modular representations",
    "topic": "Algebra and representation theory"
@@ -6302,7 +6274,8 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 5": "the dichotomy: finite representation type iff positive definite Tits form (ADE)"
+     "Layer 5": "the converse: finite representation type forces a positive definite Tits form",
+     "Layer 6": "the AR translate, almost-split sequences and the AR quiver of a representation-finite algebra"
     },
     "source": "marker"
    },
@@ -6358,29 +6331,29 @@
       "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
+      "name": "Positive-characteristic Ado",
+      "text": ": prove that `U(L)` has no zero divisors and that `ι` is injective for nonabelian `L`. These are the PBW consequences that AdoIwasawa Layer 1 expects from the highest-weight roadmap. After that, state the faithful nilpotence-preserving theorem and `adoCharP`."
+     },
+     {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
+      "text": ": show that finite representation type forces a positive definite Tits form. Positive definiteness already gives finite type, finite type passes to subquivers and to reflected quivers, and it rules out loops and parallel arrows. The extended Dynkin quivers still have to be shown to be of infinite type."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, ring structure, and restriction, induction and permutation classes. This is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
-      "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
-     },
-     {
-      "name": "Spin modules as fundamental representations",
-      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
+      "name": "The cyclotomic splitting field",
+      "text": ": show that `ℚ(ζ_e)` realizes every irreducible representation. The README warns that this needs character-field and Schur-index descent, not just Brauer's theorem."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete, the last including character completeness on top of Peter–Weyl. The Weyl character formula, Brauer induction and Brauer's characterization, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)` are also done; the table still lacks its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality has not begun, and neither have the Lie-group layers from Lie's third theorem onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "ce29a3dabbe140dbe343193051c5d2fcab989a0fef1164184ed987462a3ae9c1",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "quiver representations, path algebras, and Gabriel's theorem",
    "topic": "Algebra and representation theory"
@@ -6442,29 +6415,29 @@
       "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
+      "name": "Positive-characteristic Ado",
+      "text": ": prove that `U(L)` has no zero divisors and that `ι` is injective for nonabelian `L`. These are the PBW consequences that AdoIwasawa Layer 1 expects from the highest-weight roadmap. After that, state the faithful nilpotence-preserving theorem and `adoCharP`."
+     },
+     {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
+      "text": ": show that finite representation type forces a positive definite Tits form. Positive definiteness already gives finite type, finite type passes to subquivers and to reflected quivers, and it rules out loops and parallel arrows. The extended Dynkin quivers still have to be shown to be of infinite type."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, ring structure, and restriction, induction and permutation classes. This is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
-      "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
-     },
-     {
-      "name": "Spin modules as fundamental representations",
-      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
+      "name": "The cyclotomic splitting field",
+      "text": ": show that `ℚ(ζ_e)` realizes every irreducible representation. The README warns that this needs character-field and Schur-index descent, not just Brauer's theorem."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete, the last including character completeness on top of Peter–Weyl. The Weyl character formula, Brauer induction and Brauer's characterization, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)` are also done; the table still lacks its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality has not begun, and neither have the Lie-group layers from Lie's third theorem onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "ce29a3dabbe140dbe343193051c5d2fcab989a0fef1164184ed987462a3ae9c1",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "root systems, Weyl groups, and the Cartan-Killing classification",
    "topic": "Algebra and representation theory"
@@ -6544,29 +6517,29 @@
       "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
+      "name": "Positive-characteristic Ado",
+      "text": ": prove that `U(L)` has no zero divisors and that `ι` is injective for nonabelian `L`. These are the PBW consequences that AdoIwasawa Layer 1 expects from the highest-weight roadmap. After that, state the faithful nilpotence-preserving theorem and `adoCharP`."
+     },
+     {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
+      "text": ": show that finite representation type forces a positive definite Tits form. Positive definiteness already gives finite type, finite type passes to subquivers and to reflected quivers, and it rules out loops and parallel arrows. The extended Dynkin quivers still have to be shown to be of infinite type."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, ring structure, and restriction, induction and permutation classes. This is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
-      "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
-     },
-     {
-      "name": "Spin modules as fundamental representations",
-      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
+      "name": "The cyclotomic splitting field",
+      "text": ": show that `ℚ(ζ_e)` realizes every irreducible representation. The README warns that this needs character-field and Schur-index descent, not just Brauer's theorem."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete, the last including character completeness on top of Peter–Weyl. The Weyl character formula, Brauer induction and Brauer's characterization, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)` are also done; the table still lacks its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality has not begun, and neither have the Lie-group layers from Lie's third theorem onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "ce29a3dabbe140dbe343193051c5d2fcab989a0fef1164184ed987462a3ae9c1",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "representations of the symmetric group, Specht modules, and Schur-Weyl duality",
    "topic": "Algebra and representation theory"
@@ -6636,29 +6609,29 @@
       "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
+      "name": "Positive-characteristic Ado",
+      "text": ": prove that `U(L)` has no zero divisors and that `ι` is injective for nonabelian `L`. These are the PBW consequences that AdoIwasawa Layer 1 expects from the highest-weight roadmap. After that, state the faithful nilpotence-preserving theorem and `adoCharP`."
+     },
+     {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
+      "text": ": show that finite representation type forces a positive definite Tits form. Positive definiteness already gives finite type, finite type passes to subquivers and to reflected quivers, and it rules out loops and parallel arrows. The extended Dynkin quivers still have to be shown to be of infinite type."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, ring structure, and restriction, induction and permutation classes. This is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
-      "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
-     },
-     {
-      "name": "Spin modules as fundamental representations",
-      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
+      "name": "The cyclotomic splitting field",
+      "text": ": show that `ℚ(ζ_e)` realizes every irreducible representation. The README warns that this needs character-field and Schur-index descent, not just Brauer's theorem."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete, the last including character completeness on top of Peter–Weyl. The Weyl character formula, Brauer induction and Brauer's characterization, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)` are also done; the table still lacks its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality has not begun, and neither have the Lie-group layers from Lie's third theorem onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "ce29a3dabbe140dbe343193051c5d2fcab989a0fef1164184ed987462a3ae9c1",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "semisimple algebras, Artin-Wedderburn, and the structure of their modules",
    "topic": "Algebra and representation theory"
@@ -6743,29 +6716,29 @@
       "text": ": specialise the assembled table to the uniform case of order `48`. The degenerate `GL₂(𝔽₂) ≅ S₃` is already checked."
      },
      {
+      "name": "Positive-characteristic Ado",
+      "text": ": prove that `U(L)` has no zero divisors and that `ι` is injective for nonabelian `L`. These are the PBW consequences that AdoIwasawa Layer 1 expects from the highest-weight roadmap. After that, state the faithful nilpotence-preserving theorem and `adoCharP`."
+     },
+     {
       "name": "Gabriel's dichotomy",
-      "text": ": prove that a connected quiver has finite representation type exactly when its Tits form is positive definite. Finite type already passes to subquivers and excludes loops and parallel arrows. The remaining extended Dynkin subquivers and the reflection-functor direction are still open."
+      "text": ": show that finite representation type forces a positive definite Tits form. Positive definiteness already gives finite type, finite type passes to subquivers and to reflected quivers, and it rules out loops and parallel arrows. The extended Dynkin quivers still have to be shown to be of infinite type."
      },
      {
       "name": "The Grothendieck group of `k[G]`",
-      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, its ring structure, and restriction, induction and permutation classes. The generic simple-class basis is available. This group is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
+      "text": ": build the dictionary `FDRep k G ≌ FGModuleCat k[G]`, then `G₀(k[G])` with its universal property, ring structure, and restriction, induction and permutation classes. This is the one prerequisite blocking every `G₀` statement of the modular Artin theorem."
      },
      {
-      "name": "Positive-characteristic Ado",
-      "text": ": apply Krull intersection over the central subalgebra to separate `L` inside some finite-dimensional quotient `U(L)/(UC)ⁿ`, then assemble the faithful nilpotence-preserving representation."
-     },
-     {
-      "name": "Spin modules as fundamental representations",
-      "text": ": in type `B`, the all-coordinate vector is a highest-weight vector of weight `ωₗ`. What remains is to state `S ≅ L(ωₗ)` and to do the same for the type-`D` half-spin modules."
+      "name": "The cyclotomic splitting field",
+      "text": ": show that `ℚ(ζ_e)` realizes every irreducible representation. The README warns that this needs character-field and Schur-index descent, not just Brauer's theorem."
      }
     ],
-    "glance": "Root systems and semisimple algebras are complete. So are the Weyl character formula, Peter–Weyl, Brauer's induction theorem, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)`, which lacks only its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality and the Lie-group layers from Lie's third theorem onward have not begun.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete, the last including character completeness on top of Peter–Weyl. The Weyl character formula, Brauer induction and Brauer's characterization, the Clifford correspondence, the closed-subgroup theorem and the character table of `GL₂(𝔽_q)` are also done; the table still lacks its `GL₂(𝔽₃)` instance. Gabriel's theorem, Ado–Iwasawa, Schur–Weyl duality, the spin fundamentals and the modular Artin theorem are partial. Triality has not begun, and neither have the Lie-group layers from Lie's third theorem onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "bbf4f6865d24135d3d1fe2ad764e9f7e51ab3c2f1df1e0b3c0a53bd9375abac1",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "ce29a3dabbe140dbe343193051c5d2fcab989a0fef1164184ed987462a3ae9c1",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "Clifford algebras, the Pin and Spin groups, and spin representations",
    "topic": "Algebra and representation theory"
@@ -6868,11 +6841,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T09:00:31Z",
-    "open": 1,
-    "recent": 58,
-    "since_report": 13,
-    "total": 58,
+    "last": "2026-10-02T19:55:47Z",
+    "open": 3,
+    "recent": 59,
+    "since_report": 4,
+    "total": 59,
     "weekly": [
      0,
      0,
@@ -6889,7 +6862,7 @@
      0,
      20,
      21,
-     17
+     18
     ]
    },
    "assessment": {
@@ -6897,12 +6870,13 @@
     "notes": {},
     "reason": "ok",
     "remaining": {
-     "Layer 1": "triangle functors for descended exact functors; sums, opposites, idempotent completion; extension-closed Frobenius subcategories",
-     "Layer 2": "triangulated stmod-A statement; totally acyclic complexes and Gorenstein-projectives; D_sg and Buchweitz's equivalence; the specializations and Keller-Vossieck",
-     "Layer 3": "differential modules and their bridges; periodic cones and the split Frobenius structure giving a triangulated K_n(A); periodic homology and D_n(A)",
-     "Layer 5": "curved DG algebras and right and left curved modules with their sign and opposite conventions; the DG category, cones and triangulated homotopy category; tensor products",
+     "Layer 1": "natural-transformation and equivalence API; extension-closed Frobenius subcategories; sums, opposites, idempotent completion",
+     "Layer 2": "resolution independence and Gproj-R as a Frobenius category; totally acyclic homotopy equivalence; D_sg, Buchweitz, Keller-Vossieck",
+     "Layer 3": "split Frobenius structure and triangulated K_n; periodic cones of differential modules; periodic homology and D_n",
+     "Layer 5": "shift, cone and triangulated curved homotopy category; tensor products; base change",
+     "Layer 6": "triangulated package on the curved homotopy category; totalizations; absolute, co- and contraacyclic classes and their quotients",
      "Layer 7": "a triangulated HMF(S,w); the Frobenius exact structure; tensor products; the Eisenbud, Orlov and Buchweitz comparisons",
-     "Layer 8": "compression, periodic localization, Gproj to D_sg, cokernel to stable MCM, DG to curved at w=0, right to left modules, and the commuting diagrams"
+     "Layer 8": "compression, periodic localization, Gproj to D_sg, cokernel to stable MCM, functorial DG to curved and right to left, the diagrams"
     },
     "source": "marker"
    },
@@ -6955,51 +6929,51 @@
     "partial",
     "untouched",
     "partial",
-    "untouched",
+    "partial",
     "partial",
     "partial"
    ],
    "status": {
     "frontier": [
      {
-      "name": "Triangulated `HMF(S,w)` and duplex homotopy categories",
-      "text": "— cones, parity-shift compatibility and finite biproducts exist ([`TauCeti.MatrixFactorization.cone`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/CommutativeAlgebra/MatrixFactorization/Cone.html#TauCeti.MatrixFactorization.cone)). What remains is a ℤ-shift on the homotopy category, distinguished triangles and the axioms. Alternatively, the componentwise split Frobenius structure plus Happel's theorem would give the triangulation directly."
+      "name": "Shifts and cones of curved modules",
+      "text": "— the curved homotopy category exists but has no shift, cone or triangulation. Layer 6's acyclic classes wait on this."
      },
      {
-      "name": "Happel's triangle functors and closure properties",
-      "text": "— show that the descended exact functors are triangle functors, and treat sums, opposites, idempotent completion and extension-closed subcategories."
+      "name": "Triangulated `HMF(S,w)` and duplex homotopy categories",
+      "text": "— cones, parity shift and biproducts exist. What remains is a ℤ-shift, distinguished triangles and the axioms, or else the componentwise split Frobenius structure, after which Happel's theorem applies."
+     },
+     {
+      "name": "Gorenstein-projectives as a Frobenius category",
+      "text": "— prove independence of the complete resolution, for right modules as the roadmap specifies, then build `Gproj-R`, its stable category and the comparison with totally acyclic complexes ahead of `D_sg`."
+     },
+     {
+      "name": "The split Frobenius structure on differential modules and periodic complexes",
+      "text": "— identify the projective-injectives with contractible objects, so that `K₁` and `K_n` become triangulated. `D_n` and all of Layer 4 depend on this."
      },
      {
       "name": "The `k[x]/(x^n)` calculation",
-      "text": "— triangulated `stmod-A` is now within reach. The indecomposables `M_i`, the syzygies `ΩM_i ≅ M_(n-i)`, the stable Hom dimensions and the identification of the base-changed factorization's cokernel with `M_i` remain."
-     },
-     {
-      "name": "Differential modules and `K_n(A)`",
-      "text": "— no differential-module type exists yet. Layer 3 needs one, along with periodic cones and the split Frobenius structure, before periodic homology, `D_n(A)` and Layer 4's compression."
-     },
-     {
-      "name": "Curved DG algebras and modules",
-      "text": "— the right-convention algebra with non-central curvature, the opposite with curvature `-op(w)`, and curved modules with their homotopy category. Layer 6 cannot start before them."
+      "text": "— Happel's theorem now applies to `stmod-A`. The indecomposables `M_i`, the syzygies `ΩM_i ≅ M_(n-i)` and the stable Hom dimensions remain."
      }
     ],
-    "glance": "Layer 0 is done, and Layer 1's headline, Happel's theorem that the stable category of a Frobenius exact category is triangulated, is proved. The rest of Layer 1 and Layers 2, 3, 5, 7 and 8 are partial: matrix factorizations have most of their additive structure but no triangulation. Layers 4 and 6 have not begun.",
+    "glance": "Layer 0 is done. Happel's theorem and its functoriality are proved, so the core of Layer 1 is in place. Layers 2, 3, 5, 6, 7 and 8 all have their basic objects, curved DG algebras and modules included, but none of their triangulations or comparison theorems yet. Layer 4 has not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/StablePeriodicCurved/STATUS.md",
     "progress_path": "TauCetiRoadmap/StablePeriodicCurved/PROGRESS.md",
-    "report_sha": "e3db4ebf3aaf795e198fb83a97485fc104f8834cea791c3882f30b37b38e7074",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "c578d4ae25381396d96fb957760b4a55442bb96db39c75b59c53c0413ad875ca",
+    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
+    "ts": "2026-10-02T05:38:42Z"
    },
    "title": "stable, periodic, and curved homological algebra",
    "topic": "Algebra and representation theory"
   },
   {
    "activity": {
-    "last": "2026-10-02T07:00:10Z",
-    "open": 2,
-    "recent": 64,
-    "since_report": 6,
-    "total": 64,
+    "last": "2026-10-02T21:10:23Z",
+    "open": 3,
+    "recent": 68,
+    "since_report": 10,
+    "total": 68,
     "weekly": [
      0,
      0,
@@ -7016,7 +6990,7 @@
      8,
      20,
      24,
-     12
+     16
     ]
    },
    "assessment": {
@@ -7134,7 +7108,7 @@
    "activity": {
     "last": "2026-09-29T23:49:41Z",
     "open": 0,
-    "recent": 133,
+    "recent": 130,
     "since_report": 3,
     "total": 180,
     "weekly": [
@@ -7232,11 +7206,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T08:48:47Z",
-    "open": 0,
-    "recent": 66,
-    "since_report": 9,
-    "total": 92,
+    "last": "2026-10-02T21:04:11Z",
+    "open": 2,
+    "recent": 71,
+    "since_report": 14,
+    "total": 97,
     "weekly": [
      0,
      0,
@@ -7253,7 +7227,7 @@
      6,
      22,
      20,
-     15
+     20
     ]
    },
    "assessment": {
@@ -7555,11 +7529,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T09:40:36Z",
+    "last": "2026-10-02T22:13:22Z",
     "open": 0,
-    "recent": 39,
-    "since_report": 6,
-    "total": 93,
+    "recent": 42,
+    "since_report": 9,
+    "total": 96,
     "weekly": [
      0,
      0,
@@ -7576,7 +7550,7 @@
      4,
      1,
      0,
-     30
+     33
     ]
    },
    "assessment": {
