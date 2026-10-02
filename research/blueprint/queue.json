@@ -34488,8 +34488,9 @@
     "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DIMITROV-GAO-HABEGGER-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4076"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4076",
+   "finishedAt": "2026-10-02T04:36:30Z"
   },
   {
    "id": "RT-PAPER-NGODAC-21",
@@ -38718,7 +38719,8 @@
     "REV-PAPER-DEMARCO-MAVRAKI-YE-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DEMARCO-MAVRAKI-YE-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4201"
   },
   {
    "id": "RT-PAPER-HANSEN-26",
