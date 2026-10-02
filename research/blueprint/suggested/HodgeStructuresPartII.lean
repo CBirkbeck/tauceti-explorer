@@ -1360,6 +1360,8 @@ example :
 end
 
 section ScalarExtension
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
 variable (S : Type*) [CommRing S] [Algebra R S]
 
 noncomputable def affineBaseChange (θ : E →ₗ[R] E ⊗[R] Q) :
@@ -1405,31 +1407,16 @@ example (a : S) (e : R) :
 -- test: TwistedHiggsBundle.affineBaseChange.test_unit_all_orders
 example [Nontrivial S] (n : ℕ) :
     affineOrderedIterate
-      (affineBaseChange S ((TensorProduct.rid R R).symm.toLinearMap)) n ≠ 0 := by
-  intro h
-  let b := Module.Basis.singleton Unit R
-  have hp := (affineOrderedIterate_eq_zero_iff (b.baseChange S) _ n).mp h (fun _ => ())
-  rw [affineBaseChange_word] at hp
-  have hi : affineContractions ((TensorProduct.rid R R).symm.toLinearMap)
-      (b.coord ()) = (1 : Module.End R R) := sorry
+      (affineBaseChange S ((TensorProduct.rid R R).symm.toLinearMap)) n ≠ 0 := sorry
 
 -- test: TwistedHiggsBundle.affineBaseChange.test_nonfaithful
 example :
     let θ : ℤ →ₗ[ℤ] ℤ ⊗[ℤ] ℤ :=
       (2 : ℤ) • (TensorProduct.rid ℤ ℤ).symm.toLinearMap
-    θ ≠ 0 ∧ affineBaseChange (ZMod 2) θ = 0 := by
-  dsimp only
-  constructor
-  · intro h
-    have he := congrArg (fun f : ℤ →ₗ[ℤ] ℤ ⊗[ℤ] ℤ => TensorProduct.rid ℤ ℤ (f 1)) h
-    change TensorProduct.rid ℤ ℤ ((2 : ℤ) • (TensorProduct.rid ℤ ℤ).symm (1 : ℤ)) = 0 at he
-    rw [map_smul, LinearEquiv.apply_symm_apply] at he
-    norm_num at he
-  · apply TensorProduct.AlgebraTensorModule.ext
-    intro a e
-    have ha : (2 : ℤ) • a = 0 := sorry
+    θ ≠ 0 ∧ affineBaseChange (ZMod 2) θ = 0 := sorry
 
 end ScalarExtension
+
 
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
 
