@@ -2014,10 +2014,10 @@ example :
     ZModModule.neg_eq_self] using (dualCorrectionMap_values (ZMod 2) 1 0 0 0).1
 
 -- NodeSectionFactorization.PolynomialModel.dualCorrectionMap.canonicalProduct
-example (r z : R₀) :
-    dualCorrectionMap A γ δ s t (r*z) = r*dualCorrectionMap A γ δ s t z +
-      ι₀ (sectionEval A γ δ s t z)*dualCorrectionMap A γ δ s t r :=
-  dualCorrectionMap_product A γ δ s t r z
+example (r : R₀) : dualCorrectionMap A γ δ s t (r*d₀) = r*b₀ := by
+  rw [dualCorrectionMap_product,(dualCorrectionMap_values A γ δ s t).2]
+  have hd := (sectionEvaluationKernel A γ δ s t d₀).1.mpr (sectionSecond_mem A γ δ s t)
+  rw [hd,map_zero,zero_mul,add_zero]
 
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
