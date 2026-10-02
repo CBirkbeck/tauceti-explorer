@@ -7,7 +7,7 @@ Extraction by Claude Code, session `cc-d67081`, 22 September 2026 (issue #1412).
 - 96 items: 3 library, 13 planned, 80 missing;
 - 10 routes: two Part IIs and eight source routes;
 - 19 prerequisite entries;
-- 8 source issues.
+- 10 source issues (8 historical, plus E9–E10 from the verified red team).
 
 **Source.** The publisher's free offprint on Calegari's research page (12 pages, SHA-256 `4d27afab…7f58f7150290`), read page by page from page images on 2026-09-22.
 
@@ -54,7 +54,7 @@ Everything depends on ρ̄|G_{ℚ_p} having a crystalline lift of weight zero. T
   - Level-one weight-zero π with ρ̄_π ≅ ε̄^{(n−1)(k−2)/2} ⊗ Sym^{n−1}ρ̄_f exist for n = p−1 and n = p−2.
   - The weight-26 form ΔE₄²E₆ at p = 107 gives n = 106 and 105 (Theorem 2.4). Its hypotheses are Swinnerton-Dyer's image, a₁₀₇ ≡ −1, (106, 25) = 1, and Elkies's companion form of weight 82.
 - **Theorem 3.1 (non-ordinary).** Let p > 5, and let f be non-ordinary at p with 2 ≤ k < p and (k−1, p+1) = 1.
-  - Then Sym^{p−1}ρ̄_f|G_{ℚ_p} is the reduction of ρ_{p,1} = Sym^{p−1} Ind ε₂^{−1}, which has weight zero.
+  - Then Sym^{p−1}ρ̄_f|G_{ℚ_p} is the reduction of η^((p−1)/2) ⊗ ρ_{p,1}, with η unramified quadratic and ρ_{p,1} = Sym^{p−1} Ind ε₂^{−1}. This corrected lift has weight zero and multiplier ε^(1−p); at p = 79 the quadratic twist is nontrivial.
   - The change of weight uses Harris's tensor product trick. Tensor with induced characters θ, θ′ from a cyclic CM extension of degree k−1 to reach dimension (k−1)p, and apply Thorne's lifting and finiteness theorems for adequacy with p | n.
   - A non-ordinary form of weight 38 at p = 79 gives n = 79 (Corollary 3.2).
 
@@ -77,7 +77,7 @@ So the absence of weight-two forms at level one, the uniqueness of the weight-26
 | Item | Planned in |
 | --- | --- |
 | Newton–Thorne's Theorem A | ModularityAndLanglandsExtensions ML.3 |
-| Cyclic base change | ML.5 |
+| Cyclic base change | ML.5 downstream registration; early proof interface requested from proposed ET.4b |
 | Galois representations of regular algebraic polarized π, with local–global compatibility | AutomorphicGaloisRepresentationsPartII AG2.0, AG2.5, AG2.6 |
 | Caraiani's full compatibility at l = p (needed, but not cited by the paper) | AG2.6, the "generalised log-crystalline weight spectral sequence for the full monodromy comparison" |
 | ρ_f, and its ordinary local shape | AutomorphicGaloisRepresentations R19.1, R19.5 |
@@ -118,7 +118,7 @@ For Dickson and the R03.4 lemma, the decompositions of those roadmaps contain no
    The proofs rest on Thorne's and BLGGT's theorems for conjugate self-dual representations: automorphy lifting with adequate image, finiteness of ordinary and minimal deformation rings, and soluble descent. Thorne's 2017 extension covers p | n and his erratum to the 2012 paper. These are reusable infrastructure for potential automorphy over CM fields, the direction of PotentialAutomorphyInfrastructure. Its own layers follow ACC+ and treat the unpolarized case through locally symmetric spaces. ML.2 and ML.3 need the same theorems, so they are planned once, here.
 
 3. **Source of ArithmeticGaloisRepresentations G7 and R01.4** (15 items).
-   - G7 takes the similitude groups GSp_n, GO_n and 𝒢_n with their multipliers, polarizations of symmetric powers, and the injection (2.1.2).
+   - G7 takes the similitude groups GSp_n, GO_n and 𝒢_n with their multipliers, polarizations of symmetric powers, and the injection (2.1.2). The pairing requires 2 and (n−1)! invertible, has sign (−1)^(n−1) and multiplier det^(n−1), and is nondegenerate. Carry the explicit basis/form identification with G_n; the odd-dimensional symmetric identification up to scalar exists over the paper’s finite coefficient fields, with no unrestricted claim over a general field.
    - G7 also takes the representation theory behind H⁰(ℚ, (𝔤_n⁰)^*(1)) = 0 (one-dimensional constituents of Sym^{2i} for SL₂(F), and Clebsch–Gordan after semisimplification).
    - G7 also takes adequacy (Thorne 2017, Definition 2.20), Lemma 2.2, GHT17's Remark 6.1 and Corollary 9.4, and BLGG13's Lemma A.3.1.
    - R01.4 takes Swinnerton-Dyer's image computation and the large-image lemma of Theorem 3.1.
@@ -134,13 +134,14 @@ For Dickson and the R03.4 lemma, the decompositions of those roadmaps contain no
 
 **Dependencies.**
 - Route 1 imports route 2 and the layers of routes 3–10.
-- Route 2 imports ET.4 and ET.7 (unitary base change), AG2, the deformation layers of routes 3–5, DeformationAndDerivedPatchingAlgebra (patching), ArithmeticGaloisDuality, and ML.5. It does not import route 1.
+- Route 2 imports ET.4 and the late ET.7a unitary comparison export separately, AG2.0–AG2.7, the deformation layers of routes 3–5, DeformationAndDerivedPatchingAlgebra (patching), ArithmeticGaloisDuality, and the **requested early ET.4b** cyclic-transfer interface. ML.5 consumes/registers that interface downstream.
+- ET.4b is the existing **proposed** repair in RT-AREA-langlands-1 /1, absent from the current registered stages: its prerequisites are AS.6, ET.3, ET.4 and proposed SR.3b. SR.3b requires SR.3, ET.1 and RG2.0, and feeds ET.4. Generic transfers stay owned once there; R17.4/R17.5 specialize them in rank two. The requests/routingRepair records provide the handoff to authorized ET/SR fixes and the polarized-lifting design. No unregistered prefix is claimed available.
 
-So the proposals are acyclic.
+The registered graph plus these specified proposed interfaces and the ML.2/ML.3 lifting consumers is acyclic: 2,960 nodes and 8,614 distinct edges, compared with 2,956/8,558 at this repair’s base. Restoring ML.5 as a lifting import reproduces the cycle. This checks the stated interface graph; 76 external proxy edges and the supplier’s detailed future proof decomposition are separate obligations.
 
-## Source issues (`sourceIssues` E1–E8)
+## Source issues (`sourceIssues` E1–E10)
 
-All eight are new: no erratum was found, and the published text, arXiv v3 and Boxer's copy agree at every locator.
+The original eight findings and their independent review are preserved below. The repair adds E9–E10, checked in the published offprint and arXiv v3; the new serialized findings await their own source-issue review. Bounded title/correction searches and author listings on 2 October 2026 found no correction of these two local formulas. No fresh v1/v2 or Boxer-copy collation is claimed.
 
 - **E1 (misprint).** In the proof of Theorem 2.1, both parameter lists for BLGGT14 Theorems 2.4.2 and 2.4.1 print "n = p − 1". The proof covers n = p − 1 and n = p − 2, and the latter gives n = 105. This has been present since v1.
 - **E2 (misprint).** "[Tho12, Thm. 10.1]" in the proof of Theorem 2.1 should be Theorem 10.2. Thorne's Theorem 10.1 is the minimal finiteness theorem and Theorem 10.2 the ordinary one, which BLGGT14 restates as Theorem 2.4.2. The citation of Theorem 10.1 in §3 is correct.
@@ -153,6 +154,9 @@ All eight are new: no erratum was found, and the published text, arXiv v3 and Bo
 - **E6 (gap).** The proof of Theorem 3.1 stops at "ρ is automorphic" and never shows π_p unramified. Theorem 2.1 cites BLGGT14 Theorem 2.1.1, whose part (4) needs an Iwahori-fixed vector; there it is harmless, because BLGGT14 Theorem 2.4.1 gives level prime to l. In Theorem 3.1 the descent lemmas lose the level, so full local–global compatibility at l = p is needed (Caraiani, Algebra Number Theory 8 (2014), Theorem 1.1).
 - **E7 (error).** Remark 3.3 lists p = 151 among the primes where Theorem 2.1 applies. At 151 the only ordinary split eigensystems are the companion pair in weights 52 and 100 (Citro–Ghitza's table, confirmed with T₂ and T₃ mod 151), and (150, 51) = (150, 99) = 3. The correct list begins 107, 139, 173, 179, 191, 193; at 151 Theorem 3.1 applies instead. The same claim is in v1, §3.1.
 - **E8 (gap).** Remark 2.5 obtains a level-one representation of Sp₁₀₄ from CKPSS04 Theorem 7.2 alone. That theorem is global. The local step, that the descended σ_ℓ is unramified when π_ℓ is, is not given; CKPSS04 §7.2 says local descent for Sp_{2n} was not yet available. The conclusion is expected to hold.
+
+- **E9 (error in the proof).** The positive inertia signs on published p.516/v3 p.8 conflict with det ρ̄_f = ε̄^{1−k} and ω₂^(p+1) = ε̄ on inertia. Use ω₂^{1−k} ⊕ ω₂^{p(1−k)}. At p = 79, k = 38 the required determinant exponent is 41 mod78, against the printed 37. Projective order and the dihedral/gcd conclusions survive simultaneous inversion.
+- **E10 (error in the proof).** The untwisted full G_{ℚ_p} comparison on published p.517/v3 p.9 loses η^((p−1)/2). Determinant-normalized two-dimensional induction needs λ(φ)² = −1, so its even symmetric power need not kill λ. At p = 79 the Frobenius traces are −1 for the specified residual representation and +1 for the untwisted model. Use the quadratic twist for the local lift and component label. It has weight zero, preserves the multiplier, and vanishes over F_v ⊇ ℚ_{p²}; the global existence theorem and subsequent tensor identities remain intact.
 
 ## Prerequisites not yet covered
 
@@ -224,3 +228,14 @@ gives `107, 139, 173, 179, 191, 193`, so 151 must go and the two added primes be
 
 One limit is recorded in the review: Thorne's Math. Z. 2017 paper is not on arXiv and no author copy was
 reachable, so E3 rests on Guralnick–Herzig–Tiep's citation rather than on a direct reading of its §7.
+
+
+## Repair after RT-PAPER-BOXER-CALEGARI-GEE-25 (2 October 2026)
+
+Codex, session `codex-rtOQ9t`, Refs #5528. All four independently confirmed findings are repaired in this extraction and its design instructions. The original red team was authored by this worker and independently verified by another worker; this is a fix, not a self-review.
+
+The generic pairing now has a normalized tensor formula, degree/characteristic range, nondegeneracy, sign, multiplier and explicit form transport, with positive endpoint and negative degree-p checks. Local signs use the fixed cohomological/Lubin–Tate convention. The corrected unramified twist is carried into the deformation component; the tensor identities explain its disappearance after restriction. The lifting route replaces the downstream ML.5 proof import by the exact pending ET.4b interface, coordinated with its existing early-character prerequisites and GL₂ specializations.
+
+All 96 item IDs, statuses (3 library, 13 planned, 80 missing), ten route memberships, 19 prerequisites and eight prior source-issue verdicts remain unchanged. E9/E10 are new records without invented review verdicts. Fresh reading was bounded: published pp.513,516–517; v3 pp.5,8–9 (the disputed pages also viewed in each); BLGGT14 v4 pp.35–37; Pépin–Schmidt §2 pp.2–3. `sourceVersions` records the actual published/v3 readings and matching hashes. Historical full reading and v1/v2 claims are attributed to the earlier extraction.
+
+The [fix report](../redteam/RT-PAPER-BOXER-CALEGARI-GEE-25.fixes.md) records the proofs, graph specification, exact arithmetic checks and remaining supplier handoff. No Lean deliverable or compilation.
