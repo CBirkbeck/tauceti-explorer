@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Partial research checkpoint: declaration-sized polynomial node algebra plus flat ambient ideal/dual/quotient transport and actual noetherian module-completion comparisons. The Appendix relative stable-reflexivity criterion and its unproved/cited completion inputs are recorded precisely, not certified by these ambient adapters. All stages and the shared key remain partial; every implementation status is unchecked. This continuation gives the canonical coefficient-linear section splitting and replaces private evaluation division by the built two-variable kernel criterion.",
+  "summary": "Partial research checkpoint: declaration-sized polynomial node algebra plus flat ambient ideal/dual/quotient transport and actual noetherian module-completion comparisons. The Appendix relative stable-reflexivity criterion and its unproved/cited completion inputs are recorded precisely, not certified by these ambient adapters. All stages and the shared key remain partial; every implementation status is unchecked. This continuation gives the canonical coefficient-linear section splitting and replaces private evaluation division by the built two-variable kernel criterion. This checkpoint instantiates the canonical coefficient splitting on the native ideal: six granular coefficient-action, evaluation-linearity, projection and promoted projection-law nodes, three projection APIs and four boundary tests; an immutable admission-free proof extraction verifies the canonical bodies separately from the admitted submitted sketch.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -541,6 +541,27 @@
         "module": "Mathlib/LinearAlgebra/Projection.lean",
         "provides": "Native linear equivalence from complementary submodules' product to the ambient module.",
         "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and exact name verified in its declaration index."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.algebraMap_eq'",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "For CommSemiring S and Algebra S R, the native algebra map S→AdjoinRoot f is (of f) composed with the algebra map S→R.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index entry checked, 2026-10-02 by Codex — codex-5ebb6f."
+      },
+      {
+        "ref": "mathlib:Polynomial.algebraMap_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/AlgebraMap.lean",
+        "provides": "The native algebra map R→R[X] is the polynomial coefficient hom C.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index entry checked, 2026-10-02 by Codex — codex-5ebb6f."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.mk_ne_zero_of_natDegree_lt",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "For monic f, nonzero g and natDegree g < natDegree f, the class mk f g is nonzero; used to certify the actual root in the non-R-linear tests.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index entry checked, 2026-10-02 by Codex — codex-5ebb6f."
       }
     ]
   },
@@ -2208,14 +2229,19 @@
         "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
       ],
       "prerequisites": [
+        "StableReductionPartII:MC.2/section-evaluation-projection",
+        "StableReductionPartII:MC.2/section-evaluation-scalars",
         "StableReductionPartII:MC.2/section-evaluation-kernel",
-        "mathlib:Submodule.prodEquivOfIsCompl"
+        "StableReductionPartII:MC.2/section-projection-formula",
+        "StableReductionPartII:MC.2/section-projection-retraction",
+        "StableReductionPartII:MC.2/section-projection-coefficients"
       ],
       "proofSteps": [
-        "Restrict J from R to A, using the native coefficient algebra and ideal-module scalar tower. Evaluation and the coefficient inclusion are A-linear and ev∘ι=id_A.",
-        "The coefficient image and J are complementary A-submodules: their intersection is zero by evaluation, and r=(r−ιev(r))+ιev(r) gives their sum. Use built Submodule.prodEquivOfIsCompl and identify the coefficient image with A.",
-        "Pin the displayed forward/inverse formulas. Verify both inverse identities, addition and A-scalar multiplication; there is no chosen basis or inverse discriminant.",
-        "The first projection is not generally R-linear. On ℚ[Y][X]/(X²+YX) at the origin, it takes 1 to 0 and u to nonzero u; R-linearity would force its value at u to be u times its value at 1."
+        "Use the existing inherited A-module structures on R, J and A; coefficient-inclusion-action identifies the actual coefficient inclusion with the native algebra map.",
+        "Define e(r)=(p(r),ev(r)), with p the actual section-evaluation-projection, and inverse (j,a)↦j+ι(a).",
+        "The forward/inverse identities follow from p(j)=j, p(ι(a))=0 and ev(j)=0. The other composition is the additive identity r−ιev(r)+ιev(r)=r.",
+        "Use p’s LinearMap laws and section-evaluation-scalars for addition and scalar multiplication. This directly instantiates the canonical formulas without an uninstantiated complementary-submodule adapter.",
+        "The inherited zero-base, nonreduced and non-R-linear tests all check against these actual bodies. No chosen basis or inverse discriminant is used."
       ],
       "acceptance": [
         "The equivalence is over A, with the actual ideal carrier J and actual evaluation map; never strengthen it to an R-linear splitting.",
@@ -2883,11 +2909,13 @@
         "StableReductionPartII:MC.2/polynomial-normal-form",
         "mathlib:Module.Flat.of_retract",
         "mathlib:Module.Flat.of_free",
-        "StableReductionPartII:MC.2/section-evaluation-split"
+        "StableReductionPartII:MC.2/section-evaluation-split",
+        "StableReductionPartII:MC.2/section-evaluation-projection",
+        "StableReductionPartII:MC.2/section-projection-retraction"
       ],
       "proofSteps": [
         "R is A-free by the existing monomial normal form.",
-        "The canonical sectionSplit first coordinate is the A-linear retraction R→J, with inverse formula identifying the native inclusion.",
+        "The native sectionProjection is the A-linear retraction R→J and fixes each actual ideal element; it is exactly the sectionSplit first coordinate.",
         "Apply the already cited retract-of-flat theorem. No R-flatness or relative stable reflexivity is asserted."
       ],
       "acceptance": [
@@ -7627,6 +7655,281 @@
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
       }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/coefficient-inclusion-action",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Native coefficient action on the pointed node",
+      "kind": "lemma",
+      "statement": "For R=A[Y][X]/(X²+γYX+δY²−q(s,t)), the explicit coefficient inclusion ι:A→R equals the native algebra structure map A→R. Consequently the existing A-scalar action is a·r=ι(a)r.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-node-model",
+        "mathlib:AdjoinRoot.algebraMap_eq'",
+        "mathlib:Polynomial.algebraMap_eq"
+      ],
+      "proofSteps": [
+        "The inherited scalar tower is A→A[Y]→AdjoinRoot F.",
+        "Use the built AdjoinRoot algebra-map composition law and polynomial coefficient algebra-map identity. Both yield the actual composite defining ι, without adding an instance."
+      ],
+      "acceptance": [
+        "Use the existing polynomial quotient, coefficient algebra and actual ideal carrier; no new scalar action, chosen basis or unit discriminant."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example and Proposition3.1, printed pp.11–12; Corollary3.2",
+          "excerpt": "Key example",
+          "match": "Explicit algebraic deductions from the published polynomial model and its coefficient section. The published proposition assumes noetherian A and unit discriminant. These coefficient-action and ideal-projection calculations hold over any commutative ring by the checked native quotient proofs; no geometric, relative stable-reflexivity or completion strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-evaluation-scalars",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient linearity of section evaluation",
+      "kind": "lemma",
+      "statement": "In the same actual polynomial quotient, ev(a·r)=a ev(r) for every a∈A and r∈R, using the inherited A-module structure on R and regular A-module structure on A.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/coefficient-inclusion-action",
+        "StableReductionPartII:MC.2/section-evaluation-kernel"
+      ],
+      "proofSteps": [
+        "Rewrite the inherited scalar action as multiplication by ι(a).",
+        "Evaluation preserves multiplication and ev(ι(a))=a by the existing kernel/coefficient-identity theorem. No cancellation or nontriviality is used."
+      ],
+      "acceptance": [
+        "Use the existing polynomial quotient, coefficient algebra and actual ideal carrier; no new scalar action, chosen basis or unit discriminant."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example and Proposition3.1, printed pp.11–12; Corollary3.2",
+          "excerpt": "Key example",
+          "match": "Explicit algebraic deductions from the published polynomial model and its coefficient section. The published proposition assumes noetherian A and unit discriminant. These coefficient-action and ideal-projection calculations hold over any commutative ring by the checked native quotient proofs; no geometric, relative stable-reflexivity or completion strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-evaluation-projection",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Canonical retraction onto the section ideal",
+      "kind": "construction",
+      "statement": "For the actual polynomial quotient R and J=(u−ιs,v−ιt)=ker(ev), construct the canonical A-linear map p:R→J, p(r)=r−ι(ev(r)). Its composite with J→R fixes J and kills the coefficient image. This is the explicit first coordinate of sectionSplit; it is not generally R-linear.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-evaluation-kernel",
+        "StableReductionPartII:MC.2/section-evaluation-scalars",
+        "StableReductionPartII:MC.2/coefficient-inclusion-action"
+      ],
+      "proofSteps": [
+        "Evaluation of r−ιev(r) is zero, so the existing kernel equivalence places it in the actual ideal J.",
+        "Verify addition by ring normalization and A-linearity by section-evaluation-scalars and the native coefficient action.",
+        "For j∈J, ev(j)=0 makes p(j)=j. For a∈A, ev(ι(a))=a makes p(ι(a))=0.",
+        "Use these two identities in both inverse laws of sectionSplit and as the actual coefficient-flatness retraction."
+      ],
+      "acceptance": [
+        "Use the existing polynomial quotient, coefficient algebra and actual ideal carrier; no new scalar action, chosen basis or unit discriminant."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example and Proposition3.1, printed pp.11–12; Corollary3.2",
+          "excerpt": "Key example",
+          "match": "Explicit algebraic deductions from the published polynomial model and its coefficient section. The published proposition assumes noetherian A and unit discriminant. These coefficient-action and ideal-projection calculations hold over any commutative ring by the checked native quotient proofs; no geometric, relative stable-reflexivity or completion strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionProjection_coe",
+          "role": "coercion",
+          "statement": "The underlying ring element of p(r) equals r−ι(ev(r))."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionProjection_ideal",
+          "role": "simp",
+          "statement": "For j∈J the projection of its underlying ring element equals j."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionProjection_coefficient",
+          "role": "simp",
+          "statement": "For a∈A the projection of ι(a) is the zero element of J."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionProjectionIdeal",
+          "kind": "compatibility",
+          "statement": "For an arbitrary actual ideal element j, projection after the native inclusion returns exactly j."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionProjectionZeroBase",
+          "kind": "degenerate",
+          "statement": "Over Z/1 with all parameters zero, every quotient element projects to the zero ideal element, without a nontrivial-base assumption."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionProjectionNonreduced",
+          "kind": "computation",
+          "statement": "Over Z/4 with γ=δ=t=0 and s=1, the underlying projection of u is u−ι(1), despite zero discriminant and nonreduced coefficients."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionProjectionNotRingLinear",
+          "kind": "non-example",
+          "statement": "Over ℚ with γ=1 and δ=s=t=0, p(1)=0 and p(u)=u≠0. The identity p(rz)=r p(z) fails for (r,z)=(u,1)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-evaluation-split",
+          "how": "Supplies the native A-linear first coordinate and the ideal/coefficient identities for the explicit inverse laws."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-ideal-coefficient-flat",
+          "how": "Supplies the actual retraction required by the built retract-of-flat theorem."
+        }
+      ]
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "acceptance": [
+        "Use the existing polynomial quotient, coefficient algebra and actual ideal carrier; no new scalar action, chosen basis or unit discriminant."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example and Proposition3.1, printed pp.11–12; Corollary3.2",
+          "excerpt": "Key example",
+          "match": "Explicit algebraic deductions from the published polynomial model and its coefficient section. The published proposition assumes noetherian A and unit discriminant. These coefficient-action and ideal-projection calculations hold over any commutative ring by the checked native quotient proofs; no geometric, relative stable-reflexivity or completion strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/section-projection-formula",
+      "title": "Underlying element of the section projection",
+      "kind": "lemma",
+      "statement": "For every r∈R, the underlying ring element of the native ideal projection p(r) is r−ιev(r).",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-evaluation-projection"
+      ],
+      "proofSteps": [
+        "Unfold the constructed native projection; its subtype value is exactly the displayed difference."
+      ]
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "acceptance": [
+        "Use the existing polynomial quotient, coefficient algebra and actual ideal carrier; no new scalar action, chosen basis or unit discriminant."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example and Proposition3.1, printed pp.11–12; Corollary3.2",
+          "excerpt": "Key example",
+          "match": "Explicit algebraic deductions from the published polynomial model and its coefficient section. The published proposition assumes noetherian A and unit discriminant. These coefficient-action and ideal-projection calculations hold over any commutative ring by the checked native quotient proofs; no geometric, relative stable-reflexivity or completion strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/section-projection-retraction",
+      "title": "Projection fixes the section ideal",
+      "kind": "lemma",
+      "statement": "For every j∈J, p(j)=j using the actual native ideal inclusion J→R.",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-evaluation-projection",
+        "StableReductionPartII:MC.2/section-projection-formula",
+        "StableReductionPartII:MC.2/section-evaluation-kernel"
+      ],
+      "proofSteps": [
+        "The existing kernel equivalence gives ev(j)=0.",
+        "Apply the underlying-element formula and coefficient inclusion at zero, then native subtype extensionality."
+      ]
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "acceptance": [
+        "Use the existing polynomial quotient, coefficient algebra and actual ideal carrier; no new scalar action, chosen basis or unit discriminant."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example and Proposition3.1, printed pp.11–12; Corollary3.2",
+          "excerpt": "Key example",
+          "match": "Explicit algebraic deductions from the published polynomial model and its coefficient section. The published proposition assumes noetherian A and unit discriminant. These coefficient-action and ideal-projection calculations hold over any commutative ring by the checked native quotient proofs; no geometric, relative stable-reflexivity or completion strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/section-projection-coefficients",
+      "title": "Projection kills the coefficient section",
+      "kind": "lemma",
+      "statement": "For every a∈A, p(ι(a))=0 as an element of the actual section ideal J.",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-evaluation-projection",
+        "StableReductionPartII:MC.2/section-projection-formula",
+        "StableReductionPartII:MC.2/section-evaluation-kernel"
+      ],
+      "proofSteps": [
+        "Use ev(ι(a))=a from the existing kernel/coefficient theorem.",
+        "The projection formula gives ι(a)−ι(a)=0; apply native subtype extensionality."
+      ]
     }
   ],
   "requests": [
@@ -9503,7 +9806,7 @@
   "prototypeCoverage": {
     "status": "partial",
     "compiled": true,
-    "reason": "The complete current admitted Mathlib-only sketch elaborates at the exact pin; actual historical proof bodies remain at cef4c2085eddbf723e9050f7d4924924d593a0e3. A separate quotient-kernel experiment has an admission-free check and an immutable source archive. No global geometry or Tau Ceti compiled import set is certified.",
+    "reason": "The complete current admitted Mathlib-only sketch is checked separately from the immutable canonical section-evaluation, kernel, projection and splitting proof extraction. All stages remain partial and all implementation statuses unchecked; no global geometric supplier or completed-family comparison is certified.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -9545,7 +9848,13 @@
       "StableReductionPartII:MC.2/section-dual-completion-equivalence",
       "StableReductionPartII:MC.2/section-dual-quotient-completion-equivalence",
       "StableReductionPartII:MC.2/section-dual-ambient-faithful-detection",
-      "StableReductionPartII:MC.2/section-evaluation-split"
+      "StableReductionPartII:MC.2/section-evaluation-split",
+      "StableReductionPartII:MC.2/coefficient-inclusion-action",
+      "StableReductionPartII:MC.2/section-evaluation-scalars",
+      "StableReductionPartII:MC.2/section-evaluation-projection",
+      "StableReductionPartII:MC.2/section-projection-formula",
+      "StableReductionPartII:MC.2/section-projection-retraction",
+      "StableReductionPartII:MC.2/section-projection-coefficients"
     ],
     "expressedApi": [
       "NodeForm.eval",
@@ -9621,7 +9930,10 @@
       "NodeSectionFactorization.PolynomialModel.sectionSplit_first",
       "NodeSectionFactorization.PolynomialModel.sectionSplit_second",
       "NodeSectionFactorization.PolynomialModel.sectionSplit_inverse",
-      "NodeSectionFactorization.PolynomialModel.sectionSplit_section"
+      "NodeSectionFactorization.PolynomialModel.sectionSplit_section",
+      "NodeSectionFactorization.PolynomialModel.sectionProjection_coe",
+      "NodeSectionFactorization.PolynomialModel.sectionProjection_ideal",
+      "NodeSectionFactorization.PolynomialModel.sectionProjection_coefficient"
     ],
     "expressedTests": [
       "NodeForm.characteristicTwo",
@@ -9691,7 +10003,11 @@
       "NodeSectionFactorization.PolynomialModel.regularOverNondomain",
       "NodeSectionFactorization.PolynomialModel.sectionSplitNonreduced",
       "NodeSectionFactorization.PolynomialModel.sectionSplitZeroBase",
-      "NodeSectionFactorization.PolynomialModel.sectionSplitNotRingLinear"
+      "NodeSectionFactorization.PolynomialModel.sectionSplitNotRingLinear",
+      "NodeSectionFactorization.PolynomialModel.sectionProjectionIdeal",
+      "NodeSectionFactorization.PolynomialModel.sectionProjectionZeroBase",
+      "NodeSectionFactorization.PolynomialModel.sectionProjectionNonreduced",
+      "NodeSectionFactorization.PolynomialModel.sectionProjectionNotRingLinear"
     ],
     "omissions": [
       {
@@ -10824,40 +11140,62 @@
       ],
       "StableReductionPartII:MC.2/section-evaluation-split": [
         "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionSplit"
+      ],
+      "StableReductionPartII:MC.2/coefficient-inclusion-action": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.coefficientHom_eq_algebraMap"
+      ],
+      "StableReductionPartII:MC.2/section-evaluation-scalars": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionEval_smul"
+      ],
+      "StableReductionPartII:MC.2/section-evaluation-projection": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionProjection"
+      ],
+      "StableReductionPartII:MC.2/section-projection-formula": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionProjection_coe"
+      ],
+      "StableReductionPartII:MC.2/section-projection-retraction": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionProjection_ideal"
+      ],
+      "StableReductionPartII:MC.2/section-projection-coefficients": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionProjection_coefficient"
       ]
     },
-    "adapterBoundary": "The elementary quadratic, matrix products, monic normal form, two regularity statements and coefficient-map compatibilities have verified native bodies in the suggested file. Cokernel/dual/tensor/ambient/completion comparisons remain admitted. These are proposed library adapters, not delivered geometric supplier types or a closed stage.",
+    "adapterBoundary": "Canonical evaluation, kernel, coefficient action, ideal projection, splitting and their APIs have admission-free proof bodies in the immutable archive. The final submitted sketch admits bodies under PROTOCOL§13. Historical normal-form/coefficient-map proofs remain separately available; cokernel, dual, tensor, ambient/completion and family comparisons are not established here.",
     "validation": {
       "exitCode": 0,
-      "admittedProofWarnings": 160,
+      "admittedProofWarnings": 170,
       "otherWarnings": 0,
-      "examples": 70,
-      "leanSha256": "d544f7832817056f8155239d116d0d0fa55f5a1341e1d1ef56433d390c037784",
-      "logSha256": "35106ebb4dcb128e07a96dfe194ced01db341578dde6b68d3dea770799f049cd",
-      "reader": "Codex — codex-rtOQ9t",
+      "examples": 74,
+      "leanSha256": "1742af2721d465f31c49307c9ea6dc0797e20c4bb9e33fa5475c46b7b13a8367",
+      "logSha256": "535aafefafa1ced7c72379d89c62d23f4ff188eb734ea9c5ee6e0219297c4172",
+      "reader": "Codex — codex-5ebb6f",
       "date": "2026-10-02",
       "toolchain": "Lean v4.34.0-rc2",
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "wholeFile": true,
       "imports": "Mathlib only",
-      "availableMemoryGiB": 69,
+      "availableMemoryGiB": 66,
+      "wallSeconds": 13.68,
+      "maxResidentKiB": 2926184,
       "existingArtifactsReused": true,
       "noSetupCacheLibraryBuildOrServer": true
     },
     "compilation": {
       "exitCode": 0,
-      "admittedProofWarnings": 160,
+      "admittedProofWarnings": 170,
       "otherWarnings": 0,
-      "examples": 70,
-      "leanSha256": "d544f7832817056f8155239d116d0d0fa55f5a1341e1d1ef56433d390c037784",
-      "logSha256": "35106ebb4dcb128e07a96dfe194ced01db341578dde6b68d3dea770799f049cd",
-      "reader": "Codex — codex-rtOQ9t",
+      "examples": 74,
+      "leanSha256": "1742af2721d465f31c49307c9ea6dc0797e20c4bb9e33fa5475c46b7b13a8367",
+      "logSha256": "535aafefafa1ced7c72379d89c62d23f4ff188eb734ea9c5ee6e0219297c4172",
+      "reader": "Codex — codex-5ebb6f",
       "date": "2026-10-02",
       "toolchain": "Lean v4.34.0-rc2",
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "wholeFile": true,
       "imports": "Mathlib only",
-      "availableMemoryGiB": 69,
+      "availableMemoryGiB": 66,
+      "wallSeconds": 13.68,
+      "maxResidentKiB": 2926184,
       "existingArtifactsReused": true,
       "noSetupCacheLibraryBuildOrServer": true
     },
@@ -10951,6 +11289,74 @@
     },
     "nativeProofVerification": {
       "status": "partial",
+      "reader": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "claimComment": 5958635306,
+      "claimConfirmation": 5958637359,
+      "baseCommit": "7d980305cb145551de205b667b7300a7b18d99c7",
+      "archiveCommit": "637b45159fc2451aa40ce5b5cf9a31ce755c646f",
+      "archivePath": "research/blueprint/suggested/StableReductionPartII.lean",
+      "archiveMarker": "BEGIN ARCHIVED CHECKED CANONICAL SECTION SPLITTING",
+      "provedCanonicalBodies": [
+        "sectionEval",
+        "sectionEvaluationKernel",
+        "coefficientHom_eq_algebraMap",
+        "sectionEval_smul",
+        "sectionProjection",
+        "sectionProjection_coe",
+        "sectionProjection_ideal",
+        "sectionProjection_coefficient",
+        "sectionSplit",
+        "sectionSplit_first",
+        "sectionSplit_second",
+        "sectionSplit_inverse",
+        "sectionSplit_section"
+      ],
+      "extraction": {
+        "exitCode": 0,
+        "errors": 0,
+        "warnings": 0,
+        "wallSeconds": 2.91,
+        "maxResidentKiB": 2811936,
+        "examples": 7,
+        "axiomPrints": 13,
+        "hasSorryAx": false,
+        "sourceSha256": "3d93800d52ffe26a39e1ce5e793b5294fd27d03599472a652adaf0243a4720e9",
+        "logSha256": "c3843e9e75665f9cd8306e298ffef6ab12ccffaa00df1f47e7760b2ff32b6093",
+        "availableMemoryGiB": 66
+      },
+      "boundary": "Actual canonical carrier and statement proofs, not a toy quotient, assumed kernel or altered scalar action. Arbitrary commutative coefficient rings including the zero ring. Does not prove the remaining cokernel/dual/tensor, relative stable-reflexivity, completion or global geometric targets.",
+      "atlasProjection": {
+        "actualAssembler": true,
+        "declarations": 125,
+        "planets": 35,
+        "ownSkippedLinks": [],
+        "stageDAG": {
+          "vertices": 3050,
+          "edges": 8750,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 125,
+          "edges": 284,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3140,
+          "edges": 9273,
+          "acyclic": true
+        },
+        "reachableDeclarations": 125,
+        "externalDeclarations": [],
+        "requiredStagePairsReachable": 81,
+        "stageEdgesUnchanged": true,
+        "otherSkipsMatchOriginal": true,
+        "unchangedNodeObjects": 117,
+        "scriptSha256": "0fbb46fa8cc7053b0276d9cc991fcba19626da329558ef9f61c0c0f490b0989a"
+      }
+    },
+    "previousSectionKernelVerification": {
+      "status": "partial",
       "reader": "Codex — codex-rtOQ9t",
       "claimComment": 5957456656,
       "claimConfirmation": 5957459667,
@@ -11031,6 +11437,23 @@
         "Actual read-only atlas assembly, all scoped DAGs, computed stage-pair reachability, unchanged stage edges and unrelated skips; no own skipped links.",
         "Five-file intake, private-path, whitespace and mathematical signature/API/test/metadata preservation checks."
       ]
+    },
+    "previousSectionSplitSketchCompilation": {
+      "exitCode": 0,
+      "admittedProofWarnings": 160,
+      "otherWarnings": 0,
+      "examples": 70,
+      "leanSha256": "d544f7832817056f8155239d116d0d0fa55f5a1341e1d1ef56433d390c037784",
+      "logSha256": "35106ebb4dcb128e07a96dfe194ced01db341578dde6b68d3dea770799f049cd",
+      "reader": "Codex — codex-rtOQ9t",
+      "date": "2026-10-02",
+      "toolchain": "Lean v4.34.0-rc2",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "wholeFile": true,
+      "imports": "Mathlib only",
+      "availableMemoryGiB": 69,
+      "existingArtifactsReused": true,
+      "noSetupCacheLibraryBuildOrServer": true
     }
   },
   "upstreamImportEncoding": {
@@ -11150,6 +11573,17 @@
       "scope": "Fresh complete §3 Key Example, printed pp.11–12, including the displayed matrices, normal form, ideal/dual calculations and Proposition3.1; Corollary3.2 was also read. The cited Eisenbud and Appendix stable-reflexivity proofs are not freshly certified.",
       "use": "Local polynomial model and explicit coefficient splitting only; no moduli, relative stable-reflexivity or two-base completion closure.",
       "sha256": "de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36"
+    },
+    {
+      "sourceId": "knudsen2012",
+      "reader": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "url": "https://arxiv.org/html/1106.1588v2",
+      "version": "arXiv:1106.1588v2 HTML",
+      "scope": "Fresh complete §3 Key Example through the full Proposition3.1 proof and Corollary3.2 proof. Selected section only; no fresh whole-paper, PDF visual or Appendix/Bourbaki/Eisenbud proof claim.",
+      "use": "Actual polynomial quotient, coefficient evaluation and ideal projection/splitting deductions. Publication noetherian/unit-discriminant hypotheses retained separately; no broader geometric or completion inference.",
+      "sha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
+      "bytes": 590572
     }
   ]
 }

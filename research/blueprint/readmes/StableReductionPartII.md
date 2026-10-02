@@ -10,9 +10,9 @@ traits. Here those objects become moduli groupoids and stack morphisms; the
 parent is imported rather than planned a second time. Stable-map moduli are
 not constructed in this continuation.
 
-Every stage is partial. The packet records 119 declaration nodes, 139 API items,
-131 definition/construction tests plus two exactness tests, 35 planets,
-135 precise supplier requests and 14 gaps. There are 70 inspected
+Every stage is partial. The packet records 125 declaration nodes, 142 API items,
+135 definition/construction tests plus two exactness tests, 35 planets,
+135 precise supplier requests and 14 gaps. There are 73 inspected
 pinned-library declarations. Nothing is claimed
 formalized: every implementationStatus is unchecked. An open request is a
 dependency on a specification, not evidence that the mathematical library
@@ -26,53 +26,59 @@ proofs and missing foundations listed below must be reconciled before any stage
 can be called source_decomposed or closed.
 
 
-The polynomial model in MC.2 has native quotient, ideal, dual and tensor
-signatures checked in an existing pinned Mathlib build. This checkpoint adds
-actual proofs for its normal form, coefficient-ring freeness, regular relation,
-regular section-coordinate difference, section evaluation and coefficient-map
-compatibilities, together with the binary quadratic evaluation/map and matrix
-products. The full file still contains admitted bodies; no stage is closed.
+The polynomial model in MC.2 uses the native quotient, ideal and coefficient
+scalar tower. This checkpoint specifies the actual A-linear ideal projection
+and instantiates the inherited canonical section splitting. The complete
+Mathlib-only suggested sketch and the separate immutable proof extraction are
+checked separately. Every submitted body added here remains an admitted sketch
+under PROTOCOL section 13; no stage is closed.
 
-Fresh source reading in this checkpoint is selected extracted text of
-Knudsen2012 §3, printed pp.11–12, including its noetherian and unit-discriminant
-hypotheses. The arbitrary-ring range of the elementary polynomial calculations
-is justified by the native proofs below. The preceding worker's visual
-KnudsenII Appendix reading and Stacks receipts remain historical; its Bourbaki
-citation and unproved exercise remain unresolved.
+Fresh source reading covers Knudsen2012 v2 §3 Key Example through the proofs of
+Proposition3.1 and Corollary3.2 in HTML. The published proposition assumes
+noetherian A and unit discriminant. The evaluation, kernel and coefficient
+splitting are explicit arbitrary-ring algebra deductions verified on the native
+quotient; they do not extend the published relative stable-reflexivity or
+completed-family theorem. Earlier whole-paper, Appendix and PDF receipts are
+historical. Bourbaki and the cited unproved exercise remain open.
 
-## Verified polynomial foundation in the suggested file
+## Canonical coefficient splitting
 
-For nontrivial A, the pinned monic `AdjoinRoot.powerBasis'` has dimension two.
-Reindexing it by Fin2 gives the vectors 1 and u. Basis reconstruction proves
-existence of p(v)+u q(v); applying the basis representation proves uniqueness.
-The zero-ring case uses the actual subsingleton quotient and coefficient pair,
-so no false degree-two assertion is needed. `polynomialMonic` holds for every
-A, while `polynomialNatDegree` explicitly requires Nontrivial A.
+Write R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R and
+J=(u−ιs,v−ιt). Native quotient evaluation ev:R→A has ev∘ι=id and
+kernel J. The built bivariate evaluation-ideal theorem proves the kernel on
+polynomial representatives; its image through the actual quotient map is the
+coordinate ideal J. No ideal-generation hypothesis is added.
 
-The same power basis gives freeness over A[Y]. Combining it with the existing
-monomial basis using `Basis.smulTower` gives freeness over A. Free modules are
-torsion free in the pinned sense that regular scalars act injectively. Since
-Y−t is monic and regular, its action on R is injective, which is exactly
-multiplication by v−ιt. This argument permits zero divisors in A and zero
-discriminant. Multiplication by F is regular directly by monicity.
+The explicit ι agrees with the inherited algebra map A→R. Therefore
+ev(a·r)=a ev(r) for the existing scalar action. Define p:R→J by
+p(r)=r−ι(ev(r)). Kernel membership makes this an actual ideal element;
+addition and coefficient linearity make it an A-linear map. It fixes every
+j∈J and kills every coefficient ι(a).
 
-The native quotient evaluation verifies F(s,t)=0. The coefficient-map body
-verifies the mapped relation; quotient extensionality proves identity,
-composition and evaluation naturality. These proofs use the native polynomial
-quotient, not an admitted dual/cokernel theorem or an assumed flat coefficient
-map. Nine proved examples include the existing relation, zero-model,
-evaluation and coefficient-coordinate checks, plus monicity at the zero base,
-degree in characteristic two and regularity over ZMod4 with zero discriminant.
+The inherited sectionSplit is e:R≃J×A, e(r)=(p(r),ev(r)), with inverse
+(j,a)↦j+ι(a). The two projection identities prove both inverse laws;
+linearity uses the existing scalar tower. The section law e(ι(a))=(0,a)
+uses exactly these maps. This supplies the retraction for coefficient flatness
+of J from the free coefficient module R.
 
-Fifteen matching bodies and these nine examples compile in an admission-free
-extraction. All fifteen axiom prints have only the standard logical axioms
-where needed, and no admitted-proof axiom. This verifies the suggested proof
-bodies; it does not install them in Mathlib or TauCeti. The complete
-[suggested file](../suggested/StableReductionPartII.lean) compiles with
-zero errors,130 admitted-proof warnings and zero other warnings (67 examples).
-Its remaining cokernel, dual, tensor, ambient and completion proofs are admitted.
-Exact hashes and graph/preservation receipts are recorded in the packet and
-[handoff](../handoff/DESIGN-StableReductionPartII.md).
+Four projection tests cover an arbitrary actual ideal element, the zero ring,
+Z/4 at the nonzero section s=1 with zero discriminant, and failure of R-linearity.
+The three inherited splitting tests are checked as well. In the last fixture,
+R=ℚ[Y][X]/(X²+YX), p(1)=0 and p(u)=u≠0. Monicity and the native quotient
+degree bound prove u≠0, so p(u·1)≠u p(1). A coefficient splitting does not
+assert R-flatness, R-projectivity or invertibility at the node.
+
+The separate canonical proof extraction has thirteen axiom audits and seven
+examples, zero errors/warnings and no admitted-proof axiom dependency. Its exact
+source survives at the immutable suggested-file revision linked in the
+[handoff](../handoff/DESIGN-StableReductionPartII.md). The complete current
+[suggested sketch](../suggested/StableReductionPartII.lean) is checked separately;
+its admissions do not establish the remaining cokernel, dual, tensor, ambient,
+completion or moduli assertions.
+
+Historical fifteen-body normal-form, coefficient-freeness, regularity and
+coefficient-map proofs remain at immutable cef4c2085eddbf723e9050f7d4924924d593a0e3.
+They are not freshly checked or reinstalled by this checkpoint.
 
 ## Conventions and interfaces
 
@@ -3185,18 +3191,34 @@ A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c
 **Source:** knudsen2, Appendix Definition1, Theorem2, Propositions4–7, printed191–195 (PDF31–35). Motivates completed-local passage; Proposition6 cites Bourbaki without a proof and Proposition7 is an exercise. These ambient algebra adapters do not claim either proposition or relative stable reflexivity.
 
 
-## Coefficient section splitting continuation — Codex codex-rtOQ9t
+## Verified native projection and splitting checkpoint
 
-Node StableReductionPartII:MC.2/section-evaluation-split constructs the actual A-linear equivalence R≃J×A for the polynomial node model over every commutative coefficient ring, including the zero ring. Its formula is r↦(r−ι(ev(r)),ev(r)); its inverse is (j,a)↦j+ι(a). This specifies the maps rather than only their abstract isomorphism class. There is no noetherian, reducedness, field or unit-discriminant premise, and no finite A-rank conclusion.
+The native projection p:R→J and the existing sectionSplit are instantiated on
+the actual quotient and ideal using the inherited coefficient scalar tower.
+The six added nodes are coefficient-inclusion-action, section-evaluation-scalars,
+section-evaluation-projection, section-projection-formula,
+section-projection-retraction and section-projection-coefficients. Their statements, APIs and four tests appear
+above. The splitting formulas and three inherited tests keep their original
+statements. Coefficient flatness now consumes the actual native retraction.
 
-The existing evaluation-kernel node now uses the built two-variable Polynomial.mem_span_C_X_sub_C_X_sub_C_iff_eval_eval_eq_zero, AdjoinRoot.induction_on and evaluation-on-representative law. Ideal.map_span takes its generators to v−ιt and u−ιs. This avoids a private generic polynomial-remainder lemma and does not require a normal-form basis. Conversely evaluation kills both generators. The kernel node's mathematical statement is unchanged.
+The complete current Mathlib-only sketch elaborates with zero errors, 170
+admitted-proof warnings only and 74 examples. The separate canonical proof
+archive has thirteen axiom audits, seven proved examples and zero errors or
+warnings. No admitted axiom is used by those canonical bodies. They are source
+prototypes, and the final suggested file admits their bodies under PROTOCOL§13.
 
-The coefficient image and J are complementary A-submodules because ev∘ι=id. Instantiate built Submodule.prodEquivOfIsCompl, identifying the coefficient image with A; its inverse is the displayed splitting. The existing coefficient-flatness node now explicitly consumes this construction and the already cited free/retract-of-flat facts. Neither R-flatness nor relative stable reflexivity follows from this coefficient splitting.
+The actual read-only atlas assembler produces acyclic graphs: stages
+3,050 vertices/8,750 edges; own declarations 125/284; stages plus declarations
+and supplier requests 3,140/9,273. All 81 computed stage prerequisite pairs are
+reachable. Stage edges and unrelated skipped links agree with the original
+packet overlay; no own links are skipped. This scoped check does not certify
+all unrelated atlas declarations. Exact hashes, public archive extraction and
+reproduction script are in the handoff.
 
-API: NodeSectionFactorization.PolynomialModel.sectionSplit_first gives r−ιev(r); sectionSplit_second gives ev(r); sectionSplit_inverse gives j+ι(a); sectionSplit_section sends ι(a) to (0,a). Each belongs to that same namespace and has a suggested admitted native signature.
-
-Tests: NodeSectionFactorization.PolynomialModel.sectionSplitNonreduced checks u↦(u−1,1) over Z/4 with γ=δ=t=0,s=1 and zero discriminant. sectionSplitZeroBase checks collapse to (0,0) over Z/1. sectionSplitNotRingLinear uses ℚ with γ=1,δ=s=t=0: the ideal projection sends 1 to 0 and nonzero u to u, contradicting R-linearity. That nonzero class is detected by the monic degree-two quotient basis, not by assuming the node ring is a domain.
-
-Fresh source reading covered the complete Knudsen2012 §3 Key Example and Corollary3.2 at the v2 URL, alongside the complete preceding handoff, the two binding Yuan/DGH route briefs, reviewed parent layers1/3 with accepted AUDIT-02 metadata, and the full upstream StableReduction and JacobianChallenge documents. The cited Appendix/Eisenbud and two-base completion inputs remain open. A separate Mathlib-only experiment checks the quotient-kernel and constant-evaluation laws without admitted axioms; it does not certify any global moduli or sheaf statement. The current suggested file restores admitted bodies under PROTOCOL §13; the fifteen checked bodies and nine examples at cef4c2085eddbf723e9050f7d4924924d593a0e3 retain their historical receipts.
-
-Current check: 0 errors, 160 admitted-proof warnings only, 70 examples, existing exact pinned Mathlib artifacts. Native SHA-256 d544f7832817056f8155239d116d0d0fa55f5a1341e1d1ef56433d390c037784; output SHA-256 35106ebb4dcb128e07a96dfe194ced01db341578dde6b68d3dea770799f049cd. Separate quotient-kernel experiment: 0 errors/warnings and no admitted axioms. Finite regression: 2,896 auxiliary R/(v³) models over moduli 1–8 with t³=0, 448,551 exact assertions; these finite quotients do not replace the general polynomial model. Current read-only atlas graphs are acyclic: stages 3,050/8,750; own declarations 119/264; stages plus reachable declarations/requests 3,134/9,247. All 81 computed stage prerequisite pairs are reachable, with identical stage edges and no own skipped links. The 135 requests, fourteen gaps, geometric omission ledger, reserved moduli-curves key and all eight partial stage statuses remain unchanged.
+All 119 original mathematical statements, hypotheses, APIs, tests, acceptance
+criteria and sources survive. Of their full node objects, 117 are unchanged;
+only the splitting and coefficient-flatness dependency/proof routes change.
+The reserved moduli-curves key, binding Yuan/DGH routes, 135 requests, fourteen
+gaps, ownership proposal and eight partial stages remain unchanged. Source
+reading here certifies only the selected Knudsen §3 HTML scope. Earlier source
+and finite-regression receipts remain historical.
