@@ -29472,3 +29472,258 @@ example
     kubertSignTateNegOneToParity S w (kubertSignGroupH1NegOneEquiv S w ((kubertSignGroupH1TorsionZModEquiv S w).symm y))=y.val := by sorry
 
 end DirichletPadic.SuggestedKubertTatePeriodicityTests
+
+/- Actual primitive fibers for the rational distribution model. -/
+namespace DirichletPadic
+open scoped BigOperators Classical
+open DirichletPadic DirichletPadic
+open DirichletPadic
+
+noncomputable def kubertRationalPrimitiveSum (k : ℕ) (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ) →₀ ℚ := by sorry
+
+lemma kubertRationalPrimitiveSum_apply (k : ℕ) (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (y : kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)) :
+    kubertRationalPrimitiveSum k N a y=
+      if ((N : ℕ)/addOrderOf a.val) • y.val=a.val then 1 else 0 := by sorry
+
+lemma kubertRationalPrimitiveSum_nonzero (k : ℕ) (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertRationalPrimitiveSum k N a≠0 := by sorry
+
+lemma kubertRationalPrimitiveSum_zero (k : ℕ) (N : ℕ+)
+    (y : kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)) :
+    kubertRationalPrimitiveSum k N 0 y=1 := by sorry
+
+lemma kubertRationalPrimitiveSum_primitive (k : ℕ) (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (ha : a.val ∈ kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)) :
+    kubertRationalPrimitiveSum k N a=Finsupp.single ⟨a.val,ha⟩ 1 := by sorry
+
+lemma kubertRationalPrimitiveSum_transition (k : ℕ) (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ))
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (M : ℕ)).ker) :
+    kubertPrimitiveTransfer k ℚ M N hMN (kubertRationalPrimitiveSum k M a)=
+      kubertRationalPrimitiveSum k N (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) a) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped BigOperators Classical
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertRationalPrimitiveSum_support (k : ℕ) (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (y : kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)) :
+    y ∈ (kubertRationalPrimitiveSum k N a).support ↔
+      ((N : ℕ)/addOrderOf a.val) • y.val=a.val := by sorry
+
+lemma kubertRationalPrimitiveSum_exists (k : ℕ) (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    ∃ y : kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ),
+      ((N : ℕ)/addOrderOf a.val) • y.val=a.val := by sorry
+
+lemma kubertRationalPrimitiveSum_sum (k : ℕ) (N : ℕ+)
+    [Fintype (kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ))]
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertRationalPrimitiveSum k N a=
+      ∑ y ∈ Finset.univ.filter (fun y : kubertPrimitivePoints
+        (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ) =>
+          ((N : ℕ)/addOrderOf a.val) • y.val=a.val), Finsupp.single y 1 := by sorry
+
+lemma kubertRationalPrimitiveSum_mass (k : ℕ) (N : ℕ+)
+    [Fintype (kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ))]
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    (∑ y, kubertRationalPrimitiveSum k N a y)=
+      ((Finset.univ.filter (fun y : kubertPrimitivePoints
+        (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ) =>
+          ((N : ℕ)/addOrderOf a.val) • y.val=a.val)).card : ℚ) := by sorry
+
+lemma kubertRationalPrimitiveSum_equivariant (k : ℕ) (N : ℕ+)
+    (e : (Fin (k+1) → AddCircle (1 : ℚ)) ≃+ (Fin (k+1) → AddCircle (1 : ℚ)))
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertRationalPrimitiveSum k N ⟨e a.val,by
+      change (N : ℕ) • e a.val=0
+      have ha : (N : ℕ) • a.val=0 := a.property
+      rw [← map_nsmul,ha,map_zero]⟩=
+      kubertPrimitiveCoefficientEquiv ℚ e (N : ℕ) (kubertRationalPrimitiveSum k N a) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic
+
+noncomputable def kubertCartanRationalPrimitiveSum (N : ℕ+) (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) := by sorry
+
+lemma kubertCartanRationalPrimitiveSum_coordinates (N : ℕ+) (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertCartanPrimitiveCoefficientEquiv ℚ N (kubertCartanRationalPrimitiveSum N a)=
+      kubertRationalPrimitiveSum 0 N a := by sorry
+
+lemma kubertCartanRationalPrimitiveSum_coeff (N : ℕ+) (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanRationalPrimitiveSum N a).coeff u=
+      if ((N : ℕ)/addOrderOf a.val) • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val=a.val then 1 else 0 := by sorry
+
+lemma kubertCartanRationalPrimitiveSum_nonzero (N : ℕ+) (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertCartanRationalPrimitiveSum N a≠0 := by sorry
+
+lemma kubertCartanRationalPrimitiveSum_zero (N : ℕ+) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanRationalPrimitiveSum N 0).coeff u=1 := by sorry
+
+lemma kubertCartanRationalPrimitiveSum_primitive (N : ℕ+) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanRationalPrimitiveSum N
+      ⟨(kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val,kubertGenerators_primitive_mem_level (dvd_refl _) (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).property⟩=
+      MonoidAlgebra.single u 1 := by sorry
+
+lemma kubertCartanRationalPrimitiveSum_norm (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (M : ℕ)).ker) :
+    kubertCartanProductNorm 1 ℚ M N hMN (kubertCartanRationalPrimitiveSum M a)=
+      kubertCartanRationalPrimitiveSum N (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) a) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertSinnottLatticeTests
+open scoped Classical BigOperators
+noncomputable section
+-- unit_level_zero_is_basis
+example : kubertRationalPrimitiveSum 0 1 0=Finsupp.single ⟨0, by sorry⟩ 1 := by sorry
+-- level_six_half_has_two_lifts
+example : kubertRationalPrimitiveSum 0 6 (⟨(fun _ : Fin 1 => (↑(1/2 : ℚ) : AddCircle (1 : ℚ))), by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker)=Finsupp.single (⟨(fun _ : Fin 1 => (↑(1/6 : ℚ) : AddCircle (1 : ℚ))), by sorry⟩ : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) 1+Finsupp.single (⟨(fun _ : Fin 1 => (↑(5/6 : ℚ) : AddCircle (1 : ℚ))), by sorry⟩ : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) 1 := by sorry
+-- primitive_point_is_not_full_fiber
+example : kubertRationalPrimitiveSum 0 6 (⟨(fun _ : Fin 1 => (↑(1/6 : ℚ) : AddCircle (1 : ℚ))), by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker)=Finsupp.single (⟨(fun _ : Fin 1 => (↑(1/6 : ℚ) : AddCircle (1 : ℚ))), by sorry⟩ : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) 1 ∧ kubertRationalPrimitiveSum 0 6 (⟨(fun _ : Fin 1 => (↑(1/6 : ℚ) : AddCircle (1 : ℚ))), by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker) (⟨(fun _ : Fin 1 => (↑(5/6 : ℚ) : AddCircle (1 : ℚ))), by sorry⟩ : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6)=0 := by sorry
+-- raw_fiber_sum_is_not_distribution
+example : kubertRationalPrimitiveSum 0 2 0+kubertRationalPrimitiveSum 0 2 (⟨(fun _ : Fin 1 => (↑(1/2 : ℚ) : AddCircle (1 : ℚ))), by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 2).ker)≠kubertRationalPrimitiveSum 0 2 0 := by sorry
+-- cartan_unit_level_normalization
+example : kubertCartanRationalPrimitiveSum 1 0=MonoidAlgebra.single 1 1 := by sorry
+-- cartan_half_has_full_unit_support
+example (u : (∀ p : (6 : ℕ).primeFactors, (TruncatedWittVector p.val ((6 : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : (kubertCartanRationalPrimitiveSum 6 (⟨(fun _ : Fin 1 => (↑(1/2 : ℚ) : AddCircle (1 : ℚ))), by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker)).coeff u=1 := by sorry
+-- cartan_primitive_identity_singleton
+example : kubertCartanRationalPrimitiveSum 6 (⟨(fun _ : Fin 1 => (↑(1/6 : ℚ) : AddCircle (1 : ℚ))), by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker)=MonoidAlgebra.single 1 1 := by sorry
+end
+end DirichletPadic.SuggestedKubertSinnottLatticeTests
+namespace DirichletPadic.SuggestedKubertSinnottLatticeTests
+open scoped BigOperators Classical
+open DirichletPadic DirichletPadic
+open DirichletPadic
+
+-- rationalPrimitiveSum_apply_typed_api
+example (k : ℕ) (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (y : kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)) :
+    kubertRationalPrimitiveSum k N a y=
+      if ((N : ℕ)/addOrderOf a.val) • y.val=a.val then 1 else 0 := by sorry
+
+-- rationalPrimitiveSum_nonzero_typed_api
+example (k : ℕ) (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertRationalPrimitiveSum k N a≠0 := by sorry
+
+-- rationalPrimitiveSum_zero_typed_api
+example (k : ℕ) (N : ℕ+)
+    (y : kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)) :
+    kubertRationalPrimitiveSum k N 0 y=1 := by sorry
+
+-- rationalPrimitiveSum_primitive_typed_api
+example (k : ℕ) (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (ha : a.val ∈ kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)) :
+    kubertRationalPrimitiveSum k N a=Finsupp.single ⟨a.val,ha⟩ 1 := by sorry
+
+-- rationalPrimitiveSum_transition_typed_api
+example (k : ℕ) (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ))
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (M : ℕ)).ker) :
+    kubertPrimitiveTransfer k ℚ M N hMN (kubertRationalPrimitiveSum k M a)=
+      kubertRationalPrimitiveSum k N (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) a) := by sorry
+
+end DirichletPadic.SuggestedKubertSinnottLatticeTests
+
+namespace DirichletPadic.SuggestedKubertSinnottLatticeTests
+open scoped BigOperators Classical
+open DirichletPadic DirichletPadic DirichletPadic
+
+-- rationalPrimitiveSum_support_typed_api
+example (k : ℕ) (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (y : kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)) :
+    y ∈ (kubertRationalPrimitiveSum k N a).support ↔
+      ((N : ℕ)/addOrderOf a.val) • y.val=a.val := by sorry
+
+-- rationalPrimitiveSum_exists_typed_api
+example (k : ℕ) (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    ∃ y : kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ),
+      ((N : ℕ)/addOrderOf a.val) • y.val=a.val := by sorry
+
+-- rationalPrimitiveSum_sum_typed_api
+example (k : ℕ) (N : ℕ+)
+    [Fintype (kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ))]
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertRationalPrimitiveSum k N a=
+      ∑ y ∈ Finset.univ.filter (fun y : kubertPrimitivePoints
+        (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ) =>
+          ((N : ℕ)/addOrderOf a.val) • y.val=a.val), Finsupp.single y 1 := by sorry
+
+-- rationalPrimitiveSum_mass_typed_api
+example (k : ℕ) (N : ℕ+)
+    [Fintype (kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ))]
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    (∑ y, kubertRationalPrimitiveSum k N a y)=
+      ((Finset.univ.filter (fun y : kubertPrimitivePoints
+        (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ) =>
+          ((N : ℕ)/addOrderOf a.val) • y.val=a.val)).card : ℚ) := by sorry
+
+-- rationalPrimitiveSum_equivariant_typed_api
+example (k : ℕ) (N : ℕ+)
+    (e : (Fin (k+1) → AddCircle (1 : ℚ)) ≃+ (Fin (k+1) → AddCircle (1 : ℚ)))
+    (a : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertRationalPrimitiveSum k N ⟨e a.val,by
+      change (N : ℕ) • e a.val=0
+      have ha : (N : ℕ) • a.val=0 := a.property
+      rw [← map_nsmul,ha,map_zero]⟩=
+      kubertPrimitiveCoefficientEquiv ℚ e (N : ℕ) (kubertRationalPrimitiveSum k N a) := by sorry
+
+end DirichletPadic.SuggestedKubertSinnottLatticeTests
+
+namespace DirichletPadic.SuggestedKubertSinnottLatticeTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic
+
+-- cartanRationalPrimitiveSum_coordinates_typed_api
+example (N : ℕ+) (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertCartanPrimitiveCoefficientEquiv ℚ N (kubertCartanRationalPrimitiveSum N a)=
+      kubertRationalPrimitiveSum 0 N a := by sorry
+
+-- cartanRationalPrimitiveSum_coeff_typed_api
+example (N : ℕ+) (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanRationalPrimitiveSum N a).coeff u=
+      if ((N : ℕ)/addOrderOf a.val) • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val=a.val then 1 else 0 := by sorry
+
+-- cartanRationalPrimitiveSum_nonzero_typed_api
+example (N : ℕ+) (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertCartanRationalPrimitiveSum N a≠0 := by sorry
+
+-- cartanRationalPrimitiveSum_zero_typed_api
+example (N : ℕ+) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanRationalPrimitiveSum N 0).coeff u=1 := by sorry
+
+-- cartanRationalPrimitiveSum_primitive_typed_api
+example (N : ℕ+) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanRationalPrimitiveSum N
+      ⟨(kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val,kubertGenerators_primitive_mem_level (dvd_refl _) (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).property⟩=
+      MonoidAlgebra.single u 1 := by sorry
+
+-- cartanRationalPrimitiveSum_norm_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (M : ℕ)).ker) :
+    kubertCartanProductNorm 1 ℚ M N hMN (kubertCartanRationalPrimitiveSum M a)=
+      kubertCartanRationalPrimitiveSum N (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) a) := by sorry
+
+end DirichletPadic.SuggestedKubertSinnottLatticeTests
