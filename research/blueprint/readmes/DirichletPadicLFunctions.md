@@ -62637,3 +62637,442 @@ Exact controls through60 levels verify96 local source-point orders,1,699 kernel/
 The fresh capture after the actual merge of5782 has no changed guarded inputs or predecessor outputs. All79 inputs and four deliverables match the retained predecessor, and the whole issue body is unchanged. No new source finding, review verdict or external dependency is adopted.
 
 The separate partial signature file also compiled with zero errors and 6,136 expected placeholder warnings across 3,914 pinned source modules. It includes all 28 new named declarations and 36 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 961ad030887df5775e3ed9f76cdbd780bd64fd31d1749c88d59c7e97589f1d6c.
+
+
+## Actual full-fiber norm multiplication and rational normalization
+
+Seventeen L3 lemmas prove the original Cartan full-fiber norm projection and push-pull formulas, actual kernel cardinality factor in multiplication, and the exact rational normalization in Kubert4.9. All2,090 predecessor nodes and1,259 baseline records remain whole. Corrected-rational-value compatibility and the source image/product comparison remain open.
+
+Published Kubert195 equation4.9 and the complete norm-compatibility argument4.8 on195–196 were reread against the original full-fiber norm2.7 on187. The exact actual maps from5473 were inspected. Native coefficient translation, label pushforward, scalar compatibility, group-homomorphism fiber equivalences, kernel indices and finite cardinality statements were read at the pinned sources. The primitive-fiber norm compatibility is already available from5773; the required local-factor transition is not assumed.
+
+### The full norm intertwines actual basis multiplication
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-projection-single` — `DirichletPadic.kubertCartanProductNorm_projection_single`
+
+For an upper unit u, a coefficient a in R and a lower group-ring element y, i([f(u)]a·y)=[u]a·i(y). The multiplication order is retained even for noncommutative coefficient semirings.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. Compare both upper coefficient functions.
+2. Use the original norm coefficient-pullback formula and native multiplication by a unit basis vector.
+3. The actual reduction preserves multiplication and inverses, so the two inverse-translated indices agree.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-coeff-apply`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction`, `mathlib:MonoidAlgebra.coeff_single_mul_apply`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_projection_single_typed_api` (compatibility): For an upper unit u, a coefficient a in R and a lower group-ring element y, i([f(u)]a·y)=[u]a·i(y). The multiplication order is retained even for noncommutative coefficient semirings.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### The actual full-fiber projection formula
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-projection` — `DirichletPadic.kubertCartanProductNorm_projection`
+
+For an upper group-ring element x and lower element y, i(f_*(x)y)=x i(y), over every coefficient semiring R.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. Apply native monoid-algebra induction to the actual upper element x.
+2. For a unit basis element, native label pushforward gives its actual reduced label; apply the basis projection formula.
+3. Both maps preserve sums, and native pushforward and the original norm preserve coefficient scalar multiplication.
+4. Use distributivity and compatibility of left scalar multiplication with products.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-projection-single`, `mathlib:MonoidAlgebra.induction_on`, `mathlib:MonoidAlgebra.mapDomainRingHom`, `mathlib:MonoidAlgebra.mapDomain_single`, `mathlib:MonoidAlgebra.mapDomain_smul`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_projection_typed_api` (compatibility): For an upper group-ring element x and lower element y, i(f_*(x)y)=x i(y), over every coefficient semiring R.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### The actual Cartan reduction kernel has positive cardinality
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-kernel-card-pos` — `DirichletPadic.kubertCartanProductNorm_kernel_card_pos`
+
+The original kernel of f is finite and has strictly positive natural cardinality d.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. The upper Cartan group is finite by its actual finite prime index and finite truncated-Witt unit factors.
+2. Its kernel is a finite subtype containing the actual identity unit.
+3. Apply native positive cardinality for a nonempty finite type.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction`, `mathlib:Nat.card_pos`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.same_level_kernel_is_singleton` (degenerate): For the actual reduction from level6 to itself the kernel has cardinality1.
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_kernel_card_pos_typed_api` (compatibility): The original kernel of f is finite and has strictly positive natural cardinality d.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### Every actual Cartan reduction fiber has kernel cardinality
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-fiber-card` — `DirichletPadic.kubertCartanProductNorm_fiber_card`
+
+For every original lower unit u, the actual fiber of f above u has natural cardinality d.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. Use the proved surjectivity of the original reduction.
+2. Apply the existing native equivalence between a fiber of a surjective group homomorphism and its actual kernel.
+3. Transfer cardinality across that native equivalence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-surjective`, `mathlib:MonoidHom.fiberEquivKerOfSurjective`, `mathlib:Nat.card_congr`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.new_prime_fiber_cardinality` (computation): The actual degree-one reduction from30 to6 has four lifts of every lower unit, hence kernel cardinality4.
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_fiber_card_typed_api` (compatibility): For every original lower unit u, the actual fiber of f above u has natural cardinality d.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### The full finite lift set has the actual kernel cardinality
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-fiber-finset-card` — `DirichletPadic.kubertCartanProductNorm_fiber_finset_card`
+
+With a finite enumeration of the original upper unit group, the filtered finite set of all units reducing to u has cardinality d.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. Start with the actual fiber-subtype cardinality identity.
+2. Use the native equality between natural and finite-type cardinality and the native filtered-subtype formula. No lift is omitted.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-fiber-card`, `mathlib:Nat.card_eq_fintype_card`, `mathlib:Fintype.card_subtype`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_fiber_finset_card_typed_api` (compatibility): With a finite enumeration of the original upper unit group, the filtered finite set of all units reducing to u has cardinality d.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### Pushing a full basis norm back counts every lift
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-push-single` — `DirichletPadic.kubertCartanProductNorm_push_single`
+
+For a lower unit u and coefficient a, f_*(i([u]a))=d·[u]a, where the dot is natural scalar multiplication.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. Use the existing full norm formula as the sum over all actual upper basis lifts.
+2. Native label pushforward sends every summand to the same lower basis vector with the original coefficient.
+3. Sum that constant vector over the full filtered lift set and use its proved cardinality d.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-single`, `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-fiber-finset-card`, `mathlib:MonoidAlgebra.mapDomainRingHom`, `mathlib:MonoidAlgebra.mapDomain_single`, `mathlib:Finset.prod_const`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_push_single_typed_api` (compatibility): For a lower unit u and coefficient a, f_*(i([u]a))=d·[u]a, where the dot is natural scalar multiplication.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### The actual norm and pushforward compose to kernel multiplicity
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-push` — `DirichletPadic.kubertCartanProductNorm_push`
+
+For every lower group-ring element x, f_*(i(x))=d·x over any coefficient semiring.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. Apply native monoid-algebra induction to x.
+2. Use the full basis push-pull identity.
+3. Both maps preserve addition and coefficient scalar multiplication, and these operations commute with natural scalar multiplication.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-push-single`, `mathlib:MonoidAlgebra.induction_on`, `mathlib:MonoidAlgebra.mapDomain_smul`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.push_norm_is_fourfold_at_thirty` (computation): Pulling the identity basis at level6 up to30 and pushing it back gives four times the original identity, retaining every new5-primary lift.
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_push_typed_api` (compatibility): For every lower group-ring element x, f_*(i(x))=d·x over any coefficient semiring.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### Full-fiber norm multiplication carries the actual kernel factor
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-mul` — `DirichletPadic.kubertCartanProductNorm_mul`
+
+For lower group-ring elements x,y over any coefficient semiring, i(x)i(y)=d·i(xy). This is the undivided multiplication law; d is the actual kernel cardinality.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. Apply the projection formula to the actual upper element i(x) and lower element y.
+2. Replace f_*(i(x)) by d·x using the push-pull formula.
+3. Move natural scalar multiplication through the product and through the original linear norm.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-projection`, `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-push`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.norm_multiplication_has_cardinality_factor` (non-example): From level1 to3, the norm of1 has two basis terms; its square is twice itself, not itself.
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_mul_typed_api` (compatibility): For lower group-ring elements x,y over any coefficient semiring, i(x)i(y)=d·i(xy). This is the undivided multiplication law; d is the actual kernel cardinality.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### The full norm of one is the actual kernel indicator
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-one-coeff` — `DirichletPadic.kubertCartanProductNorm_one_coeff`
+
+The coefficient of i(1) at an upper unit u is1 if u is in the actual kernel of f and0 otherwise.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. Apply the original norm coefficient-pullback formula to the lower identity basis vector.
+2. Its coefficient is1 exactly when f(u)=1.
+3. This is actual kernel membership.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-coeff-apply`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction`, `mathlib:Finsupp.single_apply`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.full_norm_is_not_unital` (non-example): The full-fiber norm from level1 to3 sends the identity to the sum of both upper units, so its value differs from the upper identity basis vector.
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_one_coeff_typed_api` (compatibility): The coefficient of i(1) at an upper unit u is1 if u is in the actual kernel of f and0 otherwise.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### The full kernel sum acts by kernel multiplicity on the norm image
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-one-mul` — `DirichletPadic.kubertCartanProductNorm_one_mul`
+
+For every lower element x, i(1)i(x)=d·i(x), over every coefficient semiring.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. Apply the undivided norm multiplication law with the first lower factor equal to1.
+2. Use the lower group-ring identity law.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-mul`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.characteristic_two_kernel_sum_is_nilpotent` (non-example): Over the two-element field, the norm of1 from level1 to3 is nonzero but has square zero. The integral cardinality factor remains meaningful, while division by it is unavailable.
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_one_mul_typed_api` (compatibility): For every lower element x, i(1)i(x)=d·i(x), over every coefficient semiring.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### Actual Cartan group cardinalities satisfy the kernel product formula
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-card-mul` — `DirichletPadic.kubertCartanProductNorm_card_mul`
+
+The actual natural cardinalities satisfy d times |G_M| equals |G_N|.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. Apply the native subgroup cardinality-times-index formula to the original reduction kernel.
+2. The native kernel-index theorem identifies this index with the cardinality of the reduction range.
+3. The original reduction is surjective, so its range is the full lower group; use the native cardinality of the top subgroup.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-surjective`, `mathlib:Subgroup.card_mul_index`, `mathlib:Subgroup.index_ker`, `mathlib:MonoidHom.range_eq_top`, `mathlib:Subgroup.card_top`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_card_mul_typed_api` (compatibility): The actual natural cardinalities satisfy d times |G_M| equals |G_N|.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### The source rational cardinality ratio is the inverse kernel cardinality
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-card-ratio` — `DirichletPadic.kubertCartanProductNorm_card_ratio`
+
+Over the rationals, |G_M|/|G_N|=d⁻¹, with every cardinality taken from the original actual Cartan groups.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. The lower finite group is nonempty, so its natural cardinality embeds as a nonzero rational number.
+2. Use the proved positive kernel cardinality.
+3. Cast the actual cardinality product identity to the rationals and cancel the nonzero factors.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-card-mul`, `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-kernel-card-pos`, `mathlib:Nat.card_pos`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.rational_cardinality_factor_at_thirty` (computation): For the reduction30 to6 the rational inverse kernel-cardinality factor is one quarter.
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_card_ratio_typed_api` (compatibility): Over the rationals, |G_M|/|G_N|=d⁻¹, with every cardinality taken from the original actual Cartan groups.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### The rational full norm obeys the normalized multiplication formula
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-mul-inverse-card` — `DirichletPadic.kubertCartanProductNorm_mul_inverse_card`
+
+For lower rational group-ring elements x,y, i(xy)=d⁻¹·(i(x)i(y)), where the scalar is the inverse of the actual kernel cardinality.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. Use the undivided multiplication identity.
+2. Rewrite natural scalar multiplication as rational scalar multiplication using the native cast compatibility.
+3. Cancel the positive kernel cardinality in the rationals.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-mul`, `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-kernel-card-pos`, `mathlib:Nat.cast_smul_eq_nsmul`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_mul_inverse_card_typed_api` (compatibility): For lower rational group-ring elements x,y, i(xy)=d⁻¹·(i(x)i(y)), where the scalar is the inverse of the actual kernel cardinality.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### Kubert’s exact full-fiber norm product formula
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-rational-mul` — `DirichletPadic.kubertCartanProductNorm_rational_mul`
+
+For original rational Cartan group-ring elements x,y, i(xy)=(|G_M|/|G_N|)·i(x)i(y), with the exact factor in source equation4.9.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. Use the proved equality between the source cardinality ratio and d⁻¹.
+2. Apply the normalized multiplication identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-card-ratio`, `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-mul-inverse-card`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_rational_mul_typed_api` (compatibility): For original rational Cartan group-ring elements x,y, i(xy)=(|G_M|/|G_N|)·i(x)i(y), with the exact factor in source equation4.9.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### The normalized kernel sum is identity on the actual norm image
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-normalized-one-action` — `DirichletPadic.kubertCartanProductNorm_normalized_one_action`
+
+The rational element e=d⁻¹i(1) satisfies e i(x)=i(x) for every original lower rational group-ring element x.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. Pull its rational scalar outside multiplication.
+2. The full kernel sum acts by d on the norm image.
+3. Convert natural scalar multiplication to rational scalar multiplication and cancel the positive kernel cardinality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-one-mul`, `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-kernel-card-pos`, `mathlib:Nat.cast_smul_eq_nsmul`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.normalized_identity_retains_average_coefficients` (computation): For6 dividing30, the normalized norm of1 has coefficient one quarter at the actual identity unit. Normalization is distinct from the unnormalized full-fiber map.
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_normalized_one_action_typed_api` (compatibility): The rational element e=d⁻¹i(1) satisfies e i(x)=i(x) for every original lower rational group-ring element x.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### The normalized original kernel sum is idempotent
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-normalized-one-idempotent` — `DirichletPadic.kubertCartanProductNorm_normalized_one_idempotent`
+
+The rational element e=d⁻¹i(1) satisfies e²=e.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. Pull the scalar in the second factor outside the product.
+2. Apply the normalized identity action to the lower identity element.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-normalized-one-action`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.normalized_kernel_sum_is_idempotent` (computation): For1 dividing3, half the full norm of1 is an idempotent in the actual rational upper group ring.
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_normalized_one_idempotent_typed_api` (compatibility): The rational element e=d⁻¹i(1) satisfies e²=e.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+### The normalized original kernel sum is nonzero
+
+`DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-normalized-one-nonzero` — `DirichletPadic.kubertCartanProductNorm_normalized_one_nonzero`
+
+The rational idempotent d⁻¹i(1) is nonzero.
+
+**Hypotheses:** The Cartan degree k and levels M,N are positive, with M dividing N. Both unit groups are the original products of actual truncated-Witt unit groups over finite Galois fields at the original prime indices and factorization exponents. Let f be the previously constructed surjective Cartan reduction from the original upper group G_N to G_M. Let i be the existing full-fiber linear norm: the upper coefficient at v is the original lower coefficient at f(v). Write d for the actual native cardinality of the kernel of f; its positivity is proved. The map f_* is the existing native monoid-algebra label pushforward along f, summing coefficients on each fiber. It is distinct from i: the norm pulls coefficients back and the native pushforward sums them. No new group-ring or reduction carrier is supplied. The projection, push-pull and undivided multiplication formulas hold over every coefficient semiring R, with natural scalar multiplication by d. Rational cardinality ratios and normalized kernel elements use rational coefficients explicitly; division is never introduced in arbitrary characteristic. The full-fiber norm is linear and injective, but is not assumed to preserve the identity or multiplication. The new formulas expose the exact cardinality factor needed by source4.9. These are norm-algebra identities on the original carriers in every positive degree. General compatibility of the corrected rational values with these norms still requires the local-factor transition argument. The rational distribution, image/product, full rational-span, source-freeness and lower-rank conclusions remain separate obligations.
+
+**Proof:**
+
+1. The positive actual kernel cardinality has nonzero rational inverse.
+2. If i(1) were zero, injectivity of the original full norm and its value at zero would give1=0 in the lower rational group ring.
+3. A nonzero rational scalar times a nonzero rational vector is nonzero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-norm-cartan-product-norm-kernel-card-pos`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-injective`.
+
+**Tests:**
+
+- `SuggestedKubertRationalNormsTests.cartanProductNorm_normalized_one_nonzero_typed_api` (compatibility): The rational idempotent d⁻¹i(1) is nonzero.
+
+**Acceptance:** For the actual degree-one reduction30 to6, every fiber has four elements and pushing a full norm back multiplies by4. From1 to3, i(1) has two basis terms, differs from1 and squares to2i(1). Over the two-element field it remains nonzero but has square zero. Over the rationals, i(1)/2 is an idempotent acting as identity on the norm image. These cases reject an assumed unital ring map or division by a vanishing scalar.
+
+**Source:** Published195, Proposition4.8 and equation4.9; the norm is the full-fiber map of equation2.7 on187. The following proof on195–196 uses its nonunital identity element and cardinality factors. Proves the exact convolution and cardinality identities for the original Cartan full-fiber norm, including the source factor |C(M)|/|C(N)| over the rationals. Native label pushforward and finite-group fiber equivalences supply the argument. The separate transition of the corrected local-factor product is not claimed.
+
+**Remaining:** The original full-fiber Cartan norm now has a projection formula, uniform actual fibers, the push-pull kernel multiplicity, undivided multiplication over arbitrary coefficient semirings and the precise rational cardinality factor of source4.9. Its normalized kernel element is a nonzero idempotent acting as identity on the norm image. Complete the local correction-factor transition argument to prove compatibility of the corrected rational values with the original norms. The general distribution law and the source4.13 comparison of the rational-value image with the product of the already constructed local lattices remain open. Do not deduce full rational image, source freeness, lower rank or internal-to-global injection before these arguments are complete; general-degree primitive coordinates and local-field comparisons remain separate.
+
+### Actual full-fiber norm multiplication and rational normalization validation
+
+All 2090 predecessor nodes, 1259 baseline records, 27 findings, requests and sourceVersions remain whole. This checkpoint adds 17 nodes, 17 named suggested declarations and 26 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2369 reachable nodes, 9587 edges and 1432 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route ends in the original actual Cartan reductions and full-fiber norms, or checked native group-ring, finite-fiber, cardinality and scalar interfaces. No ring-homomorphism law for the full norm, assumed fiber cardinality, torsor, rational-value compatibility or source-freeness package is supplied.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3915 pinned Mathlib modules and 32 pinned Tau Ceti modules. Only 31 Tau module artifacts are available and hash-verified. The 152 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5787 verbatim and adds seventeen complete lemmas. Totals are182 definitions and1,400 lemmas without placeholders. The public append has17 named declarations and26 typed examples, all new mathematical bodies placeholders. No new native import or library build is added. The separate probe compiles against 3282 pinned Mathlib modules and 10 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native periodicity, low-degree Tate and Teichmuller artifacts, with ten Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact controls through level36 cover all140 divisor transitions,666 uniform fiber checks,666 push-pull coefficients and1,479 coefficients each for projection, convolution multiplication, rational normalization, normalized action and idempotence. The undivided law also passes1,479 characteristic-two coefficients, including a nonzero kernel sum whose square vanishes. Exact rational arithmetic on actual cyclic unit carriers through level36 checks every divisor transition: positive and uniform fiber cardinalities, the original full-fiber norm and native label pushforward, projection and push-pull formulas, convolution multiplication with its kernel-cardinality factor, the source rational cardinality ratio, and the normalized kernel idempotent action. A separate exact reduction modulo2 checks the undivided multiplication law and the nonzero nilpotent kernel-sum example. These are finite degree-one controls; the native probe proves the stated identities on every actual positive-degree Cartan carrier. The largest observed discrepancy is 0.
+
+Fresh capture after actually merged5787 has no guarded input delta. All79 inputs, four predecessor outputs and the full issue body are unchanged. No external finding or review verdict is adopted.
+
+The separate partial signature file also compiled with zero errors and 6,179 expected placeholder warnings across 3,914 pinned source modules. It includes all 17 new named declarations and 26 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f5c61eb49ba00ba75e4b4bffdbb515655a698481b1b15bbef0755fb5584b3588.

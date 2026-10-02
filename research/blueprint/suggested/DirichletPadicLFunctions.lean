@@ -30298,3 +30298,212 @@ example (N : ℕ+) (p : (N : ℕ).primeFactors)
           (MonoidAlgebra.mapRingHom (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) (Int.castRingHom ℚ)) s * kubertRationalPrimeFactor N p=x := by sorry
 
 end DirichletPadic.SuggestedKubertLocalLatticesTests
+
+/- Actual full-fiber norm multiplication and rational normalization. -/
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic
+
+lemma kubertCartanProductNorm_projection_single (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (a : R) (y : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanProductNorm k R M N hMN (MonoidAlgebra.single (kubertCartanProductReduction k M N hMN u) a * y)=
+      MonoidAlgebra.single u a * kubertCartanProductNorm k R M N hMN y := by sorry
+
+lemma kubertCartanProductNorm_projection (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (y : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanProductNorm k R M N hMN (MonoidAlgebra.mapDomainRingHom R (kubertCartanProductReduction k M N hMN) x * y)=x * kubertCartanProductNorm k R M N hMN y := by sorry
+
+lemma kubertCartanProductNorm_kernel_card_pos (k : ℕ+) (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    0<Nat.card (kubertCartanProductReduction k M N hMN).ker := by sorry
+
+lemma kubertCartanProductNorm_fiber_card (k : ℕ+) (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ)) (u : (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    Nat.card {v : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) // kubertCartanProductReduction k M N hMN v=u}=Nat.card (kubertCartanProductReduction k M N hMN).ker := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic
+
+lemma kubertCartanProductNorm_fiber_finset_card (k : ℕ+) (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ)) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)] (u : (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    (Finset.univ.filter (fun v : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) => kubertCartanProductReduction k M N hMN v=u)).card=Nat.card (kubertCartanProductReduction k M N hMN).ker := by sorry
+
+lemma kubertCartanProductNorm_push_single (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (a : R) :
+    MonoidAlgebra.mapDomainRingHom R (kubertCartanProductReduction k M N hMN) (kubertCartanProductNorm k R M N hMN (MonoidAlgebra.single u a))=
+      (Nat.card (kubertCartanProductReduction k M N hMN).ker) • MonoidAlgebra.single u a := by sorry
+
+lemma kubertCartanProductNorm_push (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    MonoidAlgebra.mapDomainRingHom R (kubertCartanProductReduction k M N hMN) (kubertCartanProductNorm k R M N hMN x)=(Nat.card (kubertCartanProductReduction k M N hMN).ker) • x := by sorry
+
+lemma kubertCartanProductNorm_mul (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x y : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanProductNorm k R M N hMN x * kubertCartanProductNorm k R M N hMN y=(Nat.card (kubertCartanProductReduction k M N hMN).ker) • kubertCartanProductNorm k R M N hMN (x*y) := by sorry
+
+lemma kubertCartanProductNorm_one_coeff (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    (kubertCartanProductNorm k R M N hMN 1).coeff u=if u ∈ (kubertCartanProductReduction k M N hMN).ker then 1 else 0 := by sorry
+
+lemma kubertCartanProductNorm_one_mul (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanProductNorm k R M N hMN 1 * kubertCartanProductNorm k R M N hMN x=(Nat.card (kubertCartanProductReduction k M N hMN).ker) • kubertCartanProductNorm k R M N hMN x := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic
+
+lemma kubertCartanProductNorm_card_mul (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (Nat.card (kubertCartanProductReduction k M N hMN).ker)*(Nat.card (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ))=Nat.card (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) := by sorry
+
+lemma kubertCartanProductNorm_card_ratio (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    ((Nat.card (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) : ℚ)/((Nat.card (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) : ℚ)=((Nat.card (kubertCartanProductReduction k M N hMN).ker) : ℚ)⁻¹ := by sorry
+
+lemma kubertCartanProductNorm_mul_inverse_card (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x y : MonoidAlgebra ℚ (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanProductNorm k ℚ M N hMN (x*y)=((Nat.card (kubertCartanProductReduction k M N hMN).ker) : ℚ)⁻¹ • (kubertCartanProductNorm k ℚ M N hMN x * kubertCartanProductNorm k ℚ M N hMN y) := by sorry
+
+lemma kubertCartanProductNorm_rational_mul (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x y : MonoidAlgebra ℚ (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanProductNorm k ℚ M N hMN (x*y)=(((Nat.card (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) : ℚ)/((Nat.card (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) : ℚ)) • (kubertCartanProductNorm k ℚ M N hMN x * kubertCartanProductNorm k ℚ M N hMN y) := by sorry
+
+lemma kubertCartanProductNorm_normalized_one_action (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : MonoidAlgebra ℚ (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    (((Nat.card (kubertCartanProductReduction k M N hMN).ker) : ℚ)⁻¹ • kubertCartanProductNorm k ℚ M N hMN 1) * kubertCartanProductNorm k ℚ M N hMN x=kubertCartanProductNorm k ℚ M N hMN x := by sorry
+
+lemma kubertCartanProductNorm_normalized_one_idempotent (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (((Nat.card (kubertCartanProductReduction k M N hMN).ker) : ℚ)⁻¹ • kubertCartanProductNorm k ℚ M N hMN 1) * (((Nat.card (kubertCartanProductReduction k M N hMN).ker) : ℚ)⁻¹ • kubertCartanProductNorm k ℚ M N hMN 1)=
+      ((Nat.card (kubertCartanProductReduction k M N hMN).ker) : ℚ)⁻¹ • kubertCartanProductNorm k ℚ M N hMN 1 := by sorry
+
+lemma kubertCartanProductNorm_normalized_one_nonzero (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    ((Nat.card (kubertCartanProductReduction k M N hMN).ker) : ℚ)⁻¹ • kubertCartanProductNorm k ℚ M N hMN 1≠0 := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertRationalNormsTests
+open scoped Classical BigOperators
+noncomputable section
+-- same_level_kernel_is_singleton
+example : Nat.card (kubertCartanProductReduction 1 6 6 (by sorry)).ker=1 := by sorry
+-- new_prime_fiber_cardinality
+example : Nat.card (kubertCartanProductReduction 1 6 30 (by sorry)).ker=4 := by sorry
+-- push_norm_is_fourfold_at_thirty
+example : MonoidAlgebra.mapDomainRingHom ℚ (kubertCartanProductReduction 1 6 30 (by sorry)) (kubertCartanProductNorm 1 (ℚ) 6 30 (by sorry) 1)=4 := by sorry
+-- norm_multiplication_has_cardinality_factor
+example : (kubertCartanProductNorm 1 (ℚ) 1 3 (by sorry) 1)*(kubertCartanProductNorm 1 (ℚ) 1 3 (by sorry) 1)=2 • (kubertCartanProductNorm 1 (ℚ) 1 3 (by sorry) 1) ∧ (kubertCartanProductNorm 1 (ℚ) 1 3 (by sorry) 1)*(kubertCartanProductNorm 1 (ℚ) 1 3 (by sorry) 1)≠kubertCartanProductNorm 1 (ℚ) 1 3 (by sorry) 1 := by sorry
+-- full_norm_is_not_unital
+example : kubertCartanProductNorm 1 (ℚ) 1 3 (by sorry) 1≠1 := by sorry
+-- characteristic_two_kernel_sum_is_nilpotent
+example : (kubertCartanProductNorm 1 (ZMod 2) 1 3 (by sorry) 1)*(kubertCartanProductNorm 1 (ZMod 2) 1 3 (by sorry) 1)=0 ∧ kubertCartanProductNorm 1 (ZMod 2) 1 3 (by sorry) 1≠0 := by sorry
+-- rational_cardinality_factor_at_thirty
+example : (Nat.card (kubertCartanProductReduction 1 6 30 (by sorry)).ker : ℚ)⁻¹=1/4 := by sorry
+-- normalized_kernel_sum_is_idempotent
+example : ((1/2 : ℚ) • kubertCartanProductNorm 1 (ℚ) 1 3 (by sorry) 1)*((1/2 : ℚ) • kubertCartanProductNorm 1 (ℚ) 1 3 (by sorry) 1)=(1/2 : ℚ) • kubertCartanProductNorm 1 (ℚ) 1 3 (by sorry) 1 := by sorry
+-- normalized_identity_retains_average_coefficients
+example : ((Nat.card (kubertCartanProductReduction 1 6 30 (by sorry)).ker : ℚ)⁻¹ • kubertCartanProductNorm 1 (ℚ) 6 30 (by sorry) 1).coeff 1=1/4 := by sorry
+end
+end DirichletPadic.SuggestedKubertRationalNormsTests
+namespace DirichletPadic.SuggestedKubertRationalNormsTests
+open scoped Classical BigOperators
+open DirichletPadic
+
+-- cartanProductNorm_projection_single_typed_api
+example (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (a : R) (y : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanProductNorm k R M N hMN (MonoidAlgebra.single (kubertCartanProductReduction k M N hMN u) a * y)=
+      MonoidAlgebra.single u a * kubertCartanProductNorm k R M N hMN y := by sorry
+
+-- cartanProductNorm_projection_typed_api
+example (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (y : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanProductNorm k R M N hMN (MonoidAlgebra.mapDomainRingHom R (kubertCartanProductReduction k M N hMN) x * y)=x * kubertCartanProductNorm k R M N hMN y := by sorry
+
+-- cartanProductNorm_kernel_card_pos_typed_api
+example (k : ℕ+) (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    0<Nat.card (kubertCartanProductReduction k M N hMN).ker := by sorry
+
+-- cartanProductNorm_fiber_card_typed_api
+example (k : ℕ+) (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ)) (u : (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    Nat.card {v : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) // kubertCartanProductReduction k M N hMN v=u}=Nat.card (kubertCartanProductReduction k M N hMN).ker := by sorry
+
+end DirichletPadic.SuggestedKubertRationalNormsTests
+
+namespace DirichletPadic.SuggestedKubertRationalNormsTests
+open scoped Classical BigOperators
+open DirichletPadic
+
+-- cartanProductNorm_fiber_finset_card_typed_api
+example (k : ℕ+) (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ)) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)] (u : (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    (Finset.univ.filter (fun v : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) => kubertCartanProductReduction k M N hMN v=u)).card=Nat.card (kubertCartanProductReduction k M N hMN).ker := by sorry
+
+-- cartanProductNorm_push_single_typed_api
+example (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (a : R) :
+    MonoidAlgebra.mapDomainRingHom R (kubertCartanProductReduction k M N hMN) (kubertCartanProductNorm k R M N hMN (MonoidAlgebra.single u a))=
+      (Nat.card (kubertCartanProductReduction k M N hMN).ker) • MonoidAlgebra.single u a := by sorry
+
+-- cartanProductNorm_push_typed_api
+example (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    MonoidAlgebra.mapDomainRingHom R (kubertCartanProductReduction k M N hMN) (kubertCartanProductNorm k R M N hMN x)=(Nat.card (kubertCartanProductReduction k M N hMN).ker) • x := by sorry
+
+-- cartanProductNorm_mul_typed_api
+example (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x y : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanProductNorm k R M N hMN x * kubertCartanProductNorm k R M N hMN y=(Nat.card (kubertCartanProductReduction k M N hMN).ker) • kubertCartanProductNorm k R M N hMN (x*y) := by sorry
+
+-- cartanProductNorm_one_coeff_typed_api
+example (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    (kubertCartanProductNorm k R M N hMN 1).coeff u=if u ∈ (kubertCartanProductReduction k M N hMN).ker then 1 else 0 := by sorry
+
+-- cartanProductNorm_one_mul_typed_api
+example (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanProductNorm k R M N hMN 1 * kubertCartanProductNorm k R M N hMN x=(Nat.card (kubertCartanProductReduction k M N hMN).ker) • kubertCartanProductNorm k R M N hMN x := by sorry
+
+end DirichletPadic.SuggestedKubertRationalNormsTests
+
+namespace DirichletPadic.SuggestedKubertRationalNormsTests
+open scoped Classical BigOperators
+open DirichletPadic
+
+-- cartanProductNorm_card_mul_typed_api
+example (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (Nat.card (kubertCartanProductReduction k M N hMN).ker)*(Nat.card (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ))=Nat.card (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) := by sorry
+
+-- cartanProductNorm_card_ratio_typed_api
+example (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    ((Nat.card (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) : ℚ)/((Nat.card (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) : ℚ)=((Nat.card (kubertCartanProductReduction k M N hMN).ker) : ℚ)⁻¹ := by sorry
+
+-- cartanProductNorm_mul_inverse_card_typed_api
+example (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x y : MonoidAlgebra ℚ (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanProductNorm k ℚ M N hMN (x*y)=((Nat.card (kubertCartanProductReduction k M N hMN).ker) : ℚ)⁻¹ • (kubertCartanProductNorm k ℚ M N hMN x * kubertCartanProductNorm k ℚ M N hMN y) := by sorry
+
+-- cartanProductNorm_rational_mul_typed_api
+example (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x y : MonoidAlgebra ℚ (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanProductNorm k ℚ M N hMN (x*y)=(((Nat.card (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) : ℚ)/((Nat.card (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) : ℚ)) • (kubertCartanProductNorm k ℚ M N hMN x * kubertCartanProductNorm k ℚ M N hMN y) := by sorry
+
+-- cartanProductNorm_normalized_one_action_typed_api
+example (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : MonoidAlgebra ℚ (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    (((Nat.card (kubertCartanProductReduction k M N hMN).ker) : ℚ)⁻¹ • kubertCartanProductNorm k ℚ M N hMN 1) * kubertCartanProductNorm k ℚ M N hMN x=kubertCartanProductNorm k ℚ M N hMN x := by sorry
+
+-- cartanProductNorm_normalized_one_idempotent_typed_api
+example (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (((Nat.card (kubertCartanProductReduction k M N hMN).ker) : ℚ)⁻¹ • kubertCartanProductNorm k ℚ M N hMN 1) * (((Nat.card (kubertCartanProductReduction k M N hMN).ker) : ℚ)⁻¹ • kubertCartanProductNorm k ℚ M N hMN 1)=
+      ((Nat.card (kubertCartanProductReduction k M N hMN).ker) : ℚ)⁻¹ • kubertCartanProductNorm k ℚ M N hMN 1 := by sorry
+
+-- cartanProductNorm_normalized_one_nonzero_typed_api
+example (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    ((Nat.card (kubertCartanProductReduction k M N hMN).ker) : ℚ)⁻¹ • kubertCartanProductNorm k ℚ M N hMN 1≠0 := by sorry
+
+end DirichletPadic.SuggestedKubertRationalNormsTests
