@@ -2,7 +2,7 @@
 
 ## Continuation scope and conventions
 
-This partial checkpoint has 88 declaration nodes:12 definitions,22 constructions,35 lemmas,14 theorems and5 comparisons. It has122 API items,112 required definition/construction tests and114 total tests,105 pinned baseline references and six H.0 planets. All nodes remain unchecked; H.0 is partial and H.1–H.8 not_read. The current full-sketch and separate native-proof receipts appear at the end. The35 inherited global signature omissions remain. No stage or reserved key is closed.
+This partial checkpoint has 95 declaration nodes:12 definitions,22 constructions,42 lemmas,14 theorems and5 comparisons. It has129 API items,119 required definition/construction tests and121 total tests,110 pinned baseline references and six H.0 planets. All nodes remain unchecked; H.0 is partial and H.1–H.8 not_read. The current full-sketch and separate native-proof receipts appear at the end. The35 inherited global signature omissions remain. No stage or reserved key is closed.
 
 The reserved **HodgeStructuresPartII:key/higgs-parameter-connections** is now supplied as a mathematical declaration plan. It defines finite locally free coefficients on a general commutative ringed differential site with an actual additive λ-Leibniz operator, a defined exterior extension and curvature-zero equality. Its sheaf tensor, ordinary-connection and filtration prerequisites are explicit supplier requests. The twelve inherited free affine matrix nodes remain as examples and sign tests. They are not the definition of the global object.
 
@@ -2781,7 +2781,7 @@ Proof: Rewrite the recurrence and use the zero successor step; composition with 
 
 Source: [Heuer Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4) motivate the Higgs/contraction interface. These are authored algebraic deductions from the named pinned native declarations, not printed correspondence results.
 
-### Fresh evidence and remaining closure
+### Historical all-order evidence and remaining closure
 
 Fresh primary reading is restricted to complete Heuer Definitions1.2(2) and4.1, including image/canonical-section/twisting formulas, and [Liu–Zhu Theorem2.1(i)–(v) and Lemma2.15 with its proof](https://arxiv.org/pdf/1602.06282v3), PDFpp.7 and18–19. The latter proves nilpotence of the logarithm through the cyclotomic-conjugation characteristic-polynomial argument. It motivates the algebraic coefficient interface but does not print its arbitrary-N proof. Publisher HTML SHA256 f70c37b9ea04164e15efe2dfe2754cd5eb605adb008260000153ce279a9f4934; Liu–Zhu v3 PDF SHA256 8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79. Other source findings, all149 routed obligations and accepted owner boundaries are inherited unchanged. No new source error is asserted.
 
@@ -2838,3 +2838,124 @@ Baseline: mathlib:TensorProduct.map_add_left — Tensor mapping distributes over
 Baseline: mathlib:TensorPower.multilinearMapToDual — For any commutative semiring R and R-module Q, the native multilinear map sends n dual functionals to a linear functional on Q^⊗n. On a pure tensor it is the commutative scalar product of evaluations. No finite basis on Q is required. Source: Mathlib/LinearAlgebra/TensorPower/Pairing.lean, declaration line31.
 
 Actual atlas assembly and the scoped prerequisite DAG pass without unresolved inputs or cycles. There are88 nodes,122 API items,114 total tests (112 required construction/definition tests),105 baseline entries and six unchanged planets. The reserved key, parent Hodge L0–L3, common variation D3, ordinary connection CR.1, generic sheaf tensor/dual/descent E1 and filtration/Rees DD.1 ownership remain unchanged. Global tensor-power comparison, change-of-chart/restriction and local equality detection/gluing are still required; the augmentation-power and rank/period adapters are separate obligations. H.0 remains partial, H.1–H.8 not_read, with11 gaps and5 requests.
+
+
+## Native naturality and exact bound transport
+
+This continuation uses the existing E-left convention: a field has codomain E tensor Q, and its next application prepends the new Q coefficient before the previous coefficient word. The preceding mathematical handoff used a Q-left presentation. Those presentations require the actual tensor flip; they are not literally the same carrier. The native affine formulas below preserve all88 predecessor statements.
+
+The source input is the actual field and intertwining equation in [Heuer, arXiv v3, Definition1.2](https://arxiv.org/html/2307.01303v3), read with its complete two parts. The tensor discussion in [Stacks, Section17.16](https://stacks.math.columbia.edu/tag/01CA) distinguishes the presheaf tensor from the sheaf tensor. The following seven results are authored affine algebraic deductions, not named correspondence theorems from either source. No integrability, coefficient basis or finite rank is required. Generic tensor functor laws and congruences are existing Mathlib work, not new Higgs constructions.
+
+Write T_n(u) for the existing finite-family tensor map of n copies of u, and I_n(theta),S_theta,n for the existing native iterate and step. For theta:E→E tensor Q, psi:F→F tensor P and R-linear f,u assume psi composed with f=(f tensor u) composed with theta, except in the independent order-zero test. All modules are arbitrary over a commutative ring.
+
+### Naturality of a coefficient-prepending step
+
+**Node:** HodgeStructuresPartII:H.0/affine-ordered-step-natural. **Proposed declaration:** TwistedHiggsBundle.affineOrderedStep_natural. **Kind:** lemma; implementation unchecked.
+
+For every n≥0, S_psi,n composed with (f tensor u^(tensor n)) equals (f tensor u^(tensor(n+1))) composed with S_theta,n.
+
+**Inputs:** HodgeStructuresPartII:H.0/affine-ordered-step; mathlib:PiTensorProduct.map; mathlib:PiTensorProduct.map_tprod.
+
+**Proof route:** Reduce equality of linear maps by native tensor extensionality, then induction on the existing n-fold coefficient tensor. For a pure coefficient word, substitute psi(f(e))=(f tensor u)(theta(e)); expand theta(e) by native tensor induction. Both sides are f(x) tensor the word (u(q),u(q1),…,u(qn)); singleton, multiplication and degree-cast maps retain the new leftmost slot. Extend by scalar linearity and addition.
+
+**Acceptance:** The identity holds at n=0 with the actual empty tensor, not a zero surrogate. Every linear coefficient map u is permitted, including u=0. The convention retains the newly applied factor before the old ordered word.
+
+### Naturality at every ordered degree
+
+**Node:** HodgeStructuresPartII:H.0/affine-ordered-iterate-natural. **Proposed declaration:** TwistedHiggsBundle.affineOrderedIterate_natural. **Kind:** lemma; implementation unchecked.
+
+For every n≥0, I_n(psi) composed with f equals (f tensor u^(tensor n)) composed with I_n(theta).
+
+**Inputs:** HodgeStructuresPartII:H.0/affine-ordered-step-natural; HodgeStructuresPartII:H.0/affine-ordered-iterate-unit; HodgeStructuresPartII:H.0/affine-ordered-iterate-succ.
+
+**Proof route:** At n=0 both sides send e to f(e) tensor 1_0; the empty coefficient maps are equal by elimination of Fin 0. At n+1 substitute the two successor recurrences and the degree-n induction hypothesis. Apply step naturality and associativity of linear-map composition. No coefficient dualization or finite basis is required.
+
+**Acceptance:** Order zero works for arbitrary f,u even without the intertwining hypothesis. The same n appears on both sides; no enlargement of the exponent occurs. In particular, coefficient specialization with f=id transports a vanishing iterate.
+
+### Enlarge an ordered nilpotence bound
+
+**Node:** HodgeStructuresPartII:H.0/affine-ordered-iterate-mono. **Proposed declaration:** TwistedHiggsBundle.affineOrderedIterate_mono. **Kind:** lemma; implementation unchecked.
+
+If n≤m and I_n(theta)=0, then I_m(theta)=0, including n=0.
+
+**Inputs:** HodgeStructuresPartII:H.0/affine-ordered-iterate-succ.
+
+**Proof route:** Write m=n+d and induct on d. The zero increment is the hypothesis; each successor is S_theta,n+d composed with the zero map. This is a statement about a given exponent; it does not construct a bound on an arbitrary infinite cover.
+
+**Acceptance:** Vanishing at degree two implies vanishing at degree five. The assertion includes zero modules and the n=0 boundary. No commutativity of coefficient contractions is used.
+
+### Preserve a fixed bound through a surjective morphism
+
+**Node:** HodgeStructuresPartII:H.0/affine-ordered-iterate-surjective. **Proposed declaration:** TwistedHiggsBundle.affineOrderedIterate_zero_of_surjective. **Kind:** lemma; implementation unchecked.
+
+For a surjective intertwiner f:E→F and any coefficient map u:Q→P, I_n(theta)=0 implies I_n(psi)=0 with exactly the same n.
+
+**Inputs:** HodgeStructuresPartII:H.0/affine-ordered-iterate-natural.
+
+**Proof route:** Naturality and the zero hypothesis show I_n(psi) composed with f is zero. Evaluate any x in F on a preimage under f; this proves I_n(psi)(x)=0. Surjectivity of f says nothing about zero detection by u. Do not reverse this implication for arbitrary coefficient maps.
+
+**Acceptance:** For f=id and any u this gives coefficient specialization. A zero coefficient map in characteristic two preserves zero but erases a nonzero unit field. Reflection is provided only by the separate two-isomorphism theorem.
+
+### Reflect the same bound through two isomorphisms
+
+**Node:** HodgeStructuresPartII:H.0/affine-ordered-iterate-equiv. **Proposed declaration:** TwistedHiggsBundle.affineOrderedIterate_equiv_zero_iff. **Kind:** lemma; implementation unchecked.
+
+For linear isomorphisms f:E≃F and u:Q≃P intertwining theta and psi, I_n(psi)=0 if and only if I_n(theta)=0, at the identical n.
+
+**Inputs:** HodgeStructuresPartII:H.0/affine-ordered-iterate-natural; mathlib:PiTensorProduct.congr; mathlib:TensorProduct.congr.
+
+**Proof route:** The native tensor congruence of f and the family of n copies of u is an invertible linear map. If I_n(psi)=0, naturality makes this invertible tensor map annihilate I_n(theta); injectivity reflects zero pointwise. Conversely I_n(theta)=0 and surjectivity of f imply I_n(psi)=0. The proof covers n=0 without a separate positive-degree restriction.
+
+**Acceptance:** Identity frame changes preserve the exact exponent. Both module and coefficient isomorphisms are explicit; f=id with u=0 is a counterexample to omitting the latter. There is no assumption that arbitrary scalar extension is faithful.
+
+### First iterate and the singleton tensor equivalence
+
+**Node:** HodgeStructuresPartII:H.0/affine-ordered-iterate-one. **Proposed declaration:** TwistedHiggsBundle.affineOrderedIterate_one. **Kind:** lemma; implementation unchecked.
+
+Let a:Q≃Q^(tensor 1) be the existing inverse singleton tensor equivalence. Then I_1(theta)=(id_E tensor a) composed with theta.
+
+**Inputs:** HodgeStructuresPartII:H.0/affine-ordered-iterate-unit; HodgeStructuresPartII:H.0/affine-ordered-iterate-succ; mathlib:PiTensorProduct.subsingletonEquiv; mathlib:TensorPower.mulEquiv.
+
+**Proof route:** Unfold the degree-zero unit and the first successor step. Expand theta(e) into pure tensors using the native tensor induction principle. The first singleton coefficient multiplied by the empty tensor word, then cast 1+0=0+1, is the same singleton coefficient. Hence both maps agree.
+
+**Acceptance:** I_1(theta)=0 if and only if theta=0, by injectivity of the native tensor congruence. No literal equality between Q and its singleton tensor-power carrier is asserted. The unit line field over Z/2 has a nonzero first iterate.
+
+### Second iterate and the ordered associator square
+
+**Node:** HodgeStructuresPartII:H.0/affine-ordered-iterate-two. **Proposed declaration:** TwistedHiggsBundle.affineOrderedIterate_two. **Kind:** lemma; implementation unchecked.
+
+Let a:Q≃Q^(tensor 1) be the inverse singleton equivalence and c=(a tensor a) followed by native tensor-power multiplication into Q^(tensor 2). Then I_2(theta)=(id_E tensor c) composed with affineOrderedSquare(theta).
+
+**Inputs:** HodgeStructuresPartII:H.0/affine-ordered-iterate-one; HodgeStructuresPartII:H.0/affine-ordered-square; mathlib:TensorProduct.congr; mathlib:TensorPower.mulEquiv.
+
+**Proof route:** Apply the successor recurrence and the degree-one comparison. First induct on theta(e), then on each theta(x), so both expressions reduce to pure coefficient tensors. Both sides send an ordered term y tensor(p tensor q) to y tensor the two-slot word (p,q). The degree cast at 1+1=2 is definitionally the identity. No flip, exterior quotient or symmetric quotient is introduced.
+
+**Acceptance:** I_2(theta)=0 if and only if the separate ordered square is zero. The new coefficient p occupies the first slot, preserving the earlier E12/E21 noncommuting discriminator. The assertion holds over arbitrary rings, including characteristic two.
+
+### New APIs and native acceptance tests
+
+The step construction gains its promoted naturality API. The iterate construction gains naturality,monotonicity,surjective preservation,two-isomorphism reflection and degree-one/two comparison APIs, each promoted to the corresponding lemma node above when consumed. Their existing projections and tests are retained.
+
+| Test | Kind | Exact contract |
+|---|---|---|
+| TwistedHiggsBundle.affineOrderedIterate.test_natural_unit | compatibility | For arbitrary fields theta,psi and maps f,u, the degree-zero naturality equation holds even without an intertwining assumption; the empty tensor word is mapped to itself. |
+| TwistedHiggsBundle.affineOrderedIterate.test_coefficient_quotient | compatibility | For any u:Q→P and n, I_n(theta)=0 implies I_n((id_E tensor u) composed with theta)=0 at the same n. |
+| TwistedHiggsBundle.affineOrderedIterate.test_chart_identity | compatibility | Take f=id_E,u=id_Q and psi=theta in the isomorphism transport theorem; the same-exponent equivalence holds for every n. |
+| TwistedHiggsBundle.affineOrderedIterate.test_bound_two_to_five | computation | If I_2(theta)=0 then I_5(theta)=0 over any commutative ring, with no integrability assumption. |
+| TwistedHiggsBundle.affineOrderedIterate.test_one_zero_iff | characterisation | For any theta, its first ordered iterate is zero if and only if theta itself is zero. |
+| TwistedHiggsBundle.affineOrderedIterate.test_two_zero_iff | compatibility | For any theta, its second ordered iterate is zero if and only if the separate associator-defined ordered square is zero. |
+| TwistedHiggsBundle.affineOrderedIterate.test_characteristic_two_nonreflection | non-example | Over Z/2 with E=F=Q=P=Z/2, let theta(e)=e tensor 1, psi=0, f=id and u=0. The fields intertwine, I_1(psi)=0, and I_1(theta)≠0. Thus arbitrary coefficient maps cannot reflect a fixed bound even when f is an isomorphism. |
+
+The characteristic-two test is an actual native tensor calculation, not a symmetric-square shortcut: the identity map on E intertwines the unit field with the zero field when u=0, yet only the latter has zero first iterate. The degree-two comparison uses the coefficient equivalence c explicitly; injectivity of id_E tensor c reflects the square-zero condition. It preserves the prior noncommuting ordered-product discriminator; no reversal of the two coefficient slots occurs.
+
+### Remaining mathematical interfaces
+
+These results settle native affine change of module/coefficient charts and same-ring isomorphism transport. An R-linear map u:Q→P is not the cross-ring functor S tensor_R−. Arbitrary scalar extension therefore still needs the actual scalar-tower and tensor-associativity comparison. Its fixed-exponent preservation uses no flatness, whereas reflection needs faithful zero detection. The inherited flat but nonfaithful projection example remains a valid warning against dropping faithfulness. Fixed-bound locality needs sheaf morphism equality detection; varying local bounds require a separate finite subcover/maximum argument. Field/reduced-ring rank bounds, image-algebra base change, period/Tate equivariance and global determinant comparison stay open. No tensor of global sections is substituted for a sheaf tensor. All5 supplier requests,11 gaps,149 source-route obligations and35 omitted global signatures remain. H.0 stays partial and H.1–H.8 not_read.
+
+### Current native proof and exact sketch evidence
+
+The [immutable native proof archive](https://github.com/CBirkbeck/tauceti-explorer/blob/ab19cc58e36f8fe16ff95e0258bb5dd308e2fb5f/research/blueprint/suggested/HodgeStructuresPartII.lean), delimited by ARCHIVED CHECKED HIGGS NATURALITY, contains the complete real native carriers and allseven new proofs/seven examples. Verbatim public extraction is byte-identical to the source checked against Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 with Lean4.34.0-rc2. Source SHA-256:98d24ca7657199269c93f26eaae69b83dfedcd777ea8b0f0a669e5bb437bacc8. The check has zero errors,warnings or admissions; allseven kernel axiom audits contain only propext,Classical.choice andQuot.sound. Runtime2.20seconds,maxRSS2154116KiB,65GiB available beforehand. Twelve native declaration headers match the canonical planning file, including the inherited step,iterate,square and unit/successor types.
+
+The entire submitted Mathlib-only planning file has80 examples and elaborates with zero errors,198 admitted-declaration warnings and no other warnings. Exact source SHA-256:87dd584cbe55a71d10bf049f6839f87a83e04c1d73b81b334a685b079b4cfb2b; compiler-log SHA-256:a0bff331fa557021ea49a37df2737387a4bf6417dbeeb2a76f629e7640e01a5e. Runtime4.70seconds,maxRSS2933908KiB,65GiB available. These are admitted signatures under protocol13. The separate actual proof does not turn any implementationStatus into implemented or discharge global omitted signatures. One bounded Lean process ran at a time; no project,cache,library build or language server was started.
+
+The indexed packet and actual read-only atlas assembly pass. The stage/planet graph is3022vertices/8663edges; the own declaration prerequisite graph95/179; the stage/planet plus reachable prerequisite graph3112/8880,with96 reachable declarations and51 existing virtual supplier endpoints. Allare acyclic; zero unresolved references,no own skipped/pending links and unchanged stage edges. There are95 nodes,129 APIs,121 total tests,110 baseline references,six planets,five requests andeleven gaps. All88 inherited mathematical statements,86 complete node objects,122 inherited APIs,114 inherited tests,149 paper-item obligations andstage requires are retained. Only step/iterate constructions gain new promoted APIs/uses and the iterate gains seven tests.
