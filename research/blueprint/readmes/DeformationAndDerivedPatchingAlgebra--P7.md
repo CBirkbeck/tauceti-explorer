@@ -2923,13 +2923,12 @@ For every f, including f=0 and units, the actual cumulative function H_q,A(N) eq
 
 Hypotheses: k is any field, R=k[[x,y]], v=(x,y), f is arbitrary, A=R/(f), q is the image of v and N∈ℕ.
 
-Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function`, `mathlib:Ideal.smul_top_eq_map`, `mathlib:Ideal.map_pow`, `mathlib:DoubleQuot.quotQuotEquivQuotSupₐ`, `mathlib:Module.length_eq_of_surjective`, `mathlib:LinearEquiv.length_eq`.
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function`, `mathlib:Ideal.smul_top_eq_map`, `mathlib:Ideal.map_pow`, `mathlib:DoubleQuot.quotQuotEquivQuotSupₐ`, `mathlib:Module.length_eq_of_surjective`, `mathlib:LinearEquiv.length_eq`, `DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function`.
 
 Proof plan:
 
-1. Unfold the existing function. Specialize Ideal.smul_top_eq_map to the regular A-module: the denominator q^(N+1)•top is the actual ideal q^(N+1). Transport along the quotient by equality, preserving its A-action.
-2. Rewrite q^(N+1)=(v^(N+1)).map(R→A) with Ideal.map_pow. Use DoubleQuot.quotQuotEquivQuotSupₐ with coefficient ring R and the two ideals (f),v^(N+1). Its underlying R-linear equivalence acts by the identity on representatives.
-3. Use LinearEquiv.length_eq over R. Module.length_eq_of_surjective for the actual surjection R→A compares A-length with the restricted R-length on this same quotient. Check the native algebra/scalar-tower instances; no arbitrary coefficient inclusion k→R has surjective image.
+1. Specialize quotient-ring-function to the ambient commutative ring k[[x,y]], the equation ideal (f), the variable ideal v and index N. This is the actual existing function and actual quotient-ring image ideal.
+2. The resulting extended-natural identity is exactly the stated native curve-jet comparison. Unit and zero equations are included without a local or finite-length assumption. The built quotient/scalar facts in the inherited prerequisite list supply the generic adapter; no jet count, shifted-map or variable-ideal/order theorem is consumed here.
 
 Acceptance: No finite-length, Noetherian or nontrivial local-ring hypothesis is needed for this extended-natural identity.
 
@@ -3062,3 +3061,77 @@ Source: credited mathematical checkpoint §2.3, zero-equation paragraph in [the 
 These six statements appear as admitted examples on actual native quotients in the suggested file. Exact arithmetic on finite jets is an additional regression; it proves no infinite-series assertion. The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open.
 
 The 96 inherited node objects, reserved multiplicity definition, owner imports, requests, source issues, paper routes and planet choices remain unchanged. This computation creates no new multiplicity definition and does not assert curve dimension through polynomial degree. Source reading and current compilation receipts are in the handoff; historical reader receipts describe their original checkpoints.
+
+## Quotient-ring Hilbert–Samuel functions — codex-rtOQ9t
+
+The plane-curve comparison is an instance of a general equation-ideal calculation. Keep the raw cumulative index n+1 and extended-natural length. Existing ideal quotients, the third isomorphism theorem and scalar descent supply all carriers; this continuation adds their reusable Hilbert–Samuel interface. It neither assumes nor supplies numerical jet dimensions.
+
+### Quotient-ring Hilbert–Samuel comparison
+
+Declaration: `TauCeti.HilbertSamuel.function_ringQuotient`; node `DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function`.
+
+For B=A/I and q=image(J), H(q,B,n)=length_A(A/(I+J^(n+1))) for every n≥0. The left side is length over B and the right side is length over A.
+
+Hypotheses: A is any commutative ring with identity, I and J are any ideals, B=A/I with its native quotient algebra structure, q=J.map(A→B), and n is a natural number. All lengths use the native scalar actions and take values in extended naturals. No field, local, Noetherian, proper-ideal or finite-length assumption.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function`, `mathlib:Ideal.smul_top_eq_map`, `mathlib:Ideal.map_pow`, `mathlib:Ideal.Quotient.mk_surjective`, `mathlib:DoubleQuot.quotQuotEquivQuotSupₐ`, `mathlib:Module.length_eq_of_surjective`, `mathlib:LinearEquiv.length_eq`.
+
+Proof plan:
+
+1. Unfold the raw quotient-length function on the regular B-module. The existing ideal action on its top submodule is its actual ideal q^(n+1); transport the quotient along this equality.
+2. Use Ideal.map_pow to identify q^(n+1) with the image of J^(n+1) under the native quotient map. Apply DoubleQuot.quotQuotEquivQuotSupₐ with coefficient ring A and ideals I,J^(n+1); its underlying A-linear equivalence identifies the actual double quotient with A/(I+J^(n+1)).
+3. Ideal.Quotient.mk_surjective proves that A→B is surjective. Module.length_eq_of_surjective compares the B-length of the double quotient with its restricted A-length. LinearEquiv.length_eq then transports that length through the existing equivalence. No finite-length conversion or coefficient-field comparison is used.
+
+Acceptance: For I=A the quotient is zero and the function is zero, with no nontrivial local-ring instance. For I=0 recover the ambient regular-module function, even when that value is infinite.
+
+### Equation ideals below a jet cutoff
+
+Declaration: `TauCeti.HilbertSamuel.function_ringQuotient_of_le`; node `DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function-below-ideal`.
+
+If I⊆J^(n+1), then H(image(J),A/I,n)=length_A(A/J^(n+1)). Thus an equation ideal already contained in the cutoff denominator leaves this actual jet length unchanged.
+
+Hypotheses: A is any commutative ring with identity, I and J are any ideals, B=A/I with its native quotient algebra structure, q=J.map(A→B), and n is a natural number. All lengths use the native scalar actions and take values in extended naturals. No field, local, Noetherian, proper-ideal or finite-length assumption. I⊆J^(n+1).
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function`.
+
+Proof plan:
+
+1. Apply quotient-ring-function to the actual quotient and image ideal.
+2. The assumed containment gives I+J^(n+1)=J^(n+1). Rewrite only this denominator; no equation-order or basis theorem is required.
+
+Acceptance: For A=(Z/4)[[x,y]], J=(x,y), I=(x³) and n=0, the same identity holds although the coefficient ring has zero divisors. The containment is in the actual ideal power; no asserted order or dimension datum substitutes for it.
+
+### Hilbert–Samuel antitonicity in the equation ideal
+
+Declaration: `TauCeti.HilbertSamuel.function_ringQuotient_antitone`; node `DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function-antitone`.
+
+If I⊆I′, then H(image(J),A/I′,n)≤H(image(J),A/I,n), with each ideal image formed in its own actual quotient ring. This is an inequality in extended naturals and may be strict.
+
+Hypotheses: A is any commutative ring with identity, I and J are any ideals, B=A/I with its native quotient algebra structure, q=J.map(A→B), and n is a natural number. All lengths use the native scalar actions and take values in extended naturals. No field, local, Noetherian, proper-ideal or finite-length assumption. I′ is another ideal of A and I⊆I′.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function`, `mathlib:Submodule.factor`, `mathlib:Submodule.factor_surjective`, `mathlib:Module.length_le_of_surjective`.
+
+Proof plan:
+
+1. Apply quotient-ring-function separately to I and I′.
+2. The containment gives I+J^(n+1)⊆I′+J^(n+1). Use the existing A-linear Submodule.factor between these actual quotients, which is surjective by Submodule.factor_surjective.
+3. Apply Module.length_le_of_surjective over A. All scalar rings now agree, so no comparison between unrelated quotient-ring module lengths is assumed.
+
+Acceptance: For A=F₂, J=0, n=0, I=0 and I′=A, the resulting inequality is strictly 0<1. Equal equation ideals give equality; reversing the containment reverses the applicable quotient map.
+
+### API uses and discriminating examples
+
+The existing `DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function` definition exports all three declarations above as its API. The curve-jet node consumes the first; low-index jets consume the containment specialization after proving the independent ideal/order input; imposing more equations consumes the antitone comparison. The four original API items and four original tests remain unchanged.
+
+- `HilbertSamuelQuotientTest.unit_equation` (degenerate): For every commutative A, ideal J and n≥0, H(image(J),A/A,n)=0, including a zero quotient ring.
+- `HilbertSamuelQuotientTest.zero_equation` (compatibility): For every commutative A, ideal J and n≥0, H(image(J),A/0,n)=H(J,A,n) in extended naturals.
+- `HilbertSamuelQuotientTest.field_one` (computation): For A=F₂, I=J=0 and every n≥0, H(image(J),A/I,n)=1, including the zeroth jet.
+- `HilbertSamuelQuotientTest.strict_quotient` (non-example): For A=F₂, J=0, n=0, I=0 and I′=A, H(image(J),A/I′,0)<H(image(J),A/I,0): the values are 0<1. Reversing quotient antitonicity is false.
+- `HilbertSamuelQuotientTest.nonreduced_coefficients` (compatibility): For A=(Z/4)[[x,y]], J=(x,y), I=(x³) and n=0, H(image(J),A/I,0)=length_A(A/J¹). No coefficient-domain hypothesis is available.
+- `HilbertSamuelQuotientTest.nonsurjective_coefficients` (non-example): For the native coefficient inclusion ℝ→ℂ, length_ℝ(ℂ)=2 while length_ℂ(ℂ)=1. Dropping the surjectivity premise from scalar-length equality is false.
+
+### Source and implementation boundary
+
+[Stacks 10.52](https://stacks.math.columbia.edu/tag/00IU), Definition 10.52.1 and Lemmas 10.52.3 and 10.52.5, supplies ordinary extended length and the surjective scalar comparison. [Stacks 10.59](https://stacks.math.columbia.edu/tag/00K4), opening formulas and the ideal-of-definition variant, fixes the cumulative index. The native third-isomorphism quotient comparison is a derived argument above, not a claim that Stacks states this named Hilbert–Samuel lemma. The six new baseline records are built facts, used chiefly in the actual examples, not new blueprint definitions. Exact pins and repeatable proof/validation receipts are in the current handoff.
+
+This continuation preserves all 105 inherited node statements, hypotheses, acceptance clauses and source citations, and all complete objects except the function API/uses/tests and the plane-curve proof/prerequisite refinement. There are 108 nodes, 114 API items, 98 definition/construction tests (115 total test records), 13 planets, 225 baseline references, 15 gaps and 2 requests. The reserved general multiplicity definition is unchanged. All eight stages keep their partial/not_read status. The standalone native comparison and examples have checked proofs; canonical signatures retain admitted bodies and all implementations remain unchecked. The general quotient-ring comparison, equation-containment adapter, quotient antitonicity and exact existing plane-curve scalar comparison now have admission-free native proof prototypes and six checked boundary examples. Canonical signatures remain admitted and all nodes unchecked. The numerical jet counts, ideal-power/order theorem, shifted multiplication/exactness, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, completion, Artin–Rees, associativity and every inherited routed-paper obligation remain open.

@@ -1,80 +1,91 @@
-# #551 actual curve jets: canonical integration checkpoint
+# #551 quotient-ring Hilbert–Samuel comparison checkpoint
 
-Partial checkpoint by Codex — `codex-J6LwjP`, 2026-10-02. Winning claim [5960217089](https://github.com/CBirkbeck/tauceti-explorer/issues/551#issuecomment-5960217089), confirmed by [5960220441](https://github.com/CBirkbeck/tauceti-explorer/issues/551#issuecomment-5960220441). Publication base `ab76ddae905be2ec38836c070c5495c6d1c4e3c0`.
+Partial checkpoint by Codex — `codex-rtOQ9t`, 2026-10-02. Winning claim [5961368083](https://github.com/CBirkbeck/tauceti-explorer/issues/551#issuecomment-5961368083), confirmed by [5961370626](https://github.com/CBirkbeck/tauceti-explorer/issues/551#issuecomment-5961370626). Base `9be0d75234d712fb5773663482ee55c38ac60ce0`.
 
-## Result and provenance
+The existing plane-curve quotient comparison now specializes a reusable result for every commutative ring A, ideals I,J and n≥0:
 
-The predecessor's eight mathematical signature drafts are now canonical packet nodes with hypotheses, prerequisites, proof steps, source locators and acceptance statements. A ninth, specialized native curve-jet scalar-length adapter separates the actual quotient comparison from its numerical result. Six actual-quotient examples detect unit/zero boundaries, smooth equations, characteristic-two nonreduced equations, distinct cumulative/graded thresholds and cutoffs below equation order.
+H(image(J),A/I,n) = length_A(A/(I+J^(n+1))).
 
-The credited complete mathematical proof and 150-line exact regression program remain at [the immutable predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/ab76ddae905be2ec38836c070c5495c6d1c4e3c0/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md). Its SHA-256 is `8d61d9a83e363d42f060b97d0d987968281748c9c51be5a371f68423bf8d72ca`. Authors: ChatGPT Pro — cp-20261002-sr-c72e81; this worker integrates and checks its signatures. The earlier [residue/length checkpoint](https://github.com/CBirkbeck/tauceti-explorer/blob/804df52206c95795837fda47eb802cd55d9a1d1b/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md) preserves the admission-free foundation archive at `20fb961cd54398638ba6a9b1b9b818fb546163bf` and J01–J16 worklist. Those earlier proof receipts were not rerun here.
+The left-hand length is over A/I, the right-hand length over A. Both use the actual quotient and scalar structures. Three new declaration-sized lemmas supply this comparison, its specialization when I⊆J^(n+1), and antitonicity under I⊆I′. The function definition exports them as API. Six actual examples cover zero and unit equations, every-index field length one, strict quotient inequality, a zero-divisor coefficient ring, and the failure of scalar-length equality for ℝ→ℂ. All original plane-curve hypotheses and its exact Lean header are retained.
 
-All 96 inherited node objects are unchanged, including `DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity`. Scope, owner imports, requests, paper routes/source issues and planets are preserved. The packet has 105 nodes (8 definitions, 19 constructions, 62 lemmas, 16 theorems), 111 API records, 92 test records, 13 planets, 219 baseline references, 15 gaps and 2 requests. All eight coverage statuses retain their original partial/not_read values; zero stages are closed. Only the issue's four permitted deliverables change.
+## What is preserved
 
-## Mathematical boundary
+All 105 inherited node statements, hypotheses, acceptance clauses, source citations, library destinations and statuses are unchanged. Of these, 103 complete node objects are unchanged. The only refinements are three API items/six tests/three uses on the existing raw function and a generic-lemma prerequisite/proof route on the plane-curve adapter. The reserved general multiplicity definition, every original source object, baseline prefix, source issue, request, owner boundary and planet are preserved. Coverage records retain their prior status and remaining obligations, with progress appended to R03.3 and its existing finite-jet gap.
 
-The registered formulas concern R=k[[x,y]], v=(x,y), I=(f), the actual A=R/I and q=image(v). For finite order d, H(N)=binom(N+2,2)−binom(N+2−d,2), with natural subtraction before an extended-natural cast; G(N)=min(N+1,d). The rational defect from P_d(T)=d(T+1)−d(d−1)/2 is binom(d−N−1,2), hence cumulative agreement is exactly d≤N+2. Its first index is max(0,d−2); graded stabilization first occurs at max(0,d−1).
+The packet has 108 nodes (8 definitions, 19 constructions, 65 lemmas, 16 theorems), 114 API items, 98 definition/construction tests (115 total test records), 13 planets, 225 baseline references, 15 gaps and 2 requests. All eight stages remain partial/not_read; none is closed.
 
-The proof plans preserve the shifted source cutoff N+1−d, actual multiplication and quotient maps, the separate N<d branch, native total-degree basis/count, surjective scalar restriction R→A and finiteness before natural subtraction. A unit has d=0 and zero quotient; f=0 has infinite order and a separate quadratic function. No local-ring instance on a zero quotient is asserted. The polynomial theorem carries the actual Noetherian/local instances and radical equality, then uses existential uniqueness directly; it does not consume or duplicate polynomial_unique.
+The [complete predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/9be0d75234d712fb5773663482ee55c38ac60ce0/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md) retains the curve formulas, native signatures, all prior work and credited historical receipts. Its mathematical proof/regression predecessor is [ab76ddae](https://github.com/CBirkbeck/tauceti-explorer/blob/ab76ddae905be2ec38836c070c5495c6d1c4e3c0/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md), authored by ChatGPT Pro — cp-20261002-sr-c72e81, integrated by Codex — codex-J6LwjP. Its 36,686-assertion finite regression was not rerun here. The earlier residue/length native archive at `20fb961cd54398638ba6a9b1b9b818fb546163bf` remains historical. No numerical arbitrary-series formula is proved by this continuation.
 
-Every one of the nine new declaration bodies and six new example bodies is admitted in the submitted suggested file, as PROTOCOL §13 requires. Elaborating signatures certifies their types, not their proofs. The inherited ideal-power/order, shifted-map, jet basis/count and general polynomial-existence bodies remain unchecked. No tangent-cone, curve-dimension or multiplicity theorem is certified by these formulas.
+## Mathematical and reading boundary
 
-## Reading and baseline receipts
+Use the regular quotient-module ideal action, Ideal.map_pow, the built A-algebra double-quotient equivalence and its underlying A-linear equivalence. Restrict scalars through the actual surjection A→A/I and apply the built length equality for surjective scalar maps. No field, local, Noetherian, proper-ideal or finite-length premise is needed. For the containment specialization, rewrite the sum of ideals. For antitonicity, use the built ambient A-linear quotient factor and its surjectivity; extended lengths decrease. These are adapters for the existing function, not replacements for any built quotient carrier or equivalence.
 
-WORKERS, blueprint/expansion protocols and upstream guide followed. Freshly read: the complete issue before claim and after bot confirmation; all eight applicable reviewed AUDIT-17 records; accepted RS-08 own-stage keeps and the touching supplier/consumer links; the complete campaign document and original touching stage links; the complete credited mathematical checkpoint; and both upstream documents `content/tau-ceti/RepresentationTheory/SemisimpleAlgebras/README.md` (388 lines) and `content/tau-ceti/AlgebraicCurves/README.md` (1410 lines). This is not a fresh complete reading of every routed paper or the entire RS-08 review.
+Fresh work followed the full issue before and after the bot confirmed the claim; the governing instructions read earlier in this continuous worker loop are unchanged at this base, and WORKERS and the applicable API/test/suggested-file requirements were reread. All eight applicable reviewed AUDIT-17 entries, the accepted RS-08 own keeps and relevant owner decisions, all 63 original/accepted touching paths, the complete campaign README and all 31 own-roadmap records across 30 link-map files were inspected. Existing source read/unread boundaries remain in place. The at-least-two upstream-document readings from the continuing worker session remain prior reading, not a new claim of reading the predecessor's SemisimpleAlgebras/AlgebraicCurves documents in this checkpoint.
 
-Fresh primary Stacks mathematical sections [00IU](https://stacks.math.columbia.edu/tag/00IU) and [00K4](https://stacks.math.columbia.edu/tag/00K4) supply generic length and the graded/cumulative distinction; they are not credited with the specialized sharp threshold. Download-byte hashes and exact access date are in their new source records. Existing routed-paper read/unread receipts and source-issue verdicts remain unchanged.
+[Stacks 10.52](https://stacks.math.columbia.edu/tag/00IU), Definition 10.52.1 and Lemmas 10.52.3/10.52.5, statements and proofs, were freshly read. [Stacks 10.59](https://stacks.math.columbia.edu/tag/00K4), its opening cumulative formulas and ideal-of-definition variant, were freshly read. These are selected passages, not a fresh complete source survey. The additional downloaded length-section bytes have SHA-256 `418363ef436c9d4fad059bf24be2cd832947c9dcaa8623db885f93f126804232`. The general quotient identity is derived, not misattributed to a numbered source theorem. No new paper erratum, routed-paper closure or exhaustive library-absence claim is made.
 
-Pinned Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Read exact surrounding assumptions/statements/proofs in Length.lean (80–207, 285–308), Ideal/Maps.lean (276–290, 655–672), and Ideal/Quotient/Operations.lean (885–918, 1030–1057). Built scalar restriction, length additivity, linear-equivalence transport, ideal-image powers and double quotients are imports. The two additional baseline records are the already-built regular-module denominator and surjective length bound. Bounded name/formula searches in the two pinned RingTheory trees found no matching specialized adapter, without an exhaustive absence claim.
+Pinned Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` are retained. Exact relevant native declarations were personally read with their assumptions: Length (definition/zero, linear equivalence, scalar surjectivity, quotient inequality, simple-module and finite-rank lengths), Ideal/Maps (top action and image powers), Ideal/Quotient/Operations (zero quotient and double-quotient algebra equivalence), Ideal/Quotient/Defs (quotient surjectivity), Quotient/Basic (factor and surjectivity), Complex/FiniteDimensional (native real dimension two), Ideal/Defs (positive powers stay in an ideal), Algebra/Operations (zero submodule powers) and Field/ZMod (prime-modulus field instance). Only six missing baseline records are appended; existing suppliers are reused. A bounded pinned Tau Ceti RingTheory name search found no HilbertSamuel/function_ringQuotient adapter; it is not an exhaustive absence proof.
 
-Fresh source-byte hashes:
+Fresh pinned source-byte hashes:
 
 ```json
 {
   "Mathlib/RingTheory/Length.lean": "28058afb0a726d046c7ef25ef25f86707d64762129baf08106944bcde811b466",
   "Mathlib/RingTheory/Ideal/Maps.lean": "a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11",
-  "Mathlib/RingTheory/Ideal/Quotient/Operations.lean": "25359917b64f9434dbff99f3033ecba35badb45d0a4e3468aead0ba87743d109"
+  "Mathlib/RingTheory/Ideal/Quotient/Operations.lean": "25359917b64f9434dbff99f3033ecba35badb45d0a4e3468aead0ba87743d109",
+  "Mathlib/RingTheory/Ideal/Quotient/Defs.lean": "f906662e22c49025984808feb489892afe51914ccc7a10b95d5f162ef4fbfe1d",
+  "Mathlib/LinearAlgebra/Quotient/Basic.lean": "564aad5ee0111df700cb30aca030018f26939ed1c307f19ee6d9ac02b6bc4312",
+  "Mathlib/LinearAlgebra/Complex/FiniteDimensional.lean": "bab7e57a9e0ae400e63b945280ac5c139e4f59d012fba52afaf3a155f3ddb0a2",
+  "Mathlib/RingTheory/Ideal/Defs.lean": "656d5aabba0ca74ab1fc906dc9cdf93b9fc6c6b25f0f155b58f261ec461e80d1",
+  "Mathlib/Algebra/Algebra/Operations.lean": "913909c0cc53d9f1a34cf059ee192a34bac9b6d62661a710a91bbc245a87f3cc",
+  "Mathlib/Algebra/Field/ZMod.lean": "5343882be47490c292c9da2f623221d3d0ea16e0ff252f0f944b4dffb07be5c3"
 }
 ```
 
-## Current validation
+## Native proof archive and canonical suggested file
 
-The entire suggested file elaborated in the existing pinned build with Lean v4.34.0-rc2: **0 errors, 285 admission warnings, 0 other warnings**, 131 examples, 23.01 seconds, maximum RSS 3540316 KiB, 63 GiB available before starting. No build/project/cache installation, background compile or language server was used. This receipt is for the final complete submitted Lean text:
+The [immutable intermediate Lean file](https://github.com/CBirkbeck/tauceti-explorer/blob/30299125337a2f2532f316bd5390b3729c64c1b2/research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean) contains a comment-delimited **128-line standalone checked proof**, SHA-256 `cd8cb5cd1291a582f25dc0363a0a8d020b1bcc57b79766b3471388f2862d3c11`. The final suggested file removes that archive comment and keeps admitted canonical signatures as PROTOCOL §13 requires. The archive implements exactly the three new headers and the unchanged planeCurve_jet_length header, and proves exactly the six registered examples. The raw function definition matches the canonical function. Five axiom audits report only propext, Classical.choice and Quot.sound, with no admission axiom. It does not implement the numerical curve/jet theorems.
+
+The native proof elaborated with **0 errors, 0 admissions and 0 warnings**. The complete **2346-line canonical suggested file** elaborated with **0 errors, 294 admission warnings and 0 other warnings**, containing 138 Lean examples. These examples include inherited unregistered examples, so their number differs from the packet's test count. Both runs used one Lean process at a time, an existing pinned Mathlib build and Lean v4.34.0-rc2, without Lake setup/cache/library builds or language servers. Available memory was checked before each run; timeout was 20 minutes. No compiler remains running.
+
+The canonical file uses only Mathlib imports. Its signature elaboration checks types, not mathematical implementations; every node remains unchecked. Receipts use SHA-256 of exact source bytes and log text after replacing the absolute source invocation path with its basename. Timing/RSS is recorded separately from that normalized log.
 
 ```json
 {
-  "code": 0,
-  "errors": 0,
-  "admitted": 285,
-  "otherWarnings": 0,
-  "availableGiB": 63,
-  "timeRSS": "23.01 3540316",
-  "sourceSha256": "c79c3f31789828bbe4f8c5870616ec46b8bc9a50903eec3db379270a779bc474",
-  "logSha256": "396742770394e8261432dbe7022b0649f91722f9bd59ca906b2b59e707325683",
-  "examples": 131
+  "native": {
+    "exitCode": 0,
+    "errors": 0,
+    "admissionWarnings": 0,
+    "otherWarnings": 0,
+    "availableGiB": 58,
+    "seconds": 1.8,
+    "maxRSSKiB": 2425820,
+    "lines": 128,
+    "examples": 6,
+    "sourceSha256": "cd8cb5cd1291a582f25dc0363a0a8d020b1bcc57b79766b3471388f2862d3c11",
+    "normalizedLogSha256": "f901d0ad0a2ba4c182afc6f647e156b6ce287af2fe0089f37bc8806aef50d4fb"
+  },
+  "canonical": {
+    "exitCode": 0,
+    "errors": 0,
+    "admissionWarnings": 294,
+    "otherWarnings": 0,
+    "availableGiB": 57,
+    "seconds": 23.61,
+    "maxRSSKiB": 3536460,
+    "lines": 2346,
+    "examples": 138,
+    "sourceSha256": "bf5a2054c6098ccb22efc2892b9641c060c7e64265e7504a0472ad9afcd9f6c2",
+    "normalizedLogSha256": "052ba610001182433b541592152c761f971ce57a3403c42cc9672615a8b93cba"
+  }
 }
 ```
 
-The exact credited finite-jet program was rerun unchanged: **36,686 assertions passed**, 224 equations (220 finite-order, 4 zero), 2464 finite multiplication matrices and 12,221 independent rational arithmetic pairs over F₂,F₃,F₅,F₇. The program's original agent field and lean_compiled=false are retained: they describe its authorship and its computation, separately from the Lean elaboration above. It proves no arbitrary-series theorem.
+The indexed blueprint checker reports 0 errors and 0 warnings. Whitespace and four-file scope checks pass. The preservation/header checks confirm all original contracts, 103 original objects, four exact theorem headers and six exact example headers, with the nine new canonical bodies admitted. No blueprint or reader embeds Lean code.
 
-```json
-{
-  "agent": "ChatGPT Pro \u2014 cp-20261002-sr-c72e81",
-  "scope": "finite polynomial jets and independent integer/rational boundary arithmetic",
-  "polynomial_cases": 224,
-  "finite_order_cases": 220,
-  "zero_equation_cases": 4,
-  "jet_matrix_checks": 2464,
-  "arithmetic_pairs": 12221,
-  "assertions": 36686,
-  "source_sha256": "9dde5556639d51f24711f3070f8cc077988de005569d3a3da281570ddf4683e4",
-  "lean_compiled": false,
-  "warning": "No arbitrary-series theorem or native Lean signature is certified by these tests."
-}
-```
+## Actual atlas dependency check
 
-Indexed `scripts/check_blueprint.py` reports 0 errors/warnings. Four-file intake and whitespace checks pass. Reader/packet/signature checks find every new declaration and every registered test label and all 15 new bodies admitted; all 96 inherited node objects and protected boundaries are equal to the base.
-
-The actual read-only `scripts/build.py` assembler was run with the own packet overlay and a control overlay containing the base packet. Its stage graph, own declaration graph and combined stage/recursively reachable declaration graph are acyclic. There are no unresolved prerequisites or skipped links for this roadmap. All 63 original/accepted-RS-08 touching stage paths remain reachable. Existing stage edges and unrelated skipped-link sets match the control. The graph does not insert realization edges; library references are terminal checked leaves, and upstream roadmap references are stage vertices. No atlas data is written.
+The actual read-only scripts/build.py assembler used an overlay replacing only this P7 packet and a base-packet control overlay. Every other promoted packet, including the same roadmap's R03.6 part, is retained. Stage, own-declaration and combined stage/recursive-declaration graphs are acyclic. No own links are skipped and no prerequisite is unresolved. All 63 required original/accepted-RS-08 stage paths remain reachable. Stage edges and unrelated skipped-link sets match the control; the roadmap has 161 declarations rather than dropping its other part. The graph inserts no synthetic realization edges and treats upstream roadmap references as stage vertices. No atlas data was written.
 
 ```json
 {
@@ -85,20 +96,20 @@ The actual read-only `scripts/build.py` assembler was run with the own packet ov
     "acyclic": true
   },
   "ownDeclarationDAG": {
-    "vertices": 105,
-    "edges": 162,
+    "vertices": 108,
+    "edges": 166,
     "acyclic": true
   },
   "stagesAndReachableDeclarations": {
-    "vertices": 3096,
-    "edges": 8783,
+    "vertices": 3099,
+    "edges": 8787,
     "acyclic": true
   },
-  "reachableDeclarations": 106,
+  "reachableDeclarations": 109,
   "externalDeclarations": [
     "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds"
   ],
-  "reachableBaselineReferences": 196,
+  "reachableBaselineReferences": 197,
   "unresolved": [],
   "ownSkippedLinks": [],
   "otherSkipsMatchOriginal": true,
@@ -106,55 +117,46 @@ The actual read-only `scripts/build.py` assembler was run with the own packet ov
   "requiredStagePairs": 63,
   "requiredStagePairsReachable": 63,
   "inheritedMissingStagePairs": [],
-  "unchangedNodeObjects": 96,
-  "partDeclarations": 105,
+  "unchangedNodeObjects": 103,
+  "partDeclarations": 108,
   "partPlanets": 13,
-  "roadmapDeclarations": 158,
-  "scriptSha256": "8111a902d116434255cb6bbae15109e24c1f893c0cbd257d3eaf5e7e053ae232"
+  "roadmapDeclarations": 161,
+  "scriptSha256": "f91f4e23511a1215d22d29bc6b5c10a78d41fac86d3da92bc45f9d2413185f3a"
 }
 ```
 
-Artifact and assembler-byte hashes at validation:
+## Public reconstruction
 
-```json
-{
-  "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json": "b2b275810ad78d01e10707572f4ab4eb131f9e95cafa19b14d0c5cecbff84789",
-  "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra--P7.md": "d6aca9bdc0539f8abc5813e2f41bc05179c68df0bf03a9c9a96f52e5721f3249",
-  "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean": "c79c3f31789828bbe4f8c5870616ec46b8bc9a50903eec3db379270a779bc474",
-  "scripts/build.py": "e1bda81d79beb2e3a056ca5d72862334ef3ad2d65c09fdd491b0bf4684c3c187",
-  "scripts/blueprints.py": "87271b45cb0ebe052734befe0f22636d0a7f6ae5e4344a56b72eb03827182eb1"
-}
-```
-
-## Reproduce the exact computation
-
-From a repository checkout, this extracts the immutable credited program without another repository copy. Use a directory on disk for the output. The assertions and script hash must match the receipt above.
+From the repository at this PR's final revision, save the following as a Python script in your own disk scratch directory and run it with one argument naming that directory. It reconstructs the exact standalone proof from the public archive commit and obtains the exact original packet. No retired worker scratch is required.
 
 ```python
-import subprocess, re, hashlib
+import sys, subprocess, hashlib
 from pathlib import Path
-base = "ab76ddae905be2ec38836c070c5495c6d1c4e3c0"
-path = "research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md"
-source = subprocess.check_output(["git", "show", base + ":" + path], text=True)
-program, = re.findall(r"```python\n(.*?)\n```", source, re.S)
-program += "\n"
-assert hashlib.sha256(program.encode()).hexdigest() == "9dde5556639d51f24711f3070f8cc077988de005569d3a3da281570ddf4683e4"
-folder = Path("../scratch-p7-curve-jets")
-folder.mkdir(exist_ok=True)
-(folder / "regression.py").write_text(program)
-subprocess.run(["python3", str(folder / "regression.py")], check=True)
-old = subprocess.check_output(["git", "show", base + ":research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json"])
-(folder / "original.json").write_bytes(old)
+folder=Path(sys.argv[1]).resolve(); folder.mkdir(parents=True,exist_ok=True)
+archive="30299125337a2f2532f316bd5390b3729c64c1b2"
+path="research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean"
+raw=subprocess.check_output(["git","show",archive+":"+path]).decode()
+start="BEGIN ARCHIVED CHECKED QUOTIENT RING HILBERT SAMUEL\n"
+end="END ARCHIVED CHECKED QUOTIENT RING HILBERT SAMUEL"
+proof=raw.split(start,1)[1].split(end,1)[0].encode()
+assert hashlib.sha256(proof).hexdigest()=="cd8cb5cd1291a582f25dc0363a0a8d020b1bcc57b79766b3471388f2862d3c11"
+(folder/"quotient-native.lean").write_bytes(proof)
+base="9be0d75234d712fb5773663482ee55c38ac60ce0"
+original=subprocess.check_output(["git","show",base+":research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json"])
+(folder/"base-DeformationAndDerivedPatchingAlgebra--P7.json").write_bytes(original)
+print("Proof source SHA-256 checked; original control packet saved.")
 ```
 
-To reproduce the graph, save the next exact fragment as graph.py in the same reconstruction directory and run it from the repository root at this submission. It uses symlink overlays of data/blueprints; the only replacement is this packet. The script hash and graph numbers must match the receipt. The canonical packet's original historical graph receipt used a different edge-count policy; only current and control runs of this exact script are compared here.
+In an already existing build at the recorded Mathlib pin, invoke `lake env lean` on the reconstructed quotient-native.lean and the complete final suggested file, observing WORKERS' memory, single-process and timeout rules. Do not set up, download a cache or build any library. Normalize diagnostic source paths to basenames to compare the recorded log hashes. Different build environments may change diagnostics or resource usage; the exact source hashes and checked mathematical headers remain reproducible.
+
+Save this exact next fragment as graph.py in that same directory and run it from the repository root with the directory as its first argument. It reads the checked-in atlas, preserves all promoted parts, and writes overlays/receipts only to the supplied scratch directory. Its source hash is the one in the graph receipt.
 
 ```python
 import sys,json,hashlib
 from pathlib import Path
 from collections import defaultdict,deque
-root=Path.cwd();sc=root.parent/'scratch-p7-curve-jets';sys.path.insert(0,str(root/'scripts'));from build import assemble
-stem='DeformationAndDerivedPatchingAlgebra--P7';rid='DeformationAndDerivedPatchingAlgebra';packet=json.loads((root/'research/blueprint/packets'/f'{stem}.json').read_text());original=json.loads((sc/'original.json').read_text())
+root=Path.cwd();sc=Path(sys.argv[1]).resolve();sys.path.insert(0,str(root/'scripts'));from build import assemble
+stem='DeformationAndDerivedPatchingAlgebra--P7';rid='DeformationAndDerivedPatchingAlgebra';packet=json.loads((root/'research/blueprint/packets'/f'{stem}.json').read_text());original=json.loads((sc/('base-'+stem+'.json')).read_text())
 def overlay(name,p):
  d=sc/name;d.mkdir(exist_ok=True)
  for f in (root/'data/blueprints').iterdir():
@@ -218,18 +220,16 @@ missing=[list(x) for x in sorted(pairs) if not reaches(*x)]
 roadmaps={r['id']:r for r in a['roadmaps']};cr={r['id']:r for r in control['roadmaps']}
 skips={r['id']:r.get('blueprint',{}).get('skippedLinks',[]) for r in a['roadmaps'] if r['id']!=rid}
 cskips={r['id']:r.get('blueprint',{}).get('skippedLinks',[]) for r in control['roadmaps'] if r['id']!=rid}
-unchanged=sum(own[n['id']]==n for n in original['nodes']);assert unchanged==96
+unchanged=sum(own[n['id']]==n for n in original['nodes']);assert unchanged==103
 rec={'actualAssembler':True,'stageDAG':st,'ownDeclarationDAG':og,'stagesAndReachableDeclarations':combined,'reachableDeclarations':len(reachable),'externalDeclarations':sorted(set(reachable)-set(own)),'reachableBaselineReferences':len(baselines),'unresolved':sorted(unresolved),'ownSkippedLinks':roadmaps[rid]['blueprint']['skippedLinks'],'otherSkipsMatchOriginal':skips==cskips,'stageEdgesUnchanged':se==ce,'requiredStagePairs':len(pairs),'requiredStagePairsReachable':len(pairs)-len(missing),'inheritedMissingStagePairs':missing,'unchangedNodeObjects':unchanged,'partDeclarations':len(own),'partPlanets':sum('planet' in n for n in own.values()),'roadmapDeclarations':roadmaps[rid]['blueprint']['declarations'],'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
 assert st['acyclic'] and og['acyclic'] and combined['acyclic'];assert not unresolved;assert se==ce and skips==cskips
 (sc/'graph-receipt.json').write_text(json.dumps(rec,indent=2)+'\n');print(json.dumps(rec,indent=2))
 ```
 
-To repeat Lean, use an already existing build at the recorded pin and construct LEAN_PATH from that build's package/root compiled-library directories. Invoke its v4.34.0-rc2 lean binary on the complete submitted suggested file, with the WORKERS memory/timeout/single-process limits. The log hash above replaces the absolute invocation source path with its basename before hashing. Do not set up or build a Lake project to reproduce this receipt.
-
 ## Resume here
 
-The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open.
+The denominator/double-quotient/scalar comparison of the raw Hilbert–Samuel function now has a reusable checked native prototype; the exact existing plane-curve scalar identity is its specialization. Integrate those bodies if implementation is requested, retaining the existing function and actual quotient actions. Do not repropose the built third isomorphism or scalar descent as constructions.
 
-First prove the native denominator/quotient/scalar adapter and the inherited shifted-map and jet-basis/count bodies, then discharge the all-index curve signatures rather than assuming their dimensions. J07/J10/J11 are now integrated mathematical plans, not completed proof tickets. Resume J08–J09 tangent-cone map and full homogeneous kernel, J12 dimension, J13 comparison with the reserved intrinsic/ambient multiplicities and J14–J16 embedded-prime, finite coefficient-extension and coordinate-change results. Retain unit, zero, low-index, positive-characteristic and nonreduced boundaries.
+Next prove the inherited variable-ideal/order and total-jet kernel/equivalence/basis/count bodies, then the shifted multiplication denominator/injectivity/exact sequence and the numerical all-index curve formulas. The containment adapter can consume the low-index ideal containment once that theorem is supplied. Tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, coefficient-extension/coordinate-change/embedded-prime results remain open. Preserve unit, zero, positive-characteristic and nonreduced boundaries.
 
-The general graded Hilbert–Serre proof still needs actual homogeneous kernels/cokernels, quotient action, signed recurrence, initial anchor, threshold and support-dimension comparison. Completion, Artin–Rees, associativity, both requests and the full original P7/P8/P9 and R03.1–R03.5 derived/deformation/patching source obligations remain required. Accepted RS-08 keeps the generic inverse-limit and local-algebra supplier boundaries; do not replan their owners. Public reconstruction and immutable predecessor links replace temporary scratch dependencies.
+General Hilbert–Serre induction and support-dimension, completion, Artin–Rees, associativity, both external requests, and all original P7/P8/P9 and R03.1–R03.5 routed-paper obligations remain required. RS-08 supplier boundaries are unchanged. This is a depth checkpoint; zero stages or full source routes are declared closed.
