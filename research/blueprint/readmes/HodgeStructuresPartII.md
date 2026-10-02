@@ -2,7 +2,7 @@
 
 ## Continuation scope and conventions
 
-This partial checkpoint has 95 declaration nodes:12 definitions,22 constructions,42 lemmas,14 theorems and5 comparisons. It has129 API items,119 required definition/construction tests and121 total tests,110 pinned baseline references and six H.0 planets. All nodes remain unchecked; H.0 is partial and H.1–H.8 not_read. The current full-sketch and separate native-proof receipts appear at the end. The35 inherited global signature omissions remain. No stage or reserved key is closed.
+This partial checkpoint has 107 declaration nodes: 12 definitions, 24 constructions, 52 lemmas, 14 theorems and 5 comparisons. It has 142 API items, 132 required definition/construction tests and 134 total tests, 131 pinned baseline references and six H.0 planets. All nodes remain unchecked; H.0 is partial and H.1–H.8 not_read. The current full-sketch and separate native-proof receipts appear in the handoff and the final section below. The 35 inherited global signature omissions remain. No stage or reserved key is closed.
 
 The reserved **HodgeStructuresPartII:key/higgs-parameter-connections** is now supplied as a mathematical declaration plan. It defines finite locally free coefficients on a general commutative ringed differential site with an actual additive λ-Leibniz operator, a defined exterior extension and curvature-zero equality. Its sheaf tensor, ordinary-connection and filtration prerequisites are explicit supplier requests. The twelve inherited free affine matrix nodes remain as examples and sign tests. They are not the definition of the global object.
 
@@ -3099,3 +3099,83 @@ The remaining construction tests compare the identity change with the original a
 A separate actual-body prototype proves these eight named declarations, five examples and their inherited native iterate/naturality inputs without admissions. Twelve axiom audits list only standard axioms and contain no admitted axiom. The full submitted suggested file elaborates at the pinned existing Mathlib build with every new planning body admitted, as PROTOCOL§13 requires. These checks are interface evidence, not a claim that a packet node or missing global theorem is implemented.
 
 The source carrier is Heuer, arXiv2307.01303v3 Definition1.2(2), freshly read with the selected introduction. The coefficient formulas and left-inverse argument are authored affine algebraic deductions. Stacks Section17.16 explains why the sheaf tensor and its pullback comparison require their own interface; its opening construction and Lemmas17.16.1–5 were read, including the displayed proofs. These scoped readings do not certify the correspondence, the full149-item source inventory or any omitted global signature. The reserved general Higgs/parameter carrier, all100 inherited mathematical contracts, source findings, requests, planets and nine-stage roadmap remain. H.0 stays partial and H.1–H.8 stay not_read.
+
+
+## Flat coefficient injections and horizontal subobjects
+
+Write I_n for the existing ordered iterate. The coefficient-change and split-inclusion statements above continue to hold for arbitrary modules. The following reflection criteria use the native flat-module hypothesis, which follows in particular from projectivity without a chosen basis. They are statements about modules over one fixed ring. They supply no new global Higgs carrier, chart descent or comparison of tensor products of global sections.
+
+### Reflect ordered bounds on flat ambient subobjects
+
+**Node:** HodgeStructuresPartII:H.0/affine-ordered-iterate-flat-subobject. **Proposed declaration:** TwistedHiggsBundle.affineOrderedIterate_natural_zero_iff_of_flat. **Kind:** lemma; implementation unchecked.
+
+Let f:E→F and u:Q→P be injective R-linear maps with ψ∘f=(f⊗u)∘θ. If F,Q,P are flat over R, then for every n≥0, I_n(ψ)∘f=0 if and only if I_n(θ)=0. In particular a specified bound on ψ restricts to the same bound on θ. E need not be flat. The left side is the restriction along f, not vanishing on all of F.
+
+Hypotheses:
+
+- R is any commutative ring, and E,F,Q,P are R-modules with their native additive group and module structures. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R P are R-linear. No integrability, rank, reducedness or chosen basis is assumed.
+- I_n is the existing ordered iterate with the newest coefficient on the left and the native tensor-unit identity at n=0. The base ring stays fixed. These are affine module statements; restrictions and equality detection for actual sheaf tensors remain E1 supplier obligations.
+- F,Q,P are flat R-modules; f and u are injective and satisfy the displayed horizontal equation. No flatness assumption on E is used.
+
+Inputs: HodgeStructuresPartII:H.0/affine-ordered-iterate-natural; mathlib:Module.Flat; mathlib:Module.Flat.of_linearEquiv; mathlib:TensorProduct.map_injective_of_flat_flat; mathlib:TensorPower.algebraMap₀; mathlib:TensorPower.mulEquiv; mathlib:TensorPower.cast; mathlib:TensorPower.cast_tprod; mathlib:TensorPower.tprod_mul_tprod; mathlib:PiTensorProduct.subsingletonEquiv; mathlib:PiTensorProduct.map_tprod; mathlib:TensorProduct.congr; mathlib:PiTensorProduct.induction_on.
+
+Proof:
+
+1. Use the native unit R≅Q^⊗0 and the prepend equivalence Q⊗Q^⊗n≅Q^⊗(n+1), formed from the singleton equivalence, tensor-power multiplication and the 1+n=n+1 reindexing. Native flat tensor closure and transport through a linear equivalence prove flatness of Q^⊗n by induction.
+2. Inductively prove injectivity of u^⊗n. In degree zero its conjugate by the two native unit identifications is id_R. At a successor, the native prepend diagram identifies u^⊗(n+1) with u⊗u^⊗n. Check that diagram on pure tensors with the native tprod multiplication and cast laws; coefficient order is unchanged. Apply the baseline tensor-map injectivity lemma using P flat and Q^⊗n flat. These are local helper deductions in this proof, not new generic carriers or an assumed injection certificate.
+3. Apply the same baseline tensor-map lemma to f and u^⊗n using F flat and Q^⊗n flat. The existing naturality equality identifies I_n(ψ)∘f with (f⊗u^⊗n)∘I_n(θ). Injectivity of the actual tensor map reflects zero pointwise; postcomposition preserves zero for the other implication.
+4. If I_n(ψ)=0, its restriction is zero and the equivalence applies. Without surjectivity of f, vanishing on its image gives no vanishing on a complementary summand.
+
+Acceptance:
+
+- At n=0 both sides detect the zero source E, since f is injective and I_0 is the tensor-unit identity.
+- An ambient bound I_n(ψ)=0 restricts to I_n(θ)=0 with no flatness premise on E.
+- Over ℤ, f embeds the first summand of ℤ⊕ℤ, θ=0 and ψ(a,b)=(0,b)⊗1. The horizontal equation holds with u=id; ψ∘f=0 but ψ≠0. Thus the conclusion does not replace the restricted iterate by the whole ambient iterate.
+
+### Reflect ordered bounds through a flat coefficient injection
+
+**Node:** HodgeStructuresPartII:H.0/affine-coefficient-map-bound-flat. **Proposed declaration:** TwistedHiggsBundle.affineOrderedIterate_coefficientMap_zero_iff_of_flat. **Kind:** lemma; implementation unchecked.
+
+If E,Q,P are flat R-modules and u:Q→P is injective, then for every n≥0, I_n(θ_u)=0 if and only if I_n(θ)=0, where θ_u=(id_E⊗u)∘θ. No coefficient left inverse, finite basis, finite generation or integrability is required; the same exponent occurs on both sides.
+
+Hypotheses:
+
+- R is any commutative ring, and E,F,Q,P are R-modules with their native additive group and module structures. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R P are R-linear. No integrability, rank, reducedness or chosen basis is assumed.
+- I_n is the existing ordered iterate with the newest coefficient on the left and the native tensor-unit identity at n=0. The base ring stays fixed. These are affine module statements; restrictions and equality detection for actual sheaf tensors remain E1 supplier obligations.
+- For this coefficient-only specialization F=E and f=id_E. E,Q,P are flat over R and u is injective. These are sufficient hypotheses, not a claim of minimal hypotheses for each degree.
+
+Inputs: HodgeStructuresPartII:H.0/affine-coefficient-map; HodgeStructuresPartII:H.0/affine-ordered-iterate-flat-subobject; mathlib:Module.Flat; mathlib:Module.Flat.of_projective.
+
+Proof:
+
+1. Instantiate the horizontal reflection theorem with F=E, f=id_E and ψ=θ_u. Its horizontal equation is the definition of coefficient change. Remove composition with the identity.
+2. Projective coefficients and E satisfy the flatness hypotheses by the native projective-to-flat instance; no basis or finite-rank choice enters this implication.
+3. The inherited split coefficient result still applies to arbitrary E, even when this flatness hypothesis fails. The two reflection criteria therefore retain their separate hypotheses.
+
+Acceptance:
+
+- For E=Q=P=ℤ and u multiplication by 2, the equivalence holds for every θ and n, although no ℤ-linear left inverse exists.
+- Native projective E,Q,P satisfy the statement without finite generation or a chosen basis.
+- The inherited E=ℤ/2, Q=P=ℤ, u=2 counterexample excludes dropping flatness of E from this sufficient criterion.
+- Degree zero keeps the actual tensor-unit identity; no positive-degree nilpotence condition is built into the field.
+
+The ordered-iterate construction gains the compatibility API **TwistedHiggsBundle.affineOrderedIterate_natural_zero_iff_of_flat**: Let f:E→F and u:Q→P be injective R-linear maps with ψ∘f=(f⊗u)∘θ. If F,Q,P are flat over R, then for every n≥0, I_n(ψ)∘f=0 if and only if I_n(θ)=0. In particular a specified bound on ψ restricts to the same bound on θ. E need not be flat. The left side is the restriction along f, not vanishing on all of F. The coefficient-map construction gains **TwistedHiggsBundle.affineOrderedIterate_coefficientMap_zero_iff_of_flat**: If E,Q,P are flat R-modules and u:Q→P is injective, then for every n≥0, I_n(θ_u)=0 if and only if I_n(θ)=0, where θ_u=(id_E⊗u)∘θ. No coefficient left inverse, finite basis, finite generation or integrability is required; the same exponent occurs on both sides.
+
+Discriminating construction tests:
+
+- **TwistedHiggsBundle.affineCoefficientMap.test_flat_nonsplit** (non-example): For E=Q=P=ℤ and u multiplication by 2, every specified ordered bound is equivalent before and after coefficient change, but there is no ℤ-linear v with v∘u=id.
+- **TwistedHiggsBundle.affineCoefficientMap.test_projective_no_basis** (compatibility): For native projective R-modules E,Q,P and an injective u:Q→P, the coefficient-changed iterate vanishes exactly when the original iterate does, at every specified degree, without finite generation or any chosen basis.
+- **TwistedHiggsBundle.affineOrderedIterate.test_flat_subobject** (compatibility): For a horizontal pair of injections f:E→F and u:Q→P with F,Q,P flat, an ambient zero iterate I_n(ψ)=0 gives I_n(θ)=0; E is an arbitrary module.
+- **TwistedHiggsBundle.affineOrderedIterate.test_restriction_not_ambient** (non-example): Over ℤ let f(a)=(a,0) and ψ(a,b)=(0,b)⊗1. Then ψ∘f=0 and ψ≠0. Restricted vanishing does not assert ambient vanishing, even with free finite modules and the identity coefficient map.
+
+The nonsplit test is stronger than checking identity or coefficient isomorphisms: any proposed ℤ-linear left inverse of multiplication by 2 would force 2v(1)=1. Reflection instead follows from the actual flat tensor-map induction. The inherited E=ℤ/2 example still rules out replacing flatness by mere coefficient injectivity. The subobject conclusion keeps composition with f: a field can vanish on the first summand and act nontrivially on the second. In degree zero the tensor unit detects the source module; it is not a positive nilpotence bound.
+
+Sources read for this extension are [Heuer, arXiv v3, Definition 1.2](https://arxiv.org/html/2307.01303v3) for the field and horizontal-morphism convention, and [Stacks, Definition 10.39.1 and Lemma 10.39.5](https://stacks.math.columbia.edu/tag/00H9) for flatness and tensor preservation of injections. The finite tensor-power induction and the two Higgs-specific deductions are authored algebra, not attributed correspondence theorems. The pinned native flat tensor closure, projective-to-flat instance, equivalence transport and tensor-map injectivity proofs were read and reused. Historical broader source receipts remain historical.
+
+All 105 inherited statements, hypotheses and acceptance conditions, the reserved key, six planets, five supplier requests, eleven gap entries, 149 routed source obligations and the 35 global omissions remain. Two existing constructions gain the displayed APIs, uses and tests. Arbitrary-Q cross-ring coherence, finite-projective chart restriction, sheaf equality detection/gluing, exterior integrability and the remaining source routes still require their recorded inputs. The narrower same-ring flat reflection does not close them.
+
+### Flat-reflection validation
+
+The [standalone native proof archive](https://github.com/CBirkbeck/tauceti-explorer/blob/d94ef3bb3b47d21b8308c595f6e23055cd390a3a/research/blueprint/suggested/HodgeStructuresPartII.lean) contains the complete actual inherited iterate/naturality/coefficient definitions and proofs followed by the flat-reflection proof and tests. The archive marker is BEGIN/END ARCHIVED CHECKED HIGGS FLAT REFLECTION. Its SHA-256 is b1335d49069b99337ff05089cbfc8658ab2bb0da4e32dd5cedfb64d2d0ad04dc. The 517-line source elaborates at pinned Mathlib with Lean 4.34.0-rc2: nine examples, no errors, admissions or warnings; fourteen axiom audits contain only the standard kernel axioms. The two new public signatures and four example types match the submitted planning file.
+
+The entire final suggested file, SHA-256 82a282d7a295d3c678c3fdc9462c64b8c6931ebccd4617053b08dc7662121b29, elaborates with 93 examples, zero errors, 228 admitted-declaration warnings and no other warnings. The packet checker reports no errors or warnings. Actual atlas assembly has stage graph 3022 vertices/8663 edges, own graph 107/199 and combined prerequisite graph 3124/8900; all are acyclic with zero unresolved references. Stage edges and unrelated pending/skipped links match the control. The current handoff records exact reproduction and remaining work; earlier receipts apply only to their original hashes.
