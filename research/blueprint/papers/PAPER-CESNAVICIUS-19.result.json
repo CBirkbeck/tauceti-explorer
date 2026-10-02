@@ -13,7 +13,8 @@
     "sha256": "a62a12bbe26595aec89d31d24d46774a1ee3eff73c08da0febf5a2b472118709",
     "version": "Author's final arXiv version: submitted 2018-12-01; PDF internally dated 2018-12-04. arXiv metadata identifies the published article. Publisher PDF was not available for a page-by-page comparison.",
     "readSections": [
-      "Freshly read all 17 pages, including every proof, footnote, remark, Appendix A and references, on 2026-09-23. Same v4 hash as the inherited extraction."
+      "Freshly read all 17 pages, including every proof, footnote, remark, Appendix A and references, on 2026-09-23. Same v4 hash as the inherited extraction.",
+      "2 October 2026: bounded repair reading of v4 pp.1–2,4,11–14, author manuscript p.4, and CS24 v3 pp.29,88–91. Duke version of record not read or collated; its DOI/venue are metadata only."
     ],
     "authorCopy": {
       "url": "https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf",
@@ -22,7 +23,7 @@
       "collation": "Fetched and hashed by review REV-PAPER-CESNAVICIUS-19 on 23 September 2026; the hash matches the one recorded in research/blueprint/errata/PAPER-CESNAVICIUS-19.json. Collated against arXiv v4 word by word after normalising ligatures and line wrapping: the two differ only in the date line and in float and line-break placement, with no mathematical difference. The author's page links no erratum."
     }
   },
-  "summary": "Česnavičius proves purity for the Brauer group: for a regular scheme X and a closed subset Z of codimension at least 2, H²(X, G_m) → H²(X∖Z, G_m) is an isomorphism, settling the remaining mixed-characteristic p-primary case through finite-flat descent, henselian completion and perfectoid techniques, with refinements for tori and a characterization of fields of dimension at most one. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and four findings are recorded; Proposition 2.2 is not established for noncommutative G (E1), which the main theorems do not need. Not formalised.",
+  "summary": "Česnavičius proves purity for the Brauer group: for a regular scheme X and a closed subset Z of codimension at least 2, H²(X, G_m) → H²(X∖Z, G_m) is an isomorphism, settling the remaining mixed-characteristic p-primary case through finite-flat descent, henselian completion and perfectoid techniques, with refinements for tori and a characterization of fields of dimension at most one. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and five reviewed findings are recorded; Proposition 2.2 is not established for noncommutative G (E1), which the main theorems do not need. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -813,7 +814,7 @@
       "statement": "For a semilocal ring R, U_R is Spec R with all closed points removed; in the local case this is the complement of the maximal ideal.",
       "locator": "Notation §1.5; §§2–6",
       "status": "missing",
-      "ownershipGroup": "SF0",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/regular-local"
       ],
@@ -1083,7 +1084,7 @@
       "statement": "For a scheme X define Br'(X)=H²_et(X,G_m)_tors with its inclusion into H²; retain the ambient group separately.",
       "locator": "§1, Lemmas 3.1–3.2",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "SchemeAndStackFoundationsFlatCohomologyPartII",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/sheaf-cohom",
         "PAPER-CESNAVICIUS-19/etale-site"
@@ -1392,7 +1393,7 @@
       "statement": "For a Noetherian local ring R of depth at least two, Γ(Spec R,O)→Γ(U_R,O) is an isomorphism.",
       "locator": "§2.4, EGA IV2 5.10.5",
       "status": "missing",
-      "ownershipGroup": "SF0",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/punctured"
       ],
@@ -1434,7 +1435,7 @@
       "statement": "For a regular local ring R of dimension at least two, every line bundle on U_R extends to Spec R, hence Pic(U_R)=0; the finite semilocal regular version follows componentwise.",
       "locator": "§2.4, §5.4",
       "status": "missing",
-      "ownershipGroup": "SF0",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/regular-local",
         "PAPER-CESNAVICIUS-19/punctured",
@@ -1837,7 +1838,7 @@
       "statement": "For a Noetherian local complete-intersection ring A of dimension at least four, Pic(Spec A minus its closed point)=0.",
       "locator": "Corollary 2.5; SGA2new XI3.13(ii), read with proof and surrounding XI3.1–3.17/X2.1 on2026-09-22",
       "status": "missing",
-      "ownershipGroup": "SF4",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/punctured",
         "PAPER-CESNAVICIUS-19/regular-lci",
@@ -2410,7 +2411,7 @@
       "statement": "For every affine scheme Spec A, the images of H¹(A,PGL_n)→H²(A,G_m), over n≥1, exhaust Br'(A). The boundary arises from 1→G_m→GL_n→PGL_n→1.",
       "locator": "Lemma 3.1; Gab81 II Theorem 1; Gir71 IV4.2.10",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "SchemeAndStackFoundationsFlatCohomologyPartII",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/azumaya",
         "PAPER-CESNAVICIUS-19/cohom-brauer"
@@ -4159,7 +4160,7 @@
       "statement": "For complete regular local (R,m), construct a filtered system of finite flat R-algebras (R_i,mR_i), each regular local, whose colimit is Noetherian regular local with maximal ideal m times that colimit and algebraically closed residue field.",
       "locator": "Lemma 5.1",
       "status": "missing",
-      "ownershipGroup": "P7",
+      "ownershipGroup": "PerfectoidQuotientsIntegralPerfectoidPartII",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/regular-local"
       ],
@@ -4227,7 +4228,7 @@
       "statement": "Every complete regular local ring admits the finite-flat system described in residue-tower, with Noetherian regular local colimit and algebraically closed residue field.",
       "locator": "Lemma 5.1",
       "status": "missing",
-      "ownershipGroup": "P7",
+      "ownershipGroup": "PerfectoidQuotientsIntegralPerfectoidPartII",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/residue-tower"
       ],
@@ -4265,7 +4266,7 @@
       "statement": "For a complete regular local R of mixed characteristic (0,p) with perfect residue field k, construct R_m finite flat of p-power rank over R, each regular local, and R∞=colim R_m whose p-adic completion is perfectoid.",
       "locator": "Lemma 5.2",
       "status": "missing",
-      "ownershipGroup": "P7",
+      "ownershipGroup": "PerfectoidQuotientsIntegralPerfectoidPartII",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/regular-local",
         "PAPER-CESNAVICIUS-19/perfectoid-integral",
@@ -4341,7 +4342,7 @@
       "statement": "In the ramified R∞ of Lemma 5.2, Frobenius on R∞/p is onto and p∈m∞²; there are s,t∈m∞ with p=s^p+pt, so (1−t)p=s^p and 1−t is a unit.",
       "locator": "Lemma 5.2 final paragraph; Shi16 4.9 argument",
       "status": "missing",
-      "ownershipGroup": "P7",
+      "ownershipGroup": "PerfectoidQuotientsIntegralPerfectoidPartII",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/perfectoid-tower"
       ],
@@ -4374,7 +4375,7 @@
       "statement": "Under perfectoid-tower's hypotheses the constructed tower exists and its p-adically completed colimit is perfectoid.",
       "locator": "Lemma 5.2",
       "status": "missing",
-      "ownershipGroup": "P7",
+      "ownershipGroup": "PerfectoidQuotientsIntegralPerfectoidPartII",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/perfectoid-tower",
         "PAPER-CESNAVICIUS-19/ramified-unit-root",
@@ -4409,7 +4410,7 @@
       "statement": "For strictly henselian regular local R of dimension two, H²(U_R,G_m)=0.",
       "locator": "Theorem 5.3 proof; Gro68b6.1(b)",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/cohom-brauer",
         "PAPER-CESNAVICIUS-19/strict-henselian"
@@ -4446,7 +4447,7 @@
       "statement": "For strictly henselian regular local R of dimension three, H²(U_R,G_m)=0, using Gabber's dimension-three reduction and the dimension-two case.",
       "locator": "Theorem 5.3 proof; Gab81 I Theorem 2",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/purity-dim2"
       ],
@@ -4477,7 +4478,7 @@
       "statement": "For strictly henselian regular local R of dimension≥2 and prime ℓ invertible in R, the absolute purity theorem gives H²(U_R,μ_ℓ)=0 in the use made by Theorem 5.3.",
       "locator": "Theorem 5.3; Fuj02 Theorem 2.1.1",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/strict-henselian",
         "PAPER-CESNAVICIUS-19/punctured"
@@ -4490,7 +4491,7 @@
       "gaps": [
         "G-ABSOLUTE"
       ],
-      "note": "EDC.2's smooth purity is not this Gabber absolute purity theorem.",
+      "note": "EDC.2's smooth purity is not this Gabber absolute purity theorem. The shared purity consumer imports the proposed EtaleDualityAbsolutePurityPartII supplier, identified by PAPER-CESNAVICIUS-SCHOLZE-24/041 and /042; its exact Gabber absolute-purity adapter remains missing. This does not create a second general absolute-purity theorem.",
       "uses": [
         {
           "where": "Theorem 5.3",
@@ -4511,7 +4512,7 @@
       "statement": "For the R of absolute-purity-input, H²(U_R,G_m)[ℓ]=0.",
       "locator": "Theorem 5.3",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/absolute-purity-input",
         "PAPER-CESNAVICIUS-19/kummer"
@@ -4541,7 +4542,7 @@
       "statement": "If R=k[[x₁,…,x_d]] with k algebraically closed of characteristic p>0 and d≥4, H²(U_R,G_m)[p]=0.",
       "locator": "Theorem 5.3, equal-characteristic case",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/finite-flat-brauer",
         "PAPER-CESNAVICIUS-19/perfect-scheme-vanish",
@@ -4576,7 +4577,7 @@
       "statement": "If R is complete regular local of mixed characteristic (0,p), algebraically closed residue field and dimension≥4, H²(U_R,G_m)[p]=0.",
       "locator": "Theorem 5.3, mixed-characteristic case",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/perfectoid-tower-exists",
         "PAPER-CESNAVICIUS-19/finite-flat-brauer",
@@ -4615,7 +4616,7 @@
       "statement": "For any strictly henselian regular local ring R of dimension≥2, H²_et(U_R,G_m)=0.",
       "locator": "Theorem 5.3 = Theorem 1.3",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/punctured-completion",
         "PAPER-CESNAVICIUS-19/purity-dim2",
@@ -4687,7 +4688,7 @@
       "statement": "Under local-torus-h1's hypotheses, H²_et(U_R,T)=0.",
       "locator": "Theorem 1.4, §5.4 degree2",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/etale-h2-descent",
         "PAPER-CESNAVICIUS-19/scheme-continuity",
@@ -4856,7 +4857,7 @@
       "statement": "For the Noetherian finite-dimensional regular scheme and closed support Z reached in Theorem 6.1, the coniveau spectral sequence has E₁^(a,b)=⊕_(z∈Z,dim O_(X,z)=a) H_{z}^(a+b)(Spec O_(X,z),G_m) and converges to H_Z^(a+b)(X,G_m).",
       "locator": "Theorem 6.1; Gro68b10.1; ILO14 XVIIIA2.2.1",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/supports"
       ],
@@ -4888,7 +4889,7 @@
       "statement": "Let X be any scheme, Z a closed subscheme, and T an X-torus. Assume O_(X,z) is regular of dimension≥2 for every z∈Z and j:X\\Z→X is quasi-compact. Then H_Z^q(X,T)=0 for q≤3.",
       "locator": "Theorem 6.1 proof",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/support-local-global",
         "PAPER-CESNAVICIUS-19/strict-support-stalk",
@@ -4939,7 +4940,7 @@
       "statement": "Under low-support-vanish's exact hypotheses, H^0_et(X,T)→H^0_et(X\\Z,T) is an isomorphism.",
       "locator": "Theorem 6.1, degree 0",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/low-support-vanish"
       ],
@@ -4963,7 +4964,7 @@
       "statement": "Under low-support-vanish's exact hypotheses, H^1_et(X,T)→H^1_et(X\\Z,T) is an isomorphism.",
       "locator": "Theorem 6.1, degree 1",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/low-support-vanish"
       ],
@@ -4987,7 +4988,7 @@
       "statement": "Under low-support-vanish's exact hypotheses, H^2_et(X,T)→H^2_et(X\\Z,T) is an isomorphism.",
       "locator": "Theorem 6.1, degree 2",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/low-support-vanish"
       ],
@@ -5022,7 +5023,7 @@
       "statement": "Under low-support-vanish's exact hypotheses, H³_et(X,T)→H³_et(X\\Z,T) is injective.",
       "locator": "Theorem 6.1, degree3",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/low-support-vanish"
       ],
@@ -5051,7 +5052,7 @@
       "statement": "For locally Noetherian X and closed Z such that O_(X,z) is regular of dimension≥2 for every z∈Z, restriction H²_et(X,G_m)→H²_et(X\\Z,G_m) is an isomorphism.",
       "locator": "Theorem 1.1; deduced in §6",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/global-purity-h2"
       ],
@@ -5075,7 +5076,7 @@
       "statement": "For Noetherian integral regular X with function field K and X-torus T, require H²_et(V,T)→H²_et(K,T) injective for every nonempty open V⊂X.",
       "locator": "Theorem 6.2, (6.2.1)",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/torus"
       ],
@@ -5146,7 +5147,7 @@
       "statement": "For opens U,V⊂X and an X-torus T, the restriction-difference map fits into the sequence H²(U∪V,T)→H²(U,T)⊕H²(V,T)→H²(U∩V,T)→H³(U∪V,T).",
       "locator": "Theorem 6.2, (6.2.2)",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/sheaf-cohom"
       ],
@@ -5182,7 +5183,7 @@
       "statement": "For Noetherian integral regular X with function field K and X-torus T satisfying generic-injective-torus, H²_et(X,T) is the intersection over height-one x of the images of H²_et(O_(X,x),T) inside H²_et(K,T).",
       "locator": "Theorem 6.2",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/generic-injective-torus",
         "PAPER-CESNAVICIUS-19/torus-mayer-vietoris",
@@ -5216,7 +5217,7 @@
       "statement": "For Noetherian integral regular X with function field K, H²_et(X,G_m)=∩_(height(x)=1) H²_et(O_(X,x),G_m) inside H²_et(K,G_m).",
       "locator": "Theorem 1.2; Theorem 6.2 with Lemma 3.2",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/codim1-intersection",
         "PAPER-CESNAVICIUS-19/generic-inject"
@@ -5315,7 +5316,7 @@
       "statement": "For Noetherian integral regular X and a flasque X-torus T in Remark 6.3's sense, generic-injective-torus holds.",
       "locator": "Remark 6.3; CTS87 2.2(ii)",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/flasque",
         "PAPER-CESNAVICIUS-19/generic-injective-torus"
@@ -5408,7 +5409,7 @@
       "statement": "For norm-torus, there is a nonzero element of H²_et(P¹_R,T) restricting to zero at the generic point.",
       "locator": "Remark 6.3",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/norm-torus",
         "PAPER-CESNAVICIUS-19/torus-mayer-vietoris"
@@ -5436,7 +5437,7 @@
       "statement": "For a DVR O with fraction field K and residue k, define the residue on the ℓ-primary Brauer group to H¹_et(k,Q/Z)[ℓ∞] when ℓ≠char k, or when ℓ=char k and k is perfect; fix the map via the source's localization convention.",
       "locator": "Remark 6.4",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/cohom-brauer"
       ],
@@ -5504,7 +5505,7 @@
       "statement": "Under brauer-residue's hypotheses, 0→H²(O,G_m)[ℓ∞]→H²(K,G_m)[ℓ∞]→H¹(k,Q/Z)[ℓ∞] is exact; no terminal surjectivity is asserted.",
       "locator": "Remark 6.4; Gro68b2.1",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/brauer-residue"
       ],
@@ -5535,7 +5536,7 @@
       "statement": "For Noetherian integral regular X with function field K, after excluding p-primary parts for each prime p for which some height-one point has imperfect characteristic-p residue field, 0→H²(X,G_m)→H²(K,G_m)→⊕_(height(x)=1) H¹(k(x),Q/Z) is exact.",
       "locator": "Remark 6.4, (6.4.4)",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/brauer-intersection",
         "PAPER-CESNAVICIUS-19/dvr-residue-exact"
@@ -5569,7 +5570,7 @@
       "statement": "If Noetherian integral regular X has a point y of height≥2 and residue characteristic p, there is a height-one generalization x of residue characteristic p whose residue field admits a nontrivial discrete valuation, hence is imperfect. Thus the p-primary part is excluded from (6.4.4).",
       "locator": "Remark 6.4 footnote 5; EGAII7.1.7",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/global-residue-exact"
       ],
@@ -6478,7 +6479,7 @@
       "statement": "In Lemma 5.1, if the residue field is separably closed of characteristic p>0, the tower can be chosen so that each finite flat R_i has p-power rank over R.",
       "locator": "Lemma 5.1, final assertion",
       "status": "missing",
-      "ownershipGroup": "P7",
+      "ownershipGroup": "PerfectoidQuotientsIntegralPerfectoidPartII",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/residue-tower-exists"
       ],
@@ -6504,7 +6505,7 @@
       "statement": "For the locally Noetherian X and closed Z of Theorem 1.1, H³_et(X,G_m)→H³_et(X\\Z,G_m) is injective.",
       "locator": "Theorem 1.1, second assertion",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/global-purity-h3"
       ],
@@ -6527,7 +6528,7 @@
       "statement": "The Brauer group of A²_C differs from that of the complement of the coordinate axes. Thus the codimension≥2 condition in Theorem 1.1 cannot be deleted.",
       "locator": "Introduction; DF84 Remark 3",
       "status": "missing",
-      "ownershipGroup": "SF2",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/cohom-brauer"
       ],
@@ -6553,7 +6554,7 @@
       "statement": "A locally Noetherian pair (X,Z) is parafactorial when for every open V⊂X restriction of invertible sheaves from V to V\\Z is an equivalence; a Noetherian local A is parafactorial for (Spec A,{m_A}).",
       "locator": "SGA2 XI Definitions3.1–3.2",
       "status": "missing",
-      "ownershipGroup": "SF4",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/punctured"
       ],
@@ -6636,7 +6637,7 @@
       "statement": "For locally Noetherian X and closed Y, Lef(X,Y) requires Γ(U,E)→Γ(Xhat_Y,Ehat) to be an isomorphism for every neighborhood U of Y and every finite locally free E on U.",
       "locator": "SGA2 X§2 definition",
       "status": "missing",
-      "ownershipGroup": "SF4",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [],
       "proofSteps": [
         "Reuse the cited carrier if available; otherwise construct this object and prove its defining universal property before its consumers."
@@ -6712,7 +6713,7 @@
       "statement": "Leff(X,Y) is Lef(X,Y) together with algebraizability, on some open neighborhood of Y, of every finite locally free coherent sheaf on Xhat_Y.",
       "locator": "SGA2 X§2 definition",
       "status": "missing",
-      "ownershipGroup": "SF4",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/lefschetz-condition"
       ],
@@ -6790,7 +6791,7 @@
       "statement": "Let A be a Noetherian local quotient of a regular local ring, t∈m_A regular, and A t-adically complete. Set X=Spec A\\{m_A}, Y=V(t)\\{m_A}. If depth A_p≥2 at every point p closed in X, then Lef(X,Y).",
       "locator": "SGA2 X Example 2.1(i)",
       "status": "missing",
-      "ownershipGroup": "SF4",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/lefschetz-condition",
         "PAPER-CESNAVICIUS-19/sga2-finiteness",
@@ -6831,7 +6832,7 @@
       "statement": "With A,t,X,Y as in local-lef and its depth≥2 hypothesis, assume also depth A_p≥3 at every p closed in Y. Then Leff(X,Y).",
       "locator": "SGA2 X Example 2.1(ii)",
       "status": "missing",
-      "ownershipGroup": "SF4",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/local-lef",
         "PAPER-CESNAVICIUS-19/effective-lefschetz",
@@ -6870,7 +6871,7 @@
       "statement": "Let X be locally Noetherian, I quasi-coherent, Y=V(I), and r≥0. Suppose Leff(X,Y), H^i(X,I^(n+1)/I^(n+2))=0 for i=1,2 and n≥r, and every local ring at a point outside any neighborhood of Y is parafactorial. Then for every neighborhood U and n≥r, Pic(X)→Pic(U) and Pic(U)→Pic(X_n) are isomorphisms, with X_n=(Y,O_X/I^(n+1)).",
       "locator": "SGA2 XI Proposition 3.12",
       "status": "missing",
-      "ownershipGroup": "SF4",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/effective-lefschetz",
         "PAPER-CESNAVICIUS-19/parafactorial",
@@ -6911,7 +6912,7 @@
       "statement": "For locally Noetherian (X,Z) and a faithfully flat quasi-compact map X'→X, parafactoriality of (X',Z×_X X') implies that of (X,Z); hence a Noetherian local ring is parafactorial if its completion is.",
       "locator": "SGA2 XI Lemma 3.6, Corollary 3.7",
       "status": "missing",
-      "ownershipGroup": "SF4",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/parafactorial"
       ],
@@ -6941,7 +6942,7 @@
       "statement": "A finite locally free sheaf L on a ringed space admitting a finite resolution by finite free sheaves has trivial determinant (with the usual locally constant rank interpretation).",
       "locator": "SGA2 XI Lemma 3.15",
       "status": "missing",
-      "ownershipGroup": "SF0",
+      "ownershipGroup": "R03.3",
       "prerequisites": [],
       "proofSteps": [
         "Use multiplicativity of determinants in exact sequences.",
@@ -6962,7 +6963,8 @@
         "locator": "SGA2 XI Lemma 3.15",
         "match": "Main-paper statement/proof or selected supporting-source passage read; unresolved external proof inputs are named in gaps.",
         "source": "SGA2"
-      }
+      },
+      "note": "R03.3 uses this ringed-space sheaf determinant lemma in regular-local factoriality. Import finite locally free sheaf determinants and determinant isomorphisms for exact complexes from SF.1; retain locally constant ranks and the full SGA 2 XI 3.15 statement, not merely a ring-module specialization."
     },
     {
       "id": "PAPER-CESNAVICIUS-19/regular-factorial",
@@ -7159,7 +7161,7 @@
       "statement": "Let X be locally Noetherian, I a quasi-coherent ideal, Y = V(I), X_n = (Y, O_X/I^{n+1}) and P_n = I^{n+1}/I^{n+2}. The sequence of abelian sheaves on Y, 0 → P_n → O*_{X_{n+1}} → O*_{X_n} → 1, with P_n in its additive structure and the first map x ↦ 1 + x, is exact; its cohomology sequence gives H^1(Y, P_n) → Pic(X_{n+1}) → Pic(X_n) → H^2(Y, P_n) under Pic(X_n) = H^1(Y, O*_{X_n}). Consequently Pic(X-hat) → Pic(X_n) is injective for n ≥ p if H^1(Y, P_n) = 0 for n ≥ p, and bijective for n ≥ p if H^i(Y, P_n) = 0 for n ≥ p and i = 1, 2.",
       "locator": "SGA 2 XI §1, the exact sequence (1.1) and Proposition 1.1; read on 2026-09-22",
       "status": "missing",
-      "ownershipGroup": "SF4",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [],
       "proofSteps": [
         "Check exactness of (1.1): surjectivity of the right map holds because O_{X_n,y} is the quotient of O_{X_{n+1},y} by a nilpotent ideal, and the kernel is 1 + P_n.",
@@ -7200,7 +7202,7 @@
       "statement": "If Lef(X, Y) holds then for every open neighbourhood U of Y in X the inverse-image functor P(U) → P(X-hat) is fully faithful, so Pic(U) → Pic(X-hat) is injective; if Leff(X, Y) holds then colim_U Pic(U) → Pic(X-hat) is an isomorphism. Hence, under Lef(X, Y) and H^1(Y, P_n) = 0 for n ≥ p, the maps Pic(X) → Pic(U) → Pic(Y_n) are injective for n ≥ p; and under Leff(X, Y) together with H^i(Y, P_n) = 0 for i = 1, 2 and n ≥ p, colim_U Pic(U) → Pic(Y_n) is an isomorphism.",
       "locator": "SGA 2 XI Proposition 2.1 and Corollaire 2.2, whose proof is the one given in SGA 2 X §2; read on 2026-09-22",
       "status": "missing",
-      "ownershipGroup": "SF4",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/lefschetz-condition",
         "PAPER-CESNAVICIUS-19/effective-lefschetz",
@@ -7235,7 +7237,7 @@
       "statement": "Let A be a Noetherian local ring that is a quotient of a regular ring, t ∈ r(A) an A-regular element, and suppose A is complete for the t-adic topology. Put X_0 = Spec A, Y_0 = V(t) = Spec(A/tA), x = r(A), X = X_0 - {x}, Y = Y_0 - {x}. (3.16) If (a) prof O_{X,y} ≥ 2 for every y closed in X and (b) prof A/tA ≥ 3, then Pic(X) → Pic(Y) is injective; in particular A is parafactorial as soon as A/tA is. (3.17) If moreover (c) prof O_{X,y} ≥ 3 for every y closed in Y, (d) prof A/tA ≥ 4, and (e) O_{X,y} is parafactorial for every closed point y of X that does NOT lie in Y, then Pic(X) → Pic(Y) is an isomorphism, and A is parafactorial if and only if A/tA is.",
       "locator": "SGA 2 XI Lemme 3.16 and Lemme 3.17, read with their proofs and with the proof of Théorème 3.13 (ii), on 2026-09-22",
       "status": "missing",
-      "ownershipGroup": "SF4",
+      "ownershipGroup": "PurityForFlatCohomology",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/local-lef",
         "PAPER-CESNAVICIUS-19/local-leff",
@@ -7563,13 +7565,13 @@
       "name": "Shared Henselian smooth lifting interface",
       "statement": "For a Henselian pair (A,a) and a smooth A-algebra B, every A-algebra map B→A/a lifts to B→A. Use the étale neighborhood special case for Tougeron’s auxiliary system.",
       "locator": "Elkik §0.1 and Lemma 2; PAPER-CLAUSEN-MATHEW-MORROW-21/044",
-      "status": "planned",
-      "ownershipGroup": "IMPORT",
+      "status": "missing",
+      "ownershipGroup": "SF4",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/henselian-pair"
       ],
       "proofSteps": [
-        "Import the existing SF.0 source obligation /044, not another Henselian carrier or another proof plan. Its equivalence with pinned monic-simple-root HenselianRing still needs a sourced EGA/Stacks proof."
+        "Coalesce the exact smooth-algebra lifting obligation with PAPER-CLAUSEN-MATHEW-MORROW-21/044 at SF.4. Formalize its equivalence with the pinned HenselianRing R I monic simple-root property using the outstanding sourced EGA/Stacks argument; routing /044 while it is missing does not make this theorem planned."
       ],
       "implementationStatus": "planning only; not formalized",
       "gaps": [
@@ -7587,9 +7589,7 @@
         "locator": "Elkik §0.1 and Lemma 2; PAPER-CLAUSEN-MATHEW-MORROW-21/044",
         "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
       },
-      "planned": [
-        "SchemeAndStackFoundations:SF.0"
-      ]
+      "note": "The pinned HenselianRing carrier is reused unchanged. Its monic simple-root lifting property does not itself prove smooth-algebra lifting; this exact shared obligation remains missing, with G-ELKIK open."
     },
     {
       "id": "PAPER-CESNAVICIUS-19/cotangent-low-comparison-import",
@@ -8310,20 +8310,6 @@
       "route": "source",
       "roadmap": "SchemeAndStackFoundations",
       "stages": [
-        "SchemeAndStackFoundations:SF.0"
-      ],
-      "items": [
-        "PAPER-CESNAVICIUS-19/punctured",
-        "PAPER-CESNAVICIUS-19/hartogs",
-        "PAPER-CESNAVICIUS-19/pic-regular",
-        "PAPER-CESNAVICIUS-19/det-free-resolution"
-      ],
-      "reason": "Shared scheme/coherent foundations: punctured opens, Hartogs, line-bundle extension and the determinant bridge. Import the pinned scheme machinery, ModularCurves 4D strict henselization/regularity, and R03.3 local algebra. The recent Gille–Parimala extraction already uses this owner for coherent Hartogs; no second implementation."
-    },
-    {
-      "route": "source",
-      "roadmap": "SchemeAndStackFoundations",
-      "stages": [
         "SchemeAndStackFoundations:SF.1"
       ],
       "items": [
@@ -8353,7 +8339,6 @@
         "SchemeAndStackFoundations:SF.2"
       ],
       "items": [
-        "PAPER-CESNAVICIUS-19/cohom-brauer",
         "PAPER-CESNAVICIUS-19/finite-etale-push",
         "PAPER-CESNAVICIUS-19/finite-etale-push-nonabelian",
         "PAPER-CESNAVICIUS-19/h2-descent",
@@ -8362,7 +8347,6 @@
         "PAPER-CESNAVICIUS-19/finite-flat-brauer",
         "PAPER-CESNAVICIUS-19/lci-flat-brauer",
         "PAPER-CESNAVICIUS-19/cech-alternative",
-        "PAPER-CESNAVICIUS-19/affine-brauer-comparison",
         "PAPER-CESNAVICIUS-19/completion-inject",
         "PAPER-CESNAVICIUS-19/completion-surject",
         "PAPER-CESNAVICIUS-19/generic-inject",
@@ -8372,34 +8356,9 @@
         "PAPER-CESNAVICIUS-19/affine-charp-cd",
         "PAPER-CESNAVICIUS-19/perfectoid-p-vanish",
         "PAPER-CESNAVICIUS-19/perfectoid-brauer-vanish",
-        "PAPER-CESNAVICIUS-19/purity-dim2",
-        "PAPER-CESNAVICIUS-19/purity-dim3",
-        "PAPER-CESNAVICIUS-19/absolute-purity-input",
-        "PAPER-CESNAVICIUS-19/prime-to-p-purity",
-        "PAPER-CESNAVICIUS-19/equal-char-purity",
-        "PAPER-CESNAVICIUS-19/mixed-char-purity",
-        "PAPER-CESNAVICIUS-19/strict-local-purity",
-        "PAPER-CESNAVICIUS-19/local-torus-h2",
         "PAPER-CESNAVICIUS-19/supports",
         "PAPER-CESNAVICIUS-19/support-local-global",
         "PAPER-CESNAVICIUS-19/strict-support-stalk",
-        "PAPER-CESNAVICIUS-19/support-coniveau",
-        "PAPER-CESNAVICIUS-19/low-support-vanish",
-        "PAPER-CESNAVICIUS-19/global-purity-h0",
-        "PAPER-CESNAVICIUS-19/global-purity-h1",
-        "PAPER-CESNAVICIUS-19/global-purity-h2",
-        "PAPER-CESNAVICIUS-19/global-purity-h3",
-        "PAPER-CESNAVICIUS-19/global-gm-purity",
-        "PAPER-CESNAVICIUS-19/generic-injective-torus",
-        "PAPER-CESNAVICIUS-19/torus-mayer-vietoris",
-        "PAPER-CESNAVICIUS-19/codim1-intersection",
-        "PAPER-CESNAVICIUS-19/brauer-intersection",
-        "PAPER-CESNAVICIUS-19/flasque-injectivity",
-        "PAPER-CESNAVICIUS-19/torus-counterexample",
-        "PAPER-CESNAVICIUS-19/brauer-residue",
-        "PAPER-CESNAVICIUS-19/dvr-residue-exact",
-        "PAPER-CESNAVICIUS-19/global-residue-exact",
-        "PAPER-CESNAVICIUS-19/residue-primary-boundary",
         "PAPER-CESNAVICIUS-19/field-dimension-one",
         "PAPER-CESNAVICIUS-19/torus-vanishing",
         "PAPER-CESNAVICIUS-19/etale-fppf",
@@ -8409,11 +8368,9 @@
         "PAPER-CESNAVICIUS-19/finite-fppf-reverse",
         "PAPER-CESNAVICIUS-19/semiabelian-vanish",
         "PAPER-CESNAVICIUS-19/finite-type-fppf-forward",
-        "PAPER-CESNAVICIUS-19/finite-type-fppf-reverse",
-        "PAPER-CESNAVICIUS-19/global-gm-h3",
-        "PAPER-CESNAVICIUS-19/codim1-boundary-example"
+        "PAPER-CESNAVICIUS-19/finite-type-fppf-reverse"
       ],
-      "reason": "The shared scheme-cohomology layer owns G_m/torus cohomology, support/localization, Brauer comparison, finite-flat descent, local/global purity, residues and the dimension≤1 field cohomology package. Harpaz–Wittenberg20 already routes étale G_m/purity/residues here. Split an early site/Kummer prefix from the completion/perfectoid-dependent Brauer-purity suffix and an AppendixA field prefix; add no blanket SF.2↔SF.4 or SF.2↔adic-roadmap cycle. EDC.2 smooth purity is NOT Gabber absolute purity; K2SymbolsBrauer's classical-symbol/residue scope does not supply this general theorem."
+      "reason": "General scheme-cohomology supplier: sites, Kummer and étale/fppf comparison, finite-flat and torus cohomological descent, completion and perfectoid cohomology preparation, supports, support-local-global and strict support stalks, and Appendix A field cohomology. The purity consumer imports these constructions; its vanishing, coniveau application, globalization and residues are routed to PurityForFlatCohomology. Scheme Brauer comparison is shared with SchemeAndStackFoundationsFlatCohomologyPartII. Split early site/field inputs from later completion and perfectoid consumers; no blanket reverse stage edges."
     },
     {
       "route": "source",
@@ -8422,7 +8379,6 @@
         "SchemeAndStackFoundations:SF.4"
       ],
       "items": [
-        "PAPER-CESNAVICIUS-19/local-pic-lefschetz",
         "PAPER-CESNAVICIUS-19/generic-completion",
         "PAPER-CESNAVICIUS-19/smoothness-ideal",
         "PAPER-CESNAVICIUS-19/newton-improvement",
@@ -8431,20 +8387,10 @@
         "PAPER-CESNAVICIUS-19/idempotent-groupoid",
         "PAPER-CESNAVICIUS-19/projective-completion",
         "PAPER-CESNAVICIUS-19/iterated-completion",
-        "PAPER-CESNAVICIUS-19/parafactorial",
-        "PAPER-CESNAVICIUS-19/lefschetz-condition",
-        "PAPER-CESNAVICIUS-19/effective-lefschetz",
-        "PAPER-CESNAVICIUS-19/local-lef",
-        "PAPER-CESNAVICIUS-19/local-leff",
-        "PAPER-CESNAVICIUS-19/pic-formal-comparison",
-        "PAPER-CESNAVICIUS-19/parafactorial-descent",
         "PAPER-CESNAVICIUS-19/sga2-finiteness",
         "PAPER-CESNAVICIUS-19/sga2-depth-coherence",
         "PAPER-CESNAVICIUS-19/formal-comparison-sections",
         "PAPER-CESNAVICIUS-19/formal-algebraization",
-        "PAPER-CESNAVICIUS-19/pic-thickening-sequence",
-        "PAPER-CESNAVICIUS-19/pic-formal-injectivity",
-        "PAPER-CESNAVICIUS-19/pic-hypersurface-descent",
         "PAPER-CESNAVICIUS-19/factor-smoothness-ideal",
         "PAPER-CESNAVICIUS-19/factor-ideal-comparison",
         "PAPER-CESNAVICIUS-19/jacobian-smoothness-ideal",
@@ -8457,9 +8403,10 @@
         "PAPER-CESNAVICIUS-19/complete-principal-approx",
         "PAPER-CESNAVICIUS-19/complete-ideal-approx",
         "PAPER-CESNAVICIUS-19/henselian-principal-approx",
-        "PAPER-CESNAVICIUS-19/henselian-noetherian-approx"
+        "PAPER-CESNAVICIUS-19/henselian-noetherian-approx",
+        "PAPER-CESNAVICIUS-19/henselian-smooth-lift-import"
       ],
-      "reason": "Extend the existing lifting/obstruction/formal-algebraization direction with principal henselian approximation, idempotent groupoids, the iterated-completion adapter and the local parafactorial/Picard theorem. Import full cotangent complexes from DD.0, existing completion/regularity from upstream ModularCurves4D, and formal-scheme/GAGA carriers from their shared owners; do not rebuild them. Local Grothendieck–Lefschetz in dimension≥4 is not the curve Picard target of SF.3 or a vanishing-cycle Lefschetz-pencil theorem. The continuation of 2026-09-22 adds the SGA 2 statements behind the local Lefschetz and Picard machinery, read at their locators: the finiteness theorem VIII 2.1 and its depth criteria VIII 2.3, the formal comparison IX 1.4/1.5 and algebraization IX 2.2/2.3, the infinitesimal Picard obstruction sequence XI 1.1, the formal Picard comparison XI 2.1/2.2, and the hypersurface descent XI 3.16/3.17. They belong with the parafactoriality and Lefschetz nodes already routed here. The 2026-09-23 continuation adds the source-specific conormal/Newton and Elkik approximation proof stages here, importing the already-built Artin–Rees/Taylor/naive cotangent pieces, SF.0 Henselian smooth lifting and DD.0 low comparison. Zavyalov25/142 is the later algebraization of admissible formal models; Colmez–Nizioł17/158 uses approximation in a Galois comparison, not a second generic approximation foundation."
+      "reason": "General Henselian approximation, projective presentation groupoids, iterated completion and formal-algebraization supplier, including SGA 2 VIII finiteness/depth and IX formal comparison/algebraization. Import pinned Artin–Rees/Taylor/naive cotangent foundations and DD.0 low comparison. The exact smooth-algebra lifting theorem is missing here and shares PAPER-CLAUSEN-MATHEW-MORROW-21/044; pinned monic simple-root HenselianRing does not supply its equivalence. Purity-specific local Picard, parafactorial and Lefschetz applications import this supplier through PurityForFlatCohomology. Zavyalov25/142 and Colmez–Nizioł17/158 are downstream consumers, not duplicate generic foundations."
     },
     {
       "route": "source",
@@ -8472,9 +8419,10 @@
         "PAPER-CESNAVICIUS-19/lci-flat-base-change",
         "PAPER-CESNAVICIUS-19/lci-syntomic",
         "PAPER-CESNAVICIUS-19/lci-local-fibre",
-        "PAPER-CESNAVICIUS-19/regular-factorial"
+        "PAPER-CESNAVICIUS-19/regular-factorial",
+        "PAPER-CESNAVICIUS-19/det-free-resolution"
       ],
-      "reason": "Regular/local complete-intersection algebra, flat closed-fibre criteria and regular-local factoriality refine the existing dimension/depth/complete-intersection supplier. Import existing regular sequences and the regular-local carrier, and the upstream ModularCurves4D completion interface. Do not infer the absent general regular-local localization/factoriality theorem from the pinned polynomial regularity file."
+      "reason": "Regular/local complete-intersection algebra, flat closed-fibre criteria and regular-local factoriality refine the existing dimension/depth/complete-intersection supplier. Import existing regular sequences and the regular-local carrier, and the upstream ModularCurves4D completion interface. Do not infer the absent general regular-local localization/factoriality theorem from the pinned polynomial regularity file. The regular-local factoriality proof consumes SGA 2 XI 3.15 in its full finite locally free sheaf/ringed-space scope, importing the exact determinant interface requested from SF.1."
     },
     {
       "route": "source",
@@ -8611,22 +8559,6 @@
     },
     {
       "route": "source",
-      "roadmap": "PerfectoidSpaces",
-      "stages": [
-        "PerfectoidSpaces:P7"
-      ],
-      "items": [
-        "PAPER-CESNAVICIUS-19/residue-tower",
-        "PAPER-CESNAVICIUS-19/residue-tower-exists",
-        "PAPER-CESNAVICIUS-19/perfectoid-tower",
-        "PAPER-CESNAVICIUS-19/ramified-unit-root",
-        "PAPER-CESNAVICIUS-19/perfectoid-tower-exists",
-        "PAPER-CESNAVICIUS-19/residue-tower-p-rank"
-      ],
-      "reason": "Cohen-structure regular finite-flat towers and their perfectoid completion refine P7's Frobenius-controlled tower direction. Retain algebraically closed residue extension, perfect residue in Lemma 5.2, p-power ranks and the ramified unit-root calculation. Do not claim the finite stages perfectoid or the uncompleted colimit complete."
-    },
-    {
-      "route": "source",
       "roadmap": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
       "stages": [
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
@@ -8635,6 +8567,87 @@
         "PAPER-CESNAVICIUS-19/alpha-filtration"
       ],
       "reason": "Only the source-scoped connected/connected finite p-group α_p devissage is new here. General finite locally free group schemes and Cartier duality are imported from Tau Ceti/ModularCurves0B, and the connected–étale sequence from ModularCurves7E PD-2, following RS-02's explicit boundary. No duplicate carrier or blanket henselian splitting."
+    },
+    {
+      "route": "new",
+      "roadmap": "PurityForFlatCohomology",
+      "title": "Purity for flat cohomology and the conjectures of Gabber",
+      "area": "algebraicgeometry",
+      "items": [
+        "PAPER-CESNAVICIUS-19/punctured",
+        "PAPER-CESNAVICIUS-19/hartogs",
+        "PAPER-CESNAVICIUS-19/pic-regular",
+        "PAPER-CESNAVICIUS-19/purity-dim2",
+        "PAPER-CESNAVICIUS-19/purity-dim3",
+        "PAPER-CESNAVICIUS-19/absolute-purity-input",
+        "PAPER-CESNAVICIUS-19/prime-to-p-purity",
+        "PAPER-CESNAVICIUS-19/equal-char-purity",
+        "PAPER-CESNAVICIUS-19/mixed-char-purity",
+        "PAPER-CESNAVICIUS-19/strict-local-purity",
+        "PAPER-CESNAVICIUS-19/local-torus-h2",
+        "PAPER-CESNAVICIUS-19/support-coniveau",
+        "PAPER-CESNAVICIUS-19/low-support-vanish",
+        "PAPER-CESNAVICIUS-19/global-purity-h0",
+        "PAPER-CESNAVICIUS-19/global-purity-h1",
+        "PAPER-CESNAVICIUS-19/global-purity-h2",
+        "PAPER-CESNAVICIUS-19/global-purity-h3",
+        "PAPER-CESNAVICIUS-19/global-gm-purity",
+        "PAPER-CESNAVICIUS-19/generic-injective-torus",
+        "PAPER-CESNAVICIUS-19/torus-mayer-vietoris",
+        "PAPER-CESNAVICIUS-19/codim1-intersection",
+        "PAPER-CESNAVICIUS-19/brauer-intersection",
+        "PAPER-CESNAVICIUS-19/flasque-injectivity",
+        "PAPER-CESNAVICIUS-19/torus-counterexample",
+        "PAPER-CESNAVICIUS-19/brauer-residue",
+        "PAPER-CESNAVICIUS-19/dvr-residue-exact",
+        "PAPER-CESNAVICIUS-19/global-residue-exact",
+        "PAPER-CESNAVICIUS-19/residue-primary-boundary",
+        "PAPER-CESNAVICIUS-19/global-gm-h3",
+        "PAPER-CESNAVICIUS-19/codim1-boundary-example",
+        "PAPER-CESNAVICIUS-19/local-pic-lefschetz",
+        "PAPER-CESNAVICIUS-19/parafactorial",
+        "PAPER-CESNAVICIUS-19/lefschetz-condition",
+        "PAPER-CESNAVICIUS-19/effective-lefschetz",
+        "PAPER-CESNAVICIUS-19/local-lef",
+        "PAPER-CESNAVICIUS-19/local-leff",
+        "PAPER-CESNAVICIUS-19/pic-formal-comparison",
+        "PAPER-CESNAVICIUS-19/parafactorial-descent",
+        "PAPER-CESNAVICIUS-19/pic-thickening-sequence",
+        "PAPER-CESNAVICIUS-19/pic-formal-injectivity",
+        "PAPER-CESNAVICIUS-19/pic-hypersurface-descent"
+      ],
+      "brief": "Coalesce the 2019 purity extraction with the already proposed PurityForFlatCohomology from PAPER-CESNAVICIUS-SCHOLZE-24. Final contracts retain 2019 Theorems 1.1, 1.3, 5.3 and 6.1: strict-local regular dimension at least two gives H²(U_R,G_m)=0; for a scheme X, an X-torus T and closed Z with each O_X,z regular of dimension at least two and X\\Z→X quasi-compact, restriction is bijective in degrees 0–2 and injective in degree 3. Theorem 1.1 is its locally Noetherian G_m form. Also retain Theorem 6.2 with its every-nonempty-open generic injectivity premise and Remarks 6.3–6.4 with flasque scope, counterexample and primary residue exclusions. CS24 7.2.8(a) gives H² injectivity under its own hypotheses and does not replace these stronger regular-case outputs. Layers: punctured opens and depth-two Hartogs, regular-local Picard extension, local Lefschetz/parafactoriality and its infinitesimal/formal Picard applications, small-dimensional and prime-to-p purity, perfect/equal/mixed-characteristic local purity, support vanishing and its coniveau/globalization application, generic intersections and residue sequences. Imports: R03.3 (regular/local lci algebra and the determinant bridge), SF.1 (tori/torsors), SF.2 (general supports, local-to-global, strict stalks, sites, coefficient/descent/completion and perfectoid-cohomology preparations), SF.4 (general approximation and formal algebraization), SchemeAndStackFoundationsFlatCohomologyPartII (scheme Brauer comparison), PerfectoidQuotientsIntegralPerfectoidPartII (Cohen-structure regular-local towers), and EtaleDualityAbsolutePurityPartII (CS24/041–042), not a duplicate general Gabber theorem. Retain all 2019 tests/APIs: regular local dimension at least two, lci dimension at least four, equal and mixed characteristic, the real norm-one-torus counterexample and the imperfect-residue primary exclusions. General formal-algebraization and support machinery remain with their suppliers. Proposed shared source obligations are not implemented or promoted to planned.",
+      "reason": "One proposed shared owner across the two completed extractions; preserve source-specific scopes and import general suppliers."
+    },
+    {
+      "route": "part-ii",
+      "parent": "SchemeAndStackFoundations",
+      "roadmap": "SchemeAndStackFoundationsFlatCohomologyPartII",
+      "title": "Scheme, stack, cohomology and intersection foundations, Part II: flat cohomology with finite locally free coefficients over animated rings",
+      "area": "algebraicgeometry",
+      "items": [
+        "PAPER-CESNAVICIUS-19/cohom-brauer",
+        "PAPER-CESNAVICIUS-19/affine-brauer-comparison"
+      ],
+      "brief": "Share the scheme Brauer-group foundation with the already proposed SchemeAndStackFoundationsFlatCohomologyPartII (CS24/118–119). Define Br′(X)=H²_et(X,G_m)_tors with its inclusion in ambient H²; use the affine Gabber/de Jong comparison with Azumaya Br, and retain CS24’s ample-line-bundle generality in that source. Layers: separate Azumaya classes, torsion cohomological classes and ambient H²; compare them only with the hypotheses of the named theorem. Imports: existing SF.1–SF.2 scheme/group/site/cohomology machinery and IsAzumaya. PurityForFlatCohomology consumes this common API. Existing definition tests and affine comparison obligations remain attached; no field BrauerGroup is substituted for a scheme Brauer group.",
+      "reason": "One proposed shared owner across the two completed extractions; preserve source-specific scopes and import general suppliers."
+    },
+    {
+      "route": "part-ii",
+      "parent": "PerfectoidQuotients",
+      "roadmap": "PerfectoidQuotientsIntegralPerfectoidPartII",
+      "title": "Perfectoid quotients and their prismatic prerequisites, Part II: structure of integral perfectoid rings and the ind-syntomic André lemma",
+      "area": "padic",
+      "items": [
+        "PAPER-CESNAVICIUS-19/residue-tower",
+        "PAPER-CESNAVICIUS-19/residue-tower-exists",
+        "PAPER-CESNAVICIUS-19/perfectoid-tower",
+        "PAPER-CESNAVICIUS-19/ramified-unit-root",
+        "PAPER-CESNAVICIUS-19/perfectoid-tower-exists",
+        "PAPER-CESNAVICIUS-19/residue-tower-p-rank"
+      ],
+      "brief": "Share the six 2019 tower obligations with the already proposed PerfectoidQuotientsIntegralPerfectoidPartII and CS24/037 (Lemma 3.1.1, explicitly invoking 2019 Lemmas 5.1–5.2). Final contracts: complete regular-local finite-flat residue-extension systems with algebraically closed residue field and p-power ranks in the separably closed positive-characteristic case; mixed-characteristic complete regular local rings with perfect residue field admit regular finite-flat p-power-rank towers whose p-adic completed colimit is perfectoid; retain the ramified unit-root calculation. Layers: Cohen structure and residue extension, regularity/locality/rank preservation, unramified and ramified root towers, and perfectoid completion. Imports: R03.1 Cohen structure, R03.3 regular-local algebra, PerfectoidQuotients Q0 integral perfectoid API and PerfectoidSpaces P7 generic Frobenius control, limit/completion and inversion infrastructure (plus P1/P3 where required). P7 remains the general supplier, not a second regular-local tower owner. Retain the 2019 rank, ramification, unit-root and completion tests and CS24’s W(k)⟦x^{1/p^∞}⟧/(p−f) examples; finite stages and the uncompleted colimit are not asserted perfectoid/complete.",
+      "reason": "One proposed shared owner across the two completed extractions; preserve source-specific scopes and import general suppliers."
     }
   ],
   "gaps": [
@@ -8701,7 +8714,7 @@
     },
     {
       "id": "G-ELKIK",
-      "detail": "Narrowed 2026-09-23: original Elkik pp553–568 and GR3.2.16/5.4.1–14 are now read; direct finite-conormal Newton proof and complete/principal/general Noetherian approximation paths are written. Still open: (1) finite-data Noetherian Henselian subring/model reduction in GR5.4.13, including descent of factorization witnesses; (2) SF.0 HenselianRing-to-étale/smooth lifting and the cited EGA completion/henselization foundations; (3) DD.0 full-L/naive low truncation comparison and underlying Illusie foundations, needed to match the Ext-defined H (full Ext obstruction machinery is optional for the direct Newton step); (4) formal implementation of the displayed proof adapters. Noetherianity is mandatory in Elkik2bis. Published GR numbering/interior still needs collation.",
+      "detail": "Narrowed 2026-09-23: original Elkik pp553–568 and GR3.2.16/5.4.1–14 are now read; direct finite-conormal Newton proof and complete/principal/general Noetherian approximation paths are written. Still open: (1) finite-data Noetherian Henselian subring/model reduction in GR5.4.13, including descent of factorization witnesses; (2) SF.4 missing shared HenselianRing-to-étale/smooth lifting (CMM21/044) and the cited EGA completion/henselization foundations; (3) DD.0 full-L/naive low truncation comparison and underlying Illusie foundations, needed to match the Ext-defined H (full Ext obstruction machinery is optional for the direct Newton step); (4) formal implementation of the displayed proof adapters. Noetherianity is mandatory in Elkik2bis. Published GR numbering/interior still needs collation.",
       "consumers": [
         "PAPER-CESNAVICIUS-19/smoothness-ideal",
         "PAPER-CESNAVICIUS-19/newton-improvement",
@@ -9115,8 +9128,8 @@
     "items": 178,
     "statusCounts": {
       "library": 15,
-      "missing": 150,
-      "planned": 13
+      "missing": 151,
+      "planned": 12
     },
     "missingRoutedExactlyOnce": true,
     "lean": "No Lean deliverable; all Lean/API tests are specifications. Separate exact arithmetic and structural diagnostics are recorded in the report.",
@@ -9282,13 +9295,22 @@
       "status": "scope identified; exact supplier node/signature verification remains required"
     },
     {
-      "supplier": "SchemeAndStackFoundations:SF.0",
-      "statement": "Shared Henselian smooth/étale lifting equivalence, coalescing PAPER-CLAUSEN-MATHEW-MORROW-21/044. Import this early foundation into SF.4 Tougeron approximation, without a whole-stage reverse edge.",
+      "supplier": "SchemeAndStackFoundations:SF.4",
+      "statement": "Exact shared Henselian smooth-algebra/étale lifting theorem and its equivalence with pinned monic simple-root HenselianRing, coalescing the missing PAPER-CLAUSEN-MATHEW-MORROW-21/044. This is a missing SF.4 obligation used by Tougeron approximation, not an existing planned SF.0 theorem.",
       "consumers": [
         "PAPER-CESNAVICIUS-19/henselian-smooth-lift-import",
         "PAPER-CESNAVICIUS-19/tougeron-root"
       ],
-      "status": "same existing supplier obligation; exact EGA/Stacks proof and implementation open"
+      "status": "missing shared theorem; sourced equivalence and implementation remain open"
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.1",
+      "statement": "Finite locally free sheaf determinant/top exterior power on a ringed space with locally constant ranks; determinant isomorphisms for short exact sequences and finite acyclic complexes, giving trivial determinant for a finite free resolution (SGA 2 XI 3.15). R03.3 consumes the full sheaf statement for regular-local factoriality.",
+      "consumers": [
+        "PAPER-CESNAVICIUS-19/det-free-resolution",
+        "PAPER-CESNAVICIUS-19/regular-factorial"
+      ],
+      "status": "exact sheaf interface identified; source-specific implementation remains missing"
     }
   ],
   "sourceIssues": [
@@ -9297,23 +9319,77 @@
       "kind": "gap",
       "locator": "Proposition 2.2 and its proof, p.4, in arXiv 1711.06456v4 (1 December 2018, the latest version; PDF SHA-256 a62a12bb…8709); the author's copy of 27 November 2018 on his homepage has the same text; the published text, Duke Math. J. 168 (2019), 1461–1486, was not collated",
       "printed": "Proposition 2.2 claims injectivity of H¹_et(V, G) ↪ H¹_et(V_{R′}, G) (2.2.1) for finite flat R → R′ between local rings, open V ⊂ Spec R, and affine smooth R-group G, assuming pullback gives Γ(Spec R, O) ≅ Γ(V, O) and all G-torsors over R are trivial. The proof claims every X(V)-element lifts to (Res_{R′/R}(G_{R′}))(V), and cites [Gir71, III.3.2.2] for injectivity of H¹_et(V, G) → H¹_et(V, Res_{R′/R}(G_{R′})) (2.2.2).",
-      "correction": "State Proposition 2.2 for commutative G, which covers both of its uses (Proposition 2.3, with G = Res_{R′/R}(T_{R′})/T, and Corollary 2.4, with G = T). For noncommutative G, supply the missing step: for every G-torsor P over V, the twisted map (^P Res_{R′/R}(G_{R′}))(V) → (^P X)(V) must also be surjective.",
-      "reason": "Write H = Res_{R′/R}(G_{R′}) and X = H/G. Surjectivity of H(V) → X(V) shows that the fibre of H¹(V, G) → H¹(V, H) over the trivial class is trivial. When G is commutative this is injectivity, because the map is a group homomorphism. For a noncommutative G, H¹ is only a pointed set. The fibre through the class of a torsor P is the orbit set of (^P H)(V) acting on (^P X)(V), for the twists by P (Giraud III.3.2; cf. Serre, Galois Cohomology, I.5.5, Cor. 2). The proof checks only the untwisted case. The twisted forms ^P X live only over V, so hypothesis (1) and the affineness of X give no control of their V-points. If P extends to R it is trivial by (2), so the problem is exactly the torsors on V that do not extend. Proposition 2.2 is used only in the proofs of Proposition 2.3 (G = Res_{R′/R}(T_{R′})/T) and Corollary 2.4 (G = T, an R-torus), where G is commutative, so the main theorems are unaffected. Noted by the extraction (gap G-NONABELIAN, items h1-descent and h1-abelian), which did not claim the statement false; neither is it claimed false here. (cc-442dc5) Reclassified to affect a stated result: Proposition 2.2 is stated for arbitrary affine smooth G, and for noncommutative G the printed proof gives only a trivial neutral fibre, so the statement is not established in that generality. Its two uses (Proposition 2.3 and Corollary 2.4) have commutative G, so the main theorems are unaffected.",
+      "correction": "For full injectivity, restrict Proposition 2.2 to commutative G; this covers both uses, Proposition 2.3 and Corollary 2.4. Alternatively, retain arbitrary affine smooth G but weaken the conclusion to triviality of the fibre over the trivial torsor. To retain the original full noncommutative statement, supply surjectivity of (^P H)(V) → (^P X)(V) for every G-torsor P over V, where H=Res_{R′/R}(G_{R′}), X=H/G, the groups are twisted by conjugation and X by the induced G-action.",
+      "reason": "Write H = Res_{R′/R}(G_{R′}) and X = H/G. Surjectivity of H(V) → X(V) shows that the fibre of H¹(V, G) → H¹(V, H) over the trivial class is trivial. When G is commutative this is injectivity, because the map is a group homomorphism. For a noncommutative G, H¹ is only a pointed set. The fibre through the class of a torsor P is the orbit set of (^P H)(V) acting on (^P X)(V), for the twists by P (Giraud III.3.2; cf. Serre, Galois Cohomology, I.§5.4, Cor. 2 (Propositions 35–36, pp.49–51; corrected in REV-ERRATA-PAPER-CESNAVICIUS-19)). The proof checks only the untwisted case. The twisted forms ^P X live only over V, so hypothesis (1) and the affineness of X give no control of their V-points. If P extends to R it is trivial by (2), so the problem is exactly the torsors on V that do not extend. Proposition 2.2 is used only in the proofs of Proposition 2.3 (G = Res_{R′/R}(T_{R′})/T) and Corollary 2.4 (G = T, an R-torus), where G is commutative, so the main theorems are unaffected. Noted by the extraction (gap G-NONABELIAN, items h1-descent and h1-abelian), which did not claim the statement false; neither is it claimed false here. (cc-442dc5) Reclassified to affect a stated result: Proposition 2.2 is stated for arbitrary affine smooth G, and for noncommutative G the printed proof gives only a trivial neutral fibre, so the statement is not established in that generality. Its two uses (Proposition 2.3 and Corollary 2.4) have commutative G, so the main theorems are unaffected.",
       "affects": "a stated result",
-      "known": "new",
+      "known": "new within the recorded bounded correction searches; both accessible manuscripts retain the passage. The Duke version of record remains uncollated.",
       "searched": [
         "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0057, checked 22 September 2026: no erratum or other update is registered",
         "arXiv 1711.06456: v1 (17 November 2017), v2 (24 November 2017), v3 (17 January 2018), v4 (1 December 2018, the latest)",
         "the author's copy https://www.imo.universite-paris-saclay.fr/~kestutis.cesnavicius/brauer-purity.pdf (dated 27 November 2018, SHA-256 4187331e…97a1), checked 22 September 2026: Proposition 2.2 and its proof are unchanged, and no erratum is linked",
         "web search for an erratum or correction, 22 September 2026: none found",
-        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 a62a12bb…, matching); Unpaywall lists only the arXiv copy, so the Duke text could not be collated."
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 a62a12bb…, matching); Unpaywall lists only the arXiv copy, so the Duke text could not be collated.",
+        "2 October 2026 bounded recheck: current Sorbonne publication list links the author manuscript and Duke DOI, with no erratum linked; exact-title correction/erratum searches found none applicable; Crossref relation is empty; Project Euclid PDF endpoint returned HTML rather than a readable PDF. Read v4 pp.1–2,4,11–14 and author p.4; the same recorded hashes recur. No published-text collation is claimed."
       ],
       "previousAffects": "the proof",
       "review": {
         "verdict": "confirmed",
         "reason": "Confirmed as a gap, and the printed text is exactly as quoted (p. 4). Proposition 2.2 is stated for \"an affine, smooth R-group scheme G\" with no commutativity hypothesis, and its proof establishes only that H(V) → X(V) is surjective, where H = Res_{R'/R}(G_{R'}) and X = H/G. For the exact sequence of pointed sets H(V) → X(V) → H¹(V,G) → H¹(V,H), that surjectivity says precisely that the fibre over the neutral class is trivial. For a noncommutative G, H¹ is a pointed set and trivial kernel does not give injectivity: the fibre through the class of a torsor P is computed after twisting, as the orbit set of (^P H)(V) acting on (^P X)(V), and the proof does not treat the twisted forms. The extraction's diagnosis of why the printed hypotheses do not reach them is right: hypothesis (1) together with the affineness of X gives X(V) ≅ X(R) because a map to an affine R-scheme factors through Spec Γ(V,O), but ^P X is only a V-scheme and is not the base change of an affine R-scheme, so neither (1) nor (2) controls its V-points; and by (2) a torsor that extends to R is trivial, so exactly the torsors on V that do not extend are uncontrolled. I verified independently that Proposition 2.2 is invoked in only two places in the paper — the proof of Proposition 2.3, with G = (Res_{R'/R}(T_{R'}))/T, and Corollary 2.4, with G = T an R-torus — and that both are commutative, so the main theorems are untouched. Like the extraction, I do not claim the statement false for noncommutative G; I claim only that the printed proof does not establish it. \"Affects a stated result\" is therefore the right classification, since the Proposition is asserted in that generality. No later version or erratum corrects it: arXiv 1711.06456 stops at v4, the author's own copy at webusers.imj-prg.fr is dated 27 November 2018 and so predates v4, its text differs from v4 only by reflow, and Crossref's record of doi:10.1215/00127094-2018-0057 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published Duke text is paywalled and was not collated, as the extraction states.",
         "by": "REV-PAPER-CESNAVICIUS-19"
-      }
+      },
+      "history": [
+        {
+          "source": "extraction before FIX-RT-PAPER-CESNAVICIUS-19",
+          "record": {
+            "id": "PAPER-CESNAVICIUS-19/E1",
+            "kind": "gap",
+            "locator": "Proposition 2.2 and its proof, p.4, in arXiv 1711.06456v4 (1 December 2018, the latest version; PDF SHA-256 a62a12bb…8709); the author's copy of 27 November 2018 on his homepage has the same text; the published text, Duke Math. J. 168 (2019), 1461–1486, was not collated",
+            "printed": "Proposition 2.2 claims injectivity of H¹_et(V, G) ↪ H¹_et(V_{R′}, G) (2.2.1) for finite flat R → R′ between local rings, open V ⊂ Spec R, and affine smooth R-group G, assuming pullback gives Γ(Spec R, O) ≅ Γ(V, O) and all G-torsors over R are trivial. The proof claims every X(V)-element lifts to (Res_{R′/R}(G_{R′}))(V), and cites [Gir71, III.3.2.2] for injectivity of H¹_et(V, G) → H¹_et(V, Res_{R′/R}(G_{R′})) (2.2.2).",
+            "correction": "State Proposition 2.2 for commutative G, which covers both of its uses (Proposition 2.3, with G = Res_{R′/R}(T_{R′})/T, and Corollary 2.4, with G = T). For noncommutative G, supply the missing step: for every G-torsor P over V, the twisted map (^P Res_{R′/R}(G_{R′}))(V) → (^P X)(V) must also be surjective.",
+            "reason": "Write H = Res_{R′/R}(G_{R′}) and X = H/G. Surjectivity of H(V) → X(V) shows that the fibre of H¹(V, G) → H¹(V, H) over the trivial class is trivial. When G is commutative this is injectivity, because the map is a group homomorphism. For a noncommutative G, H¹ is only a pointed set. The fibre through the class of a torsor P is the orbit set of (^P H)(V) acting on (^P X)(V), for the twists by P (Giraud III.3.2; cf. Serre, Galois Cohomology, I.5.5, Cor. 2). The proof checks only the untwisted case. The twisted forms ^P X live only over V, so hypothesis (1) and the affineness of X give no control of their V-points. If P extends to R it is trivial by (2), so the problem is exactly the torsors on V that do not extend. Proposition 2.2 is used only in the proofs of Proposition 2.3 (G = Res_{R′/R}(T_{R′})/T) and Corollary 2.4 (G = T, an R-torus), where G is commutative, so the main theorems are unaffected. Noted by the extraction (gap G-NONABELIAN, items h1-descent and h1-abelian), which did not claim the statement false; neither is it claimed false here. (cc-442dc5) Reclassified to affect a stated result: Proposition 2.2 is stated for arbitrary affine smooth G, and for noncommutative G the printed proof gives only a trivial neutral fibre, so the statement is not established in that generality. Its two uses (Proposition 2.3 and Corollary 2.4) have commutative G, so the main theorems are unaffected.",
+            "affects": "a stated result",
+            "known": "new",
+            "searched": [
+              "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0057, checked 22 September 2026: no erratum or other update is registered",
+              "arXiv 1711.06456: v1 (17 November 2017), v2 (24 November 2017), v3 (17 January 2018), v4 (1 December 2018, the latest)",
+              "the author's copy https://www.imo.universite-paris-saclay.fr/~kestutis.cesnavicius/brauer-purity.pdf (dated 27 November 2018, SHA-256 4187331e…97a1), checked 22 September 2026: Proposition 2.2 and its proof are unchanged, and no erratum is linked",
+              "web search for an erratum or correction, 22 September 2026: none found",
+              "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 a62a12bb…, matching); Unpaywall lists only the arXiv copy, so the Duke text could not be collated."
+            ],
+            "previousAffects": "the proof",
+            "review": {
+              "verdict": "confirmed",
+              "reason": "Confirmed as a gap, and the printed text is exactly as quoted (p. 4). Proposition 2.2 is stated for \"an affine, smooth R-group scheme G\" with no commutativity hypothesis, and its proof establishes only that H(V) → X(V) is surjective, where H = Res_{R'/R}(G_{R'}) and X = H/G. For the exact sequence of pointed sets H(V) → X(V) → H¹(V,G) → H¹(V,H), that surjectivity says precisely that the fibre over the neutral class is trivial. For a noncommutative G, H¹ is a pointed set and trivial kernel does not give injectivity: the fibre through the class of a torsor P is computed after twisting, as the orbit set of (^P H)(V) acting on (^P X)(V), and the proof does not treat the twisted forms. The extraction's diagnosis of why the printed hypotheses do not reach them is right: hypothesis (1) together with the affineness of X gives X(V) ≅ X(R) because a map to an affine R-scheme factors through Spec Γ(V,O), but ^P X is only a V-scheme and is not the base change of an affine R-scheme, so neither (1) nor (2) controls its V-points; and by (2) a torsor that extends to R is trivial, so exactly the torsors on V that do not extend are uncontrolled. I verified independently that Proposition 2.2 is invoked in only two places in the paper — the proof of Proposition 2.3, with G = (Res_{R'/R}(T_{R'}))/T, and Corollary 2.4, with G = T an R-torus — and that both are commutative, so the main theorems are untouched. Like the extraction, I do not claim the statement false for noncommutative G; I claim only that the printed proof does not establish it. \"Affects a stated result\" is therefore the right classification, since the Proposition is asserted in that generality. No later version or erratum corrects it: arXiv 1711.06456 stops at v4, the author's own copy at webusers.imj-prg.fr is dated 27 November 2018 and so predates v4, its text differs from v4 only by reflow, and Crossref's record of doi:10.1215/00127094-2018-0057 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published Duke text is paywalled and was not collated, as the extraction states.",
+              "by": "REV-PAPER-CESNAVICIUS-19"
+            }
+          }
+        },
+        {
+          "source": "dedicated errata before FIX-RT-PAPER-CESNAVICIUS-19",
+          "record": {
+            "id": "PAPER-CESNAVICIUS-19/E1",
+            "kind": "gap",
+            "locator": "Proposition 2.2, proof of (2.2.2), p.4 of arXiv 1711.06456v4 (1 December 2018, SHA-256 a62a12bbe26595aec89d31d24d46774a1ee3eff73c08da0febf5a2b472118709); same passage in the author manuscript dated 27 November 2018, served at both the old Paris-Saclay and current Sorbonne sites (SHA-256 4187331ead5a5246acba1c032a2574ffd6ac9ee6fe1a72bb09d46e2e9f9b97a1). Duke Math. J. 168 (2019), 1461–1486, DOI 10.1215/00127094-2018-0057, remains uncollated.",
+            "printed": "“so, by [Gir71, III.3.2.2], the map” H¹_et(V,G) → H¹_et(V,Res_{R′/R}(G_{R′})) “is injective.”",
+            "correction": "For full injectivity, restrict Proposition 2.2 to commutative G; this covers both uses, Proposition 2.3 and Corollary 2.4. Alternatively, retain arbitrary affine smooth G but weaken the conclusion to triviality of the fibre over the trivial torsor. To retain the original full noncommutative statement, supply surjectivity of (^P H)(V) → (^P X)(V) for every G-torsor P over V, where H=Res_{R′/R}(G_{R′}), X=H/G, the groups are twisted by conjugation and X by the induced G-action.",
+            "reason": "Affineness gives X(R)=X(V), and H¹(R,G)=1 lifts each X(R)-point to H(R). Thus H(V)→X(V) is surjective. The torsor boundary sequence identifies H(V)\\X(V) with only the neutral fibre of H¹(V,G)→H¹(V,H). For a torsor P the fibre through [P] instead identifies with (^P H)(V)\\(^P X)(V): twisting sends [P] to the trivial torsor. These twists are initially defined over V, and no extension of them to affine R-schemes is established. If P itself extended, hypothesis (2) would make it trivial, leaving precisely the other fibres untreated. This fibre calculation is also explicit for group cohomology in Serre, Galois Cohomology, I.§5.3 Proposition 35 and §5.4 Proposition 36, Corollaries 1–2, pp.49–51 (the inherited §5.5 Corollary 2 citation was incorrect). If G is commutative, so is H; the H¹ map is a group homomorphism, so its trivial kernel proves injectivity. Proposition 2.3 applies this to the commutative quotient Res(T)/T, and Corollary 2.4 to the torus T. Therefore this gap does not obstruct these applications or their downstream purity arguments. No counterexample to the geometric proposition is asserted.",
+            "affects": "the proof",
+            "known": "new",
+            "searched": [
+              "23 September 2026: arXiv https://arxiv.org/abs/1711.06456 lists v1 17 November 2017, v2 24 November 2017, v3 17 January 2018, latest v4 1 December 2018. Fresh v4 PDF read; older PDFs not collated.",
+              "23 September 2026: old author homepage redirects readers to https://webusers.imj-prg.fr/~kestutis.cesnavicius/. The current publication list links brauer-purity.pdf and the DOI, with no correction linked for this paper. Fresh PDFs at both homes have identical SHA-256 4187331ead5a5246acba1c032a2574ffd6ac9ee6fe1a72bb09d46e2e9f9b97a1 and retain the passage.",
+              "23 September 2026: Crossref https://api.crossref.org/works/10.1215/00127094-2018-0057 has empty relation and no update-to entry. Project Euclid article and PDF endpoints returned HTML challenges rather than accessible article text; the published version is not verified.",
+              "23 September 2026: exact-title searches with correction and erratum found no correction for this paper. New means none found within this search, not proof that none exists."
+            ],
+            "review": {
+              "verdict": "confirmed",
+              "reason": "Independently read arXiv v4 §2 (pp.3–6), Proposition 2.2 in a page image and the author manuscript, and Serre I.§5.3–5.5 pp.47–52 as page images. The actual fibre formula is §5.4 Corollary 2, not the inherited §5.5 citation; corrected the report in place. Checked the torsor exactness argument, twists and both commutative uses. An exhaustive C₂-cohomology diagnostic for D₈⊂S₄ has a singleton neutral fibre but merges two nontrivial classes, illustrating the invalid formal implication without claiming a counterexample to this geometric proposition. Added the valid weaker neutral-fibre conclusion as an alternative repair. Confirmed as a proof gap in the two accessible manuscripts; the Duke text and Giraud III.3.2.2 were not accessible and are not certified. No effect on the checked commutative applications.",
+              "by": "REV-ERRATA-PAPER-CESNAVICIUS-19"
+            }
+          }
+        }
+      ],
+      "repairNote": "Canonical active E1. Preserve both independent reviews and the historical proof classification in history. The current stated-result classification concerns the unestablished general noncommutative statement, not a claim that it is false. The neutral-fibre alternative and corrected Serre locator come from the prior errata review; Giraud and Duke have not been newly read."
     },
     {
       "id": "PAPER-CESNAVICIUS-19/E2",
@@ -9326,7 +9402,7 @@
       "affectedItems": [
         "PAPER-CESNAVICIUS-19/hensel-approx-root"
       ],
-      "known": "new in this extraction; present in the latest available arXiv preprint. Published book correction status not established. Awaiting independent review.",
+      "known": "new in this extraction; present in the latest available arXiv preprint. Published book correction status not established.",
       "searched": [
         "2026-09-23 https://arxiv.org/pdf/math/0201175 — Latest unversioned arXiv download is byte-identical to v3 Michigan PDF, SHA256 c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8; the displayed slips remain on p119.",
         "2026-09-23 https://link.springer.com/book/10.1007/b10047 — Publisher metadata checked; no accessible erratum located in this targeted search. Published book proof interior not read; correction status there is unknown.",
@@ -9349,7 +9425,7 @@
       "affectedItems": [
         "PAPER-CESNAVICIUS-19/hensel-approx-root"
       ],
-      "known": "new in this extraction; present in the latest available arXiv preprint. Published book correction status not established. Awaiting independent review.",
+      "known": "new in this extraction; present in the latest available arXiv preprint. Published book correction status not established.",
       "searched": [
         "2026-09-23 https://arxiv.org/pdf/math/0201175 — Latest unversioned arXiv download is byte-identical to v3 Michigan PDF, SHA256 c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8; the displayed slips remain on p119.",
         "2026-09-23 https://link.springer.com/book/10.1007/b10047 — Publisher metadata checked; no accessible erratum located in this targeted search. Published book proof interior not read; correction status there is unknown.",
@@ -9369,7 +9445,7 @@
       "correction": "Replace y ∈ Y by y ∉ Y in this hypothesis.",
       "reason": "The inherited proof audit observes that hypothesis(e) supplies XI Proposition 3.12(3), namely parafactoriality at points outside open neighborhoods of Y. Points of Y lie in every such neighborhood. The application inside3.13(ii) checks all closed points, so that application survives either reading. This transfers the existing finding to the required sourceIssues ledger; it is not a new independent verification. (cc-442dc5) Reclassified to affect nothing: the proof of the cited SGA 2 lemma shows the intended hypothesis is y ∉ Y, and the application in 3.13(ii) holds under either reading.",
       "affects": "nothing",
-      "known": "Inherited reading correction to the annotated edition; 1968 North-Holland original and any published correction remain uncollated. Awaiting independent review.",
+      "known": "Inherited reading correction to the annotated edition; 1968 North-Holland original and any published correction remain uncollated.",
       "searched": [
         "Inherited 2026-09-22 check of https://www.cmls.polytechnique.fr/~laszlo/sga2/sga2-smf.pdf at XI3.17(e), XI3.12 and XI3.13(ii), SHA256 1c648d9588367c7ebcaa1b9c7d043642b8ee470e8d4f5e23579448ec3d858da1; this continuation did not reread that PDF or consult the 1968 original.",
         "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 a62a12bb…, matching); Unpaywall lists only the arXiv copy, so the Duke text could not be collated."
@@ -9402,8 +9478,8 @@
     }
   ],
   "sourceIssuesRegister": {
-    "canonicalInheritedFinding": "research/blueprint/errata/PAPER-CESNAVICIUS-19.json#PAPER-CESNAVICIUS-19/E1",
-    "note": "Issue instruction5a requires the sourceIssues list in this extraction. E1 is copied unchanged from the existing dedicated errata record, without a new verdict. The current collector does not deduplicate matching IDs across files; integration should coalesce these two occurrences of E1. This job may not edit the external errata file or collector."
+    "canonicalInheritedFinding": "research/blueprint/papers/PAPER-CESNAVICIUS-19.result.json#PAPER-CESNAVICIUS-19/E1",
+    "note": "Exactly one active E1 in the extraction sourceIssues array. The dedicated errata file cross-references it outside sourceIssues; both earlier records, review reasons and classification history are preserved in canonical E1.history."
   },
   "continuation": {
     "session": "codex-c83e7a",
@@ -9438,5 +9514,45 @@
     "read": "arXiv 1711.06456v4, re-fetched and hashed (a62a12bb…8709, matching the record), all 17 pages; the author's copy, fetched, hashed and collated against v4; Gabber–Ramero math/0201175 pp. 119–120 and SGA 2 XI 3.12, 3.13, 3.17, 3.18, each re-fetched, hashed and read on the page image as well as the text layer.",
     "changes": "All 4 recorded mistakes carry a review verdict and all are confirmed; one further misprint, E5, was found by the review in the same Gabber–Ramero proof and added. Run-together numbering (\"Theorem4.10\", \"Lemma3.1\") was repaired in 593 places across locators, statements and evidence fields, leaving bibliography keys such as GR03 and KL15 and section marks such as §4.9 untouched. The author's copy was recorded under source.authorCopy with its hash and collation. No item, status, route or locator target changed.",
     "lean": "none"
+  },
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1711.06456v4",
+      "read": "2026-09-23",
+      "sha256": "a62a12bbe26595aec89d31d24d46774a1ee3eff73c08da0febf5a2b472118709",
+      "scope": "Historical full 17-page reading and independent review recorded in completion/verification. Bounded recheck on 2026-10-02: pp.1–2,4,11–14; images pp.4,11,13. No fresh full-paper reading claimed."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf",
+      "read": "2026-09-23",
+      "sha256": "4187331ead5a5246acba1c032a2574ffd6ac9ee6fe1a72bb09d46e2e9f9b97a1",
+      "scope": "Historical full collation against v4 by REV-PAPER-CESNAVICIUS-19. Bounded recheck of Proposition 2.2 on p.4 on 2026-10-02; same hash. This manuscript predates v4 and is not the Duke version of record."
+    }
+  ],
+  "repair": {
+    "job": "FIX-RT-PAPER-CESNAVICIUS-19",
+    "issue": 5514,
+    "agent": "Codex",
+    "session": "codex-rtOQ9t",
+    "date": "2026-10-02",
+    "findings": [
+      "RT-PAPER-CESNAVICIUS-19/1",
+      "RT-PAPER-CESNAVICIUS-19/2",
+      "RT-PAPER-CESNAVICIUS-19/3",
+      "RT-PAPER-CESNAVICIUS-19/4"
+    ],
+    "scope": "Shared source ownership, canonical E1/provenance, and missing Henselian smooth lifting. Historical completion and verification are preserved, not presented as new independent review.",
+    "counts": {
+      "items": 178,
+      "library": 15,
+      "planned": 12,
+      "missing": 151,
+      "routes": 18,
+      "definitions": 42,
+      "tests": 126
+    },
+    "lean": "No Lean deliverable or compilation."
   }
 }
