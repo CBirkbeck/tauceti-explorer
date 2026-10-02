@@ -44,6 +44,11 @@ import TauCeti.AlgebraicGeometry.WeilDivisor.Scheme.Basic
 import TauCeti.AlgebraicGeometry.Curves.StableReduction.Model.Basic
 import TauCeti.AlgebraicGeometry.EllipticCurve.PointCount
 
+import Mathlib.RingTheory.AdjoinRoot
+import Mathlib.Algebra.MvPolynomial.Eval
+import Mathlib.Algebra.Polynomial.RingDivision
+import Mathlib.Algebra.Algebra.Subalgebra.Basic
+
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
 open scoped Polynomial
 
@@ -953,3 +958,167 @@ example (k : Type u) [Field k] :
       ¬ Function.Injective f := by sorry
 
 end TauCeti.GenusOne.FerrandPushout
+
+/-!
+Quadratic pinching continuation, Codex codex-rtOQ9t, 2 October 2026.
+UNCOMPILED. These are concrete native carrier forms, not implementation claims.
+The final ledger retains the exact geometric interfaces that cannot yet be stated.
+-/
+namespace TauCeti.GenusOne.QuadraticPinch
+
+variable {k : Type u} [Field k]
+
+-- node: G.1/quadratic-pinch-algebra
+/-- The preimage of the constants in the native polynomial quotient. -/
+def algebra (q : k[X]) : Subalgebra k k[X] :=
+  (⊥ : Subalgebra k (AdjoinRoot q)).comap (AdjoinRoot.mkₐ q)
+
+lemma mem_algebra (q f : k[X]) :
+    f ∈ algebra q ↔ ∃ c : k, ∃ h : k[X], f = Polynomial.C c + q * h := by sorry
+
+lemma constants (q : k[X]) (c : k) : Polynomial.C c ∈ algebra q := by sorry
+
+-- node: G.1/quadratic-pinch-generation; API: QuadraticPinch.generation
+lemma generation (a b : k) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    algebra q = Algebra.adjoin k ({q, Polynomial.X * q} : Set k[X]) := by sorry
+
+-- test: QuadraticPinch.test_cusp
+example : algebra (Polynomial.X ^ 2 : k[X]) =
+    Algebra.adjoin k ({Polynomial.X ^ 2, Polynomial.X ^ 3} : Set k[X]) := by sorry
+
+-- test: QuadraticPinch.test_split
+example (h : (2 : k) ≠ 0) (f : k[X]) :
+    f ∈ algebra (Polynomial.X ^ 2 - 1) ↔ f.eval 1 = f.eval (-1) := by sorry
+
+-- test: QuadraticPinch.test_f4
+example :
+    let q : (ZMod 2)[X] := Polynomial.X ^ 2 + Polynomial.X + 1
+    Polynomial.X ∉ algebra q ∧ q ∈ algebra q ∧ Polynomial.X * q ∈ algebra q := by sorry
+
+-- node: G.1/quadratic-pinch-relation
+/-- U is coordinate0, V coordinate1; the cubic term is retained. -/
+def relation (a b : k) : MvPolynomial (Fin 2) k :=
+  MvPolynomial.X 1 ^ 2 + MvPolynomial.C a * MvPolynomial.X 0 * MvPolynomial.X 1 +
+    MvPolynomial.C b * MvPolynomial.X 0 ^ 2 - MvPolynomial.X 0 ^ 3
+
+lemma relation_eval (a b : k) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    MvPolynomial.aeval ![q, Polynomial.X * q] (relation a b) = 0 := by sorry
+
+lemma relation_quadratic (a b : k) :
+    relation a b + MvPolynomial.X 0 ^ 3 =
+      MvPolynomial.X 1 ^ 2 + MvPolynomial.C a * MvPolynomial.X 0 * MvPolynomial.X 1 +
+        MvPolynomial.C b * MvPolynomial.X 0 ^ 2 := by sorry
+
+lemma relation_origin (a b : k) :
+    MvPolynomial.aeval (![0,0] : Fin 2 → k) (relation a b) = 0 := by sorry
+
+-- test: QuadraticPinch.test_relation_cusp
+example : relation (0 : k) 0 = MvPolynomial.X 1 ^ 2 - MvPolynomial.X 0 ^ 3 := by sorry
+
+-- test: QuadraticPinch.test_relation_char2
+example : relation (1 : ZMod 2) 1 =
+    MvPolynomial.X 1 ^ 2 + MvPolynomial.X 0 * MvPolynomial.X 1 +
+      MvPolynomial.X 0 ^ 2 - MvPolynomial.X 0 ^ 3 := by sorry
+
+-- test: QuadraticPinch.test_relation_cubic
+example : MvPolynomial.aeval (![1,0] : Fin 2 → k) (relation (0 : k) 0) = -1 := by sorry
+
+-- node: G.1/quadratic-pinch-residue
+/-- Compute the unique scalar remainder, with the actual ring-map laws. -/
+def residue (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) : algebra q →ₐ[k] k where
+  toFun f := (f.val %ₘ q).coeff 0
+  map_zero' := by sorry
+  map_one' := by sorry
+  map_add' := by sorry
+  map_mul' := by sorry
+  commutes' := by sorry
+
+lemma residue_normal_form (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (f : algebra q) (c : k) (h : k[X]) (hf : f.val = Polynomial.C c + q * h) :
+    residue q hq hd f = c := by sorry
+
+lemma residue_surjective (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    Function.Surjective (residue q hq hd) := by sorry
+
+lemma residue_kernel (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    RingHom.ker (residue q hq hd).toRingHom =
+      (Ideal.span ({q} : Set k[X])).comap (algebra q).val.toRingHom := by sorry
+
+-- test: QuadraticPinch.test_residue_constant
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    residue q hq hd (algebraMap k (algebra q) 1) = 1 := by sorry
+
+-- test: QuadraticPinch.test_residue_q
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) (hmem : q ∈ algebra q) :
+    residue q hq hd ⟨q,hmem⟩ = 0 := by sorry
+
+-- test: QuadraticPinch.test_residue_tq
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (hmem : Polynomial.X * q ∈ algebra q) :
+    residue q hq hd ⟨Polynomial.X * q,hmem⟩ = 0 := by sorry
+
+-- node: G.1/quadratic-pinch-presentation
+/-- Canonical map, its image and its entire kernel, including inseparable quadratics. -/
+lemma presentation (a b : k) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    let ψ : MvPolynomial (Fin 2) k →ₐ[k] k[X] :=
+      MvPolynomial.aeval ![q, Polynomial.X * q]
+    ψ.range = algebra q ∧
+      RingHom.ker ψ.toRingHom = Ideal.span ({relation a b} : Set (MvPolynomial (Fin 2) k)) := by sorry
+
+-- node: G.1/quadratic-pinch-conductor
+lemma conductor (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    (algebra q).toSubring.conductor = Ideal.span ({q} : Set k[X]) := by sorry
+
+-- node: G.1/quadratic-pinch-normalization
+-- This is the finite inclusion part. The localization/fraction-field and native
+-- normalization comparison are named in the ledger below, not encoded by a new predicate.
+lemma finite_normalization (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    (algebra q).val.toRingHom.Finite := by sorry
+
+-- node: G.1/quadratic-point-proper-pushout
+/-- Generic proper Scheme pinching at one closed field point. This does not
+assert geometric genus or nodality without the P1/cohomology/branch exports. -/
+theorem proper_point_pushout {E : Type u} [Field E] [Algebra k E] [Module.Finite k E]
+    {Y : Scheme.{u}} (pY : Y ⟶ Spec (.of k)) [IsProper pY]
+    (i : Spec (.of E) ⟶ Y) [IsClosedImmersion i]
+    (hcompat : i ≫ pY = Spec.map (CommRingCat.ofHom (algebraMap k E))) :
+    ∃ (C : Scheme.{u}) (ν : Y ⟶ C) (j : Spec (.of k) ⟶ C) (pC : C ⟶ Spec (.of k)),
+      ν ≫ pC = pY ∧ j ≫ pC = 𝟙 _ ∧
+      GeometricPushout i (Spec.map (CommRingCat.ofHom (algebraMap k E))) ν j ∧
+      IsPushout i (Spec.map (CommRingCat.ofHom (algebraMap k E))) ν j ∧
+      IsPullback i (Spec.map (CommRingCat.ofHom (algebraMap k E))) ν j ∧
+      IsFinite ν ∧ Surjective ν ∧ IsClosedImmersion j ∧ IsProper pC := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch
+
+/-!
+## Exact quadratic-pinching signature omissions
+
+These targets are mathematical nodes in the reader, with their proof outlines and
+supplier requests. They have no invented Prop fields or opaque geometric predicates.
+
+* QuadraticPinch.finite_normalization: the native finite-inclusion part is above.
+  Add the canonical localization-at-q isomorphism commuting with the inclusion,
+  the fraction-field identification and SR.1's actual normalization comparison.
+* QuadraticPinch.tangent_branches: the native hypersurface and quadratic equation
+  are above. Add the local cotangent and associated-graded maps, SR.1's actual
+  node predicate/chart comparison and its finite-etale branch scheme; exclude
+  inseparable q from the nodal conclusion, including characteristic2.
+* QuadraticPinch.i1_genus: SF.3's scheme P1 and actual finite normalization,
+  conductor exact sequence with quotient j_*(E/k), H0=k and H1≅E/k,
+  geometric integrality and the two conjugate branch maps.
+* QuadraticPinch.i2_genus: the disjoint scheme P1 union and the specified residue
+  identifications, quotient j_*E and global map k²→E, (c1,c2)↦c1−c2;
+  connectedness and SR.1's fixed-vertex/conjugate-edge comparison.
+* QuadraticPinch.splitting: all four actual field-base-change arrows, the
+  canonical E tensor K comparison and SR.1's normalization/branch diagrams.
+* QuadraticPinch.extension_counts: the actual pinched Scheme Hom(Spec F_(q^n),C)
+  equivalences, finite P1 counts, quadratic embedding parity and reduction map.
+  For odd n counts are q^n+2 and2q^n+2; for even n they are q^n and2q^n.
+* GeometricPushout.nonsplit_node: the earlier omitted proper-P1/node test still
+  needs these exact P1 and branch exports. The generic proper-field-point
+  existence theorem above supplies existence/properness only; it is not that test.
+-/
