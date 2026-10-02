@@ -1,9 +1,159 @@
 # Algebraic moduli for arithmetic geometry: A0 extension
 
-The current packet has 163 declarations and ten planets. This is the reader for issue #672 and the packet with part A0-extension. It covers exactly A0-extension and R09.1–R09.7. It is a partial checkpoint: implementations are unchecked, requests are open, and none of the eight stages is closed. The declaration catalogue develops gerbes, arbitrary-module fpqc descent, torsor twisting and relative Picard descent. Full parameter spaces, Picard representability, Artin, algebraization and resolution remain work in this same scope. The full suggested Lean file is uncompiled; its Mathlib-only intrinsic-band extraction has been checked, as recorded in the native checkpoint below. Its exact type and signature omissions are recorded below rather than hidden by unspecified propositions.
+The current packet has 169 declarations and ten planets. This is the reader for issue #672 and the packet with part A0-extension. It covers exactly A0-extension and R09.1–R09.7. It is a partial checkpoint: implementations are unchecked, requests are open, and none of the eight stages is closed. The declaration catalogue develops gerbes, arbitrary-module fpqc descent, torsor twisting and relative Picard descent. Full parameter spaces, Picard representability, Artin, algebraization and resolution remain work in this same scope. The full suggested Lean file is uncompiled; its Mathlib-only intrinsic-band extraction has been checked, as recorded in the native checkpoint below. Its exact type and signature omissions are recorded below rather than hidden by unspecified propositions.
 
 
-## Current continuation: local conjugation through native descent
+## Current continuation: cover independence and reversible conjugation
+
+Codex — codex-J6LwjP, issue #672, base 4557261650818a24845bd3c8f195e393990ea9c0. Six consumed native leaves extend the packet from163 to169 declarations (16 definitions,40 constructions,80 lemmas,28 theorems,5 comparisons). All163 inherited statements, hypotheses, sources and mathematical acceptance/API/test contracts remain;162 complete inherited node objects are unchanged. Only the evaluation-surjectivity leaf gains prerequisites and a more precise proof frontier. The99 baseline declarations include one newly read pinned intersection-covering theorem. The packet contains205 raw API entries (197 on definitions/constructions) and185 raw mathematical tests (179 on definitions/constructions), ten planets, nine gaps,21 open requests and68 unchanged source routes. All eight coverage rows and the reserved gerbe key remain partial or not_read, with no closure.
+
+The covering-refinement theorem compares the lift on R with the lift on S when R≤S, although the two local object-isomorphism families may be unrelated. Restrict the S-lift to each actual arrow of R; native local recovery and commutative inertia identify it with the prescribed R-conjugate. Uniqueness on R proves equality. Two unrelated covering sieves are compared through their actual intersection, which the pinned topology already proves covering. This removes the previously explicit cover-change obligation without creating another cover, descent or stack carrier.
+
+Reverse local isomorphisms give inverse transport: recovery twice and native descent faithfulness recover every original automorphism. The inherited group homomorphism therefore yields an actual MulEquiv Aut(x)≃*Aut(y), with the specified forward and inverse maps, native group laws, local restrictions and global-isomorphism comparison. Whole-equivalence extensionality proves independence of the covering sieve. Finally, on one cover, transport x→y→z equals x→z for arbitrary choices of all three local isomorphism families: their composite and the direct family induce equal conjugations by abelian inertia. This is the same-base cocycle used by the intrinsic-band route.
+
+The seven mathematical equivalence tests retain both round trips, every local restriction, agreement with a global native conjugation equivalence, equality under unrelated covers, native products and the identity equivalence when x=y despite arbitrary local automorphisms. These detect loss of source or target automorphisms and a wrong labelled conjugation map. They are generic equations in the actual pinned carriers; no new geometric-site fixture or finite-model receipt is claimed.
+
+The complete checked native source has564 lines,18 examples and32 kernel audits, with zero errors, warnings, admissions or admitted dependencies; Elapsed 2.30 seconds; peak 2073768 KiB. Its immutable archive is [66ab10c1324aa6942326f55697ce5d776118d061](https://github.com/CBirkbeck/tauceti-explorer/commit/66ab10c1324aa6942326f55697ce5d776118d061). All13 new declaration/API headers and seven example headers are retained exactly in the suggested file, with their final bodies admitted under PROTOCOL§13. The1531-line Mathlib-only admitted extraction has60 examples, zero errors,111 admission warnings and no other warnings; Elapsed 5.50 seconds; peak 3346136 KiB. The full2913-line suggested file remains uncompiled because the existing pinned build lacks the imported TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence artifact; no dependency was built.
+
+The actual atlas assembler retains all stage edges and unrelated skips. Stage, own-declaration and combined dependency DAGs are acyclic; all24 old required supplier paths remain reachable, with no own skipped or pending links. The combined graph contains the169 own nodes plus three reachable D0 declarations. Parent-stage→declaration edges in this diagnostic graph provide context only; they do not assert that a stage has been proved or realised.
+
+Fresh reading covers the entire printed [Stacks Lemma8.11.8](https://stacks.math.columbia.edu/tag/0CJY) and [Definition8.4.1](https://stacks.math.columbia.edu/tag/026F), the current eight reviewed audit rows, all163 node statements/hypotheses, full predecessor handoff, accepted RS27 decisions/report, applicable ModularCurves links, confirmed finding claims/verdicts and the gerbe reserved contract. Historical whole-source reading receipts retain their original attribution. The new adapters are derived from the local-conjugation argument; they are not proofs printed by the source, whose varying-base conclusion is explicitly omitted.
+
+Still prove compatibility of the conjugation equivalence with arbitrary further base arrows, retaining native mapComp and mapId, before assembling natural centre units and proving evaluation surjectivity. The chosen-band inverse, SF1 slice comparison, connected/disconnected point sites, restriction-chain site and nonneutral O(1) root-gerbe fixtures remain open, as do all inherited non-gerbe scope gaps. Generic stack/descent belongs to D0, spaces/sites/diagonals/atlases to SF1, coherent duality and stable pointed-curve moduli to their reserved suppliers, and abelian/PEL applications downstream.
+
+### New declaration catalogue
+
+#### Conjugation transport respects covering refinement
+
+Identifier: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-refinement. Proposed declaration: TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut_refinement.
+
+For covering sieves R≤S on U and arbitrary local isomorphism families e on R and d on S between pullbacks of x,y, the descended conjugations of every a∈Aut(x) are equal.
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor, and every automorphism group of every fibre object is commutative. All indexed families use sufficiently large fixed universes. Fix U and actual objects x,y in F(U). R is a sieve on U, indexed by its native R.arrows.category, and e_i:F(i)^*x ≅ F(i)^*y is given at each of its arrows. The choices e_i need not form an isomorphism of descent data. No terminal object, fibre products, chosen coefficient sheaf, banding or global neutrality assumption is made. F satisfies the existing IsPrestack J condition, and R belongs to J(U). Only morphism descent is used; object-effectivity and groupoid fibres are not additional hypotheses.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-unique, AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-local, AlgebraicModuliForArithmeticGeometry:R09.4/banding-iso-independent.
+
+Proof route: Use uniqueness on the smaller covering sieve R. Regard its actual arrow i as an arrow of S by the inclusion proof, retaining the same underlying arrow. Recovery of the S-lift at that arrow and abelian choice independence identify its restriction with the prescribed e_i conjugate. No coherence between the two families is assumed.
+
+Acceptance: Both sieves must be covering; arbitrary smaller noncovering sieves do not detect equality.
+
+Source: Stacks8.11.8 local conjugation/gluing and three-object compatibility; derived native adapter. Library: TauCeti/AlgebraicGeometry/Stacks/Gerbes, TauCeti.AlgebraicGeometry.GerbeAutTransport. Implementation status: unchecked.
+
+#### Conjugation transport is independent of its cover
+
+Identifier: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-independent. Proposed declaration: TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut_cover_independent.
+
+Two arbitrary covering sieves R,S on U and independently chosen local isomorphism families give the same automorphism of y for each a∈Aut(x).
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor, and every automorphism group of every fibre object is commutative. All indexed families use sufficiently large fixed universes. Fix U and actual objects x,y in F(U). R is a sieve on U, indexed by its native R.arrows.category, and e_i:F(i)^*x ≅ F(i)^*y is given at each of its arrows. The choices e_i need not form an isomorphism of descent data. No terminal object, fibre products, chosen coefficient sheaf, banding or global neutrality assumption is made. F satisfies the existing IsPrestack J condition, and R belongs to J(U). Only morphism descent is used; object-effectivity and groupoid fibres are not additional hypotheses.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-refinement, mathlib:CategoryTheory.GrothendieckTopology.intersection_covering.
+
+Proof route: Take the actual sieve intersection R⊓S; its covering property is the pinned Grothendieck-topology theorem. Restrict the R-family to the intersection. Apply refinement comparison to its two inclusions and compose the resulting equalities.
+
+Acceptance: Neither covering sieve is required to contain the other.
+
+Source: Stacks8.11.8 local conjugation/gluing and three-object compatibility; derived native adapter. Library: TauCeti/AlgebraicGeometry/Stacks/Gerbes, TauCeti.AlgebraicGeometry.GerbeAutTransport. Implementation status: unchecked.
+
+#### Inverse local isomorphisms reverse transport
+
+Identifier: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-reverse. Proposed declaration: TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut_reverse.
+
+Transport a∈Aut(x) to Aut(y) through e_i and then transport back through e_i⁻¹ on the same covering sieve. The result equals a as a native automorphism.
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor, and every automorphism group of every fibre object is commutative. All indexed families use sufficiently large fixed universes. Fix U and actual objects x,y in F(U). R is a sieve on U, indexed by its native R.arrows.category, and e_i:F(i)^*x ≅ F(i)^*y is given at each of its arrows. The choices e_i need not form an isomorphism of descent data. No terminal object, fibre products, chosen coefficient sheaf, banding or global neutrality assumption is made. F satisfies the existing IsPrestack J condition, and R belongs to J(U). Only morphism descent is used; object-effectivity and groupoid fibres are not additional hypotheses.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-local.
+
+Proof route: Apply native descent faithfulness to compare the returned automorphism with a. Recovery twice reduces every component to conjugation by e_i followed by e_i inverse. Native isomorphism cancellation gives the original component.
+
+Acceptance: The conclusion recovers arbitrary automorphisms, not merely the unit or a conjugacy class.
+
+Source: Stacks8.11.8 local conjugation/gluing and three-object compatibility; derived native adapter. Library: TauCeti/AlgebraicGeometry/Stacks/Gerbes, TauCeti.AlgebraicGeometry.GerbeAutTransport. Implementation status: unchecked.
+
+#### Covering conjugation gives an automorphism-group equivalence
+
+Identifier: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-equivalence. Proposed declaration: TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverEquiv.
+
+For a covering sieve and local isomorphisms between pullbacks of x,y, the existing descended group homomorphism is a native multiplicative equivalence Aut(x)≃*Aut(y). Its inverse is transport through the inverse local isomorphisms.
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor, and every automorphism group of every fibre object is commutative. All indexed families use sufficiently large fixed universes. Fix U and actual objects x,y in F(U). R is a sieve on U, indexed by its native R.arrows.category, and e_i:F(i)^*x ≅ F(i)^*y is given at each of its arrows. The choices e_i need not form an isomorphism of descent data. No terminal object, fibre products, chosen coefficient sheaf, banding or global neutrality assumption is made. F satisfies the existing IsPrestack J condition, and R belongs to J(U). Only morphism descent is used; object-effectivity and groupoid fibres are not additional hypotheses.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-hom, AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-reverse, AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-global-iso.
+
+Proof route: Use the inherited group homomorphism as the forward map and the reversed-family homomorphism as the inverse. The reversal theorem proves both inverse identities, first for e and then for e inverse. Retain the homomorphism multiplication law in the native MulEquiv structure.
+
+API TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverEquiv_apply: The equivalence value at a is conjugateCoverAut for the same data.
+
+API TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverEquiv_symm_apply: Its inverse value at b is conjugateCoverAut for the inverse local isomorphisms.
+
+API TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverEquiv_mapIso: Each actual covering restriction of its value is the prescribed local conjugate.
+
+API TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverEquiv_of_iso: If d:x≅y is global, the whole equivalence equals Mathlib Aut.autMulEquivOfIso d.
+
+API TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverEquiv_one: The equivalence sends the identity automorphism to the identity.
+
+API TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverEquiv_mul: It preserves native Aut multiplication, in its existing composition order.
+
+API TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverEquiv_inv: It sends the inverse automorphism to the inverse of its value.
+
+Test GerbeCoverEquivTests.equalObject: When y=x, arbitrary local x-to-x isomorphisms induce the native identity equivalence on Aut(x).
+
+Test GerbeCoverEquivTests.roundTrip: Transporting any source automorphism and then applying the inverse equivalence recovers that automorphism.
+
+Test GerbeCoverEquivTests.targetRoundTrip: Applying the inverse to any target automorphism and then the forward equivalence recovers that target automorphism.
+
+Test GerbeCoverEquivTests.local: Every native covering restriction of the value is the prescribed local conjugation, as an actual isomorphism.
+
+Test GerbeCoverEquivTests.globalIso: Given a global isomorphism d, the equivalence is exactly the labelled native conjugation equivalence through d.
+
+Test GerbeCoverEquivTests.changeCover: Two unrelated actual covering sieves and arbitrary local choices give equal whole multiplicative equivalences.
+
+Test GerbeCoverEquivTests.product: The value at a*b equals the product of the two values in the native Aut group.
+
+Use AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-equivalence-independent: Supplies the actual native equivalence whose equality under cover changes is proved.
+
+Use AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-surjective: Supplies locally invertible object-automorphism transport with group laws. Further base-arrow compatibility and assembly into centre units remain obligations.
+
+Use AlgebraicModuliForArithmeticGeometry:R09.4/band-center-glued-comparison: The local intrinsic automorphism-sheaf comparisons must be equivalences with their specified inverse, as in Stacks8.11.8; this is the fixed-base value construction only.
+
+Acceptance: The forward value is the previously descended automorphism; no new carrier or abstract equivalence replacing the labelled map is introduced.
+
+Source: Stacks8.11.8 local conjugation/gluing and three-object compatibility; derived native adapter. Library: TauCeti/AlgebraicGeometry/Stacks/Gerbes, TauCeti.AlgebraicGeometry.GerbeAutTransport. Implementation status: unchecked.
+
+#### The whole group equivalence is independent of the cover
+
+Identifier: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-equivalence-independent. Proposed declaration: TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverEquiv_cover_independent.
+
+The native equivalences Aut(x)≃*Aut(y) produced from any two covering sieves and arbitrary local isomorphism families are equal as multiplicative equivalences.
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor, and every automorphism group of every fibre object is commutative. All indexed families use sufficiently large fixed universes. Fix U and actual objects x,y in F(U). R is a sieve on U, indexed by its native R.arrows.category, and e_i:F(i)^*x ≅ F(i)^*y is given at each of its arrows. The choices e_i need not form an isomorphism of descent data. No terminal object, fibre products, chosen coefficient sheaf, banding or global neutrality assumption is made. F satisfies the existing IsPrestack J condition, and R belongs to J(U). Only morphism descent is used; object-effectivity and groupoid fibres are not additional hypotheses.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-equivalence, AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-independent.
+
+Proof route: Use native multiplicative-equivalence extensionality. Pointwise equality is the covering-independence theorem for the actual descended automorphism values. Equality of equivalences retains the specified inverse.
+
+Acceptance: Comparison is between whole native equivalences, with no assumed global x-to-y isomorphism.
+
+Source: Stacks8.11.8 local conjugation/gluing and three-object compatibility; derived native adapter. Library: TauCeti/AlgebraicGeometry/Stacks/Gerbes, TauCeti.AlgebraicGeometry.GerbeAutTransport. Implementation status: unchecked.
+
+#### Same-base conjugation transport satisfies the cocycle law
+
+Identifier: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-composition. Proposed declaration: TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut_comp.
+
+On one covering sieve, let e_i relate x to y, d_i relate y to z and c_i relate x to z, with all three families chosen independently. Transport through e and then d equals transport through c for every a∈Aut(x).
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor, and every automorphism group of every fibre object is commutative. All indexed families use sufficiently large fixed universes. Fix U and actual objects x,y in F(U). R is a sieve on U, indexed by its native R.arrows.category, and e_i:F(i)^*x ≅ F(i)^*y is given at each of its arrows. The choices e_i need not form an isomorphism of descent data. No terminal object, fibre products, chosen coefficient sheaf, banding or global neutrality assumption is made. F satisfies the existing IsPrestack J condition, and R belongs to J(U). Only morphism descent is used; object-effectivity and groupoid fibres are not additional hypotheses.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-unique, AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-local, AlgebraicModuliForArithmeticGeometry:R09.4/banding-iso-independent.
+
+Proof route: Apply uniqueness to the c-family and recover each of the two successive restrictions. Native conjugation through e_i followed by d_i is conjugation through e_i≪≫d_i. Abelian choice independence compares this composite with the unrelated c_i.
+
+Acceptance: The direct family need not be the composite family. This is a same-base cocycle; compatibility across further base arrows remains open.
+
+Source: Stacks8.11.8 local conjugation/gluing and three-object compatibility; derived native adapter. Library: TauCeti/AlgebraicGeometry/Stacks/Gerbes, TauCeti.AlgebraicGeometry.GerbeAutTransport. Implementation status: unchecked.
+
+## Preceding continuation: local conjugation through native descent
 
 Codex — codex-5ebb6f adds eight leaves to the 155-node packet, giving163 declarations,198 total API items and178 mathematical tests. All155 earlier statements remain, with153 complete node objects unchanged. The existing choice-independence leaf gains native functoriality adapters; the evaluation-surjectivity leaf gains the checked covering suppliers and an explicit remaining-work boundary. All68 source routes,21 requests,98 baseline references,10 planets and nine gaps remain. The preceding continuation sections and their counts are historical.
 

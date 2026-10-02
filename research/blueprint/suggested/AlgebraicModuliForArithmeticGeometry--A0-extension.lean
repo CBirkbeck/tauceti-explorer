@@ -2743,3 +2743,171 @@ example (a : Aut x)
 end GerbeAutTransport
 
 end TauCeti.AlgebraicGeometry
+
+/-! Cover-refinement continuation: fixed-base transport only.
+The complete checked proof is archived in the handoff's immutable commit;
+all suggested bodies below are admitted under PROTOCOL section13. -/
+namespace TauCeti.AlgebraicGeometry.GerbeAutTransport
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+variable (hComm : ∀ (V : C) (z : F.obj (.mk (op V))),
+  ∀ a b : Aut z, a * b = b * a)
+variable (J : GrothendieckTopology C) [F.IsPrestack J]
+include hComm
+theorem conjugateCoverAut_refinement {U : C} (R S : Sieve U)
+    (hR : R ∈ J U) (hS : S ∈ J U) (hRS : R ≤ S)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+    (d : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) :
+    conjugateCoverAut F hComm J R hR x y e a =
+      conjugateCoverAut F hComm J S hS x y d a := by
+  sorry
+
+theorem conjugateCoverAut_cover_independent {U : C} (R S : Sieve U)
+    (hR : R ∈ J U) (hS : S ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+    (d : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) :
+    conjugateCoverAut F hComm J R hR x y e a =
+      conjugateCoverAut F hComm J S hS x y d a := by
+  sorry
+
+theorem conjugateCoverAut_reverse {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) :
+    conjugateCoverAut F hComm J R hR y x (fun i => (e i).symm)
+      (conjugateCoverAut F hComm J R hR x y e a) = a := by
+  sorry
+
+noncomputable def conjugateCoverEquiv
+    (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+    (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) : Aut x ≃* Aut y := by
+  sorry
+
+theorem conjugateCoverEquiv_cover_independent {U : C} (R S : Sieve U)
+    (hR : R ∈ J U) (hS : S ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+    (d : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) :
+    conjugateCoverEquiv F hComm J R hR x y e =
+      conjugateCoverEquiv F hComm J S hS x y d := by
+  sorry
+
+theorem conjugateCoverAut_comp {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y z : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+    (d : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj y ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj z)
+    (c : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj z) (a : Aut x) :
+    conjugateCoverAut F hComm J R hR y z d
+      (conjugateCoverAut F hComm J R hR x y e a) =
+    conjugateCoverAut F hComm J R hR x z c a := by
+  sorry
+
+variable {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+
+theorem conjugateCoverEquiv_apply (a : Aut x) :
+    conjugateCoverEquiv F hComm J R hR x y e a =
+      conjugateCoverAut F hComm J R hR x y e a := by
+  sorry
+
+theorem conjugateCoverEquiv_symm_apply (b : Aut y) :
+    (conjugateCoverEquiv F hComm J R hR x y e).symm b =
+      conjugateCoverAut F hComm J R hR y x (fun i => (e i).symm) b := by
+  sorry
+
+theorem conjugateCoverEquiv_mapIso (a : Aut x) (i : R.arrows.category) :
+    (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y
+      (conjugateCoverEquiv F hComm J R hR x y e a) =
+      Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a) := by
+  sorry
+
+theorem conjugateCoverEquiv_of_iso (d : x ≅ y) :
+    conjugateCoverEquiv F hComm J R hR x y e = Aut.autMulEquivOfIso d := by
+  sorry
+
+theorem conjugateCoverEquiv_one : conjugateCoverEquiv F hComm J R hR x y e 1 = 1 := by
+  sorry
+
+theorem conjugateCoverEquiv_mul (a b : Aut x) :
+    conjugateCoverEquiv F hComm J R hR x y e (a * b) =
+      conjugateCoverEquiv F hComm J R hR x y e a * conjugateCoverEquiv F hComm J R hR x y e b := by
+  sorry
+
+theorem conjugateCoverEquiv_inv (a : Aut x) :
+    conjugateCoverEquiv F hComm J R hR x y e a⁻¹ =
+      (conjugateCoverEquiv F hComm J R hR x y e a)⁻¹ := by
+  sorry
+
+-- GerbeCoverEquivTests.equalObject: arbitrary local automorphisms induce the identity equivalence.
+example (e₀ : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj x) :
+    conjugateCoverEquiv F hComm J R hR x x e₀ = MulEquiv.refl (Aut x) := by
+  sorry
+
+-- GerbeCoverEquivTests.roundTrip: the inverse must recover arbitrary source automorphisms.
+example (a : Aut x) :
+    (conjugateCoverEquiv F hComm J R hR x y e).symm
+      (conjugateCoverEquiv F hComm J R hR x y e a) = a := by
+  sorry
+
+-- GerbeCoverEquivTests.targetRoundTrip: no target automorphism may be lost.
+example (b : Aut y) :
+    conjugateCoverEquiv F hComm J R hR x y e
+      ((conjugateCoverEquiv F hComm J R hR x y e).symm b) = b := by
+  sorry
+
+-- GerbeCoverEquivTests.local: actual restrictions identify the equivalence with conjugation.
+example (a : Aut x) (i : R.arrows.category) :
+    (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y
+      (conjugateCoverEquiv F hComm J R hR x y e a) =
+      Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a) := by
+  sorry
+
+-- GerbeCoverEquivTests.globalIso: retain the labelled native Mathlib conjugation map.
+example (d : x ≅ y) : conjugateCoverEquiv F hComm J R hR x y e = Aut.autMulEquivOfIso d := by
+  sorry
+
+-- GerbeCoverEquivTests.changeCover: compare whole maps on unrelated actual covering sieves.
+example (S : Sieve U) (hS : S ∈ J U)
+    (d : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) :
+    conjugateCoverEquiv F hComm J R hR x y e = conjugateCoverEquiv F hComm J S hS x y d := by
+  sorry
+
+-- GerbeCoverEquivTests.product: multiplication is the existing native Aut multiplication.
+example (a b : Aut x) : conjugateCoverEquiv F hComm J R hR x y e (a * b) =
+    conjugateCoverEquiv F hComm J R hR x y e a * conjugateCoverEquiv F hComm J R hR x y e b := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.GerbeAutTransport
