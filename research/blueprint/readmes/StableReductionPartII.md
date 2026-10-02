@@ -10,9 +10,9 @@ traits. Here those objects become moduli groupoids and stack morphisms; the
 parent is imported rather than planned a second time. Stable-map moduli are
 not constructed in this continuation.
 
-Every stage is partial. The packet records 157 declaration nodes, 177 distinct
-API names (179 entries across all nodes; 178 definition/construction entries), 162 definition/construction tests plus two exactness
-tests, 35 planets, 135 precise supplier requests, fourteen gaps and 92 inspected
+Every stage is partial. The packet records 161 declaration nodes, 181 distinct
+API names (183 entries across all nodes; 182 definition/construction entries), 168 definition/construction tests plus two exactness
+tests, 35 planets, 135 precise supplier requests, fourteen gaps and 98 inspected
 pinned-library declarations. Every implementation status remains unchecked.
 The complete canonical suggested file is an admitted plan. Separate native
 proof checks establish the section-dual calculation described below; they do
@@ -41,6 +41,22 @@ splitting are explicit arbitrary-ring algebra deductions verified on the native
 quotient; they do not extend the published relative stable-reflexivity or
 completed-family theorem. Earlier whole-paper, Appendix and PDF receipts are
 historical. Bourbaki and the cited unproved exercise remain open.
+
+## Coefficient projectivity and tensor retraction
+
+The actual ideal J is projective over A because its native inclusion into the
+A-free quotient R has the canonical A-linear sectionProjection as a retraction.
+The actual R-linear dual D is A-free by its constructed coefficient-linear
+normal equivalence with R×A. The existing projective/free-flat instances give
+both previously planned coefficient-flatness statements.
+
+For every A-module M, tensoring the actual inclusion and projection preserves
+their retraction identity; the tensor inclusion is therefore injective without
+assuming M flat. Six new checked examples cover Z/4, the zero ring and the
+torsion coefficient module Z/2 over Z. This does not establish tensor exactness
+of the alternating matrix complex or the canonical tensor-dual comparison.
+Matrix cokernels, Hom/Ext exchange, completion and all family geometry remain
+open. The durable native proof extraction and exact checks are in the handoff.
 
 ## Canonical coefficient splitting
 
