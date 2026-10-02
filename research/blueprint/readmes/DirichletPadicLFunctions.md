@@ -58393,3 +58393,463 @@ Exact integer controls at48cyclic point groups check 4896 representation_multipl
 All seventy-nine captured inputs, four actual merged predecessor outputs and the full issue body are unchanged. The native mathematical declarations were read at the pinned commits. No new source finding or independent review is added.
 
 The separate partial signature file also compiled with zero errors and 5,769 expected placeholder warnings across 3,663 pinned source modules. It includes all 15 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 35bc7a82221d92a4d77757ab44ace95d211cbcdfdc38613238afdab3945eed2c.
+
+
+## Concrete integral Tate comparisons and representative classes
+
+Sixteen L3 nodes identify the native low-degree Tate groups of the original point-action representation with the actual integral parity kernel/image quotients, and construct representative maps with exact zero, equality and surjectivity APIs. All1,937predecessor nodes and1,205baseline records remain whole.
+
+Kubert published200, Corollary4.15 and its proof were read against the retained full published source and E25. The full native low-degree Tate file and periodicity interfaces were read at the pinned Tau commit; generic theory is already implemented and is not replanned. Sixteen exact baseline statements and their hypotheses were read. Ownership checks retain KTheoryFiniteLocalFields and ArithmeticGaloisDuality uses of native Tate, and FF.4 ownership of generic Galois rings. Concrete Tate carriers here are restricted to X:Type to match the native integer-coefficient universe; no universe-polymorphic comparison is claimed.
+
+### Invariants of the actual point representation are fixed elements
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-invariants-iff` — `DirichletPadic.kubertSign_invariants_iff`
+
+An actual z in Q belongs to the native invariant submodule of rho if and only if j(z)=z.
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. The native cyclic invariant criterion applies because the actual residue1 was proved to generate every element of Multiplicative(ZMod2).
+2. Replace the actual generator action by the previously proved point-negation formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-group-generator`, `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-generator`, `mathlib:Representation.invariants`, `mathlib:Representation.mem_invariants_iff_of_forall_mem_zpowers`.
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.sign_invariants_iff_typed_api` (compatibility): An actual z in Q belongs to the native invariant submodule of rho if and only if j(z)=z.
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+### The native invariant submodule is the actual even kernel
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-invariants-eq-even-kernel` — `DirichletPadic.kubertSign_invariants_eq_even_kernel`
+
+The native integer submodule of rho-invariants equals the kernel of the original integer-linear operator d_even.
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. Apply submodule extensionality at an arbitrary original quotient element.
+2. Use the fixed-element criterion.
+3. Expand d_even(z)=j(z)−z; its vanishing is exactly the fixed-element equation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-invariants-iff`, `DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-apply`, `mathlib:LinearMap.ker`.
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.sign_invariants_eq_even_kernel_typed_api` (compatibility): The native integer submodule of rho-invariants equals the kernel of the original integer-linear operator d_even.
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+### The actual norm kernel consists of anti-invariant elements
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-norm-kernel-iff` — `DirichletPadic.kubertSign_norm_kernel_iff`
+
+An actual z belongs to the kernel of the native representation norm if and only if j(z)=−z.
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. Use the actual norm formula N(z)=z+j(z).
+2. Commute the terms and use the native additive characterization of a sum being zero. No division by2 is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-norm-apply`, `mathlib:LinearMap.ker`.
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.sign_norm_kernel_iff_typed_api` (compatibility): An actual z belongs to the kernel of the native representation norm if and only if j(z)=−z.
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+### The native augmentation submodule is the actual even image
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-coinvariants-eq-even-range` — `DirichletPadic.kubertSign_coinvariants_eq_even_range`
+
+The native coinvariants kernel of rho equals the integer-linear image of the original operator d_even.
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. Apply the native finite-cyclic coinvariants-kernel theorem with the proved actual generator.
+2. Replace rho(generator) minus identity by the existing even parity operator.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-group-generator`, `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-difference-operator`, `mathlib:Representation.Coinvariants.ker`, `mathlib:Representation.FiniteCyclicGroup.coinvariantsKer_eq_range`, `mathlib:LinearMap.range`.
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.sign_coinvariants_eq_even_range_typed_api` (compatibility): The native coinvariants kernel of rho equals the integer-linear image of the original operator d_even.
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+### The concrete degree-zero Tate comparison
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-equiv` — `DirichletPadic.kubertSignTateZeroEquiv`
+
+Construct an actual integer-linear equivalence from native degree-zero Tate cohomology of Rep.of(rho) to ker(d_even) modulo the restriction of im(d_odd) to that kernel.
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. Apply the existing native low-degree Tate isomorphism to Rep.of of the actual representation.
+2. Convert this native ModuleCat isomorphism to an integer-linear equivalence.
+3. First state its target using the explicit original native invariant or norm kernel and native norm image or coinvariants kernel. Then rewrite the proved norm-operator identity and the concrete invariant-kernel or augmentation-image identity.
+4. The result has the exact actual parity kernel and restricted image as target; no replacement carrier or assumed isomorphism is introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation`, `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-norm-operator`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-invariants-eq-even-kernel`, `DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-odd-range-le-even-ker`, `mathlib:tateCohomology`, `mathlib:Rep.of`, `tauceti:TauCeti.TateCohomology.H0IsoNormQuotient`, `mathlib:CategoryTheory.Iso.toLinearEquiv`, `mathlib:LinearMap.ker`, `mathlib:LinearMap.range`, `mathlib:Submodule.submoduleOf`.
+
+**Uses:**
+
+- Kubert200, Corollary4.15: Supplies actual degree-specific kernel/image representatives before identifying the torsion of source parity quotients under separately proved hypotheses.
+- Concrete native Tate interface for the original distribution module: Allows an actual representative, boundary or equality calculation to be transported to the native cohomology carrier with all signs and degrees explicit.
+
+**API:**
+
+- `kubertSignTateZeroEquiv_class` (compatibility): The concrete comparison sends the Tate class of each actual z in ker(d_even) to its native quotient class modulo the restricted image of d_odd.
+- `kubertSignTateZeroClass_eq_zero_iff` (compatibility): The native Tate class of z in ker(d_even) vanishes if and only if the underlying element z belongs to the actual integer-linear image of d_odd.
+- `kubertSignTateZeroClass_eq_iff` (compatibility): Two elements z,z_prime in ker(d_even) define the same native Tate class if and only if their underlying difference belongs to the actual image of d_odd.
+- `kubertSignTateZeroClass_surjective` (compatibility): Every native degree-zero Tate class is the class of an actual element in ker(d_even).
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.signTateZeroEquiv_roundtrip` (compatibility): The comparison roundtrip recovers every native Tate class for the actual free integer permutation module on ZMod5.
+- `SuggestedKubertTateLowDegreeTests.zero_comparison_fixed_class_order_two` (non-example): The inverse comparison sends the quotient class of the zero-labelled fixed generator to a nonzero native degree-zero Tate class killed by2. The integral quotient is not collapsed to zero.
+- `SuggestedKubertTateLowDegreeTests.zero_comparison_two_point_norm_boundary` (computation): The fixed representative[1]+[4] is the full norm of[1]; its inverse comparison is the zero Tate class.
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+### Actual representatives in degree-zero Tate cohomology
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class` — `DirichletPadic.kubertSignTateZeroClass`
+
+Construct the integer-linear map from the actual kernel of d_even to native degree-zero Tate cohomology by quotienting by the restricted image of d_odd and applying the inverse concrete comparison.
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. Use the native linear quotient map of the actual restricted image submodule.
+2. Compose this map with the inverse linear equivalence of the concrete Tate comparison.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-equiv`, `mathlib:Submodule.mkQ`.
+
+**Uses:**
+
+- Kubert200, Corollary4.15: Supplies actual degree-specific kernel/image representatives before identifying the torsion of source parity quotients under separately proved hypotheses.
+- Concrete native Tate interface for the original distribution module: Allows an actual representative, boundary or equality calculation to be transported to the native cohomology carrier with all signs and degrees explicit.
+
+**API:**
+
+- `kubertSignTateZeroEquiv_class` (compatibility): The concrete comparison sends the Tate class of each actual z in ker(d_even) to its native quotient class modulo the restricted image of d_odd.
+- `kubertSignTateZeroClass_eq_zero_iff` (compatibility): The native Tate class of z in ker(d_even) vanishes if and only if the underlying element z belongs to the actual integer-linear image of d_odd.
+- `kubertSignTateZeroClass_eq_iff` (compatibility): Two elements z,z_prime in ker(d_even) define the same native Tate class if and only if their underlying difference belongs to the actual image of d_odd.
+- `kubertSignTateZeroClass_surjective` (compatibility): Every native degree-zero Tate class is the class of an actual element in ker(d_even).
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.zero_class_fixed_generator_nonzero` (non-example): The fixed generator labelled0 has a nonzero degree-zero Tate class in the actual empty-relation quotient.
+- `SuggestedKubertTateLowDegreeTests.zero_class_fixed_generator_two_torsion` (computation): Twice the fixed zero-labelled generator is its full two-element norm and hence has zero degree-zero Tate class.
+- `SuggestedKubertTateLowDegreeTests.zero_class_distinct_representatives_same_class` (characterisation): The distinct invariant representatives[0] and3[0] define the same Tate class because their difference is a norm; both represent a nonzero class.
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+### The degree-zero comparison evaluates on representatives
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-equiv-class` — `DirichletPadic.kubertSignTateZeroEquiv_class`
+
+The concrete comparison sends the Tate class of each actual z in ker(d_even) to its native quotient class modulo the restricted image of d_odd.
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. Expand the representative map as inverse comparison composed with the native quotient map.
+2. Apply the native equivalence inverse cancellation law.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.signTateZeroEquiv_class_typed_api` (compatibility): The concrete comparison sends the Tate class of each actual z in ker(d_even) to its native quotient class modulo the restricted image of d_odd.
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+### Zero criterion for degree-zero representatives
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class-eq-zero-iff` — `DirichletPadic.kubertSignTateZeroClass_eq_zero_iff`
+
+The native Tate class of z in ker(d_even) vanishes if and only if the underlying element z belongs to the actual integer-linear image of d_odd.
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. The inverse comparison is injective and preserves zero, so the class vanishes exactly when the native quotient class vanishes.
+2. Apply the native quotient zero criterion with the exact restricted image submodule and kernel element supplied explicitly.
+3. Membership in submoduleOf is exactly membership of the underlying element in the original image.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-equiv`, `mathlib:LinearEquiv.map_eq_zero_iff`, `mathlib:Submodule.Quotient.mk_eq_zero`, `mathlib:Submodule.submoduleOf`.
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.signTateZeroClass_eq_zero_iff_typed_api` (compatibility): The native Tate class of z in ker(d_even) vanishes if and only if the underlying element z belongs to the actual integer-linear image of d_odd.
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+### Equality criterion for degree-zero representatives
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class-eq-iff` — `DirichletPadic.kubertSignTateZeroClass_eq_iff`
+
+Two elements z,z_prime in ker(d_even) define the same native Tate class if and only if their underlying difference belongs to the actual image of d_odd.
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. Rewrite equality as the difference of classes being zero.
+2. The representative map is linear, so this difference is the class of the difference.
+3. Apply the proved zero criterion and the native subtype subtraction formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class-eq-zero-iff`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class`.
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.signTateZeroClass_eq_iff_typed_api` (compatibility): Two elements z,z_prime in ker(d_even) define the same native Tate class if and only if their underlying difference belongs to the actual image of d_odd.
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+### Every degree-zero Tate class has an actual representative
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class-surjective` — `DirichletPadic.kubertSignTateZeroClass_surjective`
+
+Every native degree-zero Tate class is the class of an actual element in ker(d_even).
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. The actual native quotient map is surjective.
+2. The inverse concrete comparison is surjective.
+3. Compose these two actual surjectivity proofs.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-equiv`, `mathlib:Submodule.mkQ_surjective`.
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.signTateZeroClass_surjective_typed_api` (compatibility): Every native degree-zero Tate class is the class of an actual element in ker(d_even).
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+### The concrete degree-minus-one Tate comparison
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-equiv` — `DirichletPadic.kubertSignTateNegOneEquiv`
+
+Construct an actual integer-linear equivalence from native degree-minus-one Tate cohomology of Rep.of(rho) to ker(d_odd) modulo the restriction of im(d_even) to that kernel.
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. Apply the existing native low-degree Tate isomorphism to Rep.of of the actual representation.
+2. Convert this native ModuleCat isomorphism to an integer-linear equivalence.
+3. First state its target using the explicit original native invariant or norm kernel and native norm image or coinvariants kernel. Then rewrite the proved norm-operator identity and the concrete invariant-kernel or augmentation-image identity.
+4. The result has the exact actual parity kernel and restricted image as target; no replacement carrier or assumed isomorphism is introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation`, `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-norm-operator`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-coinvariants-eq-even-range`, `DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-even-range-le-odd-ker`, `mathlib:tateCohomology`, `mathlib:Rep.of`, `tauceti:TauCeti.TateCohomology.HNegOneIsoNormKernelQuotient`, `mathlib:CategoryTheory.Iso.toLinearEquiv`, `mathlib:LinearMap.ker`, `mathlib:LinearMap.range`, `mathlib:Submodule.submoduleOf`.
+
+**Uses:**
+
+- Kubert200, Corollary4.15: Supplies actual degree-specific kernel/image representatives before identifying the torsion of source parity quotients under separately proved hypotheses.
+- Concrete native Tate interface for the original distribution module: Allows an actual representative, boundary or equality calculation to be transported to the native cohomology carrier with all signs and degrees explicit.
+
+**API:**
+
+- `kubertSignTateNegOneEquiv_class` (compatibility): The concrete comparison sends the Tate class of each actual z in ker(d_odd) to its native quotient class modulo the restricted image of d_even.
+- `kubertSignTateNegOneClass_eq_zero_iff` (compatibility): The native Tate class of z in ker(d_odd) vanishes if and only if the underlying element z belongs to the actual integer-linear image of d_even.
+- `kubertSignTateNegOneClass_eq_iff` (compatibility): Two elements z,z_prime in ker(d_odd) define the same native Tate class if and only if their underlying difference belongs to the actual image of d_even.
+- `kubertSignTateNegOneClass_surjective` (compatibility): Every native degree-minus-one Tate class is the class of an actual element in ker(d_odd).
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.signTateNegOneEquiv_roundtrip` (compatibility): The comparison roundtrip recovers every native Tate class for the actual free integer permutation module on ZMod5.
+- `SuggestedKubertTateLowDegreeTests.negative_comparison_nonzero_boundary` (non-example): The antisymmetric representative[1]-[4] is nonzero in the original empty-relation quotient but its inverse comparison is zero: it is a generator-difference boundary.
+- `SuggestedKubertTateLowDegreeTests.negative_comparison_all_classes_zero` (degenerate): For the actual free integer permutation module on ZMod5, every norm-kernel representative is a generator-difference boundary, so the negative-degree comparison has zero target.
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+### Actual representatives in degree-minus-one Tate cohomology
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class` — `DirichletPadic.kubertSignTateNegOneClass`
+
+Construct the integer-linear map from the actual kernel of d_odd to native degree-minus-one Tate cohomology by quotienting by the restricted image of d_even and applying the inverse concrete comparison.
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. Use the native linear quotient map of the actual restricted image submodule.
+2. Compose this map with the inverse linear equivalence of the concrete Tate comparison.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-equiv`, `mathlib:Submodule.mkQ`.
+
+**Uses:**
+
+- Kubert200, Corollary4.15: Supplies actual degree-specific kernel/image representatives before identifying the torsion of source parity quotients under separately proved hypotheses.
+- Concrete native Tate interface for the original distribution module: Allows an actual representative, boundary or equality calculation to be transported to the native cohomology carrier with all signs and degrees explicit.
+
+**API:**
+
+- `kubertSignTateNegOneEquiv_class` (compatibility): The concrete comparison sends the Tate class of each actual z in ker(d_odd) to its native quotient class modulo the restricted image of d_even.
+- `kubertSignTateNegOneClass_eq_zero_iff` (compatibility): The native Tate class of z in ker(d_odd) vanishes if and only if the underlying element z belongs to the actual integer-linear image of d_even.
+- `kubertSignTateNegOneClass_eq_iff` (compatibility): Two elements z,z_prime in ker(d_odd) define the same native Tate class if and only if their underlying difference belongs to the actual image of d_even.
+- `kubertSignTateNegOneClass_surjective` (compatibility): Every native degree-minus-one Tate class is the class of an actual element in ker(d_odd).
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.negative_class_signed_pair_boundary` (computation): The antisymmetric difference[1]-[4] defines zero in degree-minus-one Tate cohomology.
+- `SuggestedKubertTateLowDegreeTests.negative_class_not_injective` (non-example): The representative map is not injective on the actual free permutation module: a nonzero antisymmetric generator difference has zero class.
+- `SuggestedKubertTateLowDegreeTests.negative_class_two_orbit_boundary` (compatibility): The sum of the two nonzero antisymmetric orbit differences[1]-[4]+[2]-[3] is a nonzero representative with zero negative Tate class.
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+### The degree-minus-one comparison evaluates on representatives
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-equiv-class` — `DirichletPadic.kubertSignTateNegOneEquiv_class`
+
+The concrete comparison sends the Tate class of each actual z in ker(d_odd) to its native quotient class modulo the restricted image of d_even.
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. Expand the representative map as inverse comparison composed with the native quotient map.
+2. Apply the native equivalence inverse cancellation law.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.signTateNegOneEquiv_class_typed_api` (compatibility): The concrete comparison sends the Tate class of each actual z in ker(d_odd) to its native quotient class modulo the restricted image of d_even.
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+### Zero criterion for degree-minus-one representatives
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class-eq-zero-iff` — `DirichletPadic.kubertSignTateNegOneClass_eq_zero_iff`
+
+The native Tate class of z in ker(d_odd) vanishes if and only if the underlying element z belongs to the actual integer-linear image of d_even.
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. The inverse comparison is injective and preserves zero, so the class vanishes exactly when the native quotient class vanishes.
+2. Apply the native quotient zero criterion with the exact restricted image submodule and kernel element supplied explicitly.
+3. Membership in submoduleOf is exactly membership of the underlying element in the original image.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-equiv`, `mathlib:LinearEquiv.map_eq_zero_iff`, `mathlib:Submodule.Quotient.mk_eq_zero`, `mathlib:Submodule.submoduleOf`.
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.signTateNegOneClass_eq_zero_iff_typed_api` (compatibility): The native Tate class of z in ker(d_odd) vanishes if and only if the underlying element z belongs to the actual integer-linear image of d_even.
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+### Equality criterion for degree-minus-one representatives
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class-eq-iff` — `DirichletPadic.kubertSignTateNegOneClass_eq_iff`
+
+Two elements z,z_prime in ker(d_odd) define the same native Tate class if and only if their underlying difference belongs to the actual image of d_even.
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. Rewrite equality as the difference of classes being zero.
+2. The representative map is linear, so this difference is the class of the difference.
+3. Apply the proved zero criterion and the native subtype subtraction formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class-eq-zero-iff`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class`.
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.signTateNegOneClass_eq_iff_typed_api` (compatibility): Two elements z,z_prime in ker(d_odd) define the same native Tate class if and only if their underlying difference belongs to the actual image of d_even.
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+### Every degree-minus-one Tate class has an actual representative
+
+`DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class-surjective` — `DirichletPadic.kubertSignTateNegOneClass_surjective`
+
+Every native degree-minus-one Tate class is the class of an actual element in ker(d_odd).
+
+**Hypotheses:** Use the original weighted distribution quotient Q of the free integer module on an actual additive commutative point group X, for arbitrary positive-multiplier set S and natural weight w, with actual finite root fibers. Use the already constructed native integral representation rho of Multiplicative(ZMod2) on Q. Its nonidentity element acts by actual point negation j, not scalar minus1. Write d_even=j−identity and d_odd=j+identity for the original integer-linear parity operators. The invariant and coinvariant subgroup lemmas allow X in any universe. The two native Tate comparisons and their representative maps require X:Type, matching the pinned native integer-coefficient Tate universe; the actual rational circle and its finite-dimensional tori satisfy this restriction. Tate groups are the existing native tateCohomology of Rep.of(rho). The restricted boundary submodule is the native submoduleOf of the actual image inside the actual kernel. No middle exactness, torsion-freeness, rank, period-two comparison or identification with the torsion of the source parity quotients is assumed.
+
+**Proof:**
+
+1. The actual native quotient map is surjective.
+2. The inverse concrete comparison is surjective.
+3. Compose these two actual surjectivity proofs.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-equiv`, `mathlib:Submodule.mkQ_surjective`.
+
+**Tests:**
+
+- `SuggestedKubertTateLowDegreeTests.signTateNegOneClass_surjective_typed_api` (compatibility): Every native degree-minus-one Tate class is the class of an actual element in ker(d_odd).
+
+**Acceptance:** Retain the actual weighted quotient, integer coefficients, full order-two norm and original point involution. In the empty-relation permutation module on ZMod5 the zero-labelled fixed generator gives a nonzero degree-zero Tate class killed by2; the nonzero antisymmetric difference[1]−[4] is a boundary in degree-minus-one. All comparison and class maps are constructed through existing native isomorphisms and actual quotient maps.
+
+**Source:** Published200, Corollary4.15 and its proof;179–182 and200–202 specify the original ordinary and weighted quotients. Instantiates the existing native low-degree Tate comparison at the actual order-two point representation. The native degree-zero target is ker(j−1)/im(j+1), and degree-minus-one is ker(j+1)/im(j−1). This supplies the concrete sign and degree conventions needed before the source torsion and freeness consequences; the latter remain open.
+
+**Remaining:** The actual point-action representation now has concrete native Tate comparisons in degrees0and−1 with the exact integral parity kernels and images, and surjective representative maps with zero and equality criteria. Next identify these groups with the torsion of the corresponding actual source parity quotients using explicitly proved freeness or torsion hypotheses, and connect the source Corollary4.15 sign conventions and E25. Generic Tate objects, cyclic comparisons and periodicity already exist in the pinned libraries and must be reused. Source character components, lower rank, general-degree coordinates and fiber counts, unramified-ring identification and internal/global equality remain open.
+
+### Concrete integral Tate comparisons and representative classes validation
+
+All 1937 predecessor nodes, 1205 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 16 nodes, 16 named suggested declarations and 24 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2215 reachable nodes, 9122 edges and 1389 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new dependency route ends in the original weighted quotient and point representation, proved parity operators, or existing native Tate, invariant, coinvariant and integer-linear quotient declarations. No generic cohomology theory is duplicated and no supplier-stage leaf or assumed cohomology, exactness or rank package is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3913 pinned Mathlib modules and 30 pinned Tau Ceti modules. Only 29 Tau module artifacts are available and hash-verified. The 144 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5744 verbatim and adds four actual constructions and twelve complete lemmas. Totals are158definitions and1,270lemmas, plus the retained routine instances and digit non-example, with no placeholders. The public append has16named declarations and24typed examples with new mathematical bodies left as placeholders. The separate probe compiles against 3280 pinned Mathlib modules and 8 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native low-degree Tate and Teichmuller artifacts, with eight Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact integer controls check48cyclic groups,13,720signed vectors,72fixed-generator order-two cases and552nonzero antisymmetric boundaries. Constructive preimages check the correct parity at fixed points and actual generator-difference boundaries; they do not establish a theorem for the weighted quotient. Exact integer permutation-module controls for point negation on cyclic groups of orders1–48. All coefficient vectors in{-1,0,1} are enumerated for orders1–8;97 deterministic signed vectors per larger order are checked. Constructive preimages verify the invariant quotient by the full norm through parities at fixed points and verify that every sampled norm-kernel vector is a generator-difference boundary. Fixed and paired basis controls are exhaustive in each group. These finite computations are not a proof for the weighted distribution quotient or a certified cohomology computation. The largest observed discrepancy is 0.
+
+Two generated guarded files changed; their entire diff was read. Four AlgebraicModuliForArithmeticGeometry source records E1–E4 were added, covering an incomplete raw-cocycle inverse exercise, implication labels for fundamental gerbes, the test-scheme base of a descended torsor, and fpqc versus fppf wording. All 9110 prior records and all other metadata remain unchanged. The records are awaiting review; their qualified known strings place them in the generated register section already corrected in print, whose count changes1232to1236. These records lie outside this route and are neither adopted nor independently reviewed. All other77inputs, four predecessor outputs and the full issue body are unchanged.
+
+The separate partial signature file also compiled with zero errors and 5,809 expected placeholder warnings across 3,910 pinned source modules. It includes all 16 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 53f59362f3e82d2b4055cc35cc20f1ef51c7cc75d91f2496659b4b094b511f2f.
