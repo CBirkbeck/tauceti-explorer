@@ -1,350 +1,184 @@
-# Finite root-torsor comparison checkpoint
-
-Agent: **ChatGPT — gpt-6astra-20261002-c4d9**, GPT-6 Astra Pro. Date: 2 October 2026.
-Refs #3403. Claim comment 5953986795 was accepted by bot comment 5953990660;
-the issue was reread after acceptance. Branch base: `8777e5075c0c03f8ba0f8f2c2177e9f2e060ae3a`.
-
-**Partial checkpoint, not completion or independent review.** Only this handoff
-and the issue's suggested Lean file change. The 104-node canonical packet,
-roadmap definition, definitive reader, source routes, source findings, reserved
-root-stack key, gaps and requests are unchanged. In particular, this continuation
-does not count unintegrated native signatures as completed packet exports.
-
-The complete predecessor handoff, including the finite/infinite torsor arguments,
-CRT class-family example, ownership requests and earlier source/check receipts,
-is retained at this immutable revision:
-
-[Previous handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/8777e5075c0c03f8ba0f8f2c2177e9f2e060ae3a/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md).
-
-That predecessor was written by ChatGPT Pro, session
-`gpt6astra-20261002-c84f2a`, on the Codex checkpoints it names. The comparison
-map and determinant calculation below start from its argument; they are not
-claimed as a new literature result. This continuation adds the explicit
-kernel/cokernel maps, sharp injectivity criterion, native comparison forms and
-regressions detecting nonreduced cokernels and failure of kernel base change.
-Historical receipts in the predecessor are not fresh receipts for this session.
-
-## Delivered native fragment
-
-The appended `AffineTorsorComparison` section contains **18 named signatures**:
-one definition, nine lemmas and eight theorems, together with **eight examples**.
-Four of the lemmas are the definition's basic API: pure tensors, the left root,
-the unchanged right factor and uniqueness. Every type uses the existing
-`AffineRing`, `MuHopf`, Hopf coaction, algebraic tensor product, linear map,
-submodule quotient or matrix carrier. No second torsor/group-scheme definition,
-abstract coefficient module, or assumed geometric predicate is introduced.
-
-The initial commit diff was read: three imports and the 216-line continuation
-are added; every earlier line, including the complete geometric omission ledger
-and the native trivialization continuation, is preserved.
-
-**Lean was not compiled.** No Lean/Lake executable or existing pinned build was
-found in this environment. No project, cache download, library build, language
-server or background compiler was started. The whole file still imports Tau Ceti
-and requires both pinned libraries. All admitted signatures remain unchecked.
-
-## 1. The actual comparison and its bases
-
-Let A be a commutative ring, n a positive integer and f an element of A. Set
-B = A[t]/(t^n−f), using native AdjoinRoot, and H = A[Z/n], using the native
-commutative Hopf group algebra. Write x for the class of t and e_i for the
-character-basis element indexed by i modulo n. In particular e_0=1 and
- e_i e_j=e_(i+j). These basis elements are not the set of A-valued roots of unity.
-
-The existing coaction is δ(x)=e_1⊗x. Use the algebra tensor universal property
-to construct
-
-Θ : B⊗_A B → H⊗_A B,     Θ(b⊗c)=δ(b)(1⊗c).
-
-Its two input maps have commuting images because the target is commutative.
-The pure-tensor formula proves uniqueness and compatibility with the unchanged
-right B-factor. It gives Θ(x⊗1)=e_1⊗x and Θ(1⊗b)=1⊗b. Thus this is precisely
-the coordinate map of the action comparison, not an unrelated A-linear map.
-
-When A is nonzero, monic division gives the basis 1,x,…,x^(n−1) of B. Its tensor
-square gives source basis s_(i,j)=x^i⊗x^j, while the native group-algebra and
-monic bases give target basis t_(i,k)=e_i⊗x^k, with 0≤i,j,k<n. The pinned
-AdjoinRoot power basis and Module.Basis.tensorProduct supply these facts; do not
-build new polynomial quotients or a second general tensor-basis theory.
-
-For the zero ring, all these modules and coefficient-function sets have one
-element. Treat that case directly. In particular, do not assert that the
-natural degree of t^n−f is n in the zero ring, or infer a positive numerical
-finrank there. The coordinate existence-and-uniqueness statements themselves
-remain valid in that case.
-
-## 2. Weighted permutation and coefficient formulas
-
-Multiplicativity of δ and x^n=f give
-
-Θ(s_(i,j)) = f^floor((i+j)/n) t_(i,(i+j) mod n).
-
-Since 0≤i,j<n, the exponent is either zero or one. The index map
-σ(i,j)=(i,(i+j) mod n) is a permutation. Its inverse is explicit: for target
-(i,k), use j=k−i when k≥i, and j=n+k−i when k<i. The first case does not wrap;
-the second wraps exactly once. This also proves the bounds on each inverse
-index, without a cancellation argument in A.
-
-It follows that Θ is a permutation of coordinates followed by multiplication
-by 1 or by f. For a source coefficient family c_(i,j), its image is zero exactly
-when c_(i,j)=0 on i+j<n and f c_(i,j)=0 on i+j≥n. For a target coefficient family
-d_(i,k), it is in the image exactly when d_(i,k) belongs to fA for every k<i;
-there is no restriction when k≥i.
-
-The converse image assertion is constructive up to choosing a preimage under
-multiplication by f: in the nonwrapping case take c_(i,k−i)=d_(i,k), and in the
-wrapping case choose a with d_(i,k)=fa and take c_(i,n+k−i)=a. Finite basis
-expansion then supplies the required tensor. No flatness, domain, reducedness
-or unit hypothesis on f is involved.
-
-## 3. Explicit kernel and module cokernel
-
-Put W={(i,j):i+j≥n} and L={(i,k):k<i}, all indices in {0,…,n−1}. Both have
-E=n(n−1)/2 elements, since the number in row i is i.
-
-The kernel is canonically identified, in the chosen bases, with
-
-ker Θ ≅ (ann_A(f))^W.
-
-The forward map retains exactly the W-coordinates. The inverse fills every
-other coordinate with zero and forms the source tensor. Section 2 proves
-membership and that the two maps are inverse. In the suggested file,
-ann_A(f) is the native kernel of f times the identity linear map on A; the
-coordinate formula is part of the equivalence's statement.
-
-The **A-module** cokernel is canonically
-
-coker Θ ≅ (A/fA)^L.
-
-Send a target tensor to its lower-triangular coordinates modulo f. This map is
-surjective: lift those finitely many residue classes and set the other
-coordinates to zero. Its kernel is exactly im Θ by Section 2. Quotienting gives
-the stated equivalence, whose formula on every finite basis expansion is also
-part of the native signature. This is not an algebra quotient by the ideal
-generated by im Θ: the latter ideal contains 1 and would give the zero ring.
-It is not a reduced quotient either.
-
-Thus the construction records both the kernel obstruction and the cokernel
-obstruction, rather than using only a determinant or a geometric-point count.
-
-## 4. Sharp injectivity, surjectivity and inverse
-
-For n=1 the comparison is an isomorphism for every f: there is only one basis
-coordinate and its coefficient is 1. For n>1, W and L are nonempty, witnessed
-by (1,n−1) and (1,0), respectively. Therefore
-
-- Θ is injective exactly when multiplication by f on A is injective;
-- Θ is surjective exactly when fA=A, equivalently f is a unit;
-- Θ is bijective exactly when f is a unit.
-
-These statements include the zero-ring convention: its unique element is a
-unit and all the indicated functions are bijective. The native formulations
-use the uniform alternatives n=1 or the specified condition on f.
-
-For a unit f, set X=x⊗1 and Y=1⊗x in B⊗_A B. Then
-Y^−1=1⊗(f^−1 x^(n−1)), and χ=XY^−1 has χ^n=1. Use the existing native
-RootsOfUnityGroup points equivalence to obtain the A-algebra map H→B⊗B sending
-e_i to χ^i. Together with b↦1⊗b, the tensor universal property gives
-Ψ:H⊗B→B⊗B. There is no need to assume a separate identification of H with a
-polynomial quotient. The composites with Θ are the identity on X,Y and on
-e_1⊗1,1⊗x, respectively; these elements and A generate the two algebras.
-Consequently Ψ is the inverse. Its two generator formulas are in the native
-`unit_inverse` statement. No inverse of n occurs anywhere in this construction.
-
-## 5. Determinant and branch rank
-
-In the pair-indexed bases, the matrix has one possible nonzero entry per
-column: row σ(i,j), column (i,j), entry f^floor((i+j)/n). The product of the
-weights is f^E. In row block i the permutation is the i-th power of the cyclic
-shift on n letters, so its sign is (−1)^((n−1)i). Multiplying the block signs
-and applying the determinant formula gives
-
- det Θ = (−1)^((n−1)E) f^E,     E=n(n−1)/2.
-
-This is a determinant between the specified coordinate bases. The Lean theorem
-states the actual matrix entries, rather than applying an endomorphism-only
-determinant to a map between two unidentified modules.
-
-At f=0 over a field, exactly the nonwrapping columns survive, with distinct
-unit pivots. Thus rank Θ=n(n+1)/2 and dim ker Θ=E, in every characteristic.
-The two counts come from the same normal form, not from division by n in the
-coefficient field. For n=2, the nonzero tensor x⊗x is killed.
-
-## 6. Why this is the right finite torsor input
-
-The positive monic degree makes B finite free and faithfully flat over A.
-Together with the action comparison, this proves the usual finite fppf torsor
-criterion: Spec B→Spec A with its displayed μ_n action is a torsor exactly
-when n=1 or f is a unit. The generic scheme/fppf torsor criterion and its native
-stack interfaces remain with the existing foundational owners. The current
-file records the complete coordinate algebra, not a new native torsor predicate.
-
-Do not confuse that map with the frame torsor of a root object. Locally choose
-a basis e of M and a trivialization of L. Write φ(e^n)=u and the root section
-as b e. The power identification is an isomorphism, so u is a unit, and its
-section equation is u b^n=f. A normalized **coframe** M→O compatible with φ has
-the form e↦a with a^n=u. Its torsor is therefore Spec A[a]/(a^n−u), for a unit
-u, even when b and f vanish. The root-coordinate map is x↦ab, since (ab)^n=f.
-Scaling the coframe by ζ scales ab by ζ, agreeing with the existing weight-one
-action. This fixes the action orientation as well as the parameter.
-
-The finite normalized-coframe torsor thus exists over every root object;
-Spec B→Spec A need not be a torsor at the branch locus. The infinite frame-tower
-argument must use the former torsors and the genuine quotient comparisons.
-The present finite computation alone does not construct the infinite fpqc
-quotient, prove its comparison with a two-limit, or establish its H¹ theorem.
-
-## 7. Eight discriminating native examples
-
-1. `test_exponent_one`: arbitrary f, n=1, comparison bijective.
-2. `test_zero_ring`: any positive n over the zero ring, comparison bijective.
-3. `test_branch_kernel`: f=0,n=2 over a field, x⊗x is nonzero and is killed.
-4. `test_regular_nonunit`: f=2,n=2 over Z, comparison injective but not surjective.
-5. `test_nilpotent_parameter`: f=2,n=2 over Z/4, the nonzero vector 2(x⊗x) is killed.
-6. `test_wild_unit`: f=1,n=2 over F₂, comparison bijective, but x−1 is nonzero and has square zero. A finite fppf torsor is not thereby an étale torsor.
-7. `test_nonflat_kernel`: the injective Z comparison in (4) becomes noninjective after Z→F₂. The comparison's formula commutes with coefficient change; its kernel need not.
-8. `test_cokernel_nonreduced`: f=4,n=2 over Z/8, the module cokernel is A/(4), with an element killed by 4 but not by 2. Replacing it by the reduced quotient F₂, or by the algebra quotient generated by the image, fails this test.
-
-The starting handoff already explained the bijectivity obstruction. Tests (4),
-(7) and (8), and the coefficient-level kernel/cokernel equivalences, make its
-separate failure modes explicit in native types.
-
-## 8. Exact canonical integration work
-
-The appended section is **not yet integrated into the packet and reader**.
-It must be integrated before these signatures are counted as canonical roadmap
-exports. The existing 104 nodes, 85 API items, 81 tests, 39 planets, 64 baseline
-records, eight gaps and thirteen requests retain their predecessor status;
-no stage or reserved key is declared closed by this checkpoint.
-
-The root-specific algebra belongs in RS.0. Keep the generic Hopf, tensor,
-module-quotient, basis and determinant theories in the pinned libraries. A
-concrete declaration-sized integration is:
-
-| Proposed suffix after FunctionFieldArithmeticPartII:RS.0/ | Native name after TauCeti.RootStack. | Direct proof inputs |
-| --- | --- | --- |
-| affine-torsor-comparison | affineTorsorComparison | existing affine-coaction; native algebra tensor lift |
-| affine-torsor-source-coordinates | affineTorsorComparison.source_coordinates | native monic basis and tensor basis; zero-ring branch |
-| affine-torsor-target-coordinates | affineTorsorComparison.target_coordinates | native group-algebra basis and tensor basis; zero-ring branch |
-| affine-torsor-monomial | affineTorsorComparison.monomial | existing affine-coaction-weight; x^n=f |
-| affine-torsor-kernel-coefficients | affineTorsorComparison.kernel_coefficients | the three preceding coordinate lemmas and the explicit index inverse |
-| affine-torsor-image-coefficients | affineTorsorComparison.image_coefficients | the same coordinate lemmas, with lower-triangular target indices |
-| affine-torsor-kernel | affineTorsorComparison.kernel_equiv | kernel coefficient criterion; extension by zero |
-| affine-torsor-cokernel | affineTorsorComparison.cokernel_equiv | image coefficient criterion; native submodule quotient |
-| affine-torsor-injective | affineTorsorComparison.injective_iff | kernel coefficient criterion; witness (1,n−1) |
-| affine-torsor-surjective | affineTorsorComparison.surjective_iff | image coefficient criterion; witness (1,0) |
-| affine-torsor-bijective | affineTorsorComparison.bijective_iff | injective and surjective criteria |
-| affine-torsor-unit-inverse | affineTorsorComparison.unit_inverse | unit inverse in B; existing μ_n points equivalence; native tensor lift |
-| affine-torsor-determinant | affineTorsorComparison.determinant | monomial matrix; cyclic-permutation sign and determinant formula |
-| affine-torsor-zero-rank | affineTorsorComparison.zero_rank | explicit zero-section pivots and the triangular counts |
-
-The four projection/universal-property lemmas belong in the construction's
-API; do not duplicate them as a second comparison map. Attach all eight examples
-to that construction, with the exact names above. These are fourteen proposed
-packet nodes and four API signatures, not eighteen new packet nodes. No new
-planet is necessary. Resolve any existing exact-name supplier before adding a
-new baseline record; several basis/coaction inputs are already registered.
-
-The consumers are RS.1/affine-chart and the **unit-parameter** finite torsor
-portion of TOWER-AFF and RS.2/kummer-torsor-limit. Do not add an edge asserting
-that an arbitrary f-chart is a torsor over its coarse base. Keep the normalized
-coframe proof with the affine chart, using the existing power-identification
-unit/scalar contracts. The global torsor/frame equivalences require actual
-scheme/site and descent exports; do not replace them by freely chosen predicates.
-
-Next complete the predecessor's precise TOWER-AFF, KUMMER-FINITE, TOWER-TYPING,
-D0 ordinary-stack, R09.4 algebraicity, R09.5 coarse-space and QCoh-descent
-interfaces. Retain its factorial reindexing, finite-stage isomorphism detection,
-compatible-class lifting and explicit CRT counterexample. The full fpqc tower,
-finite quotient and natural derived-H¹ comparison have not acquired native
-signatures here. The Yun–Zhang and Abdurrahman–Venkatesh routes, their division
-of ownership, and every inherited source finding remain unchanged.
-
-## 9. Sources and pinned library receipts
-
-Fresh primary HTML reads on 2 October 2026:
-
-- [Stacks 040N, Lemma 59.28.3](https://stacks.math.columbia.edu/tag/040N): statement and full proof of the fppf/syntomic Kummer sequence and the unit-parameter monic finite-free cover. Use n>0. The nonunit obstruction, kernel/cokernel maps and determinant above are explicit algebraic derivations, not claimed quotations from that lemma.
-- [Stacks 0245, Lemma 35.37.1](https://stacks.math.columbia.edu/tag/0245): statement and full proof of effective descent for affine morphisms. It identifies a foundational input, not completion of the root-stack or infinite-torsor descent theorem.
-
-The predecessor's Talpo–Vistoli, Yun–Zhang, Bresciani and other primary-paper
-reading boundaries remain attributed to their authors. No fresh whole-paper
-read, PDF inspection, PDF hash verification, new erratum or independent review
-is claimed in this continuation.
-
-The following actual source statements were read at Mathlib
-`082e2d37e8b0463410cdb532e111cd43d5a66174`:
-
-| File and scope | Statements used | Blob |
-| --- | --- | --- |
-| RingTheory/TensorProduct/Basic.lean, lines 1–240 | tensor algebra structure; tmul_mul_tmul | dab1052775aa7636ebabff20c92d0215c569a6bb |
-| RingTheory/TensorProduct/Maps.lean, lines 1–230 | Algebra.TensorProduct.lift, lift_tmul, liftEquiv and the input restrictions | 604e0a5dad178015c379e43ec9283d6174534fa4 |
-| RingTheory/AdjoinRoot.lean, lines 620–820 | powerBasisAux', powerBasis', Polynomial.Monic.free_adjoinRoot and finite_adjoinRoot | 1945b7728630a10baf56374f183be1bcfa3727f0 |
-| LinearAlgebra/TensorProduct/Basis.lean, lines 1–180 | Module.Basis.tensorProduct, its evaluation and coefficient formulas | 0fa2bd75c3d290059668899dcbd7bb415363eeb9 |
-| Algebra/MonoidAlgebra/Module.lean, lines 1–260 | coeffLinearEquiv, MonoidAlgebra.basis, basis_apply | 422ac6fd1b47b0f563d08f3a3f14bc6bb7724c43 |
-| LinearAlgebra/Quotient/Defs.lean, lines 1–145 | native module quotient, Submodule.Quotient.mk, eq, mk_eq_zero and scalar operations | 2c25d9a529dfd044d3bf88361d79a3e8de23fda3 |
-| LinearAlgebra/Matrix/Determinant/Basic.lean, lines 1–150 | Matrix.det, det_apply, det_diagonal and det_mul | 66f8b885e8ce08fecc06336d6a26d5eff6c15aa6 |
-
-At Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`, read
-`TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Basic.lean`, lines 1–240, blob
-`7163a01bd87672b0b6e18668779f47c974887bc4`: the native character generator,
-pointsMulEquiv, its generator evaluation and inverse character-basis formulas.
-Its scope is expressly the group-algebra points calculation, not a polynomial
-quotient equivalence or a torsor theorem. The inverse proof in Section 4 respects
-that boundary.
-
-The current parent FunctionFieldArithmetic reader and accepted REV-AUDIT-20
-were read. The aggregate data/library-coverage.json again returned no content
-through the connector, and the public web/blob-download alternatives were
-unavailable. This is not a claim to have reread the whole aggregate or the
-review's 188 source declarations. Existing native basis and group-algebra
-infrastructure is reused; no blanket absence claim about all of either library
-is made. The same session's earlier WORKERS, PROTOCOL, expansion protocol,
-UPSTREAM_GUIDE and upstream roadmap readings remain the instruction baseline.
-
-## 10. Executed validation and its limits
-
-A fresh Python/SymPy regression checked:
-
-- 264 ring/exponent/parameter cases, with 100100 tensor-monomial multiplicativity checks;
-- 73 complete finite-ring linear-map cases, enumerating **1205091 source vectors and 1205091 target vectors**;
-- the exact kernel coefficient criterion, exact image criterion, and their kernel/image/cokernel cardinalities, including nonfields and the zero ring;
-- eight symbolic determinants in Z[z] and eight zero-section ranks, for n=1,…,8;
-- the integral n=2,f=2 Smith form with diagonal absolute values 1,1,1,2;
-- the nonzero nilpotent kernel, characteristic-two unit, nonreduced cokernel and nonflat kernel-change tests;
-- 270 coefficient-reduction comparisons.
-
-These checks are regressions, not universal proofs, Lean elaboration or a
-geometric-stack certificate. The general proofs are Sections 1–6 above.
-
-Executed script SHA-256:
-`c5bb95986da0064195f0b2baaa4a4df4c49f0e648cc4664fcd3a7f7dc7ed6c3c`.
-Output SHA-256:
-`b10188e64780c022d78ab83190a1c2fbd70806c928b5ad0c6ad9e2c2bdd4f42f`.
-The initial native append commit is `93324bbf5da17d2dca5e230bd69f97b0e01f6db6`;
-its complete-file blob is `c3a94fafea1a6da6154aa67568e1b34df5dc20f2`.
-
-The executed script is reproduced below so no ephemeral scratch directory is
-needed for the regression. Run it in an existing Python environment with SymPy;
-it creates no project or library build.
+# Canonical finite action-comparison checkpoint
+
+Codex — codex-a71f92. Date: 2 October 2026. Refs #3403.
+Claim comment 5955484391 was confirmed by bot 5955487412; the complete issue was reread.
+Immutable audit/publication base: e997cbced863f78b70f701b63b07c00bfd93be4f.
+
+Partial checkpoint, not completion, implementation or independent review.
+The predecessor's mathematical finite comparison and native signatures are integrated
+into the canonical packet and reader. Attribution is retained; these are explicit
+algebraic derivations, not claimed new literature results.
+
+[Complete predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/e997cbced863f78b70f701b63b07c00bfd93be4f/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md)
+preserves its tower arguments, class-family CRT example, historical sources and tests,
+and links to the earlier handoff. Historical receipts are not fresh readings here.
+
+## Canonical exports and preservation
+
+Fifteen new RS.0 nodes: one definition, six lemmas and eight theorems. They cover
+the actual coordinate action comparison; pure tensors; source and target
+coordinates; weighted monomials; kernel and image coefficients; coordinate kernel
+and module-cokernel equivalences; injectivity, surjectivity and bijectivity;
+unit inverse; specified matrix determinant; simultaneous zero-section rank.
+
+The predecessor proposed fourteen packet nodes plus four API items. The pure-tensor
+API is promoted to a separate lemma because downstream nodes use it as a
+prerequisite (PROTOCOL section 4). Three projection/uniqueness APIs remain on the
+definition, with all eight discriminating tests. The full mathematical statements,
+hypotheses, proof inputs and regressions are in the reader, not only in this note.
+
+All 104 inherited node IDs and statements, both routes (28 Yun–Zhang items and 38
+Abdurrahman–Venkatesh items), source findings and versions, thirteen requests,
+eight gap groups, 39 planets and the reserved root-stack key remain intact.
+The sole inherited node edit refines RS.1/affine-chart's proof and prerequisite:
+normalized coframes have a **unit parameter** u, satisfying aⁿ=u, and map to
+the root chart through x↦ab when u bⁿ=f. Arbitrary coarse charts at f=0 are
+not torsors over their coarse base.
+
+The infinite fpqc torsor and Kummer comparison remains open. Neither the native
+finite coordinate calculation nor successful finite-ring tests supply the
+ordinary-stack, algebraicity, coarse-space or QCoh-descent interfaces.
+All ten stages stay partial and every implementation status stays unchecked.
+
+Totals: **119 nodes** (9 definitions, 18 constructions, 46 lemmas, 35 theorems,
+10 comparisons, 1 application); **88 APIs, 89 unit tests, 39 planets,
+73 baseline records, 8 gaps, 13 requests**. Nine new baseline records import
+generic tensor lift, principal-ideal membership, module quotient/isomorphism,
+determinant/sign and dimension results. No generic theory is replanned.
+
+## Lean boundary and correction
+
+The **complete suggested file was not compiled**. The existing exact-pinned
+Mathlib build is usable, but the required native Tau Ceti line-bundle and
+roots-of-unity compiled imports are absent. No project, cache download, library
+build or language server was created. Available memory before the single targeted
+Lean process was 74 GB; no compiler remains running.
+
+The inherited appended tensor-power signatures had precedence failures: an
+unparenthesized power adjacent to a pure-tensor operator was parsed as a power
+whose exponent was a tensor. The first fragment run exposed those errors.
+Explicit parentheses around each monomial power fix them without altering the
+mathematical statements. All preceding native declarations and the entire
+geometric omission ledger are byte-preserved; only the opening checking note and
+the appended power parentheses change.
+
+The corrected **Mathlib-native comparison fragment** elaborated using Lean
+4.34.0-rc2, Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: exit 0,
+27 admitted-declaration warnings only. This fragment contains the eighteen
+comparison signatures and eight examples, plus the existing admitted coaction
+signature used as a scaffold. The native character generator is expanded to its
+actual definition, Multiplicative.ofAdd(1); no replacement group scheme, abstract
+coefficient module or assumed geometric predicate is used. This narrow check
+does not certify preceding Tau Ceti declarations or the full file.
+
+Fragment SHA-256:
+fc42cafb32ee4e0cc7005bbfca4f1b3094232c5a33516f102f27764cc73362b3.
+Complete suggested-file SHA-256:
+86cbfe7bf454c69259042df9f1e8faf12a96bebc8a6e8a58006a9b5ff59aff33.
+
+## Fresh source and baseline receipts
+
+Freshly read primary scope:
+
+- [Talpo–Vistoli v2](https://arxiv.org/pdf/1410.1164v2), §3.1 pp.14–16:
+  character action, Lemma 3.7 proof, fpqc quotient, Lemma 3.12 and
+  Proposition 3.10 proof/Corollary 3.13. PDF SHA-256:
+  92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2.
+- [Abramovich–Graber–Vistoli v2](https://arxiv.org/pdf/math/0603151v2),
+  Appendix B.1–B.2 pp.52–54, root triples and quotient/fibre descriptions.
+  PDF SHA-256:
+  c2889c567c21aa5473ba0be75221dbb67ca122210fa4e4973f4727c490bdd5eb.
+- [Stacks 040N](https://stacks.math.columbia.edu/tag/040N) and
+  [Stacks 0245](https://stacks.math.columbia.edu/tag/0245):
+  complete statements and proofs of the unit-parameter finite-free Kummer
+  cover and effective affine fpqc descent. Use the former with n>0;
+  it does not state the nonunit kernel/cokernel formulas.
+
+Both PDF hashes match the inherited version receipts. No fresh whole-paper
+Yun–Zhang, Bresciani or Abdurrahman–Venkatesh read, new erratum, or independent
+review is claimed. The preserved source findings and all broader reading
+boundaries retain their original attribution.
+
+Read the current aggregate library audit's FunctionFieldArithmetic FA.0–FA.7
+records and accepted REV-AUDIT-20 report. Reuse FA.2/FA.4 arithmetic imports;
+do not create adeles or reciprocity anew. Read SF.1, R09.3–R09.5 ownership
+descriptions and screen touching Part II link files. This continuous session's
+complete JacobianChallenge and StableReduction upstream readings supply the
+two-document style baseline.
+
+Actual statements at Mathlib 082e2d3 were read in TensorProduct/Maps,
+TensorProduct/Basis, AdjoinRoot, MonoidAlgebra/Module, Quotient/Defs and Basic,
+Isomorphisms, Ideal/Span, Matrix/Determinant/Basic, Perm/Fin,
+Dimension/StrongRankCondition and FiniteDimensional/Lemmas.
+At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 read
+RootsOfUnity/Basic's generator and points equivalence, including the inverse
+generator evaluation. These support only the concrete group-algebra point map,
+not a polynomial quotient equivalence or a general torsor theorem.
+
+## Executed validation
+
+- Actual scripts/check_blueprint.py, exact immutable-tree overlay and pinned
+  declaration index: **zero errors and warnings**.
+- Actual intake file checks: all five allowed paths pass. JSON,
+  whitespace and private-path screens pass. The reader's inherited literal
+  placeholder-word mention is replaced with admitted-proof wording.
+- Real atlas assemble overlay: **3005 stages, 8723 edges**, acyclic;
+  all **52 expected supplier/roadmap stage edges** present; no current
+  pending or skipped links.
+- Reachable declaration prerequisite graph: **339 vertices**, acyclic.
+- New native/API/test names and exact mathematical statements match the
+  reader; old statements, requests, source findings/routes/versions,
+  planets and the geometric native omission prefix are preserved.
+
+A fresh dependency-free Python regression adapts the predecessor's script;
+its finite-vector and multiplication loops are retained, while exact integer
+Bareiss determinants replace the unavailable SymPy symbolic routine:
+
+264 ring/exponent/parameter cases; 100100 tensor-monomial multiplicativity
+checks; 73 exhaustive finite-ring linear-map cases; **1205091 source vectors
+and 1205091 target vectors**; exact kernel and image criteria and cardinalities;
+48 integer determinants for n=1,…,8 and f=−2,−1,0,1,2,3; eight
+zero-section pivot/rank checks; 270 coefficient reductions; 1496 explicit
+index-inverse checks; 2184 unit-inverse weight checks. Nilpotent parameters,
+wild units, nonreduced cokernels and nonflat kernel changes pass. These are
+regressions, not universal proofs or a geometric-stack certificate.
+Script SHA-256:
+849339968e4eb216d4d2bf72d55dcc75be4cc3878c5518c247ea34b4ab74460d.
+
+## Exact continuation
+
+Prove the native finite action comparison and all fifteen associated declarations,
+then elaborate the complete file in an already-existing build at both pins.
+The targeted successful Mathlib fragment does not remove LEAN-SECTION-COMP,
+LEAN-GEOMETRY or TOWER-TYPING.
+
+Continue the predecessor's **TOWER-AFF, KUMMER-FINITE and TOWER-TYPING**
+contracts with actual scheme/site and coherent root-groupoid carriers:
+affine faithfully-flat limits, finite quotient comparisons, factorial
+reindexing, finite-stage isomorphism detection and compatible-class lifting.
+Retain the explicit CRT family and all-roots-of-2 non-fppf counterexample.
+Import D0 ordinary stack construction, R09.4 algebraicity/gerbes, R09.5 coarse
+spaces and R09.3 QCoh descent; do not replace them with assumed predicates.
+
+For geometric class field theory resolve ST-LISSE, ST-OPS, NORM-2EXACT,
+FA-APPROX and EXTERIOR-COMP with the specified supplier statements. Preserve
+all source corrections, the full nonreduced fibre, root-normalized coframe
+orientation and the independent symplectic route split. The reserved
+FunctionFieldArithmeticPartII:key/root-stacks remains a general partial plan,
+not a completed geometric carrier.
+
+## Reproducible arithmetic regression
+
+The following dependency-free script is the exact script with the SHA-256 above.
 
 ```python
 from itertools import product
 from math import gcd
 import json
-from sympy import Matrix, Symbol, ZZ
-from sympy.matrices.normalforms import smith_normal_form
 
 counts = dict(basis_cases=0, multiplicativity_checks=0,
               enumerated_cases=0, source_vectors=0, target_vectors=0,
-              symbolic_determinants=0, branch_ranks=0, reduction_checks=0)
-
-def comparison_matrix(n, f):
-    M = Matrix.zeros(n*n)
-    for i in range(n):
-        for j in range(n):
-            M[i*n+(i+j)%n, i*n+j] = f**((i+j)//n)
-    return M
+              integer_determinants=0, branch_ranks=0, reduction_checks=0)
 
 # Independent multiplication of monomials in the two tensor algebras.
 for q in (1,2,3,4,5,8,9,12):
@@ -395,47 +229,100 @@ for q,n in [(q,n) for q in (1,2,3,4,5,8,9) for n in (1,2)] + [(2,3),(3,3),(4,3)]
         assert (len(im) == q**(n*n)) == (n == 1 or ann == 1)
         counts['enumerated_cases'] += 1
 
-z=Symbol('z')
+
+def comparison_matrix(n,f):
+    out=[[0]*(n*n) for _ in range(n*n)]
+    for i in range(n):
+        for j in range(n):out[i*n+(i+j)%n][i*n+j]=f**((i+j)//n)
+    return out
+
+def determinant(matrix):
+    a=[list(row) for row in matrix]
+    sign=1
+    prev=1
+    for k in range(len(a)-1):
+        pivot=next((i for i in range(k,len(a)) if a[i][k]),None)
+        if pivot is None:return 0
+        if pivot!=k:
+            a[k],a[pivot]=a[pivot],a[k]
+            sign=-sign
+        value=a[k][k]
+        for i in range(k+1,len(a)):
+            for j in range(k+1,len(a)):
+                numerator=a[i][j]*value-a[i][k]*a[k][j]
+                assert numerator%prev==0
+                a[i][j]=numerator//prev
+        for i in range(k+1,len(a)):a[i][k]=0
+        prev=value
+    return sign*a[-1][-1]
+
+from fractions import Fraction
+def rational_rank(matrix):
+    a=[[Fraction(x) for x in row] for row in matrix]
+    k=0
+    for col in range(len(a[0])):
+        p=next((i for i in range(k,len(a)) if a[i][col]),None)
+        if p is None:continue
+        a[k],a[p]=a[p],a[k]
+        value=a[k][col]
+        a[k]=[x/value for x in a[k]]
+        for i in range(k+1,len(a)):
+            value=a[i][col]
+            if value:a[i]=[x-value*y for x,y in zip(a[i],a[k])]
+        k+=1
+        if k==len(a):break
+    return k
+
 for n in range(1,9):
     E=n*(n-1)//2
-    M=comparison_matrix(n,z)
-    assert M.det(method='domain-ge') == (-1)**((n-1)*E)*z**E
-    counts['symbolic_determinants'] += 1
-    assert M.subs(z,0).rank() == n*(n+1)//2
-    counts['branch_ranks'] += 1
+    for f in (-2,-1,0,1,2,3):
+        M=comparison_matrix(n,f)
+        assert determinant(M)==(-1)**((n-1)*E)*f**E
+        counts['integer_determinants']+=1
+    # The nonzero columns have separate coefficient-one pivots over every field.
+    M=comparison_matrix(n,0)
+    assert rational_rank(M)==n*(n+1)//2
+    nonzero=[sum(bool(M[i][j]) for i in range(n*n)) for j in range(n*n)]
+    assert sum(nonzero)==n*(n+1)//2 and all(x in (0,1) for x in nonzero)
+    counts['branch_ranks']+=1
 
-# Integral regular-nonunit example, with its actual cokernel, not just rank.
 M=comparison_matrix(2,2)
-S=smith_normal_form(M,domain=ZZ)
-assert [abs(S[i,i]) for i in range(4)] == [1,1,1,2]
-assert M.det() == -2 and M.rank() == 4
-assert M.applyfunc(lambda x: x%2).rank() == 3
-
-# Nonzero nilpotent parameter, nonreduced cokernel, and wild unit regression.
-M4=comparison_matrix(2,2)
-v=Matrix([0,0,0,2])
-assert any(v) and all(int(a)%4==0 for a in M4*v)
+assert determinant(M)==-2 and rational_rank(M)==4
+assert sorted(abs(M[i][j]) for i in range(4) for j in range(4) if M[i][j])==[1,1,1,2]
+assert rational_rank([[x%2 for x in row] for row in M])==3
+# Actual nilpotent wrapping kernel for Z/4 and nonreduced quotient for Z/8.
+assert tuple((row[3]*2)%4 for row in M)==(0,0,0,0)
 assert 2 not in {4*a%8 for a in range(8)} and 4 in {4*a%8 for a in range(8)}
-assert comparison_matrix(2,1).det()%2==1
-# In F2[t]/(t^2-1), (t-1)^2=(1+1,0) while t-1=(1,1) is nonzero.
+assert determinant(comparison_matrix(2,1))%2==1
 assert ((1+1)%2,0)==(0,0) and (1,1)!=(0,0)
 
-# Coefficient base change preserves the matrix, but not kernels in general.
 for q,r in ((4,2),(8,4),(9,3),(12,3),(12,4)):
     for n in range(1,7):
         for f in range(q):
-            assert comparison_matrix(n,f).applyfunc(lambda x:int(x)%r) == \
-                   comparison_matrix(n,f%r).applyfunc(lambda x:int(x)%r)
-            counts['reduction_checks'] += 1
+            assert [[x%r for x in row] for row in comparison_matrix(n,f)]== \
+                   [[x%r for x in row] for row in comparison_matrix(n,f%r)]
+            counts['reduction_checks']+=1
+
+# Explicit index inverses, integral triangular counts, and unit inverse weights.
+counts['index_inverse_checks']=0
+counts['unit_inverse_checks']=0
+for n in range(1,17):
+    wrapping=sum(i+j>=n for i in range(n) for j in range(n))
+    assert wrapping==n*(n-1)//2
+    for i,k in product(range(n),repeat=2):
+        j=k-i if k>=i else n+k-i
+        assert 0<=j<n and (i+j)%n==k and ((i+j)>=n)==(k<i)
+        counts['index_inverse_checks']+=1
+for q in (1,2,3,4,5,8,9,12):
+    for n in range(1,7):
+        for f in range(q):
+            if gcd(f,q)!=1:continue
+            inv=next(a for a in range(q) if f*a%q==1%q)
+            for i,j in product(range(n),repeat=2):
+                weight=pow(f,(i+j)//n,q)
+                assert weight*pow(inv,(i+j)//n,q)%q==1%q
+                counts['unit_inverse_checks']+=1
 
 print(json.dumps(counts,sort_keys=True))
-print('PASS: kernel/image coefficient formulas; exact finite kernel/cokernel sizes; symbolic determinant and branch rank; integral Smith form; nilpotent, wild-unit and nonflat-base-change tests')
+print('PASS: weighted multiplication, exhaustive kernel and image, exact finite kernel/cokernel sizes, integer determinants, characteristic-independent branch pivots, nilpotent/wild/nonflat/nonreduced tests, coefficient reductions, explicit index and unit inverses')
 ```
-
-The standard repository blueprint checker and full atlas assembly were **not
-run locally** in this browser continuation. The unchanged packet's old checker
-receipt is historical. The PR's Swarm submission check must check its actual
-changed paths; because the packet is unchanged, a submission pass is not a
-fresh packet/baseline/closure audit. No Lean elaboration or formal proof is
-certified by those checks. Retain partial status until the canonical integration,
-source boundaries and geometric exports above are completed.
