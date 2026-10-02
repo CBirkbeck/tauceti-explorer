@@ -1512,3 +1512,78 @@ example :
       Z1.restrict (⊤ : Subgroup G) c ≠ 1 := by sorry
 
 end TauCeti.NonabelianCohomology
+
+/- BEGIN NATIVE QUOTIENT FIXED CONTINUITY AND NEUTRAL EQUIVALENCE -/
+namespace TauCeti.NonabelianCohomology
+
+section QuotientActionContinuity
+variable {G : Type u} [Group G] [TopologicalSpace G] [SeparatelyContinuousMul G]
+  {U : Type v} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+  [ContinuousSMul G U]
+
+-- AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-fixed-action-continuity
+lemma quotientFixedContinuousSMul (N : Subgroup G) [N.Normal] :
+    ContinuousSMul (G ⧸ N) (FixedPoints.subgroup N U) := by sorry
+
+end QuotientActionContinuity
+
+section NeutralEquivalence
+variable {G : Type u} [Group G] [TopologicalSpace G] [SeparatelyContinuousMul G]
+  {U : Type v} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+  (N : Subgroup G) [N.Normal]
+
+attribute [local instance] quotientFixedContinuousSMul
+
+-- The existing H1.inflate_one signature above is promoted unchanged
+-- to AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-one.
+-- AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-neutral-equivalence
+def H1.inflateNeutralEquiv :
+    H1 (G ⧸ N) (FixedPoints.subgroup N U) ≃
+      {a : H1 G U // H1.restrict N a = 1} := by sorry
+
+lemma H1.inflateNeutralEquiv_apply
+    (a : H1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    (inflateNeutralEquiv N a).val = inflate N a := by sorry
+
+lemma H1.inflateNeutralEquiv_symm_inflate
+    (a : H1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    (inflateNeutralEquiv N).symm ⟨inflate N a, restrict_inflate N a⟩ = a := by sorry
+
+lemma H1.inflateNeutralEquiv_apply_symm
+    (a : {a : H1 G U // H1.restrict N a = 1}) :
+    inflate N ((inflateNeutralEquiv N).symm a) = a.val := by sorry
+
+lemma H1.inflateNeutralEquiv_one :
+    inflateNeutralEquiv N (1 : H1 (G ⧸ N) (FixedPoints.subgroup N U)) =
+      ⟨1, restrict_one N⟩ := by sorry
+
+-- TauCeti.NonabelianCohomology.quotientFixedContinuousSMul.test_joint
+example : Continuous (fun p : (G ⧸ N) × FixedPoints.subgroup N U => p.1 • p.2) := by sorry
+
+-- TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv.test_one
+example : H1.inflateNeutralEquiv N (1 : H1 (G ⧸ N) (FixedPoints.subgroup N U)) =
+    ⟨1, H1.restrict_one N⟩ := by sorry
+
+-- TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv.test_representative
+example (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    (H1.inflateNeutralEquiv N (H1.mk d)).val = H1.mk (Z1.inflate N d) := by sorry
+
+-- TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv.test_target_round_trip
+example (a : H1 G U) (ha : H1.restrict N a = 1) :
+    H1.inflate N ((H1.inflateNeutralEquiv N).symm ⟨a, ha⟩) = a := by sorry
+
+-- TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv.test_nonneutral
+example (a : H1 (G ⧸ N) (FixedPoints.subgroup N U)) (ha : a ≠ 1) :
+    (H1.inflateNeutralEquiv N a).val ≠ 1 := by sorry
+
+-- TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv.test_gauge_neutral
+example (x : U) :
+    (H1.inflateNeutralEquiv N).symm
+      ⟨H1.mk (x • (1 : Z1 G U)), by
+        rw [H1.mk_smul]
+        exact H1.restrict_one N⟩ = 1 := by sorry
+
+end NeutralEquivalence
+end TauCeti.NonabelianCohomology
+/- END NATIVE QUOTIENT FIXED CONTINUITY AND NEUTRAL EQUIVALENCE -/

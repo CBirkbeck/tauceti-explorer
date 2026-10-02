@@ -1550,3 +1550,83 @@ example :
 
 end
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+variable {R E F Q P : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+variable [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
+variable (S : Type*) [CommRing S] [Algebra R S]
+
+-- node: HodgeStructuresPartII:H.0/affine-base-change-natural
+lemma affineBaseChange_natural (θ : E →ₗ[R] E ⊗[R] Q)
+    (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ) :
+    (affineBaseChange S ψ).comp (f.baseChange S) =
+      (TensorProduct.map (f.baseChange S) (u.baseChange S)).comp (affineBaseChange S θ) := sorry
+
+-- node: HodgeStructuresPartII:H.0/affine-base-change-coefficient-map
+lemma affineBaseChange_coefficientMap (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) :
+    affineBaseChange S (affineCoefficientMap θ u) =
+      affineCoefficientMap (affineBaseChange S θ) (u.baseChange S) := sorry
+
+-- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-natural
+lemma affineOrderedIterate_baseChange_natural (θ : E →ₗ[R] E ⊗[R] Q)
+    (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ) (n : ℕ) :
+    (affineOrderedIterate (affineBaseChange S ψ) n).comp (f.baseChange S) =
+      (TensorProduct.map (f.baseChange S)
+        (PiTensorProduct.map (fun _ : Fin n => u.baseChange S))).comp
+          (affineOrderedIterate (affineBaseChange S θ) n) := sorry
+
+-- node: HodgeStructuresPartII:H.0/affine-base-change-zero-iff
+lemma affineBaseChange_zero_iff [Module.FaithfullyFlat R S]
+    (θ : E →ₗ[R] E ⊗[R] Q) : affineBaseChange S θ = 0 ↔ θ = 0 := sorry
+
+-- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-one-zero-iff
+lemma affineOrderedIterate_baseChange_one_zero_iff [Module.FaithfullyFlat R S]
+    (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineOrderedIterate (affineBaseChange S θ) 1 = 0 ↔ affineOrderedIterate θ 1 = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_coefficient_quotient
+example (θ : ℤ →ₗ[ℤ] ℤ ⊗[ℤ] ZMod 2) :
+    affineBaseChange (ZMod 2) (affineCoefficientMap θ (0 : ZMod 2 →ₗ[ℤ] ZMod 3)) =
+      affineCoefficientMap (affineBaseChange (ZMod 2) θ)
+        ((0 : ZMod 2 →ₗ[ℤ] ZMod 3).baseChange (ZMod 2)) := sorry
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_torsion_coefficients
+example (θ : ℤ →ₗ[ℤ] ℤ ⊗[ℤ] ZMod 2) :
+    affineBaseChange ℤ θ = 0 ↔ θ = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_torsion_source
+example : affineBaseChange ℤ
+    (TensorProduct.rid ℤ (ZMod 2)).symm.toLinearMap ≠ 0 := sorry
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_degree_one_no_basis
+example (θ : ZMod 2 →ₗ[ℤ] ZMod 2 ⊗[ℤ] ZMod 2) :
+    affineOrderedIterate (affineBaseChange ℤ θ) 1 = 0 ↔
+      affineOrderedIterate θ 1 = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_horizontal_restriction
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] P)
+    (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ) (n : ℕ)
+    (hz : affineOrderedIterate (affineBaseChange S θ) n = 0) :
+    (affineOrderedIterate (affineBaseChange S ψ) n).comp (f.baseChange S) = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_receiving_unit
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] P)
+    (f : E →ₗ[R] F) (u : Q →ₗ[R] P) :
+    (affineOrderedIterate (affineBaseChange S ψ) 0).comp (f.baseChange S) =
+      (TensorProduct.map (f.baseChange S)
+        (PiTensorProduct.map (fun _ : Fin 0 => u.baseChange S))).comp
+          (affineOrderedIterate (affineBaseChange S θ) 0) := sorry
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_nonfaithful_erasure
+example :
+    let θ := ((TensorProduct.rid ℤ ℤ).symm.toLinearMap).comp
+      ((2 : ℤ) • (LinearMap.id : ℤ →ₗ[ℤ] ℤ))
+    θ ≠ 0 ∧ affineBaseChange (ZMod 2) θ = 0 := sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle

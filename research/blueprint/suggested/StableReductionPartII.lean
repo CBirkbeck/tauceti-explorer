@@ -1778,3 +1778,198 @@ example : polynomialMonomialBasis (ZMod 1) 0 0 0 0 (37,1) = 0 := sorry
 
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+
+
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+open Polynomial
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+local notation "F₀" => polynomial A γ δ s t
+local notation "R₀" => Ring A γ δ s t
+local notation "ι₀" => coefficientHom A γ δ s t
+local notation "u₀" => AdjoinRoot.root F₀
+local notation "v₀" => AdjoinRoot.of F₀ (Polynomial.X : Polynomial A)
+local notation "c₀" => u₀ - ι₀ s
+local notation "d₀" => v₀ - ι₀ t
+local notation "b₀" => u₀ + ι₀ s + ι₀ γ * ι₀ t
+local notation "J₀" => (Ideal.span {c₀,d₀} : Ideal R₀)
+local notation "D₀" => J₀ →ₗ[R₀] R₀
+local notation "E₀" => polynomialCoordinates A γ δ s t
+
+lemma polynomialCoordinates_coefficient_mul (p : Polynomial A) (r : R₀) :
+    E₀ (AdjoinRoot.of F₀ p * r) = (p * (E₀ r).1, p * (E₀ r).2) := by
+  sorry
+
+lemma polynomialCoordinates_second_mul (r : R₀) :
+    E₀ (d₀ * r) =
+      ((X - C t) * (E₀ r).1, (X - C t) * (E₀ r).2) := by
+  sorry
+
+lemma polynomialCoordinates_root_mul (r : R₀) :
+    E₀ (u₀ * r) =
+      ((C (NodeForm γ δ s t) - C δ * X ^ 2) * (E₀ r).2,
+       (E₀ r).1 - (C γ * X) * (E₀ r).2) := by
+  sorry
+
+lemma polynomialCoordinates_first_mul (r : R₀) :
+    (E₀ (c₀ * r)).2 =
+      (E₀ r).1 - (C s + C γ * X) * (E₀ r).2 := by
+  sorry
+
+lemma dualValue_commutes (h : D₀) (j k : J₀) :
+    (j : R₀) * h k = (k : R₀) * h j := by
+  sorry
+
+lemma dualValue_at_second (h : D₀) :
+    let jd : J₀ := ⟨d₀,sectionSecond_mem A γ δ s t⟩
+    ((E₀ (h jd)).1).eval t =
+      (s + γ * t) * ((E₀ (h jd)).2).eval t := by
+  sorry
+
+lemma polynomialCoordinates_dualNumerator : E₀ b₀ = (C (s + γ * t), 1) := by
+  sorry
+
+lemma dualValue_decomposition (h : D₀) :
+    let jd : J₀ := ⟨d₀,sectionSecond_mem A γ δ s t⟩
+    ∃ z : R₀ × A, h jd = d₀ * z.1 + ι₀ z.2 * b₀ := by
+  sorry
+
+lemma dualNormalForm_exists (ε : D₀)
+    (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) (h : D₀) :
+    ∃ z : R₀ × A, ∀ j : J₀,
+      h j = z.1 * (j : R₀) + ι₀ z.2 * ε j := by
+  sorry
+
+lemma dualValue_coordinates_unique (z z' : R₀ × A)
+    (hz : d₀ * z.1 + ι₀ z.2 * b₀ = d₀ * z'.1 + ι₀ z'.2 * b₀) : z = z' := by
+  sorry
+
+lemma dualGenerator_action (ε : D₀)
+    (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) (K : R₀ →ₗ[A] R₀)
+    (hK : ∀ r : R₀, d₀ * K r = b₀ * (r - ι₀ (sectionEval A γ δ s t r)))
+    (z : R₀) (j : J₀) :
+    (z - ι₀ (sectionEval A γ δ s t z)) * ε j = K z * (j : R₀) := by
+  sorry
+
+lemma dualMultiplicationInjective : Function.Injective (dualMultiplication A γ δ s t) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.normalInclusionCanonical
+example : ∃ e : D₀ ≃ₗ[A] (R₀ × A),
+    e (dualMultiplication A γ δ s t 1) = (1,0) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.normalGeneratorNonreduced
+example : ∃ e : (sectionIdeal (ZMod 4) 0 0 0 0 →ₗ[Ring (ZMod 4) 0 0 0 0]
+    Ring (ZMod 4) 0 0 0 0) ≃ₗ[ZMod 4] (Ring (ZMod 4) 0 0 0 0 × ZMod 4),
+    e (dualGenerator (ZMod 4) 0 0 0 0) = (0,1) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.normalRoundTripCanonical
+example : ∃ e : D₀ ≃ₗ[A] (R₀ × A),
+    (∀ p, e (e.symm p) = p) ∧
+    (∀ p j, e.symm p j = p.1 * (j : R₀) + ι₀ p.2 * dualGenerator A γ δ s t j) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.residueGeneratorCanonical
+example : ∃ ρ : D₀ →ₗ[A] A,
+    Function.Surjective ρ ∧ ρ (dualGenerator A γ δ s t) = 1 := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.residueMultiplicationCanonical
+example : ∃ ρ : D₀ →ₗ[A] A,
+    Function.Surjective ρ ∧ ∀ r, ρ (dualMultiplication A γ δ s t r) = 0 := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.multiplicationZero
+example : dualMultiplication A γ δ s t 0 = 0 := map_zero _
+example (j : J₀) : dualMultiplication A γ δ s t 1 j = (j : R₀) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.multiplicationOne
+example (j : J₀) : dualMultiplication A γ δ s t 1 j = (j : R₀) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.multiplicationFaithful
+example (r : R₀) : dualMultiplication A γ δ s t r = 0 ↔ r = 0 := by
+  sorry
+
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+
+-- Coefficient projectivity, freeness and tensor retraction continuation.
+
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+open scoped TensorProduct
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+local notation "R₀" => Ring A γ δ s t
+local notation "J₀" => (Ideal.span {AdjoinRoot.root (polynomial A γ δ s t) - coefficientHom A γ δ s t s,
+  AdjoinRoot.of (polynomial A γ δ s t) (Polynomial.X : Polynomial A) - coefficientHom A γ δ s t t} : Ideal R₀)
+local notation "D₀" => J₀ →ₗ[R₀] R₀
+
+lemma sectionIdeal_coefficient_projective : Module.Projective A J₀ := by
+  sorry
+
+lemma sectionDual_coefficient_free : Module.Free A D₀ := by
+  sorry
+
+lemma sectionProjection_lTensor_retraction (M : Type*) [AddCommGroup M] [Module A M] :
+    ((sectionProjection A γ δ s t).lTensor M).comp
+      ((((J₀).subtype).restrictScalars A).lTensor M) = LinearMap.id := by
+  sorry
+
+lemma sectionIdeal_lTensor_injective (M : Type*) [AddCommGroup M] [Module A M] :
+    Function.Injective ((((J₀).subtype).restrictScalars A).lTensor M) := by
+  sorry
+
+-- Coefficient projectivity is available over the nonreduced ring Z/4.
+-- NodeSectionFactorization.PolynomialModel.coefficientProjectiveNonreduced
+example : Module.Projective (ZMod 4)
+    (Ideal.span {AdjoinRoot.root (polynomial (ZMod 4) 0 0 1 0) - coefficientHom (ZMod 4) 0 0 1 0 1,
+      AdjoinRoot.of (polynomial (ZMod 4) 0 0 1 0) (Polynomial.X : Polynomial (ZMod 4)) -
+        coefficientHom (ZMod 4) 0 0 1 0 0} : Ideal (Ring (ZMod 4) 0 0 1 0)) := by
+  sorry
+
+-- No nontriviality assumption is hidden in the coefficient-flatness proof.
+-- NodeSectionFactorization.PolynomialModel.coefficientIdealFlatZero
+example : Module.Flat (ZMod 1)
+    (Ideal.span {AdjoinRoot.root (polynomial (ZMod 1) 0 0 0 0) - coefficientHom (ZMod 1) 0 0 0 0 0,
+      AdjoinRoot.of (polynomial (ZMod 1) 0 0 0 0) (Polynomial.X : Polynomial (ZMod 1)) -
+        coefficientHom (ZMod 1) 0 0 0 0 0} : Ideal (Ring (ZMod 1) 0 0 0 0)) := by
+  sorry
+
+-- The actual dual is free over coefficients, including nonreduced coefficients.
+-- NodeSectionFactorization.PolynomialModel.coefficientDualFreeNonreduced
+example : Module.Free (ZMod 4)
+    ((Ideal.span {AdjoinRoot.root (polynomial (ZMod 4) 0 0 1 0) - coefficientHom (ZMod 4) 0 0 1 0 1,
+      AdjoinRoot.of (polynomial (ZMod 4) 0 0 1 0) (Polynomial.X : Polynomial (ZMod 4)) -
+        coefficientHom (ZMod 4) 0 0 1 0 0} : Ideal (Ring (ZMod 4) 0 0 1 0)) →ₗ[Ring (ZMod 4) 0 0 1 0]
+        Ring (ZMod 4) 0 0 1 0) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.coefficientDualFlatZero
+example : Module.Flat (ZMod 1)
+    ((Ideal.span {AdjoinRoot.root (polynomial (ZMod 1) 0 0 0 0) - coefficientHom (ZMod 1) 0 0 0 0 0,
+      AdjoinRoot.of (polynomial (ZMod 1) 0 0 0 0) (Polynomial.X : Polynomial (ZMod 1)) -
+        coefficientHom (ZMod 1) 0 0 0 0 0} : Ideal (Ring (ZMod 1) 0 0 0 0)) →ₗ[Ring (ZMod 1) 0 0 0 0]
+        Ring (ZMod 1) 0 0 0 0) := by
+  sorry
+
+-- Tensoring the inclusion with the torsion Z-module Z/2 stays injective.
+-- NodeSectionFactorization.PolynomialModel.tensorInclusionTorsion
+example : Function.Injective
+    ((((Ideal.span {AdjoinRoot.root (polynomial ℤ 0 0 0 0) - coefficientHom ℤ 0 0 0 0 0,
+      AdjoinRoot.of (polynomial ℤ 0 0 0 0) (Polynomial.X : Polynomial ℤ) - coefficientHom ℤ 0 0 0 0 0} :
+        Ideal (Ring ℤ 0 0 0 0)).subtype).restrictScalars ℤ).lTensor (ZMod 2)) := by
+  sorry
+
+-- Retraction holds pointwise on every tensor, without assuming M is flat.
+-- NodeSectionFactorization.PolynomialModel.tensorRetractionPointwise
+example (M : Type*) [AddCommGroup M] [Module A M] (z : M ⊗[A] J₀) :
+    ((sectionProjection A γ δ s t).lTensor M)
+      ((((J₀).subtype).restrictScalars A).lTensor M z) = z := by
+  sorry
+
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel

@@ -1832,6 +1832,23 @@ variable {σ k : Type*} [Finite σ] [CommRing k]
 local notation "R" => MvPowerSeries σ k
 local notation "v" => (Ideal.span (Set.range (MvPowerSeries.X : σ → R)))
 
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/monomial-variable-ideal-power
+omit [Finite σ] in
+lemma monomial_mem_variableIdeal_pow_degree (β : σ →₀ ℕ) :
+    MvPowerSeries.monomial β (1 : k) ∈ v ^ β.degree := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order-bound
+omit [Finite σ] in
+lemma order_lower_bound_of_mem_variableIdeal_pow (g : R) (r : ℕ)
+    (hg : g ∈ v ^ r) : (r : ℕ∞) ≤ g.order := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/finite-degree-monomial-factorization
+lemma exists_degree_monomial_factorization (g : R) (r : ℕ)
+    (hg : (r : ℕ∞) ≤ g.order) :
+    ∃ h : (σ →₀ ℕ) → R,
+      g = ∑ β ∈ (Finsupp.finite_of_degree_eq (σ := σ) r).toFinset,
+        MvPowerSeries.monomial β (1 : k) * h β := by sorry
+
 -- node: DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order
 lemma mem_variableIdeal_pow_iff (g : R) (r : ℕ) :
     g ∈ v ^ r ↔ (r : ℕ∞) ≤ g.order := by sorry
@@ -2342,5 +2359,210 @@ example :
 
 -- test: HilbertSamuelQuotientTest.nonsurjective_coefficients
 example : Module.length ℝ ℂ = 2 ∧ Module.length ℂ ℂ = 1 := by sorry
+
+end TauCeti.HilbertSamuel
+
+/-! Principal-ideal quotient multiplication (codex-5ebb6f).
+General ring and actual ideal quotient adapters; the order-to-variable-ideal
+bridge remains a separate planned input. New bodies are admitted prototypes. -/
+namespace TauCeti.HilbertSamuel
+noncomputable section PrincipalQuotients
+variable {A : Type*} [CommRing A]
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-mul-denominator
+lemma pow_mul_denominator (q : Ideal A) (f : A) (d n : ℕ)
+    (hdn : d ≤ n) (hf : f ∈ q ^ d) :
+    (q ^ (n - d) : Submodule A A) ≤
+      Submodule.comap (LinearMap.mulLeft A f) (q ^ n : Submodule A A) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-multiplication
+def quotientMulMap (J K : Ideal A) (f : A)
+    (h : (J : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A f) K) :
+    (A ⧸ J) →ₗ[A] (A ⧸ K) := by sorry
+
+-- API: TauCeti.HilbertSamuel.quotientMulMap_apply
+lemma quotientMulMap_apply (J K : Ideal A) (f : A)
+    (h : (J : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A f) K) (g : A) :
+    quotientMulMap J K f h (Submodule.mkQ J g) = Submodule.mkQ K (f * g) := by sorry
+
+-- API: TauCeti.HilbertSamuel.principalQuotientProjection
+def principalQuotientProjection (K : Ideal A) (f : A) :
+    (A ⧸ K) →ₗ[A] (A ⧸ (Ideal.span {f} ⊔ K)) := by sorry
+
+-- API: TauCeti.HilbertSamuel.principalQuotientProjection_apply
+lemma principalQuotientProjection_apply (K : Ideal A) (f g : A) :
+    principalQuotientProjection K f (Submodule.mkQ K g) =
+      Submodule.mkQ (Ideal.span {f} ⊔ K) g := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-exact
+lemma quotientMulMap_exact (J K : Ideal A) (f : A)
+    (h : (J : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A f) K) :
+    LinearMap.range (quotientMulMap J K f h) =
+      LinearMap.ker (principalQuotientProjection K f) ∧
+      Function.Surjective (principalQuotientProjection K f) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-injectivity
+lemma quotientMulMap_injective_iff (J K : Ideal A) (f : A)
+    (h : (J : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A f) K) :
+    Function.Injective (quotientMulMap J K f h) ↔
+      ∀ g : A, f * g ∈ K → g ∈ J := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/principal-projection-in-ideal
+lemma principalQuotientProjection_bijective (K : Ideal A) (f : A) (hf : f ∈ K) :
+    Ideal.span {f} ⊔ K = K ∧ Function.Bijective (principalQuotientProjection K f) := by sorry
+
+-- test: HilbertSamuelPrincipalJetTest.endpoint_denominator
+example (q : Ideal A) (f : A) (n : ℕ) (hf : f ∈ q ^ n) :
+    (q ^ 0 : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A f) (q ^ n) := by sorry
+
+-- test: HilbertSamuelPrincipalJetTest.zero_cutoff
+example (q : Ideal A) (f : A) :
+    (q ^ 0 : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A f) (q ^ 0) := by sorry
+
+-- test: HilbertSamuelPrincipalJetTest.zero_equation
+example (J K : Ideal A) :
+    ∃ h : (J : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A (0 : A)) K,
+      quotientMulMap J K 0 h = 0 ∧
+      LinearMap.ker (principalQuotientProjection K 0) = ⊥ := by sorry
+
+-- test: HilbertSamuelPrincipalJetTest.unit_equation
+example (K : Ideal A) :
+    ∃ h : (K : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A (1 : A)) K,
+      quotientMulMap K K 1 h = LinearMap.id ∧
+      LinearMap.ker (principalQuotientProjection K 1) = ⊤ := by sorry
+
+-- test: HilbertSamuelPrincipalJetTest.zero_divisor_noninjective
+example :
+    ∃ h : ((⊥ : Ideal (ZMod 4)) : Submodule (ZMod 4) (ZMod 4)) ≤
+        Submodule.comap (LinearMap.mulLeft (ZMod 4) 2) (⊥ : Ideal (ZMod 4)),
+      ¬ Function.Injective (quotientMulMap ⊥ ⊥ (2 : ZMod 4) h) ∧
+      LinearMap.range (quotientMulMap ⊥ ⊥ (2 : ZMod 4) h) =
+        LinearMap.ker (principalQuotientProjection ⊥ (2 : ZMod 4)) ∧
+      Function.Surjective (principalQuotientProjection ⊥ (2 : ZMod 4)) := by sorry
+
+-- test: HilbertSamuelPrincipalJetTest.nonzero_shift
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    let h := pow_mul_denominator q 2 1 2 (by decide) (by dsimp [q]; simp)
+    quotientMulMap (q ^ (2 - 1)) (q ^ 2) 2 h (Submodule.mkQ (q ^ 1) 1) =
+      Submodule.mkQ (q ^ 2) 2 ∧ Submodule.mkQ (q ^ 2) 2 ≠ 0 := by sorry
+
+-- test: HilbertSamuelPrincipalJetTest.wrong_source_domain
+example : let K : Ideal ℤ := Ideal.span {(4 : ℤ)}
+    ∃ h : (K : Submodule ℤ ℤ) ≤ Submodule.comap (LinearMap.mulLeft ℤ 2) K,
+      ¬ Function.Injective (quotientMulMap K K 2 h) := by sorry
+
+end PrincipalQuotients
+end TauCeti.HilbertSamuel
+
+/-! ## Codex codex-a71f92: finite algebraic variable-ideal regression tests
+The three auxiliary declarations and the existing iff retain admitted canonical
+bodies. A separate immutable archive holds the exact admission-free proof
+prototype and these eleven tests. It is not a library integration claim. -/
+open scoped BigOperators
+namespace TauCeti.HilbertSamuel
+
+-- Arbitrary, even infinite, variable sets in the forward direction.
+-- test: HilbertSamuelVariableIdealTest.infinite_variables_forward
+example (g : MvPowerSeries ℕ (ZMod 4)) (r : ℕ)
+    (hg : g ∈ (Ideal.span (Set.range (MvPowerSeries.X :
+      ℕ → MvPowerSeries ℕ (ZMod 4)))) ^ r) : (r : ℕ∞) ≤ g.order :=
+  order_lower_bound_of_mem_variableIdeal_pow g r hg
+
+-- Zero and power zero do not require a nontrivial coefficient ring.
+-- test: HilbertSamuelVariableIdealTest.zero_series
+example {σ k : Type*} [Finite σ] [CommRing k] (r : ℕ) :
+    (0 : MvPowerSeries σ k) ∈
+      (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k))) ^ r :=
+  (mem_variableIdeal_pow_iff 0 r).mpr (by simp)
+
+-- test: HilbertSamuelVariableIdealTest.zero_power
+example {σ k : Type*} [CommRing k] (g : MvPowerSeries σ k) :
+    g ∈ (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k))) ^ 0 := by
+  simp
+
+-- test: HilbertSamuelVariableIdealTest.zero_degree_factorization
+example {σ k : Type*} [Finite σ] [CommRing k] (g : MvPowerSeries σ k) :
+    ∃ h : (σ →₀ ℕ) → MvPowerSeries σ k,
+      g = ∑ β ∈ (Finsupp.finite_of_degree_eq (σ := σ) 0).toFinset,
+        MvPowerSeries.monomial β (1 : k) * h β :=
+  exists_degree_monomial_factorization g 0 (by simp)
+
+-- Empty variable set: positive-order series really are zero.
+-- test: HilbertSamuelVariableIdealTest.empty_variables
+example (g : MvPowerSeries PEmpty ℚ) (r : ℕ) (hr : 0 < r) :
+    g ∈ (Ideal.span (Set.range (MvPowerSeries.X :
+      PEmpty → MvPowerSeries PEmpty ℚ))) ^ r ↔ g = 0 := by
+  rw [mem_variableIdeal_pow_iff]
+  constructor
+  · intro hg
+    apply MvPowerSeries.ext
+    intro α
+    have hα : α = 0 := by ext i; exact i.elim
+    subst α
+    simpa using (MvPowerSeries.coeff_of_lt_order
+      ((Nat.cast_pos.mpr hr).trans_le hg) : MvPowerSeries.coeff 0 g = 0)
+  · rintro rfl
+    simp
+
+-- Degree zero and a mixed monomial check the total, not coordinatewise, bound.
+-- test: HilbertSamuelVariableIdealTest.constant_monomial
+example {σ k : Type*} [CommRing k] :
+    MvPowerSeries.monomial (0 : σ →₀ ℕ) (1 : k) ∈
+      (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k))) ^ 0 := by
+  simp
+
+-- test: HilbertSamuelVariableIdealTest.mixed_total_degree
+example :
+    MvPowerSeries.monomial (Finsupp.single (0 : Fin 2) 2 + Finsupp.single 1 3) (1 : ZMod 4) ∈
+      (Ideal.span (Set.range (MvPowerSeries.X :
+        Fin 2 → MvPowerSeries (Fin 2) (ZMod 4)))) ^ 5 := by
+  have hd : (Finsupp.single (0 : Fin 2) 2 + Finsupp.single 1 3).degree = 5 := by
+    rw [Finsupp.degree_eq_sum, Fin.sum_univ_two]
+    simp
+  exact hd ▸ monomial_mem_variableIdeal_pow_degree (k := ZMod 4)
+    (Finsupp.single (0 : Fin 2) 2 + Finsupp.single 1 3)
+
+-- A variable is in the ideal but not its square over a ring with zero divisors.
+-- test: HilbertSamuelVariableIdealTest.variable_membership
+example :
+    (MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) (ZMod 4)) ∈
+      Ideal.span (Set.range (MvPowerSeries.X :
+        Fin 2 → MvPowerSeries (Fin 2) (ZMod 4))) :=
+  Ideal.subset_span (Set.mem_range_self _)
+
+-- test: HilbertSamuelVariableIdealTest.variable_not_square
+example :
+    (MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) (ZMod 4)) ∉
+      (Ideal.span (Set.range (MvPowerSeries.X :
+        Fin 2 → MvPowerSeries (Fin 2) (ZMod 4)))) ^ 2 := by
+  rw [mem_variableIdeal_pow_iff, MvPowerSeries.X,
+    MvPowerSeries.order_monomial_of_ne_zero (by decide : (1 : ZMod 4) ≠ 0)]
+  simp
+
+-- The zero coefficient ring is allowed; no order(0).toNat conversion is used.
+-- test: HilbertSamuelVariableIdealTest.zero_coefficient_ring
+example (g : MvPowerSeries (Fin 2) (ZMod 1)) (r : ℕ) :
+    g ∈ (Ideal.span (Set.range (MvPowerSeries.X :
+      Fin 2 → MvPowerSeries (Fin 2) (ZMod 1)))) ^ r := by
+  have hg : g = 0 := by
+    apply MvPowerSeries.ext
+    intro α
+    exact Subsingleton.elim _ _
+  rw [hg]
+  exact (mem_variableIdeal_pow_iff 0 r).mpr (by simp)
+
+-- The finite decomposition applies to the sum, not just individual monomials.
+-- test: HilbertSamuelVariableIdealTest.sum_factorization
+example :
+    ∃ h : (Fin 2 →₀ ℕ) → MvPowerSeries (Fin 2) (ZMod 4),
+      ((MvPowerSeries.X (0 : Fin 2)) ^ 2 + (MvPowerSeries.X 1) ^ 2 :
+        MvPowerSeries (Fin 2) (ZMod 4)) =
+      ∑ β ∈ (Finsupp.finite_of_degree_eq (σ := Fin 2) 2).toFinset,
+        MvPowerSeries.monomial β (1 : ZMod 4) * h β := by
+  apply exists_degree_monomial_factorization
+  apply (mem_variableIdeal_pow_iff _ 2).mp
+  apply Ideal.add_mem
+  · exact Ideal.pow_mem_pow (Ideal.subset_span (Set.mem_range_self (0 : Fin 2))) 2
+  · exact Ideal.pow_mem_pow (Ideal.subset_span (Set.mem_range_self (1 : Fin 2))) 2
 
 end TauCeti.HilbertSamuel

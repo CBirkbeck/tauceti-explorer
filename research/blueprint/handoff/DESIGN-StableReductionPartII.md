@@ -1,3 +1,383 @@
+# Current continuation: coefficient projectivity and tensor retraction — Codex codex-J6LwjP
+
+Refs #3342. Winning claim 5962363236 was confirmed by bot 5962364540. Base a6094bd6d7c7856944d7cf3b905c7e9bf11d90fd. This current receipt supersedes numerical summaries below; every historical receipt keeps its authorship and original scope.
+
+161 nodes: eight definitions, forty constructions, fifty lemmas, sixty-two theorems and one application. There are 181 distinct API names, 183 entries across all nodes (182 definition/construction entries), 168 definition/construction tests, 170 tests across all nodes, 35 planets, 98 baseline references, fourteen gaps and 135 requests. All eight stages remain partial, none closed, all implementation statuses unchecked. Four consumed native lemma nodes and six test contracts were added. Every inherited statement, hypothesis, acceptance and source contract survives, with 153 of the 157 inherited whole node objects unchanged. Both existing coefficient-flatness proof routes are retained and gain checked projectivity/freeness alternatives. All inherited API, tests, uses and prerequisite entries are retained. Roadmap bytes, stage definitions and dependencies, reserved moduli key, six consumer inventories, source versions/issues, gaps and supplier requests are unchanged.
+
+## Mathematical calculation and exact limit
+
+The actual native ideal J has the coefficient-linear inclusion i:J→R and canonical projection p:R→J with p∘i=id. The constructed ordered monomial basis makes R A-free. The existing projective direct-summand theorem makes J A-projective, and the projective-flat instance establishes the already stated coefficient-flatness contract. The constructed dual normal equivalence D≃ₗ[A]R×A, for the actual R-linear dual D, transports native product freeness to D. The free-flat instance proves its inherited coefficient-flatness contract. None of these statements claims projectivity or flatness over the node ring R.
+
+For any A-module M, the native tensor composition and identity laws take p∘i=id to (id_M⊗p)∘(id_M⊗i)=id. Applying id_M⊗p to equality of inclusion images proves tensor-inclusion injectivity without any flatness, finite-generation or nontriviality hypothesis on M or A. Six checked examples use the actual native carriers: ideal projectivity and dual freeness over Z/4 with s=1; ideal/dual flatness over the zero ring Z/1; tensor-inclusion injectivity for M=Z/2 over A=Z; and the pointwise retraction identity on arbitrary tensors. In particular the torsion test does not assume a flat coefficient module.
+
+This tensor argument covers only the split coefficient sequence J→R→A. It does not prove exactness after tensoring the alternating matrix complex, the two prescribed matrix cokernel equivalences, canonical quotient/tensor-dual comparison, arbitrary coefficient-module Hom exchange, bidual evaluation, either higher Ext vanishing, completion or actual family/sheaf comparison. Preserve the negative second generator and both transpose complexes. All relative stable-reflexivity, two-base completion, pointed hull, approximation and MC.0–MC.7 geometric/positivity/level/determinant/Torelli/Picard obligations remain open. No shared key or global roadmap is closed.
+
+## Reads, attribution and scope
+
+The whole issue was read before claiming and after the winning bot response. Fresh reads cover all 157 inherited mathematical statements and hypotheses; all eight own stage descriptions/dependencies; the current predecessor handoff receipt and complete extraction/assembler recipes; the complete new native dual-coordinate continuation; full relevant projection, normal-form, dual-equivalence and coefficient-flatness contracts; the reserved moduli-curves record with all six consumer requirements; and reviewed AUDIT-02 parent StableReduction layers 1 and 3. No own Part II audit row or tracked blueprint link JSON mentioning this owner was found. Parent StableReduction and nearby Jacobian upstream documents were read earlier in this continuous session and remain supplier specifications. Nineteen Yuan and two DGH inventories are retained; no fresh whole-consumer-paper reading is claimed. The historical handoff is preserved in full below, without claiming a fresh whole-history read.
+
+Fresh source reading is the complete Knudsen [arXiv:1106.1588v2 §3](https://arxiv.org/html/1106.1588v2#S3), including the setup and complete Proposition 3.1 and Corollary 3.2 proofs. Printed hypotheses include noetherian A and unit discriminant. The broader arbitrary coefficient-ring algebra here is an authored deduction from the actual native projection, ordered basis and dual equivalence, not a strengthening of the published geometric theorem. Retrieved HTML SHA-256: 2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685. Earlier full-paper and Appendix readings and all source/version/erratum findings retain their original scope.
+
+Six new pinned statements, ambient hypotheses and complete proofs were read and indexed: Module.Projective.of_split over a semiring with a projective ambient module; Module.Free.of_equiv with compatible inverse scalar maps (used A-linearly); Module.Free.prod; Module.Flat.of_projective; LinearMap.lTensor_comp and LinearMap.lTensor_id over a commutative semiring. Supporting free-projective and free-flat instances and the native flatness class were read. A bounded specialized-name search in pinned Tau Ceti AlgebraicGeometry and Mathlib AdjoinRoot found no matching coefficient-projectivity/tensor-retraction declarations; this is not an exhaustive library-absence claim. General projective modules, products, scalar restriction and tensor-map laws are imported, not replanned.
+
+## Verification
+
+Indexed packet checker: zero errors/warnings. Intake allowed-path/public-path checks and whitespace checks pass. Full canonical sketch: exit 0, zero errors, 257 expected admitted-proof warnings, zero other warnings, 1,975 lines, 108 source-level examples; 16.41 seconds and peak 2,999,668 KiB. Separate native proof: exit 0, zero errors/admissions/warnings, 1,505 lines, 46 examples (forty inherited, six added), 98 named axiom audits (ninety-two inherited, six added); 10.80 seconds and peak 3,012,868 KiB. None of the printed axiom lists contains an admitted-proof axiom. Six public declaration headers (including the two inherited flatness headers) match the final canonical file after whitespace and lemma/theorem normalization; all six new example headers match exactly. All 1,393 inherited native-source lines are recovered byte-for-byte with verified SHA-256 1dacc15a2b1320257d215e906190cd8c4b009cd32e5585d92da6a72122f64c19; the whole 1,898-line inherited canonical prefix is byte-preserved.
+
+Both elaborations used the existing exact pinned Mathlib build and Lean 4.34.0-rc2, with 54 GiB available. No setup, dependency/cache download, library build or language server was used. The sketch imports Mathlib only; Tau Ceti remains a pinned source input. All newly submitted outer proof bodies remain admitted plans under PROTOCOL §13; the checked prototype is archived separately as evidence, not installed as an implementation. Only four allowed deliverables change; the fifth allowed roadmap file is byte-unchanged.
+
+Actual read-only assembler overlay occurs before decomposition trimming. Stage DAG 3,050/8,750; own declaration DAG 161/377; combined scoped stage/declaration/request DAG 3,176/9,402. All are acyclic. All 81 required stage pairs remain reachable; no own skipped or pending links or unresolved references; unrelated skipped/pending links match the immutable base control. Supplier stage specifications and diagnostic parent-stage context edges are not mathematical proofs or realises links. Original stage edges and all source/consumer/key/ownership contracts pass preservation guards. Before final submission, the live issue body/claimed label and the five own deliverable paths plus twelve instruction/audit/key/assembler paths were unchanged at main 099cf06f3b3c49aa0cb075268da13d97b3dc300e. This is an owner-scoped check, not an audit of unrelated atlas work.
+
+## Durable native proof reconstruction
+
+The complete checked source is archived in the allowed suggested file at immutable revision [67f27b2557f3a8c9e86d309f83ebd93e878ac77e](https://github.com/CBirkbeck/tauceti-explorer/blob/67f27b2557f3a8c9e86d309f83ebd93e878ac77e/research/blueprint/suggested/StableReductionPartII.lean). It contains one new flatness import, the full byte-verified predecessor source from d49ebea96b7886d8fd324eeff9bd5e1cb5fc7adc, six proved native declarations, six examples and six axiom audits. This extraction is complete and self-contained; scratch copies and logs are dispensable after public archive verification.
+
+Save the following in your own disk scratch. It reads an immutable public blob and writes only beside itself. Preserve the final newline and elaborate one file in an already-built exact pinned Mathlib environment with at least 20 GiB available; never set up or build a Lake environment.
+
+```python
+from pathlib import Path
+import urllib.request, hashlib
+archive = "67f27b2557f3a8c9e86d309f83ebd93e878ac77e"
+path = "research/blueprint/suggested/StableReductionPartII.lean"
+url = "https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/" + archive + "/" + path
+blob = urllib.request.urlopen(url).read().decode()
+source = blob.split("BEGIN ARCHIVED CHECKED SECTION COEFFICIENT FLATNESS\n", 1)[1]
+source = source.split("END ARCHIVED CHECKED SECTION COEFFICIENT FLATNESS\n", 1)[0]
+assert hashlib.sha256(source.encode()).hexdigest() == "1e5b1f1de1a3282ee855112a4675dc7cd0df4f5859cee63438b60d94bcb9c37b"
+Path(__file__).with_name("coefficient-native.lean").write_text(source)
+```
+
+Native source SHA-256: 1e5b1f1de1a3282ee855112a4675dc7cd0df4f5859cee63438b60d94bcb9c37b.
+Native normalized diagnostics SHA-256: 1db44e60198082e9f37827a3ed0f78d9322f7087a71363e8d352fcc0e484502c.
+Canonical source SHA-256: 45866c58c516769a3b82459630feed280cfce7dd0d06050d6dd6f3509223c54e.
+Canonical normalized diagnostics SHA-256: 8eac28674a256d5064d9a6b04725e965b2fa0f97c4f64e449cd4e64b7f32ef51.
+Diagnostic hashes omit the timing-wrapper line, normalize the source pathname to coefficient-native.lean or StableReductionPartII.lean respectively when present, strip surrounding whitespace and retain one final newline. The final canonical bytes are restored after removing the archive comment and their hash reverified.
+
+The complete actual assembler reproduction follows. Run from the repository root and save in your own disk scratch; it writes only its receipt beside itself. Archive/control commits may need fetching as read-only objects.
+
+```python
+import json,sys,subprocess,hashlib,re
+from pathlib import Path
+from collections import defaultdict,deque
+root=Path.cwd();sys.path.insert(0,str(root/"scripts"));import build
+rid="StableReductionPartII"
+packetpath="research/blueprint/packets/"+rid+".json"
+roadmappath="research/blueprint/roadmaps/"+rid+".json"
+base="a6094bd6d7c7856944d7cf3b905c7e9bf11d90fd"
+p=json.loads((root/packetpath).read_text());r=json.loads((root/roadmappath).read_text())
+old=json.loads(subprocess.check_output(["git","show",base+":"+packetpath],text=True))
+oldr=json.loads(subprocess.check_output(["git","show",base+":"+roadmappath],text=True))
+load=build.load_promoted
+def assemble(packet,definition):
+ def overlay(*a,**k):
+  ps,ds,defs=load(*a,**k)
+  return ([(n,v) for n,v in ps if v.get("roadmapId")!=rid]+[(rid,packet)],
+   {**ds,rid:"research/blueprint/readmes/"+rid+".md"},
+   [x for x in defs if x.get("id")!=rid]+[definition])
+ build.load_promoted=overlay
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,r);control=assemble(old,oldr)
+def dag(vertices,edges):
+ vertices=set(vertices)|{x for e in edges for x in e};following=defaultdict(set);indegree=dict.fromkeys(vertices,0)
+ for s,t in set(edges):
+  following[s].add(t);indegree[t]+=1
+ q=deque(v for v in vertices if not indegree[v]);seen=[]
+ while q:
+  v=q.popleft();seen.append(v)
+  for w in following[v]:
+   indegree[w]-=1
+   if not indegree[w]:q.append(w)
+ assert len(seen)==len(vertices),("cycle",sorted(v for v in vertices if indegree[v])[:10])
+ return {"vertices":len(vertices),"edges":len(set(edges)),"acyclic":True}
+se={(e["source"],e["target"]) for e in a["stageEdges"]}
+ce={(e["source"],e["target"]) for e in control["stageEdges"]}
+assert se==ce
+stageids={s["id"] for s in a["stages"]}
+own={n["id"]:n for n in p["nodes"]}
+oe={(dep,n["id"]) for n in own.values() for dep in n.get("prerequisites",[]) if dep in own}
+stageDAG=dag(stageids,se);ownDAG=dag(own,oe)
+allnodes=dict(own)
+for folder in ("data/decompositions","data/blueprints","research/blueprint/packets"):
+ for path in sorted((root/folder).glob("*.json")):
+  for n in json.loads(path.read_text()).get("nodes",[]):allnodes.setdefault(n["id"],n)
+used=set(own);todo=list(own)
+while todo:
+ v=todo.pop()
+ for d in allnodes[v].get("prerequisites",[]):
+  if d in allnodes and d not in used:used.add(d);todo.append(d)
+unresolved=[]
+for v in used:
+ for d in allnodes[v].get("prerequisites",[]):
+  if d not in used and d not in stageids and not d.startswith("mathlib:") and not (d.startswith("tauceti:") and "TauCetiRoadmap/" not in d):unresolved.append((v,d))
+assert not unresolved,unresolved
+edges=set(se)
+for v in used:
+ n=allnodes[v]
+ parent=n.get("parentStageId")
+ if parent:edges.add((parent,v))
+ for d in n.get("prerequisites",[]):
+  if d in stageids or d in used:edges.add((d,v))
+for request in p["requests"]:
+ for v in request["neededBy"]:edges.add((request["supplier"],v))
+combined=dag(stageids|used,edges)
+following=defaultdict(set)
+for s,t in se:following[s].add(t)
+def reachable(s,t):
+ todo=[s];seen=set()
+ while todo:
+  x=todo.pop()
+  if x==t:return True
+  if x not in seen:seen.add(x);todo+=list(following[x])
+ return False
+pairs=set()
+for stage in r['stages']:
+ for dep in stage.get('requires',[]):pairs.add((dep,rid+':'+stage['key']))
+def stage_of(v):
+ seen=set()
+ while v in allnodes and v not in seen:
+  seen.add(v);v=allnodes[v].get('parentStageId')
+ return v
+for n in own.values():
+ for d in n.get("prerequisites",[]):
+  if d in stageids and d not in allnodes and d!=stage_of(n['id']):pairs.add((d,stage_of(n['id'])))
+for req in p["requests"]:
+ for v in req["neededBy"]:
+  target=stage_of(v)
+  if req["supplier"]!=target:pairs.add((req["supplier"],target))
+missing=[(s,t) for s,t in pairs if not reachable(s,t)]
+assert not missing,missing
+ar={x["id"]:x for x in a["roadmaps"]};cr={x["id"]:x for x in control["roadmaps"]}
+assert ar[rid]["blueprint"]["declarations"]==len(own)
+assert ar[rid]["blueprint"]["planets"]==35
+assert not ar[rid]["blueprint"]["skippedLinks"]
+assert not ar[rid].get("pendingLinks"), ar[rid].get("pendingLinks")
+assert all(ar[x].get("pendingLinks")==cr[x].get("pendingLinks") for x in cr)
+assert all(ar[x].get("blueprint",{}).get("skippedLinks")==cr[x].get("blueprint",{}).get("skippedLinks") for x in cr)
+for key in ("requests","gaps","sources","sourceIssues","sourceVersions","consumerCoverage","keyDefinitionCoverage","restructure","upstreamImportEncoding"):
+ assert p[key]==old[key],key
+on={n["id"]:n for n in old["nodes"]}
+for id,n in on.items():
+ for key in ("id","kind","statement","hypotheses","acceptance","sources","implementationStatus"):
+  assert own[id].get(key)==n.get(key),(id,key)
+ assert all(u in own[id].get("uses",[]) for u in n.get("uses",[]))
+ assert all(t in own[id].get("tests",[]) for t in n.get("tests",[]))
+ assert all(t in own[id].get("api",[]) for t in n.get("api",[]))
+assert p["baseline"]["declarations"][:len(old["baseline"]["declarations"])]==old["baseline"]["declarations"]
+unchanged=sum(own[id]==n for id,n in on.items())
+lean=(root/"research/blueprint/suggested/StableReductionPartII.lean").read_text()
+for node in p["nodes"]:
+ for test in node.get("tests",[]):assert test["name"] in lean,test["name"]
+for node in p["nodes"]:
+ for api in node.get("api",[]):assert api["name"].split(".")[-1] in lean,api["name"]
+allowed={packetpath,roadmappath,"research/blueprint/readmes/"+rid+".md","research/blueprint/suggested/"+rid+".lean","research/blueprint/handoff/DESIGN-"+rid+".md"}
+changed=set(subprocess.check_output(["git","diff","--name-only",base],text=True).splitlines())
+assert changed<=allowed,changed
+for path in changed:
+ assert not re.search(r"/(?:home|tmp|Users)/|file"+"://",(root/path).read_text()),path
+result={"actualAssembler":True,"declarations":len(own),"planets":35,"ownSkippedLinks":[],
+ "stageDAG":stageDAG,"ownDeclarationDAG":ownDAG,"stagesAndReachableDeclarations":combined,
+ "reachableDeclarations":len(used),"externalDeclarations":sorted(used-set(own)),"unresolved":unresolved,
+ "requiredStagePairsReachable":len(pairs),"stageEdgesUnchanged":True,
+ "ownPendingLinks":[],"otherPendingLinksMatchOriginal":True,"otherSkipsMatchOriginal":True,"unchangedNodeObjects":unchanged,
+ "scriptSha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+Path(__file__).with_suffix(".json").write_text(json.dumps(result,indent=2)+"\n")
+print(json.dumps(result,indent=2))
+```
+
+Assembler script SHA-256: 962dce472858183cc7be5db8c54291354e166722f9d40a13575d8233c4b9b604.
+
+---
+
+# Current continuation: complete native dual coordinates — Codex codex-rtOQ9t
+
+Refs #3342. Winning claim 5961790840 was confirmed by bot 5961792796. Base 4a1f4b6f4dc475b67e029001f90053ff85163a04. This receipt supersedes the historical numerical receipts below; their earlier readings and deductions retain their authorship and scope.
+
+157 nodes: 8 definitions, 40 constructions, 46 lemmas, 62 theorems and 1 application. There are 177 distinct API names (179 entries across all nodes; the checker reports 178 definition/construction API entries), 162 definition/construction tests and 164 tests on all nodes, 35 planets, 92 baseline references, fourteen gaps and 135 requests. All eight stages remain partial, zero stages closed, every implementation status unchecked. Twelve consumed native lemma/construction nodes and eight canonical test contracts were added. All 145 inherited statement, hypothesis, acceptance and source contracts are preserved; all existing API, tests and uses survive. 140 whole node objects are unchanged. The existing normal-form, equivalence, residue and scalar-action proof routes are refined, and the ordered-coordinate API gains multiplication formulas. The reserved moduli key and all six consumer inventories, source/version/erratum findings, ownership and supplier requests are retained exactly.
+
+The actual native ideal and dual now have admission-free proofs of the complete stated dual normal form, its A-linear equivalence, the surjective residue and actual multiplication kernel, and the corrected ring action, for every commutative coefficient ring including zero and nonreduced rings. These results are derived from ordered polynomial coordinates and the already characterized canonical ε, rather than assumed to define the ideal or dual. General monic division, scalar restriction and native linear equivalence/projection constructors are imported from Mathlib. The final submitted suggested file remains an admitted plan under PROTOCOL §13, not an implementation or certification of the global geometric construction.
+
+## Mathematical calculation
+
+For E(h(d))=(p,q₁), ideal-linearity gives ch(d)=dh(c). The second coordinate of cr is E(r)₀−(s+γY)E(r)₁, while d multiplies both entries by Y−t. Evaluation at t gives p(t)=(s+γt)q₁(t). Setting α=q₁(t), the pinned arbitrary-ring monic divisibility theorem produces quotient polynomials p₀,q₀. Their native inverse-coordinate element r satisfies h(d)=dr+ιαb, because E(b)=(C(s+γt),1). Commutation on any j and regularity of d then give h(j)=rj+ιαε(j). A second-coordinate evaluation at t recovers α uniquely; canceling d recovers r.
+
+The map m:R→D, m(r)(j)=rj, is the actual R-linear multiplication map; evaluation on d proves its injectivity. The A-linear pair map (r,α)↦m(r)+αε is bijective by the established normal form. Its inverse is the prescribed coefficient-linear equivalence. Multiplication by d and cancellation prove (z−ιev(z))ε(j)=K(z)j. Thus the coordinates of zh are (zr+ιαK(z),ev(z)α). This correction is proved before the residue, removing the earlier proof dependency in the opposite direction. The second projection gives surjective ρ with ρ(ε)=1 and kernel exactly im(m). For nonzero A a ring-linear section would give dσ(1)=0; pointwise cancellation implies σ(1)=0, contradicting its right inverse property.
+
+The actual nine added proof examples cover the constructed inclusion coordinates, canonical ε over Z/4Z, the constructed inverse round trip/formula, actual surjective residue on ε and multiplication, the non-splitting statement for every nonzero A, and m(0), m(1) and faithfulness. Eight are new canonical test contracts; the non-splitting test was inherited. This checks actual constructions, rather than tests parameterized only by assumed normal coordinates.
+
+## Reads and limits
+
+The complete issue was read before claiming and after the winning bot response. The current predecessor handoff receipt and complete coordinate reconstruction/assembler recipes were read, along with all 145 inherited mathematical statements and the relevant full normal-form/equivalence/residue/coordinate objects and common hypotheses. The eight own stage descriptions and ownership contracts, the reserved moduli-curves survey record and six consumer requirements, and the reviewed AUDIT-02 parent StableReduction layers 1 and 3 were checked. No own Part II audit row or tracked blueprint link JSON mentioning this owner was found. Full upstream StableReduction and nearby upstream documents were read earlier in this continuous worker session; they remain supplier specifications. The nineteen Yuan and two DGH route inventories are preserved; no fresh whole-consumer-paper reading is claimed. Historical handoff sections remain predecessor evidence, not a new whole-file reading claim.
+
+Fresh source scope is Knudsen [arXiv:1106.1588v2 §3](https://arxiv.org/html/1106.1588v2#S3), complete setup, Proposition 3.1 and Corollary 3.2 with their proofs. Earlier whole-paper and Appendix readings retain their recorded scope. The printed proposition assumes noetherian A and unit discriminant. The broader polynomial coefficient-ring range here is an authored deduction justified by native monic coordinates and cancellation; it does not strengthen the cited relative stable-reflexivity, completion or family theorem. Published erratum/version findings are unchanged.
+
+Five new exact pinned statements and their ambient assumptions were read: AdjoinRoot.algebraMap_eq, Polynomial.X_sub_C_dvd_sub_C_eval over a commutative ring, LinearMap.map_smul_of_tower with compatible scalars, LinearEquiv.ofBijective and LinearMap.snd. Each resolves in the pinned declaration index. A bounded native-dual/coordinate-name search in pinned Tau Ceti AlgebraicGeometry and the relevant Mathlib AdjoinRoot/division files found no matching specialized model result; this is not an exhaustive library absence claim. Generic quotient, polynomial, module and linear-equivalence theory is imported, not replanned.
+
+## Checks
+
+Indexed packet checker: zero errors/warnings. Whitespace, allowed-path and public-path checks: pass. Full canonical sketch: exit 0, zero errors, 247 expected admitted-proof warnings and no other warnings, 1,898 lines and 102 source-level examples; 16.51 seconds, peak RSS 2,990,724 KiB. Separate complete native proof: exit 0, zero errors, admissions or warnings, 1,393 lines, 40 examples (31 inherited, nine added) and 92 axiom audits (70 inherited, 22 added); 10.90 seconds, peak RSS 3,003,796 KiB. No printed axiom list includes an admitted-proof axiom. All 22 added public native declaration headers match the canonical headers after whitespace and lemma/theorem keyword normalization, including the existing headers that are proved anew. Both checks used the existing exact Mathlib build, with 56 GiB available before the final checks. No setup, dependency update, cache download, library build or language server was used. The sketch imports Mathlib only; Tau Ceti remains a pinned source input.
+
+The real read-only assembler overlays the candidate packet and roadmap definition before decomposition trimming and compares with the immutable base packet. Stage DAG: 3,050 vertices/8,750 edges. Own declaration DAG: 157/369. Scoped stage/declaration/request DAG: 3,172/9,390. All are acyclic; all 81 required stage pairs are reachable; original stage edges and unrelated skipped links match the control. No own skipped links or unresolved references, and no additional external declaration nodes are reached. Parent-stage context edges in the combined diagnostic graph are not claimed as mathematical proofs or realises links. This is a scoped owner check, not an audit of unrelated atlas plans.
+
+## Durable native proof reconstruction
+
+The entire checked native source is archived inside the allowed suggested file at immutable revision [d49ebea96b7886d8fd324eeff9bd5e1cb5fc7adc](https://github.com/CBirkbeck/tauceti-explorer/blob/d49ebea96b7886d8fd324eeff9bd5e1cb5fc7adc/research/blueprint/suggested/StableReductionPartII.lean). It includes the complete predecessor source recovered from immutable 8e9f1da10e6b5e5e426b45c441821aee2aaa10b9, whose SHA-256 858e6ba1dbe2b178fe677b2cc4871e497305a5270c70d9e3f7c4edd594e538e4 was verified. That predecessor includes earlier coefficient/ideal/projection/ε/K and polynomial-coordinate/basis proofs, credited below. The new continuation, nine examples and 22 axiom audits follow it. Scratch copies and logs are dispensable after submission; this immutable extraction is complete and self-contained.
+
+Save this extraction program in your own disk scratch and run it from the repository root; it writes the source beside itself. Preserve the final newline, and run one Lean process in an already-built exact pinned Mathlib environment with at least 20 GiB available. Never create or build a new Lake environment.
+
+```python
+from pathlib import Path
+import subprocess, hashlib
+archive = "d49ebea96b7886d8fd324eeff9bd5e1cb5fc7adc"
+path = "research/blueprint/suggested/StableReductionPartII.lean"
+blob = subprocess.check_output(["git", "show", archive + ":" + path], text=True)
+source = blob.split("BEGIN ARCHIVED CHECKED DUAL COORDINATES\n", 1)[1]
+source = source.split("END ARCHIVED CHECKED DUAL COORDINATES\n", 1)[0]
+assert hashlib.sha256(source.encode()).hexdigest() == "1dacc15a2b1320257d215e906190cd8c4b009cd32e5585d92da6a72122f64c19"
+Path(__file__).with_name("dual-native.lean").write_text(source)
+```
+
+Native source SHA-256: 1dacc15a2b1320257d215e906190cd8c4b009cd32e5585d92da6a72122f64c19.
+Native normalized diagnostics SHA-256: 29ab778c43154100c0f79fbf7344214b967c1664efe06727989c8c3903260247.
+Full canonical source SHA-256: 2cef0ff8d513fce42e87e894f76b08389690687e9816e89a3feacdf0c2082c03.
+Full canonical normalized diagnostics SHA-256: ced976782cf7ceac57c472075db91d1d2fb2219e9e6c5d555d950bf57ea8e604.
+
+Diagnostic hashes exclude the timing wrapper, normalize the source filename to dual-native.lean or StableReductionPartII.lean respectively if present, strip surrounding whitespace and keep one final newline. The full checked canonical bytes are restored after removing the archive comment, and their source hash was reverified. The exact scoped assembler program follows; run from the repository root and save it in your own disk scratch. It writes only its receipt beside itself.
+
+```python
+import json,sys,subprocess,hashlib,re
+from pathlib import Path
+from collections import defaultdict,deque
+root=Path.cwd();sys.path.insert(0,str(root/"scripts"));import build
+rid="StableReductionPartII"
+packetpath="research/blueprint/packets/"+rid+".json"
+roadmappath="research/blueprint/roadmaps/"+rid+".json"
+base="4a1f4b6f4dc475b67e029001f90053ff85163a04"
+p=json.loads((root/packetpath).read_text());r=json.loads((root/roadmappath).read_text())
+old=json.loads(subprocess.check_output(["git","show",base+":"+packetpath],text=True))
+oldr=json.loads(subprocess.check_output(["git","show",base+":"+roadmappath],text=True))
+load=build.load_promoted
+def assemble(packet,definition):
+ def overlay(*a,**k):
+  ps,ds,defs=load(*a,**k)
+  return ([(n,v) for n,v in ps if v.get("roadmapId")!=rid]+[(rid,packet)],
+   {**ds,rid:"research/blueprint/readmes/"+rid+".md"},
+   [x for x in defs if x.get("id")!=rid]+[definition])
+ build.load_promoted=overlay
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,r);control=assemble(old,oldr)
+def dag(vertices,edges):
+ vertices=set(vertices)|{x for e in edges for x in e};following=defaultdict(set);indegree=dict.fromkeys(vertices,0)
+ for s,t in set(edges):
+  following[s].add(t);indegree[t]+=1
+ q=deque(v for v in vertices if not indegree[v]);seen=[]
+ while q:
+  v=q.popleft();seen.append(v)
+  for w in following[v]:
+   indegree[w]-=1
+   if not indegree[w]:q.append(w)
+ assert len(seen)==len(vertices),("cycle",sorted(v for v in vertices if indegree[v])[:10])
+ return {"vertices":len(vertices),"edges":len(set(edges)),"acyclic":True}
+se={(e["source"],e["target"]) for e in a["stageEdges"]}
+ce={(e["source"],e["target"]) for e in control["stageEdges"]}
+assert se==ce
+stageids={s["id"] for s in a["stages"]}
+own={n["id"]:n for n in p["nodes"]}
+oe={(dep,n["id"]) for n in own.values() for dep in n.get("prerequisites",[]) if dep in own}
+stageDAG=dag(stageids,se);ownDAG=dag(own,oe)
+allnodes=dict(own)
+for folder in ("data/decompositions","data/blueprints","research/blueprint/packets"):
+ for path in sorted((root/folder).glob("*.json")):
+  for n in json.loads(path.read_text()).get("nodes",[]):allnodes.setdefault(n["id"],n)
+used=set(own);todo=list(own)
+while todo:
+ v=todo.pop()
+ for d in allnodes[v].get("prerequisites",[]):
+  if d in allnodes and d not in used:used.add(d);todo.append(d)
+unresolved=[]
+for v in used:
+ for d in allnodes[v].get("prerequisites",[]):
+  if d not in used and d not in stageids and not d.startswith("mathlib:") and not (d.startswith("tauceti:") and "TauCetiRoadmap/" not in d):unresolved.append((v,d))
+assert not unresolved,unresolved
+edges=set(se)
+for v in used:
+ n=allnodes[v]
+ parent=n.get("parentStageId")
+ if parent:edges.add((parent,v))
+ for d in n.get("prerequisites",[]):
+  if d in stageids or d in used:edges.add((d,v))
+for request in p["requests"]:
+ for v in request["neededBy"]:edges.add((request["supplier"],v))
+combined=dag(stageids|used,edges)
+following=defaultdict(set)
+for s,t in se:following[s].add(t)
+def reachable(s,t):
+ todo=[s];seen=set()
+ while todo:
+  x=todo.pop()
+  if x==t:return True
+  if x not in seen:seen.add(x);todo+=list(following[x])
+ return False
+pairs=set()
+for stage in r['stages']:
+ for dep in stage.get('requires',[]):pairs.add((dep,rid+':'+stage['key']))
+def stage_of(v):
+ seen=set()
+ while v in allnodes and v not in seen:
+  seen.add(v);v=allnodes[v].get('parentStageId')
+ return v
+for n in own.values():
+ for d in n.get("prerequisites",[]):
+  if d in stageids and d not in allnodes and d!=stage_of(n['id']):pairs.add((d,stage_of(n['id'])))
+for req in p["requests"]:
+ for v in req["neededBy"]:
+  target=stage_of(v)
+  if req["supplier"]!=target:pairs.add((req["supplier"],target))
+missing=[(s,t) for s,t in pairs if not reachable(s,t)]
+assert not missing,missing
+ar={x["id"]:x for x in a["roadmaps"]};cr={x["id"]:x for x in control["roadmaps"]}
+assert ar[rid]["blueprint"]["declarations"]==len(own)
+assert ar[rid]["blueprint"]["planets"]==35
+assert not ar[rid]["blueprint"]["skippedLinks"]
+assert all(ar[x].get("blueprint",{}).get("skippedLinks")==cr[x].get("blueprint",{}).get("skippedLinks") for x in cr)
+for key in ("requests","gaps","sources","sourceIssues","sourceVersions","consumerCoverage","keyDefinitionCoverage","restructure","upstreamImportEncoding"):
+ assert p[key]==old[key],key
+on={n["id"]:n for n in old["nodes"]}
+for id,n in on.items():
+ for key in ("id","kind","statement","hypotheses","acceptance","sources","implementationStatus"):
+  assert own[id].get(key)==n.get(key),(id,key)
+ assert all(u in own[id].get("uses",[]) for u in n.get("uses",[]))
+ assert all(t in own[id].get("tests",[]) for t in n.get("tests",[]))
+ assert all(t in own[id].get("api",[]) for t in n.get("api",[]))
+assert p["baseline"]["declarations"][:len(old["baseline"]["declarations"])]==old["baseline"]["declarations"]
+unchanged=sum(own[id]==n for id,n in on.items())
+lean=(root/"research/blueprint/suggested/StableReductionPartII.lean").read_text()
+for node in p["nodes"]:
+ for test in node.get("tests",[]):assert test["name"] in lean,test["name"]
+for node in p["nodes"]:
+ for api in node.get("api",[]):assert api["name"].split(".")[-1] in lean,api["name"]
+allowed={packetpath,roadmappath,"research/blueprint/readmes/"+rid+".md","research/blueprint/suggested/"+rid+".lean","research/blueprint/handoff/DESIGN-"+rid+".md"}
+changed=set(subprocess.check_output(["git","diff","--name-only",base],text=True).splitlines())
+assert changed<=allowed,changed
+for path in changed:
+ assert not re.search(r"/(?:home|tmp|Users)/|file"+"://",(root/path).read_text()),path
+result={"actualAssembler":True,"declarations":len(own),"planets":35,"ownSkippedLinks":[],
+ "stageDAG":stageDAG,"ownDeclarationDAG":ownDAG,"stagesAndReachableDeclarations":combined,
+ "reachableDeclarations":len(used),"externalDeclarations":sorted(used-set(own)),"unresolved":unresolved,
+ "requiredStagePairsReachable":len(pairs),"stageEdgesUnchanged":True,
+ "otherSkipsMatchOriginal":True,"unchangedNodeObjects":unchanged,
+ "scriptSha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+Path(__file__).with_suffix(".json").write_text(json.dumps(result,indent=2)+"\n")
+print(json.dumps(result,indent=2))
+```
+
+Assembler script SHA-256: d9d7c9878bb884a2fc2f9e15c6bde35b60521ecbd5d75dc43be6930b8033e192.
+
+## Exact continuation boundary
+
+The complete stated native dual normal form/equivalence, residue/kernel and corrected ring action are proved in the archive. Next establish the prescribed ideal and dual cokernel equivalences, preserving the negative second generator and transpose complexes, or the canonical quotient/tensor-dual comparison from the native multiplication range. Arbitrary coefficient-module exactness, Hom exchange, canonical bidual evaluation and both higher Ext vanishings remain open. Do not infer them from a pair model or from the pointwise naturality of ε/K. Two-base completion/relative stable-reflexivity, the pointed completed-local hull, actual family/sheaf comparison, finite-presentation approximation and all MC.0–MC.7 geometric, positivity, level, determinant, Torelli and Picard targets remain required. The fourteen gaps and 135 requests are retained exactly; no whole roadmap or shared key is closed.
+
+---
+
 # Current continuation: polynomial coordinates — Codex codex-J6LwjP
 
 Refs #3342. Claim comment 5961224111 was confirmed by bot comment 5961226983. Base fcbc9decd8e2b4e2cb51d562fc3de0f023d2031e. This current receipt supersedes the historical numerical receipts below, which remain predecessor evidence.
