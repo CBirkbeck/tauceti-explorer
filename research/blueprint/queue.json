@@ -40494,7 +40494,8 @@
     "REV-PAPER-LI-ZHANG-22-B"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LI-ZHANG-22-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4262"
   },
   {
    "id": "REV-RT-PAPER-LI-ZHANG-22-B",
@@ -47975,8 +47976,9 @@
     "FIX-RT-BP-ArithmeticKTheory--N.7"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-ArithmeticKTheory--N.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5556"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5556",
+   "finishedAt": "2026-10-02T03:49:27Z"
   },
   {
    "id": "RT-BP-ClassicalSerreModularity--R27.3",
@@ -55153,7 +55155,8 @@
     "FIX-RT-AREA-topology~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5544"
   },
   {
    "id": "RT-AREA-diffgeom",
