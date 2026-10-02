@@ -1181,6 +1181,82 @@ lemma affineTorsorComparison.target_coordinates (f : A) (n : ℕ) [NeZero n]
         (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
           (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by sorry
 
+/-- The actual finite coefficient equivalence, fixed by the original tensor
+monomials. This includes the subsingleton coefficient ring. -/
+def affineTorsorComparison.sourceCoordinateEquiv (f : A) (n : ℕ) [NeZero n] :
+    (AffineRing f n ⊗[A] AffineRing f n) ≃ₗ[A] ((Fin n × Fin n) → A) := by sorry
+
+lemma affineTorsorComparison.sourceCoordinateEquiv_symm_apply (f : A) (n : ℕ) [NeZero n]
+    (c : (Fin n × Fin n) → A) :
+    (affineTorsorComparison.sourceCoordinateEquiv f n).symm c =
+      ∑ p, c p • ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by sorry
+
+lemma affineTorsorComparison.sourceCoordinateEquiv_apply_sum (f : A) (n : ℕ) [NeZero n]
+    (c : (Fin n × Fin n) → A) :
+    affineTorsorComparison.sourceCoordinateEquiv f n
+      (∑ p, c p • ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) = c := by sorry
+
+lemma affineTorsorComparison.sourceCoordinateEquiv_monomial (f : A) (n : ℕ) [NeZero n]
+    (p : Fin n × Fin n) :
+    affineTorsorComparison.sourceCoordinateEquiv f n
+      ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) =
+      Pi.single p 1 := by sorry
+
+/-- The character tensor coefficient equivalence uses every group-algebra
+character, including in characteristic dividing n. -/
+def affineTorsorComparison.targetCoordinateEquiv (f : A) (n : ℕ) [NeZero n] :
+    (MuHopf A n ⊗[A] AffineRing f n) ≃ₗ[A] ((Fin n × Fin n) → A) := by sorry
+
+lemma affineTorsorComparison.targetCoordinateEquiv_symm_apply (f : A) (n : ℕ) [NeZero n]
+    (c : (Fin n × Fin n) → A) :
+    (affineTorsorComparison.targetCoordinateEquiv f n).symm c =
+      ∑ p, c p • (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by sorry
+
+lemma affineTorsorComparison.targetCoordinateEquiv_apply_sum (f : A) (n : ℕ) [NeZero n]
+    (c : (Fin n × Fin n) → A) :
+    affineTorsorComparison.targetCoordinateEquiv f n
+      (∑ p, c p • (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) = c := by sorry
+
+lemma affineTorsorComparison.targetCoordinateEquiv_monomial (f : A) (n : ℕ) [NeZero n]
+    (p : Fin n × Fin n) :
+    affineTorsorComparison.targetCoordinateEquiv f n
+      (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) =
+      Pi.single p 1 := by sorry
+
+-- affineTorsorComparison.sourceCoordinateEquiv.test_one
+example (f : A) : affineTorsorComparison.sourceCoordinateEquiv f 1
+    ((1 : AffineRing f 1) ⊗ₜ[A] (1 : AffineRing f 1)) = Pi.single (0, 0) 1 := by sorry
+
+-- affineTorsorComparison.sourceCoordinateEquiv.test_zero_ring
+example [Subsingleton A] (f : A) (n : ℕ) [NeZero n]
+    (z : AffineRing f n ⊗[A] AffineRing f n) :
+    affineTorsorComparison.sourceCoordinateEquiv f n z = 0 := by sorry
+
+-- affineTorsorComparison.sourceCoordinateEquiv.test_nonreduced
+example : affineTorsorComparison.sourceCoordinateEquiv (2 : ZMod 4) 2
+    (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 4)) ⊗ₜ[ZMod 4]
+      AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 4))) (1, 1) = 1 := by sorry
+
+-- affineTorsorComparison.targetCoordinateEquiv.test_one
+example (f : A) : affineTorsorComparison.targetCoordinateEquiv f 1
+    ((1 : MuHopf A 1) ⊗ₜ[A] (1 : AffineRing f 1)) = Pi.single (0, 0) 1 := by sorry
+
+-- affineTorsorComparison.targetCoordinateEquiv.test_zero_ring
+example [Subsingleton A] (f : A) (n : ℕ) [NeZero n]
+    (z : MuHopf A n ⊗[A] AffineRing f n) :
+    affineTorsorComparison.targetCoordinateEquiv f n z = 0 := by sorry
+
+-- affineTorsorComparison.targetCoordinateEquiv.test_wild_character
+example : affineTorsorComparison.targetCoordinateEquiv (0 : ZMod 2) 2
+    (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 2) ⊗ₜ[ZMod 2]
+      (1 : AffineRing (0 : ZMod 2) 2)) (1, 0) = 1 := by sorry
+
 /-- The nonwrapping source coefficients vanish; the wrapping coefficients
 lie in the annihilator of f. This also specifies the kernel comparison map. -/
 lemma affineTorsorComparison.kernel_coefficients (f : A) (n : ℕ) [NeZero n]

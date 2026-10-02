@@ -511,6 +511,114 @@
         "module": "Mathlib/RingTheory/Coalgebra/MonoidAlgebra.lean",
         "provides": "Native coefficient-coalgebra comultiplication formula on a character basis element.",
         "checked": "Actual declaration statement personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:Module.subsingleton",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Defs.lean",
+        "provides": "Every module over a subsingleton coefficient ring is subsingleton; no numerical polynomial degree assertion is required.",
+        "checked": "Exact statement and relevant construction/proof read at the pinned commit on 2026-10-02.",
+        "sourceLine": 157,
+        "sourceSha256": "e67222f427fb2b194a3407d42b9ca311fc87148b929e439ad1fa638dd3d365a8"
+      },
+      {
+        "ref": "mathlib:Module.Basis.reindex",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "Transport an existing basis along an index equivalence; used with the degree equality and the character index equivalence.",
+        "checked": "Exact statement and relevant construction/proof read at the pinned commit on 2026-10-02.",
+        "sourceLine": 185,
+        "sourceSha256": "89865e3cbfcee915d186b3448eb18c070b0601e4e30c4d0d661bd4862b723d29"
+      },
+      {
+        "ref": "mathlib:Module.Basis.reindex_apply",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "The transported basis vector at i is the original vector at the inverse image of i.",
+        "checked": "Exact statement and relevant construction/proof read at the pinned commit on 2026-10-02.",
+        "sourceLine": 188,
+        "sourceSha256": "89865e3cbfcee915d186b3448eb18c070b0601e4e30c4d0d661bd4862b723d29"
+      },
+      {
+        "ref": "mathlib:Module.Basis.equivFun",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "An existing finite basis supplies the native linear equivalence to its full coefficient-function module.",
+        "checked": "Exact statement and relevant construction/proof read at the pinned commit on 2026-10-02.",
+        "sourceLine": 222,
+        "sourceSha256": "89865e3cbfcee915d186b3448eb18c070b0601e4e30c4d0d661bd4862b723d29"
+      },
+      {
+        "ref": "mathlib:Module.Basis.sum_equivFun",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "The sum of the coordinate coefficients times their native basis vectors equals the original vector.",
+        "checked": "Exact statement and relevant construction/proof read at the pinned commit on 2026-10-02.",
+        "sourceLine": 253,
+        "sourceSha256": "89865e3cbfcee915d186b3448eb18c070b0601e4e30c4d0d661bd4862b723d29"
+      },
+      {
+        "ref": "mathlib:Module.Basis.equivFun_symm_apply",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "The inverse of the finite coefficient equivalence is the specified finite linear combination.",
+        "checked": "Exact statement and relevant construction/proof read at the pinned commit on 2026-10-02.",
+        "sourceLine": 240,
+        "sourceSha256": "89865e3cbfcee915d186b3448eb18c070b0601e4e30c4d0d661bd4862b723d29"
+      },
+      {
+        "ref": "mathlib:Module.Basis.tensorProduct_apply'",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
+        "provides": "The basis tensor product at a pair is the pure tensor of the two basis vectors.",
+        "checked": "Exact statement and relevant construction/proof read at the pinned commit on 2026-10-02.",
+        "sourceLine": 50,
+        "sourceSha256": "3754f71740ada3143aa2de27735a6f7a03e562278666e54d5be6c3d2275ef263"
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.basis_apply",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Module.lean",
+        "provides": "The native monoid-algebra basis vector is single(r,1), including in wild coefficient characteristic.",
+        "checked": "Exact statement and relevant construction/proof read at the pinned commit on 2026-10-02.",
+        "sourceLine": 195,
+        "sourceSha256": "3661966ad493949463b99c35c7771bc0d3cb0574563d6a4b001bca69ef1b4dcf"
+      },
+      {
+        "ref": "mathlib:ZMod.finEquiv",
+        "kind": "def",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "For a positive modulus, the native equivalence from Fin n to ZMod n; its zero-modulus branch has a different source.",
+        "checked": "Exact statement and relevant construction/proof read at the pinned commit on 2026-10-02.",
+        "sourceLine": 45,
+        "sourceSha256": "fbe19ea6fc95105cf596e1ef3c730e32dffdf9f53b74a17eaab5c668e03d1b0f"
+      },
+      {
+        "ref": "mathlib:ZMod.val_natCast_of_lt",
+        "kind": "lemma",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "The canonical representative of a natural number smaller than n equals that natural number.",
+        "checked": "Exact statement and relevant construction/proof read at the pinned commit on 2026-10-02.",
+        "sourceLine": 95,
+        "sourceSha256": "fbe19ea6fc95105cf596e1ef3c730e32dffdf9f53b74a17eaab5c668e03d1b0f"
+      },
+      {
+        "ref": "mathlib:Multiplicative.toAdd",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/TypeTags/Basic.lean",
+        "provides": "The native type-tag equivalence from Multiplicative α to α, inverse to ofAdd.",
+        "checked": "Exact statement and relevant construction/proof read at the pinned commit on 2026-10-02.",
+        "sourceLine": 91,
+        "sourceSha256": "7cc44af75709b67805a8a6c22ee07d904497dc342bd27e13aded169c275dca46"
+      },
+      {
+        "ref": "mathlib:LinearEquiv.ofBijective",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Equiv.lean",
+        "provides": "A bijective native linear map determines a linear equivalence; its forward function is the supplied map.",
+        "checked": "Exact statement and relevant construction/proof read at the pinned commit on 2026-10-02.",
+        "sourceLine": 183,
+        "sourceSha256": "ce8909ba1bfc5e1fa0fbf6ddcecbb0233a4ae175622578772b290814a9a7fcc8"
       }
     ]
   },
@@ -6314,14 +6422,26 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.0/affine-torsor-comparison",
         "mathlib:AdjoinRoot.powerBasis'",
-        "mathlib:Module.Basis.tensorProduct"
+        "mathlib:Module.Basis.tensorProduct",
+        "mathlib:Module.subsingleton",
+        "mathlib:Polynomial.monic_X_pow_sub_C",
+        "mathlib:Polynomial.natDegree_X_pow_sub_C",
+        "mathlib:Module.Basis.reindex",
+        "mathlib:Module.Basis.reindex_apply",
+        "mathlib:Module.Basis.equivFun",
+        "mathlib:Module.Basis.sum_equivFun",
+        "mathlib:Module.Basis.equivFun_symm_apply",
+        "mathlib:Module.Basis.tensorProduct_apply'"
       ],
       "proofSteps": [
-        "When A is nontrivial, monicity and n>0 give degree n; reindex the existing AdjoinRoot power basis by Fin n, and take its native tensor product basis.",
-        "Use its coordinate equivalence for existence and uniqueness. If A is subsingleton then every A-module is subsingleton and there is exactly one coefficient family; prove this branch directly, without the false degree assertion."
+        "Split on whether A is subsingleton. In that branch Module.subsingleton makes the tensor module subsingleton, and the coefficient-function module is also subsingleton; the zero family is the unique expansion.",
+        "In the nontrivial branch n>0 gives natDegree(Xⁿ−f)=n by Polynomial.natDegree_X_pow_sub_C. Polynomial.monic_X_pow_sub_C and AdjoinRoot.powerBasis' supply the actual quotient power basis; reindex its Fin(degree) index by the degree equality.",
+        "Use the native power-basis vector formula and Module.Basis.reindex_apply to identify each vector as x^i. Module.Basis.tensorProduct and tensorProduct_apply' give the actual pure-tensor basis.",
+        "The witness is that basis's equivFun(z). sum_equivFun gives its expansion, and equivFun_symm_apply plus injectivity of the inverse equivalence gives coefficient uniqueness. No root-chart carrier or basis axiom is postulated."
       ],
       "acceptance": [
-        "At n=2 over Z/4 the four source monomials still have unique coefficients; independence is not a field-only claim."
+        "At n=2 over Z/4 the four source monomials still have unique coefficients; independence is not a field-only claim.",
+        "The separate native all-ring proof prototype elaborates in the checked Mathlib-only extraction and its axiom list excludes admissions. The whole Tau Ceti file and roadmap implementation remain unchecked."
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
@@ -6342,6 +6462,93 @@
       "implementationStatus": "unchecked"
     },
     {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinate-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Source coefficient equivalence",
+      "kind": "construction",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.sourceCoordinateEquiv",
+      "statement": "For B=A[x]/(xⁿ−f), H=A[Multiplicative(ZMod n)] and any commutative ring A with positive n, construct the specified A-linear equivalence B⊗_A B ≃ ((Fin n×Fin n)→A) extracting the unique coefficients in the ordered vectors x^i⊗x^j. The inverse coefficient map sends c to Σ_p c_p(x^i⊗x^j). This is the native linear equivalence determined by synthesis, including the zero ring.",
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates",
+        "mathlib:LinearEquiv.ofBijective"
+      ],
+      "proofSteps": [
+        "Define the native synthesis linear map by the finite linear combination in the statement. Linearity follows from addition and scalar multiplication distributing over a finite sum.",
+        "The listed coordinate existence-and-uniqueness lemma proves synthesis bijective: uniqueness gives injectivity and existence gives surjectivity.",
+        "Apply LinearEquiv.ofBijective to synthesis and take its inverse. The inverse evaluation is the exact sum, the forward evaluation of a synthesized family follows from the inverse law, and synthesis of a single coefficient gives the generator formula."
+      ],
+      "acceptance": [
+        "The construction fixes coefficient order and basis normalization, rather than choosing an unspecified isomorphism of free modules. Its specified inverse also determines the map over the zero ring."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel",
+          "how": "Provides the specified native coefficient extraction for the module comparison; the explicit synthesis inverse keeps the actual tensor map visible."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coefficients",
+          "how": "Supports interpreting the coefficient criterion for a tensor through a fixed inverse formula and generator normalization."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.sourceCoordinateEquiv_symm_apply",
+          "role": "projection",
+          "statement": "The inverse coefficient map sends c to Σ_p c_p(x^i⊗x^j)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.sourceCoordinateEquiv_apply_sum",
+          "role": "characterisation",
+          "statement": "Coefficient extraction of Σ_p c_p(x^i⊗x^j) is exactly c, for every coefficient family c."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.sourceCoordinateEquiv_monomial",
+          "role": "simp",
+          "statement": "The coefficient family of the vector x^i⊗x^j indexed by p is single(p,1), zero at every other index."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.sourceCoordinateEquiv.test_one",
+          "kind": "degenerate",
+          "statement": "For n=1 and arbitrary f, the coefficients of 1⊗1 are single((0,0),1)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.sourceCoordinateEquiv.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "If A is subsingleton, coefficient extraction of every element of B⊗_A B is the zero coefficient family."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.sourceCoordinateEquiv.test_nonreduced",
+          "kind": "computation",
+          "statement": "For A=Z/4,n=2,f=2, the coefficient of x⊗x at (1,1) is 1. The calculation uses the nonreduced quotient, not its reduction."
+        }
+      ]
+    },
+    {
       "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinates",
       "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
       "realises": [
@@ -6358,14 +6565,30 @@
         "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates",
         "mathlib:MonoidAlgebra.basis",
         "mathlib:Module.Basis.tensorProduct",
-        "mathlib:AdjoinRoot.powerBasis'"
+        "mathlib:AdjoinRoot.powerBasis'",
+        "mathlib:Module.subsingleton",
+        "mathlib:Polynomial.monic_X_pow_sub_C",
+        "mathlib:Polynomial.natDegree_X_pow_sub_C",
+        "mathlib:Module.Basis.reindex",
+        "mathlib:Module.Basis.reindex_apply",
+        "mathlib:Module.Basis.equivFun",
+        "mathlib:Module.Basis.sum_equivFun",
+        "mathlib:Module.Basis.equivFun_symm_apply",
+        "mathlib:Module.Basis.tensorProduct_apply'",
+        "mathlib:MonoidAlgebra.basis_apply",
+        "mathlib:ZMod.finEquiv",
+        "mathlib:ZMod.val_natCast_of_lt",
+        "mathlib:Multiplicative.toAdd"
       ],
       "proofSteps": [
-        "Take the native group-algebra character basis indexed by Multiplicative(ZMod n); reindex through Fin n using the residue value since n>0.",
-        "Tensor with the native quotient monic basis. The same direct subsingleton branch handles the zero ring. The finite coordinate map gives the stated formula and uniqueness."
+        "Handle the subsingleton coefficient ring by Module.subsingleton exactly as for the source coordinates.",
+        "In the nontrivial branch construct the quotient basis from AdjoinRoot.powerBasis' and reindex by natDegree(Xⁿ−f)=n. Use the existing MonoidAlgebra.basis for all elements of Multiplicative(ZMod n).",
+        "Reindex characters through Multiplicative.toAdd and the inverse of ZMod.finEquiv n. By ZMod.val_natCast_of_lt, the forward Fin index i corresponds to the canonical residue class of i.val; MonoidAlgebra.basis_apply identifies its vector with e_i.",
+        "Tensor the actual character and root bases; tensorProduct_apply' fixes the vector e_i⊗x^k. The native equivFun sum and inverse formulas give existence and uniqueness. This uses the group-algebra basis, never the set of A-valued roots of unity."
       ],
       "acceptance": [
-        "Over F_p with n=p, all n character vectors remain independent although μ_p(k) has one element."
+        "Over F_p with n=p, all n character vectors remain independent although μ_p(k) has one element.",
+        "The separate native all-ring proof prototype elaborates in the checked Mathlib-only extraction and its axiom list excludes admissions. The whole Tau Ceti file and roadmap implementation remain unchecked."
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
@@ -6384,6 +6607,93 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinate-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Target coefficient equivalence",
+      "kind": "construction",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.targetCoordinateEquiv",
+      "statement": "For B=A[x]/(xⁿ−f), H=A[Multiplicative(ZMod n)] and any commutative ring A with positive n, construct the specified A-linear equivalence H⊗_A B ≃ ((Fin n×Fin n)→A) extracting the unique coefficients in the ordered vectors e_i⊗x^k. The inverse coefficient map sends c to Σ_p c_p(e_i⊗x^k). This is the native linear equivalence determined by synthesis, including the zero ring.",
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinates",
+        "mathlib:LinearEquiv.ofBijective"
+      ],
+      "proofSteps": [
+        "Define the native synthesis linear map by the finite linear combination in the statement. Linearity follows from addition and scalar multiplication distributing over a finite sum.",
+        "The listed coordinate existence-and-uniqueness lemma proves synthesis bijective: uniqueness gives injectivity and existence gives surjectivity.",
+        "Apply LinearEquiv.ofBijective to synthesis and take its inverse. The inverse evaluation is the exact sum, the forward evaluation of a synthesized family follows from the inverse law, and synthesis of a single coefficient gives the generator formula."
+      ],
+      "acceptance": [
+        "The construction fixes coefficient order and basis normalization, rather than choosing an unspecified isomorphism of free modules. Its specified inverse also determines the map over the zero ring."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel",
+          "how": "Provides the specified native coefficient extraction for the module comparison; the explicit synthesis inverse keeps the actual tensor map visible."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-image-coefficients",
+          "how": "Supports interpreting the coefficient criterion for a tensor through a fixed inverse formula and generator normalization."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.targetCoordinateEquiv_symm_apply",
+          "role": "projection",
+          "statement": "The inverse coefficient map sends c to Σ_p c_p(e_i⊗x^k)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.targetCoordinateEquiv_apply_sum",
+          "role": "characterisation",
+          "statement": "Coefficient extraction of Σ_p c_p(e_i⊗x^k) is exactly c, for every coefficient family c."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.targetCoordinateEquiv_monomial",
+          "role": "simp",
+          "statement": "The coefficient family of the vector e_i⊗x^k indexed by p is single(p,1), zero at every other index."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.targetCoordinateEquiv.test_one",
+          "kind": "degenerate",
+          "statement": "For n=1 and arbitrary f, the coefficients of 1⊗1 are single((0,0),1)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.targetCoordinateEquiv.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "If A is subsingleton, coefficient extraction of every element of H⊗_A B is the zero coefficient family."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.targetCoordinateEquiv.test_wild_character",
+          "kind": "computation",
+          "statement": "For A=F₂,n=2,f=0, the coefficient of e₁⊗1 at (1,0) is 1. This character remains visible although μ₂(F₂) has only one element."
+        }
+      ]
     },
     {
       "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial",
@@ -8540,6 +8850,56 @@
         "otherWarnings": 0,
         "extractionSha256": "dfa146150b279f9cd4db52fd8e9d2e97723452a01d62f8a0ec84089cefa80728"
       }
+    },
+    "nativeCoordinateProofContinuation": {
+      "worker": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "auditTree": "c686e796b76f80e40f466bef9038f46b21677a8b",
+      "reviewedRowsRead": "Current FA.0–FA.7 target names/status; full FA.0/FA.1/FA.2/FA.4 reviewed target/evidence/duplication records. No PartII audit row. Broader supplier audits retain predecessor provenance.",
+      "primaryScope": "Fresh TV17 v2 §3.1 pp14–16 finite setup, full Lemma3.7, Proposition3.10, Lemma3.12 and Corollary3.13 statements/proofs. Fresh Stacks040N full statement/proof. Only the positive-exponent unit cover motivates the comparison; the coordinate equivalences are native algebra derivations.",
+      "freshSources": [
+        {
+          "url": "https://arxiv.org/pdf/1410.1164v2",
+          "sha256": "92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2",
+          "read": "2026-10-02"
+        },
+        {
+          "url": "https://stacks.math.columbia.edu/tag/040N",
+          "sha256": "21a955ccf3224e20294b510800db3342840f0f44e33d1d15980a7a477633ec24",
+          "read": "2026-10-02"
+        }
+      ],
+      "preserved": "All123 inherited IDs and mathematical statements, source routes/versions/findings, AV sibling contracts,39 planets,8 gaps,13 requests and ten partial stages retained. Only the two coordinate lemma proof/input records are refined; two native construction records are added.",
+      "nativeBoundary": "PROTOCOL §13 suggested declaration and example bodies remain admitted. The separately checked proof prototype is preserved at immutable commit a7077b385885fa9b790ff4216098ad3871a87fa8. No exact-pin compiled Tau Ceti import set is available; only the separate Mathlib proof extraction was checked.",
+      "proofCheck": {
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "leanVersion": "4.34.0-rc2",
+        "nativeFileSha256": "3aeb6fd14052dbb4ef5ec88f24d50bc2f0847166a79a952369fdc2a8ccb1ec6d",
+        "extractionSha256": "6385f2fa8366565f8df44a4944459f3179dbb560252084e0377176d0d0fed5b8",
+        "axiomExtractionSha256": "52b5c89f4593f0d105f468c3b8fe4dce1443e95826032a8884de02b553e482e4",
+        "axiomLogSha256": "3797be9fec981e5f66c181cc6b6f0ce116242e9f2aa3b6990063337167a8276b",
+        "errors": 0,
+        "admittedWarnings": 18,
+        "otherWarnings": 0,
+        "examples": 20,
+        "extractionLines": 554,
+        "wallSeconds": 3.8,
+        "maxRssKiB": 3112220,
+        "availableMemoryGiB": 72,
+        "axiomAudit": "All26 audited native algebra declarations, including both all-ring coordinate lemmas, both coefficient equivalences and their six API declarations, depend only on propext, Classical.choice and Quot.sound. No admission dependency. Six new example proofs use these actual maps. Targeted Mathlib extraction only; full Tau Ceti file not compiled.",
+        "previousArithmetic": "The 57,628-assertion predecessor receipt is preserved at the immutable predecessor handoff; its finite arithmetic script was not rerun in this continuation.",
+        "proofSourceCommit": "a7077b385885fa9b790ff4216098ad3871a87fa8"
+      },
+      "sketchCheck": {
+        "errors": 0,
+        "admittedWarnings": 56,
+        "otherWarnings": 0,
+        "examples": 20,
+        "extractionLines": 411,
+        "nativeSketchSha256": "724f1b3fbd4d8f6d59d69f0efe09bc80ff0940c6679715782873b822ccd7c810",
+        "extractionSha256": "96567ff95673219f87ee60f50fad8924b9d96d6e6806bc3932810432593b2ad6",
+        "compiled": "Targeted admitted Mathlib-only sketch; full Tau Ceti file not compiled."
+      }
     }
   },
   "continuationBoundary": {
@@ -8604,6 +8964,17 @@
       "scope": "Native quotient/coaction/elementary comparison proof branch, explicit root-reduction dependencies and promoted coaction root API. All ten stages partial/unchecked.",
       "compiled": false,
       "reason": "No exact-pin compiled Tau Ceti imports available; targeted Mathlib-only extraction is checked instead.",
+      "fragmentElaborated": true
+    },
+    {
+      "agent": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "base": "439b73117f3731f73fa90dd140f314abe453c342",
+      "addedNodes": 2,
+      "preservedNodeIds": 123,
+      "scope": "Native all-ring tensor coefficient proof and two specified coefficient linear equivalences. Geometric carriers and all ten stage closures remain partial/unchecked.",
+      "compiled": false,
+      "reason": "Full Tau Ceti file has no exact-pin compiled imports; the targeted native Mathlib extraction is checked.",
       "fragmentElaborated": true
     }
   ]
