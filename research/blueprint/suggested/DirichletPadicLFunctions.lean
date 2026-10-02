@@ -31410,3 +31410,171 @@ example (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFac
         kubertCartanRationalPrimitiveSum N (kubertRationalPrimeTranslatedPoint N p (u*kubertRationalPrimeTranslation N p)) := by sorry
 
 end DirichletPadic.SuggestedKubertLocalConvolutionTests
+
+/- Actual exceptional roots and complete prime-root partitions. -/
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertRationalPrimeTranslation_scaled_residue (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    (((p.val ^ ((N : ℕ).factorization p.val) : ℕ)) : ZMod (N : ℕ))*(p.val : ZMod (N : ℕ))*
+      (kubertCartanDegreeOneFiniteEquiv N (kubertRationalPrimeTranslation N p)).val=(((p.val ^ ((N : ℕ).factorization p.val) : ℕ)) : ZMod (N : ℕ)) := by sorry
+
+lemma kubertCartanPrimitivePoint_two_scalars_iff (N : ℕ+) (s t : ℕ) (u v : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    s • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N v)).val=t • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val ↔
+      (s : ZMod (N : ℕ))*(kubertCartanDegreeOneFiniteEquiv N v).val=(t : ZMod (N : ℕ))*(kubertCartanDegreeOneFiniteEquiv N u).val := by sorry
+
+lemma kubertRationalPrimeTranslatedPoint_root (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    p.val • (kubertRationalPrimeTranslatedPoint N p (u*kubertRationalPrimeTranslation N p)).val=
+      (kubertRationalPrimeTranslatedPoint N p u).val := by sorry
+
+lemma kubertRationalPrimeTranslatedPoint_coprime_order (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    p.val.Coprime (addOrderOf (kubertRationalPrimeTranslatedPoint N p u).val) := by sorry
+
+lemma kubertRationalPrimeTranslatedPoint_root_unique (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (y : (Fin 1 → AddCircle (1 : ℚ)))
+    (hy : y ∈ (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((N : ℕ)/((p.val ^ ((N : ℕ).factorization p.val) : ℕ)))).ker)
+    (hroot : p.val • y=(kubertRationalPrimeTranslatedPoint N p u).val) :
+    y=(kubertRationalPrimeTranslatedPoint N p (u*kubertRationalPrimeTranslation N p)).val := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+
+lemma kubertRationalPrimeTranslatedPoint_root_partition (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (y : (Fin 1 → AddCircle (1 : ℚ))) :
+    p.val • y=(kubertRationalPrimeTranslatedPoint N p u).val ↔
+      y=(kubertRationalPrimeTranslatedPoint N p (u*kubertRationalPrimeTranslation N p)).val ∨
+      (addOrderOf y=p.val*((N : ℕ)/((p.val ^ ((N : ℕ).factorization p.val) : ℕ))) ∧
+        p.val • y=(kubertRationalPrimeTranslatedPoint N p u).val) := by sorry
+
+lemma kubertRationalPrimeTranslatedPoint_root_not_high (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    addOrderOf (kubertRationalPrimeTranslatedPoint N p (u*kubertRationalPrimeTranslation N p)).val ≠
+      p.val*((N : ℕ)/((p.val ^ ((N : ℕ).factorization p.val) : ℕ))) := by sorry
+
+lemma kubertRationalPrime_new_factorization (N : ℕ+) (p : (N : ℕ).primeFactors)
+    (hnew : ¬p.val ∣ (N : ℕ)/p.val) : (N : ℕ).factorization p.val=1 := by sorry
+
+lemma kubertRationalPrime_new_primary_power (N : ℕ+) (p : (N : ℕ).primeFactors)
+    (hnew : ¬p.val ∣ (N : ℕ)/p.val) : ((p.val ^ ((N : ℕ).factorization p.val) : ℕ))=p.val := by sorry
+
+lemma kubertRationalPrimeTranslatedPoint_new_coe (N : ℕ+) (p : (N : ℕ).primeFactors)
+    (hnew : ¬p.val ∣ (N : ℕ)/p.val) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertRationalPrimeTranslatedPoint N p u).val=p.val • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val := by sorry
+
+lemma kubertRationalPrimeTranslatedPoint_new_root (N : ℕ+) (p : (N : ℕ).primeFactors)
+    (hnew : ¬p.val ∣ (N : ℕ)/p.val) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    p.val • (kubertRationalPrimeTranslatedPoint N p (u*kubertRationalPrimeTranslation N p)).val=
+      p.val • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val := by sorry
+
+lemma kubertRationalPrimeTranslatedPoint_new_partition (N : ℕ+) (p : (N : ℕ).primeFactors)
+    (hnew : ¬p.val ∣ (N : ℕ)/p.val) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (y : (Fin 1 → AddCircle (1 : ℚ))) :
+    p.val • y=p.val • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val ↔
+      y=(kubertRationalPrimeTranslatedPoint N p (u*kubertRationalPrimeTranslation N p)).val ∨
+      (addOrderOf y=(N : ℕ) ∧ p.val • y=p.val • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertExceptionalRootTests
+open scoped Classical BigOperators
+noncomputable section
+-- exceptional_two_root_at_six
+example : (kubertRationalPrimeTranslatedPoint 6 ⟨2,by sorry⟩ (kubertRationalPrimeTranslation 6 ⟨2,by sorry⟩)).val 0=((2/3 : ℚ) : AddCircle (1 : ℚ)) ∧ 2 • (kubertRationalPrimeTranslatedPoint 6 ⟨2,by sorry⟩ (kubertRationalPrimeTranslation 6 ⟨2,by sorry⟩)).val 0=((1/3 : ℚ) : AddCircle (1 : ℚ)) := by sorry
+-- exceptional_three_root_at_six
+example : (kubertRationalPrimeTranslatedPoint 6 ⟨3,by sorry⟩ (kubertRationalPrimeTranslation 6 ⟨3,by sorry⟩)).val 0=((1/2 : ℚ) : AddCircle (1 : ℚ)) ∧ addOrderOf (kubertRationalPrimeTranslatedPoint 6 ⟨3,by sorry⟩ (kubertRationalPrimeTranslation 6 ⟨3,by sorry⟩)).val=2 ∧ 3 • (kubertRationalPrimeTranslatedPoint 6 ⟨3,by sorry⟩ (kubertRationalPrimeTranslation 6 ⟨3,by sorry⟩)).val=(kubertRationalPrimeTranslatedPoint 6 ⟨3,by sorry⟩ (1)).val := by sorry
+-- repeated_prime_exceptional_order_at_twelve
+example : (kubertRationalPrimeTranslatedPoint 12 ⟨2,by sorry⟩ (kubertRationalPrimeTranslation 12 ⟨2,by sorry⟩)).val 0=((2/3 : ℚ) : AddCircle (1 : ℚ)) ∧ addOrderOf (kubertRationalPrimeTranslatedPoint 12 ⟨2,by sorry⟩ (kubertRationalPrimeTranslation 12 ⟨2,by sorry⟩)).val=3 ∧ 2 • (kubertRationalPrimeTranslatedPoint 12 ⟨2,by sorry⟩ (kubertRationalPrimeTranslation 12 ⟨2,by sorry⟩)).val 0=((1/3 : ℚ) : AddCircle (1 : ℚ)) := by sorry
+-- prime_power_exceptional_root_is_zero
+example : kubertRationalPrimeTranslatedPoint 9 ⟨3,by sorry⟩ (kubertRationalPrimeTranslation 9 ⟨3,by sorry⟩)=0 ∧ kubertRationalPrimeTranslatedPoint 9 ⟨3,by sorry⟩ (1)=0 := by sorry
+-- repeated_prime_other_roots_need_not_be_primitive_at_original_level
+example : 3 • ((1/3 : ℚ) : AddCircle (1 : ℚ))=0 ∧ addOrderOf ((1/3 : ℚ) : AddCircle (1 : ℚ))=3 ∧ addOrderOf ((1/3 : ℚ) : AddCircle (1 : ℚ))≠9 := by sorry
+-- identity_translation_is_not_the_exceptional_two_root
+example : 2 • (kubertRationalPrimeTranslatedPoint 6 ⟨2,by sorry⟩ (1)).val≠(kubertRationalPrimeTranslatedPoint 6 ⟨2,by sorry⟩ (1)).val := by sorry
+-- full_two_root_partition_at_six
+example (y : AddCircle (1 : ℚ)) : 2 • y=((1/3 : ℚ) : AddCircle (1 : ℚ)) ↔ y=((2/3 : ℚ) : AddCircle (1 : ℚ)) ∨ (addOrderOf y=6 ∧ 2 • y=((1/3 : ℚ) : AddCircle (1 : ℚ))) := by sorry
+end
+end DirichletPadic.SuggestedKubertExceptionalRootTests
+namespace DirichletPadic.SuggestedKubertExceptionalRootTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+-- rationalPrimeTranslation_scaled_residue_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    (((p.val ^ ((N : ℕ).factorization p.val) : ℕ)) : ZMod (N : ℕ))*(p.val : ZMod (N : ℕ))*
+      (kubertCartanDegreeOneFiniteEquiv N (kubertRationalPrimeTranslation N p)).val=(((p.val ^ ((N : ℕ).factorization p.val) : ℕ)) : ZMod (N : ℕ)) := by sorry
+
+-- cartanPrimitivePoint_two_scalars_iff_typed_api
+example (N : ℕ+) (s t : ℕ) (u v : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    s • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N v)).val=t • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val ↔
+      (s : ZMod (N : ℕ))*(kubertCartanDegreeOneFiniteEquiv N v).val=(t : ZMod (N : ℕ))*(kubertCartanDegreeOneFiniteEquiv N u).val := by sorry
+
+-- rationalPrimeTranslatedPoint_root_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    p.val • (kubertRationalPrimeTranslatedPoint N p (u*kubertRationalPrimeTranslation N p)).val=
+      (kubertRationalPrimeTranslatedPoint N p u).val := by sorry
+
+-- rationalPrimeTranslatedPoint_coprime_order_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    p.val.Coprime (addOrderOf (kubertRationalPrimeTranslatedPoint N p u).val) := by sorry
+
+-- rationalPrimeTranslatedPoint_root_unique_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (y : (Fin 1 → AddCircle (1 : ℚ)))
+    (hy : y ∈ (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((N : ℕ)/((p.val ^ ((N : ℕ).factorization p.val) : ℕ)))).ker)
+    (hroot : p.val • y=(kubertRationalPrimeTranslatedPoint N p u).val) :
+    y=(kubertRationalPrimeTranslatedPoint N p (u*kubertRationalPrimeTranslation N p)).val := by sorry
+
+end DirichletPadic.SuggestedKubertExceptionalRootTests
+
+namespace DirichletPadic.SuggestedKubertExceptionalRootTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+
+-- rationalPrimeTranslatedPoint_root_partition_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (y : (Fin 1 → AddCircle (1 : ℚ))) :
+    p.val • y=(kubertRationalPrimeTranslatedPoint N p u).val ↔
+      y=(kubertRationalPrimeTranslatedPoint N p (u*kubertRationalPrimeTranslation N p)).val ∨
+      (addOrderOf y=p.val*((N : ℕ)/((p.val ^ ((N : ℕ).factorization p.val) : ℕ))) ∧
+        p.val • y=(kubertRationalPrimeTranslatedPoint N p u).val) := by sorry
+
+-- rationalPrimeTranslatedPoint_root_not_high_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    addOrderOf (kubertRationalPrimeTranslatedPoint N p (u*kubertRationalPrimeTranslation N p)).val ≠
+      p.val*((N : ℕ)/((p.val ^ ((N : ℕ).factorization p.val) : ℕ))) := by sorry
+
+-- rationalPrime_new_factorization_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors)
+    (hnew : ¬p.val ∣ (N : ℕ)/p.val) : (N : ℕ).factorization p.val=1 := by sorry
+
+-- rationalPrime_new_primary_power_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors)
+    (hnew : ¬p.val ∣ (N : ℕ)/p.val) : ((p.val ^ ((N : ℕ).factorization p.val) : ℕ))=p.val := by sorry
+
+-- rationalPrimeTranslatedPoint_new_coe_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors)
+    (hnew : ¬p.val ∣ (N : ℕ)/p.val) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertRationalPrimeTranslatedPoint N p u).val=p.val • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val := by sorry
+
+-- rationalPrimeTranslatedPoint_new_root_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors)
+    (hnew : ¬p.val ∣ (N : ℕ)/p.val) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    p.val • (kubertRationalPrimeTranslatedPoint N p (u*kubertRationalPrimeTranslation N p)).val=
+      p.val • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val := by sorry
+
+-- rationalPrimeTranslatedPoint_new_partition_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors)
+    (hnew : ¬p.val ∣ (N : ℕ)/p.val) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (y : (Fin 1 → AddCircle (1 : ℚ))) :
+    p.val • y=p.val • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val ↔
+      y=(kubertRationalPrimeTranslatedPoint N p (u*kubertRationalPrimeTranslation N p)).val ∨
+      (addOrderOf y=(N : ℕ) ∧ p.val • y=p.val • (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val) := by sorry
+
+end DirichletPadic.SuggestedKubertExceptionalRootTests
