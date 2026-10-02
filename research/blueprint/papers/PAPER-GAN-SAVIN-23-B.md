@@ -8,7 +8,8 @@ The machine-readable extraction is [PAPER-GAN-SAVIN-23-B.result.json](PAPER-GAN-
 - 128 items: 1 in the libraries, 4 planned, 123 missing;
 - 6 routes: 2 new roadmaps (one of them coalesced with a pending candidate), 2 Part IIs (one coalesced) and 2 source routes;
 - 31 prerequisite entries;
-- 15 recorded source issues.
+- 17 recorded source issues (E1–E15 have the original independent review;
+  E16–E17 were added by the fix below and await review).
 
 ## Sources read
 
@@ -17,7 +18,7 @@ The machine-readable extraction is [PAPER-GAN-SAVIN-23-B.result.json](PAPER-GAN-
   - Received 9 November 2022, revised 24 August 2023, accepted 15 September 2023.
 - **arXiv v2** (17 December 2022) predates the revision and was used only to check whether the recorded mistakes were already there. Every passage compared was, except the proof of Lemma 10.1 (E11), which is new. The journal rewrote some passages; for example, Lemma 10.1 assumes θ(π) is square-integrable in v2 and tempered in the journal.
 - **Errata:** Crossref records no correction or update, and a Crossref search for a corrigendum found none. There is no arXiv version after the journal revision.
-- **Cited inputs were not read.** Items that rest on one, such as Kret–Shin, Xu, Chenevier, Harris–Khare–Thorne and the companion papers [GS23], [GS24] and [GrS2], state it as the paper uses it.
+- **Original extraction:** cited inputs were not read; items relying on them state what this paper uses. The 2 October fix freshly read the companion [GS23] preprint's relevant passages and BHV's closure formulation. Its targeted reads and version hashes are recorded below and in `sourceVersions`; it does not claim full reads of the other suppliers.
 
 ## What the paper proves
 
@@ -26,7 +27,14 @@ The machine-readable extraction is [PAPER-GAN-SAVIN-23-B.result.json](PAPER-GAN-
 - **(iv)–(v)** It is characterised by two commutative diagrams:
   - through the theta correspondence with PD^× and the LLC for that inner form of PGL_3;
   - through the theta correspondence with PGSp_6, restriction to Sp_6 and Arthur's LLC for Sp_6.
-- **(vi)** For generic discrete series it is compatible with a spin lifting from PGSp_6 to GL_8.
+- **(vi), corrected target:** for generic discrete series π, θ(π) is generic
+  tempered and the target is
+  L_{GL_8}(spin_*(θ(π))) = spin ∘ ι ∘ L(π). The lift is discrete on the
+  diamond locus, where Proposition 5.2 supplies the argument. On the club
+  locus it is nondiscrete, and the identity requires a separate argument
+  through the explicit PGL_3/Siegel lifts and classical theta with triality;
+  it is retained as a proof obligation. The printed diagram's discrete
+  PGSp_6 codomain is false (E16).
 - **(vii)** For p ≠ 3, the fibre over φ is in natural bijection with Irr(S_φ). For p = 3 the same holds, except perhaps over the discrete parameters from PGL_3.
 - **(viii)** It is compatible with the G_2-valued Galois representations of globally generic cusp forms.
 - **(ix)–(x)** It preserves γ-factors of pairs, and is characterised by them.
@@ -38,7 +46,7 @@ The machine-readable extraction is [PAPER-GAN-SAVIN-23-B.result.json](PAPER-GAN-
 2. **Packets over parameters from PGL_3.** The packet over φ = ι′ ∘ ρ comes from the three correspondences with Aut(D^+), for D running over the central simple algebras of degree 3 (Proposition 3.2).
 3. **The remaining discrete parameters (Φ^♦_ds).** This is the new part.
    - Similitude theta lifting to PGSO_8, followed by triality, gives a spin lifting spin_* : Irr_gen(PGSp_6) → Irr(GL_8) (§4).
-   - Kret–Shin's Spin_7-valued Galois representations give *Kret–Shin parameters* in Φ(PGSp_6) (§5). They are not unique in general, because Spin_7 is not acceptable (Chenevier–Gan). They are unique for theta lifts from G_2 (Proposition 5.2).
+   - Kret–Shin's Spin_7-valued Galois representations give *Kret–Shin parameters* in Φ(PGSp_6) (§5). They are not unique in general, because Spin_7 is not acceptable (Chenevier–Gan). Proposition 5.2 proves uniqueness for generic discrete PGSp_6 lifts of generic discrete series of G_2; this extra discreteness hypothesis places π on the diamond locus.
    - These give surjectivity (Proposition 6.1) and a unique generic member of each packet (Proposition 8.1).
    - Bin Xu's packets for PGSp_6 then identify the fibre over φ with one distinguished Xu packet (Proposition 8.2 and Lemma 8.3, 'one in, all in'), and hence with Irr(S_φ).
 4. **Consequences.** §9 proves the Gross–Savin conjectures on these theta correspondences, and defines L-parameters for the distinguished Xu packets of PGSp_6.
@@ -48,7 +56,7 @@ The machine-readable extraction is [PAPER-GAN-SAVIN-23-B.result.json](PAPER-GAN-
   - With prescribed components and a nonzero G_D-period on the definite G_2 (Proposition 10.5), via Poincaré series.
   - For generic representations (Proposition 10.7).
   - Isolation for G_2 (Lemma 10.8).
-- **Appendix B: the Fell topology on the unitary dual of a split p-adic group.** Miličić's theorem, limits of generic representations, the isolation of the Steinberg representation in rank ≥ 2, and weak containment.
+- **Appendix B: the Fell topology on the unitary dual of a split p-adic group.** Miličić's theorem, limits of generic representations, the isolation of the Steinberg representation in rank ≥ 2, and weak containment. Corrected Proposition 11.6 says [σ] lies in the Fell closure of {[π_i]} when σ is weakly contained in their Hilbert direct sum. It does not assert an ordinary subsequence of the original enumeration. Corollary 11.7 is unchanged: an isolated point in that closure is one of its members, preserving the globalization applications.
 - **Appendix C: a weak LLC for PGSp_6**, as an outline. Parameters are taken up to 'weak equivalence', that is, up to equality of the standard and spin parameters. Its fibres are unions of Xu packets.
 
 ## What the atlas already has
@@ -80,23 +88,32 @@ The machine-readable extraction is [PAPER-GAN-SAVIN-23-B.result.json](PAPER-GAN-
    - **Why it is new:** ExceptionalThetaCorrespondencesForG2 is still a candidate, so it cannot have a Part II. This roadmap takes the candidate as its first prerequisite and starts where it stops. If the candidate is designed first, the reviewer may retitle this route as that roadmap's Part II.
    - **Why not merge into the candidate:** that would load a theta roadmap with Galois representations, Xu's packets, triality and globalisation.
    - **Source-gated inputs:** Kret–Shin's Theorem A, Chenevier's Theorems E and 6.4, [GS24] and Shin's Plancherel density theorem, until an owner exists.
-   - **Proof obligations:** the self-dual case of Proposition 3.2 (E1), the scope of Theorem 9.1(ii) (E2), and the omitted steps of Appendix C.
+   - **Proof obligations:** the self-dual case of Proposition 3.2 (E1), the scope of Theorem 9.1(ii) (E2), the club-locus spin identity via PGL_3/Siegel lifts and classical theta/triality (E16), and the omitted steps of Appendix C. Corollary 5.3 is first taken on the diamond locus; Proposition 5.2 alone cannot complete the club case.
 2. **Coalesced with `ExceptionalThetaCorrespondencesForG2` (25 items).** The route keeps PAPER-GAN-SAVIN-23's id, title and area.
    - It carries the theta statements this paper restates or uses:
      - Theorem 2.1, Proposition 2.3, the explicit lifts and the preservation of genericity;
-     - general L-parameters with component groups;
+     - general L-parameters with raw component groups
+       S_φ = π_0(Z_{G^∨}(φ)), distinguished from enhancements for a fixed
+       split packet: irreducible representations trivial on the image of
+       Z(G^∨), equivalently Irr(π_0(Z_{G^∨}(φ)/Z(G^∨))). For another inner
+       form specify its Kottwitz central character. The dual centre of G_2
+       is trivial, so all Irr(S_φ) remain correct there; split PGSp_6 uses
+       the explicit Z(Spin_7) quotient. Raw S_φ in Lemma 2.4 is preserved;
      - the pairs Aut(D^+) × G_2 for every D of degree 3;
      - Savin–Weissman, and Gan's depth-zero examples.
    - It also carries the local lemmas of §10.1: G_D, the Siegel orbits, the twisted Jacquet module, and Lemmas 10.1–10.4.
    - It adds a global layer: the dual pair in E_{7,3}, the nonvanishing and cuspidality results of [GrS2, Ch. 5], the generic global lifts of [HKT], and archimedean matching.
 3. **New Part II: `SmoothRepresentationsPartIIUnitaryDual` (14 items).** Title "Smooth representations of local groups, Part II: the unitary dual, the Fell topology and isolated representations", area `representations`.
    - It carries Appendix B, which holds for any split simple p-adic group, together with its inputs: Miličić, Tadić, Heiermann–Opdam, Barbasch–Moy, Rodier, Howe–Moore, Raikov and Milman's converse.
+   - Its weak-containment endpoint is Fell closure of the set of summands,
+     with no sequential assertion or added countability premise. Isolation
+     still gives σ ≅ π_i for some i.
    - No layer of SmoothRepresentationsOfLocalGroups treats unitary representations. The pending SmoothRepresentationsPartII goes in another direction (types and supercuspidals).
 4. **Source of ML.4 (6 items).** Bin Xu's packets for PGSp_6 and his global multiplicity formula. These are classification inputs for a classical similitude group, of the kind ML.4 owns. PAPER-GAN-SAVIN-23 sent Gan–Takeda's GSp_4 correspondence there too.
 5. **Source of MP.3 (2 items).** The similitude theta lift from PGSp_6 to PGSO_8, and the theta dichotomy of PGSp_6 between PGO_8 and PGO_{5,1}, via Sun–Zhu's conservation relation.
 6. **Coalesced with `MetaplecticAutomorphicFormsPartIIShimuraWaldspurger` (1 item).** Proposed by PAPER-GAN-ICHINO-18. The item is the Gan–Qiu–Takeda nonvanishing criterion and the tower property, for Sp_6 × O_8 and its similitude version. That candidate already plans the Rallis inner product formula.
 
-## Source issues (`sourceIssues` E1–E15)
+## Source issues (`sourceIssues` E1–E17)
 
 **Gap (E1): Proposition 3.2 constructs no bijection when S_φ ≅ S_3.**
 - **The claim.** The proof assumes every [φ] ∈ Φ^♠♣_ds(G_2) has a centraliser of order 3 in G_2(C). Everything after that rests on it:
@@ -131,7 +148,38 @@ So what is proved is the case L(π) ∈ Φ^♦_ds(G_2).
   - E14: π and Σ′′♭ in the proof of Lemma 12.4;
   - E15: L for L_w, and Π for Σ, in the proof of Theorem 12.7.
 
-None of these is known to affect the Main Theorem outside the S_3 packets of E1.
+The following two errors were added by FIX-RT-PAPER-GAN-SAVIN-23-B.
+They have not yet received an independent source-issue review.
+
+**Error (E16): the generic theta diagram has the wrong intermediate codomain.**
+The published Main Theorem (vi), p. 4, sends all generic discrete series of
+G_2 to discrete series of PGSp_6. Yet π_gen[1] = θ_B(St_{PGL_3}^+) is a
+generic discrete series in the club locus. Proposition 2.3 gives its unique
+discrete lift to PGL_3 ⋊ Z/2Z, whereas its PGSp_6 lift is the tempered,
+nondiscrete constituent I_3(St_{PGL_3})_gen of normalized Siegel induction
+from GL_3. The companion preprint arXiv:2102.00372v1, Proposition 3.1(ii)
+p. 9, Theorem 8.5 pp. 27–28, §10.3 pp. 32–33 and Theorem 15.2(iii)
+pp. 52–53 supply these identifications. Replace the codomain by generic
+tempered PGSp_6 representations. Proposition 5.2 explicitly assumes a
+discrete lift, so it proves the spin identity only on the diamond locus;
+the club-case bridge remains a target. This does not refute the identity.
+
+**Error (E17): direct-sum weak containment does not give an increasing-index
+subsequence.** In published Proposition 11.6, p. 33, take G = G_2(Q_5),
+σ = St_G, π_1 = σ and π_n = 1_G for n ≥ 2. The first direct summand
+proves weak containment, but every ordinary subsequence is eventually
+trivial and cannot converge to the isolated Steinberg representation
+(Proposition 11.3, rank G_2 = 2). The proof approximates from the set of
+summands without producing increasing original indices. The correct
+conclusion is [σ] ∈ closure_Fell{[π_i]}, as in BHV's author version,
+Exercise F.6.4, printed p. 444 / PDF p. 450. Corollary 11.7 survives by
+isolation, so this finding causes no new globalization failure.
+
+The enhancement correction to item 1 is an extraction overgeneralisation,
+not an additional published-source issue. For the PGL_3 Steinberg parameter
+the raw centralizer is μ_3, but quotienting its dual centre gives one
+enhancement for the split packet; the other two characters belong to the
+cubic nonsplit inner forms.
 
 ## Prerequisites not yet covered
 
