@@ -10,9 +10,9 @@ traits. Here those objects become moduli groupoids and stack morphisms; the
 parent is imported rather than planned a second time. Stable-map moduli are
 not constructed in this continuation.
 
-Every stage is partial. The packet records 83 declaration nodes, 72 API items,
-70 discriminating tests, 35 planets, 135 precise supplier requests and 15 gaps.
-There are nine inspected pinned-library declarations. Nothing is claimed
+Every stage is partial. The packet records 102 declaration nodes, 98 API items,
+95 discriminating tests, 35 planets, 135 precise supplier requests and 15 gaps.
+There are 28 inspected pinned-library declarations. Nothing is claimed
 formalized: every implementationStatus is unchecked. An open request is a
 dependency on a specification, not evidence that the mathematical library
 already contains its theorem.
@@ -23,6 +23,13 @@ Hurwitz spaces, their Sp/GSp torsors, pure mapping-class groups and tautological
 Chow-ring presentations remain with their existing consumer owners. The source
 proofs and missing foundations listed below must be reconciled before any stage
 can be called source_decomposed or closed.
+
+
+The polynomial model in MC.2 now has native quotient, ideal, dual and tensor
+signatures checked in an existing pinned Mathlib build. This records elaboration,
+with admitted proof bodies; it does not formalize the proofs or close a stage.
+The fresh source scope is Knudsen2012's introduction/Main Lemma and §§3–4;
+other whole-paper/source receipts retain their original historical authorship.
 
 ## Conventions and interfaces
 
@@ -135,6 +142,32 @@ extension. These boundaries appear as rescope proposals and gaps, rather than
 as fictitious supplier theorems. The parent’s already planned curve cohomology,
 infinitesimal automorphisms, family pushouts and contractions have no duplicate
 nodes here.
+
+### Additional inspected polynomial and module baseline
+
+The following 19 declarations were read at Mathlib's fixed commit. They supply
+the generic infrastructure; only their pointed polynomial applications are
+planned as new nodes. The packet records exact modules, lines and git blobs.
+
+- `mathlib:Polynomial.divByMonic`: Quotient in division by a monic polynomial.
+- `mathlib:Polynomial.modByMonic`: Remainder in division by a monic polynomial.
+- `mathlib:Polynomial.mapRingHom`: Coefficientwise mapping as a bundled polynomial ring homomorphism.
+- `mathlib:Polynomial.evalRingHom`: Polynomial evaluation as a bundled ring homomorphism.
+- `mathlib:Polynomial.Monic.isRegular`: A monic polynomial is a regular element over every ring.
+- `mathlib:Matrix.mulVecLin`: Matrix-vector multiplication as a native linear map.
+- `mathlib:Submodule.Quotient.mk`: Native projection to a quotient by a linear-map range.
+- `mathlib:TensorProduct.lift`: Extends a bilinear map to the tensor product; pure-tensor evaluation specifies it.
+- `mathlib:TensorProduct`: Native tensor product of modules over a commutative semiring.
+- `mathlib:AdjoinRoot`: Native quotient A[X]/(F); no pointed-node theorem.
+- `mathlib:AdjoinRoot.of`: Coefficient ring map into the native quotient.
+- `mathlib:AdjoinRoot.root`: Class of the polynomial variable in the quotient.
+- `mathlib:AdjoinRoot.lift`: Descends evaluation given its actual vanishing relation.
+- `mathlib:AdjoinRoot.map`: Induced quotient ring map with the required divisibility condition.
+- `mathlib:AdjoinRoot.map_comp_map`: Composition of the existing quotient coefficient maps.
+- `mathlib:Module.Flat`: Actual coefficient-module flatness predicate, characterized by tensor injectivity.
+- `mathlib:Module.Flat.of_retract`: A linear retract of a flat module is flat.
+- `mathlib:Module.Flat.of_linearEquiv`: Transport of flatness through a linear equivalence.
+- `mathlib:Module.Flat.of_free`: Free modules are flat.
 
 ## Declaration-level layers
 
@@ -478,7 +511,7 @@ For a commutative ring A and γ,δ∈A define q_{γ,δ}(x,y)=x²+γxy+δy². Its
 - `NodeForm.characteristicTwo` (computation): Over a characteristic-two field q_{1,0}=x²+xy has unit discriminant1 and two distinct branches.
 - `NodeForm.doubleLineExcluded` (non-example): q_{0,0}=x² has discriminant0 and is excluded from the nondegenerate node hypothesis.
 
-**Uses.** StableReductionPartII:MC.2/small-extension-coordinate-correction; StableReductionPartII:MC.2/pointed-node-normal-form; StableReductionPartII:MC.2/node-matrix-factorization; StableReductionPartII:MC.2/node-factorization-products; StableReductionPartII:MC.2/node-factorization-exact.
+**Uses.** StableReductionPartII:MC.2/small-extension-coordinate-correction: Let A be a commutative ring, ε²=0, and d=γ²−4δ a unit. Every zero-constant-term series f=d(xu+yv) admits μ=−2δu+γv and ν=γu−2v such that q(x+εμ,y+εν)=q(x,y)+εf. The identity works also in characteristic two.; StableReductionPartII:MC.2/pointed-node-normal-form: Let Λ be complete noetherian local with residue field k and let q over k have unit discriminant. The pointed node k[[x,y]]/(q), with x,y↦0, has a formally versal hull A_pd=Λ[[s,t]] and R_pd=A_pd[[x,y]]/(q̃(x,y)−q̃(s,t)), with section x↦s,y↦t. The tangent map is an isomorphism k²→k². This is a hull, not a claim that the deformation groupoid is represented by a fine scheme.; StableReductionPartII:MC.2/node-matrix-factorization: For a commutative ring A and γ,δ,x,y,s,t∈A define Φ=((δy+δt+γx,x+s+γt);(−(x−s),y−t)) and Ψ=((y−t,−(x+s+γt));(x−s,δy+δt+γx)). These explicit matrices constitute the special node-section factorization; their polynomial product relation and the noetherian nodal exactness theorem are separate nodes. No unit-discriminant hypothesis is needed to form the matrices.; StableReductionPartII:MC.2/node-factorization-products: For a commutative ring A and arbitrary γ,δ,x,y,s,t∈A, the displayed Φ and Ψ satisfy ΦΨ=ΨΦ=(q(x,y)−q(s,t))I₂. This polynomial identity needs neither noetherianity nor the unit-discriminant hypothesis.; StableReductionPartII:MC.2/node-factorization-exact: Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). In this actual quotient the alternating Φ,Ψ complex and its transpose are exact: ker Φ=im Ψ, ker Ψ=im Φ, ker Φᵀ=im Ψᵀ and ker Ψᵀ=im Φᵀ. Cokernel identifications are the two separate construction nodes.
 
 **Acceptance:** No division by2 is used.
 
@@ -527,7 +560,7 @@ For a commutative ring A and γ,δ,x,y,s,t∈A define Φ=((δy+δt+γx,x+s+γt);
 - `NodeSectionFactorization.left` (projection): The left matrix is Φ with the stated entries.
 - `NodeSectionFactorization.right` (projection): The right matrix is Ψ with the stated entries.
 - `NodeSectionFactorization.products` (relation): ΦΨ=ΨΦ=(q(x,y)−q(s,t))I₂.
-- `NodeSectionFactorization.cokernels` (characterisation): Modulo w the two cokernels identify with J and J∨ through the explicit maps.
+- `NodeSectionFactorization.PolynomialModel.cokernels` (characterisation): In the actual polynomial quotient the right cokernel is J via [z]↦cz₀−dz₁; the left cokernel is the actual R-linear dual via [z]↦z₀incl−z₁ε.
 
 **Discriminating tests.**
 
@@ -535,7 +568,7 @@ For a commutative ring A and γ,δ,x,y,s,t∈A define Φ=((δy+δt+γx,x+s+γt);
 - `NodeSectionFactorization.characteristicTwo` (compatibility): The same product identities hold when2=0 andγ=1.
 - `NodeSectionFactorization.repeatedRootExcluded` (non-example): The geometric node conclusions require unit discriminant; the raw matrix product identity alone does not exclude a double line.
 
-**Uses.** StableReductionPartII:MC.2/node-factorization-products; StableReductionPartII:MC.2/node-factorization-exact.
+**Uses.** StableReductionPartII:MC.2/node-factorization-products: For a commutative ring A and arbitrary γ,δ,x,y,s,t∈A, the displayed Φ and Ψ satisfy ΦΨ=ΨΦ=(q(x,y)−q(s,t))I₂. This polynomial identity needs neither noetherianity nor the unit-discriminant hypothesis.; StableReductionPartII:MC.2/node-factorization-exact: Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). In this actual quotient the alternating Φ,Ψ complex and its transpose are exact: ker Φ=im Ψ, ker Ψ=im Φ, ker Φᵀ=im Ψᵀ and ker Ψᵀ=im Φᵀ. Cokernel identifications are the two separate construction nodes.
 
 **Acceptance:** The general Eisenbud regular-local MCM equivalence is not needed.
 
@@ -559,15 +592,452 @@ For a commutative ring A and arbitrary γ,δ,x,y,s,t∈A, the displayed Φ and �
 
 `StableReductionPartII:MC.2/node-factorization-exact` — theorem.
 
-For noetherian A and unit discriminant in the pointed quadratic model R=A[x,y]/(q(x,y)−q(s,t)), the alternating Φ,Ψ complex and its dual are exact. Their two cokernels identify with the section ideal J and its dual through the explicit maps κ and λ of Knudsen2012 Proposition3.1.
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). In this actual quotient the alternating Φ,Ψ complex and its transpose are exact: ker Φ=im Ψ, ker Ψ=im Φ, ker Φᵀ=im Ψᵀ and ker Ψᵀ=im Φᵀ. Cokernel identifications are the two separate construction nodes.
 
-**Construction/proof.** (1) The polynomial w is monic in x, hence regular even when A has zero-divisors. (2) Reduce representatives to f(y)+xg(y) and compute the kernels of κ and λ. (3) The same calculation for the transposed factorization identifies the dual kernels.
+**Hypotheses:** A is any commutative ring; γ,δ,s,t∈A. The proof uses regular F before quotienting, not regularity of A.
 
-**Dependencies:** `StableReductionPartII:MC.2/node-matrix-factorization`, `StableReductionPartII:MC.2/node-factorization-products`, `StableReductionPartII:MC.2/binary-node-form`.
+**Construction/proof.** (1) Lift a vector killed by Φ to B², write Φz̃=Fw, multiply by Ψ and cancel F coordinatewise. Reduce modulo F. (2) Interchange the matrices for the second equality. (3) Their transposes also factor FI₂; repeat the same argument for the dual complex.
 
-**Acceptance:** A need not be regular; no general MCM equivalence is invoked.
+**Dependencies:** `StableReductionPartII:MC.2/node-matrix-factorization`, `StableReductionPartII:MC.2/node-factorization-products`, `StableReductionPartII:MC.2/polynomial-relation-regular`, `mathlib:Matrix.mulVecLin`.
+
+**Discriminating tests.**
+
+- `NodeSectionFactorization.PolynomialModel.quotientCharacteristicTwo` (compatibility): In A[u,v]/(u²+uv), characteristic two does not affect ker Φ=im Ψ.
+- `NodeSectionFactorization.PolynomialModel.receivingRingNotExact` (non-example): Over Z with γ=1,δ=0 and all coordinates zero, both matrices are zero but kernel is Z² and image is zero.
+
+**Acceptance:** The conclusion does not hold for arbitrary specialized coordinate values in another ring. No general MCM/matrix-factorization equivalence is reproved.
 
 **Source:** knudsen2012, Proposition3.1 and proof,pp.11–12.
+
+#### Polynomial-model convention
+
+The following declarations use A[Y][X]/(F), with F monic in X. They
+are special applications of existing polynomial and linear algebra. General
+matrix-factorization and MCM theory remains with StablePeriodicCurved, layer7.
+All coefficient images are written with ι in the convention below; abbreviated
+products a,b,c,d always live in the actual quotient. Monic division proves the
+stronger arbitrary-ring range, including zero rings and degenerate quadratic
+forms. The geometric unit-discriminant condition is still required for nodality.
+The published Proposition3.1 assumes noetherianity and unit discriminant; the
+range extension here is the explicit elementary derivation, not a quotation.
+
+#### Polynomial ring of a pointed section
+
+`StableReductionPartII:MC.2/polynomial-node-model` — construction.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). Construct these as native polynomial quotient, ideal and linear-map modules; the section evaluation ev:R→A sends u to s and v to t.
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) Use the nested polynomial A[Y][X] and the existing quotient AdjoinRoot F. (2) Evaluation at (s,t) kills F, so its ring map descends. (3) Take the two-generator ideal and its actual R-linear dual.
+
+**Dependencies:** `StableReductionPartII:MC.2/binary-node-form`, `mathlib:AdjoinRoot`, `mathlib:AdjoinRoot.of`, `mathlib:AdjoinRoot.root`, `mathlib:AdjoinRoot.lift`, `mathlib:Polynomial.evalRingHom`.
+
+**API.**
+
+- `NodeSectionFactorization.PolynomialModel.polynomial` (data): F=X²+γYX+δY²−q(s,t) in A[Y][X].
+- `NodeSectionFactorization.PolynomialModel.coefficientHom` (functoriality): ι is the composite of the two coefficient inclusions and the quotient map.
+- `NodeSectionFactorization.PolynomialModel.sectionEval` (projection): ev(u)=s, ev(v)=t, ev(ιz)=z.
+- `NodeSectionFactorization.PolynomialModel.sectionIdeal` (data): J is Ideal.span {u−ιs,v−ιt}; sectionDual is J→ₗ[R]R.
+
+**Discriminating tests.**
+
+- `NodeSectionFactorization.PolynomialModel.modelRelation` (computation): q(u,v)=ι(q(s,t)).
+- `NodeSectionFactorization.PolynomialModel.modelZero` (degenerate): If A is the zero ring then R, J and D are subsingleton.
+- `NodeSectionFactorization.PolynomialModel.evaluationCoordinates` (compatibility): Native AdjoinRoot.lift evaluates u,v and coefficients to s,t and the original coefficient.
+
+**Uses.** StableReductionPartII:MC.2/dual-section-ideal: Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps.; StableReductionPartII:MC.2/node-factorization-exact: Exposes the concrete quotient, regular coordinate and actual module maps; not an arbitrary receiving ring.
+
+**Acceptance:** The section can meet the singular point; no smoothness or invertibility of J is assumed.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Regularity of the monic relation
+
+`StableReductionPartII:MC.2/polynomial-relation-regular` — lemma.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). Multiplication by F on A[Y][X] is injective.
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) For nonzero A, F is monic of degree two in X; the top nonzero coefficient of a product survives. (2) If A is the zero ring the domain is a singleton.
+
+**Dependencies:** `StableReductionPartII:MC.2/polynomial-node-model`, `mathlib:Polynomial.Monic.isRegular`.
+
+**Acceptance:** Do not deduce this from unit discriminant after specializing coordinates to a receiving ring.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Monic normal form in the section ring
+
+`StableReductionPartII:MC.2/polynomial-normal-form` — lemma.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). For every r∈R there is a unique pair (p,q₁)∈A[Y]² with r=p(v)+u q₁(v). Thus R is free over A[Y] with basis (1,u), and free over A by the monomials vⁿ,u vⁿ.
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) Divide a representative by the monic quadratic F in X. (2) The remainder has X-degree less than two, giving the pair. (3) A difference of two such representatives divisible by F must vanish by degree, or is zero in the zero-ring case.
+
+**Dependencies:** `StableReductionPartII:MC.2/polynomial-node-model`, `mathlib:Polynomial.divByMonic`, `mathlib:Polynomial.modByMonic`.
+
+**Acceptance:** No relation truncating powers of v is introduced.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Regularity of the second section coordinate
+
+`StableReductionPartII:MC.2/section-coordinate-regular` — lemma.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). Multiplication by d=v−ιt on R is injective.
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) In the unique two-coefficient form, multiplication by d multiplies each coefficient polynomial by Y−t. (2) Cancel the monic Y−t separately on both coefficient polynomials.
+
+**Dependencies:** `StableReductionPartII:MC.2/polynomial-normal-form`, `mathlib:Polynomial.Monic.isRegular`.
+
+**Acceptance:** A can have zero divisors; d is not chosen to be invertible.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Kernel of section evaluation
+
+`StableReductionPartII:MC.2/section-evaluation-kernel` — lemma.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). ev∘ι=id_A, ker(ev)=J, and 0→J→R→A→0 splits A-linearly by ι.
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) For r=p(v)+u q₁(v), subtract ι(p(t)+s q₁(t)). (2) Divide p(Y)−p(t) and q₁(Y)−q₁(t) by Y−t; the difference is d times a polynomial expression plus c·ι(q₁(t)). (3) Both generators evaluate to zero; ev∘ι=id gives the splitting.
+
+**Dependencies:** `StableReductionPartII:MC.2/polynomial-normal-form`, `StableReductionPartII:MC.2/polynomial-node-model`.
+
+**Acceptance:** The splitting is A-linear; the section map ι is not R-linear for the evaluation action on A.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Cokernel presentation of the section ideal
+
+`StableReductionPartII:MC.2/section-ideal-cokernel` — construction.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). For Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), construct eJ:coker Ψ≃ₗ[R]J with eJ([z₀,z₁])=c z₀−d z₁.
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) κ=((0,−1),(−d,b)) is injective since det κ=−d. (2) κΦ=((c,−d),(0,0)); exactness identifies coker Ψ with im Φ. (3) Projection to the first coordinate gives precisely the displayed ideal and map.
+
+**Dependencies:** `StableReductionPartII:MC.2/node-factorization-exact`, `StableReductionPartII:MC.2/section-coordinate-regular`, `mathlib:Submodule.Quotient.mk`, `mathlib:Matrix.mulVecLin`.
+
+**API.**
+
+- `NodeSectionFactorization.PolynomialModel.cokernelIdeal` (characterisation): The R-linear equivalence is specified by [z]↦c z₀−d z₁.
+- `NodeSectionFactorization.PolynomialModel.cokernelIdealGenerators` (simp): The classes of (1,0),(0,1) map to c,−d.
+- `NodeSectionFactorization.PolynomialModel.cokernelIdealUnique` (extensionality): Any two linear equivalences with the displayed quotient formula agree.
+
+**Discriminating tests.**
+
+- `NodeSectionFactorization.PolynomialModel.idealCokernelFirst` (computation): [1,0] maps to c.
+- `NodeSectionFactorization.PolynomialModel.idealCokernelSecond` (computation): [0,1] maps to −d, retaining the sign outside characteristic two.
+- `NodeSectionFactorization.PolynomialModel.idealCokernelZero` (degenerate): The zero vector maps to the zero ideal element.
+
+**Uses.** StableReductionPartII:MC.2/dual-section-ideal: Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps.; StableReductionPartII:MC.2/node-factorization-exact: Exposes the concrete quotient, regular coordinate and actual module maps; not an arbitrary receiving ring.
+
+**Acceptance:** The RIGHT matrix has cokernel J.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Denominator-free dual generator
+
+`StableReductionPartII:MC.2/section-dual-generator` — construction.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). There is a unique ε∈D with d ε(j)=b j for every j∈J. Its generator values are ε(c)=−a and ε(d)=b.
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) For j=cx+dy set ε(j)=−ax+by. (2) If cx+dy=0, multiply by b and use bc=−ad to obtain d(−ax+by)=0; cancel d. (3) This defines an R-linear map and its two values. Multiplication by regular d proves uniqueness.
+
+**Dependencies:** `StableReductionPartII:MC.2/section-coordinate-regular`, `StableReductionPartII:MC.2/node-factorization-products`, `StableReductionPartII:MC.2/polynomial-node-model`.
+
+**API.**
+
+- `NodeSectionFactorization.PolynomialModel.dualGenerator_existsUnique` (characterisation): Exactly one actual R-linear map satisfies d ε(j)=b j.
+- `NodeSectionFactorization.PolynomialModel.dualGeneratorValues` (simp): ε(c)=−a and ε(d)=b.
+- `NodeSectionFactorization.PolynomialModel.dualGeneratorUnique` (extensionality): Two R-linear maps with the denominator-free characterization are equal.
+
+**Discriminating tests.**
+
+- `NodeSectionFactorization.PolynomialModel.dualZeroBase` (degenerate): For a zero coefficient ring D and R×A are subsingleton.
+- `NodeSectionFactorization.PolynomialModel.dualSignThree` (computation): In F₃[u,v]/(u²+uv), ε(u)=−u, ε(v)=u and u≠−u.
+- `NodeSectionFactorization.PolynomialModel.dualGeneratorSecond` (compatibility): For every A and all coefficients the value on d is b, including A with zero divisors.
+
+**Uses.** StableReductionPartII:MC.2/dual-section-ideal: Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps.; StableReductionPartII:MC.2/node-factorization-exact: Exposes the concrete quotient, regular coordinate and actual module maps; not an arbitrary receiving ring.
+
+**Acceptance:** The notation b/d is explanatory only; no inverse or localization surrogate is used.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Normal form in the actual section dual
+
+`StableReductionPartII:MC.2/section-dual-normal-form` — lemma.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). With the characterized ε, every h∈D has a unique expression h=r·incl+ια·ε with (r,α)∈R×A.
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) Linearity gives d h(c)=c h(d). Modulo d, R/dR=A[X]/(cb). Cancel monic X−s to obtain Ann(c)=(b). (2) Write h(d)=dr+bz. The difference h−r incl−zε vanishes on d, hence on all J by regularity of d. (3) Write z=ι(ev z)+cx+dy and use cε=−a incl, dε=b incl. (4) If d r+ια b=0, compare the coefficient of u in r=p(v)+u q₁(v): (v−t)q₁(v)+α=0. Evaluate at v=t to get α=0; cancel d to get r=0.
+
+**Dependencies:** `StableReductionPartII:MC.2/section-dual-generator`, `StableReductionPartII:MC.2/section-coordinate-regular`, `StableReductionPartII:MC.2/polynomial-normal-form`.
+
+**Acceptance:** The second coordinate lies in A, not a second independent copy of R.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Coefficient-linear normal coordinates of the dual
+
+`StableReductionPartII:MC.2/section-dual-normal-equivalence` — construction.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). Construct the A-linear equivalence D≃ₗ[A]R×A whose inverse sends (r,α) to j↦rj+ια ε(j).
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) Choose the unique normal pair for each map; additivity and A-linearity follow by uniqueness. (2) The inverse formula is R-linear in j and A-linear in (r,α). (3) The two inverse identities are exactly existence and uniqueness of normal form.
+
+**Dependencies:** `StableReductionPartII:MC.2/section-dual-normal-form`.
+
+**API.**
+
+- `NodeSectionFactorization.PolynomialModel.dualNormalEquiv` (characterisation): The inverse evaluates as rj+ιαε(j).
+- `NodeSectionFactorization.PolynomialModel.dualNormalEquivInclusion` (simp): The inclusion j↦j has coordinates (1,0).
+- `NodeSectionFactorization.PolynomialModel.dualNormalEquivGenerator` (simp): The dual generator ε has coordinates (0,1).
+
+**Discriminating tests.**
+
+- `NodeSectionFactorization.PolynomialModel.normalInclusion` (computation): The coordinates of inclusion are (1,0).
+- `NodeSectionFactorization.PolynomialModel.normalGenerator` (computation): The coordinates of ε are (0,1).
+- `NodeSectionFactorization.PolynomialModel.normalRoundTrip` (compatibility): Applying the equivalence after its inverse fixes every pair (r,α).
+
+**Uses.** StableReductionPartII:MC.2/dual-section-ideal: Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps.; StableReductionPartII:MC.2/node-factorization-exact: Exposes the concrete quotient, regular coordinate and actual module maps; not an arbitrary receiving ring.
+
+**Acceptance:** This equivalence is not R-linear for the componentwise action.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Cokernel presentation of the section dual
+
+`StableReductionPartII:MC.2/section-dual-cokernel` — construction.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). Construct eD:coker Φ≃ₗ[R]D with d eD([z₀,z₁])(j)=(d z₀−b z₁)j; equivalently [z]↦z₀ incl−z₁ ε.
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) λ=((1,0),(−c,d)) is injective, and λΨ=((d,−b),(0,0)). (2) Exactness gives coker Φ≅(d,b). (3) The calculation Ann(c)=(b) modulo d identifies this ideal divided by d with the actual Hom_R(J,R).
+
+**Dependencies:** `StableReductionPartII:MC.2/node-factorization-exact`, `StableReductionPartII:MC.2/section-dual-normal-form`, `StableReductionPartII:MC.2/section-coordinate-regular`, `mathlib:Submodule.Quotient.mk`, `mathlib:Matrix.mulVecLin`.
+
+**API.**
+
+- `NodeSectionFactorization.PolynomialModel.cokernelDual` (characterisation): The denominator-free evaluation formula specifies the equivalence.
+- `NodeSectionFactorization.PolynomialModel.cokernelDualGenerators` (simp): [1,0] acts as inclusion and [0,1] as −ε.
+- `NodeSectionFactorization.PolynomialModel.cokernelDualUnique` (extensionality): Two equivalences with the displayed evaluation formula agree by regularity of d.
+
+**Discriminating tests.**
+
+- `NodeSectionFactorization.PolynomialModel.dualCokernelFirst` (computation): [1,0] evaluates on d to d.
+- `NodeSectionFactorization.PolynomialModel.dualCokernelSecond` (computation): [0,1] evaluates on d to −b.
+- `NodeSectionFactorization.PolynomialModel.dualCokernelZero` (degenerate): The zero class evaluates to zero on every j.
+
+**Uses.** StableReductionPartII:MC.2/dual-section-ideal: Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps.; StableReductionPartII:MC.2/node-factorization-exact: Exposes the concrete quotient, regular coordinate and actual module maps; not an arbitrary receiving ring.
+
+**Acceptance:** The LEFT matrix has cokernel D; its second basis class represents −ε.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Residue of the section dual
+
+`StableReductionPartII:MC.2/section-dual-residue` — construction.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). Construct the A-linear residue ρ:D→A as the second normal coordinate. It is surjective, ρ(ε)=1, and ker ρ is exactly the image of injective multiplication R→D. Furthermore ρ(zh)=ev(z)ρ(h). Hence D/R≅A with the section action.
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) Use the unique pair to define ρ; α↦ιαε is an A-linear section. (2) The first-coordinate image is precisely ker ρ; multiplication is injective by evaluation on regular d. (3) Reduce z modulo J and use cε=−a incl and dε=b incl to compute the R action on the residue.
+
+**Dependencies:** `StableReductionPartII:MC.2/section-dual-normal-equivalence`, `StableReductionPartII:MC.2/section-evaluation-kernel`, `StableReductionPartII:MC.2/section-coordinate-regular`.
+
+**API.**
+
+- `NodeSectionFactorization.PolynomialModel.dualResidue` (characterisation): ρ is surjective with the specified kernel and section action.
+- `NodeSectionFactorization.PolynomialModel.dualResidueGenerator` (simp): Every characterized residue sends ε to 1.
+- `NodeSectionFactorization.PolynomialModel.dualResidueInclusion` (simp): Every characterized residue kills multiplication maps j↦rj.
+
+**Discriminating tests.**
+
+- `NodeSectionFactorization.PolynomialModel.residueGenerator` (computation): ρ(ε)=1.
+- `NodeSectionFactorization.PolynomialModel.residueInclusion` (compatibility): ρ(incl)=0.
+- `NodeSectionFactorization.PolynomialModel.residueNoRingSplit` (non-example): For nonzero A a right inverse σ of ρ cannot satisfy σ(ev(r)z)=r·σ(z) for all r,z.
+
+**Uses.** StableReductionPartII:MC.2/dual-section-ideal: Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps.; StableReductionPartII:MC.2/node-factorization-exact: Exposes the concrete quotient, regular coordinate and actual module maps; not an arbitrary receiving ring.
+
+**Acceptance:** For nonzero A, there is no R-linear section of ρ: d kills A but acts injectively on D.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Scalar correction in dual coordinates
+
+`StableReductionPartII:MC.2/section-dual-scalar-correction` — construction.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). There is a unique A-linear K:R→R satisfying d K(r)=b(r−ι(ev r)). It obeys K(rz)=rK(z)+ι(ev z)K(r), K(c)=−a, K(d)=b and K(ια)=0.
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) For r=p(v)+u q₁(v), let P=(p(Y)−p(t))/(Y−t), Q=(q₁(Y)−q₁(t))/(Y−t) by exact monic division. (2) Set K(r)=b(P(v)+uQ(v))−a·ι(q₁(t)); multiply by d and use bc=−ad. (3) A-linearity, uniqueness and the twisted product identity follow by multiplying by d and cancelling.
+
+**Dependencies:** `StableReductionPartII:MC.2/section-evaluation-kernel`, `StableReductionPartII:MC.2/section-dual-generator`, `StableReductionPartII:MC.2/section-coordinate-regular`.
+
+**API.**
+
+- `NodeSectionFactorization.PolynomialModel.dualScalarCorrection` (characterisation): The denominator-free identity uniquely specifies the correction.
+- `NodeSectionFactorization.PolynomialModel.dualScalarCorrectionConstants` (simp): K(ια)=0 for every α∈A.
+- `NodeSectionFactorization.PolynomialModel.dualScalarCorrectionUnique` (extensionality): Two A-linear maps satisfying the identity agree.
+
+**Discriminating tests.**
+
+- `NodeSectionFactorization.PolynomialModel.correctionFirst` (computation): K(c)=−a.
+- `NodeSectionFactorization.PolynomialModel.correctionSecond` (computation): K(d)=b.
+- `NodeSectionFactorization.PolynomialModel.correctionConstants` (compatibility): K(ια)=0, including α=1.
+
+**Uses.** StableReductionPartII:MC.2/dual-section-ideal: Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps.; StableReductionPartII:MC.2/node-factorization-exact: Exposes the concrete quotient, regular coordinate and actual module maps; not an arbitrary receiving ring.
+
+**Acceptance:** The product law uses ev(z) multiplying K(r); reversing that convention without changing the first term is incorrect.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Node-ring action on the dual coordinates
+
+`StableReductionPartII:MC.2/section-dual-scalar-action` — lemma.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). For normal coordinates (r,α) of h and the unique K, the coordinates of z·h are (zr+ια K(z), (ev z)α).
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) The defining equation for K and regularity of d give (z−ιev z)ε=K(z)incl. (2) Expand z(r incl+ιαε), then invoke uniqueness of normal coordinates.
+
+**Dependencies:** `StableReductionPartII:MC.2/section-dual-normal-equivalence`, `StableReductionPartII:MC.2/section-dual-scalar-correction`, `StableReductionPartII:MC.2/section-dual-residue`.
+
+**Acceptance:** The correction term rules out a componentwise R action.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Coefficient flatness of the section ideal
+
+`StableReductionPartII:MC.2/section-ideal-coefficient-flat` — lemma.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). J is flat as an A-module.
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) R is A-free by monomial normal form. (2) The A-linear retraction R→J sends r to r−ιev(r); the evaluation splitting makes J a direct summand. (3) Apply the existing retract-of-flat theorem.
+
+**Dependencies:** `StableReductionPartII:MC.2/section-evaluation-kernel`, `StableReductionPartII:MC.2/polynomial-normal-form`, `mathlib:Module.Flat.of_retract`, `mathlib:Module.Flat.of_free`.
+
+**Acceptance:** No claim that J is R-flat, projective over R or invertible at the node.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Coefficient flatness of the section dual
+
+`StableReductionPartII:MC.2/section-dual-coefficient-flat` — lemma.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). D is A-free and hence A-flat.
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) Normal coordinates identify D with R×A as A-modules. (2) The right side is A-free; transport and apply the existing free-flat instance.
+
+**Dependencies:** `StableReductionPartII:MC.2/section-dual-normal-equivalence`, `StableReductionPartII:MC.2/polynomial-normal-form`, `mathlib:Module.Flat.of_linearEquiv`, `mathlib:Module.Flat.of_free`.
+
+**Acceptance:** The theorem is about the actual R-linear dual with restriction to A.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Coefficient map of pointed node rings
+
+`StableReductionPartII:MC.2/section-coefficient-map` — construction.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). For any ring map f:A→A′, define R′ using the mapped coefficients and φ:R→R′ by the native AdjoinRoot.map. It sends u,v and ιz to u′,v′ and ι′f(z), preserves the section evaluation and sends c,d,a,b to their primed counterparts.
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) Coefficient mapping sends F to F′. Apply the existing quotient map construction. (2) Check the images on the two variables and coefficients. (3) Use the existing composition law and generator extensionality for identity and composition.
+
+**Dependencies:** `StableReductionPartII:MC.2/polynomial-node-model`, `mathlib:AdjoinRoot.map`, `mathlib:Polynomial.mapRingHom`, `mathlib:AdjoinRoot.map_comp_map`.
+
+**API.**
+
+- `NodeSectionFactorization.PolynomialModel.coefficientMap` (functoriality): The native quotient homomorphism is induced by the mapped polynomial.
+- `NodeSectionFactorization.PolynomialModel.coefficientMapValues` (simp): φ(u)=u′, φ(v)=v′ and φ(ιz)=ι′f(z).
+- `NodeSectionFactorization.PolynomialModel.coefficientMapIdentity` (compatibility): For f=id_A, φ=id_R.
+- `NodeSectionFactorization.PolynomialModel.coefficientMapComposition` (functoriality): For A→A′→A″, φ_g∘φ_f=φ_{g∘f}.
+
+**Discriminating tests.**
+
+- `NodeSectionFactorization.PolynomialModel.mapIdentity` (compatibility): The identity coefficient map induces the identity on R.
+- `NodeSectionFactorization.PolynomialModel.mapZeroCoefficient` (degenerate): φ(ι0)=0 for every coefficient map.
+- `NodeSectionFactorization.PolynomialModel.mapSectionCoordinates` (computation): φ(c)=c′ and φ(d)=d′ with all four parameters mapped.
+
+**Uses.** StableReductionPartII:MC.2/dual-section-ideal: Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps.; StableReductionPartII:MC.2/node-factorization-exact: Exposes the concrete quotient, regular coordinate and actual module maps; not an arbitrary receiving ring.
+
+**Acceptance:** No flatness or injectivity of f is required.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Coefficient base change of the node ring
+
+`StableReductionPartII:MC.2/section-ring-base-change` — theorem.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). For any f:A→A′, the canonical A′-linear map A′⊗_A R→R′, a′⊗r↦ι′a′ φ(r), is an equivalence (and respects the algebra multiplication).
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) Extend the monomial basis vⁿ,u vⁿ through tensoring. (2) The same monic normal form over A′ identifies the image basis with that of R′. (3) Multiplication compatibility follows on pure tensors.
+
+**Dependencies:** `StableReductionPartII:MC.2/section-coefficient-map`, `StableReductionPartII:MC.2/polynomial-normal-form`, `mathlib:TensorProduct.lift`.
+
+**Acceptance:** The native prototype certifies the specified A′-linear equivalence; the algebra-equiv adapter remains a recorded signature gap.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Coefficient base change of the section ideal
+
+`StableReductionPartII:MC.2/section-ideal-base-change` — theorem.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). For any f:A→A′, the canonical map A′⊗_A J→J′, a′⊗j↦ι′a′ φ(j), is an A′-linear equivalence onto J′=(c′,d′).
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) Tensor the split A-linear evaluation sequence: it stays exact for every A′. (2) Identify R′ and A′ and compare their evaluations. (3) The kernel is exactly J′, with the specified images of c,d.
+
+**Dependencies:** `StableReductionPartII:MC.2/section-ring-base-change`, `StableReductionPartII:MC.2/section-evaluation-kernel`, `StableReductionPartII:MC.2/section-ideal-coefficient-flat`, `mathlib:TensorProduct.lift`.
+
+**Acceptance:** No flatness of f is used; the source sequence is split.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
+
+#### Natural coefficient base change of the section dual
+
+`StableReductionPartII:MC.2/section-dual-base-change` — theorem.
+
+Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). For every f:A→A′, the natural comparison A′⊗_A D≃ₗ[A′]D′ satisfies e(a′⊗h)(φ(j))=ι′a′φ(h(j)). It sends ε to ε′ and multiplication maps to multiplication maps; residue and K commute with coefficient mapping.
+
+**Hypotheses:** A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+**Construction/proof.** (1) Identify the two sides with R′×A′ by the normal equivalences and ring base change. (2) The relation d′φ(ε(j))=b′φ(j) and regularity of d′ identify the mapped generator with ε′. (3) Exact monic division for P,Q commutes with coefficient mapping; hence φ(Kr)=K′φ(r). (4) The correction formula proves compatibility with the scalar action of φ(r), and pure tensors specify the natural evaluation comparison.
+
+**Dependencies:** `StableReductionPartII:MC.2/section-ideal-base-change`, `StableReductionPartII:MC.2/section-dual-normal-equivalence`, `StableReductionPartII:MC.2/section-dual-scalar-correction`, `StableReductionPartII:MC.2/section-coordinate-regular`, `mathlib:TensorProduct.lift`.
+
+**Acceptance:** The formal signature presently gives A′-linearity and natural evaluation. Native R′-module transport, identity/composition of dual tensor comparisons, and a quotient-equivalence adapter remain explicit integration gaps; no global sheaf conclusion follows.
+
+**Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
 
 #### Dual ideal of an arbitrary nodal section
 
@@ -575,9 +1045,11 @@ For noetherian A and unit discriminant in the pointed quadratic model R=A[x,y]/(
 
 For a nodal family C/S over a locally noetherian base and an arbitrary section Δ with ideal J, J is stably reflexive, formation of J∨ and J∨/O_C commutes with arbitrary base change, and Δ*(J∨/O_C) is an invertible sheaf. In the local quadratic model J∨ is generated by1 and ε=(x+s+γt)/(y−t) in the total quotient ring, and J∨/R≅A via the class of ε.
 
-**Construction/proof.** (1) Use the matrix complex to compute the dual and its quotient in the local nodal model. (2) Apply the source’s flat-completion and faithful-descent comparison to transfer the calculation to the local family. (3) Use the invertible-ideal calculation at smooth points and descend the fibrewise-compatible local identifications.
+**Hypotheses:** The full range, base and auxiliary data are specified in the statement; none are suppressed by a global stable-pair convention.
 
-**Dependencies:** `StableReductionPartII:MC.2/pointed-node-normal-form`, `StableReductionPartII:MC.2/node-factorization-exact`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `SchemeAndStackFoundations:SF.1`.
+**Construction/proof.** (1) Apply the separately named polynomial dual, residue, coefficient-flatness and natural coefficient-base-change calculations; these are inputs to the completed-local comparison, not the global conclusion. (2) Apply the source’s flat-completion and faithful-descent comparison to transfer the calculation to the local family. (3) Use the invertible-ideal calculation at smooth points and descend the fibrewise-compatible local identifications.
+
+**Dependencies:** `StableReductionPartII:MC.2/pointed-node-normal-form`, `StableReductionPartII:MC.2/node-factorization-exact`, `SchemeAndStackFoundations:SF.1`, `StableReductionPartII:MC.2/section-dual-residue`, `StableReductionPartII:MC.2/section-dual-base-change`, `StableReductionPartII:MC.2/section-ideal-coefficient-flat`, `StableReductionPartII:MC.2/section-dual-coefficient-flat`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`.
 
 **Acceptance:** Do not strengthen this to J·J∨=J throughout a smoothing family: that equality holds only on the nodal-section locus.
 
@@ -2010,10 +2482,18 @@ scripts/check_blueprint.py tests its baseline-reference regex before known stage
 
 ## Validation and suggested file
 
-The standard checker was run with the pinned declaration index. It reports58 errors and0 warnings, all from genuine upstream `tauceti:TauCetiRoadmap/...#layer-...` IDs being dispatched to baseline lookup before stage membership. Issue3342 comment5950082999 reports the defect. No checker code or baseline entries were altered. A scratch diagnostic excluding upstream roadmap IDs from the baseline regex reports0 errors and0 warnings against the same pinned index; it is not a standard pass.
+The standard packet checker is run against the pinned declaration index, and
+the issue deliverable intake and whitespace checks are required before submission.
+The 58 upstream stage references retain their typed upstreamPrerequisites
+encoding; the graph overlay restores them in memory, preserving their dependency
+meaning. No checker code, atlas data or other packet is edited. Exact current
+check counts and source/build hashes are recorded in the handoff.
 
-The suggested Lean file supplies explicit quadratic-form and matrix signatures, API and examples, and lists every omitted node/API/test by name. Missing moduli types are not replaced by arbitrary propositions. This is partial prototype coverage, with its exact ledger in the packet. No pre-existing built environment at both pinned commits was found; the file was not compiled, and no Lake project, cache or library build was created. No stage is closed.
-
-## Upstream stage encoding for intake
-
-The 58 exact upstream roadmap-stage imports of 44 nodes are retained in the packet’s upstreamPrerequisites field because the current standard checker dispatches them as declaration names. The roadmap requires edges, supplier contracts, requests and mathematical statements are unchanged. Validation restores the typed references only in an in-memory atlas overlay and checks every expected edge and cycles. This follows the accepted Néron Part II packet convention; it supplies no new baseline declaration and closes no source or geometric-interface gap. Canonical prerequisite-field integration remains explicit in the checker gap until the shared checker handles known upstream stages or genuine declaration/node exports replace them.
+The complete suggested file elaborates with only admitted-proof warnings in
+an existing Mathlib build at the pinned commit. It imports individual Mathlib
+modules and uses native AdjoinRoot, Ideal, LinearMap, Matrix and tensor types.
+The packet's expressed-node/API/test ledgers now include the polynomial model;
+all geometric omissions remain explicit. The coefficient comparisons currently
+state A′-linear equivalences with natural pure-tensor evaluation. Native R′
+scalar/algebra-equiv adapters, dual comparison coherence and quotient transport
+remain open. No stage or shared key definition is closed.
