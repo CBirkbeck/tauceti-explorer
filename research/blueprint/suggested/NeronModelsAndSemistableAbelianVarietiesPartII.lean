@@ -53,6 +53,9 @@ import Mathlib.Algebra.Polynomial.RingDivision
 import Mathlib.Algebra.Algebra.Subalgebra.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.NormNum
+import Mathlib.Algebra.Polynomial.Basis
+import Mathlib.LinearAlgebra.Basis.Prod
+import Mathlib.Tactic.ComputeDegree
 import Mathlib.Algebra.Polynomial.Degree.Lemmas
 import Mathlib.Algebra.Polynomial.AlgebraMap
 import Mathlib.Algebra.Algebra.Subalgebra.Lattice
@@ -1177,6 +1180,167 @@ lemma generation (a b : k) :
 example : algebra (Polynomial.X ^ 2 : k[X]) =
     Algebra.adjoin k ({Polynomial.X ^ 2, Polynomial.X ^ 3} : Set k[X]) := by
   simpa [pow_succ, mul_assoc] using (generation (0 : k) 0)
+
+-- Quadratic coordinate/basis continuation.
+lemma quadratic_natDegree (a b : k) :
+    (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b).natDegree = 2 := by
+  compute_degree!
+
+-- node: G.1/quadratic-pinch-coordinate-map
+def coordinateMap (a b : k) :
+    (k[X] × k[X]) →ₗ[k]
+      algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b) := by
+  let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+  let u : algebra q := ⟨q, (mem_algebra q q).mpr ⟨0, 1, by simp⟩⟩
+  let v : algebra q := ⟨Polynomial.X * q,
+    (mem_algebra q _).mpr ⟨0, Polynomial.X, by simp [mul_comm]⟩⟩
+  exact { toFun := fun z => Polynomial.aeval u z.1 + v * Polynomial.aeval u z.2
+          map_add' := fun x y => by simp [mul_add]; abel
+          map_smul' := fun c z => by simp }
+
+lemma coordinateMap_coe (a b : k) (z : k[X] × k[X]) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    (coordinateMap a b z : k[X]) = z.1.comp q + Polynomial.X * q * z.2.comp q := by
+  simp [coordinateMap, Polynomial.aeval_subalgebra_coe, Polynomial.comp_eq_aeval]
+
+lemma coordinateMap_bijective (a b : k) : Function.Bijective (coordinateMap a b) := by
+  let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+  constructor
+  · intro z w he
+    apply pinch_normal_form_injective q (quadratic_natDegree a b)
+    have h := congrArg (fun f : algebra q => (f : k[X])) he
+    simpa only [coordinateMap_coe] using h
+  · intro f
+    obtain ⟨P, Q, h⟩ := pinch_spanning a b (f : k[X]) f.property
+    refine ⟨(P, Q), ?_⟩
+    apply Subtype.ext
+    simpa only [coordinateMap_coe] using h.symm
+
+-- node: G.1/quadratic-pinch-coordinates
+def coordinates (a b : k) :
+    (k[X] × k[X]) ≃ₗ[k]
+      algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b) :=
+  LinearEquiv.ofBijective (coordinateMap a b) (coordinateMap_bijective a b)
+
+lemma coordinates_coe (a b : k) (z : k[X] × k[X]) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    (coordinates a b z : k[X]) = z.1.comp q + Polynomial.X * q * z.2.comp q :=
+  coordinateMap_coe a b z
+
+lemma coordinates_symm_normal_form (a b : k)
+    (f : algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b)) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    (f : k[X]) = ((coordinates a b).symm f).1.comp q +
+      Polynomial.X * q * ((coordinates a b).symm f).2.comp q := by
+  dsimp
+  rw [← coordinates_coe, LinearEquiv.apply_symm_apply]
+
+-- node: G.1/quadratic-pinch-basis
+def basis (a b : k) : Module.Basis (ℕ ⊕ ℕ) k
+    (algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b)) :=
+  ((Polynomial.basisMonomials k).prod (Polynomial.basisMonomials k)).map (coordinates a b)
+
+lemma basis_inl (a b : k) (n : ℕ) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    (basis a b (Sum.inl n) : k[X]) = q ^ n := by
+  simp [basis, coordinates_coe, Module.Basis.prod_apply, Polynomial.coe_basisMonomials]
+
+lemma basis_inr (a b : k) (n : ℕ) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    (basis a b (Sum.inr n) : k[X]) = Polynomial.X * q ^ (n + 1) := by
+  simp [basis, coordinates_coe, Module.Basis.prod_apply, Polynomial.coe_basisMonomials,
+    pow_succ', mul_assoc]
+
+-- node: G.1/quadratic-pinch-basis-repr
+lemma basis_repr (a b : k)
+    (f : algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b))
+    (n : ℕ) :
+    (basis a b).repr f (Sum.inl n) = ((coordinates a b).symm f).1.coeff n ∧
+    (basis a b).repr f (Sum.inr n) = ((coordinates a b).symm f).2.coeff n := by
+  constructor <;> rfl
+
+lemma basis_reconstruction (a b : k)
+    (f : algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b)) :
+    Finsupp.linearCombination k (basis a b) ((basis a b).repr f) = f :=
+  (basis a b).linearCombination_repr f
+
+lemma basis_degrees (a b : k) (n : ℕ) :
+    (basis a b (Sum.inl n) : k[X]).natDegree = 2 * n ∧
+    (basis a b (Sum.inr n) : k[X]).natDegree = 2 * (n + 1) + 1 := by
+  have hq := quadratic_natDegree a b
+  have hqne : (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b : k[X]) ≠ 0 := by
+    intro hz
+    rw [hz, Polynomial.natDegree_zero] at hq
+    omega
+  constructor
+  · rw [basis_inl, Polynomial.natDegree_pow, hq, Nat.mul_comm]
+  · rw [basis_inr, Polynomial.natDegree_X_mul (pow_ne_zero _ hqne), Polynomial.natDegree_pow, hq, Nat.mul_comm]
+
+-- test: QuadraticPinch.test_basis_cusp
+example (n : ℕ) :
+    (basis (0 : k) 0 (Sum.inl n) : k[X]) = Polynomial.X ^ (2 * n) ∧
+    (basis (0 : k) 0 (Sum.inr n) : k[X]) = Polynomial.X ^ (2 * n + 3) := by
+  constructor
+  · simp [basis_inl, pow_mul]
+  · rw [basis_inr]
+    simp only [Polynomial.C_0, zero_mul, add_zero, ← pow_mul, ← pow_succ']
+    congr 1
+
+-- test: QuadraticPinch.test_coordinates_inseparable
+example (P Q : (ZMod 2)[X]) :
+    (coordinates (0 : ZMod 2) 0).symm (coordinates 0 0 (P, Q)) = (P, Q) :=
+  (coordinates 0 0).symm_apply_apply _
+
+-- test: QuadraticPinch.test_basis_char2_cross_term
+example :
+    (basis (1 : ZMod 2) 1 (Sum.inl 1) : (ZMod 2)[X]).coeff 1 = 1 := by
+  simp [basis_inl, Polynomial.coeff_one]
+
+-- test: QuadraticPinch.test_basis_unit_zero
+example :
+    (basis (0 : k) 0 (Sum.inl 0) : k[X]) = 1 ∧
+    (coordinates (0 : k) 0).symm 0 = (0, 0) := by
+  constructor
+  · simp [basis_inl]
+  · change (coordinates (0 : k) 0).symm 0 = (0 : k[X] × k[X])
+    exact map_zero _
+
+-- test: QuadraticPinch.test_coordinates_not_multiplicative
+example :
+    (coordinates (0 : k) 0 ((0, 1) * (0, 1)) : k[X]) ≠
+      (coordinates (0 : k) 0 (0, 1) : k[X]) * (coordinates (0 : k) 0 (0, 1) : k[X]) := by
+  simp only [Prod.mul_def, mul_zero, mul_one, coordinates_coe, Polynomial.zero_comp,
+    Polynomial.one_comp, Polynomial.C_0, zero_mul, add_zero, zero_add, mul_one]
+  intro he
+  have h := congrArg (fun f : k[X] => f.coeff 3) he
+  norm_num [← pow_succ', ← pow_add] at h
+
+-- test: QuadraticPinch.test_map_zero
+example (a b : k) : coordinateMap a b (0, 0) = 0 := by
+  change coordinateMap a b (0 : k[X] × k[X]) = 0
+  exact map_zero _
+
+-- test: QuadraticPinch.test_map_char2_generators
+example :
+    (coordinateMap (1 : ZMod 2) 1 (Polynomial.X, 0) : (ZMod 2)[X]) =
+      Polynomial.X ^ 2 + Polynomial.X + 1 ∧
+    (coordinateMap (1 : ZMod 2) 1 (0, 1) : (ZMod 2)[X]) =
+      Polynomial.X * (Polynomial.X ^ 2 + Polynomial.X + 1) := by
+  simp [coordinateMap_coe]
+
+-- test: QuadraticPinch.test_map_not_identity
+example : (coordinateMap (0 : k) 0 (Polynomial.X, 0) : k[X]) ≠ Polynomial.X := by
+  simp only [coordinateMap_coe, Polynomial.X_comp, Polynomial.zero_comp,
+    Polynomial.C_0, zero_mul, add_zero, mul_zero]
+  intro he
+  have h := congrArg (fun f : k[X] => f.coeff 1) he
+  simp at h
+
+-- test: QuadraticPinch.test_basis_no_degree_one
+example (a b : k) (i : ℕ ⊕ ℕ) : (basis a b i : k[X]).natDegree ≠ 1 := by
+  cases i with
+  | inl n => rw [(basis_degrees a b n).1]; omega
+  | inr n => rw [(basis_degrees a b n).2]; omega
 
 -- test: QuadraticPinch.test_split
 example (h : (2 : k) ≠ 0) (f : k[X]) :
