@@ -31,6 +31,7 @@ import Mathlib.RingTheory.Polynomial.Eisenstein.Criterion
 import Mathlib.RingTheory.Polynomial.GaussLemma
 import Mathlib.CategoryTheory.CofilteredSystem
 import Mathlib.RingTheory.TensorProduct.Maps
+import Mathlib.LinearAlgebra.Isomorphisms
 import Mathlib.LinearAlgebra.Quotient.Defs
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 
@@ -1333,6 +1334,42 @@ lemma affineTorsorComparison.image_coefficients (f : A) (n : ℕ) [NeZero n]
       LinearMap.range (affineTorsorComparison f n).toLinearMap ↔
       ∀ p : Fin n × Fin n, p.2.val < p.1.val → ∃ a : A, c p = f * a := by sorry
 
+/-- Kernel coefficients of an actual tensor, rather than a chosen presentation. -/
+lemma affineTorsorComparison.kernel_coordinate_condition (f : A) (n : ℕ) [NeZero n]
+    (z : LinearMap.ker (affineTorsorComparison f n).toLinearMap)
+    (p : Fin n × Fin n) :
+    if p.1.val + p.2.val < n then sourceCoordinateEquiv f n z p = 0
+      else f * sourceCoordinateEquiv f n z p = 0 := by
+  sorry
+
+/-- The specified kernel equivalence extracts wrapping coefficients; its inverse
+extends an annihilator family by zero before native source synthesis. -/
+noncomputable def affineTorsorComparison.kernelCoordinateEquiv (f : A) (n : ℕ) [NeZero n] :
+    (LinearMap.ker (affineTorsorComparison f n).toLinearMap) ≃ₗ[A]
+      ({p : Fin n × Fin n // n ≤ p.1.val + p.2.val} →
+        LinearMap.ker (f • (LinearMap.id : A →ₗ[A] A))) := by
+  sorry
+
+lemma affineTorsorComparison.kernelCoordinateEquiv_apply (f : A) (n : ℕ) [NeZero n]
+    (z : LinearMap.ker (affineTorsorComparison f n).toLinearMap)
+    (p : {p : Fin n × Fin n // n ≤ p.1.val + p.2.val}) :
+    (kernelCoordinateEquiv f n z p : A) = sourceCoordinateEquiv f n z p.val := by
+  sorry
+
+lemma affineTorsorComparison.kernelCoordinateEquiv_symm_coordinates (f : A) (n : ℕ) [NeZero n]
+    (d : {p : Fin n × Fin n // n ≤ p.1.val + p.2.val} →
+      LinearMap.ker (f • (LinearMap.id : A →ₗ[A] A))) (p : Fin n × Fin n) :
+    sourceCoordinateEquiv f n ((kernelCoordinateEquiv f n).symm d :
+      AffineRing f n ⊗[A] AffineRing f n) p =
+      if hp : n ≤ p.1.val + p.2.val then (d ⟨p, hp⟩ : A) else 0 := by
+  sorry
+
+lemma affineTorsorComparison.kernelCoordinateEquiv_nonwrap (f : A) (n : ℕ) [NeZero n]
+    (z : LinearMap.ker (affineTorsorComparison f n).toLinearMap)
+    (p : Fin n × Fin n) (hp : p.1.val + p.2.val < n) :
+    sourceCoordinateEquiv f n z p = 0 := by
+  sorry
+
 /-- Native kernel, indexed by the wrapping source pairs. The coordinate
 formula specifies the equivalence, not just its abstract isomorphism class. -/
 theorem affineTorsorComparison.kernel_equiv (f : A) (n : ℕ) [NeZero n] :
@@ -1341,12 +1378,63 @@ theorem affineTorsorComparison.kernel_equiv (f : A) (n : ℕ) [NeZero n] :
         LinearMap.ker (f • (LinearMap.id : A →ₗ[A] A))),
       ∀ (z : LinearMap.ker (affineTorsorComparison f n).toLinearMap)
         (c : (Fin n × Fin n) → A)
-        (hc : (z : AffineRing f n ⊗[A] AffineRing f n) =
+        (_hc : (z : AffineRing f n ⊗[A] AffineRing f n) =
           ∑ p : Fin n × Fin n, c p •
             ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
               (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)))
         (p : {p : Fin n × Fin n // n ≤ p.1.val + p.2.val}),
-        (e z p : A) = c p.val := by sorry
+        (e z p : A) = c p.val := by
+  sorry
+
+/-- Lower target coefficients modulo the actual principal ideal. -/
+noncomputable def affineTorsorComparison.cokernelResidue (f : A) (n : ℕ) [NeZero n] :
+    (MuHopf A n ⊗[A] AffineRing f n) →ₗ[A]
+      ({p : Fin n × Fin n // p.2.val < p.1.val} → A ⧸ Ideal.span ({f} : Set A)) := by
+  sorry
+
+lemma affineTorsorComparison.cokernelResidue_apply (f : A) (n : ℕ) [NeZero n]
+    (z : MuHopf A n ⊗[A] AffineRing f n)
+    (p : {p : Fin n × Fin n // p.2.val < p.1.val}) :
+    cokernelResidue f n z p =
+      Ideal.Quotient.mk (Ideal.span ({f} : Set A)) (targetCoordinateEquiv f n z p.val) := by
+  sorry
+
+lemma affineTorsorComparison.cokernelResidue_surjective (f : A) (n : ℕ) [NeZero n] :
+    Function.Surjective (cokernelResidue f n) := by
+  sorry
+
+lemma affineTorsorComparison.cokernelResidue_ker (f : A) (n : ℕ) [NeZero n] :
+    LinearMap.ker (cokernelResidue f n) =
+      LinearMap.range (affineTorsorComparison f n).toLinearMap := by
+  sorry
+
+/-- Native first-isomorphism equivalence, transported by the proved equality
+of the residue kernel and the actual comparison range as A-submodules. -/
+noncomputable def affineTorsorComparison.cokernelCoordinateEquiv (f : A) (n : ℕ) [NeZero n] :
+    ((MuHopf A n ⊗[A] AffineRing f n) ⧸
+      LinearMap.range (affineTorsorComparison f n).toLinearMap) ≃ₗ[A]
+      ({p : Fin n × Fin n // p.2.val < p.1.val} → A ⧸ Ideal.span ({f} : Set A)) := by
+  sorry
+
+lemma affineTorsorComparison.cokernelCoordinateEquiv_mk (f : A) (n : ℕ) [NeZero n]
+    (z : MuHopf A n ⊗[A] AffineRing f n)
+    (p : {p : Fin n × Fin n // p.2.val < p.1.val}) :
+    cokernelCoordinateEquiv f n (Submodule.Quotient.mk z) p =
+      Ideal.Quotient.mk (Ideal.span ({f} : Set A)) (targetCoordinateEquiv f n z p.val) := by
+  sorry
+
+lemma affineTorsorComparison.cokernelCoordinateEquiv_symm_residue (f : A) (n : ℕ) [NeZero n]
+    (z : MuHopf A n ⊗[A] AffineRing f n) :
+    (cokernelCoordinateEquiv f n).symm (cokernelResidue f n z) =
+      Submodule.Quotient.mk z := by
+  sorry
+
+lemma affineTorsorComparison.cokernelCoordinateEquiv_eq_iff (f : A) (n : ℕ) [NeZero n]
+    (z w : MuHopf A n ⊗[A] AffineRing f n) :
+    (Submodule.Quotient.mk z : (MuHopf A n ⊗[A] AffineRing f n) ⧸
+      LinearMap.range (affineTorsorComparison f n).toLinearMap) = Submodule.Quotient.mk w ↔
+      cokernelResidue f n z = cokernelResidue f n w := by
+  sorry
 
 /-- Native module cokernel, indexed by the strictly lower triangular target
 pairs. Its formula is the quotient of exactly those coefficients modulo f.
@@ -1361,7 +1449,8 @@ theorem affineTorsorComparison.cokernel_equiv (f : A) (n : ℕ) [NeZero n] :
         e (Submodule.Quotient.mk (∑ q : Fin n × Fin n, c q •
           (MonoidAlgebra.single (Multiplicative.ofAdd (q.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
             (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ q.2.val)))) p =
-          Ideal.Quotient.mk (Ideal.span ({f} : Set A)) (c p.val) := by sorry
+          Ideal.Quotient.mk (Ideal.span ({f} : Set A)) (c p.val) := by
+  sorry
 
 theorem affineTorsorComparison.injective_iff (f : A) (n : ℕ) [NeZero n] :
     Function.Injective (affineTorsorComparison f n) ↔
@@ -1449,6 +1538,82 @@ example :
       ∃ z : C, (2 : ZMod 8) • z ≠ 0 ∧ (4 : ZMod 8) • z = 0 := by sorry
 
 end AffineTorsorComparison
+end TauCeti.RootStack
+
+/-! Module quotient acceptance computations. -/
+namespace TauCeti.RootStack
+variable {A : Type u} [CommRing A]
+open scoped TensorProduct
+
+-- TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv.test_one
+example (f : A) (z : LinearMap.ker (affineTorsorComparison f 1).toLinearMap) : z = 0 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv.test_nonreduced
+example :
+    let d : {p : Fin 2 × Fin 2 // 2 ≤ p.1.val + p.2.val} →
+      LinearMap.ker ((2 : ZMod 4) • (LinearMap.id : ZMod 4 →ₗ[ZMod 4] ZMod 4)) :=
+      fun _ => ⟨2, by change (2 : ZMod 4) * 2 = 0; decide⟩
+    let z := (affineTorsorComparison.kernelCoordinateEquiv (2 : ZMod 4) 2).symm d
+    (z : AffineRing (2 : ZMod 4) 2 ⊗[ZMod 4] AffineRing (2 : ZMod 4) 2) ≠ 0 ∧
+      affineTorsorComparison.sourceCoordinateEquiv (2 : ZMod 4) 2 z (1,1) = 2 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv.test_branch
+example (k : Type u) [Field k] :
+    let d : {p : Fin 2 × Fin 2 // 2 ≤ p.1.val + p.2.val} →
+      LinearMap.ker ((0 : k) • (LinearMap.id : k →ₗ[k] k)) :=
+      fun _ => ⟨1, by simp⟩
+    affineTorsorComparison.sourceCoordinateEquiv (0 : k) 2
+      ((affineTorsorComparison.kernelCoordinateEquiv (0 : k) 2).symm d) (1,1) = 1 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.cokernelResidue.test_one
+example (f : A) (z : MuHopf A 1 ⊗[A] AffineRing f 1) :
+    affineTorsorComparison.cokernelResidue f 1 z = 0 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.cokernelResidue.test_upper
+example (f : A) :
+    affineTorsorComparison.cokernelResidue f 2
+      (MonoidAlgebra.single (Multiplicative.ofAdd (0 : ZMod 2)) (1 : A) ⊗ₜ[A]
+        (1 : AffineRing f 2)) = 0 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.cokernelResidue.test_lower
+example (f : A) :
+    affineTorsorComparison.cokernelResidue f 2
+      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : A) ⊗ₜ[A]
+        (1 : AffineRing f 2)) ⟨(1,0), by decide⟩ =
+      Ideal.Quotient.mk (Ideal.span ({f} : Set A)) 1 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv.test_one
+example (f : A) (z : (MuHopf A 1 ⊗[A] AffineRing f 1) ⧸
+    LinearMap.range (affineTorsorComparison f 1).toLinearMap) : z = 0 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv.test_regular_nonunit
+example :
+    let z := (Submodule.Quotient.mk
+      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ℤ) ⊗ₜ[ℤ]
+        (1 : AffineRing (2 : ℤ) 2)) :
+      (MuHopf ℤ 2 ⊗[ℤ] AffineRing (2 : ℤ) 2) ⧸
+        LinearMap.range (affineTorsorComparison (2 : ℤ) 2).toLinearMap)
+    z ≠ 0 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv.test_nonreduced
+example :
+    let z := (Submodule.Quotient.mk
+      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 8) ⊗ₜ[ZMod 8]
+        (1 : AffineRing (4 : ZMod 8) 2)) :
+      (MuHopf (ZMod 8) 2 ⊗[ZMod 8] AffineRing (4 : ZMod 8) 2) ⧸
+        LinearMap.range (affineTorsorComparison (4 : ZMod 8) 2).toLinearMap)
+    (2 : ZMod 8) • z ≠ 0 ∧ (4 : ZMod 8) • z = 0 := by
+  sorry
+
+
 end TauCeti.RootStack
 
 -- Native acceptance computations for the coaction proof continuation.

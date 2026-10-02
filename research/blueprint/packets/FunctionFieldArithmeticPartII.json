@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded. The affine invariant-ring step is factored through the native μ_n Hopf coaction, its axioms, root weights and point comparison; geometric carriers remain open. Six native root-trivialization comparison nodes now expose the computed unit coefficient and root-arrow scalar equations; no geometric carrier or generic section tensor operation is duplicated. Continuation supplies fpqc descent and thirteen finite/infinite root-transition/Kummer proof leaves; it corrects the inherited infinite H1 topology and separates ordinary stacks, algebraic properties and coarse suppliers. Canonical integration adds the actual finite affine action comparison, weighted tensor coordinates, explicit kernel/module-cokernel maps, sharp injectivity/surjectivity criteria and unit inverse; the branch and normalized-coframe torsors remain distinct.",
+  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded. The affine invariant-ring step is factored through the native μ_n Hopf coaction, its axioms, root weights and point comparison; geometric carriers remain open. Six native root-trivialization comparison nodes now expose the computed unit coefficient and root-arrow scalar equations; no geometric carrier or generic section tensor operation is duplicated. Continuation supplies fpqc descent and thirteen finite/infinite root-transition/Kummer proof leaves; it corrects the inherited infinite H1 topology and separates ordinary stacks, algebraic properties and coarse suppliers. Canonical integration adds the actual finite affine action comparison, weighted tensor coordinates, explicit kernel/module-cokernel maps, sharp injectivity/surjectivity criteria and unit inverse; the branch and normalized-coframe torsors remain distinct. This continuation specifies the native wrapping kernel coordinate equivalence, lower residue map, its surjectivity and exact kernel, and the module cokernel coordinate equivalence with inverse and representative APIs. Separate native proof evidence checks these contracts and nine concrete module-coordinate examples; all planned statuses stay unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -655,6 +655,51 @@
         "checked": "Full statement and ambient hypotheses read at the pinned source on 2026-10-02; native proof use elaborated in the separate extraction.",
         "sourceLine": 436,
         "sourceSha256": "f35090c081e7903c719d1d77033bd1b443cc70a99ee4fb711dcaa2384508c77e"
+      },
+      {
+        "ref": "mathlib:Submodule.mkQ",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "sourceLine": 227,
+        "sourceSha256": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3",
+        "provides": "The native R-linear quotient map M→M/p for an R-submodule p; at a principal ideal it retains the full quotient ring as an A-module.",
+        "checked": "Full statement and ambient hypotheses read at the pinned commit on 2026-10-02 by Codex — codex-rtOQ9t; actual native proof use checked."
+      },
+      {
+        "ref": "mathlib:Submodule.quotEquivOfEq",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "sourceLine": 252,
+        "sourceSha256": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3",
+        "provides": "Equal native submodules give a linear quotient equivalence acting identically on quotient representatives.",
+        "checked": "Full statement and ambient hypotheses read at the pinned commit on 2026-10-02 by Codex — codex-rtOQ9t; actual native proof use checked."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.mk_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "sourceLine": 124,
+        "sourceSha256": "f906662e22c49025984808feb489892afe51914ccc7a10b95d5f162ef4fbfe1d",
+        "provides": "Every element of the quotient by an ideal has a representative in the original commutative ring.",
+        "checked": "Full statement and ambient hypotheses read at the pinned commit on 2026-10-02 by Codex — codex-rtOQ9t; actual native proof use checked."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.eq_zero_iff_mem",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "sourceLine": 111,
+        "sourceSha256": "f906662e22c49025984808feb489892afe51914ccc7a10b95d5f162ef4fbfe1d",
+        "provides": "The class of a in R/I is zero iff a belongs to I; no reducedness assumption.",
+        "checked": "Full statement and ambient hypotheses read at the pinned commit on 2026-10-02 by Codex — codex-rtOQ9t; actual native proof use checked."
+      },
+      {
+        "ref": "mathlib:LinearMap.mem_ker",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
+        "sourceLine": 64,
+        "sourceSha256": "6cc0c2a52cc00e0cfa86072a20703538d94475847249493a81617f8e5e9f956d",
+        "provides": "For a native semilinear map, membership in its kernel is equivalent to having zero image; used for the actual comparison and multiplication kernels.",
+        "checked": "Full statement and ambient hypotheses read at the pinned commit on 2026-10-02 by Codex — codex-rtOQ9t; actual native proof use checked."
       }
     ]
   },
@@ -6887,12 +6932,12 @@
         "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
       ],
       "prerequisites": [
-        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coefficients",
-        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates"
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coordinate-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-synthesis"
       ],
       "proofSteps": [
-        "Map a kernel tensor to its unique wrapping coefficients, bundled in the multiplication kernel by the coefficient criterion.",
-        "Define the inverse by extension by zero outside W and source basis expansion. The criterion proves kernel membership. Unique coordinates prove both inverses and linearity."
+        "Take the specified wrapping kernel coordinate equivalence.",
+        "Apply its extraction formula and the existing source coefficient formula on every finite basis expansion. This proves the original existential statement with its specified forward map."
       ],
       "acceptance": [
         "At n=1 W is empty, so the kernel is zero for every f, including f=0."
@@ -6929,16 +6974,12 @@
         "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
       ],
       "prerequisites": [
-        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-image-coefficients",
-        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinates",
-        "mathlib:LinearMap.quotKerEquivOfSurjective",
-        "mathlib:Submodule.Quotient.mk",
-        "mathlib:Ideal.mem_span_singleton'"
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel-coordinate-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-synthesis"
       ],
       "proofSteps": [
-        "Define the A-linear map from the target module to L-indexed residues by taking exactly the strictly lower coefficients.",
-        "Lift each of the finitely many residues and set all other coordinates to zero to prove surjectivity. The image coefficient criterion identifies its kernel with range_A Θ.",
-        "Apply the native first isomorphism theorem and transport along this equality. Its formula on quotient representatives is the displayed residue map. The algebra ideal generated by range Θ contains 1 and would instead kill the whole algebra."
+        "Take the specified native module cokernel coordinate equivalence.",
+        "Its representative formula and the existing target coefficient formula on a finite basis expansion give the original residue contract. The carrier remains quotient by the A-linear range."
       ],
       "acceptance": [
         "For Z/8,f=4,n=2 the cokernel retains an element of additive order four, rejecting reduction to F₂."
@@ -7779,6 +7820,413 @@
       "acceptance": [
         "The formula works over the zero ring, over nonreduced rings and under arbitrary coefficient change. It asserts no preservation of kernels under nonflat change."
       ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coordinate-condition",
+      "title": "Coefficients of a native kernel tensor",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.kernel_coordinate_condition",
+      "statement": "For z in the native A-linear kernel of Θ and p=(i,j), its specified source coefficient C_s(z)(p) is zero when i+j<n, and f C_s(z)(p)=0 when n≤i+j.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coefficients",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinate-equivalence",
+        "mathlib:LinearMap.mem_ker"
+      ],
+      "proofSteps": [
+        "Use native kernel membership to obtain Θ(z)=0. Reconstruct z through C_s⁻¹ C_s(z) and its synthesis formula.",
+        "Apply the existing weighted kernel coefficient criterion to this actual coefficient family. No regularity or cancellation of f is used."
+      ],
+      "acceptance": [
+        "A kernel tensor has vanishing nonwrapping coordinates, and wrapping coordinates lie in the actual multiplication kernel, including zero and nonreduced rings."
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coordinate-equivalence",
+          "how": "Bundles the wrapping coefficients into ann_A(f) and proves extension by zero inverts extraction."
+        }
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coordinate-equivalence",
+      "title": "Specified wrapping kernel coordinates",
+      "kind": "construction",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv",
+      "statement": "With W={(i,j):n≤i+j} and ann_A(f)=ker(f•id_A), construct the specified native A-linear equivalence ker_A Θ ≃ (W→ann_A(f)). Its forward map extracts C_s(z) on W. Its inverse applies C_s⁻¹ to the family equal to d_p on W and zero elsewhere.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coordinate-condition",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinate-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coefficients"
+      ],
+      "proofSteps": [
+        "Bundle each wrapping coefficient as a member of ker(f•id_A), using the actual-kernel coefficient condition.",
+        "Extend an annihilator family by zero and use the existing kernel criterion to prove that its native source synthesis lies in ker Θ.",
+        "Use the specified C_s inverse laws, the vanishing nonwrapping coefficients and subtype extensionality for both inverse laws. Coordinate extraction supplies addition and scalar compatibility."
+      ],
+      "acceptance": [
+        "The inverse fixes the actual tensor and coefficient normalization. It requires neither reducedness nor invertibility of n or f."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv_apply",
+          "role": "projection",
+          "statement": "For z∈ker Θ and p∈W, the underlying scalar of kernelCoordinateEquiv(z)(p) is C_s(z)(p)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv_symm_coordinates",
+          "role": "characterisation",
+          "statement": "The source coefficient of the inverse of d at p equals d_p when p∈W and zero otherwise."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv_nonwrap",
+          "role": "simp",
+          "statement": "For an actual kernel tensor z and i+j<n, its source coefficient at (i,j) is zero."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv.test_one",
+          "kind": "degenerate",
+          "statement": "For n=1 and arbitrary f, every actual element of ker Θ is zero; W is empty."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv.test_nonreduced",
+          "kind": "computation",
+          "statement": "For A=Z/4,f=2,n=2, extend the wrapping annihilator coefficient 2 by zero. Its inverse is a nonzero native kernel tensor and has source coefficient 2 at (1,1)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv.test_branch",
+          "kind": "computation",
+          "statement": "For any field k,f=0,n=2, the inverse of the wrapping coefficient 1 has source coefficient 1 at (1,1). This uses the full nilpotent root chart."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel",
+          "how": "Supplies the specified equivalence and its evaluation on the existing source-basis expansion."
+        }
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel-residue",
+      "title": "Lower target residue map",
+      "kind": "construction",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.cokernelResidue",
+      "statement": "With L={(i,k):k<i}, define the native A-linear map R_f:H⊗_A B→(L→A/(f)) by R_f(z)(p)=C_t(z)(p) modulo the principal ideal (f). It retains precisely the strictly lower target coordinates of the actual tensor comparison.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinate-equivalence",
+        "mathlib:Submodule.mkQ"
+      ],
+      "proofSteps": [
+        "Compose evaluation of the specified target coefficient equivalence at each p∈L with the native linear quotient map by Ideal.span{f}.",
+        "Addition and scalar compatibility follow from those native linear maps, pointwise. No quotient by the algebra ideal generated by range Θ is taken."
+      ],
+      "acceptance": [
+        "The residue carrier is the actual principal-ideal quotient A/(f), with its full nilpotent structure."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.cokernelResidue_apply",
+          "role": "projection",
+          "statement": "At p∈L, R_f(z)(p) is Ideal.Quotient.mk (Ideal.span{f}) (C_t(z)(p))."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.cokernelResidue_surjective",
+          "role": "universal-property",
+          "statement": "Every L-indexed family of classes in A/(f) has a preimage under the actual residue map."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.cokernelResidue_ker",
+          "role": "characterisation",
+          "statement": "The native A-submodule ker R_f equals range_A Θ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.cokernelResidue.test_one",
+          "kind": "degenerate",
+          "statement": "For n=1 and arbitrary f, R_f sends every actual target tensor to the zero family, since L is empty."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.cokernelResidue.test_upper",
+          "kind": "computation",
+          "statement": "At n=2 and arbitrary f, the actual target vector e_0⊗1 has zero lower residue family."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.cokernelResidue.test_lower",
+          "kind": "computation",
+          "statement": "At n=2 and arbitrary f, the actual target vector e_1⊗1 has residue class 1 at lower position (1,0)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel-residue-surjective",
+          "how": "The native target coefficient inverse synthesizes a lift of any residue family."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel-residue-kernel",
+          "how": "Its vanishing residues are exactly the existing lower-coordinate divisibility criterion for the comparison range."
+        }
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel-residue-surjective",
+      "title": "Surjectivity of lower residues",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.cokernelResidue_surjective",
+      "statement": "For any commutative A, positive n and f∈A, the specified lower residue map R_f:H⊗_A B→(L→A/(f)) is surjective.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel-residue",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinate-equivalence",
+        "mathlib:Ideal.Quotient.mk_surjective"
+      ],
+      "proofSteps": [
+        "For each lower position choose a native principal-ideal quotient representative of the supplied residue.",
+        "Extend these representatives by zero at other target positions and apply C_t⁻¹. Its inverse law and the quotient lift property give exactly the desired family."
+      ],
+      "acceptance": [
+        "The construction also applies when L is empty, A is the zero ring or f is nilpotent; no representative is asserted canonical."
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel-coordinate-equivalence",
+          "how": "Discharges the surjectivity hypothesis of the imported linear first-isomorphism theorem."
+        }
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel-residue-kernel",
+      "title": "Residue kernel equals comparison range",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.cokernelResidue_ker",
+      "statement": "The kernel of the specified lower residue map is equal to the A-linear range of the actual native comparison Θ as submodules of H⊗_A B.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel-residue",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-image-coefficients",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinate-equivalence",
+        "mathlib:LinearMap.mem_ker",
+        "mathlib:Ideal.Quotient.eq_zero_iff_mem",
+        "mathlib:Ideal.mem_span_singleton'"
+      ],
+      "proofSteps": [
+        "For an actual target tensor z, rewrite the existing image coefficient criterion using C_t⁻¹ C_t(z)=z.",
+        "The residue family vanishes exactly when each strictly lower coefficient belongs to (f). Native principal-ideal membership is equivalent to existence of a scalar factor f a at that position.",
+        "Identify membership in both native submodules pointwise. There is no constraint on the other target coordinates and no assumption that f is regular."
+      ],
+      "acceptance": [
+        "This is equality of A-submodules. The algebra ideal of range Θ contains 1, so it cannot model this module cokernel."
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel-coordinate-equivalence",
+          "how": "Transports the quotient by range Θ to the quotient by the residue kernel without changing representatives."
+        }
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel-coordinate-equivalence",
+      "title": "Specified module cokernel coordinates",
+      "kind": "construction",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv",
+      "statement": "Construct the specified native A-linear equivalence (H⊗_A B)/range_A Θ ≃ (L→A/(f)) by transporting along ker R_f=range_A Θ and applying the native surjective first-isomorphism theorem to R_f. On [z], its value is the lower residue family R_f(z).",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel-residue",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel-residue-surjective",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel-residue-kernel",
+        "mathlib:Submodule.quotEquivOfEq",
+        "mathlib:LinearMap.quotKerEquivOfSurjective"
+      ],
+      "proofSteps": [
+        "Use the proved equality of native submodules to identify quotient by range Θ with quotient by ker R_f through Submodule.quotEquivOfEq.",
+        "Compose with the imported linear first-isomorphism equivalence of the surjective residue map.",
+        "Its representative formula is the lower coefficient residue. Injectivity proves the inverse-on-residues formula and that two quotient classes agree exactly when their residue families agree."
+      ],
+      "acceptance": [
+        "The equivalence keeps the actual module quotient and the full A/(f); geometric orbit sets and reduced quotient rings do not satisfy the contract."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv_mk",
+          "role": "projection",
+          "statement": "At p∈L, the coordinate equivalence of the native module quotient class [z] equals C_t(z)(p) modulo (f)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv_symm_residue",
+          "role": "characterisation",
+          "statement": "The inverse equivalence applied to R_f(z) is the actual module quotient class [z]."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv_eq_iff",
+          "role": "extensionality",
+          "statement": "Two actual target tensors give the same module quotient class iff their lower residue families agree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv.test_one",
+          "kind": "degenerate",
+          "statement": "For n=1 and arbitrary f, every actual native module cokernel class is zero."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv.test_regular_nonunit",
+          "kind": "computation",
+          "statement": "For A=Z,f=2,n=2, the actual module cokernel class of e_1⊗1 is nonzero, detected by its residue 1 modulo (2)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv.test_nonreduced",
+          "kind": "computation",
+          "statement": "For A=Z/8,f=4,n=2, the actual module cokernel class z=[e_1⊗1] satisfies 2z≠0 and 4z=0. In particular the quotient cannot be replaced by its reduction F₂."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-cokernel",
+          "how": "Supplies the specified equivalence and the exact residue evaluation on every target-basis expansion."
+        }
+      ]
     }
   ],
   "requests": [
@@ -7949,7 +8397,7 @@
       "remaining": [
         "Resolve JAC-A’s actual tensor-section/unit coordinate and pullback contracts.",
         "Implement and elaborate the five native root-coordinate comparison nodes and full-file signatures at the exact pins.",
-        "The separate native proof extraction now checks the complete coefficient table, kernel/image criteria and sharp injectivity/surjectivity/bijectivity statements. Complete the specified module kernel/cokernel equivalences, unit inverse, determinant, field ranks and the still-open nonvanishing examples; then the geometric suppliers and full-file elaboration. Neither the whole Tau Ceti file nor this partial packet is certified."
+        "The separate native proof extraction checks the weighted table, sharp scalar criteria and now the specified native module kernel/cokernel equivalences with their forward and inverse formulas. Complete the unit inverse, determinant, field ranks and four inherited examples (branch-kernel, wild-unit nilpotent, nonflat kernel change and the older full Z/8 singleton-coordinate equivalence example); then geometric suppliers and full-file elaboration. Nine additional actual module-coordinate examples are proved in the separate prototype. Neither the whole Tau Ceti file nor this partial packet is certified."
       ]
     },
     {
@@ -9575,6 +10023,86 @@
         "virtualStageEndpoints": 51,
         "readOnly": true
       }
+    },
+    "moduleCoordinateContinuation": {
+      "worker": "Codex — codex-rtOQ9t",
+      "date": "2026-10-02",
+      "base": "864ea53476713e7146208251f1dbff98e0fa69e6",
+      "scope": "Native module kernel/cokernel equivalences; all stages remain partial and all implementation statuses unchecked.",
+      "addedNodes": 6,
+      "preservedNodeStatements": 137,
+      "unchangedNodeObjects": 135,
+      "requiredApisAdded": 9,
+      "requiredTestsAdded": 9,
+      "baselineStatementsAdded": 5,
+      "reviewedRowsRead": "All eight current reviewed FA.0–FA.7 rows, including full target/evidence/duplication records; REV-AUDIT-20 report. No new Part II row exists.",
+      "primaryReading": "Fresh TV17 §3.1 pp14–16 complete setup/statements/proofs through Corollary3.13; Stacks040N full statement/proof. File hashes match inherited receipts. The native module-coordinate formulas are explicit derivations, not printed source theorems.",
+      "broaderReading": "All 137 inherited node statements, all ten own stage descriptions, predecessor handoff in full. Broader YZ/AV/B24 and other geometric readings retain their inherited attribution.",
+      "libraryBoundary": "Native linear first-isomorphism and principal-ideal quotient constructions are imported. Only the root-specific coordinate and residue maps are new. No new library absence or geometric owner claim.",
+      "prototypeCommit": "6a5d51f50e6e1ca391411bee278a025fee3cbc4f",
+      "prototypePredecessor": "7660b60d3ed205f650aeefe6b1e46996ec36ff09",
+      "proofExtractionSha256": "864b5778b1c17965e1ef5832357735e5af38165f4230de7252cb1a4da3e4dc77",
+      "proofExtractionLines": 1176,
+      "proofErrors": 0,
+      "proofAdmittedWarnings": 7,
+      "proofOtherWarnings": 0,
+      "axiomAudits": 15,
+      "axiomBoundary": "All 15 audited declarations exclude sorryAx and depend only on propext, Classical.choice and Quot.sound. Nine new examples have actual proofs. Three older assertions and four older examples remain admitted.",
+      "fullSuggestedCompiled": false,
+      "reason": "Required compiled Tau Ceti line-bundle/root-of-unity imports are unavailable; only the separate native Mathlib extraction is checked. No project/build/cache/LSP started.",
+      "prototypeFileSha256": "e2f09db25c35ff1ff9ad70b31c10cf3e00c6b68c6d5e8aaa70b67879dc76e5e3",
+      "suggestedFileSha256": "977f56d1d74938f644e504a4327872c0b63108a69e55ac5fcb42aaa454015cd7",
+      "proof": {
+        "lines": 1176,
+        "examples": 32,
+        "errors": 0,
+        "admittedWarnings": 7,
+        "otherWarnings": 0,
+        "axiomAudits": 15,
+        "admissionAxiomInAudits": false,
+        "extractionSha256": "864b5778b1c17965e1ef5832357735e5af38165f4230de7252cb1a4da3e4dc77",
+        "normalizedDiagnosticSha256": "e00dd8c90664b14ed7dc2b4d11aaf09b42105794d3821f65bae55f285bb53573",
+        "elapsed": "0:06.70",
+        "maxRssKiB": 3178344
+      },
+      "sketch": {
+        "lines": 631,
+        "examples": 32,
+        "errors": 0,
+        "admittedWarnings": 89,
+        "otherWarnings": 0,
+        "axiomAudits": 0,
+        "admissionAxiomInAudits": false,
+        "extractionSha256": "a737bd7ecca5698ac8186bd79931e0ddccab61f0766cac8607918d635e322a17",
+        "normalizedDiagnosticSha256": "99533ec776dc2170bb5701b59fde96e57445a5cc83313918eff1281078d7ab64",
+        "elapsed": "0:03.40",
+        "maxRssKiB": 3096036
+      },
+      "projection": {
+        "stageDAG": {
+          "vertices": 3056,
+          "edges": 8723,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 143,
+          "edges": 302,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3211,
+          "edges": 9380,
+          "acyclic": true
+        },
+        "reachableDeclarations": 194,
+        "virtualStageEndpoints": 51,
+        "unresolvedPrerequisites": [],
+        "requiredStagePairs": 54,
+        "requiredStagePairsReachable": 54,
+        "stageEdgesUnchanged": true,
+        "otherSkipsMatchOriginal": true,
+        "scriptSha256": "a528269edc15a1008855ffb243555aadace1b1523265180b5c3898c8662e3a17"
+      }
     }
   },
   "continuationBoundary": {
@@ -9651,6 +10179,16 @@
       "compiled": false,
       "reason": "Full Tau Ceti file has no exact-pin compiled imports; the targeted native Mathlib extraction is checked.",
       "fragmentElaborated": true
+    },
+    {
+      "worker": "Codex — codex-rtOQ9t",
+      "date": "2026-10-02",
+      "base": "864ea53476713e7146208251f1dbff98e0fa69e6",
+      "scope": "Native module kernel/cokernel equivalences; all stages remain partial and all implementation statuses unchecked.",
+      "addedNodes": 6,
+      "preservedNodeStatements": 137,
+      "fullSuggestedCompiled": false,
+      "reason": "Required compiled Tau Ceti line-bundle/root-of-unity imports are unavailable; only the separate native Mathlib extraction is checked. No project/build/cache/LSP started."
     }
   ]
 }
