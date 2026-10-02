@@ -61,6 +61,7 @@ import Mathlib.NumberTheory.Padics.Complex
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.NumberTheory.Padics.ProperSpace
 import Mathlib.NumberTheory.Padics.RingHoms
+import Mathlib.RingTheory.RegularLocalRing.Defs
 import Mathlib.RingTheory.AdicCompletion.Algebra
 import Mathlib.RingTheory.AdicCompletion.Basic
 import Mathlib.RingTheory.AdicCompletion.Completeness
@@ -17843,15 +17844,19 @@ end PerfectoidTower
 
 /-! ## PerfectoidSpaces:P7/regular-finite-flat-residue-tower (theorem) -/
 
--- Perfectoid.exists_regularFiniteFlatTower_isAlgClosed: not stated here; needs complete regular
---   local rings and the Cohen structure theorem (supplier: none in the pinned libraries; gap
---   recorded in the packet). Česnavičius 2019, Lemma 5.1.
+-- Perfectoid.exists_regularFiniteFlatTower_isAlgClosed: not stated here; reuses Mathlib IsRegularLocalRing.
+--   Still needs the Cohen presentations and regularity/normality/tower comparison interfaces
+--   (gap in the packet). Česnavičius 2019, Lemma 5.1.
 
 /-! ## PerfectoidSpaces:P7/regular-finite-flat-perfectoid-tower (theorem) -/
 
--- Perfectoid.exists_regularFiniteFlatTower_perfectoid: not stated here; needs complete regular
---   local rings and the Cohen structure theorem (supplier: none in the pinned libraries; gap
---   recorded in the packet), with
+-- Tower negative test: at m=0, Frobenius on ℤ_p/p=𝔽_p is surjective; ℤ_p fails
+--   the required (ϖ^p)=(p) condition. For m≥1, 𝔽_p[T]/(T^(p^m)) has T outside
+--   the Frobenius image. These are mathematical contracts, not elaborated tests.
+
+-- Perfectoid.exists_regularFiniteFlatTower_perfectoid: not stated here; reuses Mathlib IsRegularLocalRing.
+--   Still needs the Cohen presentations and regularity/normality/tower comparison interfaces
+--   (gap in the packet), with
 --   PerfectoidSpaces:P1/perfectoid-tate-ring-from-integral-perfectoid for the conclusion.
 --   Česnavičius 2019, Lemma 5.2.
 
