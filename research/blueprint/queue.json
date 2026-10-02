@@ -10288,8 +10288,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-StableReductionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3342"
+   "state": "pending",
+   "note": "released on GitHub issue #3342"
   },
   {
    "id": "REV-DESIGN-StableReductionPartII",
@@ -11881,8 +11881,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3378"
+   "state": "external",
+   "note": "claimed on GitHub issue #3378"
   },
   {
    "id": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
@@ -21204,11 +21204,11 @@
     "REV-RS-25"
    ],
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "claimed on GitHub issue #642"
+   "note": "released on GitHub issue #642"
   },
   {
    "id": "REV-SchemeAndStackFoundations",
