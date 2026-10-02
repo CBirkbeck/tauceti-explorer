@@ -1,0 +1,165 @@
+{
+  "redteam": "RT-RS-01",
+  "findings": [
+    {
+      "finding": "RT-RS-01/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed at node level, not as a cycle in the stored stage graph. The CP.5 structure-theorem node is tagged AI.2 and requires the Lemma 4.9 node tagged AI.5, while AI.5 requires AI.2. BMS1 v3 Proposition 4.13(i), p.37, uses Lemma 4.9, and Lemma 4.26's proof, p.42 (its statement is on p.41), reduces through Proposition 4.13. Re-home the module package through Proposition 4.13 to AI.2; leave the complex-specialization package at AI.5 and forward both owners to CP.5/CP.6. Do not duplicate the proposed AI.2 owner record, which appears twice in the finding's fix."
+    },
+    {
+      "finding": "RT-RS-01/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed with the coordinator's qualification: CP.3/good-reduction-bdr-lattice-identification records only library prerequisites, but its statement and acceptance use Proposition 13.21, Theorem 14.5(i) and the AI.5/Fargues pair. CP.2's DVR node explicitly requires it. BMS1 pp.116-117 and 120-121 verify those inputs. Move the good-reduction identification and its later compatibility to CP.2, leaving the independently constructed Theorems 13.1/13.19 deformation at CP.3, or split an early crystalline prefix from a filtered suffix. The existing CP.3->CP.2 edge is not itself a cycle in the assembled graph."
+    },
+    {
+      "finding": "RT-RS-01/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The accepted CP decomposition explicitly flags Proposition 13.21 as an input of AI.5's BKF property despite AI.5->CP.2. BMS1 Theorem 14.3's proof, p.120, uses it; RS-01 nevertheless retains section-dependent crystalline base change in CP.2. Record an upstream owner and alias the old CP.2 node. CR.3:Frobenius-isogeny is a viable candidate with the section-dependent base-change theorem added explicitly, not inferred from the Frobenius-isogeny title; CR.3 or AI.4 are alternatives. Do not combine the finding's two overlapping owner-record recipes. Preserve the fixed-section versus canonical DVR specialization distinction and forward all consumers."
+    },
+    {
+      "finding": "RT-RS-01/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed scope gap. AI.3's brief restricts its integral sheaves to generic fibres of smooth formal schemes, while the accepted PH decomposition and current P8:local-rational nodes need them for every locally noetherian adic space over Spa(Q_p,Z_p). Scholze Definition 4.1, Lemma 4.10, Definition 5.9 and Definition 6.1 support that broader package. Give it one early owner, broaden AI.3 explicitly, and retain rational constructions in P8:local-rational. Use the corrected pro-etale covers from the erratum; rational-sheaf comparison must not feed the early integral construction from its later consumer."
+    },
+    {
+      "finding": "RT-RS-01/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed against the accepted CP.0 coherence node and RS-01's five owners. Neither the narrowed dictionary nor the AI.5-tagged-only owner record includes Proposition 3.24 and its transfer lemmas. Lemma 4.9's proof on BMS1 pp.35-36 explicitly uses them. Assign the generic package upstream, e.g. AI.0, preserve its exact perfectoid-field hypotheses and alias the CP.0 node. The later paper route is corroboration, not the basis for this verdict."
+    },
+    {
+      "finding": "RT-RS-01/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed. CP.0's dictionary constructs x, the filtered-colimit ring W-tilde, its kernel Q, and the generic-tilt/DVR specialization; they are not mere identifications among the four packages RS-01 imports. BMS1 pp.36 and 38 use these objects in the Tor and diagram-chase proofs. Place them once upstream of both AI.2 and AI.5 (AI.0 is a viable choice) and turn the CP dictionary into an adapter. Preserve the characteristic-zero/root-of-unity scope of the mu-unit clause."
+    },
+    {
+      "finding": "RT-RS-01/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed; the proposed wording needs correction. The four CP.0 suppliers do not supply the uniformizer-dependent S maps used by CP.5's DVR recovery. Retain their construction explicitly or name an acyclic early supplier. In BMS1 v3 section 4.4, p.43, the map S->A_inf sends T to [pi-flat]^p and acts by Frobenius on W(k), not the finding's unqualified u->[pi-flat]. The recovery map S->W(k) also has its Frobenius normalization. A bare Breuil-Kisin twist does not provide this uniformizer data."
+    },
+    {
+      "finding": "RT-RS-01/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed as incomplete node-level forwarding, overlapping /5 and /6. The moved CP.5 supplier nodes have explicit prerequisites in the two CP.0 nodes; CP.0 does not reach AI.2 or AI.5. The stage-consumer inventory alone misses this. Re-home the coherence and specialization data upstream, repoint the prerequisite links and preserve provenance IDs. Resolve the finding's AI.0-versus-AI.2 alternatives consistently with /1 and /6 rather than assigning the same data twice. Do not repair this by making the A_inf supplier depend on CP.0's late comparison package."
+    },
+    {
+      "finding": "RT-RS-01/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The CP.5 torsion-freeness-equivalence node has an untagged generic Lemma 4.18 half and a geometric Remarks 14.4/14.7 half. RS-01's already-tagged-only owner record misses the generic half despite telling CP.5 to import it. BMS1 p.39 requires a perfect complex, rational freeness in every degree, characteristic zero and all p-power roots of unity. Assign that generic half to AI.5 with those hypotheses; CP.5 retains the geometric applications and the separate length-monotonicity argument."
+    },
+    {
+      "finding": "RT-RS-01/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed textual addition. The original CP.5 brief compares with R07's classified objects; RS-01 newly says it retains an R06.4 interface. R06.4 does not reach CP.5. Prefer deleting that new clause. If intentionally expanding the target, label it as new, obtain its sources, and add the required acyclic imports rather than calling it retained scope."
+    },
+    {
+      "finding": "RT-RS-01/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed boundary omission, with chronology qualified. The later unreviewed P7 blueprint cannot retroactively be an RS-01 input, but the earlier accepted PH decomposition already asked for the O_C versus general-affinoid supplier decision. AI.0:integral owns the O_C special elements and generator facts; R06.1 must import them and CR.0's PD structure. Add R06.1 to the affected formerly/boundary records. Keep genuine rational-ring theorems and Galois refinements in R06.1, and specify the distinct coefficient-presentation comparisons rather than deleting every overlapping-looking application."
+    },
+    {
+      "finding": "RT-RS-01/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed ownership/request-direction gap, not a demand to delete the legitimate lisse-sheaf theorem. CP.3 explicitly owns the constant-coefficient deformation/period-sheaf agreement, whereas P7 proposes redirecting CP's de Rham comparison request to late P8/R06.5. CP.2->CP.4->P8 prevents using that late stage to construct CP.2. Record CP.3's constant-coefficient owner; P8 retains the general de Rham-lisse/family extension and can specialize it, with agreement supplied from CP.3 rather than a new duplicate construction."
+    },
+    {
+      "finding": "RT-RS-01/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the family briefs, PH request and BMS1 Theorem 14.3(iv) proof. BMS1 p.120 invokes Theorem 5.7, whose p.47 statement is an almost quasi-isomorphism with cone killed by W(m-flat). Scholze Theorem 5.1/Corollary 5.11 supply the primitive comparison. No family stage explicitly owns that common input for the parallel AI.5 and CP.3 branches. Assign it to an early owner such as AI.3 or a new primitive-comparison prefix, with the proper-smooth/coefficient/almost hypotheses; do not use late P8 as supplier."
+    },
+    {
+      "finding": "RT-RS-01/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed, but reject fix option (b) as written. AI.6's B_dR-plus comparison uses CP.3's canonical deformation; CP.4 also plans its semistable compatibility, and CP.3 currently does not reach AI.6. Option (a), CP.3->AI.6 with one owner for the semistable compatibility and CP.4 importing it, is acyclic. Option (b) would make AI.6 import CP.4 while AI.6->CP.4 already exists, creating a stage cycle unless the stages are actually split and consumers forwarded. Use option (a) or a checked split."
+    },
+    {
+      "finding": "RT-RS-01/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed against both briefs. CR.6 owns the Hyodo-Kato relation N phi=p phi N and its change-of-uniformizer map; CP.4 also says to verify/compute them. Record CR.6 as construction owner and CP.4 as transport through the B_st->B_dR comparison, preserving the chosen sign, logarithm and uniformizer conventions."
+    },
+    {
+      "finding": "RT-RS-01/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Both PR.8 and CP.4 require agreement of log-prismatic and A_inf/Hyodo-Kato routes, but neither reaches the other. Give the agreement one owner, e.g. CP.4, with PR.8->CP.4 and the already present AI.6/CR.6 inputs. PR.8 keeps its own log realizations. Preserve Cartier-type, perfect-log-prism and Kummer-etale/ordinary-etale scope; agreement on the overlap is not a universal integral comparison."
+    },
+    {
+      "finding": "RT-RS-01/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed ordering problem. CR.0 precedes AI.0 and AI.0:integral, but the draft CR.0 coverage explicitly constructs A_cris from AI.0:integral data. RS-01 assigns the Witt reduction to that later stage without explaining CR.0's induced map. Use pinned PreTilt/WittVector/fontaineTheta/map carriers for the abstract upstream envelope and its universal-property maps, or split a generic CR.0 prefix from its specialized application. Put generator-dependent explicit descriptions and completion/torsion conclusions downstream. The pinned BDeRham file still lists principality as a TODO; existing carriers do not prove these envelope facts."
+    },
+    {
+      "finding": "RT-RS-01/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed. CR.0 retains comparison with derived PD envelopes, and its packet explicitly requests DD.0/1, but DD.0 is not upstream in the current graph. Add DD.0->CR.0 for the full derived-power/lci input alongside DD.1 completion. This edge is acyclic; ordinary PD filtrations and the library's naive cotangent map are not substitutes for DD.0."
+    },
+    {
+      "finding": "RT-RS-01/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed ledger/target mismatch. PR.4's complete brief constructs etale comparison and Tate/syntomic fibers and mentions Chern/regulator consumers; it does not construct the prismatic logarithm and first Chern class attributed to it by RS-01's ledger. CP.6 explicitly needs those maps. Correct the ledger and name a source-qualified owner plus its CP.6 import, e.g. a PR.4 extension. Do not claim the required map exists merely because syntomic consumers are mentioned."
+    },
+    {
+      "finding": "RT-RS-01/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed unresolved explicit ownership boundary. Q0's brief/ledger still claims the integral-Tate relation, while P1 has the BMS1 Lemmas 3.20-3.21 nodes and says Q0 imports them; Q0's current coverage retains the unresolved P1 lead. P1 already precedes Q0. Record P1 as supplier for those generic comparison lemmas, with Q0 retaining its quotient applications, or provide a checked alternative split. Preserve boundedness of the plus ring in the converse and the nonzerodivisor in Lemma 3.21."
+    },
+    {
+      "finding": "RT-RS-01/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed only as the overbroad substantive claim that CP.0/CP.5 are the only stages needing ownership repairs. Findings /4, /15-/17 and /31 provide independently checked counterexamples in briefs or pre-existing decomposition gaps. Revise the accepted review's summary after those repairs. The report's list of spot checks does not establish that the previous reviewer read no relocation gap; do not repeat that unsupported assertion about their reading."
+    },
+    {
+      "finding": "RT-RS-01/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed as low-level direct-import bookkeeping. R06.1 already reaches CP.4 through CP.2/CP.3, so there is no lost theorem or ordering defect. Its semistable-period-ring and embedding nodes supply the B_st structures used in CP.4. Add a direct R06.1->CP.4 record if enforcing explicit supplier forwarding; it is acyclic and must preserve the chosen logarithm-dependent embedding and CP.4's correction."
+    },
+    {
+      "finding": "RT-RS-01/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed ambiguity of the narrowed keeps. CP.0's unqualified twist/scalar-extension clause overlaps the integral and coefficient-presentation owners. State that its retained comparisons are on cohomology and complexes and import the coefficient-level maps. Do not delete the genuine cohomological compatibility proof or conflate the intrinsic BK twist with a chosen epsilon basis."
+    },
+    {
+      "finding": "RT-RS-01/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed by recomputation. On the frozen raw stage-edge graph restricted to actual stage vertices, adding RS-01's 19 links creates exactly four new reachable pairs: CP.3->CP.2, CP.3->CP.5, P8:local-rational->CP.2 and P8:local-rational->CP.5. The current filtered graph has 3382 raw edges, not the cited unfiltered 3458 count. Qualify new direct dependency versus transitive reachability and name the lattice-recovery consumer; the proposed direct CP.3->CP.5 record is optional because reachability is already preserved."
+    },
+    {
+      "finding": "RT-RS-01/25",
+      "verdict": "rejected",
+      "reason": "Rejected as loss/nonapplication of hypotheses. The Python apply function indeed ignores keep reasons and does not install owner records as theorem statements; that is expected for a restructuring, whose blueprint jobs must perform the construction. CP.5.keeps explicitly preserves the reviewed source statements, proofs, acceptance examples and gap annotations, and AI.5.reason explicitly requires their exact hypotheses. The cited CP nodes still contain the no-perfectness and adjacent-degree/root-of-unity restrictions. Making the owner record more explicit is useful under /1 and /9, but this evidence does not show those hypotheses were erased or authorized to weaken."
+    },
+    {
+      "finding": "RT-RS-01/26",
+      "verdict": "rejected",
+      "reason": "Rejected as duplicate mathematical construction. AI.5 and CP.5 use the same BMS1 section 2 surfaces to test different parts of the proof/application chain; repeat use of a regression example does not plan a second proof of that example. The source statements on pp.13 and 16 and the node acceptance fields describe exactly the counterexamples needed. A single construction/import owner can be recorded when those examples are built, and CR.3 dependencies must be supplied, but deleting the required AI.5 regression cases is not justified. The separate upstream crystalline-input ordering defect is already addressed in /3."
+    },
+    {
+      "finding": "RT-RS-01/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed explicit-scope bookkeeping. The original CP.5 brief spells out the CK sections 7-8 branch with log torsion hypotheses, ramification-normalized factors and functorial lattice theorem, while the narrowed keeps says only semistable/model restrictions. State those retained targets explicitly to avoid relying on shorthand under section 15. This is not a fresh verification of CK's theorem proofs or a claim of model independence without the source assumptions."
+    },
+    {
+      "finding": "RT-RS-01/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed ambiguous agreement boundary. CP.1 and AI.7 both say agreement of prior maps; AI.7's proper S-valued specialization should be distinguished from CP.1's O_C/A_inf diagram, importing PR.6's generic uniqueness input. Narrow that application boundary rather than moving the generic theorem out of PR.6. The inspected BS arXiv v4 has the relevant abstract comparison-isomorphism criterion as Lemma 17.4, pp.120-121; it has no section 18, so use version-qualified locators rather than copying the briefs' section-18 shorthand."
+    },
+    {
+      "finding": "RT-RS-01/29",
+      "verdict": "rejected",
+      "reason": "Rejected as a duplicate construction. CP.2's source theorem BMS1 14.6(i) itself includes the geometric crystallinity corollary and its node imports R06.2's period formalism. R06.5/crystalline-comparison-good-reduction explicitly applies that CP.2 node, transports algebraic cohomology through H5, and takes invariants through the existing R06.1/R06.2 APIs. This is the allowed geometric-theorem/application division, not a second construction of the comparison or general admissibility. Clarifying admissibility consequences in the keep reason is harmless, but the evidence does not justify deleting the corollary from its source-qualified CP.2 node."
+    },
+    {
+      "finding": "RT-RS-01/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed with an ordering correction to the proposed fix. The generic weakly-admissible-implies-admissible theorem should be imported by R07.4 from R06.2, while R07.4 retains Kisin's finite-height construction and its specific comparison. For Fontaine-Laffaille, R07.3/fl-lattice-correspondence currently requires fl-admissibility and R07.3->R06.4 already exists: simply moving the theorem to R06.4 and importing it back into unsplit R07.3 would be cyclic. Either keep its proof at the early R07.3 supplier with R06.4 as interface, or split R07.3 and forward the lattice-correspondence suffix. The overlap needs an explicit owner, not the finding's unchecked reversal."
+    },
+    {
+      "finding": "RT-RS-01/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed as incomplete owner inventory, not completed duplicate construction in the current Q packet. The accepted Q decomposition records four generic BS22 7.6-7.10 supplier nodes with a PR.2 relocation gap; RS-01 gives generic CP.5 records an owner but leaves these without an explicit owner record. PR.2's full brief constructs exactly this package. Record that owner and retain Q2's universal-perfectoidization applications and import/provenance obligations. BS v4 pp.56-59 verify the generic package and distinguish weak initiality from the stronger qrsp initial theorem."
+    },
+    {
+      "finding": "RT-RS-01/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed only as locator overrun. At the pinned Mathlib commit FontaineTheta.lean has 213 lines and BDeRham.lean 98; the report's 145-222 and 1-150 ranges exceed them. Use 118-213 and 1-98. The actual theta assumptions, Frobenius-surjectivity condition, BDeRham carriers and naive presentation cotangent map match the report. No false built-library theorem is established by this finding; principality and the full derived cotangent theory remain obligations."
+    }
+  ]
+}
