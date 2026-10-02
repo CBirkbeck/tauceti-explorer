@@ -1,4 +1,11 @@
 /-
+Current revision: FIX-RT-AREA-ktheory-1~2, issue #5541.
+Codex codex-5ebb6f, 2026-10-02. Unchecked; NOT COMPILED; awaits independent review.
+Earlier revision/compilation records below belong to their earlier text only.
+The reader and JSON packet define the full roadmap. New future-carrier signatures
+are comments until their suppliers exist; none asserts a completed Lean proof.
+-/
+/-
 FIX-RT-AREA-ktheory-2~2, Codex — codex-rtOQ9t, 2026-09-30.
 Current revision is unchecked and NOT COMPILED. Any earlier compilation
 record below describes only that earlier revision and environment.
@@ -37,6 +44,10 @@ Group homology uses trivial integral representation coefficients. Natural-number
 homotopy degree n is represented by the coordinate type Fin n at this baseline.
 -/
 import Mathlib.Algebra.Group.Commutator
+import Mathlib.Algebra.Homology.ConcreteCategory
+import Mathlib.Algebra.Homology.HomologicalComplexKernels
+import Mathlib.Algebra.Homology.HomologySequenceLemmas
+import Mathlib.GroupTheory.Commutator.Basic
 import Mathlib.Algebra.Module.CharacterModule
 import Mathlib.GroupTheory.FreeGroup.IsFreeGroup
 import Mathlib.GroupTheory.IsPerfect
@@ -536,4 +547,134 @@ Counterexample-sensitive tests awaiting the missing owners:
   annihilate this integral repeated-entry symbol.
 * Over Q, degree three is injective Z/2 -> Z/48 and fails surjectivity.
 -/
+end TauCeti.Steinberg
+
+/-!
+Round 2, FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f, 2026-10-02.
+This file is not the roadmap and is not exhaustive. The reader document is
+definitive; these signatures suggest names and forms for contributors and
+reviewers. The new integral five-term interface uses the actual pinned bar
+complexes. All declarations remain unchecked and this revision was not compiled.
+-/
+namespace TauCeti.Steinberg
+open CategoryTheory CategoryTheory.Limits
+
+namespace GroupQuotient
+variable {E Q E' Q' : Type} [Group E] [Group Q] [Group E'] [Group Q']
+
+abbrev integralBar (E : Type) [Group E] : ChainComplex (ModuleCat ℤ) ℕ :=
+  groupHomology.inhomogeneousChains (Rep.trivial ℤ E ℤ)
+
+abbrev barMap (q : E →* Q) : integralBar E ⟶ integralBar Q :=
+  groupHomology.chainsMap (A := Rep.trivial ℤ E ℤ) (B := Rep.trivial ℤ Q ℤ) q (𝟙 _)
+
+/-- T.1:classical/quotient-bar-kernel: categorical kernel of the actual map. -/
+abbrev barKernel (q : E →* Q) : ChainComplex (ModuleCat ℤ) ℕ :=
+  kernel (barMap q)
+
+def barKernelShortComplex (q : E →* Q) :
+    ShortComplex (ChainComplex (ModuleCat ℤ) ℕ) :=
+  ShortComplex.mk (kernel.ι (barMap q)) (barMap q) (by simp)
+
+theorem barKernelShortExact (q : E →* Q) (hq : Function.Surjective q) :
+    (barKernelShortComplex q).ShortExact := by sorry
+
+theorem barKernel_zero (q : E →* Q) : IsZero ((barKernel q).X 0) := by sorry
+
+theorem barKernel_pairGenerators (q : E →* Q) (n : ℕ) :
+    ((barMap q).f n).hom.ker =
+      Submodule.span ℤ {v | ∃ a b : Fin n → E, q ∘ a = q ∘ b ∧
+        v = Finsupp.single a (1 : ℤ) - Finsupp.single b 1} := by sorry
+
+def barKernel_map (q : E →* Q) (q' : E' →* Q') (a : E →* E') (b : Q →* Q')
+    (hsq : q'.comp a = b.comp q) : barKernel q ⟶ barKernel q' := by sorry
+
+-- Test bar_kernel_identity
+example : IsZero (barKernel (MonoidHom.id E)) := by sorry
+-- Test bar_kernel_zero_degree
+example (q : E →* Q) (hq : Function.Surjective q) :
+    IsZero ((barKernel q).X 0) := by sorry
+-- Test bar_kernel_tuple_difference
+example (q : E →* Q) (n : ℕ) (a b : Fin n → E) :
+    Finsupp.single a (1 : ℤ) - Finsupp.single b 1 ∈ ((barMap q).f n).hom.ker ↔
+      q ∘ a = q ∘ b := by sorry
+/- Test bar_kernel_nonsurjective: for the unique map 1→C₂, the degree-one
+pushforward misses the basis element of the nonidentity of C₂. Its finite
+group carrier is Multiplicative (ZMod 2), with the trivial source group. -/
+
+/-- The mixed commutator subgroup inside ker(q), rather than [ker(q),ker(q)]. -/
+def mixedCommutator (q : E →* Q) : Subgroup q.ker :=
+  (⁅(⊤ : Subgroup E), q.ker⁆).subgroupOf q.ker
+
+instance mixedCommutator_normal (q : E →* Q) : (mixedCommutator q).Normal := by sorry
+abbrev mixedQuotient (q : E →* Q) := q.ker ⧸ mixedCommutator q
+instance mixedQuotient_commGroup (q : E →* Q) : CommGroup (mixedQuotient q) := by sorry
+abbrev mixedCoinvariants (q : E →* Q) := Additive (mixedQuotient q)
+
+/-- T.1:classical/quotient-bar-kernel-h1. On [a]−[b] it is class(ab⁻¹). -/
+def barKernelH1Equiv (q : E →* Q) :
+    (barKernel q).homology 1 ≃+ mixedCoinvariants q := by sorry
+
+/-- T.1:classical/hochschild-serre-integral-five-term. -/
+def transgression (q : E →* Q) (hq : Function.Surjective q) :
+    intHomology Q 2 →+ mixedCoinvariants q := by sorry
+
+def mixedToAb (q : E →* Q) : mixedCoinvariants q →+ Additive (Abelianization E) := by sorry
+def quotientAbMap (q : E →* Q) :
+    Additive (Abelianization E) →+ Additive (Abelianization Q) := by sorry
+
+theorem transgression_lift (q : E →* Q) (hq : Function.Surjective q)
+    (z : (integralBar Q).X 2) (hz : (integralBar Q).d 2 1 z = 0)
+    (lift : (integralBar E).X 2) (hlift : (barMap q).f 2 lift = z)
+    (boundary : (barKernel q).X 1)
+    (hboundary : (kernel.ι (barMap q)).f 1 boundary = (integralBar E).d 2 1 lift) :
+    transgression q hq ((integralBar Q).homologyπ 2
+      ((integralBar Q).cyclesMk z 1 (by decide) hz)) =
+      barKernelH1Equiv q ((barKernel q).homologyπ 1
+        ((barKernel q).cyclesMk boundary 0 (by decide) (by sorry))) := by sorry
+
+theorem fiveTerm_exact (q : E →* Q) (hq : Function.Surjective q) :
+    (intHomologyMap q 2).range = (transgression q hq).ker ∧
+    (transgression q hq).range = (mixedToAb q).ker ∧
+    (mixedToAb q).range = (quotientAbMap q).ker ∧
+    Function.Surjective (quotientAbMap q) := by sorry
+
+theorem fiveTerm_maps (q : E →* Q) (x : q.ker) :
+    mixedToAb q (Additive.ofMul (QuotientGroup.mk' (mixedCommutator q) x)) =
+      h1EquivAbelianization E
+        (intHomologyMap q.ker.subtype 1
+          ((h1EquivAbelianization q.ker).symm
+            (Additive.ofMul (Abelianization.of x)))) := by sorry
+
+-- Test five_term_identity
+example (x : intHomology E 2) :
+    transgression (MonoidHom.id E) (fun x => ⟨x, rfl⟩) x = 0 := by sorry
+/- Test five_term_abelian_extension: C₄→C₂ has middle quotient C₂ whose
+nonidentity class maps to 2 in C₄; quotientAbMap is reduction modulo 2.
+Test five_term_noncentral: S₃→C₂ has middle quotient zero whereas N_ab=C₃.
+These require the concrete finite-group identifications, not an arbitrary
+type substituted for a group or an assumed isomorphism.
+Test five_term_positive_sign: the example below uses +d(lift). -/
+example (q : E →* Q) (hq : Function.Surjective q)
+    (z : (integralBar Q).X 2) (hz : (integralBar Q).d 2 1 z = 0)
+    (lift : (integralBar E).X 2) (hlift : (barMap q).f 2 lift = z)
+    (boundary : (barKernel q).X 1)
+    (hb : (kernel.ι (barMap q)).f 1 boundary = (integralBar E).d 2 1 lift) :
+    transgression q hq ((integralBar Q).homologyπ 2
+      ((integralBar Q).cyclesMk z 1 (by decide) hz)) =
+      barKernelH1Equiv q ((barKernel q).homologyπ 1
+        ((barKernel q).cyclesMk boundary 0 (by decide) (by sorry))) := by sorry
+
+def mixedMap (q : E →* Q) (q' : E' →* Q') (a : E →* E') (b : Q →* Q')
+    (hsq : q'.comp a = b.comp q) : mixedCoinvariants q →+ mixedCoinvariants q' := by sorry
+
+/-- T.1:classical/hochschild-serre-five-term-natural: actual H₂(b;ℤ) square. -/
+theorem transgression_natural (q : E →* Q) (q' : E' →* Q')
+    (hq : Function.Surjective q) (hq' : Function.Surjective q')
+    (a : E →* E') (b : Q →* Q') (hsq : q'.comp a = b.comp q)
+    (x : intHomology Q 2) :
+    mixedMap q q' a b hsq (transgression q hq x) =
+      transgression q' hq' (intHomologyMap b 2 x) := by sorry
+
+end GroupQuotient
 end TauCeti.Steinberg
