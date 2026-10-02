@@ -2743,3 +2743,572 @@ example (a : Aut x)
 end GerbeAutTransport
 
 end TauCeti.AlgebraicGeometry
+
+/-
+BEGIN ARCHIVED CHECKED GERBE COVER REFINEMENT
+import Mathlib.CategoryTheory.Sites.Descent.IsStack
+import Mathlib.CategoryTheory.Endomorphism
+
+open CategoryTheory Opposite Bicategory
+universe u v u' v'
+namespace TauCeti.AlgebraicGeometry
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+
+namespace GerbeAutTransport
+
+set_option backward.isDefEq.respectTransparency false
+
+open Pseudofunctor.LocallyDiscreteOpToCat
+
+variable {D : Type*} [Category D]
+
+/-- Abelian inertia makes conjugation independent of the chosen object isomorphism. -/
+theorem conjugation_independent {x y : D}
+    (hcomm : ∀ a b : Aut x, a * b = b * a) (e e' : x ≅ y) :
+    Aut.autMulEquivOfIso e = Aut.autMulEquivOfIso e' := by
+  apply MulEquiv.ext
+  intro a
+  apply Iso.ext
+  have h := congrArg Iso.hom (hcomm (e ≪≫ e'.symm) a)
+  change a.hom ≫ (e.hom ≫ e'.inv) = (e.hom ≫ e'.inv) ≫ a.hom at h
+  change e.inv ≫ a.hom ≫ e.hom = e'.inv ≫ a.hom ≫ e'.hom
+  rw [← cancel_epi e.hom, ← cancel_mono e'.inv]
+  simpa only [Category.assoc, Iso.hom_inv_id_assoc, Iso.hom_inv_id,
+    Category.comp_id] using h
+
+/-- The overlap equation uses arbitrary comparison isomorphisms, not a coherent choice. -/
+theorem conjugates_commute {x₁ x₂ y₁ y₂ : D}
+    (hcomm : ∀ a b : Aut x₁, a * b = b * a)
+    (e₁ : x₁ ≅ y₁) (e₂ : x₂ ≅ y₂) (c : x₁ ≅ x₂) (d : y₁ ≅ y₂)
+    (a₁ : Aut x₁) (a₂ : Aut x₂)
+    (ha : a₁.hom ≫ c.hom = c.hom ≫ a₂.hom) :
+    (Aut.autMulEquivOfIso e₁ a₁).hom ≫ d.hom =
+      d.hom ≫ (Aut.autMulEquivOfIso e₂ a₂).hom := by
+  have h := congrArg (fun e : Aut x₁ ≃* Aut y₂ => (e a₁).hom)
+    (conjugation_independent hcomm (e₁ ≪≫ d) (c ≪≫ e₂))
+  change (d.inv ≫ e₁.inv) ≫ a₁.hom ≫ (e₁.hom ≫ d.hom) =
+    (e₂.inv ≫ c.inv) ≫ a₁.hom ≫ (c.hom ≫ e₂.hom) at h
+  simp only [Category.assoc] at h
+  have hc : c.inv ≫ a₁.hom ≫ c.hom = a₂.hom := by
+    rw [ha, c.inv_hom_id_assoc]
+  change (e₁.inv ≫ a₁.hom ≫ e₁.hom) ≫ d.hom =
+    d.hom ≫ e₂.inv ≫ a₂.hom ≫ e₂.hom
+  rw [← cancel_epi d.inv]
+  have hc' : c.inv ≫ a₁.hom ≫ c.hom ≫ e₂.hom = a₂.hom ≫ e₂.hom := by
+    simpa only [Category.assoc] using congrArg (fun k => k ≫ e₂.hom) hc
+  rw [hc'] at h
+  simpa only [Category.assoc, Iso.inv_hom_id_assoc] using h
+
+variable {E : Type*} [Category E]
+
+theorem map_conjugation (K : D ⥤ E) {x y : D} (e : x ≅ y) (a : Aut x) :
+    K.mapAut y (Aut.autMulEquivOfIso e a) =
+      Aut.autMulEquivOfIso (K.mapIso e) (K.mapAut x a) := by
+  apply Iso.ext
+  change K.map (e.inv ≫ a.hom ≫ e.hom) = K.map e.inv ≫ K.map a.hom ≫ K.map e.hom
+  simp only [Functor.map_comp]
+
+theorem map_conjugation_hom (K : D ⥤ E) {x y : D} (e : x ≅ y) (a : Aut x) :
+    (Aut.autMulEquivOfIso (K.mapIso e) (K.mapAut x a)).hom =
+      K.map (Aut.autMulEquivOfIso e a).hom :=
+  congrArg Iso.hom (map_conjugation K e a).symm
+
+variable (hComm : ∀ (V : C) (z : F.obj (.mk (op V))),
+  ∀ a b : Aut z, a * b = b * a)
+
+include hComm
+
+set_option backward.isDefEq.respectTransparency.types false in
+/-- Conjugation on an arbitrary covering family is a native descent automorphism. -/
+noncomputable def conjugateDescentIso
+    (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+    {U : C} (R : Sieve U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) :
+    Aut ((F.toDescentData (fun i : R.arrows.category => i.obj.hom)).obj y) :=
+  Pseudofunctor.DescentData.isoMk
+    (fun i => Aut.autMulEquivOfIso (e i)
+      ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)) (by
+    intro V q i j f g hf hg
+    let Dx := (F.toDescentData (fun i : R.arrows.category => i.obj.hom)).obj x
+    let Dy := (F.toDescentData (fun i : R.arrows.category => i.obj.hom)).obj y
+    have ha := ((F.toDescentData (fun i : R.arrows.category => i.obj.hom)).mapIso a).hom.comm
+      q f g hf hg
+    have h := conjugates_commute (hComm V _)
+      ((F.map f.op.toLoc).toFunctor.mapIso (e i))
+      ((F.map g.op.toLoc).toFunctor.mapIso (e j))
+      (Dx.iso q f g hf hg) (Dy.iso q f g hf hg)
+      ((F.map f.op.toLoc).toFunctor.mapAut _
+        ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a))
+      ((F.map g.op.toLoc).toFunctor.mapAut _
+        ((F.map j.obj.hom.op.toLoc).toFunctor.mapAut x a)) ha
+    simpa only [map_conjugation_hom, Pseudofunctor.DescentData.iso_hom, Dy,
+      Pseudofunctor.toDescentData_obj, Pseudofunctor.DescentData.ofObj_obj] using h)
+
+/-- Lift the specific local conjugates, using native full faithfulness of morphism descent. -/
+noncomputable def conjugateCoverAut
+    (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+    (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) : Aut y :=
+  (F.isPrestackFor' R hR).fullyFaithful.preimageIso
+    (conjugateDescentIso F hComm R x y e a)
+
+variable (J : GrothendieckTopology C) [F.IsPrestack J]
+
+theorem conjugateCoverAut_map {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) (i : R.arrows.category) :
+    (F.map i.obj.hom.op.toLoc).toFunctor.map (conjugateCoverAut F hComm J R hR x y e a).hom =
+      (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)).hom := by
+  exact congrArg (fun k => k.hom i)
+    ((F.isPrestackFor' R hR).fullyFaithful.map_preimage
+      (conjugateDescentIso F hComm R x y e a).hom)
+
+theorem conjugateCoverAut_mapIso {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) (i : R.arrows.category) :
+    (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y
+        (conjugateCoverAut F hComm J R hR x y e a) =
+      Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a) := by
+  apply Iso.ext
+  exact conjugateCoverAut_map F hComm J R hR x y e a i
+
+theorem conjugateCoverAut_unique {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) (b : Aut y)
+    (hb : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y b =
+        Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)) :
+    b = conjugateCoverAut F hComm J R hR x y e a := by
+  apply Iso.ext
+  apply (F.isPrestackFor' R hR).fullyFaithful.map_injective
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  change (F.map i.obj.hom.op.toLoc).toFunctor.map b.hom =
+    (F.map i.obj.hom.op.toLoc).toFunctor.map (conjugateCoverAut F hComm J R hR x y e a).hom
+  rw [conjugateCoverAut_map]
+  exact congrArg Iso.hom (hb i)
+
+theorem conjugateCoverAut_independent {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e e' : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) :
+    conjugateCoverAut F hComm J R hR x y e a =
+      conjugateCoverAut F hComm J R hR x y e' a := by
+  apply conjugateCoverAut_unique
+  intro i
+  rw [conjugateCoverAut_mapIso]
+  exact congrArg (fun E => E ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a))
+    (conjugation_independent (hComm i.obj.left _) (e i) (e' i))
+
+/-- The descended conjugation is a group homomorphism, with its actual multiplication law. -/
+noncomputable def conjugateCoverHom
+    (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+    (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) : Aut x →* Aut y where
+  toFun := conjugateCoverAut F hComm J R hR x y e
+  map_one' := by
+    symm
+    apply conjugateCoverAut_unique
+    intro i
+    simp only [map_one]
+  map_mul' a b := by
+    symm
+    apply conjugateCoverAut_unique
+    intro i
+    simp only [map_mul, conjugateCoverAut_mapIso]
+
+theorem conjugateCoverAut_of_iso {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) (d : x ≅ y) :
+    conjugateCoverAut F hComm J R hR x y e a = Aut.autMulEquivOfIso d a := by
+  symm
+  apply conjugateCoverAut_unique
+  intro i
+  rw [map_conjugation]
+  exact congrArg (fun E => E ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a))
+    (conjugation_independent (hComm i.obj.left _)
+      ((F.map i.obj.hom.op.toLoc).toFunctor.mapIso d) (e i))
+
+/-- A covering refinement may use entirely different local object isomorphisms. -/
+theorem conjugateCoverAut_refinement {U : C} (R S : Sieve U)
+    (hR : R ∈ J U) (hS : S ∈ J U) (hRS : R ≤ S)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+    (d : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) :
+    conjugateCoverAut F hComm J R hR x y e a =
+      conjugateCoverAut F hComm J S hS x y d a := by
+  symm
+  apply conjugateCoverAut_unique
+  intro i
+  let j : S.arrows.category := ⟨i.obj, hRS _ i.property⟩
+  have hj := conjugateCoverAut_mapIso F hComm J S hS x y d a j
+  change (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y
+    (conjugateCoverAut F hComm J S hS x y d a) = _ at hj
+  rw [hj]
+  exact congrArg (fun E => E ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a))
+    (conjugation_independent (hComm i.obj.left _) (d j) (e i))
+
+/-- Intersection of actual covering sieves compares unrelated covers. -/
+theorem conjugateCoverAut_cover_independent {U : C} (R S : Sieve U)
+    (hR : R ∈ J U) (hS : S ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+    (d : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) :
+    conjugateCoverAut F hComm J R hR x y e a =
+      conjugateCoverAut F hComm J S hS x y d a := by
+  let T := R ⊓ S
+  have hT : T ∈ J U := J.intersection_covering hR hS
+  let c : ∀ i : T.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y :=
+    fun i => e ⟨i.obj, i.property.1⟩
+  exact (conjugateCoverAut_refinement F hComm J T R hT hR inf_le_left x y c e a).symm.trans
+    (conjugateCoverAut_refinement F hComm J T S hT hS inf_le_right x y c d a)
+
+/-- Reversing the local object isomorphisms reverses the descended transport. -/
+theorem conjugateCoverAut_reverse {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) :
+    conjugateCoverAut F hComm J R hR y x (fun i => (e i).symm)
+      (conjugateCoverAut F hComm J R hR x y e a) = a := by
+  apply Iso.ext
+  apply (F.isPrestackFor' R hR).fullyFaithful.map_injective
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  change (F.map i.obj.hom.op.toLoc).toFunctor.map
+      (conjugateCoverAut F hComm J R hR y x (fun i => (e i).symm)
+        (conjugateCoverAut F hComm J R hR x y e a)).hom =
+    (F.map i.obj.hom.op.toLoc).toFunctor.map a.hom
+  have h := conjugateCoverAut_mapIso F hComm J R hR y x (fun i => (e i).symm)
+    (conjugateCoverAut F hComm J R hR x y e a) i
+  rw [conjugateCoverAut_mapIso F hComm J R hR x y e a i] at h
+  have hc : Aut.autMulEquivOfIso (e i).symm
+      (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)) =
+      (F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a := by
+    apply Iso.ext
+    simp [Aut.autMulEquivOfIso, Category.assoc]
+  exact congrArg Iso.hom (h.trans hc)
+
+/-- The inverse is the descended transport through inverse local isomorphisms. -/
+noncomputable def conjugateCoverEquiv
+    (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+    (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) : Aut x ≃* Aut y where
+  toFun := conjugateCoverHom F hComm J R hR x y e
+  invFun := conjugateCoverHom F hComm J R hR y x (fun i => (e i).symm)
+  left_inv := conjugateCoverAut_reverse F hComm J R hR x y e
+  right_inv b := by
+    exact conjugateCoverAut_reverse F hComm J R hR y x (fun i => (e i).symm) b
+  map_mul' := (conjugateCoverHom F hComm J R hR x y e).map_mul
+
+theorem conjugateCoverEquiv_cover_independent {U : C} (R S : Sieve U)
+    (hR : R ∈ J U) (hS : S ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+    (d : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) :
+    conjugateCoverEquiv F hComm J R hR x y e =
+      conjugateCoverEquiv F hComm J S hS x y d := by
+  apply MulEquiv.ext
+  intro a
+  exact conjugateCoverAut_cover_independent F hComm J R S hR hS x y e d a
+
+/-- The same-base cocycle uses arbitrary local choices for all three object pairs. -/
+theorem conjugateCoverAut_comp {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y z : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+    (d : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj y ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj z)
+    (c : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj z) (a : Aut x) :
+    conjugateCoverAut F hComm J R hR y z d
+      (conjugateCoverAut F hComm J R hR x y e a) =
+    conjugateCoverAut F hComm J R hR x z c a := by
+  apply conjugateCoverAut_unique
+  intro i
+  rw [conjugateCoverAut_mapIso F hComm J R hR y z d,
+    conjugateCoverAut_mapIso F hComm J R hR x y e]
+  have hc : Aut.autMulEquivOfIso (d i)
+      (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)) =
+      Aut.autMulEquivOfIso (e i ≪≫ d i)
+        ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a) := by
+    apply Iso.ext
+    simp [Aut.autMulEquivOfIso, Category.assoc]
+  exact hc.trans (congrArg (fun E => E ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a))
+    (conjugation_independent (hComm i.obj.left _) (e i ≪≫ d i) (c i)))
+
+variable {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+
+theorem conjugateDescentIso_hom_apply (a : Aut x) (i : R.arrows.category) :
+    (conjugateDescentIso F hComm R x y e a).hom.hom i =
+      (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)).hom := rfl
+
+theorem conjugateDescentIso_one : conjugateDescentIso F hComm R x y e 1 = 1 := by
+  apply Iso.ext
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  change (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x 1)).hom = 𝟙 _
+  simp only [map_one]
+  rfl
+
+theorem conjugateDescentIso_inv (a : Aut x) :
+    conjugateDescentIso F hComm R x y e a⁻¹ = (conjugateDescentIso F hComm R x y e a)⁻¹ := by
+  apply Iso.ext
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  change (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a⁻¹)).hom =
+    (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)).inv
+  simp only [map_inv]
+  rfl
+
+theorem conjugateCoverHom_apply (a : Aut x) :
+    conjugateCoverHom F hComm J R hR x y e a = conjugateCoverAut F hComm J R hR x y e a := rfl
+
+theorem conjugateCoverHom_one : conjugateCoverHom F hComm J R hR x y e 1 = 1 :=
+  (conjugateCoverHom F hComm J R hR x y e).map_one
+
+theorem conjugateCoverHom_mul (a b : Aut x) :
+    conjugateCoverHom F hComm J R hR x y e (a * b) =
+      conjugateCoverHom F hComm J R hR x y e a * conjugateCoverHom F hComm J R hR x y e b :=
+  (conjugateCoverHom F hComm J R hR x y e).map_mul a b
+
+theorem conjugateCoverHom_inv (a : Aut x) :
+    conjugateCoverHom F hComm J R hR x y e a⁻¹ = (conjugateCoverHom F hComm J R hR x y e a)⁻¹ :=
+  (conjugateCoverHom F hComm J R hR x y e).map_inv a
+
+theorem conjugateCoverEquiv_apply (a : Aut x) :
+    conjugateCoverEquiv F hComm J R hR x y e a =
+      conjugateCoverAut F hComm J R hR x y e a := rfl
+
+theorem conjugateCoverEquiv_symm_apply (b : Aut y) :
+    (conjugateCoverEquiv F hComm J R hR x y e).symm b =
+      conjugateCoverAut F hComm J R hR y x (fun i => (e i).symm) b := rfl
+
+theorem conjugateCoverEquiv_mapIso (a : Aut x) (i : R.arrows.category) :
+    (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y
+      (conjugateCoverEquiv F hComm J R hR x y e a) =
+      Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a) :=
+  conjugateCoverAut_mapIso F hComm J R hR x y e a i
+
+theorem conjugateCoverEquiv_of_iso (d : x ≅ y) :
+    conjugateCoverEquiv F hComm J R hR x y e = Aut.autMulEquivOfIso d := by
+  apply MulEquiv.ext
+  intro a
+  exact conjugateCoverAut_of_iso F hComm J R hR x y e a d
+
+theorem conjugateCoverEquiv_one : conjugateCoverEquiv F hComm J R hR x y e 1 = 1 :=
+  (conjugateCoverEquiv F hComm J R hR x y e).map_one
+
+theorem conjugateCoverEquiv_mul (a b : Aut x) :
+    conjugateCoverEquiv F hComm J R hR x y e (a * b) =
+      conjugateCoverEquiv F hComm J R hR x y e a * conjugateCoverEquiv F hComm J R hR x y e b :=
+  (conjugateCoverEquiv F hComm J R hR x y e).map_mul a b
+
+theorem conjugateCoverEquiv_inv (a : Aut x) :
+    conjugateCoverEquiv F hComm J R hR x y e a⁻¹ =
+      (conjugateCoverEquiv F hComm J R hR x y e a)⁻¹ :=
+  (conjugateCoverEquiv F hComm J R hR x y e).map_inv a
+
+-- GerbeCoverEquivTests.equalObject: arbitrary local automorphisms induce the identity equivalence.
+example (e₀ : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj x) :
+    conjugateCoverEquiv F hComm J R hR x x e₀ = MulEquiv.refl (Aut x) := by
+  rw [conjugateCoverEquiv_of_iso F hComm J R hR x x e₀ (Iso.refl x)]
+  apply MulEquiv.ext
+  intro a
+  apply Iso.ext
+  simp [Aut.autMulEquivOfIso]
+
+-- GerbeCoverEquivTests.roundTrip: the inverse must recover arbitrary source automorphisms.
+example (a : Aut x) :
+    (conjugateCoverEquiv F hComm J R hR x y e).symm
+      (conjugateCoverEquiv F hComm J R hR x y e a) = a :=
+  (conjugateCoverEquiv F hComm J R hR x y e).symm_apply_apply a
+
+-- GerbeCoverEquivTests.targetRoundTrip: no target automorphism may be lost.
+example (b : Aut y) :
+    conjugateCoverEquiv F hComm J R hR x y e
+      ((conjugateCoverEquiv F hComm J R hR x y e).symm b) = b :=
+  (conjugateCoverEquiv F hComm J R hR x y e).apply_symm_apply b
+
+-- GerbeCoverEquivTests.local: actual restrictions identify the equivalence with conjugation.
+example (a : Aut x) (i : R.arrows.category) :
+    (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y
+      (conjugateCoverEquiv F hComm J R hR x y e a) =
+      Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a) :=
+  conjugateCoverEquiv_mapIso F hComm J R hR x y e a i
+
+-- GerbeCoverEquivTests.globalIso: retain the labelled native Mathlib conjugation map.
+example (d : x ≅ y) : conjugateCoverEquiv F hComm J R hR x y e = Aut.autMulEquivOfIso d :=
+  conjugateCoverEquiv_of_iso F hComm J R hR x y e d
+
+-- GerbeCoverEquivTests.changeCover: compare whole maps on unrelated actual covering sieves.
+example (S : Sieve U) (hS : S ∈ J U)
+    (d : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) :
+    conjugateCoverEquiv F hComm J R hR x y e = conjugateCoverEquiv F hComm J S hS x y d :=
+  conjugateCoverEquiv_cover_independent F hComm J R S hR hS x y e d
+
+-- GerbeCoverEquivTests.product: multiplication is the existing native Aut multiplication.
+example (a b : Aut x) : conjugateCoverEquiv F hComm J R hR x y e (a * b) =
+    conjugateCoverEquiv F hComm J R hR x y e a * conjugateCoverEquiv F hComm J R hR x y e b :=
+  (conjugateCoverEquiv F hComm J R hR x y e).map_mul a b
+
+-- GerbeConjugateDescentTests.local: the prescribed component is recovered.
+example (a : Aut x) (i : R.arrows.category) :
+    (conjugateDescentIso F hComm R x y e a).hom.hom i =
+      (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)).hom :=
+  conjugateDescentIso_hom_apply F hComm R x y e a i
+
+-- GerbeConjugateDescentTests.identity: no spurious local arrow appears at the unit.
+example : conjugateDescentIso F hComm R x y e 1 = 1 :=
+  conjugateDescentIso_one F hComm R x y e
+
+-- GerbeConjugateDescentTests.inverse: the actual inverse descent arrow is retained.
+example (a : Aut x) :
+    conjugateDescentIso F hComm R x y e a⁻¹ = (conjugateDescentIso F hComm R x y e a)⁻¹ :=
+  conjugateDescentIso_inv F hComm R x y e a
+
+-- GerbeConjugateCoverTests.local: full faithfulness recovers the actual local automorphism.
+example (a : Aut x) (i : R.arrows.category) :
+    (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y (conjugateCoverAut F hComm J R hR x y e a) =
+      Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a) :=
+  conjugateCoverAut_mapIso F hComm J R hR x y e a i
+
+-- GerbeConjugateCoverTests.unique: descent must reflect all components.
+example (a : Aut x) (b : Aut y)
+    (hb : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y b =
+        Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)) :
+    b = conjugateCoverAut F hComm J R hR x y e a :=
+  conjugateCoverAut_unique F hComm J R hR x y e a b hb
+
+-- GerbeConjugateCoverTests.changeChoice: arbitrary local choices give the same result.
+example (a : Aut x)
+    (e' : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) :
+    conjugateCoverAut F hComm J R hR x y e a = conjugateCoverAut F hComm J R hR x y e' a :=
+  conjugateCoverAut_independent F hComm J R hR x y e e' a
+
+-- GerbeConjugateCoverTests.globalIso: compare with the existing Mathlib conjugation.
+example (a : Aut x) (d : x ≅ y) :
+    conjugateCoverAut F hComm J R hR x y e a = Aut.autMulEquivOfIso d a :=
+  conjugateCoverAut_of_iso F hComm J R hR x y e a d
+
+-- GerbeConjugateHomTests.identity: the group homomorphism preserves the unit.
+example : conjugateCoverHom F hComm J R hR x y e 1 = 1 :=
+  conjugateCoverHom_one F hComm J R hR x y e
+
+-- GerbeConjugateHomTests.product: multiplication order agrees with native Aut.
+example (a b : Aut x) :
+    conjugateCoverHom F hComm J R hR x y e (a * b) =
+      conjugateCoverHom F hComm J R hR x y e a * conjugateCoverHom F hComm J R hR x y e b :=
+  conjugateCoverHom_mul F hComm J R hR x y e a b
+
+-- GerbeConjugateHomTests.inverse: the inverse law belongs to the actual group homomorphism.
+example (a : Aut x) :
+    conjugateCoverHom F hComm J R hR x y e a⁻¹ = (conjugateCoverHom F hComm J R hR x y e a)⁻¹ :=
+  conjugateCoverHom_inv F hComm J R hR x y e a
+
+-- GerbeConjugateHomTests.equalObject: every choice of local x-to-x isomorphism fixes a.
+example (a : Aut x)
+    (e₀ : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj x) :
+    conjugateCoverHom F hComm J R hR x x e₀ a = a := by
+  rw [conjugateCoverHom_apply, conjugateCoverAut_of_iso F hComm J R hR x x e₀ a (Iso.refl x)]
+  apply Iso.ext
+  simp [Aut.autMulEquivOfIso]
+
+#print axioms conjugateCoverAut_refinement
+#print axioms conjugateCoverAut_cover_independent
+#print axioms conjugateCoverAut_reverse
+#print axioms conjugateCoverAut_comp
+#print axioms conjugateCoverEquiv
+#print axioms conjugateCoverEquiv_cover_independent
+#print axioms conjugateCoverEquiv_apply
+#print axioms conjugateCoverEquiv_symm_apply
+#print axioms conjugateCoverEquiv_mapIso
+#print axioms conjugateCoverEquiv_of_iso
+#print axioms conjugateCoverEquiv_one
+#print axioms conjugateCoverEquiv_mul
+#print axioms conjugateCoverEquiv_inv
+#print axioms conjugation_independent
+#print axioms conjugates_commute
+#print axioms map_conjugation
+#print axioms conjugateDescentIso
+#print axioms conjugateCoverAut
+#print axioms conjugateCoverAut_map
+#print axioms conjugateCoverAut_mapIso
+#print axioms conjugateCoverAut_unique
+#print axioms conjugateCoverAut_independent
+#print axioms conjugateCoverHom
+#print axioms conjugateCoverAut_of_iso
+#print axioms conjugateDescentIso_hom_apply
+#print axioms conjugateDescentIso_one
+#print axioms conjugateDescentIso_inv
+#print axioms conjugateCoverHom_apply
+#print axioms conjugateCoverHom_one
+#print axioms conjugateCoverHom_mul
+#print axioms conjugateCoverHom_inv
+
+end GerbeAutTransport
+
+theorem banding_iso_independent (U : C) {x y : F.obj (.mk (op U))}
+    (hcomm : ∀ a a' : Aut x, a * a' = a' * a) (e e' : x ≅ y) :
+    Aut.autMulEquivOfIso e = Aut.autMulEquivOfIso e' :=
+  GerbeAutTransport.conjugation_independent hcomm e e'
+
+#print axioms banding_iso_independent
+end TauCeti.AlgebraicGeometry
+END ARCHIVED CHECKED GERBE COVER REFINEMENT
+-/
