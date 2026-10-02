@@ -61232,3 +61232,667 @@ Exact controls verify666nonempty cyclic primitive fibers through level36,650rank
 All79captured inputs, four actually merged predecessor outputs and the whole issue body are unchanged. The original primitive-fiber source, existing native coefficient and order interfaces, and the scoped published companion product restatement were read. One source correctionE27 is recorded with the correct published product as known support; no independent review verdict is adopted.
 
 The separate partial signature file also compiled with zero errors and 6,010 expected placeholder warnings across 3,914 pinned source modules. It includes all 18 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c06d77f7252de7bbb83baafe39ef662467f7f62aaceea42412ee1b541e7e611a.
+
+
+## Actual local cosets and rational correction factors
+
+Twenty-three L3 nodes construct actual primary-unit coordinates, prime-local translating units and cosets, their positive cardinalities and rational sums, normalized correction factors, and the corrected rational-value product on the original degree-one Cartan carrier. All2,039 predecessor nodes and1,239 baseline records remain whole; the general distribution and rational-span proofs remain open.
+
+The original published equations4.3–4.5 on194, full-fiber compatibility4.8–4.9 on195, distribution proof196–197, and local-lattice translating-unit argument after4.12 on198 were reread. The previously recordedE27 correction to a product is retained; the companion206 equation1.9 was already visually verified in5773. The actual CRT, coprime residue units, subgroup product/comap, finite cardinality and rational group-ring coefficient statements were read in the pinned native source. No additional paper, source version or finding is claimed.
+
+### Primary unit coordinates on the original Cartan carrier
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-cartan-primary-unit-equiv` — `DirichletPadic.kubertCartanPrimaryUnitEquiv`
+
+Construct the multiplicative equivalence C_N from U(1,N) to the product of unit groups modulo q raised to v_q(N), with q ranging over the actual prime factors of N. It is the established finite Cartan comparison followed by the native Chinese remainder equivalence on units.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Apply the already constructed equivalence from the original degree-one finite Cartan product to units modulo N.
+2. Apply native unit transport to the Chinese remainder ring equivalence for the positive modulus N.
+3. Use the native equivalence between units of a product ring and the product of its unit groups.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv`, `mathlib:ZMod.equivPi`, `mathlib:Units.mapEquiv`, `mathlib:MulEquiv.piUnits`.
+
+**Uses:**
+
+- Kubert194, equations4.3–4.5: Builds the exact local inverse-coordinate cosets and rational factors in the corrected product, with original primitive points and Cartan units.
+- Kubert198, equation4.12 and its translating-unit argument: Supplies the constructed local kernel, its coset translate and normalized complementary element used by the rational-span proof. The integral local lattice and spanning theorem remain to be constructed and proved.
+
+**API:**
+
+- `kubertRationalPrimeTranslation_same` (compatibility): The p-coordinate of C_N(λ_N,p) is1.
+- `kubertRationalPrimeTranslation_other` (compatibility): For q distinct from p, multiplying the value of C_N(λ_N,p)_q by p gives1 modulo q raised to v_q(N).
+- `kubertRationalPrimeKernel_mem` (characterisation): An original Cartan unit u lies in K_p(N) if and only if C_N(u)_q=1 for every q distinct from p.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.primary_coordinates_unit_level` (degenerate): At level1 the actual Cartan identity has the unique empty tuple of primary unit coordinates.
+- `SuggestedKubertRationalFactorsTests.primary_coordinates_five_mod_six` (computation): The original Cartan unit corresponding to5 modulo6 has residue2 at the3-primary coordinate, distinguishing the actual CRT map from a constant assignment.
+- `SuggestedKubertRationalFactorsTests.primary_coordinates_inverse_recovers_unit` (compatibility): Pulling actual primary coordinates back through the constructed equivalence recovers every original Cartan unit.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The actual prime-local translating unit
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-translation` — `DirichletPadic.kubertRationalPrimeTranslation`
+
+Construct λ_N,p in the original Cartan group by prescribing C_N(λ_N,p)_p=1 and C_N(λ_N,p)_q=p⁻¹ modulo q raised to v_q(N) for every q distinct from p. Use the genuine residue-unit inverse, with coprimality proved from the distinct primes.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Distinct prime divisors p and q are coprime, hence p is coprime to every power of q.
+2. Use the native unit determined by that coprimality, and invert it at each off-prime coordinate.
+3. Set the p-coordinate to1 and apply the inverse of C_N to this actual tuple.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-cartan-primary-unit-equiv`, `mathlib:Nat.coprime_primes`, `mathlib:ZMod.unitOfCoprime`.
+
+**Uses:**
+
+- Kubert194, equations4.3–4.5: Builds the exact local inverse-coordinate cosets and rational factors in the corrected product, with original primitive points and Cartan units.
+- Kubert198, equation4.12 and its translating-unit argument: Supplies the constructed local kernel, its coset translate and normalized complementary element used by the rational-span proof. The integral local lattice and spanning theorem remain to be constructed and proved.
+
+**API:**
+
+- `kubertRationalPrimeTranslation_same` (compatibility): The p-coordinate of C_N(λ_N,p) is1.
+- `kubertRationalPrimeTranslation_other` (compatibility): For q distinct from p, multiplying the value of C_N(λ_N,p)_q by p gives1 modulo q raised to v_q(N).
+- `kubertRationalPrimeTranslation_mem` (characterisation): The actual unit λ_N,p belongs to X_p(N).
+- `kubertRationalPrimeTranslation_inv_other` (compatibility): For q distinct from p, the value of the inverse unit C_N(λ_N,p)_q equals p modulo q raised to v_q(N).
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.translation_two_at_six` (computation): At level6 the translating unit for2 is the original Cartan unit5 modulo6.
+- `SuggestedKubertRationalFactorsTests.translation_three_at_six` (non-example): At level6 the translating unit for3 is1, whereas the translating unit for2 is5. A single translation independent of the prime gives the wrong coset.
+- `SuggestedKubertRationalFactorsTests.translation_at_prime_power` (degenerate): At the prime-power level9 the translation for3 is1, since there are no other prime coordinates.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The translating unit is identity at its own prime
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-translation-same` — `DirichletPadic.kubertRationalPrimeTranslation_same`
+
+The p-coordinate of C_N(λ_N,p) is1.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Cancel C_N with its inverse in the construction.
+2. Evaluate the branch where the coordinate prime equals p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-translation`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalPrimeTranslation_same_typed_api` (compatibility): The p-coordinate of C_N(λ_N,p) is1.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### Off-prime coordinates invert the original prime
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-translation-other` — `DirichletPadic.kubertRationalPrimeTranslation_other`
+
+For q distinct from p, multiplying the value of C_N(λ_N,p)_q by p gives1 modulo q raised to v_q(N).
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Cancel the actual coordinate equivalence with its inverse.
+2. Select the off-prime branch constructed from the native coprime residue unit.
+3. Its value is p and its product with its unit inverse is1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-translation`, `mathlib:ZMod.coe_unitOfCoprime`, `mathlib:Units.mul_inv`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalPrimeTranslation_other_typed_api` (compatibility): For q distinct from p, multiplying the value of C_N(λ_N,p)_q by p gives1 modulo q raised to v_q(N).
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The subgroup supported at one prime
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-kernel` — `DirichletPadic.kubertRationalPrimeKernel`
+
+Construct K_p(N) as the subgroup of original Cartan units whose C_N coordinates are1 at every prime distinct from p. The p-coordinate is free.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Take the native product subgroup that imposes the trivial subgroup only on indices distinct from p.
+2. Pull that subgroup back along the actual multiplicative coordinate equivalence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-cartan-primary-unit-equiv`, `mathlib:Subgroup.pi`, `mathlib:Subgroup.comap`.
+
+**Uses:**
+
+- Kubert194, equations4.3–4.5: Builds the exact local inverse-coordinate cosets and rational factors in the corrected product, with original primitive points and Cartan units.
+- Kubert198, equation4.12 and its translating-unit argument: Supplies the constructed local kernel, its coset translate and normalized complementary element used by the rational-span proof. The integral local lattice and spanning theorem remain to be constructed and proved.
+
+**API:**
+
+- `kubertRationalPrimeKernel_mem` (characterisation): An original Cartan unit u lies in K_p(N) if and only if C_N(u)_q=1 for every q distinct from p.
+- `kubertRationalPrimeCoset_iff_kernel` (characterisation): An original unit u lies in X_p(N) if and only if λ_N,p⁻¹u lies in K_p(N).
+- `kubertRationalPrimeCoset_eq_image` (compatibility): X_p(N) is exactly the image of K_p(N) under multiplication by λ_N,p.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.kernel_two_at_six` (computation): At level6 the kernel supported at2 is the trivial subgroup, since the2-primary unit group is trivial.
+- `SuggestedKubertRationalFactorsTests.kernel_three_at_six` (non-example): At level6 the kernel supported at3 is the full original Cartan unit group; it is not the trivial kernel obtained for2.
+- `SuggestedKubertRationalFactorsTests.kernel_at_prime_power` (degenerate): At level9 the kernel supported at3 is the full unit group, because all off-prime coordinates are absent.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### Membership in the prime-supported subgroup
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-kernel-mem` — `DirichletPadic.kubertRationalPrimeKernel_mem`
+
+An original Cartan unit u lies in K_p(N) if and only if C_N(u)_q=1 for every q distinct from p.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Use native membership in the comap of a subgroup.
+2. Use membership in the product subgroup, then membership in the trivial subgroup at each required index.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-kernel`, `mathlib:Subgroup.mem_comap`, `mathlib:Subgroup.mem_pi`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalPrimeKernel_mem_typed_api` (compatibility): An original Cartan unit u lies in K_p(N) if and only if C_N(u)_q=1 for every q distinct from p.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The source local coset on actual Cartan units
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset` — `DirichletPadic.kubertRationalPrimeCoset`
+
+Define X_p(N) as the set of original Cartan units u such that p times the residue value C_N(u)_q equals1 at every q distinct from p. This is precisely the source off-prime inverse condition; it is initially a set, not an assumed subgroup.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Use the constructed original primary-unit coordinates.
+2. Impose the source inverse condition at every off-prime coordinate, leaving the p-coordinate unrestricted.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-cartan-primary-unit-equiv`.
+
+**Uses:**
+
+- Kubert194, equations4.3–4.5: Builds the exact local inverse-coordinate cosets and rational factors in the corrected product, with original primitive points and Cartan units.
+- Kubert198, equation4.12 and its translating-unit argument: Supplies the constructed local kernel, its coset translate and normalized complementary element used by the rational-span proof. The integral local lattice and spanning theorem remain to be constructed and proved.
+
+**API:**
+
+- `kubertRationalPrimeTranslation_mem` (characterisation): The actual unit λ_N,p belongs to X_p(N).
+- `kubertRationalPrimeCoset_iff_kernel` (characterisation): An original unit u lies in X_p(N) if and only if λ_N,p⁻¹u lies in K_p(N).
+- `kubertRationalPrimeCoset_eq_image` (compatibility): X_p(N) is exactly the image of K_p(N) under multiplication by λ_N,p.
+- `kubertRationalPrimeCoset_card_pos` (compatibility): The native cardinality of X_p(N) is strictly positive.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.coset_two_at_six` (computation): The actual source coset X₂(6) is the singleton containing5 modulo6, expressed on the original Cartan carrier.
+- `SuggestedKubertRationalFactorsTests.coset_need_not_be_subgroup` (non-example): X₂(6) does not contain the identity, so the source coset cannot in general be replaced by its local kernel subgroup.
+- `SuggestedKubertRationalFactorsTests.coset_at_prime_power` (degenerate): At level9 the3-local coset is the entire Cartan unit carrier.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The constructed translating unit lies in the source coset
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-translation-mem` — `DirichletPadic.kubertRationalPrimeTranslation_mem`
+
+The actual unit λ_N,p belongs to X_p(N).
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. At every off-prime coordinate apply the proved inverse condition for λ_N,p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-translation-other`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalPrimeTranslation_mem_typed_api` (compatibility): The actual unit λ_N,p belongs to X_p(N).
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The inverse translating unit has off-prime value p
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-translation-inv-other` — `DirichletPadic.kubertRationalPrimeTranslation_inv_other`
+
+For q distinct from p, the value of the inverse unit C_N(λ_N,p)_q equals p modulo q raised to v_q(N).
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Start with p times the value of C_N(λ_N,p)_q equal to1.
+2. Multiply by the actual unit inverse and use associativity and the native unit cancellation identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-translation-other`, `mathlib:Units.mul_inv`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalPrimeTranslation_inv_other_typed_api` (compatibility): For q distinct from p, the value of the inverse unit C_N(λ_N,p)_q equals p modulo q raised to v_q(N).
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The source coset is a translate of the actual local kernel
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-iff-kernel` — `DirichletPadic.kubertRationalPrimeCoset_iff_kernel`
+
+An original unit u lies in X_p(N) if and only if λ_N,p⁻¹u lies in K_p(N).
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Expand actual kernel membership into its off-prime coordinate equalities.
+2. The coordinate equivalence preserves multiplication and inversion.
+3. Replace the inverse translating-unit value by p, using the previous lemma.
+4. Unit extensionality identifies the resulting coordinate equation with the source coset condition.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-kernel-mem`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-translation-inv-other`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalPrimeCoset_iff_kernel_typed_api` (compatibility): An original unit u lies in X_p(N) if and only if λ_N,p⁻¹u lies in K_p(N).
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The source coset is the translated subgroup as a set
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-eq-image` — `DirichletPadic.kubertRationalPrimeCoset_eq_image`
+
+X_p(N) is exactly the image of K_p(N) under multiplication by λ_N,p.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. For an element of X_p(N), use λ_N,p⁻¹u as the kernel witness from the membership equivalence.
+2. Conversely, a translated kernel element satisfies that same equivalence.
+3. Cancel λ_N,p with its inverse in the original group in both directions.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-iff-kernel`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalPrimeCoset_eq_image_typed_api` (compatibility): X_p(N) is exactly the image of K_p(N) under multiplication by λ_N,p.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The actual source coset has positive cardinality
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-card-pos` — `DirichletPadic.kubertRationalPrimeCoset_card_pos`
+
+The native cardinality of X_p(N) is strictly positive.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. The established actual finite Cartan construction has finite Galois-field, truncated-Witt and unit factors, with a finite prime-factor index.
+2. The source coset is a subtype of this finite carrier.
+3. Its constructed translating unit supplies an actual inhabitant.
+4. Apply the native positive-cardinality lemma for a nonempty finite type.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-translation-mem`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm`, `mathlib:Nat.card_pos`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalPrimeCoset_card_pos_typed_api` (compatibility): The native cardinality of X_p(N) is strictly positive.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The full rational sum over the actual local coset
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-sum` — `DirichletPadic.kubertRationalPrimeCosetSum`
+
+Construct s(X_p(N)) in the rational group ring of U(1,N), with coefficient1 on the actual source coset and coefficient0 elsewhere. This is the unnormalized full basis sum.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Use finiteness of the actual original Cartan unit carrier.
+2. Take the rational indicator function of X_p(N).
+3. Apply the inverse native finite-function and group-ring coefficient equivalences.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm`, `mathlib:Finsupp.linearEquivFunOnFinite`, `mathlib:MonoidAlgebra.coeffLinearEquiv`.
+
+**Uses:**
+
+- Kubert194, equations4.3–4.5: Builds the exact local inverse-coordinate cosets and rational factors in the corrected product, with original primitive points and Cartan units.
+- Kubert198, equation4.12 and its translating-unit argument: Supplies the constructed local kernel, its coset translate and normalized complementary element used by the rational-span proof. The integral local lattice and spanning theorem remain to be constructed and proved.
+
+**API:**
+
+- `kubertRationalPrimeCosetSum_coeff` (characterisation): The coefficient of s(X_p(N)) at u is1 if u lies in X_p(N), and0 otherwise.
+- `kubertRationalPrimeCosetSum_nonzero` (compatibility): The rational group-ring element s(X_p(N)) is nonzero.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.coset_sum_singleton` (computation): The rational sum over X₂(6) is the basis vector at5 with coefficient1.
+- `SuggestedKubertRationalFactorsTests.coset_sum_is_not_average` (non-example): The rational sum over X₃(6) has coefficient1 at both1 and5. It is the full sum before dividing by its cardinality2.
+- `SuggestedKubertRationalFactorsTests.coset_sum_at_two` (degenerate): At level2 the local coset has one unit and its rational sum is the group-ring identity.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### Coefficients of the actual local coset sum
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-sum-coeff` — `DirichletPadic.kubertRationalPrimeCosetSum_coeff`
+
+The coefficient of s(X_p(N)) at u is1 if u lies in X_p(N), and0 otherwise.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Evaluate the two native coefficient equivalences in the construction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-sum`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalPrimeCosetSum_coeff_typed_api` (compatibility): The coefficient of s(X_p(N)) at u is1 if u lies in X_p(N), and0 otherwise.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The unnormalized local coset sum is nonzero
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-sum-nonzero` — `DirichletPadic.kubertRationalPrimeCosetSum_nonzero`
+
+The rational group-ring element s(X_p(N)) is nonzero.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. If the element were zero, evaluate its coefficient at λ_N,p.
+2. The constructed unit belongs to the coset, so the coefficient formula gives1.
+3. This contradicts the zero coefficient of the zero group-ring element over the rationals.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-sum-coeff`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-translation-mem`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalPrimeCosetSum_nonzero_typed_api` (compatibility): The rational group-ring element s(X_p(N)) is nonzero.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The normalized local rational correction factor
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-factor` — `DirichletPadic.kubertRationalPrimeFactor`
+
+Construct ε_p(N)=1−s(X_p(N))/|X_p(N)| in the actual rational Cartan group ring. The identity is its actual identity basis vector, and the denominator is the actual nonzero coset cardinality.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Use the proved positive coset cardinality.
+2. Scale the full coset sum by the inverse of its cardinality embedded in the rationals.
+3. Subtract that normalized sum from the actual group-ring identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-sum`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-card-pos`.
+
+**Uses:**
+
+- Kubert194, equations4.3–4.5: Builds the exact local inverse-coordinate cosets and rational factors in the corrected product, with original primitive points and Cartan units.
+- Kubert198, equation4.12 and its translating-unit argument: Supplies the constructed local kernel, its coset translate and normalized complementary element used by the rational-span proof. The integral local lattice and spanning theorem remain to be constructed and proved.
+
+**API:**
+
+- `kubertRationalPrimeFactor_coeff` (characterisation): At an original unit u, the coefficient of ε_p(N) is the indicator of u=1 minus the indicator of u in X_p(N) divided by |X_p(N)|.
+- `kubertRationalPrimeFactor_complement` (compatibility): Adding s(X_p(N))/|X_p(N)| to ε_p(N) gives the actual group-ring identity.
+- `kubertRationalPrimeFactor_normalization` (compatibility): Multiplying1−ε_p(N) by the rational scalar |X_p(N)| recovers s(X_p(N)).
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.factor_two_at_six` (computation): The2-local factor at level6 is1 minus the basis vector at5.
+- `SuggestedKubertRationalFactorsTests.factor_three_at_six` (computation): The3-local factor at level6 is one half of1 minus the basis vector at5, with the actual cardinality2 normalization.
+- `SuggestedKubertRationalFactorsTests.factor_can_vanish` (degenerate): At level2 the local factor is zero. Nonempty cosets ensure a nonzero denominator but do not ensure a nonzero correction factor.
+- `SuggestedKubertRationalFactorsTests.factor_is_not_generally_idempotent` (non-example): The2-local factor at level6 squares to twice itself and is not idempotent; the translated coset cannot be replaced by a subgroup average.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The correction factor and coset average sum to one
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-factor-complement` — `DirichletPadic.kubertRationalPrimeFactor_complement`
+
+Adding s(X_p(N))/|X_p(N)| to ε_p(N) gives the actual group-ring identity.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Unfold the correction factor and cancel subtraction with addition in the native additive group.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-factor`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalPrimeFactor_complement_typed_api` (compatibility): Adding s(X_p(N))/|X_p(N)| to ε_p(N) gives the actual group-ring identity.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### Clearing the genuine coset denominator
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-factor-normalization` — `DirichletPadic.kubertRationalPrimeFactor_normalization`
+
+Multiplying1−ε_p(N) by the rational scalar |X_p(N)| recovers s(X_p(N)).
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Positive actual cardinality gives a nonzero rational denominator.
+2. Unfold ε_p(N) and cancel the two subtractions.
+3. Use scalar associativity and cancellation of the nonzero cardinality with its inverse.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-factor`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-card-pos`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalPrimeFactor_normalization_typed_api` (compatibility): Multiplying1−ε_p(N) by the rational scalar |X_p(N)| recovers s(X_p(N)).
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### Exact coefficients of the local correction factor
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-factor-coeff` — `DirichletPadic.kubertRationalPrimeFactor_coeff`
+
+At an original unit u, the coefficient of ε_p(N) is the indicator of u=1 minus the indicator of u in X_p(N) divided by |X_p(N)|.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Use native coefficient formulas for subtraction and scalar multiplication.
+2. Evaluate the full coset sum by its actual membership formula.
+3. The group-ring identity has coefficient1 only at the identity unit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-factor`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-sum-coeff`, `mathlib:MonoidAlgebra.coeff_sub`, `mathlib:MonoidAlgebra.coeff_smul_apply`, `mathlib:Finsupp.single_apply`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalPrimeFactor_coeff_typed_api` (compatibility): At an original unit u, the coefficient of ε_p(N) is the indicator of u=1 minus the indicator of u in X_p(N) divided by |X_p(N)|.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The corrected rational Cartan value
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-cartan-value` — `DirichletPadic.kubertRationalCartanValue`
+
+For an actual point a of the one-coordinate rational torus killed by N, construct r_N(a)=s(X_N(a)) times the product of ε_p(N) over those prime divisors p of N that divide the actual additive order of a. The raw primitive sum is the previously constructed element on the original Cartan carrier. The order divides N, so this is the source product over primes dividing the order.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Use the existing actual Cartan primitive-fiber sum.
+2. For each prime divisor of N, choose ε_p(N) if the prime divides the actual order of a, and1 otherwise.
+3. Multiply these factors in the native rational group ring and multiply the result by the raw primitive sum.
+4. Use the already proved order-divisibility statement to identify the index condition with the corrected source product. This constructs the element only; its general distribution and transition laws require further proof.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-factor`, `DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum`, `DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd`.
+
+**Uses:**
+
+- Kubert194, equations4.3–4.5: Builds the exact local inverse-coordinate cosets and rational factors in the corrected product, with original primitive points and Cartan units.
+- Kubert198, equation4.12 and its translating-unit argument: Supplies the constructed local kernel, its coset translate and normalized complementary element used by the rational-span proof. The integral local lattice and spanning theorem remain to be constructed and proved.
+
+**API:**
+
+- `kubertRationalCartanValue_zero` (compatibility): For the original zero point, r_N(0)=s(X_N(0)); every actual Cartan unit therefore has coefficient1.
+- `kubertRationalCartanValue_primitive` (compatibility): For an original Cartan unit u, take its established corresponding primitive point a of order N. Then r_N(a) equals the unit basis vector [u] times the product of ε_p(N) over every prime divisor p of N.
+- `kubertRationalCartanValue_level_one` (compatibility): At level1 the rational value at the original zero point equals the actual group-ring identity.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rational_value_empty_product` (degenerate): At level1 the corrected rational value at0 is1, detecting the empty product rather than the printed empty sum.
+- `SuggestedKubertRationalFactorsTests.rational_value_primitive_six` (computation): At level6 the primitive point1/6 has corrected value1 minus the unit5 basis vector; a sum of local factors would give three halves of that difference.
+- `SuggestedKubertRationalFactorsTests.rational_value_half_at_two` (non-example): The corrected rational value at1/2 at level2 is0, whereas its raw primitive-fiber sum is1. The local factor is essential.
+- `SuggestedKubertRationalFactorsTests.rational_value_half_at_six` (computation): At level6 the order-two point1/2 has corrected rational value0; its raw sum has both primitive unit basis vectors.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The rational value at zero keeps the full primitive sum
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-cartan-value-zero` — `DirichletPadic.kubertRationalCartanValue_zero`
+
+For the original zero point, r_N(0)=s(X_N(0)); every actual Cartan unit therefore has coefficient1.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. The zero point has additive order1.
+2. No prime divisor of N divides1, so every factor chosen in the defining finite product is1.
+3. Apply the native product-of-ones identity and the existing raw zero-point coefficient formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-cartan-value`, `DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-zero`, `mathlib:Finset.prod_eq_one`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalCartanValue_zero_typed_api` (compatibility): For the original zero point, r_N(0)=s(X_N(0)); every actual Cartan unit therefore has coefficient1.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The rational value at an actual primitive Cartan point
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-cartan-value-primitive` — `DirichletPadic.kubertRationalCartanValue_primitive`
+
+For an original Cartan unit u, take its established corresponding primitive point a of order N. Then r_N(a) equals the unit basis vector [u] times the product of ε_p(N) over every prime divisor p of N.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. The existing primitive-point formula identifies the raw primitive sum with [u].
+2. The corresponding actual point has order N.
+3. Every prime factor of N divides that order, so every selected factor is ε_p(N).
+4. Use finite-product congruence to replace the factors.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-cartan-value`, `DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-primitive`, `mathlib:Finset.prod_congr`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalCartanValue_primitive_typed_api` (compatibility): For an original Cartan unit u, take its established corresponding primitive point a of order N. Then r_N(a) equals the unit basis vector [u] times the product of ε_p(N) over every prime divisor p of N.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+### The corrected rational value has unit-level normalization
+
+`DirichletPadicLFunctions:L3/kubert-rational-factors-rational-cartan-value-level-one` — `DirichletPadic.kubertRationalCartanValue_level_one`
+
+At level1 the rational value at the original zero point equals the actual group-ring identity.
+
+**Hypotheses:** The degree is one and N is positive. The carrier U(1,N) is the original product, over actual prime divisors p of N, of units in the truncated-Witt ring of length v_p(N) over the degree-one finite Galois field. No substitute carrier or assumed local torsor is supplied. C_N denotes the actual multiplicative equivalence from this original carrier to the product of residue-unit groups modulo q raised to v_q(N), constructed using the established finite Cartan comparison and native Chinese remainder equivalence. A local index p is an actual prime divisor of N. The subgroup K_p(N) imposes identity at every coordinate q distinct from p. The source coset X_p(N) instead imposes p times the q-coordinate equal to1. Its p-coordinate is unrestricted. All group-ring coefficients are rational. The source sum s(X_p(N)) has coefficient1 at each coset element; only the correction factor divides this sum by the actual positive cardinality. Multiplication of group-ring elements is convolution. The new full rational value is a constructed element using the corrected product in source equation4.5. This checkpoint proves its zero and primitive specializations, but no general distribution relation, full-norm compatibility, rational-span or source-freeness theorem. Generic finite Galois-ring theory remains with FF.4.
+
+**Proof:**
+
+1. Use the zero-point formula to reduce to the raw primitive sum.
+2. Every coefficient of that sum is1.
+3. The actual level-one Cartan group has only the identity unit, so the identity group-ring coefficient is also1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-cartan-value-zero`, `DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-zero`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-unit-level`, `mathlib:MonoidAlgebra.coeff_one_one`.
+
+**Tests:**
+
+- `SuggestedKubertRationalFactorsTests.rationalCartanValue_level_one_typed_api` (compatibility): At level1 the rational value at the original zero point equals the actual group-ring identity.
+
+**Acceptance:** At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum.
+
+**Source:** Published194, equations4.3–4.5 and the product immediately following4.6; published198, the local lattice4.12 and the translating-unit argument after it. Source findingE27 records the sum/product correction, cross-checked with the published companion206, equation1.9. Constructs the actual degree-one local coset and the translating unit used in the rational-span argument, then the unnormalized basis sum, its genuine positive-cardinality normalization, and the corrected product defining the rational value. The source distribution and spanning proofs are subsequent obligations.
+
+**Remaining:** The actual degree-one local cosets, constructed translating units, positive cardinalities, rational coset sums and normalized correction factors now define the corrected full product r_N(a), with zero, primitive and unit-level APIs. The general distribution law and compatibility with the original nonunital full-fiber norms are not yet proved. Next construct the integral local lattices from actual kernel sums and these factors, prove their rational span and the source image/product comparison, and complete the distribution and norm proofs. Source freeness, lower rank, internal-to-global injection, character components, general-degree Cartan coordinates and unramified-ring identification remain open.
+
+### Actual local cosets and rational correction factors validation
+
+All 2039 predecessor nodes, 1239 baseline records, 27 findings, requests and sourceVersions remain whole. This checkpoint adds 23 nodes, 23 named suggested declarations and 39 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2324 reachable nodes, 9454 edges and 1418 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route ends in the original actual Cartan carrier and finite comparison, actual primitive-fiber sum and order divisibility, or checked native CRT, coprimality, subgroup, finiteness and group-ring interfaces. No assumed translating unit, coset cardinality, distribution law, rank or freeness package is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3915 pinned Mathlib modules and 32 pinned Tau Ceti modules. Only 31 Tau module artifacts are available and hash-verified. The 152 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The native probe retains5773 verbatim and adds seven complete constructions and sixteen complete lemmas. Totals are179 definitions and1,358 lemmas with no placeholders. The public append has23 named declarations and39 typed examples, all new mathematical bodies placeholders. No native import or library build is added. The separate probe compiles against 3282 pinned Mathlib modules and 10 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native periodicity, low-degree Tate and Teichmuller artifacts, with ten Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact controls on60 levels verify96 constructed translations,176 primary coordinates,96 positive coset cardinalities,1,699 kernel/coset memberships and normalization coefficients, and1,102 zero coefficients and primitive rational values. Separate finite controls still pass1,196 distribution relations and4,286 full-norm coefficients through level24; they do not constitute general native proofs of those laws. Exact rational arithmetic on actual cyclic unit groups and their primary residue coordinates through level60 checks CRT bijections, constructed translating units, off-prime kernel/coset membership, positive cardinalities, unnormalized coset sums, normalization and zero/primitive rational values. Full corrected-product internal distribution and original norm controls through level24 are finite checks only, not a general native proof. Explicit cases distinguish cosets from subgroups and nonzero denominators from nonzero or idempotent factors. The largest observed discrepancy is 0.
+
+The fresh capture changes only the source-issue registry and its generated register by incorporating our merged E27. All9126old records and all other registry metadata remain whole. The projected E27 fields match the merged source finding exactly. The generated already-corrected count rises1,244→1,245 because the known field cites the published product restatement; this is not an independent review verdict, and the record remains awaiting review with no reviewer. All77other inputs, four merged predecessor outputs and whole issue body are unchanged. Before deliverable edits a further register-only update added AlgebraicModuliForArithmeticGeometry/E6. All 9127 prior rows and other metadata were preserved. The new row is awaiting review, outside this checkpoint’s dependencies and not adopted. The generated already-corrected count changed1245→1246; this is not an independent-review verdict. The complete two-file diff was read.
+
+The separate partial signature file also compiled with zero errors and 6,072 expected placeholder warnings across 3,914 pinned source modules. It includes all 23 new named declarations and 39 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2c9a40e11f46b6c5e90dbf70bccbe6fb7d2134536e1d97c6187c8977a28802dc.
