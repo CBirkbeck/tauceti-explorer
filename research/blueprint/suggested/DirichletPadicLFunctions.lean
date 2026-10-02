@@ -1,3 +1,5 @@
+import Mathlib.Algebra.Module.Torsion.Basic
+import Mathlib.Algebra.Module.Submodule.Equiv
 import Mathlib.Algebra.Group.Torsion
 import TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree
 import Mathlib.RepresentationTheory.Homological.FiniteCyclic
@@ -29067,3 +29069,207 @@ example [IsAddTorsionFree (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)]
     y ∈ LinearMap.range (kubertSignTateNegOneToParity S w) := by sorry
 
 end DirichletPadic.SuggestedKubertParityDescentTests
+
+/- Actual conditional integral and binary-field torsion comparisons. -/
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic
+variable {X : Type} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+variable [IsAddTorsionFree (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)]
+
+lemma kubertSignTateZero_range_eq_torsion :
+    LinearMap.range (kubertSignTateZeroToParity (X := X) S w)=(Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (-1))) := by sorry
+
+noncomputable def kubertSignTateZeroTorsionEquiv : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (0) ≃ₗ[ℤ] (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (-1))) := by sorry
+
+lemma kubertSignTateZeroTorsionEquiv_coe (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (0)) :
+    (kubertSignTateZeroTorsionEquiv S w x).val=kubertSignTateZeroToParity S w x := by sorry
+
+lemma kubertSignTateZeroTorsionEquiv_class (z : (LinearMap.ker (kubertParityOperator (X := X) S w (1)).toIntLinearMap)) :
+    (kubertSignTateZeroTorsionEquiv S w (kubertSignTateZeroClass S w z)).val=
+      QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (-1)) z.val := by sorry
+
+lemma kubertSignTateZeroTorsionEquiv_symm_coe (y : (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (-1)))) :
+    kubertSignTateZeroToParity S w ((kubertSignTateZeroTorsionEquiv S w).symm y)=y.val := by sorry
+
+lemma kubertOddParityTorsion_two_nsmul (y : (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (-1)))) : 2 • y=0 := by sorry
+
+lemma kubertSignTateNegOne_range_eq_torsion :
+    LinearMap.range (kubertSignTateNegOneToParity (X := X) S w)=(Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (1))) := by sorry
+
+noncomputable def kubertSignTateNegOneTorsionEquiv : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (-1) ≃ₗ[ℤ] (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (1))) := by sorry
+
+lemma kubertSignTateNegOneTorsionEquiv_coe (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (-1)) :
+    (kubertSignTateNegOneTorsionEquiv S w x).val=kubertSignTateNegOneToParity S w x := by sorry
+
+lemma kubertSignTateNegOneTorsionEquiv_class (z : (LinearMap.ker (kubertParityOperator (X := X) S w (-1)).toIntLinearMap)) :
+    (kubertSignTateNegOneTorsionEquiv S w (kubertSignTateNegOneClass S w z)).val=
+      QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (1)) z.val := by sorry
+
+lemma kubertSignTateNegOneTorsionEquiv_symm_coe (y : (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (1)))) :
+    kubertSignTateNegOneToParity S w ((kubertSignTateNegOneTorsionEquiv S w).symm y)=y.val := by sorry
+
+lemma kubertEvenParityTorsion_two_nsmul (y : (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (1)))) : 2 • y=0 := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic
+variable {X : Type} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+variable [IsAddTorsionFree (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)]
+
+noncomputable def kubertSignTateZeroTorsionZModEquiv :
+    (let _ := AddCommGroup.zmodModule (kubertSignTateZero_two_nsmul (X := X) S w)
+    let _ := AddCommGroup.zmodModule (kubertOddParityTorsion_two_nsmul (X := X) S w)
+    tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (0) ≃ₗ[ZMod 2] (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (-1)))) := by sorry
+
+lemma kubertSignTateZeroTorsionZModEquiv_coe (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (0)) :
+    (kubertSignTateZeroTorsionZModEquiv S w x).val=kubertSignTateZeroToParity S w x := by sorry
+
+lemma kubertSignTateZeroTorsionZModEquiv_class (z : (LinearMap.ker (kubertParityOperator (X := X) S w (1)).toIntLinearMap)) :
+    (kubertSignTateZeroTorsionZModEquiv S w (kubertSignTateZeroClass S w z)).val=
+      QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (-1)) z.val := by sorry
+
+lemma kubertSignTateZeroTorsionZModEquiv_symm_coe (y : (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (-1)))) :
+    kubertSignTateZeroToParity S w ((kubertSignTateZeroTorsionZModEquiv S w).symm y)=y.val := by sorry
+
+noncomputable def kubertSignTateNegOneTorsionZModEquiv :
+    (let _ := AddCommGroup.zmodModule (kubertSignTateNegOne_two_nsmul (X := X) S w)
+    let _ := AddCommGroup.zmodModule (kubertEvenParityTorsion_two_nsmul (X := X) S w)
+    tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (-1) ≃ₗ[ZMod 2] (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (1)))) := by sorry
+
+lemma kubertSignTateNegOneTorsionZModEquiv_coe (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (-1)) :
+    (kubertSignTateNegOneTorsionZModEquiv S w x).val=kubertSignTateNegOneToParity S w x := by sorry
+
+lemma kubertSignTateNegOneTorsionZModEquiv_class (z : (LinearMap.ker (kubertParityOperator (X := X) S w (-1)).toIntLinearMap)) :
+    (kubertSignTateNegOneTorsionZModEquiv S w (kubertSignTateNegOneClass S w z)).val=
+      QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (1)) z.val := by sorry
+
+lemma kubertSignTateNegOneTorsionZModEquiv_symm_coe (y : (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (1)))) :
+    kubertSignTateNegOneToParity S w ((kubertSignTateNegOneTorsionZModEquiv S w).symm y)=y.val := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertTorsionComparisonTests
+open scoped Classical BigOperators
+noncomputable section
+-- integral_odd_fixed_generator_detected
+example [IsAddTorsionFree (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0)]: ((kubertSignTateZeroTorsionEquiv (X := ZMod 5) (∅ : Set ℕ+) 0) ((kubertSignTateZeroClass (X := ZMod 5) (∅ : Set ℕ+) 0) ⟨(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5))), by sorry⟩)).val=(QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5)))) ∧ ((kubertSignTateZeroTorsionEquiv (X := ZMod 5) (∅ : Set ℕ+) 0) ((kubertSignTateZeroClass (X := ZMod 5) (∅ : Set ℕ+) 0) ⟨(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5))), by sorry⟩)).val≠0 := by sorry
+-- integral_odd_norm_boundary_zero
+example [IsAddTorsionFree (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0)]: (kubertSignTateZeroTorsionEquiv (X := ZMod 5) (∅ : Set ℕ+) 0) ((kubertSignTateZeroClass (X := ZMod 5) (∅ : Set ℕ+) 0) ⟨(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5)))+(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5))), by sorry⟩)=0 := by sorry
+-- integral_odd_inverse_preserves_torsion_element
+example [IsAddTorsionFree (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0)](y : (Submodule.torsion ℤ ((FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) ⧸ kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (-1)))) : ((kubertSignTateZeroTorsionEquiv (X := ZMod 5) (∅ : Set ℕ+) 0) ((kubertSignTateZeroTorsionEquiv (X := ZMod 5) (∅ : Set ℕ+) 0).symm y)).val=y.val := by sorry
+-- binary_odd_fixed_generator_detected
+example [IsAddTorsionFree (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0)]: ((kubertSignTateZeroTorsionZModEquiv (X := ZMod 5) (∅ : Set ℕ+) 0) ((kubertSignTateZeroClass (X := ZMod 5) (∅ : Set ℕ+) 0) ⟨(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5))), by sorry⟩)).val=(QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5)))) ∧ ((kubertSignTateZeroTorsionZModEquiv (X := ZMod 5) (∅ : Set ℕ+) 0) ((kubertSignTateZeroClass (X := ZMod 5) (∅ : Set ℕ+) 0) ⟨(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5))), by sorry⟩)).val≠0 := by sorry
+-- binary_odd_norm_boundary_zero
+example [IsAddTorsionFree (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0)]: (kubertSignTateZeroTorsionZModEquiv (X := ZMod 5) (∅ : Set ℕ+) 0) ((kubertSignTateZeroClass (X := ZMod 5) (∅ : Set ℕ+) 0) ⟨(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5)))+(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5))), by sorry⟩)=0 := by sorry
+-- binary_odd_binary_scalar_compatibility
+example [IsAddTorsionFree (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0)](c : ZMod 2) (x : tateCohomology (Rep.of (kubertSignRepresentation (X := ZMod 5) (∅ : Set ℕ+) 0)) (0)) : let _ := AddCommGroup.zmodModule (kubertSignTateZero_two_nsmul (X := ZMod 5) (∅ : Set ℕ+) 0); let _ := AddCommGroup.zmodModule (kubertOddParityTorsion_two_nsmul (X := ZMod 5) (∅ : Set ℕ+) 0); (kubertSignTateZeroTorsionZModEquiv (X := ZMod 5) (∅ : Set ℕ+) 0) (c • x)=c • (kubertSignTateZeroTorsionZModEquiv (X := ZMod 5) (∅ : Set ℕ+) 0) x := by sorry
+-- integral_even_nonzero_antisymmetric_boundary
+example [IsAddTorsionFree (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0)]: (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5)))≠0 ∧ (kubertSignTateNegOneTorsionEquiv (X := ZMod 5) (∅ : Set ℕ+) 0) ((kubertSignTateNegOneClass (X := ZMod 5) (∅ : Set ℕ+) 0) ⟨(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5))), by sorry⟩)=0 := by sorry
+-- integral_even_free_even_torsion_zero
+example [IsAddTorsionFree (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0)](y : (Submodule.torsion ℤ ((FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) ⧸ kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (1)))) : (kubertSignTateNegOneTorsionEquiv (X := ZMod 5) (∅ : Set ℕ+) 0).symm y=0 := by sorry
+-- integral_even_inverse_preserves_torsion_element
+example [IsAddTorsionFree (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0)](y : (Submodule.torsion ℤ ((FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) ⧸ kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (1)))) : ((kubertSignTateNegOneTorsionEquiv (X := ZMod 5) (∅ : Set ℕ+) 0) ((kubertSignTateNegOneTorsionEquiv (X := ZMod 5) (∅ : Set ℕ+) 0).symm y)).val=y.val := by sorry
+-- binary_even_nonzero_antisymmetric_boundary
+example [IsAddTorsionFree (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0)]: (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5)))≠0 ∧ (kubertSignTateNegOneTorsionZModEquiv (X := ZMod 5) (∅ : Set ℕ+) 0) ((kubertSignTateNegOneClass (X := ZMod 5) (∅ : Set ℕ+) 0) ⟨(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5))), by sorry⟩)=0 := by sorry
+-- binary_even_free_even_torsion_zero
+example [IsAddTorsionFree (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0)](y : (Submodule.torsion ℤ ((FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) ⧸ kubertParityRelations (X := ZMod 5) (∅ : Set ℕ+) 0 (1)))) : (kubertSignTateNegOneTorsionZModEquiv (X := ZMod 5) (∅ : Set ℕ+) 0).symm y=0 := by sorry
+-- binary_even_binary_scalar_compatibility
+example [IsAddTorsionFree (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0)](c : ZMod 2) (x : tateCohomology (Rep.of (kubertSignRepresentation (X := ZMod 5) (∅ : Set ℕ+) 0)) (-1)) : let _ := AddCommGroup.zmodModule (kubertSignTateNegOne_two_nsmul (X := ZMod 5) (∅ : Set ℕ+) 0); let _ := AddCommGroup.zmodModule (kubertEvenParityTorsion_two_nsmul (X := ZMod 5) (∅ : Set ℕ+) 0); (kubertSignTateNegOneTorsionZModEquiv (X := ZMod 5) (∅ : Set ℕ+) 0) (c • x)=c • (kubertSignTateNegOneTorsionZModEquiv (X := ZMod 5) (∅ : Set ℕ+) 0) x := by sorry
+end
+end DirichletPadic.SuggestedKubertTorsionComparisonTests
+namespace DirichletPadic.SuggestedKubertTorsionComparisonTests
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic
+variable {X : Type} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+variable [IsAddTorsionFree (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)]
+
+-- signTateZero_range_eq_torsion_typed_api
+example :
+    LinearMap.range (kubertSignTateZeroToParity (X := X) S w)=(Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (-1))) := by sorry
+
+-- signTateZeroTorsionEquiv_coe_typed_api
+example (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (0)) :
+    (kubertSignTateZeroTorsionEquiv S w x).val=kubertSignTateZeroToParity S w x := by sorry
+
+-- signTateZeroTorsionEquiv_class_typed_api
+example (z : (LinearMap.ker (kubertParityOperator (X := X) S w (1)).toIntLinearMap)) :
+    (kubertSignTateZeroTorsionEquiv S w (kubertSignTateZeroClass S w z)).val=
+      QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (-1)) z.val := by sorry
+
+-- signTateZeroTorsionEquiv_symm_coe_typed_api
+example (y : (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (-1)))) :
+    kubertSignTateZeroToParity S w ((kubertSignTateZeroTorsionEquiv S w).symm y)=y.val := by sorry
+
+-- oddParityTorsion_two_nsmul_typed_api
+example (y : (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (-1)))) : 2 • y=0 := by sorry
+
+-- signTateNegOne_range_eq_torsion_typed_api
+example :
+    LinearMap.range (kubertSignTateNegOneToParity (X := X) S w)=(Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (1))) := by sorry
+
+-- signTateNegOneTorsionEquiv_coe_typed_api
+example (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (-1)) :
+    (kubertSignTateNegOneTorsionEquiv S w x).val=kubertSignTateNegOneToParity S w x := by sorry
+
+-- signTateNegOneTorsionEquiv_class_typed_api
+example (z : (LinearMap.ker (kubertParityOperator (X := X) S w (-1)).toIntLinearMap)) :
+    (kubertSignTateNegOneTorsionEquiv S w (kubertSignTateNegOneClass S w z)).val=
+      QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (1)) z.val := by sorry
+
+-- signTateNegOneTorsionEquiv_symm_coe_typed_api
+example (y : (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (1)))) :
+    kubertSignTateNegOneToParity S w ((kubertSignTateNegOneTorsionEquiv S w).symm y)=y.val := by sorry
+
+-- evenParityTorsion_two_nsmul_typed_api
+example (y : (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (1)))) : 2 • y=0 := by sorry
+
+end DirichletPadic.SuggestedKubertTorsionComparisonTests
+
+namespace DirichletPadic.SuggestedKubertTorsionComparisonTests
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic
+variable {X : Type} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+variable [IsAddTorsionFree (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)]
+
+-- signTateZeroTorsionZModEquiv_coe_typed_api
+example (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (0)) :
+    (kubertSignTateZeroTorsionZModEquiv S w x).val=kubertSignTateZeroToParity S w x := by sorry
+
+-- signTateZeroTorsionZModEquiv_class_typed_api
+example (z : (LinearMap.ker (kubertParityOperator (X := X) S w (1)).toIntLinearMap)) :
+    (kubertSignTateZeroTorsionZModEquiv S w (kubertSignTateZeroClass S w z)).val=
+      QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (-1)) z.val := by sorry
+
+-- signTateZeroTorsionZModEquiv_symm_coe_typed_api
+example (y : (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (-1)))) :
+    kubertSignTateZeroToParity S w ((kubertSignTateZeroTorsionZModEquiv S w).symm y)=y.val := by sorry
+
+-- signTateNegOneTorsionZModEquiv_coe_typed_api
+example (x : tateCohomology (Rep.of (kubertSignRepresentation (X := X) S w)) (-1)) :
+    (kubertSignTateNegOneTorsionZModEquiv S w x).val=kubertSignTateNegOneToParity S w x := by sorry
+
+-- signTateNegOneTorsionZModEquiv_class_typed_api
+example (z : (LinearMap.ker (kubertParityOperator (X := X) S w (-1)).toIntLinearMap)) :
+    (kubertSignTateNegOneTorsionZModEquiv S w (kubertSignTateNegOneClass S w z)).val=
+      QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (1)) z.val := by sorry
+
+-- signTateNegOneTorsionZModEquiv_symm_coe_typed_api
+example (y : (Submodule.torsion ℤ ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w (1)))) :
+    kubertSignTateNegOneToParity S w ((kubertSignTateNegOneTorsionZModEquiv S w).symm y)=y.val := by sorry
+
+end DirichletPadic.SuggestedKubertTorsionComparisonTests
