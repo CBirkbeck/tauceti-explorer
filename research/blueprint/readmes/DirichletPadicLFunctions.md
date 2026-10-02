@@ -58853,3 +58853,440 @@ Exact integer controls check48cyclic groups,13,720signed vectors,72fixed-generat
 Two generated guarded files changed; their entire diff was read. Four AlgebraicModuliForArithmeticGeometry source records E1–E4 were added, covering an incomplete raw-cocycle inverse exercise, implication labels for fundamental gerbes, the test-scheme base of a descended torsor, and fpqc versus fppf wording. All 9110 prior records and all other metadata remain unchanged. The records are awaiting review; their qualified known strings place them in the generated register section already corrected in print, whose count changes1232to1236. These records lie outside this route and are neither adopted nor independently reviewed. All other77inputs, four predecessor outputs and the full issue body are unchanged.
 
 The separate partial signature file also compiled with zero errors and 5,809 expected placeholder warnings across 3,910 pinned source modules. It includes all 16 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 53f59362f3e82d2b4055cc35cc20f1ef51c7cc75d91f2496659b4b094b511f2f.
+
+
+## Native Tate embeddings into the original parity quotients
+
+Sixteen L3 nodes construct actual injective Tate maps into the source parity quotients, prove their exact images and annihilation by2, and detect a nonzero ordinary degree-zero Tate class. All1,953predecessor nodes and1,221baseline records remain whole.
+
+Kubert published199–200 and the retained E25 were reread for the exact source quotient and torsion comparison. The actual source parity carrier and detector from5411, parity image identity from5741, and concrete native Tate classes from5751 are reused. Three native linear quotient declarations were read in full; the native submodule quotient is definitionally the underlying additive-subgroup quotient. The new constructions preserve the exact original source parity quotient. No source freeness, torsion classification, generic Tate theory or independent errata review is asserted.
+
+### The actual degree-zero Tate embedding into the odd quotient
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity` — `DirichletPadic.kubertSignTateZeroToParity`
+
+Construct an integer-linear map from native degree-zero Tate cohomology of the actual point action to the original odd source quotient. Under the existing concrete comparison, it sends the class of z in ker(d_even) to the class of the underlying element z in Q/im(d_odd).
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. Restrict the original parity quotient map, reinterpreted as an integer-linear map, to the actual kernel of the opposite parity operator.
+2. The restricted image submodule lies in its kernel: the previously proved equality between the parity operator image and the original relation subgroup turns every actual boundary into a zero source quotient class.
+3. Use the existing native linear quotient lift on this exact restricted boundary submodule.
+4. Compose the lifted map with the existing concrete Tate equivalence. Every carrier and quotient map is the original one.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-equiv`, `DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-range`, `DirichletPadicLFunctions:L3/kubert-parity-relations`, `mathlib:QuotientGroup.eq_one_iff`, `mathlib:AddMonoidHom.toIntLinearMap`, `mathlib:Submodule.subtype`, `mathlib:Submodule.liftQ`, `mathlib:LinearMap.comp`.
+
+**Uses:**
+
+- Kubert199–200, Corollary4.15(iii): Makes the source representative-to-parity-quotient comparison an actual injective map and identifies its image before the extra torsion-freeness argument.
+- Integral parity examples and nontrivial ordinary Tate classes: Transports actual fixed or anti-invariant representatives to the source quotients while retaining the zero-labelled generator and its modulo2 detector.
+
+**API:**
+
+- `kubertSignTateZeroToParity_class` (compatibility): The embedding sends the native Tate class of an actual z in ker(d_even) to the original odd quotient class of z itself.
+- `kubertSignTateZeroToParity_injective` (compatibility): The actual map from native degree-zero Tate cohomology into the source odd quotient is injective.
+- `kubertSignTateZeroToParity_range` (compatibility): An actual element y of the source odd quotient belongs to the image of the Tate embedding if and only if some actual z in ker(d_even) has source quotient class equal to y.
+- `kubertSignTateZeroToParity_two_nsmul` (compatibility): For every native degree-zero Tate class x, twice its actual image in the original odd parity quotient is zero.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.fixed_zero_maps_to_nonzero_odd_class` (computation): The actual degree-zero Tate class of the zero-labelled generator maps to that generator in the original odd quotient and stays nonzero.
+- `SuggestedKubertTateParityEmbeddingTests.odd_free_orbit_not_in_tate_image` (non-example): The odd-quotient class[1] has infinite order in the empty-relation ZMod5 example, so it is not in the image of the degree-zero Tate map. The embedding is not surjective onto the whole odd quotient.
+- `SuggestedKubertTateParityEmbeddingTests.two_point_norm_maps_to_zero` (compatibility): The fixed norm representative[1]+[4] has zero image in the original odd quotient.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+### The degree-zero embedding retains its representative
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity-class` — `DirichletPadic.kubertSignTateZeroToParity_class`
+
+The embedding sends the native Tate class of an actual z in ker(d_even) to the original odd quotient class of z itself.
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. Expand the actual composition while retaining the proof that the restricted image is killed.
+2. Use the established concrete comparison evaluation on a Tate representative.
+3. The native quotient lift and subtype map evaluate to the original parity quotient map.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-equiv-class`, `mathlib:Submodule.liftQ_apply`, `mathlib:Submodule.subtype`.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.signTateZeroToParity_class_typed_api` (compatibility): The embedding sends the native Tate class of an actual z in ker(d_even) to the original odd quotient class of z itself.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+### The degree-zero map into the original quotient is injective
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity-injective` — `DirichletPadic.kubertSignTateZeroToParity_injective`
+
+The actual map from native degree-zero Tate cohomology into the source odd quotient is injective.
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. Represent both native Tate inputs by actual opposite-parity kernel elements using the proved representative-map surjectivity.
+2. Equality of their source parity images means that their difference belongs to the original parity relation subgroup.
+3. Replace that subgroup with the actual image of the parity operator.
+4. The proved native Tate representative equality criterion gives equality of the original Tate inputs.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity-class`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class-surjective`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class-eq-iff`, `DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-range`, `mathlib:QuotientGroup.eq_one_iff`.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.signTateZeroToParity_injective_typed_api` (compatibility): The actual map from native degree-zero Tate cohomology into the source odd quotient is injective.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+### Exact image criterion for the degree-zero embedding
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity-range` — `DirichletPadic.kubertSignTateZeroToParity_range`
+
+An actual element y of the source odd quotient belongs to the image of the Tate embedding if and only if some actual z in ker(d_even) has source quotient class equal to y.
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. For an image element, choose an actual kernel representative of its Tate preimage and use representative evaluation.
+2. Conversely, the native Tate class of the supplied kernel representative maps to the requested source quotient element.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity-class`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class-surjective`, `mathlib:LinearMap.range`.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.signTateZeroToParity_range_typed_api` (compatibility): An actual element y of the source odd quotient belongs to the image of the Tate embedding if and only if some actual z in ker(d_even) has source quotient class equal to y.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+### Every degree-zero representative class is killed by two
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-class-two-nsmul` — `DirichletPadic.kubertSignTateZeroClass_two_nsmul`
+
+Twice the native degree-zero Tate class of every actual representative z in ker(d_even) is zero.
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. Use linearity to express twice the class as the class of twice the representative.
+2. Use the exact class-zero criterion, reducing to membership in the actual opposite parity image.
+3. For a fixed representative, d_odd(z)=2z. For an anti-invariant representative, d_even(−z)=2z. The corresponding concrete witness is therefore an actual boundary.
+4. These identities follow from the actual kernel equation and additive point-negation linearity; no division by2 or freeness hypothesis is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class-eq-zero-iff`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-norm-kernel-iff`, `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-norm-operator`, `DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-apply`.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.signTateZeroClass_two_nsmul_typed_api` (compatibility): Twice the native degree-zero Tate class of every actual representative z in ker(d_even) is zero.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+### The actual degree-zero Tate group is annihilated by two
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-two-nsmul` — `DirichletPadic.kubertSignTateZero_two_nsmul`
+
+Every actual native degree-zero Tate cohomology element x satisfies 2x=0.
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. Choose an actual kernel representative using the previously proved surjectivity.
+2. Apply the representative two-torsion calculation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-class-two-nsmul`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class-surjective`.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.signTateZero_two_nsmul_typed_api` (compatibility): Every actual native degree-zero Tate cohomology element x satisfies 2x=0.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+### The degree-zero image is two-torsion in the original quotient
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity-two-nsmul` — `DirichletPadic.kubertSignTateZeroToParity_two_nsmul`
+
+For every native degree-zero Tate class x, twice its actual image in the original odd parity quotient is zero.
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. The constructed embedding is integer-linear and commutes with multiplication by2.
+2. Use the proved annihilation of the original Tate class and preservation of zero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity`, `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-two-nsmul`.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.signTateZeroToParity_two_nsmul_typed_api` (compatibility): For every native degree-zero Tate class x, twice its actual image in the original odd parity quotient is zero.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+### The actual degree-minus-one Tate embedding into the even quotient
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity` — `DirichletPadic.kubertSignTateNegOneToParity`
+
+Construct an integer-linear map from native degree-minus-one Tate cohomology of the actual point action to the original even source quotient. Under the existing concrete comparison, it sends the class of z in ker(d_odd) to the class of the underlying element z in Q/im(d_even).
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. Restrict the original parity quotient map, reinterpreted as an integer-linear map, to the actual kernel of the opposite parity operator.
+2. The restricted image submodule lies in its kernel: the previously proved equality between the parity operator image and the original relation subgroup turns every actual boundary into a zero source quotient class.
+3. Use the existing native linear quotient lift on this exact restricted boundary submodule.
+4. Compose the lifted map with the existing concrete Tate equivalence. Every carrier and quotient map is the original one.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-equiv`, `DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-range`, `DirichletPadicLFunctions:L3/kubert-parity-relations`, `mathlib:QuotientGroup.eq_one_iff`, `mathlib:AddMonoidHom.toIntLinearMap`, `mathlib:Submodule.subtype`, `mathlib:Submodule.liftQ`, `mathlib:LinearMap.comp`.
+
+**Uses:**
+
+- Kubert199–200, Corollary4.15(iii): Makes the source representative-to-parity-quotient comparison an actual injective map and identifies its image before the extra torsion-freeness argument.
+- Integral parity examples and nontrivial ordinary Tate classes: Transports actual fixed or anti-invariant representatives to the source quotients while retaining the zero-labelled generator and its modulo2 detector.
+
+**API:**
+
+- `kubertSignTateNegOneToParity_class` (compatibility): The embedding sends the native Tate class of an actual z in ker(d_odd) to the original even quotient class of z itself.
+- `kubertSignTateNegOneToParity_injective` (compatibility): The actual map from native degree-minus-one Tate cohomology into the source even quotient is injective.
+- `kubertSignTateNegOneToParity_range` (compatibility): An actual element y of the source even quotient belongs to the image of the Tate embedding if and only if some actual z in ker(d_odd) has source quotient class equal to y.
+- `kubertSignTateNegOneToParity_two_nsmul` (compatibility): For every native degree-minus-one Tate class x, twice its actual image in the original even parity quotient is zero.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.antisymmetric_boundary_maps_to_even_zero` (computation): The nonzero original representative[1]-[4] maps to zero in the even quotient through its negative Tate class.
+- `SuggestedKubertTateParityEmbeddingTests.even_fixed_generator_not_in_tate_image` (non-example): The even-quotient class of the zero-labelled generator has infinite order in the actual empty-relation module, and is not in the negative Tate image.
+- `SuggestedKubertTateParityEmbeddingTests.negative_tate_image_zero_for_free_permutation_module` (degenerate): For the actual integer permutation module on ZMod5, every negative Tate class and its even-quotient image are zero.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+### The degree-minus-one embedding retains its representative
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity-class` — `DirichletPadic.kubertSignTateNegOneToParity_class`
+
+The embedding sends the native Tate class of an actual z in ker(d_odd) to the original even quotient class of z itself.
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. Expand the actual composition while retaining the proof that the restricted image is killed.
+2. Use the established concrete comparison evaluation on a Tate representative.
+3. The native quotient lift and subtype map evaluate to the original parity quotient map.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-equiv-class`, `mathlib:Submodule.liftQ_apply`, `mathlib:Submodule.subtype`.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.signTateNegOneToParity_class_typed_api` (compatibility): The embedding sends the native Tate class of an actual z in ker(d_odd) to the original even quotient class of z itself.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+### The degree-minus-one map into the original quotient is injective
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity-injective` — `DirichletPadic.kubertSignTateNegOneToParity_injective`
+
+The actual map from native degree-minus-one Tate cohomology into the source even quotient is injective.
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. Represent both native Tate inputs by actual opposite-parity kernel elements using the proved representative-map surjectivity.
+2. Equality of their source parity images means that their difference belongs to the original parity relation subgroup.
+3. Replace that subgroup with the actual image of the parity operator.
+4. The proved native Tate representative equality criterion gives equality of the original Tate inputs.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity-class`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class-surjective`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class-eq-iff`, `DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-range`, `mathlib:QuotientGroup.eq_one_iff`.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.signTateNegOneToParity_injective_typed_api` (compatibility): The actual map from native degree-minus-one Tate cohomology into the source even quotient is injective.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+### Exact image criterion for the degree-minus-one embedding
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity-range` — `DirichletPadic.kubertSignTateNegOneToParity_range`
+
+An actual element y of the source even quotient belongs to the image of the Tate embedding if and only if some actual z in ker(d_odd) has source quotient class equal to y.
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. For an image element, choose an actual kernel representative of its Tate preimage and use representative evaluation.
+2. Conversely, the native Tate class of the supplied kernel representative maps to the requested source quotient element.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity-class`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class-surjective`, `mathlib:LinearMap.range`.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.signTateNegOneToParity_range_typed_api` (compatibility): An actual element y of the source even quotient belongs to the image of the Tate embedding if and only if some actual z in ker(d_odd) has source quotient class equal to y.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+### Every degree-minus-one representative class is killed by two
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-class-two-nsmul` — `DirichletPadic.kubertSignTateNegOneClass_two_nsmul`
+
+Twice the native degree-minus-one Tate class of every actual representative z in ker(d_odd) is zero.
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. Use linearity to express twice the class as the class of twice the representative.
+2. Use the exact class-zero criterion, reducing to membership in the actual opposite parity image.
+3. For a fixed representative, d_odd(z)=2z. For an anti-invariant representative, d_even(−z)=2z. The corresponding concrete witness is therefore an actual boundary.
+4. These identities follow from the actual kernel equation and additive point-negation linearity; no division by2 or freeness hypothesis is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class-eq-zero-iff`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-norm-kernel-iff`, `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-norm-operator`, `DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-apply`.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.signTateNegOneClass_two_nsmul_typed_api` (compatibility): Twice the native degree-minus-one Tate class of every actual representative z in ker(d_odd) is zero.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+### The actual degree-minus-one Tate group is annihilated by two
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-two-nsmul` — `DirichletPadic.kubertSignTateNegOne_two_nsmul`
+
+Every actual native degree-minus-one Tate cohomology element x satisfies 2x=0.
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. Choose an actual kernel representative using the previously proved surjectivity.
+2. Apply the representative two-torsion calculation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-class-two-nsmul`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-neg-one-class-surjective`.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.signTateNegOne_two_nsmul_typed_api` (compatibility): Every actual native degree-minus-one Tate cohomology element x satisfies 2x=0.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+### The degree-minus-one image is two-torsion in the original quotient
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity-two-nsmul` — `DirichletPadic.kubertSignTateNegOneToParity_two_nsmul`
+
+For every native degree-minus-one Tate class x, twice its actual image in the original even parity quotient is zero.
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. The constructed embedding is integer-linear and commutes with multiplication by2.
+2. Use the proved annihilation of the original Tate class and preservation of zero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity`, `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-two-nsmul`.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.signTateNegOneToParity_two_nsmul_typed_api` (compatibility): For every native degree-minus-one Tate class x, twice its actual image in the original even parity quotient is zero.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+### The ordinary fixed-generator Tate class is nonzero
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-class-ordinary-zero-ne-zero` — `DirichletPadic.kubertSignTateZeroClass_ordinary_zero_ne_zero`
+
+At weight zero, any element z of the even parity kernel whose underlying element is the original zero-labelled point generator has nonzero native degree-zero Tate class.
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. If its native Tate class were zero, apply the actual embedding into the original odd quotient.
+2. The representative formula and supplied underlying-point equation identify its image with the original odd zero-labelled generator.
+3. That odd generator is already proved nonzero by the actual modulo2 zero-indicator distribution, contradicting the assumed vanishing.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity-class`, `DirichletPadicLFunctions:L3/kubert-odd-zero-generator-ne-zero`.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.signTateZeroClass_ordinary_zero_ne_zero_typed_api` (compatibility): At weight zero, any element z of the even parity kernel whose underlying element is the original zero-labelled point generator has nonzero native degree-zero Tate class.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+### The actual ordinary degree-zero Tate group is nontrivial
+
+`DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-ordinary-nontrivial` — `DirichletPadic.kubertSignTateZero_ordinary_nontrivial`
+
+For every actual additive commutative point group X:Type and allowed multiplier set S with finite root fibers, native degree-zero Tate cohomology of the weight-zero distribution point action is nontrivial.
+
+**Hypotheses:** Use the original weighted quotient Q of the free integer module on an actual additive commutative group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. This universe matches the existing native integer-coefficient Tate interfaces. Use the actual constructed point-negation involution j and its native order-two representation rho. The even and odd relation operators are d_even=j−identity and d_odd=j+identity. The target is exactly the original source parity quotient by the previously defined subgroup of point relations, not a renamed substitute carrier. Degree-zero Tate embeds in the odd quotient Q/im(d_odd); degree-minus-one embeds in the even quotient Q/im(d_even). No freeness, torsion-freeness, rank, middle exactness or assumption identifying all source torsion is used. Only the final two nontriviality statements restrict the weight to zero; they apply to every actual point group and multiplier set satisfying the stated finite-root condition.
+
+**Proof:**
+
+1. The original zero-labelled generator is fixed by actual point negation.
+2. The even parity-operator formula therefore places it in the actual even kernel.
+3. Its native Tate class is nonzero by the preceding detector argument, and together with zero supplies the actual nontriviality witness.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-class-ordinary-zero-ne-zero`, `DirichletPadicLFunctions:L3/kubert-parity-operators-quotient-negation-zero-point`, `DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-apply`, `DirichletPadicLFunctions:L3/kubert-tate-low-degree-sign-tate-zero-class`.
+
+**Tests:**
+
+- `SuggestedKubertTateParityEmbeddingTests.signTateZero_ordinary_nontrivial_typed_api` (compatibility): For every actual additive commutative point group X:Type and allowed multiplier set S with finite root fibers, native degree-zero Tate cohomology of the weight-zero distribution point action is nontrivial.
+
+**Acceptance:** For the empty-relation integer permutation module on ZMod5, the fixed zero-labelled generator has a nonzero degree-zero Tate image of order2 in the original odd quotient, while the odd class[1] lies outside that image. The nonzero antisymmetric difference[1]−[4] is a negative Tate boundary, and the even class[0] lies outside the negative Tate image. Do not assert surjectivity onto a whole parity quotient or identify its entire torsion without the additional source hypotheses.
+
+**Source:** Published199–200, definitions of the source even/odd quotients and Corollary4.15(iii) with its proof;179–182 specify the actual distribution module. Constructs the actual maps from the already identified native low-degree Tate groups into the original source parity quotients, proves their injectivity and their two-torsion images, and detects the weight-zero fixed-generator class by the already established modulo2 indicator distribution. The source identification with all torsion still requires its separately established torsion-freeness hypothesis, and the printed E25 correction remains unchanged.
+
+**Remaining:** The actual native degree-zero and degree-minus-one Tate groups now embed injectively into the original odd and even parity quotients, respectively, with exact representative and image criteria; both groups and their images are killed by2. The actual ordinary degree-zero Tate group is nontrivial, detected by the original zero-labelled generator and its modulo2 indicator. Next identify these images with all torsion under explicitly proved torsion-freeness hypotheses for the original distribution module, and then supply the source freeness input and native degree1/−1 convention. Generic Tate periodicity already exists and must be reused. Source character components, lower rank, general-degree coordinates and fiber counts, unramified-ring identification and internal/global equality remain open.
+
+### Native Tate embeddings into the original parity quotients validation
+
+All 1953 predecessor nodes, 1221 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 16 nodes, 16 named suggested declarations and 20 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2231 reachable nodes, 9184 edges and 1392 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. All new routes end in the original weighted quotient, source parity relations and actual zero-indicator detector, already constructed native low-degree Tate classes, or native linear quotient operations. No assumed cohomology, freeness, torsion classification or rank package and no supplier-stage leaf is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3913 pinned Mathlib modules and 30 pinned Tau Ceti modules. Only 29 Tau module artifacts are available and hash-verified. The 144 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5751 verbatim and adds two actual constructions and fourteen complete lemmas. Totals are160definitions and1,284lemmas, with no placeholders. The public append has16named declarations and20typed examples, with all new mathematical bodies left as placeholders. No new native import is needed. The separate probe compiles against 3280 pinned Mathlib modules and 8 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native low-degree Tate and Teichmuller artifacts, with eight Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact orbit-coordinate controls cover48cyclic groups,13,720integer vectors,72nonzero fixed two-torsion classes,624classes outside the respective Tate images and14,112full-root zero-indicator equations. Exact integer orbit-coordinate controls on the actual cyclic groups of orders1–48. All{-1,0,1} coefficient vectors are enumerated for orders1–8, plus97 deterministic vectors for each larger group. The odd quotient has fixed-point coordinates modulo2 and signed pair coordinates; the even quotient has integral fixed and pair-sum coordinates. Actual invariant and anti-invariant images, two-torsion, and classes outside each image are checked without floating point. Full multiplication-root fibers also verify the weight-zero indicator law for every point and multipliers1–12. These finite controls do not prove the general weighted comparison or identify all source torsion. The largest observed discrepancy is 0.
+
+The guarded blueprint checker changed: native Tau Ceti atlas-stage identifiers are now treated as stages before the broad baseline-reference prefix is applied. The full four-line code diff, surrounding resolution logic and both added regression tests were read. The change preserves ordinary undeclared-library errors and request handling for stage dependencies. All other78captured inputs, four predecessor outputs and the complete issue body remain unchanged. This packet is checked with the updated unmodified checker; no new source issue or review verdict is added. Two generated registry files changed during final publication checks; their complete diff was read. Ten StableReductionPartII records E1–E10 add pointed-node versality, nodal ideal and clutching qualifications, graph compactification and normalization-branch corrections, and coarse smoothness, line-bundle descent, finite-type and pluricanonical determinant corrections. All 9114 prior records and all other metadata remain unchanged. The records remain awaiting review, while the generated register adds3awaiting entries and7entries to its already-corrected section according to their known strings. None lies on this route or is adopted or independently reviewed. The previous checker change assessment remains valid; all four predecessor outputs and issue text are unchanged.
+
+The separate partial signature file also compiled with zero errors and 5,845 expected placeholder warnings across 3,910 pinned source modules. It includes all 16 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cad60e608769abd72180d5f537d3a02891e11a9c90098fbd6da4333a4f62a634.
