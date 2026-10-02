@@ -37625,8 +37625,9 @@
     "REV-PAPER-XU-ZHU-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-XU-ZHU-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4166"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4166",
+   "finishedAt": "2026-10-02T01:52:50Z"
   },
   {
    "id": "REV-RT-PAPER-XU-ZHU-22",
