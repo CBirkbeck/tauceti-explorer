@@ -4,6 +4,10 @@
 
 The part comprises P7–P9 and R03.1–R03.5. This partial blueprint retains the existing finite-prime-filtration input of R03.3, adds a five-node refinement of the R03.4 characteristic-zero-point argument, and adds four R03.3 nodes on catenarity and on freeness over a regular local base (Section 5a). Before the continuation in Section 5b, the packet had 46 baseline references and one object definition, the catenary predicate. Section 5b preserves those nine nodes and adds fourteen Hilbert–Samuel nodes; the combined packet has 62 baseline references. The field, quotient, integral-closure and local-field constructions are reused from their existing owners. The stage coverage records retain the remaining work explicitly.
 
+The current codex-rtOQ9t continuation in Section 9 adds four R03.3 positivity lemmas to the forty-node checkpoint. The packet now has 44 nodes (24 lemmas, 11 theorems, 7 definitions and 2 constructions), 44 API items, 35 definition/construction unit tests, 11 planets, 99 pinned baseline references, 14 gap groups and 2 supplier requests. Four further typed acceptance examples distinguish the polynomial-sign hypotheses. All eight scoped stages remain partial. The positivity deduction is written conditional on the existing eventual-polynomial construction, whose proof obligations remain open.
+
+Source inspections and compilation reports in Sections 1–8 are inherited receipts from the named earlier workers. Section 9 records this continuation's fresh reads and checks. An earlier file elaborated; the changed file has not been compiled.
+
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The five prime-filtration declarations in Sections 1–4 are in the same Mathlib module, `Mathlib/RingTheory/Ideal/AssociatedPrime/Finiteness.lean`; its inspected Git blob is `8981a4233c39016cfd51e882d7da6d90c368dec9`.
 
 ## 1. Generality and conventions
@@ -496,11 +500,11 @@ Proof route.
 
 2. In a prime filtration, degree equals the maximum degree of its factors and support is the union of their closed supports. Stacks 10.62.6 identifies these maxima. Module.supportDim is the existing dimension carrier, and Module.supportDim_eq_ringKrullDim_quotient_annihilator pins its convention.
 
-3. For another ideal of definition q, compare powers of q and m as in Stacks 10.59.4 and 10.59.7; polynomial growth in both directions gives the same degree. Nakayama prevents a nonzero finite M from giving a zero eventual polynomial.
+3. For another ideal of definition q, compare powers of q and m as in Stacks10.59.4 and10.59.7; polynomial growth in both directions gives the same degree. The nonzero-hilbert-samuel-polynomial node independently rules out the zero polynomial, without using this degree comparison.
 
 4. Use Module.supportDim_eq_bot_iff_subsingleton for the zero branch, not natDegree(0)=0 as a dimension assertion.
 
-Dependencies: `DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial`, `mathlib:IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime`, `mathlib:Module.supportDim`, `mathlib:Module.supportDim_eq_ringKrullDim_quotient_annihilator`, `mathlib:Module.supportDim_eq_bot_iff_subsingleton`.
+Dependencies: `DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial`, `mathlib:IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime`, `mathlib:Module.supportDim`, `mathlib:Module.supportDim_eq_ringKrullDim_quotient_annihilator`, `mathlib:Module.supportDim_eq_bot_iff_subsingleton`, `DeformationAndDerivedPatchingAlgebra:R03.3/nonzero-hilbert-samuel-polynomial`.
 
 Acceptance: For a DVR O and M=κ(O), degree is zero although dim O=1. For M=0 keep bottom support dimension.
 
@@ -646,17 +650,17 @@ Proposed declaration: `TauCeti.HilbertSamuel.multiplicity_pos_integral`.
 
 Lemma. For any nonzero finite M under the common hypotheses, e(q;M) is a positive natural integer viewed in ℚ.
 
-Hypotheses. A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m. M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated.
+Hypotheses. A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m. M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated. M is nonzero.
 
 Proof route.
 
 1. Let d=natDegree P. For t a sufficiently large natural integer, all t−i (0≤i≤d) are above the eventual evaluation threshold. top-coefficient-finite-difference expresses e as an integer linear combination of genuine integer quotient lengths, proving integrality.
 
-2. Positivity uses the polynomial-growth/sign gap together with nonnegative quotient lengths and Nakayama: the eventual polynomial is nonzero and nonnegative on a cofinal tail, hence has positive leading coefficient. Its factorial is positive.
+2. The positive-hilbert-samuel-leading-coefficient node gives a strictly positive leading coefficient via finite positive quotient lengths, nonzero polynomial and the rational natural-tail sign lemma. Multiplication by the positive factorial makes intrinsic multiplicity positive, including the degree-zero case.
 
 3. Combine positive rational value and integrality to obtain a positive natural integer. No primality, reducedness or Cohen–Macaulay hypothesis is introduced.
 
-Dependencies: `DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity`, `DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree`, `DeformationAndDerivedPatchingAlgebra:R03.3/top-coefficient-finite-difference`, `DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length`.
+Dependencies: `DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity`, `DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree`, `DeformationAndDerivedPatchingAlgebra:R03.3/top-coefficient-finite-difference`, `DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length`, `DeformationAndDerivedPatchingAlgebra:R03.3/positive-hilbert-samuel-leading-coefficient`.
 
 Acceptance: A nonzero finite-length module has e=length>0 in dimension zero. The zero module is excluded from the positive statement.
 
@@ -794,13 +798,7 @@ The touching atlas stage edges and link-map overlap were screened. No new
 coarse-stage dependency is introduced, and the fine-grained prerequisite
 graph imports no representability or patching theorem.
 
-The packet retains eleven gap groups, seven new here. They locate the actual
-associated-graded/module-to-series construction and cumulative sum,
-graded numerical-polynomial induction and antidifference, degree/dimension
-and Artin–Rees leading terms, positivity of an eventual nonnegative
-polynomial, top-dimensional localized lengths, discriminating geometric
-comparisons, and elaboration of the new signatures. Every other stage keeps
-its previous coverage worklist, including all routed papers. None is closed.
+The current packet retains fourteen gap groups. The original seven Hilbert–Samuel proof groups now have six remaining: associated-graded/module-to-series construction and cumulative sum; graded numerical-polynomial induction and antidifference; degree/dimension and Artin–Rees leading terms; top-dimensional localized lengths; discriminating geometric comparisons; and implementation of the signatures. Section 9 supplies the positivity proof deduction conditional on eventual-polynomial existence. It does not close the associated-graded or existence prerequisites. Every other stage retains its worklist and routed papers; none is closed.
 
 Fresh source receipts, URLs, download SHA-256 hashes and precise selected
 read sections are in the packet. Stacks 10.59 was read through its mathematical
@@ -812,8 +810,10 @@ in this session include ReductiveGroups and SemisimpleAlgebras; selected
 LocalFieldsRamification contracts were also consulted.
 
 The Hilbert–Samuel continuation initially had no compilation receipt. The
-subsequent P7 continuation now elaborates the complete suggested file at the
-Mathlib pin, with 0 errors and 112 placeholder-proof warnings. It supplies the
+subsequent P7 continuation elaborated its then-complete suggested file at the
+Mathlib pin, with 0 errors and 112 placeholder-proof warnings. That receipt
+belongs to SHA-256 `fc04c0a556f75d6164a6db08ff5fa3f86e0a3b651cb1dfd0b1dea8454b5557fc`
+and does not cover the four new positivity lemmas or their acceptance examples. It supplies the
 canonical local-ring instance on each prime quotient from the pinned
 `IsLocalRing.of_surjective'` theorem and removes redundant DVR instances.
 No Tau Ceti module is imported; its baseline statements remain source-checked. The file contains real module,
@@ -1156,3 +1156,118 @@ Pseudo-coherence of P; filteredness and a single uniform cohomological lower bou
 Acceptance. Over k[ε]/ε², P=k[0] and E_n=⊕_{i=0}^n k[i] violate the common lower bound. The colimit Hom map is ⊕_i k→∏_i k and misses the all-ones sequence. When P is perfect, finite-perfect-hom-filtered-colimit removes the lower-bound hypothesis. Constant diagrams have their identity Hom comparison; the zero source has the unique zero factorization.
 
 Read the complete proof of [Stacks 0G8W](https://stacks.math.columbia.edu/tag/0G8W), which treats module targets. The extension to complexes is justified above by finite products in the Hom complex and the common lower bound; it is not attributed to Stacks as a verbatim theorem. The general ring theorem is planned here as the issue directs. The scheme/six-functor and solid/discrete comparison remains a separate owner application. No strict coherent action is manufactured from a factorization of a derived morphism.
+
+
+## 9. Positivity of the cumulative polynomial — codex-rtOQ9t
+
+The common object remains the actual extended module length
+`H(q,M,n) = Module.length A (M / q^(n+1)M)` and the previously planned rational cumulative polynomial. The exponent is positive even at n=0. The module may have dimension zero. The reserved general multiplicity definition and its intrinsic/ambient normalization are retained unchanged.
+
+The proof chain separates a sign statement for rational polynomials from local finite-module nonvanishing. It does not assume a degree/dimension formula to prove the polynomial is nonzero. It does not turn positivity into integrality: that is still the separate finite-difference argument in Section 5b.
+
+### R03.3/positive-leading-coefficient-on-natural-tail: Positive leading coefficient from a natural tail
+
+Proposed declaration: `TauCeti.HilbertSamuel.leadingCoeff_pos_of_nat_tail_nonneg`.
+
+Let P∈ℚ[T] be nonzero. If there is N∈ℕ such that P(n)≥0 for every natural n≥N, then leadingCoeff(P)>0. The hypothesis is only on the natural tail, not on every real or rational input; constants are included.
+
+Hypotheses. P is a rational polynomial with P≠0; N is a natural number and all natural n≥N have P(n)≥0.
+
+Proof route.
+
+1. If natDegree P=0, use the pinned constant-polynomial theorem. Evaluation at N makes its constant nonnegative; nonzero leading coefficient makes it positive.
+
+2. For positive natural degree, suppose the leading coefficient is nonpositive. The pinned polynomial theorem gives P(x)→−∞ as rational x→+∞.
+
+3. Compose with the pinned natural-cast limit to get P(n)→−∞. Beyond some natural threshold P(n)<0, contradicting the nonnegative tail at the maximum of the two thresholds.
+
+4. This proves a strict sign, not integrality or an exact evaluation formula. The zero polynomial cannot be admitted.
+
+Dependencies: `mathlib:Polynomial.tendsto_atBot_of_leadingCoeff_nonpos`, `mathlib:tendsto_natCast_atTop_atTop`, `mathlib:Polynomial.eq_C_of_natDegree_eq_zero`, `mathlib:Polynomial.leadingCoeff_ne_zero`, `mathlib:Polynomial.natDegree_pos_iff_degree_pos`.
+
+Acceptance requirements. Positive constants must pass without assuming positive degree. X²−100X is negative at1 but is nonnegative at every natural n≥100; an all-input condition would be too strong. A positive rational leading coefficient need not give integral multiplicity without integer-valued tail data.
+
+- `HilbertSamuelPosTest.constant` (computation): P=C(3/2) has leading coefficient3/2>0; positive degree is unnecessary.
+- `HilbertSamuelPosTest.delayed` (computation): P=X²−100X has leading coefficient1, P(1)=−99 and P(n)≥0 for all natural n≥100.
+- `HilbertSamuelPosTest.zero` (non-example): The zero polynomial has leading coefficient0 and fails strict positivity despite its nonnegative values everywhere.
+- `HilbertSamuelPosTest.rational` (non-example): P=(1/3)X+1 has positive leading coefficient1/3, which is not the rational cast of any integer. Positivity alone supplies no integrality.
+
+These four cases have full native `example` forms in the suggested file. They are additional lemma acceptance examples; they do not change the checker's 35 definition/construction unit-test count.
+
+Sources: [HS-POS-PIN](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Polynomial/Basic.lean), Polynomial/Basic.lean 81–83 and AtTopBot/Archimedean.lean 44–47; Degree/Operations.lean 486–487. An explicit deduction from the actual pinned sign limit and natural-cast limit, with the constant branch treated separately.
+
+### R03.3/positive-finite-adic-length: Positive finite adic quotient lengths
+
+Proposed declaration: `TauCeti.HilbertSamuel.function_toNat_pos`.
+
+For a nonzero finite module M over a Noetherian local A and an ideal q with radical q=m, H(q,M,n).toNat>0 for every n∈ℕ. Both positivity of the actual quotient and its finite length are proved before converting the extended value.
+
+Hypotheses. A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m. M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated. M is nonzero.
+
+Proof route.
+
+1. For I=q^(n+1), positive powers satisfy I⊆q⊆m. If I·M=M, the native finite-submodule Nakayama theorem applies to top: I is inside the Jacobson radical of its annihilator by maximalIdeal_le_jacobson. It would make M zero, a contradiction.
+
+2. The native quotient nontriviality criterion makes M/I·M nontrivial. Module.length_pos gives strictly positive extended length.
+
+3. The existing finite-adic-quotient-length node excludes infinity. Only now use ENat.toNat_pos, keeping its two separate premises.
+
+Dependencies: `DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function`, `DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length`, `mathlib:Ideal.pow_le_self`, `mathlib:Ideal.le_radical`, `mathlib:Submodule.eq_bot_of_eq_ideal_smul_of_le_jacobson_annihilator`, `mathlib:IsLocalRing.maximalIdeal_le_jacobson`, `mathlib:Submodule.Quotient.nontrivial_iff`, `mathlib:Module.length_pos`, `mathlib:ENat.toNat_pos`.
+
+Acceptance requirements. The zero module is excluded; n=0 still gives M/qM, not M/M. Finiteness of M is essential: for a nonfield DVR A and fraction field K, mK=K although K≠0. Extended positive length can be infinity. The finite-length hypothesis is required before toNat.
+
+Sources: [HS-POS-LOCAL](https://stacks.math.columbia.edu/tag/00K4), Opening quotient-length formulas; Definition10.59.8; leading-coefficient paragraph of Lemma10.59.10. The source observes leading-coefficient nonnegativity. The four-node continuation separates Nakayama, finite positive lengths, nonzero polynomial and the precise tail-sign deduction. [HS-POS-NAK](https://stacks.math.columbia.edu/tag/00DV), Lemma10.20.1(2), proof through(1). Apply the already-built local Nakayama theorem to the finite module; no second Nakayama theorem is planned.
+
+### R03.3/nonzero-hilbert-samuel-polynomial: The nonzero cumulative polynomial
+
+Proposed declaration: `TauCeti.HilbertSamuel.polynomial_ne_zero`.
+
+For nonzero finite M under the local ideal-of-definition hypotheses, the chosen cumulative Hilbert–Samuel polynomial P(q,M) is nonzero. This conclusion does not use the degree/support-dimension theorem.
+
+Hypotheses. A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m. M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated. M is nonzero.
+
+Proof route.
+
+1. Take the eventual evaluation threshold supplied by hilbert-samuel-polynomial.
+
+2. Evaluate at that natural threshold. positive-finite-adic-length makes the actual natural quotient length strictly positive; its rational cast is positive.
+
+3. The zero polynomial would evaluate to zero there, a contradiction. No associated-graded or dimension theorem is used in this deduction, but the existing polynomial-existence prerequisite retains its open proof obligations.
+
+Dependencies: `DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial`, `DeformationAndDerivedPatchingAlgebra:R03.3/positive-finite-adic-length`.
+
+Acceptance requirements. A nonzero finite-length module has a nonzero constant polynomial, so positive degree is not imposed. The zero-module polynomial remains zero, with bottom degree/support dimension.
+
+Sources: [HS-POS-LOCAL](https://stacks.math.columbia.edu/tag/00K4), Opening quotient-length formulas; Definition10.59.8; leading-coefficient paragraph of Lemma10.59.10. The source observes leading-coefficient nonnegativity. The four-node continuation separates Nakayama, finite positive lengths, nonzero polynomial and the precise tail-sign deduction.
+
+### R03.3/positive-hilbert-samuel-leading-coefficient: Positive Hilbert–Samuel leading coefficient
+
+Proposed declaration: `TauCeti.HilbertSamuel.polynomial_leadingCoeff_pos`.
+
+For nonzero finite M under the local ideal-of-definition hypotheses, leadingCoeff(P(q,M))>0. This is the sign input to intrinsic multiplicity; it is not the degree comparison or the integrality theorem.
+
+Hypotheses. A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m. M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated. M is nonzero.
+
+Proof route.
+
+1. The nonzero-polynomial node supplies P≠0 without invoking its degree.
+
+2. The eventual evaluation API makes P(n) a cast of a natural length on a common natural tail, hence nonnegative there.
+
+3. Apply positive-leading-coefficient-on-natural-tail. Constants, including all nonzero finite-length modules, use its constant branch.
+
+Dependencies: `DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial`, `DeformationAndDerivedPatchingAlgebra:R03.3/nonzero-hilbert-samuel-polynomial`, `DeformationAndDerivedPatchingAlgebra:R03.3/positive-leading-coefficient-on-natural-tail`.
+
+Acceptance requirements. Dimension-zero modules are included. The ambient multiplicity of a lower-dimensional module may still be zero; this theorem concerns its intrinsic leading coefficient.
+
+Sources: [HS-POS-LOCAL](https://stacks.math.columbia.edu/tag/00K4), Opening quotient-length formulas; Definition10.59.8; leading-coefficient paragraph of Lemma10.59.10. The source observes leading-coefficient nonnegativity. The four-node continuation separates Nakayama, finite positive lengths, nonzero polynomial and the precise tail-sign deduction. [HS-POS-PIN](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Polynomial/Basic.lean), Polynomial/Basic.lean 81–83 and AtTopBot/Archimedean.lean 44–47; Degree/Operations.lean 486–487. An explicit deduction from the actual pinned sign limit and natural-cast limit, with the constant branch treated separately.
+
+### Fresh inspection and verification boundary
+
+All eight applicable AUDIT-17 layer entries and the relevant accepted RS-08 ownership decisions were read before this continuation. The complete GrothendieckEulerForms and Multiquadratic upstream documents were read in this continuing session. The actual roadmap extract, its touching stage edges, and the ModularCurves 7D/R03.1 overlap were screened. Generic multiplicity stays in R03.3; this proof imports no automorphic application or new coarse-stage dependency.
+
+The twelve newly registered baseline declaration statements were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, including their ambient parameters. Their precise modules and contracts are in the packet. The existing 87 references and prior P7 receipts are retained; they are not presented as a fresh inspection of all inherited results. [Stacks 00DV](https://stacks.math.columbia.edu/tag/00DV) was read in full; [Stacks 00K4](https://stacks.math.columbia.edu/tag/00K4) was read at the selected quotient-length, definition and leading-coefficient locators. Download hashes and read boundaries are in the three new source records.
+
+The new forms use rational polynomials, actual ideals and module quotients, and `[Nontrivial M]` for nonzero modules. They remain unchecked. No existing combined build at both pinned commits was available, so the changed file was not compiled. No new Lake project, cache download, library build or language server was started. The handoff records the packet, intake, preservation, dependency and exact-arithmetic checks actually run. No formalization or stage closure is claimed.
+
+The partial projection retains a source-registry dependency from `R03.3/free-of-maximal-depth-regular-local` to the integrated `R03.3/depth-auslander-buchsbaum-and-dimension-bounds` node. Normal layer replacement does not render that old input as a stage; the complete packet must carry forward and split it. The handoff distinguishes this inherited limitation from the four new nodes, whose prerequisites all resolve within this packet or the pinned baseline.

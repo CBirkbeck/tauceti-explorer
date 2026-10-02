@@ -1,3 +1,37 @@
+# BP-DeformationAndDerivedPatchingAlgebra--P7: positivity continuation
+
+Codex — session `codex-rtOQ9t`, 2 October 2026. Refs #551.
+Current status: partial checkpoint; all eight scoped stages remain open.
+The earlier workers' dated handoffs below are historical receipts.
+
+## Current continuation
+
+Four new R03.3 lemmas separate rational natural-tail sign, positive finite adic quotient lengths, nonzero cumulative polynomial and its positive leading coefficient. The degree and intrinsic-positive-integer nodes now consume that chain. Positive constants and dimension-zero modules are included. Finite generation, module nontriviality and finite extended length are explicit. No degree/dimension theorem is used to prove polynomial nonvanishing.
+
+The removed gap is precisely “Positivity from an eventually nonnegative polynomial”. Its written deduction is now complete **conditional on the existing eventual-polynomial construction**. Associated-graded construction, cumulative identity, numerical-polynomial existence, degree/dimension, Artin–Rees, localization lengths and geometric comparisons remain open. No stage or implementation is certified closed.
+
+Current totals: 44 nodes (24 lemmas, 11 theorems, 7 definitions, 2 constructions), 44 API items, 35 definition/construction unit tests, 11 planets, 99 baseline references, 14 gap groups and 2 requests. Four additional lemma acceptance examples have full native Lean forms. All 40 prior IDs, the reserved multiplicity node, 87 baseline records, prior coverage/source receipts and requests are retained. Only the two consumer nodes' hypotheses/proof/prerequisites change; 38 earlier nodes are identical.
+
+## Fresh inspection and checks
+
+Read all eight applicable AUDIT-17 entries, the relevant accepted RS-08 decisions, the complete GrothendieckEulerForms and Multiquadratic upstream documents, the actual roadmap extract and touching stage edges, and the ModularCurves coefficient-category overlap. Read the twelve added Mathlib statements with their ambient parameters at the exact pin. Read Stacks 00DV in full and 00K4 at the selected conventions/definition/leading-coefficient locators. The three new packet source records preserve URLs, selected read scope and download hashes. The earlier 87 baseline receipts are inherited, not freshly recertified.
+
+Indexed packet validation: 0 errors, 0 warnings. Intake: 4 files, 0 problems. Whitespace checks pass. Only the four issue deliverables changed. Preservation and packet/reader/native-form parity checks pass. Both new downloaded-source hashes match. Exact rational checks cover 3/2 as a positive constant, X²−100X (negative at 1, factored natural tail at 100), the zero-polynomial failure, and positive nonintegral leading coefficient 1/3. These are acceptance computations, not general theorem proofs or Lean elaboration.
+
+The actual `build.assemble` projection, with this packet added in memory through normal promotion/decomposition trimming, preserves the accepted R03.6 packet. Its complete projected stage DAG has 3035 vertices and 8622 edges and is acyclic. Combining that graph with all current packet declaration dependencies and their inherited integrated input gives 3069 vertices and 8680 edges, also acyclic. The roadmap has 97 declarations and 17 planets including R03.6; this packet contributes 44 and 11. No projected links are skipped. All four new nodes use only this packet and pinned baseline declarations, so there are no new external-stage links to project.
+
+Projection limitation retained from the earlier checkpoint: `R03.3/free-of-maximal-depth-regular-local` still imports the registered integrated node `R03.3/depth-auslander-buchsbaum-and-dimension-bounds`. It resolves in the source registry and is included in the declaration closure, but normal layer replacement does not render it as a stage. Its declaration-sized refinement must be carried into the eventual complete packet. Do not mistake the partial overlay for a complete promotion. No unrelated unsubmitted packet was added to this projection.
+
+Changed suggested-file SHA-256: `80778912c877da216c7460218fec001741a11ff86fa05da61bc9673e9fee5b56`. **Not compiled**: no existing combined pinned build was available. No Lake project, cache/library build or language server was started. The older successful receipt for SHA-256 `fc04c0a556f75d6164a6db08ff5fa3f86e0a3b651cb1dfd0b1dea8454b5557fc` covers only the preceding file. All mathematical implementations remain unchecked.
+
+## Resume
+
+Continue the associated-graded/module-to-series construction and cumulative length identity, then numerical-polynomial existence and the degree/dimension/Artin–Rees chain. Retain the separate finite-difference integrality proof and its eventual threshold. Carry forward and split the inherited depth/Auslander–Buchsbaum node. The P7, deformation, point and patching worklists below remain active. The general reserved multiplicity ID and intrinsic/ambient dimension distinction must be preserved.
+
+All durable mathematics and validation receipts are in the deliverables. Job scratch is deleted after opening the PR. No background process was started.
+
+---
+
 # BP-DeformationAndDerivedPatchingAlgebra--P7: Hilbert–Samuel continuation
 
 Codex — session `codex-a71f92`, 2 October 2026. Refs #551.

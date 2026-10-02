@@ -37,6 +37,9 @@ import Mathlib.RingTheory.MvPowerSeries.Basic
 import Mathlib.RingTheory.Support
 import Mathlib.Algebra.Polynomial.Roots
 import Mathlib.Data.ENat.Basic
+import Mathlib.Analysis.Polynomial.Basic
+import Mathlib.RingTheory.Nakayama
+import Mathlib.Order.Filter.AtTopBot.Archimedean
 
 /-!
 # Suggested forms for prime filtrations and characteristic-zero points
@@ -48,8 +51,10 @@ They introduce no new prime-filtration carrier, theorem or implementation claim.
 
 Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-The complete file elaborates with placeholder-proof warnings only against the
+The previous file elaborated with placeholder-proof warnings only against the
 existing Mathlib build at the pin (Codex codex-J6LwjP, 2 October 2026).
+That historical receipt does not cover codex-rtOQ9t's positivity continuation.
+The new forms were not compiled; no existing combined build at both pins was found.
 No Tau Ceti module is imported; its baseline references were inspected as source.
 The original ten baseline examples are retained. Five new signatures and four
 algebraic regressions cover the R03.4 point strand, not the eight-stage part.
@@ -1057,3 +1062,56 @@ example (P : DerivedCategory (ModuleCat.{u} R)) (hP : IsPseudoCoherent P)
       g ≫ DerivedCategory.Q.map (colimit.ι E j) = f := by sorry
 
 end TauCeti.LocalPerfect
+
+
+/- Positivity continuation by codex-rtOQ9t. All four added forms use the actual
+native polynomial and quotient-length types. They do not prove existence of
+the cumulative polynomial or its degree/dimension comparison. NOT COMPILED;
+the successful historical receipt above covers only the preceding file. -/
+namespace TauCeti.HilbertSamuel
+
+open Polynomial
+open scoped Pointwise
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/positive-leading-coefficient-on-natural-tail
+theorem leadingCoeff_pos_of_nat_tail_nonneg (P : Polynomial ℚ) (hP : P ≠ 0)
+    (N : ℕ) (hN : ∀ n : ℕ, N ≤ n → 0 ≤ P.eval (n : ℚ)) :
+    0 < P.leadingCoeff := by sorry
+
+variable {A : Type u} [CommRing A] [IsNoetherianRing A] [IsLocalRing A]
+variable {M : Type v} [AddCommGroup M] [Module A M] [Module.Finite A M]
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/positive-finite-adic-length
+theorem function_toNat_pos [Nontrivial M] (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (n : ℕ) :
+    0 < (function (M := M) q n).toNat := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/nonzero-hilbert-samuel-polynomial
+theorem polynomial_ne_zero [Nontrivial M] (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    polynomial (M := M) q hq ≠ 0 := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/positive-hilbert-samuel-leading-coefficient
+theorem polynomial_leadingCoeff_pos [Nontrivial M] (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    0 < (polynomial (M := M) q hq).leadingCoeff := by sorry
+
+-- acceptance: HilbertSamuelPosTest.constant
+example : (C (3/2 : ℚ)).leadingCoeff = 3/2 ∧
+    0 < (C (3/2 : ℚ)).leadingCoeff := by sorry
+
+-- acceptance: HilbertSamuelPosTest.delayed
+example :
+    let P : Polynomial ℚ := X ^ 2 - C 100 * X
+    P.leadingCoeff = 1 ∧ P.eval 1 = -99 ∧
+      ∀ n : ℕ, 100 ≤ n → 0 ≤ P.eval (n : ℚ) := by sorry
+
+-- acceptance: HilbertSamuelPosTest.zero
+example : ¬ (0 < (0 : Polynomial ℚ).leadingCoeff) := by sorry
+
+-- acceptance: HilbertSamuelPosTest.rational
+example :
+    let P : Polynomial ℚ := C (1/3 : ℚ) * X + 1
+    0 < P.leadingCoeff ∧ ∀ z : ℤ, (z : ℚ) ≠ P.leadingCoeff := by sorry
+
+end TauCeti.HilbertSamuel
