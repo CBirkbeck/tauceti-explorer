@@ -33211,8 +33211,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CIUBOTARU-HARRIS-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5498",
-   "finishedAt": "2026-10-02T01:30:25Z"
+   "finishedAt": "2026-10-02T01:30:25Z",
+   "note": "deliverables arrived from an external worker on issue #5498"
   },
   {
    "id": "RT-PAPER-LESLIE-25",
@@ -33438,8 +33438,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KISIN-ZHOU-25.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4040",
-   "finishedAt": "2026-10-02T06:11:35Z"
+   "finishedAt": "2026-10-02T06:11:35Z",
+   "note": "deliverables arrived from an external worker on issue #4040"
+  },
+  {
+   "id": "FIX-RT-PAPER-KISIN-ZHOU-25",
+   "kind": "fix",
+   "priority": 1,
+   "order": 211,
+   "name": "paper extraction PAPER-KISIN-ZHOU-25: Kisin–Zhou (2025): Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties",
+   "target": "PAPER-KISIN-ZHOU-25",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-KISIN-ZHOU-25.fixes.md",
+    "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+    "research/blueprint/papers/PAPER-KISIN-ZHOU-25.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KISIN-ZHOU-25.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-CESNAVICIUS-SCHOLZE-24",
@@ -33597,8 +33614,47 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CARAIANI-SCHOLZE-24.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4047",
-   "finishedAt": "2026-10-02T08:02:09Z"
+   "finishedAt": "2026-10-02T08:02:09Z",
+   "note": "deliverables arrived from an external worker on issue #4047"
+  },
+  {
+   "id": "FIX-RT-PAPER-CARAIANI-SCHOLZE-24",
+   "kind": "fix",
+   "priority": 1,
+   "order": 214,
+   "name": "paper extraction PAPER-CARAIANI-SCHOLZE-24: Caraiani–Scholze (2024): On the generic part of the cohomology of non-compact unitary Shimura varieties",
+   "target": "PAPER-CARAIANI-SCHOLZE-24",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-CARAIANI-SCHOLZE-24.fixes.md",
+    "research/blueprint/packets/BunGAndNewtonStrata.json",
+    "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.result.json",
+    "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CARAIANI-SCHOLZE-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-PAPER-CARAIANI-SCHOLZE-24",
+   "kind": "review",
+   "priority": 1,
+   "order": 214,
+   "name": "paper extraction PAPER-CARAIANI-SCHOLZE-24: Caraiani–Scholze (2024): On the generic part of the cohomology of non-compact unitary Shimura varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-PAPER-CARAIANI-SCHOLZE-24.md",
+    "research/blueprint/packets/BunGAndNewtonStrata.json"
+   ],
+   "after": [
+    "FIX-RT-PAPER-CARAIANI-SCHOLZE-24"
+   ],
+   "avoidAccountOf": "FIX-RT-PAPER-CARAIANI-SCHOLZE-24",
+   "independentOf": [
+    "FIX-RT-PAPER-CARAIANI-SCHOLZE-24"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-PAPER-CARAIANI-SCHOLZE-24.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-LANDESMAN-LITT-24",
@@ -33644,8 +33700,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LANDESMAN-LITT-24.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4049",
-   "finishedAt": "2026-10-02T06:00:55Z"
+   "finishedAt": "2026-10-02T06:00:55Z",
+   "note": "deliverables arrived from an external worker on issue #4049"
+  },
+  {
+   "id": "FIX-RT-PAPER-LANDESMAN-LITT-24",
+   "kind": "fix",
+   "priority": 1,
+   "order": 215,
+   "name": "paper extraction PAPER-LANDESMAN-LITT-24: Landesman–Litt (2024): Canonical representations of surface groups",
+   "target": "PAPER-LANDESMAN-LITT-24",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-LANDESMAN-LITT-24.fixes.md",
+    "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+    "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-LANDESMAN-LITT-24.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-BERGSTROM-FABER-PAYNE-24",
@@ -33890,8 +33963,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CAI-FRIEDBERG-KAPLAN-24.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4055",
-   "finishedAt": "2026-10-02T08:12:50Z"
+   "finishedAt": "2026-10-02T08:12:50Z",
+   "note": "deliverables arrived from an external worker on issue #4055"
+  },
+  {
+   "id": "FIX-RT-PAPER-CAI-FRIEDBERG-KAPLAN-24",
+   "kind": "fix",
+   "priority": 1,
+   "order": 219,
+   "name": "paper extraction PAPER-CAI-FRIEDBERG-KAPLAN-24: Cai–Friedberg–Kaplan (2024): Doubling constructions: Global functoriality for non-generic cuspidal representations",
+   "target": "PAPER-CAI-FRIEDBERG-KAPLAN-24",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-CAI-FRIEDBERG-KAPLAN-24.fixes.md",
+    "research/blueprint/papers/PAPER-CAI-FRIEDBERG-KAPLAN-24.result.json",
+    "research/blueprint/papers/PAPER-CAI-FRIEDBERG-KAPLAN-24.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CAI-FRIEDBERG-KAPLAN-24.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-SCHROER-23",
@@ -34049,8 +34139,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-YU-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4061",
-   "finishedAt": "2026-10-02T06:53:00Z"
+   "finishedAt": "2026-10-02T06:53:00Z",
+   "note": "deliverables arrived from an external worker on issue #4061"
+  },
+  {
+   "id": "FIX-RT-PAPER-YU-23",
+   "kind": "fix",
+   "priority": 1,
+   "order": 222,
+   "name": "paper extraction PAPER-YU-23: Hongjie Yu (2023): Comptage des systèmes locaux ℓ-adiques sur une courbe",
+   "target": "PAPER-YU-23",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-YU-23.fixes.md",
+    "research/blueprint/papers/PAPER-YU-23.result.json",
+    "research/blueprint/papers/PAPER-YU-23.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-YU-23.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-ALLEN-ETAL-23",
@@ -34250,8 +34357,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DADDEZIO-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5499",
-   "finishedAt": "2026-10-02T02:22:34Z"
+   "finishedAt": "2026-10-02T02:22:34Z",
+   "note": "deliverables arrived from an external worker on issue #5499"
   },
   {
    "id": "RT-PAPER-DITTMANN-POP-23",
@@ -34363,8 +34470,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BHATT-SCHOLZE-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4070",
-   "finishedAt": "2026-10-02T06:30:10Z"
+   "finishedAt": "2026-10-02T06:30:10Z",
+   "note": "deliverables arrived from an external worker on issue #4070"
+  },
+  {
+   "id": "FIX-RT-PAPER-BHATT-SCHOLZE-22",
+   "kind": "fix",
+   "priority": 1,
+   "order": 228,
+   "name": "paper extraction PAPER-BHATT-SCHOLZE-22: Bhatt–Scholze (2022): Prisms and prismatic cohomology",
+   "target": "PAPER-BHATT-SCHOLZE-22",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-BHATT-SCHOLZE-22.fixes.md",
+    "research/blueprint/papers/PAPER-BHATT-SCHOLZE-22.result.json",
+    "research/blueprint/papers/PAPER-BHATT-SCHOLZE-22.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BHATT-SCHOLZE-22.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-FINTZEN-21",
@@ -34410,8 +34534,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-FINTZEN-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4072",
-   "finishedAt": "2026-10-02T04:53:38Z"
+   "finishedAt": "2026-10-02T04:53:38Z",
+   "note": "deliverables arrived from an external worker on issue #4072"
+  },
+  {
+   "id": "FIX-RT-PAPER-FINTZEN-21",
+   "kind": "fix",
+   "priority": 1,
+   "order": 229,
+   "name": "paper extraction PAPER-FINTZEN-21: Jessica Fintzen (2021): Types for tame p-adic groups",
+   "target": "PAPER-FINTZEN-21",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-FINTZEN-21.fixes.md",
+    "research/blueprint/papers/PAPER-FINTZEN-21.result.json",
+    "research/blueprint/papers/PAPER-FINTZEN-21.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-FINTZEN-21.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-ZHANG-21",
@@ -34503,8 +34644,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DIMITROV-GAO-HABEGGER-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4076",
-   "finishedAt": "2026-10-02T04:36:30Z"
+   "finishedAt": "2026-10-02T04:36:30Z",
+   "note": "deliverables arrived from an external worker on issue #4076"
+  },
+  {
+   "id": "FIX-RT-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "kind": "fix",
+   "priority": 1,
+   "order": 231,
+   "name": "paper extraction PAPER-DIMITROV-GAO-HABEGGER-21: Dimitrov–Gao–Habegger (2021): Uniformity in Mordell–Lang for curves",
+   "target": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-DIMITROV-GAO-HABEGGER-21.fixes.md",
+    "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+    "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DIMITROV-GAO-HABEGGER-21.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-NGODAC-21",
@@ -34550,8 +34708,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-NGODAC-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4078",
-   "finishedAt": "2026-10-02T04:15:01Z"
+   "finishedAt": "2026-10-02T04:15:01Z",
+   "note": "deliverables arrived from an external worker on issue #4078"
+  },
+  {
+   "id": "FIX-RT-PAPER-NGODAC-21",
+   "kind": "fix",
+   "priority": 1,
+   "order": 232,
+   "name": "paper extraction PAPER-NGODAC-21: Tuan Ngo Dac (2021): On Zagier-Hoffman's conjectures in positive characteristic",
+   "target": "PAPER-NGODAC-21",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-NGODAC-21.fixes.md",
+    "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+    "research/blueprint/papers/PAPER-NGODAC-21.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-NGODAC-21.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
@@ -34597,8 +34772,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4080",
-   "finishedAt": "2026-10-02T05:57:33Z"
+   "finishedAt": "2026-10-02T05:57:33Z",
+   "note": "deliverables arrived from an external worker on issue #4080"
+  },
+  {
+   "id": "FIX-RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+   "kind": "fix",
+   "priority": 1,
+   "order": 233,
+   "name": "paper extraction PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21: Beuzart-Plessis–Liu–Zhang–Zhu (2021): Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture",
+   "target": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.fixes.md",
+    "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.result.json",
+    "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-LI-LIU-21",
@@ -34619,8 +34811,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LI-LIU-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5059",
-   "finishedAt": "2026-10-02T00:23:50Z"
+   "finishedAt": "2026-10-02T00:23:50Z",
+   "note": "deliverables arrived from an external worker on issue #5059"
   },
   {
    "id": "REV-RT-PAPER-LI-LIU-21",
@@ -34644,8 +34836,26 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LI-LIU-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5058",
-   "finishedAt": "2026-10-02T08:33:46Z"
+   "finishedAt": "2026-10-02T08:33:46Z",
+   "note": "deliverables arrived from an external worker on issue #5058"
+  },
+  {
+   "id": "FIX-RT-PAPER-LI-LIU-21",
+   "kind": "fix",
+   "priority": 1,
+   "order": 234,
+   "name": "paper extraction PAPER-LI-LIU-21: Chao Li–Yifeng Liu (2021): Chow groups and L-derivatives of automorphic motives for unitary groups",
+   "target": "PAPER-LI-LIU-21",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-LI-LIU-21.fixes.md",
+    "research/blueprint/papers/PAPER-LI-LIU-21.review.json",
+    "research/blueprint/papers/PAPER-LI-LIU-21.result.json",
+    "research/blueprint/papers/PAPER-LI-LIU-21.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-LI-LIU-21.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
@@ -34823,8 +35033,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-MASSER-ZANNIER-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5500",
-   "finishedAt": "2026-10-01T23:59:21Z"
+   "finishedAt": "2026-10-01T23:59:21Z",
+   "note": "deliverables arrived from an external worker on issue #5500"
   },
   {
    "id": "RT-PAPER-JIANG-ZHANG-20",
@@ -35162,8 +35372,27 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-YUN-ZHANG-19.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4090",
-   "finishedAt": "2026-10-02T07:37:32Z"
+   "finishedAt": "2026-10-02T07:37:32Z",
+   "note": "deliverables arrived from an external worker on issue #4090"
+  },
+  {
+   "id": "FIX-RT-PAPER-YUN-ZHANG-19",
+   "kind": "fix",
+   "priority": 1,
+   "order": 243,
+   "name": "paper extraction PAPER-YUN-ZHANG-19: Zhiwei Yun–Wei Zhang (2019): Shtukas and the Taylor expansion of L-functions (II)",
+   "target": "PAPER-YUN-ZHANG-19",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-YUN-ZHANG-19.fixes.md",
+    "research/blueprint/papers/PAPER-YUN-ZHANG-17.result.json",
+    "research/blueprint/papers/PAPER-YUN-ZHANG-19.review.json",
+    "research/blueprint/papers/PAPER-YUN-ZHANG-19.result.json",
+    "research/blueprint/papers/PAPER-YUN-ZHANG-19.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-YUN-ZHANG-19.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-GAO-HABEGGER-19",
@@ -35539,8 +35768,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-YUAN-ZHANG-18.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5502",
-   "finishedAt": "2026-10-01T23:22:31Z"
+   "finishedAt": "2026-10-01T23:22:31Z",
+   "note": "deliverables arrived from an external worker on issue #5502"
   },
   {
    "id": "RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18",
@@ -35718,8 +35947,27 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-ZHU-17.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4109",
-   "finishedAt": "2026-10-02T07:31:46Z"
+   "finishedAt": "2026-10-02T07:31:46Z",
+   "note": "deliverables arrived from an external worker on issue #4109"
+  },
+  {
+   "id": "FIX-RT-PAPER-ZHU-17",
+   "kind": "fix",
+   "priority": 1,
+   "order": 252,
+   "name": "paper extraction PAPER-ZHU-17: Xinwen Zhu (2017): Affine Grassmannians and the geometric Satake in mixed characteristic",
+   "target": "PAPER-ZHU-17",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-ZHU-17.fixes.md",
+    "research/blueprint/papers/PAPER-ZHU-17.review.json",
+    "research/blueprint/redteam/RT-AREA-etale.fixes.md",
+    "research/blueprint/papers/PAPER-ZHU-17.result.json",
+    "research/blueprint/papers/PAPER-ZHU-17.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-ZHU-17.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-TEMKIN-17",
@@ -36401,8 +36649,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BIJAKOWSKI-PILLONI-STROH-16.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5503",
-   "finishedAt": "2026-10-02T02:34:30Z"
+   "finishedAt": "2026-10-02T02:34:30Z",
+   "note": "deliverables arrived from an external worker on issue #5503"
   },
   {
    "id": "RT-PAPER-KALETHA-16",
@@ -36727,8 +36975,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HEUER-25.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5065",
-   "finishedAt": "2026-10-01T23:30:14Z"
+   "finishedAt": "2026-10-01T23:30:14Z",
+   "note": "deliverables arrived from an external worker on issue #5065"
   },
   {
    "id": "REV-RT-PAPER-HEUER-25",
@@ -36752,8 +37000,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HEUER-25.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5064",
-   "finishedAt": "2026-10-02T03:58:24Z"
+   "finishedAt": "2026-10-02T03:58:24Z",
+   "note": "deliverables arrived from an external worker on issue #5064"
+  },
+  {
+   "id": "FIX-RT-PAPER-HEUER-25",
+   "kind": "fix",
+   "priority": 1,
+   "order": 284,
+   "name": "paper extraction PAPER-HEUER-25: Heuer (2025): A p-adic Simpson correspondence for smooth proper rigid varieties",
+   "target": "PAPER-HEUER-25",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-HEUER-25.fixes.md",
+    "research/blueprint/papers/PAPER-HEUER-25.result.json",
+    "research/blueprint/papers/PAPER-HEUER-25.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HEUER-25.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-LIU-WOOD-ZUREICKBROWN-24",
@@ -37151,8 +37416,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5504",
-   "finishedAt": "2026-10-01T22:35:26Z"
+   "finishedAt": "2026-10-01T22:35:26Z",
+   "note": "deliverables arrived from an external worker on issue #5504"
   },
   {
    "id": "RT-PAPER-GAN-SAVIN-23",
@@ -37198,8 +37463,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-GAN-SAVIN-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4151",
-   "finishedAt": "2026-10-01T22:40:22Z"
+   "finishedAt": "2026-10-01T22:40:22Z",
+   "note": "deliverables arrived from an external worker on issue #4151"
+  },
+  {
+   "id": "FIX-RT-PAPER-GAN-SAVIN-23",
+   "kind": "fix",
+   "priority": 1,
+   "order": 298,
+   "name": "paper extraction PAPER-GAN-SAVIN-23: Gan–Savin (2023): Howe duality and dichotomy for exceptional theta correspondences",
+   "target": "PAPER-GAN-SAVIN-23",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-GAN-SAVIN-23.fixes.md",
+    "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+    "research/blueprint/papers/PAPER-GAN-SAVIN-23.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GAN-SAVIN-23.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-QIAN-23",
@@ -37264,8 +37546,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-QIAN-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5505",
-   "finishedAt": "2026-10-01T22:33:02Z"
+   "finishedAt": "2026-10-01T22:33:02Z",
+   "note": "deliverables arrived from an external worker on issue #5505"
   },
   {
    "id": "RT-PAPER-SKOROBOGATOV-SOFOS-23",
@@ -37330,8 +37612,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SKOROBOGATOV-SOFOS-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5506",
-   "finishedAt": "2026-10-02T00:54:25Z"
+   "finishedAt": "2026-10-02T00:54:25Z",
+   "note": "deliverables arrived from an external worker on issue #5506"
   },
   {
    "id": "RT-PAPER-FENG-GALATIUS-VENKATESH-22",
@@ -37396,8 +37678,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-FENG-GALATIUS-VENKATESH-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5507",
-   "finishedAt": "2026-10-01T22:45:34Z"
+   "finishedAt": "2026-10-01T22:45:34Z",
+   "note": "deliverables arrived from an external worker on issue #5507"
   },
   {
    "id": "RT-PAPER-XIE-YUAN-22",
@@ -37617,8 +37899,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4164",
-   "finishedAt": "2026-10-02T03:45:44Z"
+   "finishedAt": "2026-10-02T03:45:44Z",
+   "note": "deliverables arrived from an external worker on issue #4164"
   },
   {
    "id": "REV-RT-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
@@ -37642,8 +37924,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4163",
-   "finishedAt": "2026-10-02T07:07:59Z"
+   "finishedAt": "2026-10-02T07:07:59Z",
+   "note": "deliverables arrived from an external worker on issue #4163"
+  },
+  {
+   "id": "FIX-RT-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
+   "kind": "fix",
+   "priority": 1,
+   "order": 313,
+   "name": "paper extraction PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22: Fakhruddin–Khare–Patrikis (2022): Lifting and automorphy of reducible mod p Galois representations over global fields",
+   "target": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.fixes.md",
+    "research/blueprint/papers/PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.result.json",
+    "research/blueprint/papers/PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-XU-ZHU-22",
@@ -37664,8 +37963,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-XU-ZHU-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4166",
-   "finishedAt": "2026-10-02T01:52:50Z"
+   "finishedAt": "2026-10-02T01:52:50Z",
+   "note": "deliverables arrived from an external worker on issue #4166"
   },
   {
    "id": "REV-RT-PAPER-XU-ZHU-22",
@@ -37689,8 +37988,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-XU-ZHU-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4165",
-   "finishedAt": "2026-10-02T05:27:27Z"
+   "finishedAt": "2026-10-02T05:27:27Z",
+   "note": "deliverables arrived from an external worker on issue #4165"
+  },
+  {
+   "id": "FIX-RT-PAPER-XU-ZHU-22",
+   "kind": "fix",
+   "priority": 1,
+   "order": 314,
+   "name": "paper extraction PAPER-XU-ZHU-22: Xu–Zhu (2022): Bessel F-isocrystals for reductive groups",
+   "target": "PAPER-XU-ZHU-22",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-XU-ZHU-22.fixes.md",
+    "research/blueprint/papers/PAPER-XU-ZHU-22.result.json",
+    "research/blueprint/papers/PAPER-XU-ZHU-22.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-XU-ZHU-22.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-CASTELLA-ETAL-22",
@@ -37755,8 +38071,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CASTELLA-ETAL-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5508",
-   "finishedAt": "2026-10-01T23:25:04Z"
+   "finishedAt": "2026-10-01T23:25:04Z",
+   "note": "deliverables arrived from an external worker on issue #5508"
   },
   {
    "id": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
@@ -37821,8 +38137,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5509",
-   "finishedAt": "2026-10-02T02:03:14Z"
+   "finishedAt": "2026-10-02T02:03:14Z",
+   "note": "deliverables arrived from an external worker on issue #5509"
   },
   {
    "id": "RT-PAPER-BENOIST-WITTENBERG-20",
@@ -37887,8 +38203,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BENOIST-WITTENBERG-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5510",
-   "finishedAt": "2026-10-02T02:14:30Z"
+   "finishedAt": "2026-10-02T02:14:30Z",
+   "note": "deliverables arrived from an external worker on issue #5510"
   },
   {
    "id": "RT-PAPER-CALEGARI-GERAGHTY-18",
@@ -37996,8 +38312,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BHATT-SCHOLZE-17.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5511",
-   "finishedAt": "2026-10-02T00:12:49Z"
+   "finishedAt": "2026-10-02T00:12:49Z",
+   "note": "deliverables arrived from an external worker on issue #5511"
   },
   {
    "id": "RT-PAPER-COLMEZ-NIZIOL-25",
@@ -38171,8 +38487,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5512",
-   "finishedAt": "2026-10-02T00:01:49Z"
+   "finishedAt": "2026-10-02T00:01:49Z",
+   "note": "deliverables arrived from an external worker on issue #5512"
   },
   {
    "id": "RT-PAPER-FRESAN-SABBAH-YU-22",
@@ -38193,8 +38509,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-FRESAN-SABBAH-YU-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4184",
-   "finishedAt": "2026-10-02T03:00:15Z"
+   "finishedAt": "2026-10-02T03:00:15Z",
+   "note": "deliverables arrived from an external worker on issue #4184"
   },
   {
    "id": "REV-RT-PAPER-FRESAN-SABBAH-YU-22",
@@ -38218,8 +38534,27 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-FRESAN-SABBAH-YU-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4183",
-   "finishedAt": "2026-10-02T06:35:24Z"
+   "finishedAt": "2026-10-02T06:35:24Z",
+   "note": "deliverables arrived from an external worker on issue #4183"
+  },
+  {
+   "id": "FIX-RT-PAPER-FRESAN-SABBAH-YU-22",
+   "kind": "fix",
+   "priority": 1,
+   "order": 330,
+   "name": "paper extraction PAPER-FRESAN-SABBAH-YU-22: Fresán–Sabbah–Yu (2022): Hodge theory of Kloosterman connections",
+   "target": "PAPER-FRESAN-SABBAH-YU-22",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-FRESAN-SABBAH-YU-22.fixes.md",
+    "research/blueprint/papers/PAPER-BREUIL-HELLMANN-SCHRAEN-19.result.json",
+    "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+    "research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.result.json",
+    "research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-FRESAN-SABBAH-YU-22.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-KOYMANS-MILOVIC-21",
@@ -38350,8 +38685,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BHATT-MATHEW-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5513",
-   "finishedAt": "2026-10-02T02:54:53Z"
+   "finishedAt": "2026-10-02T02:54:53Z",
+   "note": "deliverables arrived from an external worker on issue #5513"
   },
   {
    "id": "RT-PAPER-CALEGARI-GERAGHTY-20",
@@ -38504,8 +38839,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CESNAVICIUS-19.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5514",
-   "finishedAt": "2026-10-02T00:20:14Z"
+   "finishedAt": "2026-10-02T00:20:14Z",
+   "note": "deliverables arrived from an external worker on issue #5514"
   },
   {
    "id": "RT-PAPER-WOOD-19",
@@ -38636,8 +38971,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5515",
-   "finishedAt": "2026-10-01T23:11:24Z"
+   "finishedAt": "2026-10-01T23:11:24Z",
+   "note": "deliverables arrived from an external worker on issue #5515"
   },
   {
    "id": "RT-PAPER-CLOZEL-THORNE-17",
@@ -38702,8 +39037,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CLOZEL-THORNE-17.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5516",
-   "finishedAt": "2026-10-01T23:27:57Z"
+   "finishedAt": "2026-10-01T23:27:57Z",
+   "note": "deliverables arrived from an external worker on issue #5516"
   },
   {
    "id": "RT-PAPER-DEMARCO-MAVRAKI-YE-26",
@@ -38724,8 +39059,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DEMARCO-MAVRAKI-YE-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4202",
-   "finishedAt": "2026-10-02T01:05:49Z"
+   "finishedAt": "2026-10-02T01:05:49Z",
+   "note": "deliverables arrived from an external worker on issue #4202"
   },
   {
    "id": "REV-RT-PAPER-DEMARCO-MAVRAKI-YE-26",
@@ -38749,8 +39084,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DEMARCO-MAVRAKI-YE-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4201",
-   "finishedAt": "2026-10-02T05:00:14Z"
+   "finishedAt": "2026-10-02T05:00:14Z",
+   "note": "deliverables arrived from an external worker on issue #4201"
+  },
+  {
+   "id": "FIX-RT-PAPER-DEMARCO-MAVRAKI-YE-26",
+   "kind": "fix",
+   "priority": 1,
+   "order": 341,
+   "name": "paper extraction PAPER-DEMARCO-MAVRAKI-YE-26: DeMarco–Mavraki–Ye (2026): Bounded geometry for PCF-special subvarieties",
+   "target": "PAPER-DEMARCO-MAVRAKI-YE-26",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-DEMARCO-MAVRAKI-YE-26.fixes.md",
+    "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
+    "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DEMARCO-MAVRAKI-YE-26.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-HANSEN-26",
@@ -38905,8 +39257,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-PASKUNAS-QUAST-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5517",
-   "finishedAt": "2026-10-02T01:59:22Z"
+   "finishedAt": "2026-10-02T01:59:22Z",
+   "note": "deliverables arrived from an external worker on issue #5517"
   },
   {
    "id": "RT-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
@@ -39061,8 +39413,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-FENG-24.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5518",
-   "finishedAt": "2026-10-01T23:13:56Z"
+   "finishedAt": "2026-10-01T23:13:56Z",
+   "note": "deliverables arrived from an external worker on issue #5518"
   },
   {
    "id": "RT-PAPER-IM-KIM-LE-ETAL-24",
@@ -39127,8 +39479,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-IM-KIM-LE-ETAL-24.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5519",
-   "finishedAt": "2026-10-02T01:05:53Z"
+   "finishedAt": "2026-10-02T01:05:53Z",
+   "note": "deliverables arrived from an external worker on issue #5519"
   },
   {
    "id": "RT-PAPER-VANHOFTEN-24",
@@ -39236,8 +39588,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CANNING-LARSON-PAYNE-24.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5520",
-   "finishedAt": "2026-10-02T01:32:43Z"
+   "finishedAt": "2026-10-02T01:32:43Z",
+   "note": "deliverables arrived from an external worker on issue #5520"
   },
   {
    "id": "RT-PAPER-BHATT-MATHEW-23",
@@ -39302,8 +39654,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BHATT-MATHEW-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5521",
-   "finishedAt": "2026-10-02T01:38:10Z"
+   "finishedAt": "2026-10-02T01:38:10Z",
+   "note": "deliverables arrived from an external worker on issue #5521"
   },
   {
    "id": "RT-PAPER-ANSCHUTZ-LEBRAS-23",
@@ -39411,8 +39763,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HACON-WITASZEK-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5522",
-   "finishedAt": "2026-10-01T23:33:34Z"
+   "finishedAt": "2026-10-01T23:33:34Z",
+   "note": "deliverables arrived from an external worker on issue #5522"
   },
   {
    "id": "RT-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
@@ -39610,8 +39962,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-GAN-SAVIN-23-B.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4231",
-   "finishedAt": "2026-10-01T22:48:22Z"
+   "finishedAt": "2026-10-01T22:48:22Z",
+   "note": "deliverables arrived from an external worker on issue #4231"
+  },
+  {
+   "id": "FIX-RT-PAPER-GAN-SAVIN-23-B",
+   "kind": "fix",
+   "priority": 1,
+   "order": 360,
+   "name": "paper extraction PAPER-GAN-SAVIN-23-B: Gan–Savin (2023): The Local Langlands Conjecture for G_2",
+   "target": "PAPER-GAN-SAVIN-23-B",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-GAN-SAVIN-23-B.fixes.md",
+    "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
+    "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GAN-SAVIN-23-B.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-CHANG-CHEN-MISHIBA-23",
@@ -39742,8 +40111,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5523",
-   "finishedAt": "2026-10-01T22:40:25Z"
+   "finishedAt": "2026-10-01T22:40:25Z",
+   "note": "deliverables arrived from an external worker on issue #5523"
   },
   {
    "id": "RT-PAPER-LI-LIU-22",
@@ -39851,8 +40220,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5524",
-   "finishedAt": "2026-10-02T02:44:05Z"
+   "finishedAt": "2026-10-02T02:44:05Z",
+   "note": "deliverables arrived from an external worker on issue #5524"
   },
   {
    "id": "RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
@@ -39917,8 +40286,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5525",
-   "finishedAt": "2026-10-02T00:43:05Z"
+   "finishedAt": "2026-10-02T00:43:05Z",
+   "note": "deliverables arrived from an external worker on issue #5525"
   },
   {
    "id": "RT-PAPER-ATOBE-KONDO-YASUDA-22",
@@ -39983,8 +40352,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-ATOBE-KONDO-YASUDA-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5526",
-   "finishedAt": "2026-10-02T00:32:15Z"
+   "finishedAt": "2026-10-02T00:32:15Z",
+   "note": "deliverables arrived from an external worker on issue #5526"
   },
   {
    "id": "RT-PAPER-HE-21",
@@ -40049,8 +40418,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HE-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5527",
-   "finishedAt": "2026-10-01T23:41:58Z"
+   "finishedAt": "2026-10-01T23:41:58Z",
+   "note": "deliverables arrived from an external worker on issue #5527"
   },
   {
    "id": "RT-PAPER-EISCHEN-HARRIS-LI-ETAL-20",
@@ -40157,8 +40526,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-VENKATESH-19.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4252",
-   "finishedAt": "2026-10-02T02:25:58Z"
+   "finishedAt": "2026-10-02T02:25:58Z",
+   "note": "deliverables arrived from an external worker on issue #4252"
   },
   {
    "id": "REV-RT-PAPER-VENKATESH-19",
@@ -40444,8 +40813,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOXER-CALEGARI-GEE-25.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5528",
-   "finishedAt": "2026-10-02T01:07:56Z"
+   "finishedAt": "2026-10-02T01:07:56Z",
+   "note": "deliverables arrived from an external worker on issue #5528"
   },
   {
    "id": "RT-PAPER-CALEGARI-DIMITROV-TANG-25",
@@ -40510,8 +40879,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CALEGARI-DIMITROV-TANG-25.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5529",
-   "finishedAt": "2026-10-01T23:46:04Z"
+   "finishedAt": "2026-10-01T23:46:04Z",
+   "note": "deliverables arrived from an external worker on issue #5529"
   },
   {
    "id": "RT-PAPER-LI-ZHANG-22-B",
@@ -40532,8 +40901,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LI-ZHANG-22-B.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4262",
-   "finishedAt": "2026-10-02T04:21:50Z"
+   "finishedAt": "2026-10-02T04:21:50Z",
+   "note": "deliverables arrived from an external worker on issue #4262"
   },
   {
    "id": "REV-RT-PAPER-LI-ZHANG-22-B",
@@ -40557,8 +40926,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LI-ZHANG-22-B.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4261",
-   "finishedAt": "2026-10-02T05:23:46Z"
+   "finishedAt": "2026-10-02T05:23:46Z",
+   "note": "deliverables arrived from an external worker on issue #4261"
+  },
+  {
+   "id": "FIX-RT-PAPER-LI-ZHANG-22-B",
+   "kind": "fix",
+   "priority": 1,
+   "order": 378,
+   "name": "paper extraction PAPER-LI-ZHANG-22-B: Chao Li–Wei Zhang (2022): Kudla-Rapoport cycles and derivatives of local densities",
+   "target": "PAPER-LI-ZHANG-22-B",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-LI-ZHANG-22-B.fixes.md",
+    "research/blueprint/papers/PAPER-LI-ZHANG-22-B.result.json",
+    "research/blueprint/papers/PAPER-LI-ZHANG-22-B.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-LI-ZHANG-22-B.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-CLAUSEN-MATHEW-MORROW-21",
@@ -40623,8 +41009,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CLAUSEN-MATHEW-MORROW-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5530",
-   "finishedAt": "2026-10-01T23:06:46Z"
+   "finishedAt": "2026-10-01T23:06:46Z",
+   "note": "deliverables arrived from an external worker on issue #5530"
   },
   {
    "id": "RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
@@ -40689,8 +41075,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5531",
-   "finishedAt": "2026-10-01T22:43:05Z"
+   "finishedAt": "2026-10-01T22:43:05Z",
+   "note": "deliverables arrived from an external worker on issue #5531"
   },
   {
    "id": "RT-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
@@ -41018,8 +41404,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BHARGAVA-GROSS-WANG-17.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4281",
-   "finishedAt": "2026-10-01T22:19:41Z"
+   "finishedAt": "2026-10-01T22:19:41Z",
+   "note": "deliverables arrived from an external worker on issue #4281"
+  },
+  {
+   "id": "FIX-RT-PAPER-BHARGAVA-GROSS-WANG-17",
+   "kind": "fix",
+   "priority": 1,
+   "order": 388,
+   "name": "paper extraction PAPER-BHARGAVA-GROSS-WANG-17: Bhargava–Gross–Wang (2017): A positive proportion of locally soluble hyperelliptic curves over Q have no point over any odd degree extension",
+   "target": "PAPER-BHARGAVA-GROSS-WANG-17",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-BHARGAVA-GROSS-WANG-17.fixes.md",
+    "research/blueprint/papers/PAPER-BHARGAVA-GROSS-WANG-17.result.json",
+    "research/blueprint/papers/PAPER-BHARGAVA-GROSS-WANG-17.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BHARGAVA-GROSS-WANG-17.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-GAO-GE-KUHNE-26",
@@ -41084,8 +41487,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GAO-GE-KUHNE-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5532",
-   "finishedAt": "2026-10-01T23:46:07Z"
+   "finishedAt": "2026-10-01T23:46:07Z",
+   "note": "deliverables arrived from an external worker on issue #5532"
   },
   {
    "id": "RT-PAPER-DING-25",
@@ -41389,8 +41792,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-NEWTON-THORNE-21-B.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5533",
-   "finishedAt": "2026-10-02T01:14:40Z"
+   "finishedAt": "2026-10-02T01:14:40Z",
+   "note": "deliverables arrived from an external worker on issue #5533"
   },
   {
    "id": "RT-PAPER-CHENEVIER-TAIBI-20",
@@ -41455,8 +41858,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CHENEVIER-TAIBI-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5534",
-   "finishedAt": "2026-10-02T00:32:18Z"
+   "finishedAt": "2026-10-02T00:32:18Z",
+   "note": "deliverables arrived from an external worker on issue #5534"
   },
   {
    "id": "RT-PAPER-BENOIST-19",
@@ -42425,8 +42828,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BHATT-18.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5535",
-   "finishedAt": "2026-10-01T22:27:58Z"
+   "finishedAt": "2026-10-01T22:27:58Z",
+   "note": "deliverables arrived from an external worker on issue #5535"
   },
   {
    "id": "RT-PAPER-CESNAVICIUS-21",
@@ -43002,8 +43405,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DELIGNE-74.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5536",
-   "finishedAt": "2026-10-01T23:00:40Z"
+   "finishedAt": "2026-10-01T23:00:40Z",
+   "note": "deliverables arrived from an external worker on issue #5536"
   },
   {
    "id": "RT-PAPER-DELIGNE-80",
@@ -43849,8 +44252,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-STEVENS-08.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5539",
-   "finishedAt": "2026-10-02T00:51:23Z"
+   "finishedAt": "2026-10-02T00:51:23Z",
+   "note": "deliverables arrived from an external worker on issue #5539"
   },
   {
    "id": "RT-PAPER-LUST-STEVENS-20",
@@ -45494,8 +45897,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-RS-01.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4387",
-   "finishedAt": "2026-10-02T04:53:41Z"
+   "finishedAt": "2026-10-02T04:53:41Z",
+   "note": "deliverables arrived from an external worker on issue #4387"
   },
   {
    "id": "REV-RT-RS-01",
@@ -45527,8 +45930,65 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-01.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4386",
-   "finishedAt": "2026-10-02T05:36:48Z"
+   "finishedAt": "2026-10-02T05:36:48Z",
+   "note": "deliverables arrived from an external worker on issue #4386"
+  },
+  {
+   "id": "FIX-RT-RS-01",
+   "kind": "fix",
+   "priority": 1,
+   "order": 661,
+   "name": "restructuring proposal RS-01: p-adic cohomology theories: A_inf, crystalline, derived de Rham, prismatic and their comparisons",
+   "target": "RS-01",
+   "roadmapIds": [
+    "AInfCohomology",
+    "CohomologyComparisons",
+    "CrystallineCohomology",
+    "DerivedDeRhamCohomology",
+    "PadicHodgeTheory",
+    "PerfectoidQuotients",
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-01.fixes.md",
+    "research/blueprint/packets/PadicHodgeTheory--P7.json",
+    "research/blueprint/reviews/REV-RS-01.md",
+    "research/blueprint/restructure/RS-01.result.json",
+    "research/blueprint/restructure/RS-01.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-RS-01.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-RS-01",
+   "kind": "review",
+   "priority": 1,
+   "order": 661,
+   "name": "restructuring proposal RS-01: p-adic cohomology theories: A_inf, crystalline, derived de Rham, prismatic and their comparisons",
+   "roadmapIds": [
+    "AInfCohomology",
+    "CohomologyComparisons",
+    "CrystallineCohomology",
+    "DerivedDeRhamCohomology",
+    "PadicHodgeTheory",
+    "PerfectoidQuotients",
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-RS-01.md",
+    "research/blueprint/packets/PadicHodgeTheory--P7.json",
+    "research/blueprint/restructure/RS-01.result.json"
+   ],
+   "after": [
+    "FIX-RT-RS-01"
+   ],
+   "avoidAccountOf": "FIX-RT-RS-01",
+   "independentOf": [
+    "FIX-RT-RS-01"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-01.md",
+   "state": "pending"
   },
   {
    "id": "RT-RS-02",
@@ -45740,8 +46200,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-RS-05.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4393",
-   "finishedAt": "2026-10-01T22:17:17Z"
+   "finishedAt": "2026-10-01T22:17:17Z",
+   "note": "deliverables arrived from an external worker on issue #4393"
   },
   {
    "id": "REV-RT-RS-05",
@@ -45775,8 +46235,66 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-05.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4392",
-   "finishedAt": "2026-10-01T22:25:39Z"
+   "finishedAt": "2026-10-01T22:25:39Z",
+   "note": "deliverables arrived from an external worker on issue #4392"
+  },
+  {
+   "id": "FIX-RT-RS-05",
+   "kind": "fix",
+   "priority": 1,
+   "order": 665,
+   "name": "restructuring proposal RS-05: Adic spaces, perfectoid spaces and diamonds",
+   "target": "RS-05",
+   "roadmapIds": [
+    "AdicEtaleGeometry",
+    "AdicSpacesPartII",
+    "ClassicalAdicEtaleCohomology",
+    "DiamondEtaleCohomology",
+    "DiamondSixOperations",
+    "DiamondsAndVStacks",
+    "PerfectoidShimuraVarieties",
+    "PerfectoidSpaces",
+    "VStackSheavesAndLisseCategories"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-05.fixes.md",
+    "research/blueprint/restructure/RS-05.result.json",
+    "research/blueprint/restructure/RS-05.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-RS-05.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-RS-05",
+   "kind": "review",
+   "priority": 1,
+   "order": 665,
+   "name": "restructuring proposal RS-05: Adic spaces, perfectoid spaces and diamonds",
+   "roadmapIds": [
+    "AdicEtaleGeometry",
+    "AdicSpacesPartII",
+    "ClassicalAdicEtaleCohomology",
+    "DiamondEtaleCohomology",
+    "DiamondSixOperations",
+    "DiamondsAndVStacks",
+    "PerfectoidShimuraVarieties",
+    "PerfectoidSpaces",
+    "VStackSheavesAndLisseCategories"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-RS-05.md",
+    "research/blueprint/restructure/RS-05.result.json"
+   ],
+   "after": [
+    "FIX-RT-RS-05"
+   ],
+   "avoidAccountOf": "FIX-RT-RS-05",
+   "independentOf": [
+    "FIX-RT-RS-05"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-05.md",
+   "state": "pending"
   },
   {
    "id": "RT-RS-06",
@@ -46233,8 +46751,52 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-11.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5106",
-   "finishedAt": "2026-10-01T22:17:22Z"
+   "finishedAt": "2026-10-01T22:17:22Z",
+   "note": "deliverables arrived from an external worker on issue #5106"
+  },
+  {
+   "id": "FIX-RT-RS-11",
+   "kind": "fix",
+   "priority": 1,
+   "order": 673,
+   "name": "restructuring proposal RS-11: Main conjectures and automorphic congruences",
+   "target": "RS-11",
+   "roadmapIds": [
+    "AutomorphicCongruences",
+    "ModularIwasawaMainConjectures"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-11.fixes.md",
+    "research/blueprint/restructure/RS-11.result.json",
+    "research/blueprint/restructure/RS-11.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-RS-11.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-RS-11",
+   "kind": "review",
+   "priority": 1,
+   "order": 673,
+   "name": "restructuring proposal RS-11: Main conjectures and automorphic congruences",
+   "roadmapIds": [
+    "AutomorphicCongruences",
+    "ModularIwasawaMainConjectures"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-RS-11.md",
+    "research/blueprint/restructure/RS-11.result.json"
+   ],
+   "after": [
+    "FIX-RT-RS-11"
+   ],
+   "avoidAccountOf": "FIX-RT-RS-11",
+   "independentOf": [
+    "FIX-RT-RS-11"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-11.md",
+   "state": "pending"
   },
   {
    "id": "RT-RS-12~3",
@@ -46309,8 +46871,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-12~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5547",
-   "finishedAt": "2026-10-01T22:43:08Z"
+   "finishedAt": "2026-10-01T22:43:08Z",
+   "note": "deliverables arrived from an external worker on issue #5547"
   },
   {
    "id": "REV-FIX-RT-RS-12~3",
@@ -46335,8 +46897,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-12~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5548",
-   "finishedAt": "2026-10-01T22:55:12Z"
+   "finishedAt": "2026-10-01T22:55:12Z",
+   "note": "deliverables arrived from an external worker on issue #5548"
   },
   {
    "id": "RT-RS-13",
@@ -46840,8 +47402,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-20~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5549",
-   "finishedAt": "2026-10-01T23:00:43Z"
+   "finishedAt": "2026-10-01T23:00:43Z",
+   "note": "deliverables arrived from an external worker on issue #5549"
   },
   {
    "id": "REV-FIX-RT-RS-20~3",
@@ -46866,8 +47428,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-20~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5550",
-   "finishedAt": "2026-10-01T23:36:07Z"
+   "finishedAt": "2026-10-01T23:36:07Z",
+   "note": "deliverables arrived from an external worker on issue #5550"
   },
   {
    "id": "RT-RS-21",
@@ -46891,8 +47453,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-RS-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5115",
-   "finishedAt": "2026-10-01T22:22:05Z"
+   "finishedAt": "2026-10-01T22:22:05Z",
+   "note": "deliverables arrived from an external worker on issue #5115"
   },
   {
    "id": "REV-RT-RS-21",
@@ -46919,8 +47481,52 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5113",
-   "finishedAt": "2026-10-01T22:33:06Z"
+   "finishedAt": "2026-10-01T22:33:06Z",
+   "note": "deliverables arrived from an external worker on issue #5113"
+  },
+  {
+   "id": "FIX-RT-RS-21",
+   "kind": "fix",
+   "priority": 1,
+   "order": 687,
+   "name": "restructuring proposal RS-21: Smooth local representations and GL₂ automorphic representations",
+   "target": "RS-21",
+   "roadmapIds": [
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "SmoothRepresentationsOfLocalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-21.fixes.md",
+    "research/blueprint/restructure/RS-21.result.json",
+    "research/blueprint/restructure/RS-21.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-RS-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-RS-21",
+   "kind": "review",
+   "priority": 1,
+   "order": 687,
+   "name": "restructuring proposal RS-21: Smooth local representations and GL₂ automorphic representations",
+   "roadmapIds": [
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "SmoothRepresentationsOfLocalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-RS-21.md",
+    "research/blueprint/restructure/RS-21.result.json"
+   ],
+   "after": [
+    "FIX-RT-RS-21"
+   ],
+   "avoidAccountOf": "FIX-RT-RS-21",
+   "independentOf": [
+    "FIX-RT-RS-21"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-21.md",
+   "state": "pending"
   },
   {
    "id": "RT-RS-22",
@@ -47073,8 +47679,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5552",
-   "finishedAt": "2026-10-02T03:13:40Z"
+   "finishedAt": "2026-10-02T03:13:40Z",
+   "note": "deliverables arrived from an external worker on issue #5552"
   },
   {
    "id": "RT-RS-24",
@@ -47306,8 +47912,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-27.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5553",
-   "finishedAt": "2026-10-01T21:56:53Z"
+   "finishedAt": "2026-10-01T21:56:53Z",
+   "note": "deliverables arrived from an external worker on issue #5553"
   },
   {
    "id": "REV-FIX-RT-RS-27",
@@ -47331,8 +47937,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-27.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5554",
-   "finishedAt": "2026-10-02T03:24:25Z"
+   "finishedAt": "2026-10-02T03:24:25Z",
+   "note": "deliverables arrived from an external worker on issue #5554"
   },
   {
    "id": "RT-RS-28",
@@ -47656,8 +48262,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-RS-33.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5121",
-   "finishedAt": "2026-10-01T22:17:26Z"
+   "finishedAt": "2026-10-01T22:17:26Z",
+   "note": "deliverables arrived from an external worker on issue #5121"
   },
   {
    "id": "REV-RT-RS-33",
@@ -47683,8 +48289,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-33.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5120",
-   "finishedAt": "2026-10-02T03:18:43Z"
+   "finishedAt": "2026-10-02T03:18:43Z",
+   "note": "deliverables arrived from an external worker on issue #5120"
   },
   {
    "id": "RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6",
@@ -47996,8 +48602,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-ArithmeticKTheory--N.7.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5555",
-   "finishedAt": "2026-10-01T23:06:49Z"
+   "finishedAt": "2026-10-01T23:06:49Z",
+   "note": "deliverables arrived from an external worker on issue #5555"
   },
   {
    "id": "REV-FIX-RT-BP-ArithmeticKTheory--N.7",
@@ -48022,8 +48628,54 @@
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-ArithmeticKTheory--N.7.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5556",
-   "finishedAt": "2026-10-02T03:49:27Z"
+   "finishedAt": "2026-10-02T03:49:27Z",
+   "note": "deliverables arrived from an external worker on issue #5556"
+  },
+  {
+   "id": "FIX-RT-BP-ArithmeticKTheory--N.7~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 721,
+   "name": "blueprint BP-ArithmeticKTheory--N.7: K-theory of number fields and S-integers",
+   "target": "BP-ArithmeticKTheory--N.7",
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ArithmeticKTheory--N.7.fixes-2.md",
+    "research/blueprint/packets/ArithmeticKTheory--N.7.json",
+    "research/blueprint/readmes/ArithmeticKTheory--N.7.md",
+    "research/blueprint/suggested/ArithmeticKTheory--N.7.lean"
+   ],
+   "after": [
+    "REV-FIX-RT-BP-ArithmeticKTheory--N.7"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-BP-ArithmeticKTheory--N.7~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-BP-ArithmeticKTheory--N.7~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 721,
+   "name": "blueprint BP-ArithmeticKTheory--N.7: K-theory of number fields and S-integers",
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-BP-ArithmeticKTheory--N.7~2.md",
+    "research/blueprint/packets/ArithmeticKTheory--N.7.json",
+    "research/blueprint/suggested/ArithmeticKTheory--N.7.lean"
+   ],
+   "after": [
+    "FIX-RT-BP-ArithmeticKTheory--N.7~2"
+   ],
+   "avoidAccountOf": "FIX-RT-BP-ArithmeticKTheory--N.7~2",
+   "independentOf": [
+    "FIX-RT-BP-ArithmeticKTheory--N.7~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-ArithmeticKTheory--N.7~2.md",
+   "state": "pending"
   },
   {
    "id": "RT-BP-ClassicalSerreModularity--R27.3",
@@ -48073,8 +48725,52 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalSerreModularity--R27.3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4430",
-   "finishedAt": "2026-10-02T03:32:48Z"
+   "finishedAt": "2026-10-02T03:32:48Z",
+   "note": "deliverables arrived from an external worker on issue #4430"
+  },
+  {
+   "id": "FIX-RT-BP-ClassicalSerreModularity--R27.3",
+   "kind": "fix",
+   "priority": 1,
+   "order": 738,
+   "name": "blueprint BP-ClassicalSerreModularity--R27.3: Classical Serre Modularity",
+   "target": "BP-ClassicalSerreModularity--R27.3",
+   "roadmapIds": [
+    "ClassicalSerreModularity"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalSerreModularity--R27.3.fixes.md",
+    "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
+    "research/blueprint/readmes/ClassicalSerreModularity--R27.3.md",
+    "research/blueprint/suggested/ClassicalSerreModularity--R27.3.lean"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-BP-ClassicalSerreModularity--R27.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-BP-ClassicalSerreModularity--R27.3",
+   "kind": "review",
+   "priority": 1,
+   "order": 738,
+   "name": "blueprint BP-ClassicalSerreModularity--R27.3: Classical Serre Modularity",
+   "roadmapIds": [
+    "ClassicalSerreModularity"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-BP-ClassicalSerreModularity--R27.3.md",
+    "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
+    "research/blueprint/suggested/ClassicalSerreModularity--R27.3.lean"
+   ],
+   "after": [
+    "FIX-RT-BP-ClassicalSerreModularity--R27.3"
+   ],
+   "avoidAccountOf": "FIX-RT-BP-ClassicalSerreModularity--R27.3",
+   "independentOf": [
+    "FIX-RT-BP-ClassicalSerreModularity--R27.3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-ClassicalSerreModularity--R27.3.md",
+   "state": "pending"
   },
   {
    "id": "RT-BP-ClassicalSerreModularity--R33.5",
@@ -48245,8 +48941,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-EllipticCurveModularity.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5045",
-   "finishedAt": "2026-10-02T03:10:58Z"
+   "finishedAt": "2026-10-02T03:10:58Z",
+   "note": "deliverables arrived from an external worker on issue #5045"
   },
   {
    "id": "REV-FIX-RT-BP-EllipticCurveModularity",
@@ -48271,8 +48967,54 @@
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-EllipticCurveModularity.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5191",
-   "finishedAt": "2026-10-02T04:27:28Z"
+   "finishedAt": "2026-10-02T04:27:28Z",
+   "note": "deliverables arrived from an external worker on issue #5191"
+  },
+  {
+   "id": "FIX-RT-BP-EllipticCurveModularity~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 757,
+   "name": "blueprint BP-EllipticCurveModularity: Modularity and modular parametrisations of elliptic curves over Q",
+   "target": "BP-EllipticCurveModularity",
+   "roadmapIds": [
+    "EllipticCurveModularity"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-EllipticCurveModularity.fixes-2.md",
+    "research/blueprint/packets/EllipticCurveModularity.json",
+    "research/blueprint/readmes/EllipticCurveModularity.md",
+    "research/blueprint/suggested/EllipticCurveModularity.lean"
+   ],
+   "after": [
+    "REV-FIX-RT-BP-EllipticCurveModularity"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-BP-EllipticCurveModularity~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-BP-EllipticCurveModularity~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 757,
+   "name": "blueprint BP-EllipticCurveModularity: Modularity and modular parametrisations of elliptic curves over Q",
+   "roadmapIds": [
+    "EllipticCurveModularity"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-BP-EllipticCurveModularity~2.md",
+    "research/blueprint/packets/EllipticCurveModularity.json",
+    "research/blueprint/suggested/EllipticCurveModularity.lean"
+   ],
+   "after": [
+    "FIX-RT-BP-EllipticCurveModularity~2"
+   ],
+   "avoidAccountOf": "FIX-RT-BP-EllipticCurveModularity~2",
+   "independentOf": [
+    "FIX-RT-BP-EllipticCurveModularity~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-EllipticCurveModularity~2.md",
+   "state": "pending"
   },
   {
    "id": "RT-BP-EllipticKTheory",
@@ -48510,8 +49252,52 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-GlobalGaloisDeformations.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4445",
-   "finishedAt": "2026-10-02T03:30:21Z"
+   "finishedAt": "2026-10-02T03:30:21Z",
+   "note": "deliverables arrived from an external worker on issue #4445"
+  },
+  {
+   "id": "FIX-RT-BP-GlobalGaloisDeformations",
+   "kind": "fix",
+   "priority": 1,
+   "order": 786,
+   "name": "blueprint BP-GlobalGaloisDeformations: Global Galois deformation rings",
+   "target": "BP-GlobalGaloisDeformations",
+   "roadmapIds": [
+    "GlobalGaloisDeformations"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-GlobalGaloisDeformations.fixes.md",
+    "research/blueprint/packets/GlobalGaloisDeformations.json",
+    "research/blueprint/readmes/GlobalGaloisDeformations.md",
+    "research/blueprint/suggested/GlobalGaloisDeformations.lean"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-BP-GlobalGaloisDeformations.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-BP-GlobalGaloisDeformations",
+   "kind": "review",
+   "priority": 1,
+   "order": 786,
+   "name": "blueprint BP-GlobalGaloisDeformations: Global Galois deformation rings",
+   "roadmapIds": [
+    "GlobalGaloisDeformations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-BP-GlobalGaloisDeformations.md",
+    "research/blueprint/packets/GlobalGaloisDeformations.json",
+    "research/blueprint/suggested/GlobalGaloisDeformations.lean"
+   ],
+   "after": [
+    "FIX-RT-BP-GlobalGaloisDeformations"
+   ],
+   "avoidAccountOf": "FIX-RT-BP-GlobalGaloisDeformations",
+   "independentOf": [
+    "FIX-RT-BP-GlobalGaloisDeformations"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-GlobalGaloisDeformations.md",
+   "state": "pending"
   },
   {
    "id": "RT-BP-HabiroCohomologyFoundations--HQ.1",
@@ -48724,8 +49510,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-K2SymbolsBrauer--T.3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5557",
-   "finishedAt": "2026-10-01T23:36:13Z"
+   "finishedAt": "2026-10-01T23:36:13Z",
+   "note": "deliverables arrived from an external worker on issue #5557"
   },
   {
    "id": "REV-FIX-RT-BP-K2SymbolsBrauer--T.3",
@@ -48750,8 +49536,54 @@
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-K2SymbolsBrauer--T.3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5558",
-   "finishedAt": "2026-10-02T03:40:15Z"
+   "finishedAt": "2026-10-02T03:40:15Z",
+   "note": "deliverables arrived from an external worker on issue #5558"
+  },
+  {
+   "id": "FIX-RT-BP-K2SymbolsBrauer--T.3~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 805,
+   "name": "blueprint BP-K2SymbolsBrauer--T.3: Explicit K₂: symbols, residues and reciprocity",
+   "target": "BP-K2SymbolsBrauer--T.3",
+   "roadmapIds": [
+    "K2SymbolsBrauer"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-K2SymbolsBrauer--T.3.fixes-2.md",
+    "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+    "research/blueprint/readmes/K2SymbolsBrauer--T.3.md",
+    "research/blueprint/suggested/K2SymbolsBrauer--T.3.lean"
+   ],
+   "after": [
+    "REV-FIX-RT-BP-K2SymbolsBrauer--T.3"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-BP-K2SymbolsBrauer--T.3~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 805,
+   "name": "blueprint BP-K2SymbolsBrauer--T.3: Explicit K₂: symbols, residues and reciprocity",
+   "roadmapIds": [
+    "K2SymbolsBrauer"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2.md",
+    "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+    "research/blueprint/suggested/K2SymbolsBrauer--T.3.lean"
+   ],
+   "after": [
+    "FIX-RT-BP-K2SymbolsBrauer--T.3~2"
+   ],
+   "avoidAccountOf": "FIX-RT-BP-K2SymbolsBrauer--T.3~2",
+   "independentOf": [
+    "FIX-RT-BP-K2SymbolsBrauer--T.3~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2.md",
+   "state": "pending"
   },
   {
    "id": "RT-BP-SmallRamificationAndAbelianVarietyBaseCases",
@@ -53149,8 +53981,68 @@
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5148",
-   "finishedAt": "2026-10-02T05:19:28Z"
+   "finishedAt": "2026-10-02T05:19:28Z",
+   "note": "deliverables arrived from an external worker on issue #5148"
+  },
+  {
+   "id": "FIX-RT-AREA-algebraicgeometry~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 421,
+   "name": "area: Schemes, curves and moduli (Algebraic geometry)",
+   "target": "area:algebraicgeometry",
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry",
+    "ComplexComparisonPartII",
+    "SchemeAndStackFoundations",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "tauceti:TauCetiRoadmap/StableReduction"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-algebraicgeometry.fixes-2.md",
+    "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+    "research/blueprint/readmes/MotivesAndAlgebraicCycles.md",
+    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean"
+   ],
+   "after": [
+    "REV-FIX-RT-AREA-algebraicgeometry"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-algebraicgeometry~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-algebraicgeometry~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 421,
+   "name": "area: Schemes, curves and moduli (Algebraic geometry)",
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry",
+    "ComplexComparisonPartII",
+    "SchemeAndStackFoundations",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "tauceti:TauCetiRoadmap/StableReduction"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-algebraicgeometry~2.md",
+    "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-algebraicgeometry~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-algebraicgeometry~2",
+   "independentOf": [
+    "FIX-RT-AREA-algebraicgeometry~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
+   "state": "pending"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -53309,8 +54201,78 @@
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-1~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5151",
-   "finishedAt": "2026-10-02T04:47:21Z"
+   "finishedAt": "2026-10-02T04:47:21Z",
+   "note": "deliverables arrived from an external worker on issue #5151"
+  },
+  {
+   "id": "FIX-RT-AREA-padic-1~3",
+   "kind": "fix",
+   "priority": 1,
+   "order": 431,
+   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 1 of 3",
+   "target": "area:padic:1",
+   "roadmapIds": [
+    "AdicEtaleGeometry",
+    "AdicSpacesPartII",
+    "DiamondsAndVStacks",
+    "FarguesFontaineDiamonds",
+    "HodgeTateAndCanonicalSubgroups",
+    "PerfectoidQuotients",
+    "PerfectoidSpaces",
+    "RelativeFarguesFontaine"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-padic-1.fixes-3.md",
+    "research/blueprint/packets/PerfectoidSpaces--P0.json",
+    "research/blueprint/readmes/PerfectoidSpaces--P0.md",
+    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
+    "research/blueprint/packets/AdicEtaleGeometry.json",
+    "research/blueprint/readmes/AdicEtaleGeometry.md",
+    "research/blueprint/suggested/AdicEtaleGeometry.lean",
+    "research/blueprint/packets/AdicSpacesPartII.json",
+    "research/blueprint/readmes/AdicSpacesPartII.md",
+    "research/blueprint/suggested/AdicSpacesPartII.lean"
+   ],
+   "after": [
+    "REV-FIX-RT-AREA-padic-1~2"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-1~3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-padic-1~3",
+   "kind": "review",
+   "priority": 1,
+   "order": 431,
+   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 1 of 3",
+   "roadmapIds": [
+    "AdicEtaleGeometry",
+    "AdicSpacesPartII",
+    "DiamondsAndVStacks",
+    "FarguesFontaineDiamonds",
+    "HodgeTateAndCanonicalSubgroups",
+    "PerfectoidQuotients",
+    "PerfectoidSpaces",
+    "RelativeFarguesFontaine"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-padic-1~3.md",
+    "research/blueprint/packets/PerfectoidSpaces--P0.json",
+    "research/blueprint/packets/AdicEtaleGeometry.json",
+    "research/blueprint/packets/AdicSpacesPartII.json",
+    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
+    "research/blueprint/suggested/AdicEtaleGeometry.lean",
+    "research/blueprint/suggested/AdicSpacesPartII.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-padic-1~3"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-padic-1~3",
+   "independentOf": [
+    "FIX-RT-AREA-padic-1~3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-1~3.md",
+   "state": "pending"
   },
   {
    "id": "RT-AREA-padic-2",
@@ -53471,80 +54433,6 @@
    "state": "done",
    "finishedAt": "2026-10-01T00:06:14Z",
    "note": "deliverables arrived from an external worker on issue #5154"
-  },
-  {
-   "id": "FIX-RT-AREA-padic-2~3",
-   "kind": "fix",
-   "priority": 1,
-   "order": 432,
-   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 2 of 3",
-   "target": "area:padic:2",
-   "roadmapIds": [
-    "AInfCohomology",
-    "CohomologyComparisons",
-    "CrystallineCohomology",
-    "DerivedDeRhamCohomology",
-    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
-    "PadicDifferentialEquationsAndRigidCohomology",
-    "PadicHodgeTheory",
-    "PrismaticCohomology"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-AREA-padic-2.fixes-3.md",
-    "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
-    "research/blueprint/readmes/FaltingsFinitenessAndIsogenyTheorems.md",
-    "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
-    "research/blueprint/packets/PerfectoidSpaces--P0.json",
-    "research/blueprint/readmes/PerfectoidSpaces--P0.md",
-    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
-    "research/blueprint/packets/AdicSpacesPartII.json",
-    "research/blueprint/readmes/AdicSpacesPartII.md",
-    "research/blueprint/suggested/AdicSpacesPartII.lean"
-   ],
-   "after": [
-    "REV-FIX-RT-AREA-padic-2~2"
-   ],
-   "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-2~3.md",
-   "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5537",
-   "finishedAt": "2026-10-02T03:08:27Z"
-  },
-  {
-   "id": "REV-FIX-RT-AREA-padic-2~3",
-   "kind": "review",
-   "priority": 1,
-   "order": 432,
-   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 2 of 3",
-   "roadmapIds": [
-    "AInfCohomology",
-    "CohomologyComparisons",
-    "CrystallineCohomology",
-    "DerivedDeRhamCohomology",
-    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
-    "PadicDifferentialEquationsAndRigidCohomology",
-    "PadicHodgeTheory",
-    "PrismaticCohomology"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-AREA-padic-2~3.md",
-    "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
-    "research/blueprint/packets/PerfectoidSpaces--P0.json",
-    "research/blueprint/packets/AdicSpacesPartII.json",
-    "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
-    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
-    "research/blueprint/suggested/AdicSpacesPartII.lean"
-   ],
-   "after": [
-    "FIX-RT-AREA-padic-2~3"
-   ],
-   "avoidAccountOf": "FIX-RT-AREA-padic-2~3",
-   "independentOf": [
-    "FIX-RT-AREA-padic-2~3"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~3.md",
-   "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5538",
-   "finishedAt": "2026-10-02T04:15:03Z"
   },
   {
    "id": "RT-AREA-padic-3",
@@ -55147,71 +56035,6 @@
    "state": "done",
    "finishedAt": "2026-09-30T22:30:34Z",
    "note": "deliverables arrived from an external worker on issue #5168"
-  },
-  {
-   "id": "FIX-RT-AREA-topology~3",
-   "kind": "fix",
-   "priority": 1,
-   "order": 571,
-   "name": "area: Topology",
-   "target": "area:topology",
-   "roadmapIds": [
-    "ArithmeticQuantumTopology",
-    "tauceti:TauCetiRoadmap/AlgebraicTopology",
-    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
-    "tauceti:TauCetiRoadmap/GeometricTopology",
-    "tauceti:TauCetiRoadmap/HeegaardFloer",
-    "tauceti:TauCetiRoadmap/UniversalCovers"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-AREA-topology.fixes-3.md",
-    "research/blueprint/packets/Polylogarithms.json",
-    "research/blueprint/readmes/Polylogarithms.md",
-    "research/blueprint/suggested/Polylogarithms.lean",
-    "research/blueprint/packets/HabiroNahmSeries.json",
-    "research/blueprint/readmes/HabiroNahmSeries.md",
-    "research/blueprint/suggested/HabiroNahmSeries.lean"
-   ],
-   "after": [
-    "REV-FIX-RT-AREA-topology~2"
-   ],
-   "prompt": "research/blueprint/prompts/FIX-RT-AREA-topology~3.md",
-   "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5543",
-   "finishedAt": "2026-10-01T22:08:00Z"
-  },
-  {
-   "id": "REV-FIX-RT-AREA-topology~3",
-   "kind": "review",
-   "priority": 1,
-   "order": 571,
-   "name": "area: Topology",
-   "roadmapIds": [
-    "ArithmeticQuantumTopology",
-    "tauceti:TauCetiRoadmap/AlgebraicTopology",
-    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
-    "tauceti:TauCetiRoadmap/GeometricTopology",
-    "tauceti:TauCetiRoadmap/HeegaardFloer",
-    "tauceti:TauCetiRoadmap/UniversalCovers"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-AREA-topology~3.md",
-    "research/blueprint/packets/Polylogarithms.json",
-    "research/blueprint/packets/HabiroNahmSeries.json",
-    "research/blueprint/suggested/Polylogarithms.lean",
-    "research/blueprint/suggested/HabiroNahmSeries.lean"
-   ],
-   "after": [
-    "FIX-RT-AREA-topology~3"
-   ],
-   "avoidAccountOf": "FIX-RT-AREA-topology~3",
-   "independentOf": [
-    "FIX-RT-AREA-topology~3"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~3.md",
-   "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5544",
-   "finishedAt": "2026-10-02T04:08:50Z"
   },
   {
    "id": "RT-AREA-diffgeom",
@@ -57013,6 +57836,145 @@
    "state": "done",
    "finishedAt": "2026-09-23T14:56:49Z",
    "note": "deliverables arrived from an external worker on issue #1883"
+  },
+  {
+   "id": "FIX-RT-AREA-padic-2~3",
+   "kind": "fix",
+   "priority": 1,
+   "order": 432,
+   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 2 of 3",
+   "target": "area:padic:2",
+   "roadmapIds": [
+    "AInfCohomology",
+    "CohomologyComparisons",
+    "CrystallineCohomology",
+    "DerivedDeRhamCohomology",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "PadicHodgeTheory",
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-padic-2.fixes-3.md",
+    "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
+    "research/blueprint/readmes/FaltingsFinitenessAndIsogenyTheorems.md",
+    "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
+    "research/blueprint/packets/PerfectoidSpaces--P0.json",
+    "research/blueprint/readmes/PerfectoidSpaces--P0.md",
+    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
+    "research/blueprint/packets/AdicSpacesPartII.json",
+    "research/blueprint/readmes/AdicSpacesPartII.md",
+    "research/blueprint/suggested/AdicSpacesPartII.lean"
+   ],
+   "after": [
+    "REV-FIX-RT-AREA-padic-2~2"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-2~3.md",
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5537",
+   "finishedAt": "2026-10-02T03:08:27Z"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-padic-2~3",
+   "kind": "review",
+   "priority": 1,
+   "order": 432,
+   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 2 of 3",
+   "roadmapIds": [
+    "AInfCohomology",
+    "CohomologyComparisons",
+    "CrystallineCohomology",
+    "DerivedDeRhamCohomology",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "PadicHodgeTheory",
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-padic-2~3.md",
+    "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
+    "research/blueprint/packets/PerfectoidSpaces--P0.json",
+    "research/blueprint/packets/AdicSpacesPartII.json",
+    "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
+    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
+    "research/blueprint/suggested/AdicSpacesPartII.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-padic-2~3"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-padic-2~3",
+   "independentOf": [
+    "FIX-RT-AREA-padic-2~3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~3.md",
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5538",
+   "finishedAt": "2026-10-02T04:15:03Z"
+  },
+  {
+   "id": "FIX-RT-AREA-topology~3",
+   "kind": "fix",
+   "priority": 1,
+   "order": 571,
+   "name": "area: Topology",
+   "target": "area:topology",
+   "roadmapIds": [
+    "ArithmeticQuantumTopology",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+    "tauceti:TauCetiRoadmap/GeometricTopology",
+    "tauceti:TauCetiRoadmap/HeegaardFloer",
+    "tauceti:TauCetiRoadmap/UniversalCovers"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-topology.fixes-3.md",
+    "research/blueprint/packets/Polylogarithms.json",
+    "research/blueprint/readmes/Polylogarithms.md",
+    "research/blueprint/suggested/Polylogarithms.lean",
+    "research/blueprint/packets/HabiroNahmSeries.json",
+    "research/blueprint/readmes/HabiroNahmSeries.md",
+    "research/blueprint/suggested/HabiroNahmSeries.lean"
+   ],
+   "after": [
+    "REV-FIX-RT-AREA-topology~2"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-topology~3.md",
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5543",
+   "finishedAt": "2026-10-01T22:08:00Z"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-topology~3",
+   "kind": "review",
+   "priority": 1,
+   "order": 571,
+   "name": "area: Topology",
+   "roadmapIds": [
+    "ArithmeticQuantumTopology",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+    "tauceti:TauCetiRoadmap/GeometricTopology",
+    "tauceti:TauCetiRoadmap/HeegaardFloer",
+    "tauceti:TauCetiRoadmap/UniversalCovers"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-topology~3.md",
+    "research/blueprint/packets/Polylogarithms.json",
+    "research/blueprint/packets/HabiroNahmSeries.json",
+    "research/blueprint/suggested/Polylogarithms.lean",
+    "research/blueprint/suggested/HabiroNahmSeries.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-topology~3"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-topology~3",
+   "independentOf": [
+    "FIX-RT-AREA-topology~3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~3.md",
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5544",
+   "finishedAt": "2026-10-02T04:08:50Z"
   },
   {
    "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",

@@ -55,8 +55,8 @@
   "job": "BP-SchemeAndStackFoundations",
   "statement": "Azumaya algebras and Brauer groups on schemes: the key definition algebraicgeometry/scheme-brauer, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
  },
- "DeformationAndDerivedPatchingAlgebra:key/coherent-duality": {
-  "job": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+ "SchemeAndStackFoundations:key/coherent-duality": {
+  "job": "BP-SchemeAndStackFoundations",
   "statement": "Coherent dualizing complexes and exceptional inverse image: the key definition algebraicgeometry/coherent-duality, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
  },
  "StableReductionPartII:key/moduli-curves": {
@@ -87,8 +87,16 @@
   "job": "DESIGN-FunctionFieldArithmeticPartII",
   "statement": "Root stacks of line bundles with sections and of Cartier divisors: the key definition algebraicgeometry/root-stacks, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
  },
+ "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1": {
+  "job": "BP-AnabelianGeometryAndNonabelianChabauty",
+  "statement": "Étale K(π,1) schemes: the key definition algebraicgeometry/etale-k-pi-1, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
+ },
  "NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts": {
   "job": "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
   "statement": "Pushouts of schemes along closed immersions (pinching, conductor squares): the key definition algebraicgeometry/ferrand-pushouts, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
+ },
+ "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity": {
+  "job": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+  "statement": "Hilbert–Samuel function and multiplicity of a local ring or module: the key definition algebraicgeometry/hilbert-samuel-multiplicity, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
  }
 }
