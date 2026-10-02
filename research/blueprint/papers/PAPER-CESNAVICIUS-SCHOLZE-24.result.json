@@ -416,7 +416,16 @@
    "statement": "(a) A complete regular local ring (R, 𝔪) with residue field k has a filtered system of regular, local, finite, flat R-algebras (R_i, 𝔪R_i), unramified if R is, whose colimit is regular local with residue field k̄. (b) If R is of mixed characteristic (0, p) with k perfect, so R ≅ W(k)⟦x_1, …, x_d⟧/(p − f) with f = x_1 or f ∈ (p, x_1, …, x_d)², then R_n = W(k)⟦x_1^{1/p^n}, …, x_d^{1/p^n}⟧/(p − f) are regular, local, finite, flat of p-power rank over R, and the p-adic completion of R_∞ = colim R_n = W(k)⟦x_1^{1/p^∞}, …, x_d^{1/p^∞}⟧/(p − f) is perfectoid.",
    "locator": "Lemma 3.1.1, p. 29",
    "status": "missing",
-   "note": "Restates Česnavičius, Purity for the Brauer group, Lemmas 5.1 and 5.2; the ⟦x^{1/p^∞}⟧ notation is the colimit of the finite levels without further completion (1.4.1)."
+   "note": "Restates Česnavičius, Purity for the Brauer group, Lemmas 5.1 and 5.2; the ⟦x^{1/p^∞}⟧ notation is the colimit of the finite levels without further completion (1.4.1).",
+   "sharedSourceItems": [
+    "PAPER-CESNAVICIUS-19/residue-tower",
+    "PAPER-CESNAVICIUS-19/residue-tower-exists",
+    "PAPER-CESNAVICIUS-19/residue-tower-p-rank",
+    "PAPER-CESNAVICIUS-19/perfectoid-tower",
+    "PAPER-CESNAVICIUS-19/perfectoid-tower-exists",
+    "PAPER-CESNAVICIUS-19/ramified-unit-root"
+   ],
+   "sharedSourceScope": "2019 Lemmas 5.1–5.2 are inputs to Lemma 3.1.1; keep their separate residue/perfect-residue and completion hypotheses."
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/038",
@@ -1142,7 +1151,11 @@
     "mathlib:IsAzumaya",
     "mathlib:BrauerGroup"
    ],
-   "note": "Library: Mathlib/Algebra/Azumaya/Defs.lean:60 (Azumaya algebras) and Mathlib/Algebra/BrauerGroup/Defs.lean:99 (the Brauer group of a field)."
+   "note": "Library: Mathlib/Algebra/Azumaya/Defs.lean:60 (Azumaya algebras) and Mathlib/Algebra/BrauerGroup/Defs.lean:99 (the Brauer group of a field).",
+   "sharedSourceItems": [
+    "PAPER-CESNAVICIUS-19/cohom-brauer"
+   ],
+   "sharedSourceScope": "Azumaya Br in /118 differs from cohomological Br′ and ambient H²; share the foundation/API, not an unconditional identification."
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/119",
@@ -1151,7 +1164,11 @@
    "statement": "If a scheme X has an ample line bundle (for instance X quasi-affine), Br(X) ≅ H^2(X, 𝔾_m)_tors (Gabber, de Jong); for affine X every torsion class of H^2(X, 𝔾_m) comes from some H^1(X, PGL_n) (Gabber 1981, II Theorem 1).",
    "locator": "Theorem 7.2.5, p. 90; proof, p. 90; proof of Lemma 5.6.3, p. 72",
    "status": "missing",
-   "note": "Cited from de Jong, A result of Gabber (2002), Colliot-Thélène–Skorobogatov §4.2, and Gabber, Some theorems on Azumaya algebras."
+   "note": "Cited from de Jong, A result of Gabber (2002), Colliot-Thélène–Skorobogatov §4.2, and Gabber, Some theorems on Azumaya algebras.",
+   "sharedSourceItems": [
+    "PAPER-CESNAVICIUS-19/affine-brauer-comparison"
+   ],
+   "sharedSourceScope": "The 2019 affine comparison is a specialization of this ample-line-bundle result."
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/120",
@@ -1271,7 +1288,12 @@
    "library": [
     "mathlib:CommRing.Pic"
    ],
-   "note": "Library: Mathlib/RingTheory/PicardGroup.lean:429 (the Picard group of a ring)."
+   "note": "Library: Mathlib/RingTheory/PicardGroup.lean:429 (the Picard group of a ring).",
+   "sharedSourceItems": [
+    "PAPER-CESNAVICIUS-19/parafactorial",
+    "PAPER-CESNAVICIUS-19/parafactorial-descent"
+   ],
+   "sharedSourceScope": "Shared parafactorial interface; geometric strict-henselization and torsion clauses in /132 retain their own hypotheses."
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/133",
@@ -1279,7 +1301,11 @@
    "name": "Grothendieck–Lefschetz for local complete intersections",
    "statement": "A Noetherian local complete intersection (R, 𝔪) of dimension ≥ 4 is parafactorial: Pic(U_R) = 0 for U_R = Spec(R) ∖ {𝔪} (SGA 2 XI Théorème 3.13(ii)); a global complete intersection X ⊂ ℙ^n_k of dimension ≥ 3 has Pic(X) = ℤ·[𝒪(1)] (SGA 2 XII Corollaire 3.7).",
    "locator": "Theorem 7.2.1, p. 88; proof, p. 88; Corollary 7.2.3, p. 89",
-   "status": "missing"
+   "status": "missing",
+   "sharedSourceItems": [
+    "PAPER-CESNAVICIUS-19/local-pic-lefschetz"
+   ],
+   "sharedSourceScope": "The local dimension-at-least-four SGA 2 theorem is shared. The global projective complete-intersection conclusion remains an additional CS24 contract."
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/134",
@@ -1288,7 +1314,12 @@
    "statement": "For a Noetherian local complete intersection (R, 𝔪) of dimension ≥ 3, Pic(U_R)_tors = 0 for U_R = Spec(R) ∖ {𝔪}; if R has dimension ≥ 4 or is regular, Pic(U_R) = 0.",
    "locator": "Theorem 7.2.1, p. 88; announced as Theorem 1.1.3(a), p. 3",
    "status": "missing",
-   "note": "From H^1(R, μ_n) ≅ H^1(U_R, μ_n) (Theorem 6.2.3). Earlier cases: hypersurfaces (Dao), 𝔽_p-algebras (Gabber; Dao–Li–Miller) and torsion prime to the residue characteristic (Robbiano; SGA 2 X 3.4)."
+   "note": "From H^1(R, μ_n) ≅ H^1(U_R, μ_n) (Theorem 6.2.3). Earlier cases: hypersurfaces (Dao), 𝔽_p-algebras (Gabber; Dao–Li–Miller) and torsion prime to the residue characteristic (Robbiano; SGA 2 X 3.4).",
+   "sharedSourceItems": [
+    "PAPER-CESNAVICIUS-19/pic-regular",
+    "PAPER-CESNAVICIUS-19/local-pic-lefschetz"
+   ],
+   "sharedSourceScope": "The regular case and dimension-at-least-four lci case share inputs. CS24’s dimension-three torsion conclusion is retained separately."
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/135",
@@ -1314,7 +1345,12 @@
    "name": "Grothendieck's results on the cohomological Brauer group",
    "statement": "For a regular local ring of dimension 2, pullback gives equivalences of vector bundles and of Azumaya algebras over R and over U_R, so Br(R) ≅ Br(U_R) (Le groupe de Brauer III, 6.1 b)); for a Noetherian integral scheme whose strict Henselizations are factorial, H^i(X, 𝔾_m) is torsion for i ≥ 2 (Le groupe de Brauer II, 1.4).",
    "locator": "Theorem 7.2.5, p. 90; proof, p. 90; proof of Theorem 7.2.9, p. 92",
-   "status": "missing"
+   "status": "missing",
+   "sharedSourceItems": [
+    "PAPER-CESNAVICIUS-19/purity-dim2",
+    "PAPER-CESNAVICIUS-19/regular-h2-torsion"
+   ],
+   "sharedSourceScope": "Shared named Grothendieck inputs; vector-bundle/Azumaya equivalences and cohomological torsion have separate hypotheses."
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/138",
@@ -1323,7 +1359,12 @@
    "statement": "For a Noetherian local ring (R, 𝔪) that is a complete intersection of dimension ≥ 4 or regular of dimension ≥ 2, Br(R) ≅ Br(U_R) for U_R = Spec(R) ∖ {𝔪}.",
    "locator": "Theorem 7.2.5, p. 90; announced as Theorem 1.1.3(b), p. 3",
    "status": "missing",
-   "note": "Br = H^2(𝔾_m)_tors on quasi-affine schemes and Pic(R) = Pic(U_R) = 0 reduce to H^2(R, μ_n) ≅ H^2(U_R, μ_n) (Theorems 6.2.3, 6.2.7); regular dimension 2 is Grothendieck's. Reproves Česnavičius (Duke 2019) for regular rings without treating dimension 3 separately; Gabber had the cases of 𝔽_p-algebras and dimension ≥ 5."
+   "note": "Br = H^2(𝔾_m)_tors on quasi-affine schemes and Pic(R) = Pic(U_R) = 0 reduce to H^2(R, μ_n) ≅ H^2(U_R, μ_n) (Theorems 6.2.3, 6.2.7); regular dimension 2 is Grothendieck's. Reproves Česnavičius (Duke 2019) for regular rings without treating dimension 3 separately; Gabber had the cases of 𝔽_p-algebras and dimension ≥ 5.",
+   "sharedSourceItems": [
+    "PAPER-CESNAVICIUS-19/strict-local-purity",
+    "PAPER-CESNAVICIUS-19/global-gm-purity"
+   ],
+   "sharedSourceScope": "Share regular-case purity proof inputs. This Azumaya Br isomorphism requires its named comparison before identifying it with cohomological torsion; it does not alone prove full ambient H² surjectivity."
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/139",
@@ -1341,7 +1382,11 @@
    "statement": "Let X be a scheme and Z ⊂ X closed. (a) If each 𝔪_{X,z}, z ∈ Z, contains an 𝒪_{X,z}-regular element, then Y(X) ↪ Y(X ∖ Z) for every separated X-scheme Y. (b) If each contains an 𝒪_{X,z}-regular sequence of length 2, then Y(X) ≅ Y(X ∖ Z) for every X-affine X-scheme Y.",
    "locator": "Lemma 7.2.7, p. 90",
    "status": "missing",
-   "note": "The Noetherian case of (b) is EGA IV 5.10.5; the general case uses Koszul complexes K(m_1^n, m_2^n)."
+   "note": "The Noetherian case of (b) is EGA IV 5.10.5; the general case uses Koszul complexes K(m_1^n, m_2^n).",
+   "sharedSourceItems": [
+    "PAPER-CESNAVICIUS-19/hartogs"
+   ],
+   "sharedSourceScope": "2019 depth-two local Hartogs is a local contribution to the general separated/affine extension API; /140’s two clauses remain distinct."
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/141",
@@ -1350,7 +1395,16 @@
    "statement": "Let X be a scheme, T a finite type X-group of multiplicative type and Z ⊂ X closed with X ∖ Z ↪ X quasi-compact. (a) If each 𝒪_{X,z}, z ∈ Z, is Noetherian and geometrically parafactorial, then H^0(X, T) ≅ H^0(X ∖ Z, T), H^1(X, T) ≅ H^1(X ∖ Z, T) and H^2(X, T) ↪ H^2(X ∖ Z, T).",
    "locator": "Theorem 7.2.8, p. 91; part (a)",
    "status": "missing",
-   "note": "The role of geometric parafactoriality for H^2 was noticed by Strano (1979, Teorema 4)."
+   "note": "The role of geometric parafactoriality for H^2 was noticed by Strano (1979, Teorema 4).",
+   "sharedSourceItems": [
+    "PAPER-CESNAVICIUS-19/global-purity-h0",
+    "PAPER-CESNAVICIUS-19/global-purity-h1",
+    "PAPER-CESNAVICIUS-19/global-purity-h2",
+    "PAPER-CESNAVICIUS-19/global-purity-h3",
+    "PAPER-CESNAVICIUS-19/global-gm-purity",
+    "PAPER-CESNAVICIUS-19/global-gm-h3"
+   ],
+   "sharedSourceScope": "The 2019 regular-local Theorem 6.1 gives H⁰–H² bijectivity and H³ injectivity with quasi-compact open inclusion. CS24 7.2.8(a) gives only H² injectivity under its own hypotheses; retain both contracts."
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/142",
@@ -1374,7 +1428,7 @@
   {
    "citation": "Kęstutis Česnavičius, Purity for the Brauer group, Duke Math. J. 168 (2019), 1461–1486",
    "link": "https://doi.org/10.1215/00127094-2018-0057",
-   "why": "The regular case of Theorem 7.2.5 and the towers of Lemma 3.1.1; in papers.json (PAPER-CESNAVICIUS-19) but not yet extracted."
+   "why": "Completed extraction PAPER-CESNAVICIUS-19 supplies the regular case of Theorem 7.2.5 and the towers of Lemma 3.1.1. Share PurityForFlatCohomology, SchemeAndStackFoundationsFlatCohomologyPartII and PerfectoidQuotientsIntegralPerfectoidPartII; preserve the stronger 2019 full H² bijectivity/H³ injectivity alongside 7.2.8(a)."
   },
   {
    "citation": "Eike Lau, Smoothness of the truncated display functor, J. Amer. Math. Soc. 26 (2013), 129–165; and Dieudonné theory over semiperfect rings and perfectoid rings, Compos. Math. 154 (2018), 1974–2004",
@@ -1504,8 +1558,51 @@
     "PAPER-CESNAVICIUS-SCHOLZE-24/142",
     "PAPER-CESNAVICIUS-SCHOLZE-24/143"
    ],
-   "brief": "Plan purity for flat cohomology after Česnavičius–Scholze, Purity for flat cohomology (Ann. of Math. 199 (2024) 51–180). Final theorems, as stated there: Theorem 6.2.3 (= Theorem 1.1.1): for a Noetherian local complete intersection (R, 𝔪) and a commutative, finite, flat R-group G, H^i_𝔪(R, G) = 0 for i < dim(R); Theorem 6.2.7: for regular R that is not a field, H^i_𝔪(R, G) = 0 for i ≤ dim(R); Theorem 6.1.1, the key formula RΓ_Z(A, G) ≅ RΓ_Z(A_inf(A), 𝕄(G))^{V=1} for perfectoid A and G of p-power order, and Theorem 6.1.2, purity for perfectoid rings (depth_Z(A) ≥ d gives H^i_Z(A, G) = 0 for i < d); Theorem 6.2.4: H^i_𝔪(R, G) = 0 for i < vdim(R) for finite étale G over any Noetherian local R; Theorem 3.3.1: Zariski–Nagata purity for vdim ≥ 3; and the global consequences — Theorem 7.1.2 (use the corrected hypothesis 'regular of dimension ≥ max(d − 1, 1)', sourceIssues E1), Theorem 7.1.3 (Moret-Bailly purity for torsors and gerbes), Gabber's Conjectures 2 and 3 (Theorems 7.2.5 and 7.2.1), Corollary 7.2.3 and Theorems 7.2.8–7.2.9 on groups of multiplicative type, including purity for the Brauer group of schemes with complete intersection singularities.\n\nLayers, in order. (1) Virtual dimension and étale depth (Section 3.2): vdim, its independence and additivity, and Theorem 3.2.4 by the hypersurface reduction. (2) Zariski–Nagata for vdim ≥ 3 (Section 3.3), with Zariski–Nagata for regular rings (SGA 2 X 3.4). (3) Positive characteristic (Section 4.1 from 4.1.10): α_p and ℤ/p below depth, Lemma 4.1.11 (the only place the complete intersection hypothesis enters), the finite-cover Lemma 4.1.12 and Proposition 4.1.13. (4) Perfectoid analysis (Section 4.2 from 4.2.4): low-degree cohomology, arc descent for Dieudonné-module cohomology, products and the local analysis over products of valuation rings (with Katz's unit-root lemma). (5) Theorem 5.5.1 and the key formula and perfectoid purity (Section 6.1). (6) The main theorems (Section 6.2), with Lemma 6.2.2 and the counterexample of Remark 6.2.6. (7) Global purity, local Picard and Brauer groups (Section 7), with parafactoriality, Grothendieck–Lefschetz (SGA 2 XI 3.13, XII 3.7), Grothendieck's Brauer results, Auslander's criterion and the Hartogs Lemma 7.2.7; the sharpness examples of Remarks 7.2.2, 7.2.4 and 7.2.6 are tests.\n\nImports: the proposed Part II of SchemeAndStackFoundations from this extraction (flat cohomology of animated rings: the positive-characteristic key formula 4.1.8, excision, p-adic and general continuity, fpqc descent, Bégueri resolution, Brauer groups of schemes); the proposed Part II of PerfectoidQuotients (perfectoid structure, towers, the ind-syntomic André lemma); the proposed Part II of EtaleDualityAndPerverseSheaves (Gabber–Thomason purity and the local Lefschetz lemma); ArcTopologyAndDescent and PrismaticCohomologyPartIIPrismaticDieudonneTheory as proposed by other extractions; PerfectoidQuotients Q0 and Q3, PrismaticCohomology PR.0, DeformationAndDerivedPatchingAlgebra R03.1 (Cohen structure, routed here as a source) and R03.3, SchemeAndStackFoundations SF.1–SF.4, InverseGaloisAndArithmeticFundamentalGroups IG.0, DerivedDeRhamCohomology DD.0–DD.1, Tau Ceti's Cartier duality and Mathlib's IsRegularLocalRing, regular sequences, localCohomology and CommRing.Pic. Tests: G = μ_p, ℤ/p, α_p over 𝔽_p⟦x, y⟧, over a mixed-characteristic hypersurface and over W(k)⟦x_1, …, x_d⟧/(p − f); a perfectoid valuation ring and a product of them; the cone over an elliptic curve; ℂ⟦x_1, x_2, x_3⟧^{ℤ/2}. The pending Česnavičius, Purity for the Brauer group extraction should route here too.",
-   "reason": "The atlas has no flat cohomology beyond SF.2's site, and no Brauer groups of schemes, local Picard groups or SGA 2 purity. no stage in the atlas mentions absolute purity at all — EDC.2, the nearest candidate, plans smooth trace, relative purity and Poincaré duality without it, and the perfectoid, prismatic and Dieudonné roadmaps compute cohomology rather than purity. The paper's main line (virtual dimension, the key formula, perfectoid purity, purity for complete intersections, Gabber's conjectures, Brauer purity) has no existing direction, so it is a new roadmap. The general tools it builds are routed to their owners (routes 2–6). (Review REV-PAPER-CESNAVICIUS-SCHOLZE-24: the Brauer material the atlas does have is the Brauer group of a field and the local invariants, in Tau Ceti's ClassFieldTheory layers 5, 6 and 10, and the Brauer–Manin pairing of HeightsRationalPointsAndObstructions RP.2, which consumes Br(X) rather than constructing it; so placing the Brauer group of a scheme in route 2 is right.)"
+   "brief": "Plan purity for flat cohomology after Česnavičius–Scholze, Purity for flat cohomology (Ann. of Math. 199 (2024) 51–180). Final theorems, as stated there: Theorem 6.2.3 (= Theorem 1.1.1): for a Noetherian local complete intersection (R, 𝔪) and a commutative, finite, flat R-group G, H^i_𝔪(R, G) = 0 for i < dim(R); Theorem 6.2.7: for regular R that is not a field, H^i_𝔪(R, G) = 0 for i ≤ dim(R); Theorem 6.1.1, the key formula RΓ_Z(A, G) ≅ RΓ_Z(A_inf(A), 𝕄(G))^{V=1} for perfectoid A and G of p-power order, and Theorem 6.1.2, purity for perfectoid rings (depth_Z(A) ≥ d gives H^i_Z(A, G) = 0 for i < d); Theorem 6.2.4: H^i_𝔪(R, G) = 0 for i < vdim(R) for finite étale G over any Noetherian local R; Theorem 3.3.1: Zariski–Nagata purity for vdim ≥ 3; and the global consequences — Theorem 7.1.2 (use the corrected hypothesis 'regular of dimension ≥ max(d − 1, 1)', sourceIssues E1), Theorem 7.1.3 (Moret-Bailly purity for torsors and gerbes), Gabber's Conjectures 2 and 3 (Theorems 7.2.5 and 7.2.1), Corollary 7.2.3 and Theorems 7.2.8–7.2.9 on groups of multiplicative type, including purity for the Brauer group of schemes with complete intersection singularities.\n\nLayers, in order. (1) Virtual dimension and étale depth (Section 3.2): vdim, its independence and additivity, and Theorem 3.2.4 by the hypersurface reduction. (2) Zariski–Nagata for vdim ≥ 3 (Section 3.3), with Zariski–Nagata for regular rings (SGA 2 X 3.4). (3) Positive characteristic (Section 4.1 from 4.1.10): α_p and ℤ/p below depth, Lemma 4.1.11 (the only place the complete intersection hypothesis enters), the finite-cover Lemma 4.1.12 and Proposition 4.1.13. (4) Perfectoid analysis (Section 4.2 from 4.2.4): low-degree cohomology, arc descent for Dieudonné-module cohomology, products and the local analysis over products of valuation rings (with Katz's unit-root lemma). (5) Theorem 5.5.1 and the key formula and perfectoid purity (Section 6.1). (6) The main theorems (Section 6.2), with Lemma 6.2.2 and the counterexample of Remark 6.2.6. (7) Global purity, local Picard and Brauer groups (Section 7), with parafactoriality, Grothendieck–Lefschetz (SGA 2 XI 3.13, XII 3.7), Grothendieck's Brauer results, Auslander's criterion and the Hartogs Lemma 7.2.7; the sharpness examples of Remarks 7.2.2, 7.2.4 and 7.2.6 are tests.\n\nImports: the proposed Part II of SchemeAndStackFoundations from this extraction (flat cohomology of animated rings: the positive-characteristic key formula 4.1.8, excision, p-adic and general continuity, fpqc descent, Bégueri resolution, Brauer groups of schemes); the proposed Part II of PerfectoidQuotients (perfectoid structure, towers, the ind-syntomic André lemma); the proposed Part II of EtaleDualityAndPerverseSheaves (Gabber–Thomason purity and the local Lefschetz lemma); ArcTopologyAndDescent and PrismaticCohomologyPartIIPrismaticDieudonneTheory as proposed by other extractions; PerfectoidQuotients Q0 and Q3, PrismaticCohomology PR.0, DeformationAndDerivedPatchingAlgebra R03.1 (Cohen structure, routed here as a source) and R03.3, SchemeAndStackFoundations SF.1–SF.4, InverseGaloisAndArithmeticFundamentalGroups IG.0, DerivedDeRhamCohomology DD.0–DD.1, Tau Ceti's Cartier duality and Mathlib's IsRegularLocalRing, regular sequences, localCohomology and CommRing.Pic. Tests: G = μ_p, ℤ/p, α_p over 𝔽_p⟦x, y⟧, over a mixed-characteristic hypersurface and over W(k)⟦x_1, …, x_d⟧/(p − f); a perfectoid valuation ring and a product of them; the cone over an elliptic curve; ℂ⟦x_1, x_2, x_3⟧^{ℤ/2}. The completed PAPER-CESNAVICIUS-19 extraction now shares this owner, with its regular-local Picard/Brauer-purity and stronger Theorem 6.1 outputs preserved. Import generic supports/local-to-global from SF.2 and generic formal algebraization from SF.4; retain Azumaya Br, Br′ and ambient H² as distinct until comparison.",
+   "reason": "The atlas has no flat cohomology beyond SF.2's site, and no Brauer groups of schemes, local Picard groups or SGA 2 purity. no stage in the atlas mentions absolute purity at all — EDC.2, the nearest candidate, plans smooth trace, relative purity and Poincaré duality without it, and the perfectoid, prismatic and Dieudonné roadmaps compute cohomology rather than purity. The paper's main line (virtual dimension, the key formula, perfectoid purity, purity for complete intersections, Gabber's conjectures, Brauer purity) has no existing direction, so it is a new roadmap. The general tools it builds are routed to their owners (routes 2–6). (Review REV-PAPER-CESNAVICIUS-SCHOLZE-24: the Brauer material the atlas does have is the Brauer group of a field and the local invariants, in Tau Ceti's ClassFieldTheory layers 5, 6 and 10, and the Brauer–Manin pairing of HeightsRationalPointsAndObstructions RP.2, which consumes Br(X) rather than constructing it; so placing the Brauer group of a scheme in route 2 is right.)",
+   "sharedSourceItems": [
+    "PAPER-CESNAVICIUS-19/punctured",
+    "PAPER-CESNAVICIUS-19/hartogs",
+    "PAPER-CESNAVICIUS-19/pic-regular",
+    "PAPER-CESNAVICIUS-19/purity-dim2",
+    "PAPER-CESNAVICIUS-19/purity-dim3",
+    "PAPER-CESNAVICIUS-19/absolute-purity-input",
+    "PAPER-CESNAVICIUS-19/prime-to-p-purity",
+    "PAPER-CESNAVICIUS-19/equal-char-purity",
+    "PAPER-CESNAVICIUS-19/mixed-char-purity",
+    "PAPER-CESNAVICIUS-19/strict-local-purity",
+    "PAPER-CESNAVICIUS-19/local-torus-h2",
+    "PAPER-CESNAVICIUS-19/support-coniveau",
+    "PAPER-CESNAVICIUS-19/low-support-vanish",
+    "PAPER-CESNAVICIUS-19/global-purity-h0",
+    "PAPER-CESNAVICIUS-19/global-purity-h1",
+    "PAPER-CESNAVICIUS-19/global-purity-h2",
+    "PAPER-CESNAVICIUS-19/global-purity-h3",
+    "PAPER-CESNAVICIUS-19/global-gm-purity",
+    "PAPER-CESNAVICIUS-19/generic-injective-torus",
+    "PAPER-CESNAVICIUS-19/torus-mayer-vietoris",
+    "PAPER-CESNAVICIUS-19/codim1-intersection",
+    "PAPER-CESNAVICIUS-19/brauer-intersection",
+    "PAPER-CESNAVICIUS-19/flasque-injectivity",
+    "PAPER-CESNAVICIUS-19/torus-counterexample",
+    "PAPER-CESNAVICIUS-19/brauer-residue",
+    "PAPER-CESNAVICIUS-19/dvr-residue-exact",
+    "PAPER-CESNAVICIUS-19/global-residue-exact",
+    "PAPER-CESNAVICIUS-19/residue-primary-boundary",
+    "PAPER-CESNAVICIUS-19/global-gm-h3",
+    "PAPER-CESNAVICIUS-19/codim1-boundary-example",
+    "PAPER-CESNAVICIUS-19/local-pic-lefschetz",
+    "PAPER-CESNAVICIUS-19/parafactorial",
+    "PAPER-CESNAVICIUS-19/lefschetz-condition",
+    "PAPER-CESNAVICIUS-19/effective-lefschetz",
+    "PAPER-CESNAVICIUS-19/local-lef",
+    "PAPER-CESNAVICIUS-19/local-leff",
+    "PAPER-CESNAVICIUS-19/pic-formal-comparison",
+    "PAPER-CESNAVICIUS-19/parafactorial-descent",
+    "PAPER-CESNAVICIUS-19/pic-thickening-sequence",
+    "PAPER-CESNAVICIUS-19/pic-formal-injectivity",
+    "PAPER-CESNAVICIUS-19/pic-hypersurface-descent"
+   ]
   },
   {
    "route": "part-ii",
@@ -1561,7 +1658,11 @@
     "PAPER-CESNAVICIUS-SCHOLZE-24/119"
    ],
    "brief": "Extend Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations), whose SF.2 owns the fppf site and its cohomology, with flat cohomology with commutative, finite, locally free coefficients over animated rings, after Česnavičius–Scholze, Purity for flat cohomology, Sections 4.1 and 5. Final theorems: Theorem 5.2.6 (fppf hyperdescent and Postnikov convergence over animated rings; étale = fppf for smooth groups), Theorem 5.2.8 (the deformation triangle RΓ(A', G) → RΓ(A, G) → RHom(e^*L_{G/R}, M[1])), Theorem 4.1.8 (for perfect 𝔽_p-schemes, Rε_*G → 𝕄(G) → 𝕄(G) with V − 1, so RΓ_Z(S, G) ≅ RΓ_Z(W_n(S), 𝕄(G))^{V=1}), Theorem 5.3.5 (p-adic continuity RΓ(A, G) ≅ R lim RΓ(A/^L p^n, G) for p-Henselian π_0(A)), Corollary 5.3.7 (H^{≥3} = 0, and H^{≥2} = 0 when (π_0 A/p)^red is perfect), Theorem 5.4.4 (excision RΓ_I(A, G) ≅ RΓ_I(A', G) when π_0(A)/I ≅ (π_0(A)/I) ⊗^L_A A'), Corollary 5.4.5, Theorem 5.5.2 (fpqc hyperdescent), Corollary 5.5.3, Theorem 5.6.6 (continuity for derived I-adically complete A), Corollary 5.6.9 (invariance under Henselian pairs in degrees ≥ 2), Corollaries 5.6.10–5.6.13 (algebraization) and Theorem 5.7.2 (adically faithfully flat descent with supports).\n\nLayers: (1) ind-fppf and ind-syntomic maps, the pro-fppf site and its stability under perfection, and the Bégueri resolution; (2) animated deformation theory of group schemes (Proposition 5.1.5, Example 5.1.10, 5.1.11–5.1.14); (3) flatness, étale sites and cohomology over animated rings (Section 5.2); (4) the positive-characteristic key formula (Proposition 4.1.4 to Corollary 4.1.9); (5) p-adic continuity (Section 5.3); (6) excision (Section 5.4); (7) fpqc and p-complete descent (Theorem 5.5.2, Corollary 5.5.3); (8) derived-complete continuity, Henselian pairs and algebraization (Section 5.6); (9) adic descent (Section 5.7); (10) the Brauer group of a scheme and Gabber's theorem Br = H^2(𝔾_m)_tors with an ample line bundle.\n\nImports: SF.0–SF.4 (parent); EnhancedDerivedSheaves E2 and E5 (animation, presentability, descent); DerivedDeRhamCohomology DD.0–DD.1 (cotangent complex, square-zero extensions, derived completion); crystalline Dieudonné theory over perfect bases from PrismaticCohomologyPartIIPrismaticDieudonneTheory (Anschütz–Le Bras extraction, with this extraction's additions); arc descent, formal glueing and Gabber's affine proper base change from ArcTopologyAndDescent; PerfectoidQuotients Q0; Tau Ceti's FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual; Mathlib's HenselianRing, fppfTopology and IsAzumaya. Tests: μ_p, ℤ/p, α_p over 𝔽_p[t], its t-Henselization and 𝔽_p⟦t⟧ (Remark 5.6.8); a non-p-torsion-free ring where A/^L p is not discrete; a perfect ring; a square-zero extension; the Henselian pair (ℤ_(p)^h, p).",
-   "reason": "Excision, continuity, fpqc descent, invariance under Henselian pairs and the animated deformation triangle are general properties of fppf cohomology, the direction of SF.2 (which owns the fppf site and its cohomology), and the purity roadmap is only one consumer. The Brauer group of a scheme is placed here with them."
+   "reason": "Excision, continuity, fpqc descent, invariance under Henselian pairs and the animated deformation triangle are general properties of fppf cohomology, the direction of SF.2 (which owns the fppf site and its cohomology), and the purity roadmap is only one consumer. The Brauer group of a scheme is placed here with them.",
+   "sharedSourceItems": [
+    "PAPER-CESNAVICIUS-19/cohom-brauer",
+    "PAPER-CESNAVICIUS-19/affine-brauer-comparison"
+   ]
   },
   {
    "route": "part-ii",
@@ -1587,8 +1688,16 @@
     "PAPER-CESNAVICIUS-SCHOLZE-24/036",
     "PAPER-CESNAVICIUS-SCHOLZE-24/037"
    ],
-   "brief": "Extend Perfectoid quotients and their prismatic prerequisites (PerfectoidQuotients), whose Q0 constructs integral perfectoid rings with A_inf and θ and whose Q3 proves André's flatness lemma (Bhatt–Scholze 7.14), with the structure theory of integral perfectoid rings used by Česnavičius–Scholze, Purity for flat cohomology, Sections 2.1 and 2.3. Final theorems: Theorem 2.3.4, the ind-syntomic André lemma (a faithfully flat, ind-syntomic, ϖ-Henselian A-algebra A' with perfectoid completion and a ϖ-divisible ideal I' with A'/I' faithfully flat, in which every monic polynomial has a root with compatible p-power roots modulo I'), Corollary 2.3.7 (semiperfectoid covers of p-Zariski rings), Proposition 2.1.11 (stability under adjoining roots, completed tensor products, quotients by ideals with p-power roots, products and adic completions), the canonical decomposition 2.1.3 and reducedness, Proposition 2.1.4 (fibre products), Corollary 2.1.6, p-integral closedness (2.1.7) and Proposition 2.1.8, the valuation-ring part of Proposition 2.1.9, Proposition 2.1.12, and Lemma 3.1.1 (perfectoid towers over complete regular local rings). Layers: basic identities (2.1.2), decomposition and fibre products, p-integral closure, tilting of valuation rings, stability properties, torsion-free covers, the approximation Lemma 2.3.1 and the nilpotence Lemma 2.3.2, the André lemma, and towers. Imports: Q0 and Q3, PrismaticCohomology PR.0 (perfect prisms and the tilting equivalence), PerfectoidSpaces P1 (Scholze's rank-one tilting, Theorem 3.7), Tau Ceti's adic-spaces roadmap for continuous valuations, the ind-syntomic maps of this extraction's SchemeAndStackFoundations Part II, and Mathlib's PreTilt and WittVector.fontaineTheta. Tests: O_C, the completion of ℤ_p[p^{1/p^∞}], a perfect 𝔽_p-algebra, O_C/(p^{1/p^∞}), a product of perfectoid valuation rings, and W(k)⟦x^{1/p^∞}⟧/(p − f) in both the ramified and unramified cases.",
-   "reason": "Q0 owns integral perfectoid rings and Q3 André's lemma; the decomposition, stability, p-integral closure, approximation and ind-syntomic refinement are general structure results in that direction, not specific to purity."
+   "brief": "Extend Perfectoid quotients and their prismatic prerequisites (PerfectoidQuotients), whose Q0 constructs integral perfectoid rings with A_inf and θ and whose Q3 proves André's flatness lemma (Bhatt–Scholze 7.14), with the structure theory of integral perfectoid rings used by Česnavičius–Scholze, Purity for flat cohomology, Sections 2.1 and 2.3. Final theorems: Theorem 2.3.4, the ind-syntomic André lemma (a faithfully flat, ind-syntomic, ϖ-Henselian A-algebra A' with perfectoid completion and a ϖ-divisible ideal I' with A'/I' faithfully flat, in which every monic polynomial has a root with compatible p-power roots modulo I'), Corollary 2.3.7 (semiperfectoid covers of p-Zariski rings), Proposition 2.1.11 (stability under adjoining roots, completed tensor products, quotients by ideals with p-power roots, products and adic completions), the canonical decomposition 2.1.3 and reducedness, Proposition 2.1.4 (fibre products), Corollary 2.1.6, p-integral closedness (2.1.7) and Proposition 2.1.8, the valuation-ring part of Proposition 2.1.9, Proposition 2.1.12, and Lemma 3.1.1 (perfectoid towers over complete regular local rings). Layers: basic identities (2.1.2), decomposition and fibre products, p-integral closure, tilting of valuation rings, stability properties, torsion-free covers, the approximation Lemma 2.3.1 and the nilpotence Lemma 2.3.2, the André lemma, and towers. Imports: Q0 and Q3, PrismaticCohomology PR.0 (perfect prisms and the tilting equivalence), PerfectoidSpaces P1 (Scholze's rank-one tilting, Theorem 3.7), Tau Ceti's adic-spaces roadmap for continuous valuations, the ind-syntomic maps of this extraction's SchemeAndStackFoundations Part II, and Mathlib's PreTilt and WittVector.fontaineTheta. Tests: O_C, the completion of ℤ_p[p^{1/p^∞}], a perfect 𝔽_p-algebra, O_C/(p^{1/p^∞}), a product of perfectoid valuation rings, and W(k)⟦x^{1/p^∞}⟧/(p − f) in both the ramified and unramified cases. Shared regular-local tower inputs are PAPER-CESNAVICIUS-19/residue-tower, residue-tower-exists, residue-tower-p-rank, perfectoid-tower, perfectoid-tower-exists and ramified-unit-root. Import PerfectoidSpaces P7 general Frobenius/limit/completion/inversion machinery; those generic foundations remain at P7.",
+   "reason": "Q0 owns integral perfectoid rings and Q3 André's lemma; the decomposition, stability, p-integral closure, approximation and ind-syntomic refinement are general structure results in that direction, not specific to purity.",
+   "sharedSourceItems": [
+    "PAPER-CESNAVICIUS-19/residue-tower",
+    "PAPER-CESNAVICIUS-19/residue-tower-exists",
+    "PAPER-CESNAVICIUS-19/perfectoid-tower",
+    "PAPER-CESNAVICIUS-19/ramified-unit-root",
+    "PAPER-CESNAVICIUS-19/perfectoid-tower-exists",
+    "PAPER-CESNAVICIUS-19/residue-tower-p-rank"
+   ]
   },
   {
    "route": "part-ii",
