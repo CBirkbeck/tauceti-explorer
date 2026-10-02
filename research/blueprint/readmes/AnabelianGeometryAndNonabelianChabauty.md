@@ -1,6 +1,6 @@
 # Anabelian geometry and nonabelian Chabauty
 
-The NC.0 plan develops the finite-étale cohomological criterion for étale K(π,1), its transfer to covers, finite-étale invariance and coefficient dévissage. It retains the reserved definition and the NC.3 nonabelian subgroup exactness on actual invariant cosets. Every declaration is a plan, and no stage is closed.
+The NC.0 plan develops the finite-étale cohomological criterion for étale K(π,1), its transfer to covers, finite-étale invariance, coefficient dévissage and the characteristic-zero smooth-curve proof by connected prime covers and separable descent. It retains the reserved definition and the NC.3 nonabelian subgroup exactness on actual invariant cosets. Every declaration is a plan, and no stage is closed.
 
 ## Scope, ownership and conventions
 
@@ -75,7 +75,7 @@ Acceptance:
 - Spec K passes for any field K; P¹ over an algebraically closed field fails full finite coefficients in degree two.
 - Farb–Kisin–Wolfson §2.3.1 only consumes the constant-Fₚ edge comparison. Their Lemma 3.2.2 proves an additional pro-p comparison for its particular torus-torsor fundamental groups; it is not a general consequence of the coefficient restriction.
 
-Prerequisites: mathlib:AlgebraicGeometry.Scheme, mathlib:AlgebraicGeometry.IsLocallyNoetherian, mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology, mathlib:continuousCohomology, InverseGaloisAndArithmeticFundamentalGroups:IG.0, SchemeAndStackFoundations:SF.2, mathlib:CategoryTheory.PreGaloisCategory.IsFundamentalGroup, mathlib:CommAlgCat.FiniteEtale, mathlib:CommAlgCat.FiniteEtale.fiber.
+Prerequisites: mathlib:AlgebraicGeometry.Scheme, mathlib:AlgebraicGeometry.IsLocallyNoetherian, mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology, mathlib:continuousCohomology, InverseGaloisAndArithmeticFundamentalGroups:IG.0, SchemeAndStackFoundations:SF.2, mathlib:CategoryTheory.PreGaloisCategory.IsFundamentalGroup, mathlib:CommAlgCat.FiniteEtale, mathlib:CommAlgCat.FiniteEtale.fiber, mathlib:ZMod.instIsSimpleAddGroup, mathlib:ZMod.card, mathlib:ZMod.natCast_self, mathlib:ZMod.addOrderOf_one, mathlib:ZMod.unitOfCoprime, mathlib:ZMod.coe_unitOfCoprime, mathlib:Nat.card_zmod.
 
 Sources:
 
@@ -285,23 +285,32 @@ For a geometrically connected smooth curve C over a characteristic-zero field k,
 Hypotheses:
 
 - Smooth geometrically connected curve over a characteristic-zero field; affineness or positive genus of its smooth proper model.
+
 - The genus-zero proper curve is excluded.
 
 Proof or construction:
 
-1. Schmidt–Stix Lemma 2.7(a) states the stronger any-field raw K(π,1) theorem and delegates its proof to Schmidt 1996 Proposition 15. The restricted characteristic-zero statement here uses that theorem; its proof leaf has not been freshly acquired and is a precise open gap.
-2. Use SF.3 for smooth curve/compactification/genus data, not a second curve construction. Smoothness gives the geometric-unibranch scope required by raw-homotopy-comparison.
-3. Apply the raw theorem and raw-homotopy-comparison; transport among geometric points using basepoint-transport. A proof audit must expose the referenced curve homotopy/comparison inputs before this node is closed.
+1. Base change C to the fixed separable closure k_s. In characteristic zero k_s is algebraically closed; SF.3 preserves smoothness, geometric connectedness, affineness and genus of the smooth proper model.
+
+2. Apply geometric-smooth-curve. Its proof works on every connected finite étale cover: affine higher cohomology vanishes, while positive-genus projective degree-two classes die on connected prime-degree covers. The degree-one canonical comparison is used to obtain covers and does not assume K(π,1).
+
+3. Apply separable-base-change to descend the full finite-coefficient property to C, and use basepoint-transport for the chosen geometric point. No raw-homotopy theorem or identification of arithmetic and geometric étale cohomology is used.
+
+4. Schmidt 1996 Proposition 15 and Schmidt–Stix Lemma 2.7(a) give the broader raw any-field result. This node retains its original characteristic-zero geometric-curve scope. Generic supplier inputs and typing gaps remain open; the direct cohomological proof does not close raw-homotopy-comparison.
 
 Acceptance:
 
 - Gₘ and P¹ minus {0,1,∞} pass. A smooth proper genus-one curve passes; P¹ fails by the separate degree-two obstruction.
 
-Prerequisites: AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1, AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison, AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport, SchemeAndStackFoundations:SF.3.
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1, AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-smooth-curve, AnabelianGeometryAndNonabelianChabauty:NC.0/separable-base-change, AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport, SchemeAndStackFoundations:SF.3.
 
 Sources:
 
-- schmidt-stix-2016, Lemma 2.7(a), p. 827, citing Schmidt 1996 Proposition 15. The source asserts all fields; this checkpoint retains the requested characteristic-zero test scope and openly records the delegated proof leaf.
+- schmidt-stix-2016, Lemma 2.7(a), p. 827, citing Schmidt 1996 Proposition 15. The source asserts an any-field raw theorem. The retained characteristic-zero cohomological conclusion now has the separate prime-cover/effacement/descent proof decomposition, while raw and generic supplier leaves remain open.
+
+- schmidt-curve-1996, Proposition 15, proof, printed pp. 243–244. The proof needs finite étale covers of p-divisible degree; this node explicitly supplies a connected prime-degree cover instead of assuming that assertion.
+
+- achinger-effacement-2014-v1, Proposition 3.4(c), p. 8. The direct separable-closure reduction replaces the inherited raw-homotopy dependency without changing the theorem statement.
 
 ### Characteristic-zero products of étale K(π,1) varieties
 
@@ -932,7 +941,7 @@ The inherited suggested file gives partial native prototypes for nonabelian coho
 ### AnabelianGeometryAndNonabelianChabauty:NC.0 — partial
 
 - Fundamental groupoids and sections: import the finite-étale fibre functor and Galois category from InverseGaloisAndArithmeticFundamentalGroups IG.0 and the arithmetic exact sequence from IG.1; construct path torsors (torsors in the sense of NC.3/torsor-classification) and the section of a rational point, base-point change and conjugacy independence; tangential base points on P¹ ∖ {0, 1, ∞} from PeriodsAndSpecialValues PS.9. Settle the path-torsor ownership overlap with IG.6.
-- Close exact IG.0/SF.2/ProfiniteCohomology inputs of the coefficient dictionary, canonical ε, finite direct image/base-change/ρ/Leray, all-degree class killing and coefficient long exact sequences; type the five new finite-cover assembly declarations and the degree-three boundary test. Integrate the handoff’s curve proof as separate connected-prime-cover, Kummer degree-pullback and separable-descent lemmas. Raw-homotopy comparison remains separately open.
+- Close exact IG.0/SF.2/SF.3/ProfiniteCohomology inputs of the coefficient dictionary, canonical ε, finite direct image/base-change/ρ/Leray, all-degree class killing, coefficient long exact sequences, Kummer/Picard curve cohomology, degree/genus formulas and separable limit/property descent. The curve proof is now granular and cohomological; type all six new curve/descent declarations and six tests once genuine interfaces exist. Raw-homotopy comparison, products and elementary fibrations remain separately open.
 - Read/decompose Chen 2024 /57–58 tangential specialization ⟨γ_t⟩\Y_t ≅ Y_x, functorial in finite covers, and good/symmetric-path consumers, distinct from reconstruction.
 
 ### AnabelianGeometryAndNonabelianChabauty:NC.1 — not_read
@@ -968,7 +977,7 @@ The inherited suggested file gives partial native prototypes for nonabelian coho
 
 ### Exact cross-roadmap requests
 
-1. InverseGaloisAndArithmeticFundamentalGroups:IG.0: The actual category of finite étale schemes over a connected locally noetherian X, geometric-point fibre functor, its profinite automorphism group and equivalence with finite continuous π-sets; finite-cover subgroups, geometric-point path transport and induced coefficient transport, compatible with native abstract IsFundamentalGroup and the opposite affine FiniteEtale.fiber. Consumers: AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1, AnabelianGeometryAndNonabelianChabauty:NC.0/pointed-isomorphism, AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport, AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement, AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison, AnabelianGeometryAndNonabelianChabauty:NC.0/field.
+1. InverseGaloisAndArithmeticFundamentalGroups:IG.0: The actual category of finite étale schemes over a connected locally noetherian X, geometric-point fibre functor, its profinite automorphism group and equivalence with finite continuous π-sets; finite-cover subgroups, geometric-point path transport and induced coefficient transport, compatible with native abstract IsFundamentalGroup and the opposite affine FiniteEtale.fiber. Include the transitive F_p-translation π-set/connected degree-p cover criterion and torsor interpretation for nonzero continuous characters; the zero character is not a connected cover. Consumers: AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1, AnabelianGeometryAndNonabelianChabauty:NC.0/pointed-isomorphism, AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport, AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement, AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison, AnabelianGeometryAndNonabelianChabauty:NC.0/field.
 2. SchemeAndStackFoundations:SF.2: Finite continuous π-module / finite locally constant abelian sheaf dictionary on native smallEtaleTopology, natural in coefficients, pointed scheme isomorphisms and fibre-functor paths; actual canonical εⁿ in every degree. Compare derived continuous cohomology of finite discrete modules to native all-degree TopRep homogeneous continuousCohomology rather than define a second cohomology theory. Consumers: AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1, AnabelianGeometryAndNonabelianChabauty:NC.0/pointed-isomorphism, AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport.
 3. SchemeAndStackFoundations:SF.2: Spec K: exact stalk equivalence for discrete continuous G_K-modules and derived global-sections/invariants comparison of Stacks 03QQ Lemmas 59.59.1–2, identifying its map with ε. Also positive-degree trivial-group continuous cohomology calculation. Consumers: AnabelianGeometryAndNonabelianChabauty:NC.0/field, AnabelianGeometryAndNonabelianChabauty:NC.0/projective-line-obstruction.
 4. InverseGaloisAndArithmeticFundamentalGroups:IG.0: For algebraically closed k, π₁ᵉᵗ(P¹_k)=1 by classification of connected finite étale covers; retain characteristic and geometric-point hypotheses. Consumers: AnabelianGeometryAndNonabelianChabauty:NC.0/projective-line-obstruction.
@@ -977,14 +986,14 @@ The inherited suggested file gives partial native prototypes for nonabelian coho
 7. InverseGaloisAndArithmeticFundamentalGroups:IG.0: Characteristic-zero geometric product π₁ theorem for geometrically connected geometrically unibranch varieties over algebraically closed k, SGA 1 XIII Proposition 4.6; cofinality of product finite covers by profinite open subgroups. Arithmetic π₁ over nonclosed k is not an ordinary product. Consumers: AnabelianGeometryAndNonabelianChabauty:NC.0/products.
 8. InverseGaloisAndArithmeticFundamentalGroups:IG.1: Arithmetic π₁ exact sequence for geometrically connected varieties over k, with product/fibre-product compatibility needed in the characteristic-zero geometric-base-change reduction; not a higher homotopy fibration theorem. Consumers: AnabelianGeometryAndNonabelianChabauty:NC.0/products.
 9. SchemeAndStackFoundations:SF.2: For characteristic-zero geometrically connected geometrically unibranch varieties, equivalence of the full finite-cover effacement condition over k and its algebraic closure, including descent of finite covers/classes. Natural derived finite-torsion Künneth with Tor terms and filtered universal-finite-cover cohomology compatibility must yield product effacement; audit SGA 4½ Théorème de finitude Corollary 1.11. Consumers: AnabelianGeometryAndNonabelianChabauty:NC.0/products.
-10. SchemeAndStackFoundations:SF.3: Smooth geometric curves, smooth proper models and genus, and smooth ⇒ geometrically unibranch in the needed scope. Import these scheme-theoretic curve objects, not a second NC.0 construction. Consumers: AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve.
+10. SchemeAndStackFoundations:SF.3: Smooth geometric curves, smooth proper models and genus, and smooth ⇒ geometrically unibranch in the needed scope. Import these scheme-theoretic curve objects, not a second NC.0 construction. Also export connected finite-étale smooth/projective/affine preservation; proper-versus-affine dichotomy for separated smooth finite-type curves; unramified Riemann–Hurwitz g(D)=1+deg(D/C)(g(C)−1), composing the existing AlgebraicCurves function-field and JacobianChallenge scheme dictionaries; genus under characteristic-zero base extension; Pic⁰ as the actual Jacobian and its prime-to-characteristic n-torsion order n^(2g). No numerical-type Picard group can replace Pic⁰(C). Consumers: AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve.
 
 ### New open gaps
 
 - Generic raw étale homotopy foundations and fibration theorem: Raw étale pro-spaces, pro-homotopy groups, profinite-π identification in the stated geometrically-unibranch variety scope, classifying morphisms/Bπ₁ and Isaksen's weak-equivalence test are absent at the pins. Elementary fibrations additionally need Friedlander Theorem 11.5 on universal finite-cover pullbacks, finite-cover higher-homotopy invariance (Schmidt–Stix Lemma 2.1) and smooth profiniteness (Artin–Mazur Theorem 11.1). IG.0/IG.1 do not state this higher theory. The reviewed Schmidt–Stix extraction already retains an UNACCEPTED EtaleHomotopyTypes candidate, with no registered stages or design job. Reconcile its foundational core, rather than create a parallel owner: it imports generic pro-categories, ordinary homotopy, sites and IG.0/IG.1; it must not depend on NC.0/NC.1 for the generic inputs consumed here. Keep its source-qualified anabelian orbit results downstream. No unregistered stage is a prerequisite. Needed by AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison, AnabelianGeometryAndNonabelianChabauty:NC.0/elementary-fibration.
 - Raw homotopy comparison outside geometric-unibranch varieties: The cohomological predicate is planned on all connected locally noetherian schemes. Its raw equivalence is sourced here only for connected geometrically unibranch varieties. Raw π₁ is not automatically profinite on arbitrary locally noetherian schemes; replacing it with its profinite completion changes the target. Establish broader exact hypotheses or retain distinct cohomological and raw notions; never export this restricted equivalence universally. Needed by AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1, AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison.
-- Delegated raw-homotopy, curve and product proof leaves: The cohomological finite-cover criterion has a fresh direct Achinger proof decomposition, independent of Artin–Mazur. Its exact site/cohomology and canonical all-degree group interfaces remain supplier requests. Artin–Mazur 4.3/11.1 is still required for raw-homotopy-comparison; Schmidt 1996 Proposition 15 and the curve-cohomology/Kummer proof route described in the preceding handoff have not been freshly integrated here; products still use SGA 1 XIII 4.6 and SGA 4½ finitude 1.11. None of these transitive proof leaves is closed by the new cohomological argument. Needed by AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison, AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve, AnabelianGeometryAndNonabelianChabauty:NC.0/products.
-- Typed étale comparison carrier and suggested signatures: Native schemes, local noetherianity, small étale topology, abstract Galois categories, affine finite étale fibres and all-degree continuousCohomology exist. Actual non-affine profinite π, finite-coefficient/sheaf dictionary and canonical all-degree ε are not supplied at the pins. Every new declaration/API/test has an explicit mathematical omission entry in the suggested file, not a dummy Prop field, invented carrier or fabricated signature. Native smoke forms test only existing carriers. The key is planned, not formalised. The five finite-cover assembly contracts and the constant-F₃ degree-three boundary test have explicit mathematical omission entries. Actual μ_f, bc, ρ/Leray and ε interfaces are missing; no fabricated Lean carrier is introduced. Native discrete Shapiro smoke forms are separate existing-library type checks, not signatures of geometric results. Needed by AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1, AnabelianGeometryAndNonabelianChabauty:NC.0/coefficient-restriction, AnabelianGeometryAndNonabelianChabauty:NC.0/pointed-isomorphism, AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport, AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement, AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison, AnabelianGeometryAndNonabelianChabauty:NC.0/field, AnabelianGeometryAndNonabelianChabauty:NC.0/projective-line-obstruction, AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve, AnabelianGeometryAndNonabelianChabauty:NC.0/products, AnabelianGeometryAndNonabelianChabauty:NC.0/elementary-fibration, AnabelianGeometryAndNonabelianChabauty:NC.0/artin-neighbourhood, AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-finite-cover-transfer, AnabelianGeometryAndNonabelianChabauty:NC.0/all-coefficient-effacement, AnabelianGeometryAndNonabelianChabauty:NC.0/finite-etale-invariance, AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-extension, AnabelianGeometryAndNonabelianChabauty:NC.0/prime-field-effacement.
+- Delegated raw-homotopy, curve and product proof leaves: The characteristic-zero smooth-curve node now uses the freshly split direct cohomological route (connected prime-degree covers, actual degree-two killing and separable-closure descent), not raw-homotopy-comparison. Its SF.2/SF.3/IG.0 inputs remain precise open requests, including generic Kummer/cohomology and curve-degree/genus facts and the limit/property-descent proofs. Schmidt 1996 Proposition 15's parsed proof was read, but its scanned degree diagram was not visually inspected. Artin–Mazur 4.3/11.1 and raw comparison remain separate proof leaves, and products still use SGA 1 XIII 4.6 and SGA 4½ finitude 1.11. No delegated leaf is closed merely by the new assembly. Needed by AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison, AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve, AnabelianGeometryAndNonabelianChabauty:NC.0/products.
+- Typed étale comparison carrier and suggested signatures: Native schemes, local noetherianity, small étale topology, abstract Galois categories, affine finite étale fibres and all-degree continuousCohomology exist. Actual non-affine profinite π, finite-coefficient/sheaf dictionary and canonical all-degree ε are not supplied at the pins. Every new declaration/API/test has an explicit mathematical omission entry in the suggested file, not a dummy Prop field, invented carrier or fabricated signature. Native smoke forms test only existing carriers. The key is planned, not formalised. The five finite-cover assembly contracts and the constant-F₃ degree-three boundary test have explicit mathematical omission entries. Actual μ_f, bc, ρ/Leray and ε interfaces are missing; no fabricated Lean carrier is introduced. Native discrete Shapiro smoke forms are separate existing-library type checks, not signatures of geometric results. The six curve/descent declarations and six new exact tests are mathematical omission contracts. Existing arithmetic smoke examples test ZMod carriers only, not geometric covers, H² or descent. Needed by AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1, AnabelianGeometryAndNonabelianChabauty:NC.0/coefficient-restriction, AnabelianGeometryAndNonabelianChabauty:NC.0/pointed-isomorphism, AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport, AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement, AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison, AnabelianGeometryAndNonabelianChabauty:NC.0/field, AnabelianGeometryAndNonabelianChabauty:NC.0/projective-line-obstruction, AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve, AnabelianGeometryAndNonabelianChabauty:NC.0/products, AnabelianGeometryAndNonabelianChabauty:NC.0/elementary-fibration, AnabelianGeometryAndNonabelianChabauty:NC.0/artin-neighbourhood, AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-finite-cover-transfer, AnabelianGeometryAndNonabelianChabauty:NC.0/all-coefficient-effacement, AnabelianGeometryAndNonabelianChabauty:NC.0/finite-etale-invariance, AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-extension, AnabelianGeometryAndNonabelianChabauty:NC.0/prime-field-effacement.
 - M₀,n moduli and forgetting-mark fibrations are imported: StableReductionPartII:key/moduli-curves is a reserved owner with no packet node at this audit tree. Its M₀,n scheme, M₀,4 identification and characteristic-zero forgetting-mark elementary fibrations must be imported/checked before the named instance is typed. No moduli construction is added here; the reserve is not an established theorem. Needed by AnabelianGeometryAndNonabelianChabauty:NC.0/artin-neighbourhood, AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1.
 - Routed Chen and BDMTV additions remain source inventory obligations: This continuation reads the K(π,1) sources, not the full Chen 2024 tangential specialization /57–58 or BDMTV 2019 universal-connection/Frobenius and quadratic-height proofs. The issue's 17 NC.2 and 19 NC.5 route items, E9/E10 and four applications still require individual source-to-node/import records. NC.5 imports NS from AbelianSchemesAndArithmeticModuli:A2 and generic mixed extensions/local heights from the pending SelmerComplexesAndPadicHeightsPartII owner, which must not depend on NC.5. No provisional height stage or duplicate is inserted. Needed by AnabelianGeometryAndNonabelianChabauty:NC.0, AnabelianGeometryAndNonabelianChabauty:NC.2, AnabelianGeometryAndNonabelianChabauty:NC.5.
 - Inherited NC.3 declaration/API granularity remains open: The eight inherited nodes and their source receipts are retained, not re-audited or closed. continuous-cocycles, functoriality, exact-sequence and central-extension bundle independent declarations and need granular continuation. Several inherited API/test forms are absent or only comment-level in the old suggested file. The appended omission audit accounts for every such name. Twisting's target must be repointed at [c] to make its set bijection pointed. Needed by AnabelianGeometryAndNonabelianChabauty:NC.3.
@@ -1088,7 +1097,7 @@ The actual quotient-set connecting map on invariant left cosets and the initial 
 
 Fresh primary reading covers Kim arXiv:math/0409456v1, printed pp. 5–10, including the subgroup exactness passage. The PDF hash agrees with the historical receipt; earlier and later source sections were not freshly read. Topology.IsEmbedding.continuous_iff was read at the pinned Mathlib commit. Twenty-nine current link-map examined entries are negative catalogue screens, with no asserted matching dependency.
 
-The Mathlib-only cocycle/H¹/exactness excerpt of the suggested file elaborated at the pinned Mathlib commit with zero errors, 31 sorry warnings and no other warnings. All new signatures, three construction API forms and four tests are included. The complete file was not compiled because its Tau Ceti dependency has no existing build at the required pin. Reproduction boundaries and hashes are in the handoff. This is signature validation, with admitted bodies.
+The Mathlib-only cocycle/H¹/exactness excerpt of the suggested file elaborated at the pinned Mathlib commit with zero errors, 31 admitted-proof warnings and no other warnings. All new signatures, three construction API forms and four tests are included. The complete file was not compiled because its Tau Ceti dependency has no existing build at the required pin. Reproduction boundaries and hashes are in the handoff. This is signature validation, with admitted bodies.
 
 
 ## Invariant-coset continuation — codex-rtOQ9t
@@ -1710,18 +1719,7 @@ discharge its Artin–Mazur inputs. The 2014 arbitrary-prime-set formulation
 is used because its unqualified shorthand excludes noninvertible primes.
 The 2017 text explicitly adopts all primes. Primary hashes are in the packet.
 
-The canonical checkpoint has 42 nodes (3 definitions, 4 constructions,
-12 lemmas, 18 theorems and 5 comparisons), 52 API items, 32 test contracts,
-11 planets and 55 baseline records. The standard checker reports 40 API items
-because it counts definition/construction APIs only; the total 52 includes
-inherited lemma APIs. Nine gaps and fourteen requests remain, and no stage
-is closed. The curve proof refinements in the preceding handoff, generic
-homotopy foundations, omitted signatures, unipotent/representability/local
-conditions, Chen and BDMTV routes, NS and the generic height boundary are
-explicit continuation work. The full suggested file has not compiled against
-a combined exact-pin build. A separately checked Mathlib-only block tests
-existing discrete Shapiro carrier forms and inverse identities; it makes no
-geometric or full-file compilation claim.
+The packet has 48 nodes (3 definitions, 4 constructions, 14 lemmas, 21 theorems and 6 comparisons), 52 API items, 38 test contracts, 11 planets and 62 baseline records. Definition/construction APIs account for 40 of the 52 items. Nine gap groups and sixteen requests remain, and no stage is closed. The full suggested file has not compiled against a combined exact-pin build. Separate Mathlib-only blocks check the inherited discrete Shapiro carriers and the twelve arithmetic smoke examples, not geometric statements. The direct curve proof is decomposed; generic supplier maps, raw homotopy, products, elementary fibrations, unipotent/representability/local conditions, Chen and BDMTV routes, NS and the height boundary remain explicit work.
 
 Additional exact supplier interfaces:
 
@@ -1767,3 +1765,281 @@ Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.0/all-coefficient-effac
 Source: Achinger 2017, Proposition 4.2(c), proof; finite-cover form assembled using Proposition 3.4(a–b) of the 2014 preprint.
 
 The coefficient infrastructure request to SF.2 includes a finite abelian filtration by finite prime-field vector layers, constant finite-sum cohomology and common finite refinements after trivializing monodromy.
+
+## NC.0 — prime-cover curve proof and separable descent
+
+Generic curve geometry and Picard data come from SchemeAndStackFoundations:SF.3, integrating the existing AlgebraicCurves and JacobianChallenge dictionaries. Generic Kummer cohomology, degree-pullback and affine-transition continuity come from SF.2. Finite continuous π-sets and their connected covers come from IG.0. NC.0 owns the use of those maps to kill classes and prove the reserved K(π,1) predicate, not a second theory of curves or cohomology.
+
+Let d_C denote the canonical degree coordinate on H²(C,μ_n). The imported identity d_D(f*α)=deg(f)·d_C(α) is the actual map, not a cardinality comparison. Coherent Serre vanishing is not affine étale torsion vanishing. A choice of roots of unity converts μ_n to constant coefficients noncanonically and must be pulled back consistently. The prime-degree torsor is obtained from degree-one cohomology, which agrees with fundamental-group characters for every connected scheme; using the K(π,1) theorem to obtain it would be circular.
+
+A nonproper smooth separated finite-type curve over a field is affine. Thus the nonaffine positive-genus case is projective, and finite connected étale covers remain in the required alternatives. Unramified Riemann–Hurwitz and the Kummer map are distinct imported facts. The new route neither needs nor proves raw étale homotopy equivalence.
+
+### A connected prime-degree étale cover
+
+Declaration: TauCeti.EtaleKPiOne.exists_connected_primeDegree_cover. Node: AnabelianGeometryAndNonabelianChabauty:NC.0/connected-prime-degree-cover.
+
+For a connected smooth projective curve C of genus g≥1 over an algebraically closed characteristic-zero field k and a prime p, there exists a connected finite étale surjective k-morphism f:D→C of degree exactly p. The cover can be chosen to be a torsor under the constant additive group F_p; its translation action is induced by a nonzero continuous character of the full π₁ᵉᵗ(C,x).
+
+Hypotheses:
+
+- k is algebraically closed of characteristic zero; C is a connected smooth projective k-curve of genus g≥1.
+
+- p is a prime number, so p is invertible in k. The fundamental group is the full profinite π₁ᵉᵗ(C,x).
+
+Proof or construction:
+
+1. Import the natural Kummer calculation H¹_et(C,μ_p)≅Pic⁰(C)[p] and the Jacobian p-torsion order p^(2g) from SF.2/SF.3. Choose a primitive pth root in k only to identify μ_p with the constant F_p sheaf. Since p≥2 and g≥1, this H¹ group has a nonzero class.
+
+2. Import the degree-one canonical comparison for any connected scheme, H¹_et(C,F_p)≅Hom_cont(π,F_p) for trivial action, from SF.2/IG.0. This is not an invocation of the all-degree K(π,1) property. Let χ be the nonzero character corresponding to the chosen class.
+
+3. The image of χ is a nonzero additive subgroup of F_p and therefore all of F_p, using the existing prime-order simple additive group of ZMod p. Under IG.0's finite continuous π-set classification, the translation action g·a=χ(g)+a is transitive and has p elements. Its associated finite étale cover D is connected of degree p and surjective.
+
+4. Translation by F_p commutes with π and is simply transitive on every fibre, giving the indicated torsor. A zero character gives p disconnected copies of C and must not be used.
+
+Acceptance:
+
+- For p=2 and genus one the cover is connected of degree 2, not multiplication-by-2 on an elliptic curve, whose degree is 4.
+
+- For g=0, Pic⁰[p] is zero and this argument produces no nonzero character; the trivial torsor is disconnected.
+
+Prerequisites: SchemeAndStackFoundations:SF.2, SchemeAndStackFoundations:SF.3, InverseGaloisAndArithmeticFundamentalGroups:IG.0, mathlib:ZMod.instIsSimpleAddGroup, mathlib:ZMod.card.
+
+Sources:
+
+- schmidt-curve-1996, Proposition 15, proof, printed pp. 243–244. The proof needs finite étale covers of p-divisible degree; this node explicitly supplies a connected prime-degree cover instead of assuming that assertion.
+
+- stacks-curve-effacement-continuation, 03RQ Lemma 59.69.1; 03RP Proposition 39.9.11(7). The degree-one Kummer and torsion calculations produce the nonzero character; their generic constructions remain supplier inputs.
+
+### Prime-degree covers kill degree-two prime torsion
+
+Declaration: TauCeti.EtaleKPiOne.primeDegree_cover_kills_H2. Node: AnabelianGeometryAndNonabelianChabauty:NC.0/prime-cover-degree-two-killing.
+
+Let f:D→C be a connected finite étale cover of degree p between connected smooth projective curves over an algebraically closed characteristic-zero field, with p prime. Then f*:H²_et(C,μ_p)→H²_et(D,μ_p) is the zero homomorphism. After choosing one primitive pth root on the common base field, the same holds for constant F_p coefficients. This conclusion does not require genus≥1 once the cover is given.
+
+Hypotheses:
+
+- Both curves are connected, smooth and projective over the same algebraically closed characteristic-zero field.
+
+- f is finite étale surjective of degree p, p prime; the same coefficient identification is pulled back to D.
+
+Proof or construction:
+
+1. Import SF.2's canonical Kummer-degree isomorphisms d_C:H²(C,μ_p)≅Z/p and d_D, and their natural degree-pullback identity d_D(f*α)=deg(f)·d_C(α). These are the generic curve computations of Stacks 03RQ and 0AMB, not a second Picard or cohomology definition in NC.0.
+
+2. Since deg(f)=p and p=0 in ZMod p, the right side vanishes for every α. Injectivity of d_D gives f*α=0. The map being zero, not merely its source and target having equal order, is the assertion.
+
+3. Pull back the single chosen μ_p≅F_p coefficient isomorphism to D. Naturality conjugates the zero μ_p map into the constant-F_p zero map; no independent roots of unity or transfer divided by p are used.
+
+Acceptance:
+
+- With p=3, degree 3 acts as zero on Z/3; degree 2 acts invertibly and does not kill its generator.
+
+- On an elliptic curve, multiplication-by-p has degree p² and also kills H²(μ_p), but it is not the exact degree-p witness of connected-prime-degree-cover.
+
+Prerequisites: SchemeAndStackFoundations:SF.2, SchemeAndStackFoundations:SF.3, mathlib:ZMod.natCast_self.
+
+Sources:
+
+- stacks-curve-effacement-continuation, 0AMB Lemma 59.69.2, statement and Kummer-boundary proof. Apply the supplied canonical degree formula to a prime-degree finite étale cover; the nonzero H² group itself is not claimed to vanish.
+
+- schmidt-curve-1996, Proposition 15, proof, printed pp. 243–244. The proof needs finite étale covers of p-divisible degree; this node explicitly supplies a connected prime-degree cover instead of assuming that assertion.
+
+### Prime-power towers kill higher prime-power torsion
+
+Declaration: TauCeti.EtaleKPiOne.exists_primePower_cover_kills_H2. Node: AnabelianGeometryAndNonabelianChabauty:NC.0/prime-power-degree-two-killing.
+
+For C a connected smooth projective curve of genus g≥1 over an algebraically closed characteristic-zero field k, a prime p and a≥0, there exists a connected finite étale surjective f:D→C of degree p^a, given by a tower of a connected degree-p covers, such that f*:H²_et(C,μ_(p^a))→H²_et(D,μ_(p^a)) is zero. For a=0 the identity cover and the zero coefficient μ_1 give the assertion. The composite cover need not be Galois over C.
+
+Hypotheses:
+
+- k is algebraically closed of characteristic zero; C is a connected smooth projective k-curve of genus g≥1.
+
+- p is a prime number, so p is invertible in k. The fundamental group is the full profinite π₁ᵉᵗ(C,x).
+
+- a is a natural number, including zero; no common witness for all a is claimed.
+
+Proof or construction:
+
+1. For a=0 choose C itself. For the induction step apply connected-prime-degree-cover to the current curve. SF.3's finite-étale Riemann–Hurwitz formula g(D)=1+p(g(C)−1) guarantees genus≥1, so the induction can be repeated.
+
+2. Use the supplier's composition and degree-multiplicativity of finite étale covers. A tower of a degree-p covers is connected and its composite has degree p^a; connectedness of each chosen source is retained. Do not assert that successive Galois covers have a Galois composite.
+
+3. Apply the generic Kummer-degree pullback formula from SF.2 with n=p^a≥1. Multiplication by p^a in Z/(p^a) is zero, so the map kills every class at once. A single degree-p cover only multiplies H²(μ_(p^a)) by p and does not suffice when a>1.
+
+4. With a primitive p^a-th root chosen on k the same conclusion holds for constant Z/(p^a) coefficients. Higher coefficient dévissage of arbitrary monodromy is a different step, supplied by prime-field-effacement.
+
+Acceptance:
+
+- At p=3,a=2, the degree-3 map on Z/9 sends 1 to 3≠0; the degree-9 tower map sends every class to zero.
+
+- At genus 2,p=3, one prime-degree step has genus 4 and the two-step source genus 10; at genus one all sources have genus one.
+
+- a=0 corresponds to n=1, not n=0; the latter coefficient is not part of the finite Kummer calculation.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.0/connected-prime-degree-cover, AnabelianGeometryAndNonabelianChabauty:NC.0/prime-cover-degree-two-killing, SchemeAndStackFoundations:SF.2, SchemeAndStackFoundations:SF.3, mathlib:ZMod.natCast_self.
+
+Sources:
+
+- schmidt-curve-1996, Proposition 15, proof, printed pp. 243–244. The proof needs finite étale covers of p-divisible degree; this node explicitly supplies a connected prime-degree cover instead of assuming that assertion.
+
+- stacks-curve-effacement-continuation, 0AMB Lemma 59.69.2; 03RQ Lemma 59.69.1. The degree formula and induction, with Riemann–Hurwitz imported, give the explicit prime-power killing witness.
+
+### Geometric smooth-curve finite-cover effacement
+
+Declaration: TauCeti.EtaleKPiOne.smooth_curve_algebraicallyClosed. Node: AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-smooth-curve.
+
+For a connected smooth separated finite-type curve C over an algebraically closed characteristic-zero field, if C is affine or its smooth projective compactification has genus≥1, then Is(C,x;all finite coefficients) holds at every geometric point x. More explicitly, on every connected finite étale Y→C every class α∈H^q_et(Y,F_p), p prime and q≥2, dies on a finite étale surjective cover of Y. In the affine case and in degrees q≥3 the identity cover suffices.
+
+Hypotheses:
+
+- k algebraically closed, characteristic zero; C connected smooth separated finite-type of dimension one.
+
+- C affine or its smooth projective compactification has positive genus; genus-zero projective C is excluded.
+
+Proof or construction:
+
+1. Use SF.3's dichotomy: a nonproper smooth separated curve is affine, so the positive-genus nonaffine case is projective. For every connected finite étale Y→C, the affine case stays affine. In the projective case Y is smooth projective and unramified Riemann–Hurwitz gives g(Y)=1+deg(Y/C)(g(C)−1)≥1.
+
+2. Import constant-coefficient curve cohomology from SF.2: for affine Y, H^q(Y,F_p)=0 for q≥2 (Stacks 03RR); for projective Y, H^q(Y,F_p)=0 for q≥3 and H²(Y,μ_p)≅Z/p (03RQ). Use one root-of-unity identification for the constant F_p statements.
+
+3. Only q=2 on projective positive-genus Y remains. Obtain a connected degree-p cover Z→Y by connected-prime-degree-cover; prime-cover-degree-two-killing kills the specified class. No use of the desired K(π,1) theorem is hidden in obtaining this cover.
+
+4. The quantifier covers every Y and every prime p, not just C and one p. Apply prime-field-effacement with P all primes to reach the canonical all-degree full finite-coefficient predicate. Basepoint-transport gives the statement at any geometric point. The raw pro-homotopy comparison is not a prerequisite.
+
+Acceptance:
+
+- G_m and P¹ minus {0,1,∞} use affine vanishing; a smooth projective elliptic curve uses actual covers despite nonzero H².
+
+- A finite étale cover of a genus-2 curve of degree 3 has genus 4, so the prime-cover construction remains available after the first cover.
+
+- P¹ is not accepted: every connected finite étale cover is an isomorphism and the nonzero degree-two generator survives.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.0/prime-field-effacement, AnabelianGeometryAndNonabelianChabauty:NC.0/connected-prime-degree-cover, AnabelianGeometryAndNonabelianChabauty:NC.0/prime-cover-degree-two-killing, AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport, SchemeAndStackFoundations:SF.2, SchemeAndStackFoundations:SF.3, InverseGaloisAndArithmeticFundamentalGroups:IG.0.
+
+Sources:
+
+- schmidt-curve-1996, Proposition 15, proof, printed pp. 243–244. The proof needs finite étale covers of p-divisible degree; this node explicitly supplies a connected prime-degree cover instead of assuming that assertion.
+
+- stacks-curve-effacement-continuation, 03RQ and 03RR, complete Kummer proofs. Generic projective/affine computations are imported; NC.0 assembles them into the criterion on all finite covers.
+
+### A geometric killing cover descends to a finite extension
+
+Declaration: TauCeti.EtaleKPiOne.descend_separable_killing_cover. Node: AnabelianGeometryAndNonabelianChabauty:NC.0/separable-killing-descent.
+
+Let k have characteristic zero with fixed separable closure k_s, X a separated finite-type k-scheme, F a finite locally constant abelian étale sheaf, q>0 and α∈H^q_et(X,F). If a finite étale surjective cover h_s:Z_s→X_(k_s) kills α_(k_s), then there exist a finite separable k⊆k′⊆k_s and a finite étale surjective h′:Z′→X_(k′), whose base change is h_s up to X_(k_s)-isomorphism after a possible further finite extension, such that h′*α_(k′)=0. Thus the composite Z′→X is finite étale surjective and kills α. Neither Z_s nor Z′ is required to be connected.
+
+Hypotheses:
+
+- X separated of finite type over a characteristic-zero field; in particular X is quasi-compact and quasi-separated.
+
+- F finite locally constant and α a fixed positive-degree class; a genuine finite étale surjective killing cover over k_s is given.
+
+Proof or construction:
+
+1. Write k_s as the filtered union of its finite separable k-subextensions. Import the SF.2 finite-presentation descent interface: the finite étale cover Z_s and its morphism descend to some X_(k₀). Finite étale and surjectivity persist or descend after enlarging k₀; do not assume that descending equations alone proves these properties.
+
+2. The descended Z₀ is quasi-compact and quasi-separated. Apply SF.2's canonical continuity isomorphism colim_(k′/k₀ finite) H^q_et(Z₀×_(k₀)k′,h₀*F_(k′))≅H^q_et(Z_s,h_s*F_(k_s)), natural in pullback. The image of h₀*α_(k₀) is zero.
+
+3. A representative mapping to zero in a filtered colimit of abelian groups becomes zero at some later finite stage. Enlarge to that k′ and base change Z₀. This second enlargement is necessary: descent of h_s alone does not make h₀*α vanish.
+
+4. Since Spec k′→Spec k is finite étale surjective, X_(k′)→X and the composite Z′→X are finite étale surjective. Pullback composition proves that the composite kills α. No injectivity of restriction to k_s, proper base change or arbitrary field-extension invariance is used.
+
+Acceptance:
+
+- For the zero class the identity cover suffices; no field extension is forced.
+
+- A class that vanishes over k_s need not vanish over k. The conclusion supplies a finite extension/cover that kills it, not injectivity of the original restriction map.
+
+- The killing field may depend on F,q,α and the chosen cover; a single field killing all classes is not asserted.
+
+Prerequisites: SchemeAndStackFoundations:SF.2, InverseGaloisAndArithmeticFundamentalGroups:IG.0.
+
+Sources:
+
+- achinger-effacement-2014-v1, Proposition 3.4(c), finite-separable and separable-closure proof paragraph, p. 8. Spell out the separate cover-descent and zero-class descent steps used in the finite-cover criterion.
+
+- stacks-separable-continuity-continuation, 09YQ Theorem 59.51.3; 03RV Lemma 59.64.4; 07RR Lemma 32.8.15. The canonical cohomology colimit and finite-cover/sheaf descent are supplier inputs; this node assembles the class-killing consequence.
+
+### Separable-closure invariance of finite-coefficient K(π,1)
+
+Declaration: TauCeti.EtaleKPiOne.separableClosure_iff. Node: AnabelianGeometryAndNonabelianChabauty:NC.0/separable-base-change.
+
+For a geometrically connected separated finite-type scheme X over a characteristic-zero field k, with separable closure k_s and a geometric point x over k_s, Is(X,x;all finite coefficients) holds iff Is(X_(k_s),x;all finite coefficients) holds. Both sides use their own full profinite fundamental groups and their canonical ε maps; their étale cohomology groups are not asserted to be equal.
+
+Hypotheses:
+
+- X geometrically connected, separated and finite type over a characteristic-zero field; chosen separable closure and geometric point.
+
+- The coefficient class is all finite locally constant abelian coefficients, not an arbitrary unstable class.
+
+Proof or construction:
+
+1. For descent, take F,q>0,α on X. If the geometric property holds, all-coefficient-effacement supplies a finite étale cover of X_(k_s) killing α_(k_s). Apply separable-killing-descent and then all-coefficient-effacement on X.
+
+2. For ascent, let F_s,q>0,β_s be geometric coefficient/class data. SF.2's finite coefficient descent, including its addition/zero/inverse maps, gives F₀ on X_(k₀) for a finite separable k₀/k. Its canonical cohomology continuity supplies a class β₁ at a possibly larger finite k₁ representing β_s.
+
+3. X_(k₁) is connected by geometric connectedness; finite-etale-invariance transfers the property of X to X_(k₁). Apply all-coefficient-effacement to β₁, then base change its finite étale surjective killing cover to k_s. Naturality kills β_s.
+
+4. Apply the all-coefficient criterion on X_(k_s) and preserve its canonical comparison. The proof never replaces π by its geometric subgroup or pro-p quotient; nor does it identify H^q(X,F) with H^q(X_(k_s),F_s).
+
+Acceptance:
+
+- For Spec k the equivalence agrees with the field test, though positive-degree Galois cohomology over k need not agree with the zero positive-degree étale cohomology of Spec k_s.
+
+- The separable closure need not be finite; replacing its projection by a finite étale morphism is false.
+
+- An open curve is allowed: the argument uses affine-transition continuity and finite-presentation descent, not properness.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.0/all-coefficient-effacement, AnabelianGeometryAndNonabelianChabauty:NC.0/finite-etale-invariance, AnabelianGeometryAndNonabelianChabauty:NC.0/separable-killing-descent, SchemeAndStackFoundations:SF.2, InverseGaloisAndArithmeticFundamentalGroups:IG.0.
+
+Sources:
+
+- achinger-effacement-2014-v1, Proposition 3.4(c), separable-closure case, p. 8. Precisely the algebraic separable-extension case; arbitrary extensions and purely inseparable steps are not exported by this node.
+
+### Additional tests of the reserved definition
+
+- TauCeti.EtaleKPiOne.tests.prime_degree_cover (computation): For a smooth projective genus-one curve over algebraically closed characteristic-zero k and prime p=3, a nonzero character π₁→F₃ gives a connected degree-3 étale cover; the zero character gives three disconnected copies. Multiplication-by-3 on an elliptic curve has degree 9, not 3.
+
+- TauCeti.EtaleKPiOne.tests.prime_to_degree_does_not_kill (non-example): For a smooth projective elliptic curve over algebraically closed characteristic-zero k, multiplication-by-2 has degree 4 and induces multiplication by 4=1 on H²_et(E,μ₃)≅Z/3. Thus this finite étale cover does not kill a nonzero degree-two class.
+
+- TauCeti.EtaleKPiOne.tests.prime_power_tower (computation): For genus≥1, p=3,a=2, a degree-3 étale cover multiplies H²(μ₉) by 3 and does not kill the generator; a tower of two connected degree-3 covers has degree 9 and kills all H²(μ₉) classes.
+
+- TauCeti.EtaleKPiOne.tests.tower_exponent_zero (degenerate): At a=0 the prime-power tower is the identity, coefficient μ₁ is zero and H²(C,μ₁)=0. This boundary is not the infinite coefficient n=0.
+
+- TauCeti.EtaleKPiOne.tests.genus_after_prime_cover (compatibility): For a connected étale degree-3 cover of a smooth projective genus-2 curve over an algebraically closed characteristic-zero field, unramified Riemann–Hurwitz gives genus 4; a second degree-3 step gives genus 10. For genus one every such step retains genus one.
+
+- TauCeti.EtaleKPiOne.tests.arithmetic_restriction_not_injective (non-example): For k=R, k_s=C and X=Spec R with constant Z/2 coefficients, H²_et(X,Z/2)≅Z/2 but H²_et(Spec C,Z/2)=0. Both spectra have the full K(π,1) property. Separable-closure invariance is not injectivity of cohomology restriction; the finite cover Spec C→Spec R kills the nonzero class.
+
+For the arithmetic restriction test, write Gal(C/R)=C₂={0,1} additively with trivial F₂ action. The normalized cocycle c(g,h)=gh has c(1,1)=1. Its cocycle identity follows by expanding over F₂. A normalized one-cochain has coboundary zero at (1,1), so this cocycle is not a coboundary. This gives the nonzero H²(C₂,F₂) class through the imported field dictionary; restriction to the trivial group kills it. It is not evidence that geometric restriction is injective.
+
+### Exact curve and limit supplier contracts
+
+Supplier: SchemeAndStackFoundations:SF.2.
+
+Canonical smooth-projective curve Kummer H¹(μ_n)≅Pic⁰[n], H²(μ_n)≅Z/n via degree and vanishing in q≥3 (Stacks 03RQ), together with the actual pullback identity d_D(f*α)=deg(f)d_C(α) for nonconstant finite maps (0AMB), proved by Kummer-boundary naturality and SF.3's line-bundle degree formula. For smooth affine curves, H^q(μ_n)=0 for q≥2 (03RR), distinct from coherent Serre vanishing. Retain n≥1 invertible and a single chosen root-of-unity identification for constant coefficients. Supply the canonical degree-one H¹_et(C,F_p)=Hom_cont(π,F_p) for every connected curve without assuming K(π,1). Import Picard/Jacobian objects from SF.3, never duplicate them or the NC.0 K(π,1) assemblies.
+
+Consumers: AnabelianGeometryAndNonabelianChabauty:NC.0/connected-prime-degree-cover, AnabelianGeometryAndNonabelianChabauty:NC.0/prime-cover-degree-two-killing, AnabelianGeometryAndNonabelianChabauty:NC.0/prime-power-degree-two-killing, AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-smooth-curve.
+
+Supplier: SchemeAndStackFoundations:SF.2.
+
+For X separated finite type over k and an algebraic separable closure k_s=colim k_i, export finite-presentation descent of finite étale covers, morphisms and surjectivity; finite locally constant abelian sheaves descend with their group operations (03RV plus finite-étale morphism descent). Supply natural canonical colim_i H^q_et(X_(k_i),F_i)≅H^q_et(X_(k_s),F_s) for every degree, and the same formula on the descended killing cover (09YQ/59.51.3 or 59.51.5, with qcqs schemes and affine transition maps). Descent of a class representative and eventual vanishing of a representative mapping to zero are separate consequences. Generic 32.10.1/32.8 finite-presentation/property descent and 21.16.6 inverse-site cohomology proof leaves are not read to closure here. No injectivity of restriction, properness, arbitrary field-extension invariance or NC.0 theorem may be inserted as a supplier assumption.
+
+Consumers: AnabelianGeometryAndNonabelianChabauty:NC.0/separable-killing-descent, AnabelianGeometryAndNonabelianChabauty:NC.0/separable-base-change.
+
+The suggested file keeps every geometric name as an explicit mathematical omission contract while genuine π/coefficient/ε, curve Kummer-degree and continuity interfaces are absent. Its twelve arithmetic examples only exercise the existing ZMod library. They do not elaborate any of the geometric definitions, tests or statements. No stage is closed.
+
+### Additional pinned native arithmetic baseline
+
+- mathlib:ZMod.instIsSimpleAddGroup — The existing simple additive group of prime-order ZMod p, used to show a nonzero character onto F_p is surjective. Statement read at the exact pin in Mathlib/GroupTheory/SpecificGroups/Cyclic.lean.
+
+- mathlib:ZMod.card — Fintype.card (ZMod n)=n with a Fintype instance; identifies the prime-degree fibre cardinal. Statement read at the exact pin in Mathlib/Data/ZMod/Defs.lean.
+
+- mathlib:ZMod.natCast_self — (n:ZMod n)=0; the degree-n multiplication in the canonical H² coordinate vanishes. Statement read at the exact pin in Mathlib/Data/ZMod/Basic.lean.
+
+- mathlib:ZMod.addOrderOf_one — addOrderOf (1:ZMod n)=n, including n=0; no new cyclic-coefficient group is introduced. Statement read at the exact pin in Mathlib/Data/ZMod/Basic.lean.
+
+- mathlib:ZMod.unitOfCoprime — For Nat.Coprime d n the native unit in ZMod n whose value is d; provides the inverse of prime-to-coefficient degree multiplication. Statement read at the exact pin in Mathlib/Data/ZMod/Basic.lean.
+
+- mathlib:ZMod.coe_unitOfCoprime — The value of ZMod.unitOfCoprime d h is (d:ZMod n), hence multiplication by d is bijective when d,n are coprime. Statement read at the exact pin in Mathlib/Data/ZMod/Basic.lean.
+
+- mathlib:Nat.card_zmod — Nat.card (ZMod n)=n; for n=0 the cardinal-to-natural convention gives zero and is not finiteness. Statement read at the exact pin in Mathlib/SetTheory/Cardinal/Finite.lean.
