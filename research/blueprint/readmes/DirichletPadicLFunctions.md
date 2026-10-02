@@ -57986,3 +57986,410 @@ Exact integral controls at48finite cyclic groups check 1176 basis_involutions, 2
 Two guarded generated files changed, and their complete diff was read. The registry adds HodgeStructuresPartII/EG20-E10-subset, inherited editorial corrections to integrability and the base-variety differential notation in EG20 section2.1. All 9109 prior source records and all other top-level metadata remain unchanged. The added record is awaiting review and described as already reported; the generated register places it under already corrected in print, increasing that count from1231 to1232. This source record lies outside the current route and is neither adopted nor independently reviewed. The other77inputs, four predecessor outputs and full issue body remain unchanged.
 
 The separate partial signature file also compiled with zero errors and 5,735 expected placeholder warnings across 3,663 pinned source modules. It includes all 15 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: dcb2bb8e41d75e6199b2d54650568782e3e5378dafd720603a89bdc6ec20928b.
+
+
+## Actual order-two integral representation and parity norm comparison
+
+Fifteen L3 nodes construct the actual native integral order-two point-action representation, prove its actual generator and norm/difference formulas, and supply its natural bijective intertwiners. All1,922predecessor nodes and1,201baseline records remain whole.
+
+Reread the actual point-negation involution, original parity operators and the native integer-linear equivalence, representation norm and generated-subgroup APIs at the pinned commits. The actual two-element group is enumerated, so both its action multiplication laws and its full norm are proved concretely. Existing quotient-equivalence naturality yields actual native bijective intertwiners. For subsequent work, read the complete Mathlib TateCohomology/Basic and GroupCohomology/FiniteCyclic files, and pinned TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic1–213: the generic Tate object and all-degree cyclic comparisons already exist. This checkpoint does not import or restate those generic constructions. The new complete native proof uses only the previous imports and named actual quotient APIs.
+
+### The actual integral order-two point-action representation
+
+`DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation` — `DirichletPadic.kubertSignRepresentation`
+
+Construct a native integer-linear representation rho of Multiplicative(ZMod2) on the existing weighted quotient Q. The identity acts by the identity linear map, and the nonidentity residue acts by the actual point-negation equivalence j reinterpreted as an integer-linear map.
+
+**Hypotheses:** Use the actual additive commutative group X and its existing weighted distribution quotient Q for an arbitrary set S of positive multipliers, natural weight w and actual finite root fibers. The coefficient ring for this representation is the integers. The acting group is the existing native Multiplicative(ZMod2), whose identity is the additive residue0 and whose generator is the additive residue1. Multiplication is addition modulo2; this is an actual two-element group, not an assumed cyclic group. The nonidentity element acts by the already proved point-negation involution j on Q. This sends each original point class[a] to[-a], and is generally different from scalar multiplication by minus1 on Q. Its integral linearity comes from native AddEquiv.toIntLinearEquiv. The norm is the actual native Representation.norm, summing over both elements of the group. Its equality with j plus identity and the equality of generator minus identity with j minus identity use the previously constructed parity endomorphisms. The intertwiners are actual bijective integer-linear maps induced by actual additive equivalences of point groups. No generic Tate object or periodicity theorem is replanned.
+
+**Proof:**
+
+1. Use the native conditional on the actual residue g.toAdd being zero; the other residue acts by the original j.
+2. The native identity residue is zero, so the identity law holds.
+3. Enumerate the two actual residues for each of the two group inputs. The three products involving the identity use native identity composition; the remaining product uses the proved equation j composed with j equals identity.
+4. All action laws are constructed on the original quotient; no action or representation package is assumed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-parity-operators-quotient-negation`, `DirichletPadicLFunctions:L3/kubert-parity-operators-quotient-negation-involutive`, `mathlib:AddEquiv.toIntLinearEquiv`, `mathlib:Representation`.
+
+**Uses:**
+
+- Kubert199–200, Corollary4.15 and the integral parity action: Supplies the actual native order-two representation and identifies the original parity operators with its generator difference and full group norm.
+- Existing Mathlib and Tau Ceti finite-cyclic cohomology interfaces: Provides the concrete representation, proved generator and natural intertwining maps required by the existing native comparisons; no generic cohomological object or periodicity theorem is replanned.
+
+**API:**
+
+- `kubertSignRepresentation_one_apply` (compatibility): For every actual z:Q, rho(1)(z)=z.
+- `kubertSignRepresentation_generator` (compatibility): For every z:Q, rho(ofAdd(1))(z)=j(z), using the actual nonidentity residue1 modulo2.
+- `kubertSignRepresentation_generator_of` (compatibility): For every point a:X, the actual generator action sends the original quotient class[a] to[-a].
+- `kubertSignRepresentation_norm_apply` (compatibility): For every z:Q, the native representation norm applied to z is z+j(z), with both acting-group elements included.
+- `kubertSignRepresentation_norm_operator` (compatibility): As integer-linear endomorphisms of the actual quotient, the native representation norm equals the native integer-linear reinterpretation of the existing parity operator d_minus1=j+identity.
+- `kubertSignRepresentation_difference_operator` (compatibility): As actual integer-linear endomorphisms, rho(ofAdd(1)) minus identity equals the native integer-linear reinterpretation of the existing parity operator d_1=j minus identity.
+- `kubertSignRepresentation_unique` (compatibility): Any native integer-linear representation on the same actual group and quotient whose generator acts by j equals the constructed representation rho.
+
+**Tests:**
+
+- `SuggestedKubertSignRepresentationTests.generator_moves_actual_point_label` (computation): The nonidentity element of the actual order-two group sends the free quotient class[1] modulo5 to[4].
+- `SuggestedKubertSignRepresentationTests.norm_doubles_zero_generator_integrally` (degenerate): The actual finite-group norm sends the zero-labelled generator to twice that generator, which is nonzero in the empty-relation integer quotient.
+- `SuggestedKubertSignRepresentationTests.point_action_is_not_scalar_minus_one` (non-example): The nonidentity group element fixes the zero-labelled generator and does not act on it as scalar minus1. This is the actual point action, not an assumed scalar sign action.
+
+**Acceptance:** The nonidentity element sends the class[1] modulo5 to[4], while fixing the nonzero generator labelled0. Its native norm doubles that generator over integers. This action differs from scalar minus1. The full two-element norm and the generator difference match the actual old odd and even operators, and the natural intertwiners preserve signed generator differences. No division by2, torsion-free assumption or middle exactness is used.
+
+**Source:** Published199–200, Corollary4.15 and its proof, with the action of the group element minus1 on the original distribution module;179–182 and200–202 retain the actual weighted quotient. Constructs the concrete native order-two integral representation of the actual point-negation involution, proves its norm and generator-difference formulas and gives its natural bijective intertwiners. These supply the actual representation and operators needed by existing native finite-cyclic cohomology APIs, without assuming a scalar sign action or a cohomological comparison.
+
+### The native identity acts as the actual identity map
+
+`DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-one-apply` — `DirichletPadic.kubertSignRepresentation_one_apply`
+
+For every actual z:Q, rho(1)(z)=z.
+
+**Hypotheses:** Use the actual additive commutative group X and its existing weighted distribution quotient Q for an arbitrary set S of positive multipliers, natural weight w and actual finite root fibers. The coefficient ring for this representation is the integers. The acting group is the existing native Multiplicative(ZMod2), whose identity is the additive residue0 and whose generator is the additive residue1. Multiplication is addition modulo2; this is an actual two-element group, not an assumed cyclic group. The nonidentity element acts by the already proved point-negation involution j on Q. This sends each original point class[a] to[-a], and is generally different from scalar multiplication by minus1 on Q. Its integral linearity comes from native AddEquiv.toIntLinearEquiv. The norm is the actual native Representation.norm, summing over both elements of the group. Its equality with j plus identity and the equality of generator minus identity with j minus identity use the previously constructed parity endomorphisms. The intertwiners are actual bijective integer-linear maps induced by actual additive equivalences of point groups. No generic Tate object or periodicity theorem is replanned.
+
+**Proof:**
+
+1. Evaluate the native representation identity law at the original element z.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation`.
+
+**Tests:**
+
+- `SuggestedKubertSignRepresentationTests.signRepresentation_one_apply_typed_api` (compatibility): For every actual z:Q, rho(1)(z)=z.
+
+**Acceptance:** The nonidentity element sends the class[1] modulo5 to[4], while fixing the nonzero generator labelled0. Its native norm doubles that generator over integers. This action differs from scalar minus1. The full two-element norm and the generator difference match the actual old odd and even operators, and the natural intertwiners preserve signed generator differences. No division by2, torsion-free assumption or middle exactness is used.
+
+**Source:** Published199–200, Corollary4.15 and its proof, with the action of the group element minus1 on the original distribution module;179–182 and200–202 retain the actual weighted quotient. Constructs the concrete native order-two integral representation of the actual point-negation involution, proves its norm and generator-difference formulas and gives its natural bijective intertwiners. These supply the actual representation and operators needed by existing native finite-cyclic cohomology APIs, without assuming a scalar sign action or a cohomological comparison.
+
+### The actual order-two generator acts by point negation
+
+`DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-generator` — `DirichletPadic.kubertSignRepresentation_generator`
+
+For every z:Q, rho(ofAdd(1))(z)=j(z), using the actual nonidentity residue1 modulo2.
+
+**Hypotheses:** Use the actual additive commutative group X and its existing weighted distribution quotient Q for an arbitrary set S of positive multipliers, natural weight w and actual finite root fibers. The coefficient ring for this representation is the integers. The acting group is the existing native Multiplicative(ZMod2), whose identity is the additive residue0 and whose generator is the additive residue1. Multiplication is addition modulo2; this is an actual two-element group, not an assumed cyclic group. The nonidentity element acts by the already proved point-negation involution j on Q. This sends each original point class[a] to[-a], and is generally different from scalar multiplication by minus1 on Q. Its integral linearity comes from native AddEquiv.toIntLinearEquiv. The norm is the actual native Representation.norm, summing over both elements of the group. Its equality with j plus identity and the equality of generator minus identity with j minus identity use the previously constructed parity endomorphisms. The intertwiners are actual bijective integer-linear maps induced by actual additive equivalences of point groups. No generic Tate object or periodicity theorem is replanned.
+
+**Proof:**
+
+1. The actual residue1 is nonzero modulo2.
+2. Evaluate the constructed representation conditional in its nonidentity branch.
+3. Native integer-linear reinterpretation retains the original point-negation function.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation`.
+
+**Tests:**
+
+- `SuggestedKubertSignRepresentationTests.signRepresentation_generator_typed_api` (compatibility): For every z:Q, rho(ofAdd(1))(z)=j(z), using the actual nonidentity residue1 modulo2.
+
+**Acceptance:** The nonidentity element sends the class[1] modulo5 to[4], while fixing the nonzero generator labelled0. Its native norm doubles that generator over integers. This action differs from scalar minus1. The full two-element norm and the generator difference match the actual old odd and even operators, and the natural intertwiners preserve signed generator differences. No division by2, torsion-free assumption or middle exactness is used.
+
+**Source:** Published199–200, Corollary4.15 and its proof, with the action of the group element minus1 on the original distribution module;179–182 and200–202 retain the actual weighted quotient. Constructs the concrete native order-two integral representation of the actual point-negation involution, proves its norm and generator-difference formulas and gives its natural bijective intertwiners. These supply the actual representation and operators needed by existing native finite-cyclic cohomology APIs, without assuming a scalar sign action or a cohomological comparison.
+
+### The actual acting group has precisely its two named elements
+
+`DirichletPadicLFunctions:L3/kubert-sign-representation-sign-group-cases` — `DirichletPadic.kubertSignGroup_cases`
+
+Every g:Multiplicative(ZMod2) is either the native group identity or the native element ofAdd(1).
+
+**Hypotheses:** Use the actual additive commutative group X and its existing weighted distribution quotient Q for an arbitrary set S of positive multipliers, natural weight w and actual finite root fibers. The coefficient ring for this representation is the integers. The acting group is the existing native Multiplicative(ZMod2), whose identity is the additive residue0 and whose generator is the additive residue1. Multiplication is addition modulo2; this is an actual two-element group, not an assumed cyclic group. The nonidentity element acts by the already proved point-negation involution j on Q. This sends each original point class[a] to[-a], and is generally different from scalar multiplication by minus1 on Q. Its integral linearity comes from native AddEquiv.toIntLinearEquiv. The norm is the actual native Representation.norm, summing over both elements of the group. Its equality with j plus identity and the equality of generator minus identity with j minus identity use the previously constructed parity endomorphisms. The intertwiners are actual bijective integer-linear maps induced by actual additive equivalences of point groups. No generic Tate object or periodicity theorem is replanned.
+
+**Proof:**
+
+1. Enumerate the actual two residues in native ZMod2.
+2. Apply Multiplicative.ofAdd to the resulting residue equality.
+
+**Prerequisites:** .
+
+**Tests:**
+
+- `SuggestedKubertSignRepresentationTests.signGroup_cases_typed_api` (compatibility): Every g:Multiplicative(ZMod2) is either the native group identity or the native element ofAdd(1).
+
+**Acceptance:** The nonidentity element sends the class[1] modulo5 to[4], while fixing the nonzero generator labelled0. Its native norm doubles that generator over integers. This action differs from scalar minus1. The full two-element norm and the generator difference match the actual old odd and even operators, and the natural intertwiners preserve signed generator differences. No division by2, torsion-free assumption or middle exactness is used.
+
+**Source:** Published199–200, Corollary4.15 and its proof, with the action of the group element minus1 on the original distribution module;179–182 and200–202 retain the actual weighted quotient. Constructs the concrete native order-two integral representation of the actual point-negation involution, proves its norm and generator-difference formulas and gives its natural bijective intertwiners. These supply the actual representation and operators needed by existing native finite-cyclic cohomology APIs, without assuming a scalar sign action or a cohomological comparison.
+
+### The named residue1 generates the actual order-two group
+
+`DirichletPadicLFunctions:L3/kubert-sign-representation-sign-group-generator` — `DirichletPadic.kubertSignGroup_generator`
+
+Every actual group element belongs to the native integer-power subgroup generated by ofAdd(1).
+
+**Hypotheses:** Use the actual additive commutative group X and its existing weighted distribution quotient Q for an arbitrary set S of positive multipliers, natural weight w and actual finite root fibers. The coefficient ring for this representation is the integers. The acting group is the existing native Multiplicative(ZMod2), whose identity is the additive residue0 and whose generator is the additive residue1. Multiplication is addition modulo2; this is an actual two-element group, not an assumed cyclic group. The nonidentity element acts by the already proved point-negation involution j on Q. This sends each original point class[a] to[-a], and is generally different from scalar multiplication by minus1 on Q. Its integral linearity comes from native AddEquiv.toIntLinearEquiv. The norm is the actual native Representation.norm, summing over both elements of the group. Its equality with j plus identity and the equality of generator minus identity with j minus identity use the previously constructed parity endomorphisms. The intertwiners are actual bijective integer-linear maps induced by actual additive equivalences of point groups. No generic Tate object or periodicity theorem is replanned.
+
+**Proof:**
+
+1. Use the proved actual two-element case distinction.
+2. The native integer-power subgroup contains the identity and its generator.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-group-cases`, `mathlib:Subgroup.zpowers`, `mathlib:Subgroup.mem_zpowers`.
+
+**Tests:**
+
+- `SuggestedKubertSignRepresentationTests.signGroup_generator_typed_api` (compatibility): Every actual group element belongs to the native integer-power subgroup generated by ofAdd(1).
+
+**Acceptance:** The nonidentity element sends the class[1] modulo5 to[4], while fixing the nonzero generator labelled0. Its native norm doubles that generator over integers. This action differs from scalar minus1. The full two-element norm and the generator difference match the actual old odd and even operators, and the natural intertwiners preserve signed generator differences. No division by2, torsion-free assumption or middle exactness is used.
+
+**Source:** Published199–200, Corollary4.15 and its proof, with the action of the group element minus1 on the original distribution module;179–182 and200–202 retain the actual weighted quotient. Constructs the concrete native order-two integral representation of the actual point-negation involution, proves its norm and generator-difference formulas and gives its natural bijective intertwiners. These supply the actual representation and operators needed by existing native finite-cyclic cohomology APIs, without assuming a scalar sign action or a cohomological comparison.
+
+### The generator action retains the actual point-label formula
+
+`DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-generator-of` — `DirichletPadic.kubertSignRepresentation_generator_of`
+
+For every point a:X, the actual generator action sends the original quotient class[a] to[-a].
+
+**Hypotheses:** Use the actual additive commutative group X and its existing weighted distribution quotient Q for an arbitrary set S of positive multipliers, natural weight w and actual finite root fibers. The coefficient ring for this representation is the integers. The acting group is the existing native Multiplicative(ZMod2), whose identity is the additive residue0 and whose generator is the additive residue1. Multiplication is addition modulo2; this is an actual two-element group, not an assumed cyclic group. The nonidentity element acts by the already proved point-negation involution j on Q. This sends each original point class[a] to[-a], and is generally different from scalar multiplication by minus1 on Q. Its integral linearity comes from native AddEquiv.toIntLinearEquiv. The norm is the actual native Representation.norm, summing over both elements of the group. Its equality with j plus identity and the equality of generator minus identity with j minus identity use the previously constructed parity endomorphisms. The intertwiners are actual bijective integer-linear maps induced by actual additive equivalences of point groups. No generic Tate object or periodicity theorem is replanned.
+
+**Proof:**
+
+1. Use the actual representation generator formula.
+2. Use the already proved point-negation evaluation on original point classes.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-generator`, `DirichletPadicLFunctions:L3/kubert-parity-operators-quotient-negation-of`.
+
+**Tests:**
+
+- `SuggestedKubertSignRepresentationTests.signRepresentation_generator_of_typed_api` (compatibility): For every point a:X, the actual generator action sends the original quotient class[a] to[-a].
+
+**Acceptance:** The nonidentity element sends the class[1] modulo5 to[4], while fixing the nonzero generator labelled0. Its native norm doubles that generator over integers. This action differs from scalar minus1. The full two-element norm and the generator difference match the actual old odd and even operators, and the natural intertwiners preserve signed generator differences. No division by2, torsion-free assumption or middle exactness is used.
+
+**Source:** Published199–200, Corollary4.15 and its proof, with the action of the group element minus1 on the original distribution module;179–182 and200–202 retain the actual weighted quotient. Constructs the concrete native order-two integral representation of the actual point-negation involution, proves its norm and generator-difference formulas and gives its natural bijective intertwiners. These supply the actual representation and operators needed by existing native finite-cyclic cohomology APIs, without assuming a scalar sign action or a cohomological comparison.
+
+### The actual native group norm is the full two-term sum
+
+`DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-norm-apply` — `DirichletPadic.kubertSignRepresentation_norm_apply`
+
+For every z:Q, the native representation norm applied to z is z+j(z), with both acting-group elements included.
+
+**Hypotheses:** Use the actual additive commutative group X and its existing weighted distribution quotient Q for an arbitrary set S of positive multipliers, natural weight w and actual finite root fibers. The coefficient ring for this representation is the integers. The acting group is the existing native Multiplicative(ZMod2), whose identity is the additive residue0 and whose generator is the additive residue1. Multiplication is addition modulo2; this is an actual two-element group, not an assumed cyclic group. The nonidentity element acts by the already proved point-negation involution j on Q. This sends each original point class[a] to[-a], and is generally different from scalar multiplication by minus1 on Q. Its integral linearity comes from native AddEquiv.toIntLinearEquiv. The norm is the actual native Representation.norm, summing over both elements of the group. Its equality with j plus identity and the equality of generator minus identity with j minus identity use the previously constructed parity endomorphisms. The intertwiners are actual bijective integer-linear maps induced by actual additive equivalences of point groups. No generic Tate object or periodicity theorem is replanned.
+
+**Proof:**
+
+1. The actual two-element case distinction proves that the full native finite set of group elements is the pair consisting of the identity and ofAdd(1).
+2. Expand the native Representation.norm over this full finite set.
+3. Evaluate the identity and generator actions to obtain z+j(z).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-group-cases`, `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-one-apply`, `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-generator`, `mathlib:Representation.norm`.
+
+**Tests:**
+
+- `SuggestedKubertSignRepresentationTests.signRepresentation_norm_apply_typed_api` (compatibility): For every z:Q, the native representation norm applied to z is z+j(z), with both acting-group elements included.
+
+**Acceptance:** The nonidentity element sends the class[1] modulo5 to[4], while fixing the nonzero generator labelled0. Its native norm doubles that generator over integers. This action differs from scalar minus1. The full two-element norm and the generator difference match the actual old odd and even operators, and the natural intertwiners preserve signed generator differences. No division by2, torsion-free assumption or middle exactness is used.
+
+**Source:** Published199–200, Corollary4.15 and its proof, with the action of the group element minus1 on the original distribution module;179–182 and200–202 retain the actual weighted quotient. Constructs the concrete native order-two integral representation of the actual point-negation involution, proves its norm and generator-difference formulas and gives its natural bijective intertwiners. These supply the actual representation and operators needed by existing native finite-cyclic cohomology APIs, without assuming a scalar sign action or a cohomological comparison.
+
+### The native group norm is the original odd relation operator
+
+`DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-norm-operator` — `DirichletPadic.kubertSignRepresentation_norm_operator`
+
+As integer-linear endomorphisms of the actual quotient, the native representation norm equals the native integer-linear reinterpretation of the existing parity operator d_minus1=j+identity.
+
+**Hypotheses:** Use the actual additive commutative group X and its existing weighted distribution quotient Q for an arbitrary set S of positive multipliers, natural weight w and actual finite root fibers. The coefficient ring for this representation is the integers. The acting group is the existing native Multiplicative(ZMod2), whose identity is the additive residue0 and whose generator is the additive residue1. Multiplication is addition modulo2; this is an actual two-element group, not an assumed cyclic group. The nonidentity element acts by the already proved point-negation involution j on Q. This sends each original point class[a] to[-a], and is generally different from scalar multiplication by minus1 on Q. Its integral linearity comes from native AddEquiv.toIntLinearEquiv. The norm is the actual native Representation.norm, summing over both elements of the group. Its equality with j plus identity and the equality of generator minus identity with j minus identity use the previously constructed parity endomorphisms. The intertwiners are actual bijective integer-linear maps induced by actual additive equivalences of point groups. No generic Tate object or periodicity theorem is replanned.
+
+**Proof:**
+
+1. Apply integer-linear-map extensionality at an arbitrary original quotient element.
+2. Use the proved complete two-term native norm formula.
+3. Expand the existing integral parity operator at minus1 and commute the two additive terms.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-norm-apply`, `DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-apply`, `mathlib:AddMonoidHom.toIntLinearMap`.
+
+**Tests:**
+
+- `SuggestedKubertSignRepresentationTests.signRepresentation_norm_operator_typed_api` (compatibility): As integer-linear endomorphisms of the actual quotient, the native representation norm equals the native integer-linear reinterpretation of the existing parity operator d_minus1=j+identity.
+
+**Acceptance:** The nonidentity element sends the class[1] modulo5 to[4], while fixing the nonzero generator labelled0. Its native norm doubles that generator over integers. This action differs from scalar minus1. The full two-element norm and the generator difference match the actual old odd and even operators, and the natural intertwiners preserve signed generator differences. No division by2, torsion-free assumption or middle exactness is used.
+
+**Source:** Published199–200, Corollary4.15 and its proof, with the action of the group element minus1 on the original distribution module;179–182 and200–202 retain the actual weighted quotient. Constructs the concrete native order-two integral representation of the actual point-negation involution, proves its norm and generator-difference formulas and gives its natural bijective intertwiners. These supply the actual representation and operators needed by existing native finite-cyclic cohomology APIs, without assuming a scalar sign action or a cohomological comparison.
+
+### The generator difference is the original even relation operator
+
+`DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-difference-operator` — `DirichletPadic.kubertSignRepresentation_difference_operator`
+
+As actual integer-linear endomorphisms, rho(ofAdd(1)) minus identity equals the native integer-linear reinterpretation of the existing parity operator d_1=j minus identity.
+
+**Hypotheses:** Use the actual additive commutative group X and its existing weighted distribution quotient Q for an arbitrary set S of positive multipliers, natural weight w and actual finite root fibers. The coefficient ring for this representation is the integers. The acting group is the existing native Multiplicative(ZMod2), whose identity is the additive residue0 and whose generator is the additive residue1. Multiplication is addition modulo2; this is an actual two-element group, not an assumed cyclic group. The nonidentity element acts by the already proved point-negation involution j on Q. This sends each original point class[a] to[-a], and is generally different from scalar multiplication by minus1 on Q. Its integral linearity comes from native AddEquiv.toIntLinearEquiv. The norm is the actual native Representation.norm, summing over both elements of the group. Its equality with j plus identity and the equality of generator minus identity with j minus identity use the previously constructed parity endomorphisms. The intertwiners are actual bijective integer-linear maps induced by actual additive equivalences of point groups. No generic Tate object or periodicity theorem is replanned.
+
+**Proof:**
+
+1. Apply integer-linear-map extensionality at an arbitrary original quotient element.
+2. Use the proved generator action and the exact original parity-operator formula at1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-generator`, `DirichletPadicLFunctions:L3/kubert-parity-operators-parity-operator-apply`, `mathlib:AddMonoidHom.toIntLinearMap`.
+
+**Tests:**
+
+- `SuggestedKubertSignRepresentationTests.signRepresentation_difference_operator_typed_api` (compatibility): As actual integer-linear endomorphisms, rho(ofAdd(1)) minus identity equals the native integer-linear reinterpretation of the existing parity operator d_1=j minus identity.
+
+**Acceptance:** The nonidentity element sends the class[1] modulo5 to[4], while fixing the nonzero generator labelled0. Its native norm doubles that generator over integers. This action differs from scalar minus1. The full two-element norm and the generator difference match the actual old odd and even operators, and the natural intertwiners preserve signed generator differences. No division by2, torsion-free assumption or middle exactness is used.
+
+**Source:** Published199–200, Corollary4.15 and its proof, with the action of the group element minus1 on the original distribution module;179–182 and200–202 retain the actual weighted quotient. Constructs the concrete native order-two integral representation of the actual point-negation involution, proves its norm and generator-difference formulas and gives its natural bijective intertwiners. These supply the actual representation and operators needed by existing native finite-cyclic cohomology APIs, without assuming a scalar sign action or a cohomological comparison.
+
+### The actual point involution determines the native representation uniquely
+
+`DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-unique` — `DirichletPadic.kubertSignRepresentation_unique`
+
+Any native integer-linear representation on the same actual group and quotient whose generator acts by j equals the constructed representation rho.
+
+**Hypotheses:** Use the actual additive commutative group X and its existing weighted distribution quotient Q for an arbitrary set S of positive multipliers, natural weight w and actual finite root fibers. The coefficient ring for this representation is the integers. The acting group is the existing native Multiplicative(ZMod2), whose identity is the additive residue0 and whose generator is the additive residue1. Multiplication is addition modulo2; this is an actual two-element group, not an assumed cyclic group. The nonidentity element acts by the already proved point-negation involution j on Q. This sends each original point class[a] to[-a], and is generally different from scalar multiplication by minus1 on Q. Its integral linearity comes from native AddEquiv.toIntLinearEquiv. The norm is the actual native Representation.norm, summing over both elements of the group. Its equality with j plus identity and the equality of generator minus identity with j minus identity use the previously constructed parity endomorphisms. The intertwiners are actual bijective integer-linear maps induced by actual additive equivalences of point groups. No generic Tate object or periodicity theorem is replanned.
+
+**Proof:**
+
+1. Use native monoid-homomorphism extensionality on a group element.
+2. The actual two-element case distinction reduces to the identity, where both native representation laws apply, and the generator, where the given equation and proved generator formula agree on every quotient element.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation`, `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-group-cases`, `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-generator`.
+
+**Tests:**
+
+- `SuggestedKubertSignRepresentationTests.signRepresentation_unique_typed_api` (compatibility): Any native integer-linear representation on the same actual group and quotient whose generator acts by j equals the constructed representation rho.
+
+**Acceptance:** The nonidentity element sends the class[1] modulo5 to[4], while fixing the nonzero generator labelled0. Its native norm doubles that generator over integers. This action differs from scalar minus1. The full two-element norm and the generator difference match the actual old odd and even operators, and the natural intertwiners preserve signed generator differences. No division by2, torsion-free assumption or middle exactness is used.
+
+**Source:** Published199–200, Corollary4.15 and its proof, with the action of the group element minus1 on the original distribution module;179–182 and200–202 retain the actual weighted quotient. Constructs the concrete native order-two integral representation of the actual point-negation involution, proves its norm and generator-difference formulas and gives its natural bijective intertwiners. These supply the actual representation and operators needed by existing native finite-cyclic cohomology APIs, without assuming a scalar sign action or a cohomological comparison.
+
+### The actual natural intertwiner of point-action representations
+
+`DirichletPadicLFunctions:L3/kubert-sign-representation-sign-intertwining` — `DirichletPadic.kubertSignIntertwining`
+
+For each actual additive equivalence e:X to Y, construct a native integer-linear intertwining map from the original source point-action representation to the target point-action representation, with underlying function the existing quotientEquiv(e).
+
+**Hypotheses:** Use the actual additive commutative group X and its existing weighted distribution quotient Q for an arbitrary set S of positive multipliers, natural weight w and actual finite root fibers. The coefficient ring for this representation is the integers. The acting group is the existing native Multiplicative(ZMod2), whose identity is the additive residue0 and whose generator is the additive residue1. Multiplication is addition modulo2; this is an actual two-element group, not an assumed cyclic group. The nonidentity element acts by the already proved point-negation involution j on Q. This sends each original point class[a] to[-a], and is generally different from scalar multiplication by minus1 on Q. Its integral linearity comes from native AddEquiv.toIntLinearEquiv. The norm is the actual native Representation.norm, summing over both elements of the group. Its equality with j plus identity and the equality of generator minus identity with j minus identity use the previously constructed parity endomorphisms. The intertwiners are actual bijective integer-linear maps induced by actual additive equivalences of point groups. No generic Tate object or periodicity theorem is replanned.
+
+**Proof:**
+
+1. Reinterpret the already constructed actual quotient additive equivalence as a native integer-linear map.
+2. For an actual group element, use the two-element case distinction.
+3. The identity case is immediate from the two representation identity laws.
+4. In the generator case, the proved naturality of point negation says exactly that the underlying quotient map intertwines the two generator actions.
+5. Use the native intertwining-map constructor with this proved equivariance.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-one-apply`, `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-representation-generator`, `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-group-cases`, `DirichletPadicLFunctions:L3/kubert-quotient-action-quotient-equiv`, `DirichletPadicLFunctions:L3/kubert-parity-operators-quotient-negation-natural`, `mathlib:AddEquiv.toIntLinearEquiv`, `mathlib:LinearMap.intertwiningMap_of_isIntertwiningMap`.
+
+**Uses:**
+
+- Kubert199–200, Corollary4.15 and the integral parity action: Supplies the actual native order-two representation and identifies the original parity operators with its generator difference and full group norm.
+- Existing Mathlib and Tau Ceti finite-cyclic cohomology interfaces: Provides the concrete representation, proved generator and natural intertwining maps required by the existing native comparisons; no generic cohomological object or periodicity theorem is replanned.
+
+**API:**
+
+- `kubertSignIntertwining_toLinearMap` (compatibility): The underlying integer-linear map of signIntertwining(e) is exactly the integer-linear reinterpretation of the existing quotientEquiv(e).
+- `kubertSignIntertwining_bijective` (compatibility): The native intertwiner induced by an actual additive equivalence e is bijective as a function on the actual distribution quotients.
+- `kubertSignIntertwining_refl` (compatibility): The native intertwiner induced by the identity additive equivalence on X is the native identity intertwining map of the actual point-action representation.
+- `kubertSignIntertwining_trans` (compatibility): For e:X to Y followed by f:Y to Z, the native intertwiner induced by e followed by f equals signIntertwining(f) composed with signIntertwining(e).
+
+**Tests:**
+
+- `SuggestedKubertSignRepresentationTests.intertwiner_signed_difference` (computation): The actual natural intertwiner induced by point negation sends[1]-[2] to[4]-[3] in the integer quotient.
+- `SuggestedKubertSignRepresentationTests.intertwiner_inverse_roundtrip` (characterisation): The natural intertwiner induced by point negation applied twice recovers every actual quotient element.
+- `SuggestedKubertSignRepresentationTests.intertwiner_preserves_actual_norm` (compatibility): The actual intertwiner sends the finite-group norm of[1] to[4]+[1], retaining both group elements in the norm.
+
+**Acceptance:** The nonidentity element sends the class[1] modulo5 to[4], while fixing the nonzero generator labelled0. Its native norm doubles that generator over integers. This action differs from scalar minus1. The full two-element norm and the generator difference match the actual old odd and even operators, and the natural intertwiners preserve signed generator differences. No division by2, torsion-free assumption or middle exactness is used.
+
+**Source:** Published199–200, Corollary4.15 and its proof, with the action of the group element minus1 on the original distribution module;179–182 and200–202 retain the actual weighted quotient. Constructs the concrete native order-two integral representation of the actual point-negation involution, proves its norm and generator-difference formulas and gives its natural bijective intertwiners. These supply the actual representation and operators needed by existing native finite-cyclic cohomology APIs, without assuming a scalar sign action or a cohomological comparison.
+
+### The native intertwiner retains the original quotient map
+
+`DirichletPadicLFunctions:L3/kubert-sign-representation-sign-intertwining-to-linear-map` — `DirichletPadic.kubertSignIntertwining_toLinearMap`
+
+The underlying integer-linear map of signIntertwining(e) is exactly the integer-linear reinterpretation of the existing quotientEquiv(e).
+
+**Hypotheses:** Use the actual additive commutative group X and its existing weighted distribution quotient Q for an arbitrary set S of positive multipliers, natural weight w and actual finite root fibers. The coefficient ring for this representation is the integers. The acting group is the existing native Multiplicative(ZMod2), whose identity is the additive residue0 and whose generator is the additive residue1. Multiplication is addition modulo2; this is an actual two-element group, not an assumed cyclic group. The nonidentity element acts by the already proved point-negation involution j on Q. This sends each original point class[a] to[-a], and is generally different from scalar multiplication by minus1 on Q. Its integral linearity comes from native AddEquiv.toIntLinearEquiv. The norm is the actual native Representation.norm, summing over both elements of the group. Its equality with j plus identity and the equality of generator minus identity with j minus identity use the previously constructed parity endomorphisms. The intertwiners are actual bijective integer-linear maps induced by actual additive equivalences of point groups. No generic Tate object or periodicity theorem is replanned.
+
+**Proof:**
+
+1. The native intertwining constructor retains the supplied actual linear map.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-intertwining`.
+
+**Tests:**
+
+- `SuggestedKubertSignRepresentationTests.signIntertwining_toLinearMap_typed_api` (compatibility): The underlying integer-linear map of signIntertwining(e) is exactly the integer-linear reinterpretation of the existing quotientEquiv(e).
+
+**Acceptance:** The nonidentity element sends the class[1] modulo5 to[4], while fixing the nonzero generator labelled0. Its native norm doubles that generator over integers. This action differs from scalar minus1. The full two-element norm and the generator difference match the actual old odd and even operators, and the natural intertwiners preserve signed generator differences. No division by2, torsion-free assumption or middle exactness is used.
+
+**Source:** Published199–200, Corollary4.15 and its proof, with the action of the group element minus1 on the original distribution module;179–182 and200–202 retain the actual weighted quotient. Constructs the concrete native order-two integral representation of the actual point-negation involution, proves its norm and generator-difference formulas and gives its natural bijective intertwiners. These supply the actual representation and operators needed by existing native finite-cyclic cohomology APIs, without assuming a scalar sign action or a cohomological comparison.
+
+### Every natural point-action intertwiner is bijective
+
+`DirichletPadicLFunctions:L3/kubert-sign-representation-sign-intertwining-bijective` — `DirichletPadic.kubertSignIntertwining_bijective`
+
+The native intertwiner induced by an actual additive equivalence e is bijective as a function on the actual distribution quotients.
+
+**Hypotheses:** Use the actual additive commutative group X and its existing weighted distribution quotient Q for an arbitrary set S of positive multipliers, natural weight w and actual finite root fibers. The coefficient ring for this representation is the integers. The acting group is the existing native Multiplicative(ZMod2), whose identity is the additive residue0 and whose generator is the additive residue1. Multiplication is addition modulo2; this is an actual two-element group, not an assumed cyclic group. The nonidentity element acts by the already proved point-negation involution j on Q. This sends each original point class[a] to[-a], and is generally different from scalar multiplication by minus1 on Q. Its integral linearity comes from native AddEquiv.toIntLinearEquiv. The norm is the actual native Representation.norm, summing over both elements of the group. Its equality with j plus identity and the equality of generator minus identity with j minus identity use the previously constructed parity endomorphisms. The intertwiners are actual bijective integer-linear maps induced by actual additive equivalences of point groups. No generic Tate object or periodicity theorem is replanned.
+
+**Proof:**
+
+1. Its underlying function is the existing actual quotient additive equivalence.
+2. Use the native bijectivity of that equivalence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-intertwining-to-linear-map`, `DirichletPadicLFunctions:L3/kubert-quotient-action-quotient-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertSignRepresentationTests.signIntertwining_bijective_typed_api` (compatibility): The native intertwiner induced by an actual additive equivalence e is bijective as a function on the actual distribution quotients.
+
+**Acceptance:** The nonidentity element sends the class[1] modulo5 to[4], while fixing the nonzero generator labelled0. Its native norm doubles that generator over integers. This action differs from scalar minus1. The full two-element norm and the generator difference match the actual old odd and even operators, and the natural intertwiners preserve signed generator differences. No division by2, torsion-free assumption or middle exactness is used.
+
+**Source:** Published199–200, Corollary4.15 and its proof, with the action of the group element minus1 on the original distribution module;179–182 and200–202 retain the actual weighted quotient. Constructs the concrete native order-two integral representation of the actual point-negation involution, proves its norm and generator-difference formulas and gives its natural bijective intertwiners. These supply the actual representation and operators needed by existing native finite-cyclic cohomology APIs, without assuming a scalar sign action or a cohomological comparison.
+
+### Identity point transport gives the identity native intertwiner
+
+`DirichletPadicLFunctions:L3/kubert-sign-representation-sign-intertwining-refl` — `DirichletPadic.kubertSignIntertwining_refl`
+
+The native intertwiner induced by the identity additive equivalence on X is the native identity intertwining map of the actual point-action representation.
+
+**Hypotheses:** Use the actual additive commutative group X and its existing weighted distribution quotient Q for an arbitrary set S of positive multipliers, natural weight w and actual finite root fibers. The coefficient ring for this representation is the integers. The acting group is the existing native Multiplicative(ZMod2), whose identity is the additive residue0 and whose generator is the additive residue1. Multiplication is addition modulo2; this is an actual two-element group, not an assumed cyclic group. The nonidentity element acts by the already proved point-negation involution j on Q. This sends each original point class[a] to[-a], and is generally different from scalar multiplication by minus1 on Q. Its integral linearity comes from native AddEquiv.toIntLinearEquiv. The norm is the actual native Representation.norm, summing over both elements of the group. Its equality with j plus identity and the equality of generator minus identity with j minus identity use the previously constructed parity endomorphisms. The intertwiners are actual bijective integer-linear maps induced by actual additive equivalences of point groups. No generic Tate object or periodicity theorem is replanned.
+
+**Proof:**
+
+1. Use native intertwining-map and linear-map extensionality.
+2. Evaluate the established quotient-equivalence identity law on the original quotient element.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-intertwining-to-linear-map`, `DirichletPadicLFunctions:L3/kubert-quotient-action-quotient-equiv-refl`.
+
+**Tests:**
+
+- `SuggestedKubertSignRepresentationTests.signIntertwining_refl_typed_api` (compatibility): The native intertwiner induced by the identity additive equivalence on X is the native identity intertwining map of the actual point-action representation.
+
+**Acceptance:** The nonidentity element sends the class[1] modulo5 to[4], while fixing the nonzero generator labelled0. Its native norm doubles that generator over integers. This action differs from scalar minus1. The full two-element norm and the generator difference match the actual old odd and even operators, and the natural intertwiners preserve signed generator differences. No division by2, torsion-free assumption or middle exactness is used.
+
+**Source:** Published199–200, Corollary4.15 and its proof, with the action of the group element minus1 on the original distribution module;179–182 and200–202 retain the actual weighted quotient. Constructs the concrete native order-two integral representation of the actual point-negation involution, proves its norm and generator-difference formulas and gives its natural bijective intertwiners. These supply the actual representation and operators needed by existing native finite-cyclic cohomology APIs, without assuming a scalar sign action or a cohomological comparison.
+
+### The natural intertwiners respect ordered point composition
+
+`DirichletPadicLFunctions:L3/kubert-sign-representation-sign-intertwining-trans` — `DirichletPadic.kubertSignIntertwining_trans`
+
+For e:X to Y followed by f:Y to Z, the native intertwiner induced by e followed by f equals signIntertwining(f) composed with signIntertwining(e).
+
+**Hypotheses:** Use the actual additive commutative group X and its existing weighted distribution quotient Q for an arbitrary set S of positive multipliers, natural weight w and actual finite root fibers. The coefficient ring for this representation is the integers. The acting group is the existing native Multiplicative(ZMod2), whose identity is the additive residue0 and whose generator is the additive residue1. Multiplication is addition modulo2; this is an actual two-element group, not an assumed cyclic group. The nonidentity element acts by the already proved point-negation involution j on Q. This sends each original point class[a] to[-a], and is generally different from scalar multiplication by minus1 on Q. Its integral linearity comes from native AddEquiv.toIntLinearEquiv. The norm is the actual native Representation.norm, summing over both elements of the group. Its equality with j plus identity and the equality of generator minus identity with j minus identity use the previously constructed parity endomorphisms. The intertwiners are actual bijective integer-linear maps induced by actual additive equivalences of point groups. No generic Tate object or periodicity theorem is replanned.
+
+**Proof:**
+
+1. Use native intertwining-map and linear-map extensionality.
+2. Evaluate the established ordered quotient-equivalence composition law on an arbitrary original quotient element.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-sign-representation-sign-intertwining-to-linear-map`, `DirichletPadicLFunctions:L3/kubert-quotient-action-quotient-equiv-trans`.
+
+**Tests:**
+
+- `SuggestedKubertSignRepresentationTests.signIntertwining_trans_typed_api` (compatibility): For e:X to Y followed by f:Y to Z, the native intertwiner induced by e followed by f equals signIntertwining(f) composed with signIntertwining(e).
+
+**Acceptance:** The nonidentity element sends the class[1] modulo5 to[4], while fixing the nonzero generator labelled0. Its native norm doubles that generator over integers. This action differs from scalar minus1. The full two-element norm and the generator difference match the actual old odd and even operators, and the natural intertwiners preserve signed generator differences. No division by2, torsion-free assumption or middle exactness is used.
+
+**Source:** Published199–200, Corollary4.15 and its proof, with the action of the group element minus1 on the original distribution module;179–182 and200–202 retain the actual weighted quotient. Constructs the concrete native order-two integral representation of the actual point-negation involution, proves its norm and generator-difference formulas and gives its natural bijective intertwiners. These supply the actual representation and operators needed by existing native finite-cyclic cohomology APIs, without assuming a scalar sign action or a cohomological comparison.
+
+**Remaining:** The actual order-two group now has its constructed native integral representation on the existing weighted quotient, with proved generator, uniqueness, full group norm equal to the old odd operator, generator difference equal to the old even operator, and natural bijective intertwiners. Next apply the existing native cyclic Tate comparisons to this concrete representation, matching the actual short-complex operators, kernels, images, signs and degrees. Mathlib already supplies Tate cohomology; Tau Ceti already supplies all-integer finite-cyclic even/odd comparisons and periodicity, so none is replanned. Inspect existing native artifact availability before adding an import. The resulting cohomological identification is still separate from the source torsion claim, which requires its stated freeness hypothesis. Continue source character components and the independent lower-rank argument through Kubert186–199, preserving unread external-reference boundaries. Combine lower bounds with actual surjections and upper bounds for independence, freeness and internal/global equality. Neither equality of operator image and kernel nor injectivity of the global Cartan quotient map is established. Do not divide by2 or identify the zero-labelled generator with additive zero. General-degree coherent primitive coordinates, unramified integer-ring identification and the general lambda fiber count remain open; FF.4 owns generic Galois-ring theory. Preserve all Gamma, Coleman/LAD, Katz/Fermat, Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All eighteen gaps and sixteen requests remain; zero stages close.
+
+### Actual order-two integral representation and parity norm comparison validation
+
+All 1922 predecessor nodes, 1201 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 15 nodes, 15 named suggested declarations and 19 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2199 reachable nodes, 9058 edges and 1374 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route terminates in the existing actual quotient and point-negation operators, native integer-linear equivalence, representation and norm operations, generated subgroups or actual native intertwining maps. No new supplier-stage leaf or assumed action, representation, cohomology comparison or rank package is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3667 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5741 verbatim and adds two actual constructions and thirteen complete lemmas. Totals are154definitions and1,258lemmas, plus two routine native primality instances and the retained complete digit non-example, with zero placeholders. The public append contains15named declarations and19typed tests, all new mathematical bodies placeholders. No new native import or library build occurs. The separate probe compiles against 3049 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact integer controls at48cyclic point groups check 4896 representation_multiplications, 1224 norm_identifications, 1224 difference_identifications, 47350 natural_intertwiners, 48 integral_fixed_generator_controls. Identity and nonidentity terms are both retained in the norm. The nonidentity action fixes the nonzero zero-labelled generator, and the norm doubles it integrally. No division by2 occurs. Exact integer vectors with the actual two-element additive group law and native cyclic point permutations. Checks all four group products, complete two-element norms, generator differences and natural unit-permutation intertwiners. The native proof separately constructs the representation and bijective intertwiners on arbitrary actual weighted distribution quotients. The largest observed discrepancy is 0.
+
+All seventy-nine captured inputs, four actual merged predecessor outputs and the full issue body are unchanged. The native mathematical declarations were read at the pinned commits. No new source finding or independent review is added.
+
+The separate partial signature file also compiled with zero errors and 5,769 expected placeholder warnings across 3,663 pinned source modules. It includes all 15 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 35bc7a82221d92a4d77757ab44ace95d211cbcdfdc38613238afdab3945eed2c.
