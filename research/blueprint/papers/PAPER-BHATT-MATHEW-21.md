@@ -11,10 +11,12 @@ arXiv v4. Because the file was read as source rather than as extracted PDF text,
 numbers, not pages: all theorem environments share one counter numbered by section (`\newtheorem{theorem}{Theorem}[section]`),
 so "Lemma 3.29" and "Theorem 4.1" are unambiguous.
 
-The paper has been extracted into **146 items**. Four are in the pinned libraries, three are planned by existing
-layers of the atlas, and the remaining 139 are routed exactly once: **122 to a new roadmap**,
-`ArcTopologyAndDescent`, and 17 as sources for three existing roadmaps (**8** for `DiamondsAndVStacks` D0, **6**
-for `LogicAndDefinabilityInNumberTheory` LD.0, **3** for `GeneralAlgebraicKTheory` K.5–K.6).
+After the confirmed red-team fixes of 2 October 2026, the extraction has **149 items**: **4 library**,
+**4 planned**, and **141 missing**, each missing item routed once. There are **121** items for
+`ArcTopologyAndDescent`, **8** for `DiamondsAndVStacks` D0, **6** for `LogicAndDefinabilityInNumberTheory` LD.0,
+**3** for `GeneralAlgebraicKTheory` K.5–K.6, **2** scheme-cohomology inputs for `SchemeAndStackFoundations:SF.2`,
+and **1** algebraic-space reconstruction input for a foundations Part II. The original full-source read and
+independent review below are historical; the fix audit is targeted and awaits its own independent review.
 
 ## What the paper proves
 
@@ -73,16 +75,17 @@ prime `p`, the map `V → V_p × V/p` is an arc-cover but not a v-cover (Example
   and algebraic spaces; `SF.2` owns "Zariski, étale, fppf and pro-étale site comparisons… sheaf cohomology,
   localization, proper/smooth base change and compact support"; `EtaleDualityAndPerverseSheaves:EDC.0` owns the
   constructible coefficient categories; `EnhancedDerivedSheaves:E2` plans unbounded cohomological descent and
-  Postnikov completion after Bhatt–Scholze's pro-étale paper. These are the inputs the paper uses, and three items
-  of the extraction are marked `planned` against them (étale cohomology with its base-change theorems; fpqc descent
-  and algebraic spaces; classical Artin–Grothendieck vanishing).
+  Postnikov completion after Bhatt–Scholze's pro-étale paper. Four items are marked `planned`: étale cohomology
+  and base change, fpqc descent/algebraic spaces, classical Artin–Grothendieck vanishing, and **/109 constructible
+  complexes with finite Λ**, imported from EDC.0 with the **E1 enhancement**. The new arc/v descent results
+  /110–/113 stay in the arc roadmap; the coefficient category is not rebuilt there.
 * **Four items are in the pinned libraries**: valuation rings (`ValuationRing` with its total-divisibility
   condition), 1-categorical sites, sheaves and sheafification (`CategoryTheory.GrothendieckTopology`,
   `CategoryTheory.Pretopology`, `CategoryTheory.Sheaf`, `CategoryTheory.plusPlusSheaf`), spectral spaces, spectral
   maps and the constructible topology (`SpectralSpace`, `IsSpectralMap`, `WithConstructibleTopology`), and
   ultrafilters with the Stone–Čech compactification (`Ultrafilter`, `StoneCech`). What is *not* in the libraries is
   the ∞-categorical sheaf axiom, which is a totalization.
-* **Nothing else.** Searches of every stage description in `research/blueprint/atlas/` return no hit for
+* **Original audit boundary (22 September 2026).** Searches of every stage description in `research/blueprint/atlas/` return no hit for
   "arc-topology", "h-topology", "Milnor square", "formal glueing" or "hypercomplete"; "v-cover" occurs only in the
   diamond roadmaps; "excision" occurs only in the K-theory roadmaps and once in `PadicDifferentialEquationsAndRigidCohomology:RD.4`;
   "absolutely integrally closed" occurs once,
@@ -90,7 +93,7 @@ prime `p`, the map `V → V_p × V/p` is an arc-cover but not a v-cover (Example
 
 ## The routes
 
-### 1. New roadmap `ArcTopologyAndDescent` — 122 items
+### 1. New roadmap `ArcTopologyAndDescent` — 121 items
 
 "The arc-topology and descent for étale cohomology", area `etale`. It plans the v- and arc-topologies on qcqs
 schemes and their comparison; the valuation-theoretic toolkit (rank `≤ 1` and absolutely integrally closed
@@ -115,7 +118,17 @@ spaces, SF.2 for the classical sites and base-change theorems, EDC.0 for constru
 affine Artin vanishing, E2 for unbounded cohomological descent and hypercompleteness, D0 for spectral spaces and
 profinite techniques, LD.0 for ultraproducts, K.5–K.6 for Milnor squares and K-theory localisation, the Tau Ceti
 `AdicSpaces` roadmap (Layers 0 and 1) and `AdicEtaleGeometry` A0–A1 for Tate algebras and adic spectra, and
-`GeometricSatakeAndFusion:GS0:Witt-geometry` for perfections in characteristic `p`.
+`GeometricSatakeAndFusion:GS0:Witt-geometry` for perfections in characteristic `p`. The corrected brief additionally
+imports the perfect-complex enhancement from `SchemeKTheoryOperations:S.1` and `EnhancedDerivedSheaves:E1`,
+algebraic-space Tannaka reconstruction /147 from the foundations Part II, and /148–/149 from SF.2.
+
+The valuation negative example /77 is specifically about **rank ≤ 1 components**. Every ring still admits a
+v-cover with arbitrary-rank valuation components, and hence an arc-cover. The comparison with ordinary
+submersions in /46 assumes affine transition maps and makes no claim that v-covers fail limit stability. Neither
+the v- nor the arc-topology on **all qcqs schemes** is subcanonical: `Spec(k) → Spec(k[ε]/ε²)` is a v-cover
+monomorphism whose Čech terms are all `Spec(k)`, but `A¹` fails descent because `ε` and `0` become equal.
+This differs from both the fpqc topology and the canonical topology on perfect schemes, and gives no
+subcanonicity conclusion about perfectoid/diamond v-sites.
 
 ### 2. Source for `DiamondsAndVStacks` D0 — 8 items
 
@@ -139,28 +152,55 @@ valuation rings is again one, and the detection of equivalences and of truncated
 K.5 plans relative K-theory of a pair and "excision under the hypotheses of the adopted theorem", with the explicit
 warning that K-theory does *not* satisfy unrestricted excision; K.6 plans nonconnective K-theory and its
 localisation sequences. Excision data and Milnor squares belong there, as does the formal glueing square for
-nonconnective K-theory (Example 6.1), which is a localisation-sequence statement. The arc-topology roadmap imports
+nonconnective K-theory (Example 6.1), **for noetherian A and t ∈ A**. Its **vertical** localisation fibres are
+K-theories of perfect complexes supported on `V(t)` over A and its completion; they are not relative
+`K(A → A/t)`. The completion-induced support equivalence proves the square cartesian. No arbitrary-ring
+K-theory theorem, unqualified ideal extension, or claim that K-theory is an arc-sheaf is inferred. The arc-topology roadmap imports
 the definition and proves that every arc-sheaf is excisive — which is what makes the contrast with K-theory sharp.
+
+### 5. Source for `SchemeAndStackFoundations:SF.2` — 2 items
+
+**/148** is the constant `F_ℓ` scheme Künneth formula of Deligne, SGA 4½, Corollary 1.11: finite-type schemes
+over a separably closed field, with ℓ invertible. The qcqs use in Proposition 6.22 also needs the **separate
+étale-cohomology limit comparison** for affine transition maps. **/149** is the tensor-product cohomology
+input attributed to Huber, Corollary 4.2.7, in the precise specialization used on v4 pp. 53–54: rank-1 aic
+valuation extensions `V → R,R′`, a pseudouniformizer remaining a pseudouniformizer, and ℓ invertible in the
+residue field, giving `RΓ(Spec(R ⊗_V R′),F_ℓ) ≃ F_ℓ`. These are scheme-cohomology inputs; the completed
+rigid generic-fibre Künneth theorem /138 remains in the arc roadmap.
+
+### 6. Foundations Part II — 1 item
+
+`SchemeAndStackFoundationsPartIIAlgebraicSpaceTannaka`: **Scheme, stack, cohomology and intersection
+foundations, Part II: Algebraic-space reconstruction from perfect complexes**. **/147** records Bhatt 2016,
+Theorem 1.5: for qcqs algebraic-space target Y and arbitrary algebraic-space source X,
+`Hom(X,Y) ≃ Fun^⊗_ex(Perf(Y),Perf(X))`, also equivalent to cocontinuous tensor functors on D.
+This extends the algebraic-space direction but is not already promised by SF.1. It imports the shared
+perfect-complex enhancement from S.1/E1 and extends it to algebraic spaces by SF.1 descent. /118 consumes
+this result with source `X_perf`. Neither Mathlib's ring reconstruction from a module forgetful functor nor
+Tau Ceti's Hopf/comodule tensor-automorphism theorem reconstructs these geometric derived maps.
 
 ## Prerequisites the atlas does not cover
 
-Seventeen entries are listed in the extraction. The ones that matter most: **Rydh**, *Submersions and effective
+Twenty entries are listed in the corrected extraction (the original JSON had eighteen). The ones that matter most: **Rydh**, *Submersions and effective
 descent of étale morphisms* I and II (arXiv:0710.2488 and the sequel), for the comparison of the two topologies and
 for Theorem 5.6; **Voevodsky**, *Homology of schemes* (Selecta Math. 2 (1996)), for the h-topology; **Huber–Jörder**
 (arXiv:1305.7361) for h-differentials; **Gabber** (Israel J. Math. 87 (1994)) and **Huber** (Math. Ann. 295 (1993))
 for the affine analogue of proper base change; **Fujiwara** (Duke 80 (1995)) and **Illusie–Laszlo–Orgogozo**,
 *Travaux de Gabber* (arXiv:1207.3648, Exp. XX §4.4) for the henselian-pair theorem; **Hansen** (arXiv:1711.08791)
 for the rigid-analytic vanishing results extended here; **Huber**'s book (1996) for the affinoid comparison theorem
-and topologically finite type algebras; **Bhatt–Scholze** (arXiv:1507.06490) for v-descent of perfect complexes on
+and topologically finite type algebras, now with **Corollary 4.2.7** named for /149; **Bhatt–Scholze** (arXiv:1507.06490) for v-descent of perfect complexes on
 perfect schemes; **Elmanto–Hoyois–Iwasa–Kelly** (arXiv:2002.11647) for compact generation by cotruncated objects;
 **Lurie**'s HTT/HA/SAG for the ∞-categorical foundations; **Thomason–Trobaugh** and **Suslin–Wodzicki** for the
 K-theoretic context of excision; **Scholze**, *Étale cohomology of diamonds* (arXiv:1709.07343), whose v-topology
 is the one the atlas already plans, on a different site; and **de Jong**'s alterations for the ind-smoothness of
-absolutely integrally closed valuation rings.
+absolutely integrally closed valuation rings. The new prerequisites are **Bhatt**, *Algebraization and
+Tannaka duality* (2016), Theorem 1.5, and **Deligne**, *Théorèmes de finitude en cohomologie ℓ-adique*
+(SGA 4½, 1977), Corollary 1.11.
 
 ## Mistakes in the source
 
-Three findings, recorded under `sourceIssues`. The first two were found by auditing every hand-typed environment
+Twelve findings are now recorded under `sourceIssues`. E1–E3 and their independent verdicts are preserved.
+The following account of the original three findings is historical; E4–E12 were added by the fix audit. The first two were found by auditing every hand-typed environment
 name against the environment the `\ref` target actually names, over the whole source; those two are the only
 mismatches in the paper.
 
@@ -184,6 +224,45 @@ No erratum was found: arXiv 1807.04725 has versions v1–v4 with v4 the latest, 
 published version served no text to an automated request, and the second author's homepage (the link given in the
 job) lists the paper without an erratum.
 
+## Corrections from the confirmed red team (2 October 2026)
+
+All eight findings are addressed in the extraction and the [fixes report](../redteam/RT-PAPER-BHATT-MATHEW-21.fixes.md).
+The added source diagnostics are scoped to **arXiv v4**, not the inaccessible published Duke article:
+
+| Record | Locator | Correction and reach |
+| --- | --- | --- |
+| E4 | Lemma 4.3, pp. 25–26 | Require `ker(V → W) ⊆ p`; stated-result error. |
+| E5 | Example 6.1, p. 47 | Vertical support-localisation fibres; proof misprint. |
+| E6 | Theorem 5.6 proof, p. 40 | Full subcategory of finite-set diagrams with injective transitions, **all** natural transformations; rank n has n+1 vertices; proof error. |
+| E7 | Proposition 2.1 proof, p. 9 | Treat field inputs by `Frac(W)` before the rank-1 interval; proof error. |
+| E8 | Lemma 7.8 proof, p. 58 | Maximum of the unit-ideal generators' norms; proof misprint. |
+| E9 | Definition 4.6, p. 27 | Ordinary valuation rings generally, aic only for aic input; stated-definition misprint. |
+| E10 | Proposition 3.10 proof, p. 19 | Products, as the theorem already states; proof misprint. |
+| E11 | Proposition 3.32 proof, p. 24 | `F(S) → G(S)`; proof misprint. |
+| E12 | Corollary 4.11 proof, p. 30 | Arbitrary-rank conclusion after Lemma 4.9; proof misprint. |
+
+Lemma 4.4 (/81) keeps its theorem: when `p` is strictly below the map's kernel, `pW = 0` and both
+localisation tensors vanish; the square is immediate. When the kernel lies in p and pW is proper, use repaired
+/80; when pW = W, use the original case. This does not invalidate Theorem 4.1.
+The residue-field quotient `W = V/m, p = 0` remains a counterexample to the uncorrected /80.
+
+The already confirmed **E3** is propagated to /27, which now uses /141's actual bounds. Smoothness does not
+give the d-bound for arbitrary torsion coefficients here. Remark 7.4(2)'s smooth **constant-coefficient**
+adaptation is identified as a remark-level proof frontier, not exported as a separate theorem.
+All /109–/113 explicitly fix **finite Λ**; the optional finite-Tor-dimension variant of Remark 5.9 remains distinct.
+
+The targeted source read re-fetched v4 to SHA-256 `4cdf5593…6620`, matching the original extraction. Bhatt's
+published Theorem 1.5 was read on printed pp. 406–407. Deligne's Corollary 1.11 and coefficient conventions
+were read in the modern retypeset SGA 4½ mirror on printed pp. 115–117; no 1977 print collation or full
+supplier-proof audit is claimed. Huber's publisher book/chapter pages expose subscription previews, and
+**Corollary 4.2.7 was not obtained**: /149 records only its specialized use in the primary Bhatt–Mathew proof.
+The SF.2 blueprint must obtain that supplier statement before closing its proof. Protocol §16 allows this
+explicit supplier-audit frontier in a complete extraction.
+
+Correction searches were refreshed on 2 October: arXiv still ends at v4; Mathew's page lists the paper without
+an erratum; Bhatt's page, title/erratum queries and Crossref correction metadata disclosed none. The Duke PDF
+request returned an HTML challenge, so whether its text corrected these slips remains unestablished.
+
 ## A note on method
 
 `pdftotext` was not available in this environment, so the paper was read in its arXiv LaTeX source. This is better
@@ -193,7 +272,7 @@ computed from the source by walking `\section` and the shared theorem counter, a
 paper's own internal references (for instance Theorem 1.7 pointing at Theorem 4.1, and Theorem 1.8 at Theorems 5.4
 and 5.13), which agree.
 
-## Review (REV-PAPER-BHATT-MATHEW-21, 23 September 2026)
+## Historical review (REV-PAPER-BHATT-MATHEW-21, 23 September 2026)
 
 An independent review by Claude Code, session cc-d67081, for issue
 [#1321](https://github.com/CBirkbeck/tauceti-explorer/issues/1321). **Verdict: accept.** All four
