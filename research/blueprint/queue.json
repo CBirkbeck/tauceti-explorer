@@ -37628,7 +37628,8 @@
     "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4163"
   },
   {
    "id": "RT-PAPER-XU-ZHU-22",
@@ -38202,8 +38203,9 @@
     "REV-PAPER-FRESAN-SABBAH-YU-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-FRESAN-SABBAH-YU-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4183"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4183",
+   "finishedAt": "2026-10-02T06:35:24Z"
   },
   {
    "id": "RT-PAPER-KOYMANS-MILOVIC-21",
