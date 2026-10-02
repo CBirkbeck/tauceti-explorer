@@ -2,17 +2,24 @@ import Mathlib.Algebra.Ring.Hom.Defs
 import Mathlib.Algebra.Group.Units.Defs
 import Mathlib.Data.Matrix.Basic
 import Mathlib.Data.Matrix.Mul
+import Mathlib.LinearAlgebra.Matrix.ToLin
+import Mathlib.LinearAlgebra.Quotient.Defs
+import Mathlib.RingTheory.AdjoinRoot
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document
 StableReductionPartII.md is definitive. These suggested Lean forms help
 contributors and reviewers converge on names and signatures.
 
-CHECKPOINT: only the explicit ring and matrix interfaces are expressible here
-against the inspected pinned baseline. This file was not compiled: no existing
-built Lake environment at both pinned commits was available. No project or cache
-was created. The missing signatures are listed by their exact names below;
-comments are omissions, not declarations or proofs.
+CHECKPOINT: the explicit ring and matrix interfaces below are supplemented by
+native polynomial-quotient/module candidates in NodeSectionFactorization.PolynomialModel.
+Those candidates still need integration into the packet's prototypeCoverage and
+baseline ledgers; they are not counted as completed canonical exports. See the
+2026-10-02 continuation in handoff/DESIGN-StableReductionPartII.md for the full
+proof, source/pin receipts, counterexamples and exact remaining integration work.
+This file was not compiled: no existing built Lake environment at both pinned
+commits was available. No project or cache was created. Comments are omissions,
+not declarations or proofs.
 
 The algebraic-stack, pointed-family, invertible-sheaf and relative-Picard
 interfaces must come from the suppliers before those signatures can be written.
@@ -111,6 +118,99 @@ example (h2 : (2 : R) = 0) (x y s t : R) :
 example : ¬ NodeForm.Nondegenerate (0 : ℤ) 0 := by
   sorry
 
+/-
+Candidate signatures for the local polynomial-model proof in MC.2.
+The polynomial and its quotient are native Mathlib objects, not opaque carriers.
+These candidates are not yet counted in the packet's prototypeCoverage ledger.
+-/
+namespace PolynomialModel
+
+open Polynomial
+
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+
+-- The inner variable is Y and the outer variable is X.
+local notation "w₀" =>
+  ((Polynomial.X : Polynomial (Polynomial A)) ^ 2 +
+    Polynomial.C (Polynomial.C γ * Polynomial.X) * Polynomial.X +
+    Polynomial.C (Polynomial.C δ * Polynomial.X ^ 2 -
+      Polynomial.C (NodeForm γ δ s t)))
+local notation "R₀" => AdjoinRoot w₀
+local notation "ι₀" =>
+  ((AdjoinRoot.of w₀).comp (Polynomial.C : A →+* Polynomial A))
+local notation "u₀" => AdjoinRoot.root w₀
+local notation "v₀" => AdjoinRoot.of w₀ (Polynomial.X : Polynomial A)
+local notation "α₀" => left (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ t)
+local notation "β₀" => right (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ t)
+local notation "J₀" => (Ideal.span {u₀ - ι₀ s, v₀ - ι₀ t} : Ideal R₀)
+
+/-- Monic division gives a unique pair of coefficient polynomials over any base ring. -/
+theorem normalForm (r : R₀) :
+    ∃! p : Polynomial A × Polynomial A,
+      r = AdjoinRoot.of w₀ p.1 + u₀ * AdjoinRoot.of w₀ p.2 := by
+  sorry
+
+/-- The section's Y-coordinate difference is regular; the base need not be a domain. -/
+theorem sectionCoordinateRegular :
+    Function.Injective (fun r : R₀ => (v₀ - ι₀ t) * r) := by
+  sorry
+
+/-- Candidate for the exactness part of
+`StableReductionPartII:MC.2/node-factorization-exact`.
+
+The four equalities explicitly include the dual complex. The source-bound
+hypotheses are retained even though monic lift-and-cancel proves these
+particular equalities over every commutative base ring. -/
+theorem quotientExact [IsNoetherianRing A] (hΔ : NodeForm.Nondegenerate γ δ) :
+    LinearMap.ker α₀.mulVecLin = LinearMap.range β₀.mulVecLin ∧
+    LinearMap.ker β₀.mulVecLin = LinearMap.range α₀.mulVecLin ∧
+    LinearMap.ker α₀.transpose.mulVecLin = LinearMap.range β₀.transpose.mulVecLin ∧
+    LinearMap.ker β₀.transpose.mulVecLin = LinearMap.range α₀.transpose.mulVecLin := by
+  sorry
+
+/-- Candidate for `NodeSectionFactorization.cokernels`.
+
+The cokernel of the RIGHT matrix is the section ideal. The cokernel of the
+LEFT matrix is its actual R-linear dual. The displayed formulas fix the maps,
+not merely the abstract isomorphism classes. Multiplication by `v₀ - ι₀ t`
+avoids division in the statement of the dual map; `sectionCoordinateRegular`
+makes that characterization unambiguous. -/
+theorem cokernels [IsNoetherianRing A] (hΔ : NodeForm.Nondegenerate γ δ) :
+    ∃ (eJ : ((Fin 2 → R₀) ⧸ LinearMap.range β₀.mulVecLin) ≃ₗ[R₀] J₀)
+      (eD : ((Fin 2 → R₀) ⧸ LinearMap.range α₀.mulVecLin) ≃ₗ[R₀]
+        (J₀ →ₗ[R₀] R₀)),
+      (∀ z : Fin 2 → R₀,
+        (eJ (Submodule.Quotient.mk z) : R₀) =
+          (u₀ - ι₀ s) * z 0 - (v₀ - ι₀ t) * z 1) ∧
+      (∀ (z : Fin 2 → R₀) (j : J₀),
+        (v₀ - ι₀ t) * (eD (Submodule.Quotient.mk z) j) =
+          ((v₀ - ι₀ t) * z 0 - (u₀ + ι₀ s + ι₀ γ * ι₀ t) * z 1) *
+            (j : R₀)) := by
+  sorry
+
+/-- A characteristic-two test on the quotient, not just on the polynomial products. -/
+example (h2 : (2 : A) = 0) :
+    let f : Polynomial (Polynomial A) :=
+      Polynomial.X ^ 2 + Polynomial.C Polynomial.X * Polynomial.X
+    let B := AdjoinRoot f
+    let u : B := AdjoinRoot.root f
+    let v : B := AdjoinRoot.of f Polynomial.X
+    LinearMap.ker (left 1 0 u v 0 0).mulVecLin =
+      LinearMap.range (right 1 0 u v 0 0).mulVecLin := by
+  sorry
+
+end PolynomialModel
+
+/-- A non-example: unit discriminant and vanishing products in an arbitrary ring
+are insufficient for exactness. All coordinates are specialized in Z, rather
+than kept in the actual polynomial quotient. -/
+example :
+    NodeForm.Nondegenerate (1 : ℤ) 0 ∧
+    left (1 : ℤ) 0 0 0 0 0 * right 1 0 0 0 0 0 = 0 ∧
+    LinearMap.ker (left (1 : ℤ) 0 0 0 0 0).mulVecLin ≠
+      LinearMap.range (right (1 : ℤ) 0 0 0 0 0).mulVecLin := by
+  sorry
+
 end NodeSectionFactorization
 
 -- StableReductionPartII:MC.2/small-extension-coordinate-correction
@@ -134,8 +234,10 @@ end TauCeti.ModuliCurves
 
 /- CHECKPOINT OMISSIONS
 Each name below is deliberately only a comment, not a Lean declaration.
-The corresponding typed signature/example remains required by the packet gap
-Suggested Lean type interfaces. This ledger makes prototype coverage reviewable.
+The corresponding canonical signature/example remains required by the packet gap
+Suggested Lean type interfaces. The two local algebra entries now have candidates
+above, but their final export/packet integration remains open. This ledger does
+not count candidate signatures as completed exports.
 node: StableReductionPartII:key/moduli-curves
   Requires supplier types and the precise statement in the reader.
 API: CurvesModuli.obj
@@ -215,9 +317,9 @@ node: StableReductionPartII:MC.1/proper-moduli
 node: StableReductionPartII:MC.2/pointed-node-normal-form
   Requires supplier types and the precise statement in the reader.
 API: NodeSectionFactorization.cokernels
-  Requires stable pointed-family/stack/line/Picard types; no surrogate Prop signature.
+  A native candidate is now in PolynomialModel.cokernels; reconcile the final export and packet ledger.
 node: StableReductionPartII:MC.2/node-factorization-exact
-  Requires supplier types and the precise statement in the reader.
+  PolynomialModel.quotientExact supplies a candidate for the exactness clause; split/integrate the cokernel clause and proof-helper nodes.
 node: StableReductionPartII:MC.2/dual-section-ideal
   Requires supplier types and the precise statement in the reader.
 node: StableReductionPartII:MC.2/expansion
