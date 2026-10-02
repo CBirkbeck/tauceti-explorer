@@ -27684,3 +27684,124 @@ example  (R : Type u) [Ring R] (S : Set ℕ+)
     g=kubertCartanDistribution R S φ hφ := by sorry
 end
 end DirichletPadic.SuggestedKubertGlobalCartanValueTests
+
+/- Actual Cartan representation on the module limit and faithful intertwining inclusions. -/
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic DirichletPadic DirichletPadic
+universe u
+
+noncomputable def kubertCartanLimitOperator (k : ℕ+) (R : Type u) [Ring R] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitModule k R →ₗ[R] kubertCartanLimitModule k R := by sorry
+
+lemma kubertCartanLimitOperator_of (k : ℕ+) (R : Type u) [Ring R] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (N : ℕ+) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitOperator k R g (kubertCartanLimitOf k R N f)=
+      kubertCartanLimitOf k R N (kubertCartanWittRepresentation k R N g f) := by sorry
+
+lemma kubertCartanLimitOperator_one (k : ℕ+) (R : Type u) [Ring R] :
+    kubertCartanLimitOperator k R 1=LinearMap.id := by sorry
+
+lemma kubertCartanLimitOperator_mul (k : ℕ+) (R : Type u) [Ring R] (g h : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitOperator k R (g*h)=(kubertCartanLimitOperator k R g).comp (kubertCartanLimitOperator k R h) := by sorry
+
+noncomputable def kubertCartanLimitRepresentation (k : ℕ+) (R : Type u) [Ring R] :
+    Representation R (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (kubertCartanLimitModule k R) := by sorry
+
+lemma kubertCartanLimitRepresentation_of (k : ℕ+) (R : Type u) [Ring R] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (N : ℕ+) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitRepresentation k R g (kubertCartanLimitOf k R N f)=
+      kubertCartanLimitOf k R N (kubertCartanWittRepresentation k R N g f) := by sorry
+
+lemma kubertCartanLimitRepresentation_inverse (k : ℕ+) (R : Type u) [Ring R] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (z : kubertCartanLimitModule k R) :
+    kubertCartanLimitRepresentation k R g⁻¹ (kubertCartanLimitRepresentation k R g z)=z := by sorry
+
+lemma kubertCartanLimitRepresentation_unique (k : ℕ+) (R : Type u) [Ring R]
+    (ρ : Representation R (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (kubertCartanLimitModule k R))
+    (hρ : ∀ (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (N : ℕ+) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)),
+      ρ g (kubertCartanLimitOf k R N f)=kubertCartanLimitOf k R N (kubertCartanWittRepresentation k R N g f)) :
+    ρ=kubertCartanLimitRepresentation k R := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic DirichletPadic DirichletPadic
+universe u
+
+noncomputable def kubertCartanLimitIntertwining (k : ℕ+) (R : Type u) [Ring R] (N : ℕ+) :
+    Representation.IntertwiningMap (kubertCartanWittRepresentation k R N) (kubertCartanLimitRepresentation k R) := by sorry
+
+lemma kubertCartanLimitIntertwining_toLinearMap (k : ℕ+) (R : Type u) [Ring R] (N : ℕ+) :
+    (kubertCartanLimitIntertwining k R N).toLinearMap=kubertCartanLimitOf k R N := by sorry
+
+lemma kubertCartanLimitIntertwining_injective (k : ℕ+) (R : Type u) [Ring R] (N : ℕ+) :
+    Function.Injective (kubertCartanLimitIntertwining k R N) := by sorry
+
+lemma kubertCartanLimitIntertwining_comp (k : ℕ+) (R : Type u) [Ring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertCartanLimitIntertwining k R N).comp (kubertCartanWittIntertwining k R M N hMN)=
+      kubertCartanLimitIntertwining k R M := by sorry
+
+lemma kubertCartanLimitRepresentation_level_one (k : ℕ+) (R : Type u) [Ring R] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (f : MonoidAlgebra R (∀ p : (1 : ℕ).primeFactors, (TruncatedWittVector p.val ((1 : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitRepresentation k R g (kubertCartanLimitOf k R 1 f)=kubertCartanLimitOf k R 1 f := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertLimitRepresentationTests
+open scoped Classical
+noncomputable section
+universe u
+-- limit_operator_preserves_zero
+example (k : ℕ+) (R : Type u) [Ring R] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) : kubertCartanLimitOperator k R g 0=0 := by sorry
+-- limit_operator_identity
+example (k : ℕ+) (R : Type u) [Ring R] (z : kubertCartanLimitModule k R) : kubertCartanLimitOperator k R 1 z=z := by sorry
+-- limit_operator_sees_nontrivial_translation
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (1 : ℕ)))ˣ)) (hg : kubertCartanWittProductProjection 1 5 g=((kubertCartanDegreeOneFiniteEquiv 5).symm (ZMod.unitOfCoprime 2 (by decide : Nat.Coprime 2 5)))) : kubertCartanLimitOperator 1 ℤ g (kubertCartanLimitOf 1 ℤ 5 (MonoidAlgebra.single 1 1))=kubertCartanLimitOf 1 ℤ 5 (MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 5).symm (ZMod.unitOfCoprime 2 (by decide : Nat.Coprime 2 5))) 1) ∧ kubertCartanLimitOperator 1 ℤ g (kubertCartanLimitOf 1 ℤ 5 (MonoidAlgebra.single 1 1))≠kubertCartanLimitOf 1 ℤ 5 (MonoidAlgebra.single 1 1) := by sorry
+-- limit_representation_inverse_roundtrip
+example (k : ℕ+) (R : Type u) [Ring R] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (z : kubertCartanLimitModule k R) : kubertCartanLimitRepresentation k R g⁻¹ (kubertCartanLimitRepresentation k R g z)=z := by sorry
+-- level_one_class_fixed
+example (k : ℕ+) (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) : kubertCartanLimitRepresentation k ℤ g (kubertCartanLimitOf k ℤ 1 (MonoidAlgebra.single 1 1))=kubertCartanLimitOf k ℤ 1 (MonoidAlgebra.single 1 1) := by sorry
+-- full_norm_sum_fixed_in_characteristic_two
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (1 : ℕ)))ˣ)) : kubertCartanLimitRepresentation 1 (ZMod 2) g (kubertCartanLimitOf 1 (ZMod 2) 3 (MonoidAlgebra.single 1 1+MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 3).symm (ZMod.unitOfCoprime 2 (by decide : Nat.Coprime 2 3))) 1))=kubertCartanLimitOf 1 (ZMod 2) 3 (MonoidAlgebra.single 1 1+MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 3).symm (ZMod.unitOfCoprime 2 (by decide : Nat.Coprime 2 3))) 1) ∧ kubertCartanLimitOf 1 (ZMod 2) 3 (MonoidAlgebra.single 1 1+MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 3).symm (ZMod.unitOfCoprime 2 (by decide : Nat.Coprime 2 3))) 1)≠0 := by sorry
+-- intertwining_zero
+example (k : ℕ+) (R : Type u) [Ring R] (N : ℕ+) : kubertCartanLimitIntertwining k R N 0=0 := by sorry
+-- intertwining_agrees_with_original_inclusion
+example (k : ℕ+) (R : Type u) [Ring R] (N : ℕ+) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) : kubertCartanLimitIntertwining k R N f=kubertCartanLimitOf k R N f := by sorry
+-- intertwining_preserves_distinct_basis_elements
+example : kubertCartanLimitIntertwining 1 ℤ 3 (MonoidAlgebra.single 1 1)≠kubertCartanLimitIntertwining 1 ℤ 3 (MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 3).symm (ZMod.unitOfCoprime 2 (by decide : Nat.Coprime 2 3))) 1) := by sorry
+-- cartanLimitOperator_of_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (N : ℕ+) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitOperator k R g (kubertCartanLimitOf k R N f)=
+      kubertCartanLimitOf k R N (kubertCartanWittRepresentation k R N g f) := by sorry
+-- cartanLimitOperator_one_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R] :
+    kubertCartanLimitOperator k R 1=LinearMap.id := by sorry
+-- cartanLimitOperator_mul_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R] (g h : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitOperator k R (g*h)=(kubertCartanLimitOperator k R g).comp (kubertCartanLimitOperator k R h) := by sorry
+-- cartanLimitRepresentation_of_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (N : ℕ+) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitRepresentation k R g (kubertCartanLimitOf k R N f)=
+      kubertCartanLimitOf k R N (kubertCartanWittRepresentation k R N g f) := by sorry
+-- cartanLimitRepresentation_inverse_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (z : kubertCartanLimitModule k R) :
+    kubertCartanLimitRepresentation k R g⁻¹ (kubertCartanLimitRepresentation k R g z)=z := by sorry
+-- cartanLimitRepresentation_unique_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R]
+    (ρ : Representation R (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (kubertCartanLimitModule k R))
+    (hρ : ∀ (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (N : ℕ+) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)),
+      ρ g (kubertCartanLimitOf k R N f)=kubertCartanLimitOf k R N (kubertCartanWittRepresentation k R N g f)) :
+    ρ=kubertCartanLimitRepresentation k R := by sorry
+-- cartanLimitIntertwining_toLinearMap_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R] (N : ℕ+) :
+    (kubertCartanLimitIntertwining k R N).toLinearMap=kubertCartanLimitOf k R N := by sorry
+-- cartanLimitIntertwining_injective_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R] (N : ℕ+) :
+    Function.Injective (kubertCartanLimitIntertwining k R N) := by sorry
+-- cartanLimitIntertwining_comp_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertCartanLimitIntertwining k R N).comp (kubertCartanWittIntertwining k R M N hMN)=
+      kubertCartanLimitIntertwining k R M := by sorry
+-- cartanLimitRepresentation_level_one_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (f : MonoidAlgebra R (∀ p : (1 : ℕ).primeFactors, (TruncatedWittVector p.val ((1 : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitRepresentation k R g (kubertCartanLimitOf k R 1 f)=kubertCartanLimitOf k R 1 f := by sorry
+end
+end DirichletPadic.SuggestedKubertLimitRepresentationTests

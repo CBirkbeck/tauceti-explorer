@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Ten L3 nodes construct global degree-one Cartan values in the actual module limit, prove all-level independence and the full ordinary root law, and construct the actual universal quotient map with finite-level evaluation and uniqueness. All1,850predecessor nodes and1,195baseline records remain whole.",
+  "summary": "Thirteen L3 nodes construct the actual common Cartan representation on the original module limit, prove its laws and uniqueness, and provide faithful native finite-level intertwining inclusions compatible with original norm transitions. All1,860predecessor nodes and1,197baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -8393,6 +8393,20 @@
         "module": "Mathlib/GroupTheory/OrderOfElement.lean",
         "provides": "Every element of a monoid raised to its order equals1; the native generated additive theorem addOrderOf_nsmul_eq_zero says that addOrderOf(a) times a is zero in any additive monoid.",
         "checked": "Full statements, ambient hypotheses and proofs read2October2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. AddCircle/Defs495–680 includes the rational-order formula616–621 over a Field with LinearOrder, IsStrictOrderedRing and positive-period Fact. GroupTheory/OrderOfElement50–53 and166–236 includes the monoid hypotheses and pow_orderOf_eq_one202–204 with explicit generated additive name addOrderOf_nsmul_eq_zero. Existing indexed orderOf_dvd_iff_pow_eq_one supplies the generated additive divisibility criterion."
+      },
+      {
+        "ref": "mathlib:Module.End.mul_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/LinearMap/End.lean",
+        "provides": "Native multiplication of linear endomorphisms evaluates by ordered composition: (f g)(x)=f(g(x)).",
+        "checked": "Full statement, ambient hypotheses and proof read2October2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. RepresentationTheory/Basic36–118, Algebra/Module/LinearMap/End22–68 and RepresentationTheory/Intertwining1–118,199–238 were read. These are existing native algebraic representation and endomorphism laws."
+      },
+      {
+        "ref": "mathlib:Representation.inv_self_apply",
+        "kind": "theorem",
+        "module": "Mathlib/RepresentationTheory/Basic.lean",
+        "provides": "For a native representation of any group on a module, acting by g and then by its inverse recovers every input.",
+        "checked": "Full statement, ambient hypotheses and proof read2October2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. RepresentationTheory/Basic36–118, Algebra/Module/LinearMap/End22–68 and RepresentationTheory/Intertwining1–118,199–238 were read. These are existing native algebraic representation and endomorphism laws."
       }
     ]
   },
@@ -119676,6 +119690,751 @@
       "acceptance": [
         "At point1/5 the scalar indicator of3/5 gives the actual level5 unit2 basis class, not the unit3 class obtained by a mistaken forward coefficient convention. The zero-point indicator in characteristic2 gives a nonzero global value at0 and zero at1/3. At center1/2 the three roots1/6,1/2,5/6 all participate, including the imprimitive middle root. Constant1 fails the two-root scalar ordinary law."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-operator",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual common Cartan operator on the module limit",
+      "kind": "construction",
+      "statement": "For each original g in Gamma_k construct an R-linear endomorphism A(g) of L_k(R) by the all-level limit lift of the family I_N composed with rho_N(g).",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. Gamma_k is the original product over all prime p of the units in WittVector p (GaloisField p k). Its original finite projection pi_N maps to U(k,N), the original product of truncated-Witt unit groups at primes dividing positive N.",
+        "At level N use the existing native representation rho_N of Gamma_k on the original group ring R[U(k,N)], obtained by composing the actual finite projection with the native left regular representation. Its inverse coefficient formula and equivariance of the original full-lift norm nu_M,N are already proved.",
+        "The target L_k(R) is the actual native module direct limit constructed from the original full-lift norms, with faithful all-level maps I_N, finite representatives and its proved linear universal property. These objects are retained exactly; no action, universal property, faithfulness or rank is assumed.",
+        "Only an algebraic representation is asserted. No topology on the module limit or continuity of its action is supplied. The construction is independent of the open general-degree primitive coordinates and the later rank argument."
+      ],
+      "proofSteps": [
+        "For every divisor pair, original norm equivariance identifies rho_N(g) after nu_M,N with nu_M,N after rho_M(g).",
+        "Original limit compatibility I_N after nu_M,N equals I_M, so the stated actual linear family is compatible.",
+        "Apply the already proved all-level linear lift on the original native module limit."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-lift",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of-norm",
+        "DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-representation",
+        "DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-product-norm--witt-equivariant"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLimitRepresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitOperator"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, maps(2.6)–(2.7) as Cartan-module injections, followed by their injective limit;188, Cartan-valued distribution construction.",
+          "match": "Constructs the compatible actual common full-Witt Cartan action on the original native module direct limit, proves its representation laws and uniqueness from finite levels, and bundles every original finite-level injection as a faithful native intertwining map. It supplies the source algebraic module action, without asserting continuity or a lower-rank result."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.limit_operator_preserves_zero",
+          "kind": "degenerate",
+          "statement": "Every actual common Cartan element acts linearly and sends limit zero to zero."
+        },
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.limit_operator_identity",
+          "kind": "compatibility",
+          "statement": "The identity common Cartan element acts by the identity on every actual limit element."
+        },
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.limit_operator_sees_nontrivial_translation",
+          "kind": "non-example",
+          "statement": "For degree one, any actual common unit projecting to residue2 modulo5 sends the level5 identity basis class to the distinct basis class at2. The limit action is not trivial."
+        }
+      ],
+      "acceptance": [
+        "An actual common degree-one unit projecting to residue2 modulo5 translates the embedded identity basis to the distinct unit2 basis. Every common unit fixes the embedded level1 class. Its degree-one level3 norm image is the sum of two distinct unit basis elements, fixed and nonzero even over ZMod2. Inverse action recovers every original limit element."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanLimitOperator_of",
+          "role": "compatibility",
+          "statement": "For every original g, positive N and f in R[U(k,N)], A(g)(I_N(f))=I_N(rho_N(g)(f))."
+        },
+        {
+          "name": "kubertCartanLimitOperator_one",
+          "role": "compatibility",
+          "statement": "The actual operator A(1) equals the identity linear map of L_k(R)."
+        },
+        {
+          "name": "kubertCartanLimitOperator_mul",
+          "role": "compatibility",
+          "statement": "For actual g,h in Gamma_k, A(gh)=A(g) composed with A(h), with h acting first."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert187, Cartan-module maps2.6–2.7 and their injective limit",
+          "how": "Provides the actual algebraic action and faithful compatible finite-module embeddings on the source injective limit."
+        },
+        {
+          "where": "Kubert188 and the subsequent Cartan character arguments",
+          "how": "Supplies the actual target representation for global distribution equivariance and later character components; neither global point equivariance nor rank is assumed here."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-operator-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The limit operator retains the original finite action",
+      "kind": "lemma",
+      "statement": "For every original g, positive N and f in R[U(k,N)], A(g)(I_N(f))=I_N(rho_N(g)(f)).",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. Gamma_k is the original product over all prime p of the units in WittVector p (GaloisField p k). Its original finite projection pi_N maps to U(k,N), the original product of truncated-Witt unit groups at primes dividing positive N.",
+        "At level N use the existing native representation rho_N of Gamma_k on the original group ring R[U(k,N)], obtained by composing the actual finite projection with the native left regular representation. Its inverse coefficient formula and equivariance of the original full-lift norm nu_M,N are already proved.",
+        "The target L_k(R) is the actual native module direct limit constructed from the original full-lift norms, with faithful all-level maps I_N, finite representatives and its proved linear universal property. These objects are retained exactly; no action, universal property, faithfulness or rank is assumed.",
+        "Only an algebraic representation is asserted. No topology on the module limit or continuity of its action is supplied. The construction is independent of the open general-degree primitive coordinates and the later rank argument."
+      ],
+      "proofSteps": [
+        "Use the proved all-level evaluation theorem for the actual limit lift of the compatible family I_N after rho_N(g).",
+        "Evaluation of the composite linear map gives the original finite action followed by the original inclusion."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-operator",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-lift-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLimitRepresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitOperator_of"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, maps(2.6)–(2.7) as Cartan-module injections, followed by their injective limit;188, Cartan-valued distribution construction.",
+          "match": "Constructs the compatible actual common full-Witt Cartan action on the original native module direct limit, proves its representation laws and uniqueness from finite levels, and bundles every original finite-level injection as a faithful native intertwining map. It supplies the source algebraic module action, without asserting continuity or a lower-rank result."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.cartanLimitOperator_of_typed_api",
+          "kind": "compatibility",
+          "statement": "For every original g, positive N and f in R[U(k,N)], A(g)(I_N(f))=I_N(rho_N(g)(f))."
+        }
+      ],
+      "acceptance": [
+        "An actual common degree-one unit projecting to residue2 modulo5 translates the embedded identity basis to the distinct unit2 basis. Every common unit fixes the embedded level1 class. Its degree-one level3 norm image is the sum of two distinct unit basis elements, fixed and nonzero even over ZMod2. Inverse action recovers every original limit element."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-operator-one",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The identity Cartan operator fixes the whole limit",
+      "kind": "lemma",
+      "statement": "The actual operator A(1) equals the identity linear map of L_k(R).",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. Gamma_k is the original product over all prime p of the units in WittVector p (GaloisField p k). Its original finite projection pi_N maps to U(k,N), the original product of truncated-Witt unit groups at primes dividing positive N.",
+        "At level N use the existing native representation rho_N of Gamma_k on the original group ring R[U(k,N)], obtained by composing the actual finite projection with the native left regular representation. Its inverse coefficient formula and equivariance of the original full-lift norm nu_M,N are already proved.",
+        "The target L_k(R) is the actual native module direct limit constructed from the original full-lift norms, with faithful all-level maps I_N, finite representatives and its proved linear universal property. These objects are retained exactly; no action, universal property, faithfulness or rank is assumed.",
+        "Only an algebraic representation is asserted. No topology on the module limit or continuity of its action is supplied. The construction is independent of the open general-degree primitive coordinates and the later rank argument."
+      ],
+      "proofSteps": [
+        "Apply the proved all-level extensionality for maps out of the limit.",
+        "At I_N(f), the operator evaluation reduces the statement to the identity law of the native finite representation rho_N.",
+        "The latter fixes f and hence its original limit class."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-operator-of",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-hom-ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLimitRepresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitOperator_one"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, maps(2.6)–(2.7) as Cartan-module injections, followed by their injective limit;188, Cartan-valued distribution construction.",
+          "match": "Constructs the compatible actual common full-Witt Cartan action on the original native module direct limit, proves its representation laws and uniqueness from finite levels, and bundles every original finite-level injection as a faithful native intertwining map. It supplies the source algebraic module action, without asserting continuity or a lower-rank result."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.cartanLimitOperator_one_typed_api",
+          "kind": "compatibility",
+          "statement": "The actual operator A(1) equals the identity linear map of L_k(R)."
+        }
+      ],
+      "acceptance": [
+        "An actual common degree-one unit projecting to residue2 modulo5 translates the embedded identity basis to the distinct unit2 basis. Every common unit fixes the embedded level1 class. Its degree-one level3 norm image is the sum of two distinct unit basis elements, fixed and nonzero even over ZMod2. Inverse action recovers every original limit element."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-operator-mul",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Cartan multiplication composes the actual limit operators",
+      "kind": "lemma",
+      "statement": "For actual g,h in Gamma_k, A(gh)=A(g) composed with A(h), with h acting first.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. Gamma_k is the original product over all prime p of the units in WittVector p (GaloisField p k). Its original finite projection pi_N maps to U(k,N), the original product of truncated-Witt unit groups at primes dividing positive N.",
+        "At level N use the existing native representation rho_N of Gamma_k on the original group ring R[U(k,N)], obtained by composing the actual finite projection with the native left regular representation. Its inverse coefficient formula and equivariance of the original full-lift norm nu_M,N are already proved.",
+        "The target L_k(R) is the actual native module direct limit constructed from the original full-lift norms, with faithful all-level maps I_N, finite representatives and its proved linear universal property. These objects are retained exactly; no action, universal property, faithfulness or rank is assumed.",
+        "Only an algebraic representation is asserted. No topology on the module limit or continuity of its action is supplied. The construction is independent of the open general-degree primitive coordinates and the later rank argument."
+      ],
+      "proofSteps": [
+        "Use all-level extensionality at each original I_N(f).",
+        "Evaluate the direct operator and both successive operators by the finite-level formula.",
+        "The original finite representation preserves multiplication; native multiplication of module endomorphisms is composition."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-operator-of",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-hom-ext",
+        "mathlib:Module.End.mul_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLimitRepresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitOperator_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, maps(2.6)–(2.7) as Cartan-module injections, followed by their injective limit;188, Cartan-valued distribution construction.",
+          "match": "Constructs the compatible actual common full-Witt Cartan action on the original native module direct limit, proves its representation laws and uniqueness from finite levels, and bundles every original finite-level injection as a faithful native intertwining map. It supplies the source algebraic module action, without asserting continuity or a lower-rank result."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.cartanLimitOperator_mul_typed_api",
+          "kind": "compatibility",
+          "statement": "For actual g,h in Gamma_k, A(gh)=A(g) composed with A(h), with h acting first."
+        }
+      ],
+      "acceptance": [
+        "An actual common degree-one unit projecting to residue2 modulo5 translates the embedded identity basis to the distinct unit2 basis. Every common unit fixes the embedded level1 class. Its degree-one level3 norm image is the sum of two distinct unit basis elements, fixed and nonzero even over ZMod2. Inverse action recovers every original limit element."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-representation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The native Cartan representation on the actual module limit",
+      "kind": "construction",
+      "statement": "Construct a native Representation of the original Gamma_k on L_k(R) whose value at each g is the actual operator A(g). The proved identity and multiplication laws supply the native monoid-homomorphism fields.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. Gamma_k is the original product over all prime p of the units in WittVector p (GaloisField p k). Its original finite projection pi_N maps to U(k,N), the original product of truncated-Witt unit groups at primes dividing positive N.",
+        "At level N use the existing native representation rho_N of Gamma_k on the original group ring R[U(k,N)], obtained by composing the actual finite projection with the native left regular representation. Its inverse coefficient formula and equivariance of the original full-lift norm nu_M,N are already proved.",
+        "The target L_k(R) is the actual native module direct limit constructed from the original full-lift norms, with faithful all-level maps I_N, finite representatives and its proved linear universal property. These objects are retained exactly; no action, universal property, faithfulness or rank is assumed.",
+        "Only an algebraic representation is asserted. No topology on the module limit or continuity of its action is supplied. The construction is independent of the open general-degree primitive coordinates and the later rank argument."
+      ],
+      "proofSteps": [
+        "Use the actual operator family as the underlying function into native linear endomorphisms.",
+        "The operator identity and multiplication theorems give precisely the native Representation laws.",
+        "The target carrier and module structure remain those of the original actual native limit."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-operator",
+        "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-operator-one",
+        "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-operator-mul",
+        "mathlib:Representation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLimitRepresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitRepresentation"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, maps(2.6)–(2.7) as Cartan-module injections, followed by their injective limit;188, Cartan-valued distribution construction.",
+          "match": "Constructs the compatible actual common full-Witt Cartan action on the original native module direct limit, proves its representation laws and uniqueness from finite levels, and bundles every original finite-level injection as a faithful native intertwining map. It supplies the source algebraic module action, without asserting continuity or a lower-rank result."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.limit_representation_inverse_roundtrip",
+          "kind": "characterisation",
+          "statement": "Acting by a common Cartan element and then by its inverse recovers every original limit element."
+        },
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.level_one_class_fixed",
+          "kind": "compatibility",
+          "statement": "Every common Cartan element fixes the embedded integer identity class at level1, for any positive degree."
+        },
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.full_norm_sum_fixed_in_characteristic_two",
+          "kind": "non-example",
+          "statement": "Over ZMod2 the level3 full-lift sum of the two unit basis elements is fixed by every actual common degree-one Cartan element and remains nonzero; it must not be replaced by the zero scalar coefficient sum."
+        }
+      ],
+      "acceptance": [
+        "An actual common degree-one unit projecting to residue2 modulo5 translates the embedded identity basis to the distinct unit2 basis. Every common unit fixes the embedded level1 class. Its degree-one level3 norm image is the sum of two distinct unit basis elements, fixed and nonzero even over ZMod2. Inverse action recovers every original limit element."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanLimitRepresentation_of",
+          "role": "compatibility",
+          "statement": "For every original g, positive N and original f, rho_limit(g)(I_N(f))=I_N(rho_N(g)(f))."
+        },
+        {
+          "name": "kubertCartanLimitRepresentation_inverse",
+          "role": "compatibility",
+          "statement": "For every original g and z in L_k(R), rho_limit(g inverse)(rho_limit(g)(z))=z."
+        },
+        {
+          "name": "kubertCartanLimitRepresentation_unique",
+          "role": "compatibility",
+          "statement": "Any native representation of the same original Gamma_k on L_k(R) which agrees with rho_N at every I_N(f) equals the constructed rho_limit."
+        },
+        {
+          "name": "kubertCartanLimitRepresentation_level_one",
+          "role": "compatibility",
+          "statement": "For every original common Cartan element g and every f in the original level1 group ring, rho_limit(g)(I_1(f))=I_1(f)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert187, Cartan-module maps2.6–2.7 and their injective limit",
+          "how": "Provides the actual algebraic action and faithful compatible finite-module embeddings on the source injective limit."
+        },
+        {
+          "where": "Kubert188 and the subsequent Cartan character arguments",
+          "how": "Supplies the actual target representation for global distribution equivariance and later character components; neither global point equivariance nor rank is assumed here."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-representation-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The limit representation agrees with every original finite representation",
+      "kind": "lemma",
+      "statement": "For every original g, positive N and original f, rho_limit(g)(I_N(f))=I_N(rho_N(g)(f)).",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. Gamma_k is the original product over all prime p of the units in WittVector p (GaloisField p k). Its original finite projection pi_N maps to U(k,N), the original product of truncated-Witt unit groups at primes dividing positive N.",
+        "At level N use the existing native representation rho_N of Gamma_k on the original group ring R[U(k,N)], obtained by composing the actual finite projection with the native left regular representation. Its inverse coefficient formula and equivariance of the original full-lift norm nu_M,N are already proved.",
+        "The target L_k(R) is the actual native module direct limit constructed from the original full-lift norms, with faithful all-level maps I_N, finite representatives and its proved linear universal property. These objects are retained exactly; no action, universal property, faithfulness or rank is assumed.",
+        "Only an algebraic representation is asserted. No topology on the module limit or continuity of its action is supplied. The construction is independent of the open general-degree primitive coordinates and the later rank argument."
+      ],
+      "proofSteps": [
+        "The native representation has exactly the constructed operator family as its underlying function.",
+        "Apply the proved finite-level operator evaluation."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-representation",
+        "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-operator-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLimitRepresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitRepresentation_of"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, maps(2.6)–(2.7) as Cartan-module injections, followed by their injective limit;188, Cartan-valued distribution construction.",
+          "match": "Constructs the compatible actual common full-Witt Cartan action on the original native module direct limit, proves its representation laws and uniqueness from finite levels, and bundles every original finite-level injection as a faithful native intertwining map. It supplies the source algebraic module action, without asserting continuity or a lower-rank result."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.cartanLimitRepresentation_of_typed_api",
+          "kind": "compatibility",
+          "statement": "For every original g, positive N and original f, rho_limit(g)(I_N(f))=I_N(rho_N(g)(f))."
+        }
+      ],
+      "acceptance": [
+        "An actual common degree-one unit projecting to residue2 modulo5 translates the embedded identity basis to the distinct unit2 basis. Every common unit fixes the embedded level1 class. Its degree-one level3 norm image is the sum of two distinct unit basis elements, fixed and nonzero even over ZMod2. Inverse action recovers every original limit element."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-representation-inverse",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Inverse Cartan action recovers every actual limit element",
+      "kind": "lemma",
+      "statement": "For every original g and z in L_k(R), rho_limit(g inverse)(rho_limit(g)(z))=z.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. Gamma_k is the original product over all prime p of the units in WittVector p (GaloisField p k). Its original finite projection pi_N maps to U(k,N), the original product of truncated-Witt unit groups at primes dividing positive N.",
+        "At level N use the existing native representation rho_N of Gamma_k on the original group ring R[U(k,N)], obtained by composing the actual finite projection with the native left regular representation. Its inverse coefficient formula and equivariance of the original full-lift norm nu_M,N are already proved.",
+        "The target L_k(R) is the actual native module direct limit constructed from the original full-lift norms, with faithful all-level maps I_N, finite representatives and its proved linear universal property. These objects are retained exactly; no action, universal property, faithfulness or rank is assumed.",
+        "Only an algebraic representation is asserted. No topology on the module limit or continuity of its action is supplied. The construction is independent of the open general-degree primitive coordinates and the later rank argument."
+      ],
+      "proofSteps": [
+        "Apply native Representation.inv_self_apply to the actual constructed group representation.",
+        "The original common full-Witt Cartan object is already a group, so the native inverse law applies directly."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-representation",
+        "mathlib:Representation.inv_self_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLimitRepresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitRepresentation_inverse"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, maps(2.6)–(2.7) as Cartan-module injections, followed by their injective limit;188, Cartan-valued distribution construction.",
+          "match": "Constructs the compatible actual common full-Witt Cartan action on the original native module direct limit, proves its representation laws and uniqueness from finite levels, and bundles every original finite-level injection as a faithful native intertwining map. It supplies the source algebraic module action, without asserting continuity or a lower-rank result."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.cartanLimitRepresentation_inverse_typed_api",
+          "kind": "compatibility",
+          "statement": "For every original g and z in L_k(R), rho_limit(g inverse)(rho_limit(g)(z))=z."
+        }
+      ],
+      "acceptance": [
+        "An actual common degree-one unit projecting to residue2 modulo5 translates the embedded identity basis to the distinct unit2 basis. Every common unit fixes the embedded level1 class. Its degree-one level3 norm image is the sum of two distinct unit basis elements, fixed and nonzero even over ZMod2. Inverse action recovers every original limit element."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-representation-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The original finite actions uniquely determine the limit representation",
+      "kind": "lemma",
+      "statement": "Any native representation of the same original Gamma_k on L_k(R) which agrees with rho_N at every I_N(f) equals the constructed rho_limit.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. Gamma_k is the original product over all prime p of the units in WittVector p (GaloisField p k). Its original finite projection pi_N maps to U(k,N), the original product of truncated-Witt unit groups at primes dividing positive N.",
+        "At level N use the existing native representation rho_N of Gamma_k on the original group ring R[U(k,N)], obtained by composing the actual finite projection with the native left regular representation. Its inverse coefficient formula and equivariance of the original full-lift norm nu_M,N are already proved.",
+        "The target L_k(R) is the actual native module direct limit constructed from the original full-lift norms, with faithful all-level maps I_N, finite representatives and its proved linear universal property. These objects are retained exactly; no action, universal property, faithfulness or rank is assumed.",
+        "Only an algebraic representation is asserted. No topology on the module limit or continuity of its action is supplied. The construction is independent of the open general-degree primitive coordinates and the later rank argument."
+      ],
+      "proofSteps": [
+        "Apply native monoid-homomorphism extensionality at an arbitrary original g.",
+        "Use all-level linear-map extensionality on the two actual operators.",
+        "The assumed finite evaluation and the proved evaluation of rho_limit give equality on every original I_N(f)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-representation-of",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-hom-ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLimitRepresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitRepresentation_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, maps(2.6)–(2.7) as Cartan-module injections, followed by their injective limit;188, Cartan-valued distribution construction.",
+          "match": "Constructs the compatible actual common full-Witt Cartan action on the original native module direct limit, proves its representation laws and uniqueness from finite levels, and bundles every original finite-level injection as a faithful native intertwining map. It supplies the source algebraic module action, without asserting continuity or a lower-rank result."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.cartanLimitRepresentation_unique_typed_api",
+          "kind": "compatibility",
+          "statement": "Any native representation of the same original Gamma_k on L_k(R) which agrees with rho_N at every I_N(f) equals the constructed rho_limit."
+        }
+      ],
+      "acceptance": [
+        "An actual common degree-one unit projecting to residue2 modulo5 translates the embedded identity basis to the distinct unit2 basis. Every common unit fixes the embedded level1 class. Its degree-one level3 norm image is the sum of two distinct unit basis elements, fixed and nonzero even over ZMod2. Inverse action recovers every original limit element."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-intertwining",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Faithful finite-level intertwining inclusions into the limit",
+      "kind": "construction",
+      "statement": "For every positive N, bundle the original linear map I_N as a native IntertwiningMap from rho_N to rho_limit. Its underlying carrier map is exactly the original finite-level inclusion.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. Gamma_k is the original product over all prime p of the units in WittVector p (GaloisField p k). Its original finite projection pi_N maps to U(k,N), the original product of truncated-Witt unit groups at primes dividing positive N.",
+        "At level N use the existing native representation rho_N of Gamma_k on the original group ring R[U(k,N)], obtained by composing the actual finite projection with the native left regular representation. Its inverse coefficient formula and equivariance of the original full-lift norm nu_M,N are already proved.",
+        "The target L_k(R) is the actual native module direct limit constructed from the original full-lift norms, with faithful all-level maps I_N, finite representatives and its proved linear universal property. These objects are retained exactly; no action, universal property, faithfulness or rank is assumed.",
+        "Only an algebraic representation is asserted. No topology on the module limit or continuity of its action is supplied. The construction is independent of the open general-degree primitive coordinates and the later rank argument."
+      ],
+      "proofSteps": [
+        "The proved finite evaluation of rho_limit states that I_N commutes with every actual Gamma_k action.",
+        "Apply the existing native linear-map-to-intertwining-map constructor to I_N and this equality.",
+        "No new inclusion or representation carrier is introduced."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-representation-of",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of",
+        "mathlib:LinearMap.intertwiningMap_of_isIntertwiningMap"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLimitRepresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitIntertwining"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, maps(2.6)–(2.7) as Cartan-module injections, followed by their injective limit;188, Cartan-valued distribution construction.",
+          "match": "Constructs the compatible actual common full-Witt Cartan action on the original native module direct limit, proves its representation laws and uniqueness from finite levels, and bundles every original finite-level injection as a faithful native intertwining map. It supplies the source algebraic module action, without asserting continuity or a lower-rank result."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.intertwining_zero",
+          "kind": "degenerate",
+          "statement": "The actual finite-level intertwining inclusion sends zero to zero."
+        },
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.intertwining_agrees_with_original_inclusion",
+          "kind": "compatibility",
+          "statement": "The native intertwining map retains exactly the original all-level linear inclusion on every finite group-ring input."
+        },
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.intertwining_preserves_distinct_basis_elements",
+          "kind": "non-example",
+          "statement": "The degree-one level3 intertwining map over integers preserves the distinction between unit1 and unit2 basis elements."
+        }
+      ],
+      "acceptance": [
+        "An actual common degree-one unit projecting to residue2 modulo5 translates the embedded identity basis to the distinct unit2 basis. Every common unit fixes the embedded level1 class. Its degree-one level3 norm image is the sum of two distinct unit basis elements, fixed and nonzero even over ZMod2. Inverse action recovers every original limit element."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanLimitIntertwining_toLinearMap",
+          "role": "compatibility",
+          "statement": "The underlying linear map of the actual level-N intertwining inclusion is exactly I_N."
+        },
+        {
+          "name": "kubertCartanLimitIntertwining_injective",
+          "role": "compatibility",
+          "statement": "Every actual level-N intertwining inclusion is injective over any ring R and positive degree k."
+        },
+        {
+          "name": "kubertCartanLimitIntertwining_comp",
+          "role": "compatibility",
+          "statement": "For positive M dividing positive N, composing the original finite norm intertwiner from rho_M to rho_N with the level-N limit intertwiner equals the level-M limit intertwiner."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert187, Cartan-module maps2.6–2.7 and their injective limit",
+          "how": "Provides the actual algebraic action and faithful compatible finite-module embeddings on the source injective limit."
+        },
+        {
+          "where": "Kubert188 and the subsequent Cartan character arguments",
+          "how": "Supplies the actual target representation for global distribution equivariance and later character components; neither global point equivariance nor rank is assumed here."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-intertwining-to-linear-map",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The intertwining inclusion retains its original linear map",
+      "kind": "lemma",
+      "statement": "The underlying linear map of the actual level-N intertwining inclusion is exactly I_N.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. Gamma_k is the original product over all prime p of the units in WittVector p (GaloisField p k). Its original finite projection pi_N maps to U(k,N), the original product of truncated-Witt unit groups at primes dividing positive N.",
+        "At level N use the existing native representation rho_N of Gamma_k on the original group ring R[U(k,N)], obtained by composing the actual finite projection with the native left regular representation. Its inverse coefficient formula and equivariance of the original full-lift norm nu_M,N are already proved.",
+        "The target L_k(R) is the actual native module direct limit constructed from the original full-lift norms, with faithful all-level maps I_N, finite representatives and its proved linear universal property. These objects are retained exactly; no action, universal property, faithfulness or rank is assumed.",
+        "Only an algebraic representation is asserted. No topology on the module limit or continuity of its action is supplied. The construction is independent of the open general-degree primitive coordinates and the later rank argument."
+      ],
+      "proofSteps": [
+        "The native intertwining-map constructor retains the supplied linear map definitionally."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-intertwining"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLimitRepresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitIntertwining_toLinearMap"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, maps(2.6)–(2.7) as Cartan-module injections, followed by their injective limit;188, Cartan-valued distribution construction.",
+          "match": "Constructs the compatible actual common full-Witt Cartan action on the original native module direct limit, proves its representation laws and uniqueness from finite levels, and bundles every original finite-level injection as a faithful native intertwining map. It supplies the source algebraic module action, without asserting continuity or a lower-rank result."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.cartanLimitIntertwining_toLinearMap_typed_api",
+          "kind": "compatibility",
+          "statement": "The underlying linear map of the actual level-N intertwining inclusion is exactly I_N."
+        }
+      ],
+      "acceptance": [
+        "An actual common degree-one unit projecting to residue2 modulo5 translates the embedded identity basis to the distinct unit2 basis. Every common unit fixes the embedded level1 class. Its degree-one level3 norm image is the sum of two distinct unit basis elements, fixed and nonzero even over ZMod2. Inverse action recovers every original limit element."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-intertwining-injective",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Each finite-level intertwining inclusion is injective",
+      "kind": "lemma",
+      "statement": "Every actual level-N intertwining inclusion is injective over any ring R and positive degree k.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. Gamma_k is the original product over all prime p of the units in WittVector p (GaloisField p k). Its original finite projection pi_N maps to U(k,N), the original product of truncated-Witt unit groups at primes dividing positive N.",
+        "At level N use the existing native representation rho_N of Gamma_k on the original group ring R[U(k,N)], obtained by composing the actual finite projection with the native left regular representation. Its inverse coefficient formula and equivariance of the original full-lift norm nu_M,N are already proved.",
+        "The target L_k(R) is the actual native module direct limit constructed from the original full-lift norms, with faithful all-level maps I_N, finite representatives and its proved linear universal property. These objects are retained exactly; no action, universal property, faithfulness or rank is assumed.",
+        "Only an algebraic representation is asserted. No topology on the module limit or continuity of its action is supplied. The construction is independent of the open general-degree primitive coordinates and the later rank argument."
+      ],
+      "proofSteps": [
+        "Its underlying function is the original I_N.",
+        "Apply the already proved injectivity of I_N for the original full-lift module limit."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-intertwining-to-linear-map",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of-injective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLimitRepresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitIntertwining_injective"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, maps(2.6)–(2.7) as Cartan-module injections, followed by their injective limit;188, Cartan-valued distribution construction.",
+          "match": "Constructs the compatible actual common full-Witt Cartan action on the original native module direct limit, proves its representation laws and uniqueness from finite levels, and bundles every original finite-level injection as a faithful native intertwining map. It supplies the source algebraic module action, without asserting continuity or a lower-rank result."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.cartanLimitIntertwining_injective_typed_api",
+          "kind": "compatibility",
+          "statement": "Every actual level-N intertwining inclusion is injective over any ring R and positive degree k."
+        }
+      ],
+      "acceptance": [
+        "An actual common degree-one unit projecting to residue2 modulo5 translates the embedded identity basis to the distinct unit2 basis. Every common unit fixes the embedded level1 class. Its degree-one level3 norm image is the sum of two distinct unit basis elements, fixed and nonzero even over ZMod2. Inverse action recovers every original limit element."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-intertwining-comp",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Original norm intertwiners compose with the same limit inclusion",
+      "kind": "lemma",
+      "statement": "For positive M dividing positive N, composing the original finite norm intertwiner from rho_M to rho_N with the level-N limit intertwiner equals the level-M limit intertwiner.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. Gamma_k is the original product over all prime p of the units in WittVector p (GaloisField p k). Its original finite projection pi_N maps to U(k,N), the original product of truncated-Witt unit groups at primes dividing positive N.",
+        "At level N use the existing native representation rho_N of Gamma_k on the original group ring R[U(k,N)], obtained by composing the actual finite projection with the native left regular representation. Its inverse coefficient formula and equivariance of the original full-lift norm nu_M,N are already proved.",
+        "The target L_k(R) is the actual native module direct limit constructed from the original full-lift norms, with faithful all-level maps I_N, finite representatives and its proved linear universal property. These objects are retained exactly; no action, universal property, faithfulness or rank is assumed.",
+        "Only an algebraic representation is asserted. No topology on the module limit or continuity of its action is supplied. The construction is independent of the open general-degree primitive coordinates and the later rank argument."
+      ],
+      "proofSteps": [
+        "Apply native intertwining-map extensionality and then linear-map extensionality.",
+        "The original finite intertwiner has exactly the original norm as its underlying linear map.",
+        "The actual limit intertwiners have exactly I_N and I_M as underlying maps.",
+        "The existing equality I_N(nu_M,N(f))=I_M(f) proves the desired composite equality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-intertwining-to-linear-map",
+        "DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-intertwining-to-linear-map",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of-norm",
+        "mathlib:Representation.IntertwiningMap.ext",
+        "mathlib:Representation.IntertwiningMap.comp"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLimitRepresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitIntertwining_comp"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, maps(2.6)–(2.7) as Cartan-module injections, followed by their injective limit;188, Cartan-valued distribution construction.",
+          "match": "Constructs the compatible actual common full-Witt Cartan action on the original native module direct limit, proves its representation laws and uniqueness from finite levels, and bundles every original finite-level injection as a faithful native intertwining map. It supplies the source algebraic module action, without asserting continuity or a lower-rank result."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.cartanLimitIntertwining_comp_typed_api",
+          "kind": "compatibility",
+          "statement": "For positive M dividing positive N, composing the original finite norm intertwiner from rho_M to rho_N with the level-N limit intertwiner equals the level-M limit intertwiner."
+        }
+      ],
+      "acceptance": [
+        "An actual common degree-one unit projecting to residue2 modulo5 translates the embedded identity basis to the distinct unit2 basis. Every common unit fixes the embedded level1 class. Its degree-one level3 norm image is the sum of two distinct unit basis elements, fixed and nonzero even over ZMod2. Inverse action recovers every original limit element."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-representation-level-one",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The embedded level-one module is fixed by the entire Cartan group",
+      "kind": "lemma",
+      "statement": "For every original common Cartan element g and every f in the original level1 group ring, rho_limit(g)(I_1(f))=I_1(f).",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. Gamma_k is the original product over all prime p of the units in WittVector p (GaloisField p k). Its original finite projection pi_N maps to U(k,N), the original product of truncated-Witt unit groups at primes dividing positive N.",
+        "At level N use the existing native representation rho_N of Gamma_k on the original group ring R[U(k,N)], obtained by composing the actual finite projection with the native left regular representation. Its inverse coefficient formula and equivariance of the original full-lift norm nu_M,N are already proved.",
+        "The target L_k(R) is the actual native module direct limit constructed from the original full-lift norms, with faithful all-level maps I_N, finite representatives and its proved linear universal property. These objects are retained exactly; no action, universal property, faithfulness or rank is assumed.",
+        "Only an algebraic representation is asserted. No topology on the module limit or continuity of its action is supplied. The construction is independent of the open general-degree primitive coordinates and the later rank argument."
+      ],
+      "proofSteps": [
+        "The finite evaluation formula reduces the result to the original level1 representation.",
+        "The original finite Cartan group at modulus1 has only its identity, so the actual projection of g is1.",
+        "The native left regular representation of that identity is the identity linear map.",
+        "Apply I_1 to this exact finite equality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-representation-of",
+        "DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-unit-level",
+        "DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-representation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLimitRepresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitRepresentation_level_one"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, maps(2.6)–(2.7) as Cartan-module injections, followed by their injective limit;188, Cartan-valued distribution construction.",
+          "match": "Constructs the compatible actual common full-Witt Cartan action on the original native module direct limit, proves its representation laws and uniqueness from finite levels, and bundles every original finite-level injection as a faithful native intertwining map. It supplies the source algebraic module action, without asserting continuity or a lower-rank result."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLimitRepresentationTests.cartanLimitRepresentation_level_one_typed_api",
+          "kind": "compatibility",
+          "statement": "For every original common Cartan element g and every f in the original level1 group ring, rho_limit(g)(I_1(f))=I_1(f)."
+        }
+      ],
+      "acceptance": [
+        "An actual common degree-one unit projecting to residue2 modulo5 translates the embedded identity basis to the distinct unit2 basis. Every common unit fixes the embedded level1 class. Its degree-one level3 norm image is the sum of two distinct unit basis elements, fixed and nonzero even over ZMod2. Inverse action recovers every original limit element."
+      ]
     }
   ],
   "requests": [
@@ -119822,7 +120581,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual degree-one finite Cartan values now define global rational-circle values in the actual native module direct limit, independently of every containing finite level. Their complete ambient-root ordinary law gives an actual homomorphism from the existing universal ordinary distribution quotient, with original finite-level evaluation and uniqueness. Next supply the Cartan action on the actual limit and compare its global distribution map with the source module equivariance and character components; then complete the independent lower-rank argument through Kubert186–199 and combine it with actual surjections and upper bounds for independence, freeness and internal/global equality. The current quotient map is not claimed injective or surjective. General-degree coherent primitive coordinates, unramified integer-ring identification and the general lambda fiber count remain open; FF.4 owns generic Galois-ring theory. Preserve parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18gaps and16requests remain; zero stages close.",
+        "The original common full-Witt Cartan group now acts by an actual native representation on the original module direct limit, with faithful compatible finite-level intertwining inclusions, uniqueness from the finite actions and a fixed embedded level1 module. The degree-one universal ordinary-distribution quotient map already has its original finite-level evaluation. Next construct the actual compatible Cartan action on the entire rational circle and prove equivariance of that global quotient map, then construct the source character components and complete the independent lower-rank argument through Kubert186–199. Combine that bound with actual surjections and upper bounds for independence, freeness and internal/global equality. The current global quotient map is not claimed injective or surjective, and no continuous action on the module limit is asserted. General-degree coherent primitive coordinates, unramified integer-ring identification and the general lambda fiber count remain open; FF.4 owns generic Galois-ring theory. Preserve parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18gaps and16requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -119854,7 +120613,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual degree-one finite Cartan values now define global rational-circle values in the actual native module direct limit, independently of every containing finite level. Their complete ambient-root ordinary law gives an actual homomorphism from the existing universal ordinary distribution quotient, with original finite-level evaluation and uniqueness. Next supply the Cartan action on the actual limit and compare its global distribution map with the source module equivariance and character components; then complete the independent lower-rank argument through Kubert186–199 and combine it with actual surjections and upper bounds for independence, freeness and internal/global equality. The current quotient map is not claimed injective or surjective. General-degree coherent primitive coordinates, unramified integer-ring identification and the general lambda fiber count remain open; FF.4 owns generic Galois-ring theory. Preserve parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18gaps and16requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The original common full-Witt Cartan group now acts by an actual native representation on the original module direct limit, with faithful compatible finite-level intertwining inclusions, uniqueness from the finite actions and a fixed embedded level1 module. The degree-one universal ordinary-distribution quotient map already has its original finite-level evaluation. Next construct the actual compatible Cartan action on the entire rational circle and prove equivariance of that global quotient map, then construct the source character components and complete the independent lower-rank argument through Kubert186–199. Combine that bound with actual surjections and upper bounds for independence, freeness and internal/global equality. The current global quotient map is not claimed injective or surjective, and no continuous action on the module limit is asserted. General-degree coherent primitive coordinates, unramified integer-ring identification and the general lambda fiber count remain open; FF.4 owns generic Galois-ring theory. Preserve parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18gaps and16requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -120404,36 +121163,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All26source findings and seven source versions remain whole; no new finding or independent review verdict is added. Global degree-one Cartan values, their ordinary all-root law and actual universal quotient factorization are established blueprint routes. The quotient map is not claimed injective or surjective. General-degree coordinates and fiber count, unramified-ring identification, lower rank and internal/global equality remain open.",
+    "sourceIssues": "All26source findings and seven source versions remain whole; no new finding or independent review verdict is added. The actual Cartan limit representation and faithful compatible finite-level intertwiners are established blueprint routes. Global circle action and quotient-map equivariance, general-degree coordinates and fiber count, unramified-ring identification, lower rank and internal/global equality remain open. No topology on the module limit is assumed.",
     "validation": {
-      "nodes": 1860,
+      "nodes": 1873,
       "kinds": {
         "definition": 22,
-        "lemma": 1073,
-        "construction": 199,
+        "lemma": 1083,
+        "construction": 202,
         "theorem": 359,
         "comparison": 207
       },
-      "api": 1293,
-      "packetTests": 3381,
-      "definitionConstructionTests": 867,
-      "typedExamples": 3384,
+      "api": 1303,
+      "packetTests": 3400,
+      "definitionConstructionTests": 876,
+      "typedExamples": 3403,
       "planets": 24,
-      "baseline": 1197,
-      "preservedWholeNodes": 1850,
-      "preservedBaseline": 1195,
+      "baseline": 1199,
+      "preservedWholeNodes": 1860,
+      "preservedBaseline": 1197,
       "preservedSourceIssues": 26,
       "newSourceIssues": 0,
-      "newNodes": 10,
-      "newNamedDeclarations": 10,
-      "newTypedTests": 16,
+      "newNodes": 13,
+      "newNamedDeclarations": 13,
+      "newTypedTests": 19,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 2122,
-      "dependencyEdges": 8867,
+      "reachableNodes": 2135,
+      "dependencyEdges": 8902,
       "acyclic": true,
-      "baselineLeaves": 1366,
+      "baselineLeaves": 1368,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -120448,7 +121207,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 951082,
+      "readerWords": 957428,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -120474,8 +121233,8 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 141,
-      "scratchCompleteLemmas": 1194,
+      "scratchCompleteDefinitions": 144,
+      "scratchCompleteLemmas": 1204,
       "scratchMathlibModules": 3049,
       "scratchTauModules": 7,
       "scratchErrors": 0,
@@ -120483,21 +121242,21 @@
       "scratchPlaceholders": 0,
       "finiteControls": {
         "levels": 48,
-        "exact_circle_orders": 1176,
-        "canonical_to_ambient_coefficients": 45926,
-        "all_level_consistency": 66988,
-        "ordinary_global_coefficients": 66988,
-        "positive_characteristic_indicator": 100482
+        "inverse_action_coefficients": 16214,
+        "action_composition_coefficients": 471850,
+        "norm_equivariance_coefficients": 52179,
+        "level_one_fixed_coefficients": 16214,
+        "positive_characteristic_fixed_norms": 48642
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "883fc6803508ded488818a730af4494b723b27422f0635eb7db363abde217201",
+        "sourceSha256": "f9c1ee0bc4e3c815cd1a8b54552fddeae1cfa3d16155a3046fd14bcaf249aa71",
         "modules": 3663,
-        "warnings": 5589,
+        "warnings": 5621,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,589 expected placeholder warnings across 3,663 pinned source modules. It includes all 10 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 883fc6803508ded488818a730af4494b723b27422f0635eb7db363abde217201.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,621 expected placeholder warnings across 3,663 pinned source modules. It includes all 13 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f9c1ee0bc4e3c815cd1a8b54552fddeae1cfa3d16155a3046fd14bcaf249aa71.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -120507,7 +121266,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "01a272b32ca758a100bd9e9470d0e6a430201394d32406743422de7f847ab6ab",
+      "sha256": "462649b902d7a80965e372fb712fda1c57c76355dd29aebd22de76a2c850ddfb",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -120522,11 +121281,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1194,
+        "completeLemmas": 1204,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "d373f259cd3606b2177e887a62fc0117a10399a85126a5dbacbb0ccb1906d173"
+        "sha256": "3b8b3a7d4e652185d6009b28a153dee78d71cd9861089b04cf9624efc3acc753"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -120664,17 +121423,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "883fc6803508ded488818a730af4494b723b27422f0635eb7db363abde217201",
+        "sourceSha256": "f9c1ee0bc4e3c815cd1a8b54552fddeae1cfa3d16155a3046fd14bcaf249aa71",
         "modules": 3663,
-        "warnings": 5589,
+        "warnings": 5621,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,589 expected placeholder warnings across 3,663 pinned source modules. It includes all 10 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 883fc6803508ded488818a730af4494b723b27422f0635eb7db363abde217201.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,621 expected placeholder warnings across 3,663 pinned source modules. It includes all 13 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f9c1ee0bc4e3c815cd1a8b54552fddeae1cfa3d16155a3046fd14bcaf249aa71.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "7ec04d9c5af7f5501e7e699d168b512e5c2fe444",
+      "base": "a1d12c16bc2af0363030b104fd4206b578fa55f5",
       "unchangedInputs": 79,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -132612,6 +133371,53 @@
         "warnings": 5589,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 5,589 expected placeholder warnings across 3,663 pinned source modules. It includes all 10 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 883fc6803508ded488818a730af4494b723b27422f0635eb7db363abde217201.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertLimitRepresentation": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5731,
+      "previousHead": "6b47c77dc46869084b984b6eb8f1f531c62925c6",
+      "previousMerge": "34887ffb7826a016876bcf401e29b089ef25897b",
+      "preservedWholeNodes": 1860,
+      "preservedBaseline": 1197,
+      "preservedFindings": 26,
+      "newNodes": 13,
+      "reading": "Published187 makes the original norm injections Cartan-module maps before passing to their injective limit. The already proved common full-Witt finite representations and norm equivariance therefore give an actual compatible family on the actual module limit. Native Representation, endomorphism multiplication and IntertwiningMap statements and bodies were read in Basic36–118, LinearMap/End22–68 and Intertwining1–118,199–238. The existing all-level universal property supplies operators, while finite-level extensionality proves the group laws. No action or compatibility package is assumed.",
+      "boundary": "The original common full-Witt Cartan group now acts by an actual native representation on the original module direct limit, with faithful compatible finite-level intertwining inclusions, uniqueness from the finite actions and a fixed embedded level1 module. The degree-one universal ordinary-distribution quotient map already has its original finite-level evaluation. Next construct the actual compatible Cartan action on the entire rational circle and prove equivariance of that global quotient map, then construct the source character components and complete the independent lower-rank argument through Kubert186–199. Combine that bound with actual surjections and upper bounds for independence, freeness and internal/global equality. The current global quotient map is not claimed injective or surjective, and no continuous action on the module limit is asserted. General-degree coherent primitive coordinates, unramified integer-ring identification and the general lambda fiber count remain open; FF.4 owns generic Galois-ring theory. Preserve parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18gaps and16requests remain; zero stages close.",
+      "inputBase": "99631f2034750d82acbf62fd0a491557743235db",
+      "sourceBoundary": "All26source findings and seven source versions remain whole; no new finding or independent review verdict is added. The actual Cartan limit representation and faithful compatible finite-level intertwiners are established blueprint routes. Global circle action and quotient-map equivariance, general-degree coordinates and fiber count, unramified-ring identification, lower rank and internal/global equality remain open. No topology on the module limit is assumed.",
+      "publication": {
+        "base": "a1d12c16bc2af0363030b104fd4206b578fa55f5",
+        "unchangedInputs": 79,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 48,
+        "inverse_action_coefficients": 16214,
+        "action_composition_coefficients": 471850,
+        "norm_equivariance_coefficients": 52179,
+        "level_one_fixed_coefficients": 16214,
+        "positive_characteristic_fixed_norms": 48642
+      },
+      "numericalMethod": "Exact integer and modular computations in actual degree-one residue-unit groups at48positive moduli. Finite reductions, inverse coefficient action, ordered composition and original full-lift norms are checked directly. Surjective full-Witt projections and the arbitrary-degree actual limit representation are proved by the complete native probe, not these finite checks.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "f9c1ee0bc4e3c815cd1a8b54552fddeae1cfa3d16155a3046fd14bcaf249aa71",
+        "modules": 3663,
+        "warnings": 5621,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 5,621 expected placeholder warnings across 3,663 pinned source modules. It includes all 13 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f9c1ee0bc4e3c815cd1a8b54552fddeae1cfa3d16155a3046fd14bcaf249aa71.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
