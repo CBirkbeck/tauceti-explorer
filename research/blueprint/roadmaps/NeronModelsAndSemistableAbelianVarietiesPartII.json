@@ -1,0 +1,216 @@
+{
+  "id": "NeronModelsAndSemistableAbelianVarietiesPartII",
+  "title": "Néron models and semistable abelian varieties, Part II: genus-one fibrations and rational elliptic surfaces",
+  "area": "arithmeticgeometry",
+  "parent": "NeronModelsAndSemistableAbelianVarieties",
+  "summary": "Extend the regular-model and component-group theory to genus-one fibrations over curves, finite-field nonsplit fibers and geometrically rational Jacobian surfaces. General Ferrand pinching supplies reusable conductor squares; excellent-DVR multiple fibers, global Weierstrass equations, Picard constancy and a corrected fourteen-model F₂ classification form the application chain. All classification conclusions retain an explicit completeness certificate.",
+  "readme": "This Part II begins after R11.2 and R11.4 and imports the existing StableReduction and EllipticCurves layers. The companion reader gives exact conventions, declaration contracts, API and tests. It does not prove the Enriques nonexistence theorem. The published eleven-model enumeration is replaced by fourteen candidates, with individual model verification separated from exhaustiveness.",
+  "prerequisites": [
+    "NeronModelsAndSemistableAbelianVarieties",
+    "tauceti:TauCetiRoadmap/StableReduction",
+    "tauceti:TauCetiRoadmap/EllipticCurves",
+    "SchemeAndStackFoundations",
+    "AlgebraicModuliForArithmeticGeometry",
+    "WeilConjectures",
+    "tauceti:Completed/IntegralLattices"
+  ],
+  "stages": [
+    {
+      "key": "G.0",
+      "title": "Ferrand pinching and conductor squares",
+      "description": "For a closed immersion Z→Y and finite map Z→Z′, define the geometric square by the topological quotient and the pullback of structure sheaves. Prove affine existence using the existing ring pullback, its cartesian property, finiteness, complement isomorphism and flat base change. For global schemes assume each finite fiber of Z→Z′ has an affine neighbourhood in Y (Ferrand 7.1); the stronger (AF) hypothesis is a convenient corollary. General conductor ideals and nodal/cuspidal pinching examples are included. The universal-homeomorphism restriction matches Witaszek 2.17; his topological predicate alone is not a categorical pushout.",
+      "requires": [
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "NeronModelsAndSemistableAbelianVarieties:R11.2"
+      ]
+    },
+    {
+      "key": "G.1",
+      "title": "Genus-one fibers and finite-field forms",
+      "description": "Extend the imported smooth-curve minimal models to regular relatively minimal genus-one fibrations over a smooth proper curve, including quasielliptic generic fibers. Distinguish gcd multiplicity, the indecomposable divisor and the reduced subscheme. Define geometric Kodaira realization using the upstream equation-side symbols, with intersection and field-of-definition data. Construct nonsplit I₁ and I₂ over finite fields by pinching. Prove rational-component incidence counts and the five F₂ elliptic isomorphism classes.",
+      "requires": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "SchemeAndStackFoundations:SF.3",
+        "SchemeAndStackFoundations:SF.5"
+      ]
+    },
+    {
+      "key": "G.2",
+      "title": "Multiple fibers over excellent discrete valuation rings",
+      "description": "Prove the regular-model adapters in Schröer 8.1–8.3: the transverse horizontal DVR divisor has reduced intersection Spec k but schematic fiber length m; normalize its base change, lift the section, verify Raynaud (N)*, and obtain cohomological flatness, h⁰=1 and h¹=1 from χ=0. Construct the reduced-fiber isogeny, deduce all finite extension counts and the F₂ isomorphism. Use LLR 6.6 only with algebraically closed residue field and retain its hypotheses; finite-field nonsplit descent is a separate result.",
+      "requires": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+        "NeronModelsAndSemistableAbelianVarieties:R11.2",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.3"
+      ]
+    },
+    {
+      "key": "G.3",
+      "title": "Rational Jacobians and global Weierstrass equations",
+      "description": "For a geometrically rational Jacobian genus-one surface over P¹, construct the relative cubic by contracting vertical components, prove the splitting of f_*O(3O), and obtain deg aᵢ≤i with the inverse chart s=1/t and aᵢ′=sⁱaᵢ(1/s). Prove the rational-surface Picard/intersection realization: rank10, odd unimodular signature(1,9), the unimodular fiber/section plane, and its even negative-definite rank8 complement. Import the abstract IntegralLattice API. State quasielliptic characteristic restrictions and canonical bundle/tame-wild corrections.",
+      "requires": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2",
+        "SchemeAndStackFoundations:SF.3",
+        "SchemeAndStackFoundations:SF.4",
+        "SchemeAndStackFoundations:SF.5",
+        "AlgebraicModuliForArithmeticGeometry:R09.1"
+      ]
+    },
+    {
+      "key": "G.4",
+      "title": "Picard constancy and fiber configurations",
+      "description": "Prove the genus-one generic Picard restriction with vertical kernel. For a rational Jacobian surface over F₂, state all five conditions of Schröer 9.4, including descent of geometric Mordell–Weil sections and the fiber point sum25. Prove the corrected graph rigidity of 9.5, treat IV as a triangle and distinguish all three terminal multiplicities of III* and II*. Relate Picard constancy to #J(F₂)=25 using geometric cycle classes and Frobenius. Prove the large-fiber, additive-fiber and uniqueness constraints with the singularity assumption Δ=0 kept in the c₄ test.",
+      "requires": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3",
+        "SchemeAndStackFoundations:SF.5",
+        "SchemeAndStackFoundations:SF.6",
+        "WeilConjectures:WC.7",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4"
+      ]
+    },
+    {
+      "key": "G.5",
+      "title": "Fourteen explicit models over F₂",
+      "description": "Specify and verify fourteen bounded Weierstrass models: eleven with nonzero j and three with j=0. Include the three omitted equations as separate model certificates. For each, prove global minimality, geometric rationality, all rational fiber types and splitting data, and the resolved-surface count25. Include the degree-two bad fibers of models2 and14. Generic cubic point counts alone do not certify the surface. Isomorphism classifications and exhaustiveness belong to G.6.",
+      "requires": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.3",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.4",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ]
+    },
+    {
+      "key": "G.6",
+      "title": "Completeness and classification certificates",
+      "description": "Prove that every relatively minimal geometrically rational Jacobian elliptic surface over P¹_F₂ with constant Picard scheme is equivalent to one of the fourteen verified models, under admissible Weierstrass changes and PGL₂(F₂). Separate the 2²¹ bounded coefficient search (2¹⁸ after the proved a₂=0 normalization), the 512 coordinate transformations, all-place minimality, and rational double-point resolution/counting from the exhaustiveness conclusion. Acquire William Lang (2000) before using its conductor/configuration exclusions, or certify a complete finite search including every rejection. The classifications are conditional on that explicit certificate until it is proved.",
+      "requires": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.5",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.4",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "schroer",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schröer",
+      "edition": "arXiv:2004.07025v3, 9 August 2022; separate from Annals197(2023)",
+      "url": "https://arxiv.org/pdf/2004.07025v3",
+      "sha256": "ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "§§3,6,7–10 including proofs; relevant introductory qualifications and bibliography"
+      ]
+    },
+    {
+      "id": "ferrand",
+      "title": "Conducteur, descente et pincement",
+      "authors": "Daniel Ferrand",
+      "edition": "Bulletin de la SMF 131(4) (2003), 553–585",
+      "url": "https://numdam.org/item/BSMF_2003__131_4_553_0.pdf",
+      "sha256": "4f1f2438ad6d757d67d2ecf154b1bc920d210d8abd54c02e6acd020805629d91",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "§§1.1–1.4,4.1–4.4,5.1–5.6,7.1–7.2 and proof of 7.1"
+      ]
+    },
+    {
+      "id": "witaszek",
+      "title": "Keel’s base point free theorem and quotients in mixed characteristic",
+      "authors": "Jakub Witaszek",
+      "edition": "Annals of Mathematics 195 (2022), 655–705",
+      "url": "https://par.nsf.gov/servlets/purl/10429755",
+      "sha256": "d71bd9254d80145a84f13059f18d37d6f777008900ab907b14d195bb61414ea0",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "§2.4, Definition 2.17 and Lemmas 2.18–2.26; §2.5 Definition 2.27 and Lemma 2.28"
+      ]
+    },
+    {
+      "id": "llr",
+      "title": "Néron models, Lie algebras, and reduction of curves of genus one",
+      "authors": "Qing Liu, Dino Lorenzini, Michel Raynaud",
+      "edition": "Inventiones Mathematicae 157 (2004), 455–518, author copy",
+      "url": "https://www.math.u-bordeaux.fr/~qliu/articles/LLR.pdf",
+      "sha256": "8cdd88f941467206ecc2e37049ba832460d5b2cd7102f50d93124d02fc5bff8a",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Theorem5.9 and proof; §6 pp494–497, Facts6.1, Lemma6.3, Corollary6.5, Theorem6.6 and Remark6.8; Proposition7.1 and start of its proof. The full64-page paper was not read."
+      ]
+    },
+    {
+      "id": "llr-corrigendum",
+      "title": "Corrigendum to Néron models, Lie algebras, and reduction of curves of genus one",
+      "authors": "Qing Liu, Dino Lorenzini, Michel Raynaud",
+      "edition": "Inventiones Mathematicae 214 (2018), 593–604",
+      "url": "https://www.math.u-bordeaux.fr/~qliu/articles/CorrigendumToNeronModelsLieAlg.pdf",
+      "sha256": "d2afb75093c7b97fcc146f326e572ad1c195811182b3eb371e0cccc45106273f",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Introduction and corrected statements §§1–3, pp593–595; distinction Pic⁰(X_K) versus Jacobian K-points"
+      ]
+    },
+    {
+      "id": "szydlo",
+      "title": "Elliptic fibers over non-perfect residue fields",
+      "authors": "Michael Szydło",
+      "edition": "Author preprint September 28, 2003; published JNT 104 (2004), 75–99",
+      "url": "http://szydlo.com/imperfect92803.pdf",
+      "sha256": "688e075a51d9f9a9e1dae77184e87ffa7d6ec2ca6e592960c698477f0df78c9f",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Introduction; §2, including image inspection of p3 equations (4); §3 Theorem 3.1 and restricted standard-type geometry"
+      ]
+    },
+    {
+      "id": "bm",
+      "title": "Enriques’ classification of surfaces in char. p, II",
+      "authors": "Enrico Bombieri and David Mumford",
+      "edition": "Complex Analysis and Algebraic Geometry (1977), 23–42; author scan",
+      "url": "https://www.dam.brown.edu/people/mumford/alg_geom/papers/1976d--EnrClass-II-NC.pdf",
+      "sha256": "89aa220711128c1dc78d12bc37106329790748fa0dba4f67623578c78488c09e",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Introduction pp23–26; §1 pp27–30, canonical bundle formula Theorem 2 and Proposition 4 with proofs"
+      ]
+    },
+    {
+      "id": "lang56",
+      "title": "Algebraic groups over finite fields",
+      "authors": "Serge Lang",
+      "edition": "American Journal of Mathematics 78 (1956), 555–563; scan",
+      "url": "https://wstein.org/papers/bib/Lang-Algebraic_Groups_Over_Finite_Fields.pdf",
+      "sha256": "665286caefaa894cf789f3b4ce3027accdf4d583836e8b13aafeab744373b44d",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Images pp555–558: Proposition 1, Proposition 2, Theorem 1 and corollary, Theorem 2 and proof"
+      ]
+    },
+    {
+      "id": "cdl",
+      "title": "Enriques Surfaces I",
+      "authors": "François Cossec, Igor Dolgachev, Christian Liedtke",
+      "edition": "Author manuscript dated April 19, 2024; not the 1989 edition",
+      "url": "https://sites.lsa.umich.edu/idolga/wp-content/uploads/sites/1334/2024/08/EnriquesOne.pdf",
+      "sha256": "3c6bf1d54954e28728935bbe1f4b1e38435fe469cf2b8543d657087815a2f526",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Front matter, dated April19,2024; §2.2 pp264–268, including image inspection of267–268; §4.1 selected pp359–370, image inspection365–366; §4.4 pp393–398, image inspection394; incidental §4.8 pp462–463. Sections4.2–4.3 and the full book were not read."
+      ]
+    }
+  ],
+  "status": "draft"
+}
