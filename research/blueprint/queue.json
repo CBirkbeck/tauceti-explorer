@@ -37847,8 +37847,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BENOIST-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5510"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5510",
+   "finishedAt": "2026-10-02T02:14:30Z"
   },
   {
    "id": "RT-PAPER-CALEGARI-GERAGHTY-18",
@@ -39802,7 +39803,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5524"
   },
   {
    "id": "RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
