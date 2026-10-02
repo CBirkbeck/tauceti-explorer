@@ -39179,7 +39179,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CANNING-LARSON-PAYNE-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5520"
   },
   {
    "id": "RT-PAPER-BHATT-MATHEW-23",
@@ -41319,8 +41320,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-NEWTON-THORNE-21-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5533"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5533",
+   "finishedAt": "2026-10-02T01:14:40Z"
   },
   {
    "id": "RT-PAPER-CHENEVIER-TAIBI-20",
