@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Eleven L3 nodes construct the actual corrected quotient homomorphism and integer-linear map, prove original relation annihilation, point/word evaluation, uniqueness, full-norm compatibility and nonzero zero-point image. All2,205 predecessor nodes and1,283 baseline records remain whole. Global descent, spanning and injectivity remain open.",
+  "summary": "Twelve L3 nodes construct the actual corrected global point function and original global quotient map in the original norm direct limit, with complete root sums, level comparison, uniqueness and nonzero zero-point image. All2,216 predecessor nodes and1,283 baseline records remain whole. Universal-distribution identification, rational spanning and injectivity remain open.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -140339,6 +140339,722 @@
       "acceptance": [
         "At level1 the class of the original zero point maps to1. At level2 the half-point class maps to0 while the zero-point class maps to1. At level6 the actual relation[1/6]+[2/3]−[1/3] maps to0, the zero-point class maps to[1]+[5], and negative twice the1/6 class plus the2/3 class maps to negative five halves of[1]−[5]. The existing quotient transition6→30 commutes with the original full norm."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-torus-order-pos",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every actual rational torus point has positive order",
+      "kind": "lemma",
+      "statement": "Every point of the original one-coordinate rational torus has positive additive order.",
+      "hypotheses": [
+        "The degree is one. The actual rational torus is the one-coordinate function group with value group the rational additive circle of period1. The finite Cartan groups and rational group rings are the existing truncated-Witt products and their group rings.",
+        "The target is the original rational-module direct limit of the original full coefficient norm maps. These maps are generally not unital ring maps; the limit is used only with its proved rational-module and additive structure.",
+        "For each actual point a, its positive additive order defines its least containing level. The global corrected value is the original inclusion of the corrected finite value at that level, with the preserved sourceE27 product correction.",
+        "The complete root identities use positive multipliers and finite enumerations of the actual full rational-torus root fibers. The containing-level bridge assumes the actual level kernel finite; the final root theorem supplies this using the existing finite-kernel theorem. Native divisibility supplies an actual root, without an assumed distribution law.",
+        "The source of the constructed additive map is the original free abelian group on all actual torus points modulo the existing ordinary distribution relations for every positive multiplier. Its comparison with each original internal quotient uses the existing levelToGlobal, without assuming it injective.",
+        "The nonzero value at the original zero torus point is the limit inclusion of coefficient1 at level1. The point function is not additive on torus points; the zero-point class is not the quotient additive identity.",
+        "This constructs the corrected map on the original global quotient and proves its exact level comparison and uniqueness. Universal-distribution identification, rational spanning, quotient injectivity, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the native additive equivalence from a function on the singleton finite type to its rational-circle coordinate.",
+        "Transport additive order along that actual equivalence.",
+        "Apply the existing positive-order theorem for the actual rational circle."
+      ],
+      "prerequisites": [
+        "mathlib:MulEquiv.piUnique",
+        "mathlib:MulEquiv.orderOf_eq",
+        "DirichletPadicLFunctions:L3/kubert-global-cartan-circle-order-pos"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedGlobal",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalTorus_order_pos"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, opening and proof of Theorem4.11: the compatible corrected values in the direct limit and their universal-distribution claim. Proposition4.8 on195–196 gives norm compatibility and4.10 on196–197 gives ordinary distribution.",
+          "match": "Constructs the actual global corrected point values in the original full-norm direct limit and descends them through the original global ordinary relations. Establishes complete root sums, original internal/global comparison, uniqueness and nonzero zero-point image. It does not infer the stronger universal-distribution identification or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.rationalTorus_order_pos_typed_api",
+          "kind": "compatibility",
+          "statement": "Every point of the original one-coordinate rational torus has positive additive order."
+        }
+      ],
+      "acceptance": [
+        "The actual zero point has value the level1 inclusion of1, equivalently the level6 inclusion of[1]+[5], and this is nonzero. The half-point value is0. The complete two-root sum at1/3 is the sum of the values at1/6 and2/3; its original global relation word maps to0. Every original internal quotient class at6 has the same global image after the existing level map6→30 and original internal-to-global comparison."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-value",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The corrected global value in the original norm limit",
+      "kind": "construction",
+      "statement": "Construct the global value of each actual rational torus point a as the original norm-limit inclusion of its corrected finite value at the positive level given by its actual additive order.",
+      "hypotheses": [
+        "The degree is one. The actual rational torus is the one-coordinate function group with value group the rational additive circle of period1. The finite Cartan groups and rational group rings are the existing truncated-Witt products and their group rings.",
+        "The target is the original rational-module direct limit of the original full coefficient norm maps. These maps are generally not unital ring maps; the limit is used only with its proved rational-module and additive structure.",
+        "For each actual point a, its positive additive order defines its least containing level. The global corrected value is the original inclusion of the corrected finite value at that level, with the preserved sourceE27 product correction.",
+        "The complete root identities use positive multipliers and finite enumerations of the actual full rational-torus root fibers. The containing-level bridge assumes the actual level kernel finite; the final root theorem supplies this using the existing finite-kernel theorem. Native divisibility supplies an actual root, without an assumed distribution law.",
+        "The source of the constructed additive map is the original free abelian group on all actual torus points modulo the existing ordinary distribution relations for every positive multiplier. Its comparison with each original internal quotient uses the existing levelToGlobal, without assuming it injective.",
+        "The nonzero value at the original zero torus point is the limit inclusion of coefficient1 at level1. The point function is not additive on torus points; the zero-point class is not the quotient additive identity.",
+        "This constructs the corrected map on the original global quotient and proves its exact level comparison and uniqueness. Universal-distribution identification, rational spanning, quotient injectivity, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the proved positive order to form the actual least positive level.",
+        "The native order-annihilation theorem places the original point in that level kernel.",
+        "Apply the original corrected finite value and original rational-module limit inclusion."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-torus-order-pos",
+        "mathlib:pow_orderOf_eq_one",
+        "DirichletPadicLFunctions:L3/kubert-rational-factors-rational-cartan-value",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedGlobal",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanGlobalValue"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, opening and proof of Theorem4.11: the compatible corrected values in the direct limit and their universal-distribution claim. Proposition4.8 on195–196 gives norm compatibility and4.10 on196–197 gives ordinary distribution.",
+          "match": "Constructs the actual global corrected point values in the original full-norm direct limit and descends them through the original global ordinary relations. Establishes complete root sums, original internal/global comparison, uniqueness and nonzero zero-point image. It does not infer the stronger universal-distribution identification or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.zero_point_is_the_original_level_one_class",
+          "kind": "degenerate",
+          "statement": "The global value of the actual zero torus point is the original norm-limit inclusion of the coefficient1 at level1."
+        },
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.half_point_vanishes_but_zero_point_does_not",
+          "kind": "non-example",
+          "statement": "The actual half-point has global corrected value0, whereas the zero torus point has nonzero global corrected value. This function is not an additive map of torus points."
+        },
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.the_two_roots_of_one_third_sum_correctly",
+          "kind": "computation",
+          "statement": "The global corrected values at1/6 and2/3 sum to the global corrected value at1/3, with both actual rational roots included."
+        }
+      ],
+      "acceptance": [
+        "The actual zero point has value the level1 inclusion of1, equivalently the level6 inclusion of[1]+[5], and this is nonzero. The half-point value is0. The complete two-root sum at1/3 is the sum of the values at1/6 and2/3; its original global relation word maps to0. Every original internal quotient class at6 has the same global image after the existing level map6→30 and original internal-to-global comparison."
+      ],
+      "api": [
+        {
+          "name": "kubertRationalCartanGlobalValue_level",
+          "role": "compatibility",
+          "statement": "For every positive N and actual point a in its original level kernel, the global value of the underlying point equals the original level-N limit inclusion of r_N(a)."
+        },
+        {
+          "name": "kubertRationalCartanGlobalValue_zero",
+          "role": "compatibility",
+          "statement": "The global value of the actual zero torus point equals the original limit inclusion of coefficient1 at level1."
+        },
+        {
+          "name": "kubertRationalCartanGlobalValue_level_root_sum",
+          "role": "compatibility",
+          "statement": "If m divides a positive N and a lies in the original level-N kernel, the sum of global corrected values over every actual torus point b with mb=ma equals the global corrected value at ma."
+        },
+        {
+          "name": "kubertRationalCartanGlobalValue_root_sum",
+          "role": "compatibility",
+          "statement": "For every positive multiplier m and every actual rational torus target a, the sum of the global corrected values over the entire actual fiber mb=a equals the global corrected value at a."
+        },
+        {
+          "name": "kubertRationalCartanGlobalValue_zero_ne_zero",
+          "role": "compatibility",
+          "statement": "The global corrected value of the actual zero torus point is nonzero in the original rational-module norm limit."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert197–198, Theorem4.11",
+          "how": "Provides the actual compatible global corrected map whose injectivity and rational span must be established separately."
+        },
+        {
+          "where": "Kubert198, finite-level image and integral lattices",
+          "how": "The original internal-to-global square relates actual integer relation classes to the finite corrected images inside the original norm limit, without assuming any quotient comparison injective."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-value-level",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every containing level gives the same global corrected value",
+      "kind": "lemma",
+      "statement": "For every positive N and actual point a in its original level kernel, the global value of the underlying point equals the original level-N limit inclusion of r_N(a).",
+      "hypotheses": [
+        "The degree is one. The actual rational torus is the one-coordinate function group with value group the rational additive circle of period1. The finite Cartan groups and rational group rings are the existing truncated-Witt products and their group rings.",
+        "The target is the original rational-module direct limit of the original full coefficient norm maps. These maps are generally not unital ring maps; the limit is used only with its proved rational-module and additive structure.",
+        "For each actual point a, its positive additive order defines its least containing level. The global corrected value is the original inclusion of the corrected finite value at that level, with the preserved sourceE27 product correction.",
+        "The complete root identities use positive multipliers and finite enumerations of the actual full rational-torus root fibers. The containing-level bridge assumes the actual level kernel finite; the final root theorem supplies this using the existing finite-kernel theorem. Native divisibility supplies an actual root, without an assumed distribution law.",
+        "The source of the constructed additive map is the original free abelian group on all actual torus points modulo the existing ordinary distribution relations for every positive multiplier. Its comparison with each original internal quotient uses the existing levelToGlobal, without assuming it injective.",
+        "The nonzero value at the original zero torus point is the limit inclusion of coefficient1 at level1. The point function is not additive on torus points; the zero-point class is not the quotient additive identity.",
+        "This constructs the corrected map on the original global quotient and proves its exact level comparison and uniqueness. Universal-distribution identification, rational spanning, quotient injectivity, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "The actual point order divides N by the original level-order theorem.",
+        "Use the original full-norm relation between the least level and N inside the original limit.",
+        "Apply the complete corrected-value full-norm compatibility and identify the actual included point."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-value",
+        "DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of-norm",
+        "DirichletPadicLFunctions:L3/kubert-factor-norm-rational-cartan-value-norm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedGlobal",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanGlobalValue_level"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, opening and proof of Theorem4.11: the compatible corrected values in the direct limit and their universal-distribution claim. Proposition4.8 on195–196 gives norm compatibility and4.10 on196–197 gives ordinary distribution.",
+          "match": "Constructs the actual global corrected point values in the original full-norm direct limit and descends them through the original global ordinary relations. Establishes complete root sums, original internal/global comparison, uniqueness and nonzero zero-point image. It does not infer the stronger universal-distribution identification or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.rationalCartanGlobalValue_level_typed_api",
+          "kind": "compatibility",
+          "statement": "For every positive N and actual point a in its original level kernel, the global value of the underlying point equals the original level-N limit inclusion of r_N(a)."
+        }
+      ],
+      "acceptance": [
+        "The actual zero point has value the level1 inclusion of1, equivalently the level6 inclusion of[1]+[5], and this is nonzero. The half-point value is0. The complete two-root sum at1/3 is the sum of the values at1/6 and2/3; its original global relation word maps to0. Every original internal quotient class at6 has the same global image after the existing level map6→30 and original internal-to-global comparison."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-value-zero",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The global zero-point value is the original level-one coefficient",
+      "kind": "lemma",
+      "statement": "The global value of the actual zero torus point equals the original limit inclusion of coefficient1 at level1.",
+      "hypotheses": [
+        "The degree is one. The actual rational torus is the one-coordinate function group with value group the rational additive circle of period1. The finite Cartan groups and rational group rings are the existing truncated-Witt products and their group rings.",
+        "The target is the original rational-module direct limit of the original full coefficient norm maps. These maps are generally not unital ring maps; the limit is used only with its proved rational-module and additive structure.",
+        "For each actual point a, its positive additive order defines its least containing level. The global corrected value is the original inclusion of the corrected finite value at that level, with the preserved sourceE27 product correction.",
+        "The complete root identities use positive multipliers and finite enumerations of the actual full rational-torus root fibers. The containing-level bridge assumes the actual level kernel finite; the final root theorem supplies this using the existing finite-kernel theorem. Native divisibility supplies an actual root, without an assumed distribution law.",
+        "The source of the constructed additive map is the original free abelian group on all actual torus points modulo the existing ordinary distribution relations for every positive multiplier. Its comparison with each original internal quotient uses the existing levelToGlobal, without assuming it injective.",
+        "The nonzero value at the original zero torus point is the limit inclusion of coefficient1 at level1. The point function is not additive on torus points; the zero-point class is not the quotient additive identity.",
+        "This constructs the corrected map on the original global quotient and proves its exact level comparison and uniqueness. Universal-distribution identification, rational spanning, quotient injectivity, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Evaluate the global value at the containing level1.",
+        "Use the proved corrected value at the original level-one point."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-value-level",
+        "DirichletPadicLFunctions:L3/kubert-rational-factors-rational-cartan-value-level-one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedGlobal",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanGlobalValue_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, opening and proof of Theorem4.11: the compatible corrected values in the direct limit and their universal-distribution claim. Proposition4.8 on195–196 gives norm compatibility and4.10 on196–197 gives ordinary distribution.",
+          "match": "Constructs the actual global corrected point values in the original full-norm direct limit and descends them through the original global ordinary relations. Establishes complete root sums, original internal/global comparison, uniqueness and nonzero zero-point image. It does not infer the stronger universal-distribution identification or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.rationalCartanGlobalValue_zero_typed_api",
+          "kind": "compatibility",
+          "statement": "The global value of the actual zero torus point equals the original limit inclusion of coefficient1 at level1."
+        }
+      ],
+      "acceptance": [
+        "The actual zero point has value the level1 inclusion of1, equivalently the level6 inclusion of[1]+[5], and this is nonzero. The half-point value is0. The complete two-root sum at1/3 is the sum of the values at1/6 and2/3; its original global relation word maps to0. Every original internal quotient class at6 has the same global image after the existing level map6→30 and original internal-to-global comparison."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-value-level-root-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual full root sum agrees in a containing level",
+      "kind": "lemma",
+      "statement": "If m divides a positive N and a lies in the original level-N kernel, the sum of global corrected values over every actual torus point b with mb=ma equals the global corrected value at ma.",
+      "hypotheses": [
+        "The degree is one. The actual rational torus is the one-coordinate function group with value group the rational additive circle of period1. The finite Cartan groups and rational group rings are the existing truncated-Witt products and their group rings.",
+        "The target is the original rational-module direct limit of the original full coefficient norm maps. These maps are generally not unital ring maps; the limit is used only with its proved rational-module and additive structure.",
+        "For each actual point a, its positive additive order defines its least containing level. The global corrected value is the original inclusion of the corrected finite value at that level, with the preserved sourceE27 product correction.",
+        "The complete root identities use positive multipliers and finite enumerations of the actual full rational-torus root fibers. The containing-level bridge assumes the actual level kernel finite; the final root theorem supplies this using the existing finite-kernel theorem. Native divisibility supplies an actual root, without an assumed distribution law.",
+        "The source of the constructed additive map is the original free abelian group on all actual torus points modulo the existing ordinary distribution relations for every positive multiplier. Its comparison with each original internal quotient uses the existing levelToGlobal, without assuming it injective.",
+        "The nonzero value at the original zero torus point is the limit inclusion of coefficient1 at level1. The point function is not additive on torus points; the zero-point class is not the quotient additive identity.",
+        "This constructs the corrected map on the original global quotient and proves its exact level comparison and uniqueness. Universal-distribution identification, rational spanning, quotient injectivity, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the existing point-preserving equivalence between the original internal root fiber and the full actual torus fiber.",
+        "Reindex the finite sum along that actual equivalence.",
+        "Replace every global value by its original level-N inclusion and move the additive inclusion outside the sum.",
+        "Apply the complete corrected internal-root sum and the containing-level evaluation of the target."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-value-level",
+        "DirichletPadicLFunctions:L3/kubert-finite-level-level-fiber-equiv",
+        "DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-value-internal-root-sum",
+        "mathlib:Equiv.prod_comp"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedGlobal",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanGlobalValue_level_root_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, opening and proof of Theorem4.11: the compatible corrected values in the direct limit and their universal-distribution claim. Proposition4.8 on195–196 gives norm compatibility and4.10 on196–197 gives ordinary distribution.",
+          "match": "Constructs the actual global corrected point values in the original full-norm direct limit and descends them through the original global ordinary relations. Establishes complete root sums, original internal/global comparison, uniqueness and nonzero zero-point image. It does not infer the stronger universal-distribution identification or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.rationalCartanGlobalValue_level_root_sum_typed_api",
+          "kind": "compatibility",
+          "statement": "If m divides a positive N and a lies in the original level-N kernel, the sum of global corrected values over every actual torus point b with mb=ma equals the global corrected value at ma."
+        }
+      ],
+      "acceptance": [
+        "The actual zero point has value the level1 inclusion of1, equivalently the level6 inclusion of[1]+[5], and this is nonzero. The half-point value is0. The complete two-root sum at1/3 is the sum of the values at1/6 and2/3; its original global relation word maps to0. Every original internal quotient class at6 has the same global image after the existing level map6→30 and original internal-to-global comparison."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-value-root-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The corrected global values satisfy every ordinary root identity",
+      "kind": "lemma",
+      "statement": "For every positive multiplier m and every actual rational torus target a, the sum of the global corrected values over the entire actual fiber mb=a equals the global corrected value at a.",
+      "hypotheses": [
+        "The degree is one. The actual rational torus is the one-coordinate function group with value group the rational additive circle of period1. The finite Cartan groups and rational group rings are the existing truncated-Witt products and their group rings.",
+        "The target is the original rational-module direct limit of the original full coefficient norm maps. These maps are generally not unital ring maps; the limit is used only with its proved rational-module and additive structure.",
+        "For each actual point a, its positive additive order defines its least containing level. The global corrected value is the original inclusion of the corrected finite value at that level, with the preserved sourceE27 product correction.",
+        "The complete root identities use positive multipliers and finite enumerations of the actual full rational-torus root fibers. The containing-level bridge assumes the actual level kernel finite; the final root theorem supplies this using the existing finite-kernel theorem. Native divisibility supplies an actual root, without an assumed distribution law.",
+        "The source of the constructed additive map is the original free abelian group on all actual torus points modulo the existing ordinary distribution relations for every positive multiplier. Its comparison with each original internal quotient uses the existing levelToGlobal, without assuming it injective.",
+        "The nonzero value at the original zero torus point is the limit inclusion of coefficient1 at level1. The point function is not additive on torus points; the zero-point class is not the quotient additive identity.",
+        "This constructs the corrected map on the original global quotient and proves its exact level comparison and uniqueness. Universal-distribution identification, rational spanning, quotient injectivity, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "The native rational-circle divisibility instance and its pointwise function instance make the actual torus integer divisible.",
+        "Use the native integer-to-natural conversion and scalar-surjectivity theorem to choose an actual root b with mb=a.",
+        "Take the positive level N equal to m times the actual order of b. The original point b belongs to its kernel, m divides N, and the existing rational-torus theorem makes that kernel finite.",
+        "Apply the containing-level full-root identity to this actual b. The arbitrary original finite enumeration of the root fiber is retained."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-value-level-root-sum",
+        "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-torus-order-pos",
+        "mathlib:RootableBy.surjective_pow",
+        "mathlib:Group.rootableByNatOfRootableByInt",
+        "mathlib:Pi.rootableBy",
+        "mathlib:orderOf_dvd_iff_pow_eq_one",
+        "mathlib:Fintype.ofFinite",
+        "DirichletPadicLFunctions:L3/kubert-finite-level-torus-level-finite"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedGlobal",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanGlobalValue_root_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, opening and proof of Theorem4.11: the compatible corrected values in the direct limit and their universal-distribution claim. Proposition4.8 on195–196 gives norm compatibility and4.10 on196–197 gives ordinary distribution.",
+          "match": "Constructs the actual global corrected point values in the original full-norm direct limit and descends them through the original global ordinary relations. Establishes complete root sums, original internal/global comparison, uniqueness and nonzero zero-point image. It does not infer the stronger universal-distribution identification or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.rationalCartanGlobalValue_root_sum_typed_api",
+          "kind": "compatibility",
+          "statement": "For every positive multiplier m and every actual rational torus target a, the sum of the global corrected values over the entire actual fiber mb=a equals the global corrected value at a."
+        }
+      ],
+      "acceptance": [
+        "The actual zero point has value the level1 inclusion of1, equivalently the level6 inclusion of[1]+[5], and this is nonzero. The half-point value is0. The complete two-root sum at1/3 is the sum of the values at1/6 and2/3; its original global relation word maps to0. Every original internal quotient class at6 has the same global image after the existing level map6→30 and original internal-to-global comparison."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-distribution",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual corrected map on the original global quotient",
+      "kind": "construction",
+      "statement": "Construct an additive homomorphism from the original global ordinary distribution quotient of the free abelian group on actual rational torus points to the original full-norm direct limit, taking each original point class to its global corrected value.",
+      "hypotheses": [
+        "The degree is one. The actual rational torus is the one-coordinate function group with value group the rational additive circle of period1. The finite Cartan groups and rational group rings are the existing truncated-Witt products and their group rings.",
+        "The target is the original rational-module direct limit of the original full coefficient norm maps. These maps are generally not unital ring maps; the limit is used only with its proved rational-module and additive structure.",
+        "For each actual point a, its positive additive order defines its least containing level. The global corrected value is the original inclusion of the corrected finite value at that level, with the preserved sourceE27 product correction.",
+        "The complete root identities use positive multipliers and finite enumerations of the actual full rational-torus root fibers. The containing-level bridge assumes the actual level kernel finite; the final root theorem supplies this using the existing finite-kernel theorem. Native divisibility supplies an actual root, without an assumed distribution law.",
+        "The source of the constructed additive map is the original free abelian group on all actual torus points modulo the existing ordinary distribution relations for every positive multiplier. Its comparison with each original internal quotient uses the existing levelToGlobal, without assuming it injective.",
+        "The nonzero value at the original zero torus point is the limit inclusion of coefficient1 at level1. The point function is not additive on torus points; the zero-point class is not the quotient additive identity.",
+        "This constructs the corrected map on the original global quotient and proves its exact level comparison and uniqueness. Universal-distribution identification, rational spanning, quotient injectivity, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the existing universal property of the original global relation quotient.",
+        "Supply the actual global corrected point function and the complete proved root law.",
+        "At ordinary weight zero the scalar factor is1, so every original global relation is annihilated."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-value-root-sum",
+        "DirichletPadicLFunctions:L3/kubert-relations",
+        "DirichletPadicLFunctions:L3/kubert-lift"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedGlobal",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanGlobalDistribution"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, opening and proof of Theorem4.11: the compatible corrected values in the direct limit and their universal-distribution claim. Proposition4.8 on195–196 gives norm compatibility and4.10 on196–197 gives ordinary distribution.",
+          "match": "Constructs the actual global corrected point values in the original full-norm direct limit and descends them through the original global ordinary relations. Establishes complete root sums, original internal/global comparison, uniqueness and nonzero zero-point image. It does not infer the stronger universal-distribution identification or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.the_original_global_two_root_word_is_annihilated",
+          "kind": "compatibility",
+          "statement": "The map on the original global quotient sends the original word[1/6]+[2/3]−[1/3] to0."
+        },
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.the_zero_point_class_retains_the_full_level_six_sum",
+          "kind": "computation",
+          "statement": "The global quotient class of the zero torus point maps to the original level6 norm-limit inclusion of[1]+[5]."
+        },
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.the_original_six_to_thirty_quotient_square_commutes",
+          "kind": "compatibility",
+          "statement": "Pass any original internal quotient class at6 through the existing level map to30 and the existing global comparison; its global corrected image equals the original level6 norm-limit inclusion of its internal corrected value."
+        }
+      ],
+      "acceptance": [
+        "The actual zero point has value the level1 inclusion of1, equivalently the level6 inclusion of[1]+[5], and this is nonzero. The half-point value is0. The complete two-root sum at1/3 is the sum of the values at1/6 and2/3; its original global relation word maps to0. Every original internal quotient class at6 has the same global image after the existing level map6→30 and original internal-to-global comparison."
+      ],
+      "api": [
+        {
+          "name": "kubertRationalCartanGlobalDistribution_of",
+          "role": "compatibility",
+          "statement": "The constructed global quotient homomorphism sends the original class of each actual torus point a to its global corrected value."
+        },
+        {
+          "name": "kubertRationalCartanGlobalDistribution_level",
+          "role": "compatibility",
+          "statement": "For every positive N and class z in the original internal ordinary quotient at N, applying its existing levelToGlobal and then the corrected global map equals the original level-N limit inclusion of the actual corrected internal quotient value of z."
+        },
+        {
+          "name": "kubertRationalCartanGlobalDistribution_unique",
+          "role": "characterisation",
+          "statement": "Any additive homomorphism from the same original global ordinary quotient to the same original norm limit taking every original point class to its global corrected value equals the constructed map."
+        },
+        {
+          "name": "kubertRationalCartanGlobalDistribution_zero_point_ne_zero",
+          "role": "compatibility",
+          "statement": "The original global quotient class of the zero torus point has nonzero image under the actual corrected global homomorphism."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert197–198, Theorem4.11",
+          "how": "Provides the actual compatible global corrected map whose injectivity and rational span must be established separately."
+        },
+        {
+          "where": "Kubert198, finite-level image and integral lattices",
+          "how": "The original internal-to-global square relates actual integer relation classes to the finite corrected images inside the original norm limit, without assuming any quotient comparison injective."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-distribution-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every original global point class has its actual corrected value",
+      "kind": "lemma",
+      "statement": "The constructed global quotient homomorphism sends the original class of each actual torus point a to its global corrected value.",
+      "hypotheses": [
+        "The degree is one. The actual rational torus is the one-coordinate function group with value group the rational additive circle of period1. The finite Cartan groups and rational group rings are the existing truncated-Witt products and their group rings.",
+        "The target is the original rational-module direct limit of the original full coefficient norm maps. These maps are generally not unital ring maps; the limit is used only with its proved rational-module and additive structure.",
+        "For each actual point a, its positive additive order defines its least containing level. The global corrected value is the original inclusion of the corrected finite value at that level, with the preserved sourceE27 product correction.",
+        "The complete root identities use positive multipliers and finite enumerations of the actual full rational-torus root fibers. The containing-level bridge assumes the actual level kernel finite; the final root theorem supplies this using the existing finite-kernel theorem. Native divisibility supplies an actual root, without an assumed distribution law.",
+        "The source of the constructed additive map is the original free abelian group on all actual torus points modulo the existing ordinary distribution relations for every positive multiplier. Its comparison with each original internal quotient uses the existing levelToGlobal, without assuming it injective.",
+        "The nonzero value at the original zero torus point is the limit inclusion of coefficient1 at level1. The point function is not additive on torus points; the zero-point class is not the quotient additive identity.",
+        "This constructs the corrected map on the original global quotient and proves its exact level comparison and uniqueness. Universal-distribution identification, rational spanning, quotient injectivity, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Apply the original global quotient lift evaluation on an actual free generator."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-distribution",
+        "DirichletPadicLFunctions:L3/kubert-lift-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedGlobal",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanGlobalDistribution_of"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, opening and proof of Theorem4.11: the compatible corrected values in the direct limit and their universal-distribution claim. Proposition4.8 on195–196 gives norm compatibility and4.10 on196–197 gives ordinary distribution.",
+          "match": "Constructs the actual global corrected point values in the original full-norm direct limit and descends them through the original global ordinary relations. Establishes complete root sums, original internal/global comparison, uniqueness and nonzero zero-point image. It does not infer the stronger universal-distribution identification or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.rationalCartanGlobalDistribution_of_typed_api",
+          "kind": "compatibility",
+          "statement": "The constructed global quotient homomorphism sends the original class of each actual torus point a to its global corrected value."
+        }
+      ],
+      "acceptance": [
+        "The actual zero point has value the level1 inclusion of1, equivalently the level6 inclusion of[1]+[5], and this is nonzero. The half-point value is0. The complete two-root sum at1/3 is the sum of the values at1/6 and2/3; its original global relation word maps to0. Every original internal quotient class at6 has the same global image after the existing level map6→30 and original internal-to-global comparison."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-distribution-level",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The original internal and global quotient maps agree",
+      "kind": "lemma",
+      "statement": "For every positive N and class z in the original internal ordinary quotient at N, applying its existing levelToGlobal and then the corrected global map equals the original level-N limit inclusion of the actual corrected internal quotient value of z.",
+      "hypotheses": [
+        "The degree is one. The actual rational torus is the one-coordinate function group with value group the rational additive circle of period1. The finite Cartan groups and rational group rings are the existing truncated-Witt products and their group rings.",
+        "The target is the original rational-module direct limit of the original full coefficient norm maps. These maps are generally not unital ring maps; the limit is used only with its proved rational-module and additive structure.",
+        "For each actual point a, its positive additive order defines its least containing level. The global corrected value is the original inclusion of the corrected finite value at that level, with the preserved sourceE27 product correction.",
+        "The complete root identities use positive multipliers and finite enumerations of the actual full rational-torus root fibers. The containing-level bridge assumes the actual level kernel finite; the final root theorem supplies this using the existing finite-kernel theorem. Native divisibility supplies an actual root, without an assumed distribution law.",
+        "The source of the constructed additive map is the original free abelian group on all actual torus points modulo the existing ordinary distribution relations for every positive multiplier. Its comparison with each original internal quotient uses the existing levelToGlobal, without assuming it injective.",
+        "The nonzero value at the original zero torus point is the limit inclusion of coefficient1 at level1. The point function is not additive on torus points; the zero-point class is not the quotient additive identity.",
+        "This constructs the corrected map on the original global quotient and proves its exact level comparison and uniqueness. Universal-distribution identification, rational spanning, quotient injectivity, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Choose an original free-abelian representative using native quotient surjectivity.",
+        "Induct on the original free-abelian generators, zero, negatives and sums.",
+        "For each point use the original internal-to-global evaluation, the two corrected quotient point-evaluation APIs and the containing-level identity.",
+        "Extend the identity by the actual additive homomorphism laws."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-distribution-of",
+        "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-value-level",
+        "DirichletPadicLFunctions:L3/kubert-finite-level-level-to-global",
+        "DirichletPadicLFunctions:L3/kubert-finite-level-level-to-global-of",
+        "DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-of",
+        "mathlib:QuotientGroup.mk'_surjective",
+        "mathlib:FreeAbelianGroup.induction_on"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedGlobal",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanGlobalDistribution_level"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, opening and proof of Theorem4.11: the compatible corrected values in the direct limit and their universal-distribution claim. Proposition4.8 on195–196 gives norm compatibility and4.10 on196–197 gives ordinary distribution.",
+          "match": "Constructs the actual global corrected point values in the original full-norm direct limit and descends them through the original global ordinary relations. Establishes complete root sums, original internal/global comparison, uniqueness and nonzero zero-point image. It does not infer the stronger universal-distribution identification or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.rationalCartanGlobalDistribution_level_typed_api",
+          "kind": "compatibility",
+          "statement": "For every positive N and class z in the original internal ordinary quotient at N, applying its existing levelToGlobal and then the corrected global map equals the original level-N limit inclusion of the actual corrected internal quotient value of z."
+        }
+      ],
+      "acceptance": [
+        "The actual zero point has value the level1 inclusion of1, equivalently the level6 inclusion of[1]+[5], and this is nonzero. The half-point value is0. The complete two-root sum at1/3 is the sum of the values at1/6 and2/3; its original global relation word maps to0. Every original internal quotient class at6 has the same global image after the existing level map6→30 and original internal-to-global comparison."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-value-zero-ne-zero",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The corrected global value of the zero point is nonzero",
+      "kind": "lemma",
+      "statement": "The global corrected value of the actual zero torus point is nonzero in the original rational-module norm limit.",
+      "hypotheses": [
+        "The degree is one. The actual rational torus is the one-coordinate function group with value group the rational additive circle of period1. The finite Cartan groups and rational group rings are the existing truncated-Witt products and their group rings.",
+        "The target is the original rational-module direct limit of the original full coefficient norm maps. These maps are generally not unital ring maps; the limit is used only with its proved rational-module and additive structure.",
+        "For each actual point a, its positive additive order defines its least containing level. The global corrected value is the original inclusion of the corrected finite value at that level, with the preserved sourceE27 product correction.",
+        "The complete root identities use positive multipliers and finite enumerations of the actual full rational-torus root fibers. The containing-level bridge assumes the actual level kernel finite; the final root theorem supplies this using the existing finite-kernel theorem. Native divisibility supplies an actual root, without an assumed distribution law.",
+        "The source of the constructed additive map is the original free abelian group on all actual torus points modulo the existing ordinary distribution relations for every positive multiplier. Its comparison with each original internal quotient uses the existing levelToGlobal, without assuming it injective.",
+        "The nonzero value at the original zero torus point is the limit inclusion of coefficient1 at level1. The point function is not additive on torus points; the zero-point class is not the quotient additive identity.",
+        "This constructs the corrected map on the original global quotient and proves its exact level comparison and uniqueness. Universal-distribution identification, rational spanning, quotient injectivity, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use its exact level-one coefficient value.",
+        "Apply injectivity of the original level-one inclusion and nonvanishing of1 in the original rational group ring."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-value-zero",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of-injective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedGlobal",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanGlobalValue_zero_ne_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, opening and proof of Theorem4.11: the compatible corrected values in the direct limit and their universal-distribution claim. Proposition4.8 on195–196 gives norm compatibility and4.10 on196–197 gives ordinary distribution.",
+          "match": "Constructs the actual global corrected point values in the original full-norm direct limit and descends them through the original global ordinary relations. Establishes complete root sums, original internal/global comparison, uniqueness and nonzero zero-point image. It does not infer the stronger universal-distribution identification or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.rationalCartanGlobalValue_zero_ne_zero_typed_api",
+          "kind": "compatibility",
+          "statement": "The global corrected value of the actual zero torus point is nonzero in the original rational-module norm limit."
+        }
+      ],
+      "acceptance": [
+        "The actual zero point has value the level1 inclusion of1, equivalently the level6 inclusion of[1]+[5], and this is nonzero. The half-point value is0. The complete two-root sum at1/3 is the sum of the values at1/6 and2/3; its original global relation word maps to0. Every original internal quotient class at6 has the same global image after the existing level map6→30 and original internal-to-global comparison."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-distribution-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual global point values determine the quotient map",
+      "kind": "lemma",
+      "statement": "Any additive homomorphism from the same original global ordinary quotient to the same original norm limit taking every original point class to its global corrected value equals the constructed map.",
+      "hypotheses": [
+        "The degree is one. The actual rational torus is the one-coordinate function group with value group the rational additive circle of period1. The finite Cartan groups and rational group rings are the existing truncated-Witt products and their group rings.",
+        "The target is the original rational-module direct limit of the original full coefficient norm maps. These maps are generally not unital ring maps; the limit is used only with its proved rational-module and additive structure.",
+        "For each actual point a, its positive additive order defines its least containing level. The global corrected value is the original inclusion of the corrected finite value at that level, with the preserved sourceE27 product correction.",
+        "The complete root identities use positive multipliers and finite enumerations of the actual full rational-torus root fibers. The containing-level bridge assumes the actual level kernel finite; the final root theorem supplies this using the existing finite-kernel theorem. Native divisibility supplies an actual root, without an assumed distribution law.",
+        "The source of the constructed additive map is the original free abelian group on all actual torus points modulo the existing ordinary distribution relations for every positive multiplier. Its comparison with each original internal quotient uses the existing levelToGlobal, without assuming it injective.",
+        "The nonzero value at the original zero torus point is the limit inclusion of coefficient1 at level1. The point function is not additive on torus points; the zero-point class is not the quotient additive identity.",
+        "This constructs the corrected map on the original global quotient and proves its exact level comparison and uniqueness. Universal-distribution identification, rational spanning, quotient injectivity, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Apply the existing uniqueness theorem for the original global relation quotient lift with the actual corrected point values."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-distribution",
+        "DirichletPadicLFunctions:L3/kubert-lift-unique"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedGlobal",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanGlobalDistribution_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, opening and proof of Theorem4.11: the compatible corrected values in the direct limit and their universal-distribution claim. Proposition4.8 on195–196 gives norm compatibility and4.10 on196–197 gives ordinary distribution.",
+          "match": "Constructs the actual global corrected point values in the original full-norm direct limit and descends them through the original global ordinary relations. Establishes complete root sums, original internal/global comparison, uniqueness and nonzero zero-point image. It does not infer the stronger universal-distribution identification or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.rationalCartanGlobalDistribution_unique_typed_api",
+          "kind": "compatibility",
+          "statement": "Any additive homomorphism from the same original global ordinary quotient to the same original norm limit taking every original point class to its global corrected value equals the constructed map."
+        }
+      ],
+      "acceptance": [
+        "The actual zero point has value the level1 inclusion of1, equivalently the level6 inclusion of[1]+[5], and this is nonzero. The half-point value is0. The complete two-root sum at1/3 is the sum of the values at1/6 and2/3; its original global relation word maps to0. Every original internal quotient class at6 has the same global image after the existing level map6→30 and original internal-to-global comparison."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-distribution-zero-point-ne-zero",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The original global zero-point class has nonzero image",
+      "kind": "lemma",
+      "statement": "The original global quotient class of the zero torus point has nonzero image under the actual corrected global homomorphism.",
+      "hypotheses": [
+        "The degree is one. The actual rational torus is the one-coordinate function group with value group the rational additive circle of period1. The finite Cartan groups and rational group rings are the existing truncated-Witt products and their group rings.",
+        "The target is the original rational-module direct limit of the original full coefficient norm maps. These maps are generally not unital ring maps; the limit is used only with its proved rational-module and additive structure.",
+        "For each actual point a, its positive additive order defines its least containing level. The global corrected value is the original inclusion of the corrected finite value at that level, with the preserved sourceE27 product correction.",
+        "The complete root identities use positive multipliers and finite enumerations of the actual full rational-torus root fibers. The containing-level bridge assumes the actual level kernel finite; the final root theorem supplies this using the existing finite-kernel theorem. Native divisibility supplies an actual root, without an assumed distribution law.",
+        "The source of the constructed additive map is the original free abelian group on all actual torus points modulo the existing ordinary distribution relations for every positive multiplier. Its comparison with each original internal quotient uses the existing levelToGlobal, without assuming it injective.",
+        "The nonzero value at the original zero torus point is the limit inclusion of coefficient1 at level1. The point function is not additive on torus points; the zero-point class is not the quotient additive identity.",
+        "This constructs the corrected map on the original global quotient and proves its exact level comparison and uniqueness. Universal-distribution identification, rational spanning, quotient injectivity, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Evaluate the original global point class.",
+        "Apply nonvanishing of the global corrected zero-point value."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-distribution-of",
+        "DirichletPadicLFunctions:L3/kubert-corrected-global-rational-cartan-global-value-zero-ne-zero"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCorrectedGlobal",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanGlobalDistribution_zero_point_ne_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published197–198, opening and proof of Theorem4.11: the compatible corrected values in the direct limit and their universal-distribution claim. Proposition4.8 on195–196 gives norm compatibility and4.10 on196–197 gives ordinary distribution.",
+          "match": "Constructs the actual global corrected point values in the original full-norm direct limit and descends them through the original global ordinary relations. Establishes complete root sums, original internal/global comparison, uniqueness and nonzero zero-point image. It does not infer the stronger universal-distribution identification or rational-spanning conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCorrectedGlobalTests.rationalCartanGlobalDistribution_zero_point_ne_zero_typed_api",
+          "kind": "compatibility",
+          "statement": "The original global quotient class of the zero torus point has nonzero image under the actual corrected global homomorphism."
+        }
+      ],
+      "acceptance": [
+        "The actual zero point has value the level1 inclusion of1, equivalently the level6 inclusion of[1]+[5], and this is nonzero. The half-point value is0. The complete two-root sum at1/3 is the sum of the values at1/6 and2/3; its original global relation word maps to0. Every original internal quotient class at6 has the same global image after the existing level map6→30 and original internal-to-global comparison."
+      ]
     }
   ],
   "requests": [
@@ -140485,7 +141201,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual corrected map on each original internal ordinary quotient is constructed, with complete relation annihilation, representative and point evaluation, uniqueness, full-norm compatibility through the existing quotient level maps, integer linearity and nonzero image of the original zero-point class. Next construct the corrected global value and quotient descent in the original norm direct limit, then prove source4.11 rational spanning and4.13 image/product. No quotient injectivity, source freeness, lower rank or internal-to-global injection is claimed; general-degree primitive coordinates and local-field comparisons remain open.",
+        "The corrected global point function and actual original global quotient map are constructed in the original full-norm direct limit. Complete root identities, arbitrary-containing-level evaluation, the original internal/global quotient square, uniqueness and nonzero zero-point image are established. Next prove equivariance for the corrected finite and global maps and source4.11 rational spanning, then source4.13 image/product. Universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -140517,7 +141233,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual corrected map on each original internal ordinary quotient is constructed, with complete relation annihilation, representative and point evaluation, uniqueness, full-norm compatibility through the existing quotient level maps, integer linearity and nonzero image of the original zero-point class. Next construct the corrected global value and quotient descent in the original norm direct limit, then prove source4.11 rational spanning and4.13 image/product. No quotient injectivity, source freeness, lower rank or internal-to-global injection is claimed; general-degree primitive coordinates and local-field comparisons remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The corrected global point function and actual original global quotient map are constructed in the original full-norm direct limit. Complete root identities, arbitrary-containing-level evaluation, the original internal/global quotient square, uniqueness and nonzero zero-point image are established. Next prove equivariance for the corrected finite and global maps and source4.11 rational spanning, then source4.13 image/product. Universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -141081,36 +141797,36 @@
     }
   ],
   "checks": {
-    "blueprint": "The indexed blueprint checker reports zero errors and 26 advisory short-API warnings, including 25 inherited warnings. The new warning is for the integer-linear conversion's two dedicated APIs (evaluation and point classes); addition, zero and integer scalar laws come from the native linear-map structure, and the actual additive quotient map supplies norm compatibility and uniqueness. No extra wrapper declaration is introduced solely to increase the API count.",
+    "blueprint": "The indexed blueprint checker reports zero errors and 26 advisory short-API warnings, including 26 inherited warnings. No new short-API warning is introduced.",
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All27 earlier source findings and eight source versions remain whole. No new source issue, independent review verdict or stage closure is added.",
     "validation": {
-      "nodes": 2216,
+      "nodes": 2228,
       "kinds": {
         "definition": 22,
-        "lemma": 1383,
-        "construction": 245,
+        "lemma": 1393,
+        "construction": 247,
         "theorem": 359,
         "comparison": 207
       },
-      "api": 1501,
-      "packetTests": 3887,
-      "definitionConstructionTests": 1010,
-      "typedExamples": 3890,
+      "api": 1510,
+      "packetTests": 3903,
+      "definitionConstructionTests": 1016,
+      "typedExamples": 3906,
       "planets": 24,
       "baseline": 1283,
-      "preservedWholeNodes": 2205,
+      "preservedWholeNodes": 2216,
       "preservedBaseline": 1283,
       "preservedSourceIssues": 27,
       "newSourceIssues": 0,
-      "newNodes": 11,
-      "newNamedDeclarations": 11,
-      "newTypedTests": 15,
+      "newNodes": 12,
+      "newNamedDeclarations": 12,
+      "newTypedTests": 16,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 2478,
-      "dependencyEdges": 9934,
+      "reachableNodes": 2490,
+      "dependencyEdges": 9977,
       "acyclic": true,
       "baselineLeaves": 1449,
       "stageRequestLeaves": [
@@ -141127,7 +141843,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 1135047,
+      "readerWords": 1142622,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -141153,8 +141869,8 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 187,
-      "scratchCompleteLemmas": 1505,
+      "scratchCompleteDefinitions": 189,
+      "scratchCompleteLemmas": 1515,
       "scratchMathlibModules": 3282,
       "scratchTauModules": 10,
       "scratchErrors": 0,
@@ -141162,23 +141878,24 @@
       "scratchPlaceholders": 0,
       "finiteControls": {
         "levels": 36,
-        "originalRelationRows": 2935,
-        "annihilatedRelationCoefficients": 37459,
-        "wordRelationChecks": 2935,
-        "integerLinearCoefficients": 396,
-        "zeroPointNonzero": 36,
-        "quotientNormWordChecks": 140,
-        "quotientNormCoefficients": 1479
+        "containingLevelValues": 666,
+        "containingLevelCoefficients": 9519,
+        "globalRootFibers": 1098,
+        "globalRootCoefficients": 14254,
+        "globalWordRelations": 1098,
+        "quotientLevelWords": 140,
+        "quotientLevelCoefficients": 1479,
+        "zeroPointValues": 36
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "f7980a0d99bc250db5163556e36c89753abd6c5999cfb1715b5e073b6c77ac5e",
+        "sourceSha256": "1d4aa427b2390abdc0b6f585c31ded459ef15932571350661b550d0765ca6e71",
         "modules": 3914,
-        "warnings": 6451,
+        "warnings": 6479,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 6,451 expected placeholder warnings across 3,914 pinned source modules. It includes all 11 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f7980a0d99bc250db5163556e36c89753abd6c5999cfb1715b5e073b6c77ac5e.",
+        "scope": "The separate partial signature file also compiled with zero errors and 6,479 expected placeholder warnings across 3,914 pinned source modules. It includes all 12 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1d4aa427b2390abdc0b6f585c31ded459ef15932571350661b550d0765ca6e71.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       },
@@ -141216,7 +141933,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "4b4d9f1bcd0496688b8d4e408f87dbe9225cc5db62c34cca9a3ba78516887e13",
+      "sha256": "e41f6b1c1738740f290ed99ca2f6de738ae72e72c18db1ba5647db39883055c3",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -141231,11 +141948,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1505,
+        "completeLemmas": 1515,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "a3d1e941a989f671d4cd03d4447cb79a2b987e8ef9be395b5706c103d7ef3826"
+        "sha256": "4420caf62b8962bbcdc8d62b0a623e2f6049c2153ba9d9747fed76c44f6170bf"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -141455,17 +142172,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "f7980a0d99bc250db5163556e36c89753abd6c5999cfb1715b5e073b6c77ac5e",
+        "sourceSha256": "1d4aa427b2390abdc0b6f585c31ded459ef15932571350661b550d0765ca6e71",
         "modules": 3914,
-        "warnings": 6451,
+        "warnings": 6479,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 6,451 expected placeholder warnings across 3,914 pinned source modules. It includes all 11 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f7980a0d99bc250db5163556e36c89753abd6c5999cfb1715b5e073b6c77ac5e.",
+        "scope": "The separate partial signature file also compiled with zero errors and 6,479 expected placeholder warnings across 3,914 pinned source modules. It includes all 12 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1d4aa427b2390abdc0b6f585c31ded459ef15932571350661b550d0765ca6e71.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "ef6210786452f9c191ac7136e5f6b1cd6dfeaada",
+      "base": "17ee7f13b2fcc561f7339a020b874d6ab32a39ff",
       "unchangedInputs": 79,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -154550,6 +155267,56 @@
         "warnings": 6451,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 6,451 expected placeholder warnings across 3,914 pinned source modules. It includes all 11 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f7980a0d99bc250db5163556e36c89753abd6c5999cfb1715b5e073b6c77ac5e.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertCorrectedGlobal": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5838,
+      "previousHead": "578437e00f5f218d28baba19bda09ccd85d38038",
+      "previousMerge": "10615b74be52559692935b2c762904356dd6fb19",
+      "preservedWholeNodes": 2216,
+      "preservedBaseline": 1283,
+      "preservedFindings": 27,
+      "newNodes": 12,
+      "reading": "Published Kubert197–198 Theorem4.11 and the opening of4.12–4.13 were reread. The construction here uses the original5414 finite/full fiber equivalence and levelToGlobal,5730 original module limit,5731 rational-circle order positivity and5838 actual internal corrected quotient. The earlier analytic-test-function global values are not reused as corrected values. Pinned native scalar-root surjectivity, pointwise divisibility and the integer-to-natural conversion were read together with the actual rational AddCircle instance. The three exact native baseline records are reused; no new external source, source version or finding is added.",
+      "boundary": "The corrected global point function and actual original global quotient map are constructed in the original full-norm direct limit. Complete root identities, arbitrary-containing-level evaluation, the original internal/global quotient square, uniqueness and nonzero zero-point image are established. Next prove equivariance for the corrected finite and global maps and source4.11 rational spanning, then source4.13 image/product. Universal-distribution identification, quotient injectivity, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.",
+      "inputBase": "46ed8c0cbf3c6b017383bcbf58177a0c672dfcae",
+      "sourceBoundary": "All27 earlier source findings and eight source versions remain whole. No new source issue, independent review verdict or stage closure is added.",
+      "publication": {
+        "base": "17ee7f13b2fcc561f7339a020b874d6ab32a39ff",
+        "unchangedInputs": 79,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 36,
+        "containingLevelValues": 666,
+        "containingLevelCoefficients": 9519,
+        "globalRootFibers": 1098,
+        "globalRootCoefficients": 14254,
+        "globalWordRelations": 1098,
+        "quotientLevelWords": 140,
+        "quotientLevelCoefficients": 1479,
+        "zeroPointValues": 36
+      },
+      "numericalMethod": "Exact rational points modulo one are assigned their actual reduced denominator, evaluated at that least level, then compared in every containing full-norm level through36. Every root fiber with multiplier times target denominator at most36 is enumerated using all actual rational roots and its original integer relation word is checked coefficient by coefficient. Original integer-word level maps, the zero-point full sums and the half-point counterexample are checked. These finite checks do not establish quotient injectivity or universal-distribution identification.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "1d4aa427b2390abdc0b6f585c31ded459ef15932571350661b550d0765ca6e71",
+        "modules": 3914,
+        "warnings": 6479,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 6,479 expected placeholder warnings across 3,914 pinned source modules. It includes all 12 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1d4aa427b2390abdc0b6f585c31ded459ef15932571350661b550d0765ca6e71.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
