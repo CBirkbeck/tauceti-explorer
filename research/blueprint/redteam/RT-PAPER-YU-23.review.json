@@ -1,0 +1,210 @@
+{
+  "redteam": "RT-PAPER-YU-23",
+  "findings": [
+    {
+      "finding": "RT-PAPER-YU-23/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an ownership and prospective dependency defect, not an installed atlas cycle. Yu §2.1 pp6–8 and §§3.3/5.2 require the early Weil, twist, cutoff and shifted-stability interfaces named in the finding. The existing stage graph is acyclic. Reuse PAPER-DELIGNE-80/s1a-1.1.10-weil-group-of-scheme, but do not blindly insert DWP.5 into EDC.2: DWP.5 already requires EDC.2. Separate intrinsic duality from the later Weil-equivariance adapter, or request an earlier shared Weil prefix. Split generic carriers/dictionaries from the late counting comparisons; generalize the QM identity's signs and lengths. Keep function-field analytic ownership coordinated with finding 4."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The GS packet explicitly requests the cusp-form and strong multiplicity-one input from FA.6; Yu p10 additionally needs ordinary multiplicity one to identify subspaces. Neither GS.0 nor GS.6 is its supplier. FA.6 precedes both. Give FA.6 the spherical global function-field multiplicity-one and Whittaker interfaces (including their distinction from strong multiplicity one), importing generic local representation theory; place the degree-zero nonvanishing lemma after those inputs. AL.3's number-field/global unfolding contract is not the full supplier."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. SF.3 already reaches GS.0 through SF.4; making its Serre-duality input depend on GS.0's whole rank/degree/slope package reverses that order. Chaudouard pp18–19 separately uses Serre duality and image/coimage slope inequalities. Split the intrinsic duality theorem from those inequalities and the shifted-stability application. An earlier shared bundle-degree API is also permissible; the whole GS.0 package is not necessary for Serre duality."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with a single coherent fix replacing the mutually inconsistent alternatives in the submitted fix. AS.6 explicitly limits its corpus to number-field trace formulas; AL.3 includes archimedean/global number-field theory, while Yu's degrees, constant-field twists and rational z-variable L-functions require function-field inputs. FA.6 already supplies the cusp/degree foundation. Coordinate one function-field spectral extension with PAPER-YUN-ZHANG-17/45, retain genuine field-independent AS and local AL imports, and classify the remaining full function-field constructions as missing. Chaudouard Thm5.2.1 pp29–30 is a Lie-algebra kernel theorem: the group analogue needs its own transposed proof. Split off the generic lattice quasi-polynomial lemma before adding 025→157; do not also add the reverse dependency from finding 15. Generic zero/pole analysis belongs with the analysis interface, not necessarily in the counting owner."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The accepted Schiffmann extraction already assigns the shared bundle/Higgs counting, universal polynomials and cohomological results to CountingBundlesAndHallAlgebrasOfCurves, and Weil-tuple density to the LPV Part II. Name these owners and import their contracts once. Preserve characteristic restrictions and the all-characteristic extension separately, Mellit's genus-at-least-one hypothesis, and the genuinely Yu-specific translation to the unique top-weight monomial. Point the source-closure gaps at the accepted extraction without pretending that an accepted plan supplies a completed proof."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Yu 100 duplicates Schiffmann/36's density interface; 134 needs the same monodromy direction. Route them to the existing LPV Part II, or remove the density dependency when uniqueness is proved from a single multiplicatively independent curve and all its powers. The existing hyperelliptic-family contract is not itself the full tricanonical curve-moduli theorem: request that precise adapter and its characteristic hypotheses rather than marking it already built or planned in full."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an incomplete planned contract. ET.2b supplies sufficiently positive twists under its characteristic assumptions, but does not explicitly supply Yu's canonical-twist slope stability or Appendix B's zero twist. This does not establish that the canonical divisor violates every numerical positivity bound. Reuse a generic twisted-Higgs carrier where available and place the missing canonical/zero-twist stability API with the shared bundle/Higgs counting owner."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed. At TauCeti f790474, exists_indecomposable_decomposition, isLocalRing_end_of_isIndecomposable, exists_equiv_linearEquiv_of_isLocalRing_end and exists_equiv_linearEquiv_of_directSum_of_isLocalRing_end are actual algebraic inputs, not merely roadmap plans. Their statements were read. Finite-dimensional End(E), splitting idempotents and the regular-module transfer make the local-ring argument available; no direct application of a module theorem to a bundle is asserted. Retain 027 as missing for the categorical/bundle transport and coprime geometric-indecomposability comparison."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed. AS.1's cuspidal induction does not cover all discrete inducing data in 060; 061 combines intertwiners with the later (G,M)-family result; the geometric kernel in 024 need not depend on its later spectral decomposition. The residual-spectrum/global Rankin–Selberg/scalar-intertwiner interfaces in 057/066 must be ordered together. Apply these splits within the function-field extension chosen for finding 4, preserving early generic imports and avoiding the proposed AS/AL mutual dependency."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed. 042 mixes lisse-coefficient duality, purity, the alternating-determinant Euler product and the Euler characteristic. EDC.2 precedes DWP.1 and DWP.7, so intrinsic duality cannot require those later weight results. Split these contracts and let 129 depend only on lisse duality, adding Weil-equivariance later if needed. WC.1's constant-coefficient zeta contract does not automatically supply every coefficient-valued assertion; findings 23–24 supply the remaining explicit requests."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a prospective cycle. Item 099 requires 098 while the counting brief imports the character interpretation from the Part II owning 099. Put the generic invariant ring and admissible cone upstream of both consumers, with a precise classical-group character adapter, and keep the function-field specialization downstream. The optional import need not create an installed edge today; it still leaves an unusable design order."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed only for the unresolved generated-owner identity and deferral risk. make_queue.paper_designs groups Part II routes by parent, so GlobalShtukasAndFunctionFieldLanglandsCountingPartII is not the generated owner ID. Coordinate the grouped design or propose a maintainer-reviewed split and update all references consistently. Reject the finding's assertion of complete independence from the other proposals: Yu overlaps PAPER-YUN-ZHANG-17/45 in function-field Eisenstein/spectral theory, as finding 4 itself demonstrates. Do not automatically split by route ID or duplicate that shared analytic theory."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The route-12 brief must be rewritten as one coherent statement of the targets, not an original paragraph plus conflicting review addenda. Yu pp3–5 gives the quantifiers, paired eigenvalues, grading and strict top-weight bound; Thm1.2 includes g≠1 and gcd(e,n)=1 and its explicit recurrence; Thm1.3 identifies the truncated trace with isocline-bundle counts. State these precisely, define the symbols and Weyl group, and distinguish imported coprime Higgs results from the all-degree isocline consequence requiring the bridge in finding 18."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The brief's shortened or absent titles do not meet the exact title-and-ID import requirement, and it omits the WeilConjectures power-sum input of 120/122. Resolve imported Part II IDs through the generated design and accepted ownership decisions. In particular, identify the GWZ20 topological-mirror-symmetry direction for its GL_n result rather than assigning that result to the endoscopic extension. Add the shared Schiffmann/LPV owners from findings 5–6."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed. All 25 items 155–179 have null dependencies and uses, and none appears as an incoming dependency of an older item; their statements and notes explicitly name consumers. Item 154 already has dependencies, so it should not be described as wholly isolated in the same sense. Populate supplier and consumer edges after the ownership splits. Do not copy the submitted edge lists wholesale: 025→157 together with 157→025, and 033→156 together with 156→033, would form two-cycles. Split generic Γ/quasi-polynomial and bundle–adele dictionaries from the later trace/counting conclusions before checking the repaired graph."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a missing cited-result/provenance and acceptance-test entry. Yu p2 states Drinfeld's rank-two theorem (1.1.1), and p4 identifies the Deligne conjectures. Add the exact rank-two specialization, its source and the test that the unique top term is t^(4g−3) with all other weights below 8g−6. This consequence is already implied mathematically by 108/109; do not add Drinfeld's original proof as a new prerequisite of Yu's proof or plan a second general counting theorem."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed. 040 embeds the Jacobian class-number identity without separating its supplier; 007's finite divisor class group is not the determinant formula. Add/import |Pic^0(X_k)(F_(q^k))|=det(1−Fr^k|H^1)=∏(1−σ_i^k) at the appropriate shared Weil/Jacobian owner, with the paired-eigenvalue translation to J_g. Make 112 and the rank-one consequence consume it, rather than rebuilding it inside the late counting extension."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Mellit Thm1.1 concerns absolutely indecomposable bundles, not all isocline bundles. Its opening pages and Schiffmann §2's Galois-descent formulas show the missing passage: extract Frobenius orbits of absolutely indecomposable bundles to count indecomposables, then use Krull–Schmidt's multiset Euler product at the fixed reduced slope e'/n'. Degree independence makes this coefficient depend on n and n'=n/gcd(n,e). Record the finite-coefficient/slope bounds and add the Mellit/descent dependencies to 119. Mellit's cited theorem assumes g≥1; handle genus zero separately by the elementary splitting theorem, not by silently extending its source hypotheses."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a missing proof adapter, not a false value of (5.3.8). In Yu p41 the e=−1 cone contributes (−1)^m, while differentiating the reflected family f(u/z)/f(u) at 1 contributes −uf'(u)/f(u) for each of its m basis roots. These signs cancel. Add this reflected-family argument-principle variant to the proof of 067 and preserve the needed meromorphic-domain and Haar hypotheses. Any new sourceIssue must retain version-limited search/provenance rather than declaring a newly discovered error in the published theorem."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a prerequisite/ownership inventory gap. Yu's cited locators require Lafforgue1997, Arthur1982, Moeglin–Waldspurger1989, Deligne–Flicker2013, Chavdarov and Larsen, and the twisted coprime nonabelian-Hodge comparison used with Simpson. Arthur's original Lem7.1 and Chaudouard's source locators were checked; this verification does not claim a full reading of every listed prerequisite proof. Record precise unmet contracts and public sources, search current owners before requesting new work, and replace the already accepted Schiffmann extraction's status as an untracked outside supplier with its shared owners."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Yu pp23–25 explicitly invokes Arthur1981 Lem6.2 and Cor6.5. Reading Arthur pp37–39 confirms smooth extension of the (G,M)-sum and the product formula under independence of the restricted family from Q, including vector-valued versions. Add these as reusable AS.6 source/import entries, then state the conversion to Yu's normalization. For the root-basis identity from Arthur1982 Lem7.1, preserve vol(a_M^G/Z(F∨)) until proving the type-A lattice cancellation; do not erase normalization factors merely because Yu's final formula has coefficient one."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Yu pp38–39 reduces 066 to the restricted Euler product of global intertwiners and the spherical local Gindikin–Karpelevich evaluation. An instruction to prove them inside 066 is not the separate reusable input contract the extraction needs. Import generic local principal-series/rank-one theory once, and give the global function-field product its own convergence, Haar and normalization adapter coordinated with findings 4 and 34–35."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Yu pp42–44 uses Lafforgue VI.10 to obtain weight-zero tensor systems and the q^(−1/2) numerator-root radius for distinct cuspidal pairs, not just self-pairs. GS.6 already owns the full correspondence with purity consequences; request that exact supplier, including finite-order determinant/unramified twists and the chosen complex embedding. Add the general-pair consequence to the dependencies of 068/069 and the graph calculation. Do not infer purity of an arbitrary continuous ℓ-adic twist without those hypotheses."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The lisse-coefficient Euler characteristic and general-pair functional equation are not supplied by the constant-coefficient WC.1 description or H^2-only duality in 042/129. Split out χ(X,F1⊗F2∨)=(2−2g)n1n2 for the smooth proper curve and the coefficient-valued alternating determinant/duality functional equation, with the finite-field and unramified hypotheses. Route these generic cohomological inputs once and make the degree and epsilon-factor computations consume them."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Counting the JSON gives 179 items (11 library,25 planned,143 missing), whereas the report opening still says 154/11/23/120 and later history retains other counts. There are 56 active sourceIssues, not 27. The active E28 is a central-character typo distinct from the archived withdrawn floor misreading also named E28. Rewrite the current summary and clearly label historical checkpoint counts; give the archived correction an unambiguous historical identifier without reviving it as an erratum."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Source-route reasons are forwarded to their blueprint jobs, but route 3 omits the coprimality restriction of 116 and the corrected root labelling in 066; route 6 omits the canonical and zero twisting divisors. Copy these exact restrictions/corrections into the consuming route reasons after the ownership repair, preserving 175 as the missing cone-vanishing input. The correction in the route-12 brief alone does not reach every consumer."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Generic finite-groupoid mass is already a shared stack-point-counting input; 138 should import it once, with only Yu's stable-Higgs rational coarse-point comparison and scalar-stabilizer calculation retained as its special adapter. A generic definition and mass algebra do not belong uniquely to the local-system counting extension."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The pinned module decomposition and Azumaya uniqueness theorems in finding 8 are built, and TauCeti's preadditive category API includes indecomposability versus trivial idempotents when idempotents split. Replace the stale 'planned' claims by precise imports, retaining finite-dimensional/local-end and vector-bundle transport hypotheses; no built Krull–Schmidt theorem for Coh(X) is inferred from these module/category inputs alone."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Yu p5 defines [z^v] only for v≥1 although Thm1.2 uses a_j=0 for absent parts and states that only finitely many factors differ from one. Item097 already gives these factors the intended value. Extend the convention to v≥0, explicitly giving [z^0]aut_(X_l)(z^l)^s=1, and record a version-limited notation misprint affecting nothing. A claim of novelty requires its own bounded search; no failure of the recurrence is implied."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a quotation/locator correction. The p9 cuspidality line explicitly says P∈P(B), but the p18 cutoff line instead says every standard parabolic without that string. E1's single printed field therefore misquotes its second locator. Give separately labelled faithful excerpts of both lines and retain the existing intended proper-parabolic correction and reviewed mathematical-effect classification."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Mellit's opening theorem states permutation and reciprocal-pair invariance of the universal polynomial, needed to place the result in R_g. Add the precise S_g⋉(S_2)^g action to 046 and its import contract, preserving integrality, genus and specialization hypotheses instead of relying on later consumers to introduce it."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed. 054 should cite the already built TauCeti.Contour.argumentPrinciple_divisor for its logarithmic-derivative contour integral. Its pinned statement assumes a positive radius, meromorphicity on the closed ball and zero boundary order. The remaining work is the torus/family transport and zero/pole index adapter; do not rebuild the general argument principle or drop its domain/boundary hypotheses."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed as inconsistent sourceIssue classification and explanation. E7's affine-degree membership typo is real: the floor differences telescope to −e, but the subsequent cone formula uses the correct intended degree. Its existing review permits 'nothing'; E37 explicitly says the intended probability-Haar convention gives affects=nothing while its field still says 'the proof'. Align the classifications with the actual uses and retain the necessary corrections/measure contract, without claiming the top-level counting theorem false."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The existing E8 review contains a concrete normalized GL2 calculation, while 153/S2/report still claim the sign convention cannot be chosen. With the same ρ=δ^(1/2), membership ρ_R^(−1)φ∈π requires basis ρ_R φ_π. The rank-one local shell sum is 1+(1−q_v^(−1))Σ_(m≥1)t^m=(1−q_v^(−1)t)/(1−t); the inverse basis shifts the factor. Record this check with the parameter and Haar dictionary and narrow S2 to the still unproved global analytic inputs; changing basis remains useful as a generic transport API."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The route-12 summary calls the root-label issue in (5.3.2) a scalar-normalization issue only. Yu p39 and the normalized GL2 calculation distinguish the integrated root from the Rankin–Selberg numerator's ordered pair: for B→opposite B the factor uses χ1χ2^(−1), not the reversed pair. Correct the label consistently with E34, while retaining the good-representative limitation and conjugation symmetry explaining why the later zero/pole count is unaffected."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/36",
+      "verdict": "confirmed",
+      "reason": "Confirmed in the version read. The six proposed slips in §§4–5 are local indexing/type corrections; apply them only at the stated displays and preserve the surrounding conventions. The source passages on pp24,26,27,29,35,39 were checked against the finding. Record one grouped or separate bounded sourceIssues with the printed and corrected expressions and actual mathematical effect, using a non-involutive Weyl permutation when checking w versus w^(−1); do not relabel them automatically as errors in the uncollated journal version."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a need to split compound planned imports and update the stale statements. 051's product formula requires the (G,M)-family and independence hypotheses; 054 combines the argument principle with family integration; 055 combines cone gluing and vanishing. Its current statement already records a domain containing the relevant orbit, so do not claim that hypothesis is absent. Separate the generic AS input and function-field cone adapter with their exact domains and dependencies."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/38",
+      "verdict": "confirmed",
+      "reason": "Confirmed as partial library coverage. Mathlib.Analysis.Meromorphic.Divisor already supplies divisor, finite support on a closed ball, multiplication, inversion and nonzero scalar invariance. Read statements at 082e2d3: the multiplicative API requires finite orders, so 'not identically zero' must mean the relevant nonzero germ/order condition on the domain. Keep 172 missing only for its open-disc sum, multiplicity/root-count and scaled-variable adapters; do not claim the full bundle of operations already follows without hypotheses."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The proof of Proposition6.1.1 is on pp42–43; both duality displays (6.1.1)–(6.1.2) are on p42. Equation(6.2.11) and Remarque6.2.3 are on p47, and Lemme6.3.2(b) is on p50. Add those precise locators to 042/072/079 and narrow E14 to p42. These locator corrections do not change the already corrected mathematical statements."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/40",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The all-indexings integer-value assumption in 122 is unnecessarily strong once the chosen ordinary curve exports the full Galois group S_g⋉(S_2)^g from Appendix C's condition (2′). Galois automorphisms fix an integer evaluation and realize every pair-preserving reindexing, also after taking constant-field powers. Add that full-Galois-group conclusion to 121 and use it to justify the valuation-oriented indexing in 122; restore the paper's one-indexing-per-curve hypothesis. Multiplicative independence alone does not export this action."
+    },
+    {
+      "finding": "RT-PAPER-YU-23/41",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a stale proof/locator record. 109 points to §7.2 as if it proves the top-weight assertion, but the assertion appears in Thm1.1 p3 and the necessary separate input is now recorded in 178/E49. Search of §§7.2–7.3 found no explicit top-weight argument. Make 109 consume 178 and give the strict lower-rank correction-term weight bound, or another complete proof; retain the distinction between this supplied proof and what Yu's v5 text explicitly proves."
+    }
+  ]
+}
