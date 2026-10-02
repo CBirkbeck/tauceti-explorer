@@ -34599,8 +34599,9 @@
     "REV-PAPER-ZHANG-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-ZHANG-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4074"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4074",
+   "finishedAt": "2026-10-02T09:14:56Z"
   },
   {
    "id": "RT-PAPER-DIMITROV-GAO-HABEGGER-21",
@@ -39983,7 +39984,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GAN-SAVIN-23-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5698"
   },
   {
    "id": "RT-PAPER-CHANG-CHEN-MISHIBA-23",
