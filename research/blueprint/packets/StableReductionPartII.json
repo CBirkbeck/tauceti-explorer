@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Partial checkpoint: 19 declaration-sized polynomial node-ring helpers integrate the monic exactness, two cokernels, actual dual normal form/residue/scalar action and arbitrary coefficient base change. All geometric/moduli stages and the reserved key remain partial; no implementation or global stable-reflexivity claim.",
+  "summary": "Partial checkpoint: 19 declaration-sized polynomial node-ring helpers integrate the monic exactness, two cokernels, actual dual normal form/residue/scalar action and arbitrary coefficient base change. All geometric/moduli stages and the reserved key remain partial; no implementation or global stable-reflexivity claim. Canonical polynomial-model algebra, tensor-module, dual and quotient adapters specify naturality and coherence; the original upstream supplier references are restored to canonical prerequisites. No stage is closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -213,6 +213,41 @@
         "module": "Mathlib/RingTheory/Flat/Basic.lean",
         "provides": "Free modules are flat.",
         "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 231; blob b827fedf96ce35fa107badc6b41b7de0b8e14c66."
+      },
+      {
+        "ref": "mathlib:AlgHom.liftEquiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+        "provides": "The generic algebra base-change adjunction with the pure-tensor formula; it does not calculate the pointed-node quotient.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 775."
+      },
+      {
+        "ref": "mathlib:Module.compHom",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Module/RingHom.lean",
+        "provides": "Scalar restriction along a ring homomorphism, with action f(s)·m.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 57."
+      },
+      {
+        "ref": "mathlib:Submodule.liftQ",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "The quotient linear map induced by a map vanishing on the actual submodule.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 118."
+      },
+      {
+        "ref": "mathlib:TensorProduct.lid",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Associator.lean",
+        "provides": "Canonical R⊗_R M≃M, sending r⊗m to r·m.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 39."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "provides": "The generic heterobasic equivalence M⊗_A(A⊗_R N)≃M⊗_R N; used to specify the two-step base-change coherence square, not replanned.",
+        "checked": "Actual statement and construction read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 436."
       }
     ]
   },
@@ -353,7 +388,8 @@
       ],
       "prerequisites": [
         "SchemeAndStackFoundations:SF.1",
-        "mathlib:AlgebraicGeometry.Scheme"
+        "mathlib:AlgebraicGeometry.Scheme",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
       ],
       "proofSteps": [
         "Use the parent’s stable-pointed and smooth-curve family data, without redefining stability.",
@@ -441,10 +477,7 @@
       ],
       "planet": {
         "name": "Moduli stacks of pointed curves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.0/pullback-coherence",
@@ -498,7 +531,8 @@
         "StableReductionPartII:MC.0/pullback-coherence",
         "SchemeAndStackFoundations:SF.1",
         "AlgebraicModuliForArithmeticGeometry:R09.3",
-        "mathlib:CategoryTheory.Pseudofunctor.IsStack"
+        "mathlib:CategoryTheory.Pseudofunctor.IsStack",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Descend the relatively ample log-dualizing line with the family by polarized-scheme descent.",
@@ -519,10 +553,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC0",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.0/universal-curve",
@@ -634,7 +665,9 @@
         "The full range, base and auxiliary data are specified in the statement; none are suppressed by a global stable-pair convention."
       ],
       "prerequisites": [
-        "AlgebraicModuliForArithmeticGeometry:R09.1"
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
       ],
       "proofSteps": [
         "Import the parent’s m≥2 vanishing and m≥3 very-ampleness with arbitrary-base-change locally free direct images.",
@@ -654,11 +687,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC1",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.1/tricanonical-hilbert",
@@ -674,7 +703,8 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.1/tricanonical-cohomology",
-        "AlgebraicModuliForArithmeticGeometry:R09.2"
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
       ],
       "proofSteps": [
         "Use the universal flat Hilbert family with the stated polynomial.",
@@ -742,10 +772,7 @@
       ],
       "planet": {
         "name": "Tricanonical Hilbert locus"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.1/frame-torsor",
@@ -876,7 +903,8 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.1/isom-representable",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
       ],
       "proofSteps": [
         "Identify first-order automorphisms with vector fields.",
@@ -896,10 +924,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC1",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.1/isom-proper",
@@ -915,7 +940,9 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.1/isom-representable",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction"
       ],
       "proofSteps": [
         "Use the parent’s uniqueness of stable models, with limit/descent to the required noetherian test setting.",
@@ -935,11 +962,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC1",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.1/finite-unramified-diagonal",
@@ -996,7 +1019,9 @@
         "The full range, base and auxiliary data are specified in the statement; none are suppressed by a global stable-pair convention."
       ],
       "prerequisites": [
-        "AlgebraicModuliForArithmeticGeometry:R09.6"
+        "AlgebraicModuliForArithmeticGeometry:R09.6",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Use the lci nodal two-term resolution and local Ext sheaves supported at finitely many nodes.",
@@ -1016,11 +1041,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC1",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.1/versal-node-parameters",
@@ -1037,7 +1058,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.1/obstruction-vanishing",
         "StableReductionPartII:MC.1/tricanonical-cohomology",
-        "AlgebraicModuliForArithmeticGeometry:R09.6"
+        "AlgebraicModuliForArithmeticGeometry:R09.6",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
       ],
       "proofSteps": [
         "The local node deformation has one smoothing coordinate per node.",
@@ -1061,10 +1083,7 @@
       },
       "planet": {
         "name": "Node-smoothing parameters"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.1/smooth-dimension",
@@ -1157,7 +1176,8 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.1/finite-unramified-diagonal",
-        "AlgebraicModuliForArithmeticGeometry:R09.4"
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction"
       ],
       "proofSteps": [
         "Import the parent’s stable-reduction existence over a finite DVR extension and uniqueness.",
@@ -1180,10 +1200,7 @@
       },
       "planet": {
         "name": "Properness of stable moduli"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.2/binary-node-form",
@@ -2193,6 +2210,16 @@
           "name": "NodeSectionFactorization.PolynomialModel.dualResidueInclusion",
           "role": "simp",
           "statement": "Every characterized residue kills multiplication maps j↦rj."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualMultiplication",
+          "role": "constructor",
+          "statement": "The R-linear map m:R→D sends r to (j↦rj); its range is the submodule in the actual dual quotient."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualMultiplicationApply",
+          "role": "simp",
+          "statement": "m(r)(j)=rj."
         }
       ],
       "tests": [
@@ -2530,7 +2557,7 @@
         "Multiplication compatibility follows on pure tensors."
       ],
       "acceptance": [
-        "The native prototype certifies the specified A′-linear equivalence; the algebra-equiv adapter remains a recorded signature gap."
+        "The algebra-equivalence adapter section-ring-tensor-equivalence specifies the same natural underlying linear map; the prototype records signatures, not verified implementation proofs."
       ],
       "sources": [
         {
@@ -2610,7 +2637,7 @@
         "The correction formula proves compatibility with the scalar action of φ(r), and pure tensors specify the natural evaluation comparison."
       ],
       "acceptance": [
-        "The formal signature presently gives A′-linearity and natural evaluation. Native R′-module transport, identity/composition of dual tensor comparisons, and a quotient-equivalence adapter remain explicit integration gaps; no global sheaf conclusion follows."
+        "The native canonical dual adapter, tensor action, R′-linearity, identity/composition and actual quotient comparison have declaration-sized signatures. No completed-local or global sheaf conclusion follows."
       ],
       "sources": [
         {
@@ -2644,10 +2671,13 @@
         "StableReductionPartII:MC.2/section-dual-residue",
         "StableReductionPartII:MC.2/section-dual-base-change",
         "StableReductionPartII:MC.2/section-ideal-coefficient-flat",
-        "StableReductionPartII:MC.2/section-dual-coefficient-flat"
+        "StableReductionPartII:MC.2/section-dual-coefficient-flat",
+        "StableReductionPartII:MC.2/section-dual-tensor-scalar",
+        "StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
       ],
       "proofSteps": [
-        "Apply the separately named polynomial dual, residue, coefficient-flatness and natural coefficient-base-change calculations; these are inputs to the completed-local comparison, not the global conclusion.",
+        "Apply the separately named polynomial dual, residue, coefficient-flatness, ring-linear tensor and actual quotient-base-change calculations; these are inputs to the completed-local comparison, not the global conclusion.",
         "Apply the source’s flat-completion and faithful-descent comparison to transfer the calculation to the local family.",
         "Use the invertible-ideal calculation at smooth points and descend the fibrewise-compatible local identifications."
       ],
@@ -2665,10 +2695,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.2/expansion",
@@ -2685,7 +2712,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.0/universal-curve",
         "StableReductionPartII:MC.2/dual-section-ideal",
-        "AlgebraicModuliForArithmeticGeometry:R09.1"
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Form the coherent cokernel and the relative symmetric algebra.",
@@ -2753,10 +2781,7 @@
       ],
       "planet": {
         "name": "Pointed expansion"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.2/expansion-flat",
@@ -2811,7 +2836,9 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.2/expansion-flat",
-        "StableReductionPartII:MC.2/expansion"
+        "StableReductionPartII:MC.2/expansion",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
       ],
       "proofSteps": [
         "Identify geometric fibres by the Proj charts, including nodal and collision cases.",
@@ -2832,11 +2859,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.2/forget",
@@ -2852,7 +2875,9 @@
       ],
       "prerequisites": [
         "StableReductionPartII:key/moduli-curves",
-        "StableReductionPartII:MC.0/pullback-coherence"
+        "StableReductionPartII:MC.0/pullback-coherence",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction"
       ],
       "proofSteps": [
         "Apply the already-owned family contraction on every fibre category.",
@@ -2923,11 +2948,7 @@
       ],
       "planet": {
         "name": "Forgetful morphism"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.2/expansion-contraction-inverses",
@@ -2943,7 +2964,8 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.2/expansion-stable",
-        "StableReductionPartII:MC.2/forget"
+        "StableReductionPartII:MC.2/forget",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
       ],
       "proofSteps": [
         "The parent contraction of an expanded tail or bridge recovers the original family with its arbitrary section.",
@@ -2967,10 +2989,7 @@
       },
       "planet": {
         "name": "Universal-curve equivalence"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.2/genus-zero-base",
@@ -2986,7 +3005,9 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.0/effective-descent",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
       ],
       "proofSteps": [
         "Use the normalization genus and stable-flag count to exclude reducible stable three-pointed trees.",
@@ -3006,11 +3027,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.2/higher-genus-pointed",
@@ -3067,7 +3084,9 @@
       "prerequisites": [
         "StableReductionPartII:MC.2/higher-genus-pointed",
         "StableReductionPartII:MC.2/expansion-contraction-inverses",
-        "AlgebraicModuliForArithmeticGeometry:R09.4"
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
       ],
       "proofSteps": [
         "Use the parent family gluing and stable-flag criterion for the rigid labelled rational subcurve.",
@@ -3088,11 +3107,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.2/genus-one-base",
@@ -3192,7 +3207,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.2/genus-zero-base",
         "StableReductionPartII:MC.2/expansion-contraction-inverses",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
       ],
       "proofSteps": [
         "The universal curve over M̄₀,₃ is P¹ with its three sections.",
@@ -3212,10 +3228,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.3/separating-clutching",
@@ -3231,7 +3244,8 @@
       ],
       "prerequisites": [
         "StableReductionPartII:key/moduli-curves",
-        "StableReductionPartII:MC.0/pullback-coherence"
+        "StableReductionPartII:MC.0/pullback-coherence",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
       ],
       "proofSteps": [
         "Apply the parent’s external scheme clutching and reindex the remaining markings.",
@@ -3302,10 +3316,7 @@
       ],
       "planet": {
         "name": "Separating clutching"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.3/nonseparating-clutching",
@@ -3321,7 +3332,8 @@
       ],
       "prerequisites": [
         "StableReductionPartII:key/moduli-curves",
-        "StableReductionPartII:MC.0/pullback-coherence"
+        "StableReductionPartII:MC.0/pullback-coherence",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
       ],
       "proofSteps": [
         "Apply the parent’s self-clutching pushout with its base-change isomorphisms.",
@@ -3392,10 +3404,7 @@
       ],
       "planet": {
         "name": "Nonseparating clutching"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.3/clutching-finite-unramified",
@@ -3413,7 +3422,8 @@
         "StableReductionPartII:MC.3/separating-clutching",
         "StableReductionPartII:MC.3/nonseparating-clutching",
         "StableReductionPartII:MC.2/pointed-dm-theorem",
-        "AlgebraicModuliForArithmeticGeometry:R09.4"
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
       ],
       "proofSteps": [
         "A source automorphism mapping to the identity target is the identity on the partial normalization, proving representability.",
@@ -3437,10 +3447,7 @@
       },
       "planet": {
         "name": "Finite unramified clutching"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.3/boundary-types",
@@ -3457,7 +3464,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.3/separating-clutching",
         "StableReductionPartII:MC.3/nonseparating-clutching",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
       ],
       "proofSteps": [
         "Specialize the parent stable graphs to one edge and keep leg labels.",
@@ -3528,10 +3536,7 @@
       ],
       "planet": {
         "name": "Stable boundary graphs"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.3/boundary-normalization",
@@ -3588,7 +3593,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.0/universal-curve",
         "StableReductionPartII:MC.2/pointed-dm-theorem",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Pull back the parent nodal relative dualizing line along the smooth section.",
@@ -3655,10 +3661,7 @@
       ],
       "planet": {
         "name": "Marking cotangent lines"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.3/forget-cotangent-line",
@@ -3675,7 +3678,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.3/cotangent-line",
         "StableReductionPartII:MC.2/forget",
-        "StableReductionPartII:MC.3/boundary-types"
+        "StableReductionPartII:MC.3/boundary-types",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Apply the local contraction comparison for the section cotangent sheaf.",
@@ -3695,10 +3699,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC3",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.3/node-conormal",
@@ -3715,7 +3716,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.3/cotangent-line",
         "StableReductionPartII:MC.3/boundary-normalization",
-        "StableReductionPartII:MC.1/versal-node-parameters"
+        "StableReductionPartII:MC.1/versal-node-parameters",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
       ],
       "proofSteps": [
         "In the local smoothing xy=t, coordinate changes x↦ux,y↦vy transform t by uv.",
@@ -3736,10 +3738,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC3",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.4/coarse-space",
@@ -3895,7 +3894,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.1/tricanonical-cohomology",
         "StableReductionPartII:MC.1/tricanonical-hilbert",
-        "AlgebraicModuliForArithmeticGeometry:R09.2"
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Apply relative Serre vanishing to the ideal sheaf of the tricanonical embedding over the noetherian family base.",
@@ -3916,10 +3916,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.4/moduli-determinant-ample",
@@ -4191,7 +4188,9 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.4/full-level",
-        "PELModuli:M6"
+        "PELModuli:M6",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
       ],
       "proofSteps": [
         "Use faithfulness of Aut(C)→Aut(J(C),λ), separately from finite curve automorphism groups.",
@@ -4212,11 +4211,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.4/fine-level-scheme",
@@ -4319,7 +4314,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.0/universal-curve",
         "StableReductionPartII:MC.2/pointed-dm-theorem",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Relative duality identifies f_*ω with the dual of R¹f_*O_C, whose locally free genus-g and base-change API is supplied by the parent.",
@@ -4398,10 +4394,7 @@
       ],
       "planet": {
         "name": "Hodge bundle"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.5/hodge-determinant",
@@ -4525,7 +4518,9 @@
       "prerequisites": [
         "StableReductionPartII:MC.5/hodge-bundle",
         "StableReductionPartII:MC.5/hodge-determinant",
-        "StableReductionPartII:MC.2/forget"
+        "StableReductionPartII:MC.2/forget",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Use the parent’s universally trivial O-pushforward and zero R¹ along the rational contraction.",
@@ -4545,11 +4540,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC5",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.5/separating-hodge",
@@ -4566,7 +4557,9 @@
       "prerequisites": [
         "StableReductionPartII:MC.5/hodge-bundle",
         "StableReductionPartII:MC.5/hodge-determinant",
-        "StableReductionPartII:MC.3/separating-clutching"
+        "StableReductionPartII:MC.3/separating-clutching",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "The normalization exact sequence for O has no new graph-cycle H¹ in the separating case.",
@@ -4586,11 +4579,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC5",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.5/nonseparating-hodge",
@@ -4607,7 +4596,9 @@
       "prerequisites": [
         "StableReductionPartII:MC.5/hodge-bundle",
         "StableReductionPartII:MC.5/hodge-determinant",
-        "StableReductionPartII:MC.3/nonseparating-clutching"
+        "StableReductionPartII:MC.3/nonseparating-clutching",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Use the parent residue description of nodal dualizing forms; opposite residues give one additional one-dimensional quotient.",
@@ -4627,11 +4618,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC5",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.5/boundary-divisor",
@@ -4648,7 +4635,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.1/normal-crossing-boundary",
         "StableReductionPartII:MC.3/boundary-types",
-        "StableReductionPartII:MC.2/pointed-dm-theorem"
+        "StableReductionPartII:MC.2/pointed-dm-theorem",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Use the local product of the independent node parameters.",
@@ -4724,10 +4712,7 @@
       ],
       "planet": {
         "name": "Boundary divisor"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.5/rational-noether",
@@ -4745,7 +4730,8 @@
         "StableReductionPartII:MC.5/hodge-determinant",
         "StableReductionPartII:MC.5/boundary-divisor",
         "StableReductionPartII:MC.1/versal-node-parameters",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Use the lci relative cotangent complex, not an unjustified smooth-morphism GRR hypothesis.",
@@ -4766,10 +4752,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC5",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.5/complex-picard-torsion-free",
@@ -4950,7 +4933,8 @@
         "StableReductionPartII:MC.1/proper-moduli",
         "StableReductionPartII:MC.1/smooth-dimension",
         "StableReductionPartII:MC.4/irreducible-geometric-fibres",
-        "AlgebraicModuliForArithmeticGeometry:R09.4"
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Use the universally connected proper-fibre O-pushforward comparison and the base Spec Z.",
@@ -4970,10 +4954,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC5",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.5/semi-canonical-noether",
@@ -5067,7 +5048,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.5/boundary-divisor",
         "StableReductionPartII:MC.1/versal-node-parameters",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
       ],
       "proofSteps": [
         "Pull the product of the universal node smoothing parameters back to the trait.",
@@ -5088,10 +5070,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC5",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.6/maximal-variation",
@@ -5185,7 +5164,8 @@
       ],
       "prerequisites": [
         "StableReductionPartII:key/moduli-curves",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
       ],
       "proofSteps": [
         "Specify a projective compactification of the base and a stable extension restricting to the given family, including its classifying isomorphism."
@@ -5251,10 +5231,7 @@
       ],
       "planet": {
         "name": "Stable compactification"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.6/graph-closure",
@@ -5428,7 +5405,8 @@
         "StableReductionPartII:MC.4/full-level",
         "SchemeAndStackFoundations:SF.3",
         "PELModuli:M5",
-        "PELModuli:M6"
+        "PELModuli:M6",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
       ],
       "proofSteps": [
         "Use the relative smooth-curve Jacobian, canonical principal polarization and arbitrary-base-change comparisons. Their family representability belongs to a proposed JacobianChallenge Part II, not to a field-only Picard theorem.",
@@ -5495,10 +5473,7 @@
       ],
       "planet": {
         "name": "Torelli morphism"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.6/torelli-finite-fibres",
@@ -5514,7 +5489,8 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.6/smooth-torelli",
-        "StableReductionPartII:MC.4/level-rigidity"
+        "StableReductionPartII:MC.4/level-rigidity",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
       ],
       "proofSteps": [
         "Import strong classical Torelli: a ppav isomorphism of Jacobians equals ± the Jacobian of a curve isomorphism, with the hyperelliptic qualification.",
@@ -5535,10 +5511,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.6/jacobian-hodge-comparison",
@@ -5556,7 +5529,8 @@
         "StableReductionPartII:MC.5/hodge-bundle",
         "StableReductionPartII:MC.5/hodge-determinant",
         "StableReductionPartII:MC.6/smooth-torelli",
-        "AbelianSchemesAndArithmeticModuli:A1"
+        "AbelianSchemesAndArithmeticModuli:A1",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Identify the tangent functor of relative Pic⁰ with H¹(O) using first-order units; import the family version from the Jacobian extension.",
@@ -5576,10 +5550,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.6/compactified-torelli",
@@ -5682,7 +5653,8 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.4/fine-level-scheme",
-        "SchemeAndStackFoundations:SF.3"
+        "SchemeAndStackFoundations:SF.3",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
       ],
       "proofSteps": [
         "Pull back the relative Picard sheaf of the universal curve, including the degree decomposition and arbitrary-base-change comparison.",
@@ -5746,10 +5718,7 @@
       ],
       "planet": {
         "name": "Level Picard parameters"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.7/picard-triples-comparison",
@@ -5765,7 +5734,8 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.7/level-picard-parameter",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
       ],
       "proofSteps": [
         "Use relative Picard representability and its line-lifting obstruction sequence.",
@@ -5785,10 +5755,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC7",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.4/smooth-generic-direct-image-nef",
@@ -5803,7 +5770,10 @@
         "The full range, base and auxiliary data are specified in the statement; none are suppressed by a global stable-pair convention."
       ],
       "prerequisites": [
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
       ],
       "proofSteps": [
         "Resolve the isolated rational double points and preserve pluricanonical pushforwards.",
@@ -5825,12 +5795,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.4/dualizing-section-degree",
@@ -5845,7 +5810,8 @@
         "The full range, base and auxiliary data are specified in the statement; none are suppressed by a global stable-pair convention."
       ],
       "prerequisites": [
-        "StableReductionPartII:MC.4/smooth-generic-direct-image-nef"
+        "StableReductionPartII:MC.4/smooth-generic-direct-image-nef",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "For sufficiently large m the sequence restricting ω^m to s has zero R¹ for ω^m(−s).",
@@ -5865,10 +5831,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.4/pointed-normalization-nef",
@@ -5885,7 +5848,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.4/smooth-generic-direct-image-nef",
         "StableReductionPartII:MC.4/dualizing-section-degree",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "For genus≥2 add section coefficients inductively; adjunction and nonnegative dualizing section degree make the line quotient nonnegative.",
@@ -5906,10 +5870,7 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
         "namespace": "TauCeti.ModuliCurves"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
-      ]
+      }
     },
     {
       "id": "StableReductionPartII:MC.4/persistent-node-residue-sequence",
@@ -5925,7 +5886,9 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.4/pointed-normalization-nef",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Use the parent conductor/dualizing comparison and the antidiagonal gluing condition on the two branch values. Adjunction gives ω_{X^ν/B}(D^ν)|_{D^ν}≅O_{D^ν}.",
@@ -5946,10 +5909,532 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
         "namespace": "TauCeti.ModuliCurves"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-evaluation-coefficient-naturality",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Naturality of section evaluation",
+      "kind": "lemma",
+      "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. ev′(φ(r))=f(ev(r)) for every r∈R.",
+      "hypotheses": [
+        "All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-coefficient-map",
+        "StableReductionPartII:MC.2/polynomial-normal-form",
+        "StableReductionPartII:MC.2/section-evaluation-kernel"
+      ],
+      "proofSteps": [
+        "Both sides are ring maps R→A′; evaluate them on u, v and every coefficient ιz.",
+        "Use the unique expression p(v)+u q₁(v) to reduce the equality to coefficientwise polynomial evaluation."
+      ],
+      "acceptance": [
+        "The equation holds also when f kills a nonzero coefficient; it is not cancellation through f."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1",
+          "match": "The maps below are authored tensor and quotient adapters for the explicit monic calculation. Their arbitrary-ring range follows by normal-form cancellation, rather than by invoking the printed stably reflexive proposition outside its noetherian/unit-discriminant hypotheses. No completed-local or geometric conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
       },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      "uses": []
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ring-tensor-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Algebraic tensor comparison for a pointed node",
+      "kind": "construction",
+      "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. Construct the unique A′-algebra equivalence E_R:A′⊗_A R≃R′ with E_R(a′⊗r)=ι′a′·φ(r). The tensor algebra multiplication is (a′⊗r)(b′⊗z)=a′b′⊗rz.",
+      "hypotheses": [
+        "All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ring-base-change",
+        "StableReductionPartII:MC.2/section-coefficient-map",
+        "mathlib:AlgHom.liftEquiv"
+      ],
+      "proofSteps": [
+        "The coefficient map is an A-algebra map after restricting the target through f; its scalar equation follows on coefficients.",
+        "Use the baseline algebra base-change universal property to obtain the A′-algebra map with the specified pure-tensor formula.",
+        "The existing linear tensor comparison has the same formula, hence the same underlying map by tensor induction. Transfer its inverse/bijectivity, not an unproved algebra isomorphism.",
+        "Uniqueness follows by equality on pure tensors."
+      ],
+      "acceptance": [
+        "Multiplication preservation is required; an unrelated A′-linear normal-coordinate identification does not suffice."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1",
+          "match": "The maps below are authored tensor and quotient adapters for the explicit monic calculation. Their arbitrary-ring range follows by normal-form cancellation, rather than by invoking the printed stably reflexive proposition outside its noetherian/unit-discriminant hypotheses. No completed-local or geometric conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ringTensorEquiv",
+          "role": "constructor",
+          "statement": "Construct E_R as the natural A′-algebra equivalence A′⊗_A R≃R′."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ringTensorEquivTmul",
+          "role": "simp",
+          "statement": "E_R(a′⊗r)=ι′a′φ(r)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ringTensorEquivUnique",
+          "role": "extensionality",
+          "statement": "Every A′-algebra equivalence with this pure-tensor formula equals E_R."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ringTensorIdentity",
+          "kind": "compatibility",
+          "statement": "For f=id_A, E_R(a⊗r)=ιa·r."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ringTensorMultiplication",
+          "kind": "characterisation",
+          "statement": "E_R(xy)=E_R(x)E_R(y) for every two tensor-algebra elements x,y."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ringTensorZero",
+          "kind": "degenerate",
+          "statement": "For the zero coefficient ring A, A⊗_A R has one element."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-tensor-scalar",
+          "how": "Supplies the inverse ring map used to transport the canonical tensor-ring module action to R′."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-tensor-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Canonical tensor comparison for the section dual",
+      "kind": "construction",
+      "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. Construct the canonical A′-linear equivalence E_D:A′⊗_A D≃D′ characterized by E_D(a′⊗h)(φ(j))=ι′a′φ(h(j)). It is identity-compatible and composition-compatible under the canonical heterobasic base-change cancellation a″⊗(a′⊗h)↦a″g(a′)⊗h: for g:A′→A″, E_{D,g}(a″⊗E_{D,f}(a′⊗h))=E_{D,gf}(a″g(a′)⊗h).",
+      "hypotheses": [
+        "All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-base-change",
+        "StableReductionPartII:MC.2/section-coefficient-map",
+        "StableReductionPartII:MC.2/section-ideal-base-change",
+        "StableReductionPartII:MC.2/section-coordinate-regular",
+        "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange"
+      ],
+      "proofSteps": [
+        "Identify the mapped-polynomial quotient in the existing tensor theorem with R′ by coefficientwise mapping of the explicit polynomial; transport the ideal and dual through that equality.",
+        "Pure-tensor evaluation determines the dual map because φ(c),φ(d) generate J′ as an R′-ideal; do not assume φ(J) is all of J′ as a set.",
+        "For the identity, compare evaluations on c,d. For composition, evaluate the two nested maps on φ_gφ_f(c),φ_gφ_f(d), and use coefficient-map composition.",
+        "Use the baseline heterobasic base-change cancellation A″⊗_{A′}(A′⊗_A D)≃A″⊗_A D, sending a″⊗(a′⊗h) to a″g(a′)⊗h. Tensor generation extends the displayed formula to the full comparison square."
+      ],
+      "acceptance": [
+        "For f:ℤ→F₂ and γ=1,δ=s=t=0 the equivalence exists although F₂ is not flat over ℤ."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1",
+          "match": "The maps below are authored tensor and quotient adapters for the explicit monic calculation. Their arbitrary-ring range follows by normal-form cancellation, rather than by invoking the printed stably reflexive proposition outside its noetherian/unit-discriminant hypotheses. No completed-local or geometric conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualTensorEquivEvaluation",
+          "role": "characterisation",
+          "statement": "E_D(a′⊗h)(φ(j))=ι′a′φ(h(j))."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualTensorEquivIdentity",
+          "role": "compatibility",
+          "statement": "E_{D,id}(a⊗h)=a·h."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualTensorEquivComposition",
+          "role": "functoriality",
+          "statement": "E_{D,g}(a″⊗E_{D,f}(a′⊗h))=E_{D,gf}(a″g(a′)⊗h) under the canonical heterobasic base-change cancellation."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualTensorEquivScalar",
+          "role": "compatibility",
+          "statement": "E_D(a′⊗(r·h))=φ(r)·E_D(a′⊗h). This is the pure-tensor consequence of section-dual-tensor-scalar."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualTensorIdentity",
+          "kind": "compatibility",
+          "statement": "For identity coefficients, E_D(a⊗h)=a·h."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualTensorComposition",
+          "kind": "compatibility",
+          "statement": "E_{D,g}(1⊗E_{D,f}(1⊗h))=E_{D,gf}(1⊗h)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualTensorNonflat",
+          "kind": "non-example",
+          "statement": "For γ=1,δ=s=t=0, F₂ is not ℤ-flat but F₂⊗_ℤ D_ℤ≃D_F₂."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-tensor-scalar",
+          "how": "The evaluation-characterized map must respect the full transported R′-module action."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence",
+          "how": "The natural quotient comparison must be induced by this actual dual map."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-correction-coefficient-naturality",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient naturality of dual scalar correction",
+      "kind": "lemma",
+      "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. If K:R→R and K′:R′→R′ are the coefficient-linear corrections dK(r)=b(r−ιev(r)) and d′K′(r′)=b′(r′−ι′ev′(r′)), then φ(K(r))=K′(φ(r)) for every r.",
+      "hypotheses": [
+        "All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-scalar-correction",
+        "StableReductionPartII:MC.2/section-coordinate-regular",
+        "StableReductionPartII:MC.2/section-coefficient-map",
+        "StableReductionPartII:MC.2/section-evaluation-coefficient-naturality"
+      ],
+      "proofSteps": [
+        "Apply φ to the defining correction equation; naturality of evaluation changes its right side into the primed correction right side.",
+        "Subtract the primed equation at φ(r); regularity of d′ forces equality. No injectivity of φ or flatness of f is used."
+      ],
+      "acceptance": [
+        "Taking r=d gives φ(b)=b′; taking r=c gives φ(−a)=−a′."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1",
+          "match": "The maps below are authored tensor and quotient adapters for the explicit monic calculation. Their arbitrary-ring range follows by normal-form cancellation, rather than by invoking the printed stably reflexive proposition outside its noetherian/unit-discriminant hypotheses. No completed-local or geometric conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "uses": []
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-tensor-action",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Tensor-ring action on the section dual",
+      "kind": "construction",
+      "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. Equip A′⊗_A D with the canonical module structure over the actual tensor algebra T=A′⊗_A R, uniquely characterized by (a′⊗r)·(b′⊗h)=a′b′⊗(r·h). This specializes the existing module/tensor universal properties, and introduces no new abstract theory of tensor representations.",
+      "hypotheses": [
+        "All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-scalar-action",
+        "StableReductionPartII:MC.2/section-ring-tensor-equivalence",
+        "mathlib:TensorProduct.lift"
+      ],
+      "proofSteps": [
+        "The displayed product is additive and A-balanced separately in both pairs, using the coefficient scalar tower on D; extend it by the tensor universal property.",
+        "Check unit, associativity and both distributivities on pure tensors and extend by tensor induction.",
+        "In the normal coordinates of D, use r·(z,α)=(rz+ιαK(r),ev(r)α). This checks that the tensor action is not the componentwise action on R⊕A."
+      ],
+      "acceptance": [
+        "For r=d, d·ε=m(b), not zero. On a nonzero base monic normal form gives b≠0 and injectivity of m, so a componentwise action gives the wrong answer."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1",
+          "match": "The maps below are authored tensor and quotient adapters for the explicit monic calculation. Their arbitrary-ring range follows by normal-form cancellation, rather than by invoking the printed stably reflexive proposition outside its noetherian/unit-discriminant hypotheses. No completed-local or geometric conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualTensorAction",
+          "role": "structure",
+          "statement": "The native module structure on A′⊗_A D has scalar ring A′⊗_A R and the specified pure-tensor action."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualTensorActionTmul",
+          "role": "characterisation",
+          "statement": "(a′⊗r)·(b′⊗h)=a′b′⊗(r·h)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualTensorActionUnique",
+          "role": "extensionality",
+          "statement": "A module structure with the specified action on every pair of pure tensors equals the canonical tensor-ring action."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.tensorActionProduct",
+          "kind": "characterisation",
+          "statement": "The action on two pure tensors is (a′b′)⊗(r·h)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.tensorActionCorrection",
+          "kind": "computation",
+          "statement": "For f=id_A, (1⊗d)·(1⊗ε)=1⊗m(b)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.tensorActionZero",
+          "kind": "degenerate",
+          "statement": "For the zero ring A, A⊗_A D has one element."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-tensor-scalar",
+          "how": "Supplies the concrete source action before scalar transport through E_R."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-tensor-scalar",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Ring-linear tensor comparison for the section dual",
+      "kind": "theorem",
+      "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. Transport the preceding T-module structure along E_R⁻¹:R′→T. Then E_D is an R′-linear equivalence for this action and the usual action on Hom_{R′}(J′,R′). In particular E_D(a′⊗(r·h))=φ(r)·E_D(a′⊗h).",
+      "hypotheses": [
+        "All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ring-tensor-equivalence",
+        "StableReductionPartII:MC.2/section-dual-tensor-equivalence",
+        "StableReductionPartII:MC.2/section-dual-tensor-action",
+        "StableReductionPartII:MC.2/section-correction-coefficient-naturality",
+        "mathlib:Module.compHom"
+      ],
+      "proofSteps": [
+        "For pure scalars a′⊗r and pure vectors b′⊗h, compare evaluations on φ(c),φ(d); the natural formula gives ι′a′φ(r)·E_D(b′⊗h).",
+        "Use tensor induction in scalar and vector to establish T-linearity. Equivalently the normal-coordinate calculation uses φK=K′φ and the non-diagonal correction term.",
+        "Restrict the canonical T action through E_R⁻¹ using the baseline scalar restriction; the bijective map E_D is then R′-linear."
+      ],
+      "acceptance": [
+        "The R′ action is transported from the specified tensor-ring action, not defined by conjugating the desired E_D; linearity is a theorem rather than tautological by design."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1",
+          "match": "The maps below are authored tensor and quotient adapters for the explicit monic calculation. Their arbitrary-ring range follows by normal-form cancellation, rather than by invoking the printed stably reflexive proposition outside its noetherian/unit-discriminant hypotheses. No completed-local or geometric conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "uses": []
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-quotient-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Residue equivalence for the actual dual quotient",
+      "kind": "construction",
+      "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. Form Q=D/im(m), using the image of the actual injective R-linear multiplication map m:R→D. Construct the canonical A-linear equivalence E_Q:Q≃A induced by ρ, normalized by E_Q([ε])=1. The inherited R action satisfies E_Q(r·z)=ev(r)E_Q(z).",
+      "hypotheses": [
+        "All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-residue",
+        "StableReductionPartII:MC.2/section-dual-normal-equivalence",
+        "StableReductionPartII:MC.2/section-coordinate-regular",
+        "mathlib:Submodule.liftQ"
+      ],
+      "proofSteps": [
+        "The characterized residue kills precisely im(m), so descend it through the native quotient universal property.",
+        "The inverse sends α to [ιαε]; the unique dual normal form proves both inverse identities.",
+        "Transport the residue scalar equation to quotient representatives; every quotient element has a representative."
+      ],
+      "acceptance": [
+        "Q is the quotient by multiplication maps, not an arbitrary kernel or a second copy of A inserted by fiat. d kills Q although d acts injectively on D."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1",
+          "match": "The maps below are authored tensor and quotient adapters for the explicit monic calculation. Their arbitrary-ring range follows by normal-form cancellation, rather than by invoking the printed stably reflexive proposition outside its noetherian/unit-discriminant hypotheses. No completed-local or geometric conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualQuotientEquiv",
+          "role": "equivalence",
+          "statement": "E_Q is the residue-induced equivalence Q≃A for Q=D/im(m)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualQuotientEquivGenerator",
+          "role": "simp",
+          "statement": "E_Q([ε])=1."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualQuotientEquivScalar",
+          "role": "compatibility",
+          "statement": "E_Q(r·z)=ev(r)E_Q(z)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.quotientGenerator",
+          "kind": "computation",
+          "statement": "E_Q([ε])=1."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.quotientMultiplication",
+          "kind": "compatibility",
+          "statement": "[m(r)]=0 in Q for every r∈R."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.quotientCoordinateKills",
+          "kind": "non-example",
+          "statement": "d·z=0 for every z∈Q, whereas multiplication by d is injective on D."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence",
+          "how": "Supplies a concrete coefficient-linear quotient and residue normalization for tensor transport."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient base change of the actual dual quotient",
+      "kind": "construction",
+      "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. Construct the canonical A′-linear equivalence E_{Q,f}:A′⊗_A Q≃Q′ satisfying E_{Q,f}(a′⊗[h])=[E_D(a′⊗h)] and E_Q′(E_{Q,f}(a′⊗z))=a′f(E_Q(z)). This is the base change of D/im(m), not an identification of chosen unrelated copies of A.",
+      "hypotheses": [
+        "All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-quotient-equivalence",
+        "StableReductionPartII:MC.2/section-dual-tensor-equivalence",
+        "StableReductionPartII:MC.2/section-ring-tensor-equivalence",
+        "StableReductionPartII:MC.2/section-dual-tensor-scalar",
+        "mathlib:TensorProduct.lid",
+        "mathlib:Submodule.liftQ"
+      ],
+      "proofSteps": [
+        "Compose the tensor of E_Q with the canonical A′⊗_A A≃A′ and E_Q′⁻¹ to construct a bijective coefficient-linear map.",
+        "The evaluation formula and generation of J′ show E_D(a′⊗m(r))=m′(ι′a′φ(r)); hence passing from h to its quotient class is well-defined.",
+        "Evaluate E_D in normal coordinates: it takes r incl+ιαε to the corresponding primed expression, sends ε to ε′, and its residue is a′f(ρh). This proves the quotient-representative formula agrees with the constructed equivalence.",
+        "Identity and composition follow from the residue formula and injectivity of E_Q′; no tensor left-exactness or flatness of f is assumed."
+      ],
+      "acceptance": [
+        "Nonflat specialization ℤ→F₂ with γ=1,δ=s=t=0 preserves the actual quotient and sends its residue generator to residue 1."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1",
+          "match": "The maps below are authored tensor and quotient adapters for the explicit monic calculation. Their arbitrary-ring range follows by normal-form cancellation, rather than by invoking the printed stably reflexive proposition outside its noetherian/unit-discriminant hypotheses. No completed-local or geometric conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquiv",
+          "role": "equivalence",
+          "statement": "E_{Q,f}:A′⊗_A Q≃Q′ is the natural dual-quotient comparison."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquivTmul",
+          "role": "simp",
+          "statement": "E_{Q,f}(a′⊗[h])=[E_D(a′⊗h)]."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquivResidue",
+          "role": "compatibility",
+          "statement": "E_Q′(E_{Q,f}(a′⊗z))=a′f(E_Q(z))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.quotientTensorResidue",
+          "kind": "characterisation",
+          "statement": "For every a′,z, the residue of the tensor comparison is a′f(E_Q(z))."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.quotientTensorIdentity",
+          "kind": "compatibility",
+          "statement": "E_{Q,id}(a⊗z)=a·z."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.quotientTensorNonflat",
+          "kind": "non-example",
+          "statement": "For f:ℤ→F₂ and γ=1,δ=s=t=0, F₂ is not ℤ-flat and E_Q′(E_{Q,f}(1⊗z))=f(E_Q(z)) for every z∈Q."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Provides the explicit polynomial quotient comparison required before the separately open completion and sheaf-descent steps."
+        }
       ]
     }
   ],
@@ -6923,7 +7408,7 @@
       "remaining": [
         "Read KnudsenII Appendix; finish noetherian approximation and arbitrary-base-change proof.",
         "Expand the rigid genus-one embedding and local collision charts into individual lemmas; supply missing Lean family types.",
-        "Finish native R′-scalar, algebra-equivalence, identity/composition and residue-quotient transport adapters for the natural polynomial tensor comparisons; the A′-linear prototypes are not global sheaf descent."
+        "Prove the specified native ring/dual/quotient comparisons, including coherence after canonical tensor reassociation; then provide completed-local, stable-reflexivity and arbitrary-family descent interfaces. Pure-tensor coherence signatures do not formalize the global comparison."
       ]
     },
     {
@@ -7231,7 +7716,7 @@
         "StableReductionPartII:MC.4/pointed-normalization-nef",
         "StableReductionPartII:MC.4/persistent-node-residue-sequence"
       ],
-      "detail": "The pinned libraries have schemes but no stable pointed-family, algebraic-stack, relative Picard, or invertible sheaf interfaces of the strength required here. The suggested file gives real ring/matrix signatures and explicitly lists omitted moduli signatures. All remaining APIs/tests need actual Lean types from supplier packets; arbitrary Prop fields or axioms standing for moduli objects would falsify the prototype. The polynomial model now uses compiled native AdjoinRoot/Ideal/LinearMap/tensor signatures. Its base-change exports specify A′-linear equivalences and natural pure-tensor evaluation; native R′-scalar/algebra-equiv adapters, dual-comparison identity/composition and quotient transport still require explicit signatures."
+      "detail": "The pinned libraries lack the stable pointed-family, algebraic-stack, relative Picard and sheaf interfaces of the strength required here. All 207 inherited geometric omissions remain. Native AdjoinRoot, Ideal, LinearMap, tensor-algebra, specified tensor-module action and actual dual-quotient signatures elaborate, including R′-linearity and dual tensor identity/composition on pure tensors. Elaboration checks types only; no completed-local or general-family comparison is supplied."
     },
     {
       "title": "Source-locator and published-version collation",
@@ -7321,56 +7806,6 @@
         "StableReductionPartII:MC.4/persistent-node-residue-sequence"
       ],
       "detail": "Before full submission verify every short excerpt literally at its cited printed/PDF page, refine combined locators to individual statements, and collate the published Yuan/DGH texts. Yuan publisher PDF could not be acquired: Annals candidate404 and Euclid non-PDF response; author hash/version scope is explicit. CLM’s NSF copy repairs several older manuscript errors, but publisher identification still needs checking."
-    },
-    {
-      "title": "Standard checker upstream-stage dispatch",
-      "neededBy": [
-        "StableReductionPartII:key/moduli-curves",
-        "StableReductionPartII:MC.0/effective-descent",
-        "StableReductionPartII:MC.1/tricanonical-cohomology",
-        "StableReductionPartII:MC.1/tricanonical-hilbert",
-        "StableReductionPartII:MC.1/isom-unramified",
-        "StableReductionPartII:MC.1/isom-proper",
-        "StableReductionPartII:MC.1/obstruction-vanishing",
-        "StableReductionPartII:MC.1/versal-node-parameters",
-        "StableReductionPartII:MC.1/proper-moduli",
-        "StableReductionPartII:MC.2/dual-section-ideal",
-        "StableReductionPartII:MC.2/expansion",
-        "StableReductionPartII:MC.2/expansion-stable",
-        "StableReductionPartII:MC.2/forget",
-        "StableReductionPartII:MC.2/expansion-contraction-inverses",
-        "StableReductionPartII:MC.2/genus-zero-base",
-        "StableReductionPartII:MC.2/rigid-triangle-embedding",
-        "StableReductionPartII:MC.2/cross-ratio",
-        "StableReductionPartII:MC.3/separating-clutching",
-        "StableReductionPartII:MC.3/nonseparating-clutching",
-        "StableReductionPartII:MC.3/clutching-finite-unramified",
-        "StableReductionPartII:MC.3/boundary-types",
-        "StableReductionPartII:MC.3/cotangent-line",
-        "StableReductionPartII:MC.3/forget-cotangent-line",
-        "StableReductionPartII:MC.3/node-conormal",
-        "StableReductionPartII:MC.4/finite-degree-equations",
-        "StableReductionPartII:MC.4/level-rigidity",
-        "StableReductionPartII:MC.5/hodge-bundle",
-        "StableReductionPartII:MC.5/hodge-forgetting",
-        "StableReductionPartII:MC.5/separating-hodge",
-        "StableReductionPartII:MC.5/nonseparating-hodge",
-        "StableReductionPartII:MC.5/boundary-divisor",
-        "StableReductionPartII:MC.5/rational-noether",
-        "StableReductionPartII:MC.5/universal-units",
-        "StableReductionPartII:MC.5/boundary-thickness",
-        "StableReductionPartII:MC.6/stable-compactification",
-        "StableReductionPartII:MC.6/smooth-torelli",
-        "StableReductionPartII:MC.6/torelli-finite-fibres",
-        "StableReductionPartII:MC.6/jacobian-hodge-comparison",
-        "StableReductionPartII:MC.7/level-picard-parameter",
-        "StableReductionPartII:MC.7/picard-triples-comparison",
-        "StableReductionPartII:MC.4/smooth-generic-direct-image-nef",
-        "StableReductionPartII:MC.4/dualizing-section-degree",
-        "StableReductionPartII:MC.4/pointed-normalization-nef",
-        "StableReductionPartII:MC.4/persistent-node-residue-sequence"
-      ],
-      "detail": "The standard checker dispatches tauceti roadmap stage ids as baseline declarations. To preserve these genuine upstream imports without forging declaration entries, their exact node-level ids are retained in upstreamPrerequisites, following the accepted NeronModelsAndSemistableAbelianVarietiesPartII encoding. Roadmap requires edges, reader supplier contracts and requests are unchanged. The independent atlas overlay appends all 58 typed references to prerequisites only in memory and verifies their integration. Restore canonical prerequisite entries when the checker supports known upstream stages, or replace them with exact genuine declaration/node exports. No mathematical dependency is removed."
     }
   ],
   "sourceIssues": [
@@ -7868,7 +8303,7 @@
   "prototypeCoverage": {
     "status": "partial",
     "compiled": true,
-    "reason": "Full suggested file elaborated using an existing build at pinned Mathlib; only admitted-proof warnings. No Tau Ceti imports or supplied geometric interfaces are required by the expressed polynomial signatures. All eight stages remain partial.",
+    "reason": "The polynomial model has native algebra-equivalence, specified tensor-module action, R′-linear dual comparison, pure-tensor identity/composition and actual quotient transport signatures. The proofs remain unchecked. Completed-local, stable-reflexivity and arbitrary-family descent interfaces and all 207 inherited geometric omissions remain open.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -7893,7 +8328,15 @@
       "StableReductionPartII:MC.2/section-ring-base-change",
       "StableReductionPartII:MC.2/section-ideal-base-change",
       "StableReductionPartII:MC.2/section-dual-base-change",
-      "StableReductionPartII:MC.2/node-factorization-exact"
+      "StableReductionPartII:MC.2/node-factorization-exact",
+      "StableReductionPartII:MC.2/section-evaluation-coefficient-naturality",
+      "StableReductionPartII:MC.2/section-ring-tensor-equivalence",
+      "StableReductionPartII:MC.2/section-dual-tensor-equivalence",
+      "StableReductionPartII:MC.2/section-correction-coefficient-naturality",
+      "StableReductionPartII:MC.2/section-dual-tensor-action",
+      "StableReductionPartII:MC.2/section-dual-tensor-scalar",
+      "StableReductionPartII:MC.2/section-dual-quotient-equivalence",
+      "StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence"
     ],
     "expressedApi": [
       "NodeForm.eval",
@@ -7928,7 +8371,25 @@
       "NodeSectionFactorization.PolynomialModel.coefficientMapValues",
       "NodeSectionFactorization.PolynomialModel.coefficientMapIdentity",
       "NodeSectionFactorization.PolynomialModel.coefficientMapComposition",
-      "NodeSectionFactorization.PolynomialModel.cokernels"
+      "NodeSectionFactorization.PolynomialModel.cokernels",
+      "NodeSectionFactorization.PolynomialModel.ringTensorEquivTmul",
+      "NodeSectionFactorization.PolynomialModel.ringTensorEquivUnique",
+      "NodeSectionFactorization.PolynomialModel.dualTensorEquivEvaluation",
+      "NodeSectionFactorization.PolynomialModel.dualTensorEquivIdentity",
+      "NodeSectionFactorization.PolynomialModel.dualTensorEquivComposition",
+      "NodeSectionFactorization.PolynomialModel.dualTensorEquivScalar",
+      "NodeSectionFactorization.PolynomialModel.dualTensorActionTmul",
+      "NodeSectionFactorization.PolynomialModel.dualQuotientEquiv",
+      "NodeSectionFactorization.PolynomialModel.dualQuotientEquivGenerator",
+      "NodeSectionFactorization.PolynomialModel.dualQuotientEquivScalar",
+      "NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquiv",
+      "NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquivTmul",
+      "NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquivResidue",
+      "NodeSectionFactorization.PolynomialModel.dualMultiplication",
+      "NodeSectionFactorization.PolynomialModel.dualMultiplicationApply",
+      "NodeSectionFactorization.PolynomialModel.ringTensorEquiv",
+      "NodeSectionFactorization.PolynomialModel.dualTensorAction",
+      "NodeSectionFactorization.PolynomialModel.dualTensorActionUnique"
     ],
     "expressedTests": [
       "NodeForm.characteristicTwo",
@@ -7962,7 +8423,22 @@
       "NodeSectionFactorization.PolynomialModel.mapZeroCoefficient",
       "NodeSectionFactorization.PolynomialModel.mapSectionCoordinates",
       "NodeSectionFactorization.PolynomialModel.quotientCharacteristicTwo",
-      "NodeSectionFactorization.PolynomialModel.receivingRingNotExact"
+      "NodeSectionFactorization.PolynomialModel.receivingRingNotExact",
+      "NodeSectionFactorization.PolynomialModel.ringTensorIdentity",
+      "NodeSectionFactorization.PolynomialModel.ringTensorMultiplication",
+      "NodeSectionFactorization.PolynomialModel.ringTensorZero",
+      "NodeSectionFactorization.PolynomialModel.dualTensorIdentity",
+      "NodeSectionFactorization.PolynomialModel.dualTensorComposition",
+      "NodeSectionFactorization.PolynomialModel.dualTensorNonflat",
+      "NodeSectionFactorization.PolynomialModel.tensorActionProduct",
+      "NodeSectionFactorization.PolynomialModel.tensorActionCorrection",
+      "NodeSectionFactorization.PolynomialModel.tensorActionZero",
+      "NodeSectionFactorization.PolynomialModel.quotientGenerator",
+      "NodeSectionFactorization.PolynomialModel.quotientMultiplication",
+      "NodeSectionFactorization.PolynomialModel.quotientCoordinateKills",
+      "NodeSectionFactorization.PolynomialModel.quotientTensorResidue",
+      "NodeSectionFactorization.PolynomialModel.quotientTensorIdentity",
+      "NodeSectionFactorization.PolynomialModel.quotientTensorNonflat"
     ],
     "omissions": [
       {
@@ -9067,44 +9543,77 @@
       ],
       "StableReductionPartII:MC.2/node-factorization-exact": [
         "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.quotientExact"
+      ],
+      "StableReductionPartII:MC.2/section-evaluation-coefficient-naturality": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.coefficientMapEvaluation"
+      ],
+      "StableReductionPartII:MC.2/section-ring-tensor-equivalence": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.ringTensorEquiv"
+      ],
+      "StableReductionPartII:MC.2/section-dual-tensor-equivalence": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualTensorEquiv"
+      ],
+      "StableReductionPartII:MC.2/section-correction-coefficient-naturality": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.correctionCoefficientNaturality"
+      ],
+      "StableReductionPartII:MC.2/section-dual-tensor-action": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualTensorAction"
+      ],
+      "StableReductionPartII:MC.2/section-dual-tensor-scalar": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualTensorRingLinear"
+      ],
+      "StableReductionPartII:MC.2/section-dual-quotient-equivalence": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionDualQuotient",
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualQuotientEquiv"
+      ],
+      "StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquiv"
       ]
     },
-    "adapterBoundary": "The coefficient comparisons are native A′-linear equivalences with their natural evaluation formulas. R′-scalar/algebra-equiv transport, dual tensor identity/composition and residue quotient equivalence signatures remain open. No completed-local or sheaf export is expressed.",
+    "adapterBoundary": "The polynomial model has native algebra-equivalence, specified tensor-module action, R′-linear dual comparison, pure-tensor identity/composition and actual quotient transport signatures. The proofs remain unchecked. Completed-local, stable-reflexivity and arbitrary-family descent interfaces and all 207 inherited geometric omissions remain open.",
     "validation": {
       "date": "2026-10-02",
       "toolchain": "Lean 4.34.0-rc2",
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "exitCode": 0,
-      "admittedProofWarnings": 77,
+      "admittedProofWarnings": 114,
       "otherWarnings": 0,
-      "seconds": 10.23,
       "wholeFile": true,
-      "leanSha256": "26d2c7e1e4401e4da135385d682bbd5db8db8cb3e2efef4229913a2bc52a0a4b",
-      "logSha256": "8b6cb93eb83ec701a56e0f91f12bec236a062b2902d224045cb02e7406498363",
-      "examples": 34
+      "leanSha256": "d0149f43f296f48382b135f4e78ff4e7c5ab2d5caca380c240bc07086afd8dea",
+      "logSha256": "579e1cb923f09525dd16d34ee0dc28c70f48040814502b1c33770bab8e398235",
+      "examples": 49
     }
   },
   "upstreamImportEncoding": {
+    "status": "canonical",
     "agent": "Codex",
-    "session": "codex-J6LwjP",
+    "session": "codex-a71f92",
     "date": "2026-10-02",
     "affectedNodes": 44,
-    "referencesPreserved": 58,
-    "scope": "CI compatibility only; all mathematical node statements, sources, APIs, tests, uses, requests and roadmap edges preserved. Typed references retained per node, never forged as baseline declarations.",
-    "integration": "Validated with the actual merger by restoring typed references only in an in-memory copy; canonical field integration remains explicitly recorded in the checker gap.",
-    "validation": {
-      "stageDag": [
-        3050,
-        8750
-      ],
-      "combinedDag": [
-        3098,
-        9121
-      ],
-      "expectedStageEdges": 81,
-      "typedUpstreamReferences": 58,
-      "pendingLinks": 0,
-      "skippedLinks": 0
+    "referencesRestored": 58,
+    "scope": "Restore the 58 existing supplier references to prerequisites because the pinned atlas checker now recognizes known Tau Ceti roadmap stages before baseline-name dispatch. Mathematical supplier ownership, requests and stage edges are unchanged.",
+    "previous": {
+      "agent": "Codex",
+      "session": "codex-J6LwjP",
+      "date": "2026-10-02",
+      "affectedNodes": 44,
+      "referencesPreserved": 58,
+      "scope": "CI compatibility only; all mathematical node statements, sources, APIs, tests, uses, requests and roadmap edges preserved. Typed references retained per node, never forged as baseline declarations.",
+      "integration": "Validated with the actual merger by restoring typed references only in an in-memory copy; canonical field integration remains explicitly recorded in the checker gap.",
+      "validation": {
+        "stageDag": [
+          3050,
+          8750
+        ],
+        "combinedDag": [
+          3098,
+          9121
+        ],
+        "expectedStageEdges": 81,
+        "typedUpstreamReferences": 58,
+        "pendingLinks": 0,
+        "skippedLinks": 0
+      }
     }
   },
   "sourceReadReceipts": [
@@ -9117,6 +9626,15 @@
       "version": "PDF header identifies arXiv:1106.1588v2, 3 April 2012",
       "sha256": "de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36",
       "extractedTextSha256": "dbd7f847de99169ef0d742f7e7840fa42ae71177686e6b35b09baadb65800360"
+    },
+    {
+      "sourceId": "knudsen2012",
+      "reader": "Codex — codex-a71f92",
+      "date": "2026-10-02",
+      "url": "https://arxiv.org/pdf/1106.1588",
+      "scope": "Fresh §3 in full, printed pp.11–12, Corollary3.2 and §4 in full, printed p.13; source header and introduction/Main Lemma also inspected. Author-derived polynomial tensor/quotient strengthening only. Other source receipts remain historical, not fresh verification.",
+      "version": "PDF header arXiv:1106.1588v2, 3 April 2012",
+      "sha256": "de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36"
     }
   ]
 }
