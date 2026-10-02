@@ -498,6 +498,14 @@ example [Subsingleton A] (f : A) (n m : ℕ) [NeZero n] [NeZero m] (i : Fin m) :
     affineTransitionBasis f n m i = 0 := by
   sorry
 
+-- affineIteratedReverse.test_root
+example (k : Type u) [Field k] :
+    affineIteratedReverse (0 : k) 2 2
+      (AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C (0 : k))) =
+      AdjoinRoot.root (Polynomial.X ^ 2 -
+        Polynomial.C (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (0 : k)))) := by
+  sorry
+
 -- affineIteratedReverse.test_coefficient
 example (f : A) :
     affineIteratedReverse f 2 2 (AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C f) ^ 2) =
@@ -4041,6 +4049,14 @@ example [Subsingleton A] (f : A) (n m : ℕ) [NeZero n] [NeZero m] (i : Fin m) :
     affineTransitionBasis f n m i = 0 := by
   have : Subsingleton (AffineRing f (n*m)) := Module.subsingleton A _
   exact Subsingleton.elim _ _
+
+-- affineIteratedReverse.test_root
+example (k : Type u) [Field k] :
+    affineIteratedReverse (0 : k) 2 2
+      (AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C (0 : k))) =
+      AdjoinRoot.root (Polynomial.X ^ 2 -
+        Polynomial.C (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (0 : k)))) :=
+  affineIteratedReverse.root _ _ _
 
 -- affineIteratedReverse.test_coefficient
 example (f : A) :
