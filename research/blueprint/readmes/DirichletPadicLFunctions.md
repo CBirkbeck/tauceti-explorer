@@ -54976,3 +54976,266 @@ Exact controls at48positive moduli check 22963 levelPointActions, 16214 primitiv
 Three guarded inputs changed during work and were fully assessed before publication. WORKERS.md now prioritizes blueprint/design after restructuring, with owners-key-definitions jobs first for fresh claims; this same-worker713 continuation retains the original claim and does not take another job. PROTOCOL19 gives maintainer assign.json precedence for key-definition ownership. Reserved coherent duality moves to SchemeAndStackFoundations; etale K(pi,1) is assigned to AnabelianGeometryAndNonabelianChabauty and Hilbert-Samuel multiplicity to DeformationAndDerivedPatchingAlgebra. The complete assign.json and owners.json were read and added to the guard, now79 inputs. None assigns a definition to this roadmap or changes its mathematical dependencies. All four predecessor outputs and the issue body remain unchanged; review390 stays blocked and unclaimed.
 
 The separate partial signature file also compiled with zero errors and 5,473 expected placeholder warnings across 3,644 pinned source modules. It includes all 14 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 13e7e1131b572745fa5250a03c8ac189740cdba36b842fd60cfa16dd20cc5ba4.
+
+
+## Actual finite Cartan values and degree-one level consistency
+
+Nine L3 nodes construct the actual finite degree-one Cartan-valued expression with its inverse basis convention and prove coefficient, equivariance and level-consistency formulas. All1,816 predecessor nodes and1,185 baseline records remain whole; native baseline theory is reused.
+
+The complete published188 page image confirms equation2.9 labels each summand by c inverse and equation2.10 compares the same point at two levels via full-lift norms. The actual degree-one finite value is constructed directly on original Cartan carriers through native linear coefficient equivalences. Full native representation, inverse-coefficient, finite-function, finite-sum and single-term declarations were read at the pinned baseline; every one is already recorded in the packet. No native generic representation or Galois-ring theory is replanned. Equation2.11 and the actual direct-limit factorization remain next.
+
+### The original Cartan coefficient comparison respects the actual primitive action
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-primitive-coefficient-equiv-left-regular` — `DirichletPadic.kubertCartanPrimitiveCoefficientEquiv_leftRegular`
+
+For every positive N, semiring R, original u in U(1,N), group-ring element f and actual primitive circle point x, the coefficient of B_N(leftRegular(u)f) at the singleton-torus image of x equals the coefficient of B_N(f) at the singleton-torus image of P_N(u inverse)(x). Here B_N and P_N are the established actual coefficient equivalence and primitive-point permutation.
+
+**Hypotheses:** The Cartan degree is one. N is positive, U(1,N) is the original finite product of units of truncated Witt vectors over GaloisField p 1 at exponent v_p(N), and the established actual action A_N(u) is the native residue-unit scalar action on the kernel of multiplication by N in AddCircle(1:Q). R is an arbitrary semiring, phi is an arbitrary function from the actual rational circle to R, and x is an actual level-N kernel element. The construction is linear in phi; it does not assume that phi or the point map is additive, normalized at zero or an ordinary distribution. The original Cartan group ring is native MonoidAlgebra R U(1,N), its left regular action is native Representation.leftRegular, and its full-lift norm has the already proved reduction-pullback coefficient formula. Divisibility comparisons retain arbitrary positive M dividing N and the same ambient point at both levels. The printed inverse convention is retained: the coefficient at u is phi(A_N(u inverse)x), equivalently the basis sum runs over c with label c inverse. Existing native finite coefficient and representation theory is reused; general-degree coordinates and the ordinary root law remain separate source work.
+
+**Proof:**
+
+1. The established coordinate equivalence writes x=c_N(v) for an actual original Cartan unit v.
+2. The proved coordinate-action identity identifies P_N(u inverse)c_N(v) with c_N(u inverse times v).
+3. Apply the original coefficient comparison formula to both sides, then the native left-regular inverse coefficient formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv`, `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-coefficient-equiv-apply`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv-coordinates`, `mathlib:Representation.coeff_ofMulAction`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneDistributionTests.cartanPrimitiveCoefficientEquiv_leftRegular_typed_api` (compatibility): For every positive N, semiring R, original u in U(1,N), group-ring element f and actual primitive circle point x, the coefficient of B_N(leftRegular(u)f) at the singleton-torus image of x equals the coefficient of B_N(f) at the singleton-torus image of P_N(u inverse)(x). Here B_N and P_N are the established actual coefficient equivalence and primitive-point permutation.
+
+**Acceptance:** At level1 the value is the identity basis with coefficient phi(0). At the zero point every coefficient is phi(0), so the point map is not automatically normalized. If phi is the indicator of3/5, the value at1/5 has coefficient1 at the original Cartan unit with residue2 modulo5; the forward-action convention would instead give0. Constant-one values over characteristic2 retain every Cartan coefficient without averaging.
+
+**Source:** Published187, original primitive and Cartan coefficient modules;188 equations(2.9)–(2.10), finite Cartan-valued formula with inverse basis label and consistency in the full-lift system. Constructs the actual degree-one finite Cartan value for arbitrary scalar function, checks the original inverse basis convention on the published page image, and proves level consistency in the already constructed original full-lift norm system. The ordinary root law of equation2.11 is not assumed or claimed here.
+
+### The finite degree-one Cartan-valued map
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value` — `DirichletPadic.kubertCartanCircleValue`
+
+For each positive N and actual level-N point x, construct an R-linear map V_N(x) from all functions phi:Q/Z→R to the original native group ring R[U(1,N)]. Its coefficient at original unit u is phi(A_N(u inverse)x). Equivalently its value is the source sum over c in U(1,N) of phi(A_N(c)x) times the original basis vector labelled by c inverse. The linearity is in phi, not in x.
+
+**Hypotheses:** The Cartan degree is one. N is positive, U(1,N) is the original finite product of units of truncated Witt vectors over GaloisField p 1 at exponent v_p(N), and the established actual action A_N(u) is the native residue-unit scalar action on the kernel of multiplication by N in AddCircle(1:Q). R is an arbitrary semiring, phi is an arbitrary function from the actual rational circle to R, and x is an actual level-N kernel element. The construction is linear in phi; it does not assume that phi or the point map is additive, normalized at zero or an ordinary distribution. The original Cartan group ring is native MonoidAlgebra R U(1,N), its left regular action is native Representation.leftRegular, and its full-lift norm has the already proved reduction-pullback coefficient formula. Divisibility comparisons retain arbitrary positive M dividing N and the same ambient point at both levels. The printed inverse convention is retained: the coefficient at u is phi(A_N(u inverse)x), equivalently the basis sum runs over c with label c inverse. Existing native finite coefficient and representation theory is reused; general-degree coordinates and the ordinary root law remain separate source work.
+
+**Proof:**
+
+1. Use the established actual level action at the inverse original Cartan unit to obtain a genuine rational-circle point for every coefficient index.
+2. Native LinearMap.pi of point-evaluation LinearMap.proj maps a scalar function to that actual coefficient function.
+3. The original finite Cartan carrier is finite by the same native Galois-field, truncated-Witt, unit and product instances used for the existing Cartan norm.
+4. Compose with the inverse native Finsupp.linearEquivFunOnFinite and inverse MonoidAlgebra.coeffLinearEquiv. All scalar operations are those of the original arbitrary semiring R.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm`, `mathlib:LinearMap.pi`, `mathlib:LinearMap.proj`, `mathlib:Finsupp.linearEquivFunOnFinite`, `mathlib:MonoidAlgebra.coeffLinearEquiv`.
+
+**Uses:**
+
+- Kubert188, equation2.9: Constructs the original finite Cartan-valued expression over the actual rational-circle level points, retaining the inverse basis labels and arbitrary scalar function.
+- Kubert188, equation2.10: Proves equality under the original full-lift norm for a point viewed at any two divisibility-related levels; this will allow passage to the source direct limit.
+- Kubert188, equation2.11: Supplies explicit coefficients and actual point equivariance for the subsequent ordinary root-sum argument, which requires a genuine ordinary law for phi and all ambient roots.
+
+**API:**
+
+- `kubertCartanCircleValue_coeff` (compatibility): For positive N, actual level-N point x, arbitrary scalar function phi and original u in U(1,N), the native coefficient at u of V_N(x)(phi) equals phi evaluated at the ambient point A_N(u inverse)x.
+- `kubertCartanCircleValue_restriction` (compatibility): For positive M dividing positive N, actual level-M point x and actual level-N point y with the same underlying rational-circle point, the original cartanProductNorm from M to N sends V_M(x)(phi) to V_N(y)(phi), for every function phi and semiring R.
+- `kubertCartanCircleValue_action` (compatibility): For positive N, original g in U(1,N), actual level point x and arbitrary scalar function phi, V_N(A_N(g)x)(phi)=leftRegular(g)(V_N(x)(phi)) in the original native group ring.
+- `kubertCartanCircleValue_primitive_coeff` (compatibility): For positive N, original units u,v and arbitrary phi, evaluate V_N at the actual level point underlying c_N(v). Its coefficient at u equals phi(c_N(u inverse times v)). Both c_N and the level-point inclusion are the established actual equivalences.
+- `kubertCartanCircleValue_zero` (compatibility): For every positive N, semiring R, arbitrary phi and original Cartan unit u, the coefficient at u of V_N(0)(phi) is phi(0). No normalization at zero is imposed by the finite construction.
+- `kubertCartanCircleValue_sum` (compatibility): For positive N, an enumeration of the already finite original U(1,N), actual level point x and arbitrary scalar function phi, V_N(x)(phi) equals the sum over original c in U(1,N) of MonoidAlgebra.single(c inverse, phi(A_N(c)x)). This is equation2.9 in degree one, with its actual inverse labels retained.
+- `kubertCartanCircleValue_level_one` (compatibility): For every semiring R, actual level-one circle point x and arbitrary phi, V_1(x)(phi)=MonoidAlgebra.single(1,phi(0)). In particular the zero point can have a nonzero value even at level one.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneDistributionTests.value_modulus_one` (degenerate): At level1, the sole zero circle point gives the original Cartan identity basis with coefficient phi(0).
+- `SuggestedKubertDegreeOneDistributionTests.value_zero_function` (degenerate): The zero scalar function gives the zero group-ring element at every actual level point.
+- `SuggestedKubertDegreeOneDistributionTests.value_linear_combination` (compatibility): The construction is linear in the scalar function over any semiring, including noncommutative semirings.
+- `SuggestedKubertDegreeOneDistributionTests.zero_point_has_constant_coefficients` (non-example): At the zero circle point with constant-one scalar function, every original Cartan coefficient is1; the zero input point is not automatically sent to the zero group-ring vector.
+- `SuggestedKubertDegreeOneDistributionTests.inverse_convention_modulus_five` (computation): Let phi be the indicator of3/5 in the rational circle. At x=1/5 the coefficient of the actual Cartan unit with residue2 modulo5 is1, since2 inverse is3.
+- `SuggestedKubertDegreeOneDistributionTests.characteristic_two_constant_value` (non-example): Over ZMod2 the constant-one scalar function at level3 has coefficient1 at both Cartan units, including zero input. The two terms are retained without averaging.
+
+**Acceptance:** At level1 the value is the identity basis with coefficient phi(0). At the zero point every coefficient is phi(0), so the point map is not automatically normalized. If phi is the indicator of3/5, the value at1/5 has coefficient1 at the original Cartan unit with residue2 modulo5; the forward-action convention would instead give0. Constant-one values over characteristic2 retain every Cartan coefficient without averaging.
+
+**Source:** Published187, original primitive and Cartan coefficient modules;188 equations(2.9)–(2.10), finite Cartan-valued formula with inverse basis label and consistency in the full-lift system. Constructs the actual degree-one finite Cartan value for arbitrary scalar function, checks the original inverse basis convention on the published page image, and proves level consistency in the already constructed original full-lift norm system. The ordinary root law of equation2.11 is not assumed or claimed here.
+
+### Finite Cartan values use the inverse scalar in every coefficient
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-coeff` — `DirichletPadic.kubertCartanCircleValue_coeff`
+
+For positive N, actual level-N point x, arbitrary scalar function phi and original u in U(1,N), the native coefficient at u of V_N(x)(phi) equals phi evaluated at the ambient point A_N(u inverse)x.
+
+**Hypotheses:** The Cartan degree is one. N is positive, U(1,N) is the original finite product of units of truncated Witt vectors over GaloisField p 1 at exponent v_p(N), and the established actual action A_N(u) is the native residue-unit scalar action on the kernel of multiplication by N in AddCircle(1:Q). R is an arbitrary semiring, phi is an arbitrary function from the actual rational circle to R, and x is an actual level-N kernel element. The construction is linear in phi; it does not assume that phi or the point map is additive, normalized at zero or an ordinary distribution. The original Cartan group ring is native MonoidAlgebra R U(1,N), its left regular action is native Representation.leftRegular, and its full-lift norm has the already proved reduction-pullback coefficient formula. Divisibility comparisons retain arbitrary positive M dividing N and the same ambient point at both levels. The printed inverse convention is retained: the coefficient at u is phi(A_N(u inverse)x), equivalently the basis sum runs over c with label c inverse. Existing native finite coefficient and representation theory is reused; general-degree coordinates and the ordinary root law remain separate source work.
+
+**Proof:**
+
+1. The native finite-function coefficient inverse preserves each evaluation definitionally.
+2. The original group-ring coefficient equivalence and the point-evaluation linear map therefore give the stated actual coefficient.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneDistributionTests.cartanCircleValue_coeff_typed_api` (compatibility): For positive N, actual level-N point x, arbitrary scalar function phi and original u in U(1,N), the native coefficient at u of V_N(x)(phi) equals phi evaluated at the ambient point A_N(u inverse)x.
+
+**Acceptance:** At level1 the value is the identity basis with coefficient phi(0). At the zero point every coefficient is phi(0), so the point map is not automatically normalized. If phi is the indicator of3/5, the value at1/5 has coefficient1 at the original Cartan unit with residue2 modulo5; the forward-action convention would instead give0. Constant-one values over characteristic2 retain every Cartan coefficient without averaging.
+
+**Source:** Published187, original primitive and Cartan coefficient modules;188 equations(2.9)–(2.10), finite Cartan-valued formula with inverse basis label and consistency in the full-lift system. Constructs the actual degree-one finite Cartan value for arbitrary scalar function, checks the original inverse basis convention on the published page image, and proves level consistency in the already constructed original full-lift norm system. The ordinary root law of equation2.11 is not assumed or claimed here.
+
+### Finite Cartan values agree under every full-lift norm
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-restriction` — `DirichletPadic.kubertCartanCircleValue_restriction`
+
+For positive M dividing positive N, actual level-M point x and actual level-N point y with the same underlying rational-circle point, the original cartanProductNorm from M to N sends V_M(x)(phi) to V_N(y)(phi), for every function phi and semiring R.
+
+**Hypotheses:** The Cartan degree is one. N is positive, U(1,N) is the original finite product of units of truncated Witt vectors over GaloisField p 1 at exponent v_p(N), and the established actual action A_N(u) is the native residue-unit scalar action on the kernel of multiplication by N in AddCircle(1:Q). R is an arbitrary semiring, phi is an arbitrary function from the actual rational circle to R, and x is an actual level-N kernel element. The construction is linear in phi; it does not assume that phi or the point map is additive, normalized at zero or an ordinary distribution. The original Cartan group ring is native MonoidAlgebra R U(1,N), its left regular action is native Representation.leftRegular, and its full-lift norm has the already proved reduction-pullback coefficient formula. Divisibility comparisons retain arbitrary positive M dividing N and the same ambient point at both levels. The printed inverse convention is retained: the coefficient at u is phi(A_N(u inverse)x), equivalently the basis sum runs over c with label c inverse. Existing native finite coefficient and representation theory is reused; general-degree coordinates and the ordinary root law remain separate source work.
+
+**Proof:**
+
+1. Evaluate both actual group-ring elements at an arbitrary original level-N Cartan unit u.
+2. The established norm coefficient formula pulls the level-M coefficient back through the original Cartan reduction.
+3. Reduction preserves inverse, and the established action-restriction theorem identifies the two inverse-unit actions on the same ambient point.
+4. Apply phi and use native group-ring coefficient extensionality. No distribution law for phi or averaging factor is needed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-coeff`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-coeff-apply`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-restriction`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneDistributionTests.cartanCircleValue_restriction_typed_api` (compatibility): For positive M dividing positive N, actual level-M point x and actual level-N point y with the same underlying rational-circle point, the original cartanProductNorm from M to N sends V_M(x)(phi) to V_N(y)(phi), for every function phi and semiring R.
+
+**Acceptance:** At level1 the value is the identity basis with coefficient phi(0). At the zero point every coefficient is phi(0), so the point map is not automatically normalized. If phi is the indicator of3/5, the value at1/5 has coefficient1 at the original Cartan unit with residue2 modulo5; the forward-action convention would instead give0. Constant-one values over characteristic2 retain every Cartan coefficient without averaging.
+
+**Source:** Published187, original primitive and Cartan coefficient modules;188 equations(2.9)–(2.10), finite Cartan-valued formula with inverse basis label and consistency in the full-lift system. Constructs the actual degree-one finite Cartan value for arbitrary scalar function, checks the original inverse basis convention on the published page image, and proves level consistency in the already constructed original full-lift norm system. The ordinary root law of equation2.11 is not assumed or claimed here.
+
+### Finite Cartan values intertwine the actual point action and native left regular action
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-action` — `DirichletPadic.kubertCartanCircleValue_action`
+
+For positive N, original g in U(1,N), actual level point x and arbitrary scalar function phi, V_N(A_N(g)x)(phi)=leftRegular(g)(V_N(x)(phi)) in the original native group ring.
+
+**Hypotheses:** The Cartan degree is one. N is positive, U(1,N) is the original finite product of units of truncated Witt vectors over GaloisField p 1 at exponent v_p(N), and the established actual action A_N(u) is the native residue-unit scalar action on the kernel of multiplication by N in AddCircle(1:Q). R is an arbitrary semiring, phi is an arbitrary function from the actual rational circle to R, and x is an actual level-N kernel element. The construction is linear in phi; it does not assume that phi or the point map is additive, normalized at zero or an ordinary distribution. The original Cartan group ring is native MonoidAlgebra R U(1,N), its left regular action is native Representation.leftRegular, and its full-lift norm has the already proved reduction-pullback coefficient formula. Divisibility comparisons retain arbitrary positive M dividing N and the same ambient point at both levels. The printed inverse convention is retained: the coefficient at u is phi(A_N(u inverse)x), equivalently the basis sum runs over c with label c inverse. Existing native finite coefficient and representation theory is reused; general-degree coordinates and the ordinary root law remain separate source work.
+
+**Proof:**
+
+1. At coefficient u, the left side is phi evaluated at A_N(u inverse)A_N(g)x.
+2. The native left-regular coefficient formula evaluates the right side at g inverse times u, whose inverse is u inverse times g.
+3. The proved level-action multiplication formula identifies the actual point arguments in their correct order.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-coeff`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-mul`, `mathlib:Representation.coeff_ofMulAction`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneDistributionTests.cartanCircleValue_action_typed_api` (compatibility): For positive N, original g in U(1,N), actual level point x and arbitrary scalar function phi, V_N(A_N(g)x)(phi)=leftRegular(g)(V_N(x)(phi)) in the original native group ring.
+
+**Acceptance:** At level1 the value is the identity basis with coefficient phi(0). At the zero point every coefficient is phi(0), so the point map is not automatically normalized. If phi is the indicator of3/5, the value at1/5 has coefficient1 at the original Cartan unit with residue2 modulo5; the forward-action convention would instead give0. Constant-one values over characteristic2 retain every Cartan coefficient without averaging.
+
+**Source:** Published187, original primitive and Cartan coefficient modules;188 equations(2.9)–(2.10), finite Cartan-valued formula with inverse basis label and consistency in the full-lift system. Constructs the actual degree-one finite Cartan value for arbitrary scalar function, checks the original inverse basis convention on the published page image, and proves level consistency in the already constructed original full-lift norm system. The ordinary root law of equation2.11 is not assumed or claimed here.
+
+### Values at primitive points retain the original Cartan multiplication coordinates
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-primitive-coeff` — `DirichletPadic.kubertCartanCircleValue_primitive_coeff`
+
+For positive N, original units u,v and arbitrary phi, evaluate V_N at the actual level point underlying c_N(v). Its coefficient at u equals phi(c_N(u inverse times v)). Both c_N and the level-point inclusion are the established actual equivalences.
+
+**Hypotheses:** The Cartan degree is one. N is positive, U(1,N) is the original finite product of units of truncated Witt vectors over GaloisField p 1 at exponent v_p(N), and the established actual action A_N(u) is the native residue-unit scalar action on the kernel of multiplication by N in AddCircle(1:Q). R is an arbitrary semiring, phi is an arbitrary function from the actual rational circle to R, and x is an actual level-N kernel element. The construction is linear in phi; it does not assume that phi or the point map is additive, normalized at zero or an ordinary distribution. The original Cartan group ring is native MonoidAlgebra R U(1,N), its left regular action is native Representation.leftRegular, and its full-lift norm has the already proved reduction-pullback coefficient formula. Divisibility comparisons retain arbitrary positive M dividing N and the same ambient point at both levels. The printed inverse convention is retained: the coefficient at u is phi(A_N(u inverse)x), equivalently the basis sum runs over c with label c inverse. Existing native finite coefficient and representation theory is reused; general-degree coordinates and the ordinary root law remain separate source work.
+
+**Proof:**
+
+1. Apply the actual finite-value coefficient formula.
+2. The actual primitive permutation has the same underlying point map as the level action.
+3. The proved primitive-coordinate multiplication formula gives c_N(u inverse times v), and applying phi finishes.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-coeff`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv-coordinates`, `DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneDistributionTests.cartanCircleValue_primitive_coeff_typed_api` (compatibility): For positive N, original units u,v and arbitrary phi, evaluate V_N at the actual level point underlying c_N(v). Its coefficient at u equals phi(c_N(u inverse times v)). Both c_N and the level-point inclusion are the established actual equivalences.
+
+**Acceptance:** At level1 the value is the identity basis with coefficient phi(0). At the zero point every coefficient is phi(0), so the point map is not automatically normalized. If phi is the indicator of3/5, the value at1/5 has coefficient1 at the original Cartan unit with residue2 modulo5; the forward-action convention would instead give0. Constant-one values over characteristic2 retain every Cartan coefficient without averaging.
+
+**Source:** Published187, original primitive and Cartan coefficient modules;188 equations(2.9)–(2.10), finite Cartan-valued formula with inverse basis label and consistency in the full-lift system. Constructs the actual degree-one finite Cartan value for arbitrary scalar function, checks the original inverse basis convention on the published page image, and proves level consistency in the already constructed original full-lift norm system. The ordinary root law of equation2.11 is not assumed or claimed here.
+
+### The zero-point value retains phi at zero in every coefficient
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-zero` — `DirichletPadic.kubertCartanCircleValue_zero`
+
+For every positive N, semiring R, arbitrary phi and original Cartan unit u, the coefficient at u of V_N(0)(phi) is phi(0). No normalization at zero is imposed by the finite construction.
+
+**Hypotheses:** The Cartan degree is one. N is positive, U(1,N) is the original finite product of units of truncated Witt vectors over GaloisField p 1 at exponent v_p(N), and the established actual action A_N(u) is the native residue-unit scalar action on the kernel of multiplication by N in AddCircle(1:Q). R is an arbitrary semiring, phi is an arbitrary function from the actual rational circle to R, and x is an actual level-N kernel element. The construction is linear in phi; it does not assume that phi or the point map is additive, normalized at zero or an ordinary distribution. The original Cartan group ring is native MonoidAlgebra R U(1,N), its left regular action is native Representation.leftRegular, and its full-lift norm has the already proved reduction-pullback coefficient formula. Divisibility comparisons retain arbitrary positive M dividing N and the same ambient point at both levels. The printed inverse convention is retained: the coefficient at u is phi(A_N(u inverse)x), equivalently the basis sum runs over c with label c inverse. Existing native finite coefficient and representation theory is reused; general-degree coordinates and the ordinary root law remain separate source work.
+
+**Proof:**
+
+1. Apply the finite-value coefficient formula.
+2. The actual Cartan action is an additive equivalence and therefore fixes the zero level point.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-coeff`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneDistributionTests.cartanCircleValue_zero_typed_api` (compatibility): For every positive N, semiring R, arbitrary phi and original Cartan unit u, the coefficient at u of V_N(0)(phi) is phi(0). No normalization at zero is imposed by the finite construction.
+
+**Acceptance:** At level1 the value is the identity basis with coefficient phi(0). At the zero point every coefficient is phi(0), so the point map is not automatically normalized. If phi is the indicator of3/5, the value at1/5 has coefficient1 at the original Cartan unit with residue2 modulo5; the forward-action convention would instead give0. Constant-one values over characteristic2 retain every Cartan coefficient without averaging.
+
+**Source:** Published187, original primitive and Cartan coefficient modules;188 equations(2.9)–(2.10), finite Cartan-valued formula with inverse basis label and consistency in the full-lift system. Constructs the actual degree-one finite Cartan value for arbitrary scalar function, checks the original inverse basis convention on the published page image, and proves level consistency in the already constructed original full-lift norm system. The ordinary root law of equation2.11 is not assumed or claimed here.
+
+### The actual finite values equal the printed inverse-basis sum
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-sum` — `DirichletPadic.kubertCartanCircleValue_sum`
+
+For positive N, an enumeration of the already finite original U(1,N), actual level point x and arbitrary scalar function phi, V_N(x)(phi) equals the sum over original c in U(1,N) of MonoidAlgebra.single(c inverse, phi(A_N(c)x)). This is equation2.9 in degree one, with its actual inverse labels retained.
+
+**Hypotheses:** The Cartan degree is one. N is positive, U(1,N) is the original finite product of units of truncated Witt vectors over GaloisField p 1 at exponent v_p(N), and the established actual action A_N(u) is the native residue-unit scalar action on the kernel of multiplication by N in AddCircle(1:Q). R is an arbitrary semiring, phi is an arbitrary function from the actual rational circle to R, and x is an actual level-N kernel element. The construction is linear in phi; it does not assume that phi or the point map is additive, normalized at zero or an ordinary distribution. The original Cartan group ring is native MonoidAlgebra R U(1,N), its left regular action is native Representation.leftRegular, and its full-lift norm has the already proved reduction-pullback coefficient formula. Divisibility comparisons retain arbitrary positive M dividing N and the same ambient point at both levels. The printed inverse convention is retained: the coefficient at u is phi(A_N(u inverse)x), equivalently the basis sum runs over c with label c inverse. Existing native finite coefficient and representation theory is reused; general-degree coordinates and the ordinary root law remain separate source work.
+
+**Proof:**
+
+1. Use group-ring coefficient extensionality and the finite-value coefficient formula.
+2. Native group-ring coefficient compatibility with finite sums and native Finsupp evaluation reduce the coefficient at u to a scalar sum.
+3. Every summand is zero except c=u inverse, by the native single coefficient formula and group inversion.
+4. The existing native Finset.sum_eq_single, generated from the indexed prod_eq_single declaration, reduces the sum to phi(A_N(u inverse)x).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-coeff`, `mathlib:MonoidAlgebra.coeff_sum`, `mathlib:Finsupp.finsetSum_apply`, `mathlib:Finset.prod_eq_single`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneDistributionTests.cartanCircleValue_sum_typed_api` (compatibility): For positive N, an enumeration of the already finite original U(1,N), actual level point x and arbitrary scalar function phi, V_N(x)(phi) equals the sum over original c in U(1,N) of MonoidAlgebra.single(c inverse, phi(A_N(c)x)). This is equation2.9 in degree one, with its actual inverse labels retained.
+
+**Acceptance:** At level1 the value is the identity basis with coefficient phi(0). At the zero point every coefficient is phi(0), so the point map is not automatically normalized. If phi is the indicator of3/5, the value at1/5 has coefficient1 at the original Cartan unit with residue2 modulo5; the forward-action convention would instead give0. Constant-one values over characteristic2 retain every Cartan coefficient without averaging.
+
+**Source:** Published187, original primitive and Cartan coefficient modules;188 equations(2.9)–(2.10), finite Cartan-valued formula with inverse basis label and consistency in the full-lift system. Constructs the actual degree-one finite Cartan value for arbitrary scalar function, checks the original inverse basis convention on the published page image, and proves level consistency in the already constructed original full-lift norm system. The ordinary root law of equation2.11 is not assumed or claimed here.
+
+### The level-one value is its surviving Cartan identity basis
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-level-one` — `DirichletPadic.kubertCartanCircleValue_level_one`
+
+For every semiring R, actual level-one circle point x and arbitrary phi, V_1(x)(phi)=MonoidAlgebra.single(1,phi(0)). In particular the zero point can have a nonzero value even at level one.
+
+**Hypotheses:** The Cartan degree is one. N is positive, U(1,N) is the original finite product of units of truncated Witt vectors over GaloisField p 1 at exponent v_p(N), and the established actual action A_N(u) is the native residue-unit scalar action on the kernel of multiplication by N in AddCircle(1:Q). R is an arbitrary semiring, phi is an arbitrary function from the actual rational circle to R, and x is an actual level-N kernel element. The construction is linear in phi; it does not assume that phi or the point map is additive, normalized at zero or an ordinary distribution. The original Cartan group ring is native MonoidAlgebra R U(1,N), its left regular action is native Representation.leftRegular, and its full-lift norm has the already proved reduction-pullback coefficient formula. Divisibility comparisons retain arbitrary positive M dividing N and the same ambient point at both levels. The printed inverse convention is retained: the coefficient at u is phi(A_N(u inverse)x), equivalently the basis sum runs over c with label c inverse. Existing native finite coefficient and representation theory is reused; general-degree coordinates and the ordinary root law remain separate source work.
+
+**Proof:**
+
+1. Since one kills the actual level-one point, its ambient point is zero.
+2. Every original Cartan tuple at level one is the identity by the established empty-prime-product lemma.
+3. Use the finite-value coefficient formula and the fact that every additive action fixes zero, then native single coefficient evaluation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-coeff`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-unit-level`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-one`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneDistributionTests.cartanCircleValue_level_one_typed_api` (compatibility): For every semiring R, actual level-one circle point x and arbitrary phi, V_1(x)(phi)=MonoidAlgebra.single(1,phi(0)). In particular the zero point can have a nonzero value even at level one.
+
+**Acceptance:** At level1 the value is the identity basis with coefficient phi(0). At the zero point every coefficient is phi(0), so the point map is not automatically normalized. If phi is the indicator of3/5, the value at1/5 has coefficient1 at the original Cartan unit with residue2 modulo5; the forward-action convention would instead give0. Constant-one values over characteristic2 retain every Cartan coefficient without averaging.
+
+**Source:** Published187, original primitive and Cartan coefficient modules;188 equations(2.9)–(2.10), finite Cartan-valued formula with inverse basis label and consistency in the full-lift system. Constructs the actual degree-one finite Cartan value for arbitrary scalar function, checks the original inverse basis convention on the published page image, and proves level consistency in the already constructed original full-lift norm system. The ordinary root law of equation2.11 is not assumed or claimed here.
+
+**Remaining:** The actual degree-one finite Cartan-valued expression is now constructed with its printed inverse basis convention, linearity in the scalar function, native left-regular equivariance, exact primitive coefficients, zero and level-one formulas, and full-lift norm consistency for the same ambient point at every M|N. Next prove the ordinary root law of Kubert188 equation2.11 for an input phi satisfying the ordinary scalar root law, using all ambient roots and their actual Cartan permutation; then pass through the actual group-ring direct limit and universal distribution quotient. The arbitrary finite value constructed here does not itself assume or prove that root law. General-degree coherent primitive coordinates, unramified integer-ring identification and the general fiber count remain open. FF.4 owns generic Galois-ring theory. Complete the independent lower rank argument through Kubert186–199 and combine it with actual surjections and upper bounds for independence, freeness and internal/global equality. Preserve parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18 gaps and16 requests remain; zero stages close.
+
+### Actual finite Cartan values and degree-one level consistency validation
+
+All 1816 predecessor nodes, 1185 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 9 nodes, 9 named suggested declarations and 14 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2087 reachable nodes, 8761 edges and 1354 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route terminates in actual original Cartan action, coordinate and norm APIs or already indexed native coefficient, finite-function and representation theory. No new supplier-stage leaf or assumed distribution/torsor/rank package is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3648 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5684 verbatim and adds one actual construction and eight complete lemmas. Totals are132 definitions and1,168 lemmas, plus two routine native primality instances and the retained complete digit non-example, with zero placeholders. The public append contains nine named declarations and14 typed tests, all new mathematical bodies placeholders. No native import or library build is added. The separate probe compiles against 3030 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact controls at48positive levels check 22963 coefficients, 1176 sourceSums, 33494 restrictionCoefficients, 589491 actionCoefficients, 91852 linearCoefficients. The indicator of3/5 at input1/5 has coefficient1 at unit2 modulo5, while the incorrect forward convention gives0. Constant-one values retain both coefficients in characteristic2. Complete native proofs separately check arbitrary semirings and original Cartan carriers. Exact rational arithmetic modulo1 with integer coefficient functions and reductions modulo2,3,5. Exhaustive finite controls at48positive levels verify the original inverse convention, full source basis sum, scalar linearity, action and level restriction. These controls do not certify arbitrary-semiring native proofs. The largest observed discrepancy is 0.
+
+All79 guarded inputs and four predecessor outputs remain unchanged from merged5684. The complete issue body is unchanged, original winning claim retained, and review390 remains blocked and unclaimed. No new source finding or independent verdict is added.
+
+The separate partial signature file also compiled with zero errors and 5,496 expected placeholder warnings across 3,644 pinned source modules. It includes all 9 new named declarations and 14 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: baff263a0c9da4c362e1654b1b1d6644f6a46337ced491bf7d2027443818043a.
