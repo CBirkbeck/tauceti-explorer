@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial continuation with 137 declaration targets. The native global Scheme conductor is decomposed into its annihilator comparison, finite flat/localization adapters, ideal-sheaf datum, quotient charts, canonical induced map, geometric/categorical squares and recomputed flat comparison. All 128 inherited IDs, 78 routed items, 21 source findings and 20 requests remain; 76 canonical upstream imports are restored and their obsolete encoding gap is removed. The generic annihilator theorem stays at SF.0. No stage, reserved key or implementation is closed. Codex codex-rtOQ9t second continuation adds13 quadratic-pinching leaves, retains all137 inherited IDs and statements and all78 source routes, and keeps every stage partial.",
+  "summary": "Seven-stage partial design with 154 declarations. This continuation adds four proof-sized quadratic remainder/uniqueness adapters, supplies native proofs for the existing scalar residue map and exact conductor equality, and proves the inherited arbitrary-subring conductor API and quadratic relation checks. All 150 inherited IDs/statements, 78 routes and 21 source findings are retained. Generic polynomial machinery is imported from the pinned baseline. Global pinching, presentation/normalization, nodal/cohomological/field-extension interfaces and model completeness remain open; all implementation statuses stay unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -651,6 +651,96 @@
         "provides": "Native conjunction of separated, universally closed and locally finite-type properties.",
         "checked": "Codex codex-rtOQ9t personally read the statement and its displayed construction/proof at Mathlib082e2d3 on2026-10-02.",
         "sha256": "d75c6a9ab9a1602b04e570c9b88ba6b63821732586a6791f75d209a58a8a3dd7"
+      },
+      {
+        "ref": "mathlib:Algebra.mem_bot",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Lattice.lean",
+        "line": 233,
+        "provides": "theorem mem_bot {x : A} : x ∈ (⊥ : Subalgebra R A) ↔ x ∈ Set.range (algebraMap R A)",
+        "checked": "codex-J6LwjP personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. Used in the compiled affine extraction; generic polynomial and subalgebra facts are imported, not new planned constructions.",
+        "sha256": "c8b4d7beab07c04ecd1c5cfca6e5b188db569cb5e35552fd3b35d11cea85b737"
+      },
+      {
+        "ref": "mathlib:Polynomial.modByMonic_eq_self_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "line": 210,
+        "provides": "theorem modByMonic_eq_self_iff [Nontrivial R] (hq : Monic q) : p %ₘ q = p ↔ degree p < degree q",
+        "checked": "codex-J6LwjP personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. Used in the compiled affine extraction; generic polynomial and subalgebra facts are imported, not new planned constructions.",
+        "sha256": "55643f2d280dd81192e4486aad6a0fdacbcc0395bdc66ac7b806a263521d57b8"
+      },
+      {
+        "ref": "mathlib:Polynomial.self_mul_modByMonic",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "line": 422,
+        "provides": "lemma self_mul_modByMonic (hq : q.Monic) : (q * p) %ₘ q = 0",
+        "checked": "codex-J6LwjP personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. Used in the compiled affine extraction; generic polynomial and subalgebra facts are imported, not new planned constructions.",
+        "sha256": "55643f2d280dd81192e4486aad6a0fdacbcc0395bdc66ac7b806a263521d57b8"
+      },
+      {
+        "ref": "mathlib:Polynomial.add_modByMonic",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "line": 713,
+        "provides": "lemma add_modByMonic (p₁ p₂ : R[X]) : (p₁ + p₂) %ₘ q = p₁ %ₘ q + p₂ %ₘ q",
+        "checked": "codex-J6LwjP personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. Used in the compiled affine extraction; generic polynomial and subalgebra facts are imported, not new planned constructions.",
+        "sha256": "55643f2d280dd81192e4486aad6a0fdacbcc0395bdc66ac7b806a263521d57b8"
+      },
+      {
+        "ref": "mathlib:Polynomial.mul_modByMonic",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "line": 735,
+        "provides": "lemma mul_modByMonic (p₁ p₂ q : R[X]) : (p₁ * p₂) %ₘ q = (p₁ %ₘ q) * (p₂ %ₘ q) %ₘ q",
+        "checked": "codex-J6LwjP personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. Used in the compiled affine extraction; generic polynomial and subalgebra facts are imported, not new planned constructions.",
+        "sha256": "55643f2d280dd81192e4486aad6a0fdacbcc0395bdc66ac7b806a263521d57b8"
+      },
+      {
+        "ref": "mathlib:Polynomial.modByMonic_eq_zero_iff_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "line": 400,
+        "provides": "theorem modByMonic_eq_zero_iff_dvd (hq : Monic q) : p %ₘ q = 0 ↔ q ∣ p",
+        "checked": "codex-J6LwjP personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. Used in the compiled affine extraction; generic polynomial and subalgebra facts are imported, not new planned constructions.",
+        "sha256": "55643f2d280dd81192e4486aad6a0fdacbcc0395bdc66ac7b806a263521d57b8"
+      },
+      {
+        "ref": "mathlib:Polynomial.degree_C_le",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Defs.lean",
+        "line": 157,
+        "provides": "theorem degree_C_le : degree (C a) ≤ 0",
+        "checked": "codex-J6LwjP personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. Used in the compiled affine extraction; generic polynomial and subalgebra facts are imported, not new planned constructions.",
+        "sha256": "d42eb484a3c896fb6de7d48403f6660c0aefc7aca797aefea963574fee122bd7"
+      },
+      {
+        "ref": "mathlib:Polynomial.degree_eq_natDegree",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Defs.lean",
+        "line": 94,
+        "provides": "theorem degree_eq_natDegree (hp : p ≠ 0) : degree p = (natDegree p : WithBot ℕ)",
+        "checked": "codex-J6LwjP personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. Used in the compiled affine extraction; generic polynomial and subalgebra facts are imported, not new planned constructions.",
+        "sha256": "d42eb484a3c896fb6de7d48403f6660c0aefc7aca797aefea963574fee122bd7"
+      },
+      {
+        "ref": "mathlib:Polynomial.degree_C_mul_X",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Defs.lean",
+        "line": 198,
+        "provides": "theorem degree_C_mul_X (ha : a ≠ 0) : degree (C a * X) = 1",
+        "checked": "codex-J6LwjP personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. Used in the compiled affine extraction; generic polynomial and subalgebra facts are imported, not new planned constructions.",
+        "sha256": "d42eb484a3c896fb6de7d48403f6660c0aefc7aca797aefea963574fee122bd7"
+      },
+      {
+        "ref": "mathlib:Polynomial.C_injective",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Basic.lean",
+        "line": 674,
+        "provides": "theorem C_injective : Injective (C : R → R[X])",
+        "checked": "codex-J6LwjP personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. Used in the compiled affine extraction; generic polynomial and subalgebra facts are imported, not new planned constructions.",
+        "sha256": "6cf18c0562bd1ce27fe5a018e1a1a897e7ddaaa1b1f9dbd1d7ff72d50842284a"
       }
     ]
   },
@@ -671,7 +761,15 @@
         "date": "2026-10-02",
         "extent": "Fresh v3 p11 in full, Proposition3.3/table and preceding genus-one/Lang paragraph; p12 viewed incidentally. Other reading extents retain their inherited attribution.",
         "sha256": "ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61"
-      }
+      },
+      "affineProofReadings": [
+        {
+          "agent": "codex-J6LwjP",
+          "date": "2026-10-02",
+          "extent": "Fresh mathematical text of §3, printed pp9–11, including both conductor diagrams, complete displayed proofs of Propositions3.1–3.2 and the Proposition3.3 table. Polynomial adapters are explicitly derived library-based refinements; no fresh full-paper or full Ferrand reread is claimed.",
+          "sha256": "ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61"
+        }
+      ]
     },
     {
       "id": "ferrand",
@@ -7505,13 +7603,14 @@
       "statement": "For a field k and q∈k[t], define A_q as the native k-subalgebra preimage of the constants in AdjoinRoot(q)=k[t]/(q). Thus f∈A_q iff there are c∈k and h∈k[t] with f=c+qh. The construction exists for every q; subsequent quadratic claims require q monic of degree2. It does not assert that q is separable or irreducible.",
       "hypotheses": [],
       "proofSteps": [
-        "Take the preimage of the bottom subalgebra under AdjoinRoot.mkₐ; quotient membership gives the displayed divisibility criterion.",
+        "Take the preimage of the bottom subalgebra under AdjoinRoot.mkₐ. Algebra.mem_bot supplies an actual scalar witness; AdjoinRoot.mk_eq_mk identifies equality modulo q with divisibility by q. Rearranging the multiplicative witness proves mem_algebra for every q, including zero and units.",
         "Use native Subalgebra, AdjoinRoot and the existing Ferrand ring pullback rather than introducing a new ring carrier."
       ],
       "prerequisites": [
         "mathlib:Subalgebra.comap",
         "mathlib:AdjoinRoot.mkₐ",
-        "mathlib:AdjoinRoot.mk_eq_mk"
+        "mathlib:AdjoinRoot.mk_eq_mk",
+        "mathlib:Algebra.mem_bot"
       ],
       "sources": [
         {
@@ -7668,13 +7767,18 @@
       "statement": "For monic q of degree2, the constant c in f=c+qh is unique. Define the k-algebra map ρ_q:A_q→k by that c, concretely the constant coefficient of the remainder modulo q. It is surjective and its kernel is the contraction of (q)⊂k[t]. The output is an actual AlgHom, not a freely chosen residue identification.",
       "hypotheses": [],
       "proofSteps": [
-        "A nonzero constant cannot be divisible by a degree2 polynomial; establish uniqueness independently of the generator presentation.",
-        "Remainders of elements of A_q are constants; constant terms of sums/products give the AlgHom laws.",
-        "Constants split ρ_q, and zero residue is exactly divisibility by q."
+        "Apply quadratic-scalar-unique to the actual normal forms; the uniqueness follows from the built remainder and C-injectivity, without a presentation theorem.",
+        "Define the actual AlgHom by the zeroth coefficient of the remainder. Use quadratic-remainder-scalar with add_modByMonic and mul_modByMonic to prove all ring and scalar-map laws. Native proofs replace all admitted structure fields.",
+        "Constants split the map by its commutation law. On the actual subtype, zero zeroth coefficient is equivalent to zero scalar remainder, and modByMonic_eq_zero_iff_dvd identifies its kernel with the contraction of (q). The three existing residue tests now have native proofs."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
-        "SchemeAndStackFoundations:SF.0"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-constant-remainder",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-remainder-scalar",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-scalar-unique",
+        "mathlib:Polynomial.add_modByMonic",
+        "mathlib:Polynomial.mul_modByMonic",
+        "mathlib:Polynomial.modByMonic_eq_zero_iff_dvd"
       ],
       "sources": [
         {
@@ -7825,7 +7929,7 @@
       "hypotheses": [],
       "proofSteps": [
         "Every multiple of q remains a multiple after multiplication by any polynomial, giving (q)≤conductor.",
-        "If f lies in the conductor, f=c+qh lies in A_q and tf also lies in A_q. Modulo q, its remainder is ct of degree≤1, so being constant forces c=0.",
+        "If f lies in the conductor, multiplication by 1 gives f=C(c)+qh and multiplication by t gives ft=C(d)+qj. quadratic-linear-remainder and quadratic-constant-remainder compare the two remainders of ft; their degree-one coefficients force c=0. This supplies a native proof of the exact ambient conductor equality for every monic quadratic, including repeated-root and inseparable cases.",
         "Combine the residue kernel with the inherited ring/cartesian/geometric pushout results."
       ],
       "prerequisites": [
@@ -7833,7 +7937,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-residue",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ring-cartesian",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-existence"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-existence",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-constant-remainder",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-linear-remainder"
       ],
       "sources": [
         {
@@ -8148,6 +8254,190 @@
       },
       "implementationStatus": "unchecked",
       "declarationName": "QuadraticPinch.extension_counts"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-constant-remainder",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Constant normal forms survive quadratic division",
+      "kind": "lemma",
+      "statement": "For c∈k and h∈k[t], the native monic remainder of C(c)+qh modulo q is C(c).",
+      "hypotheses": [
+        "k is a field, q is monic with natural degree exactly two. No separability, irreducibility, perfectness or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Use the built add_modByMonic and self_mul_modByMonic to remove qh.",
+        "The degree of C(c) is at most zero, while q has degree two since it is monic and nonzero. Apply the built modByMonic_eq_self_iff. The zero constant is included."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.add_modByMonic",
+        "mathlib:Polynomial.self_mul_modByMonic",
+        "mathlib:Polynomial.modByMonic_eq_self_iff",
+        "mathlib:Polynomial.degree_C_le",
+        "mathlib:Polynomial.degree_eq_natDegree"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed pp10–11, the conductor squares and Proposition 3.2; derived affine polynomial adapter",
+          "excerpt": "conductor square",
+          "match": "The actual affine quotient-preimage chart is derived from the source conductor construction. These polynomial remainder lemmas are library-based proof refinements, not separately numbered statements in Schröer."
+        }
+      ],
+      "acceptance": [
+        "The unit polynomial is excluded by the degree hypothesis: C(1) modulo 1 is zero, so scalar recovery would fail. A typed example proves this failure."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.constant_remainder",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-residue",
+          "how": "Compute the exact residue on a normal-form representative."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-conductor",
+          "how": "Compare the remainder of f*t with a scalar."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-remainder-scalar",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Pinching elements have scalar remainders",
+      "kind": "lemma",
+      "statement": "For the actual subtype element f∈A_q, f mod q equals C((f mod q).coeff(0)).",
+      "hypotheses": [
+        "k is a field, q is monic with natural degree exactly two. No separability, irreducibility, perfectness or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Use mem_algebra to write f=C(c)+qh for actual polynomial witnesses.",
+        "Apply constant_remainder and the constant-coefficient formula. This does not choose an arbitrary identification of the quotient or assume q irreducible."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-constant-remainder"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed pp10–11, the conductor squares and Proposition 3.2; derived affine polynomial adapter",
+          "excerpt": "conductor square",
+          "match": "The actual affine quotient-preimage chart is derived from the source conductor construction. These polynomial remainder lemmas are library-based proof refinements, not separately numbered statements in Schröer."
+        }
+      ],
+      "acceptance": [
+        "For any monic quadratic, t is not in A_q: its remainder is t, whose degree-one coefficient contradicts a scalar remainder. The typed generic nonmembership example has a native proof."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.remainder_scalar",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-residue",
+          "how": "Multiplication of scalar remainders proves the actual AlgHom multiplication law; zero coefficient is equivalent to zero remainder."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-scalar-unique",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The scalar in a quadratic normal form is unique",
+      "kind": "lemma",
+      "statement": "If the same polynomial f is C(c)+qh and C(d)+qj, then c=d.",
+      "hypotheses": [
+        "k is a field, q is monic with natural degree exactly two. No separability, irreducibility, perfectness or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Apply the native remainder operation to the equality of the two forms.",
+        "constant_remainder identifies the two remainders; cancel C by the built C_injective. There is no polynomial root-uniqueness assumption."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-constant-remainder",
+        "mathlib:Polynomial.C_injective"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed pp10–11, the conductor squares and Proposition 3.2; derived affine polynomial adapter",
+          "excerpt": "conductor square",
+          "match": "The actual affine quotient-preimage chart is derived from the source conductor construction. These polynomial remainder lemmas are library-based proof refinements, not separately numbered statements in Schröer."
+        }
+      ],
+      "acceptance": [
+        "The q=0 preimage consists only of constants; a typed example excludes t. The asserted scalar uniqueness here still retains the monic quadratic hypotheses rather than silently generalizing the residue construction."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.scalar_unique",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-residue",
+          "how": "Justify the unique scalar stipulated by its existing construction contract."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-linear-remainder",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Linear terms survive quadratic division",
+      "kind": "lemma",
+      "statement": "For every c∈k, the native remainder of C(c)*t modulo q is C(c)*t.",
+      "hypotheses": [
+        "k is a field, q is monic with natural degree exactly two. No separability, irreducibility, perfectness or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Separate c=0, whose remainder is zero.",
+        "For c≠0 the polynomial C(c)*t has degree one by degree_C_mul_X; q has degree two. Apply modByMonic_eq_self_iff. No inversion of two or discriminant computation occurs."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.degree_C_mul_X",
+        "mathlib:Polynomial.degree_eq_natDegree",
+        "mathlib:Polynomial.modByMonic_eq_self_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed pp10–11, the conductor squares and Proposition 3.2; derived affine polynomial adapter",
+          "excerpt": "conductor square",
+          "match": "The actual affine quotient-preimage chart is derived from the source conductor construction. These polynomial remainder lemmas are library-based proof refinements, not separately numbered statements in Schröer."
+        }
+      ],
+      "acceptance": [
+        "Degree one is a different pinch: t belongs to A_t, witnessed by c=0,h=1. The typed example distinguishes it from the monic quadratic nonmembership result."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.linear_remainder",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-conductor",
+          "how": "A conductor element f=c+qh has f*t in A_q, forcing the surviving linear coefficient c to vanish."
+        }
+      ]
     }
   ],
   "requests": [
@@ -8458,9 +8748,8 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "Exact native exports for the quadratic pinching consumer: Noetherian finite-type fibre products (Stacks00IT/37.67.5), the canonical first-isomorphism/monic-V division and localization/fraction-field comparison, separable quadratic tensor splitting, finite-field embedding parity and field-valued points through scheme reduction. Existing quotient and polynomial carriers remain imports.",
+      "need": "Exact native exports for the quadratic pinching consumer: Noetherian finite-type fibre products (Stacks00IT/37.67.5), the canonical first-isomorphism/monic-V division and localization/fraction-field comparison, separable quadratic tensor splitting, finite-field embedding parity and field-valued points through scheme reduction. Existing quotient and polynomial carriers remain imports. The scalar residue map, its laws and its ambient conductor computation are now supplied directly by the pinned polynomial baseline and the local quadratic adapters. No generic remainder/quotient carrier or residue-map theorem is requested for that resolved affine subproblem; the presentation/localization and geometric consumers still need their specific comparison exports.",
       "neededBy": [
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-residue",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-conductor",
@@ -8516,7 +8805,7 @@
         "Suggested signatures for unbuilt geometric conditions",
         "Replace unresolved supplier stage requests by exact verified exports.",
         "Pointed genus-one scheme to binary-equation classification adapter; finite coefficient, count and cyclic-group calculations have explicit source-decomposed witnesses.",
-        "Quadratic pinching has a13-leaf consumer proof; proper single-field-point existence has a native Scheme signature. Exact P¹, nodal tangent/branch and cohomology exports, plus uncompiled prototypes, prevent closure."
+        "Quadratic pinching now includes four native remainder/uniqueness adapters and native residue/conductor proofs. Generation, complete presentation kernel, finite normalization and global P¹/nodal/cohomology/extension-count interfaces remain unfinished. The full suggested file is uncompiled; only the exact Mathlib-only affine extraction is checked."
       ]
     },
     {
@@ -8723,7 +9012,7 @@
     },
     {
       "id": "quadratic-pinching-native-exports",
-      "detail": "The13 new leaves are source-derived plans, not implementations. The actual affine subalgebra/relation/residue/generation/presentation/conductor/finite signatures and generic proper-point Scheme existence are supplied. Full normalization fraction-field comparisons, nodal tangent/branch predicates, P¹ realization/cohomology and every-extension count signatures require the exact owner exports named in the final native ledger.",
+      "detail": "The actual arbitrary-subring conductor API, quotient-preimage membership, quadratic relation, four new remainder/uniqueness adapters, residue-map laws/kernel and ambient quadratic conductor equality now have native proofs in a compiled Mathlib-only extraction. The full file imports Tau Ceti modules without available built artifacts and is not compiled. Generation, complete presentation kernel, finite normalization and its fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension point-count signatures remain open exactly as named in the final native ledger. No full surface/model certificate or roadmap closure is claimed.",
       "title": "Exact native quadratic-pinching owner interfaces"
     }
   ],
@@ -10851,6 +11140,99 @@
       "nativeSHA256": "821f66e1c1a43f79a08bc590d1b0307ec09ed3d1b6cc83370703efb910f21b60",
       "overlaySHA256": "bba2a4836bdea5760f7909e25b6c6a0b9dfe95beea2799a233ed6647e79a56fb",
       "limits": "Actual build.assemble in-memory pending-packet overlay with its normal retirement, restructuring, links and decomposition trimming. Other declaration graphs not audited; pending work not promoted to disk."
+    }
+  },
+  "affineProofContinuation": {
+    "agent": "Codex — codex-J6LwjP",
+    "date": "2026-10-02",
+    "claimComment": 5955398647,
+    "botConfirmation": 5955401645,
+    "inheritedNodes": 150,
+    "addedNodes": [
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-constant-remainder",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-remainder-scalar",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-scalar-unique",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-linear-remainder"
+    ],
+    "freshBaselineDeclarations": [
+      "Algebra.mem_bot",
+      "Polynomial.modByMonic_eq_self_iff",
+      "Polynomial.self_mul_modByMonic",
+      "Polynomial.add_modByMonic",
+      "Polynomial.mul_modByMonic",
+      "Polynomial.modByMonic_eq_zero_iff_dvd",
+      "Polynomial.degree_C_le",
+      "Polynomial.degree_eq_natDegree",
+      "Polynomial.degree_C_mul_X",
+      "Polynomial.C_injective"
+    ],
+    "compiledScope": "The actual Subring namespace and QuadraticPinch affine namespace through finite_normalization, before proper_point_pushout. Individual Mathlib imports only; no Tau Ceti source, fake replacement type or combined-build claim.",
+    "remaining": "Generation, full presentation kernel, finite inclusion and global geometric/cohomological interfaces remain admitted or omitted. Every implementation status is unchecked.",
+    "sourceRead": "Schröer §3 pp9–11 mathematical text; unchanged PDF receipt. Other primary source receipts remain inherited. Ten new named baseline statements and the native ZMod prime-field instance were read at the exact pin.",
+    "preservation": "All150 inherited IDs and mathematical statements,78 routes,21 sourceIssues,roadmap definition and all prior provenance objects are retained. Three node proof/dependency plans and one request consumer boundary are refined; all other inherited node objects and requests are unchanged.",
+    "elaboration": {
+      "exit": 0,
+      "seconds": 1.56,
+      "errors": 0,
+      "warnings": 8,
+      "examples": 17,
+      "admittedWarnings": 8,
+      "otherWarnings": 0,
+      "fullFileCompiled": false,
+      "sourceSha256": "9920987c770f03a1623ad0cce94f93537f33f1f15f65178f995f7e5499ca8d18",
+      "extractionSha256": "3b1aa718153a09886d7cb0f37cd523ca6485a17125039e4b3f268f95c30876dc",
+      "logSha256": "5ddcc9ef8944f9b0d141d5366ae1196d02565b803f99cec21a5fec2aa270272c"
+    },
+    "axiomAudit": {
+      "exit": 0,
+      "seconds": 1.57,
+      "declarations": 22,
+      "noAdmittedAxioms": true,
+      "names": [
+        "Subring.conductor",
+        "Subring.conductor_mem",
+        "Subring.conductor_le",
+        "Subring.conductor_greatest",
+        "Subring.conductor_mono",
+        "Subring.conductor_adjoin",
+        "TauCeti.GenusOne.QuadraticPinch.algebra",
+        "TauCeti.GenusOne.QuadraticPinch.mem_algebra",
+        "TauCeti.GenusOne.QuadraticPinch.constants",
+        "TauCeti.GenusOne.QuadraticPinch.relation",
+        "TauCeti.GenusOne.QuadraticPinch.relation_eval",
+        "TauCeti.GenusOne.QuadraticPinch.relation_quadratic",
+        "TauCeti.GenusOne.QuadraticPinch.relation_origin",
+        "TauCeti.GenusOne.QuadraticPinch.constant_remainder",
+        "TauCeti.GenusOne.QuadraticPinch.remainder_scalar",
+        "TauCeti.GenusOne.QuadraticPinch.scalar_unique",
+        "TauCeti.GenusOne.QuadraticPinch.linear_remainder",
+        "TauCeti.GenusOne.QuadraticPinch.residue",
+        "TauCeti.GenusOne.QuadraticPinch.residue_normal_form",
+        "TauCeti.GenusOne.QuadraticPinch.residue_surjective",
+        "TauCeti.GenusOne.QuadraticPinch.residue_kernel",
+        "TauCeti.GenusOne.QuadraticPinch.conductor"
+      ],
+      "logSha256": "31b2dd4bfb049b4bf16fa21e2eadc9a081741ce4638176865152fc7487bdec2e"
+    },
+    "assembly": {
+      "declarations": 154,
+      "planets": 29,
+      "stages": 2992,
+      "stageEdges": 8727,
+      "ownVertices": 154,
+      "ownEdges": 405,
+      "scopedVertices": 3117,
+      "scopedEdges": 9467,
+      "reachableDeclarations": 154,
+      "pending": 0,
+      "ownSkipped": []
+    },
+    "fieldInstanceRead": {
+      "module": "Mathlib/Algebra/Field/ZMod.lean",
+      "lines": "16–39",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "sha256": "5343882be47490c292c9da2f623221d3d0ea16e0ff252f0f944b4dffb07be5c3",
+      "boundary": "Unnamed prime-field instance personally read; its actual module is explicitly imported. No guessed declaration name is registered in the baseline index."
     }
   }
 }

@@ -36,6 +36,7 @@ import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass
 import Mathlib.Algebra.Polynomial.Degree.Operations
 import Mathlib.Data.ZMod.Basic
+import Mathlib.Algebra.Field.ZMod
 import Mathlib.AlgebraicGeometry.EllipticCurve.VariableChange
 import Mathlib.GroupTheory.SpecificGroups.Cyclic
 import TauCeti.AlgebraicGeometry.EllipticCurve.Affine.Point.VariableChange
@@ -48,6 +49,8 @@ import Mathlib.RingTheory.AdjoinRoot
 import Mathlib.Algebra.MvPolynomial.Eval
 import Mathlib.Algebra.Polynomial.RingDivision
 import Mathlib.Algebra.Algebra.Subalgebra.Basic
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.NormNum
 
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
 open scoped Polynomial
@@ -60,29 +63,42 @@ namespace Subring
 /-- The largest ideal of B contained in the arbitrary subring A. -/
 def conductor {B : Type u} [CommRing B] (A : Subring B) : Ideal B where
   carrier := {b | ∀ x : B, b * x ∈ A}
-  zero_mem' := by sorry
-  add_mem' := by sorry
-  smul_mem' := by sorry
+  zero_mem' := fun x => by
+    rw [zero_mul]
+    exact A.zero_mem
+  add_mem' := fun ha hb x => by
+    rw [add_mul]
+    exact A.add_mem (ha x) (hb x)
+  smul_mem' := fun r b hb x => by
+    change (r * b) * x ∈ A
+    rw [show r * b * x = b * (r * x) by ring]
+    exact hb (r * x)
 
 lemma conductor_mem {B : Type u} [CommRing B] (A : Subring B) (b : B) :
-    b ∈ A.conductor ↔ ∀ x : B, b * x ∈ A := by sorry
+    b ∈ A.conductor ↔ ∀ x : B, b * x ∈ A := Iff.rfl
 
 lemma conductor_le {B : Type u} [CommRing B] (A : Subring B) :
-    (A.conductor : Set B) ⊆ A := by sorry
+    (A.conductor : Set B) ⊆ A := fun _ hb => by simpa using hb 1
 
 lemma conductor_greatest {B : Type u} [CommRing B] (A : Subring B) (I : Ideal B) :
-    I ≤ A.conductor ↔ (I : Set B) ⊆ A := by sorry
+    I ≤ A.conductor ↔ (I : Set B) ⊆ A := by
+  constructor
+  · intro h b hb
+    exact conductor_le A (h hb)
+  · intro h b hb x
+    exact h (I.mul_mem_right x hb)
 
 lemma conductor_mono {B : Type u} [CommRing B] {A A' : Subring B} (h : A ≤ A') :
-    A.conductor ≤ A'.conductor := by sorry
+    A.conductor ≤ A'.conductor := fun _ hb x => h (hb x)
 
 lemma conductor_adjoin (R B : Type u) [CommRing R] [CommRing B] [Algebra R B]
     (x : B) :
-    (Algebra.adjoin R ({x} : Set B)).toSubring.conductor = _root_.conductor R x := by
-  sorry
+    (Algebra.adjoin R ({x} : Set B)).toSubring.conductor = _root_.conductor R x := rfl
 
 -- Subring.conductor_top
-example {B : Type u} [CommRing B] : (⊤ : Subring B).conductor = ⊤ := by sorry
+example {B : Type u} [CommRing B] : (⊤ : Subring B).conductor = ⊤ := by
+  ext b
+  simp [conductor]
 
 -- Subring.conductor_cusp
 example (k : Type u) [Field k] :
@@ -98,7 +114,18 @@ example (k : Type u) [Field k] (h : (2 : k) ≠ 0) :
 -- Subring.conductor_quadratic_field: the stronger proper-field-extension test.
 example (k E : Type u) [Field k] [Field E] [Algebra k E]
     (h : ¬ Function.Surjective (algebraMap k E)) :
-    (algebraMap k E).range.conductor = ⊥ := by sorry
+    (algebraMap k E).range.conductor = ⊥ := by
+  ext b
+  change (∀ x : E, b * x ∈ (algebraMap k E).range) ↔ b = 0
+  constructor
+  · intro hb
+    by_contra hne
+    apply h
+    intro y
+    have hy := hb (b⁻¹ * y)
+    simpa [← mul_assoc, hne] using hy
+  · rintro rfl x
+    simp
 
 end Subring
 
@@ -961,7 +988,9 @@ end TauCeti.GenusOne.FerrandPushout
 
 /-!
 Quadratic pinching continuation, Codex codex-rtOQ9t, 2 October 2026.
-UNCOMPILED. These are concrete native carrier forms, not implementation claims.
+The full combined file is uncompiled. The Mathlib-only affine extraction now compiles;
+its exact scope and proof-axiom audit are recorded in the current handoff.
+These are concrete native carrier forms; all implementation statuses remain unchecked.
 The final ledger retains the exact geometric interfaces that cannot yet be stated.
 -/
 namespace TauCeti.GenusOne.QuadraticPinch
@@ -974,9 +1003,19 @@ def algebra (q : k[X]) : Subalgebra k k[X] :=
   (⊥ : Subalgebra k (AdjoinRoot q)).comap (AdjoinRoot.mkₐ q)
 
 lemma mem_algebra (q f : k[X]) :
-    f ∈ algebra q ↔ ∃ c : k, ∃ h : k[X], f = Polynomial.C c + q * h := by sorry
+    f ∈ algebra q ↔ ∃ c : k, ∃ h : k[X], f = Polynomial.C c + q * h := by
+  change AdjoinRoot.mkₐ q f ∈ (⊥ : Subalgebra k (AdjoinRoot q)) ↔ _
+  rw [Algebra.mem_bot]
+  constructor
+  · rintro ⟨c, hc⟩
+    have hdiv : q ∣ f - Polynomial.C c := AdjoinRoot.mk_eq_mk.mp hc.symm
+    obtain ⟨h, hh⟩ := hdiv
+    exact ⟨c, h, by rw [← hh]; ring⟩
+  · rintro ⟨c, h, rfl⟩
+    exact ⟨c, by simp⟩
 
-lemma constants (q : k[X]) (c : k) : Polynomial.C c ∈ algebra q := by sorry
+lemma constants (q : k[X]) (c : k) : Polynomial.C c ∈ algebra q := by
+  exact (mem_algebra q _).mpr ⟨c, 0, by simp⟩
 
 -- node: G.1/quadratic-pinch-generation; API: QuadraticPinch.generation
 lemma generation (a b : k) :
@@ -1004,60 +1043,154 @@ def relation (a b : k) : MvPolynomial (Fin 2) k :=
 
 lemma relation_eval (a b : k) :
     let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
-    MvPolynomial.aeval ![q, Polynomial.X * q] (relation a b) = 0 := by sorry
+    MvPolynomial.aeval ![q, Polynomial.X * q] (relation a b) = 0 := by
+  dsimp
+  simp [relation]
+  ring
 
 lemma relation_quadratic (a b : k) :
     relation a b + MvPolynomial.X 0 ^ 3 =
       MvPolynomial.X 1 ^ 2 + MvPolynomial.C a * MvPolynomial.X 0 * MvPolynomial.X 1 +
-        MvPolynomial.C b * MvPolynomial.X 0 ^ 2 := by sorry
+        MvPolynomial.C b * MvPolynomial.X 0 ^ 2 := by unfold relation; ring
 
 lemma relation_origin (a b : k) :
-    MvPolynomial.aeval (![0,0] : Fin 2 → k) (relation a b) = 0 := by sorry
+    MvPolynomial.aeval (![0,0] : Fin 2 → k) (relation a b) = 0 := by simp [relation]
 
 -- test: QuadraticPinch.test_relation_cusp
-example : relation (0 : k) 0 = MvPolynomial.X 1 ^ 2 - MvPolynomial.X 0 ^ 3 := by sorry
+example : relation (0 : k) 0 = MvPolynomial.X 1 ^ 2 - MvPolynomial.X 0 ^ 3 := by simp [relation]
 
 -- test: QuadraticPinch.test_relation_char2
 example : relation (1 : ZMod 2) 1 =
     MvPolynomial.X 1 ^ 2 + MvPolynomial.X 0 * MvPolynomial.X 1 +
-      MvPolynomial.X 0 ^ 2 - MvPolynomial.X 0 ^ 3 := by sorry
+      MvPolynomial.X 0 ^ 2 - MvPolynomial.X 0 ^ 3 := by simp [relation]
 
 -- test: QuadraticPinch.test_relation_cubic
-example : MvPolynomial.aeval (![1,0] : Fin 2 → k) (relation (0 : k) 0) = -1 := by sorry
+example : MvPolynomial.aeval (![1,0] : Fin 2 → k) (relation (0 : k) 0) = -1 := by simp [relation]
+
+-- node: G.1/quadratic-constant-remainder
+lemma constant_remainder (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (c : k) (h : k[X]) :
+    (Polynomial.C c + q * h) %ₘ q = Polynomial.C c := by
+  rw [Polynomial.add_modByMonic, Polynomial.self_mul_modByMonic hq, add_zero]
+  apply (Polynomial.modByMonic_eq_self_iff hq).mpr
+  apply Polynomial.degree_C_le.trans_lt
+  rw [Polynomial.degree_eq_natDegree hq.ne_zero, hd]
+  norm_num
+
+-- node: G.1/quadratic-remainder-scalar
+lemma remainder_scalar (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (f : algebra q) : f.val %ₘ q = Polynomial.C ((f.val %ₘ q).coeff 0) := by
+  obtain ⟨c, h, hf⟩ := (mem_algebra q f.val).mp f.property
+  rw [hf, constant_remainder q hq hd]
+  simp
+
+-- node: G.1/quadratic-scalar-unique
+lemma scalar_unique (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    {f : k[X]} {c d : k} {h j : k[X]}
+    (hc : f = Polynomial.C c + q * h) (hj : f = Polynomial.C d + q * j) : c = d := by
+  have hmod := congrArg (fun p : k[X] => p %ₘ q) (hc.symm.trans hj)
+  rw [constant_remainder q hq hd, constant_remainder q hq hd] at hmod
+  exact Polynomial.C_injective hmod
+
+-- node: G.1/quadratic-linear-remainder
+lemma linear_remainder (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (c : k) : (Polynomial.C c * Polynomial.X) %ₘ q = Polynomial.C c * Polynomial.X := by
+  by_cases hc : c = 0
+  · simp [hc]
+  · apply (Polynomial.modByMonic_eq_self_iff hq).mpr
+    rw [Polynomial.degree_C_mul_X hc, Polynomial.degree_eq_natDegree hq.ne_zero, hd]
+    norm_num
+
+-- acceptance: the degree-two quotient has a genuine nonconstant root.
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    Polynomial.X ∉ algebra q := by
+  intro hm
+  let f : algebra q := ⟨Polynomial.X, hm⟩
+  have h := remainder_scalar q hq hd f
+  have hX : (Polynomial.X : k[X]) %ₘ q = Polynomial.X := by
+    simpa using linear_remainder q hq hd 1
+  change (Polynomial.X : k[X]) %ₘ q = _ at h
+  rw [hX] at h
+  have hc := congrArg (fun p : k[X] => p.coeff 1) h
+  simp at hc
+
+-- acceptance: the zero quotient polynomial leaves only constants.
+example : Polynomial.X ∉ algebra (0 : k[X]) := by
+  intro h
+  obtain ⟨c, j, hj⟩ := (mem_algebra 0 Polynomial.X).mp h
+  have hc := congrArg (fun p : k[X] => p.coeff 1) hj
+  simp at hc
+
+-- acceptance: degree one makes the pinch all polynomials; degree two is essential.
+example : (Polynomial.X : k[X]) ∈ algebra Polynomial.X :=
+  (mem_algebra Polynomial.X Polynomial.X).mpr ⟨0, 1, by simp⟩
+
+-- acceptance: the unit ideal prevents scalar uniqueness and residue recovery.
+example : (Polynomial.C (1 : k)) %ₘ (1 : k[X]) ≠ Polynomial.C 1 := by simp
 
 -- node: G.1/quadratic-pinch-residue
 /-- Compute the unique scalar remainder, with the actual ring-map laws. -/
 def residue (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) : algebra q →ₐ[k] k where
   toFun f := (f.val %ₘ q).coeff 0
-  map_zero' := by sorry
-  map_one' := by sorry
-  map_add' := by sorry
-  map_mul' := by sorry
-  commutes' := by sorry
+  map_zero' := by simp
+  map_one' := by
+    change ((1 : k[X]) %ₘ q).coeff 0 = 1
+    have hc : (1 : k[X]) %ₘ q = 1 := by simpa using constant_remainder q hq hd 1 0
+    simp [hc]
+  map_add' f g := by
+    change ((f.val + g.val) %ₘ q).coeff 0 = _
+    rw [Polynomial.add_modByMonic, Polynomial.coeff_add]
+  map_mul' f g := by
+    change ((f.val * g.val) %ₘ q).coeff 0 = _
+    rw [Polynomial.mul_modByMonic, remainder_scalar q hq hd f,
+      remainder_scalar q hq hd g, ← Polynomial.C_mul]
+    have hc := constant_remainder q hq hd
+      ((f.val %ₘ q).coeff 0 * (g.val %ₘ q).coeff 0) 0
+    simpa using congrArg (fun p : k[X] => p.coeff 0) hc
+  commutes' c := by
+    change ((Polynomial.C c) %ₘ q).coeff 0 = c
+    have hc := constant_remainder q hq hd c 0
+    simpa using congrArg (fun p : k[X] => p.coeff 0) hc
 
 lemma residue_normal_form (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
     (f : algebra q) (c : k) (h : k[X]) (hf : f.val = Polynomial.C c + q * h) :
-    residue q hq hd f = c := by sorry
+    residue q hq hd f = c := by
+  change (f.val %ₘ q).coeff 0 = c
+  rw [hf, constant_remainder q hq hd]
+  simp
 
 lemma residue_surjective (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
-    Function.Surjective (residue q hq hd) := by sorry
+    Function.Surjective (residue q hq hd) := fun c =>
+  ⟨algebraMap k (algebra q) c, (residue q hq hd).commutes c⟩
 
 lemma residue_kernel (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
     RingHom.ker (residue q hq hd).toRingHom =
-      (Ideal.span ({q} : Set k[X])).comap (algebra q).val.toRingHom := by sorry
+      (Ideal.span ({q} : Set k[X])).comap (algebra q).val.toRingHom := by
+  ext f
+  change ((f.val %ₘ q).coeff 0 = 0) ↔ f.val ∈ Ideal.span {q}
+  rw [Ideal.mem_span_singleton]
+  constructor
+  · intro h
+    apply (Polynomial.modByMonic_eq_zero_iff_dvd hq).mp
+    rw [remainder_scalar q hq hd f, h, Polynomial.C_0]
+  · intro h
+    rw [(Polynomial.modByMonic_eq_zero_iff_dvd hq).mpr h]
+    simp
 
 -- test: QuadraticPinch.test_residue_constant
 example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
-    residue q hq hd (algebraMap k (algebra q) 1) = 1 := by sorry
+    residue q hq hd (algebraMap k (algebra q) 1) = 1 := (residue q hq hd).commutes 1
 
 -- test: QuadraticPinch.test_residue_q
 example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) (hmem : q ∈ algebra q) :
-    residue q hq hd ⟨q,hmem⟩ = 0 := by sorry
+    residue q hq hd ⟨q,hmem⟩ = 0 :=
+  residue_normal_form q hq hd _ 0 1 (by simp)
 
 -- test: QuadraticPinch.test_residue_tq
 example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
     (hmem : Polynomial.X * q ∈ algebra q) :
-    residue q hq hd ⟨Polynomial.X * q,hmem⟩ = 0 := by sorry
+    residue q hq hd ⟨Polynomial.X * q,hmem⟩ = 0 :=
+  residue_normal_form q hq hd _ 0 Polynomial.X (by simp [mul_comm])
 
 -- node: G.1/quadratic-pinch-presentation
 /-- Canonical map, its image and its entire kernel, including inseparable quadratics. -/
@@ -1070,13 +1203,34 @@ lemma presentation (a b : k) :
 
 -- node: G.1/quadratic-pinch-conductor
 lemma conductor (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
-    (algebra q).toSubring.conductor = Ideal.span ({q} : Set k[X]) := by sorry
+    (algebra q).toSubring.conductor = Ideal.span ({q} : Set k[X]) := by
+  ext f
+  change (∀ x : k[X], f * x ∈ algebra q) ↔ f ∈ Ideal.span {q}
+  rw [Ideal.mem_span_singleton]
+  constructor
+  · intro hf
+    obtain ⟨c, h, hform⟩ := (mem_algebra q f).mp (by simpa using hf 1)
+    obtain ⟨d, j, hj⟩ := (mem_algebra q (f * Polynomial.X)).mp (hf Polynomial.X)
+    have hlin : (f * Polynomial.X) %ₘ q = Polynomial.C c * Polynomial.X := by
+      rw [hform, add_mul,
+        show q * h * Polynomial.X = q * (h * Polynomial.X) by ring,
+        Polynomial.add_modByMonic, Polynomial.self_mul_modByMonic hq, add_zero,
+        linear_remainder q hq hd]
+    have hconst : (f * Polynomial.X) %ₘ q = Polynomial.C d := by
+      rw [hj, constant_remainder q hq hd]
+    have hc : c = 0 := by
+      have hcoef := congrArg (fun p : k[X] => p.coeff 1) (hlin.symm.trans hconst)
+      simpa using hcoef
+    exact ⟨h, by simpa [hc] using hform⟩
+  · rintro ⟨h, rfl⟩ x
+    exact (mem_algebra q _).mpr ⟨0, h * x, by simp [mul_assoc]⟩
 
 -- node: G.1/quadratic-pinch-normalization
 -- This is the finite inclusion part. The localization/fraction-field and native
 -- normalization comparison are named in the ledger below, not encoded by a new predicate.
 lemma finite_normalization (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
     (algebra q).val.toRingHom.Finite := by sorry
+
 
 -- node: G.1/quadratic-point-proper-pushout
 /-- Generic proper Scheme pinching at one closed field point. This does not
