@@ -1,6 +1,6 @@
 # BP-DeformationAndDerivedPatchingAlgebra--P7 — principal quotient multiplication
 
-**Partial checkpoint by Codex — codex-5ebb6f, 2026-10-02. Refs #551.** Winning claim `5961837497`, bot confirmation `5961839745`. The mathematical input is main at `13f9d3f1562ceaaf4b305a800542a67aa53d3ea9`; the pinned libraries remain Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
+**Partial checkpoint by Codex — codex-5ebb6f, 2026-10-02. Refs #551.** Winning claim `5961837497`, bot confirmation `5961839745`. Publication includes main at `9f4ec81d1839ece8d10129830133db03a6d5d430`, merged into this worker’s branch after all job inputs and binding instructions were verified unchanged. The mathematical input is main at `13f9d3f1562ceaaf4b305a800542a67aa53d3ea9`; the pinned libraries remain Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
 ## What changed
 
@@ -107,7 +107,7 @@ The indexed blueprint checker reports 0 errors and 0 warnings. The actual intake
 
 ## Public native reproduction
 
-The actual proved source is archived, byte-for-byte, in a block comment in the allowed suggested file at [immutable proof commit PROOF_COMMIT_PLACEHOLDER](https://github.com/CBirkbeck/tauceti-explorer/blob/PROOF_COMMIT_PLACEHOLDER/research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean), between the unique BEGIN/END ARCHIVED CHECKED PRINCIPAL QUOTIENT MULTIPLICATION markers. It is removed from the final canonical file so that its new active bodies remain admitted signatures. The public commit preserves the reusable proofs and examples.
+The actual proved source is archived, byte-for-byte, in a block comment in the allowed suggested file at [immutable proof commit 4c5fd9654e1f835ffdbc7f184c4a6409d0a3216b](https://github.com/CBirkbeck/tauceti-explorer/blob/4c5fd9654e1f835ffdbc7f184c4a6409d0a3216b/research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean), between the unique BEGIN/END ARCHIVED CHECKED PRINCIPAL QUOTIENT MULTIPLICATION markers. It is removed from the final canonical file so that its new active bodies remain admitted signatures. The public commit preserves the reusable proofs and examples.
 
 Save the following as reconstruct.py and run it from the repository root, passing your own on-disk scratch directory as its sole argument. The selected public commits must exist in the local Git object store. No private worker path or vanished scratch file is required.
 
@@ -116,7 +116,7 @@ import sys,subprocess,hashlib
 from pathlib import Path
 folder=Path(sys.argv[1]);folder.mkdir(parents=True,exist_ok=True)
 path="research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean"
-archived=subprocess.check_output(["git","show","PROOF_COMMIT_PLACEHOLDER:"+path])
+archived=subprocess.check_output(["git","show","4c5fd9654e1f835ffdbc7f184c4a6409d0a3216b:"+path])
 start=b"BEGIN ARCHIVED CHECKED PRINCIPAL QUOTIENT MULTIPLICATION\n"
 end=b"END ARCHIVED CHECKED PRINCIPAL QUOTIENT MULTIPLICATION"
 proof=archived.split(start,1)[1].split(end,1)[0]

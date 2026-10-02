@@ -10620,6 +10620,8 @@
       "partPlanets": 13,
       "roadmapDeclarations": 166,
       "scriptSha256": "e340e078d7f99367b63b2f2be585b4a82a99ad3cc556b5818994af95b7d4c097"
-    }
+    },
+    "proofArchiveCommit": "4c5fd9654e1f835ffdbc7f184c4a6409d0a3216b",
+    "publicationBase": "9f4ec81d1839ece8d10129830133db03a6d5d430"
   }
 }
