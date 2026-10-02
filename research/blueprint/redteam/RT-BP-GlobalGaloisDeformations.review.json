@@ -1,0 +1,20 @@
+{
+  "redteam": "RT-BP-GlobalGaloisDeformations",
+  "findings": [
+    {
+      "finding": "RT-BP-GlobalGaloisDeformations/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed at 363633e. The two suggested signatures quantify over CommRing A and a ring map to a field without locality; strict_of_full only adds surjectivity. Direct pinned reads of IsLocalRing and Matrix.GeneralLinearGroup/map confirm these do not imply local coefficient data. Independently reproduced the integral S3 example: C=(0,-1;1,-1), S=(0,1;1,0), a=(2,5;5,12), det(a)=-1, a mod5=2I. The six conjugated matrices have identical traces and reductions; I,C,S,CS span M2(F5), determinant -3. Integral commutation with C,S forces a scalar, so the GL2(Z) centralizer is {I,-I}; any conjugator is +/-a, reducing to 2I or 3I, never I. Gee v2 section3.1/Definition3.4/Lemma3.7 pp12-13 and Kisin Lecture1 category1.1.1/Theorem1.4.1 pp1,3-4 retain local coefficients. Repair the signatures through R03.1 actual local coefficient categories and residue identifications, with the source-specific Artinian or complete-local hypotheses, not prose conventions. Preserve the scoped packet statements; add this negative case and an allowed local scalar-normalization test."
+    },
+    {
+      "finding": "RT-BP-GlobalGaloisDeformations/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The node specifies ordinary global ad0 cochains, but Gee v2 section3.23 p16 (text and image read) uses full ad in global degree0, ad0 in positive degrees, local degree0 direct sum of full ad at T, local degree1 ad0 cochains at T and quotient by the cocycle preimage of L_v at S minus T, and full local ad0 cochains in degrees>=2. The mapping fibre is C0^i plus Cloc^(i-1), d(phi,psi)=(dphi,res(phi)-dpsi). With n=1, p=3, fixed trivial determinant and S=T={3,5}, lifts are forced trivial but frames are (1+m)^2/diagonal(1+m), so the relative tangent is k^2/diag(k), dimension1. Ordinary ad0 gives0; retaining only local scalar terms gives2. Independently enumerated infinitesimal frame quotients for zero through four frames. The packet already corrects the dimension term to #T-1; its reader still has #T. Specify the modified complex and precise R02.5 request, coordinating D8 deformation comparisons with the existing L2 mapping-fibre owner, without another generic Selmer construction. Keep the dual ordinary Selmer kernel distinct, propagate the existing E3 correction into the reader, and test zero, one and two frames. This confirms a missing interface correction, not a new discovery of E3."
+    },
+    {
+      "finding": "RT-BP-GlobalGaloisDeformations/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The packet allows KW cyclotomic absolute irreducibility or Gee SL2-image, then uses whole-adjoint irreducibility in one common spanning proof. For p5, the standard S3 image has full residual matrix span but J=C-C^-1=(1,-2;2,-1) is trace-zero and spans a proper invariant line: CJC^-1=J and SJS^-1=-J. Tate twisting preserves it. The splitting field of X^3-2 has group S3, quadratic subfield Q(sqrt(-3)), disjoint from Q(zeta5), whose quadratic subfield is Q(sqrt5); thus the cyclotomic restriction remains absolutely irreducible and complex conjugation has determinant -1. Gee p39 explicitly uses its stronger SL2 hypothesis. KW final Lemmas5.2-5.3 pp47-48 cite [59], identified on p97 as Taylor On the meromorphic continuation of degree two L-functions, not [58] Remarks on a conjecture of Fontaine and Mazur. Taylor Lemma2.5 pp749-750 detects each irreducible constituent and treats induced/dihedral complements of dimensions1 and2. Split the detection proofs: retain Gee under its strong image condition; request the KW source-qualified constituent detector from R01.4, including permitted dihedral cases, and keep R02.6 H1 vanishing separate. Respect Taylor l>3; explicitly source/prove the KW p3 branch rather than silently extrapolating. Reuse the shared Chebotarev selector and correct the reference. The KW prime-existence theorem is not refuted."
+    }
+  ]
+}
