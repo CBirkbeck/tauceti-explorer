@@ -3374,3 +3374,122 @@ Prerequisites: `StableReductionPartII:MC.2/section-dual-correction-formula`, `St
 Proposed declaration: `NodeSectionFactorization.PolynomialModel.dualCorrectionMap_product`.
 
 Proof: Multiply both sides by d and use the correction identity at rz,z,r. The two native ring maps ev and ι preserve products. Ring normalization and cancellation of d prove the displayed orientation.
+
+## Coefficient-change continuation — Codex codex-a71f92
+
+This partial checkpoint uses the actual untruncated polynomial quotient and native section ideal. The coefficient change can be nonflat or noninjective, and coefficient rings can be zero or nonreduced. No family, completed-local or whole-dual tensor equivalence follows from these pointwise maps. Fresh selected reading of [Knudsen’s Introduction and full §3 Key Example](https://arxiv.org/html/1106.1588v2) supplies the motivating base-change requirement and regular target coordinate; the arbitrary-ring naturality arguments here are authored deductions, not a stronger printed geometric theorem.
+
+### Semilinear coefficient map on the section ideal
+
+StableReductionPartII:MC.2/section-ideal-coefficient-map; NodeSectionFactorization.PolynomialModel.idealCoefficientMap.
+
+Retain R=AdjoinRoot(X²+C(γY)X+C(δY²−q(s,t))), ι:A→R, u=[X], v=[Y], c=u−ιs,d=v−ιt,b=u+ιs+ιγ·ιt, J=(c,d)=ker(ev), and the existing canonical projection p(r)=r−ιev(r) and dual generator ε:J→R with dε(j)=bj. Let R′,J′,p′,ε′ denote the same native objects with mapped coefficients, and φ:R→R′ the existing coefficient map induced by AdjoinRoot.map. Construct the actual φ-semilinear restriction ψ:J→J′, whose underlying ring value is ψ(j)=φ(j). It sends the two ordered ideal generators to their corresponding primed generators, satisfies ψ(rj)=φ(r)ψ(j), and obeys identity and composition on actual ideal elements. This restriction is not asserted injective or an equivalence; the tensor equivalence is a separate existing obligation.
+
+Hypotheses: A and A′ are arbitrary commutative rings, including the zero ring; γ,δ,s,t∈A and f:A→A′ is any unital ring homomorphism. No flatness, injectivity, noetherianity or unit-discriminant hypothesis is imposed. Statements concern the untruncated explicit polynomial model, not arbitrary nodal families.
+
+Dependencies: StableReductionPartII:MC.2/section-coefficient-map; StableReductionPartII:MC.2/section-evaluation-coefficient-naturality; StableReductionPartII:MC.2/section-evaluation-kernel; mathlib:LinearMap.map_smulₛₗ.
+
+Proof: Naturality of ev sends every j∈ker(ev) into ker(ev′), hence into the native J′. Restrict the native ring homomorphism to the two native ideal subtypes; use its additive and multiplicative equations for the built semilinear LinearMap structure. The existing coefficient projection formulas give the two generator values. The native ring-map identity and composition prove the pointwise identities by subtype extensionality. A nonflat coefficient map can annihilate a nonzero ideal element; do not infer a pure-map inverse from a later tensor comparison.
+
+Acceptance: Underlying carrier is the native Ideal.span subtype, not a new quotient or tensor carrier. Semilinearity uses φ on R-scalars; f-linearity without scalar transport would be ill-typed.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.idealCoefficientMap: The coefficient map restricts to an actual φ-semilinear map ψ:J→J′.
+- NodeSectionFactorization.PolynomialModel.idealCoefficientMap_coe: For every j∈J, the underlying ring element of ψ(j) is φ(j).
+- NodeSectionFactorization.PolynomialModel.idealCoefficientMap_first: ψ sends the native generator c with its actual membership proof to c′.
+- NodeSectionFactorization.PolynomialModel.idealCoefficientMap_second: ψ sends the native generator d with its actual membership proof to d′.
+- NodeSectionFactorization.PolynomialModel.idealCoefficientMap_identity: For the identity coefficient homomorphism, ψ(j)=j for every actual j∈J.
+- NodeSectionFactorization.PolynomialModel.idealCoefficientMap_comp: For A→A′→A″, ψ_g(ψ_f(j))=ψ_{g∘f}(j), with all four parameters mapped.
+- NodeSectionFactorization.PolynomialModel.idealCoefficientMap_smul: For every r∈R and j∈J, ψ(r•j)=φ(r)•ψ(j), using the existing ideal scalar actions.
+
+Tests:
+
+- NodeSectionFactorization.PolynomialModel.idealCoefficientMap.identity: For every coefficient ring and every actual ideal element j, the identity coefficient map fixes j.
+- NodeSectionFactorization.PolynomialModel.idealCoefficientMap.generators: For every coefficient map, the ordered native section-ideal generators c and d map to c′ and d′; this excludes swapping the two coordinates or keeping unmapped parameters.
+- NodeSectionFactorization.PolynomialModel.idealCoefficientMap.nonflat: For A=ℤ, γ=1,δ=s=t=0 and f:ℤ→ℤ/2, the actual ideal element j=2d is nonzero in the untruncated polynomial model, but ψ(j)=0. Thus arbitrary coefficient restriction is not injective and need not be flat.
+
+Consumers:
+
+- StableReductionPartII:MC.2/section-projection-coefficient-naturality: Provides the actual ideal-valued comparison rather than only equality after forgetting ideal membership.
+- StableReductionPartII:MC.2/section-dual-generator-coefficient-naturality: Specifies the genuine input to ε′ when mapping j.
+- StableReductionPartII:MC.2/section-ideal-base-change: The planned tensor comparison evaluates a′⊗j as ι′a′ times this underlying coefficient restriction; its bijectivity remains separate.
+
+### Coefficient naturality of the ideal projection
+
+StableReductionPartII:MC.2/section-projection-coefficient-naturality; NodeSectionFactorization.PolynomialModel.sectionProjection_coefficient_naturality.
+
+Retain R=AdjoinRoot(X²+C(γY)X+C(δY²−q(s,t))), ι:A→R, u=[X], v=[Y], c=u−ιs,d=v−ιt,b=u+ιs+ιγ·ιt, J=(c,d)=ker(ev), and the existing canonical projection p(r)=r−ιev(r) and dual generator ε:J→R with dε(j)=bj. Let R′,J′,p′,ε′ denote the same native objects with mapped coefficients, and φ:R→R′ the existing coefficient map induced by AdjoinRoot.map. For every r∈R, ψ(p(r))=p′(φ(r)) as actual elements of J′.
+
+Hypotheses: A and A′ are arbitrary commutative rings, including the zero ring; γ,δ,s,t∈A and f:A→A′ is any unital ring homomorphism. No flatness, injectivity, noetherianity or unit-discriminant hypothesis is imposed. Statements concern the untruncated explicit polynomial model, not arbitrary nodal families.
+
+Dependencies: StableReductionPartII:MC.2/section-ideal-coefficient-map; StableReductionPartII:MC.2/section-evaluation-projection; StableReductionPartII:MC.2/section-projection-formula; StableReductionPartII:MC.2/section-evaluation-coefficient-naturality.
+
+Proof: Apply native subtype extensionality. The left underlying value is φ(r−ιev(r))=φ(r)−ι′f(ev(r)). Naturality of evaluation identifies the last coefficient with ev′(φ(r)), exactly the right projection formula.
+
+Acceptance: Equality is in the native target ideal, not merely in an unspecified ambient carrier.
+
+Consumers:
+
+- StableReductionPartII:MC.2/section-correction-coefficient-naturality: Together with generator naturality gives the canonical K=ε∘p specialization.
+
+### Coefficient naturality of the canonical dual generator
+
+StableReductionPartII:MC.2/section-dual-generator-coefficient-naturality; NodeSectionFactorization.PolynomialModel.dualGenerator_coefficient_naturality.
+
+Retain R=AdjoinRoot(X²+C(γY)X+C(δY²−q(s,t))), ι:A→R, u=[X], v=[Y], c=u−ιs,d=v−ιt,b=u+ιs+ιγ·ιt, J=(c,d)=ker(ev), and the existing canonical projection p(r)=r−ιev(r) and dual generator ε:J→R with dε(j)=bj. Let R′,J′,p′,ε′ denote the same native objects with mapped coefficients, and φ:R→R′ the existing coefficient map induced by AdjoinRoot.map. For every actual j∈J, φ(ε(j))=ε′(ψ(j)). This is pointwise naturality of the existing canonical generators, not an isomorphism between the entire dual modules.
+
+Hypotheses: A and A′ are arbitrary commutative rings, including the zero ring; γ,δ,s,t∈A and f:A→A′ is any unital ring homomorphism. No flatness, injectivity, noetherianity or unit-discriminant hypothesis is imposed. Statements concern the untruncated explicit polynomial model, not arbitrary nodal families.
+
+Dependencies: StableReductionPartII:MC.2/section-ideal-coefficient-map; StableReductionPartII:MC.2/section-dual-generator; StableReductionPartII:MC.2/section-dual-generator-formula; StableReductionPartII:MC.2/section-coordinate-regular; StableReductionPartII:MC.2/section-coefficient-map.
+
+Proof: Multiply both candidate values by the target regular element d′. Mapping dε(j)=bj and using φ(d)=d′ and φ(b)=b′ gives d′φ(ε(j))=b′φ(j). The primed generator formula at the actual ideal element ψ(j) gives the same value. Cancel multiplication by d′ in R′. No cancellation through φ or flat coefficient Hom-exchange theorem is used.
+
+Acceptance: Only native target-coordinate regularity is used; injectivity of f or φ is not assumed.
+
+Consumers:
+
+- StableReductionPartII:MC.2/section-dual-base-change: Gives the exact pointwise ε formula consumed by the separately required canonical tensor-dual comparison.
+- StableReductionPartII:MC.2/section-correction-coefficient-naturality: Combined with projection naturality proves canonical correction naturality.
+
+### Additional API of Coefficient map of pointed node rings
+
+NodeSectionFactorization.PolynomialModel.coefficientMapCoordinates: The existing φ sends all four section coordinates c,d,a,b to c′,d′,a′,b′, with mapped coefficients and the same order.
+
+
+### Additional API of Scalar correction in dual coordinates
+
+NodeSectionFactorization.PolynomialModel.dualCorrectionMap_coefficient_naturality: For the named canonical K=ε∘p, φ(K(r))=K′(φ(r)) for every coefficient map, without flatness.
+
+NodeSectionFactorization.PolynomialModel.dualCorrectionMap.coefficientIdentity: The identity coefficient map fixes the named canonical correction K(r) for every r.
+
+NodeSectionFactorization.PolynomialModel.dualCorrectionMap.coefficientProjection: For every actual j∈J and every coefficient map, φ(K(j))=ε′(ψ(j)); the ideal projection fixes j, so no artificial correction term remains.
+
+NodeSectionFactorization.PolynomialModel.dualCorrectionMap.nonflatCharacteristicTwo: For the actual ℤ model with γ=1,δ=s=t=0 and f:ℤ→ℤ/2, φ(K(u))=u′. The source value is −u and its negative becomes equal to u′ only in characteristic two; nonflat change is allowed.
+
+The existing generic correctionCoefficientNaturality signature is checked with actual proof bodies as well. Apply φ to the characterized equation, identify φ(d)=d′, φ(b)=b′ and the natural section evaluation, then cancel d′ in the receiving ring. This proof never cancels through φ. The named K specialization follows from projection and generator naturality. The nonflat ℤ→ℤ/2 fixture proves 2d≠0 by native regularity and the split coefficient evaluation, but ψ(2d)=0; it does not replace the polynomial ring by a finite truncation.
+
+All eight moduli stages and the reserved moduli-curves key remain partial. Canonical tensor-dual and quotient equivalences, full dual normal coordinates, Hom/Ext exchange for arbitrary coefficient modules, the two-base completion comparison, relative stable reflexivity, pointed hulls, sheaf descent, arbitrary-base approximation, and every geometric/source supplier gap remain required. Matrix-factorization/MCM ownership and all existing requests remain unchanged.
+
+### Current coefficient-change checkpoint verification
+
+Codex — codex-a71f92, 2026-10-02: indexed checker zero errors/warnings;
+136 nodes,159 API items,145 definition/construction tests plus2 inherited
+exactness tests,35 planets,78 baseline references,135 requests and14 gaps.
+All133 inherited statements and130 whole node objects are preserved.
+All eight stages and the reserved geometric moduli-curves key remain partial.
+The exact complete suggested file elaborates with zero errors and204
+admitted-proof warnings only,84 examples; its source SHA-256 is
+b0e65a36e73f3882a9f6eb257a48f3269361ccc297dbe7a46f31fe4e8aa097c7.
+The separately checked native coefficient-change archive elaborates without
+errors or warnings,22 examples and51 kernel axiom audits, no admitted-proof
+dependency; native source SHA-256
+dbf4374d619b337b19727079fa52f712582a2e8dc921d0dd027b820f3c0a9ff8.
+The eleven new signatures and six example statements match that native source.
+These receipts certify only the explicit polynomial/ideal prototypes, not a
+completed geometric roadmap or entire-dual tensor/Ext/completion theorem.
+Proof recovery and exact verification recipes are in the current handoff and
+[immutable allowed-file archive](https://github.com/CBirkbeck/tauceti-explorer/blob/29e68bdcb7165310e94bcdb11882d057685efa13/research/blueprint/suggested/StableReductionPartII.lean).
+The actual atlas assembly has unchanged stage edges, acyclic scoped graphs
+and all81 required supplier-stage paths reachable. Historical receipts above
+retain their original worker attribution; these are the current checks.
