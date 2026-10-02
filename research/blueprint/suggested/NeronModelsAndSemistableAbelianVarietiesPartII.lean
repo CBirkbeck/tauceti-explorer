@@ -27,6 +27,11 @@ import Mathlib.AlgebraicGeometry.Morphisms.Proper
 import Mathlib.AlgebraicGeometry.Morphisms.Smooth
 import Mathlib.CategoryTheory.Limits.Shapes.Pullback.IsPullback.Defs
 import Mathlib.RingTheory.Conductor
+import Mathlib.AlgebraicGeometry.IdealSheaf.Functorial
+import Mathlib.AlgebraicGeometry.Morphisms.SchemeTheoreticallyDominant
+import Mathlib.AlgebraicGeometry.Noetherian
+import Mathlib.RingTheory.Flat.Localization
+import Mathlib.RingTheory.TensorProduct.Basic
 import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass
 import Mathlib.Algebra.Polynomial.Degree.Operations
@@ -580,8 +585,9 @@ scheme-existence signature appears above; these names locate all remaining named
 
 * G.0/affine-existence: ferrand_affine_existence above is now the full actual Scheme form;
   universality against algebraic-space targets remains in the new space ledger below.
-* G.0/conductor-square: the affine geometric form is FerrandPushout.conductor above;
-  global conductor-subsheme gluing and its canonical cartesian comparison remain omitted.
+* G.0/conductor-square: the affine form is FerrandPushout.conductor above; the native global
+  ideal-sheaf, quotient-chart, cartesian, geometric/categorical and flat-recomputed forms
+  now appear in the final continuation. Their elaboration and SF.0 dependencies are unchecked.
 * G.1/canonical-type-classification: full geometric Kodaira incidence, not just the root graph.
 * G.1/five-f2-classes: actual pointed elliptic-curve isomorphism classes, not coefficient equality.
 * G.2/transverse-divisor: regular horizontal DVR Cartier divisor, intersection Spec k, length m.
@@ -740,3 +746,210 @@ example :
     (⟨0,0,0,0,0⟩ : WeierstrassCurve (ZMod 2)).pointCount = (F2Model 2).pointCount := by sorry
 
 end TauCeti.GenusOne
+
+/-!
+Global Scheme conductor continuation, Codex codex-5ebb6f, 2 October 2026.
+All signatures below are UNCOMPILED at the pins. They use native rings, modules,
+IdealSheafData, quotient-chart isomorphisms and Scheme maps. The generic finite-module
+flat-annihilator export and exact affine tensor/localization adapters remain SF.0 requests.
+The stronger finite schematically dominant statement is derived, not a verbatim
+attribution to Witaszek's reduced Noetherian finite-surjective definition.
+-/
+namespace TauCeti.GenusOne.FerrandPushout
+
+open scoped TensorProduct
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-annihilator
+lemma conductor_eq_annihilator {A B : Type u} [CommRing A] [CommRing B] [Algebra A B] :
+    ((algebraMap A B).range.conductor).comap (algebraMap A B) =
+      Module.annihilator A (B ⧸ Submodule.span A ({1} : Set B)) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change
+lemma conductor_flat_baseChange {A B F : Type u}
+    [CommRing A] [CommRing B] [CommRing F] [Algebra A B] [Algebra A F]
+    [Module.Finite A B] [Module.Flat A F] (hf : Function.Injective (algebraMap A B)) :
+    let fF := (Algebra.TensorProduct.includeRight : F →ₐ[A] B ⊗[A] F).toRingHom
+    Function.Injective fF ∧
+      ((((algebraMap A B).range.conductor).comap (algebraMap A B)).map
+        (algebraMap A F) = (fF.range.conductor).comap fF) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-localization
+lemma conductor_localization {A B L M : Type u}
+    [CommRing A] [CommRing B] [CommRing L] [CommRing M]
+    [Algebra A B] [Algebra A L] [Algebra B M]
+    (S : Submonoid A) [IsLocalization S L]
+    [IsLocalization (S.map (algebraMap A B)) M]
+    [Module.Finite A B] (hf : Function.Injective (algebraMap A B)) :
+    let fS : L →+* M := IsLocalization.map M (algebraMap A B) (by
+      intro s hs
+      exact ⟨s, hs, rfl⟩)
+    ((((algebraMap A B).range.conductor).comap (algebraMap A B)).map
+      (algebraMap A L)) = (fS.range.conductor).comap fS := by sorry
+
+variable {Y P : Scheme.{u}}
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf
+/-- Native largest-compatible-family construction. Its displayed chart formula below
+requires the finite localization proof: ofIdeals alone does not supply that formula. -/
+def conductorIdealSheaf (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f] :
+    P.IdealSheafData :=
+  Scheme.IdealSheafData.ofIdeals
+    (fun U => ((f.app U).hom.range.conductor).comap (f.app U).hom)
+
+namespace ConductorIdealSheaf
+
+lemma mem_affine (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (U : P.affineOpens) (a : Γ(P, U)) :
+    a ∈ (conductorIdealSheaf f).ideal U ↔
+      ∀ b : Γ(Y, f ⁻¹ᵁ U), (f.app U).hom a * b ∈ (f.app U).hom.range := by sorry
+
+lemma greatest (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (K : P.IdealSheafData) :
+    K ≤ conductorIdealSheaf f ↔
+      ∀ (U : P.affineOpens) (a : Γ(P, U)), a ∈ K.ideal U →
+        ∀ b : Γ(Y, f ⁻¹ᵁ U), (f.app U).hom a * b ∈ (f.app U).hom.range := by sorry
+
+lemma affine_compat (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    [IsAffine P] :
+    conductorIdealSheaf f =
+      Scheme.IdealSheafData.ofIdealTop
+        (f.appTop.hom.range.conductor.comap f.appTop.hom) := by sorry
+
+-- ConductorIdealSheaf.test_identity
+example (P : Scheme.{u}) :
+    conductorIdealSheaf (𝟙 P) = ⊤ ∧
+      IsEmpty (conductorIdealSheaf (𝟙 P)).subscheme := by sorry
+
+-- ConductorIdealSheaf.test_cusp: retain the full conductor, not its radical in k[X].
+example (k : Type u) [Field k] :
+    let S := (Algebra.adjoin k ({Polynomial.X ^ 2, Polynomial.X ^ 3} : Set k[X])).toSubring
+    let f := Spec.map (CommRingCat.ofHom S.subtype)
+    letI : IsFinite f := by sorry
+    letI : IsSchemeTheoreticallyDominant f := by sorry
+    let U : (Spec (.of S)).affineOpens := ⟨⊤, isAffineOpen_top (Spec (.of S))⟩
+    (conductorIdealSheaf f).ideal U =
+      ((Ideal.span ({Polynomial.X ^ 2} : Set k[X])).comap S.subtype).comap
+        (Scheme.ΓSpecIso (.of S)).hom.hom ∧
+      S.conductor = Ideal.span ({Polynomial.X ^ 2} : Set k[X]) := by sorry
+
+-- ConductorIdealSheaf.test_field_extension
+example (k E : Type u) [Field k] [Field E] [Algebra k E] [Module.Finite k E]
+    (hproper : ¬ Function.Surjective (algebraMap k E)) :
+    let f := Spec.map (CommRingCat.ofHom (algebraMap k E))
+    letI : IsFinite f := by sorry
+    letI : IsSchemeTheoreticallyDominant f := by sorry
+    conductorIdealSheaf f = ⊥ := by sorry
+
+-- ConductorIdealSheaf.test_affine_compat
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f] [IsAffine P] :
+    (conductorIdealSheaf f).ideal ⟨⊤, isAffineOpen_top P⟩ =
+      f.appTop.hom.range.conductor.comap f.appTop.hom := by sorry
+
+end ConductorIdealSheaf
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-quotients
+lemma conductor_affine_quotients (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    let I := conductorIdealSheaf f
+    let J := I.comap f
+    let V : Y.affineOpens := ⟨f ⁻¹ᵁ U, U.2.preimage f⟩
+    I.ideal U = (f.app U).hom.range.conductor.comap (f.app U).hom ∧
+      J.ideal V = (f.app U).hom.range.conductor ∧
+      I.subschemeι.app U =
+        CommRingCat.ofHom (Ideal.Quotient.mk (I.ideal U)) ≫ (I.subschemeObjIso U).inv ∧
+      J.subschemeι.app V =
+        CommRingCat.ofHom (Ideal.Quotient.mk (J.ideal V)) ≫ (J.subschemeObjIso V).inv := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map
+def conductorMap (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f] :
+    ((conductorIdealSheaf f).comap f).subscheme ⟶ (conductorIdealSheaf f).subscheme :=
+  ((conductorIdealSheaf f).comapIso f).hom ≫
+    pullback.snd f (conductorIdealSheaf f).subschemeι
+
+lemma conductorMap_square (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f] :
+    ((conductorIdealSheaf f).comap f).subschemeι ≫ f =
+      conductorMap f ≫ (conductorIdealSheaf f).subschemeι := by sorry
+
+lemma conductorMap_isPullback (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] :
+    IsPullback ((conductorIdealSheaf f).comap f).subschemeι (conductorMap f)
+      f (conductorIdealSheaf f).subschemeι := by sorry
+
+lemma conductorMap_isFinite (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f] :
+    IsFinite (conductorMap f) := by sorry
+
+-- conductorMap.test_identity
+example (P : Scheme.{u}) : IsIso (conductorMap (𝟙 P)) := by sorry
+
+-- conductorMap.test_cusp: the overlap is a double point, although C is reduced.
+example (k : Type u) [Field k] :
+    let S := (Algebra.adjoin k ({Polynomial.X ^ 2, Polynomial.X ^ 3} : Set k[X])).toSubring
+    let f := Spec.map (CommRingCat.ofHom S.subtype)
+    letI : IsFinite f := by sorry
+    letI : IsSchemeTheoreticallyDominant f := by sorry
+    let I := conductorIdealSheaf f
+    ¬ IsReduced (I.comap f).subscheme ∧ IsReduced I.subscheme := by sorry
+
+-- conductorMap.test_field_extension: whole conductors do not make g an isomorphism.
+example (k E : Type u) [Field k] [Field E] [Algebra k E] [Module.Finite k E]
+    (hproper : ¬ Function.Surjective (algebraMap k E)) :
+    let f := Spec.map (CommRingCat.ofHom (algebraMap k E))
+    letI : IsFinite f := by sorry
+    letI : IsSchemeTheoreticallyDominant f := by sorry
+    let I := conductorIdealSheaf f
+    IsIso I.subschemeι ∧ IsIso (I.comap f).subschemeι ∧ ¬ IsIso (conductorMap f) := by sorry
+
+-- conductorMap.test_affine_map: transport the actual map through both native quotient charts.
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    let I := conductorIdealSheaf f
+    let J := I.comap f
+    let V : Y.affineOpens := ⟨f ⁻¹ᵁ U, U.2.preimage f⟩
+    (I.subschemeObjIso U).inv ≫
+        (conductorMap f).appLE (I.subschemeι ⁻¹ᵁ U) (J.subschemeι ⁻¹ᵁ V) (by sorry) ≫
+        (J.subschemeObjIso V).hom =
+      CommRingCat.ofHom (Ideal.quotientMap (J.ideal V) (f.app U).hom (by sorry)) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-geometric
+theorem conductor_global_geometric (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] :
+    GeometricPushout ((conductorIdealSheaf f).comap f).subschemeι (conductorMap f)
+      f (conductorIdealSheaf f).subschemeι := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-pushout
+theorem conductor_global_isPushout (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] :
+    IsPushout ((conductorIdealSheaf f).comap f).subschemeι (conductorMap f)
+      f (conductorIdealSheaf f).subschemeι := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison
+theorem conductor_global_flat_comparison (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    {T : Scheme.{u}} (q : T ⟶ P) [Flat q] :
+    conductorIdealSheaf (pullback.snd f q) = (conductorIdealSheaf f).comap q := by sorry
+
+-- FerrandPushout.conductor_global: Witaszek's precise source hypotheses.
+lemma conductor_global (f : Y ⟶ P) [IsFinite f] [Surjective f]
+    [IsReduced Y] [IsReduced P] [IsNoetherian Y] [IsNoetherian P] :
+    letI : IsSchemeTheoreticallyDominant f := IsSchemeTheoreticallyDominant.of_isDominant f
+    GeometricPushout ((conductorIdealSheaf f).comap f).subschemeι (conductorMap f)
+        f (conductorIdealSheaf f).subschemeι ∧
+      IsPushout ((conductorIdealSheaf f).comap f).subschemeι (conductorMap f)
+        f (conductorIdealSheaf f).subschemeι ∧
+      IsPullback ((conductorIdealSheaf f).comap f).subschemeι (conductorMap f)
+        f (conductorIdealSheaf f).subschemeι ∧
+      ∀ (T : Scheme.{u}) (q : T ⟶ P) (hq : Flat q),
+        letI : Flat q := hq
+        conductorIdealSheaf (pullback.snd f q) = (conductorIdealSheaf f).comap q := by sorry
+
+-- Boundary witness: the nonflat cusp quotient loses the native inclusion.
+example (k : Type u) [Field k] :
+    let S := (Algebra.adjoin k ({Polynomial.X ^ 2, Polynomial.X ^ 3} : Set k[X])).toSubring
+    let u : S := ⟨Polynomial.X ^ 2, by sorry⟩
+    let v : S := ⟨Polynomial.X ^ 3, by sorry⟩
+    let I := Ideal.span ({u} : Set S)
+    let K := Ideal.span ({Polynomial.X ^ 2} : Set k[X])
+    let f : (S ⧸ I) →+* (k[X] ⧸ K) := Ideal.quotientMap K S.subtype (by sorry)
+    Ideal.Quotient.mk I v ≠ 0 ∧ f (Ideal.Quotient.mk I v) = 0 ∧
+      ¬ Function.Injective f := by sorry
+
+end TauCeti.GenusOne.FerrandPushout

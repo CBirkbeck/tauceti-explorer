@@ -4,7 +4,7 @@ Genus-one fibrations, Ferrand pinching and rational elliptic surfaces
 
 This continuation supplies the genus-one and rational-Jacobian mathematics routed from Schröer’s paper. It begins with reusable finite pinching, passes through regular models and finite-field fiber descent, constructs global Weierstrass equations, and separates the fourteen explicit characteristic-two candidates from their exhaustiveness theorem. Its general definition of Ferrand pushouts is also needed by Witaszek’s conductor and line-bundle descent. The reserved owner is `NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts`.
 
-**Status: partial design.** The packet contains128 declaration targets in seven stages: nine definitions, one construction,92 lemmas,23 theorems and3 comparisons, with44 API contracts,40 planned unit tests and28 planets. All78 routed items and all21 inherited source findings are preserved. There are17 explicit gaps and20 supplier requests. The finite F₂ coefficient/classification subsection below has complete concrete witnesses and native suggested signatures. No full 2¹⁸/2²¹ polynomial-coefficient surface search or all-place resolution certificate is supplied. No stage or formal implementation is claimed closed.
+**Status: partial design.** The packet contains 137 declaration targets in seven stages: 10 definitions, 2 constructions, 95 lemmas, 25 theorems and 5 comparisons, with 51 API contracts, 48 planned unit tests and 28 planets. All 128 inherited IDs, 78 routed items and 21 source findings are preserved. There are 16 explicit gaps and 20 supplier requests. The global Scheme conductor continuation below supplies native ideal-sheaf data, quotient charts, canonical maps, geometric/categorical squares and flat recomputation contracts. All 76 upstream imports are restored as ordinary prerequisites. The generic finite-module annihilator theorem stays at SF.0. The finite F₂ subsection retains its concrete witnesses. No full surface search, all-place resolution, stage closure or formal implementation is claimed.
 
 ## Conventions and boundaries
 
@@ -58,7 +58,7 @@ TauCeti also has the actual scheme Weil-divisor carrier: finite integer sums of 
 
 The datum is Z→Y closed and Z→Z′ finite. A geometric square includes the quotient topology and the equality of structure sheaves, expressed as a section-ring pullback on every open. Categorical universality is subsequently proved for the finite pinching or Witaszek hypotheses; it is not substituted for this definition. In Witaszek2.17, the relevant maps are universal homeomorphisms and the immersion is qcqs. Nonsplit nodal pinching is finite but not radicial, so that restriction cannot be silently imposed on the general owner.
 
-For affine rings B→C surjective and A′→C finite, use the existing A=B×_C A′. Its projection to A′ is surjective and the common ideal I identifies the two closed loci. Localization at t∈I identifies A[1/t] with B[1/t]. These identities give the structure sheaf and complement. Global scheme existence requires each finite fiber over Z′ to lie in an affine neighborhood of Y. Ferrand’s (AF) condition is stronger than necessary. Temkin–Tyomkin’s finite-pinching theorem supplies algebraic-space existence without that neighborhood assumption; the twelve declaration-sized consumer steps below replace the earlier source uncertainty. Its exact foundational exports and space signatures remain open. General conductors c(A,B) require neither finite generation nor birationality in their definition; reduced Noetherian finite-inclusion hypotheses enter only their geometric application.
+For affine rings B→C surjective and A′→C finite, use the existing A=B×_C A′. Its projection to A′ is surjective and the common ideal I identifies the two closed loci. Localization at t∈I identifies A[1/t] with B[1/t]. These identities give the structure sheaf and complement. Global scheme existence requires each finite fiber over Z′ to lie in an affine neighborhood of Y. Ferrand’s (AF) condition is stronger than necessary. Temkin–Tyomkin’s finite-pinching theorem supplies algebraic-space existence without that neighborhood assumption; the twelve declaration-sized consumer steps below replace the earlier source uncertainty. Its exact foundational exports and space signatures remain open. General conductors c(A,B) require neither finite generation nor birationality in their definition. Witaszek’s geometric source formulation assumes reduced Noetherian finite-surjective schemes. The derived native Scheme continuation below proves the stronger finite schematically dominant form, with finite localization supplying gluing and flat annihilator comparison supplying recomputation.
 
 **Stage imports:** `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `NeronModelsAndSemistableAbelianVarieties:R11.2`, `SchemeAndStackFoundations:SF.3`.
 
@@ -92,6 +92,7 @@ For affine rings B→C surjective and A′→C finite, use the existing A=B×_C 
 | FerrandPushout.conductor | characterisation | The conductor square of a finite inclusion of reduced Noetherian rings is this geometric square; no birational hypothesis is necessary. |
 | FerrandPushout.exists_algebraicSpace | constructor | For algebraic spaces Y,Z,Z′ over a scheme S, a closed immersion i:Z→Y and a finite morphism g:Z→Z′ have a categorical pushout P=Y⊔Z Z′ in algebraic S-spaces, with affine canonical maps Y→P and Z′→P. No Noetherian, quasi-separated, reduced, radicial or scheme affine-neighborhood hypothesis is imposed. |
 | FerrandPushout.isScheme_iff | characterisation | For a finite pinching datum whose three components Y,Z,Z′ are schemes, its algebraic-space pushout P is a scheme if and only if for every point z′∈Z′ the finite set i(g⁻¹(z′)) lies in an affine open of Y. Under this condition the canonical scheme pushout agrees with P, including universality against algebraic-space targets. |
+| FerrandPushout.conductor_global | characterisation | For a finite surjective morphism of reduced Noetherian schemes, the actual globally constructed conductor subschemes and induced map give a geometric and categorical Scheme pushout, with the native cartesian comparison and flat-recomputed conductor compatibility; no birational hypothesis is imposed. |
 
 | Unit test name | Kind | Statement that the definition must satisfy |
 | --- | --- | --- |
@@ -169,7 +170,7 @@ For affine rings B→C surjective and A′→C finite, use the existing A=B×_C 
 2. Use the tensor quotient B⊗_A(A/I)≅B/IB, with IB=ker p.
 3. Use B/ker p≅C.
 
-**Prerequisites:** `G.0/pullback-projection`, `SchemeAndStackFoundations:SF.0`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/pullback-projection`, `SchemeAndStackFoundations:SF.0`.
 
 **Acceptance:** The fiber square is scheme-theoretic, including nonreduced C.
 
@@ -184,7 +185,7 @@ For affine rings B→C surjective and A′→C finite, use the existing A=B×_C 
 1. Since I is a common ideal, t·b∈I⊂A for every b∈B.
 2. Represent b/tⁿ by (tb)/tⁿ⁺¹; injectivity follows from the inclusion into B after killing torsion.
 
-**Prerequisites:** `G.0/pullback-projection`, `SchemeAndStackFoundations:SF.0`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/pullback-projection`, `SchemeAndStackFoundations:SF.0`.
 
 **Acceptance:** The union of these principal opens is the complement of the conductor subscheme.
 
@@ -200,7 +201,7 @@ For affine rings B→C surjective and A′→C finite, use the existing A=B×_C 
 2. Reduce any b modulo I using these lifts and lift each A′ coefficient to A via the surjective-projection node.
 3. The residual term lies in I⊂A, so 1 and the chosen lifts generate B over A.
 
-**Prerequisites:** `G.0/pullback-projection`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/pullback-projection`.
 
 **Acceptance:** For a quadratic point pinching the normalization-side map is finite even though two geometric branches are identified.
 
@@ -216,7 +217,7 @@ For affine rings B→C surjective and A′→C finite, use the existing A=B×_C 
 2. Use the localization-complement node and the surjective projection to identify the quotient topology.
 3. Given maps to an arbitrary scheme T, cover the image by affine opens and glue the ring lifts, rather than claiming Spec sends every ring limit to a scheme colimit.
 
-**Prerequisites:** `key/ferrand-pushouts`, `mathlib:CommRingCat.pullbackConeIsLimit`, `G.0/localization-complement`, `G.0/pullback-projection`, `SchemeAndStackFoundations:SF.1`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts`, `mathlib:CommRingCat.pullbackConeIsLimit`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/localization-complement`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/pullback-projection`, `SchemeAndStackFoundations:SF.1`.
 
 **Acceptance:** The cusp uses C=k[t]/t²; a reduced-only definition must fail this test.
 
@@ -250,7 +251,7 @@ For affine rings B→C surjective and A′→C finite, use the existing A=B×_C 
 2. Use localization-complement and uniqueness of affine lifts to identify intersections.
 3. Glue the schemes and structure sheaves; cartesian, finite and closed properties are local on P.
 
-**Prerequisites:** `G.0/compatible-affine-neighbourhoods`, `G.0/affine-existence`, `G.0/cartesian-affine`, `G.0/finite-projection`, `G.0/localization-complement`, `SchemeAndStackFoundations:SF.1`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/compatible-affine-neighbourhoods`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-existence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/cartesian-affine`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/finite-projection`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/localization-complement`, `SchemeAndStackFoundations:SF.1`.
 
 **Acceptance:** The (AF) version of Ferrand5.4 is a corollary, not an unconditional global scheme theorem.
 
@@ -268,7 +269,7 @@ For affine rings B→C surjective and A′→C finite, use the existing A=B×_C 
 2. Apply flat base change to qcqs direct images and sheafify the ring identity.
 3. Finite/closed morphisms and the quotient topology survive the base change; use the common ideal to identify the affine topologies.
 
-**Prerequisites:** `G.0/global-existence`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.3`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.3`.
 
 **Acceptance:** Nonflat tensoring may destroy the kernel; no unrestricted base-change API is exported.
 
@@ -287,7 +288,7 @@ For arbitrary commutative rings A,B, a unital ring map f:A→B and an ideal I of
 1. Use the native quotient map q and its representative equation to check that the two coordinates agree in B/J.
 2. Use the already constructed commutative-ring pullback and its universal property to form c_f,I; do not construct a second fiber-product carrier.
 
-**Prerequisites:** mathlib:CommRingCat.pullbackCone, mathlib:CommRingCat.pullbackConeIsLimit, mathlib:Ideal.quotientMap, mathlib:Ideal.quotientMap_mk, mathlib:Ideal.le_comap_map.
+**Prerequisites:** `mathlib:CommRingCat.pullbackCone`, `mathlib:CommRingCat.pullbackConeIsLimit`, `mathlib:Ideal.quotientMap`, `mathlib:Ideal.quotientMap_mk`, `mathlib:Ideal.le_comap_map`.
 
 **Uses:**
 
@@ -323,7 +324,7 @@ With the preceding notation, ker(c_f,I)=ker(f)∩I, without any image-ideal assu
 1. Use the two comparison projections: c_f,I(a)=0 precisely when f(a)=0 and [a]=0.
 2. Use the native quotient-kernel identity; the native pullback lies in B×A/I, so zero in both coordinates is zero in the pullback.
 
-**Prerequisites:** NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-comparison, mathlib:Ideal.mk_ker.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-comparison`, `mathlib:Ideal.mk_ker`.
 
 **Acceptance:** For I=ker f the kernel is ker f itself; for I=0 the comparison is injective for every f.
 
@@ -341,7 +342,7 @@ If the set f(I) equals the underlying set of J=map_f(I), then c_f,I is surjectiv
 2. Compatibility says b−f(a)∈J. The image-ideal condition supplies i∈I with f(i)=b−f(a).
 3. Then a+i maps to (b,α); replacing a by a+i does not alter its class modulo I. No finiteness or injectivity of f is used.
 
-**Prerequisites:** NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-comparison, mathlib:Ideal.Quotient.mk_surjective, mathlib:Ideal.Quotient.eq, mathlib:Ideal.quotientMap_mk.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-comparison`, `mathlib:Ideal.Quotient.mk_surjective`, `mathlib:Ideal.Quotient.eq`, `mathlib:Ideal.quotientMap_mk`.
 
 **Acceptance:** The correction works for rings with nilpotents and for non-injective maps; uniqueness belongs to the separate kernel condition.
 
@@ -359,7 +360,7 @@ If f(I)=map_f(I) as sets, the square A→B, A→A/I, B→B/map_f(I), A/I→B/map
 2. Convert the resulting bijective ring map into the native ring equivalence and categorical isomorphism; transfer the existing pullback universal property.
 3. Conversely, a cartesian square identifies the comparison with the unique isomorphism between two limits; its kernel is zero, giving the required intersection condition.
 
-**Prerequisites:** NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-kernel, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-pair-lifting, mathlib:CommRingCat.pullbackConeIsLimit, mathlib:RingHom.injective_iff_ker_eq_bot, mathlib:RingEquiv.ofBijective, mathlib:RingEquiv.toCommRingCatIso.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-kernel`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-pair-lifting`, `mathlib:CommRingCat.pullbackConeIsLimit`, `mathlib:RingHom.injective_iff_ker_eq_bot`, `mathlib:RingEquiv.ofBijective`, `mathlib:RingEquiv.toCommRingCatIso`.
 
 **Acceptance:** The non-injective Z→Z/2 example with I=ker f fails the criterion; I=0 succeeds.
 
@@ -377,7 +378,7 @@ For an arbitrary subring A⊂B of a commutative ring B, let J=c(A,B) be the alre
 2. The inclusion has zero kernel, so ker(f)∩I=0. Apply the common-ideal cartesian criterion and identify the quotient map with the native induced map to B/J.
 3. The existing geometric conductor-square node separately uses finite affine pinching and localization/gluing under its stated hypotheses. This affine identity alone does not supply global algebraic-space existence.
 
-**Prerequisites:** NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-cartesian, mathlib:Ideal.map_comap_le, mathlib:Ideal.quotientMap.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-cartesian`, `mathlib:Ideal.map_comap_le`, `mathlib:Ideal.quotientMap`.
 
 **Acceptance:** For a proper field subring the conductor is zero and reconstruction still holds; for A=B it is the whole ring, including a nonreduced B.
 
@@ -391,9 +392,9 @@ For an arbitrary subring A⊂B of a commutative ring B, let J=c(A,B) be the alre
 
 1. Use G.0/conductor-ring-cartesian for the affine identity; its common-ideal comparison, kernel and compatible-pair lifting are separate declarations.
 2. If b mod I is represented by a∈A, then b−a∈I⊂A, giving the inverse.
-3. Localize the conductor to glue these identities for finite reduced Noetherian schemes.
+3. The global Scheme comparison is supplied separately by conductor-scheme-geometric and conductor-scheme-pushout, using the native conductor subschemes; the affine ring identity alone does not establish global gluing.
 
-**Prerequisites:** `G.0/conductor-ring-cartesian`, `G.0/subring-conductor`, `G.0/affine-existence`, `SchemeAndStackFoundations:SF.0`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ring-cartesian`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-existence`, `SchemeAndStackFoundations:SF.0`.
 
 **Acceptance:** For a proper finite field extension the conductor is zero and the square is still valid.
 
@@ -409,7 +410,7 @@ For an arbitrary subring A⊂B of a commutative ring B, let J=c(A,B) be the alre
 2. Use Milnor patching to establish local freeness of rank1.
 3. Verify both compositions of restriction and gluing are naturally isomorphic to identity, including morphisms.
 
-**Prerequisites:** `G.0/conductor-square`, `SchemeAndStackFoundations:SF.3`, `AlgebraicModuliForArithmeticGeometry:A0-extension`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-square`, `SchemeAndStackFoundations:SF.3`, `AlgebraicModuliForArithmeticGeometry:A0-extension`.
 
 **Acceptance:** Gluing trivial bundles with different units on Z can give different global line bundles.
 
@@ -438,7 +439,7 @@ In particular, the overlap proof does not assume the final existence theorem. It
 3. Lift the resulting affine étale Zα→Z×Y Yβ across the closed immersion into the affine Yβ using the étale lifting theorem (Stacks04D1, requested at SF.1). Set Yα to this affine lift.
 4. Add charts (empty;U,empty) from an affine étale covering of Y∖Z so that the Y-components cover the complement as well as the pinching locus. Keep the overlap isomorphisms, not only the three separate covering families.
 
-**Prerequisites:** `key/ferrand-pushouts`, `SchemeAndStackFoundations:SF.1`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts`, `SchemeAndStackFoundations:SF.1`.
 
 **Acceptance:** The separable quadratic point pinch is allowed: finite is not radicial. A cover of only one of two points in a finite fiber cannot be used as a cover of the whole fiber. Empty-overlap charts are essential to cover Y∖Z.
 
@@ -457,7 +458,7 @@ In particular, the overlap proof does not assume the final existence theorem. It
 3. On every such affine chart, ring pullback universality forces the two maps into the affine target chart to agree.
 4. Descend equality of morphisms along the surjective étale cover using SF.1. Work on quasi-compact open target neighborhoods to remove a global quasi-compactness assumption on T.
 
-**Prerequisites:** `G.0/affine-existence`, `mathlib:CommRingCat.pullbackConeIsLimit`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-existence`, `mathlib:CommRingCat.pullbackConeIsLimit`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
 
 **Acceptance:** The target is any algebraic space, not just an affine scheme. No assertion that Spec takes every ring limit to a space colimit is used.
 
@@ -476,7 +477,7 @@ In particular, the overlap proof does not assume the final existence theorem. It
 3. Maps from the affine charts to T0 factor through their ring pullback pushouts. On P1 the two induced maps to T agree by affine-space-hom-injective, applied on an open affine cover.
 4. Effective étale descent of morphisms at SF.1 gives P→T. Pull back to the covering datum to verify that its restrictions are the specified maps.
 
-**Prerequisites:** `G.0/pinching-etale-cover`, `G.0/affine-space-hom-injective`, `mathlib:CommRingCat.pullbackConeIsLimit`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/pinching-etale-cover`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-space-hom-injective`, `mathlib:CommRingCat.pullbackConeIsLimit`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
 
 **Acceptance:** Together with the preceding injectivity lemma this upgrades the existing affine scheme pushout to universality against all algebraic spaces. Both maps on the closed overlap, and their equality, survive descent.
 
@@ -495,7 +496,7 @@ In particular, the overlap proof does not assume the final existence theorem. It
 3. Prove the relation map P1→P0×S P0 is a monomorphism: it is locally of finite type, and its pullbacks to the four pairs of closed pinched pieces and open complements are monomorphisms. The mixed pairs have empty inverse image.
 4. Use the SF.1 locally-finite-type monomorphism test after a surjective base change (TT2.1.6). A groupoid alone is insufficient: the monomorphism is the load-bearing final step.
 
-**Prerequisites:** `G.0/global-existence`, `G.0/localization-complement`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/localization-complement`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
 
 **Acceptance:** The relation has no stabilizers; a general étale groupoid with nontrivial stabilizers is not an algebraic-space equivalence relation.
 
@@ -515,7 +516,7 @@ In particular, the overlap proof does not assume the final existence theorem. It
 4. Flat patching identifies D1 with the pullback of D0 along P1→P0 and makes this map étale. The affine finite-projection calculation and the surjective projection show, by étale descent at SF.1, that Y1⊔Z′1→P1 is finite and surjective. Its components are separated over each affine base chart, so Stacks05Z2 makes P1 separated over that chart. This argument uses local finiteness of the already constructed overlap, not the later existence theorem.
 5. The separated étale map P1→P0 is representable by schemes: use Stacks67.50.2 (section0417) for locally quasi-finite maps; Stacks082J is the stronger quasi-finite comparison cited by TT6.2.1. Pull back affine opens of the now schematic P1 to obtain the compatible open affine cover of D1.
 
-**Prerequisites:** `G.0/pinching-etale-cover`, `G.0/affine-space-hom-injective`, `G.0/affine-space-hom-surjective`, `G.0/pinching-etale-relation`, `G.0/finite-projection`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/pinching-etale-cover`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-space-hom-injective`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-space-hom-surjective`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/pinching-etale-relation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/finite-projection`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
 
 **Acceptance:** The first compatible cover is étale, not automatically Zariski; its overlaps need their own proof. Separatedness is used on the overlap, not imposed globally on the original algebraic spaces.
 
@@ -541,7 +542,7 @@ In particular, the overlap proof does not assume the final existence theorem. It
 4. Compatible maps out of D descend through P0 and P1, yielding the categorical universal property of P. Effectivity supplies D0=D×P P0 and D1=D×P P1; descend affineness of the canonical maps from the affine local pinches.
 5. Finiteness, the closed immersion, cartesianness and the geometric sheaf condition are separate nodes, rather than silently bundled assumptions of this existence theorem.
 
-**Prerequisites:** `G.0/pinching-etale-cover`, `G.0/pinching-overlap-scheme`, `G.0/pinching-etale-relation`, `G.0/affine-space-hom-injective`, `G.0/affine-space-hom-surjective`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/pinching-etale-cover`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/pinching-overlap-scheme`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/pinching-etale-relation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-space-hom-injective`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-space-hom-surjective`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
 
 **Acceptance:** A finite separable quadratic point pinch is included although it is not a universal-homeomorphism pinch. When the datum is affine this P is canonically the existing Spec of the ring pullback. This theorem does not assert P is a scheme.
 
@@ -559,7 +560,7 @@ In particular, the overlap proof does not assume the final existence theorem. It
 2. On every affine chart apply the existing cartesian-affine tensor-quotient comparison.
 3. Descend the canonical comparison Z→Y×P Z′ as an isomorphism using SF.1. Topological equality of the overlap is not substituted for this comparison.
 
-**Prerequisites:** `G.0/algebraic-space-existence`, `G.0/cartesian-affine`, `SchemeAndStackFoundations:SF.1`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/algebraic-space-existence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/cartesian-affine`, `SchemeAndStackFoundations:SF.1`.
 
 **Acceptance:** The cusp overlap retains the full double point Spec k[t]/(t²), not its reduction.
 
@@ -578,7 +579,7 @@ In particular, the overlap proof does not assume the final existence theorem. It
 3. Descend the sheaf isomorphism through the étale presentation using SF.1; Zariski sections alone are not a definition of an arbitrary algebraic space.
 4. Use TT4.4.2(i) to descend the quotient topology from the same affine pinches. The scheme specialization is exactly the existing every-open section condition.
 
-**Prerequisites:** `key/ferrand-pushouts`, `G.0/algebraic-space-existence`, `G.0/space-cartesian`, `G.0/affine-existence`, `SchemeAndStackFoundations:SF.1`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/algebraic-space-existence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/space-cartesian`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-existence`, `SchemeAndStackFoundations:SF.1`.
 
 **Acceptance:** The existing k[t²,t⁵] square still fails the sheaf pullback despite its underlying universal homeomorphisms. On schemes this statement recovers the original general geometric-square definition.
 
@@ -596,7 +597,7 @@ In particular, the overlap proof does not assume the final existence theorem. It
 2. On each chart apply finite-projection to the finite ring homomorphism A′→C.
 3. Descend finiteness of a along the étale presentation at SF.1. It does not follow from affineness alone.
 
-**Prerequisites:** `G.0/algebraic-space-existence`, `G.0/finite-projection`, `SchemeAndStackFoundations:SF.1`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/algebraic-space-existence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/finite-projection`, `SchemeAndStackFoundations:SF.1`.
 
 **Acceptance:** Pinching two distinct points gives a finite normalization map which is not a closed immersion and need not be flat.
 
@@ -614,7 +615,7 @@ In particular, the overlap proof does not assume the final existence theorem. It
 2. The existing localization-complement comparison identifies its open complement with Y∖Z.
 3. Descend the closed immersion and this canonical complement isomorphism at SF.1. Both describe the one closed/open decomposition of the pushout.
 
-**Prerequisites:** `G.0/algebraic-space-existence`, `G.0/pullback-projection`, `G.0/localization-complement`, `SchemeAndStackFoundations:SF.1`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/algebraic-space-existence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/pullback-projection`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/localization-complement`, `SchemeAndStackFoundations:SF.1`.
 
 **Acceptance:** Closedness does not identify the whole Y→P map with an immersion. For Z empty the complement comparison is the identity and P=Y⊔Z′.
 
@@ -633,7 +634,7 @@ In particular, the overlap proof does not assume the final existence theorem. It
 3. Descend the unique comparison isomorphism at SF.1. Equivalently apply TT6.3.2(i) to the flat object F over P.
 4. The two iterated base-change comparisons agree because they induce the same maps on all three components; the categorical universal property supplies uniqueness.
 
-**Prerequisites:** `G.0/algebraic-space-existence`, `G.0/space-geometric`, `G.0/flat-base-change`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/algebraic-space-existence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/space-geometric`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/flat-base-change`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
 
 **Acceptance:** Étale base changes are included. A nonflat ring quotient can destroy the fiber-product exact sequence; a flatness-free version is not exported.
 
@@ -651,7 +652,7 @@ In particular, the overlap proof does not assume the final existence theorem. It
 2. Conversely, if P is a scheme, take an affine open neighborhood of b(z′) in P. Its inverse image under the finite map a is affine by space-finite and contains every i(z) with g(z)=z′.
 3. The equivalent compatible-open-affine-cover criterion is TT4.2.4. Do not conflate a compatible étale affine cover, which always exists for finite data, with the stronger open affine cover.
 
-**Prerequisites:** `G.0/algebraic-space-existence`, `G.0/space-finite`, `G.0/global-existence`, `G.0/compatible-affine-neighbourhoods`, `G.0/affine-space-hom-injective`, `G.0/affine-space-hom-surjective`, `SchemeAndStackFoundations:SF.1`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/algebraic-space-existence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/space-finite`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/compatible-affine-neighbourhoods`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-space-hom-injective`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-space-hom-surjective`, `SchemeAndStackFoundations:SF.1`.
 
 **Acceptance:** If Y contains two distinct closed k-points with no common affine open, pinching their disjoint union to Spec k gives an algebraic space which is not a scheme. Affine Y and the original quadratic-point-on-P¹ examples satisfy the condition. The scheme recognition condition is necessary as well as sufficient.
 
@@ -678,7 +679,7 @@ The five elliptic curves E₁,…,E₅ have respective counts1,…,5. A finite s
 
 **Prerequisites:** `tauceti:TauCeti.Model`, `SchemeAndStackFoundations:SF.3`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 | Consumer | Required use |
 | --- | --- |
@@ -713,7 +714,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 
 **Prerequisites:** `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`, `tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 | Consumer | Required use |
 | --- | --- |
@@ -747,9 +748,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. Import the symbol type from EllipticCurves Layer4 and attach its geometric realization, without creating a second enum.
 2. Use scheme-theoretic intersection lengths over κ(b), and transport to geometric fibers.
 
-**Prerequisites:** `G.1/genus-one-fibration`, `G.1/fiber-type-divisor`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/genus-one-fibration`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/fiber-type-divisor`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 | Consumer | Required use |
 | --- | --- |
@@ -781,7 +782,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 
 1. Evaluate the multiplicity and the two generic-fiber cases separately.
 
-**Prerequisites:** `G.1/genus-one-fibration`, `G.1/fiber-type-divisor`, `G.1/geometric-kodaira`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/genus-one-fibration`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/fiber-type-divisor`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`.
 
 | Consumer | Required use |
 | --- | --- |
@@ -815,9 +816,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. Apply the classification of connected affine root systems to the intersection form.
 3. Classify integral genus1 curves by normalization and the length-one delta invariant; retain the incidence distinction between I₂/III and I₃/IV.
 
-**Prerequisites:** `G.1/fiber-type-divisor`, `G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/fiber-type-divisor`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** The affine graph is a constraint, not a substitute for local intersection geometry.
 
@@ -833,9 +834,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. Apply the Ferrand conductor square and classify length2 algebras: split, dual numbers, separable quadratic and purely inseparable quadratic.
 3. For two components use two identical copies of the conductor algebra and its diagonal map; over perfect fields eliminate the inseparable field case.
 
-**Prerequisites:** `G.0/conductor-square`, `G.0/global-existence`, `G.1/canonical-type-classification`, `SchemeAndStackFoundations:SF.0`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-square`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/canonical-type-classification`, `SchemeAndStackFoundations:SF.0`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** Keep the imperfect-field forms visible; only the perfect-field nodal forms are used for F₂.
 
@@ -850,9 +851,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. Apply global Ferrand existence to the quadratic closed point on P¹.
 2. The normalization exact sequence gives arithmetic genus1 and the conductor square gives one rational node with two conjugate branches.
 
-**Prerequisites:** `G.0/global-existence`, `G.1/small-conductor-classification`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/small-conductor-classification`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** After quadratic extension it becomes split I₁; over F_q its rational count is q+2.
 
@@ -867,9 +868,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. Pinch the two copies of Spec E in P¹⊔P¹ to Spec E by the identity on each copy.
 2. The two components are individually rational; their two geometric intersection points are conjugate, so the node set has no k-point.
 
-**Prerequisites:** `G.0/global-existence`, `G.1/small-conductor-classification`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/small-conductor-classification`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** Over F_q the rational count is 2q+2; this form has fixed component vertices but conjugate edges.
 
@@ -885,7 +886,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. Compare the connected intersection graph with residue-degree orbits to force reducible fibers to lie over rational base points.
 3. Normalize rational components, use finite-field forms of P¹, and preserve labels as κ(a)-lengths.
 
-**Prerequisites:** `G.1/genus-one-fibration`, `G.1/canonical-type-classification`, `SchemeAndStackFoundations:SF.5`, `AlgebraicModuliForArithmeticGeometry:R09.3`, `G.1/finite-field-p1-forms`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/genus-one-fibration`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/canonical-type-classification`, `SchemeAndStackFoundations:SF.5`, `AlgebraicModuliForArithmeticGeometry:R09.3`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/finite-field-p1-forms`.
 
 **Acceptance:** For nonrational a use intersection label (C_i·C_j)/[κ(a):k], not the absolute intersection number.
 
@@ -900,9 +901,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. Each normalized P¹ contributes q+1.
 2. For n≥2 subtract the n distinct rational nodes; for n=1 identify two rational preimages and add the single node.
 
-**Prerequisites:** `G.1/component-descent`, `G.1/geometric-kodaira`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/component-descent`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** The count is of the whole schematic fiber; nilpotents do not change its rational-point set.
 
@@ -917,7 +918,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. The degree2 point contributes no rational normalization preimage.
 2. The pinched node is rational, hence replace zero points by one: q+1+1.
 
-**Prerequisites:** `G.1/nonsplit-i1`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/nonsplit-i1`.
 
 **Acceptance:** The count is of the whole schematic fiber; nilpotents do not change its rational-point set.
 
@@ -932,7 +933,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. Each rational normalized component contributes q+1.
 2. The degree2 conductor and its image have no rational points, so no correction is made.
 
-**Prerequisites:** `G.1/nonsplit-i2`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/nonsplit-i2`.
 
 **Acceptance:** The count is of the whole schematic fiber; nilpotents do not change its rational-point set.
 
@@ -948,7 +949,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. For III subtract one shared point; for IV subtract two at the common triple point.
 3. For the star types use their rational tree of components and subtract r−1 distinct rational intersections.
 
-**Prerequisites:** `G.1/component-descent`, `G.1/canonical-type-classification`, `G.1/small-conductor-classification`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/component-descent`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/canonical-type-classification`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/small-conductor-classification`.
 
 **Acceptance:** The count is of the whole schematic fiber; nilpotents do not change its rational-point set.
 
@@ -963,7 +964,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. The four distinct rational intersections on the central normalized P¹ would require four points.
 2. P¹(F₂) has only three points.
 
-**Prerequisites:** `G.1/component-descent`, `G.1/canonical-type-classification`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/component-descent`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/canonical-type-classification`.
 
 **Acceptance:** The count is of the whole schematic fiber; nilpotents do not change its rational-point set.
 
@@ -980,7 +981,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 
 **Prerequisites:** `AlgebraicModuliForArithmeticGeometry:A0-extension`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** For a disconnected finite constant group the general torsor conclusion can fail.
 
@@ -997,7 +998,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 
 **Prerequisites:** `AlgebraicModuliForArithmeticGeometry:R09.3`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** Do not apply Tsen over F_q(t) to prove this finite-field statement.
 
@@ -1015,7 +1016,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 
 **Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1`.
 
-The inherited typed upstream imports remain mathematical dependencies; their checker-encoding gap remains recorded.
+The inherited upstream imports are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** The affine solution count alone is one less than the stated projective count.
 
@@ -1033,7 +1034,7 @@ The inherited typed upstream imports remain mathematical dependencies; their che
 
 **Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1`.
 
-The inherited typed upstream imports remain mathematical dependencies; their checker-encoding gap remains recorded.
+The inherited upstream imports are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** The affine solution count alone is one less than the stated projective count.
 
@@ -1051,7 +1052,7 @@ The inherited typed upstream imports remain mathematical dependencies; their che
 
 **Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1`.
 
-The inherited typed upstream imports remain mathematical dependencies; their checker-encoding gap remains recorded.
+The inherited upstream imports are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** The affine solution count alone is one less than the stated projective count.
 
@@ -1069,7 +1070,7 @@ The inherited typed upstream imports remain mathematical dependencies; their che
 
 **Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1`.
 
-The inherited typed upstream imports remain mathematical dependencies; their checker-encoding gap remains recorded.
+The inherited upstream imports are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** The affine solution count alone is one less than the stated projective count.
 
@@ -1087,7 +1088,7 @@ The inherited typed upstream imports remain mathematical dependencies; their che
 
 **Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1`.
 
-The inherited typed upstream imports remain mathematical dependencies; their checker-encoding gap remains recorded.
+The inherited upstream imports are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** The affine solution count alone is one less than the stated projective count.
 
@@ -1105,7 +1106,7 @@ The inherited typed upstream imports remain mathematical dependencies; their che
 
 **Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E1`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E2`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E3`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E4`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E5`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-count-classifier`, `SchemeAndStackFoundations:SF.3`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1`.
 
-The inherited typed upstream imports remain mathematical dependencies; their checker-encoding gap remains recorded.
+The inherited upstream imports are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** Isogeny and isomorphism are generally different; the count criterion here is special to F₂.
 
@@ -1131,9 +1132,9 @@ LLR6.6 compares torsor and Jacobian Kodaira types only under its algebraically c
 2. The quotient of the regular two-dimensional local ring by that parameter is a DVR; the uniformizer of R has order m there.
 3. Choose the henselian finite horizontal component through d using EGAIV4 18.5.11(c); properness plus quasi-finiteness makes it finite over R.
 
-**Prerequisites:** `tauceti:TauCeti.Model`, `G.1/fiber-type-divisor`, `SchemeAndStackFoundations:SF.0`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `tauceti:TauCeti.Model`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/fiber-type-divisor`, `SchemeAndStackFoundations:SF.0`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** For m>1 the special fiber is nonreduced of length m, even though the residue extension has degree1.
 
@@ -1151,9 +1152,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. Take the normalized closure of the graph of the generic isomorphism; use properness to extend the generic section along Spec R′.
 3. Use integrality and torsion-freeness over a DVR for flatness; prove generic geometric integrality and f_*O_Y=O_R′ by normality and Stein factorization.
 
-**Prerequisites:** `G.2/transverse-divisor`, `tauceti:TauCeti.Model`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.3`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.2/transverse-divisor`, `tauceti:TauCeti.Model`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.3`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** The base-changed model may be nonnormal; a claimed section cannot remove normalization.
 
@@ -1169,9 +1170,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. Apply the owner’s Raynaud8.2.1 criterion with the lifted section.
 3. Use proper flat Euler-characteristic constancy, finite-dimensionality and degree≥2 vanishing; solve h⁰−h¹=0.
 
-**Prerequisites:** `G.2/normal-dominating-model`, `AlgebraicModuliForArithmeticGeometry:A0-extension`, `SchemeAndStackFoundations:SF.3`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.2/normal-dominating-model`, `AlgebraicModuliForArithmeticGeometry:A0-extension`, `SchemeAndStackFoundations:SF.3`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A section alone is not a proof of every hypothesis of Raynaud’s criterion.
 
@@ -1189,7 +1190,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 
 **Prerequisites:** `SchemeAndStackFoundations:SF.3`, `SchemeAndStackFoundations:SF.5`, `AlgebraicModuliForArithmeticGeometry:A0-extension`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** The norm argument covers inseparable maps; do not invoke a separable Hurwitz formula without its hypothesis.
 
@@ -1205,9 +1206,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. Use the normalization exact sequence and compare H¹, including its vector-space structure over the normalization constant field.
 3. The equality h¹=1 forces that field to equal k and the delta quotient to vanish, so C is normal and hence regular.
 
-**Prerequisites:** `G.2/domination-genus`, `SchemeAndStackFoundations:SF.3`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.2/domination-genus`, `SchemeAndStackFoundations:SF.3`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** Track both constant fields; equality of arithmetic genera without that argument is insufficient.
 
@@ -1223,7 +1224,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. Restriction from C onto the union of those reduced components has zero-dimensional cokernel, so its H¹ map onto their direct sum is surjective.
 3. Each contributes h¹≥1, while h¹(C)=1. Thus only one exists. Repeat with the strict transform of E_k; the positive-genus component is the same, and birationality to the smooth E_k gives the isomorphism.
 
-**Prerequisites:** `G.2/normal-dominating-model`, `G.2/cohomology-adapter`, `G.2/domination-genus`, `G.2/equality-regular`, `SchemeAndStackFoundations:SF.3`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.2/normal-dominating-model`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.2/cohomology-adapter`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.2/domination-genus`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.2/equality-regular`, `SchemeAndStackFoundations:SF.3`.
 
 **Acceptance:** Contracted rational exceptional components are allowed; only dominating components are counted.
 
@@ -1238,9 +1239,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. Use the inverse of the unique-component isomorphism E_k→C₁ and its finite dominant map to X_k,red.
 2. Translate the image of the origin to the origin; the resulting pointed map between elliptic curves is an isogeny.
 
-**Prerequisites:** `G.2/unique-dominating-component`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.2/unique-dominating-component`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** No equality of the multiple schematic fiber with E_k is asserted.
 
@@ -1255,9 +1256,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. Apply the imported isogeny⇒all-extension-counts theorem.
 2. The schematic fiber and its reduction have the same field-valued points.
 
-**Prerequisites:** `G.2/multiple-fiber-isogeny`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.2/multiple-fiber-isogeny`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** The F₂ isomorphism conclusion is not asserted over every finite field.
 
@@ -1271,7 +1272,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 
 1. Combine equal F₂ point counts with the five-class count criterion.
 
-**Prerequisites:** `G.2/multiple-fiber-isogeny`, `G.1/five-f2-classes`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.2/multiple-fiber-isogeny`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/five-f2-classes`.
 
 **Acceptance:** The F₂ isomorphism conclusion is not asserted over every finite field.
 
@@ -1307,7 +1308,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 
 **Prerequisites:** `NeronModelsAndSemistableAbelianVarieties:R11.2`, `NeronModelsAndSemistableAbelianVarieties:R11.4`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** Finite-field nonsplit I₁/I₂ require their own geometric descent nodes.
 
@@ -1335,9 +1336,9 @@ For n>0, positive section twists have R¹f_*O(nO)=0 and rank n. At n=0 the rank 
 2. Use the vertical intersection radical to write its effective zero divisor as Σa_iF_i.
 3. Bound0≤a_i<m_i by the pushforward equality; determine the tame coefficient by normal-bundle adjunction.
 
-**Prerequisites:** `G.1/genus-one-fibration`, `G.1/fiber-type-divisor`, `SchemeAndStackFoundations:SF.3`, `SchemeAndStackFoundations:SF.4`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/genus-one-fibration`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/fiber-type-divisor`, `SchemeAndStackFoundations:SF.3`, `SchemeAndStackFoundations:SF.4`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** The relative formula becomes absolute after tensoring by f*ω_B.
 
@@ -1352,9 +1353,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. Use Leray to write χ(O_S)=χ(O_B)−χ(L)−length(T).
 2. Apply Riemann–Roch on B, χ(L)=deg L+χ(O_B), and cancel the base contribution.
 
-**Prerequisites:** `G.3/canonical-bundle`, `SchemeAndStackFoundations:SF.3`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/canonical-bundle`, `SchemeAndStackFoundations:SF.3`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** For a rational surface with T=0, L≅O_P¹(−1).
 
@@ -1370,7 +1371,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. Use the Raynaud multiplicity/order theorem for the characteristic-power quotient and tame equivalence.
 3. Use the Leray injection H⁰(T)⊂H⁰(R¹f_*O) and H¹(O_S)=0 to force T=0.
 
-**Prerequisites:** `G.3/canonical-bundle`, `G.3/canonical-degree`, `AlgebraicModuliForArithmeticGeometry:A0-extension`, `SchemeAndStackFoundations:SF.3`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/canonical-bundle`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/canonical-degree`, `AlgebraicModuliForArithmeticGeometry:A0-extension`, `SchemeAndStackFoundations:SF.3`.
 
 **Acceptance:** No claim that every fiber with reduced support is tame; multiplicity and torsion must be retained.
 
@@ -1386,9 +1387,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. The section gives fiber multiplicity1, hence no correction divisor; canonical-degree gives L=O(−1).
 3. Tensor relative/absolute dualizing sheaves and apply adjunction to the section P¹ to get E²=−1.
 
-**Prerequisites:** `G.3/canonical-bundle`, `G.3/canonical-degree`, `G.3/tame-wild`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/canonical-bundle`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/canonical-degree`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/tame-wild`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** The formula remains geometric under descent over the original field; retain the chosen fibration.
 
@@ -1406,9 +1407,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. Apply the blowup Picard decomposition with exceptional square−1 to prove rank and unimodularity.
 3. Use Hodge index for the signature; do not replace the geometric lattice by a freely assumed rank10 module.
 
-**Prerequisites:** `G.3/rational-canonical`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCeti.IntegralLattice`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/rational-canonical`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCeti.IntegralLattice`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** For the nine-blowup model the diagonal Gram matrix is(1,−1,…,−1).
 
@@ -1425,7 +1426,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. Compute the three intersections using the section and rational-canonical node.
 2. The determinant is−1, so the inverse matrix is integral; use it to project every divisor class onto span(F,O).
 
-**Prerequisites:** `G.3/rational-picard-lattice`, `G.3/rational-canonical`, `tauceti:TauCeti.IntegralLattice.IsUnimodular`, `SchemeAndStackFoundations:SF.5`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/rational-picard-lattice`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/rational-canonical`, `tauceti:TauCeti.IntegralLattice.IsUnimodular`, `SchemeAndStackFoundations:SF.5`.
 
 **Acceptance:** This plane is odd; it is not the even hyperbolic plane in the basis(F,O).
 
@@ -1443,7 +1444,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 
 **Prerequisites:** `SchemeAndStackFoundations:SF.3`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** For a general base B the kernel cannot be generated by one chosen fiber; Pic(B) may have nontrivial degree-zero classes.
 
@@ -1459,9 +1460,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. A generic degree-zero line bundle corresponds to a Jacobian rational point because the chosen origin kills the Brauer obstruction.
 3. Extend that point to a section by properness/minimal-model theory; use vertical relations to eliminate the component meeting O.
 
-**Prerequisites:** `G.3/generic-picard-restriction`, `G.1/genus-one-fibration`, `AlgebraicModuliForArithmeticGeometry:A0-extension`, `tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/generic-picard-restriction`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/genus-one-fibration`, `AlgebraicModuliForArithmeticGeometry:A0-extension`, `tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** The genus-one torsor version uses a horizontal divisor of index d and only actual Pic⁰ classes; it does not identify all Picard-functor rational points without obstruction control.
 
@@ -1480,7 +1481,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 3. Compute their norms as−2 or−2−2(P·O); mixed terms are doubled, hence all norms are even.
 4. Hodge index on the complement of a positive vector in the fiber–section plane gives negative definiteness.
 
-**Prerequisites:** `G.3/fiber-section-plane`, `G.3/shioda-tate`, `tauceti:TauCeti.IntegralLattice`, `tauceti:TauCeti.IntegralLattice.IsUnimodular`, `tauceti:TauCeti.IntegralLattice.IsEven`, `SchemeAndStackFoundations:SF.5`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/fiber-section-plane`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/shioda-tate`, `tauceti:TauCeti.IntegralLattice`, `tauceti:TauCeti.IntegralLattice.IsUnimodular`, `tauceti:TauCeti.IntegralLattice.IsEven`, `SchemeAndStackFoundations:SF.5`.
 
 **Acceptance:** The restriction W→a fiber root-lattice dual is not an isometry.
 
@@ -1497,7 +1498,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 
 **Prerequisites:** `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 | Consumer | Required use |
 | --- | --- |
@@ -1535,9 +1536,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. For n=1 the evaluation at the smooth section point is nonzero on the one-dimensional H⁰(O); for higher n use the section exact sequence.
 3. Use cohomology and base change and Riemann–Roch to get rank n; exclude n=0 from that rank formula.
 
-**Prerequisites:** `G.3/rational-canonical`, `SchemeAndStackFoundations:SF.3`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/rational-canonical`, `SchemeAndStackFoundations:SF.3`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** At n=0, f_*O=O has rank1, not0.
 
@@ -1552,9 +1553,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. The section exact sequences give successive quotients O(−2),O(−3), after the initial O.
 2. Compute the relevant Ext¹ by H¹ of positive-degree line bundles on P¹, hence both extensions split.
 
-**Prerequisites:** `G.3/positive-section-cohomology`, `G.3/rational-canonical`, `SchemeAndStackFoundations:SF.3`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/positive-section-cohomology`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/rational-canonical`, `SchemeAndStackFoundations:SF.3`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** For a general higher-genus base those Ext¹ groups need not vanish.
 
@@ -1572,9 +1573,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. Compute its restriction to each fiber: components of degree0 are contracted; degree3 on the genus-one contraction gives a cubic embedding.
 3. Use the source Weierstrass contraction/normality theorem to identify the image with the minimal cubic.
 
-**Prerequisites:** `G.3/pushforward-splitting`, `G.3/positive-section-cohomology`, `AlgebraicModuliForArithmeticGeometry:R09.1`, `SchemeAndStackFoundations:SF.4`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/pushforward-splitting`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/positive-section-cohomology`, `AlgebraicModuliForArithmeticGeometry:R09.1`, `SchemeAndStackFoundations:SF.4`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A component disjoint from O has degree0 under O_J(3O), obstructing very ampleness on J.
 
@@ -1592,7 +1593,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. Identify each coefficient as a section of O(i); polynomial degree is at most i.
 3. Substitute x=s⁻²x′,y=s⁻³y′ and multiply the equation by s⁶ to obtain all five weights.
 
-**Prerequisites:** `G.3/relative-cubic-contraction`, `G.3/pushforward-splitting`, `G.3/bounded-weierstrass`, `SchemeAndStackFoundations:SF.4`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/relative-cubic-contraction`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/pushforward-splitting`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/bounded-weierstrass`, `SchemeAndStackFoundations:SF.4`.
 
 **Acceptance:** The transition uses s=1/t; no division of a polynomial in the same coordinate is called the second-chart polynomial.
 
@@ -1608,9 +1609,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. If each a_i is divisible by tⁱ, the t-chart is nonminimal at0.
 3. Admissible transformations preserving the global line-bundle weights preserve the obstruction.
 
-**Prerequisites:** `G.3/global-chart-equation`, `G.3/bounded-weierstrass`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/bounded-weierstrass`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** These necessary conditions alone do not establish minimality at every closed point.
 
@@ -1626,7 +1627,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. For characteristic2 import the additive-group Jacobian compactification and its geometric fiber classification.
 3. Use the2-torsion section group and geometric Shioda–Tate to obtain the rank formula.
 
-**Prerequisites:** `G.1/genus-one-fibration`, `G.1/canonical-type-classification`, `G.3/shioda-tate`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/genus-one-fibration`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/canonical-type-classification`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/shioda-tate`.
 
 **Acceptance:** The generic cusp is not a smooth supersingular elliptic curve.
 
@@ -1644,9 +1645,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. For a regular non-smooth generic genus-one curve, construct its regular compactification and relative minimal model with the quasielliptic Jacobian identified from its genuine Picard functor.
 3. Extend the generic identity to the distinguished section by properness.
 
-**Prerequisites:** `G.1/genus-one-fibration`, `AlgebraicModuliForArithmeticGeometry:A0-extension`, `tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/genus-one-fibration`, `AlgebraicModuliForArithmeticGeometry:A0-extension`, `tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** Uniqueness here concerns positive arithmetic genus, not arbitrary genus0 minimal models.
 
@@ -1687,7 +1688,7 @@ The large-fiber counting argument assumes at most one rational fiber is singular
 1. Use the verified E_i counts for smooth fibers and the split/nonsplit/additive count nodes after descent and splitting have been proved.
 2. Enumerate the three F₂ rational base points and sum the actual fiber counts.
 
-**Prerequisites:** `G.1/count-15`, `G.1/count-16`, `G.1/count-17`, `G.1/count-18`, `G.1/count-19`, `G.1/five-f2-classes`, `G.1/component-descent`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/count-15`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/count-16`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/count-17`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/count-18`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/count-19`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/five-f2-classes`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/component-descent`.
 
 **Acceptance:** The formula2r+2 is used only after establishing nonsplit incidence.
 
@@ -1704,7 +1705,7 @@ The large-fiber counting argument assumes at most one rational fiber is singular
 3. The Galois action on the finitely generated lattice factors through a finite group; all its eigenvalues are roots of unity. A trace of10 forces each to1, and finite-order semisimplicity makes the action identity.
 4. Use the torsion-free étale Picard comparison to descend constancy from the lattice.
 
-**Prerequisites:** `G.3/rational-picard-lattice`, `SchemeAndStackFoundations:SF.5`, `SchemeAndStackFoundations:SF.6`, `WeilConjectures:WC.7`, `AlgebraicModuliForArithmeticGeometry:A0-extension`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/rational-picard-lattice`, `SchemeAndStackFoundations:SF.5`, `SchemeAndStackFoundations:SF.6`, `WeilConjectures:WC.7`, `AlgebraicModuliForArithmeticGeometry:A0-extension`.
 
 **Acceptance:** A singular Weierstrass cubic can have fewer rational points than its smooth resolution.
 
@@ -1722,7 +1723,7 @@ The large-fiber counting argument assumes at most one rational fiber is singular
 2. For A₂ compute determinant3 directly from its2×2 Gram matrix; for E₆ use the baseline discriminant theorem.
 3. For the nonspinor D terminal transport the baseline vector representative and its norm1 under the sign reversal.
 
-**Prerequisites:** `G.1/geometric-kodaira`, `G.3/even-complement`, `tauceti:TauCeti.IntegralLattice.checkerboardLattice_form_checkerboardVector_self`, `tauceti:TauCeti.IntegralLattice.discriminant_typeE₆RootLattice`, `tauceti:TauCeti.IntegralLattice`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/even-complement`, `tauceti:TauCeti.IntegralLattice.checkerboardLattice_form_checkerboardVector_self`, `tauceti:TauCeti.IntegralLattice.discriminant_typeE₆RootLattice`, `tauceti:TauCeti.IntegralLattice`.
 
 **Acceptance:** Fix the selected terminal root before using a dual-basis weight; not all D fundamental weights have norm1.
 
@@ -1740,7 +1741,7 @@ The large-fiber counting argument assumes at most one rational fiber is singular
 2. That would make it unimodular, contradicting determinant3.
 3. The descending second section fixes a second vertex. For IV this fixes all three vertices of the triangle; for IV* use its marked weighted affine E₆ graph.
 
-**Prerequisites:** `G.4/root-basis-comparison`, `G.3/even-complement`, `G.3/shioda-tate`, `tauceti:TauCeti.IntegralLattice.IsUnimodular`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/root-basis-comparison`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/even-complement`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/shioda-tate`, `tauceti:TauCeti.IntegralLattice.IsUnimodular`.
 
 **Acceptance:** IV is a triangle with no terminal vertices, so a tree argument cannot be used.
 
@@ -1759,7 +1760,7 @@ The large-fiber counting argument assumes at most one rational fiber is singular
 3. ω pairs integrally with that image because it pairs integrally with R and ω²=−1. Since W is unimodular, ω belongs to W.
 4. This contradicts the evenness of W; a descending section therefore fixes one of the remaining terminals, and hence both.
 
-**Prerequisites:** `G.4/root-basis-comparison`, `G.3/even-complement`, `G.3/shioda-tate`, `tauceti:TauCeti.IntegralLattice.IsUnimodular`, `tauceti:TauCeti.IntegralLattice.IsEven`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/root-basis-comparison`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/even-complement`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/shioda-tate`, `tauceti:TauCeti.IntegralLattice.IsUnimodular`, `tauceti:TauCeti.IntegralLattice.IsEven`.
 
 **Acceptance:** Restriction to R* is not an isometry; its image’s norm cannot be transferred from the source vector.
 
@@ -1776,7 +1777,7 @@ The large-fiber counting argument assumes at most one rational fiber is singular
 1. Enumerate the finite affine graphs with their source multiplicity vectors.
 2. The marked vertex and the remaining terminal multiplicities/distances identify every branch and vertex.
 
-**Prerequisites:** `G.1/geometric-kodaira`, `G.1/canonical-type-classification`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/canonical-type-classification`.
 
 **Acceptance:** Both graphs have three terminal vertices; there are two further terminals after marking O.
 
@@ -1792,7 +1793,7 @@ The large-fiber counting argument assumes at most one rational fiber is singular
 2. Use the marked affine graph lemma for III*,II* and the corrected IV/IV*/I_m* arguments.
 3. Exclude I₀* by condition(ii); rank8 bounds the remaining star index by4.
 
-**Prerequisites:** `G.4/iv-rigidity`, `G.4/d-star-rigidity`, `G.4/exceptional-affine-rigidity`, `G.1/canonical-type-classification`, `G.3/even-complement`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/iv-rigidity`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/d-star-rigidity`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/exceptional-affine-rigidity`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/canonical-type-classification`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/even-complement`.
 
 **Acceptance:** The conclusion is about component and incidence descent; retain the singularity hypothesis.
 
@@ -1809,7 +1810,7 @@ The large-fiber counting argument assumes at most one rational fiber is singular
 3. Use condition(iii) and corrected additive graph rigidity to fix the component generators; the torsion-free étale Picard group then has trivial Galois action.
 4. The stated point-sum assumption is retained; its relation to actual counts is the fiber-count-data node.
 
-**Prerequisites:** `G.3/shioda-tate`, `G.4/additive-graph-rigidity`, `G.4/fiber-count-data`, `G.4/picard-point-count`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/shioda-tate`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/additive-graph-rigidity`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`.
 
 **Acceptance:** Do not omit condition(v) or claim the printed enumeration verifies it for every listed model.
 
@@ -1825,7 +1826,7 @@ The large-fiber counting argument assumes at most one rational fiber is singular
 2. There is at most one multiplicative or supersingular smooth fiber; a split cycle of at most5 components contributes≤10, and a nonsplit small form contributes≤6.
 3. The other two fibers contribute≤7 each, contradicting25≤10+7+7=24.
 
-**Prerequisites:** `G.4/fiber-count-data`, `G.4/picard-point-count`, `G.1/count-19`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/count-19`.
 
 **Acceptance:** The nonsplit point-count exception does not invalidate the upper bound10.
 
@@ -1841,9 +1842,9 @@ The large-fiber counting argument assumes at most one rational fiber is singular
 2. Split each exclusion and normal-form assertion into its own declaration-sized node after identifying its proof and all prerequisites.
 3. Until then this is an explicit aggregation target with incomplete granularity, never a proved source theorem.
 
-**Prerequisites:** `G.3/global-chart-equation`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** Do not silently use Lang1994 on extremal surfaces for this more general claim.
 
@@ -1859,7 +1860,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. The other rational fibers must be ordinary smooth or II; parity and25points force II+E₄+I₉.
 3. Apply the exact Lang exclusion II+I₉; this use remains behind the source-acquisition gap.
 
-**Prerequisites:** `G.4/large-fiber`, `G.4/fiber-count-data`, `G.3/rational-picard-lattice`, `G.4/lang-configuration-inputs`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/large-fiber`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/rational-picard-lattice`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/lang-configuration-inputs`.
 
 **Acceptance:** Without the configuration exclusion the parity count alone does not prove the theorem.
 
@@ -1875,9 +1876,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. At a bad fiber the imported minimal-equation criterion says additive iff Δ=0 and c₄=0; c₄=a₁⁴ in characteristic2.
 3. Use the reducible-additive node for existence; the zero-divisor argument gives uniqueness.
 
-**Prerequisites:** `G.4/reducible-additive`, `G.3/global-chart-equation`, `mathlib:WeierstrassCurve.j_eq_zero_iff_of_char_two`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/reducible-additive`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `mathlib:WeierstrassCurve.j_eq_zero_iff_of_char_two`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A smooth supersingular fiber has c₄=0 and Δ≠0 and is not additive.
 
@@ -1893,7 +1894,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. Large-fiber and rank bounds give a split I_m with6≤m≤9; Lang restricts the combination to III+I₆ or III+I₈.
 3. The remaining ordinary E_2n fiber contributes2n, and25=5+2m+2n forces m=8,n=2.
 
-**Prerequisites:** `G.4/unique-additive`, `G.4/large-fiber`, `G.4/fiber-count-data`, `G.4/lang-configuration-inputs`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/unique-additive`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/large-fiber`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/lang-configuration-inputs`.
 
 **Acceptance:** The count equation is used only after the geometric fiber configuration is proved.
 
@@ -1935,7 +1936,7 @@ For reproducibility, in characteristic2 set b₂=a₁²,b₄=a₁a₃,b₆=a₃�
 1. Use the ordered table of five existing polynomial coefficients, with the char2 convention y²+a₁xy+a₃y=x³+a₂x²+a₄x+a₆.
 2. Check each coefficient weight bound separately; retain the three missing models as actual table entries.
 
-**Prerequisites:** `G.3/bounded-weierstrass`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/bounded-weierstrass`.
 
 | Consumer | Required use |
 | --- | --- |
@@ -1971,9 +1972,9 @@ For reproducibility, in characteristic2 set b₂=a₁²,b₄=a₁a₃,b₆=a₃�
 3. At each bad place prove minimality, run the imported perfect-residue Tate algorithm, and transport its result to the actual regular resolution using the scheme-realization comparison; check splitting of the displayed residue polynomials.
 4. Verify smoothness/rationality and relative minimality of that resolution, then sum the resolved fiber counts at0,1,∞. Use the geometric trace criterion to certify Picard constancy, without assuming Mordell–Weil descent from the printed list.
 
-**Prerequisites:** `G.5/f2-candidate-equation`, `G.3/global-chart-equation`, `G.4/picard-point-count`, `G.4/fiber-count-data`, `G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A complete certificate includes all-place minimality and the resolved fiber geometry, not merely a polynomial discriminant or naive singular-cubic point count. For models12,13,14 the rational-fiber sums are15+4+6,17+4+4 and15+4+6 respectively.
 
@@ -1990,9 +1991,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 3. At each bad place prove minimality, run the imported perfect-residue Tate algorithm, and transport its result to the actual regular resolution using the scheme-realization comparison; check splitting of the displayed residue polynomials.
 4. Verify smoothness/rationality and relative minimality of that resolution, then sum the resolved fiber counts at0,1,∞. Use the geometric trace criterion to certify Picard constancy, without assuming Mordell–Weil descent from the printed list.
 
-**Prerequisites:** `G.5/f2-candidate-equation`, `G.3/global-chart-equation`, `G.4/picard-point-count`, `G.4/fiber-count-data`, `G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A complete certificate includes all-place minimality and the resolved fiber geometry, not merely a polynomial discriminant or naive singular-cubic point count. For models12,13,14 the rational-fiber sums are15+4+6,17+4+4 and15+4+6 respectively.
 
@@ -2009,9 +2010,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 3. At each bad place prove minimality, run the imported perfect-residue Tate algorithm, and transport its result to the actual regular resolution using the scheme-realization comparison; check splitting of the displayed residue polynomials.
 4. Verify smoothness/rationality and relative minimality of that resolution, then sum the resolved fiber counts at0,1,∞. Use the geometric trace criterion to certify Picard constancy, without assuming Mordell–Weil descent from the printed list.
 
-**Prerequisites:** `G.5/f2-candidate-equation`, `G.3/global-chart-equation`, `G.4/picard-point-count`, `G.4/fiber-count-data`, `G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A complete certificate includes all-place minimality and the resolved fiber geometry, not merely a polynomial discriminant or naive singular-cubic point count. For models12,13,14 the rational-fiber sums are15+4+6,17+4+4 and15+4+6 respectively.
 
@@ -2028,9 +2029,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 3. At each bad place prove minimality, run the imported perfect-residue Tate algorithm, and transport its result to the actual regular resolution using the scheme-realization comparison; check splitting of the displayed residue polynomials.
 4. Verify smoothness/rationality and relative minimality of that resolution, then sum the resolved fiber counts at0,1,∞. Use the geometric trace criterion to certify Picard constancy, without assuming Mordell–Weil descent from the printed list.
 
-**Prerequisites:** `G.5/f2-candidate-equation`, `G.3/global-chart-equation`, `G.4/picard-point-count`, `G.4/fiber-count-data`, `G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A complete certificate includes all-place minimality and the resolved fiber geometry, not merely a polynomial discriminant or naive singular-cubic point count. For models12,13,14 the rational-fiber sums are15+4+6,17+4+4 and15+4+6 respectively.
 
@@ -2047,9 +2048,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 3. At each bad place prove minimality, run the imported perfect-residue Tate algorithm, and transport its result to the actual regular resolution using the scheme-realization comparison; check splitting of the displayed residue polynomials.
 4. Verify smoothness/rationality and relative minimality of that resolution, then sum the resolved fiber counts at0,1,∞. Use the geometric trace criterion to certify Picard constancy, without assuming Mordell–Weil descent from the printed list.
 
-**Prerequisites:** `G.5/f2-candidate-equation`, `G.3/global-chart-equation`, `G.4/picard-point-count`, `G.4/fiber-count-data`, `G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A complete certificate includes all-place minimality and the resolved fiber geometry, not merely a polynomial discriminant or naive singular-cubic point count. For models12,13,14 the rational-fiber sums are15+4+6,17+4+4 and15+4+6 respectively.
 
@@ -2066,9 +2067,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 3. At each bad place prove minimality, run the imported perfect-residue Tate algorithm, and transport its result to the actual regular resolution using the scheme-realization comparison; check splitting of the displayed residue polynomials.
 4. Verify smoothness/rationality and relative minimality of that resolution, then sum the resolved fiber counts at0,1,∞. Use the geometric trace criterion to certify Picard constancy, without assuming Mordell–Weil descent from the printed list.
 
-**Prerequisites:** `G.5/f2-candidate-equation`, `G.3/global-chart-equation`, `G.4/picard-point-count`, `G.4/fiber-count-data`, `G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A complete certificate includes all-place minimality and the resolved fiber geometry, not merely a polynomial discriminant or naive singular-cubic point count. For models12,13,14 the rational-fiber sums are15+4+6,17+4+4 and15+4+6 respectively.
 
@@ -2085,9 +2086,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 3. At each bad place prove minimality, run the imported perfect-residue Tate algorithm, and transport its result to the actual regular resolution using the scheme-realization comparison; check splitting of the displayed residue polynomials.
 4. Verify smoothness/rationality and relative minimality of that resolution, then sum the resolved fiber counts at0,1,∞. Use the geometric trace criterion to certify Picard constancy, without assuming Mordell–Weil descent from the printed list.
 
-**Prerequisites:** `G.5/f2-candidate-equation`, `G.3/global-chart-equation`, `G.4/picard-point-count`, `G.4/fiber-count-data`, `G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A complete certificate includes all-place minimality and the resolved fiber geometry, not merely a polynomial discriminant or naive singular-cubic point count. For models12,13,14 the rational-fiber sums are15+4+6,17+4+4 and15+4+6 respectively.
 
@@ -2104,9 +2105,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 3. At each bad place prove minimality, run the imported perfect-residue Tate algorithm, and transport its result to the actual regular resolution using the scheme-realization comparison; check splitting of the displayed residue polynomials.
 4. Verify smoothness/rationality and relative minimality of that resolution, then sum the resolved fiber counts at0,1,∞. Use the geometric trace criterion to certify Picard constancy, without assuming Mordell–Weil descent from the printed list.
 
-**Prerequisites:** `G.5/f2-candidate-equation`, `G.3/global-chart-equation`, `G.4/picard-point-count`, `G.4/fiber-count-data`, `G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A complete certificate includes all-place minimality and the resolved fiber geometry, not merely a polynomial discriminant or naive singular-cubic point count. For models12,13,14 the rational-fiber sums are15+4+6,17+4+4 and15+4+6 respectively.
 
@@ -2123,9 +2124,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 3. At each bad place prove minimality, run the imported perfect-residue Tate algorithm, and transport its result to the actual regular resolution using the scheme-realization comparison; check splitting of the displayed residue polynomials.
 4. Verify smoothness/rationality and relative minimality of that resolution, then sum the resolved fiber counts at0,1,∞. Use the geometric trace criterion to certify Picard constancy, without assuming Mordell–Weil descent from the printed list.
 
-**Prerequisites:** `G.5/f2-candidate-equation`, `G.3/global-chart-equation`, `G.4/picard-point-count`, `G.4/fiber-count-data`, `G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A complete certificate includes all-place minimality and the resolved fiber geometry, not merely a polynomial discriminant or naive singular-cubic point count. For models12,13,14 the rational-fiber sums are15+4+6,17+4+4 and15+4+6 respectively.
 
@@ -2142,9 +2143,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 3. At each bad place prove minimality, run the imported perfect-residue Tate algorithm, and transport its result to the actual regular resolution using the scheme-realization comparison; check splitting of the displayed residue polynomials.
 4. Verify smoothness/rationality and relative minimality of that resolution, then sum the resolved fiber counts at0,1,∞. Use the geometric trace criterion to certify Picard constancy, without assuming Mordell–Weil descent from the printed list.
 
-**Prerequisites:** `G.5/f2-candidate-equation`, `G.3/global-chart-equation`, `G.4/picard-point-count`, `G.4/fiber-count-data`, `G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A complete certificate includes all-place minimality and the resolved fiber geometry, not merely a polynomial discriminant or naive singular-cubic point count. For models12,13,14 the rational-fiber sums are15+4+6,17+4+4 and15+4+6 respectively.
 
@@ -2161,9 +2162,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 3. At each bad place prove minimality, run the imported perfect-residue Tate algorithm, and transport its result to the actual regular resolution using the scheme-realization comparison; check splitting of the displayed residue polynomials.
 4. Verify smoothness/rationality and relative minimality of that resolution, then sum the resolved fiber counts at0,1,∞. Use the geometric trace criterion to certify Picard constancy, without assuming Mordell–Weil descent from the printed list.
 
-**Prerequisites:** `G.5/f2-candidate-equation`, `G.3/global-chart-equation`, `G.4/picard-point-count`, `G.4/fiber-count-data`, `G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A complete certificate includes all-place minimality and the resolved fiber geometry, not merely a polynomial discriminant or naive singular-cubic point count. For models12,13,14 the rational-fiber sums are15+4+6,17+4+4 and15+4+6 respectively.
 
@@ -2180,9 +2181,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 3. At each bad place prove minimality, run the imported perfect-residue Tate algorithm, and transport its result to the actual regular resolution using the scheme-realization comparison; check splitting of the displayed residue polynomials.
 4. Verify smoothness/rationality and relative minimality of that resolution, then sum the resolved fiber counts at0,1,∞. Use the geometric trace criterion to certify Picard constancy, without assuming Mordell–Weil descent from the printed list.
 
-**Prerequisites:** `G.5/f2-candidate-equation`, `G.3/global-chart-equation`, `G.4/picard-point-count`, `G.4/fiber-count-data`, `G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A complete certificate includes all-place minimality and the resolved fiber geometry, not merely a polynomial discriminant or naive singular-cubic point count. For models12,13,14 the rational-fiber sums are15+4+6,17+4+4 and15+4+6 respectively.
 
@@ -2199,9 +2200,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 3. At each bad place prove minimality, run the imported perfect-residue Tate algorithm, and transport its result to the actual regular resolution using the scheme-realization comparison; check splitting of the displayed residue polynomials.
 4. Verify smoothness/rationality and relative minimality of that resolution, then sum the resolved fiber counts at0,1,∞. Use the geometric trace criterion to certify Picard constancy, without assuming Mordell–Weil descent from the printed list.
 
-**Prerequisites:** `G.5/f2-candidate-equation`, `G.3/global-chart-equation`, `G.4/picard-point-count`, `G.4/fiber-count-data`, `G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A complete certificate includes all-place minimality and the resolved fiber geometry, not merely a polynomial discriminant or naive singular-cubic point count. For models12,13,14 the rational-fiber sums are15+4+6,17+4+4 and15+4+6 respectively.
 
@@ -2218,9 +2219,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 3. At each bad place prove minimality, run the imported perfect-residue Tate algorithm, and transport its result to the actual regular resolution using the scheme-realization comparison; check splitting of the displayed residue polynomials.
 4. Verify smoothness/rationality and relative minimality of that resolution, then sum the resolved fiber counts at0,1,∞. Use the geometric trace criterion to certify Picard constancy, without assuming Mordell–Weil descent from the printed list.
 
-**Prerequisites:** `G.5/f2-candidate-equation`, `G.3/global-chart-equation`, `G.4/picard-point-count`, `G.4/fiber-count-data`, `G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/geometric-kodaira`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A complete certificate includes all-place minimality and the resolved fiber geometry, not merely a polynomial discriminant or naive singular-cubic point count. For models12,13,14 the rational-fiber sums are15+4+6,17+4+4 and15+4+6 respectively.
 
@@ -2235,9 +2236,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. Factor each explicit polynomial discriminant and inspect the reverse chart.
 2. At t²+t+1 the discriminant has simple valuation and c₄ is a unit, yielding I₁ via the imported minimal-equation criterion.
 
-**Prerequisites:** `G.5/model-1`, `G.5/model-2`, `G.5/model-3`, `G.5/model-4`, `G.5/model-5`, `G.5/model-6`, `G.5/model-7`, `G.5/model-8`, `G.5/model-9`, `G.5/model-10`, `G.5/model-11`, `G.5/model-12`, `G.5/model-13`, `G.5/model-14`, `G.5/f2-candidate-equation`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-1`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-2`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-3`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-4`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-5`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-6`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-7`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-8`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-9`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-10`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-11`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-12`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-13`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-14`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** The exception is model2, not model8. The degree2 point contributes no F₂ rational base point.
 
@@ -2252,9 +2253,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. For each of models9–11, Δ=t⁸ on the finite chart and all finite nonrational points have nonzero discriminant.
 2. Inspect the infinity chart separately; it is a rational base point.
 
-**Prerequisites:** `G.5/model-9`, `G.5/model-10`, `G.5/model-11`, `G.5/f2-candidate-equation`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-9`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-10`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-11`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** The three zero-j equations define elliptic generic curves because Δ is not identically zero.
 
@@ -2278,7 +2279,7 @@ An exhaustiveness certificate must attach a mathematical rejection witness or an
 2. The weighted terms a₁r,a₃r,r³,a₄r all retain their required bounds.
 3. Count the coefficient dimensions2+4+5+7=18 for weights1,3,4,6.
 
-**Prerequisites:** `G.3/bounded-weierstrass`, `G.3/global-chart-equation`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/bounded-weierstrass`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`.
 
 **Acceptance:** The normalization must preserve the global chart weights.
 
@@ -2294,9 +2295,9 @@ An exhaustiveness certificate must attach a mathematical rejection witness or an
 2. Construct the induced two-chart transformations, including the PGL₂ denominator/weight changes.
 3. Use the Weierstrass isomorphism theorem to prove that every fibration isomorphism is captured, rather than merely enumerating some transformations.
 
-**Prerequisites:** `G.6/a2-normalization`, `G.3/global-chart-equation`, `AlgebraicModuliForArithmeticGeometry:R09.1`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.6/a2-normalization`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `AlgebraicModuliForArithmeticGeometry:R09.1`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** Base inversion must use the second chart and its weights; substitution t↦1/t alone does not give a polynomial model.
 
@@ -2313,9 +2314,9 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 3. Certify the regular resolved-surface point count and the single-semstable-or-supersingular condition; keep rationality/χ prerequisites explicit.
 4. For survivors, produce an admissible transformation and a base automorphism reaching the named candidate.
 
-**Prerequisites:** `G.6/a2-normalization`, `G.6/admissible-transformations`, `G.4/picard-point-count`, `G.4/fiber-count-data`, `G.4/lang-configuration-inputs`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.6/a2-normalization`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.6/admissible-transformations`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/picard-point-count`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/fiber-count-data`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.4/lang-configuration-inputs`, `SchemeAndStackFoundations:SF.5`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`.
 
-The canonical upstream stage IDs in this list are retained as typed imports in the packet; the encoding gap below records the checker limitation. They remain mathematical dependencies.
+The canonical upstream stage IDs in this list are ordinary packet prerequisites and resolve in the combined atlas graph.
 
 **Acceptance:** A table of survivors without rejection witnesses is not an exhaustiveness proof.
 
@@ -2333,7 +2334,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 2. Normalize a₂, apply the finite rejection certificate and transport back through the admissible-equivalence theorem.
 3. Use individual model certificates to establish the converse; prove pairwise nonequivalence of surviving orbits.
 
-**Prerequisites:** `G.3/global-chart-equation`, `G.6/a2-normalization`, `G.6/admissible-transformations`, `G.6/finite-rejection-certificate`, `G.5/model-1`, `G.5/model-2`, `G.5/model-3`, `G.5/model-4`, `G.5/model-5`, `G.5/model-6`, `G.5/model-7`, `G.5/model-8`, `G.5/model-9`, `G.5/model-10`, `G.5/model-11`, `G.5/model-12`, `G.5/model-13`, `G.5/model-14`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.3/global-chart-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.6/a2-normalization`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.6/admissible-transformations`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.6/finite-rejection-certificate`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-1`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-2`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-3`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-4`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-5`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-6`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-7`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-8`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-9`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-10`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-11`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-12`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-13`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-14`.
 
 **Acceptance:** The theorem is conditional on the full rejection and model certificates until all gaps are closed.
 
@@ -2348,7 +2349,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. Partition the certified fourteen orbits by their verified functional j.
 2. The eleven nonzero-j equations form the required subfamily.
 
-**Prerequisites:** `G.6/completeness`, `G.5/f2-candidate-equation`, `G.5/model-1`, `G.5/model-2`, `G.5/model-3`, `G.5/model-4`, `G.5/model-5`, `G.5/model-6`, `G.5/model-7`, `G.5/model-8`, `G.5/model-9`, `G.5/model-10`, `G.5/model-11`, `G.5/model-12`, `G.5/model-13`, `G.5/model-14`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.6/completeness`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-1`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-2`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-3`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-4`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-5`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-6`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-7`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-8`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-9`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-10`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-11`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-12`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-13`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-14`.
 
 **Acceptance:** The three additional candidates cannot be discarded because their infinity fibers are nonsplit.
 
@@ -2363,7 +2364,7 @@ The canonical upstream stage IDs in this list are retained as typed imports in t
 1. Partition the certified fourteen orbits by functional j=0.
 2. Use the three individual zero-j certificates and pairwise nonequivalence.
 
-**Prerequisites:** `G.6/completeness`, `G.5/f2-candidate-equation`, `G.5/model-9`, `G.5/model-10`, `G.5/model-11`.
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.6/completeness`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/f2-candidate-equation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-9`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-10`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.5/model-11`.
 
 **Acceptance:** Completeness does not follow from the three verified examples alone.
 
@@ -2375,9 +2376,9 @@ Each request imports the supplier’s object and states the exact additional exp
 
 ### SchemeAndStackFoundations:SF.0
 
-Ring quotient/tensor quotient and localization APIs for arbitrary commutative rings; the finite-algebra principal-open separation and finite closed-map arguments in Ferrand7.1B. Monogenic conductor is only a compatibility input. EGAIV4 18.5.11(c) henselian local-component theorem and the regular-local horizontal parameter argument. Its finite-component theorem does not itself construct a Cartier divisor or identify the length-m schematic fiber. Henselization of an excellent DVR remains excellent with unchanged residue field; base change preserves the regular-model and special-fiber hypotheses needed for the multiple-fiber proof. Flat tensor exactness for the affine fiber-product sequence and classification of commutative length-two algebras over a field.
+Ring quotient/tensor quotient and localization APIs for arbitrary commutative rings; the finite-algebra principal-open separation and finite closed-map arguments in Ferrand7.1B. Monogenic conductor is only a compatibility input. EGAIV4 18.5.11(c) henselian local-component theorem and the regular-local horizontal parameter argument. Its finite-component theorem does not itself construct a Cartier divisor or identify the length-m schematic fiber. Henselization of an excellent DVR remains excellent with unchanged residue field; base change preserves the regular-model and special-fiber hypotheses needed for the multiple-fiber proof. Flat tensor exactness for the affine fiber-product sequence and classification of commutative length-two algebras over a field. For the native global-conductor continuation, export the generic finite-module flat-annihilator equality Ann_A(M)·F=Ann_F(M⊗_A F) for finite M and flat F (Stacks07T8, with finite-intersection compatibility0BBY), together with native quotient/tensor and affine section/localization comparison maps. This generic theorem belongs to SF.0; Part II supplies only its conductor-specific specialization.
 
-Consumers: `G.0/cartesian-affine`, `G.0/compatible-affine-neighbourhoods`, `G.0/conductor-square`, `G.0/flat-base-change`, `G.0/localization-complement`, `G.1/small-conductor-classification`, `G.2/multiple-fiber-isogeny`, `G.2/normal-dominating-model`, `G.2/transverse-divisor`.
+Needed by: `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/cartesian-affine`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/compatible-affine-neighbourhoods`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-square`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/flat-base-change`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/localization-complement`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/small-conductor-classification`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.2/multiple-fiber-isogeny`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.2/normal-dominating-model`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.2/transverse-divisor`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-localization`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-quotients`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-geometric`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison`.
 
 ### SchemeAndStackFoundations:SF.1
 
@@ -3006,7 +3007,7 @@ All78 items of the original GenusOneFibrationsAndRationalEllipticSurfaces route 
 
 Inherited checkpoint evidence: the previous worker reported zero checker errors/warnings, an acyclic typed-dependency audit, normalized source anchors, coefficient checks and the F₂ five-orbit check. Those unrelated coefficient/orbit computations were not rerun by this continuation. New continuation checks cover the actual repository checker and intake rules, preservation of all old IDs/routes/source findings, added dependency edges (including the new SF.3 stage edge), reader/packet and signature-or-omission parity, source download hashes and whitespace. The inherited source receipt is not a fresh whole-paper verification. Lean was not compiled: no existing build at the pinned commits was available, and no Lake project, cache download or library build was created.
 
-The stock checker currently parses every `tauceti:` prefix as a baseline declaration before testing whether it names an atlas stage. Canonical upstream IDs are therefore kept in the roadmap requires graph, node upstreamPrerequisites and requests. They have not been relabeled as fictional baseline declarations. This workaround explicitly leaves node-level integration open; restore canonical prerequisites when the checker supports them or replace them by genuine finer exports. The mathematical audit includes all76 typed edges, so passing the stock checker does not discard those dependencies.
+The current checker resolves canonical upstream stage IDs before interpreting baseline prefixes. All 76 previously separated typed imports now occur directly in node prerequisites and the combined atlas graph. Their stage IDs are validated against the repository world; no fictional baseline declarations are introduced. The obsolete checker-encoding gap is removed.
 
 ### Algebraic-space exports and signatures for the verified pinching chain
 
@@ -3086,15 +3087,9 @@ The original smooth-connected-group argument is read, but its general group and 
 
 Needed by: `G.1/finite-field-p1-forms`, `G.1/component-descent`.
 
-### Canonical upstream stage imports and checker encoding
-
-All exact upstream IDs and consuming nodes are retained in upstreamPrerequisites and requests, and in the roadmap requires edges. The stock checker parses tauceti: stage IDs as baseline declarations before looking them up as stages. They are not fictional baseline declarations. This partial packet therefore leaves their node-level integration open explicitly, and the independent dependency check includes the typed edges. A continuation must restore canonical prerequisites after the checker supports upstream stage IDs or replace them with exact genuine upstream declaration/node exports.
-
-Needed by: `G.1/genus-one-fibration`, `G.1/finite-field-p1-forms`, `G.2/cohomology-adapter`, `G.3/canonical-degree`, `G.3/rational-canonical`, `G.3/positive-section-cohomology`, `G.3/pushforward-splitting`, `G.2/llr-kodaira-comparison`, `G.3/shioda-tate`, `G.3/global-minimal-jacobian`, `G.1/fiber-type-divisor`, `G.1/canonical-type-classification`, `G.2/transverse-divisor`, `G.2/normal-dominating-model`, `G.3/canonical-bundle`, `G.3/rational-picard-lattice`, `G.3/generic-picard-restriction`, `G.3/relative-cubic-contraction`, `G.5/model-1`, `G.5/model-2`, `G.5/model-3`, `G.5/model-4`, `G.5/model-5`, `G.5/model-6`, `G.5/model-7`, `G.5/model-8`, `G.5/model-9`, `G.5/model-10`, `G.5/model-11`, `G.5/model-12`, `G.5/model-13`, `G.5/model-14`, `G.6/finite-rejection-certificate`, `G.1/geometric-kodaira`, `G.3/bounded-weierstrass`, `G.3/coefficient-nondegeneracy`, `G.4/lang-configuration-inputs`, `G.4/unique-additive`, `G.5/nonrational-nonzero-j`, `G.5/nonrational-zero-j`, `G.1/small-conductor-classification`, `G.1/nonsplit-i1`, `G.1/nonsplit-i2`, `G.1/count-15`, `G.2/equality-regular`, `G.1/lang-genus-one`, `G.1/five-f2-classes`, `G.2/domination-genus`, `G.2/multiple-fiber-isogeny`, `G.6/admissible-transformations`, `G.1/E1`, `G.1/E2`, `G.1/E3`, `G.1/E4`, `G.1/E5`, `G.2/extension-counts`.
-
 ### Suggested signatures for unbuilt geometric conditions
 
-The suggested file gives genuine scheme/ring/Weierstrass forms and a name-by-name omission ledger. The full genus-one contraction, fiber-type/intersection predicates, Kodaira realization and degeneracy tests need unbuilt owner exports. Their omitted conditions are not replaced by opaque proposition fields. Every API/test name is listed, but a signature using the completed geometric definition cannot yet be claimed to elaborate. Reconcile this ledger with exact supplier types before closing any such definition.
+The suggested file gives genuine scheme/ring/Weierstrass forms and a name-by-name omission ledger. The full genus-one contraction, fiber-type/intersection predicates, Kodaira realization and degeneracy tests need unbuilt owner exports. Their omitted conditions are not replaced by opaque proposition fields. Every API/test name is listed, but a signature using the completed geometric definition cannot yet be claimed to elaborate. Reconcile this ledger with exact supplier types before closing any such definition. The global Scheme conductor subschemes, induced map, geometric/categorical squares and flat-recomputed comparison now have actual native signatures. Their elaboration and requested SF.0 annihilator/affine adapters remain unchecked; the general algebraic-space and proper nonsplit-node signatures stay omitted.
 
 Needed by: `G.1/genus-one-fibration`, `G.1/fiber-type-divisor`, `G.1/geometric-kodaira`, `G.1/degenerate-fiber`, `key/ferrand-pushouts`.
 
@@ -3436,3 +3431,298 @@ The preceding codex-rtOQ9t continuation reported zero indexed-checker errors and
 ## Common-ideal reconstruction continuation receipt
 
 Codex codex-J6LwjP read Ferrand printed pp555–557 in full on 2 October 2026. The public PDF SHA-256 is 4f1f2438ad6d757d67d2ecf154b1bc920d210d8abd54c02e6acd020805629d91. The added chain extracts the exact common-ideal and kernel-intersection hypotheses of Lemma1.3; it asserts no new source error. Ten added baseline declarations were read in the pinned Mathlib source. Native ring pullbacks, quotient maps, kernel/injectivity criteria and ring equivalences are imported rather than redefined. The parent R11.1–R11.6 audit/document and SF.0/SF.1/SF.3 audit/stage boundaries were read; the earlier upstream JacobianChallenge and StableReduction reading is reused. All 123 predecessor node ids, 78 routed items, 21 source findings, finite F₂ certificates, geometric gaps and supplier requests remain. The geometric conductor-square proof now explicitly consumes the general affine reconstruction. No stage is closed. The complete suggested file remains uncompiled because its Tau Ceti imports have no existing build at the exact pin; no project/cache setup or library build was made.
+
+## G.0 global Scheme conductor continuation
+
+The conductor ideal is defined in native Scheme.IdealSheafData; its source closed locus is the existing comap, rather than an independently imposed closed scheme. The induced map is the existing comapIso followed by the actual pullback projection. Thus cartesianness and finite base-change stability are reused, while the new geometric and universal properties are proved using the earlier finite pinching targets.
+
+The common-denominator argument uses finite generation of B/A. Flat exactness and the finite-module annihilator formula give flat recomputation; generic annihilator theory is requested once at SF.0. On a nonaffine flat target, refine by affine opens lying over affine target charts. No global affine, reduced, Noetherian or quasi-compact hypothesis on that target is smuggled into the comparison. These are derived mathematical targets with uncompiled native signatures, and G.0 remains partial.
+
+### NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-annihilator — Conductor as the annihilator of the quotient
+
+**Comparison contract.** For commutative rings A,B and an A-algebra B, let f:A→B be the structure map and let M=B/(A·1) be the native A-module quotient. The A-ideal f⁻¹(c(im f,B)) equals Ann_A(M). This identity requires no injectivity, finiteness, reducedness or Noetherian hypothesis.
+
+**Hypotheses:** Exactly those in the displayed contract.
+
+**Construction/proof outline:**
+
+1. The native submodule A·1 is exactly im f, since a·1=f(a).
+2. A scalar a annihilates M exactly when f(a)b belongs to im f for every b∈B. Use the native quotient-zero criterion and native module annihilator; this is precisely membership in the preimage of the already planned subring conductor.
+
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor`, `mathlib:Module.annihilator`, `mathlib:Module.mem_annihilator`, `mathlib:Submodule.Quotient.mk_eq_zero`, `mathlib:Submodule.mem_span_singleton`.
+
+**Acceptance:** The identity inclusion gives the unit ideal and a zero quotient module. A proper field extension has zero conductor, although it is finite and need not be birational.
+
+**Source:** [Conducteur, descente et pincement](https://numdam.org/item/BSMF_2003__131_4_553_0.pdf), Introduction, printed p554, conductor described as the annihilator of A′/A. Literal anchor: “conducteur”. Extend the stated inclusion formulation to a ring-map image by the same elementwise calculation.
+
+### NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change — Recomputing a conductor after flat scalar extension
+
+**Lemma contract.** Let A→B be an injective finite homomorphism of commutative rings and let F be a flat A-algebra. Write B_F=B⊗_A F and f_F:F→B_F, x↦1⊗x. If I=f⁻¹(c(im f,B)), then I·F=f_F⁻¹(c(im f_F,B_F)). The map f_F is injective. Neither Noetherianity nor reducedness of F is required; nonflat base change is excluded.
+
+**Hypotheses:** Exactly those in the displayed contract.
+
+**Construction/proof outline:**
+
+1. Apply native flat tensor injectivity to A→B, identifying A⊗_A F with F; this gives the actual inclusion f_F.
+2. Native flat exactness identifies (B/(A·1))⊗_A F with B_F/(F·1). The quotient is a finite A-module because B is finite.
+3. Invoke the requested general finite-module annihilator base-change export (Stacks07T8, with its finite-intersection input0BBY) at SF.0. Transport both annihilators through conductor-annihilator to get exactly the equality of ideals in F.
+
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-annihilator`, `mathlib:Module.Finite`, `mathlib:Module.Flat.lTensor_exact`, `mathlib:Module.Flat.lTensor_preserves_injective_linearMap`, `mathlib:Algebra.TensorProduct.includeRight`, `SchemeAndStackFoundations:SF.0`.
+
+**Acceptance:** A[ε]/(ε²) is free over A, so the recomputed conductor is I⊕εI; nilpotents in a flat target are allowed. For A=k[t²,t³]⊂B=k[t] and F=A/(t²), the class of t³ is nonzero in F and maps to zero in B⊗_A F=k[t]/(t²). Thus the native inclusion premise fails for this nonflat quotient.
+
+**Source:** [Finite-module annihilators and flat base change](https://stacks.math.columbia.edu/tag/07T8), Lemma10.40.4, complete displayed statement and proof, accessed 2 October2026. Literal anchor: “flat”. Apply the finite-module annihilator formula to B/A; the generic annihilator theorem is requested at SF.0, not replanned here.
+
+**Source:** [Keel’s base point free theorem and quotients in mixed characteristic](https://par.nsf.gov/servlets/purl/10429755), Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses. Literal anchor: “conductor”. Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization.
+
+### NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-localization — Conductor localization with a common denominator
+
+**Lemma contract.** For a finite injective ring map f:A→B, a multiplicative subset S⊂A and the actual localized map f_S:S⁻¹A→f(S)⁻¹B, the ideal S⁻¹(f⁻¹(c(im f,B))) equals f_S⁻¹(c(im f_S,f(S)⁻¹B)). Zero divisors and the zero localization are allowed.
+
+**Hypotheses:** Exactly those in the displayed contract.
+
+**Construction/proof outline:**
+
+1. Localization is a flat scalar extension by the pinned IsLocalization.flat theorem.
+2. Use conductor-finite-flat-base-change and the canonical tensor/localization comparison from SF.0. Identify its scalar map with the native IsLocalization.map by its representative equation.
+3. The finite-generation argument is load-bearing: for generators b₁,…,bₙ of B/A, clear the finitely many denominators annihilating the bᵢ and multiply them to obtain one element of S. No domain cancellation or localization-injectivity assumption is used.
+
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change`, `mathlib:IsLocalization.flat`, `mathlib:IsLocalization.map`, `mathlib:IsLocalization.map_mk'`, `mathlib:IsLocalization.map_injective_of_injective`, `mathlib:Module.Finite.exists_fin`, `SchemeAndStackFoundations:SF.0`.
+
+**Acceptance:** Localizing the cusp inclusion at t² kills its quotient B/A and gives the unit conductor. Localizing at a nilpotent may give the zero ring; the formula still holds. Keep the native localized map, rather than identifying two unrelated ring types.
+
+**Source:** [Finite-module annihilators and flat base change](https://stacks.math.columbia.edu/tag/07T8), Lemma10.40.4, complete displayed statement and proof, accessed 2 October2026. Literal anchor: “flat”. Apply the finite-module annihilator formula to B/A; the generic annihilator theorem is requested at SF.0, not replanned here.
+
+**Source:** [Keel’s base point free theorem and quotients in mixed characteristic](https://par.nsf.gov/servlets/purl/10429755), Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses. Literal anchor: “conductor”. Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization.
+
+### NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf — The global conductor ideal-sheaf datum
+
+**Definition contract.** For a finite schematically dominant scheme morphism f:Y→P, define I_f in the native P.IdealSheafData by assigning to an affine U⊂P the ideal f_U⁻¹(c(im f_U,Γ(Y,f⁻¹U))). Here f_U is the actual section-ring map; finiteness makes f⁻¹U affine and scheme-theoretic dominance makes f_U injective. The finite-localization comparison gives the required basic-open compatibility. Its native closed subscheme C_f is defined by the full ideal, not its radical.
+
+**Hypotheses:** Exactly those in the displayed contract.
+
+**Construction/proof outline:**
+
+1. Use the pinned IsFinite and Scheme.Hom.app_injective statements to obtain the chartwise finite inclusions.
+2. Apply conductor-finite-localization to the section of any principal affine open. The structure-sheaf localization comparisons identify the resulting maps with restrictions.
+3. Build the native IdealSheafData with these ideals and restriction identities. Equivalently use its native ofIdeals constructor and prove that its chart ideals equal the displayed family; taking the largest compatible subfamily is not silently assumed to preserve arbitrary input ideals.
+4. Use the native subscheme/subschemeι constructors for C_f. They already supply closedness and the section-ring quotient comparisons.
+
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-localization`, `mathlib:AlgebraicGeometry.Scheme.IdealSheafData`, `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdeals`, `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdeals_ideal`, `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subscheme`, `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι`, `mathlib:AlgebraicGeometry.Scheme.Hom.app_injective`, `mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant`, `mathlib:AlgebraicGeometry.IsFinite`, `SchemeAndStackFoundations:SF.0`.
+
+| Consumer | Required use |
+| --- | --- |
+| Witaszek Definition2.27 and Lemma2.28 | Supply the actual conductor subschemes and maps for geometric pinching and line-bundle patching. |
+| NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison | Compare recomputed conductors, including nilpotents, with the actual flat pullback of the original square. |
+
+| Proposed API name | Role | Exact contract |
+| --- | --- | --- |
+| ConductorIdealSheaf.mem_affine | characterisation | For an affine U⊂P, a∈I_f(U) exactly when f_U(a)b lies in im f_U for every b∈Γ(Y,f⁻¹U). |
+| ConductorIdealSheaf.greatest | universal-property | For an ideal-sheaf datum K on P, K≤I_f exactly when for every affine U and a∈K(U), f_U(a)Γ(Y,f⁻¹U)⊂im f_U. |
+| ConductorIdealSheaf.affine_compat | compatibility | If P is affine, I_f is the native ofIdealTop of f_top⁻¹(c(im f_top,Γ(Y,⊤))); the quotient subscheme is the existing ideal-sheaf subscheme. |
+
+| Unit test name | Kind | Statement |
+| --- | --- | --- |
+| ConductorIdealSheaf.test_identity | degenerate | For f=id_P the conductor ideal-sheaf datum is the unit ideal, so its closed subscheme is empty. |
+| ConductorIdealSheaf.test_cusp | computation | For Spec k[t]→Spec k[t²,t³], the target conductor is (t²,t³) and its extended ideal in k[t] is (t²); retain the double-point overlap. |
+| ConductorIdealSheaf.test_field_extension | non-example | For a nontrivial finite field extension E/k the conductor ideal sheaf on Spec k is zero, so the conductor subschemes are the whole source and target; it is not the normalization-isomorphism case. |
+| ConductorIdealSheaf.test_affine_compat | compatibility | On an affine scheme the construction agrees with the pinned IdealSheafData.ofIdealTop under its native global-section comparison. |
+
+**Acceptance:** For f=id_P the conductor ideal-sheaf datum is the unit ideal, so its closed subscheme is empty. For Spec k[t]→Spec k[t²,t³], the target conductor is (t²,t³) and its extended ideal in k[t] is (t²); retain the double-point overlap. For a nontrivial finite field extension E/k the conductor ideal sheaf on Spec k is zero, so the conductor subschemes are the whole source and target; it is not the normalization-isomorphism case. On an affine scheme the construction agrees with the pinned IdealSheafData.ofIdealTop under its native global-section comparison.
+
+**Source:** [Keel’s base point free theorem and quotients in mixed characteristic](https://par.nsf.gov/servlets/purl/10429755), Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses. Literal anchor: “conductor”. Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization.
+
+### NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-quotients — The two native conductor quotient charts
+
+**Lemma contract.** Let f:Y→P be finite and schematically dominant, I=I_f, J=I.comap f, C=I.subscheme and D=J.subscheme. For every affine U⊂P set A=Γ(P,U), B=Γ(Y,f⁻¹U), f_U:A→B and K=c(im f_U,B). Then I(U)=f_U⁻¹K, J(f⁻¹U)=K, and the native quotient-chart identifications give Γ(C,C→P⁻¹U)≅A/I(U) and Γ(D,D→Y⁻¹f⁻¹U)≅B/K, compatibly with the actual inclusion and quotient maps.
+
+**Hypotheses:** Exactly those in the displayed contract.
+
+**Construction/proof outline:**
+
+1. I(U) is the chart ideal of conductor-ideal-sheaf. The common ideal K is contained in im f_U; consequently its inverse image extends back to K, by elementwise lifting.
+2. Compute J on affine charts from the existing pullback of the closed subscheme, using the native comapIso and the affine tensor-quotient comparison at SF.0. This is the scheme pullback, not a separately defined conductor subscheme.
+3. Apply the native subschemeObjIso and subschemeι_app statements to both ideal-sheaf data. Transport their ring maps, not just their abstract quotient types.
+
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ring-cartesian`, `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap`, `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso`, `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeObjIso`, `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app`, `SchemeAndStackFoundations:SF.0`.
+
+**Acceptance:** In the cusp, D has ring k[t]/(t²), not k; the statement distinguishes schematic conductor from reduced support. In a proper finite field extension, K=0 and both quotient charts are the original rings.
+
+**Source:** [Keel’s base point free theorem and quotients in mixed characteristic](https://par.nsf.gov/servlets/purl/10429755), Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses. Literal anchor: “conductor”. Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization.
+
+**Source:** [Conducteur, descente et pincement](https://numdam.org/item/BSMF_2003__131_4_553_0.pdf), Introduction, printed p554; Lemma1.3 pp556–557 and Theorem5.1/proof pp568–569. Literal anchor: “conducteur”. Specialize the existing arbitrary-subring conductor reconstruction; the global ringed-space comparison is separately proved.
+
+### NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map — The canonical map between conductor subschemes
+
+**Construction contract.** For finite schematically dominant f:Y→P put I=I_f and J=I.comap f. Define g_f:J.subscheme→I.subscheme as the composite of the native comapIso with the second projection of Y×_P I.subscheme. The first projection is the native closed inclusion i_f, and j_f is I.subschemeι. No independent cartesian-square predicate or algebraic-space carrier is introduced.
+
+**Hypotheses:** Exactly those in the displayed contract.
+
+**Construction/proof outline:**
+
+1. Use the native IdealSheafData.comapIso and its two projection equations to specify g_f.
+2. Import the already proved cartesian comparison and stability of finiteness under base change. These general results are baseline citations and API compatibility facts, not new mathematical nodes.
+3. Use conductor-affine-quotients to identify g_f on every affine chart with the native quotient map.
+
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-quotients`, `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso`, `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso_hom_snd`, `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeMap_subschemeι`, `mathlib:AlgebraicGeometry.IsFinite`.
+
+| Consumer | Required use |
+| --- | --- |
+| Witaszek Definition2.27 and Lemma2.28 | Supply the actual conductor subschemes and maps for geometric pinching and line-bundle patching. |
+| NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison | Compare recomputed conductors, including nilpotents, with the actual flat pullback of the original square. |
+
+| Proposed API name | Role | Exact contract |
+| --- | --- | --- |
+| conductorMap_square | functoriality | The actual induced map g_f:D_f→C_f satisfies i_f∘f=g_f∘j_f in categorical composition order i_f≫f=g_f≫j_f. |
+| conductorMap_isPullback | compatibility | The induced square is the native cartesian square supplied by IdealSheafData.comapIso; all maps agree with its projections. |
+| conductorMap_isFinite | compatibility | The induced map D_f→C_f is finite because it is the base change of the finite morphism f. |
+
+| Unit test name | Kind | Statement |
+| --- | --- | --- |
+| conductorMap.test_identity | degenerate | For f=id_P both conductor subschemes are empty and the induced map is an isomorphism. |
+| conductorMap.test_cusp | computation | For the cusp normalization the source conductor D is nonreduced and C is reduced; g:D→C retains the full nilpotent parameter. |
+| conductorMap.test_field_extension | non-example | For a proper finite extension E/k both conductor inclusions are isomorphisms while the induced conductor map is not an isomorphism. |
+| conductorMap.test_affine_map | compatibility | Under the actual affine quotient-chart comparisons, g is the Spec map of the native induced quotient map A/I→B/K. |
+
+**Acceptance:** For f=id_P both conductor subschemes are empty and the induced map is an isomorphism. For the cusp normalization the source conductor D is nonreduced and C is reduced; g:D→C retains the full nilpotent parameter. For a proper finite extension E/k both conductor inclusions are isomorphisms while the induced conductor map is not an isomorphism. Under the actual affine quotient-chart comparisons, g is the Spec map of the native induced quotient map A/I→B/K.
+
+**Source:** [Keel’s base point free theorem and quotients in mixed characteristic](https://par.nsf.gov/servlets/purl/10429755), Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses. Literal anchor: “conductor”. Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization.
+
+### NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-geometric — Global geometric conductor reconstruction
+
+**Theorem contract.** For a finite schematically dominant scheme morphism f:Y→P, the canonical square D_f→Y, D_f→C_f, Y→P, C_f→P is a geometric Ferrand pushout in Scheme. In particular its every-open structure-sheaf comparison is a pullback and its underlying space is the topological pushout. This derived generalization needs no Noetherian or reduced hypothesis; Witaszek’s finite-surjective reduced Noetherian case follows from native dominance. No birationality is required.
+
+**Hypotheses:** Exactly those in the displayed contract.
+
+**Construction/proof outline:**
+
+1. On an affine U⊂P, use conductor-affine-quotients and the already planned arbitrary-subring conductor reconstruction to identify A with B×_(B/K)(A/I).
+2. Apply affine-existence to the quotient map B→B/K and finite map A/I→B/K. The latter is finite because it is a quotient of the finite A-module B.
+3. The resulting geometric square is the restriction of the one canonical native conductor square, by conductor-induced-map. Thus the topological quotient identifications agree on overlapping affine opens.
+4. The sheaf comparison agrees on a basis by localization, hence is an isomorphism of the actual structure sheaves and gives the ring pullback on every open. Glue this sheaf comparison and the local quotient topology; do not infer every-open section equality from global sections alone.
+5. For Witaszek’s hypotheses, a finite surjective map is dominant and the reduced target makes it scheme-theoretically dominant by the pinned theorem.
+
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-quotients`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ring-cartesian`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-existence`, `mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isDominant`, `mathlib:AlgebraicGeometry.Scheme.Cover.hom_ext`, `SchemeAndStackFoundations:SF.0`.
+
+**Acceptance:** The cusp square has a nonreduced overlap and is still geometric. A finite field extension of degree greater than one gives the trivial whole-conductor square and is covered without birationality. All sheaf maps refer to the canonical constructed subschemes.
+
+**Source:** [Keel’s base point free theorem and quotients in mixed characteristic](https://par.nsf.gov/servlets/purl/10429755), Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses. Literal anchor: “conductor”. Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization.
+
+**Source:** [Conducteur, descente et pincement](https://numdam.org/item/BSMF_2003__131_4_553_0.pdf), Introduction, printed p554; Lemma1.3 pp556–557 and Theorem5.1/proof pp568–569. Literal anchor: “conducteur”. Specialize the existing arbitrary-subring conductor reconstruction; the global ringed-space comparison is separately proved.
+
+### NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-pushout — The conductor square as a Scheme pushout
+
+**Theorem contract.** For finite schematically dominant f:Y→P, the same canonical conductor square is a categorical pushout in Scheme: every compatible pair Y→T and C_f→T extends uniquely to P→T for every scheme T. Its native cartesian comparison remains the one supplied by the existing comapIso.
+
+**Hypotheses:** Exactly those in the displayed contract.
+
+**Construction/proof outline:**
+
+1. Apply conductor-scheme-geometric and the existing GeometricPushout.lift contract: the closed inclusion D_f→Y and finite induced conductor map satisfy its finite Ferrand alternative.
+2. Express existence and uniqueness as the colimit property of the actual square. Do not restrict T to affine schemes and do not assert an algebraic-space target theorem from a Scheme signature.
+
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-geometric`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map`, `NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts`, `mathlib:CategoryTheory.IsPushout`.
+
+**Acceptance:** The identity finite map gives the pushout of P←empty→empty. The universal property is checked on arbitrary scheme targets.
+
+**Source:** [Keel’s base point free theorem and quotients in mixed characteristic](https://par.nsf.gov/servlets/purl/10429755), Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses. Literal anchor: “conductor”. Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization.
+
+**Source:** [Conducteur, descente et pincement](https://numdam.org/item/BSMF_2003__131_4_553_0.pdf), Introduction, printed p554; Lemma1.3 pp556–557 and Theorem5.1/proof pp568–569. Literal anchor: “conducteur”. Specialize the existing arbitrary-subring conductor reconstruction; the global ringed-space comparison is separately proved.
+
+### NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison — The recomputed conductor after flat scheme base change
+
+**Comparison contract.** For finite schematically dominant f:Y→P and a flat q:T→P, put f_T:Y×_P T→T. Its native recomputed conductor ideal-sheaf datum equals I_f.comap q. The induced conductor square is therefore canonically the actual pullback of the original square, including its quotient subschemes and maps. No reducedness, Noetherianity or quasi-compactness is required of T, and no nonflat recomputation claim is made.
+
+**Hypotheses:** Exactly those in the displayed contract.
+
+**Construction/proof outline:**
+
+1. The pinned scheme-theoretic-dominance theorem and finite base-change stability supply the hypotheses of conductorIdealSheaf f_T.
+2. On an affine T-chart mapping into an affine P-chart, compute the pulled-back rings and use conductor-finite-flat-base-change; flatness retains the inclusion and the finite quotient module. Refine T by such charts rather than assuming q is affine.
+3. Native ideal-sheaf extensionality and restriction compatibility give equality of ideal-sheaf data. Its existing comapIso supplies the canonical quotient-subscheme comparison; use the projection equations to identify the induced conductor map.
+4. The old flat-base-change geometric-pushout theorem transports the geometric square. The new content is that these pulled-back closed loci are exactly the recomputed conductors, not just that an old geometric square stays geometric.
+
+**Prerequisites:** `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-geometric`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/flat-base-change`, `mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isPullback`, `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso`, `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.map_ideal`, `SchemeAndStackFoundations:SF.0`.
+
+**Acceptance:** Flat dual-number thickening is allowed although its rings are nonreduced. The cusp quotient by t² loses injectivity, so the nonflat counterexample is excluded by an actual necessary hypothesis.
+
+**Source:** [Finite-module annihilators and flat base change](https://stacks.math.columbia.edu/tag/07T8), Lemma10.40.4, complete displayed statement and proof, accessed 2 October2026. Literal anchor: “flat”. Apply the finite-module annihilator formula to B/A; the generic annihilator theorem is requested at SF.0, not replanned here.
+
+**Source:** [Keel’s base point free theorem and quotients in mixed characteristic](https://par.nsf.gov/servlets/purl/10429755), Definition2.27, printed pp674–675; affine conductor description and finite-surjective reduced-scheme hypotheses. Literal anchor: “conductor”. Use the finite conductor square without imposing birationality. The finite schematically dominant extension below is an explicitly derived generalization.
+
+### Fresh pinned declarations for the global conductor
+
+The 34 additions below were checked by reading their actual pinned statements/constructions and by verifying the declaration index and source-file hashes. The original 38 entries retain their prior receipts; no fresh rereading of unrelated curve/lattice APIs is claimed.
+
+| Declaration | Pinned file and line | Contribution |
+| --- | --- | --- |
+| `mathlib:Module.annihilator` | `Mathlib/RingTheory/Ideal/Maps.lean:860` | Native Module.annihilator used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:Module.mem_annihilator` | `Mathlib/RingTheory/Ideal/Maps.lean:862` | Native Module.mem_annihilator used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:Submodule.Quotient.mk_eq_zero` | `Mathlib/LinearAlgebra/Quotient/Defs.lean:98` | Native Submodule.Quotient.mk_eq_zero used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:Submodule.mem_span_singleton` | `Mathlib/LinearAlgebra/Span/Defs.lean:447` | Native Submodule.mem_span_singleton used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:Module.Finite` | `Mathlib/RingTheory/Finiteness/Defs.lean:117` | Native Module.Finite used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:Module.Finite.exists_fin` | `Mathlib/RingTheory/Finiteness/Defs.lean:147` | Native Module.Finite.exists_fin used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:Module.Flat.lTensor_exact` | `Mathlib/RingTheory/Flat/Basic.lean:323` | Native Module.Flat.lTensor_exact used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:Module.Flat.lTensor_preserves_injective_linearMap` | `Mathlib/RingTheory/Flat/Basic.lean:131` | Native Module.Flat.lTensor_preserves_injective_linearMap used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:Algebra.TensorProduct.includeRight` | `Mathlib/RingTheory/TensorProduct/Basic.lean:323` | Native Algebra.TensorProduct.includeRight used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:IsLocalization.map` | `Mathlib/RingTheory/Localization/Defs.lean:604` | Native IsLocalization.map used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:IsLocalization.map_mk'` | `Mathlib/RingTheory/Localization/Defs.lean:621` | Native IsLocalization.map_mk' used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:IsLocalization.map_injective_of_injective` | `Mathlib/RingTheory/Localization/Defs.lean:715` | Native IsLocalization.map_injective_of_injective used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:IsLocalization.flat` | `Mathlib/RingTheory/Flat/Localization.lean:37` | Native IsLocalization.flat used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.IdealSheafData` | `Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean:65` | Native AlgebraicGeometry.Scheme.IdealSheafData used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdeals` | `Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean:104` | Native AlgebraicGeometry.Scheme.IdealSheafData.ofIdeals used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdeals_ideal` | `Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean:124` | Native AlgebraicGeometry.Scheme.IdealSheafData.ofIdeals_ideal used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.map_ideal` | `Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean:221` | Native AlgebraicGeometry.Scheme.IdealSheafData.map_ideal used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subscheme` | `Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean:454` | Native AlgebraicGeometry.Scheme.IdealSheafData.subscheme used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι` | `Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean:472` | Native AlgebraicGeometry.Scheme.IdealSheafData.subschemeι used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeObjIso` | `Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean:533` | Native AlgebraicGeometry.Scheme.IdealSheafData.subschemeObjIso used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app` | `Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean:539` | Native AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap` | `Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean:39` | Native AlgebraicGeometry.Scheme.IdealSheafData.comap used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso` | `Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean:43` | Native AlgebraicGeometry.Scheme.IdealSheafData.comapIso used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso_hom_snd` | `Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean:218` | Native AlgebraicGeometry.Scheme.IdealSheafData.comapIso_hom_snd used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeMap_subschemeι` | `Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean:213` | Native AlgebraicGeometry.Scheme.IdealSheafData.subschemeMap_subschemeι used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.Hom.app_injective` | `Mathlib/AlgebraicGeometry/Morphisms/SchemeTheoreticallyDominant.lean:74` | Native AlgebraicGeometry.Scheme.Hom.app_injective used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant` | `Mathlib/AlgebraicGeometry/Morphisms/SchemeTheoreticallyDominant.lean:38` | Native AlgebraicGeometry.IsSchemeTheoreticallyDominant used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isDominant` | `Mathlib/AlgebraicGeometry/Morphisms/SchemeTheoreticallyDominant.lean:61` | Native AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isDominant used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isPullback` | `Mathlib/AlgebraicGeometry/Morphisms/SchemeTheoreticallyDominant.lean:114` | Native AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isPullback used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.Cover.glueMorphisms` | `Mathlib/AlgebraicGeometry/Gluing.lean:448` | Native AlgebraicGeometry.Scheme.Cover.glueMorphisms used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.Cover.hom_ext` | `Mathlib/AlgebraicGeometry/Gluing.lean:460` | Native AlgebraicGeometry.Scheme.Cover.hom_ext used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdealTop` | `Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean:466` | Native AlgebraicGeometry.Scheme.IdealSheafData.ofIdealTop used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.IsNoetherian` | `Mathlib/AlgebraicGeometry/Noetherian.lean:279` | Native AlgebraicGeometry.IsNoetherian used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+| `mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.pullbackSnd` | `Mathlib/AlgebraicGeometry/Morphisms/SchemeTheoreticallyDominant.lean:94` | Native AlgebraicGeometry.IsSchemeTheoreticallyDominant.pullbackSnd used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned. |
+
+### Selected primary-source reading receipt
+
+Codex codex-5ebb6f freshly read Ferrand printed pp553–557 and565–569, and Witaszek pp674–675, including all of Definition2.27 and Lemma2.28 and visual inspection of both Witaszek pages. The downloaded PDFs have the same recorded SHA-256 values as the source ledger. This is selected reading; inherited whole-paper receipts retain their attribution.
+
+- [Finite-module annihilators and flat base change](https://stacks.math.columbia.edu/tag/07T8): full displayed statement and proof read on 2 October2026; SHA-256 `09f951f7a17951a7e273a51ec2520181edef236040a149e9d4d98e7d5cd0a19c`.
+- [Finite intersections after flat scalar extension](https://stacks.math.columbia.edu/tag/0BBY): full displayed statement and proof read on 2 October2026; SHA-256 `467b603439da657cd2cac75c94aaef5ddc4d7340c76b1d3e10c093f23cbef50f`.
+- [Geometric and categorical Scheme pinching](https://stacks.math.columbia.edu/tag/0E25): full displayed statement and proof read on 2 October2026; SHA-256 `b52f9b9dcecad662b267fd703d489c46e43678d9a777caff570fb31537834ee2`.
+
+### Finite algebraic checks and their limits
+
+A standalone Python calculation enumerated every F₂-linear subspace containing the unit in the nine rings below and kept exactly the multiplicatively closed subspaces. For each inclusion A⊂B it computed c(A,B) by testing every product with every b∈B, independently formed B/A using an additive quotient basis, enumerated both quotient classes and all compatible reconstruction pairs, and compared principal localizations through an idempotent power of each element of A. It also computed the conductor inside B[ε]/ε² on its additive basis and compared it with I⊕εI. All finite computations use bit-vector polynomial arithmetic and exhaustively enumerated finite sets, with no geometry assumptions in the program.
+
+| Ring | Unital subrings checked |
+| --- | --- |
+| F2[t]/t^1 | 1 |
+| F2[t]/t^2 | 2 |
+| F2[t]/t^3 | 3 |
+| F2[t]/t^4 | 6 |
+| F2[t]/t^5 | 9 |
+| F2[t]/t^6 | 24 |
+| F2[t]/t^3 x F2 | 6 |
+| F4 | 2 |
+| F8 | 2 |
+
+There were **859 passing assertions**: 55 each for ideal containment, the common B-ideal, the annihilator, reconstruction, reconstruction injectivity, dual-number conductor and the retained nilpotent; 466 principal-localization comparisons; and 8 explicit boundary checks. In the truncated cusp F₂[t]/t⁷ with A=F₂+t²B, t³ survives in A/(t²A) but dies in B/(t²B). Proper F₄/F₂ and F₈/F₂ inclusions have zero conductor; identities have unit conductor. These computations check finite examples, not the infinite-ring theorem, Scheme gluing or Lean elaboration. The inherited F₂ curve certificates were preserved without unrelated reruns.
+
+### Current continuation obligations
+
+The generic finite-module flat-annihilator theorem and exact affine quotient/localization adapters must be supplied at SF.0. Elaborate the native global-conductor signatures at the pins, then discharge the sheaf-basis and topology gluing proof steps. The space-valued extensions still require actual SF.1/SF.3 types and exports. All seven stages, the reserved key and the model/completeness gaps remain partial. No build was created and Lean was not compiled because no existing build at both pins was available.
+
+### Repository and atlas verification
+
+The indexed stock checker reports zero errors and warnings. The preservation audit checks all 128 inherited node IDs/statements, all 78 routes, all 21 source findings and the prior finite F₂ certificate. All new baseline names resolve in the pinned declaration index and their file hashes agree; source PDF/HTML hashes and all reader/native declaration, API and example names agree. The suggested imports exist at the pins, but this is not an elaboration claim.
+
+Read-only assembly with the repository’s actual atlas builder, roadmap-adder and blueprint merger resolves every required stage edge and all 76 restored upstream imports, with zero own pending or skipped links. The target declaration graph has 137 vertices and 367 edges. The actual atlas stage graph, including its 51 existing unrelated UPSTREAM boundary vertices, has 3042 vertices and 8726 edges. The combined declaration/stage/baseline graph has 3218 vertices and 9489 edges. All three are acyclic. No atlas projection or other job file was edited.
