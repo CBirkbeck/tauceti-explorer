@@ -37586,7 +37586,8 @@
     "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4164"
   },
   {
    "id": "REV-RT-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
@@ -47280,7 +47281,8 @@
     "FIX-RT-RS-27"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-27.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5554"
   },
   {
    "id": "RT-RS-28",
@@ -53434,8 +53436,9 @@
     "REV-FIX-RT-AREA-padic-2~2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5537"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5537",
+   "finishedAt": "2026-10-02T03:08:27Z"
   },
   {
    "id": "REV-FIX-RT-AREA-padic-2~3",
