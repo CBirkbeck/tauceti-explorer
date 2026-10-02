@@ -16,7 +16,7 @@
    "Cited inputs read at the statements used: BLGGT14 (arXiv 1010.2561v4) §§1.1, 1.4, 2.1–2.4, 4.1, A.2; Thorne 2012 (homepage copy and arXiv 1107.5989v1) Defn 2.3, Thms 7.1, 10.1, 10.2; Thorne 2017 (author's copy of 16 Mar 2016) Defn 2.20, Prop 2.21, Thm 5.1, §7; Bellovin–Gee (arXiv 1708.04885v3) §4; GHT17 (arXiv 1405.0043v3) §1, Rem 6.1, Cor 9.4; BLGG13 (arXiv 1106.5586v1) App. A; FKP22 (arXiv 2008.12593v5) Lem B.4; NT21 (arXiv 1912.11261v3) Thm A; Miller (arXiv math/0112196v1) Thm 1.6; CKPSS04 (Numdam) §7; Caraiani (arXiv 1202.4683v1) Thm 1.1; Citro–Ghitza (arXiv 1102.3321v2) table; Gouvêa (arXiv math/0009046v1) Table 1"
   ]
  },
- "summary": "Boxer, Calegari and Gee prove that GL_n(Z) has nonzero cuspidal cohomology for n = 79, 105 and 106 (Theorem B). Equivalently, there are cuspidal automorphic representations of GL_n/Q of level one and weight zero for these n, the first for any n > 1; the Fermigier–Miller range shows that the smallest such n satisfies 27 ≤ n ≤ 79. The method is a change of weight. Starting from Sym^{n−1} of a level-one eigenform f (Newton–Thorne), a lift of Sym^{n−1}ρ̄_f that is crystalline with Hodge–Tate weights 0, …, n−1 and unramified outside p is produced with Bellovin–Gee's dimension bound and the Khare–Wintenberger method, and shown automorphic by polarized automorphy lifting. The ordinary case (Theorem 2.1, needing ρ̄_f|G_{Q_p} split) gives n = 105, 106 from the weight-26 form at p = 107. The non-ordinary case (Theorem 3.1, via Harris's tensor product trick and Thorne's automorphy lifting with p | n) gives n = 79 from a weight-38 form at p = 79. The atlas plans the symmetric powers (ML.3), Galois representations and local–global compatibility (AG2, R19), the general deformation theory, and relative Lie algebra cohomology (AF.1). It lacks cuspidal cohomology, the archimedean analysis of GL_n(R), the polarized automorphy lifting and finiteness theorems of Thorne and BLGGT, G-valued deformation rings, adequacy for p | n, and the level-one change of weight itself. The extraction routes these to two Part IIs (of ModularityAndLanglandsExtensions and of PotentialAutomorphyInfrastructure) and to sources of eight existing layers, and records eight source issues: four misprints (a parameter, two citations, and θ for θ′), three gaps (oddness for GO_n, level one at p in Theorem 3.1, level one in Remark 2.5) and one error (p = 151 in Remark 3.3).",
+ "summary": "Boxer, Calegari and Gee prove that GL_n(Z) has nonzero cuspidal cohomology for n = 79, 105 and 106 (Theorem B). Equivalently, there are cuspidal automorphic representations of GL_n/Q of level one and weight zero for these n, the first for any n > 1; the Fermigier–Miller range shows that the smallest such n satisfies 27 ≤ n ≤ 79. The method is a change of weight. Starting from Sym^{n−1} of a level-one eigenform f (Newton–Thorne), a lift of Sym^{n−1}ρ̄_f that is crystalline with Hodge–Tate weights 0, …, n−1 and unramified outside p is produced with Bellovin–Gee's dimension bound and the Khare–Wintenberger method, and shown automorphic by polarized automorphy lifting. The ordinary case (Theorem 2.1, needing ρ̄_f|G_{Q_p} split) gives n = 105, 106 from the weight-26 form at p = 107. The non-ordinary case (Theorem 3.1, via Harris's tensor product trick and Thorne's automorphy lifting with p | n) gives n = 79 from a weight-38 form at p = 79. The atlas plans the symmetric powers (ML.3), Galois representations and local–global compatibility (AG2, R19), the general deformation theory, and relative Lie algebra cohomology (AF.1). It lacks cuspidal cohomology, the archimedean analysis of GL_n(R), the polarized automorphy lifting and finiteness theorems of Thorne and BLGGT, G-valued deformation rings, adequacy for p | n, and the level-one change of weight itself. The extraction routes these to two Part IIs (of ModularityAndLanglandsExtensions and of PotentialAutomorphyInfrastructure) and to sources of eight existing layers, and records ten source issues (two added by this repair): four misprints (a parameter, two citations, and θ for θ′), three gaps (oddness for GO_n, level one at p in Theorem 3.1, level one in Remark 2.5) and three errors (p = 151 in Remark 3.3, the non-ordinary inertia signs, and the missing unramified twist).",
  "items": [
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/no-weight-two-cusp-forms-level-one",
@@ -322,13 +322,57 @@
    "id": "PAPER-BOXER-CALEGARI-GEE-25/symmetric-power-polarization",
    "kind": "theorem",
    "name": "Polarization of symmetric powers",
-   "statement": "Let r: Γ → GL_2(F) preserve an alternating form up to the multiplier μ (i.e. det r = μ). Then Sym^{n−1}r preserves a form up to μ^{n−1}, alternating for n even and symmetric for n odd; so it takes values in G_n(F) with multiplier μ^{n−1}. Applied to ρ̄_f ⊗ ε̄^{(k−2)/2} (multiplier ε̄^{1−k}ε̄^{k−2} = ε̄^{−1}) this gives ρ̄: G_Q → G_n(F) with multiplier ε̄^{1−n} and ρ̄ ≅ ρ̄^∨ε̄^{1−n}; applied to ρ̄_f with n = p it gives Sym^{p−1}ρ̄_f: G_Q → GO_p(F) with multiplier ε̄^{(1−k)(p−1)} = 1 = ε̄^{1−p}.",
+   "statement": "Let F be a field with 2 invertible, n≥1 and d=n−1, with d! invertible (in particular characteristic zero, or odd characteristic p and n≤p). Let r:Γ→GL₂(F) preserve a nondegenerate alternating form h up to μ=det r. The normalized symmetrization of h^⊗d induces a nondegenerate bilinear form B_d on the existing Sym^d representation. In a basis x,y with h(x,y)=1, v_i=x^(d−i)y^i has B_d(v_i,v_j)=0 unless i+j=d, and B_d(v_i,v_(d−i))=(−1)^i/binomial(d,i). Thus B_d has symmetry sign (−1)^d and multiplier μ^d: alternating for n even, symmetric for n odd. The representation takes values in the similitude group of B_d. To identify it with the paper’s G_n, choose a basis and nonzero scalar taking B_d to A_n (J_n for n even, 1_n for n odd). The alternating identification exists over any such F; the symmetric identification up to scalar is assured over the finite odd-characteristic coefficient fields used here (odd dimension), or over an algebraically closed field. Over a general characteristic-zero field it is an explicit extra form-identification hypothesis, not automatic. Applied to ρ̄_f ⊗ ε̄^{(k−2)/2} (multiplier ε̄^{1−k}ε̄^{k−2} = ε̄^{−1}) this gives ρ̄: G_Q → G_n(F) with multiplier ε̄^{1−n} and ρ̄ ≅ ρ̄^∨ε̄^{1−n}; applied to ρ̄_f with n = p it gives Sym^{p−1}ρ̄_f: G_Q → GO_p(F) with multiplier ε̄^{(1−k)(p−1)} = 1 = ε̄^{1−p}.",
    "locator": "Proof of Theorem 2.1, p. 513; proof of Theorem 3.1, p. 516",
    "status": "missing",
    "library": [
     "tauceti:Representation.symmetricPower"
    ],
-   "note": "Tau Ceti has symmetric powers of representations (TauCeti/RepresentationTheory/SymmetricPower.lean:47) but not the induced pairing. Routed to ArithmeticGaloisRepresentations G7 (symmetric powers and polarizations)."
+   "note": "Reuse pinned Representation.symmetricPower (TauCeti/RepresentationTheory/SymmetricPower.lean:47) for the functor; the missing pairing/continuity/polarization interface stays at ArithmeticGaloisRepresentations G7. The reviewed G7 audit distinguishes the built algebraic functor from the absent polarized package. All uses here have p>5 and n=p−2,p−1,p, hence d! invertible. The old unrestricted positive-characteristic claim was an extraction overgeneralization, not a source error. In odd dimension over a finite field, scale B_d to match the square class of det(1_n), then apply the finite-field form classification to choose the isometry; no such identification with 1_n is claimed over arbitrary F.",
+   "proofOutline": [
+    "On symmetric tensors define B_d=(1/d!)Σ_σ∏_j h(u_j,w_(σ(j))). This is symmetric in the input factors separately and descends to Sym^d; GL₂ equivariance multiplies every h factor by det r.",
+    "The monomial computation gives the displayed antidiagonal coefficients. All binomial(d,i) are units when d! is a unit, so the antidiagonal matrix is invertible. Transposition changes it by (−1)^d; odd d and 2 invertible gives an alternating form.",
+    "For the group-valued conclusion carry an explicit P∈GL_n(F), c∈F× with PᵗB_dP=cA_n. Alternating forms admit the standard symplectic basis. Over finite F and odd n, scaling matches determinant square classes and finite-field classification gives the symmetric isometry. In other fields require that identification or retain GO(B_d)."
+   ],
+   "api": [
+    {
+     "name": "SymmetricPower.polarizedForm",
+     "role": "construction",
+     "statement": "On the existing Sym^d module, under 2,d! invertibility, construct the normalized induced form with the displayed monomial coefficients, without redefining symmetric powers."
+    },
+    {
+     "name": "SymmetricPower.polarizedForm_nondegenerate",
+     "role": "relation",
+     "statement": "Prove nondegeneracy, transpose sign (−1)^d and B_d(Sym^d r(g)u,Sym^d r(g)v)=μ(g)^d B_d(u,v)."
+    },
+    {
+     "name": "SymmetricPower.toPaperSimilitude",
+     "role": "compatibility",
+     "statement": "Given an explicit form identification PᵗB_dP=cA_n, transport Sym^d r into G_n with multiplier μ^d. Supply that identification over the paper’s finite coefficient field in odd dimension, or a standard symplectic basis in even dimension."
+    }
+   ],
+   "acceptance": [
+    {
+     "name": "SymmetricPower.degree_p_minus_two",
+     "kind": "computation",
+     "statement": "At p=7, d=p−2=5, B_d has rank 6, is alternating and is invariant under both elementary SL₂(F₇) generators."
+    },
+    {
+     "name": "SymmetricPower.degree_p_minus_one",
+     "kind": "computation",
+     "statement": "At p=7, d=p−1=6, B_d has rank 7 and is symmetric; its similitude group is identified up to scalar with GO₇(1₇) over F₇."
+    },
+    {
+     "name": "SymmetricPower.degree_p_failure",
+     "kind": "non-example",
+     "statement": "At p=7, d=p=7, every SL₂(F₇)-invariant bilinear form on Sym⁷ has rank at most 6 (nonzero antidiagonal coefficients 0,6,5,4,3,2,1,0); no nondegenerate polarization or GSp₈ conclusion is asserted."
+    },
+    {
+     "name": "SymmetricPower.general_field_form_choice",
+     "kind": "non-example",
+     "statement": "For F=ℝ and d=2, B₂ has both signs, so it cannot be transported up to scalar to 1₃. Keep GO(B₂) unless an actual form identification is supplied."
+    }
+   ]
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/ordinary-local-shape",
@@ -517,7 +561,7 @@
    "planned": [
     "ModularityAndLanglandsExtensions:ML.5"
    ],
-   "note": "ML.5 registers cyclic base change and automorphic induction with exact hypotheses."
+   "note": "ML.5 registers cyclic base change and automorphic induction with exact hypotheses. The existing ML.5 planned status denotes downstream registration, not an early proof supplier. Route2’s lifting input is the explicit pending ET.4b request coordinated with the Langlands repair; its design must not depend on ML.2/ML.3/ML.5."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/iota-ordinary",
@@ -718,13 +762,30 @@
    "id": "PAPER-BOXER-CALEGARI-GEE-25/nonordinary-local-shape",
    "kind": "theorem",
    "name": "Local shape of ρ̄_f for non-ordinary f",
-   "statement": "If f is non-ordinary at p and 2 ≤ k ≤ p, then ρ̄_f|G_{Q_p} is absolutely irreducible and ρ̄_f|I_p ≅ ω_2^{k−1} ⊕ ω_2^{p(k−1)} (Fontaine; [Edixhoven, Thm 2.6]).",
+   "statement": "If f is non-ordinary at p and 2 ≤ k ≤ p, then ρ̄_f|G_{Q_p} is absolutely irreducible and ρ̄_f|I_p ≅ ω_2^{1−k} ⊕ ω_2^{p(1−k)} (Fontaine; [Edixhoven, Thm 2.6]).",
    "locator": "Proof of Theorem 3.1, p. 516",
    "status": "planned",
    "planned": [
     "SerreWeightAndLevelOptimisation:R20.3"
    ],
-   "note": "R20.3 proves the Edixhoven/Serre weight theorem 'with its local finite-flat/extension calculations', including the irreducible local case; the decomposition of AlgebraicModularFormsAndSerreWeights R15.4 records Edixhoven's Thms 2.5–2.6 as its local inputs."
+   "note": "R20.3 proves the Edixhoven/Serre weight theorem 'with its local finite-flat/extension calculations', including the irreducible local case; the decomposition of AlgebraicModularFormsAndSerreWeights R15.4 records Edixhoven's Thms 2.5–2.6 as its local inputs. Use the fixed cohomological normalization det ρ̄_f=ε̄^{1−k}, with ω₂ the reduction of ε₂, so ω₂^(p+1)=ε̄ on inertia. The positive signs printed on published p.516 and v3 p.8 are corrected as E9; this is not a discretionary dual-character convention.",
+   "acceptance": [
+    {
+     "name": "NonordinaryShape.determinant_79_38",
+     "kind": "computation",
+     "statement": "At p=79,k=38 the corrected determinant exponent is −37≡41 mod78, matching ε̄^{1−k}; the printed positive exponent gives 37 and fails."
+    },
+    {
+     "name": "NonordinaryShape.projective_order",
+     "kind": "characterisation",
+     "statement": "For a=1−k the ratio of inertia characters has order (p+1)/gcd(k−1,p+1), unchanged by inverting both characters."
+    },
+    {
+     "name": "NonordinaryShape.dihedral_inversion",
+     "kind": "compatibility",
+     "statement": "Twist-invariance of the pair by ω₂^((p²−1)/2) is unchanged under a↦−a and forces k≡(p+3)/2 mod(p+1), preserving the large-image argument."
+    }
+   ]
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/large-image-nonordinary",
@@ -733,16 +794,50 @@
    "statement": "Under the hypotheses of Theorem 3.1, ρ̄_f(G_Q) ⊇ SL_2(F_p). The projective image of ρ̄_f(I_{Q_p}) contains a cyclic subgroup of order p + 1 > 5, which rules out projective image A_4, S_4 or A_5; ρ̄_f is absolutely irreducible because ρ̄_f|G_{Q_p} is; and dihedral image is impossible: being unramified outside p it would be induced from Q(√p*), p* = (−1)^{(p−1)/2}p, so ρ̄_f|G_{Q_p} would be induced from Q_p(√p*) and invariant under twisting by ε̄^{(p−1)/2} = ω_2^{(p^2−1)/2}, which forces k ≡ (p+3)/2 mod (p+1), contradicting (k−1, p+1) = 1.",
    "locator": "Proof of Theorem 3.1, p. 516",
    "status": "missing",
-   "note": "Checked: twist invariance of ω_2^{k−1} ⊕ ω_2^{p(k−1)} by ω_2^{(p^2−1)/2} holds exactly when k ≡ (p+3)/2 mod (p+1) (for example p = 79: true at k = 41, false at k = 38). Routed to ArithmeticGaloisRepresentations R01.4."
+   "note": "Checked: twist invariance of ω_2^{1−k} ⊕ ω_2^{p(1−k)} by ω_2^{(p^2−1)/2} holds exactly when k ≡ (p+3)/2 mod (p+1) (for example p = 79: true at k = 41, false at k = 38). Routed to ArithmeticGaloisRepresentations R01.4. Simultaneous inversion leaves the projective order and dihedral exclusion unchanged; retain the local signs fixed in E9."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/lubin-tate-characters",
    "kind": "definition",
    "name": "The Lubin–Tate characters of Q_{p^2}",
-   "statement": "ε_2, ε_2': G_{Q_{p^2}} → Z̄_p^× are the two Lubin–Tate characters trivial on Art_{Q_{p^2}}(p) (conjugate under Gal(Q_{p^2}/Q_p)), and ω_2 is the reduction of ε_2, a fundamental character of level 2.",
+   "statement": "ε_2, ε_2': G_{Q_{p^2}} → Z̄_p^× are the two Lubin–Tate characters trivial on Art_{Q_{p^2}}(p) (conjugate under Gal(Q_{p^2}/Q_p)), and ω_2 is the reduction of ε_2, a fundamental character of level 2. The convention is fixed: ω₂^(p+1)=ε̄|I_p and ε₂(φ²)=1 for a Frobenius lift φ of Art_Qp(p); do not replace ω₂ by its inverse in an isolated formula.",
    "locator": "Proof of Theorem 3.1, p. 516",
    "status": "missing",
-   "note": "ω_2 is planned in ArithmeticGaloisRepresentations R01.2 (fundamental characters of level two); the characteristic-zero characters come from local class field theory (Tau Ceti ClassFieldTheory Layer 8) and are crystalline (PadicHodgeTheory R06.2). Routed with the Part II's local layer."
+   "note": "ω_2 is planned in ArithmeticGaloisRepresentations R01.2 (fundamental characters of level two); the characteristic-zero characters come from local class field theory (Tau Ceti ClassFieldTheory Layer 8) and are crystalline (PadicHodgeTheory R06.2). Routed with the Part II's local layer.",
+   "api": [
+    {
+     "name": "LubinTateLevelTwo.reduction",
+     "role": "compatibility",
+     "statement": "Reduce the characteristic-zero ε₂ and its conjugate to ω₂ and ω₂^p on inertia, using the existing fundamental-character owner R01.2."
+    },
+    {
+     "name": "LubinTateLevelTwo.norm_on_inertia",
+     "role": "relation",
+     "statement": "The product ε₂ε₂′ restricts to ε on inertia; its reduction is ω₂^(p+1)=ε̄."
+    },
+    {
+     "name": "LubinTateLevelTwo.uniformizer",
+     "role": "relation",
+     "statement": "For φ lifting Art_Qp(p), reciprocity transfer identifies φ² in the abelianization of G_Qp² with Art_Qp²(p), on which ε₂ and ε₂′ equal 1."
+    }
+   ],
+   "tests": [
+    {
+     "name": "LubinTateLevelTwo.norm_79",
+     "kind": "computation",
+     "statement": "For p=79 the norm exponent is 80; the fundamental character of order6240 reduces to a cyclotomic character of order78."
+    },
+    {
+     "name": "LubinTateLevelTwo.trivial_uniformizer",
+     "kind": "degenerate",
+     "statement": "Both Lubin–Tate characters take the specified uniformizer to1, hence the ordinary induction has Frobenius square1."
+    },
+    {
+     "name": "LubinTateLevelTwo.coefficients_agree",
+     "kind": "compatibility",
+     "statement": "Reduction of ε₂ and ε₂′ agrees with the existing R01.2 level-two fundamental characters using the stated Artin normalization, rather than their duals."
+    }
+   ]
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/rho-n-m",
@@ -775,19 +870,75 @@
    "id": "PAPER-BOXER-CALEGARI-GEE-25/local-shape-theorem-3-1",
    "kind": "theorem",
    "name": "ρ̄|G_{Q_p} in the non-ordinary case",
-   "statement": "Under the hypotheses of Theorem 3.1 (f non-ordinary, k < p, (k−1, p+1) = 1), ρ̄|G_{Q_p} ≅ ρ̄_{p,1} for ρ̄ = Sym^{p−1}ρ̄_f, which admits the weight-zero crystalline lift ρ_{p,1}.",
+   "statement": "Under the hypotheses of Theorem 3.1 (p>5, f non-ordinary of level one, 2≤k<p, gcd(k−1,p+1)=1), let ρ̄=Sym^(p−1)ρ̄_f and η be the unramified quadratic character of G_Qp. Then ρ̄|G_Qp ≅ η^((p−1)/2) ⊗ ρ̄_{p,1}, and it admits the crystalline lift η^((p−1)/2) ⊗ ρ_{p,1} of weight zero (Hodge–Tate weights 0,…,p−1), with GO_p multiplier ε^(1−p). The twist is trivial when p≡1 mod4 and nontrivial when p≡3 mod4.",
    "locator": "Proof of Theorem 3.1, p. 517",
    "status": "missing",
-   "note": "ρ̄_f|G_{Q_p} is induced from a level-2 character restricting to ω_2^{k−1} on inertia, up to an unramified quadratic twist, which Sym^{p−1} kills (p − 1 is even). So ρ̄|G_{Q_p} ≅ ρ̄_{p,m} with m ≡ ±(k−1) mod p^2 − 1, the sign depending on the normalisation of ω_2; either way (m, p+1) = (k−1, p+1) = 1, and rho-bar-p-m-independent gives ρ̄_{p,m} ≅ ρ̄_{p,1}."
+   "note": "With the fixed signs, ρ̄_f|G_Qp ≅ (Ind ω₂^{1−k})⊗λ, where λ is unramified and λ(φ)²=−1 because ordinary induction has Frobenius determinant−1 while det ρ̄_f(φ)=1. Over a coefficient extension containing λ(φ), choose this determinant normalization. Thus λ^(p−1)=η^((p−1)/2), not always1. Set m=k−1, with no discretionary sign: gcd(m,p+1)=1, and rho-bar-p-m-independent identifies ρ̄_{p,m} with ρ̄_{p,1}. The crystalline quadratic twist has Hodge–Tate weight0 and square1, so the multiplier is unchanged. Source issue E10 records the printed untwisted comparison. On G_Fv the twist vanishes because F_v contains Q_p²; the tensor step remains valid.",
+   "proofOutline": [
+    "In a coset basis the ordinary induction has φ-matrix S=[[0,1],[1,0]], det−1 and S²=1. The determinant-normalized representation has a conjugate φ-matrix A=[[0,−1],[1,0]], det1 and A²=−1, realized by the unramified order-four λ.",
+    "Take Sym^(p−1): the unramified twist is λ^(p−1)=η^((p−1)/2). Apply the unchanged m-independence theorem with m=k−1. Lift η by its quadratic characteristic-zero character; this unramified twist is crystalline of weight0 and preserves the orthogonal multiplier.",
+    "Restriction to G_Fv factors through the subgroup G_Qp², where η is trivial, so the original local tensor identities apply after correcting the component label over Q_p."
+   ],
+   "acceptance": [
+    {
+     "name": "NonordinaryLift.frobenius_79",
+     "kind": "non-example",
+     "statement": "At p=79, trace Sym⁷⁸S=1 and trace Sym⁷⁸A=−1=78 in F₇₉. The residual representation is not the untwisted ρ̄_{79,1}; η corrects the trace."
+    },
+    {
+     "name": "NonordinaryLift.frobenius_13",
+     "kind": "computation",
+     "statement": "At p=13 the exponent (p−1)/2=6 is even; η⁶ is trivial and both Frobenius traces equal1."
+    },
+    {
+     "name": "NonordinaryLift.tensor_restriction",
+     "kind": "compatibility",
+     "statement": "η restricts trivially to G_Qp² and hence G_Fv, while the quadratic twist has weight0 and square1, preserving all tensor identities and the GO_p multiplier."
+    }
+   ]
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/deformation-ring-nonordinary",
    "kind": "construction",
    "name": "The deformation ring R of Theorem 3.1",
-   "statement": "R is the universal deformation ring for GO_p-valued deformations of ρ̄ = Sym^{p−1}ρ̄_f with multiplier ε^{1−p}, unramified outside p, whose restrictions to G_{Q_p} are crystalline of weight zero (Hodge–Tate weights 0, …, p−1) and lie on the same component of the local crystalline deformation ring as ρ_{p,1}. Every irreducible component of R has Krull dimension at least 1, by [BG19, Prop. 4.2.6].",
+   "statement": "R is the universal deformation ring for GO_p-valued deformations of ρ̄ = Sym^{p−1}ρ̄_f with multiplier ε^{1−p}, unramified outside p, whose restrictions to G_{Q_p} are crystalline of weight zero (Hodge–Tate weights 0, …, p−1) and lie on the same component of the local crystalline deformation ring as η^((p−1)/2) ⊗ ρ_{p,1}. Every irreducible component of R has Krull dimension at least 1, by [BG19, Prop. 4.2.6].",
    "locator": "Proof of Theorem 3.1, p. 517",
    "status": "missing",
-   "note": "H^0(Q, so_p^*(1)) = 0 as in Theorem 2.1; the oddness hypothesis is not discussed (source issue E5)."
+   "note": "H^0(Q, so_p^*(1)) = 0 as in Theorem 2.1; the oddness hypothesis is not discussed (source issue E5). Use the corrected local lift from local-shape-theorem-3-1 (E10), which actually reduces to ρ̄|G_Qp. At p=79 the untwisted ρ_{p,1} is not in this residual deformation problem. Tensoring by the fixed η^((p−1)/2) transports local crystalline components between the two residual deformation functors; it is not an equality of components in a ring with an unchanged residual label.",
+   "api": [
+    {
+     "name": "NonordinaryDeformation.correctedLocalLift",
+     "role": "construction",
+     "statement": "Choose η^((p−1)/2)⊗ρ_{p,1} with reduction identified with the prescribed ρ̄|G_Qp and multiplier ε^(1−p)."
+    },
+    {
+     "name": "NonordinaryDeformation.twist_components",
+     "role": "compatibility",
+     "statement": "The fixed weight-zero quadratic twist gives an isomorphism of the appropriately relabelled local residual deformation functors and transports their crystalline components."
+    },
+    {
+     "name": "NonordinaryDeformation.component_condition",
+     "role": "relation",
+     "statement": "The global GO_p deformation condition selects the component of that corrected lift; retain the dimension bound with its original hypotheses and E5 oddness obligation."
+    }
+   ],
+   "tests": [
+    {
+     "name": "NonordinaryDeformation.residual_79",
+     "kind": "non-example",
+     "statement": "For p=79,k=38 the untwisted model has Frobenius trace1 and fails the specified residual label; the η-twist has trace78 and satisfies it."
+    },
+    {
+     "name": "NonordinaryDeformation.even_twist",
+     "kind": "degenerate",
+     "statement": "For p≡1 mod4 the fixed twist is trivial, so component transport recovers the untwisted condition."
+    },
+    {
+     "name": "NonordinaryDeformation.tensor_field",
+     "kind": "compatibility",
+     "statement": "After restriction to a place with F_v⊇Q_p² the corrected lift equals the untwisted one; the tensor construction has the same local components and labelled Hodge–Tate weights as before."
+    }
+   ]
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/auxiliary-fields-and-characters",
@@ -823,7 +974,7 @@
    "statement": "For every place v | p of F (so F_v ⊇ Q_{p^2}): (ρ_{k−1,p} ⊗ ρ_{p,1})|G_{F_v} ≅ ρ_{(k−1)p,1}|G_{F_v} ≅ (ρ_{p,k−1} ⊗ ρ_{k−1,1})|G_{F_v}.",
    "locator": "Proof of Theorem 3.1, p. 517",
    "status": "missing",
-   "note": "On G_{Q_{p^2}} each side is a sum of characters ε_2^{−a}(ε_2′)^{−b}; checked as multisets of (a, b) for (p, k) = (79, 38) and (13, 6). The second identity reindexes t = (k−1)j + l and the first t = j + pl."
+   "note": "On G_{Q_{p^2}} each side is a sum of characters ε_2^{−a}(ε_2′)^{−b}; checked as multisets of (a, b) for (p, k) = (79, 38) and (13, 6). The second identity reindexes t = (k−1)j + l and the first t = j + pl. For the corrected Q_p lift η^((p−1)/2)⊗ρ_{p,1}, the same identities hold after restriction to G_Fv because η|G_Qp²=1. This does not assert the untwisted full G_Qp comparison."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/deformation-ring-RF-nonordinary",
@@ -1097,7 +1248,7 @@
     "PAPER-BOXER-CALEGARI-GEE-25/lift-and-automorphy-nonordinary",
     "PAPER-BOXER-CALEGARI-GEE-25/corollary-3-2"
    ],
-   "brief": "Build on Modularity, automorphy and Langlands endpoint extensions (ModularityAndLanglandsExtensions). Its ML.3 supplies Newton–Thorne symmetric-power functoriality ([NT21, Thm A]: Sym^{n−1}π exists for every level-one regular algebraic cuspidal π of GL_2(A_Q)), and its ML.5 supplies cyclic base change, automorphic induction and the classical-group descent. This Part II starts where ML.3 stops: it turns Sym^{n−1} of a level-one eigenform into automorphic representations of level one and weight zero by a change of weight, following Boxer–Calegari–Gee, Cuspidal cohomology classes for GL_n(Z), J. Amer. Math. Soc. 38 (2025) 509–520. Final theorems, stated as in the paper. Theorem 2.1: let f be an eigenform of level SL_2(Z) and weight k ≥ 2 and p > 5 a prime with (1) ρ̄_f(G_Q) ⊇ SL_2(F_p), (2) (p−1, k−1) = 1, (3) f ordinary at p, (4) ρ̄_f|G_{Q_p} semisimple; then for n = p−1 and for n = p−2 there is a self-dual cuspidal π of GL_n/Q of level one and weight zero with ρ̄_π ≅ ε̄^{(n−1)(k−2)/2} ⊗ Sym^{n−1}ρ̄_f. Theorem 3.1: let p > 5 and f of level SL_2(Z) and weight 2 ≤ k < p with (k−1, p+1) = 1 and f non-ordinary at p; then there is a self-dual cuspidal π of GL_p/Q of level one and weight zero with ρ̄_π ≅ Sym^{p−1}ρ̄_f. Theorem 2.4 (f = ΔE_4^2E_6, p = 107: n = 105, 106), Corollary 3.2 (weight 38, p = 79: n = 79), Theorem B (n = 79, 105, 106, and H^*_cusp(GL_n(Z), C) ≠ 0 for these n), Remark 1.2(1)–(3), the bound 27 ≤ n_min ≤ 79 for the smallest n with nonzero cuspidal cohomology, and Remark 2.5 (a globally generic non-endoscopic cuspidal representation of Sp_104/Q of level one and weight zero; H^*_cusp(𝒜_52, C) ≠ 0). Layers. (1) Level-one cuspidal cohomology of GL_n(Z) and SL_n(Z): the two level-one quotients, GL_n(Z) versus SL_n(Z) for n odd and even, triviality of the central character, Remark 1.2(1)–(3) from the decomposition into relative Lie algebra cohomology, the case n = 2, and the Fermigier–Miller vanishing for 1 < n < 27 by explicit formulas for Rankin–Selberg L-functions. (2) Residual symmetric powers: ρ̄ as a GSp_n- or GO_n-valued representation, the local decomposition (2.1.1), the Lubin–Tate characters of Q_{p^2}, ρ_{n,m} = Sym^{n−1}Ind ε_2^{−m}, the reduction ρ̄_{p,m} and its independence of m, and the tensor identities on G_{F_v}. (3) The deformation rings R (G_n-valued, over Q) and R_F (𝒢-valued, over the CM field), with the Bellovin–Gee dimension bound (including the oddness verification for GO_n, which the paper omits), the surjection or finite map R_F → R, and the Khare–Wintenberger passage from finiteness to a characteristic-zero point. (4) The ordinary change of weight (Theorem 2.1) and its instance at p = 107. (5) The non-ordinary change of weight by Harris's tensor product trick (Theorem 3.1), with the correction θ → θ′ recorded as source issue E4, and its instance at p = 79. (6) Consequences: Theorem B, the bound for Problem C, Remark 1.1 as a statement conditional on tensor-product functoriality, and Remark 2.5 with the local step recorded as source issue E8. Level one at p in Theorem 3.1 must use local–global compatibility at l = p for all π_p (source issue E6). Import from: AutomorphicSpectralTheory (AutomorphicSpectralTheory, AS.5: cuspidal cohomology); Automorphic forms on reductive groups (AutomorphicFormsOnReductiveGroups, AF.1, AF.4, AF.5); Arithmetic locally symmetric spaces and their cohomology (ArithmeticLocallySymmetricSpaces, ALS.0); Adelic algebraic groups and arithmetic quotients (AdelicAlgebraicGroups, AA.4); Galois representations attached to modular and Hilbert modular forms (AutomorphicGaloisRepresentations, R19.1, R19.5); Automorphic Galois Representations PartII (AutomorphicGaloisRepresentationsPartII, AG2.0, AG2.5, AG2.6); Arithmetic Galois representations and conductors (ArithmeticGaloisRepresentations, R01.2, R01.4, G7); Global Galois deformation rings (GlobalGaloisDeformations, G7); Local Galois deformation rings and their components (LocalGaloisDeformationRings, L7); Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra, R03.4); Weight and level optimisation of residual modular representations (SerreWeightAndLevelOptimisation, R20.3); Certified computational number theory and arithmetic data (ComputationalNumberTheory, CN.3); the polarized automorphy lifting Part II of Reusable infrastructure for potential automorphy over CM fields (PolarizedAutomorphyLifting, proposed with this extraction); Analytic number theory (AnalyticNumberTheory, AN.3) and Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors, AL.3) for the Fermigier–Miller range; Siegel and PEL moduli problems (PELModuli, M3) and Complex Shimura varieties and canonical models (ShimuraVarieties, V5) for 𝒜_52; Tau Ceti Modular forms (tauceti:TauCetiRoadmap/ModularForms, Layer 4) and Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory, Layer 8).",
+   "brief": "Build on Modularity, automorphy and Langlands endpoint extensions (ModularityAndLanglandsExtensions). Its ML.3 supplies Newton–Thorne symmetric-power functoriality ([NT21, Thm A]: Sym^{n−1}π exists for every level-one regular algebraic cuspidal π of GL_2(A_Q)), and the requested early ET.4b interface supplies cyclic base change and automorphic induction; ML.5 retains downstream registration and the classical-group descent with E8’s local-step obligation. This Part II starts where ML.3 stops: it turns Sym^{n−1} of a level-one eigenform into automorphic representations of level one and weight zero by a change of weight, following Boxer–Calegari–Gee, Cuspidal cohomology classes for GL_n(Z), J. Amer. Math. Soc. 38 (2025) 509–520. Final theorems, stated as in the paper. Theorem 2.1: let f be an eigenform of level SL_2(Z) and weight k ≥ 2 and p > 5 a prime with (1) ρ̄_f(G_Q) ⊇ SL_2(F_p), (2) (p−1, k−1) = 1, (3) f ordinary at p, (4) ρ̄_f|G_{Q_p} semisimple; then for n = p−1 and for n = p−2 there is a self-dual cuspidal π of GL_n/Q of level one and weight zero with ρ̄_π ≅ ε̄^{(n−1)(k−2)/2} ⊗ Sym^{n−1}ρ̄_f. Theorem 3.1: let p > 5 and f of level SL_2(Z) and weight 2 ≤ k < p with (k−1, p+1) = 1 and f non-ordinary at p; then there is a self-dual cuspidal π of GL_p/Q of level one and weight zero with ρ̄_π ≅ Sym^{p−1}ρ̄_f. Theorem 2.4 (f = ΔE_4^2E_6, p = 107: n = 105, 106), Corollary 3.2 (weight 38, p = 79: n = 79), Theorem B (n = 79, 105, 106, and H^*_cusp(GL_n(Z), C) ≠ 0 for these n), Remark 1.2(1)–(3), the bound 27 ≤ n_min ≤ 79 for the smallest n with nonzero cuspidal cohomology, and Remark 2.5 (a globally generic non-endoscopic cuspidal representation of Sp_104/Q of level one and weight zero; H^*_cusp(𝒜_52, C) ≠ 0). Layers. (1) Level-one cuspidal cohomology of GL_n(Z) and SL_n(Z): the two level-one quotients, GL_n(Z) versus SL_n(Z) for n odd and even, triviality of the central character, Remark 1.2(1)–(3) from the decomposition into relative Lie algebra cohomology, the case n = 2, and the Fermigier–Miller vanishing for 1 < n < 27 by explicit formulas for Rankin–Selberg L-functions. (2) Residual symmetric powers: ρ̄ as a GSp_n- or GO_n-valued representation, the local decomposition (2.1.1), the Lubin–Tate characters of Q_{p^2}, ρ_{n,m} = Sym^{n−1}Ind ε_2^{−m}, the reduction ρ̄_{p,m} and its independence of m, and the tensor identities on G_{F_v}. (3) The deformation rings R (G_n-valued, over Q) and R_F (𝒢-valued, over the CM field), with the Bellovin–Gee dimension bound (including the oddness verification for GO_n, which the paper omits), the surjection or finite map R_F → R, and the Khare–Wintenberger passage from finiteness to a characteristic-zero point. (4) The ordinary change of weight (Theorem 2.1) and its instance at p = 107. (5) The non-ordinary change of weight by Harris's tensor product trick (Theorem 3.1), with the correction θ → θ′ recorded as source issue E4, and its instance at p = 79. (6) Consequences: Theorem B, the bound for Problem C, Remark 1.1 as a statement conditional on tensor-product functoriality, and Remark 2.5 with the local step recorded as source issue E8. Level one at p in Theorem 3.1 must use local–global compatibility at l = p for all π_p (source issue E6). Import from: AutomorphicSpectralTheory (AutomorphicSpectralTheory, AS.5: cuspidal cohomology); Automorphic forms on reductive groups (AutomorphicFormsOnReductiveGroups, AF.1, AF.4, AF.5); Arithmetic locally symmetric spaces and their cohomology (ArithmeticLocallySymmetricSpaces, ALS.0); Adelic algebraic groups and arithmetic quotients (AdelicAlgebraicGroups, AA.4); Galois representations attached to modular and Hilbert modular forms (AutomorphicGaloisRepresentations, R19.1, R19.5); Automorphic Galois Representations PartII (AutomorphicGaloisRepresentationsPartII, AG2.0, AG2.5, AG2.6); Arithmetic Galois representations and conductors (ArithmeticGaloisRepresentations, R01.2, R01.4, G7); Global Galois deformation rings (GlobalGaloisDeformations, G7); Local Galois deformation rings and their components (LocalGaloisDeformationRings, L7); Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra, R03.4); Weight and level optimisation of residual modular representations (SerreWeightAndLevelOptimisation, R20.3); Certified computational number theory and arithmetic data (ComputationalNumberTheory, CN.3); the polarized automorphy lifting Part II of Reusable infrastructure for potential automorphy over CM fields (PolarizedAutomorphyLifting, proposed with this extraction); Analytic number theory (AnalyticNumberTheory, AN.3) and Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors, AL.3) for the Fermigier–Miller range; Siegel and PEL moduli problems (PELModuli, M3) and Complex Shimura varieties and canonical models (ShimuraVarieties, V5) for 𝒜_52; Tau Ceti Modular forms (tauceti:TauCetiRoadmap/ModularForms, Layer 4) and Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory, Layer 8). Corrected local contract: use ω₂^{1−k} and ω₂^{p(1−k)} in the fixed cohomological convention. For the non-ordinary symmetric power, the full G_Qp comparison and component lift are η^((p−1)/2)⊗ρ̄_{p,1} and η^((p−1)/2)⊗ρ_{p,1}; λ(φ)²=−1 in the underlying determinant-normalized induction. Retain crystalline weight zero and multiplier ε^(1−p), and restrict the quadratic twist trivially to G_Fv⊆G_Qp² in the tensor step. E9/E10 record these source corrections; neither changes the global existence theorem. G7’s pairing input requires 2 and (n−1)! invertible, nondegeneracy and an explicit basis/form identification with G_n.",
    "reason": "The paper's theorems are automorphy endpoints built directly on ML.3 (Newton–Thorne symmetric powers): they produce automorphic representations with prescribed residual representation, level one and weight zero. No layer of the atlas plans level-one change of weight, the deformation problems of the proofs, or the translation into cuspidal cohomology of GL_n(Z). A Part II of ModularityAndLanglandsExtensions extends ML in its own direction and imports the general machinery from its owners, as the maintainer's guides do for Skinner and Pan."
   },
   {
@@ -1118,8 +1269,8 @@
     "PAPER-BOXER-CALEGARI-GEE-25/descent-soluble",
     "PAPER-BOXER-CALEGARI-GEE-25/descent-induction"
    ],
-   "brief": "Build on Reusable infrastructure for potential automorphy over CM fields (PotentialAutomorphyInfrastructure). That roadmap treats unpolarized representations through the cohomology of locally symmetric spaces (the ACC+ route); this Part II adds the polarized (conjugate self-dual) automorphy lifting theory on definite unitary groups of Clozel–Harris–Taylor, Thorne, Geraghty and Barnet-Lamb–Gee–Geraghty–Taylor. ModularityAndLanglandsExtensions ML.2 and ML.3 and the level-one change of weight of Boxer–Calegari–Gee consume it. Final theorems, stated exactly with every hypothesis: [Tho12, Thms 7.1, 9.1, 10.1, 10.2] (minimal and ordinary automorphy lifting and finiteness of polarized deformation rings with adequate residual image); [Tho17, Thm 5.1] (automorphy lifting for any p, including p = 2 and p | n, with adequacy in the sense of [Tho17, Defn 2.20]) and the erratum [Tho17, §7] (Props 7.1, 7.2, Cor 7.3: [Tho12, Thms 6.8, 8.6] need a revised Taylor–Wiles prime proposition when F ⊂ F^+(ζ_l)); the relaxation of Defn 2.20 to H^1(H, ad) = 0 observed by Boxer–Calegari–Gee; [BLGGT14, Thms 2.4.1, 2.4.2] (ordinary lifting over CM or totally real fields, with level prime to l for crystalline r); [BLGGT14, Lems 2.2.1, 2.2.2, 2.2.4] (twisting, soluble descent, descent from induced representations); [BLGGT14, Cor A.2.3, Lem A.2.5] and the construction in the proof of [BLGGT14, Prop 4.1.1] (auxiliary CM extensions and characters for Harris's tensor product trick); and the notions ι-ordinary and ordinarily automorphic of [BLGGT14, §2.1]. Cover: automorphic forms on definite unitary groups and their Hecke algebras at spherical, Iwahori and ordinary level; base change between GL_n over CM fields and definite unitary groups; the patching argument and its commutative algebra; Taylor–Wiles primes under adequacy; and the reductions by soluble base change used in each theorem. Import from: Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison, ET.4, ET.7) for unitary base change; Automorphic Galois Representations PartII (AutomorphicGaloisRepresentationsPartII, AG2.0–AG2.7) for Galois representations and local–global compatibility; Global Galois deformation rings (GlobalGaloisDeformations, G7) and Local Galois deformation rings and their components (LocalGaloisDeformationRings, L7, L8) for polarized deformation problems and local components; Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra, R03.3–R03.6, P8) for patching; Arithmetic Galois representations and conductors (ArithmeticGaloisRepresentations, G7) for adequacy; Global Galois duality and compact coefficients (ArithmeticGaloisDuality) for the Selmer computations; and Modularity, automorphy and Langlands endpoint extensions (ModularityAndLanglandsExtensions, ML.5) for cyclic base change and automorphic induction. PotentialAutomorphyInfrastructure PA.2's ordinary parts belong to the unpolarized setting and are compared with, not reused for, the definite unitary ordinary Hecke algebras.",
-   "reason": "The paper's proofs rest on polarized automorphy lifting and finiteness theorems (Thorne 2012 and 2017, BLGGT14) that no layer plans: the atlas has no definite unitary groups and no layer for these theorems. They are reusable infrastructure for potential automorphy over CM fields in the polarized case, the direction of PotentialAutomorphyInfrastructure, whose own layers follow ACC+ and cover the unpolarized case. ML.2 and ML.3 need the same theorems, so they are planned once here."
+   "brief": "Build on Reusable infrastructure for potential automorphy over CM fields (PotentialAutomorphyInfrastructure). That roadmap treats unpolarized representations through the cohomology of locally symmetric spaces (the ACC+ route); this Part II adds the polarized (conjugate self-dual) automorphy lifting theory on definite unitary groups of Clozel–Harris–Taylor, Thorne, Geraghty and Barnet-Lamb–Gee–Geraghty–Taylor. ModularityAndLanglandsExtensions ML.2 and ML.3 and the level-one change of weight of Boxer–Calegari–Gee consume it. Final theorems, stated exactly with every hypothesis: [Tho12, Thms 7.1, 9.1, 10.1, 10.2] (minimal and ordinary automorphy lifting and finiteness of polarized deformation rings with adequate residual image); [Tho17, Thm 5.1] (automorphy lifting for any p, including p = 2 and p | n, with adequacy in the sense of [Tho17, Defn 2.20]) and the erratum [Tho17, §7] (Props 7.1, 7.2, Cor 7.3: [Tho12, Thms 6.8, 8.6] need a revised Taylor–Wiles prime proposition when F ⊂ F^+(ζ_l)); the relaxation of Defn 2.20 to H^1(H, ad) = 0 observed by Boxer–Calegari–Gee; [BLGGT14, Thms 2.4.1, 2.4.2] (ordinary lifting over CM or totally real fields, with level prime to l for crystalline r); [BLGGT14, Lems 2.2.1, 2.2.2, 2.2.4] (twisting, soluble descent, descent from induced representations); [BLGGT14, Cor A.2.3, Lem A.2.5] and the construction in the proof of [BLGGT14, Prop 4.1.1] (auxiliary CM extensions and characters for Harris's tensor product trick); and the notions ι-ordinary and ordinarily automorphic of [BLGGT14, §2.1]. Cover: automorphic forms on definite unitary groups and their Hecke algebras at spherical, Iwahori and ordinary level; base change between GL_n over CM fields and definite unitary groups; the patching argument and its commutative algebra; Taylor–Wiles primes under adequacy; and the reductions by soluble base change used in each theorem. Import from: Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison, ET.4, ET.7) for unitary base change; Automorphic Galois Representations PartII (AutomorphicGaloisRepresentationsPartII, AG2.0–AG2.7) for Galois representations and local–global compatibility; Global Galois deformation rings (GlobalGaloisDeformations, G7) and Local Galois deformation rings and their components (LocalGaloisDeformationRings, L7, L8) for polarized deformation problems and local components; Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra, R03.3–R03.6, P8) for patching; Arithmetic Galois representations and conductors (ArithmeticGaloisRepresentations, G7) for adequacy; Global Galois duality and compact coefficients (ArithmeticGaloisDuality) for the Selmer computations; and the explicit requested early stage EndoscopicTransferAndUnitaryTraceComparison ET.4b for cyclic base change and automorphic induction, with the source-scoped BLGGT14 §2.2 interface, not the downstream ML.5 registry. PotentialAutomorphyInfrastructure PA.2's ordinary parts belong to the unpolarized setting and are compared with, not reused for, the definite unitary ordinary Hecke algebras. ET.4b is the existing proposed early-transfer repair, not a registered or implemented prefix: its prerequisites are AS.6,ET.3,ET.4 and the proposed SR.3b early-character interface (which requires SR.3,ET.1,RG2.0, excluding SR.6). Hand the exact requests entry to the ET design/blueprint owner and the PolarizedAutomorphyLifting design. Generic transfers remain owned once there; R17.4/R17.5 are GL₂ specializations, and ML.5 consumes/registers the early export downstream. Do not import the whole PotentialAutomorphyInfrastructure endpoint or ML.5 back into its polarized lifting supplier. ET.4/ET.7a unitary comparison exports remain separate imports with their stated hypotheses. The checked expanded graph includes both proposed early stages, their prerequisites and all named lifting inputs and ML.2/ML.3 consumers; no base-stage edit is authorized here.",
+   "reason": "The paper's proofs rest on polarized automorphy lifting and finiteness theorems (Thorne 2012 and 2017, BLGGT14) that no layer plans: the atlas has no definite unitary groups and no layer for these theorems. They are reusable infrastructure for potential automorphy over CM fields in the polarized case, the direction of PotentialAutomorphyInfrastructure, whose own layers follow ACC+ and cover the unpolarized case. ML.2 and ML.3 need the same theorems, so they are planned once here. Route ownership stays unchanged, but the former ML.5 proof import is removed to break the supplier→ML.2/ML.3→ML.5 cycle. The pending ET.4b request coordinates the existing early-transfer repair instead of duplicating transfer inside polarized lifting."
   },
   {
    "route": "source",
@@ -1145,7 +1296,7 @@
     "PAPER-BOXER-CALEGARI-GEE-25/sd73-image",
     "PAPER-BOXER-CALEGARI-GEE-25/large-image-nonordinary"
    ],
-   "reason": "G7 owns dimension-general operations (symmetric powers, polarizations with an actual pairing and multiplier) and residual-image criteria, adequacy among them; R01.4 owns GL_2 residual images. The similitude groups and 𝒢_n, the representation-theoretic lemmas behind H^0(Q, (g^0)^*(1)) = 0, Lemma 2.2 with the GHT adequacy results, BLGG13's tensor-product adequacy, the large-image lemma of Theorem 3.1 and the Swinnerton-Dyer image computation are sources for these layers. This matches PAPER-NEWTON-THORNE-26, which routed its symmetric-power adequacy to G7."
+   "reason": "G7 owns dimension-general operations (symmetric powers, polarizations with an actual pairing and multiplier) and residual-image criteria, adequacy among them; R01.4 owns GL_2 residual images. The similitude groups and 𝒢_n, the representation-theoretic lemmas behind H^0(Q, (g^0)^*(1)) = 0, Lemma 2.2 with the GHT adequacy results, BLGG13's tensor-product adequacy, the large-image lemma of Theorem 3.1 and the Swinnerton-Dyer image computation are sources for these layers. This matches PAPER-NEWTON-THORNE-26, which routed its symmetric-power adequacy to G7. For symmetric-power polarizations require 2 and d!=(n−1)! invertible: prove the antidiagonal pairing is nondegenerate, its transpose sign (−1)^d and multiplier det^d, then provide the basis/form identification with the paper’s G_n. Use the existing symmetric-power functor. Finite odd-characteristic coefficient fields allow the odd-dimensional symmetric form to be identified up to scalar with 1_n; arbitrary fields need that extra identification. Test d=p−2,p−1 positively and d=p negatively."
   },
   {
    "route": "source",
@@ -1411,6 +1562,137 @@
     "reason": "Confirmed verbatim at line 1162 of the e-print (cited there as [MR2075885, Thm. 7.2], i.e. CKPSS04). The descent theorem describes the image of the global generic functorial lift; it carries no statement about local components, so 'level one' for the descended representation of Sp_104 - and with it the non-vanishing of H^*_cusp(A_52, C) that the remark deduces - needs the local input the entry names. The remark's own next sentence, that Taibi explained an alternative construction, does not supply it either. Statement expected to hold; recorded as a gap in the proof, which is the right classification.",
     "by": "REV-PAPER-BOXER-CALEGARI-GEE-25"
    }
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-25/E9",
+   "kind": "error",
+   "locator": "Published p516 proof of Theorem3.1; arXiv2309.15944v3 p8, with conventions on pp5,9",
+   "printed": "ρ̄_f|I_p ≃ ω₂^{k−1} ⊕ ω₂^{p(k−1)}",
+   "correction": "Use ω₂^{1−k} ⊕ ω₂^{p(1−k)} in the cohomological convention detρ̄_f=ε̄^{1−k}, with ω₂ the reduction of ε₂.",
+   "reason": "The product of the printed inertia characters is ε̄^{k−1}, opposite to the fixed determinant. At p79,k38 these exponents are37 and41 mod78. Inverting both characters preserves projective order and the dihedral/gcd argument. This corrects a formula in the proof, not Theorem3.1 itself.",
+   "affects": "the proof",
+   "known": "new within the recorded bounded correction search; checked in the published offprint and arXivv3, not newly checked in v1/v2 or other author copies.",
+   "searched": [
+    "2October2026: freshly downloaded the published offprint and arXivv3; their hashes match the extraction/red-team copies. Read publishedpp513,516–517 and v3pp5,8–9; viewed both disputed pages in each PDF.",
+    "2October2026: arXiv history still lists v3 (12Sep2024) as latest; checked Calegari/Gee research listings and title searches with erratum/corrigendum. No correction of these formulas found in those bounded checks; not an exhaustive claim about unpublished correspondence.",
+    "Pépin–Schmidt author copy26Nov2019 §2 pp2–3 freshly read: ordinary induction has Frobenius determinant(−1)^{n−1}, with a separate unramified normalization; fundamental characters reduce Lubin–Tate characters."
+   ],
+   "items": [
+    "PAPER-BOXER-CALEGARI-GEE-25/nonordinary-local-shape"
+   ],
+   "evidence": "Independently confirmed RT-PAPER-BOXER-CALEGARI-GEE-25/2. This new serialized source issue awaits its own review; no review verdict is fabricated."
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-25/E10",
+   "kind": "error",
+   "locator": "Published p517 first comparison and local deformation component; arXiv2309.15944v3 p9",
+   "printed": "ρ̄|G_Qp ≃ ρ̄_{p,1}",
+   "correction": "Insert η^((p−1)/2), η unramified quadratic, in the full G_Qp comparison and the crystalline component lift. On G_Fv⊆G_Qp² the twist is trivial.",
+   "reason": "Ordinary Indε₂^{−m} has Frobenius determinant−1, but detρ̄_f(φ)=1; the required unramified λ has λ(φ)²=−1. Sym^(p−1) retains η^((p−1)/2). At p79 the printed model has Frobenius trace1 and the actual representation trace−1=78, so they cannot be isomorphic. The quadratic crystalline weight-zero twist preserves the GO_p multiplier and disappears in the tensor-step field; the global existence conclusion is not refuted.",
+   "affects": "the proof",
+   "known": "new within the recorded bounded correction search; checked in the published offprint and arXivv3, not newly checked in v1/v2 or other author copies.",
+   "searched": [
+    "2October2026: freshly downloaded the published offprint and arXivv3; their hashes match the extraction/red-team copies. Read publishedpp513,516–517 and v3pp5,8–9; viewed both disputed pages in each PDF.",
+    "2October2026: arXiv history still lists v3 (12Sep2024) as latest; checked Calegari/Gee research listings and title searches with erratum/corrigendum. No correction of these formulas found in those bounded checks; not an exhaustive claim about unpublished correspondence.",
+    "Pépin–Schmidt author copy26Nov2019 §2 pp2–3 freshly read: ordinary induction has Frobenius determinant(−1)^{n−1}, with a separate unramified normalization; fundamental characters reduce Lubin–Tate characters."
+   ],
+   "items": [
+    "PAPER-BOXER-CALEGARI-GEE-25/local-shape-theorem-3-1",
+    "PAPER-BOXER-CALEGARI-GEE-25/deformation-ring-nonordinary"
+   ],
+   "evidence": "Independently confirmed RT-PAPER-BOXER-CALEGARI-GEE-25/3. This new serialized source issue awaits its own review; no review verdict is fabricated."
   }
- ]
+ ],
+ "requests": [
+  {
+   "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.4b",
+   "need": "Early cyclic base change and automorphic induction for GL_n, with strong local compatibility, cuspidality/descent criteria and the normalized archimedean twists used in BLGGT14 Lemmas2.2.2 and2.2.4. Lemma2.2.4 uses AC89 Theorems3.4.2,3.5.1 and Harris–Taylor LemmaVII.2.6 to descend an induced polarized representation, including the |det|^{n(1−m)/2} normalization; Lemma2.2.1 uses algebraic Hecke-character twisting. Iterate cyclic prime-degree steps for soluble Galois extensions with the lemma’s irreducibility and CM/totally-real hypotheses.",
+   "prerequisites": [
+    "AutomorphicSpectralTheory:AS.6",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.3",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+    "SmoothRepresentationsOfLocalGroups:SR.3b"
+   ],
+   "neededBy": [
+    "proposed:PolarizedAutomorphyLifting",
+    "PAPER-BOXER-CALEGARI-GEE-25/cyclic-base-change",
+    "PAPER-BOXER-CALEGARI-GEE-25/descent-soluble",
+    "PAPER-BOXER-CALEGARI-GEE-25/descent-induction",
+    "ModularityAndLanglandsExtensions:ML.2",
+    "ModularityAndLanglandsExtensions:ML.3"
+   ],
+   "status": "Proposed early stage in RT-AREA-langlands-1.fixes.md /1; absent from the current registered stage graph and reserved IDs. Design/blueprint handoff required, not an available implemented prefix.",
+   "source": "BLGGT14 v4 §2.2 PDFpp35–37 freshly read; AC89 Ch.3 and HT01 cited interiors not freshly read or decomposed.",
+   "coordination": "Reuse the existing ET.4b repair and SR.3b early-character interface from RT-AREA-langlands-1 /1,/15. Generic transfer is owned once; GL2AutomorphicRepresentationsAndTransfer R17.4,R17.5 specialize it; ML.5 is a downstream registry. Keep ET.6/ET.7a late comparison exports separate.",
+   "acceptance": "Proposed graph is acyclic with SR.3b prerequisites SR.3,ET.1,RG2.0; ET.4b feeds the lifting proposal, ET.6,ET.7a,R17.4 and ML.5; the lifting proposal feeds ML.2/ML.3. Restoring ML.5→lifting must recreate the reported cycle. Detailed source decomposition remains the supplier’s work."
+  }
+ ],
+ "routingRepair": {
+  "earlySupplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.4b",
+  "registrationStatus": "proposed, not registered",
+  "earlyCharacterSupplier": "SmoothRepresentationsOfLocalGroups:SR.3b",
+  "characterPrerequisites": [
+   "SmoothRepresentationsOfLocalGroups:SR.3",
+   "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+   "ReductiveGroupsPartII:RG2.0"
+  ],
+  "supplierPrerequisites": [
+   "AutomorphicSpectralTheory:AS.6",
+   "EndoscopicTransferAndUnitaryTraceComparison:ET.3",
+   "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+   "SmoothRepresentationsOfLocalGroups:SR.3b"
+  ],
+  "liftingProposal": "proposed:PolarizedAutomorphyLifting",
+  "liftingConsumers": [
+   "ModularityAndLanglandsExtensions:ML.2",
+   "ModularityAndLanglandsExtensions:ML.3"
+  ],
+  "supplierConsumers": [
+   "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+   "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+   "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+   "ModularityAndLanglandsExtensions:ML.5"
+  ],
+  "handoff": "Apply to the authorized ET/SR blueprint/fix and Part-II design jobs; no campaign/base files changed here. Retain late unitary comparison imports separately."
+ },
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://math.uchicago.edu/~fcale/papers/WeightZero.pdf",
+   "read": "2026-10-02",
+   "sha256": "4d27afabbef371babf3a73dad19bc8ccee180636be27bd6ebee17f58f7150290",
+   "scope": "Bounded repair: publishedpp513,516–517, latter two also viewed as images. Matches the historical22Sep extraction full-reading hash; not a fresh full-paper reading."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2309.15944v3",
+   "read": "2026-10-02",
+   "sha256": "abfa9eac9984aa5d0bd5e1700a08993bc3baa6f8435d18f5f0e37f5a84769684",
+   "scope": "Bounded repair: pp5,8–9, latter two also viewed as images; hashes match historical extraction/redteam. v1/v2 history remains in source.readSections but is not freshly collated."
+  }
+ ],
+ "repair": {
+  "job": "FIX-RT-PAPER-BOXER-CALEGARI-GEE-25",
+  "issue": 5528,
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "date": "2026-10-02",
+  "base": "09dc58cdf2e55d3ccb2ddb285c55dc6a7d650b4a",
+  "findings": [
+   "RT-PAPER-BOXER-CALEGARI-GEE-25/1",
+   "RT-PAPER-BOXER-CALEGARI-GEE-25/2",
+   "RT-PAPER-BOXER-CALEGARI-GEE-25/3",
+   "RT-PAPER-BOXER-CALEGARI-GEE-25/4"
+  ],
+  "counts": {
+   "items": 96,
+   "library": 3,
+   "planned": 13,
+   "missing": 80,
+   "routes": 10,
+   "prerequisites": 19,
+   "sourceIssues": 10
+  },
+  "lean": "No Lean deliverable or compilation."
+ }
 }
