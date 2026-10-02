@@ -2,7 +2,25 @@
 
 This is the reader for issue #672 and the packet with part A0-extension. It covers exactly A0-extension and R09.1–R09.7. It is a partial checkpoint: implementations are unchecked, requests are open, and none of the eight stages is closed. The declaration catalogue develops gerbes, arbitrary-module fpqc descent, torsor twisting and relative Picard descent. Full parameter spaces, Picard representability, Artin, algebraization and resolution remain work in this same scope. The suggested Lean file has not been compiled. Its exact type and signature omissions are recorded below rather than hidden by unspecified propositions.
 
-## Current continuation: native chosen-pullback comparison
+## Current continuation: intrinsic band over varying base objects
+
+Codex — codex-rtOQ9t appends fifteen gerbe-specific leaves to the 109-node checkpoint, giving 124 nodes, 147 API items, 136 mathematical tests, ten planets and 74 baseline declarations. All 109 inherited node objects, 68 source routes, historical source findings and 21 requests are retained. No stage or gap is declared closed. The module-descent work of the preceding continuation is preserved.
+
+The pinned categorical center is already End(identity), with componentwise naturality and commutativity. The new section carrier is a subgroup of families of its units indexed by every arrow V→U. A family must commute with every pullback functor. This imports the categorical center; it does not define generic stack foundations again. Products and inverses are pointwise. Restriction along f:V→U reindexes a:W→V to a≫f, so its identity and composition laws follow from base-category identities and associativity. No terminal site object is chosen.
+
+For sheafness, evaluate a matching family on every pulled-back object, then use the existing prestack Hom sheaf to glue both the morphism and its inverse. Naturality and vertical compatibility are local equalities of morphisms, hence follow globally by separatedness. Covering sieves avoid an extra fibre-product hypothesis. For a gerbe object x, evaluation is injective by local isomorphism to each pullback of x. Under abelian inertia, extend any automorphism of x by locally conjugating it to every other object. Choice-independent conjugation, common refinements and Hom descent glue it uniquely. Native mapId and mapComp constraints compare the actual pullback objects; they are not replaced by strict equality.
+
+These evaluation equivalences give an instance of the inherited AbelianBanding data on the actual central-section sheaf. A given A-banding maps a coefficient section to its band automorphism at every pulled-back object. This is a natural group homomorphism; locally it is an isomorphism, and the coefficient sheaf glues its inverse even when F(U) is empty. The comparison is unique after its evaluation characterization is fixed. Changing a C3 banding by inversion changes this comparison; it does not identify the two fixed bandings.
+
+The slice-glued band of the inherited construction agrees locally with this simultaneous construction and therefore agrees uniquely by imported sheaf descent. Comparing all slices through the same central-section sheaf supplies identity, composition and refinement independence for the varying-U step omitted in [Stacks Lemma8.11.8](https://stacks.math.columbia.edu/tag/06NY). This is a derived mathematical proof route, not a printed proof or a formalized result. [Stacks Section7.26](https://stacks.math.columbia.edu/tag/04TP) supplies the sheaf-gluing and absolute-gluing contracts imported from SF1, with its own omitted verifications retained. The exact native comparison with the inherited slice-glued carrier remains an omission pending that supplier interface.
+
+The suggested file now contains concrete compatible-section, restriction, evaluation, sheaf, banding and uniqueness signatures. Ten coordinate-specialized examples test nonzero C3 recovery and cardinality, trivial inertia, the trivial S3 center and noncentral exclusion, identity/composed restrictions, independence of object isomorphisms and distinct inversion-band coordinates. The named site/cardinality, chain, root-gerbe and changed-band fixtures still have exact omissions; the full file remains uncompiled. Finite executable models check centrality, connected groupoid object choices, cyclic restriction chains, split-cover gluing and distinct fixed-band coordinates. They do not prove general descent or instantiate a nonneutral gerbe.
+
+E6 records a projection-letter misprint in the freshly read Lemma8.11.5 proof: its second lifting paragraph swaps the roles of F′ and G′ fixed by the displayed square. F′ projects to Y′ and G′ to X. The inherited relative-pullback statement is correct and unchanged; this does not alter the theorem.
+
+Fresh receipts: 06NY HTML SHA256 784df742e6d6c147f90645bfef73a6ad9fa60cb34e9b2d3006401857ed88a32e; 04TP HTML SHA256 c3c5a59e827966472207a0152288814a8a761853b36a8e55445dc90e39a8f10e; accessed2026-10-02. Personally read all mathematical Section8.11 and Section7.26 Lemmas1–6 and their displayed proofs, the relevant pinned center/units/Aut/slice-Hom statements and coherence proofs, all eight library-audit rows, RS27 scope decisions, applicable atlas contracts/edges and matching link entries, the nine confirmed finding claims/fixes and gerbe key contract. Unrelated inherited paper and declaration reading receipts belong to the earlier workers. Their source inventory and routes are preserved, not independently recertified by this focused continuation.
+
+## Previous continuation: native chosen-pullback comparison
 
 Codex — codex-5ebb6f continues the merged 98-node checkpoint with eleven module-specific leaves, for 109 declarations, 129 API items, 121 mathematical tests, ten planets and 66 baseline declarations. All 98 prior IDs, 68 source routes, source findings and supplier requests are retained. All eight stages remain unclosed; nine gaps and 21 requests remain.
 
@@ -5472,3 +5490,431 @@ Source: SP023F, Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical da
 ## Current validation boundary
 
 The 109-node packet remains partial. Native chosen-pullback descent is imported; the nine fine tensor adapters are exact omissions, while the overall native carrier/canonical-functor and faithful-flatness comparison have signature sketches. The remaining geometric contracts, source closure and pinned Lean elaboration are required before any stage closes.
+
+## Intrinsic-band continuation declaration catalogue
+
+### Compatible central sections for the intrinsic band
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sections (definition).
+
+Define ZF(U) as the subgroup of the product over V and f:V→U of units of the existing CatCenter(F(V)) whose components satisfy F(g)(z(V,f)x)=z(W,g≫f)(F(g)x) for every g:W→V and object x over V. Each unit is an invertible natural endomorphism of the identity of the fibre. The data are actual automorphisms with a compatibility equation, not propositions asserting a band exists. This internal section model is used for the abelian gerbe band; the generic categorical center is imported.
+
+Hypotheses:
+
+- C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.
+
+Proof or construction:
+
+1. Use existing units of End(identity) in every fibre and take their dependent product over all arrows into U.
+2. The stated restriction equations define a subgroup: functoriality preserves identity and multiplication; inverse equations follow by composing with inverses.
+3. Naturality of each central component already supplies conjugation compatibility for object isomorphisms. No terminal object or chosen object of F(U) is required.
+
+Inputs: mathlib:CategoryTheory.CatCenter, mathlib:CategoryTheory.CatCenter.naturality, mathlib:CategoryTheory.CatCenter.mul_app, mathlib:CategoryTheory.Aut.unitsEndEquivAut.
+
+Acceptance: Do not introduce a second CatCenter, NatIso or generic stack carrier. No gerbe hypothesis is necessary to form this subgroup; identification with full inertia will require abelian inertia and gerbe locality.
+
+Source: SP06NY-rtOQ9t, Lemma8.11.8, final omitted varying-U step; excerpt “compatible”. This is a derived completion using compatible units of the existing categorical centers; it is not a proof printed in the source.
+
+Planning API:
+
+- IntrinsicBandSections.val (data): A section specifies a unit of CatCenter(F(V)) for every arrow V→U.
+- IntrinsicBandSections.compatible (relation): The central family commutes with every pullback functor on every object.
+- IntrinsicBandSections.ext (extensionality): Equality of all component automorphisms implies equality of sections.
+- IntrinsicBandSections.commGroup (instance): The subgroup has pointwise group operations and a commutative group structure inherited from centrality.
+
+Mathematical unit tests:
+
+- BandCenterTests.C3 (computed): On the one-object point-site gerbe B(C3), there are three central sections, with evaluation recovering all of C3.
+- BandCenterTests.identity (degenerate): For the terminal fibre groupoid, the group of compatible central sections is trivial.
+- BandCenterTests.S3 (non-example): For B(S3) on a point, sections form the trivial center of S3, rather than all six automorphisms. Thus evaluation onto inertia fails without abelian inertia.
+
+Uses:
+
+- SP06NY Lemma8.11.8 omitted final step: Gives one definition over every base object without incompatible local choices.
+- GWZ20 Definition2.6, inherited key consumers Charles16 /97–98: Produces the intrinsic coefficient sheaf before an additional identification with a fixed band.
+
+### Central sections are determined componentwise
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-ext (lemma).
+
+If s,t∈ZF(U) have the same evaluated automorphism at every V→U and every object x over V, then s=t.
+
+Hypotheses:
+
+- C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.
+
+Proof or construction:
+
+1. The hom components determine the natural transformation by existing CatCenter.ext.
+2. Units equality follows from equality of their values; product equality is function extensionality; subgroup proof fields are irrelevant.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sections, mathlib:CategoryTheory.CatCenter.ext.
+
+Acceptance: Retain every arrow V→U; evaluation at a single object is a separate gerbe theorem.
+
+Source: SP06NY-rtOQ9t, Lemma8.11.8, final omitted varying-U step; excerpt “compatible”. This is a derived completion using compatible units of the existing categorical centers; it is not a proof printed in the source.
+
+### Compatible central sections commute
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-commute (lemma).
+
+For arbitrary F and U, s t=t s in ZF(U). The product is pointwise categorical-center multiplication, with the inherited reversed categorical composition convention.
+
+Hypotheses:
+
+- C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.
+
+Proof or construction:
+
+1. Apply componentwise extensionality.
+2. The existing commutativity of the categorical center gives equality of each unit value; no abelian-inertia assumption is needed for central sections themselves.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-ext, mathlib:CategoryTheory.CatCenter.mul_app.
+
+Acceptance: Do not assert that all Aut(x) commute for an arbitrary gerbe.
+
+Source: SP06NY-rtOQ9t, Lemma8.11.8, final omitted varying-U step; excerpt “compatible”. This is a derived completion using compatible units of the existing categorical centers; it is not a proof printed in the source.
+
+### Restriction of central sections by reindexing
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict (construction).
+
+For f:V→U define r_f:ZF(U)→ZF(V) by (r_f s)(W,a)=s(W,a≫f). This is a group homomorphism preserving the vertical compatibility equations. Its restriction identities come from base-category identity and associativity, without a choice of fibre pullback object.
+
+Hypotheses:
+
+- C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.
+
+Proof or construction:
+
+1. Reindex the actual family along composition of arrows into U.
+2. Use associativity to match the two vertical-compatibility equations.
+3. Products and inverses are preserved componentwise.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sections, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-ext.
+
+Acceptance: Use all arrows into V, including those not belonging to a selected object cover.
+
+Source: SP06NY-rtOQ9t, Lemma8.11.8, final omitted varying-U step; excerpt “compatible”. This is a derived completion using compatible units of the existing categorical centers; it is not a proof printed in the source.
+
+Planning API:
+
+- IntrinsicBandSections.restrict (functoriality): The map r_f is reindexing by composition with f.
+- IntrinsicBandSections.restrict_apply (simp): (r_f s)(W,a)=s(W,a≫f).
+- IntrinsicBandSections.restrict_id (simp): r_id is the identity.
+- IntrinsicBandSections.restrict_comp (functoriality): For g:W→V, r_g∘r_f=r_(g≫f).
+
+Mathematical unit tests:
+
+- BandRestrictionTests.id (degenerate): Restriction along identity fixes the nonzero generator of the C3 point band.
+- BandRestrictionTests.chain (computed): For the three-object chain with fibre groups C4→C2→C2 and restrictions reduction mod2 then identity, the generator1 restricts to1 by either the composite or the two successive maps.
+- BandRestrictionTests.independentFamilies (non-example): Dropping vertical compatibility on this chain permits16 independent tuples instead of4 compatible sections over the top object; this wrong product must be rejected.
+
+Uses:
+
+- SP06NY Lemma8.11.8 final varying-U step: Provides coherent restriction maps independent of local object choices.
+- SP04TP-rtOQ9t Lemma7.26.6: Supplies the identity/composition equations needed before assembling an absolute sheaf.
+
+### Identity restriction of central sections
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict-id (lemma).
+
+For s∈ZF(U), r_id(s)=s.
+
+Hypotheses:
+
+- C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.
+
+Proof or construction:
+
+1. At (V,a,x), the two values agree because a≫id=a.
+2. Apply componentwise extensionality.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-ext.
+
+Acceptance: Do not replace pseudofunctor mapId by definitional equality of fibre functors.
+
+Source: SP06NY-rtOQ9t, Lemma8.11.8, final omitted varying-U step; excerpt “compatible”. This is a derived completion using compatible units of the existing categorical centers; it is not a proof printed in the source.
+
+### Composition of central-section restrictions
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict-comp (lemma).
+
+For f:V→U, g:W→V and s∈ZF(U), r_g(r_f(s))=r_(g≫f)(s).
+
+Hypotheses:
+
+- C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.
+
+Proof or construction:
+
+1. At every a:T→W both sides index the same component by (a≫g)≫f=a≫(g≫f).
+2. Apply extensionality; the associativity is in the base category, so no strictification of F is used.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-ext.
+
+Acceptance: The comparison holds for every base arrow, not only covering arrows.
+
+Source: SP06NY-rtOQ9t, Lemma8.11.8, final omitted varying-U step; excerpt “compatible”. This is a derived completion using compatible units of the existing categorical centers; it is not a proof printed in the source.
+
+### Evaluation of central sections on objects
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation (construction).
+
+For a:V→U and x∈F(V), evaluation ev_(a,x):ZF(U)→Aut(x) applies the existing unitsEndEquivAut at the identity functor and then its natural-isomorphism component at x. Evaluation is a group homomorphism; conjugation by x≅y carries ev_(a,x) to ev_(a,y), and mapAut of F(g) carries it to ev_(g≫a,F(g)x).
+
+Hypotheses:
+
+- C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.
+
+Proof or construction:
+
+1. Evaluate the existing identity-functor automorphism at x; multiplication follows the existing Aut convention.
+2. Naturality of a central transformation gives conjugation compatibility.
+3. The subgroup equation and uniqueness of inverse arrows give pullback compatibility of automorphisms.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sections, mathlib:CategoryTheory.Aut.unitsEndEquivAut, mathlib:CategoryTheory.Functor.mapAut, mathlib:CategoryTheory.Aut.autMulEquivOfIso.
+
+Acceptance: The codomain is the actual Aut(x), not a record with an asserted isomorphism.
+
+Source: SP06NY-rtOQ9t, Lemma8.11.8, final omitted varying-U step; excerpt “compatible”. This is a derived completion using compatible units of the existing categorical centers; it is not a proof printed in the source.
+
+Planning API:
+
+- IntrinsicBandSections.eval (projection): Evaluation at (a,x) is an actual group homomorphism to Aut(x).
+- IntrinsicBandSections.eval_mul (simp): Evaluation of a product is the product of evaluated automorphisms.
+- IntrinsicBandSections.eval_conjugation (compatibility): Transport through x≅y commutes with evaluation.
+- IntrinsicBandSections.eval_restrict (compatibility): mapAut F(g) of ev_(a,x)(s) equals ev_(g≫a,F(g)x)(s).
+
+Mathematical unit tests:
+
+- BandEvaluationTests.generator (computed): For B(C3) evaluation sends its generator section to the nonidentity automorphism1.
+- BandEvaluationTests.changeObject (compatibility): For a connected two-object C3 groupoid, changing the object through any isomorphism gives the same labelled C3 element.
+- BandEvaluationTests.noncentral (non-example): The transposition(01) of S3 fails the naturality equation with(12), so it cannot occur as the evaluation of a central section of B(S3).
+
+Uses:
+
+- SP06NY Lemma8.11.8 displayed band diagram: Identifies the constructed coefficient sections with inertia while retaining conjugation.
+- AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding: The two evaluation compatibilities supply the existing banding fields.
+
+### Compatible central sections satisfy sheaf descent
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sheaf (theorem).
+
+If F is a prestack with groupoid fibres, U↦Additive(ZF(U)) with the reindexing maps is an abelian-group sheaf for J. The proof works with covering sieves on a site without fibre products or a terminal object.
+
+Hypotheses:
+
+- C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.
+
+Proof or construction:
+
+1. For a matching family on a covering sieve R of U, fix f:V→U and x over V. On f*R, its evaluations form matching morphisms of pullbacks of x, compared with native mapComp/mapId constraints.
+2. Use the existing Hom sheaf on C/V to glue the automorphism and its inverse; their composites are identity because this holds locally.
+3. Naturality in x and compatibility under g:W→V are equalities of morphisms that hold on a common covering refinement. Hom separatedness proves them globally.
+4. This yields a compatible unit of the center in every (V,f). Uniqueness follows from the same separatedness and band-center-ext. Products glue componentwise, so the underlying sheaf packages as an abelian-group sheaf.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-commute, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict-id, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict-comp, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation, mathlib:CategoryTheory.Pseudofunctor.IsPrestack, mathlib:CategoryTheory.Pseudofunctor.sheafHom, SchemeAndStackFoundations:SF.1.
+
+Acceptance: Explicitly glue inverse maps as well as hom maps. Invoke imported sheaf/Hom descent; do not replan generic gluing or absolute-sheaf assembly.
+
+Source: SP06NY-rtOQ9t, Lemma8.11.8, final omitted varying-U step; excerpt “compatible”. This is a derived completion using compatible units of the existing categorical centers; it is not a proof printed in the source.
+
+### A gerbe band section is determined by one object
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-injective (lemma).
+
+If F is a gerbe and x∈F(U), ev_(id,x):ZF(U)→Aut(x) is injective, without assuming abelian inertia.
+
+Hypotheses:
+
+- C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.
+
+Proof or construction:
+
+1. An equality at x pulls back to every a:V→U.
+2. For y over V choose a covering sieve on which y is isomorphic to a*x.
+3. Evaluation conjugation identifies the two sections on that cover. Hom separatedness then identifies their evaluations at y globally.
+4. Vary (V,a,y) and apply band-center-ext.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-ext, AlgebraicModuliForArithmeticGeometry:key/gerbes, mathlib:CategoryTheory.Pseudofunctor.sheafHom.
+
+Acceptance: Only injectivity is claimed; for B(S3) evaluation has image the center.
+
+Source: SP06NY-rtOQ9t, Lemma8.11.8, final omitted varying-U step; excerpt “compatible”. This is a derived completion using compatible units of the existing categorical centers; it is not a proof printed in the source.
+
+### Abelian inertia extends an object automorphism to a band section
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-surjective (lemma).
+
+If F is a gerbe with every Aut(x) commutative, every a∈Aut(x) for x over U extends uniquely to a section of ZF(U) evaluating to a at (id,x).
+
+Hypotheses:
+
+- C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.
+
+Proof or construction:
+
+1. For f:V→U and y over V, choose a covering on which f*x≅y and conjugate the pulled automorphism a through each chosen isomorphism.
+2. The abelian-inertia lemma makes the conjugated value independent of the chosen isomorphism. Equality on common refinements and Hom separatedness give independence of the cover.
+3. Glue the values and their inverses by the existing Hom sheaf, obtaining an automorphism of y.
+4. Compatibility with all object isomorphisms follows locally. Compatibility with further pullback uses mapComp to compare g*(f*x) with (g≫f)*x; choice-independent conjugation eliminates that comparison choice.
+5. The mapId component compares the identity pullback of x with x, giving the required evaluation. Naturality assembles each fibre family into a unit of CatCenter; injectivity proves uniqueness.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-injective, AlgebraicModuliForArithmeticGeometry:R09.4/banding-iso-independent, mathlib:CategoryTheory.Pseudofunctor.sheafHom.
+
+Acceptance: Supply cover/refinement independence and both native pseudofunctor constraints in the proof. Do not assume F(U) nonempty for arbitrary U; this lemma is conditional on its displayed x.
+
+Source: SP06NY-rtOQ9t, Lemma8.11.8, final omitted varying-U step; excerpt “compatible”. This is a derived completion using compatible units of the existing categorical centers; it is not a proof printed in the source.
+
+### Evaluation identifies the intrinsic band with inertia
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-equivalence (theorem).
+
+For an abelian-inertia gerbe and x over U, ev_(id,x) is a multiplicative equivalence ZF(U)≃Aut(x). Its inverse is the local extension just constructed; the identifications commute with every pullback and object isomorphism.
+
+Hypotheses:
+
+- C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.
+
+Proof or construction:
+
+1. Use the proved injectivity and surjectivity of the existing evaluation homomorphism.
+2. Its inverse evaluates to the prescribed automorphism by construction; the other round trip follows from injectivity.
+3. The two compatibility diagrams are the preceding evaluation equations, including on every slice object.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-injective, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-surjective, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation.
+
+Acceptance: This is the inertia comparison before any H2 classification or algebraicity claim.
+
+Source: SP06NY-rtOQ9t, Lemma8.11.8, final omitted varying-U step; excerpt “compatible”. This is a derived completion using compatible units of the existing categorical centers; it is not a proof printed in the source.
+
+### The central-section sheaf bands an abelian gerbe
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-banding (construction).
+
+For a gerbe F with abelian inertia, the sheaf A_F(U)=Additive(ZF(U)) with reindexing restrictions has an AbelianBanding of F. At x over U its equivalence is evaluation. Thus the intrinsic band is defined simultaneously over all U, including those with an empty fibre, without choosing a terminal object.
+
+Hypotheses:
+
+- C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.
+
+Proof or construction:
+
+1. Package the actual compatible-section presheaf and the proved sheaf condition.
+2. Use the evaluation equivalence for every displayed x as autEquiv, converting additive/multiplicative type tags.
+3. Evaluation pullback and conjugation equations give precisely the two inherited AbelianBanding fields.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sheaf, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-equivalence, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation, AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding.
+
+Acceptance: No chosen global object is data of the sheaf or banding. Keep intrinsic coefficients separate from a chosen identification with a prescribed A.
+
+Source: SP06NY-rtOQ9t, Lemma8.11.8, final omitted varying-U step; excerpt “compatible”. This is a derived completion using compatible units of the existing categorical centers; it is not a proof printed in the source.
+
+Planning API:
+
+- IntrinsicBandSections.sheaf (constructor): The coefficient sheaf has sections Additive(ZF(U)).
+- IntrinsicBandSections.banding (structure): The evaluation equivalences define an instance of the inherited AbelianBanding data.
+- IntrinsicBandSections.banding_apply (simp): At U,x,a the band automorphism is ev_(id,x)(a).
+
+Mathematical unit tests:
+
+- BandSheafTests.BC3 (computed): For B(C3) on a point the coefficient group is C3 and its banding sends generator to generator.
+- BandSheafTests.noTerminal (compatibility): On two disjoint three-object chains, whose site has no terminal object, the construction gives the specified abelian coefficient groups and restrictions on both components.
+- BandSheafTests.rootNonneutral (non-example): For the gerbe of nth roots of O(1) on P1, the coefficient sheaf is μn even though the fibre over P1 is empty; assigning the zero band whenever F(U) is empty is incorrect.
+
+Uses:
+
+- SP06NY Lemma8.11.8 final sentence: Completes the mathematical varying-U construction with a formula on all arrows.
+- AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe and fixed-band key consumers: Provides intrinsic inertia without confusing it with neutrality or quotienting a chosen band.
+
+### Comparison from an existing band to central sections
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding (construction).
+
+Given an A-banding b of a gerbe, define c_b(U):Multiplicative(A(U))→ZF(U) by the natural automorphism at y over f:V→U equal to b(V,y)(a|V). The band conjugation equation makes this a unit of CatCenter(F(V)); the pullback equation makes the resulting family compatible. The maps are group homomorphisms natural in U.
+
+Hypotheses:
+
+- C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.
+
+Proof or construction:
+
+1. For each (V,f), use the actual b(V,y)(a|V) at every fibre object; its inverse comes from -a.
+2. All arrows of the fibre are invertible, so the band conjugation equation is the full naturality condition for the identity-functor automorphism.
+3. Band restriction and sheaf functor composition give the vertical equation.
+4. Multiplication and reindexing follow from b and the coefficient sheaf laws.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sections, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict.
+
+Acceptance: Use all automorphisms and coefficient restrictions, not just a representative object.
+
+Source: SP06NY-rtOQ9t, Lemma8.11.8, final omitted varying-U step; excerpt “compatible”. This is a derived completion using compatible units of the existing categorical centers; it is not a proof printed in the source.
+
+Planning API:
+
+- IntrinsicBandSections.fromBanding (compatibility): c_b converts an actual band coefficient into a compatible central section.
+- IntrinsicBandSections.fromBanding_eval (simp): ev_(f,y)(c_b(U)(a))=b(V,y)(a|V).
+- IntrinsicBandSections.fromBanding_restrict (functoriality): r_f(c_b(U)(a))=c_b(V)(a|V).
+
+Mathematical unit tests:
+
+- BandComparisonTests.identity (compatibility): For the canonical C3 band, c_b sends the labelled generator to the generator section.
+- BandComparisonTests.inversion (non-example): If the C3 banding is changed by a↦-a, c_b sends1 to2; these two coefficient identifications are distinct. They cannot be quotiented by Aut(C3).
+- BandComparisonTests.trivial (degenerate): The zero coefficient on the terminal gerbe gives the unique section homomorphism.
+
+Uses:
+
+- IntrinsicBand.autIso and IntrinsicBand.unique inherited API: Makes the comparison to every fixed band explicit and pins the band-preserving uniqueness condition.
+- GWZ20 Definition2.6 fixed band: Retains the scalar coefficient identification rather than passing to unbanded equivalences.
+
+### The intrinsic band is uniquely compatible with every banding
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-band-unique (theorem).
+
+For every A-banding b of a gerbe, c_b is an isomorphism of abelian sheaves A≅A_F, uniquely characterized by ev_(f,y)(c_b(U)(a))=b(V,y)(a|V) for every U,V,f,y,a. This uniqueness concerns compatible identifications; A may have nontrivial abstract automorphisms.
+
+Hypotheses:
+
+- C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.
+
+Proof or construction:
+
+1. Locally choose an object of the gerbe. There c_b is an isomorphism because both coefficient sheaves identify with the same automorphism sheaf by evaluation.
+2. Use existing sheaf-locality of isomorphisms from SF1, or glue its locally defined inverse using Hom descent for sheaves. The sheaf condition retains the local inverse on every section.
+3. The characterization fixes every central component; band-center-ext proves uniqueness of the comparison, including its inverse.
+4. Changing b by a nonidentity automorphism of A changes c_b by that automorphism.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sheaf, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-equivalence, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-ext, AlgebraicModuliForArithmeticGeometry:R09.4/abelian-aut-commute.
+
+Acceptance: Do not prove bijectivity by assuming an object over every U; use local nonemptiness and sheaf descent.
+
+Source: SP06NY-rtOQ9t, Lemma8.11.8, final omitted varying-U step; excerpt “compatible”. This is a derived completion using compatible units of the existing categorical centers; it is not a proof printed in the source.
+
+### Slice-glued bands agree coherently with central sections
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-glued-comparison (comparison).
+
+The slice sheaf over U obtained by gluing local automorphism sheaves in the inherited intrinsic-abelian-band construction is uniquely compatibly isomorphic to A_F restricted to C/U. For f:V→U, compare both slice constructions through A_F; these comparisons obey identity, composition and refinement independence. This supplies a declaration-sized mathematical route for the varying-U verification omitted in Stacks8.11.8.
+
+Hypotheses:
+
+- C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.
+
+Proof or construction:
+
+1. On a covering with objects, evaluation identifies A_F with each local Aut sheaf; on overlaps these maps agree by conjugation independence.
+2. The full faithfulness of imported sheaf descent gives the unique identification with the descended slice sheaf.
+3. For a different object cover or refinement, the two maps agree after a common covering refinement, hence globally.
+4. Define the varying-U comparison by going through A_F; identity and composition hold because both composites have the same local evaluation characterization.
+5. Use the existing absolute-gluing equivalence of sheaves from SF1, not a second carrier or general descent theorem.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-banding, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-band-unique, AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band, SchemeAndStackFoundations:SF.1.
+
+Acceptance: The construction remains mathematically planned and native-uncompiled. The exact native signature for the inherited slice-glued carrier is omitted until SF1 supplies that carrier and coherent restriction interface.
+
+Source: SP06NY-rtOQ9t, Lemma8.11.8, final omitted varying-U step; excerpt “compatible”. This is a derived completion using compatible units of the existing categorical centers; it is not a proof printed in the source.
+
+## Continuation implementation boundary
+
+All fifteen new leaves are mathematical plans and uncompiled signatures. The native general-site sheafness, local extension and unique-band proofs, the SF1 slice-glued carrier comparison, and named site fixtures remain required. Nine gaps and 21 requests remain; no broader source closure or formalisation is claimed.
