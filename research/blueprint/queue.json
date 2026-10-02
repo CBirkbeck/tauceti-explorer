@@ -34585,7 +34585,8 @@
     "REV-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4080"
   },
   {
    "id": "RT-PAPER-LI-LIU-21",
@@ -45502,8 +45503,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-01.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4386"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4386",
+   "finishedAt": "2026-10-02T05:36:48Z"
   },
   {
    "id": "RT-RS-02",
