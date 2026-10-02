@@ -61,21 +61,17 @@ RS-06 ownership entry were read. Cremona's public Chapter II was re-fetched on
 §2.7, printed pp. 25–26, gives the oldclass basis indexed by divisors of N/M.
 No new source erratum is filed.
 
-**Checker compatibility:** the current checker matches the prefix `tauceti:`
-before consulting atlas stage IDs. Thus it misclassifies the required Layer 4/5
-stage prerequisites as Lean declarations. Two records explicitly typed
-`roadmap-stage` are included in its baseline list to preserve the exact owner IDs
-and satisfy that check. Their descriptions explicitly say they are **not Lean
-declarations or built theorems**. All **16 actual declaration references** are
-validated separately against the exact pinned declaration index. The stock checker
-with an explicit index still misclassifies the two stage records as absent Lean
-names; no successful indexed stock-check run is claimed. A future checker should
-resolve atlas stages before matching baseline declaration prefixes.
+**Checker compatibility:** the checker matches `tauceti:` before consulting
+atlas stage IDs. Following the existing AN.0 and ArithmeticStatistics packets,
+canonical Layer 4/5 IDs are recorded in `upstreamPrerequisites`, exact supplier
+requests and explicit source-to-consumer links. No roadmap stage is represented
+as a baseline declaration. An explicit gap records this encoding obligation.
+All 16 actual declarations resolve in the pinned index; the supplier stages and
+all four import endpoints were separately checked against the atlas.
 
-Validation: the stock blueprint checker reports **0 errors, 0 warnings** without
-an index; the independent index audit checks all sixteen actual declarations and
-resolves both roadmap stages. Intake accepts all four deliverables, and whitespace
-checks pass. Reference checks exclude the deleted node from every active prerequisite
+Validation: the stock blueprint checker with the pinned index reports **0 errors,
+0 warnings**. Intake accepts all four deliverables, and whitespace checks pass.
+Reference checks exclude the deleted node from every active prerequisite
 and request, retain all three Layer 5 consumers, and preserve historical review data.
 The finite-exception conversion and the oldform Fourier-coefficient independence
 were checked with exact arithmetic; the fresh assembled dependency graph with the

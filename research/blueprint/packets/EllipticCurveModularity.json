@@ -127,20 +127,6 @@
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
     "provides": "The complex L-series of a Weierstrass curve.",
     "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
-   },
-   {
-    "ref": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
-    "kind": "roadmap-stage",
-    "module": "content/tau-ceti/ModularForms/README.md",
-    "provides": "Existing upstream roadmap contract, NOT a Lean declaration. Layer 4 supplies finiteness, bad-prime newform facts and the retained level-11/22 oldform acceptance input.",
-    "checked": "Stage text and reviewed AUDIT-16 read 2 October 2026. Compatibility record because check_blueprint.py parses tauceti: roadmap stage IDs as baseline refs before consulting atlas stages; do not look up this stage as a Lean declaration. Actual pinned declarations are checked separately."
-   },
-   {
-    "ref": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
-    "kind": "roadmap-stage",
-    "module": "content/tau-ceti/ModularForms/README.md",
-    "provides": "Existing upstream roadmap contract, NOT a Lean declaration or a built theorem. Layer 5 owns cross-level newform–newform strong multiplicity one.",
-    "checked": "Stage text and reviewed AUDIT-16 read 2 October 2026. Compatibility record because check_blueprint.py parses tauceti: roadmap stage IDs as baseline refs before consulting atlas stages; do not look up this stage as a Lean declaration. Actual pinned declarations are checked separately."
    }
   ]
  },
@@ -776,9 +762,7 @@
    ],
    "prerequisites": [
     "EllipticCurveModularity:R29.3/a-single-newform-for-infinitely-many-p-and-exact-coefficients",
-    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
-    "tauceti:HeckeRing.GL2.Newform",
-    "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor"
+    "tauceti:HeckeRing.GL2.Newform"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -848,7 +832,11 @@
    ],
    "planet": {
     "name": "The newform F_E"
-   }
+   },
+   "upstreamPrerequisites": [
+    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor"
+   ]
   },
   {
    "id": "EllipticCurveModularity:R29.3/rational-coefficient-field",
@@ -870,8 +858,7 @@
     "Serre only records that the good A_ℓ lie in ℤ; the bad coefficients are rational by this conjugation argument."
    ],
    "prerequisites": [
-    "EllipticCurveModularity:R29.3/newform-of-E",
-    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization"
+    "EllipticCurveModularity:R29.3/newform-of-E"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -885,7 +872,10 @@
      "match": "The good coefficients; the rest follows by conjugation."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "upstreamPrerequisites": [
+    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization"
+   ]
   },
   {
    "id": "EllipticCurveModularity:R29.4/tate-module-comparison",
@@ -1193,8 +1183,7 @@
     "AutomorphicGaloisRepresentations:R19.6",
     "FaltingsFinitenessAndIsogenyTheorems:R28.6/semisimplicity-of-the-rational-tate-module-of-an-elliptic-curve",
     "ArithmeticGaloisRepresentations:R01.5",
-    "EllipticCurveModularity:R29.3/rational-coefficient-field",
-    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization"
+    "EllipticCurveModularity:R29.3/rational-coefficient-field"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -1211,7 +1200,10 @@
    "implementationStatus": "unchecked",
    "planet": {
     "name": "Modularity of elliptic curves over ℚ"
-   }
+   },
+   "upstreamPrerequisites": [
+    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization"
+   ]
   },
   {
    "id": "EllipticCurveModularity:R29.6/l-function-continuation",
@@ -1491,6 +1483,15 @@
     "EllipticCurveModularity:R29.1/exceptional-primes"
    ],
    "detail": "Verified: Serre's Lemme 5 and its attribution 'd'apres Mazur [29], (4.6.2) est vrai des que p > 163'. Not verified: Mazur's theorem. Searched the supplied library: CATALOGUE.json contains no record for Mazur, 'Rational isogenies of prime degree', Invent. Math. 44 (1978); the Mazur items present are ADD_MAZUR89 (Deforming Galois representations), ADD_MazurWiles_AbelianExtensions (Class fields of abelian extensions of Q) and ADD_MazurSwinnertonDyer_WeilCurves (Arithmetic of Weil curves). Note that Serre observes the argument only needs N_p to DIVIDE N, so the sharp constant 163 is not essential to Theoreme 4; but irreducibility of rho_p for all but finitely many p is. Next source action: obtain Mazur, Invent. Math. 44 (1978), 129-162, and read the theorem on rational points of X_0(p); alternatively record the weaker statement that E[p] is irreducible for all but finitely many p, which follows from Faltings finiteness as the stage text itself proposes. Checkpoint cc-39fac3 (2026-09-28): the argument no longer needs Mazur's theorem; finiteness of the exceptional primes comes from R28.6 (finite prime degrees of rational isogenies). The sharp bound p > 163 remains an unread refinement."
+  },
+  {
+   "title": "Upstream-stage prerequisite encoding",
+   "detail": "Canonical upstream stage IDs are encoded in upstreamPrerequisites, exact supplier requests and explicit links, following existing packets, because the checker parses tauceti: as a Lean declaration prefix before checking stages. No stage is listed as a baseline declaration. All 16 actual declarations resolve at the pins; supplier endpoints are validated separately. Normalize prerequisites when the checker supports upstream stage IDs; this packet remains partial.",
+   "neededBy": [
+    "EllipticCurveModularity:R29.3/newform-of-E",
+    "EllipticCurveModularity:R29.3/rational-coefficient-field",
+    "EllipticCurveModularity:R29.6/modularity-theorem"
+   ]
   }
  ],
  "sourceIssues": [],
@@ -1660,6 +1661,28 @@
   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
   "nodes": 20,
   "requests": 17,
-  "checkerCompatibility": "Two explicitly typed roadmap-stage records satisfy the existing prefix-based checker. These are unbuilt supplier plans, not pinned Lean declarations; the 16 actual declarations were checked separately against the exact pinned index. A checker with --index treats these stage IDs as absent Lean names; this is a checker classification limitation, not a library claim."
- }
+  "checkerCompatibility": "Canonical upstream stage IDs are encoded in upstreamPrerequisites, exact supplier requests and explicit links, following existing packets, because the checker parses tauceti: as a Lean declaration prefix before checking stages. No stage is listed as a baseline declaration. All 16 actual declarations resolve at the pins; supplier endpoints are validated separately. Normalize prerequisites when the checker supports upstream stage IDs; this packet remains partial."
+ },
+ "links": [
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+   "target": "EllipticCurveModularity:R29.3/newform-of-E",
+   "reason": "Import the existing upstream ModularForms supplier contract named in upstreamPrerequisites and requests; this is an unbuilt roadmap input, not a Lean declaration."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+   "target": "EllipticCurveModularity:R29.3/newform-of-E",
+   "reason": "Import the existing upstream ModularForms supplier contract named in upstreamPrerequisites and requests; this is an unbuilt roadmap input, not a Lean declaration."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+   "target": "EllipticCurveModularity:R29.3/rational-coefficient-field",
+   "reason": "Import the existing upstream ModularForms supplier contract named in upstreamPrerequisites and requests; this is an unbuilt roadmap input, not a Lean declaration."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+   "target": "EllipticCurveModularity:R29.6/modularity-theorem",
+   "reason": "Import the existing upstream ModularForms supplier contract named in upstreamPrerequisites and requests; this is an unbuilt roadmap input, not a Lean declaration."
+  }
+ ]
 }

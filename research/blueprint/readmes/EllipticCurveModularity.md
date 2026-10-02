@@ -188,3 +188,5 @@ Only the finding explicitly listed in issue #5045 is addressed here; findings /2
 broader verification remain separate follow-up work. No Lean compilation was run: this
 change touches only a comment in the suggested file, and no existing build at the pins
 was available in the audited baseline checkout.
+
+The packet preserves canonical upstream Layer 4/5 imports in `upstreamPrerequisites`, supplier requests and explicit links, following existing packets. The checker otherwise interprets their `tauceti:` prefix as Lean declaration names. These imports remain unbuilt supplier contracts; no stage is listed as a baseline declaration. A packet gap records normalization when the checker supports upstream stage IDs.
