@@ -1,0 +1,229 @@
+{
+  "redteam": "RT-PAPER-FINTZEN-21",
+  "reviewer": "Codex — codex-5ebb6f",
+  "date": "2026-10-02",
+  "status": "complete",
+  "summary": "43 findings confirmed with qualified fixes; /44 rejected because the non-torus assumption is a standing source convention. In particular the proposed fixes for /11 and /20 require stronger hypotheses.",
+  "findings": [
+    {
+      "finding": "RT-PAPER-FINTZEN-21/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a cycle in the requested design contracts, not as an already installed stage cycle. Route 2 assigns /9 to RG2.1–3 and asks for the prime consequences from route 4; route 4 imports that form back. make_queue.paper_designs (lines 699–735) and the current queue turn route 4 into ReductiveGroupsPartIII built on the existing Part II. Move /9 to Part III after the prime arithmetic, remove the reverse import and import only the independent filtration/building inputs from Part II. Coordinate with /18: /2a also moves, so the proposed intermediate route counts are not final counts. Recompute counts after all confirmed changes."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Independently read and rendered v2 p.23. In split GL3 take r1=1, d1=1/2 at the hyperspecial vertex and G2=GL2×GL1, arising from the trace functional of ϖ⁻¹ diag(a,a,b), a and b distinct modulo P. At y=x+(0,0,δ), 0<δ<1/4, the (1,3) root requires valuations ceil(3/4+δ)=1 and ceil(1+δ)=2 at the two asserted equal depths. Thus 1+ϖE13 disproves the displayed equality. Scale δ further to satisfy the chosen normalized metric. The reversal used for the lower bound is unsupported. Record a proof gap and make /19f depend on a repaired lower-semicontinuity proof. The suggested fixed-x correction is a proof obligation, not a proved repair or a counterexample to continuity itself."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Rendered Lemma 5.1(b), v2 p.18, and read its proof p.19 against /16a. At the GL3 hyperspecial point take A=ϖ⁻¹ diag(1,2,3), residue characteristic 5, M=E12+E21, r=1, d=1/2, ε=1/8. The trace functional of M lies in the claimed deeper dual lattice and annihilates the diagonal centralizer. Exact agreement on ϖM3(O), which spans the Lie algebra, would make A+M conjugate to A. Their characteristic polynomials differ by −(t−A33). The proof only kills the discarded terms through the conductor-P character. Replace both functional identities by congruences modulo P, record the source error, and retain the separately justified character-level conclusions; exact k-valued equality is false."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Rendered v2 pp.28–29 and read pp.16,30–31 and /22–22g. For split SL2, n=1, r1=4 and terminal group T, H2=1. The printed ordinary H1 half-depth group contains diag(1+ϖ²,(1+ϖ²)⁻¹), while the mixed group has diagonal entries 1 modulo P⁴. The analogous depth-three torus element disproves the plus identity. Over Q5 a depth-four torus character with conductor-P normalization has order 25 on T3; thus the printed order-five central quotient assertion also fails. Commutators of the depth-two torus element with SL2 at depth two have diagonal valuation at least six and off-diagonal valuation at least four, giving an extra central class. Use mixed H-products as definitions, restate the two K-product relations, and reprove the Heisenberg and tensor steps for those definitions. The assertion that every later proof automatically survives is not certified by this verification."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V2 p.36 invokes Yu Proposition 4.6 and KY17 Theorem 7.5 without the corrections. Independently read Fintzen 1908.09819v2 Theorem 3.1/Remark 3.2, FKS 2106.09120v2 Definition 4.1.10, Corollaries 4.1.11–12 and the surrounding Theorem 4.1.13 discussion, and AFMO 2408.07805 Remark 4.1.7. They explicitly identify the false Yu intertwining statements and the corrected twisted route. Add the corrected irreducibility and cover inputs and qualify the source proof. For the proposed conversion back to the untwisted pair, use the quadratic character extended to the full type group and trivial on the positive-depth factors; twisting the depth-zero input by it cancels the oscillator twist. Its restriction to finite unipotent radicals is trivial because p is odd, so cuspidality is preserved. Do not cite the invalid original proof as the supplier."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a contract-level dependence problem. /14c uses a truncated datum from route 1 to define a route-2 structural group, /20a uses the later M_{n+1}, and /10b uses route-1 terminology. V2 pp.16–17,26 show how to separate these. State mixed filtration for an arbitrary tame twisted-Levi pair and an eligible building point; state torus/derived generation for an arbitrary compatible maximal torus and derived group. Specialize to the datum downstream. Route 4 should use its own closed-orbit predicate /32 rather than import the definition of almost stability. Mere use of a term is not evidence of an installed graph cycle; the fix removes the unnecessary downstream inputs from the design contracts."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed. /33 and route 1 own the connected finite cuspidality predicate, while accepted Stevens route 3 and Lust–Stevens route 2 put Green/Lusztig/Harish-Chandra theory under the reductive-group continuation. Read the corresponding briefs and Stevens /246, now containing merged /306. That item expressly imports /33, so the later consolidation of the disconnected predicate has not repaired this owner inversion. Put the connected predicate in the shared finite-reductive foundation coalesced into ReductiveGroupsPartIII; smooth types import it. Preserve /246 as the disconnected specialization and the GL2 comparison. Finite cuspidality and p-adic type constructions must be distinguished in the briefs."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the shared prime arithmetic. Read BHKT /5, its accepted LP2/LP3 source route and Fintzen /3c,/3e,/30a,/30c. BHKT explicitly plans the type table and the implication from prime-to-Weyl-order to very good characteristic. The Fintzen brief overlooks that accepted source request. Choose one foundational supplier and record the cross-paper handoff; the reductive Part III can export it to LP. Keep the extra root/coroot-closure and subsystem assertions: very-good characteristic for the ambient simple factors does not by itself state all of Fintzen's stronger obligations. Do not collapse the entire two items as identical theorems or silently edit another extraction in this job."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed as overlap in the common affine orbit/Hilbert–Mumford foundation. Read BHKT /4 and its accepted LP2/LP3 route, Lafforgue /35 and route 3, Fintzen /32–32a and route 4, and the Nelson–Venkatesh /7 verification. The negative note about LP3's base contract ignores its accepted source routes. Name them and arrange one supplier for the common notions and geometric theorems. Preserve Kempf's rational perfect-field null-cone theorem separately; a closed-orbit criterion for tuples over an algebraic closure does not discharge it. Use a maintainer handoff for the other routes rather than claiming they have already been rerouted."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V2 Lemma 3.4 proof pp.9–10 uses Yu Propositions 7.1–7.2 for connected reductivity and the torus-root datum of a torus-fixed coadjoint centralizer; Lemma 3.6 p.10 invokes the root criterion again. /10b and /11a give the resulting statements but no separate supplier with its characteristic hypotheses, and route 4's source list omits Yu §7. Add that explicit dependency and its root-datum description under the non-torsion/index hypotheses used there. This confirms an omitted input used by the source, not a fresh proof of Yu's propositions."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed omission, with a necessary correction to the proposed statement. V2 pp.11–12 invokes Yu Lemma 8.2 twice, and the extraction has no item for it. In both applications T is in Cent_G(X); retain this torus-fixedness when stating the restriction/depth comparison. The proposed unrestricted version for any X is false: over Q5 let u=[[1,1/5],[0,1]], A=uE21u⁻¹=[[1/5,−1/25],[1,−1/5]], and X(Z)=tr(AZ). At the hyperspecial point conjugated by u, X has depth zero, but on the diagonal torus X(diag(1,0))=1/5, so its restriction is not in the depth-zero dual torus lattice. Add the qualified supplier actually used by /11b and /13 and check its precise original hypotheses before broadening it."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Read v2 Lemma 3.11 proof p.12 and Adler's public Definition 2.2.4 (journal p.22). The extraction contains the coadjoint endpoint but omits the good-semisimple definition and explicit Lie-algebra supplier/bridge through KM03 Lemma 2.3.3 and Corollary 2.2.3/Lemma 2.2.4. Expose those dependencies with k-normalized valuations and the AR00 replacement obligations. Do not treat Fintzen's assertion that the stronger-characteristic proof adapts as a verified proof of the adaptation: identify the actual input statements and prove the weaker-hypothesis versions before using them. Coordinate the bridge with the unit-scaling correction in /36."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed as omission of the six cited classical inputs, not absence of all root-system infrastructure. Read v2 Table 1/Lemma 2.2 p.8, the Borel and Yu/Bourbaki uses pp.9–10 and the base-extension input p.13, then the prerequisite records. At Tau Ceti f790474, card_weylGroup_of_card_support_eq_two (Weyl/Dihedral.lean:102) explicitly assumes a two-element simple-root support and gives twice a Coxeter entry; it cannot supply the all-rank table. Root-library searches also locate factorial bounds, not the table asserted here. Extract the Weyl orders, bad/torsion-prime tables, index divisibility, rationally closed-subsystem base extension and Lie-element-in-Borel result as their own dependencies. Reuse the existing rank-two declarations for that special case."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V2 Remark 3.10 pp.11–12 and the perturbation proof pp.12–14 require restriction and orthogonal splitting of the filtrations, while /9 only specifies the invariant form and its Levi nondegeneracy. Independently read Adler Propositions 1.9.1 and 1.9.3 (journal p.19): they state the group/Lie/dual intersection and the filtered orthogonal direct sum for points in the appropriate Levi building. Add these supplier statements with the tame and form hypotheses, including the dual inclusion convention, and cite them in /12 and /13. Do not assert intersection for an arbitrary point outside that building; Adler Remark 1.9.4 expressly warns against that."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V2 Remark 3.9 p.11 uses tame Galois descent for the Levi-building image; Proposition 3.12 p.12 chooses a rational point in a tame torus apartment. /8a supplies only the Levi-image endpoint, and /31 is field theory. RG2.2 describes buildings and bounded-subgroup fixed points without the extension/Galois comparison. Add the descent theorem and the rational apartment existence required here, then make /8a and the perturbation cite them. The tame hypothesis and k-normalized metric/valuation must be explicit; field ramification alone is not a supplier of building descent."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V2 p.9 states fixed-point and global depth compatibility, whereas /7a gives only the Lie comparison and /7c only defines depth. Independently read Adler Proposition 1.4.1 (journal pp.9–10): it includes Lie and dual intersections with a ramification rescaling. Translate to the extended k-normalized valuation rather than keeping both the rescaling and that normalization. Add the dual comparison and fixed-point depth equality. For the global-depth step used later, extension of the set of building points immediately gives d_k(X)≤d_E(X); a global equality stronger than that needs its own justification and should not be inferred merely from the fixed-point equality."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed. /39 attaches the non-simply-connected qualification to AD02 §3. V2 p.9 places the remark about AD02 beside the use of its Lie-algebra result in the dual setting, and separately discusses dropping MP94's simply connected assumption for the graded-coset comparison; p.14 repeats the two steps. Separate the Lie-to-dual transfer from the group-hypothesis qualification. The external AD02 PDF text could be opened but subsequent retrieval/rendering failed, so this reason certifies the distinction in Fintzen's actual citation and the correction needed in /39, not a full revalidation of AD02 or MP94."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed owner correction. /2a is a Weyl-order consequence about all tori, assigned to the RG2 structural source route; the arithmetic continuation becomes ReductiveGroupsPartIII, and RG2's building construction need only take particular tame tori as hypotheses. Move the all-tori theorem to the later good-prime branch and let downstream applications import it. This is coordinated with /1 rather than solved by making general buildings depend on an all-tori-tame theorem. Recalculate route counts after both moves and the other accepted changes."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Rendered/read v2 Lemma 5.1 p.18 and the mixed-depth definition pp.16–17. Both require the auxiliary maximal torus's apartment to contain x. /16 omits that condition and /14c omits the eligibility of T when asserting independence. Add T⊂Cent_G(X) or T⊂G_{i+1}, the tame splitting extension and x∈A(T,E), respectively. Restrict independence to such eligible tori and extensions. The canonical complementary root subspace in part (a) does not excuse omission of the condition needed for the group/root-coordinate constructions and /16b–16c."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing supplier, but the proposed range is false at the half-depth endpoint. V2 pp.17,19–22,27,29 repeatedly use group/Lie quotient identifications without a supplier item; /7d gives only the Lie graded space. At a split SL2 hyperspecial point, the mixed group with first depth 2 and complementary-root depth 1 contains x_α(5) and x_−α(5). Their commutator has diagonal entries differing from 1 by valuation 2, so it survives quotienting by G_{x,2+}; that quotient is not abelian. Require complementary depth strictly greater than half the denominator cutoff, or use a denominator that kills the depth-2t commutators. The r_i/2+ and d+ instances actually used satisfy the strict bound. Include equivariance and positive-characteristic validity, and keep the boundary Heisenberg quotient as a separate construction."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V2 p.12 fixes the normalized building metric; pp.21–24 use pointwise representation depth, discrete jumps, nearby-point comparisons and a bounded fundamental domain. The extraction's /7b defines global depth and /13,/19d use an undefined metric. RG2.2 already requests compactness modulo center, so request its precise enlarged-building cocompactness consequence and cite that existing supplier rather than plan another building theory. Add one metric construction, the lattice/group comparison API and pointwise-depth continuity. The proposed fix mentions the metric twice: consolidate it, and keep the lower-semicontinuity repair of /2 separate from these prerequisite facts."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V2 p.16 explicitly identifies the intersection H_i filtration with H_i's own filtration, including connected depth zero; /14c records only the intersection definition. Definitions 4.1–4.2 and Corollary 8.3 also identify the terminal group with Cent_G(ΣX_i) without an extracted supplier. Add the first theorem for general compatible derived/Levi inclusions and then specialize, avoiding a route-2 dependence on a datum. Add the second for the decreasing-depth datum: simultaneous torality and the first nonzero root value's strictly dominant valuation prevent cancellation. Cover the empty sum, whose centralizer is G, and justify depth-zero intersections rather than replacing connected parahorics by full fixers."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed proof-closure gap. Read v2 pp.29,34–37. /24c explicitly chooses a defect-minimizing maximal datum for D2, while /6 quantifies over every maximal datum and its proof only refers back to exhaustion. For an arbitrary datum, perform the §7.12 perturbation along the split center of its depth-zero Levi, prove the retained datum space is nonzero and maximal, and preserve the terminal parahoric/facet and Levi data before invoking the corrected cover theorem. The point changes; preservation of its facet refers to the terminal building, not all intermediate buildings. Record this extra proof obligation, not a false-corollary allegation, and integrate the corrected external cover input from /5."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V2 Lemma 7.8 proof p.31 explicitly invokes the Kim07 Proposition 18.5 analogue; /23c gives its conclusion but not a supplier. Read both upstream InductionRestriction layers 5 and 7: they concern finite-group Clifford correspondence and the extension obstruction, without this smooth profinite evaluation statement. Add the compact-group reduction and the Gallagher factorization with N open normal and κ|N irreducible. The K-action on Hom_N(κ,W) is g·f=W(g)∘f∘κ(g)⁻¹; N acts trivially. Clifford isotypy and evaluation give W≅Hom_N(κ,W)⊗κ. Reuse the finite layers after a common finite-quotient reduction, rather than rebuilding their carriers or silently claiming their finite scope covers K."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V2 pp.30–31 uses Yu Lemmas 10.1 and 10.3 in the combined Heisenberg proof; /22g and the finite oscillator brief omit these criteria as separate supplier results. Extract the polarization recognition criterion and the nondegenerate-subspace subgroup criterion with the center and special-isomorphism hypotheses. Put the reusable finite-group results in the finite Weil–Heisenberg foundation and their filtration application downstream. They must be applied to the corrected mixed H-products of /4, not used to certify the false ordinary-product quotient."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V2 p.35 invokes KY17 Lemma 3.6(b), while /24c only describes the ensuing minimization. Independently read the public KY paper §3.5–3.6: nongeneric embeddings lie on a locally discrete family of root hyperplanes along a direction with every complementary-root pairing nonzero. Its statement gives an admissible real cocharacter-space direction; choose a rational one off finitely many hyperplanes and scale to an integral cocharacter for Fintzen's application. Combine the lemma with the separate filtration inequalities, rather than attributing the whole package to KY's lemma. Preserve the distinction between the moving embedding in KY and the fixed ambient point convention in Fintzen footnote 4."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V2 p.27 explicitly concludes full Yu genericity via the dual root-datum hypothesis and Yu Lemma 8.1; /21c names that property but defines neither it nor its extra condition. Add the realization of a character by a central coadjoint element and GE1/GE2, plus the lemma establishing the extra condition under the characteristic restriction. Keep it distinct from Fintzen Definition 3.5. The proposed addition is an explicit missing supplier to verify from Yu §§8–9, not a claim that the original Yu paper was fully reread or that a root valuation condition alone is enough."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed omission. V2 p.36 and /25a cite MP96 Proposition 6.6 for the depth-zero compact-induction input, but no item states that result with its vertex/stabilizer, connected parahoric cuspidal constituent, and central conditions. Add the precise supplier in the terminal group and transport it to the exhaustion proof; keep the first compact-induction target G_{n+1}(k), as existing E1 already corrects. Fintzen's later construction paper Remark 2.3 instead cites the proof of MP96 Proposition 6.8 for the related input criterion, so verify the original numbering and implications before claiming an exact MP96 theorem statement. The MP96 original was inaccessible in this retrieval; this verdict establishes the extraction's missing cited dependency."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V2 Corollary 7.2 p.26 cites Conrad Example 2.2.6 for the torus/derived intersection, and the finite oscillator fixed-vector proof p.33 cites Borel–Tits Corollary 3.7 for a unipotent subgroup's containment in a minimal parabolic. Neither is separately extracted. Add these precise inputs and their specializations. The first may be an explicit upstream structure-theory consequence to import; the second is for a subgroup consisting of unipotent elements in the relevant rational setting, not merely a subgroup generated by some unipotent elements. For the finite-field use, the image is a finite p-group, so the quadratic characters restrict trivially. Verify the originals when closing these leaves; their full statements were not available here."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Read all prerequisite records and v2 pp.2–5,9,25–31,36,38. The KY and Reeder–Yu entries copy the Yu general-construction purpose; Reeder–Yu is introductory epipelagic context. The combined MP entry links only MP94 and omits the MP96 depth-zero use. Kim07 is also used for oscillator/tensor inputs, and Kaletha Corollary 3.5.5 removes the hypothesis for the enhanced datum. Split MP94/MP96 with their own public bibliographic links and correct the purpose statements and actual use locators. Integrate the additional corrected construction prerequisites from /5; do not characterize the copied text as a valid description of all three papers."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed. make_queue.paper_designs uses parent-derived ids, and the checked queue contains DESIGN-SmoothRepresentationsOfLocalGroupsPartII, DESIGN-MetaplecticAutomorphicFormsPartII and DESIGN-ReductiveGroupsPartIII. The four source briefs still use route numbers and proposal ids that do not match those generated ids. Identify imports by the shared generated roadmap title/id while retaining route numbers only as extraction locators. Coordinate the names for all-tori, finite cuspidality, invariant form and finite oscillator suppliers after the substantive routing corrections; do not rename an atlas roadmap by editing its base data."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed partial library correction. At Mathlib 082e2d3, read Module.Baer.extension_property_addMonoidHom (Algebra/Module/Injective.lean:394), Module.Baer.of_divisible (Algebra/Category/Grp/Injective.lean:35) and the DivisibleBy (AddCircle p) ℤ instance (Topology/Instances/AddCircle/Defs.lean:565). They provide algebraic extension through an injective subgroup inclusion. The characters here begin on compact open positive-depth subgroups, so their smooth images are finite and unitary; transport through an additive circle model. The extension's kernel contains the original open kernel, hence is open and the extension is smooth. /37 still needs that transport and topology argument, so keep the complete smooth theorem missing but record this algebraic supplier. No finite-ambient-group hypothesis is needed for Baer's extension theorem."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed for unnecessary restrictions and common machinery, with scope correction. Read Feng rev-32/rev-33 and its accepted route-3 brief. Representation depth is the same construction for arbitrary reductive groups and coefficients, so choose one general supplier and specialize Fintzen rather than define it twice. Moy–Prasad filtrations themselves do not require the paper's tame/Weyl-order exhaustion assumptions. Feng rev-33, however, is for a restriction-of-scalars group under a degree-prime-to-residue-characteristic extension and distinguishes r, r+ and the unramified case. It is not literally Fintzen /8a's twisted-Levi image theorem. Share the appropriate RG2 descent/filtration inputs and retain both specialized conclusions and their different hypotheses; do not mark /8a wholly planned from Feng rev-33."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed source-table range error in v2 p.8. The D3 simple roots, ordered as e2−e3, e1−e2, e2+e3, have the A3 Cartan matrix [[2,−1,0],[−1,2,−1],[0,−1,2]]. Thus D3 is the A3 root system, whose column has no bad or torsion primes; the D_n column's two prime lists cannot apply at n=3. Change its range to n≥4 and record the source issue. The displayed Weyl-order formula still gives 24 at n=3, so this does not invalidate the prime-to-Weyl-order consequence used in Lemma 2.2."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed local proof error, not a false centralizer theorem. V2 pp.9–10 decomposes an element using Lie(B)=Lie(T)⊕Lie(U), then equates it to its toral component because its orbit is closed. This decomposition need not be the Jordan decomposition: in sl2, [[1,1],[0,−1]] is semisimple and has a closed orbit, but differs from diag(1,−1). The limiting argument puts the toral component in the same orbit, so conjugate to it before computing the centralizer and transport the conclusion back. Add that step to /10b and record the source issue, without claiming the initial unipotent-radical component must vanish."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/36",
+      "verdict": "confirmed",
+      "reason": "Confirmed exact-identity error in v2 Lemma 3.11 proof p.12. Invariance gives B(Hα,Z)=B(Hα,Hα)dα(Z)/2 for toral Z, hence X(Hα)=cα dα(X̌), cα=B(Hα,Hα)/2. For Sp4 with the trace form, long and short coroot diagonal vectors (1,0,−1,0) and (1,−1,−1,1) give cα=1 and 2. A single simple-factor scaling cannot make both equal to one. The needed result is equality of zero sets and valuations when these coefficients are units under the good-prime/lattice-compatible form hypotheses. Prove that unit statement from the chosen AR00 form rather than retaining exact equality or assuming an arbitrary invariant form is integral. Even in a simply laced factor a further scalar can spoil exact equality."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed presentation omission. V2 Proposition 3.12 proof p.14 uses Kempf and lifts the destabilizing cocharacter just as the earlier Corollary 3.8 p.11 does; /32a and /32b omit this use. The type discussion spans pp.3–4, while /26 lists only p.4 for the introduction. Add the omitted use locators without changing the actual mathematical scope or duplicating either supplier."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/38",
+      "verdict": "confirmed",
+      "reason": "Confirmed notational issue. Read v2 Definition 4.6 p.17: the comparison tuple's X_i are unprimed despite potentially different length, and its facet is measured using the first tuple's terminal group. /15b already describes comparison in each datum's own terminal-centralizer building. Record the source notation correction, using primed data and its terminal centralizer for the second facet. The later applications compare tuples with the same X_i, so they do not establish that the printed arbitrary-tuple notation was correct."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted nonzero qualifier in v2 Corollary 5.4 conclusion p.21. The zero subspace meets the printed conclusion, while Lemma 6.1.3 needs a contained truncated datum and therefore a nonzero character space. The proof starts with a nonzero space, spans it, chooses an eigenspace and translates by invertible representation operators; retain nonzero choices throughout. /17b already supplies the intended nonzero conclusion. Add a sourceIssue to explain the correction rather than weaken /17b to the vacuous printed wording."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/40",
+      "verdict": "confirmed",
+      "reason": "Confirmed four local slips. Rendered v2 p.23: the epsilon minimum excludes i=j−1 although every previous depth gap is used, and the vector-space subscript becomes j−1 unexpectedly in the displayed depth-r_j action. V2 Corollary 5.3 proof p.20 has an unbound j in its invariance range. V2 Lemma 5.1 proof p.19 computes π(ghg⁻¹), whereas part (iii) requires π(g⁻¹hg). Correct the ranges/subscript and repeat the same filtration commutator estimate with g⁻¹ for part (iii). The inverse estimate is an argument to supply, not an authorization to change the statement's conjugation convention. These notation corrections do not repair the separate lower-semicontinuity gap /2."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/41",
+      "verdict": "confirmed",
+      "reason": "Confirmed proof-detail omissions. V2 Lemma 6.1.3 pp.24–25 supplies only r_j≤r_{j−1}, although Definition 4.1 requires strict decrease. At the previous stage H_j lies in the next centralizer and X_{j−1} vanishes on its derived Lie algebra; use this scalar triviality and a jump-free interval to obtain a witness below r_{j−1}. Also the centralizer-properness check says j>2, leaving j=2 unproved although G2⊋G3 is required. At j≥2 a central X_j annihilates h_j, contradicting the positive minimal f through the same smaller-depth witness. Add these steps to /19c and the sourceIssue; do not infer strictness solely from the displayed non-strict inequality."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/42",
+      "verdict": "confirmed",
+      "reason": "Confirmed undefined boundary convention. V2 p.16 defines H1 by comparing G1 and G2, but the length-zero datum p.15 has no G2; the j=1 recursion pp.21–22 similarly uses H1 before the first centralizer exists. Explicitly take H1=G in that initial depth recursion, and use H1=G^der for the finalized length-zero datum so its quotient agrees with Definition 4.1(e). State the later positive-length convention only after G2 exists. This is substantive for central characters: a positive-depth determinant character of GL2 has positive depth on GL2 while its restriction to SL2 is trivial."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/43",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V2 pp.26,31 and /20b,/23c demand an irreducible compact-group subrepresentation containing a specified subspace. Such containment does not follow from semisimplicity: a diagonal line in a sum of two nonisomorphic irreducibles need not lie in either summand. Span the finite-dimensional datum space under the relevant compact group, reduce via an open normal kernel to a finite quotient, and project equivariantly to a summand with nonzero image. The image remains a datum space because the required scalar actions, invariance and irreducible depth-zero constituent survive a nonzero intertwiner. Repeat at the K stage. Correct containment to retention of a nonzero isomorphic image and record the choice/argument; no claim concerns the entire restriction of π."
+    },
+    {
+      "finding": "RT-PAPER-FINTZEN-21/44",
+      "verdict": "rejected",
+      "reason": "Rejected as an extraction error. The cited Corollary 8.3 is within §§2–8, where v2 p.7 explicitly assumes G is not a torus and treats tori separately. /2 records that convention, and /6 says the extra condition is for the non-torus construction. Therefore this is a faithful source scope, not a hypothesis invented against the source. The formal construction could later extend the criterion to tori (with the length-zero convention repaired), but that is an additional compatibility/generalization result, not a reason to delete the standing source hypothesis from this extraction."
+    }
+  ]
+}
