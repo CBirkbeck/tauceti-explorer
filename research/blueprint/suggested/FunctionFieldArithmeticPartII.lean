@@ -14,6 +14,7 @@ this does not certify the complete file or any implementation.
 -/
 
 import TauCeti.AlgebraicGeometry.LineBundle.TensorProduct
+import Mathlib.Algebra.Group.Fin.Basic
 import Mathlib.AlgebraicGeometry.Modules.Sheaf
 import Mathlib.Algebra.Category.ModuleCat.Sheaf.Free
 import Mathlib.CategoryTheory.Core
@@ -1256,6 +1257,60 @@ example [Subsingleton A] (f : A) (n : ℕ) [NeZero n]
 example : affineTorsorComparison.targetCoordinateEquiv (0 : ZMod 2) 2
     (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 2) ⊗ₜ[ZMod 2]
       (1 : AffineRing (0 : ZMod 2) 2)) (1, 0) = 1 := by sorry
+
+def affineTorsorComparison.coefficientPermutation (n : ℕ) [NeZero n] :
+    (Fin n × Fin n) ≃ (Fin n × Fin n) := by sorry
+
+lemma affineTorsorComparison.coefficientPermutation_apply (n : ℕ) [NeZero n]
+    (p : Fin n × Fin n) :
+    coefficientPermutation n p = (p.1, p.1 + p.2)  := by sorry
+
+lemma affineTorsorComparison.coefficientPermutation_symm (n : ℕ) [NeZero n]
+    (p : Fin n × Fin n) :
+    (coefficientPermutation n).symm p = (p.1, p.2 - p.1)  := by sorry
+
+lemma affineTorsorComparison.wrap_iff_lower (n : ℕ) [NeZero n]
+    (p : Fin n × Fin n) :
+    (coefficientPermutation n p).2.val < (coefficientPermutation n p).1.val ↔
+      n ≤ p.1.val + p.2.val  := by sorry
+
+-- affineTorsorComparison.coefficientPermutation.test_one
+example (p : Fin 1 × Fin 1) : affineTorsorComparison.coefficientPermutation 1 p = p  := by sorry
+
+-- affineTorsorComparison.coefficientPermutation.test_wrap
+example : affineTorsorComparison.coefficientPermutation 2 (1,1) = (1,0)  := by sorry
+
+-- affineTorsorComparison.coefficientPermutation.test_inverse
+example : (affineTorsorComparison.coefficientPermutation 3).symm (2,0) = (2,1)  := by sorry
+
+lemma affineTorsorComparison.coefficientPermutation_val (n : ℕ) [NeZero n]
+    (p : Fin n × Fin n) :
+    (coefficientPermutation n p).2.val = (p.1.val + p.2.val) % n  := by sorry
+
+lemma affineTorsorComparison.monomial_permuted (f : A) (n : ℕ) [NeZero n]
+    (p : Fin n × Fin n) :
+    affineTorsorComparison f n
+      ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) =
+      (if (coefficientPermutation n p).2.val < p.1.val then f else 1) •
+        (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
+          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^
+            (coefficientPermutation n p).2.val))  := by sorry
+
+lemma affineTorsorComparison.monomial_coordinates (f : A) (n : ℕ) [NeZero n]
+    (p : Fin n × Fin n) :
+    targetCoordinateEquiv f n (affineTorsorComparison f n
+      ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) =
+      (if (coefficientPermutation n p).2.val < (coefficientPermutation n p).1.val
+        then f else 1) • Pi.single (coefficientPermutation n p) 1  := by sorry
+
+lemma affineTorsorComparison.coefficient_map (f : A) (n : ℕ) [NeZero n]
+    (c : (Fin n × Fin n) → A) (q : Fin n × Fin n) :
+    targetCoordinateEquiv f n
+      (affineTorsorComparison f n ((sourceCoordinateEquiv f n).symm c)) q =
+      (if q.2.val < q.1.val then f else 1) *
+        c ((coefficientPermutation n).symm q)  := by sorry
 
 /-- The nonwrapping source coefficients vanish; the wrapping coefficients
 lie in the annihilator of f. This also specifies the kernel comparison map. -/
