@@ -2,7 +2,7 @@
 
 ## Continuation scope and conventions
 
-This is a partial design checkpoint with 71 declaration nodes: 5 comparison, 19 construction, 12 definition, 21 lemma, 14 theorem. It retains 112 API items, 101 required definition/construction unit tests and two additional lemma boundary tests and six H.0 planets, with 74 pinned baseline references. All nodes remain unchecked, H.0 partial, H.1–H.8 not_read. The exact-pin compilation receipt for the changed file is recorded below; earlier receipts apply only to their own bytes. The inherited 35 global omissions remain; two new global statements also have explicit omissions. No stage is closed.
+This partial checkpoint has 88 declaration nodes:12 definitions,22 constructions,35 lemmas,14 theorems and5 comparisons. It has122 API items,112 required definition/construction tests and114 total tests,105 pinned baseline references and six H.0 planets. All nodes remain unchecked; H.0 is partial and H.1–H.8 not_read. The current full-sketch and separate native-proof receipts appear at the end. The35 inherited global signature omissions remain. No stage or reserved key is closed.
 
 The reserved **HodgeStructuresPartII:key/higgs-parameter-connections** is now supplied as a mathematical declaration plan. It defines finite locally free coefficients on a general commutative ringed differential site with an actual additive λ-Leibniz operator, a defined exterior extension and curvature-zero equality. Its sheaf tensor, ordinary-connection and filtration prerequisites are explicit supplier requests. The twelve inherited free affine matrix nodes remain as examples and sign tests. They are not the definition of the global object.
 
@@ -22,13 +22,13 @@ The parent tauceti:TauCetiRoadmap/HodgeStructures owns the existing fibrewise pu
 
 CrystallineCohomology:CR.1 owns the ordinary integrable relative connection carrier and its convention of extended differentials. It supplies the λ=1 comparison; quasi-nilpotence, smooth-lift and nilpotent-base hypotheses belong to its crystal comparison. Arbitrary flat connections are not identified with crystals. DerivedDeRhamCohomology:DD.1 owns the generic filtered/Rees carrier and the associated quotient/fiber coherences; this successor constructs the particular t∇ operator. Finite split Rees modules need no derived-completion premise. AdicSpacesPartII:R0 supplies analytic differentials for p-adic specialization; its full analytic constructions are not duplicated by a formal choice of Ω.
 
-The canonical pins are Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Both trees were searched thoroughly for Higgs, λ-connection, LambdaConnection and ParameterConnection. The Mathlib Higgs hits concern matroids, while neither tree gives this general parameter category. Positive citations were checked by reading actual Lean statements. The fifteen references in the packet comprise the nine retained affine prerequisites and SheafOfModules, IsLocallyFree, presheaf tensorObj, KaehlerDifferential.D, TensorProduct.liftAddHom and liftAddHom_tmul. In particular, the additive balanced tensor lift exists already and is reused: an ordinary O-linear tensor lift cannot descend D by falsely assuming D is O-linear.
+The canonical pins are Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Both trees were searched thoroughly for Higgs, λ-connection, LambdaConnection and ParameterConnection. The Mathlib Higgs hits concern matroids, while neither tree gives this general parameter category. Positive citations were checked by reading actual Lean statements. The original fifteen references comprised the nine retained affine prerequisites and SheafOfModules, IsLocallyFree, presheaf tensorObj, KaehlerDifferential.D, TensorProduct.liftAddHom and liftAddHom_tmul. In particular, the additive balanced tensor lift exists already and is reused: an ordinary O-linear tensor lift cannot descend D by falsely assuming D is O-linear.
 
 Near misses were inspected directly. Mathlib CovariantDerivative is for smooth manifold bundles, with differentiability hypotheses in its local Leibniz law. It does not supply the ringed-site λ carrier. TauCeti.AlgebraicGeometry.InvertibleSheaf is the native full subcategory of scheme module sheaves satisfying the invertible predicate; its file expressly leaves tensor/Picard completion to subsequent files. Presheaf relative differentials are available, but first differentials are not an automatic complete exterior calculus with sheaf tensor and descent. These objects receive no replacement nodes.
 
 ## Fresh source receipts and proof boundaries
 
-On 2 October 2026 the three inherited PDFs were retrieved again from their public URLs and matched the original hashes. The continuation directly read these passages:
+The following source receipts belong to the inherited checkpoints; this worker does not claim to have repeated those wider readings. On 2 October 2026 the three inherited PDFs were retrieved again from their public URLs and matched the original hashes. The continuation directly read these passages:
 
 - [Esnault–Groechenig, published Acta PDF](https://intlpress.com/site/pub/files/_fulltext/journals/acta/2020/0225/0001/ACTA-2020-0225-0001-a002.pdf), printed pp.108,131–132: Higgs and flat definitions, λ-Leibniz/integrability, and the explicit Griffiths associated-graded formula. SHA-256 0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab.
 - [Liu–Zhu, arXiv v3](https://arxiv.org/pdf/1602.06282v3), PDF pp.5,7,20–22,24: nilpotence scope, Theorem 2.1 tensor/dual/pullback statements, period-ring bundle and filtered-bundle definitions, Definition 3.6 and Remark 3.2. SHA-256 8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79.
@@ -2534,7 +2534,7 @@ Proof: If θ^[2] vanishes, contract the two slots and use the exact two-slot for
 
 Source: Heuer25 Definitions1.2(2) and4.1 motivate the contraction. The displayed ordered algebra is derived, not quoted as a named source theorem.
 
-The existing HodgeStructuresPartII:H.0/ordered-coordinate-vanishing now imports HodgeStructuresPartII:H.0/affine-ordered-square-vanishing and HodgeStructuresPartII:H.0/affine-contractions-reconstruction for its affine N=2 step. Its arbitrary-N and sheaf hypotheses/statement remain unchanged.
+The existing HodgeStructuresPartII:H.0/ordered-coordinate-vanishing now imports HodgeStructuresPartII:H.0/affine-ordered-square-vanishing and HodgeStructuresPartII:H.0/affine-contractions-reconstruction for its affine N=2 step. That predecessor receipt stopped at N=2; the current all-N affine continuation follows below. Its sheaf hypotheses and statement remain unchanged.
 
 Native baseline statements:
 
@@ -2549,10 +2549,292 @@ Native baseline statements:
 
 The source-augmentation generator adapter remains HodgeStructuresPartII:H.0/augmentation-power-generators: the actual source ideal power is generated by words of exactly that length, including the empty word at degree zero. This is separate from the new tensor-square chart calculation.
 
-## Validation boundary of the ordered-square contracts
+## Historical validation of the ordered-square contracts
 
 The [separate native proof prototype](https://github.com/CBirkbeck/tauceti-explorer/blob/a31c7908e2ba7455d333f1f4e25e07a6563f692b/research/blueprint/suggested/HodgeStructuresPartII.lean) proves finite-coefficient reconstruction, the actual second-iterate construction, its projection/zero/contraction formulas and the exact finite-basis vanishing criterion. All four new examples are proved, including the E12/E21 ordering test. A narrow extraction passes with zero errors or warnings and seven kernel axiom audits without admission dependencies. It reuses the historical native contraction proof; it does not prove general-N or global sheaf statements.
 
 Under PROTOCOL section13 the submitted new signatures/examples retain admitted bodies. The entire suggested file, which imports only Mathlib, passes at the exact pin with 66 examples, zero errors, 166 admission warnings and no other warnings. The 35 inherited global omission entries remain; compilation does not supply those signatures. No TauCeti build, library cache or language server was created.
 
 The packet has 75 nodes, 115 API items, 107 total tests (105 for definitions/constructions), 82 baseline references and six planets. All 71 predecessor statements and 70 complete predecessor node objects are preserved. The actual stage graph and its transitive stage/declaration graph are acyclic, all 21 required stage pairs are reachable, and this packet has no skipped/pending links. H.0 remains partial, H.1–H.8 not_read; eleven gaps and five requests remain.
+
+## Arbitrary-N native affine continuation
+
+This extends the exact native second-iterate chart proof using Mathlib TensorPower, its zero-degree unit, native dual pairing and existing finite tensor basis. The tensor-power carrier, basis and associators are imported, not replanned. No global module-sheaf object is replaced by its sections. All75 predecessor statements are retained; only the existing global ordered-coordinate proof/input list is refined.
+
+For a tuple of duals, contractions form a list product in the actual potentially noncommutative End algebra. The leftmost dual is the newest coefficient, so a two-letter word is A_i A_j with A_j acting first. The empty product is the identity. The scalar products inside the dual pairing commute because the base ring is commutative; no endomorphism commutativity is inferred.
+
+### Prepend one coefficient factor
+
+Node: HodgeStructuresPartII:H.0/affine-ordered-step. construction. Declaration: TwistedHiggsBundle.affineOrderedStep.
+
+Statement: For θ:E→E⊗Q and n≥0 construct S_θ,n:E⊗Q^⊗n→E⊗Q^⊗(n+1) by θ⊗id, the associator, the native singleton tensor equivalence Q≅Q^⊗1, native multiplication of tensor powers and the cast 1+n=n+1. The new Q factor is inserted on the left.
+
+Hypotheses: R is an arbitrary commutative ring; E and Q are R-modules. No finite basis, field, reducedness or integrability is assumed on E or θ. A chosen finite basis of Q is required only in the coordinate and converse vanishing lemmas. Use the native TensorPower R n Q, its degree-zero tensor unit and the actual associative composition algebra End_R(E). Products of endomorphisms are ordered from left to right, with the rightmost factor applied first. Scalars alone commute. These are affine module statements; E1 owns the global sheaf tensor-power and restriction/gluing interfaces.
+
+Inputs: mathlib:TensorPower, mathlib:TensorPower.mulEquiv, mathlib:TensorPower.cast, mathlib:PiTensorProduct.subsingletonEquiv, mathlib:TensorProduct.congr, mathlib:TensorProduct.assoc, mathlib:TensorProduct.map.
+
+Proof: Compose the existing tensor maps and linear equivalences; the singleton/multiplication/cast equivalences are internal data, not new carriers. On a pure input e⊗(q₁⊗⋯⊗qₙ), expand θ(e) and insert its Q factor before q₁. No symmetric or exterior quotient is used.
+
+Use: HodgeStructuresPartII:H.0/ordered-coordinate-vanishing — Supplies the native arbitrary-N affine chart calculation, with the empty word and tensor unit retained; restriction and local equality detection remain separate supplier obligations.
+
+Use: LZ17 Theorem2.1(i); Lemma2.15 — Provides an ordered-coefficient interface for the nilpotent Higgs conclusion. No geometric nilpotence or source correspondence proof follows from this algebraic calculation alone.
+
+API: TwistedHiggsBundle.affineOrderedStep_zero (simp). S_0,n=0 for every n.
+
+API: TwistedHiggsBundle.affineOrderedStep_add (compatibility). S_(θ+η),n=S_θ,n+S_η,n.
+
+API: TwistedHiggsBundle.affineOrderedStep_contraction (compatibility). For any η:E→E⊗Q^⊗n, contract S_θ,n∘η by (v,vs) to obtain a_θ(v) times the vs contraction of η, in this order.
+
+Test: TwistedHiggsBundle.affineOrderedStep.test_zero (degenerate). The zero field gives a zero successor step at every order.
+
+Test: TwistedHiggsBundle.affineOrderedStep.test_empty_coefficients (degenerate). If Q is subsingleton then S_θ,n=0 for every θ and n, including n=0.
+
+Test: TwistedHiggsBundle.affineOrderedStep.test_scalar_nonzero (non-example). For any nontrivial R, E=Q=R and θ(e)=e⊗1, every S_θ,n is nonzero. A unit field cannot acquire nilpotence at a positive order.
+
+Source: [Heuer Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4) motivate the Higgs/contraction interface. These are authored algebraic deductions from the named pinned native declarations, not printed correspondence results.
+
+### Native ordered Higgs iterates
+
+Node: HodgeStructuresPartII:H.0/affine-ordered-iterate. construction. Declaration: TwistedHiggsBundle.affineOrderedIterate.
+
+Statement: For every n≥0 construct θ^[n]:E→E⊗Q^⊗n recursively: θ^[0] is the inverse right tensor unit followed by the native identification R≅Q^⊗0; θ^[n+1]=S_θ,n∘θ^[n]. This definition uses no integrability or finite basis.
+
+Hypotheses: R is an arbitrary commutative ring; E and Q are R-modules. No finite basis, field, reducedness or integrability is assumed on E or θ. A chosen finite basis of Q is required only in the coordinate and converse vanishing lemmas. Use the native TensorPower R n Q, its degree-zero tensor unit and the actual associative composition algebra End_R(E). Products of endomorphisms are ordered from left to right, with the rightmost factor applied first. Scalars alone commute. These are affine module statements; E1 owns the global sheaf tensor-power and restriction/gluing interfaces.
+
+Inputs: HodgeStructuresPartII:H.0/affine-ordered-step, mathlib:TensorPower.algebraMap₀, mathlib:TensorProduct.rid, mathlib:TensorProduct.map.
+
+Proof: Use primitive recursion into the native tensor-power codomains, with the actual degree-zero unit rather than a zero map. Apply the successor step at each degree; its new factor is always the leftmost coefficient.
+
+Use: HodgeStructuresPartII:H.0/ordered-coordinate-vanishing — Supplies the native arbitrary-N affine chart calculation, with the empty word and tensor unit retained; restriction and local equality detection remain separate supplier obligations.
+
+Use: LZ17 Theorem2.1(i); Lemma2.15 — Provides an ordered-coefficient interface for the nilpotent Higgs conclusion. No geometric nilpotence or source correspondence proof follows from this algebraic calculation alone.
+
+API: TwistedHiggsBundle.affineOrderedIterate_zero (projection). θ^[0](e)=e⊗1₀ in the actual degree-zero tensor unit.
+
+API: TwistedHiggsBundle.affineOrderedIterate_succ (projection). θ^[n+1]=S_θ,n∘θ^[n].
+
+API: TwistedHiggsBundle.affineOrderedIterate_contraction (compatibility). Contraction by an ordered n-tuple of duals equals the ordered product of the n contractions of θ; at n=0 the product is id_E.
+
+API: TwistedHiggsBundle.affineOrderedIterate_zero_field (simp). The zero field has zero iterate at every positive order. Order zero remains the tensor-unit identity.
+
+Test: TwistedHiggsBundle.affineOrderedIterate.test_unit_boundary (boundary). For any θ, contraction of θ^[0] by the empty tensor pairing is id_E, including E=0.
+
+Test: TwistedHiggsBundle.affineOrderedIterate.test_zero (degenerate). The zero field vanishes at all positive orders without imposing any assumption on E,Q.
+
+Test: TwistedHiggsBundle.affineOrderedIterate.test_scalar_nonzero (non-example). For any nontrivial R, the scalar unit field on E=Q=R has nonzero θ^[n] for every n≥0.
+
+Test: TwistedHiggsBundle.affineOrderedIterate.test_nonreduced_nilpotent (boundary). Over Z/4, θ=2 times the scalar unit field is nonzero but θ^[2]=0. This rules out unconditional rank-one or reduced-base shortcuts.
+
+Source: [Heuer Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4) motivate the Higgs/contraction interface. These are authored algebraic deductions from the named pinned native declarations, not printed correspondence results.
+
+### Evaluate an affine contraction
+
+Node: HodgeStructuresPartII:H.0/affine-contractions-apply. lemma. Declaration: TwistedHiggsBundle.affineContractions_apply.
+
+Statement: For any dual v and e∈E, a_θ(v)(e)=rid((id_E⊗v)(θ(e))).
+
+Hypotheses: R is an arbitrary commutative ring; E and Q are R-modules. No finite basis, field, reducedness or integrability is assumed on E or θ. A chosen finite basis of Q is required only in the coordinate and converse vanishing lemmas. Use the native TensorPower R n Q, its degree-zero tensor unit and the actual associative composition algebra End_R(E). Products of endomorphisms are ordered from left to right, with the rightmost factor applied first. Scalars alone commute. These are affine module statements; E1 owns the global sheaf tensor-power and restriction/gluing interfaces.
+
+Inputs: HodgeStructuresPartII:H.0/affine-contractions, mathlib:TensorProduct.rid, mathlib:TensorProduct.map.
+
+Proof: Unfold the contraction linear map and its compositions. This is an existing API item promoted because the arbitrary-N unit calculation consumes it.
+
+Source: [Heuer Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4) motivate the Higgs/contraction interface. These are authored algebraic deductions from the named pinned native declarations, not printed correspondence results.
+
+### Contractions of the zero field
+
+Node: HodgeStructuresPartII:H.0/affine-contractions-zero. lemma. Declaration: TwistedHiggsBundle.affineContractions_zero.
+
+Statement: For any E,Q the contraction linear map of the zero field is zero.
+
+Hypotheses: R is an arbitrary commutative ring; E and Q are R-modules. No finite basis, field, reducedness or integrability is assumed on E or θ. A chosen finite basis of Q is required only in the coordinate and converse vanishing lemmas. Use the native TensorPower R n Q, its degree-zero tensor unit and the actual associative composition algebra End_R(E). Products of endomorphisms are ordered from left to right, with the rightmost factor applied first. Scalars alone commute. These are affine module statements; E1 owns the global sheaf tensor-power and restriction/gluing interfaces.
+
+Inputs: HodgeStructuresPartII:H.0/affine-contractions.
+
+Proof: Evaluate the native compositions at each functional and vector. Promote the existing API to discharge the forward coefficient-vanishing implication.
+
+Source: [Heuer Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4) motivate the Higgs/contraction interface. These are authored algebraic deductions from the named pinned native declarations, not printed correspondence results.
+
+### Degree-zero tensor unit
+
+Node: HodgeStructuresPartII:H.0/affine-ordered-iterate-unit. lemma. Declaration: TwistedHiggsBundle.affineOrderedIterate_zero.
+
+Statement: For every θ and e, θ^[0](e)=e⊗algebraMap₀(1).
+
+Hypotheses: R is an arbitrary commutative ring; E and Q are R-modules. No finite basis, field, reducedness or integrability is assumed on E or θ. A chosen finite basis of Q is required only in the coordinate and converse vanishing lemmas. Use the native TensorPower R n Q, its degree-zero tensor unit and the actual associative composition algebra End_R(E). Products of endomorphisms are ordered from left to right, with the rightmost factor applied first. Scalars alone commute. These are affine module statements; E1 owns the global sheaf tensor-power and restriction/gluing interfaces.
+
+Inputs: HodgeStructuresPartII:H.0/affine-ordered-iterate, mathlib:TensorPower.algebraMap₀, mathlib:TensorProduct.rid.
+
+Proof: Unfold only the zero branch and evaluate the native right tensor unit and tensor map.
+
+Source: [Heuer Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4) motivate the Higgs/contraction interface. These are authored algebraic deductions from the named pinned native declarations, not printed correspondence results.
+
+### Ordered successor recurrence
+
+Node: HodgeStructuresPartII:H.0/affine-ordered-iterate-succ. lemma. Declaration: TwistedHiggsBundle.affineOrderedIterate_succ.
+
+Statement: For every n≥0, θ^[n+1]=S_θ,n∘θ^[n].
+
+Hypotheses: R is an arbitrary commutative ring; E and Q are R-modules. No finite basis, field, reducedness or integrability is assumed on E or θ. A chosen finite basis of Q is required only in the coordinate and converse vanishing lemmas. Use the native TensorPower R n Q, its degree-zero tensor unit and the actual associative composition algebra End_R(E). Products of endomorphisms are ordered from left to right, with the rightmost factor applied first. Scalars alone commute. These are affine module statements; E1 owns the global sheaf tensor-power and restriction/gluing interfaces.
+
+Inputs: HodgeStructuresPartII:H.0/affine-ordered-iterate, HodgeStructuresPartII:H.0/affine-ordered-step.
+
+Proof: The equality is the successor branch of the recursive construction.
+
+Source: [Heuer Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4) motivate the Higgs/contraction interface. These are authored algebraic deductions from the named pinned native declarations, not printed correspondence results.
+
+### Zero successor step
+
+Node: HodgeStructuresPartII:H.0/affine-ordered-step-zero. lemma. Declaration: TwistedHiggsBundle.affineOrderedStep_zero.
+
+Statement: For every n≥0, S_0,n=0.
+
+Hypotheses: R is an arbitrary commutative ring; E and Q are R-modules. No finite basis, field, reducedness or integrability is assumed on E or θ. A chosen finite basis of Q is required only in the coordinate and converse vanishing lemmas. Use the native TensorPower R n Q, its degree-zero tensor unit and the actual associative composition algebra End_R(E). Products of endomorphisms are ordered from left to right, with the rightmost factor applied first. Scalars alone commute. These are affine module statements; E1 owns the global sheaf tensor-power and restriction/gluing interfaces.
+
+Inputs: HodgeStructuresPartII:H.0/affine-ordered-step.
+
+Proof: Evaluate the composite; the tensor map of the zero field is zero.
+
+Source: [Heuer Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4) motivate the Higgs/contraction interface. These are authored algebraic deductions from the named pinned native declarations, not printed correspondence results.
+
+### Successor step is additive in the field
+
+Node: HodgeStructuresPartII:H.0/affine-ordered-step-add. lemma. Declaration: TwistedHiggsBundle.affineOrderedStep_add.
+
+Statement: For every θ,η,n, S_(θ+η),n=S_θ,n+S_η,n.
+
+Hypotheses: R is an arbitrary commutative ring; E and Q are R-modules. No finite basis, field, reducedness or integrability is assumed on E or θ. A chosen finite basis of Q is required only in the coordinate and converse vanishing lemmas. Use the native TensorPower R n Q, its degree-zero tensor unit and the actual associative composition algebra End_R(E). Products of endomorphisms are ordered from left to right, with the rightmost factor applied first. Scalars alone commute. These are affine module statements; E1 owns the global sheaf tensor-power and restriction/gluing interfaces.
+
+Inputs: HodgeStructuresPartII:H.0/affine-ordered-step, mathlib:TensorProduct.map_add_left.
+
+Proof: Distribute the tensor map in its left argument, then use additivity of the associator and prepend map.
+
+Source: [Heuer Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4) motivate the Higgs/contraction interface. These are authored algebraic deductions from the named pinned native declarations, not printed correspondence results.
+
+### Contract the new leftmost factor
+
+Node: HodgeStructuresPartII:H.0/affine-ordered-step-contraction. lemma. Declaration: TwistedHiggsBundle.affineOrderedStep_contraction.
+
+Statement: For arbitrary η:E→E⊗Q^⊗n, v∈Q∨ and vs:Fin n→Q∨, contraction of S_θ,n∘η by the native pairing of Fin.cons v vs equals a_θ(v)·a_η(pairing(vs)). No basis or integrability is required.
+
+Hypotheses: R is an arbitrary commutative ring; E and Q are R-modules. No finite basis, field, reducedness or integrability is assumed on E or θ. A chosen finite basis of Q is required only in the coordinate and converse vanishing lemmas. Use the native TensorPower R n Q, its degree-zero tensor unit and the actual associative composition algebra End_R(E). Products of endomorphisms are ordered from left to right, with the rightmost factor applied first. Scalars alone commute. These are affine module statements; E1 owns the global sheaf tensor-power and restriction/gluing interfaces.
+
+Inputs: HodgeStructuresPartII:H.0/affine-ordered-step, HodgeStructuresPartII:H.0/affine-contractions, mathlib:TensorProduct.induction_on, mathlib:PiTensorProduct.induction_on, mathlib:TensorProduct.map_tmul, mathlib:TensorProduct.assoc_tmul, mathlib:TensorProduct.congr_tmul, mathlib:PiTensorProduct.subsingletonEquiv_symm_apply', mathlib:TensorPower.gMul_def, mathlib:TensorPower.tprod_mul_tprod, mathlib:TensorPower.cast_tprod, mathlib:TensorPower.multilinearMapToDual_apply_tprod, mathlib:Fin.append_left_eq_cons, mathlib:Fin.prod_univ_succ, mathlib:TensorProduct.rid, mathlib:TensorPower.multilinearMapToDual.
+
+Proof: Induct on the input E⊗Q^⊗n, then on the native PiTensorProduct factor. Reduce to a scalar times a pure n-tuple. A second tensor induction on θ(e) reduces the new leftmost factor to a pure tensor. The singleton, multiplication and cast formulas identify it with Fin.cons of the new coefficient and the old tuple. Evaluate the native dual pairing; its commutative scalar product splits into v(q) times the tail product. Only scalar commutation is used. The resulting endomorphism composition is a_θ(v) after the tail contraction.
+
+Source: [Heuer Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4) motivate the Higgs/contraction interface. These are authored algebraic deductions from the named pinned native declarations, not printed correspondence results.
+
+### Exact ordered coefficient formula
+
+Node: HodgeStructuresPartII:H.0/affine-ordered-iterate-contraction. lemma. Declaration: TwistedHiggsBundle.affineOrderedIterate_contraction.
+
+Statement: For every n≥0 and vs:Fin n→Q∨, contraction of θ^[n] by the native tensor-power dual pairing equals the ordered list product [a_θ(vs(0)),…,a_θ(vs(n−1))]. Its empty product is id_E. End_R(E) need not be commutative.
+
+Hypotheses: R is an arbitrary commutative ring; E and Q are R-modules. No finite basis, field, reducedness or integrability is assumed on E or θ. A chosen finite basis of Q is required only in the coordinate and converse vanishing lemmas. Use the native TensorPower R n Q, its degree-zero tensor unit and the actual associative composition algebra End_R(E). Products of endomorphisms are ordered from left to right, with the rightmost factor applied first. Scalars alone commute. These are affine module statements; E1 owns the global sheaf tensor-power and restriction/gluing interfaces.
+
+Inputs: HodgeStructuresPartII:H.0/affine-ordered-iterate-unit, HodgeStructuresPartII:H.0/affine-ordered-iterate-succ, HodgeStructuresPartII:H.0/affine-ordered-step-contraction, HodgeStructuresPartII:H.0/affine-contractions-apply, mathlib:TensorPower.algebraMap₀_one, mathlib:TensorPower.gOne_def, mathlib:TensorPower.multilinearMapToDual_apply_tprod, mathlib:Module.End.one_eq_id, mathlib:TensorPower.multilinearMapToDual.
+
+Proof: At n=0 evaluate the actual tensor unit and empty scalar pairing; the result is the identity. At n+1 split the dual tuple into its head and successor tail and apply the left-factor contraction lemma and induction hypothesis. Use the core finite-list head/tail recursion to obtain an ordered list product. A commutative finite-set product of endomorphisms is never used.
+
+Source: [Heuer Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4) motivate the Higgs/contraction interface. These are authored algebraic deductions from the named pinned native declarations, not printed correspondence results.
+
+### Dual coordinates of a native tensor power
+
+Node: HodgeStructuresPartII:H.0/affine-tensor-power-coordinate. lemma. Declaration: TwistedHiggsBundle.affineTensorPower_coordinate.
+
+Statement: For a finite basis b:I→Q, every n≥0 and word p:Fin n→I, the p coordinate of the existing native piTensorProduct basis equals the tensor-power pairing of the dual coordinates b.coord(p(i)). This includes the unique empty word.
+
+Hypotheses: R is an arbitrary commutative ring; E and Q are R-modules. No finite basis, field, reducedness or integrability is assumed on E or θ. A chosen finite basis of Q is required only in the coordinate and converse vanishing lemmas. Use the native TensorPower R n Q, its degree-zero tensor unit and the actual associative composition algebra End_R(E). Products of endomorphisms are ordered from left to right, with the rightmost factor applied first. Scalars alone commute. These are affine module statements; E1 owns the global sheaf tensor-power and restriction/gluing interfaces.
+
+Inputs: mathlib:Basis.piTensorProduct, mathlib:Basis.piTensorProduct_repr_tprod_apply, mathlib:PiTensorProduct.ext, mathlib:TensorPower.multilinearMapToDual_apply_tprod, mathlib:Module.Basis.coord, mathlib:TensorPower.multilinearMapToDual.
+
+Proof: By native PiTensorProduct extensionality it suffices to evaluate both functionals on a pure tuple. The tensor basis representation and native dual pairing both give the product of the corresponding scalar coordinates. No new tensor-power basis carrier is introduced.
+
+Source: [Heuer Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4) motivate the Higgs/contraction interface. These are authored algebraic deductions from the named pinned native declarations, not printed correspondence results.
+
+### All-order finite-chart vanishing criterion
+
+Node: HodgeStructuresPartII:H.0/affine-ordered-iterate-vanishing. lemma. Declaration: TwistedHiggsBundle.affineOrderedIterate_eq_zero_iff.
+
+Statement: For a chosen finite basis b of Q and every n≥0, θ^[n]=0 iff every ordered coefficient word [a_θ(b.coord(p(0))),…,a_θ(b.coord(p(n−1)))] has zero product. At n=0 this is equivalent to id_E=0, hence E is the zero module. E need not have a finite basis.
+
+Hypotheses: R is an arbitrary commutative ring; E and Q are R-modules. No finite basis, field, reducedness or integrability is assumed on E or θ. A chosen finite basis of Q is required only in the coordinate and converse vanishing lemmas. Use the native TensorPower R n Q, its degree-zero tensor unit and the actual associative composition algebra End_R(E). Products of endomorphisms are ordered from left to right, with the rightmost factor applied first. Scalars alone commute. These are affine module statements; E1 owns the global sheaf tensor-power and restriction/gluing interfaces.
+
+Inputs: HodgeStructuresPartII:H.0/affine-ordered-iterate-contraction, HodgeStructuresPartII:H.0/affine-tensor-power-coordinate, HodgeStructuresPartII:H.0/affine-contractions-reconstruction, HodgeStructuresPartII:H.0/affine-contractions-zero, mathlib:Basis.piTensorProduct.
+
+Proof: If θ^[n]=0, use the exact contraction formula and the promoted zero contraction lemma. For the converse reconstruct each θ^[n](e) using the existing finite native tensor basis and the arbitrary-E contraction reconstruction lemma. Identify every tensor coordinate with its dual tuple pairing, replace it by the ordered coefficient product, and kill each summand by hypothesis. This proves the affine statement; sheaf equality detection and gluing remain separate.
+
+Source: [Heuer Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4) motivate the Higgs/contraction interface. These are authored algebraic deductions from the named pinned native declarations, not printed correspondence results.
+
+### Zero field at every positive degree
+
+Node: HodgeStructuresPartII:H.0/affine-ordered-iterate-zero-field. lemma. Declaration: TwistedHiggsBundle.affineOrderedIterate_zero_field.
+
+Statement: For every n≥0, the (n+1)-st ordered iterate of the zero field vanishes. The zero-th iterate is not asserted to vanish.
+
+Hypotheses: R is an arbitrary commutative ring; E and Q are R-modules. No finite basis, field, reducedness or integrability is assumed on E or θ. A chosen finite basis of Q is required only in the coordinate and converse vanishing lemmas. Use the native TensorPower R n Q, its degree-zero tensor unit and the actual associative composition algebra End_R(E). Products of endomorphisms are ordered from left to right, with the rightmost factor applied first. Scalars alone commute. These are affine module statements; E1 owns the global sheaf tensor-power and restriction/gluing interfaces.
+
+Inputs: HodgeStructuresPartII:H.0/affine-ordered-iterate-succ, HodgeStructuresPartII:H.0/affine-ordered-step-zero.
+
+Proof: Rewrite the recurrence and use the zero successor step; composition with zero vanishes.
+
+Source: [Heuer Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4) motivate the Higgs/contraction interface. These are authored algebraic deductions from the named pinned native declarations, not printed correspondence results.
+
+### Fresh evidence and remaining closure
+
+Fresh primary reading is restricted to complete Heuer Definitions1.2(2) and4.1, including image/canonical-section/twisting formulas, and [Liu–Zhu Theorem2.1(i)–(v) and Lemma2.15 with its proof](https://arxiv.org/pdf/1602.06282v3), PDFpp.7 and18–19. The latter proves nilpotence of the logarithm through the cyclotomic-conjugation characteristic-polynomial argument. It motivates the algebraic coefficient interface but does not print its arbitrary-N proof. Publisher HTML SHA256 f70c37b9ea04164e15efe2dfe2754cd5eb605adb008260000153ce279a9f4934; Liu–Zhu v3 PDF SHA256 8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79. Other source findings, all149 routed obligations and accepted owner boundaries are inherited unchanged. No new source error is asserted.
+
+The [immutable native proof prototype](https://github.com/CBirkbeck/tauceti-explorer/blob/ea49500be7122dfa7b09c7128537d8a304dae405/research/blueprint/suggested/HodgeStructuresPartII.lean) proves all eleven new native declarations and seven new examples; it restores the actual affine contraction/reconstruction/square proof prefix for a check without admission dependencies. Its narrow extraction has14 examples, zero errors/warnings/admissions and20 axiom audits with no admission dependencies. The standard kernel dependencies are propext, Classical.choice and Quot.sound. The predecessor N=2 noncommuting E12/E21 example remains in this extraction. The all-N vanishing criterion requires a finite basis only for Q, not E. The new Z/4 example preserves the nonreduced-base boundary.
+
+The entire submitted Mathlib-only planning sketch elaborates at the exact pin with73 examples, zero errors,184 admitted-declaration warnings and no other warnings. All new bodies are admitted under PROTOCOL section13. The35 inherited global signature omissions remain. This elaboration does not certify those missing signatures, sheaf gluing, rank bounds or any stage. Native arbitrary-N coefficient proofs and admitted planning signatures are distinct receipts.
+
+The exact-pin baseline entries record native tensor powers, singleton/multiplication/cast/unit equivalences, pure-tensor dual pairing, piTensorProduct basis coordinates, extensionality and induction. Core finite-list recursion is routine; Fin.prod_univ_succ is applied only to commutative scalar products. It is never used for products of endomorphisms.
+
+Baseline: mathlib:Basis.piTensorProduct — For a finite family of R-modules with chosen bases, the native PiTensorProduct has a basis indexed by tuples of factor-basis indices. Source: Mathlib/LinearAlgebra/PiTensorProduct/Basis.lean, declaration line33.
+
+Baseline: mathlib:Basis.piTensorProduct_repr_tprod_apply — The tuple coordinate of a pure native tensor is the product of scalar basis coordinates in each factor. Source: Mathlib/LinearAlgebra/PiTensorProduct/Basis.lean, declaration line42.
+
+Baseline: mathlib:Fin.append_left_eq_cons — Appending a singleton tuple on the left of an n-tuple agrees with Fin.cons of its sole value and that tuple. Source: Mathlib/Data/Fin/Tuple/Basic.lean, declaration line367.
+
+Baseline: mathlib:Fin.prod_univ_succ — For a commutative monoid, a product over Fin(n+1) is its zeroth factor times the product of successor factors. Used only for base scalars here. Source: Mathlib/Algebra/BigOperators/Fin.lean, declaration line76.
+
+Baseline: mathlib:Module.End.one_eq_id — The unit of the native composition endomorphism algebra is the identity linear map. Source: Mathlib/Algebra/Module/LinearMap/End.lean, declaration line51.
+
+Baseline: mathlib:PiTensorProduct.ext — Two linear maps out of a native PiTensorProduct are equal if they agree on every pure tuple. Source: Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean, declaration line364.
+
+Baseline: mathlib:PiTensorProduct.induction_on — Prove a predicate on native finite-family tensors by additivity and scalar multiples of pure tuples. Source: Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean, declaration line356.
+
+Baseline: mathlib:PiTensorProduct.subsingletonEquiv — For a subsingleton index type with a chosen element, the native PiTensorProduct is linearly equivalent to that one module factor. Source: Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean, declaration line806.
+
+Baseline: mathlib:PiTensorProduct.subsingletonEquiv_symm_apply' — For the constant module family over a subsingleton index type, the inverse singleton equivalence sends an element to the constant pure tuple. Source: Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean, declaration line829.
+
+Baseline: mathlib:TensorPower — For a commutative semiring R and R-module Q, TensorPower R n Q abbreviates the existing PiTensorProduct of n copies indexed by Fin n. Source: Mathlib/LinearAlgebra/TensorPower/Basic.lean, declaration line38.
+
+Baseline: mathlib:TensorPower.algebraMap₀ — The native linear equivalence R≅Q^⊗0; no assumption of freeness or nontriviality on Q. Source: Mathlib/LinearAlgebra/TensorPower/Basic.lean, declaration line202.
+
+Baseline: mathlib:TensorPower.algebraMap₀_one — The degree-zero algebra-map equivalence sends1 to the graded tensor unit. Source: Mathlib/LinearAlgebra/TensorPower/Basic.lean, declaration line208.
+
+Baseline: mathlib:TensorPower.cast — Reindex a native tensor power along a specified equality of degrees; a linear equivalence with no change to its module factors. Source: Mathlib/LinearAlgebra/TensorPower/Basic.lean, declaration line98.
+
+Baseline: mathlib:TensorPower.cast_tprod — The degree cast sends a pure tuple to its native reindexed tuple along the inverse Fin congruence. Source: Mathlib/LinearAlgebra/TensorPower/Basic.lean, declaration line100.
+
+Baseline: mathlib:TensorPower.gMul_def — The native graded multiplication is the linear tensor-power multiplication equivalence applied to a pure tensor of two tensor-power elements. Source: Mathlib/LinearAlgebra/TensorPower/Basic.lean, declaration line86.
+
+Baseline: mathlib:TensorPower.gOne_def — The native degree-zero graded tensor unit is the pure empty tuple. Source: Mathlib/LinearAlgebra/TensorPower/Basic.lean, declaration line72.
+
+Baseline: mathlib:TensorPower.mulEquiv — Native linear equivalence Q^⊗n⊗Q^⊗m≅Q^⊗(n+m), preserving the first block before the second block. Source: Mathlib/LinearAlgebra/TensorPower/Basic.lean, declaration line76.
+
+Baseline: mathlib:TensorPower.multilinearMapToDual_apply_tprod — The native pairing of an n-tuple of duals with a pure n-tuple is the product of scalar evaluations in the commutative coefficient semiring. Source: Mathlib/LinearAlgebra/TensorPower/Pairing.lean, declaration line53.
+
+Baseline: mathlib:TensorPower.tprod_mul_tprod — Multiplying two pure tensor tuples gives the concatenated tuple with the first tuple before the second. Source: Mathlib/LinearAlgebra/TensorPower/Basic.lean, declaration line138.
+
+Baseline: mathlib:TensorProduct.congr — A pair of compatible semilinear module equivalences gives the native semilinear tensor-product equivalence; specialize to identity scalar homomorphisms here. Source: Mathlib/LinearAlgebra/TensorProduct/Map.lean, declaration line260.
+
+Baseline: mathlib:TensorProduct.congr_tmul — The tensor congruence sends a pure tensor to the pure tensor of the two equivalence images. Source: Mathlib/LinearAlgebra/TensorProduct/Map.lean, declaration line270.
+
+Baseline: mathlib:TensorProduct.map_add_left — Tensor mapping distributes over addition of the first semilinear map, with the same fixed second map. Source: Mathlib/LinearAlgebra/TensorProduct/Map.lean, declaration line149.
+
+Baseline: mathlib:TensorPower.multilinearMapToDual — For any commutative semiring R and R-module Q, the native multilinear map sends n dual functionals to a linear functional on Q^⊗n. On a pure tensor it is the commutative scalar product of evaluations. No finite basis on Q is required. Source: Mathlib/LinearAlgebra/TensorPower/Pairing.lean, declaration line31.
+
+Actual atlas assembly and the scoped prerequisite DAG pass without unresolved inputs or cycles. There are88 nodes,122 API items,114 total tests (112 required construction/definition tests),105 baseline entries and six unchanged planets. The reserved key, parent Hodge L0–L3, common variation D3, ordinary connection CR.1, generic sheaf tensor/dual/descent E1 and filtration/Rees DD.1 ownership remain unchanged. Global tensor-power comparison, change-of-chart/restriction and local equality detection/gluing are still required; the augmentation-power and rank/period adapters are separate obligations. H.0 remains partial, H.1–H.8 not_read, with11 gaps and5 requests.

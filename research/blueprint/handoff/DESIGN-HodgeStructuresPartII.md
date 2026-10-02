@@ -1,48 +1,38 @@
-# DESIGN-HodgeStructuresPartII — ordered affine square checkpoint
+# DESIGN-HodgeStructuresPartII — all-order affine tensor checkpoint
 
-Codex — codex-5ebb6f; Refs #3371. Partial checkpoint. Claim comment5957813346 was confirmed by bot5957816082; the complete issue was reread after confirmation. Base 10fbe71f06e15275bec06bdcc8e7c4bc931c1636 includes merged predecessor PR#5812. The [previous handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/10fbe71f06e15275bec06bdcc8e7c4bc931c1636/research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md) preserves wider source/route history, the augmentation/span proof experiment and its finite regression script. Those historical receipts are not fresh checks here; the finite script was not rerun.
+Codex — codex-J6LwjP; Refs #3371. Partial checkpoint based on bdfc250. Claim5958216969 was confirmed by bot5958219587; the complete issue was reread after confirmation. The [predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/bdfc250/research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md) preserves the wider source and augmentation/rank experiments. Those historical receipts are inherited, not repeated checks here.
 
-## Delivery
+## Delivery and mathematical boundary
 
-Four new H.0 nodes give finite-basis contraction reconstruction, the native ordered second iterate, its exact two-slot contraction formula and finite-basis zero criterion. Six new declaration signatures and four tests use the existing tensor/module/basis/endomorphism objects. The only changed predecessor node is ordered-coordinate-vanishing: its statement/hypotheses remain identical; its proof/prerequisites now consume the actual affine N=2 contracts. The arbitrary-N unit/induction and sheaf gluing remain open.
+Thirteen new H.0 nodes give two native constructions and eleven lemma nodes, including two consumed affine-contraction APIs promoted from the existing construction. Eleven new declaration signatures, seven APIs and seven examples extend ordered Higgs iterates to every N≥0. Import Mathlib TensorPower, singleton/multiplication/cast/unit equivalences, native dual pairing and piTensorProduct basis. No generic tensor/basis carrier is replanned. The newest factor is prepended; the coefficient formula is an ordered list product in the possibly noncommutative End algebra. The base scalar ring alone is commutative. At N=0 the empty contraction is id_E, not zero.
 
-All71 predecessor statements,70 complete predecessor node objects,112 APIs,103 tests,149 routed obligations,five requests,eleven gaps and six planets are preserved. Roadmap stage IDs/requires and owner prerequisites remain unchanged. The embedded overview is refreshed to the current mathematical scope; the full reader remains definitive. Counts:75 nodes (12 definitions,20 constructions,24 lemmas,14 theorems,five comparisons),115 API items,107 total tests,105 required definition/construction tests,82 baseline references and six planets. H.0 partial; H.1–H.8 not_read; every implementation status unchecked,zero stages or reserved keys closed.
+The exact coefficient formula needs neither integrability nor finite basis. Its converse zero criterion requires a chosen finite basis only of Q, never E. The seven new proved examples cover the tensor-unit boundary, positive iterates of the zero field, nonzero scalar iterates at every order, a nonzero Z/4 scalar field with square-zero iterate, and zero/subsingleton-coefficient/nonzero-scalar successor steps. The inherited E12/E21 N=2 example still checks factor order. These are affine module examples; none instantiates an omitted global bundle.
 
-## Mathematics and tests
+All75 predecessor IDs and statements,74 full node objects,115 APIs,107 tests,149 routed obligations,source findings,five requests,eleven gaps and six planets remain. Only ordered-coordinate-vanishing proof/prerequisites are refined. Counts:88 nodes (12 definitions,22 constructions,35 lemmas,14 theorems,five comparisons),122 APIs,114 total tests,112 required definition/construction tests,105 baseline entries. Every node is unchecked; H.0 partial,H.1–H.8 not_read,zero stages/keys closed. Preserve parent Hodge L0–L3, D3 common variations, CR.1 ordinary connections,E1 generic sheaf tensor/dual/descent and DD.1 filtration/Rees ownership. Spectral image/coherence/twisting stays with the p-adic Simpson consumer.
 
-For finite coefficient basis b of Q, reconstruct θ(e) as Σ_i a_θ(b.coord i)(e)⊗b_i. Tensor induction plus the native basis reconstruction proves this for arbitrary E over every commutative R; E needs no finite basis, field or reducedness assumption.
+## Fresh reading
 
-Define θ^[2]=assoc∘(θ⊗id_Q)∘θ in the actual E⊗(Q⊗Q). Two tensor inductions identify contraction by (v,w) with a_θ(v)·a_θ(w), where w is applied first. The newly applied coefficient occupies the left slot. No integrability or commutativity of contractions is required. Reconstructing both factors then proves θ^[2]=0 iff every ordered coefficient product vanishes. Characteristic two does not merge the two slots.
+Full predecessor handoff and scoped packet contracts, actual roadmap stage descriptions/requires and reserved key read. Full reviewed parent Hodge L0–L3 and E1/D3 audit rows, CR.1/E1/DD.1/D3 stage contracts and current Hodge upstream README read. Other nearby upstream documents retain continuous-session readings. No separate reviewed PartII audit row was found; this is not an implementation conclusion. Twenty-three new baseline entries record full named statements and construction/proof reading at Mathlib082e2d3, with exact modules, lines and file hashes.
 
-The four proved prototype tests cover the zero field, the nonzero rank-one unit field over any nontrivial ring, subsingleton coefficient modules and the explicit ℚ² field θ(e)=E12e⊗q0+E21e⊗q1. Its (q0∨,q1∨) contraction is E11 and differs from the reversed E22. The last field is not assumed integrable. These are actual affine tensor examples, not instantiated global geometric bundles. The rank-one affine test does not itself construct the full O(dx) geometric fixture.
+Fresh primary evidence: complete [Heuer Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4), including image algebra, canonical section and twisting, publisher HTML SHA256 f70c37b9ea04164e15efe2dfe2754cd5eb605adb008260000153ce279a9f4934. Complete [Liu–Zhu Theorem2.1(i)–(v), PDFp.7, and Lemma2.15 with proof, pp.18–19](https://arxiv.org/pdf/1602.06282v3), PDF SHA256 8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79. The source's logarithm/characteristic-polynomial nilpotence argument motivates the adapter; our tensor recurrence and coefficient proof are algebraic deductions, not misattributed printed results. No correspondence proof or other full-paper reading claimed. All accepted route contracts and findings are preserved; no new source error is asserted.
 
-## Fresh reading and ownership
+## Immutable proof and admitted sketch
 
-Read the full reviewed parent Hodge L0–L3 and E1/D3 target/evidence/duplicate rows, actual CR.1/E1/DD.1/D3 supplier stage descriptions, the reserved key and full current Hodge upstream README. Other upstream-style readings remain part of the continuous-session history. No dedicated PartII audit row exists. Exact index/source searches and complete named statements were read for finite basis coordinates/reconstruction, tensor induction/map/pure tensors/finite sums and the associator. Eight new baseline entries supplement74 preserved entries; generic tensor/basis objects are imported.
+The [immutable proof source](https://github.com/CBirkbeck/tauceti-explorer/blob/ea49500be7122dfa7b09c7128537d8a304dae405/research/blueprint/suggested/HodgeStructuresPartII.lean) restores the actual contraction/reconstruction/square prefix and appends all eleven actual new proofs and seven actual new tests. Its exact445-line narrow extraction includes14 examples and passes with zero errors,warnings or admissions. Twenty kernel axiom audits have no admission dependencies; only propext,Classical.choice and Quot.sound occur. Runtime3.00 seconds,maximum RSS2942916 KiB,67 GiB available before compile. Existing exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and Lean4.34.0-rc2 were used; one bounded process, no project/cache/library build/LSP.
 
-Fresh primary reading: complete printed [Heuer25 Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4), including the latter's contraction/image/canonical-section and twisting paragraph. Publisher HTML SHA256 0b74ce9469ea21b3eb640da1c4ee5d3b1adc18feff52cb319f405e4e5ee54719. No correspondence proof, arbitrary-N nilpotence proof or other paper's full reading is claimed. New algebraic formulas are deductions, not misattributed printed theorems.
+Proof SHA256:
 
-The reserved general Higgs/parameter-connection node is retained. Built parent Hodge theory remains imported. D3 owns common variations, CR.1 ordinary connections, E1 missing sheaf monoidal/finite-duality/descent interfaces, DD.1 filtered/Rees inputs, ColemanPowerSeries the generic Jacobi identity. Heuer spectral/coherent-image/twisting results stay with the p-adic consumer; all accepted BKT/Benoist/other route obligations remain.
+- Full immutable source: ea88d223a722d734a190368f979b3235f0da621a9e1ca9d904600b79e7e3dd9d.
+- Narrow extraction: 0bdf51d8056063efdc38796d1f76b09f39b0bf88fc7fdd7a93988263c5d1ea99.
+- Extraction with audits: cd5c5b3e1edbdd9be9ed60334fcdd79f6f9ad552574bdb99b5ebfcea81dfd61b.
+- Normalized audit log: 3a9f4aa995dbfa80b6ca5d4955ca53c9887e8a2cecba81a418ce85795901eb58.
 
-## Separate proof prototype
-
-The [pushed immutable proof prototype](https://github.com/CBirkbeck/tauceti-explorer/blob/a31c7908e2ba7455d333f1f4e25e07a6563f692b/research/blueprint/suggested/HodgeStructuresPartII.lean) contains actual proofs of the six new declarations and four new examples. It temporarily restores the historical affine-contraction proof and its three tests from9a36f4d, so the checked branch contains no admission dependencies. These proofs are separate from the submitted admitted sketch.
-
-The actual 206-line narrow extraction has seven examples (four new,three inherited) and passes with zero errors,warnings or admissions. Seven axiom audits cover affineContractions and all six new declarations. Dependencies are only propext,Classical.choice,Quot.sound; no admission axiom occurs. Runtime2.30 seconds,maximum RSS2897292 KiB,70 GiB available before compilation. Existing exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Lean4.34.0-rc2 were used with one bounded process.
-
-SHA256:
-
-- Full proof source: ff593d09cafb7b524f6391663792370769c026c37c904ee4397eaec8a538d054.
-- Narrow extraction: fc2dac59a3bcb423c8dd635aaddabe3114ab4152aeb1d50a5cd26c859c476a64.
-- Extraction plus audits: 3e7fec73d7d1766616ffaadd0e73754a0a4f50972c0ba7a552ef767ac2f10bb7.
-- Normalized proof log: eb652cfccfe9bb7b22359fbf3343b87ddf9ebe0eda9177160168f2ab24e11639.
-
-To reproduce, save and run the Python recipe below in a checkout containing the immutable proof commit. It extracts the exact suggested source, without injecting alternate proofs. Recipe SHA256 09318fcc37f31d485e6f3080557945b6b0b3a97d73f318c0025bac45052560c4. Run square-axioms.lean using lake env lean from an existing exact-pin build root, following WORKERS memory/process/time rules. Do not set up or build a project.
+To reproduce, run the following in a checkout containing the immutable commit, then elaborate iterate-axioms.lean from an already existing exact-pin build under WORKERS memory/process/time rules. The recipe extracts the source verbatim and injects only axiom print commands.
 
 ```python
 from pathlib import Path
 import subprocess
-commit = "a31c7908e2ba7455d333f1f4e25e07a6563f692b"
+commit = "ea49500be7122dfa7b09c7128537d8a304dae405"
 path = "research/blueprint/suggested/HodgeStructuresPartII.lean"
 s = subprocess.check_output(["git", "show", commit + ":" + path], text=True)
 imports = "\n".join(l for l in s.splitlines() if l.startswith("import Mathlib"))
@@ -50,24 +40,18 @@ a = s.index("namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle")
 b = s.index("/-- Affine adapter", a)
 fragment = imports + "\nopen scoped TensorProduct\nnoncomputable section\n" + s[a:b]
 fragment += "\nend TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle\n"
-Path("square-native.lean").write_text(fragment)
-names = ["affineContractions", "affineContractions_reconstruct", "affineOrderedSquare",
-         "affineOrderedSquare_apply", "affineOrderedSquare_zero",
-         "affineOrderedSquare_contraction", "affineOrderedSquare_eq_zero_iff"]
+Path("iterate-native.lean").write_text(fragment)
+names = ['affineContractions', 'affineContractions_apply', 'affineContractions_zero', 'affineContractions_reconstruct', 'affineOrderedSquare', 'affineOrderedSquare_apply', 'affineOrderedSquare_zero', 'affineOrderedSquare_contraction', 'affineOrderedSquare_eq_zero_iff', 'affineOrderedStep', 'affineOrderedIterate', 'affineOrderedIterate_zero', 'affineOrderedIterate_succ', 'affineOrderedStep_contraction', 'affineOrderedIterate_contraction', 'affineTensorPower_coordinate', 'affineOrderedIterate_eq_zero_iff', 'affineOrderedStep_zero', 'affineOrderedStep_add', 'affineOrderedIterate_zero_field']
 audits = "\n".join("#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle." + n for n in names)
-Path("square-axioms.lean").write_text(fragment + "\n" + audits + "\n")
+Path("iterate-axioms.lean").write_text(fragment + "\n" + audits + "\n")
 ```
 
-## Submitted sketch and assembly
+Under PROTOCOL section13 the current submitted signatures and examples have admitted bodies. The entire suggested file, all Mathlib imports, elaborates:73 examples,zero errors,184 admitted-declaration warnings,no other warnings. Runtime4.00 seconds,maximum RSS2937240 KiB,69 GiB available. The35 inherited global signature omissions remain; this does not certify them, global sheaf statements or any stage. No TauCeti compiled import set is required or claimed for this file.
 
-Under PROTOCOL section13, all six new declaration bodies and four examples are admitted; inherited suggested bodies are byte-preserved outside the new block/import. The entire submitted suggested file was elaborated directly, not merely an extraction:66 examples,zero errors,166 admitted-declaration warnings and no other warnings. Runtime4.20 seconds,maximum RSS2911904 KiB,70 GiB available. Every import is Mathlib; no TauCeti compiled import set is certified or needed for the displayed signatures. All35 inherited global signature omissions remain, so this receipt does not certify them, any sheaf construction or any stage. No setup/update/cache/build/LSP occurred.
+Submitted suggested SHA256 055c383caade3e28edf700be28447603ac43dcee5c6b9636063943234fbae24e; normalized log SHA256 16410b26a650f836ab34891268d4f172ca8adc9c55d4b72c97d7185464a1eb0d.
 
-Full suggested SHA256 40cf843adc56ed03be635eeccd9b169dca6df7f9f1466479ff2aedb5587ab24d; normalized sketch log SHA256 0363945c0e69da1d73906656f13dedd311a1f39b59bef35a1d86063e156797b2.
+## Validation and resume
 
-Indexed packet and actual five-file intake policy pass with zero errors/warnings; whitespace passes. Reader/native API/test presence and inherited mathematical/source preservation checks pass. The actual read-only assembler shows75 declarations/six planets, no own skipped/pending links and unchanged stage edges/other-roadmap skipped links. Stage DAG:3022 vertices (including51 existing virtual suppliers),8663 edges. Own prerequisite DAG:75 vertices,147 edges. Combined stage/declaration/request DAG:3092 vertices,8929 edges,76 reachable declarations. All acyclic,zero unresolved references and all21 required stage pairs reachable. No site or atlas outputs were written.
+Indexed packet and five-file intake/whitespace checks pass. Reader includes each new statement, input, API and test; predecessor mathematical/source/owner preservation passes. Actual read-only atlas assembly gives88 declaration nodes/six planets, no own pending or skipped links, unchanged stage edges and unrelated deferred links. The stage/planet DAG has3022 vertices,8663 edges,including51 existing virtual supplier endpoints. The own prerequisite DAG has88 vertices,168 edges. The combined stage/planet plus scoped prerequisite graph has3105 vertices,8869 edges and89 reachable declarations; no node-to-realises attachment is inserted. All acyclic,zero unresolved references. No atlas/site output was written.
 
-## Resume
-
-Extend the explicit ordered coefficient proof to arbitrary N with the existing native tensor-power/basis interfaces, keeping the newest coefficient on the left and the N=0 identity boundary. Add change-of-chart/restriction equations and local equality detection, then discharge the E1 sheaf tensor-power/gluing bridge. The N=2 result is not the full ordered-coordinate theorem or the augmentation/sheaf equivalence.
-
-Continue the exact canonical TauCeti augmentation bridge only when a matching existing compiled import set is available, without building one. Preserve the noncommutative End target, same exponent and source ideal. Establish field/reduced-base rank bounds with genuine hypotheses; Z/4 rank-one prevents an unconditional shortcut. Discharge CR.1 ordinary/exterior comparison,DD.1 Griffiths/Rees and unbounded period/Tate adapters,global determinant/descent and coefficient equivariance. Read/decompose all remaining routed source definitions/proofs before advancing H.1–H.8. No reserved-key closure is claimed.
+Next establish change-of-chart and scalar/restriction compatibility, identify the native degree-two tensor power with the existing Q⊗Q square, then apply E1 sheaf tensor-power/equality-detection/gluing contracts. The global ordered-coordinate theorem remains open despite its checked all-N affine calculation. Resume the canonical TauCeti augmentation bridge only with an existing exact compiled import set; do not build it. Keep same exponent, source ideal and noncommutative End target. Supply field/reduced-ring rank bounds with genuine hypotheses, coefficient/Tate equivariance, CR.1/DD.1/period adapters, global determinant/descent, and source-decompose remaining routes before advancing H.1–H.8. Scratch is deleted after PR submission; the immutable proof recipe and receipts above preserve the reproducible work.
