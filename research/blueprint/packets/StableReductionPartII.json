@@ -14964,6 +14964,87 @@
       ],
       "StableReductionPartII:MC.2/section-dual-correction-product": [
         "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualCorrectionMap_product"
+      ],
+      "StableReductionPartII:MC.2/section-ideal-syzygy": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionIdealSyzygy"
+      ],
+      "StableReductionPartII:MC.2/polynomial-coordinate-first-generator": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.polynomialCoordinates_first"
+      ],
+      "StableReductionPartII:MC.2/polynomial-coordinate-coefficient": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.polynomialCoordinates_of"
+      ],
+      "StableReductionPartII:MC.2/polynomial-coordinate-root": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.polynomialCoordinates_root"
+      ],
+      "StableReductionPartII:MC.2/polynomial-coordinate-numerator-multiplication": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.polynomialCoordinates_numerator_mul"
+      ],
+      "StableReductionPartII:MC.2/section-dual-syzygy": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionDualSyzygy"
+      ],
+      "StableReductionPartII:MC.2/section-ideal-presentation": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.idealPresentation"
+      ],
+      "StableReductionPartII:MC.2/section-ideal-presentation-formula": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.idealPresentation_apply"
+      ],
+      "StableReductionPartII:MC.2/section-ideal-presentation-surjective": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.idealPresentation_surjective"
+      ],
+      "StableReductionPartII:MC.2/section-matrix-right-action": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.right_mulVec"
+      ],
+      "StableReductionPartII:MC.2/section-matrix-left-action": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.left_mulVec"
+      ],
+      "StableReductionPartII:MC.2/section-ideal-presentation-kernel": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.idealPresentation_kernel"
+      ],
+      "StableReductionPartII:MC.2/section-dual-presentation": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualPresentation"
+      ],
+      "StableReductionPartII:MC.2/section-dual-presentation-formula": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualPresentation_apply"
+      ],
+      "StableReductionPartII:MC.2/section-dual-presentation-surjective": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualPresentation_surjective"
+      ],
+      "StableReductionPartII:MC.2/section-dual-presentation-zero": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualPresentation_zero_iff"
+      ],
+      "StableReductionPartII:MC.2/section-dual-presentation-kernel": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualPresentation_kernel"
+      ],
+      "StableReductionPartII:MC.2/section-ideal-cokernel-generators": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.cokernelIdealGenerators"
+      ],
+      "StableReductionPartII:MC.2/section-ideal-cokernel-unique": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.cokernelIdealUnique"
+      ],
+      "StableReductionPartII:MC.2/section-dual-cokernel-generators": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.cokernelDualGenerators"
+      ],
+      "StableReductionPartII:MC.2/section-dual-cokernel-unique": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.cokernelDualUnique"
+      ],
+      "StableReductionPartII:MC.2/section-complex-left-exact": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.quotientLeftExact"
+      ],
+      "StableReductionPartII:MC.2/section-complex-right-exact": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.quotientRightExact"
+      ],
+      "StableReductionPartII:MC.2/section-matrix-transpose-left-action": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.transposeLeft_mulVec"
+      ],
+      "StableReductionPartII:MC.2/section-matrix-transpose-right-action": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.transposeRight_mulVec"
+      ],
+      "StableReductionPartII:MC.2/section-complex-transpose-left-exact": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.quotientTransposeLeftExact"
+      ],
+      "StableReductionPartII:MC.2/section-complex-transpose-right-exact": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.quotientTransposeRightExact"
       ]
     },
     "adapterBoundary": "The native archive proves the actual polynomial ring, ideal and dual coordinates, coefficient projection/flatness, ε/K, both ordered presentations and their prescribed cokernel equivalences, and all four kernel/image comparisons. Its 1505-line inherited proof prefix is byte-preserved. The submitted canonical bodies remain admitted under PROTOCOL §13; module-valued exchange, completion and moduli geometry are not supplied.",
@@ -14996,7 +15077,7 @@
       "otherPendingLinksMatchOriginal": true,
       "otherSkipsMatchOriginal": true,
       "unchangedNodeObjects": 157,
-      "scriptSha256": "b9fbb9a330908132d997e0a3f83a2de0bbc23f23ecf185b5829501d1d976109b"
+      "scriptSha256": "1e9842958da29eb1bbff197c4efb58fe01cf261e0e260288252f780a59c5f6c0"
     },
     "compilation": {
       "exit": 0,
@@ -16244,9 +16325,11 @@
       "otherPendingLinksMatchOriginal": true,
       "otherSkipsMatchOriginal": true,
       "unchangedNodeObjects": 157,
-      "scriptSha256": "b9fbb9a330908132d997e0a3f83a2de0bbc23f23ecf185b5829501d1d976109b"
+      "scriptSha256": "1e9842958da29eb1bbff197c4efb58fe01cf261e0e260288252f780a59c5f6c0"
     },
     "archiveCommit": "5cf0343f7edeab7223ed8366d75a3a502e7b0181",
-    "boundary": "Ordinary alternating and transpose exactness and both prescribed native polynomial cokernels are checked. Arbitrary-module tensor/Hom/Ext, biduality, completion and family/stack geometry remain open; all implementation statuses unchecked."
+    "boundary": "Ordinary alternating and transpose exactness and both prescribed native polynomial cokernels are checked. Arbitrary-module tensor/Hom/Ext, biduality, completion and family/stack geometry remain open; all implementation statuses unchecked.",
+    "publicationBase": "bcc37efa667a1f3c521b0d8e2407b9eda3fa87e6",
+    "publicationInputGuard": "All five deliverables, binding instructions, reviewed library audit, exact key ownership and both consumer extraction inputs byte-identical to the research base."
   }
 }

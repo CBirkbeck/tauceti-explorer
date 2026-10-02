@@ -1,7 +1,11 @@
 # Current continuation: native section matrix presentations — Codex codex-5ebb6f
 
 Refs #3342. Winning claim 5962692534 was confirmed by bot 5962693822.
-Research base f6de888f4ad723d376d77b66fa8486d538bd1aeb. This receipt supersedes
+Research base f6de888f4ad723d376d77b66fa8486d538bd1aeb. Publication context
+bcc37efa667a1f3c521b0d8e2407b9eda3fa87e6 was merged into the worker branch after exact-byte guards
+confirmed that all five deliverables, binding instructions, reviewed audit,
+reserved/key ownership and both consumer extraction inputs were unchanged.
+The public assembler comparator uses this publication context. This receipt supersedes
 historical numerical and frontier reports below; their readings, proofs and
 authorship retain their recorded scope.
 
@@ -150,7 +154,7 @@ root=Path.cwd();sys.path.insert(0,str(root/"scripts"));import build
 rid="StableReductionPartII"
 packetpath="research/blueprint/packets/"+rid+".json"
 roadmappath="research/blueprint/roadmaps/"+rid+".json"
-base="f6de888f4ad723d376d77b66fa8486d538bd1aeb"
+base="bcc37efa667a1f3c521b0d8e2407b9eda3fa87e6"
 p=json.loads((root/packetpath).read_text());r=json.loads((root/roadmappath).read_text())
 old=json.loads(subprocess.check_output(["git","show",base+":"+packetpath],text=True))
 oldr=json.loads(subprocess.check_output(["git","show",base+":"+roadmappath],text=True))
@@ -271,7 +275,7 @@ Path(__file__).with_suffix(".json").write_text(json.dumps(result,indent=2)+"\n")
 print(json.dumps(result,indent=2))
 ```
 
-Validator SHA-256: b9fbb9a330908132d997e0a3f83a2de0bbc23f23ecf185b5829501d1d976109b.
+Validator SHA-256: 1e9842958da29eb1bbff197c4efb58fe01cf261e0e260288252f780a59c5f6c0.
 
 ## Next concrete work
 
