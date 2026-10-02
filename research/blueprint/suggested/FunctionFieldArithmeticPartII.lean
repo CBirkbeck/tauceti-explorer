@@ -1,3 +1,6 @@
+import Mathlib.GroupTheory.Perm.Fin
+import Mathlib.Algebra.BigOperators.Intervals
+import Mathlib.Data.Nat.ModEq
 import Mathlib.Data.Finset.Prod
 import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 import Mathlib.Algebra.Field.ZMod
@@ -1861,3 +1864,101 @@ example :
     Module.finrank ℚ (LinearMap.ker (affineTorsorComparison (0 : ℚ) 4).toLinearMap) = 6 := by
   sorry
 end TauCeti.RootStack
+
+/- BEGIN NATIVE ROOT DETERMINANT DEPENDENCIES -/
+namespace TauCeti.RootStack
+variable {A : Type u} [CommRing A]
+
+lemma affineTorsorComparison.coefficientPermutation_rows (n : ℕ) [NeZero n] :
+    coefficientPermutation n = Equiv.prodCongrRight (fun i : Fin n => finCycle i) := by
+  sorry
+
+lemma affineTorsorComparison.coefficientPermutation_sign (n : ℕ) [NeZero n] :
+    Equiv.Perm.sign (coefficientPermutation n) =
+      (-1 : ℤˣ) ^ ((n - 1) * (n * (n - 1) / 2)) := by
+  sorry
+
+lemma affineTorsorComparison.weight_exponent (n : ℕ) [NeZero n]
+    (p : Fin n × Fin n) :
+    (p.1.val + p.2.val) / n = if n ≤ p.1.val + p.2.val then 1 else 0 := by
+  sorry
+
+lemma affineTorsorComparison.weight_product (f : A) (n : ℕ) [NeZero n] :
+    (∏ p : Fin n × Fin n, f ^ ((p.1.val + p.2.val) / n)) =
+      f ^ (n * (n - 1) / 2) := by
+  sorry
+
+lemma affineTorsorComparison.matrix_reindex (f : A) (n : ℕ) [NeZero n] :
+    let M : Matrix (Fin n × Fin n) (Fin n × Fin n) A :=
+      fun r c => if r.1 = c.1 ∧ r.2.val = (c.1.val + c.2.val) % n
+        then f ^ ((c.1.val + c.2.val) / n) else 0
+    M = (Matrix.diagonal (fun c : Fin n × Fin n =>
+      f ^ ((c.1.val + c.2.val) / n))).submatrix (coefficientPermutation n).symm id := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_rows.test_wrap
+example : affineTorsorComparison.coefficientPermutation 4 (3, 3) = (3, 2) := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_sign.test_two
+example : Equiv.Perm.sign (affineTorsorComparison.coefficientPermutation 2) = (-1 : ℤˣ) := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_sign.test_three
+example : Equiv.Perm.sign (affineTorsorComparison.coefficientPermutation 3) = (1 : ℤˣ) := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.weight_exponent.test_wrap
+example : ((1 : Fin 2).val + (1 : Fin 2).val) / 2 = 1 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.weight_exponent.test_nonwrap
+example : ((0 : Fin 2).val + (1 : Fin 2).val) / 2 = 0 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.weight_product.test_nonunit
+example : (∏ p : Fin 2 × Fin 2, (2 : ℤ) ^ ((p.1.val + p.2.val) / 2)) = 2 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.matrix_reindex.test_weight
+example (f : A) :
+    (let M : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) A :=
+      fun r c => if r.1 = c.1 ∧ r.2.val = (c.1.val + c.2.val) % 2
+        then f ^ ((c.1.val + c.2.val) / 2) else 0
+     M (1, 0) (1, 1)) = f := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.determinant.test_exponent_one
+example (f : A) :
+    (let M : Matrix (Fin 1 × Fin 1) (Fin 1 × Fin 1) A :=
+      fun r c => if r.1 = c.1 ∧ r.2.val = (c.1.val + c.2.val) % 1
+        then f ^ ((c.1.val + c.2.val) / 1) else 0
+     Matrix.det M) = 1 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.determinant.test_three
+example (f : A) :
+    (let M : Matrix (Fin 3 × Fin 3) (Fin 3 × Fin 3) A :=
+      fun r c => if r.1 = c.1 ∧ r.2.val = (c.1.val + c.2.val) % 3
+        then f ^ ((c.1.val + c.2.val) / 3) else 0
+     Matrix.det M) = f ^ 3 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.determinant.test_zero_ring
+example :
+    (let M : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) (ZMod 1) :=
+      fun r c => if r.1 = c.1 ∧ r.2.val = (c.1.val + c.2.val) % 2
+        then (0 : ZMod 1) ^ ((c.1.val + c.2.val) / 2) else 0
+     Matrix.det M) = 0 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.determinant.test_wild
+example :
+    (let M : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) (ZMod 2) :=
+      fun r c => if r.1 = c.1 ∧ r.2.val = (c.1.val + c.2.val) % 2
+        then (1 : ZMod 2) ^ ((c.1.val + c.2.val) / 2) else 0
+     Matrix.det M) = 1 := by
+  sorry
+
+end TauCeti.RootStack
+/- END NATIVE ROOT DETERMINANT DEPENDENCIES -/
