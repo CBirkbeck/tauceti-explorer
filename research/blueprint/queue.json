@@ -33437,7 +33437,8 @@
     "REV-PAPER-KISIN-ZHOU-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KISIN-ZHOU-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4040"
   },
   {
    "id": "RT-PAPER-CESNAVICIUS-SCHOLZE-24",
@@ -33639,7 +33640,8 @@
     "REV-PAPER-LANDESMAN-LITT-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LANDESMAN-LITT-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4049"
   },
   {
    "id": "RT-PAPER-BERGSTROM-FABER-PAYNE-24",
@@ -37664,8 +37666,9 @@
     "REV-PAPER-XU-ZHU-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-XU-ZHU-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4165"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4165",
+   "finishedAt": "2026-10-02T05:27:27Z"
   },
   {
    "id": "RT-PAPER-CASTELLA-ETAL-22",
