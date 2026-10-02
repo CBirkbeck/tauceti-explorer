@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Continuation of the verified prime-filtration baseline, now refining the R03.4 characteristic-zero-point argument into five declaration-sized nodes. The new proof separates nilpotent-uniformizer Artinianness, coefficient injection at a generic prime, an algebraically closed point with the exact kernel, finiteness of its field of values, and the integral local-map assembly. It does not assume flatness, a fixed residue field, or an unproved framed-lifting assertion. The complete local-field interpretation remains a required comparison with its existing owner, not a prerequisite of the algebraic theorem. Earlier baseline records and other-stage worklists are retained; the eight-stage blueprint remains partial. A further continuation adds four R03.3 nodes answering R03.6's requests: the catenary predicate with the Noetherian-local dimension-function criterion (Stacks 0ECF), Cohen–Macaulayness of regular local rings, and freeness of maximal-depth modules over a regular local base (Stacks 00NT, 00O7), with the domain property of regular local rings recorded as a gap. Continuation of 2 October 2026 plans the reserved general Hilbert–Samuel multiplicity once in R03.3, with actual module quotient lengths, cumulative polynomial, intrinsic and ambient normalizations, finite-difference integrality, ideal-power scaling, dimension-normalized additivity and associativity. Its proof leaves and geometric comparisons remain explicit gaps; all nine earlier nodes, source receipts and existing stage coverage are preserved. Continuation by Codex — codex-J6LwjP develops the P7 minimal-complex strand over arbitrary local rings, using the existing K-projective/homotopy API. Thirteen new nodes separate perfectness, pseudo-coherence, minimality, cancellation, minimal representatives, uniqueness, residual ranks, three-term splitting and residual perfectness/Nakayama. Existing 23 nodes and all eight source obligations remain; derived tensor comparison and remaining P7 theories are explicit proof gaps. Four further P7 proof nodes give finite tail approximation, finite-perfect Hom/filtered-colimit comparison, functorial lower-bounded replacement and the uniformly lower-bounded pseudo-coherent Hom theorem required by reviewed Boxer–Pilloni E26. These use existing linear Hom complexes and module AB5; the scheme application remains with its owner. Continuation by codex-rtOQ9t separates and source-closes the positivity deduction into four R03.3 lemmas: natural-tail polynomial sign, finite positive adic lengths, nonzero cumulative polynomial and positive leading coefficient. The existing degree and intrinsic positivity/integrality nodes consume this chain; the eventual-polynomial construction and other fourteen gap groups remain explicit.",
+  "summary": "Continuation of the verified prime-filtration baseline, now refining the R03.4 characteristic-zero-point argument into five declaration-sized nodes. The new proof separates nilpotent-uniformizer Artinianness, coefficient injection at a generic prime, an algebraically closed point with the exact kernel, finiteness of its field of values, and the integral local-map assembly. It does not assume flatness, a fixed residue field, or an unproved framed-lifting assertion. The complete local-field interpretation remains a required comparison with its existing owner, not a prerequisite of the algebraic theorem. Earlier baseline records and other-stage worklists are retained; the eight-stage blueprint remains partial. A further continuation adds four R03.3 nodes answering R03.6's requests: the catenary predicate with the Noetherian-local dimension-function criterion (Stacks 0ECF), Cohen–Macaulayness of regular local rings, and freeness of maximal-depth modules over a regular local base (Stacks 00NT, 00O7), with the domain property of regular local rings recorded as a gap. Continuation of 2 October 2026 plans the reserved general Hilbert–Samuel multiplicity once in R03.3, with actual module quotient lengths, cumulative polynomial, intrinsic and ambient normalizations, finite-difference integrality, ideal-power scaling, dimension-normalized additivity and associativity. Its proof leaves and geometric comparisons remain explicit gaps; all nine earlier nodes, source receipts and existing stage coverage are preserved. Continuation by Codex — codex-J6LwjP develops the P7 minimal-complex strand over arbitrary local rings, using the existing K-projective/homotopy API. Thirteen new nodes separate perfectness, pseudo-coherence, minimality, cancellation, minimal representatives, uniqueness, residual ranks, three-term splitting and residual perfectness/Nakayama. Existing 23 nodes and all eight source obligations remain; derived tensor comparison and remaining P7 theories are explicit proof gaps. Four further P7 proof nodes give finite tail approximation, finite-perfect Hom/filtered-colimit comparison, functorial lower-bounded replacement and the uniformly lower-bounded pseudo-coherent Hom theorem required by reviewed Boxer–Pilloni E26. These use existing linear Hom complexes and module AB5; the scheme application remains with its owner. Continuation by codex-rtOQ9t separates and source-closes the positivity deduction into four R03.3 lemmas: natural-tail polynomial sign, finite positive adic lengths, nonzero cumulative polynomial and positive leading coefficient. The existing degree and intrinsic positivity/integrality nodes consume this chain; the eventual-polynomial construction and other fourteen gap groups remain explicit. The codex-a71f92 cumulative continuation adds eight declaration-sized nodes: native graded lengths, exact transition length, cumulative extended and finite-natural identities, finite graded lengths, a normalized rational summation polynomial, its evaluation and the conditional graded-to-cumulative polynomial theorem. It narrows two proof-gap groups without asserting graded polynomiality, closing a stage or changing the reserved multiplicity owner.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -710,6 +710,146 @@
         "module": "Mathlib/RingTheory/Ideal/Operations.lean",
         "provides": "An ideal is contained in its radical.",
         "checked": "Actual complete declaration statement and applicable context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Submodule.powSMulQuotInclusion",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/PowTransition.lean",
+        "provides": "Native inclusion of the quotient of I^a N by I^b times its top into M/I^(b+a)N.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Submodule.powSMulQuotInclusion_mk",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/PowTransition.lean",
+        "provides": "The native inclusion sends a subtype quotient class to its ambient quotient class.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Submodule.powSMulQuotInclusion_injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/PowTransition.lean",
+        "provides": "Injectivity for the native submodule-power quotient inclusion.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Submodule.range_powSMulQuotInclusion",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/PowTransition.lean",
+        "provides": "Its range is the image of I^a N under the ambient quotient map.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Submodule.factorPowSucc",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/PowTransition.lean",
+        "provides": "The native map M/I^(n+1)M to M/I^nM.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Submodule.pow_smul_top_le",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/PowTransition.lean",
+        "provides": "Ideal-power top submodules decrease when the exponent increases.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Submodule.ker_mapQ",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "Kernel of a quotient-induced linear map is the image of the target submodule's preimage.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Submodule.factor_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "A quotient map induced by nested submodules is surjective.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Module.length_le_of_injective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "An injective linear map bounds the source's extended length by the target's length.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Module.isTorsionBySet_quotient_ideal_smul",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Module/Torsion/Basic.lean",
+        "provides": "The quotient of a module by I times top is annihilated by I.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Module.IsTorsionBySet.module",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Torsion/Basic.lean",
+        "provides": "Native quotient-ring module action on a module annihilated by an ideal.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Module.Quotient.mk_smul_mk",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Module/Torsion/Basic.lean",
+        "provides": "The quotient ideal class acts on a quotient module class by the original scalar action.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:ENat.toNat_add",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ENat/Basic.lean",
+        "provides": "toNat preserves addition when both summands are not infinity.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Polynomial.bernoulli",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+        "provides": "Bernoulli polynomials over the rationals with the pinned negative-number convention.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Polynomial.bernoulli_eval_zero",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+        "provides": "Evaluation at zero gives the native Bernoulli number.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Polynomial.bernoulli_comp_one_add_X",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+        "provides": "Substitution 1+X gives B_n+n times X^(n−1).",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Polynomial.sum_range_pow_eq_bernoulli_sub",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+        "provides": "(p+1) times the rational sum of k^p over k<n equals B_(p+1)(n)−B_(p+1)(0).",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Polynomial.as_sum_support_C_mul_X_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Support.lean",
+        "provides": "Finite coefficient-support expansion into C(coeff_i) times X^i.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Polynomial.eval_comp",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "Evaluation of a polynomial composition is successive evaluation.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Source inspection only; no elaboration claim."
+      },
+      {
+        "ref": "mathlib:Module.IsTorsionBySet.isScalarTower",
+        "kind": "instance",
+        "module": "Mathlib/Algebra/Module/Torsion/Basic.lean",
+        "provides": "Explicit native scalar-tower compatibility for the quotient-ring action on an ideal-annihilated module.",
+        "checked": "Statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92. Install this tower with the native torsion witness where needed; no new action is planned."
       }
     ]
   },
@@ -1163,6 +1303,31 @@
         "Opening actual quotient-length conventions, Definition10.59.8 and the leading-coefficient argument in Lemma10.59.10. The positivity deduction here supplies a detailed proof of the nonnegative-coefficient observation; no fresh complete rereading of every inherited paper is claimed."
       ],
       "accessDate": "2026-10-02"
+    },
+    {
+      "id": "HS-CUMUL-PIN",
+      "title": "Pinned adic quotient inclusions, exactness and length",
+      "authors": "Mathlib contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Quotient/PowTransition.lean",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "PowTransition.lean: entire file, especially factorPowSucc and powSMulQuotInclusion, its class formula, injectivity and range.",
+        "Length.lean: length_eq_add_of_exact, length_le_of_injective, length_eq_of_surjective and ambient parameters; Quotient/Basic.lean: mapQ, ker_mapQ, factor and factor_surjective.",
+        "Torsion/Basic.lean: quotient-by-ideal action and scalar compatibility, lines 552–595 and 620–667; ENat/Basic.lean: toNat_add."
+      ]
+    },
+    {
+      "id": "HS-SUM-PIN",
+      "title": "Pinned Bernoulli power sums and rational polynomial expansion",
+      "authors": "Mathlib contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/BernoulliPolynomials.lean",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "BernoulliPolynomials.lean: definition, zero and one examples, evaluation at zero, complete sum_range_pow_eq_bernoulli_sub proof, bernoulli_succ_eval, bernoulli_comp_one_add_X and bernoulli_eval_one_add.",
+        "Polynomial/Degree/Support.lean: as_sum_support_C_mul_X_pow and ambient semiring parameters; Polynomial/Eval/Defs.lean: eval_comp and elementary evaluation statements."
+      ]
     }
   ],
   "nodes": [
@@ -1903,10 +2068,10 @@
         "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated."
       ],
       "proofSteps": [
-        "The associated-graded bridge gap supplies gr_q(A), gr_q(M), Noetherianity, generation of the ring in degree one, finite generation of the graded module, and the coefficient lengths φ(n)=length(q^nM/q^(n+1)M). These are genuine missing module-to-series inputs, not supplied by Polynomial.hilbertPoly.",
-        "The graded numerical-polynomial theorem gap follows the inspected induction of Stacks 10.58.7: isolate the largest x-power-torsion submodule, terminate its nilpotent filtration, then use the degree-one multiplication exact sequence on the torsion-free quotient. Finite differences reconstruct the coefficient polynomial.",
-        "The cumulative-sum gap supplies H(n)=Σ_{i=0}^n φ(i) using the quotient filtration and length exactness. Apply the binomial antidifference of Stacks 10.58.5, retaining the constant contributed by the initial segment.",
-        "Uniqueness uses Polynomial.eq_of_infinite_eval_eq on the infinite tail of distinct rational natural-number casts. Finite-adic-quotient-length validates the conversion of every eventual length to ℚ."
+        "The associated-graded ring/module gap supplies gr_q(A), gr_q(M), multiplication, Noetherianity, degree-one ring generation and finite graded-module generation. Its degree-n carrier is the native G_n in graded-hilbert-function; no increasing word-filtration carrier is substituted.",
+        "The remaining graded numerical-polynomial theorem follows the inspected induction of Stacks 10.58.7: stabilize the largest x-power-torsion submodule, terminate its nilpotent filtration, and prove the shifted degree-one multiplication exact sequences before induction on generators. This supplies Q∈ℚ[T] and N with Q(i)=φ(q,M,i).toNat for i≥N. These are still recorded gaps, not consequences of Polynomial.hilbertPoly.",
+        "Finite-graded-piece-length validates every coefficient conversion. Apply cumulative-polynomial-from-graded-tail to Q,N: P=S(Q)+Σ_{i<N}(φ(i).toNat−Q(i)) is the cumulative polynomial on n≥N. The new cumulative length and rational summation nodes account for this entire step; the finite initial constant is retained.",
+        "Uniqueness uses Polynomial.eq_of_infinite_eval_eq on the infinite tail of distinct rational natural-number casts. Finite-adic-quotient-length validates the cumulative values."
       ],
       "acceptance": [
         "For O a DVR and q=m, P=T+1, not T and not the constant 1.",
@@ -1914,9 +2079,9 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length",
-        "mathlib:Polynomial.eq_of_infinite_eval_eq",
-        "mathlib:Polynomial.hilbertPoly",
-        "mathlib:Polynomial.coeff_mul_invOneSubPow_eq_hilbertPoly_eval"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-graded-piece-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-polynomial-from-graded-tail",
+        "mathlib:Polynomial.eq_of_infinite_eval_eq"
       ],
       "sources": [
         {
@@ -1933,6 +2098,11 @@
           "sourceId": "STACKS-ANTIDIFFERENCE",
           "locator": "Lemma 10.58.5, complete proof",
           "match": "The initial constant survives summation; this is not the assertion that the polynomial vanishes at zero."
+        },
+        {
+          "sourceId": "HS-SUM-PIN",
+          "locator": "BernoulliPolynomials.lean, bernoulli, bernoulli_eval_zero, sum_range_pow_eq_bernoulli_sub",
+          "match": "The proposed rational summation adapter uses the pinned Bernoulli convention and the existing power-sum theorem, rather than planning Bernoulli polynomials again."
         }
       ],
       "library": {
@@ -3712,6 +3882,503 @@
         "namespace": "TauCeti.HilbertSamuel"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Graded Hilbert quotient-length function",
+      "kind": "definition",
+      "statement": "For F_n=q^n·top_M, use the native quotient G_n=F_n/(q·top_{F_n}). Define φ(q,M,n)=length_A(G_n) in ℕ∞. The subtype inclusion sends its denominator to q^(n+1)M, so this is the actual length of q^nM/q^(n+1)M. The already existing A/q-module structure on G_n is reused, not newly constructed.",
+      "hypotheses": [
+        "A is a commutative ring, M is an A-module, q is any ideal, and n is a natural number. No finiteness or local hypothesis is imposed unless stated."
+      ],
+      "proofSteps": [
+        "Take the existing ideal action, subtype module, submodule quotient and Module.length. The native powSMulQuotInclusion with a=n, b=1, c=n+1 identifies G_n with the kernel of M/q^(n+1)M→M/q^nM; its scalar maps are the native ones.",
+        "Module.isTorsionBySet_quotient_ideal_smul and the existing quotient module instance supply the A/q action. Module.Quotient.mk_smul_mk checks compatibility with A. Module.length_eq_of_surjective identifies the two lengths when the quotient action is used."
+      ],
+      "acceptance": [
+        "Do not replace φ(n) by H(n). Over a DVR they are 1 and n+1 for q=m.",
+        "Keep ∞ as ∞ until finite graded quotient length is established."
+      ],
+      "prerequisites": [
+        "mathlib:Module.length",
+        "mathlib:Submodule.powSMulQuotInclusion",
+        "mathlib:Module.isTorsionBySet_quotient_ideal_smul",
+        "mathlib:Module.Quotient.mk_smul_mk",
+        "mathlib:Module.length_eq_of_surjective",
+        "mathlib:Module.IsTorsionBySet.isScalarTower"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "§10.59 opening formulas, ideal-of-definition variant, and Proposition 10.59.5",
+          "match": "Use the actual graded quotient lengths and their cumulative sum; the graded and cumulative polynomials have different indexing."
+        },
+        {
+          "sourceId": "HS-CUMUL-PIN",
+          "locator": "PowTransition.lean, powSMulQuotInclusion and factorPowSucc; Length.lean, length_eq_add_of_exact",
+          "match": "Native inclusion and quotient-transition maps give a genuine exact sequence; no splitting or associated-graded direct-sum carrier is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.gradedFunction",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.gradedFunction_eq_length",
+          "role": "characterisation",
+          "statement": "φ(q,M,n)=length_A(F_n/(q·top_{F_n})) with the native subtype and quotient."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.gradedFunction_zero",
+          "role": "simp",
+          "statement": "If M=0 then φ(q,M,n)=0 for every q and n."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.gradedFunction_zero_degree",
+          "role": "compatibility",
+          "statement": "φ(q,M,0)=H(q,M,0), via F_0=top_M and the induced quotient equivalence."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.gradedFunction_congr",
+          "role": "functoriality",
+          "statement": "An A-linear equivalence M≃N preserves φ(q,-,n) for the same ideal q and every n."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.gradedFunction_top",
+          "role": "simp",
+          "statement": "For q=A the raw graded function is identically zero."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelGradedTest.field_rank",
+          "kind": "computation",
+          "statement": "For a field k, q=0 and M=k^r, φ(0,M,0)=r and φ(0,M,n+1)=0 for every n, including r=0."
+        },
+        {
+          "name": "HilbertSamuelGradedTest.dvr_power",
+          "kind": "computation",
+          "statement": "For a DVR O and q=m^s with s>0, φ(q,O,n)=s for every n, not s(n+1)."
+        },
+        {
+          "name": "HilbertSamuelGradedTest.zero",
+          "kind": "degenerate",
+          "statement": "For the zero A-module, φ(q,0,n)=0 for any q and n."
+        },
+        {
+          "name": "HilbertSamuelGradedTest.infinite",
+          "kind": "non-example",
+          "statement": "For A=ℤ, M=ℤ and q=0, φ(q,M,0)=∞ and φ(q,M,n+1)=0. Its cumulative extended length is still ∞; applying toNat before finiteness would destroy that information."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks §10.59 opening and Proposition 10.59.5",
+          "how": "Distinguish coefficient lengths from the cumulative function and supply the exact-sequence summation."
+        },
+        {
+          "where": "R03.3/eventual-hilbert-samuel-polynomial",
+          "how": "State the precise remaining graded polynomiality contract on actual quotient modules."
+        }
+      ],
+      "planet": {
+        "name": "Graded Hilbert function"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-length-step",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Length of one adic quotient transition",
+      "kind": "lemma",
+      "statement": "Put L_n=length_A(M/q^nM), so L_0=0. For every n, L_(n+1)=φ(q,M,n)+L_n in ℕ∞, with no finite-length hypothesis. This comes from 0→G_n→M/q^(n+1)M→M/q^nM→0.",
+      "hypotheses": [
+        "A is a commutative ring, M is an A-module, q is any ideal, and n is a natural number. No finiteness or local hypothesis is imposed unless stated."
+      ],
+      "proofSteps": [
+        "Set j_n=Submodule.powSMulQuotInclusion for a=n, b=1, c=n+1 and N=top; simplify q^1=q. Set π_n=Submodule.factorPowSucc q M n. The inclusion sends the class of x∈F_n to its class in M/q^(n+1)M.",
+        "The native inclusion theorem gives injectivity and range(j_n)=F_n.map(mkQ F_(n+1)). Submodule.ker_mapQ applied to the identity map gives this same submodule as ker(π_n). Submodule.factor_surjective gives surjectivity. Hence the range/kernel criterion gives Function.Exact j_n π_n.",
+        "Apply Module.length_eq_add_of_exact. No section, direct-sum decomposition or finite natural subtraction is used."
+      ],
+      "acceptance": [
+        "For M=ℤ/4 and q=(2), the n=1 transition has length 2=1+1 but is nonsplit as an ℤ-module sequence.",
+        "At n=0 the right-hand quotient is M/M, and the equation is H(0)=φ(0)+0."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function",
+        "mathlib:Submodule.powSMulQuotInclusion_injective",
+        "mathlib:Submodule.range_powSMulQuotInclusion",
+        "mathlib:Submodule.powSMulQuotInclusion_mk",
+        "mathlib:Submodule.factorPowSucc",
+        "mathlib:Submodule.ker_mapQ",
+        "mathlib:Submodule.factor_surjective",
+        "mathlib:Module.length_eq_add_of_exact"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "§10.59 opening formulas, ideal-of-definition variant, and Proposition 10.59.5",
+          "match": "Use the actual graded quotient lengths and their cumulative sum; the graded and cumulative polynomials have different indexing."
+        },
+        {
+          "sourceId": "HS-CUMUL-PIN",
+          "locator": "PowTransition.lean, powSMulQuotInclusion and factorPowSucc; Length.lean, length_eq_add_of_exact",
+          "match": "Native inclusion and quotient-transition maps give a genuine exact sequence; no splitting or associated-graded direct-sum carrier is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.quotient_length_succ"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-graded-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Cumulative length is the sum of graded lengths",
+      "kind": "theorem",
+      "statement": "For every commutative ring A, A-module M, ideal q and n≥0, H(q,M,n)=Σ_{i=0}^n φ(q,M,i) in ℕ∞. The finite sum includes i=0 and i=n.",
+      "hypotheses": [
+        "A is a commutative ring, M is an A-module, q is any ideal, and n is a natural number. No finiteness or local hypothesis is imposed unless stated."
+      ],
+      "proofSteps": [
+        "Start at L_0=length(M/M)=0. Induct on n using adic-quotient-length-step and the finite-sum recursion.",
+        "Identify L_(n+1) with the existing H(q,M,n). Associativity and commutativity of extended-natural addition suffice even when a graded length is infinite."
+      ],
+      "acceptance": [
+        "For a field and q=0, only degree zero contributes, so the cumulative value is rank(M), not zero.",
+        "For ℤ and q=0 the degree-zero ∞ survives every cumulative sum."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-length-step",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "§10.59 opening formulas, ideal-of-definition variant, and Proposition 10.59.5",
+          "match": "Use the actual graded quotient lengths and their cumulative sum; the graded and cumulative polynomials have different indexing."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.function_eq_sum_graded"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/finite-graded-piece-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Finiteness of each graded quotient length",
+      "kind": "lemma",
+      "statement": "Under the local Noetherian finite-module hypotheses and radical(q)=m, φ(q,M,n)≠∞ for every n.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m, M is a finite A-module, and radical(q)=m."
+      ],
+      "proofSteps": [
+        "The native inclusion j_n:G_n→M/q^(n+1)M is injective. Module.length_le_of_injective bounds φ(n) by H(n).",
+        "The existing finite-adic-quotient-length node proves H(n)≠∞. The order bound gives φ(n)≠∞. This argument does not require an associated-graded ring, Hilbert–Serre theorem, or polynomial-existence node."
+      ],
+      "acceptance": [
+        "The zero module is allowed.",
+        "For ℤ with q=0 the local ideal-of-definition hypotheses fail; φ(0)=∞ is not coerced to zero."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length",
+        "mathlib:Submodule.powSMulQuotInclusion_injective",
+        "mathlib:Module.length_le_of_injective"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "§10.59 opening formulas, ideal-of-definition variant, and Proposition 10.59.5",
+          "match": "Use the actual graded quotient lengths and their cumulative sum; the graded and cumulative polynomials have different indexing."
+        },
+        {
+          "sourceId": "HS-CUMUL-PIN",
+          "locator": "PowTransition.lean, powSMulQuotInclusion and factorPowSucc; Length.lean, length_eq_add_of_exact",
+          "match": "Native inclusion and quotient-transition maps give a genuine exact sequence; no splitting or associated-graded direct-sum carrier is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.gradedFunction_ne_top"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-natural-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Finite cumulative length conversion",
+      "kind": "lemma",
+      "statement": "If φ(q,M,i)≠∞ for every i, then H(q,M,n).toNat=Σ_{i=0}^n φ(q,M,i).toNat for every n. In particular this applies under the local Noetherian finite-module ideal-of-definition hypotheses, by finite-graded-piece-length.",
+      "hypotheses": [
+        "A is a commutative ring, M is an A-module, q is any ideal, and n is a natural number. No finiteness or local hypothesis is imposed unless stated.",
+        "Every graded length is finite; the theorem also accepts this directly as a hypothesis outside the local regime."
+      ],
+      "proofSteps": [
+        "Use cumulative-graded-length. Inductively each finite partial sum in ℕ∞ is finite.",
+        "Apply ENat.toNat_add only after proving both summands finite at that step. Iterate the identity; natural and rational cast sums are routine."
+      ],
+      "acceptance": [
+        "The excluded ℤ,q=0 example has an infinite degree-zero term, so toNat(∞)=0 is not a proof of this finite-length conversion.",
+        "For a DVR with q=m^s, obtain H(n).toNat=(n+1)s."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-graded-length",
+        "mathlib:ENat.toNat_add"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "§10.59 opening formulas, ideal-of-definition variant, and Proposition 10.59.5",
+          "match": "Use the actual graded quotient lengths and their cumulative sum; the graded and cumulative polynomials have different indexing."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.function_toNat_eq_sum_graded"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/summatory-polynomial",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Normalized rational summation polynomial",
+      "kind": "construction",
+      "statement": "For P∈ℚ[T], define S(P)=Σ_{j∈support(P)} (coeff_j(P)/(j+1))·(B_(j+1)(T+1)−B_(j+1)(0)), where B_j is the existing Mathlib Bernoulli polynomial. This normalization sums P(0),…,P(n), not P(1),…,P(n), and has S(P)(−1)=0.",
+      "hypotheses": [
+        "P is a rational polynomial. The positive denominator j+1 is inverted in ℚ, not in a general coefficient ring."
+      ],
+      "proofSteps": [
+        "Use Polynomial.bernoulli, polynomial substitution, rational constants and a finite coefficient-support sum. No Bernoulli object or binomial-polynomial structure is newly planned.",
+        "The native bernoulli_eval_zero fixes the normalization. The native power-sum theorem and coefficient expansion supply the separately named evaluation lemma. The native bernoulli_comp_one_add_X verifies the forward difference.",
+        "For uniqueness among polynomials with the same forward difference and value at −1, compare evaluations recursively at 0,1,… and use the pinned infinite-evaluation equality theorem. This is an API characterization, not an assumption used to define S."
+      ],
+      "acceptance": [
+        "S(1)=T+1, S(T)=T(T+1)/2 and S(0)=0.",
+        "S(P)(−1)=0 fixes the arbitrary constant before the actual filtration initial segment is restored."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.bernoulli",
+        "mathlib:Polynomial.bernoulli_eval_zero",
+        "mathlib:Polynomial.bernoulli_comp_one_add_X",
+        "mathlib:Polynomial.eq_of_infinite_eval_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-SUM-PIN",
+          "locator": "BernoulliPolynomials.lean, bernoulli, bernoulli_eval_zero, sum_range_pow_eq_bernoulli_sub",
+          "match": "The proposed rational summation adapter uses the pinned Bernoulli convention and the existing power-sum theorem, rather than planning Bernoulli polynomials again."
+        },
+        {
+          "sourceId": "STACKS-ANTIDIFFERENCE",
+          "locator": "Lemma 10.58.5, complete proof",
+          "match": "Retain the constant contributed by the finite initial segment. The rational Bernoulli adapter supplies the polynomial summation needed here; this does not replace the general abelian-group-valued numerical-polynomial theory."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.summatoryPolynomial",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.summatoryPolynomial_eq",
+          "role": "characterisation",
+          "statement": "S(P) is the displayed finite sum of Bernoulli substitutions with coefficient_j(P)/(j+1)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.summatoryPolynomial_zero",
+          "role": "simp",
+          "statement": "S(0)=0."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.summatoryPolynomial_add",
+          "role": "functoriality",
+          "statement": "S(P+Q)=S(P)+S(Q) for rational polynomials P and Q."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.summatoryPolynomial_smul",
+          "role": "functoriality",
+          "statement": "For c∈ℚ and P∈ℚ[T], S(c·P)=c·S(P)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.summatoryPolynomial_C",
+          "role": "simp",
+          "statement": "For c∈ℚ, S(c)=c(T+1)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.summatoryPolynomial_eval_neg_one",
+          "role": "simp",
+          "statement": "S(P)(−1)=0 for every P."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.summatoryPolynomial_difference",
+          "role": "relation",
+          "statement": "S(P)(T+1)−S(P)(T)=P(T+1) as rational polynomials."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.summatoryPolynomial_unique",
+          "role": "characterisation",
+          "statement": "If R(−1)=0 and R(T+1)−R(T)=P(T+1), then R=S(P)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelSumTest.zero",
+          "kind": "degenerate",
+          "statement": "S(0)=0, including evaluation at every natural number."
+        },
+        {
+          "name": "HilbertSamuelSumTest.one",
+          "kind": "computation",
+          "statement": "S(1)=T+1 and S(1)(0)=1."
+        },
+        {
+          "name": "HilbertSamuelSumTest.linear",
+          "kind": "computation",
+          "statement": "S(T)=T(T+1)/2; in particular S(T)(3)=6."
+        },
+        {
+          "name": "HilbertSamuelSumTest.normalization",
+          "kind": "non-example",
+          "statement": "For P=1, the polynomial T has the same forward difference as S(P), but T(−1)=−1 and T(0)=0; it is not S(P)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks Proposition 10.59.5 and Lemma 10.58.5",
+          "how": "Convert eventual rational graded polynomiality into cumulative polynomiality while retaining the initial constant."
+        },
+        {
+          "where": "Pinned sum_range_pow_eq_bernoulli_sub",
+          "how": "Reuse the existing power-sum theorem for a finite coefficient expansion; do not re-plan Bernoulli arithmetic owned by other consumers."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/summatory-polynomial-evaluation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Evaluation of the rational summation polynomial",
+      "kind": "lemma",
+      "statement": "For every P∈ℚ[T] and n≥0, S(P)(n)=Σ_{i=0}^n P(i) in ℚ.",
+      "hypotheses": [
+        "P is a rational polynomial and n a natural number."
+      ],
+      "proofSteps": [
+        "Expand P as Σ_{j∈support(P)} coeff_j(P)T^j using Polynomial.as_sum_support_C_mul_X_pow, and evaluate the finite sum.",
+        "For each j apply Polynomial.sum_range_pow_eq_bernoulli_sub at n+1. Divide by the nonzero rational j+1 and identify the constant B_(j+1)(0) using bernoulli_eval_zero. Evaluate the substituted polynomial using eval_comp.",
+        "Interchange the two finite sums and factor the rational coefficients. Recombine the coefficient expansion at each i."
+      ],
+      "acceptance": [
+        "For P=1 the sum is n+1, including the i=0 term.",
+        "For P=T and n=3 the value is 0+1+2+3=6."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/summatory-polynomial",
+        "mathlib:Polynomial.as_sum_support_C_mul_X_pow",
+        "mathlib:Polynomial.sum_range_pow_eq_bernoulli_sub",
+        "mathlib:Polynomial.bernoulli_eval_zero",
+        "mathlib:Polynomial.eval_comp"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-SUM-PIN",
+          "locator": "BernoulliPolynomials.lean, bernoulli, bernoulli_eval_zero, sum_range_pow_eq_bernoulli_sub",
+          "match": "The proposed rational summation adapter uses the pinned Bernoulli convention and the existing power-sum theorem, rather than planning Bernoulli polynomials again."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.summatoryPolynomial_eval"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-polynomial-from-graded-tail",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Cumulative polynomial from a graded polynomial tail",
+      "kind": "theorem",
+      "statement": "Assume every φ(q,M,i) is finite, and choose Q∈ℚ[T] and N≥0 such that Q(i)=φ(q,M,i).toNat for all i≥N. Set c_N=Σ_{i=0}^{N−1}(φ(q,M,i).toNat−Q(i)) in ℚ, with the sum empty when N=0. Then for every n≥N, (S(Q)+c_N)(n)=H(q,M,n).toNat. All subtractions in c_N take place after rational casts, never as truncated natural subtraction.",
+      "hypotheses": [
+        "A is a commutative ring, M is an A-module, q is any ideal, and n is a natural number. No finiteness or local hypothesis is imposed unless stated.",
+        "All graded lengths are finite. Q is supplied with its eventual graded-value equality from N onwards; existence of such Q is not asserted by this theorem."
+      ],
+      "proofSteps": [
+        "Use cumulative-natural-length and cast its sum to ℚ. Split the sum over 0,…,n into 0,…,N−1 and N,…,n.",
+        "On the latter interval replace φ(i).toNat by Q(i). The difference of the two full sums is exactly c_N, since n≥N. The finite-range splitting and regrouping are ordinary finite-sum algebra.",
+        "Apply summatory-polynomial-evaluation to the full sum of Q. Thus S(Q)+c_N has the required eventual cumulative evaluations. No assumption about gr_q(A), graded generation or Hilbert–Serre is hidden here."
+      ],
+      "acceptance": [
+        "If φ(0)=1, φ(1)=2 and φ(i)=1 for i≥2, take Q=1,N=2,c_N=1: the cumulative polynomial is T+2, not T+1. At n=0 its value 2 is not the actual cumulative length 1.",
+        "For N=0 the correction is zero. For an eventually zero graded function the cumulative polynomial is a constant, not necessarily zero.",
+        "For φ(0)=3 and φ(i)=1 for i≥1, Q=1,N=1 gives c_N=2 and the cumulative polynomial T+3.",
+        "If φ(0)=1 and φ(i)=3 for i≥1, take Q=3,N=1,c_N=−2: the cumulative polynomial is 3T+1. Truncated natural subtraction would incorrectly set the correction to zero."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-natural-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/summatory-polynomial-evaluation"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "§10.59 opening formulas, ideal-of-definition variant, and Proposition 10.59.5",
+          "match": "Use the actual graded quotient lengths and their cumulative sum; the graded and cumulative polynomials have different indexing."
+        },
+        {
+          "sourceId": "STACKS-ANTIDIFFERENCE",
+          "locator": "Lemma 10.58.5, complete proof",
+          "match": "Retain the constant contributed by the finite initial segment. The rational Bernoulli adapter supplies the polynomial summation needed here; this does not replace the general abelian-group-valued numerical-polynomial theory."
+        },
+        {
+          "sourceId": "HS-SUM-PIN",
+          "locator": "BernoulliPolynomials.lean, bernoulli, bernoulli_eval_zero, sum_range_pow_eq_bernoulli_sub",
+          "match": "The proposed rational summation adapter uses the pinned Bernoulli convention and the existing power-sum theorem, rather than planning Bernoulli polynomials again."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.cumulativePolynomial_from_graded_tail"
     }
   ],
   "baselineCoverage": [
@@ -3740,6 +4407,22 @@
         "mathlib:CategoryTheory.Functor.mapHomotopyEquiv"
       ],
       "consumerContract": "Verify categorical projectivity of ModuleCat terms, the strict upper bound, and additivity of the coefficient functor. This ordinary homotopy transport neither supplies a generic derived tensor functor nor asserts compatibility of an entire inverse-system action."
+    },
+    {
+      "stageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "target": "Native graded quotient carriers, quotient-ring actions and adic transition inclusions",
+      "status": "provided_by_baseline",
+      "refs": [
+        "mathlib:Submodule.powSMulQuotInclusion",
+        "mathlib:Submodule.powSMulQuotInclusion_injective",
+        "mathlib:Submodule.range_powSMulQuotInclusion",
+        "mathlib:Submodule.factorPowSucc",
+        "mathlib:Submodule.ker_mapQ",
+        "mathlib:Submodule.factor_surjective",
+        "mathlib:Module.isTorsionBySet_quotient_ideal_smul",
+        "mathlib:Module.Quotient.mk_smul_mk"
+      ],
+      "consumerContract": "Use F_n/(q·top_{F_n}) with its native A/q action and ambient quotient inclusion. The missing work is the length adapters and the associated-graded direct-sum ring/module structure; do not duplicate this already built carrier or claim Tau Ceti's increasing word filtration supplies the decreasing adic ring."
     }
   ],
   "requests": [
@@ -3804,7 +4487,7 @@
       "remaining": [
         "The prime-filtration/finite-module induction slice is supplied by the baseline. Catenarity (definition and the Noetherian-local dimension-function criterion), Cohen–Macaulayness of regular local rings and freeness of maximal-depth modules over a regular local base are now separate nodes, answering R03.6's two requests. Reconcile and refine the remaining integrated depth, Auslander-Buchsbaum, Cohen-Macaulay, complete-intersection, dimension and support arguments. Import the ModularCurves 4D local regularity/completion/flatness statements in the accepted RS-08 scope, and check any more general module-level forms. Do not infer that this baseline slice closes the whole stage.",
         "Supply the domain property of regular local rings (Stacks 00NP, through the associated graded ring 00NO), used by regular-local-cohen-macaulay; see the gap.",
-        "The reserved general multiplicity strand now includes four explicit positivity declarations. Its remaining proof leaves are the associated-graded bridge, numerical-polynomial induction, degree/dimension and Artin–Rees comparisons, finite top-dimensional localization lengths, regular-local domain theorem and geometric/complete-ring comparisons. Polynomial existence remains open; no stage or key definition is certified closed."
+        "The reserved general multiplicity strand includes positivity and now the native graded-length definition, adic transition length step, cumulative extended/natural length identities, finite coefficient lengths, rational summation polynomial and conditional graded-to-cumulative tail theorem. Its remaining leaves are associated-graded ring/module structure and finiteness, graded numerical-polynomial induction, degree/dimension and Artin–Rees comparisons, finite top-dimensional localization lengths, regular-local domain theorem and geometric/complete-ring comparisons. Existence of the graded polynomial remains open, so cumulative polynomial existence and the full key definition are not certified closed."
       ]
     },
     {
@@ -3865,18 +4548,18 @@
       "detail": "Stacks Lemma 10.106.2 (00NP): any regular local ring is a domain, proved from Lemma 10.106.1 (00NO), gr_m(R) ≅ κ[X_1, ..., X_d]. Neither is in the pinned Mathlib (no IsDomain instance for IsRegularLocalRing) and no layer of the atlas plans the associated-graded computation; it is generic local algebra owned by R03.3 under RS-08 and must be decomposed there (Hilbert–Samuel function of R and of the polynomial ring)."
     },
     {
-      "title": "Associated-graded module-to-series bridge and cumulative filtration identity",
+      "title": "Associated-graded ring/module structure and graded finiteness",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial"
       ],
-      "detail": "Construct gr_q(A), gr_q(M) on the pinned associated-graded carriers after inspecting their full API; prove ring generation in degree one, Noetherianity, finite module generation and each coefficient length, then H(n)=Σ_i≤n φ(i) with actual quotient scalar maps. Neither Polynomial.hilbertPoly nor finiteness of each length proves this. The excerpt of Stacks 10.59.5 is read; this missing construction remains generic R03.3 work."
+      "detail": "The native degree pieces, quotient scalar actions, transition maps, coefficient-length finiteness and cumulative identity are now accounted for by the new nodes and baselineCoverage. What remains is constructing the decreasing-adic direct-sum ring gr_q(A) and module gr_q(M), multiplication and action well-definedness, degree-zero identification, degree-one ring generation, Noetherianity and finite graded-module generation. Tau Ceti's increasing word-filtration AssociatedGraded is not a direct supplier. Inspect the pinned Rees algebra and graded-ring interfaces before adding carriers; neither a rational-series Hilbert polynomial nor the new summation adapter supplies this structure."
     },
     {
-      "title": "Graded numerical-polynomial induction and integer-valued antidifference",
+      "title": "Graded numerical-polynomial induction",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial"
       ],
-      "detail": "Decompose the inspected Stacks 10.58.7 proof into nilpotent x-torsion filtration, stabilization of the maximal torsion submodule, degree-one shifted multiplication exact sequences and induction on degree-one generators. Supply the binomial-antidifference API 10.58.5; retain the finite initial constant. K0 of finite modules is not introduced as an unverified surrogate. A length-valued direct proof can avoid K0 but must prove every exactness step."
+      "detail": "The rational antidifference needed by the cumulative existence theorem is now supplied by summatory-polynomial and its evaluation lemma, with the finite initial constant restored by cumulative-polynomial-from-graded-tail. Remaining: decompose Stacks 10.58.7 into x-torsion stabilization, its nilpotent filtration, shifted degree-one multiplication exact sequences and induction on degree-one generators, with actual graded lengths. The new theorem assumes a graded polynomial tail; it does not prove one exists. No general abelian-group-valued numerical-polynomial API or K0 surrogate is claimed."
     },
     {
       "title": "Degree-dimension and Artin–Rees leading-term comparison",
@@ -3969,7 +4652,7 @@
     }
   ],
   "sourceIssues": [],
-  "validationBoundary": "The original five baseline entries and baselineCoverage are preserved verbatim. The new declarations were inspected at the exact pin, with source blobs recorded. KW passages were parsed-only after failed screenshots. No Lean compilation or closed stage is asserted. Initial CI exposed that the checker treats any tauceti: prefix as a baseline declaration before testing stage IDs. The algebraic endpoint now has only baseline/local-node prerequisites, matching its five signatures. The local-field and framed-lifting extensions remain explicit requests, gaps and remainingExtensions; no upstream stage is falsely listed as a proved baseline theorem. The handoff's initial uploaded packet hash refers to the pre-CI version; the amended packet is validated by the new submission run. Continuation of 28 September 2026 (cc-39fac3): the suggested file was compiled at the pins with the v4.34.0-rc2 lean against the prebuilt Mathlib 082e2d3 oleans. Before this continuation it had one error, an elab_as_elim motive failure in the prime-filtration induction wrapper, fixed by passing (motive := motive). After the fix and the R03.3 additions it has 0 errors and only placeholder-proof warnings; the R03.4 intermediate-field signatures elaborate. Continuation by Codex — codex-a71f92, 2026-10-02: fresh selected source passages and sixteen additional pinned declaration statements inspected. The general polynomial theorem is not inferred from the pinned rational-series hilbertPoly API. New signatures not compiled; prior compilation receipts are historical only. All new nodes remain unchecked and all stages remain partial/not_read. Codex — codex-J6LwjP read all applicable DDPA AUDIT-17 entries, the accepted RS-08 keeps/links/owner decisions, the original roadmap and integrated P7 node. New baseline statements were read at the pin. This is a mathematical continuation, not an independent review of the earlier checkpoint or a new confirmation of the paper errata. Current codex-J6LwjP receipt: the entire suggested file elaborates with Lean v4.34.0-rc2 against existing Mathlib 082e2d3 oleans, 0 errors and 112 placeholder-proof warnings. No Tau Ceti module is imported or built. Prior no-compilation statements describe earlier checkpoints only. All mathematical implementations remain unchecked; none of the eight stages is closed.",
+  "validationBoundary": "The original five baseline entries and baselineCoverage are preserved verbatim. The new declarations were inspected at the exact pin, with source blobs recorded. KW passages were parsed-only after failed screenshots. No Lean compilation or closed stage is asserted. Initial CI exposed that the checker treats any tauceti: prefix as a baseline declaration before testing stage IDs. The algebraic endpoint now has only baseline/local-node prerequisites, matching its five signatures. The local-field and framed-lifting extensions remain explicit requests, gaps and remainingExtensions; no upstream stage is falsely listed as a proved baseline theorem. The handoff's initial uploaded packet hash refers to the pre-CI version; the amended packet is validated by the new submission run. Continuation of 28 September 2026 (cc-39fac3): the suggested file was compiled at the pins with the v4.34.0-rc2 lean against the prebuilt Mathlib 082e2d3 oleans. Before this continuation it had one error, an elab_as_elim motive failure in the prime-filtration induction wrapper, fixed by passing (motive := motive). After the fix and the R03.3 additions it has 0 errors and only placeholder-proof warnings; the R03.4 intermediate-field signatures elaborate. Continuation by Codex — codex-a71f92, 2026-10-02: fresh selected source passages and sixteen additional pinned declaration statements inspected. The general polynomial theorem is not inferred from the pinned rational-series hilbertPoly API. New signatures not compiled; prior compilation receipts are historical only. All new nodes remain unchecked and all stages remain partial/not_read. Codex — codex-J6LwjP read all applicable DDPA AUDIT-17 entries, the accepted RS-08 keeps/links/owner decisions, the original roadmap and integrated P7 node. New baseline statements were read at the pin. This is a mathematical continuation, not an independent review of the earlier checkpoint or a new confirmation of the paper errata. Current codex-J6LwjP receipt: the entire suggested file elaborates with Lean v4.34.0-rc2 against existing Mathlib 082e2d3 oleans, 0 errors and 112 placeholder-proof warnings. No Tau Ceti module is imported or built. Prior no-compilation statements describe earlier checkpoints only. All mathematical implementations remain unchecked; none of the eight stages is closed. Codex — codex-a71f92 cumulative continuation: native quotient and Bernoulli statements freshly inspected at the pin. Only the cumulative-existence consumer is refined; 43 of 44 inherited nodes are unchanged. New signatures are uncompiled because the available source trees have no existing pinned build; the earlier compilation receipt is historical. All new nodes remain unchecked.",
   "keyDefinitionBoundary": {
     "reservedId": "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
     "status": "planned_with_gaps",
@@ -4019,5 +4702,28 @@
     },
     "boundary": "This resolves the written positivity proof leaf conditional on the existing polynomial-existence node. It does not construct the associated graded ring/module, prove polynomial existence, or close any stage. All mathematical implementations remain unchecked. Prior P7 source and elaboration receipts are inherited, not newly certified.",
     "lean": "New full native forms not compiled: no existing combined pinned build is available. No Lake project, cache, library build or language server started."
+  },
+  "cumulativeContinuation": {
+    "agent": "Codex — codex-a71f92",
+    "date": "2026-10-02",
+    "preservedNodes": 44,
+    "unchangedNodes": 43,
+    "addedNodes": 8,
+    "updatedConsumer": "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial",
+    "sourceReads": [
+      {
+        "url": "https://stacks.math.columbia.edu/tag/00K4",
+        "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+        "read": "Opening graded/cumulative formulas and ideal-of-definition variant, complete Proposition 10.59.5 proof; all mathematical content of the section also inspected."
+      },
+      {
+        "url": "https://stacks.math.columbia.edu/tag/00JZ",
+        "sha256": "9e111a9d48c6a3bb8ede444e6f7e92c4b4bd0ec28898427bea06b1da4e6dccf8",
+        "read": "Entire statement and proof."
+      }
+    ],
+    "ownershipScreen": "Antidifference/summatory/Bernoulli vocabulary screened across packet, roadmap and atlas extracts and upstream documents. Other hits are native Bernoulli arithmetic in special-value/measure/polylogarithm consumers, not this missing rational finite-summation adapter. Reuse the existing Bernoulli construction; plan the local-algebra summation adapter once in R03.3. The sole touching link-map overlap is the unchanged ModularCurves coefficient-category overlap in R03.1; no new cross-roadmap prerequisite is added. Public indexed Zulip/archive searches and GitHub open-PR searches for Hilbert–Samuel, antidifference and Bernoulli produced no specific competing summation-adapter design; this is a scoped search result, not a completeness claim about upstream discussions.",
+    "boundary": "Written cumulative and rational summation bridge conditional on a graded polynomial tail; associated-graded ring/module and Hilbert–Serre induction still gaps. All eight stages remain open: P7, R03.3 and R03.4 are partial; P8, P9, R03.1, R03.2 and R03.5 retain not_read status. Earlier P7, positivity, source-version and errata receipts are preserved, not independently reviewed or freshly recertified.",
+    "lean": "Not compiled; no existing build at the pins in the inspected source trees. No Lake project, cache, library build or language server started."
   }
 }

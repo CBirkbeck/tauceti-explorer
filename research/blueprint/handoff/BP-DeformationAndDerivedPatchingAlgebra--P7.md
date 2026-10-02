@@ -1,3 +1,56 @@
+# BP-DeformationAndDerivedPatchingAlgebra--P7: cumulative-length continuation
+
+Codex — session `codex-a71f92`, 2 October 2026. Refs #551.
+Status: partial checkpoint; all eight scoped stages remain open.
+
+## Current continuation
+
+Adds eight R03.3 nodes on native graded quotient lengths, one adic transition length step, cumulative extended and finite-natural length identities, finite graded lengths, a normalized rational summation polynomial, its evaluation, and cumulative polynomiality conditional on a graded polynomial tail. The native inclusion and transition maps are reused; no quotient carrier, quotient-ring action or Bernoulli theory is reconstructed.
+
+The initial-segment correction is explicit. For a graded sequence beginning 1,2 and then constantly 1, the cumulative polynomial is T+2, not T+1. Infinite extended lengths are retained until finiteness is justified. Length exactness does not assume splitting, as the ℤ/4 transition demonstrates.
+
+The cumulative-existence consumer's proof route and prerequisite list are refined. Forty-three of the forty-four inherited nodes are byte-for-byte unchanged as JSON values. All forty-four IDs, the reserved general multiplicity ID, 99 baseline records, source records/issues, historical compilation receipts and supplier requests are preserved. Two gap groups are narrowed, not removed. The remaining associated-graded ring/module structure and graded numerical-polynomial induction still prevent polynomial existence from being certified. Degree/dimension, Artin–Rees, localization, comparison, depth, P7, deformation and patching worklists remain active.
+
+Totals: 52 nodes (28 lemmas, 13 theorems, 8 definitions, 3 constructions), 57 API items, 43 definition/construction unit tests and 4 inherited lemma acceptance tests, 12 planets, 119 baseline references, 14 gap groups, 2 requests. Every implementation is unchecked.
+
+## Fresh inspection
+
+Read the claimed issue and bot confirmation, all applicable audit entries and relevant accepted RS-08 ownership/narrowing decisions, the scoped roadmap extract and touching link-map overlap. The upstream GrothendieckEulerForms and Multiquadratic documents were read, alongside WORKERS, PROTOCOL, expansion PROTOCOL and UPSTREAM_GUIDE.
+
+Fresh baseline statements are the 20 appended references, at the exact Mathlib pin, with their ambient parameters. Read the native quotient inclusions/transitions, quotient kernels/surjectivity, exact length and injected length bound, quotient-ring action/tower, finite conversion, Bernoulli power-sum proof and polynomial coefficient expansion. Also inspected the native Rees algebra and its generation/finiteness interface, and the Tau Ceti increasing word-filtration associated graded: the latter is not the needed decreasing adic supplier. Neither inspection certifies the missing associated-graded comparison.
+
+Reread Stacks 00K4's graded/cumulative formulas, ideal-of-definition variant and full polynomiality proof, and all of Lemma 00JZ. Downloaded HTML SHA-256 values match the retained source records: `e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932` and `9e111a9d48c6a3bb8ede444e6f7e92c4b4bd0ec28898427bea06b1da4e6dccf8`. New pinned-source records identify precise read scopes. Existing paper-version/errata receipts are inherited and not independently reviewed.
+
+Ownership vocabulary was screened across packets, roadmap definitions, atlas extracts and upstream documents. The other Bernoulli uses are native arithmetic in their own consumers; no generic Bernoulli construction is replanned. Open Mathlib PR searches and indexed Zulip/archive searches found no specific competing antidifference-adapter design; these are scoped searches, not an exhaustive absence claim. No new cross-roadmap prerequisite is added.
+
+## Validation
+
+Validated at immutable main `db3ca082e002ce257f8f12d6e518681b12279872`, after confirming all four issue files were unchanged since the claim. The shared worktree was not edited.
+
+The actual indexed `check_blueprint.check` reports 0 errors and 0 warnings. The actual intake file checks accept all four deliverables. Preservation, packet/reader/native-signature/API/test parity, source hash and literal excerpt, whitespace and six-planets-per-layer checks pass. There are 68 Lean examples, 13 more than the inherited file: eight definition/construction tests and five acceptance examples.
+
+The actual `build.assemble` projection runs in memory through normal promoted-blueprint loading and decomposition trimming, adding only this checkpoint and preserving the accepted R03.6 part. Its complete stage DAG has 2951 vertices and 8623 edges and is acyclic. No projected links are skipped. The reachable declaration closure has 162 vertices and is acyclic; every new dependency was also checked for a return path. The integrated depth/Auslander–Buchsbaum supplier is retained in declaration closure even though the partial overlay does not render it as a stage.
+
+Exact rational/Bernoulli and finite cyclic-length models perform 10,809 checks. They cover the polynomial summation and forward difference, normalization at −1, finite initial corrections including negative corrections, constant cumulative polynomials for zero tails, and the nonsplit ℤ/4 length transition. These computations are acceptance checks, not proofs of the general nodes or Lean elaboration.
+
+Current coverage is partial for P7, R03.3 and R03.4, and not_read for P8, P9, R03.1, R03.2 and R03.5. The packet itself is partial; no stage or implementation is certified complete.
+
+Changed suggested-file SHA-256: `12e49ccce7db3396b531561fb82afb00bb954600ac2a47f1ae5a1485d0266dfe`. **Not compiled**: the inspected pinned source trees have no existing build. No Lake project, cache/library build or language server was started. The inherited successful receipt for the previous file does not cover the current signatures.
+
+## Resume
+
+Start with the remaining associated-graded ring/module structure and finiteness gap. Reuse the native degree pieces and quotient-ring action and inspect the existing Rees algebra route before designing direct-sum multiplication. Then split the graded Hilbert–Serre induction, giving actual torsion stabilization, nilpotent filtration and shifted exact sequences. Supply the graded polynomial Q,N to the new conditional theorem rather than asserting them as library facts.
+
+Retain the separate positivity and finite-difference integrality chains, the intrinsic/ambient dimension distinction and reserved general multiplicity node. The inherited depth/Auslander–Buchsbaum node still needs declaration-sized refinement; normal layer replacement does not render that integrated prerequisite as a stage, although it resolves in the source registry. Preserve it in closure work. No stage is closed by this partial overlay.
+
+All durable mathematics and validation receipts are in the four deliverables. Job scratch is removed after durable PR verification; no background process is left running.
+
+---
+
+## Earlier dated handoff receipts
+
+The handoff below is retained as historical documentation. Its “current” totals, resume instructions and compilation report describe that earlier file, not this continuation.
+
 # BP-DeformationAndDerivedPatchingAlgebra--P7: positivity continuation
 
 Codex — session `codex-rtOQ9t`, 2 October 2026. Refs #551.

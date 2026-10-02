@@ -40,6 +40,8 @@ import Mathlib.Data.ENat.Basic
 import Mathlib.Analysis.Polynomial.Basic
 import Mathlib.RingTheory.Nakayama
 import Mathlib.Order.Filter.AtTopBot.Archimedean
+import Mathlib.RingTheory.Ideal.Quotient.PowTransition
+import Mathlib.NumberTheory.BernoulliPolynomials
 
 /-!
 # Suggested forms for prime filtrations and characteristic-zero points
@@ -53,8 +55,9 @@ Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 The previous file elaborated with placeholder-proof warnings only against the
 existing Mathlib build at the pin (Codex codex-J6LwjP, 2 October 2026).
-That historical receipt does not cover codex-rtOQ9t's positivity continuation.
-The new forms were not compiled; no existing combined build at both pins was found.
+That historical receipt covers neither codex-rtOQ9t's positivity continuation
+nor codex-a71f92's cumulative continuation.
+The changed file was not compiled; no existing pinned build was available.
 No Tau Ceti module is imported; its baseline references were inspected as source.
 The original ten baseline examples are retained. Five new signatures and four
 algebraic regressions cover the R03.4 point strand, not the eight-stage part.
@@ -420,7 +423,9 @@ theorem function_ne_top (q : Ideal A)
     function (M := M) q n ≠ ⊤ := by sorry
 
 /-- R03.3/eventual-hilbert-samuel-polynomial.
-This is not Polynomial.existsUnique_hilbertPoly, which starts with a series. -/
+This is not Polynomial.existsUnique_hilbertPoly, which starts with a series.
+The cumulative bridge is specified below, but the associated-graded ring/module
+and graded polynomial-existence input remain explicit packet gaps. -/
 theorem existsUnique_polynomial (q : Ideal A)
     (hq : q.radical = IsLocalRing.maximalIdeal A) :
     ∃! p : Polynomial ℚ, ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
@@ -1115,3 +1120,194 @@ example :
     0 < P.leadingCoeff ∧ ∀ z : ℤ, (z : ℚ) ≠ P.leadingCoeff := by sorry
 
 end TauCeti.HilbertSamuel
+
+
+/-! ## R03.3: native graded quotients and rational summation (codex-a71f92)
+
+NOT COMPILED. Every signature uses native quotients or rational polynomials.
+No associated-graded ring/module or graded polynomial-existence input is asserted.
+-/
+namespace TauCeti.HilbertSamuel
+
+open Polynomial
+open scoped Pointwise
+
+variable {A : Type u} [CommRing A]
+variable {M : Type v} [AddCommGroup M] [Module A M]
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function
+noncomputable def gradedFunction (q : Ideal A) (n : ℕ) : ℕ∞ :=
+  Module.length A
+    (↥(q ^ n • (⊤ : Submodule A M)) ⧸
+      (q • (⊤ : Submodule A ↥(q ^ n • (⊤ : Submodule A M)))))
+
+theorem gradedFunction_eq_length (q : Ideal A) (n : ℕ) :
+    gradedFunction (M := M) q n =
+      Module.length A
+        (↥(q ^ n • (⊤ : Submodule A M)) ⧸
+          (q • (⊤ : Submodule A ↥(q ^ n • (⊤ : Submodule A M))))) := by rfl
+
+theorem gradedFunction_zero [Subsingleton M] (q : Ideal A) (n : ℕ) :
+    gradedFunction (M := M) q n = 0 := by sorry
+
+theorem gradedFunction_zero_degree (q : Ideal A) :
+    gradedFunction (M := M) q 0 = function (M := M) q 0 := by sorry
+
+theorem gradedFunction_congr {K : Type*} [AddCommGroup K] [Module A K]
+    (e : M ≃ₗ[A] K) (q : Ideal A) (n : ℕ) :
+    gradedFunction (M := M) q n = gradedFunction (M := K) q n := by sorry
+
+theorem gradedFunction_top (n : ℕ) :
+    gradedFunction (M := M) (⊤ : Ideal A) n = 0 := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-length-step
+theorem quotient_length_succ (q : Ideal A) (n : ℕ) :
+    Module.length A (M ⧸ (q ^ (n + 1) • (⊤ : Submodule A M))) =
+      gradedFunction (M := M) q n +
+        Module.length A (M ⧸ (q ^ n • (⊤ : Submodule A M))) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-graded-length
+theorem function_eq_sum_graded (q : Ideal A) (n : ℕ) :
+    function (M := M) q n =
+      ∑ i ∈ Finset.range (n + 1), gradedFunction (M := M) q i := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/finite-graded-piece-length
+theorem gradedFunction_ne_top [IsNoetherianRing A] [IsLocalRing A] [Module.Finite A M]
+    (q : Ideal A) (hq : q.radical = IsLocalRing.maximalIdeal A) (n : ℕ) :
+    gradedFunction (M := M) q n ≠ ⊤ := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-natural-length
+theorem function_toNat_eq_sum_graded (q : Ideal A)
+    (hfinite : ∀ i : ℕ, gradedFunction (M := M) q i ≠ ⊤) (n : ℕ) :
+    (function (M := M) q n).toNat =
+      ∑ i ∈ Finset.range (n + 1), (gradedFunction (M := M) q i).toNat := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/summatory-polynomial
+noncomputable def summatoryPolynomial (P : Polynomial ℚ) : Polynomial ℚ :=
+  ∑ j ∈ P.support, C (P.coeff j / (j + 1 : ℚ)) *
+    ((Polynomial.bernoulli (j + 1)).comp (X + 1) -
+      C ((Polynomial.bernoulli (j + 1)).eval 0))
+
+theorem summatoryPolynomial_eq (P : Polynomial ℚ) :
+    summatoryPolynomial P =
+      ∑ j ∈ P.support, C (P.coeff j / (j + 1 : ℚ)) *
+        ((Polynomial.bernoulli (j + 1)).comp (X + 1) -
+          C ((Polynomial.bernoulli (j + 1)).eval 0)) := by rfl
+
+theorem summatoryPolynomial_zero : summatoryPolynomial 0 = 0 := by sorry
+
+theorem summatoryPolynomial_add (P Q : Polynomial ℚ) :
+    summatoryPolynomial (P + Q) = summatoryPolynomial P + summatoryPolynomial Q := by sorry
+
+theorem summatoryPolynomial_smul (c : ℚ) (P : Polynomial ℚ) :
+    summatoryPolynomial (c • P) = c • summatoryPolynomial P := by sorry
+
+theorem summatoryPolynomial_C (c : ℚ) :
+    summatoryPolynomial (C c) = C c * (X + 1) := by sorry
+
+theorem summatoryPolynomial_eval_neg_one (P : Polynomial ℚ) :
+    (summatoryPolynomial P).eval (-1) = 0 := by sorry
+
+theorem summatoryPolynomial_difference (P : Polynomial ℚ) :
+    (summatoryPolynomial P).comp (X + 1) - summatoryPolynomial P =
+      P.comp (X + 1) := by sorry
+
+theorem summatoryPolynomial_unique (P R : Polynomial ℚ)
+    (hnorm : R.eval (-1) = 0)
+    (hdiff : R.comp (X + 1) - R = P.comp (X + 1)) :
+    R = summatoryPolynomial P := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/summatory-polynomial-evaluation
+theorem summatoryPolynomial_eval (P : Polynomial ℚ) (n : ℕ) :
+    (summatoryPolynomial P).eval (n : ℚ) =
+      ∑ i ∈ Finset.range (n + 1), P.eval (i : ℚ) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-polynomial-from-graded-tail
+theorem cumulativePolynomial_from_graded_tail (q : Ideal A)
+    (hfinite : ∀ i : ℕ, gradedFunction (M := M) q i ≠ ⊤)
+    (Q : Polynomial ℚ) (N : ℕ)
+    (htail : ∀ i : ℕ, N ≤ i →
+      Q.eval (i : ℚ) = ((gradedFunction (M := M) q i).toNat : ℚ))
+    (n : ℕ) (hn : N ≤ n) :
+    (summatoryPolynomial Q +
+      C (∑ i ∈ Finset.range N,
+        (((gradedFunction (M := M) q i).toNat : ℚ) - Q.eval (i : ℚ)))).eval (n : ℚ) =
+      ((function (M := M) q n).toNat : ℚ) := by sorry
+
+end TauCeti.HilbertSamuel
+
+namespace HilbertSamuelGradedTest
+open TauCeti.HilbertSamuel Polynomial
+open scoped Pointwise
+
+-- test: HilbertSamuelGradedTest.field_rank
+example (k : Type*) [Field k] (r n : ℕ) :
+    gradedFunction (M := Fin r → k) (⊥ : Ideal k) 0 = r ∧
+      gradedFunction (M := Fin r → k) (⊥ : Ideal k) (n + 1) = 0 := by sorry
+
+-- test: HilbertSamuelGradedTest.dvr_power
+example (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    (s : ℕ) (hs : 0 < s) (n : ℕ) :
+    gradedFunction (M := O) (IsLocalRing.maximalIdeal O ^ s) n = s := by sorry
+
+-- test: HilbertSamuelGradedTest.zero
+example (A : Type*) [CommRing A] (q : Ideal A) (n : ℕ) :
+    gradedFunction (M := Fin 0 → A) q n = 0 := by sorry
+
+-- test: HilbertSamuelGradedTest.infinite
+example (n : ℕ) :
+    gradedFunction (M := ℤ) (⊥ : Ideal ℤ) 0 = ⊤ ∧
+      gradedFunction (M := ℤ) (⊥ : Ideal ℤ) (n + 1) = 0 ∧
+      function (M := ℤ) (⊥ : Ideal ℤ) n = ⊤ := by sorry
+
+-- acceptance: nonsplit transition in Z/4
+example :
+    let q : Ideal ℤ := Ideal.span {2}
+    gradedFunction (M := ZMod 4) q 0 = 1 ∧
+      gradedFunction (M := ZMod 4) q 1 = 1 ∧
+      gradedFunction (M := ZMod 4) q 2 = 0 ∧
+      function (M := ZMod 4) q 0 = 1 ∧
+      function (M := ZMod 4) q 1 = 2 := by sorry
+
+end HilbertSamuelGradedTest
+
+namespace HilbertSamuelSumTest
+open TauCeti.HilbertSamuel Polynomial
+
+-- test: HilbertSamuelSumTest.zero
+example (n : ℕ) :
+    summatoryPolynomial 0 = 0 ∧
+      (summatoryPolynomial 0).eval (n : ℚ) = 0 := by sorry
+
+-- test: HilbertSamuelSumTest.one
+example :
+    summatoryPolynomial 1 = X + 1 ∧
+      (summatoryPolynomial 1).eval 0 = 1 := by sorry
+
+-- test: HilbertSamuelSumTest.linear
+example :
+    summatoryPolynomial X = C (1/2 : ℚ) * X * (X + 1) ∧
+      (summatoryPolynomial X).eval 3 = 6 := by sorry
+
+-- test: HilbertSamuelSumTest.normalization
+example :
+    (X : Polynomial ℚ).comp (X + 1) - X = 1 ∧
+      (X : Polynomial ℚ).eval (-1) = -1 ∧
+      (X : Polynomial ℚ).eval 0 = 0 ∧
+      (X : Polynomial ℚ) ≠ summatoryPolynomial 1 := by sorry
+
+-- acceptance: initial segment [1,2] with constant graded tail 1
+example :
+    summatoryPolynomial 1 + C (1 : ℚ) = X + C 2 ∧
+      (summatoryPolynomial 1 + C (1 : ℚ)).eval 0 = 2 := by sorry
+
+-- acceptance: initial segment [3] with constant graded tail 1
+example : summatoryPolynomial 1 + C (2 : ℚ) = X + C 3 := by sorry
+
+-- acceptance: eventually zero graded tail, nonzero cumulative constant
+example : summatoryPolynomial 0 + C (3 : ℚ) = C 3 := by sorry
+
+-- acceptance: negative rational correction cannot be truncated natural subtraction
+example : summatoryPolynomial (C (3 : ℚ)) - C 2 = C 3 * X + 1 := by sorry
+
+end HilbertSamuelSumTest
