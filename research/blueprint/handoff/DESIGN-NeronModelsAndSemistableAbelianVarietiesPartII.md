@@ -1,657 +1,800 @@
-# Quadratic pinching: full presentation and finite-module checkpoint
+# Quadratic pinching: projective models, branches and cohomology
 
-Agent: ChatGPT Pro — `gpt6astra-20261002-c84f2a`. Refs #3378.
-2 October 2026. Claim 5956064315 was confirmed by bot 5956066605;
-the issue was reread after confirmation. Publication base
-`4c60fa3dd0933cd4220d9590ea93b7779089e678`.
+Agent: ChatGPT — `gpt6astra-20261002-7d2f90`. Refs #3378.
+2 October 2026. Claim comment 5956489621 was confirmed by bot comment
+5956491897; the issue was reread after confirmation. Publication base:
+`c340a191f4b28ee8c1b3eba4c8cdf0bcf1b6eb99`.
 
-**Partial source-proof checkpoint, not a completed blueprint or formalisation.**
-Only this handoff changes. The roadmap definition, canonical packet, reader
-and suggested file are unchanged. Their inherited inventory remains 154 nodes
-(12 definitions, 3 constructions, 108 lemmas, 26 theorems, 5 comparisons),
-60 API entries, 57 definition/construction tests, 29 planets, 89 baseline
-references, 17 gaps and 23 requests. All 78 routes, 21 source findings and
-seven partial stages are retained, with every implementation status unchecked.
-These counts and the earlier compilation/axiom receipts are historical,
-not fresh whole-packet verification or new implementation claims.
+**Partial source-proof checkpoint, not a completed blueprint or a formalisation.**
+This submission changes only this handoff. It advances the preceding affine
+quadratic calculation to explicit projective schemes, their normalizations,
+their conductor squares, their coherent cohomology, and their geometric
+singularities. It also gives an explicit two-component model and the counts
+over every finite extension of a finite field. The independent finite
+regressions below executed 133,830 assertions.
 
-The complete preceding accumulated handoff is preserved at
-[the immutable publication base](https://github.com/CBirkbeck/tauceti-explorer/blob/4c60fa3dd0933cd4220d9590ea93b7779089e678/research/blueprint/handoff/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII.md).
-This current receipt replaces that accumulation, not its canonical mathematics.
+The complete preceding proof and its reproduction program are preserved at
+[the immutable publication base](https://github.com/CBirkbeck/tauceti-explorer/blob/c340a191f4b28ee8c1b3eba4c8cdf0bcf1b6eb99/research/blueprint/handoff/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII.md).
+In particular, that document supplies the full affine presentation-kernel
+argument and the finite-module resolution, not merely a relation that
+vanishes. This new receipt does not overwrite their mathematical content
+in any canonical file.
 
-## 1. Delivered and notation
+The unchanged canonical inventory is inherited: 154 nodes, 60 API entries,
+57 definition/construction tests, 29 planets, 89 baseline references, 17 gaps
+and 23 requests; seven partial stages, 78 routed items and 21 source findings.
+These are not fresh whole-packet counts or closure certificates. No existing
+node ID, source finding, request, implementation status or planet is changed.
+The integration targets in Section 9 are **not registered nodes**. Their
+native scheme/cohomology signatures and the packet/reader/suggested-file
+integration remain work, not claims made by this checkpoint.
 
-The missing generation and **entire presentation-kernel** arguments are
-proved below, not merely the vanishing of the displayed relation. The same
-normal forms give finite inclusion, the canonical localization, the field
-normalization, the conductor defect sequence, and an explicit two-periodic
-presentation of the finite module. They also distinguish arbitrary changes
-of the coefficient ring from nonflat base change on the pinched curve.
+## 1. Setting and the affine input
 
-Let R be a commutative ring, a,b in R, and put
+Let k be any field, a,b in k, and put
 
-    q(t)=t^2+a t+b,    B=R[t],    A=R+qB,
-    u=q(t),           v=tq(t),   C=R[U].
+    q(t) = t^2 + a t + b,        E = k[t]/(q),
+    Q(T,S) = T^2 + a T S + b S^2,
+    B = k[t],                   A = k + qB.
 
-C acts on B by U mapping to u; A is the existing quotient-preimage
-subalgebra, not a replacement carrier. Write
+No perfectness, characteristic-zero or separability assumption is imposed
+until a statement explicitly says so. The embedded length-two scheme
+D=Spec(E) lies in the usual affine chart of P1_k. The coordinate t is part
+of these explicit formulas; an intrinsic coordinate-independence theorem
+would be an additional comparison, not literal equality of these models.
 
-    F(U,V)=V^2+aUV+bU^2-U^3,    d=U(U-b).
+For clarity, the needed affine input can be recovered as follows. With
+u=q(t), the map
+
+    k[U][T]/(T^2+aT+b-U) -> k[t],   U |-> q(t), T |-> t
+
+is an isomorphism, with inverse t mapping to the class of T. The two
+composites are checked on generators. Monic division gives the unique
+k[U]-normal form f(u)+t g(u). Reduction modulo q shows that this belongs
+to A exactly when g(0)=0, equivalently g(U)=U h(U). Thus, with v=tq(t),
+A has the unique normal form f(u)+v h(u).
+
+The evaluation map from k[U,V] has image A and kernel generated by
+
+    F(U,V) = V^2 + a U V + b U^2 - U^3.                 (1)
+
+Indeed divide an arbitrary polynomial by the monic-in-V polynomial F.
+Its remainder f(U)+V g(U) evaluates to f(u)+t u g(u), which is zero only
+when f=0 and Ug=0, hence g=0. This proves the entire kernel. B is finite
+over A, generated by 1,t. Also A[1/u] -> B[1/q] is an isomorphism, with
+inverse t=v/u. Their fraction fields agree: f(t)/g(t)=(qf)/(qg).
+The polynomial PID B is integrally closed, so this finite inclusion makes
+B the integral closure of A in k(t).
+
+These are the predecessor's generation, presentation and normalization
+inputs, restated to make the projective argument independently readable.
+They do not replace the existing carriers by newly assumed structures.
+
+## 2. The one-component projective model and its actual normalization
+
+Let C1 be the closed subscheme of P2_k with homogeneous coordinates [U:V:W]
+and equation
+
+    V^2 W + a U V W + b U^2 W - U^3 = 0.               (2)
+
+Define a morphism
+
+    nu1 : P1_k -> C1,
+    [T:S] |-> [Q(T,S) S : T Q(T,S) : S^3].             (3)
+
+All three coordinates have degree three. They have no common zero: if
+S is nonzero, the third coordinate is nonzero; if S=0, the second is T^3.
+Equivalently their common vanishing locus in projective space is empty,
+which is the scheme-level basepoint-free condition, not just a test on
+k-rational points. Substitution in (2) gives
+
+    Q^2 S^3 (T^2+aTS+bS^2-Q) = 0.
+
+So the map lands in the specified closed subscheme.
+
+Here is a two-open proof of the normalization assertion, including the
+point at infinity. On W nonzero set u=U/W, v=V/W. This is Spec(A) by (1),
+and its inverse image under nu1 is S nonzero, namely Spec(B), with exactly
+the inclusion in Section 1. Thus this part of the map is finite.
+
+For the other open, work on V nonzero and write
+
+    x=U/V, z=W/V, h(x)=1+a x+b x^2.
+
+The equation is z h(x)=x^3. On the additional open h(x) nonzero this gives
+
+    k[x,z,1/h]/(zh-x^3) = k[x,1/h].                    (4)
+
+Its inverse image is the chart T nonzero with s=S/T and h(s) invertible;
+formula (3) reads x=s, z=s^3/h(s). Thus nu1 is an isomorphism there.
+These two opens cover C1: W=0 in (2) forces U=0, so the only point outside
+the first open is [0:1:0], and it lies in (4), with h(0)=1.
+
+Finiteness follows on this cover. Both affine rings are domains and their
+intersection is a nonempty open, so C1 is integral. The same argument
+works after every field extension, since the monic normal-form proof did
+not use separability: C1 is geometrically integral. The source P1 is
+normal, nu1 is finite, and it identifies function fields. The affine
+integral-closure comparison on the first open and the isomorphism (4)
+therefore identify nu1 with the normalization, with its actual map, not
+merely with some degree-one parametrization.
+
+Let p=[0:0:1] and infinity=[0:1:0]. The complement isomorphism of Section 1,
+together with (4), gives
+
+    P1 minus D  ->  C1 minus {p}
+
+as an isomorphism. The inverse on u nonzero is t=v/u. The scheme-theoretic
+fiber above p is B/(u,v)B=B/qB=E. In particular this fiber can be nonreduced;
+replacing it by its set of points loses information used below. The
+infinity point is smooth: on V=1 the derivative with respect to z at
+(x,z)=(0,0) is 1.
 
-Thus F=V^2+aUV-Ud. The inherited native forms use a field k; the
-coefficient-ring algebra here is stronger and those field targets follow
-by specialization. Generalizing their typeclasses has NOT been implemented
-or compiled. The zero coefficient ring is a trivial separate case before
-using a positive polynomial degree or a nonzero basis vector. No field,
-Noetherian, reducedness, perfectness, separability or characteristic-zero
-hypothesis is imposed on Sections 2–5 and 7–9.
+## 3. The conductor square and cohomology of C1
+
+The conductor on the affine normalization is qB. Its contraction to A is
+(u,v), not in general uA. Indeed A=k+qB, and if a constant-residue element
+c+qh belongs to the conductor, multiplication by t must again have scalar
+residue in E. Since 1,t is a k-basis of E, this forces c=0. Conversely
+qB is visibly contained in the conductor. Off p the normalization is an
+isomorphism, so these ideals glue with the unit ideal there. Consequently
+D on P1 and the reduced rational point p on C1 are the actual conductor
+subschemes, and the square
+
+    D -------> P1
+    |           |
+    v           v
+    Spec(k) --> C1                                             (5)
+
+is cartesian and a geometric, categorical scheme pushout. To check this
+last assertion, on the open W nonzero its ring is exactly B x_E k=A;
+off p it is the identity square. These identifications agree on their
+intersection. Apply the affine finite-pinching universal property and
+glue the resulting morphisms; uniqueness on the same open cover gives
+universality against arbitrary scheme targets. This imports the general
+G.0 theorem, rather than silently identifying an affine-category pushout
+with a scheme-category one. Its affine-neighborhood hypothesis holds:
+D is contained in the displayed A1 chart of P1.
+
+There is an exact sequence of coherent O_C1-modules
+
+    0 -> O_C1 -> (nu1)_* O_P1 direct-sum k_p -> E_p -> 0,         (6)
+
+where the last map is (f,c) mapping to f restricted to D minus c. Here
+E_p denotes E as a sheaf supported at p, with O_C1-action through its
+scalar residue. Locally (6) is
+
+    0 -> B x_E k -> B direct-sum k -> E -> 0.
+
+The last map is surjective because B -> E is surjective. Off p, (6) is
+the identity followed by zero. This is a direct verification of the
+short exact sequence; the Stacks lemma about two closed immersions is
+not used with one merely finite arrow.
+
+For the cohomology input one only needs affine acyclicity, the long exact
+sequence, and H^0(P1,O)=k, H^i(P1,O)=0 for i>0. The latter also follows
+from the two-standard-affine Cech complex: every Laurent polynomial is
+a sum of a polynomial in t and a polynomial in t^(-1), and their
+intersection is k. A finite morphism is affine, so a separated affine
+cover of the target and its inverse image compute the same Cech complex
+for the pushed-forward sheaf. Thus its cohomology is the cohomology of
+the source. A sheaf from a finite zero-dimensional scheme has no higher
+coherent cohomology, by the same affine argument.
+
+The resulting exact sequence on global sections is
+
+    0 -> H^0(C1,O) -> k direct-sum k --(c,d |-> c-d)--> E
+      -> H^1(C1,O) -> 0.
+
+The image is the scalar copy of k in E and the kernel is the diagonal.
+In particular the structural map identifies H^0(C1,O) with k, and the
+connecting map induces the canonical vector-space isomorphism
+
+    E/k  ->  H^1(C1,O).                                (7)
+
+The class of t is a basis of E/k. Higher cohomology vanishes. Thus the
+arithmetic genus is one, although the normalization has genus zero.
+The isomorphism (7), not just its dimension, is natural under field
+extension: the sequence (6) tensors to the same sequence for the
+extended coefficients, and (E/k) tensor_k K=(E tensor_k K)/K. This
+identifies the usual base-change map through the two connecting maps.
 
-The finite-module comparison is specific to this pinching family. Generic
-polynomial quotients, power bases, scalar descent, localization and matrix
-operations remain library inputs, not new competing programmes.
-
-## 2. The actual polynomial-ring basis
-
-In C[T] consider the monic polynomial
-
-    P(T)=T^2+aT+b-U.
-
-There is a canonical R-algebra equivalence
-
-    C[T]/(P) -> B,    U |-> q(t),    T |-> t.
-
-Its inverse is the polynomial map t mapping to the class of T. The two
-composites are the identity: on t this is immediate, and on U it is exactly
-U=T^2+aT+b in the quotient. The coefficient map and generator identities
-make this a C-algebra comparison with the stated C-action, rather than an
-abstract isomorphism chosen by rank.
-
-Use the native monic AdjoinRoot power basis. It gives the unique normal form
-
-    f(u)+t g(u),     f,g in R[U].                         (B-NF)
-
-An elementary recurrence provides explicit coordinates for each t^n:
-
-    f_0=1, g_0=0;
-    f_(n+1)=(U-b)g_n,    g_(n+1)=f_n-a g_n.
-
-This follows by multiplying f_n(u)+t g_n(u) by t and substituting
- t^2=u-a t-b. Linear combination computes the normal form of every
-polynomial. Uniqueness comes from the same monic quotient basis, not from
-field-valued point evaluations. In particular C -> B is injective, and
-multiplication by U on C and by q on B is injective. These regularity
-claims use a monic polynomial, not that R is a domain.
-
-## 3. The pinching basis and its full hypersurface presentation
-
-Modulo q, (B-NF) has the unique form f(0)+t g(0) in the R-basis 1,t of
-R[t]/(q). It lies in the image of R exactly when g(0)=0. Polynomial division
-by U says this is equivalent to g(U)=U h(U). Consequently
-
-    A={f(u)+v h(u): f,h in R[U]},                       (A-NF)
-
-and that expression is unique. This proves generation by u,v and gives a
-C-basis 1,v for A. Relative to (1,v) and (1,t), the inclusion A -> B is
-exactly the C-linear matrix diag(1,U). This is not a claim that B is free
-of rank two over A.
-
-The relation F(u,v)=0 follows by multiplying t^2+a t+b=u by u^2. To prove
-that this is the WHOLE kernel, take an arbitrary H(U,V) in C[V]. Divide by
-F, monic in V of degree two:
-
-    H=J F+f(U)+Vg(U).
-
-If H(u,v)=0, the remainder maps to f(u)+t u g(u). By (B-NF), f=0 and Ug=0.
-Since U is regular on C, g=0. Conversely every multiple of F maps to zero.
-Thus the canonical evaluation has image A and kernel (F), and induces
-
-    R[U,V]/(V^2+aUV+bU^2-U^3) = A                     (PRESENT)
-
-through its specified generator maps. This proves the inherited
-`quadratic-pinch-generation` and `quadratic-pinch-presentation` targets,
-including inseparable quadratics, as mathematical statements.
-
-The current suggested file uses MvPolynomial (Fin 2), with variable 0=U,
-1=V. Native MvPolynomial.finSuccEquiv makes variable 0 the OUTER polynomial
-variable, not variable 1. For division in V, first exchange the two variables
-with the native rename equivalence, then use finSuccEquiv and identify the
-remaining one-variable coefficient polynomial. Alternatively construct the
-two evaluation maps and check each generator. A silent U/V swap gives the
-wrong monic-division argument. The compatibility is a proof obligation, not
-a new polynomial carrier.
-
-## 4. Finite inclusion, localization and the field normalization
-
-B is generated as an A-module by 1,t, because C is a subring of A and
-(B-NF) spans. The element t is integral over A, satisfying
-
-    T^2+aT+(b-u)=0.
-
-The localization comparison is the actual map
-
-    A[1/u] -> B[1/q]
-
-induced by inclusion. Its inverse sends t to v/u. Indeed PRESENT implies
-(v/u)^2+a(v/u)+b=u. The composites agree on R,u,v,t and the inverted
-elements. This proves an isomorphism compatible with the original maps,
-not just an agreement of complements on points.
-
-For R=k a field, A and B are domains inside k(t), and their fraction fields
-agree by the canonical inclusion. Explicitly, any f(t)/g(t) with g nonzero
-is (qf)/(qg), with numerator and nonzero denominator in A. B is finite
-integral over A and is integrally closed in k(t). For completeness, the
-last fact has the standard elementary proof: put an integral rational
-function in coprime form f/g; a monic equation shows g divides f^n, whence
-g is a unit in the polynomial PID. An element of k(t) integral over A is
-also integral over B by the same equation, so it belongs to B. Therefore B
-is precisely the integral closure of A in this identified fraction field.
-
-Only this last normalization paragraph uses a field. No normality theorem
-for R[t] over arbitrary R is asserted. The exact native fraction-field,
-localization and scheme-normalization comparisons still need registration,
-including the actual SR.1 normalization type. Separability of q is not
-needed for normalization; it is a separate hypothesis in the nodal/branch
-conclusion, which is not proved by PRESENT alone.
-
-## 5. Defect, conductor and the two coefficient actions
-
-Define the R-linear map
-
-    delta:B -> R,    delta(f(u)+t g(u))=g(0).
-
-Its kernel is A, it is surjective, and r mapping to rt is an R-linear
-section. For alpha=f(u)+v h(u) in A define
-
-    epsilon(alpha)=f(0).
-
-The multiplication formula gives delta(alpha z)=epsilon(alpha)delta(z).
-Thus the actual inclusion fits in the short exact A-module sequence
-
-    0 -> A -> B --delta--> R_epsilon -> 0,             (DEFECT)
-
-where R_epsilon means R with A-action through epsilon. This epsilon agrees
-with the inherited scalar residue: reduce f(u)+v h(u) modulo q. The
-sequence splits over R, not over A when R is nonzero. An A-linear section
-would send 1 to an element of B killed by u, impossible since u is regular
-on B and the section would have nonzero delta.
-
-The conductor in B is qB. Here is its computation from the same coordinates,
-consistent with the predecessor's proved field statement. An element
-alpha=f(u)+v h(u) belongs to the conductor iff alpha and t alpha both lie
-in A, because B=A+A t. The coefficient of t in t alpha modulo q is f(0).
-Hence the conductor contracted to A is
-
-    I=ker epsilon=(u,v),   and I=qB as subsets of B.
-
-Multiplication by q gives an A-linear isomorphism B -> I. In normal
-coordinates it is (f,g) mapping to (Uf,g), with codomain in A-coordinates.
-Its inverse exists on I because f(0)=0 exactly when U divides f; injectivity
-uses regularity of q. Also Ann_A(B/A)=I, using DEFECT and the faithful
-regular R-module. The ideal I is generally NOT uA: for R nonzero, v is not
-in uA, since that would force t to belong to A after cancelling q.
-
-A useful specialized dual comparison follows without a generic duality
-theory. Evaluation at 1 gives
-
-    Hom_A(B,A) = I.
-
-If h(1)=r and h(t)=s, then u s=v r, hence q(s-tr)=0 in B. Therefore s=tr,
-and r lies in the conductor. Conversely multiplication by any r in I is
-an A-linear map B -> A; the values on 1,t determine it. Composing with
-multiplication by q identifies B with this Hom module. This is a concrete
-conductor comparison, not a newly assumed dualizing complex.
-
-## 6. A complete normalization-module presentation
-
-All matrices act on column vectors. In A set d=u(u-b) and define
-
-    Psi = [ -v,        -d       ],
-          [  u,         v+a u   ]
-
-    Phi = [ -v-a u,    -d       ].
-          [  u,         v       ]
-
-Let pi:A^2 -> B send (r,s) to r+t s. It is surjective. The two displayed
-columns of Psi map to zero, since ut=v and t(v+a u)=u(u-b).
-Over R[U,V], before imposing F, both matrix products equal F times the
-identity; over A they are zero. This alone would not prove exactness.
-
-For the missing kernel proof write
-
-    r=r0+v r1,    s=s0+v s1,     r_i,s_i in C.
-
-In B-coordinates,
-
-    pi(r,s)=(r0+d s1) + t(U r1+s0-aU s1).
-
-Thus pi(r,s)=0 implies r0=-d s1 and s0=-U r1+aU s1, and the explicit
-preimage is
-
-    (r,s)=Psi(-r1,s1).                                (KERNEL-PI)
-
-The arguments on the right are included from C into A. This proves
-ker(pi)=image(Psi), hence coker(Psi) is B through pi, not merely a module
-with the same generic rank.
-
-For periodic exactness, define
-
-    w=U r1+s0,    z=-r0+aU r1-d s1.
-
-The first coordinate of Psi(r,s), in A-coordinates, is -d w+v z;
-the second is -U z+aU w+v w. Uniqueness of (A-NF) says it vanishes exactly
-when w=z=0. Substitution then gives
-
-    (r,s)=Phi(-r1,s1).                                (KERNEL-PSI)
-
-For Phi, put c=r0+d s1 and e=U r1+s0-aU s1. Its coordinates are
--d e-aU c-v c and U c+v e. They vanish exactly when c=e=0, giving
-(KERNEL-PI) again. Therefore
-
-    ker(Psi)=image(Phi),   ker(Phi)=image(Psi).
-
-This supplies the exact two-periodic free resolution ending in B. The proof
-uses the actual coefficient equations and constructs the preimage of every
-kernel element. It does not replan a general hypersurface matrix-factorization
-theorem from another roadmap. In particular det(Psi)=-F is only a check,
-not the reason the augmented complex is exact.
-
-The coordinate proofs of this SECTION survive every C-algebra base change,
-even when U becomes a zero divisor, because the monic quotients retain bases
-1,v and 1,t and the displayed kernel reconstructions never divide by U.
-After such a change B denotes the specialized finite module, not a newly
-asserted normalization. By contrast, injectivity of A -> B before taking
-cokernels used regularity of U; that injectivity need not survive.
-
-## 7. Coefficient-ring base change does preserve this family
-
-For any ring map R -> R', let a',b' be the images and form q',A',B' by the
-same formulas. Then the canonical maps give
-
-    A tensor_R R' = A',     B tensor_R R' = R'[t],
-
-with the inclusion and residue maps commuting. One proof uses the monic
-presentation and (A-NF); another tensors the R-split exact sequence DEFECT.
-The finite quotient B/qB is free of rank two over R, so the actual constant
-preimage agrees after every coefficient-ring change, not only a flat one.
-
-This is a special uniform quadratic FAMILY over Spec R. It does not strengthen
-the general Ferrand theorem to arbitrary base change on Spec A. Its free
-C-module rank two is likewise not flatness of the normalization over A.
-For a field, the latter has generic rank one and a two-dimensional fiber
-at the pinch.
-
-## 8. The nonflat curve-base-change obstruction, with its nilpotent
-
-For L>=1, set C_L=R[U]/(U^L), D_L=A/(u^L), and B_L=B/(q^L). The first two
-normal forms specialize to C_L-bases (1,v) for D_L and (1,t) for B_L. The
-natural comparison D_L -> B_L still has matrix diag(1,U). It has kernel
-
-    R times u^(L-1)v
-
-and cokernel R. For R nonzero the displayed kernel element is nonzero:
-its v-coordinate U^(L-1) is nonzero in the monic truncated polynomial ring.
-No point-counting test detects this kernel.
-
-At L=1, D_1=R[V]/(V^2), while B_1=R[t]/(q)=E. The original conductor
-square has rings A,B,R,E. After base change along A -> D_1, the other three
-rings are E,R,E, with the E -> E map the identity. Their recomputed fiber
-product is R. The canonical map
-
-    D_1 -> E times_E R = R
-
-kills the nonzero square-zero class v. Thus the base-changed square is not
-the same geometric pushout. At general L the recomputed ring is the image
-R+qB inside B/(q^L), and the same comparison loses u^(L-1)v.
-
-This works for separable, repeated-root and inseparable quadratics; the
-nilpotent is scheme-theoretic information, not a claim that each fiber has
-the same singularity type. The example supplements the existing nonflat
-conductor warnings without introducing a new source error.
-
-## 9. Proof-sized integration targets and tests
-
-These are refinements to integrate under this roadmap's G.1, NOT registered
-new nodes or new inventory counts in this checkpoint. Keep the IDs of the
-existing generation, presentation, residue, conductor and normalization
-nodes. The exact API statements and tests below should be reflected in the
-canonical packet, reader and suggested file together.
-
-1. **Eliminated quadratic root equivalence:** the specified C[T]/(P) -> R[t]
-   comparison and C-basis 1,t. Import AdjoinRoot; prove both generator
-   identities. Tests: t^2=(u-b)-at; a=b=0; characteristic-two a=b=1.
-2. **Pinching normal-form equivalence:** A is C plus C v with the inclusion
-   diag(1,U). Tests: constants and v survive; t is not in A for nonzero R;
-   R=Z/4 with a nilpotent coefficient still has unique coordinates.
-3. **Monic-V kernel reduction:** division by F and vanishing of its entire
-   evaluated remainder, giving the inherited presentation theorem. Tests:
-   the cusp V^2-U^3, the split-node equation, and the characteristic-two
-   UV term; pointwise equality on a finite field is not kernel equality.
-4. **Finite module and localization:** generators 1,t, their integral equation,
-   and inverse t mapping to v/u. The field fraction-ring/integral-closure
-   corollary is separate and must retain the actual canonical maps.
-5. **Defect sequence:** delta, its kernel/surjectivity, and its R-linear
-   section; compare epsilon to the EXISTING residue map. Tests: delta(t)=1,
-   delta(A)=0, and failure of A-linearity of the section.
-6. **Conductor module comparison:** the existing conductor is (u,v), with
-   multiplication q:B -> I an equivalence; evaluation Hom_A(B,A) -> I is a
-   separate lemma. Tests: v is in I but not uA; q times t maps to v; the
-   conductor is not inferred from equal closed point sets.
-7. **Augmented relation preimage:** formula KERNEL-PI proves exactness of
-   A^2 --Psi--> A^2 --pi--> B -> 0, not just pi composed with Psi=0.
-8. **Two periodic kernels:** split KERNEL-PSI and the Phi-kernel identity into
-   individual lemmas. Use actual normal-form coordinates; generic matrix
-   factorization/homological constructions remain imported.
-9. **Coefficient specialization:** canonical arbitrary R -> R' comparisons,
-   with all four conductor-square maps. This is not arbitrary A-base change.
-10. **Nonflat specialization:** the exact kernel R times u^(L-1)v, its
-    nonvanishing, and the L=1 conductor-square comparison to R.
-
-The dependency direction is elimination/basis -> A normal form -> full
-presentation -> module/localization/conductor comparisons -> specialized
-module/base-change tests. No new cross-roadmap reverse dependency or planet
-is proposed. Before changing the existing SF.0 request, integrate these
-specific proofs and distinguish them from the genuinely generic localization,
-fraction-field and geometric exports. The separate SR.1 node/normalization
-and SF.3 proper-P1/cohomology/finite-field interfaces remain open.
-
-## 10. Sources and native-interface receipts
-
-Fresh primary reading was deliberately bounded:
-
-- [Schröer arXiv:2004.07025v3](https://arxiv.org/pdf/2004.07025v3), selected
-  §3 text on pinching and residue algebras. The rendered printed p.10 was
-  inspected, including the two conductor diagrams and the split, infinitesimal
-  and separable quadratic residue cases. Rendering printed pp.9 and 11
-  failed; no fresh complete §3 proof, full paper, edition collation or
-  source-erratum audit is claimed. The inherited PDF hash is not a fresh
-  downloaded-byte certificate from this continuation.
-- [Stacks 0ECH](https://stacks.math.columbia.edu/tag/0ECH), Section 37.67:
-  the scheme hypotheses, affine construction and geometric sheaf formula,
-  and the displayed flat-base-change statements/proofs. Its finite-fiber
-  affine-neighborhood hypothesis is retained. No unconditional global-scheme
-  pushout theorem is deduced from the affine calculation here.
-
-The coordinate normal forms, matrix kernels and base-change examples above
-are explicitly derived adapters motivated by those sources. They are not
-claimed as separately numbered theorems of Schröer. No new source mistake
-is alleged; all prior 21 findings retain their earlier attribution.
-
-Fresh native statements at Mathlib
-`082e2d37e8b0463410cdb532e111cd43d5a66174`:
-
-- RingTheory/AdjoinRoot.lean, lines 230–340 and 580–800, blob
-  `1945b7728630a10baf56374f183be1bcfa3727f0`: lift/liftAlgHom with their actual
-  coefficient maps and generator evaluations; monic-root integrality,
-  modByMonicHom and its inverse comparison; powerBasisAux', powerBasis',
-  and Polynomial.Monic.free_adjoinRoot/finite_adjoinRoot. The arbitrary
-  CommRing hypotheses, rather than the later field-only powerBasis, are
-  essential. Zero rings require the explicit separate degree case.
-- Algebra/MvPolynomial/Equiv.lean, lines 460–620 and 640–780, blob
-  `fdfc975d04badb9226183345a7558ee477649af0`: optionEquivLeft, its generator
-  maps, finSuccEquiv and finSuccEquiv_X_zero/X_succ. These expose the
-  outer-variable convention used in Section 3.
-- Algebra/MvPolynomial/Polynomial.lean, complete file, blob
-  `cdb9754b529c499e7b53514526df99addf91e186`: evaluation compatibility for
-  finSuccEquiv. Searches on current main were only leads, not pin evidence.
-
-The current native QuadraticPinch definitions, admitted generation/presentation
-forms and proved residue/conductor adapters were read. The general-R carrier
-and formal first-isomorphism/localization/normalization comparisons are NOT
-claimed to elaborate. The polynomial PID argument for field normality is a
-mathematical proof, not a newly inspected exact native normalization theorem.
-
-Read the complete issue before and after claim, the latest handoff and
-relevant canonical nodes/request/omission records, the seven-stage roadmap,
-and selected reviewed AUDIT-10 parent information. No direct PartII audit
-was located in that material. The parent review distinguishes scheme Neron
-objects from existing algebra/group-scheme ingredients. Upstream style and
-ownership reading in this working session included GrothendieckEulerForms
-and Multiquadratic, and the opening function-field/scheme boundary of
-EllipticCurves; this is not a fresh full read of every geometric supplier.
-No claim of a new exhaustive link-map or library-absence search is made.
-
-## 11. Validation and remaining scope
-
-The standalone program below executed **52,339 assertions**. It covers all
-200 monic quadratic coefficient choices over moduli 1,2,3,4,5,8,9, including
-the zero ring and rings with nilpotents, with nine random polynomial/module
-samples per choice. Monic division returns the full quotient and remainder
-and checks the polynomial identity independently of substitution. Entire
-finite coefficient boxes over F2 and F3 give 23,779 additional kernel tests.
-
-The 152 finite module cases use all a,b over F2,F3,F5 and C/(U^L), 1<=L<=4.
-Exact Gaussian ranks validate the full finite maps, complementing the
-composition and explicit preimage tests. Four hundred coefficient-reduction
-cases separately test multiplication and inclusion. Highlights: 1,800 each
-of full division identities, principal-ideal regressions, normalization
-coordinates, conductor comparisons, augmented relations and periodic
-composition/preimage checks; 152 nonflat kernel witnesses and rank checks.
-
-These are finite regressions, not a substitute for the general proofs,
-Lean elaboration, normalization of a scheme, or the geometric nodality
-comparison. The tests do not revalidate the inherited fourteen-model surface
-classification or its completeness certificates.
+C1 is singular at p: its one-dimensional local ring has maximal ideal
+generated by u,v and embedding dimension two, since (1) has no linear
+term. Hence C1 is **not** a regular genus-one generic curve in the
+roadmap's fibration convention, and it is not an elliptic curve. It is
+a proper geometrically integral arithmetic-genus-one singular fiber
+model. This distinction is part of the comparison contract.
+
+## 4. Nodes, cusps and the separability hypothesis
+
+The quadratic initial form of (1) at p is
+
+    v^2 + a u v + b u^2.
+
+Its polar matrix in coordinates u,v is [[2b,a],[a,2]], whose determinant
+is 4b-a^2. Put disc=a^2-4b. The following proves the geometric assertion,
+including characteristic two, without dividing by 2.
+
+Suppose q is separable. Over a splitting field let its roots be r,s,
+with r not equal to s. There is a unique series r(u) with constant term
+r and q(r(u))=u. This can be constructed recursively: writing
+r(u)=r+sum_(n>=1) c_n u^n gives
+
+    c_1 = 1/(2r+a),
+    c_n = -(sum_(i=1 to n-1) c_i c_(n-i))/(2r+a), n>=2.
+
+The denominator is r-s, hence is nonzero. Set s(u)=-a-r(u). The sum
+and product identities give
+
+    F(u,v) = (v-u r(u))(v-u s(u)).                      (8)
+
+Set X=v-u r(u), Y=v-u s(u). The series X-Y=u(s(u)-r(u)) has an invertible
+linear coefficient as a series in u. It has a unique compositional
+inverse, constructed coefficient by coefficient, since the unknown
+coefficient at each step is multiplied by that linear coefficient.
+Thus u is a series in X-Y and v=X+u r(u). These give inverse continuous
+substitution homomorphisms in the two power-series variables. Equation
+(8) therefore proves
+
+    completed local ring of C1 at p over the splitting field
+      = k'[[X,Y]]/(XY).
+
+This is the usual node, not just a reduced quadratic tangent cone. It
+is split over k precisely when q has two roots in k. Its geometric
+branches are the two geometric points of Spec(E); in the nonsplit
+separable case they are conjugate over k, even though Spec(E) has only
+one closed point over k.
+
+There is also an explicit nonsplit completed-ring comparison. Assume E
+is a separable quadratic field extension and let alpha be the class of
+t. Construct r(u) in E[[u]] by the same recurrence, with constant term
+alpha. The pair 1,r(u) is a k[[u]]-basis of E[[u]]: express r(u) in the
+basis 1,alpha; its alpha coefficient has constant term 1 and is a unit.
+The map T mapping to r(u) therefore identifies
+
+    k[[u]][T]/(T^2+aT+b-u) = E[[u]].
+
+For A, the (u,v)-adic topology and the u-adic topology agree, since
+(u,v)^2 is contained in uA and uA is contained in (u,v). Its finite free
+normal form consequently identifies its completion with
+k[[u]] direct-sum v k[[u]]. Under v mapping to u r(u) its image is
+
+    k + u E[[u]] = {f in E[[u] : f(0) belongs to k}.    (9)
+
+This also computes the completed normalization quotient as E/k. The
+comparison is asserted here only for separable E; a coefficient-field
+splitting is not being assumed for an inseparable extension.
+
+If q is not separable, over an algebraic closure it is (t-r)^2. Put
+z=t-r. Then u=z^2 and v-r u=z^3. Translating w=v-r u turns (1) into
+
+    w^2-u^3=0.
+
+The normalization is u=z^2,w=z^3, its completed subring is
+kbar+z^2 kbar[[z]], and it has one geometric branch. This is a cusp, not
+a node, also in characteristics two and three. The complement is
+smooth by Section 2, so we have proved: C1 is at worst nodal exactly
+when q is separable, equivalently disc is nonzero.
+
+A necessary non-example is k=F2(c), q=t^2-c. Here E is a field of degree
+two, but it is purely inseparable; the curve is geometrically cuspidal.
+Thus the test "E is a field" does not by itself imply a nonsplit node.
+No such counterexample occurs over a finite field, because finite fields
+are perfect. In characteristic two the correct nodal condition in this
+family is a not equal to zero, not a characteristic-zero discriminant
+argument involving division by 2.
+
+## 5. A two-component model with its entire affine kernel
+
+The second model makes the r=2 conductor square equally explicit. In
+P2 with coordinates [T:Y:W], let
+
+    C2 : Y(YW-T^2-aTW-bW^2)=0.                         (10)
+
+Its components are the line L with Y=0 and the smooth conic H with
+YW=T^2+aTW+bW^2. Their actual parametrizations are
+
+    nu_L([T:S]) = [T:0:S],
+    nu_H([T:S]) = [TS:Q(T,S):S^2].                     (11)
+
+The conic parametrization is an isomorphism: on W nonzero its inverse
+is t=T/W, and around [0:1:0], writing x=T/Y,z=W/Y, the equation
+z=x^2+a x z+b z^2 has nonzero derivative in z at the origin, while the
+parametrization is the usual degree-two projective parametrization.
+More concretely an inverse near that point is the map to P1 represented
+by [Y-aT-bW:T]; substituting (11) gives [T^2:TS]=[T:S] on T nonzero.
+These two inverse descriptions cover the conic and agree on the overlap.
+At the conic infinity point the derivative of its homogeneous equation
+with respect to W is Y, so smoothness there is immediate; its affine
+chart is a graph over t. The line and conic do not meet at infinity.
+
+On W=1, the coordinate ring of C2 is
+
+    A2 = k[t,y]/(y(y-q(t))) = B x_E B.                  (12)
+
+To prove the full kernel and not only the relation, evaluate
+k[t,y] in B times B by t mapping to (t,t), y mapping to (0,q).
+Divide by y^2-qy, monic of degree two in y. The remainder f(t)+y h(t)
+maps to (f,f+qh). It vanishes only if f=0 and qh=0, hence h=0.
+Its image consists exactly of pairs whose difference is divisible by q.
+This proves (12) with its specified maps. The algebra B times B is a
+finite A2-module, generated by (1,1) and (0,1).
+
+The two maps in (11) identify their sources with the two reduced
+components, hence their disjoint union nu2 is finite and is the
+normalization of the reduced curve C2. The common subscheme is
+D=V(Y,Q(T,W)); its affine ring is E, with the same t on both components.
+Algebraically the conductor of A2 in B times B is qB times qB:
+multiplication by the two component idempotents forces each residue to
+vanish, and the converse is immediate. Therefore
+
+    D disjoint-union D ---> P1 disjoint-union P1
+             |                         |
+             v                         v
+             D ----------------------> C2                         (13)
+
+is the conductor square, with the folding map on the left. It is
+cartesian by taking the quotient modulo q on each component, and it is
+a geometric categorical pushout by (12) and the unchanged complements.
+Both finite fibers fit in the disjoint union of the two affine charts.
+Projectivity follows from the explicit closed embedding (10), rather
+than from an unstated assertion about properness of all pushouts.
+
+This construction uses the same identified degree-two subscheme on the
+two components. It does not classify arbitrary gluings with unspecified
+identifications, or assert that an arbitrary surface fiber has already
+been compared to this model.
+
+## 6. Two-component cohomology and singularity types
+
+From (12) one obtains the exact sequence
+
+    0 -> O_C2 -> (nu2)_*O_(P1 disjoint-union P1) -> O_D -> 0,       (14)
+
+where the last map is the difference of the two restrictions. Surjectivity
+is checked on the displayed affine charts via B -> E. Away from D it
+is an isomorphism to the relevant component. Consequently
+
+    0 -> H^0(C2,O) -> k direct-sum k --(c,d |-> c-d)--> E
+      -> H^1(C2,O) -> 0.
+
+The structural constants identify H^0(C2,O)=k, and the connecting map
+identifies H^1(C2,O)=E/k, with basis represented by t. Higher cohomology
+vanishes. As for (7), this is an isomorphism of actual vector spaces
+and is natural under field extension. The curve is geometrically
+connected, reduced and of arithmetic genus one, but has two geometric
+components, each with normalization genus zero.
+
+If q is separable, at each geometric root r the local equation is
+y(y-q(t))=0 with q'(r) nonzero. Use x=y and z=y-q(t). The series q(t)
+has an invertible linear term in t-r, so coefficientwise inversion gives
+the completed local ring kbar[[x,z]]/(xz). Thus there are two transverse
+geometric nodes. If q is irreducible separable over k these are conjugate;
+the two components themselves are still defined over k.
+
+If q has a double geometric root r, the local equation becomes
+
+    y(y-z^2)=0,  z=t-r.
+
+There are two smooth branches meeting with intersection multiplicity
+two: quotienting by their two ideals gives kbar[[z]]/(z^2), of length
+two. The normalization quotient has length two as well, from (12).
+It is not a node: its quadratic initial form is y^2, or equivalently
+it has two branches but delta-invariant two rather than one. This
+argument still applies in characteristic two, where the equation is
+y^2+y z^2; a vanishing y derivative alone is not a branch classification.
+
+These are the reduced curve forms appearing as split or nonsplit I2,
+and as III, respectively. The analogous C1 forms are I1 and II.
+The proof here is of the curve models and their local equations.
+Identification with a particular Kodaira fiber in a regular surface
+still requires the roadmap's geometric classification and intersection
+comparison; no new surface or genus-one fibration is asserted to exist.
+
+## 7. Counts over every finite extension and the native count convention
+
+Now k has Q elements. For m>=1 put K=F_(Q^m) and let r_m be the number
+of distinct roots of q in K. The actual complement isomorphisms give
+
+    #C1(K) = Q^m + 2 - r_m,
+    #C2(K) = 2 Q^m + 2 - r_m.                          (15)
+
+For C1, remove D(K) from P1(K) and add the single rational point p.
+For C2, take two copies of P1(K) and identify the two copies of each
+point of D(K). In the nonsplit C1 case p is rational even when it has
+no rational normalization preimage. In the nonsplit C2 case the gluing
+locus itself has residue field E and has no K-points until E embeds
+in K. This explains the different constants in (15).
+
+The counts use distinct roots, not the vector-space dimension of E.
+For q with a repeated root, D is length two but D(K) is a singleton.
+Finite fields are perfect, so that root belongs to k. The three cases
+are therefore:
+
+| residue algebra | r_m | #C1(K) | #C2(K) |
+| --- | --- | --- | --- |
+| k times k | 2 | Q^m | 2 Q^m |
+| separable quadratic field | 0 if m odd, 2 if m even | Q^m+1-(-1)^m | 2 Q^m+1-(-1)^m |
+| k[epsilon]/epsilon^2 | 1 | Q^m+1 | 2 Q^m+1 |
+
+The parity assertion follows because Frobenius permutes the two roots
+as a transposition in the nonsplit case, so its m-th power fixes them
+exactly for even m. This is a finite-field input, not an assumption
+that splitting is unchanged by field extension.
+
+There is a direct comparison to the already existing Weierstrass carrier.
+For C1 take
+
+    W(a,b) = (a_1,a_2,a_3,a_4,a_6) = (a,-b,0,0,0).
+
+Its affine equation is (1), and its unique infinity point is the one
+in Section 2. Thus the native WeierstrassCurve.pointCount is #C1(K).
+The sign in a_2=-b matters in odd characteristic. The native
+pointCount_def counts all affine solutions plus one; it includes p.
+It is not the cardinality of the nonsingular point group in this case.
+The native theorem pointCount_eq_card_point assumes IsElliptic and
+cannot be invoked: the discriminant of W(a,b) is zero for every a,b.
+
+A subtraction-free natural-number contract for the new scheme comparison is
+
+    W(a,b).pointCount + #{t in K : q(t)=0} = #K + 2.
+
+After this comparison the existing frobeniusTrace_def gives r_m-1:
+1 for split nodes, (-1)^m for a nonsplit node, and 0 for cusps.
+The nonsingular projective point group has one fewer point than C1:
+Q^m-1, Q^m-(-1)^m, and Q^m in the respective cases. No assertion here
+identifies a singular curve with an elliptic curve or its Tate module.
+
+## 8. Discriminating API and regression contracts
+
+These statements are to be attached to the corresponding existing G.1
+normalization, pinching and point-count work when integrated. Generic
+Proj, normalization, coherent cohomology, finite fields, and native
+Weierstrass carriers are inputs, not new competing owners.
+
+For the one-component construction and normalization:
+
+- `projective_pinch_affine_chart`: the W-nonzero chart is the EXISTING A
+  through u=U/W,v=V/W, with the full kernel (1).
+- `projective_pinch_infinity_chart`: (4) is the actual inverse chart;
+  nu1 maps [1:0] to [0:1:0]. The degree-three formula must have no
+  basepoints, including when q has repeated roots.
+- `projective_pinch_fiber`: the fiber above p is Spec(E), as a scheme.
+- `projective_pinch_cohomology`: separate the structural H0 comparison,
+  connecting-map H1 comparison, and their field-extension naturality.
+- `projective_pinch_node_iff`: q separable iff the unique singular point
+  is a node, with splitness determined by its branch algebra E.
+
+Tests include q=t^2 (a cusp and a nonreduced normalization fiber),
+q=t^2-1 in characteristic not two (the split node), and
+q=t^2+t+1 over F2 (the nonsplit node). The purely inseparable q=t^2-c
+over F2(c) rejects the false "quadratic field implies node" rule.
+The infinity test rejects a parametrization given only on an affine chart.
+The H1 test rejects using the normalization's genus as arithmetic genus.
+
+For the two-component construction:
+
+- `two_component_pinch_affine_chart`: (12), including the entire kernel.
+- `two_component_pinch_component_maps`: the line and conic maps (11)
+  are isomorphisms onto the two components and agree on the named E.
+- `two_component_pinch_conductor`: conductor qB times qB and square (13),
+  with all four arrows, not merely its point-set quotient.
+- `two_component_pinch_H1`: the connecting map E/k -> H1 is an isomorphism.
+- `two_component_pinch_local_form`: two transverse geometric nodes for
+  separable q, and y(y-z^2) at the single geometric intersection otherwise.
+
+Tests include q=t(t-1) (two intersections of length one), q=t^2 (one
+intersection of length two and delta two), and q=t^2+t+1 over F2
+(two k-defined components, no rational intersection). The second test
+rejects replacing the conductor scheme by its reduction; the third
+rejects confusing permutation of nodes with permutation of components.
+
+For the count/field-extension comparisons, concrete values are:
+
+| q over F2 | C1(F2), C1(F4), C1(F8) | C2(F2), C2(F4), C2(F8) |
+| --- | --- | --- |
+| t^2 | 3,5,9 | 5,9,17 |
+| t^2+t | 2,4,8 | 4,8,16 |
+| t^2+t+1 | 4,4,10 | 6,8,18 |
+
+Over F3, q=t^2+1 gives C1(F3)=5; using the incorrect coefficient a_2=b
+instead of -b gives 3. The arithmetic-genus-one statement must hold
+also in the cuspidal and two-component cases, not just for a node.
+The two F4 nonsplit counts reject a formula that never splits after
+extension. A point enumeration alone cannot certify conductor lengths,
+completed local rings, cohomology, or categorical universality.
+
+## 9. Integration worklist and ownership boundaries
+
+The proof-sized dependency order is as follows. These are local worklist
+labels, not a new family of registered atlas IDs.
+
+1. P01: preserve the existing affine generation and full-kernel targets;
+   record their monic remainder proof rather than changing carriers.
+2. P02: construct the degree-three projective map (3) and prove the
+   homogeneous relation and basepoint-free condition.
+3. P03: prove the affine chart comparison and the infinity chart (4),
+   as separate coordinate isomorphisms with generator identities.
+4. P04: deduce the actual finite normalization and complement isomorphism;
+   compare it with the StableReduction normalization interface.
+5. P05: identify the conductor subschemes and the cartesian square (5).
+6. P06: apply the general G.0 finite-pinching universal property to (5).
+7. P07: prove exactness of (6), with explicit maps and surjectivity.
+8. P08: deduce H0, H1 via the connecting map, and higher vanishing as
+   separate lemmas; then prove the field-extension naturality square.
+9. P09: prove the simple-root series recurrence and invertible-coordinate
+   adapter used in (8), importing the generic power-series operations.
+10. P10: identify split/nonsplit branch algebras and compare the completed
+    local rings with the native ordinary-double-point predicate.
+11. P11: prove the repeated-root cusp comparison and its non-node result.
+12. P12: prove the complete two-component affine kernel (12).
+13. P13: construct and compare the two projective component maps (11).
+14. P14: identify the normalization, conductor and pushout (13).
+15. P15: prove (14), then its H0 and connecting-map H1 consequences.
+16. P16: prove the two local intersection forms, retaining intersection
+    length two in the repeated-root case.
+17. P17: build the point-set bijections from the complement isomorphisms,
+    then the separate count statements (15).
+18. P18: specialize the finite-field root counts under every extension.
+19. P19: compare C1 to the native Weierstrass equation/count and specialize
+    the existing trace definition, with a_2=-b and no ellipticity assumption.
+
+The existing G.1/quadratic-pinch-generation,
+G.1/quadratic-pinch-presentation and G.1/quadratic-pinch-normalization IDs
+must be retained. Split new nonroutine helpers around them when the
+packet, reader and suggested file can be updated together. No additional
+planet is proposed. The reserved general Ferrand key remains its current
+owner; these are explicit consumers and tests, not a substitute definition
+restricted to curves.
+
+The freshly read SF.0 stage owns relative Spec/Proj and affine gluing;
+SF.2 owns site/cohomology interfaces; SF.3 explicitly integrates the
+AlgebraicCurves and JacobianChallenge genus/Picard owners. Its broad stage
+text is not itself an exact native theorem signature. The existing
+requests must be sharpened with P03, P07-P08 and P15 as concrete consumers,
+not deleted merely because the mathematical cohomology calculation is now
+written out. StableReduction's normalization and geometric-node interfaces
+remain the supplier for P04/P10. In particular AlgebraicCurves' function-
+field genus is not a replacement for H1 of these singular curves.
+
+Still unresolved in this job: canonical node/API registration, native
+projective and normalization comparisons, the full suggested-file
+elaboration, application to arbitrary actual fibers rather than these
+explicit models, the general algebraic-space/gluing exports, DVR and wild
+fiber work, and the rational-surface model completeness/source obligations.
+The prior general-ring matrix resolution and nonflat base-change tests
+also still require their canonical integration. Nothing here closes the
+whole G.0 key definition or any of the seven stages.
+
+## 10. Sources, versions and scope of verification
+
+Fresh primary reading on 2 October 2026:
+
+- [Schroeer, arXiv:2004.07025](https://arxiv.org/pdf/2004.07025), whose
+  returned first page identifies v3, 9 August 2022, and a third revised
+  version dated 19 July 2022. The returned PDF has 52 pages. Read the
+  parsed Section 3 text on printed pp.9-11: the two conductor constructions,
+  the distinction of separable and inseparable residue algebras, and
+  Proposition 3.2. The short locator excerpt is "finite k-algebra of length
+  two". The explicit coordinate constructions and proofs in this receipt
+  are derived adapters, not claimed to be numbered results stated there.
+  PDF rendering was attempted but returned a cache error; no successful
+  visual verification of its conductor diagrams or printed table is claimed.
+  The numbers in this receipt are derived independently and tested below.
+- [Stacks 0ECH](https://stacks.math.columbia.edu/tag/0ECH), Situation
+  37.67.1 and Proposition 37.67.3, including its proof: the hypotheses,
+  affine fiber-product construction and scheme universal property. Both
+  explicit constructions satisfy the finite-fiber affine-neighborhood
+  condition. No unconditional global scheme-existence result is inferred.
+- [Stacks 0C46](https://stacks.math.columbia.edu/tag/0C46), Definition
+  53.19.1 and Lemmas 53.19.3, 53.19.4 and 53.19.7, with their proofs:
+  ordinary double points, completed rings, and branch/delta criteria.
+  Sections 4 and 6 give specialized coordinate proofs, not a re-plan of
+  that general nodal-curve theory.
+- [Stacks 01XS](https://stacks.math.columbia.edu/tag/01XS), Lemma 30.8.1
+  and its Cech proof, specialized here to n=1,d=0. The general cohomology
+  theory stays with its existing foundational owners.
+
+The Annals publication record was read for its metadata (197 (2023),
+pp.1-63); its full published text was not successfully obtained. The
+preprint is not represented as a byte-identical published version. No
+new erratum or source mistake is alleged, and no fresh whole-paper
+collation is claimed. All 21 inherited source findings remain unchanged.
+There is no fresh downloaded-PDF hash certificate from this session.
+
+Fresh exact pinned library reading:
+
+- TauCeti at `f790474821cf4256814db967cb154e7af3d0c369`,
+  `TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean`, complete file,
+  blob `a1c0db6d278c1ea94d09778b0826d67106bd7a5a`: pointCount,
+  pointCount_def, pointCount_eq_card_point with its IsElliptic hypothesis,
+  frobeniusTrace and frobeniusTrace_def. These existing declarations are
+  reused, not counted as new nodes. Their source was read, not compiled.
+
+Repository reading included the live worker/protocol/browser/upstream
+instructions, the issue and its comments before/after claim, the preceding
+handoff, the relevant canonical reader and packet opening, and the SF.0-
+SF.3 descriptions. Upstream readings were the selected conventions and
+ownership sections of StableReduction and AlgebraicCurves. The parent
+AUDIT-10 material and the published red-team coverage summary were inspected
+as leads; this was not a fresh exhaustive read of data/library-coverage.json
+or every accepted parent audit target. No whole-library absence claim is
+made. No canonical declaration is being newly planned on the strength of
+that limited screen. An integration worker still needs the exact supplier
+nodes, reviewed audit fits, and pinned native signatures.
+
+## 11. Executed validation and compilation status
+
+The reproducible standard-library program below executed **133,830
+assertions**, covering all 824 monic quadratic coefficient pairs over
+fields of orders 2,3,5,4,8,9,25, for both projective models. It enumerates
+actual projective points, checks the maps and their fibers, checks the
+unique infinity contribution, computes singular support by partial
+derivatives, and verifies the root-parity behavior for prime-field
+coefficients in the displayed extensions. It separately checks the
+finite-field arithmetic tables used for those computations.
+
+There are 17,914 parametrized-point tests for each relevant construction,
+824 complete count tests for each family, and 80 extension-parity tests.
+The sample F2/F4/F8 values in Section 8 are direct outputs. These are
+finite regressions, not a proof of an arbitrary-field assertion, a
+categorical universal property, cohomology, or a nilpotent scheme structure.
+The proofs of those assertions are Sections 1-7 with the stated inputs.
 
 Program SHA-256:
-`bf4d1cad82aa6e8ecaeb6c95cb435d888e832e50b9e88c294e304a1a23049fce`.
+`706efec958473c5862fd191bef27e4bc0b58377129986f4c14d76a36664ed196`.
 JSON output SHA-256:
-`d57103c71cf92cc8ba5a5644fc29be912e130647f31348f3eeb42a5e55105f84`.
+`c3d3832501bc4043782d969df4c4ef9fc25cc6a6121ffbe5a492360a343afa7a`.
 
 **Lean was not compiled.** Available memory was about 3 GB, below WORKERS'
-20 GB threshold, and no existing pinned build was available. No project,
-cache retrieval, library build or language server was started. The local
-indexed checker and actual atlas assembly were not run; the canonical packet
-was not changed. Submission CI is a separate mechanical check, not an
-independent mathematical review. Historical compilation applies only to its
-own exact file/excerpt. No new formalization or stage closure is claimed.
-
-Resume by integrating Sections 2–4 into the existing generation/presentation
-and finite-normalization targets, with proof-sized helpers and native
-signatures, then Sections 5–8 into the conductor and nonflat-test interfaces.
-Preserve the variable convention and distinguish C-freeness from A-flatness.
-Finish actual scheme normalization/node/branch comparison, proper P1
-pinching and cohomology, the I1/I2 and field-extension maps, all space/gluing,
-canonical/wild, DVR/quasielliptic and model-resolution obligations, and the
-missing William Lang source/completeness work. The reserved general Ferrand
-key is not closed by this affine quadratic computation.
+20 GB threshold, and no existing pinned build was available. No Lake
+project, cache download, library build or language server was started.
+The indexed blueprint checker and atlas build were not run locally;
+there was no accessible local repository checkout, and the canonical
+packet is unchanged. Submission CI is a separate mechanical check, not
+an independent mathematical review. No implementation or stage-closure
+claim follows from these tests or from that CI.
 
 ## 12. Reproduction
 
-Run this standalone Python 3 program; only the standard library is used.
+Run the following with Python 3. No third-party packages are used.
 
 ```python
-"""Quadratic-pinch exact regressions. Standard library only; not Lean proofs."""
+"""Exact finite-field regressions for one- and two-component quadratic pinches.
+Standard library only. These computations do not prove geometric statements.
+"""
 from collections import Counter
 from itertools import product
-from random import Random
 import json
 
-counts=Counter(); rng=Random(3378); modulus=2; a=0; b=0; trunc=None
+counts = Counter()
 
-def ck(name, assertion):
-    if not assertion: raise AssertionError((name,modulus,a,b,trunc))
-    counts[name]+=1
+def ck(name, condition):
+    if not condition:
+        raise AssertionError(name)
+    counts[name] += 1
 
-def trim(f):
-    f=[x%modulus for x in f]
-    if trunc is not None: f=f[:trunc]
-    while f and f[-1]==0: f.pop()
-    return tuple(f)
-def add(f,g): return trim([(f[i] if i<len(f) else 0)+(g[i] if i<len(g) else 0) for i in range(max(len(f),len(g)))])
-def neg(f): return trim([-x for x in f])
-def sub(f,g): return add(f,neg(g))
-def mul(f,g):
-    h=[0]*max(0,len(f)+len(g)-1)
-    for i,x in enumerate(f):
-        for j,y in enumerate(g): h[i+j]+=x*y
-    return trim(h)
-def c(x): return trim([x])
-def shift(f,n=1): return trim([0]*n+list(f))
-def power(f,n):
-    h=c(1)
-    for _ in range(n): h=mul(h,f)
-    return h
-def eval_poly(f,x):
-    h=()
-    for v in reversed(f): h=add(mul(h,x),c(v))
-    return h
-def randpoly(n=5): return trim([rng.randrange(modulus) for _ in range(n)])
-def padd(z,w): return add(z[0],w[0]),add(z[1],w[1])
-def pneg(z): return neg(z[0]),neg(z[1])
-def pscale(f,z): return mul(f,z[0]),mul(f,z[1])
-def pmul(z,w,kind):
-    # B: t^2=U-a*t-b; A: V^2=U^3-a*U*V-b*U^2.
-    gj=mul(z[1],w[1]); u=shift(c(1))
-    d=sub(u,c(b)) if kind=='B' else sub(power(u,3),pscale(c(b),(power(u,2),()))[0])
-    e=c(a) if kind=='B' else pscale(c(a),(u,()))[0]
-    return add(mul(z[0],w[0]),mul(d,gj)), sub(add(mul(z[0],w[1]),mul(z[1],w[0])),mul(e,gj))
-def inc(z): return z[0],shift(z[1])
-def times_t(z): return mul(sub(shift(c(1)),c(b)),z[1]), sub(z[0],mul(c(a),z[1]))
-def pi(z): return padd(inc(z[0]),times_t(inc(z[1])))
-def normal_B(f):
-    out=((),()); tpower=(c(1),())
-    for coeff in f:
-        out=padd(out,pscale(c(coeff),tpower)); tpower=times_t(tpower)
-    return out
+class Field:
+    def __init__(self, p, modulus):
+        self.p, self.modulus = p, tuple(modulus)
+        self.n, self.size = len(modulus)-1, p**(len(modulus)-1)
+        self.elements = range(self.size)
+        self.digits = [tuple((x // p**i) % p for i in range(self.n)) for x in self.elements]
+        self.add_table = [[self.encode([(a+b)%p for a,b in zip(self.digits[x],self.digits[y])]) for y in self.elements] for x in self.elements]
+        self.neg_table = [self.encode([(-a)%p for a in self.digits[x]]) for x in self.elements]
+        self.mul_table = [[self.multiply(x,y) for y in self.elements] for x in self.elements]
+        self.inv_table = {x:next(y for y in self.elements if self.mul(x,y)==1) for x in self.elements if x}
+        # The existence of inverses verifies the supplied monic quotients are fields.
+        for x in self.elements:
+            for y in self.elements:
+                ck('field_commutativity', self.mul(x,y)==self.mul(y,x))
+                for z in self.elements:
+                    ck('field_associativity', self.mul(self.mul(x,y),z)==self.mul(x,self.mul(y,z)))
+                    ck('field_distributivity', self.mul(x,self.add(y,z))==self.add(self.mul(x,y),self.mul(x,z)))
+    def encode(self, a): return sum(v*self.p**i for i,v in enumerate(a))
+    def add(self,x,y): return self.add_table[x][y]
+    def neg(self,x): return self.neg_table[x]
+    def sub(self,x,y): return self.add(x,self.neg(y))
+    def mul(self,x,y): return self.mul_table[x][y]
+    def multiply(self,x,y):
+        p,n=self.p,self.n
+        c=[0]*(2*n-1)
+        for i,a in enumerate(self.digits[x]):
+            for j,b in enumerate(self.digits[y]): c[i+j]=(c[i+j]+a*b)%p
+        for i in range(2*n-2,n-1,-1):
+            v=c[i]
+            for j in range(n+1): c[i-n+j]=(c[i-n+j]-v*self.modulus[j])%p
+        return self.encode(c[:n])
+    def power(self,x,n):
+        out=1
+        for _ in range(n): out=self.mul(out,x)
+        return out
+    def normalize(self,coords):
+        pivot=next(x for x in coords if x)
+        return tuple(self.mul(x,self.inv_table[pivot]) for x in coords)
+    def p1(self): return [(x,1) for x in self.elements]+[(1,0)]
+    def p2(self):
+        return [(x,y,1) for x,y in product(self.elements,repeat=2)]+[(x,1,0) for x in self.elements]+[(1,0,0)]
 
-def poly_t_from_B(z):
-    # Only call with no truncation: the argument is a pair of U-polynomials.
-    q=(b%modulus,a%modulus,1%modulus)
-    return add(eval_poly(z[0],q),shift(eval_poly(z[1],q)))
-def poly_t_from_A(z): return poly_t_from_B(inc(z))
-def normal_A_eval(f):
-    z=normal_B(f)
-    return (z[0],trim(z[1][1:])) if not z[1] or z[1][0]==0 else None
+specs=[(2,(0,1)),(3,(0,1)),(5,(0,1)),(2,(1,1,1)),(2,(1,1,0,1)),(3,(1,0,1)),(5,(2,0,1))]
+receipts=[]
+for p,modulus in specs:
+    K=Field(p,modulus); add,mul,sub,pow=K.add,K.mul,K.sub,K.power
+    def scale(n,x): return mul(n%p,x)
+    inf1=K.normalize((0,1,0)); pinch=K.normalize((0,0,1))
+    for a,b in product(K.elements,repeat=2):
+        def q(t): return add(add(pow(t,2),mul(a,t)),b)
+        roots=[t for t in K.elements if q(t)==0]
+        disc=sub(pow(a,2),scale(4,b))
+        def cubic1(P):
+            u,v,w=P
+            return sub(add(add(mul(pow(v,2),w),mul(a,mul(mul(u,v),w))),mul(b,mul(pow(u,2),w))),pow(u,3))
+        def grad1(P):
+            u,v,w=P
+            return (sub(add(mul(a,mul(v,w)),scale(2,mul(b,mul(u,w)))),scale(3,pow(u,2))),
+                    add(scale(2,mul(v,w)),mul(a,mul(u,w))),
+                    add(add(pow(v,2),mul(a,mul(u,v))),mul(b,pow(u,2))))
+        points1={K.normalize(P) for P in K.p2() if cubic1(P)==0}
+        images1=[]
+        for t,s in K.p1():
+            Q=add(add(pow(t,2),mul(a,mul(t,s))),mul(b,pow(s,2)))
+            raw=(mul(Q,s),mul(t,Q),pow(s,3))
+            ck('cubic1_no_basepoint',any(raw))
+            image=K.normalize(raw); images1.append(image)
+            ck('cubic1_morphism_equation',cubic1(image)==0)
+        ck('cubic1_count',len(points1)==K.size+2-len(roots))
+        ck('cubic1_image',set(images1)==points1 if roots else set(images1)==points1-{pinch})
+        ck('cubic1_off_pinch_bijection',len([x for x in images1 if x!=pinch])==len(points1-{pinch}) and len(set(images1)-{pinch})==len(points1-{pinch}))
+        ck('cubic1_pinch_fiber',images1.count(pinch)==len(roots))
+        ck('cubic1_infinity',images1[-1]==inf1 and any(grad1(inf1)))
+        ck('cubic1_unique_singularity',{P for P in points1 if not any(grad1(P))}=={pinch})
+        # Discriminant of tangent form v^2+a*u*v+b*u^2, including p=2.
+        ck('tangent_polar_determinant',sub(scale(4,b),pow(a,2))==K.neg(disc))
+        if disc==0: ck('perfect_field_repeated_root',len(roots)==1)
+        else: ck('separable_root_number',len(roots) in (0,2))
+        # On v !=0 and h(u/v)!=0, infinity chart equals z*h(x)=x^3.
+        for P in points1:
+            u,v,w=P
+            if v:
+                x=mul(u,K.inv_table[v]); z=mul(w,K.inv_table[v]); h=add(add(1,mul(a,x)),mul(b,pow(x,2)))
+                ck('infinity_chart_relation',mul(z,h)==pow(x,3))
+                if h: ck('infinity_chart_inverse',z==mul(pow(x,3),K.inv_table[h]))
+        # Second model: line times conic, with identical degree-two gluing algebra.
+        def conic(P):
+            t,y,w=P
+            return sub(mul(y,w),add(add(pow(t,2),mul(a,mul(t,w))),mul(b,pow(w,2))))
+        def cubic2(P): return mul(P[1],conic(P))
+        def grad2(P):
+            t,y,w=P; c=conic(P)
+            return (K.neg(mul(y,add(scale(2,t),mul(a,w)))),add(c,mul(y,w)),mul(y,sub(y,add(mul(a,t),scale(2,mul(b,w))))))
+        points2={K.normalize(P) for P in K.p2() if cubic2(P)==0}
+        images2=[]; line=[]; quad=[]
+        for t,s in K.p1():
+            Q=add(add(pow(t,2),mul(a,mul(t,s))),mul(b,pow(s,2)))
+            L=K.normalize((t,0,s)); C=K.normalize((mul(t,s),Q,pow(s,2)))
+            line.append(L);quad.append(C);images2 += [L,C]
+            ck('cubic2_component_maps',cubic2(L)==0 and conic(C)==0)
+        intersection={K.normalize((t,0,1)) for t in roots}
+        ck('cubic2_count',len(points2)==2*K.size+2-len(roots))
+        ck('cubic2_image',set(images2)==points2)
+        ck('cubic2_intersection',set(line)&set(quad)==intersection)
+        ck('cubic2_component_bijections',len(set(line))==K.size+1 and len(set(quad))==K.size+1)
+        ck('cubic2_singular_support',{P for P in points2 if not any(grad2(P))}==intersection)
+        ck('cubic2_fiber_multiplicities',all(images2.count(P)==(2 if P in intersection else 1) for P in points2))
+        if disc==0:
+            r=roots[0]
+            for z in K.elements: ck('repeated_root_translation',q(add(z,r))==pow(z,2))
+        receipts.append({'field':K.size,'a':a,'b':b,'roots':len(roots),'C1':len(points1),'C2':len(points2)})
+    # Check base-prime coefficients through extensions, using actual Frobenius/root counts.
+    for a,b in product(range(p),repeat=2):
+        roots0=sum((t*t+a*t+b)%p==0 for t in range(p))
+        rootsK=sum(add(add(pow(t,2),mul(a,t)),b)==0 for t in K.elements)
+        expected=roots0 if roots0 else (2 if K.n%2==0 else 0)
+        ck('extension_root_parity',rootsK==expected)
 
-def mvec(M,z):
-    return tuple(padd(pmul(M[i][0],z[0],'A'),pmul(M[i][1],z[1],'A')) for i in range(2))
-def matrices():
-    zero=((),()); u=shift(c(1)); v=((),c(1)); up=(u,()); d=(mul(u,sub(u,c(b))),())
-    psi=((pneg(v),pneg(d)),(up,padd(v,(mul(c(a),u),()))))
-    phi=((pneg(padd(v,(mul(c(a),u),()))),pneg(d)),(up,v))
-    return psi,phi
-
-def nf(P):
-    # Actual monic division in V: retain the entire quotient and remainder.
-    P={ij:x%modulus for ij,x in P.items() if x%modulus}; H={}
-    while any(j>=2 for i,j in P):
-        i,j=max((ij for ij in P if ij[1]>=2),key=lambda z:(z[1],z[0]))
-        x=P[(i,j)]; pos=(i,j-2); H[pos]=(H.get(pos,0)+x)%modulus
-        # subtract x U^i V^(j-2) (V^2+aUV+bU^2-U^3)
-        for di,dj,w in [(0,2,1),(1,1,a),(2,0,b),(3,0,-1)]:
-            key=(i+di,j-2+dj); P[key]=(P.get(key,0)-x*w)%modulus
-            if not P[key]: P.pop(key,None)
-    F=trim([P.get((i,0),0) for i in range(1+max((i for i,j in P),default=-1))])
-    G=trim([P.get((i,1),0) for i in range(1+max((i for i,j in P),default=-1))])
-    return (F,G),{ij:x for ij,x in H.items() if x}
-def mvadd(P,Q):
-    out=dict(P)
-    for ij,x in Q.items(): out[ij]=(out.get(ij,0)+x)%modulus
-    return {ij:x for ij,x in out.items() if x}
-def mvmul(P,Q):
-    out={}
-    for (i,j),x in P.items():
-        for (k,l),y in Q.items(): out[(i+k,j+l)]=(out.get((i+k,j+l),0)+x*y)%modulus
-    return {ij:x for ij,x in out.items() if x}
-def from_normal(z): return {(i,0):x for i,x in enumerate(z[0]) if x}|{(i,1):x for i,x in enumerate(z[1]) if x}
-def eval_mv(P):
-    q=trim([b,a,1]); tq=shift(q); out=()
-    for (i,j),x in P.items(): out=add(out,mul(c(x),mul(power(q,i),power(tq,j))))
-    return out
-
-ring_cases=0
-for modulus in [1,2,3,4,5,8,9]:
-    trunc=None
-    for a,b in product(range(modulus),repeat=2):
-        ring_cases+=1; F={(0,2):1,(1,1):a,(2,0):b,(3,0):-1}
-        for _ in range(9):
-            h=randpoly(13); z=normal_B(h)
-            ck('normalization_polynomial_basis',poly_t_from_B(z)==h)
-            f,g=randpoly(),randpoly(); zz=(f,g)
-            ck('pinch_normal_form_injective',normal_A_eval(poly_t_from_A(zz))==zz)
-            w=(randpoly(),randpoly())
-            ck('multiplication_diagonal_inclusion',inc(pmul(zz,w,'A'))==pmul(inc(zz),inc(w),'B'))
-            ck('polynomial_multiplication',poly_t_from_A(pmul(zz,w,'A'))==mul(poly_t_from_A(zz),poly_t_from_A(w)))
-            # Cokernel is the coefficient of t in the remainder modulo q.
-            delta=z[1][0] if z[1] else 0
-            projected=sub(h,shift(c(delta)))
-            ck('split_coefficient_cokernel',normal_A_eval(projected) is not None)
-            ck('conductor_membership',(normal_A_eval(poly_t_from_B(times_t(inc(zz)))) is not None)==(not f or f[0]==0))
-            P={(rng.randrange(5),rng.randrange(5)):rng.randrange(modulus) for _ in range(10)}
-            N,H=nf(P)
-            ck('monic_division_identity',mvadd(mvmul(F,H),from_normal(N))=={ij:x%modulus for ij,x in P.items() if x%modulus})
-            ck('normal_form_evaluation',eval_mv(P)==poly_t_from_A(N))
-            ck('kernel_equivalence_sample',(eval_mv(P)==())==(N==((),())))
-            ck('principal_ideal_sample',nf(mvmul(F,P))[0]==((),()))
-            psi,phi=matrices(); y=((randpoly(),randpoly()),(randpoly(),randpoly())); zero=(((),()),((),()))
-            syz=mvec(psi,y); syz2=mvec(phi,y)
-            ck('augmented_relation',pi(syz)==((),()))
-            ck('periodic_compositions',mvec(phi,syz)==zero and mvec(psi,syz2)==zero)
-            rec=((neg(syz[0][1]),()),(syz[1][1],()))
-            ck('kernel_augmentation_preimage',mvec(psi,rec)==syz)
-            rec2=((neg(syz2[0][1]),()),(syz2[1][1],()))
-            ck('kernel_psi_preimage',mvec(phi,rec2)==syz2)
-            # conductor qB has A-normal coordinates (U*f,g).
-            con=(shift(z[0]),z[1]); q=trim([b,a,1])
-            ck('conductor_multiplication_isomorphism',poly_t_from_A(con)==mul(q,h))
-
-# Entire finite coefficient boxes, not just random ideal elements.
-for modulus,bound in [(2,8),(3,6)]:
-    trunc=None; basis=[(i,j) for j in range(bound//3+1) for i in range(bound//2+1) if 2*i+3*j<=bound]
-    for a,b in product(range(modulus),repeat=2):
-        for coeff in product(range(modulus),repeat=len(basis)):
-            P={ij:x for ij,x in zip(basis,coeff) if x}; z,H=nf(P)
-            ck('exhaustive_presentation_box',(eval_mv(P)==())==(z==((),())))
-
-# Prime-field linear algebra validates entire finite module maps, not just samples.
-def rank(cols,p):
-    if not cols: return 0
-    A=[list(row) for row in zip(*cols)]; r=0
-    for j in range(len(cols)):
-        pivot=next((i for i in range(r,len(A)) if A[i][j]%p),None)
-        if pivot is None: continue
-        A[r],A[pivot]=A[pivot],A[r]; u=pow(A[r][j]%p,-1,p); A[r]=[(x*u)%p for x in A[r]]
-        for i in range(len(A)):
-            if i!=r and A[i][j]%p:
-                u=A[i][j]%p; A[i]=[(x-u*y)%p for x,y in zip(A[i],A[r])]
-        r+=1
-        if r==len(A): break
-    return r
-
-def flatpair(z,L): return tuple(z[0])+(0,)*(L-len(z[0]))+tuple(z[1])+(0,)*(L-len(z[1]))
-def flatvec(z,L): return flatpair(z[0],L)+flatpair(z[1],L)
-finite_cases=0
-for modulus in [2,3,5]:
-    for a,b in product(range(modulus),repeat=2):
-        for L in range(1,5):
-            finite_cases+=1; trunc=L; psi,phi=matrices(); columns_psi=[];columns_phi=[];columns_pi=[]
-            for i in range(4*L):
-                parts=[(),(),(),()]; parts[i//L]=trim([0]*(i%L)+[1]); z=((parts[0],parts[1]),(parts[2],parts[3]))
-                columns_psi.append(flatvec(mvec(psi,z),L));columns_phi.append(flatvec(mvec(phi,z),L));columns_pi.append(flatpair(pi(z),L))
-            ck('finite_cokernel_surjection',rank(columns_pi,modulus)==2*L)
-            ck('finite_augmented_exactness',rank(columns_psi,modulus)==2*L)
-            ck('finite_periodic_exactness',rank(columns_phi,modulus)==2*L)
-            # inclusion diag(1,U) has exactly one-dimensional kernel and cokernel.
-            inc_cols=[]
-            for i in range(2*L):
-                z=(trim([0]*i+[1]),()) if i<L else ((),trim([0]*(i-L)+[1]))
-                inc_cols.append(flatpair(inc(z),L))
-            ck('nonflat_inclusion_rank',rank(inc_cols,modulus)==2*L-1)
-            witness=((),trim([0]*(L-1)+[1]))
-            ck('nonflat_kernel_witness',witness!=((),()) and inc(witness)==((),()))
-
-# Arbitrary coefficient reduction, distinguished from quotienting by U on A.
-trunc=None
-for source,target in [(4,2),(8,4),(8,2),(9,3)]:
-    for _ in range(100):
-        modulus=source;a=rng.randrange(source);b=rng.randrange(source)
-        z=(randpoly(),randpoly());w=(randpoly(),randpoly());prod0=pmul(z,w,'A');image0=poly_t_from_A(z)
-        modulus=target;a%=target;b%=target
-        zz=(trim(z[0]),trim(z[1]));ww=(trim(w[0]),trim(w[1]))
-        ck('coefficient_base_change_product',pmul(zz,ww,'A')==(trim(prod0[0]),trim(prod0[1])))
-        ck('coefficient_base_change_inclusion',poly_t_from_A(zz)==trim(image0))
-
-print(json.dumps({'seed':3378,'quadratic_coefficient_cases':ring_cases,'coefficient_moduli':[1,2,3,4,5,8,9],
-'finite_module_cases':finite_cases,'checks':dict(counts),'total_assertions':sum(counts.values()),
-'scope':'Exact polynomial and finite-module regressions; not formal proofs or scheme/normalization verification'},sort_keys=True,indent=2))
+out={'assertions':sum(counts.values()),'by_kind':dict(sorted(counts.items())),
+     'models_per_family':len(receipts),'field_orders':[p**(len(f)-1) for p,f in specs],
+     'F2_examples':[r for r in receipts if r['field'] in (2,4,8) and r['a']<2 and r['b']<2]}
+print(json.dumps(out,sort_keys=True,indent=2))
 ```
