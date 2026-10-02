@@ -1,0 +1,144 @@
+{
+  "id": "HodgeStructuresPartII",
+  "title": "Hodge structures (pure, mixed, and polarized), Part II: variations, period maps and non-abelian Hodge theory",
+  "area": "algebraicgeometry",
+  "parent": "tauceti:TauCetiRoadmap/HodgeStructures",
+  "summary": "This continuation starts beyond the existing fibrewise pure, mixed, polarized and period-point theory. It supplies the common Higgs and parameter-connection interface, then organizes complex non-abelian Hodge moduli, variations, period derivatives, rigidity and arithmetic models, semistable degeneration, definability and real Noether–Lefschetz applications. This draft is a partial checkpoint: only a free affine coordinate test and transport prefix is decomposed, and all seven accepted route briefs remain binding.",
+  "readme": "# Hodge structures, Part II\n\nThe definitive checkpoint reader is research/blueprint/readmes/HodgeStructuresPartII.md. This is a draft layer organization, not a closed blueprint. The parent owns fibrewise Hodge structures and period points. ShimuraData:D3 owns common variations; CrystallineCohomology:CR.1 owns generic ordinary connection/crystal interfaces; EnhancedDerivedSheaves:E1 owns general sheaf tensor/descent; DerivedDeRhamCohomology:DD.1 owns shared filtered/Rees and Koszul inputs. This successor owns the Higgs/constant-parameter interface and additional geometric applications. It does not own p-adic Simpson, Cartier flows or arithmetic companions.\n\nThe accepted DegeneratingHodgeStructures routes from BKT and Benoist coalesce here. H.0 is partial and H.1–H.8 are not source-decomposed. The reserved key HodgeStructuresPartII:key/higgs-parameter-connections is still absent: local commuting-coordinate free models are tests, not a substitute.\n",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "CrystallineCohomology",
+    "EnhancedDerivedSheaves",
+    "ShimuraData"
+  ],
+  "stages": [
+    {
+      "key": "H.0",
+      "title": "Higgs fields and parameter connections",
+      "description": "Supply the reserved general ringed-site finite-locally-free Higgs/λ-connection interface once: central parameter with dλ=0, integrability, explicit coefficient twist, tensor, dual, pullback, nilpotence bounds and Griffiths associated-graded construction. This checkpoint develops only free affine commuting-coordinate models; these do not discharge the reserved key.",
+      "requires": [
+        "CrystallineCohomology:CR.1",
+        "EnhancedDerivedSheaves:E1"
+      ]
+    },
+    {
+      "key": "H.1",
+      "title": "Stable moduli and complex non-abelian Hodge theory",
+      "description": "Build projective stable Betti, de Rham and Dolbeault moduli with the stated torsion determinant and vanishing-Chern-class component. Establish Riemann–Hilbert, Simpson and Hodge moduli after importing generic moduli foundations. Keep rank, determinant, stability and analytic/algebraic comparison hypotheses explicit. No p-adic correspondence is constructed here.",
+      "requires": [
+        "HodgeStructuresPartII:H.0"
+      ]
+    },
+    {
+      "key": "H.2",
+      "title": "Variations, canonical extensions and fixed parts",
+      "description": "Import the common variation carrier from ShimuraData:D3, including fibrewise opposedness and Griffiths transversality. Add pure/mixed/admissible/graded-polarizable interfaces, canonical logarithmic extensions, Gauss–Manin, fixed-part and connected monodromy results. A complex variation is not assumed to have an integral lattice.",
+      "requires": [
+        "HodgeStructuresPartII:H.0",
+        "ShimuraData:D3"
+      ]
+    },
+    {
+      "key": "H.3",
+      "title": "General period manifolds and period-map derivatives",
+      "description": "Extend the parent's fibrewise period points to compact dual charts, Mumford–Tate orbit subdomains, holomorphic period maps and differential formulas. Keep the full ambient period carrier, tensor constraints and connected-component choices; the orbit equals the ambient domain only in the full-isometry specialization. Supply trace-pairing/Kodaira–Spencer period derivatives without duplicating common variations.",
+      "requires": [
+        "HodgeStructuresPartII:H.2",
+        "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l3--period-domain-points-the-symmetry-group"
+      ]
+    },
+    {
+      "key": "H.4",
+      "title": "Parabolic bounds and unitary deformation vanishing",
+      "description": "Plan Landesman–Litt parabolic weights, degrees, slopes, semistability and exact Clifford/rank bounds. Establish the sublocal-system rank theorem and Artinian unitary deformation vanishing with their separate hypotheses. Import curve Riemann–Roch, Serre duality, Clifford and Grassmannian foundations.",
+      "requires": [
+        "HodgeStructuresPartII:H.1",
+        "HodgeStructuresPartII:H.2",
+        "HodgeStructuresPartII:H.3"
+      ]
+    },
+    {
+      "key": "H.5",
+      "title": "Rigid loci, arithmetic models and integral variations",
+      "description": "Build rigid/cohomologically rigid fixed-determinant loci, End-zero tangent conventions, rigid Higgs nilpotence, equivariant rigid Hodge-moduli splitting, smooth arithmetic models and the zero-graded-Higgs/unitarity criterion. Add rigidity/integrality with quasi-unipotent boundary and finite determinant explicit. Distinguish integral from strongly integral; retain rank-one infinite-image unitary examples. Export to CartierFlows/RigidCompanions without importing those consumers.",
+      "requires": [
+        "HodgeStructuresPartII:H.1",
+        "HodgeStructuresPartII:H.2",
+        "HodgeStructuresPartII:H.4"
+      ]
+    },
+    {
+      "key": "H.6",
+      "title": "Semistable degeneration and logarithmic monodromy",
+      "description": "Plan Qian's proper semistable log-de Rham interface, residue/monodromy comparison exp(−2πiN), finite group actions and ramified base-change normalization. Add BKT multivariable nilpotent orbits, monodromy weight filtrations, limiting mixed Hodge structures and splitting-independent norm estimates. Keep discs away from other singular fibres and use buffered charts covering angular seams.",
+      "requires": [
+        "HodgeStructuresPartII:H.2"
+      ]
+    },
+    {
+      "key": "H.7",
+      "title": "Definable period maps and algebraicity of Hodge loci",
+      "description": "Retain the full BKT continuation: bounded-width positive-height sectors, fixed-canonical-K finite Siegel containment, multigrading estimates, period definability, individual special pullbacks and definable Chow. The exceptional Hodge locus is a countable union of closed irreducible algebraic subvarieties, not itself asserted definable. Untwisted rational tensors have type (0,0); (p,p) tensors require Tate twists.",
+      "requires": [
+        "HodgeStructuresPartII:H.3",
+        "HodgeStructuresPartII:H.6"
+      ]
+    },
+    {
+      "key": "H.8",
+      "title": "Real Noether–Lefschetz variation interfaces",
+      "description": "Retain the mandatory Benoist continuation: geometric weight-two real variations, transported Hodge classes, generic Kodaira–Spencer contraction, Griffiths derivative, normal-boundary factorization, Green open cones and the required Voisin kernel-cone interface. Supply RealSurfacePeriodIndex using common variations and the existing divisor-class supplier. Ordinary integral weak Lefschetz is not replaced by an equivariant variant. Double-cover families and application-specific vanishings remain with the consumer.",
+      "requires": [
+        "HodgeStructuresPartII:H.3"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "EG20",
+      "title": "Rigid connections and F-isocrystals",
+      "authors": "Hélène Esnault and Michael Groechenig",
+      "edition": "Acta Mathematica 225 (2020), 103–158; published PDF",
+      "url": "https://intlpress.com/site/pub/files/_fulltext/journals/acta/2020/0225/0001/ACTA-2020-0225-0001-a002.pdf",
+      "sha256": "0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "p.108 definitions of Higgs fields and flat connections",
+        "pp.131–132 §4.2 definition of λ-connection and Lemma 4.9 including its cited-proof boundary",
+        "p.133 Proposition 4.10 and opening flow notation only"
+      ],
+      "readingExtent": "Selected passages only; not a full paper reading or verification of the referenced Simpson results."
+    },
+    {
+      "id": "LZ17",
+      "title": "Rigidity and a Riemann–Hilbert correspondence for p-adic local systems",
+      "authors": "Ruochuan Liu and Xinwen Zhu",
+      "edition": "arXiv:1602.06282v3; final author version, 35 PDF pages",
+      "url": "https://arxiv.org/pdf/1602.06282v3",
+      "sha256": "8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "PDF p.5 Theorem 1.6 and Remark 1.10",
+        "PDF p.7 Theorem 2.1; p.9 preliminaries",
+        "PDF pp.20–23 definitions 3.5–3.6, connection and Theorem 3.8, not its entire proof",
+        "PDF p.24 Remark 3.2 and preceding proof tail",
+        "PDF p.27 Lemma 3.11 and proof"
+      ],
+      "readingExtent": "Selected passages only; no correspondence or general nilpotence theorem established here."
+    },
+    {
+      "id": "Heuer25",
+      "title": "A p-adic Simpson correspondence for smooth proper rigid varieties",
+      "authors": "Ben Heuer",
+      "edition": "Inventiones mathematicae 240 (2025), 261–312; published PDF",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf",
+      "sha256": "7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Printed pp.262–263 (PDF pp.2–3), Definition 1.2 and comparison scope"
+      ],
+      "readingExtent": "Definition and introduction only, not the correspondence proof."
+    }
+  ],
+  "status": "draft"
+}

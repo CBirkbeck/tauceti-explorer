@@ -1,0 +1,1624 @@
+{
+  "roadmapId": "HodgeStructuresPartII",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "HodgeStructuresPartII:H.0",
+    "HodgeStructuresPartII:H.1",
+    "HodgeStructuresPartII:H.2",
+    "HodgeStructuresPartII:H.3",
+    "HodgeStructuresPartII:H.4",
+    "HodgeStructuresPartII:H.5",
+    "HodgeStructuresPartII:H.6",
+    "HodgeStructuresPartII:H.7",
+    "HodgeStructuresPartII:H.8"
+  ],
+  "status": "partial",
+  "summary": "A substantive affine coordinate test and transport checkpoint for the shared Higgs/constant-parameter connection prefix: explicit operators and curvature, gauge, tensor, dual, invertible rescaling and separate joint nilpotence. No general ringed-site key definition, full source decomposition or closed stage is claimed. The complete accepted route inventory and exact continuation obligations are retained.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Derivation",
+        "module": "Mathlib/RingTheory/Derivation/Basic.lean",
+        "provides": "k-linear derivations with a Leibniz field.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+      },
+      {
+        "ref": "mathlib:Derivation.leibniz",
+        "module": "Mathlib/RingTheory/Derivation/Basic.lean",
+        "provides": "D(ab)=aD(b)+bD(a), with the algebra/module structures in this commutative-ring model.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.pderiv",
+        "module": "Mathlib/Algebra/MvPolynomial/PDeriv.lean",
+        "provides": "Partial derivative as a derivation of a multivariate polynomial algebra; generator and constant evaluation.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.derivation_ext",
+        "module": "Mathlib/Algebra/MvPolynomial/Derivation.lean",
+        "provides": "Polynomial derivations agreeing on variables are equal; not an already-proved partial-derivative commutation theorem.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+      },
+      {
+        "ref": "mathlib:Matrix.single",
+        "module": "Mathlib/Data/Matrix/Basis.lean",
+        "provides": "An elementary matrix, used in noncommutation and nilpotence tests.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+      },
+      {
+        "ref": "mathlib:Matrix.mulVec",
+        "module": "Mathlib/Data/Matrix/Mul.lean",
+        "provides": "Matrix action on a finite coordinate vector.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+      },
+      {
+        "ref": "mathlib:Matrix.mulVec_mulVec",
+        "module": "Mathlib/Data/Matrix/Mul.lean",
+        "provides": "Composition of matrix actions equals action of their matrix product.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+      },
+      {
+        "ref": "mathlib:Matrix.kronecker",
+        "module": "Mathlib/LinearAlgebra/Matrix/Kronecker.lean",
+        "provides": "Kronecker product on paired finite index types.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+      },
+      {
+        "ref": "mathlib:Matrix.transpose",
+        "module": "Mathlib/LinearAlgebra/Matrix/Defs.lean",
+        "provides": "Matrix transposition for the finite free coordinate dual.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "EG20",
+      "title": "Rigid connections and F-isocrystals",
+      "authors": "Hélène Esnault and Michael Groechenig",
+      "edition": "Acta Mathematica 225 (2020), 103–158; published PDF",
+      "url": "https://intlpress.com/site/pub/files/_fulltext/journals/acta/2020/0225/0001/ACTA-2020-0225-0001-a002.pdf",
+      "sha256": "0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "p.108 definitions of Higgs fields and flat connections",
+        "pp.131–132 §4.2 definition of λ-connection and Lemma 4.9 including its cited-proof boundary",
+        "p.133 Proposition 4.10 and opening flow notation only"
+      ],
+      "readingExtent": "Selected passages only; not a full paper reading or verification of the referenced Simpson results."
+    },
+    {
+      "id": "LZ17",
+      "title": "Rigidity and a Riemann–Hilbert correspondence for p-adic local systems",
+      "authors": "Ruochuan Liu and Xinwen Zhu",
+      "edition": "arXiv:1602.06282v3; final author version, 35 PDF pages",
+      "url": "https://arxiv.org/pdf/1602.06282v3",
+      "sha256": "8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "PDF p.5 Theorem 1.6 and Remark 1.10",
+        "PDF p.7 Theorem 2.1; p.9 preliminaries",
+        "PDF pp.20–23 definitions 3.5–3.6, connection and Theorem 3.8, not its entire proof",
+        "PDF p.24 Remark 3.2 and preceding proof tail",
+        "PDF p.27 Lemma 3.11 and proof"
+      ],
+      "readingExtent": "Selected passages only; no correspondence or general nilpotence theorem established here."
+    },
+    {
+      "id": "Heuer25",
+      "title": "A p-adic Simpson correspondence for smooth proper rigid varieties",
+      "authors": "Ben Heuer",
+      "edition": "Inventiones mathematicae 240 (2025), 261–312; published PDF",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf",
+      "sha256": "7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Printed pp.262–263 (PDF pp.2–3), Definition 1.2 and comparison scope"
+      ],
+      "readingExtent": "Definition and introduction only, not the correspondence proof."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HodgeStructuresPartII:H.0/coordinate-frame",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "definition",
+      "title": "Commuting coordinate directions with constant parameter",
+      "statement": "Frame consists of d k-linear derivations δ_i:R→R, pairwise commuting on every a∈R, with δ_i(λ)=0. This is a specified affine frame, not a definition of a general differential site.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N and λ∈R; all derivations are k-linear."
+      ],
+      "proofSteps": [
+        "Use the pinned Derivation carrier and record its pairwise commutation and constant-parameter equations.",
+        "Zero derivations give Frame.zero. On k[X_0,…,X_(d−1)], partial derivatives give Frame.polynomial with constant parameter C(c).",
+        "Prove polynomial commutation on monomials: successive removal of i,j has the same coefficient in both orders, including i=j; extend by k-linearity. Constants differentiate to zero.",
+        "Frame.one keeps the directions and uses δ_i(1)=0. No invertibility of λ is assumed."
+      ],
+      "acceptance": [
+        "λ=X_0 with δ_0=∂_0 is excluded over Q since δ_0λ=1.",
+        "Zero directions are allowed, but are not universal differential forms."
+      ],
+      "prerequisites": [
+        "mathlib:Derivation",
+        "mathlib:Derivation.leibniz",
+        "mathlib:MvPolynomial.pderiv",
+        "mathlib:MvPolynomial.derivation_ext"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§4.2, printed p.131, definition of λ-connection",
+          "excerpt": "λ-connection",
+          "match": "The source defines the parameter Leibniz rule and flatness. This node is a free commuting-coordinate model or elementary matrix calculation derived from that rule; the general sheaf carrier and its proof are not claimed supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "Frame.zero",
+          "role": "constructor",
+          "statement": "The all-zero directions give a frame for every d and λ."
+        },
+        {
+          "name": "Frame.polynomial",
+          "role": "constructor",
+          "statement": "The d-variable polynomial ring with partial derivatives and parameter C(c) gives a frame."
+        },
+        {
+          "name": "Frame.one",
+          "role": "constructor",
+          "statement": "Replace λ by 1 without changing directions."
+        },
+        {
+          "name": "Frame.zero_delta",
+          "role": "simp",
+          "statement": "Every zero-frame direction acts by zero."
+        },
+        {
+          "name": "Frame.polynomial_delta",
+          "role": "compatibility",
+          "statement": "The ith polynomial-frame direction is exactly MvPolynomial.pderiv i."
+        },
+        {
+          "name": "Frame.one_delta",
+          "role": "simp",
+          "statement": "The one-parameter frame has the input directions."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Frame.test_zero",
+          "kind": "degenerate",
+          "statement": "In the one-direction zero frame, δ_0(a)=0 for every a."
+        },
+        {
+          "name": "Frame.test_polynomial_X",
+          "kind": "computation",
+          "statement": "Over Q[X] with constant parameter 1, δ_0(X)=1."
+        },
+        {
+          "name": "Frame.test_identity_not_derivation",
+          "kind": "non-example",
+          "statement": "Over Q, 1≠1·1+1·1; the identity map cannot satisfy the derivation Leibniz rule."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0 reserved general Higgs/parameter interface",
+          "how": "Provides local discriminating tests and transport formulas, not a substitute for intrinsic forms, sheaf descent or finite locally free coefficients."
+        },
+        {
+          "where": "EG20 §4.2; LZ17 Remark 3.2",
+          "how": "Checks the constant-parameter Leibniz equation and its specializations before any comparison theorem."
+        }
+      ],
+      "declaration": "Frame"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/preconnection",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "definition",
+      "title": "Affine coordinate parameter connection",
+      "statement": "For a fixed Frame F, Connection is a family A_i∈Mat_V(R). It encodes D_i(s)=λδ_i(s)+A_i s before imposing flatness. F is an explicit type parameter: changing the directions or parameter is not a silent type identification.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N, λ∈R, and V is a finite decidable index type.",
+        "Matrix products and scalar actions are over R, on the free coordinate module R^V."
+      ],
+      "proofSteps": [
+        "Use the matrix family as the sole data field.",
+        "Keep F explicitly in the structure declaration even though the matrix field alone does not mention F.",
+        "Construct zero matrices. Extensionality and constructor projection follow from the product representation."
+      ],
+      "acceptance": [
+        "No flatness or nilpotence is imposed on an arbitrary Connection.",
+        "Any one-direction rank-one matrix family is accepted, including a nonzero scalar."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/coordinate-frame"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§4.2, printed p.131, definition of λ-connection",
+          "excerpt": "λ-connection",
+          "match": "The source defines the parameter Leibniz rule and flatness. This node is a free commuting-coordinate model or elementary matrix calculation derived from that rule; the general sheaf carrier and its proof are not claimed supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "Connection.zero",
+          "role": "constructor",
+          "statement": "All zero matrices define a preconnection."
+        },
+        {
+          "name": "Connection.zero_matrix",
+          "role": "simp",
+          "statement": "The ith matrix of the zero preconnection is zero."
+        },
+        {
+          "name": "Connection.matrix_ext",
+          "role": "extensionality",
+          "statement": "Agreement of all matrices implies equality for the same F,V."
+        },
+        {
+          "name": "Connection.mk_matrix",
+          "role": "projection",
+          "statement": "The constructor on a family A projects to A_i."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Connection.test_zero_matrix",
+          "kind": "degenerate",
+          "statement": "Zero preconnection projects to zero."
+        },
+        {
+          "name": "Connection.test_constructor_projection",
+          "kind": "characterisation",
+          "statement": "The ith projection of the constructor on A is A_i."
+        },
+        {
+          "name": "Connection.test_rank_one",
+          "kind": "computation",
+          "statement": "Over Q with one zero direction, the supplied 1×1 matrix is unchanged by construction and projection."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0 reserved general Higgs/parameter interface",
+          "how": "Provides local discriminating tests and transport formulas, not a substitute for intrinsic forms, sheaf descent or finite locally free coefficients."
+        },
+        {
+          "where": "EG20 §4.2; LZ17 Remark 3.2",
+          "how": "Checks the constant-parameter Leibniz equation and its specializations before any comparison theorem."
+        }
+      ],
+      "planet": {
+        "name": "Affine parameter connections"
+      },
+      "declaration": "Connection"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/operator",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "construction",
+      "title": "Coordinate parameter differential operator",
+      "statement": "Define the k-linear operator (D_i s)_v=λδ_i(s_v)+(A_i s)_v. It satisfies D_i(a s)=aD_i(s)+λδ_i(a)s and is generally not R-linear.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N, λ∈R, and V is a finite decidable index type.",
+        "Matrix products and scalar actions are over R, on the free coordinate module R^V."
+      ],
+      "proofSteps": [
+        "Apply the derivation in each coordinate, multiply by λ and add the matrix-vector action.",
+        "k-linearity follows from derivation k-linearity and R-linear matrix multiplication.",
+        "Expand δ_i(a s_v) using Leibniz and scalar commutation to get precisely one λ in the scalar derivative term."
+      ],
+      "acceptance": [
+        "Zero matrices give λδ, not the zero operator in general.",
+        "At λ=1 the scalar derivative is the ordinary connection term."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/preconnection",
+        "mathlib:Derivation.leibniz",
+        "mathlib:Matrix.mulVec"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§4.2, printed p.131, definition of λ-connection",
+          "excerpt": "λ-connection",
+          "match": "The source defines the parameter Leibniz rule and flatness. This node is a free commuting-coordinate model or elementary matrix calculation derived from that rule; the general sheaf carrier and its proof are not claimed supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "Connection.operator_apply",
+          "role": "projection",
+          "statement": "D_i(s)=λδ_i(s)+A_i s coordinatewise."
+        },
+        {
+          "name": "Connection.operator_leibniz",
+          "role": "characterisation",
+          "statement": "D_i(a s)=aD_i(s)+λδ_i(a)s."
+        },
+        {
+          "name": "Connection.operator_zero",
+          "role": "simp",
+          "statement": "Zero matrices give D_i(s)=λδ_i(s)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Connection.test_operator_zero_section",
+          "kind": "degenerate",
+          "statement": "D_i(0)=0."
+        },
+        {
+          "name": "Connection.test_operator_unit",
+          "kind": "computation",
+          "statement": "The zero-matrix model acts by λδ_i in every coordinate."
+        },
+        {
+          "name": "Connection.test_operator_polynomial_leibniz",
+          "kind": "computation",
+          "statement": "Over Q[X] with λ=1 and A=0, D(Xs)=XD(s)+s."
+        },
+        {
+          "name": "Connection.test_operator_parameter_two",
+          "kind": "non-example",
+          "statement": "On Q[X] with λ=2 and zero matrix, D(X)=2, not the ordinary derivative value 1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0 reserved general Higgs/parameter interface",
+          "how": "Provides local discriminating tests and transport formulas, not a substitute for intrinsic forms, sheaf descent or finite locally free coefficients."
+        },
+        {
+          "where": "EG20 §4.2; LZ17 Remark 3.2",
+          "how": "Checks the constant-parameter Leibniz equation and its specializations before any comparison theorem."
+        }
+      ],
+      "declaration": "Connection.operator"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/curvature",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "definition",
+      "title": "Coordinate curvature matrix",
+      "statement": "Define κ_ij=λδ_i(A_j)−λδ_j(A_i)+A_i A_j−A_j A_i with entrywise derivatives. In a genuine polynomial coordinate chart the two-form is Σ_(i<j)κ_ij dx_i∧dx_j.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N, λ∈R, and V is a finite decidable index type.",
+        "Matrix products and scalar actions are over R, on the free coordinate module R^V."
+      ],
+      "proofSteps": [
+        "Construct the displayed matrix expression using entrywise derivations.",
+        "Unfold to show κ_ii=0, κ_ji=−κ_ij and vanishing curvature for zero matrices.",
+        "For E12,E21 multiply E12 E21=E11 and E21 E12=E22; constant matrices have zero derivatives."
+      ],
+      "acceptance": [
+        "On Q[x,y], E12 dx+E21 dy has curvature diag(1,−1)dx∧dy.",
+        "The zero-direction Q test reproduces the same matrix coefficient without claiming universal forms."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/preconnection",
+        "mathlib:Matrix.single"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§4.2, printed p.131, definition of λ-connection",
+          "excerpt": "λ-connection",
+          "match": "The source defines the parameter Leibniz rule and flatness. This node is a free commuting-coordinate model or elementary matrix calculation derived from that rule; the general sheaf carrier and its proof are not claimed supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "Connection.curvature_self",
+          "role": "simp",
+          "statement": "κ_ii=0."
+        },
+        {
+          "name": "Connection.curvature_swap",
+          "role": "relation",
+          "statement": "κ_ji=−κ_ij."
+        },
+        {
+          "name": "Connection.curvature_zero",
+          "role": "simp",
+          "statement": "All zero matrices have zero curvature."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Connection.test_curvature_self",
+          "kind": "degenerate",
+          "statement": "Every diagonal-direction curvature is zero."
+        },
+        {
+          "name": "Connection.test_curvature_zero",
+          "kind": "degenerate",
+          "statement": "All curvatures of zero matrices vanish."
+        },
+        {
+          "name": "Connection.test_curvature_noncommuting",
+          "kind": "computation",
+          "statement": "With two zero directions over Q, λ=0, A_0=E12 and A_1=E21, κ_01=diag(1,−1)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0 reserved general Higgs/parameter interface",
+          "how": "Provides local discriminating tests and transport formulas, not a substitute for intrinsic forms, sheaf descent or finite locally free coefficients."
+        },
+        {
+          "where": "EG20 §4.2; LZ17 Remark 3.2",
+          "how": "Checks the constant-parameter Leibniz equation and its specializations before any comparison theorem."
+        }
+      ],
+      "planet": {
+        "name": "Coordinate curvature"
+      },
+      "declaration": "Connection.curvature"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/operator-commutator",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "theorem",
+      "title": "Commutator is curvature action",
+      "statement": "For every c,i,j and s∈R^V, D_i(D_j(s))−D_j(D_i(s))=κ_ij s.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N, λ∈R, and V is a finite decidable index type.",
+        "Matrix products and scalar actions are over R, on the free coordinate module R^V."
+      ],
+      "proofSteps": [
+        "Expand both compositions, including derivatives of λ and all matrix entries.",
+        "The second derivatives cancel by Frame.commute. Terms λδ_i(λ)δ_j(s) vanish by Frame.constant.",
+        "Use Leibniz inside finite sums; mixed A_iδ_j(s) terms cancel and remaining entries equal κ_ij s."
+      ],
+      "acceptance": [
+        "Without δλ=0 an extra term is λ(δ_iλ·δ_j(s)−δ_jλ·δ_i(s)).",
+        "The E12/E21 commutator acts by diag(1,−1)."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/operator",
+        "HodgeStructuresPartII:H.0/curvature",
+        "mathlib:Derivation.leibniz",
+        "mathlib:Matrix.mulVec_mulVec"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§4.2, printed p.131, definition of λ-connection",
+          "excerpt": "λ-connection",
+          "match": "The source defines the parameter Leibniz rule and flatness. This node is a free commuting-coordinate model or elementary matrix calculation derived from that rule; the general sheaf carrier and its proof are not claimed supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "Connection.operator_commutator"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/flatness",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "definition",
+      "title": "Flatness of the coordinate model",
+      "statement": "Connection.IsFlat means κ_ij=0 for every i,j. It is equivalent to pairwise commuting D_i on every section, and does not assert nilpotence.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N, λ∈R, and V is a finite decidable index type.",
+        "Matrix products and scalar actions are over R, on the free coordinate module R^V."
+      ],
+      "proofSteps": [
+        "Define the predicate by the explicit curvature equalities.",
+        "The commutator theorem proves one direction.",
+        "For the converse evaluate the zero operator on each coordinate basis vector; every column of κ_ij vanishes.",
+        "For d=1 the only curvature is diagonal and hence zero."
+      ],
+      "acceptance": [
+        "A scalar Higgs coefficient 1 on A¹_Q is flat but not nilpotent.",
+        "Two directions with E12,E21 fail flatness."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/curvature",
+        "HodgeStructuresPartII:H.0/operator-commutator"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§4.2, printed p.131, definition of λ-connection",
+          "excerpt": "λ-connection",
+          "match": "The source defines the parameter Leibniz rule and flatness. This node is a free commuting-coordinate model or elementary matrix calculation derived from that rule; the general sheaf carrier and its proof are not claimed supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "Connection.flatZero",
+          "role": "constructor",
+          "statement": "Zero matrices with their flatness proof give an element of the flat subtype."
+        },
+        {
+          "name": "Connection.isFlat_iff",
+          "role": "characterisation",
+          "statement": "Flatness iff D_iD_j(s)=D_jD_i(s) for all i,j,s."
+        },
+        {
+          "name": "Connection.isFlat_zero",
+          "role": "simp",
+          "statement": "The zero preconnection is flat."
+        },
+        {
+          "name": "Connection.isFlat_one_direction",
+          "role": "characterisation",
+          "statement": "Every one-direction model is flat."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Connection.test_flat_zero",
+          "kind": "degenerate",
+          "statement": "Zero matrices give a flat model."
+        },
+        {
+          "name": "Connection.test_flat_line",
+          "kind": "computation",
+          "statement": "Every one-direction model is flat."
+        },
+        {
+          "name": "Connection.test_flat_noncommuting",
+          "kind": "non-example",
+          "statement": "The two-direction E12,E21 model over Q is not flat."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0 reserved general Higgs/parameter interface",
+          "how": "Provides local discriminating tests and transport formulas, not a substitute for intrinsic forms, sheaf descent or finite locally free coefficients."
+        },
+        {
+          "where": "EG20 §4.2; LZ17 Remark 3.2",
+          "how": "Checks the constant-parameter Leibniz equation and its specializations before any comparison theorem."
+        }
+      ],
+      "declaration": "Connection.IsFlat"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/gauge",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "construction",
+      "title": "Coordinate change by an invertible matrix",
+      "statement": "For a matrix unit G and the convention s′=Gs, define A′_i=G A_i G^−1−λδ_i(G)G^−1. The associated operator is G D_i G^−1 on the new component column.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N, λ∈R, F is a commuting constant-parameter Frame, and V is a finite decidable index type.",
+        "Matrix products and scalar actions are over R, on the free coordinate module R^V."
+      ],
+      "proofSteps": [
+        "Differentiate G G^−1=I to get δ_i(G^−1)=−G^−1δ_i(G)G^−1.",
+        "Expand G D_i(G^−1s′): its derivative coefficient is λ and its matrix coefficient has the displayed minus sign.",
+        "Its operator commutator is G[D_i,D_j]G^−1. Use the commutator node and coordinate basis evaluation to identify κ′_ij=Gκ_ijG^−1.",
+        "Invertibility of G proves preservation and reflection of curvature vanishing."
+      ],
+      "acceptance": [
+        "The fixed convention is s′=Gs; the opposite convention changes the formula.",
+        "Gauge of zero matrices need not have zero matrices when λδG≠0."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/operator",
+        "HodgeStructuresPartII:H.0/curvature",
+        "HodgeStructuresPartII:H.0/operator-commutator",
+        "mathlib:Derivation.leibniz",
+        "mathlib:Matrix.mulVec_mulVec"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§4.2, printed p.131, definition of λ-connection",
+          "excerpt": "λ-connection",
+          "match": "The source defines the parameter Leibniz rule and flatness. The displayed local transport formula is derived algebraically; it is not claimed to be the paper's general carrier or a verbatim source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "Connection.gauge_matrix",
+          "role": "projection",
+          "statement": "A′_i=G A_i G^−1−λδ_i(G)G^−1."
+        },
+        {
+          "name": "Connection.gauge_curvature",
+          "role": "compatibility",
+          "statement": "κ′_ij=Gκ_ijG^−1."
+        },
+        {
+          "name": "Connection.gauge_flat",
+          "role": "equivalence",
+          "statement": "The gauge model is flat iff the original is flat."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Connection.test_gauge_identity",
+          "kind": "degenerate",
+          "statement": "Gauge by the identity unit fixes c."
+        },
+        {
+          "name": "Connection.test_gauge_flat",
+          "kind": "compatibility",
+          "statement": "Every matrix-unit gauge preserves and reflects flatness."
+        },
+        {
+          "name": "Connection.test_gauge_zero_correction",
+          "kind": "computation",
+          "statement": "Gauge of zero matrices has coefficient −λδ_i(G)G^−1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0 general Higgs/parameter interface",
+          "how": "Pins local transport and specialization tests without substituting for global sheaf descent."
+        },
+        {
+          "where": "EG20 §4.2; LZ17 Remark 3.2",
+          "how": "Checks tensor/dual/parameter compatibility before any moduli or comparison theorem."
+        }
+      ],
+      "declaration": "Connection.gauge"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/tensor",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "construction",
+      "title": "Tensor with the same parameter",
+      "statement": "For models c on R^V and b on R^W with the same F and λ, construct the free model on R^(V×W) with matrices A_i⊗I_W+I_V⊗B_i, using the Kronecker product. Its parameter is λ, not 2λ.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N, λ∈R, F is a commuting constant-parameter Frame, and V is a finite decidable index type.",
+        "Matrix products and scalar actions are over R, on the free coordinate module R^V."
+      ],
+      "proofSteps": [
+        "Use the standard free-coordinate tensor identification and define the Kronecker sum.",
+        "Entrywise differentiate; the cross commutators cancel since A⊗I commutes with I⊗B. The remaining curvature is κ_c⊗I+I⊗κ_b.",
+        "On elementary tensors, λδ(s⊗t)=λδ(s)⊗t+s⊗λδ(t). Scalar balancing identifies the derivative term represented in either factor, so one λ occurs.",
+        "Vanishing of both input curvatures implies vanishing of the tensor curvature; no converse is claimed."
+      ],
+      "acceptance": [
+        "Input parameters must agree.",
+        "The balanced tensor scalar Leibniz rule has one λ derivative term."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/operator",
+        "HodgeStructuresPartII:H.0/curvature",
+        "HodgeStructuresPartII:H.0/flatness",
+        "mathlib:Matrix.kronecker",
+        "mathlib:Derivation.leibniz"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§4.2, printed p.131, definition of λ-connection",
+          "excerpt": "λ-connection",
+          "match": "The source defines the parameter Leibniz rule and flatness. The displayed local transport formula is derived algebraically; it is not claimed to be the paper's general carrier or a verbatim source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "Connection.tensor_matrix",
+          "role": "projection",
+          "statement": "The tensor matrix is A_i⊗I_W+I_V⊗B_i."
+        },
+        {
+          "name": "Connection.tensor_curvature",
+          "role": "compatibility",
+          "statement": "Tensor curvature is κ_c,ij⊗I_W+I_V⊗κ_b,ij."
+        },
+        {
+          "name": "Connection.tensor_flat",
+          "role": "compatibility",
+          "statement": "Flat inputs give a flat tensor."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Connection.test_tensor_zero",
+          "kind": "degenerate",
+          "statement": "The tensor of zero matrices is zero."
+        },
+        {
+          "name": "Connection.test_tensor_flat",
+          "kind": "compatibility",
+          "statement": "The tensor of flat models is flat."
+        },
+        {
+          "name": "Connection.test_tensor_parameter",
+          "kind": "characterisation",
+          "statement": "D_tensor,i(a s)=aD_tensor,i(s)+λδ_i(a)s."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0 general Higgs/parameter interface",
+          "how": "Pins local transport and specialization tests without substituting for global sheaf descent."
+        },
+        {
+          "where": "EG20 §4.2; LZ17 Remark 3.2",
+          "how": "Checks tensor/dual/parameter compatibility before any moduli or comparison theorem."
+        }
+      ],
+      "declaration": "Connection.tensor"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/dual",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "construction",
+      "title": "Coordinate dual parameter connection",
+      "statement": "Identify the dual of R^V with row coefficients transposed to a column, and define the dual matrix as −A_iᵀ. Keep the same F and λ.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N, λ∈R, F is a commuting constant-parameter Frame, and V is a finite decidable index type.",
+        "Matrix products and scalar actions are over R, on the free coordinate module R^V."
+      ],
+      "proofSteps": [
+        "Expand the evaluation-pairing equation λδ_i(φ(s))=D_dual,i(φ)(s)+φ(D_i(s)); its coefficient terms force −A_iᵀ.",
+        "Entrywise differentiation and reversal of products under transpose give κ_dual,ij=−κ_ijᵀ.",
+        "Double transposition recovers A, and curvature vanishing is preserved."
+      ],
+      "acceptance": [
+        "Omitting the minus sign breaks compatibility with evaluation.",
+        "This coordinate identification is only for finite free modules, not a claimed sheaf-duality construction."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/operator",
+        "HodgeStructuresPartII:H.0/curvature",
+        "HodgeStructuresPartII:H.0/flatness",
+        "mathlib:Matrix.transpose"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§4.2, printed p.131, definition of λ-connection",
+          "excerpt": "λ-connection",
+          "match": "The source defines the parameter Leibniz rule and flatness. The displayed local transport formula is derived algebraically; it is not claimed to be the paper's general carrier or a verbatim source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "Connection.dual_matrix",
+          "role": "projection",
+          "statement": "The dual ith matrix is −A_iᵀ."
+        },
+        {
+          "name": "Connection.dual_curvature",
+          "role": "compatibility",
+          "statement": "Dual curvature is −κ_ijᵀ."
+        },
+        {
+          "name": "Connection.dual_flat",
+          "role": "compatibility",
+          "statement": "The dual of a flat model is flat."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Connection.test_dual_zero",
+          "kind": "degenerate",
+          "statement": "The zero model has zero dual."
+        },
+        {
+          "name": "Connection.test_dual_involution",
+          "kind": "compatibility",
+          "statement": "Taking the dual twice returns c."
+        },
+        {
+          "name": "Connection.test_dual_entry",
+          "kind": "computation",
+          "statement": "The (v,w) dual entry equals −A_i(w,v)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0 general Higgs/parameter interface",
+          "how": "Pins local transport and specialization tests without substituting for global sheaf descent."
+        },
+        {
+          "where": "EG20 §4.2; LZ17 Remark 3.2",
+          "how": "Checks tensor/dual/parameter compatibility before any moduli or comparison theorem."
+        }
+      ],
+      "declaration": "Connection.dual"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/invertible-rescale",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "construction",
+      "title": "Rescaling an invertible parameter",
+      "statement": "For u∈R× and F with λ=u, define rescale(c) on F.one by matrices u^−1A_i. Its operator is u^−1D_i and curvature u^−2κ_ij; its scalar Leibniz coefficient is 1.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N, λ∈R, F is a commuting constant-parameter Frame, and V is a finite decidable index type.",
+        "Matrix products and scalar actions are over R, on the free coordinate module R^V."
+      ],
+      "proofSteps": [
+        "Differentiate u u^−1=1 and use δ_i(u)=0 to obtain δ_i(u^−1)=0.",
+        "Retain the same directions with parameter 1 and multiply every coefficient matrix by u^−1.",
+        "The new operator is δ_i(s)+u^−1A_i s=u^−1D_i(s). Expanding curvature scales derivative and commutator terms by u^−2.",
+        "Invertibility makes flatness equivalent. Merely changing λ's type while leaving A unscaled is incorrect."
+      ],
+      "acceptance": [
+        "Over Q[X], the zero-matrix λ=2 model maps X to 2; rescaling maps X to 1.",
+        "λ=0 and nonunit parameters do not admit this operation."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/coordinate-frame",
+        "HodgeStructuresPartII:H.0/operator",
+        "HodgeStructuresPartII:H.0/curvature",
+        "HodgeStructuresPartII:H.0/flatness",
+        "mathlib:Derivation.leibniz"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§4.2, printed p.131, definition of λ-connection",
+          "excerpt": "λ-connection",
+          "match": "The source defines the parameter Leibniz rule and flatness. The displayed local transport formula is derived algebraically; it is not claimed to be the paper's general carrier or a verbatim source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "Connection.rescale_matrix",
+          "role": "projection",
+          "statement": "The rescaled matrix is u^−1A_i."
+        },
+        {
+          "name": "Connection.rescale_operator",
+          "role": "compatibility",
+          "statement": "The rescaled operator is u^−1D_i."
+        },
+        {
+          "name": "Connection.rescale_curvature",
+          "role": "compatibility",
+          "statement": "The rescaled curvature is u^−2κ_ij."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Connection.test_rescale_flat",
+          "kind": "compatibility",
+          "statement": "Rescaling preserves flatness."
+        },
+        {
+          "name": "Connection.test_rescale_zero",
+          "kind": "degenerate",
+          "statement": "Zero matrices rescale to zero matrices."
+        },
+        {
+          "name": "Connection.test_rescale_leibniz",
+          "kind": "characterisation",
+          "statement": "D_rescale,i(a s)=aD_rescale,i(s)+δ_i(a)s."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0 general Higgs/parameter interface",
+          "how": "Pins local transport and specialization tests without substituting for global sheaf descent."
+        },
+        {
+          "where": "EG20 §4.2; LZ17 Remark 3.2",
+          "how": "Checks tensor/dual/parameter compatibility before any moduli or comparison theorem."
+        }
+      ],
+      "declaration": "Connection.rescale"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/zero-parameter-curvature",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "theorem",
+      "title": "Higgs specialization is the matrix commutator",
+      "statement": "At λ=0 the curvature is A_i A_j−A_j A_i. Flatness means commuting Higgs coefficients, not nilpotence.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N, λ∈R, F is a commuting constant-parameter Frame, and V is a finite decidable index type.",
+        "Matrix products and scalar actions are over R, on the free coordinate module R^V."
+      ],
+      "proofSteps": [
+        "Substitute λ=0 into the curvature definition.",
+        "Remove the zero derivative terms and retain the signed commutator coefficient."
+      ],
+      "acceptance": [
+        "E12 dx+E21 dy on A²_Q has curvature diag(1,−1)dx∧dy.",
+        "The scalar dx on A¹_Q is integrable and not nilpotent."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/curvature"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§4.2, printed p.131, definition of λ-connection",
+          "excerpt": "λ-connection",
+          "match": "The source defines the parameter Leibniz rule and flatness. The displayed local transport formula is derived algebraically; it is not claimed to be the paper's general carrier or a verbatim source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "Connection.zero_parameter_curvature"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/joint-nilpotence",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "definition",
+      "title": "Joint word nilpotence of Higgs coefficients",
+      "statement": "At λ=0, JointNilpotent(c,N) means N>0 and A_(i1)…A_(iN)=0 for every direction word of length N. This is a separate finite bound; no rank-one-zero assertion over nonreduced R is made.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N, λ∈R, F is a commuting constant-parameter Frame, and V is a finite decidable index type.",
+        "Matrix products and scalar actions are over R, on the free coordinate module R^V."
+      ],
+      "proofSteps": [
+        "Use all words of length N, not exterior products, and require N>0.",
+        "Zero matrices satisfy bound 1; one-letter words show that bound 1 iff every A_i=0.",
+        "For the dual a product equals (−1)^N times the transpose of the reversed original word, hence the same bound holds.",
+        "Compute E12²=0≠E12 and scalar ε²=0≠ε examples. The scalar 1 has nonzero word product at every positive length."
+      ],
+      "acceptance": [
+        "Scalar 1 in one direction over Q is flat but has no finite bound.",
+        "For ε²=0≠ε in nonreduced R, a rank-one coefficient ε is nonzero with bound 2.",
+        "Intrinsic finite-filtration comparison and tensor nilpotence bounds remain gaps."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/preconnection",
+        "HodgeStructuresPartII:H.0/dual",
+        "HodgeStructuresPartII:H.0/flatness",
+        "HodgeStructuresPartII:H.0/zero-parameter-curvature",
+        "mathlib:Matrix.single"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "LZ17",
+          "locator": "PDF p.5 Remark 1.10; p.7 Theorem 2.1",
+          "excerpt": "nilpotent",
+          "match": "Motivates a separate nilpotence condition. This is an elementary local word-product test model, not the source's general nilpotence theorem or a claim that all integrable Higgs fields are nilpotent."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "Connection.jointNilpotent_zero",
+          "role": "simp",
+          "statement": "Zero matrices have bound 1."
+        },
+        {
+          "name": "Connection.jointNilpotent_dual",
+          "role": "compatibility",
+          "statement": "Duality preserves the stated bound N."
+        },
+        {
+          "name": "Connection.jointNilpotent_one_iff",
+          "role": "characterisation",
+          "statement": "Bound 1 iff every matrix is zero."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Connection.test_nilpotent_nonzero",
+          "kind": "computation",
+          "statement": "In one direction over Q, E12 on Q² has bound 2 but is nonzero."
+        },
+        {
+          "name": "Connection.test_integrable_not_nilpotent",
+          "kind": "non-example",
+          "statement": "The one-direction scalar 1 over Q is flat but not JointNilpotent(c,N) for any N."
+        },
+        {
+          "name": "Connection.test_nonreduced_rank_one",
+          "kind": "computation",
+          "statement": "If ε²=0≠ε in R, the one-direction rank-one scalar ε model has bound 2 but is nonzero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0 general Higgs/parameter interface",
+          "how": "Pins local transport and specialization tests without substituting for global sheaf descent."
+        },
+        {
+          "where": "LZ17 Remark 1.10 and Theorem 2.1",
+          "how": "Distinguishes a separate finite nilpotence condition from integrability and keeps the coefficient ring visible."
+        }
+      ],
+      "planet": {
+        "name": "Joint Higgs nilpotence"
+      },
+      "declaration": "Connection.JointNilpotent"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "CrystallineCohomology:CR.1",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "need": "Provide the generic finite-locally-free ordinary relative connection carrier with restriction and curvature interface. Keep the crystal comparison's topological quasi-nilpotence separate: arbitrary integrable connections cannot become crystals. H.0 adds the Higgs/λ interface, not a second ordinary-connection category."
+    },
+    {
+      "supplier": "EnhancedDerivedSheaves:E1",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "need": "Provide module sheaves on ringed sites and finite-locally-free tensor/dual/pullback with descent/coherence needed to glue parameter connections. The pinned presheaf carrier and first relative differentials do not already supply this full monoidal sheaf descent interface."
+    },
+    {
+      "supplier": "DerivedDeRhamCohomology:DD.1",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "need": "Provide the shared filtered/Rees module interface and, when used, commuting-endomorphism Koszul model. This request does not assign all intrinsic ordinary differential forms to the derived-completion stage."
+    },
+    {
+      "supplier": "ShimuraData:D3",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2",
+        "HodgeStructuresPartII:H.3",
+        "HodgeStructuresPartII:H.8"
+      ],
+      "need": "Provide the common local-system/holomorphic-bundle variation carrier with fibrewise opposedness, rationality/polarizability options and Griffiths transversality. Its packet has no D3 supplier node; import this carrier instead of defining another variation here."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HodgeStructuresPartII:H.0",
+      "status": "partial",
+      "remaining": [
+        "Supply HodgeStructuresPartII:key/higgs-parameter-connections on general ringed differential sites with finite locally free coefficients and central relatively constant λ; the local models do not supply it.",
+        "Construct intrinsic exterior differential forms and the graded extension of D with well-defined curvature; prove its comparison with commuting-coordinate local models.",
+        "Import generic sheaf tensor/descent and ordinary connection carriers, then construct finite projective and sheaf gluing, pullback and gauge cocycle compatibility.",
+        "Construct twisted Higgs fields valued in Ω¹⊗T, keeping the p-adic Tate coefficient explicit.",
+        "Compare intrinsic finite-filtration/iterated-Higgs nilpotence with local word nilpotence under the necessary local-freeness assumptions; prove tensor, dual and pullback bounds.",
+        "Construct Griffiths filtered connections, the induced associated-graded Higgs field and Rees specialization; prove integrability passes to the graded field.",
+        "Freshly read complete supporting source proofs and all routed catalogue statements; verify remaining ordinary-connection near-misses before asserting their scope."
+      ]
+    },
+    {
+      "stageId": "HodgeStructuresPartII:H.1",
+      "status": "not_read",
+      "remaining": [
+        "Read every routed source statement and complete supporting proof for Stable moduli and complex non-abelian Hodge theory.",
+        "Build projective stable Betti, de Rham and Dolbeault moduli with the stated torsion determinant and vanishing-Chern-class component. Establish Riemann–Hilbert, Simpson and Hodge moduli after importing generic moduli foundations. Keep rank, determinant, stability and analytic/algebraic comparison hypotheses explicit. No p-adic correspondence is constructed here.",
+        "Resolve supplier requests and replace provisional layer dependencies with exact declaration-node prerequisites. No complete target decomposition exists for this layer."
+      ]
+    },
+    {
+      "stageId": "HodgeStructuresPartII:H.2",
+      "status": "not_read",
+      "remaining": [
+        "Read every routed source statement and complete supporting proof for Variations, canonical extensions and fixed parts.",
+        "Import the common variation carrier from ShimuraData:D3, including fibrewise opposedness and Griffiths transversality. Add pure/mixed/admissible/graded-polarizable interfaces, canonical logarithmic extensions, Gauss–Manin, fixed-part and connected monodromy results. A complex variation is not assumed to have an integral lattice.",
+        "Resolve supplier requests and replace provisional layer dependencies with exact declaration-node prerequisites. No complete target decomposition exists for this layer."
+      ]
+    },
+    {
+      "stageId": "HodgeStructuresPartII:H.3",
+      "status": "not_read",
+      "remaining": [
+        "Read every routed source statement and complete supporting proof for General period manifolds and period-map derivatives.",
+        "Extend the parent's fibrewise period points to compact dual charts, Mumford–Tate orbit subdomains, holomorphic period maps and differential formulas. Keep the full ambient period carrier, tensor constraints and connected-component choices; the orbit equals the ambient domain only in the full-isometry specialization. Supply trace-pairing/Kodaira–Spencer period derivatives without duplicating common variations.",
+        "Resolve supplier requests and replace provisional layer dependencies with exact declaration-node prerequisites. No complete target decomposition exists for this layer."
+      ]
+    },
+    {
+      "stageId": "HodgeStructuresPartII:H.4",
+      "status": "not_read",
+      "remaining": [
+        "Read every routed source statement and complete supporting proof for Parabolic bounds and unitary deformation vanishing.",
+        "Plan Landesman–Litt parabolic weights, degrees, slopes, semistability and exact Clifford/rank bounds. Establish the sublocal-system rank theorem and Artinian unitary deformation vanishing with their separate hypotheses. Import curve Riemann–Roch, Serre duality, Clifford and Grassmannian foundations.",
+        "Resolve supplier requests and replace provisional layer dependencies with exact declaration-node prerequisites. No complete target decomposition exists for this layer."
+      ]
+    },
+    {
+      "stageId": "HodgeStructuresPartII:H.5",
+      "status": "not_read",
+      "remaining": [
+        "Read every routed source statement and complete supporting proof for Rigid loci, arithmetic models and integral variations.",
+        "Build rigid/cohomologically rigid fixed-determinant loci, End-zero tangent conventions, rigid Higgs nilpotence, equivariant rigid Hodge-moduli splitting, smooth arithmetic models and the zero-graded-Higgs/unitarity criterion. Add rigidity/integrality with quasi-unipotent boundary and finite determinant explicit. Distinguish integral from strongly integral; retain rank-one infinite-image unitary examples. Export to CartierFlows/RigidCompanions without importing those consumers.",
+        "Resolve supplier requests and replace provisional layer dependencies with exact declaration-node prerequisites. No complete target decomposition exists for this layer."
+      ]
+    },
+    {
+      "stageId": "HodgeStructuresPartII:H.6",
+      "status": "not_read",
+      "remaining": [
+        "Read every routed source statement and complete supporting proof for Semistable degeneration and logarithmic monodromy.",
+        "Plan Qian's proper semistable log-de Rham interface, residue/monodromy comparison exp(−2πiN), finite group actions and ramified base-change normalization. Add BKT multivariable nilpotent orbits, monodromy weight filtrations, limiting mixed Hodge structures and splitting-independent norm estimates. Keep discs away from other singular fibres and use buffered charts covering angular seams.",
+        "Resolve supplier requests and replace provisional layer dependencies with exact declaration-node prerequisites. No complete target decomposition exists for this layer."
+      ]
+    },
+    {
+      "stageId": "HodgeStructuresPartII:H.7",
+      "status": "not_read",
+      "remaining": [
+        "Read every routed source statement and complete supporting proof for Definable period maps and algebraicity of Hodge loci.",
+        "Retain the full BKT continuation: bounded-width positive-height sectors, fixed-canonical-K finite Siegel containment, multigrading estimates, period definability, individual special pullbacks and definable Chow. The exceptional Hodge locus is a countable union of closed irreducible algebraic subvarieties, not itself asserted definable. Untwisted rational tensors have type (0,0); (p,p) tensors require Tate twists.",
+        "Resolve supplier requests and replace provisional layer dependencies with exact declaration-node prerequisites. No complete target decomposition exists for this layer."
+      ]
+    },
+    {
+      "stageId": "HodgeStructuresPartII:H.8",
+      "status": "not_read",
+      "remaining": [
+        "Read every routed source statement and complete supporting proof for Real Noether–Lefschetz variation interfaces.",
+        "Retain the mandatory Benoist continuation: geometric weight-two real variations, transported Hodge classes, generic Kodaira–Spencer contraction, Griffiths derivative, normal-boundary factorization, Green open cones and the required Voisin kernel-cone interface. Supply RealSurfacePeriodIndex using common variations and the existing divisor-class supplier. Ordinary integral weak Lefschetz is not replaced by an equivariant variant. Double-cover families and application-specific vanishings remain with the consumer.",
+        "Resolve supplier requests and replace provisional layer dependencies with exact declaration-node prerequisites. No complete target decomposition exists for this layer."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Reserved general key remains absent",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "detail": "Supply HodgeStructuresPartII:key/higgs-parameter-connections on general ringed differential sites with finite locally free coefficients and central relatively constant λ; the local models do not supply it. Construct intrinsic exterior differential forms and the graded extension of D with well-defined curvature; prove its comparison with commuting-coordinate local models. Import generic sheaf tensor/descent and ordinary connection carriers, then construct finite projective and sheaf gluing, pullback and gauge cocycle compatibility. Construct twisted Higgs fields valued in Ω¹⊗T, keeping the p-adic Tate coefficient explicit. Compare intrinsic finite-filtration/iterated-Higgs nilpotence with local word nilpotence under the necessary local-freeness assumptions; prove tensor, dual and pullback bounds. Construct Griffiths filtered connections, the induced associated-graded Higgs field and Rees specialization; prove integrability passes to the graded field. Freshly read complete supporting source proofs and all routed catalogue statements; verify remaining ordinary-connection near-misses before asserting their scope."
+    },
+    {
+      "title": "Source decomposition remains: Stable moduli and complex non-abelian Hodge theory",
+      "neededBy": [
+        "HodgeStructuresPartII:H.1"
+      ],
+      "detail": "Build projective stable Betti, de Rham and Dolbeault moduli with the stated torsion determinant and vanishing-Chern-class component. Establish Riemann–Hilbert, Simpson and Hodge moduli after importing generic moduli foundations. Keep rank, determinant, stability and analytic/algebraic comparison hypotheses explicit. No p-adic correspondence is constructed here. Binding route obligations, not established declarations."
+    },
+    {
+      "title": "Source decomposition remains: Variations, canonical extensions and fixed parts",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "detail": "Import the common variation carrier from ShimuraData:D3, including fibrewise opposedness and Griffiths transversality. Add pure/mixed/admissible/graded-polarizable interfaces, canonical logarithmic extensions, Gauss–Manin, fixed-part and connected monodromy results. A complex variation is not assumed to have an integral lattice. Binding route obligations, not established declarations."
+    },
+    {
+      "title": "Source decomposition remains: General period manifolds and period-map derivatives",
+      "neededBy": [
+        "HodgeStructuresPartII:H.3"
+      ],
+      "detail": "Extend the parent's fibrewise period points to compact dual charts, Mumford–Tate orbit subdomains, holomorphic period maps and differential formulas. Keep the full ambient period carrier, tensor constraints and connected-component choices; the orbit equals the ambient domain only in the full-isometry specialization. Supply trace-pairing/Kodaira–Spencer period derivatives without duplicating common variations. Binding route obligations, not established declarations."
+    },
+    {
+      "title": "Source decomposition remains: Parabolic bounds and unitary deformation vanishing",
+      "neededBy": [
+        "HodgeStructuresPartII:H.4"
+      ],
+      "detail": "Plan Landesman–Litt parabolic weights, degrees, slopes, semistability and exact Clifford/rank bounds. Establish the sublocal-system rank theorem and Artinian unitary deformation vanishing with their separate hypotheses. Import curve Riemann–Roch, Serre duality, Clifford and Grassmannian foundations. Binding route obligations, not established declarations."
+    },
+    {
+      "title": "Source decomposition remains: Rigid loci, arithmetic models and integral variations",
+      "neededBy": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "detail": "Build rigid/cohomologically rigid fixed-determinant loci, End-zero tangent conventions, rigid Higgs nilpotence, equivariant rigid Hodge-moduli splitting, smooth arithmetic models and the zero-graded-Higgs/unitarity criterion. Add rigidity/integrality with quasi-unipotent boundary and finite determinant explicit. Distinguish integral from strongly integral; retain rank-one infinite-image unitary examples. Export to CartierFlows/RigidCompanions without importing those consumers. Binding route obligations, not established declarations."
+    },
+    {
+      "title": "Source decomposition remains: Semistable degeneration and logarithmic monodromy",
+      "neededBy": [
+        "HodgeStructuresPartII:H.6"
+      ],
+      "detail": "Plan Qian's proper semistable log-de Rham interface, residue/monodromy comparison exp(−2πiN), finite group actions and ramified base-change normalization. Add BKT multivariable nilpotent orbits, monodromy weight filtrations, limiting mixed Hodge structures and splitting-independent norm estimates. Keep discs away from other singular fibres and use buffered charts covering angular seams. Binding route obligations, not established declarations."
+    },
+    {
+      "title": "Source decomposition remains: Definable period maps and algebraicity of Hodge loci",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "detail": "Retain the full BKT continuation: bounded-width positive-height sectors, fixed-canonical-K finite Siegel containment, multigrading estimates, period definability, individual special pullbacks and definable Chow. The exceptional Hodge locus is a countable union of closed irreducible algebraic subvarieties, not itself asserted definable. Untwisted rational tensors have type (0,0); (p,p) tensors require Tate twists. Binding route obligations, not established declarations."
+    },
+    {
+      "title": "Source decomposition remains: Real Noether–Lefschetz variation interfaces",
+      "neededBy": [
+        "HodgeStructuresPartII:H.8"
+      ],
+      "detail": "Retain the mandatory Benoist continuation: geometric weight-two real variations, transported Hodge classes, generic Kodaira–Spencer contraction, Griffiths derivative, normal-boundary factorization, Green open cones and the required Voisin kernel-cone interface. Supply RealSurfacePeriodIndex using common variations and the existing divisor-class supplier. Ordinary integral weak Lefschetz is not replaced by an equivariant variant. Double-cover families and application-specific vanishings remain with the consumer. Binding route obligations, not established declarations."
+    }
+  ],
+  "sourceIssues": [],
+  "routeManifest": [
+    {
+      "paper": "PAPER-LANDESMAN-LITT-24",
+      "routeFile": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+      "inputRoutes": [
+        {
+          "roadmap": "HodgeStructuresPartII",
+          "items": [
+            "PAPER-LANDESMAN-LITT-24/8",
+            "PAPER-LANDESMAN-LITT-24/29",
+            "PAPER-LANDESMAN-LITT-24/30",
+            "PAPER-LANDESMAN-LITT-24/31",
+            "PAPER-LANDESMAN-LITT-24/32",
+            "PAPER-LANDESMAN-LITT-24/33",
+            "PAPER-LANDESMAN-LITT-24/34",
+            "PAPER-LANDESMAN-LITT-24/35",
+            "PAPER-LANDESMAN-LITT-24/36",
+            "PAPER-LANDESMAN-LITT-24/37",
+            "PAPER-LANDESMAN-LITT-24/38",
+            "PAPER-LANDESMAN-LITT-24/39",
+            "PAPER-LANDESMAN-LITT-24/40",
+            "PAPER-LANDESMAN-LITT-24/41",
+            "PAPER-LANDESMAN-LITT-24/42",
+            "PAPER-LANDESMAN-LITT-24/43",
+            "PAPER-LANDESMAN-LITT-24/44",
+            "PAPER-LANDESMAN-LITT-24/45",
+            "PAPER-LANDESMAN-LITT-24/46",
+            "PAPER-LANDESMAN-LITT-24/47",
+            "PAPER-LANDESMAN-LITT-24/48",
+            "PAPER-LANDESMAN-LITT-24/49",
+            "PAPER-LANDESMAN-LITT-24/50",
+            "PAPER-LANDESMAN-LITT-24/58",
+            "PAPER-LANDESMAN-LITT-24/59",
+            "PAPER-LANDESMAN-LITT-24/60",
+            "PAPER-LANDESMAN-LITT-24/61",
+            "PAPER-LANDESMAN-LITT-24/63",
+            "PAPER-LANDESMAN-LITT-24/72",
+            "PAPER-LANDESMAN-LITT-24/73",
+            "PAPER-LANDESMAN-LITT-24/79",
+            "PAPER-LANDESMAN-LITT-24/88",
+            "PAPER-LANDESMAN-LITT-24/89",
+            "PAPER-LANDESMAN-LITT-24/90",
+            "PAPER-LANDESMAN-LITT-24/91",
+            "PAPER-LANDESMAN-LITT-24/92",
+            "PAPER-LANDESMAN-LITT-24/93",
+            "PAPER-LANDESMAN-LITT-24/118",
+            "PAPER-LANDESMAN-LITT-24/119",
+            "PAPER-LANDESMAN-LITT-24/120",
+            "PAPER-LANDESMAN-LITT-24/121",
+            "PAPER-LANDESMAN-LITT-24/122",
+            "PAPER-LANDESMAN-LITT-24/123",
+            "PAPER-LANDESMAN-LITT-24/136",
+            "PAPER-LANDESMAN-LITT-24/137",
+            "PAPER-LANDESMAN-LITT-24/138"
+          ]
+        }
+      ],
+      "sourceLead": "https://arxiv.org/pdf/2205.15352v4",
+      "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
+      "decompositionStatus": "not_read",
+      "note": "Exact routed item ids preserved as obligations; selected fresh definition readings do not complete any routed item or source proof."
+    },
+    {
+      "paper": "PAPER-GAO-HABEGGER-19",
+      "routeFile": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
+      "inputRoutes": [
+        {
+          "roadmap": "HodgeStructuresPartII",
+          "items": [
+            "PAPER-GAO-HABEGGER-19/26",
+            "PAPER-GAO-HABEGGER-19/36",
+            "PAPER-GAO-HABEGGER-19/42"
+          ]
+        }
+      ],
+      "sourceLead": "https://arxiv.org/abs/1801.05762v3",
+      "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
+      "decompositionStatus": "not_read",
+      "note": "Exact routed item ids preserved as obligations; selected fresh definition readings do not complete any routed item or source proof."
+    },
+    {
+      "paper": "PAPER-HEUER-25",
+      "routeFile": "research/blueprint/papers/PAPER-HEUER-25.result.json",
+      "inputRoutes": [
+        {
+          "roadmap": "HodgeStructuresPartII",
+          "items": [
+            "PAPER-HEUER-25/3"
+          ]
+        }
+      ],
+      "sourceLead": "https://link.springer.com/article/10.1007/s00222-025-01321-4",
+      "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
+      "decompositionStatus": "not_read",
+      "note": "Exact routed item ids preserved as obligations; selected fresh definition readings do not complete any routed item or source proof."
+    },
+    {
+      "paper": "PAPER-QIAN-23",
+      "routeFile": "research/blueprint/papers/PAPER-QIAN-23.result.json",
+      "inputRoutes": [
+        {
+          "roadmap": "HodgeStructuresPartII",
+          "items": [
+            "PAPER-QIAN-23/101"
+          ]
+        }
+      ],
+      "sourceLead": "https://par.nsf.gov/servlets/purl/10388233",
+      "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
+      "decompositionStatus": "not_read",
+      "note": "Exact routed item ids preserved as obligations; selected fresh definition readings do not complete any routed item or source proof."
+    },
+    {
+      "paper": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+      "routeFile": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
+      "inputRoutes": [
+        {
+          "roadmap": "DegeneratingHodgeStructures",
+          "items": [
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/general-period-domain",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-datum",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-manifold",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/period-map",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-morphism-compatible",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/snc-buffered-cover",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/quasi-unipotent-monodromy",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/monodromy-logarithms",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/nilpotent-orbit",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/nilpotent-extension",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/bounded-sector",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/period-lift-definable",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/monodromy-weight-filtration",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/nilpotent-cone-weights",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/limiting-mixed-hodge",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/simultaneous-splitting",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/distributive-weight-family",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-norm-asymptotic",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/twisted-norm-asymptotic",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/negative-lie-chart",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/horizontal-perturbation",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/perturbed-norm-comparison",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-adapted-flag",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/indefinite-gram-minors",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/gram-determinant-ratios",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-entry-rationality",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/split-flat-norm-rough-monomial",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/split-moving-norm-rough-monomial",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/split-entry-rough-polynomial",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/all-entries-rough-polynomial",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/determinant-weight-bound",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/one-variable-siegel",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/faithful-hodge-representation",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/curvewise-reducedness",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/uniform-reducedness",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/period-finite-siegel-cover",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/local-period-definability",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/global-period-definability",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/special-hodge-subvariety",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/special-image-analytic",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/special-image-definable",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/rational-hodge-countability",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/special-pullback-algebraic",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus-algebraicity",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/compact-target-analytic-definability",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/generic-mumford-tate-group",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus-analytic",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/siegel-strip-uniformization",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-form-function",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/composite-quotient-definable",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/kashiwara-splitting-independent-estimates",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/finite-cover-descent",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/holomorphic-map-to-arithmetic-variety-is-period-map",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-variety-hodge-locus",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus-preimage",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-form-map",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/transversality-in-lift-coordinates",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/monodromy-logarithms-type-minus-one",
+            "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/centralizer-preserves-weight-filtration"
+          ]
+        }
+      ],
+      "sourceLead": "https://par.nsf.gov/servlets/purl/10200187",
+      "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
+      "decompositionStatus": "not_read",
+      "note": "Exact routed item ids preserved as obligations; selected fresh definition readings do not complete any routed item or source proof."
+    },
+    {
+      "paper": "PAPER-BENOIST-19",
+      "routeFile": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
+      "inputRoutes": [
+        {
+          "roadmap": "DegeneratingHodgeStructures",
+          "items": [
+            "PAPER-BENOIST-19/37",
+            "PAPER-BENOIST-19/38",
+            "PAPER-BENOIST-19/70",
+            "PAPER-BENOIST-19/88",
+            "PAPER-BENOIST-19/130",
+            "PAPER-BENOIST-19/131",
+            "PAPER-BENOIST-19/132",
+            "PAPER-BENOIST-19/133",
+            "PAPER-BENOIST-19/134",
+            "PAPER-BENOIST-19/193"
+          ]
+        }
+      ],
+      "sourceLead": "https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf",
+      "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
+      "decompositionStatus": "not_read",
+      "note": "Exact routed item ids preserved as obligations; selected fresh definition readings do not complete any routed item or source proof."
+    },
+    {
+      "paper": "PAPER-ESNAULT-GROECHENIG-20",
+      "routeFile": "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.result.json",
+      "inputRoutes": [
+        {
+          "roadmap": "HodgeStructuresPartII",
+          "items": [
+            "PAPER-ESNAULT-GROECHENIG-20/001",
+            "PAPER-ESNAULT-GROECHENIG-20/002",
+            "PAPER-ESNAULT-GROECHENIG-20/003",
+            "PAPER-ESNAULT-GROECHENIG-20/004",
+            "PAPER-ESNAULT-GROECHENIG-20/006",
+            "PAPER-ESNAULT-GROECHENIG-20/007",
+            "PAPER-ESNAULT-GROECHENIG-20/008",
+            "PAPER-ESNAULT-GROECHENIG-20/048",
+            "PAPER-ESNAULT-GROECHENIG-20/049",
+            "PAPER-ESNAULT-GROECHENIG-20/050",
+            "PAPER-ESNAULT-GROECHENIG-20/051",
+            "PAPER-ESNAULT-GROECHENIG-20/052",
+            "PAPER-ESNAULT-GROECHENIG-20/061",
+            "PAPER-ESNAULT-GROECHENIG-20/062",
+            "PAPER-ESNAULT-GROECHENIG-20/063",
+            "PAPER-ESNAULT-GROECHENIG-20/064",
+            "PAPER-ESNAULT-GROECHENIG-20/065",
+            "PAPER-ESNAULT-GROECHENIG-20/089",
+            "PAPER-ESNAULT-GROECHENIG-20/103",
+            "PAPER-ESNAULT-GROECHENIG-20/105",
+            "PAPER-ESNAULT-GROECHENIG-20/106",
+            "PAPER-ESNAULT-GROECHENIG-20/107",
+            "PAPER-ESNAULT-GROECHENIG-20/119",
+            "PAPER-ESNAULT-GROECHENIG-20/121",
+            "PAPER-ESNAULT-GROECHENIG-20/135",
+            "PAPER-ESNAULT-GROECHENIG-20/136"
+          ]
+        }
+      ],
+      "sourceLead": "https://intlpress.com/site/pub/files/_fulltext/journals/acta/2020/0225/0001/ACTA-2020-0225-0001-a002.pdf",
+      "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
+      "decompositionStatus": "not_read",
+      "note": "Exact routed item ids preserved as obligations; selected fresh definition readings do not complete any routed item or source proof."
+    },
+    {
+      "paper": "PAPER-LIU-ZHU-17",
+      "routeFile": "research/blueprint/papers/PAPER-LIU-ZHU-17.result.json",
+      "inputRoutes": [
+        {
+          "roadmap": "HodgeStructuresPartII",
+          "items": [
+            "PAPER-LIU-ZHU-17/H02",
+            "PAPER-LIU-ZHU-17/H03"
+          ]
+        }
+      ],
+      "sourceLead": "https://arxiv.org/abs/1602.06282v3",
+      "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
+      "decompositionStatus": "not_read",
+      "note": "Exact routed item ids preserved as obligations; selected fresh definition readings do not complete any routed item or source proof."
+    }
+  ],
+  "libraryAudit": {
+    "tree": "cc8e6af71d89d29632dec19bbc36ffdbb76af6e2",
+    "read": "No HodgeStructuresPartII/HodgeStructures audit entry was present in data/library-coverage.json. The reviewed ShimuraData:D3 audit reports its variation interface not built; parent fibrewise theory is not replanned.",
+    "search": "Exact-pin Lean source searches for Higgs/λ connections found unrelated names, not the general carrier. Actual statements of Derivation, KaehlerDifferential.D, presheaf relative differentials, exteriorPower.ιMulti, Module.Finite and Module.Projective were read. These ingredients do not constitute the complete sheaf Higgs/connection category. Only nine used declarations are registered as baseline prerequisites."
+  },
+  "upstreamNotes": [],
+  "restructure": [
+    {
+      "action": "merge",
+      "roadmaps": [
+        "HodgeStructuresPartII",
+        "DegeneratingHodgeStructures"
+      ],
+      "detail": "The issue explicitly coalesces the BKT/Benoist DegeneratingHodgeStructures routes into this successor; no alias packet/definition exists at the audit tree.",
+      "proposal": "Use HodgeStructuresPartII as sole owner, with BKT at H.3/H.6/H.7 and mandatory Benoist at H.8. No new competing roadmap or consumer backedge."
+    }
+  ],
+  "verification": {
+    "leanCompiled": false,
+    "reason": "No existing built project at both pins; no project setup, cache acquisition, build or language server started.",
+    "mathematics": "All declarations remain plans, not formalised. The coordinate calculations are separate from the missing intrinsic/global key.",
+    "sourceIssueScope": "No new published-source error claimed; δλ=0 in this relative coordinate model is not recorded as an erratum to EG's moduli definition.",
+    "checks": {
+      "auditTree": "ec2353cae6b189ee2f2f8808f4cf6cc68c53f21d",
+      "checkBlueprint": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "intakeFileRules": "pass",
+      "whitespace": "pass",
+      "signatureApiTestParity": "pass",
+      "newStageEdgeCycleCheck": "pass",
+      "pendingStageLinks": 0,
+      "exactRationalPolynomialMatrixModels": "pass; concrete examples, not universal proofs or Lean compilation"
+    }
+  }
+}
