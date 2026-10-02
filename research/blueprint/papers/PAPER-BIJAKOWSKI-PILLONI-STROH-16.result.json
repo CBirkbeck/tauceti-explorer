@@ -9,7 +9,8 @@
   "doi": "10.4007/annals.2016.183.3.5",
   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p05-p.pdf",
   "readSections": [
-   "The published version, freely served by the Annals site, read in full: 40 pages (pp. 975–1014), SHA-256 13c159cde16c09c98de6b29ed1cf0e293ae78e5dc250399a1ee9203b3601d92c, fetched 29 September 2026. Item locators are the journal's pages. Every recorded mistake was checked on a page image. The paper is in French; statements are translated."
+   "The published version, freely served by the Annals site, read in full: 40 pages (pp. 975–1014), SHA-256 13c159cde16c09c98de6b29ed1cf0e293ae78e5dc250399a1ee9203b3601d92c, fetched 29 September 2026. Item locators are the journal's pages. Every recorded mistake was checked on a page image. The paper is in French; statements are translated.",
+   "Fix #5503, Codex codex-J6LwjP, 2 October 2026: targeted published-text reading, page images and prerequisite passages listed in sourceVersions. The original full reading and independent verdicts are historical; no new whole-paper or recursive prerequisite proof audit is claimed."
   ]
  },
  "sourceVersions": [
@@ -18,9 +19,44 @@
    "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p05-p.pdf",
    "read": "2026-09-29",
    "sha256": "13c159cde16c09c98de6b29ed1cf0e293ae78e5dc250399a1ee9203b3601d92c"
+  },
+  {
+   "kind": "published",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p05-p.pdf",
+   "read": "2026-10-02",
+   "sha256": "13c159cde16c09c98de6b29ed1cf0e293ae78e5dc250399a1ee9203b3601d92c",
+   "note": "Targeted pp. 984,989–990,994–999,1003–1004; images 984,1003,1004 checked. The three new source issues concern this exact published PDF."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://web.math.princeton.edu/~nmk/old/serretatelocmod.pdf",
+   "read": "2026-10-02",
+   "sha256": "9c1209a71dbcd8f14da7cc42cf768fcfabaf43d2dc317483a992d5ceaf377938",
+   "note": "Katz, Theorem 1.2.1 p. 143 (PDF 6), Lemma 4.1.3 p. 170 (PDF 33), targeted statements and displayed differential calculation, not full proof audit."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://math.stanford.edu/~conrad/papers/genpaper.pdf",
+   "read": "2026-10-02",
+   "sha256": "ab6daecb7fa0679170fdd6b92021f206a9c990f621fc246eb146c3220d64e2bc",
+   "note": "Conrad, Appendix A.1 pp. 37–39: A.1.2, A.1.3, A.1.4, A.1.5 and proofs. Matches the integrated criterion; its explicit unread formal-model imports remain imports, not newly verified."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.imo.universite-paris-saclay.fr/~pilloni/pro_an.pdf",
+   "read": "2026-10-02",
+   "sha256": "79a30aa640839ad284d2bed18f1efa804b57cda1df1c77f82415822c6a1866c4",
+   "note": "Pilloni, author PDF pp. 27,29: norms, Lemma 5.1 and Propositions 5.2–5.3. Signed determinant exponents and canonical branch; not published-version collation or full read."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://webusers.imj-prg.fr/~benoit.stroh/surconv_trois.pdf",
+   "read": "2026-10-02",
+   "sha256": "d7b38d414903e7b6409b203dd89e352bbb3645b69d81e0a0d3f2e53ef96a5b4a",
+   "note": "Undated 33-page author copy: targeted pp. 8,24,25 repeat the unrestricted formal-étaleness claim, product-map helper and degree-only norm statement. Not treated as a later corrigendum; no whole-copy collation claimed."
   }
  ],
- "summary": "Bijakowski, Pilloni and Stroh extend Coleman's classicality criterion from modular curves to PEL Shimura varieties of type (A) and (C) at Iwahori level, with p unramified and totally split in the reflex field: an overconvergent form that is an eigenform of the Hecke operators U_i at the primes of F0 above p, with non-zero eigenvalues and weight large against their valuations, is classical (Theorem 5.3.1). The proof generalises Buzzard–Kassaei: Fargues's degree measures distance from the ordinary-multiplicative tube, the U_i increase it strictly off integer values (so f extends to X_Iw(1−) by finite slope alone), and on the rest U_i^N is decomposed into good and bad parts over good sequences of opens, where Kassaei series converge under the weight–slope hypothesis and glue modulo p^{A_N}. Lan's Köcher principle and rigid GAGA algebraise the result. The PEL moduli, automorphic bundles, Serre–Tate and GAGA are planned; the paper's machinery joins the proposed Part II HigherHidaAndColemanTheory, and its rigid-geometry, degree, PEL linear-algebra and ordinariness, and compactification inputs go to AdicSpacesPartII, HodgeTateAndCanonicalSubgroups T0, PELModuli M0/M2 and ShimuraCompactifications C5. Fourteen mistakes are recorded, including gaps in the dimension ≤ 1 case and in the continuation over half-open boxes.",
+ "summary": "Bijakowski, Pilloni and Stroh extend Coleman's classicality criterion from modular curves to PEL Shimura varieties of type (A) and (C) at Iwahori level, with p unramified and totally split in the reflex field: an overconvergent form that is an eigenform of the Hecke operators U_i at the primes of F0 above p, with non-zero eigenvalues and weight large against their valuations, is classical (Theorem 5.3.1). The proof generalises Buzzard–Kassaei: Fargues's degree measures distance from the ordinary-multiplicative tube, the U_i increase it strictly off integer values (so f extends to X_Iw(1−) by finite slope alone), and on the rest U_i^N is decomposed into good and bad parts over good sequences of opens, where Kassaei series converge under the weight–slope hypothesis and glue modulo p^{A_N}. Lan's Köcher principle and rigid GAGA algebraise the result. The PEL moduli, automorphic bundles, Serre–Tate and GAGA are planned; the paper's machinery joins the proposed Part II HigherHidaAndColemanTheory, and its rigid-geometry, degree, PEL linear-algebra and ordinariness, and compactification inputs go to AdicSpacesPartII, HodgeTateAndCanonicalSubgroups T0, PELModuli M0/M2 and ShimuraCompactifications C5. Fourteen mistakes are recorded, including gaps in the dimension ≤ 1 case and in the continuation over half-open boxes. Fix #5503 restricts stack-level formal étaleness to p-locally-nilpotent tests, adds the sign hypothesis to the degree-lower-bound norm lemma and explicitly derives positivity in its classicality use, replaces the false product-map helper by finite coordinate pullbacks on closed degree boxes, and imports the existing Conrad fibral finiteness criterion. Current inventory: 43 items, 1 library, 8 planned, 34 missing; 5 routes, 19 prerequisites, 17 source issues. E15–E17 are new findings against the inspected published PDF, without self-authored verdicts.",
  "items": [
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/1",
@@ -98,17 +134,34 @@
    "planned": [
     "AbelianSchemesAndArithmeticModuli:A4"
    ],
-   "note": "The paper uses it as the formal étaleness of P : X → ∏ BT^{d_i}_{a_i+b_i} (§1.3). That form needs the Barsotti–Tate stacks of item 7, which is routed to the Part II downstream of A4, so it is stated there."
+   "note": "The paper uses it as the formal étaleness of P : X → ∏ BT^{d_i}_{a_i+b_i} (§1.3). That form needs the Barsotti–Tate stacks of item 7, which is routed to the Part II downstream of A4, so it is stated there. Its stack consequence in /7 is restricted to the same p-locally-nilpotent test bases (E15); it is not formal étaleness of the unrestricted algebraic morphism."
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/7",
    "kind": "construction",
    "name": "Barsotti–Tate stacks with Iwahori level and the model X_Iw",
-   "statement": "BT^f_m (height mf, Z_{p^f}-action), BT^{f,pol}_l, their formal variants BT̂^f_{l,m} (dimension lf) and BT̂^{f,pol}_l; an Iwahori structure is a full flag 0 = H_0 ⊂ ··· ⊂ H_m = G[p] of Z_{p^f}-stable finite flat subgroups with H_j of rank p^{fj} (in the polarised case up to H_l, totally isotropic); forgetting it is representable and proper; X_Iw := X ×_{∏BT} ∏BT_Iw, proper over X, parametrising (A, λ, ι, η, H_•). By Serre–Tate (item 6) the morphism P : X → ∏_i BT^{d_i}_{a_i+b_i} (type (A); ∏_i BT^{d_i,pol}_{a_i} in type (C)), sending A to ∏ G_i where A[(π_i^+)^∞] = Z^n_{p^{d_i}} ⊗ G_i (resp. A[π_i^∞] = Z^n_{p^{d_i}} ⊗ G_i), is formally étale.",
+   "statement": "BT^f_m (height mf, Z_{p^f}-action), BT^{f,pol}_l, their formal variants BT̂^f_{l,m} (dimension lf) and BT̂^{f,pol}_l; an Iwahori structure is a full flag 0 = H_0 ⊂ ··· ⊂ H_m = G[p] of Z_{p^f}-stable finite flat subgroups with H_j of rank p^{fj} (in the polarised case up to H_l, totally isotropic); forgetting it is representable and proper; X_Iw := X ×_{∏BT} ∏BT_Iw, proper over X, parametrising (A, λ, ι, η, H_•). The algebraic morphism P : X → ∏_i BT^{d_i}_{a_i+b_i} (type (A); ∏_i BT^{d_i,pol}_{a_i} in type (C)), sending A to ∏ G_i where A[(π_i^+)^∞] = Z^n_{p^{d_i}} ⊗ G_i (resp. A[π_i^∞] = Z^n_{p^{d_i}} ⊗ G_i), exists and defines the stated Iwahori fibre product over the integral base. By the p-locally-nilpotent Serre–Tate theorem (item 6, A4), its restriction to test schemes on which p is locally nilpotent is formally étale; equivalently use the p-adic formal completions on the fixed dimension/signature components. No formal-étaleness assertion is made on characteristic-zero thickenings.",
    "locator": "§1.3, pp. 983–985 (published version)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "E15 qualifies the published p. 984 sentence. Preserve the algebraic P, proper forgetting morphism and fibre product; import the restricted deformation equivalence from A4 with action, polarization and prime-to-p level. Fixed height/dimension/signature components matter on the formal side.",
+   "api": [
+    "PEL_to_BT_algebraic and iwahoriModel_fibreProduct with the action, polarization, flags and proper forgetful map",
+    "PEL_to_BT_formallyEtale_on_pLocallyNilpotentTests : import /6 from A4; unique compatible lifts along nilpotent thickenings and their automorphisms",
+    "formalCompletion_fixedSignature_identification; never infer algebraic formal étaleness after inverting p"
+   ],
+   "unitTests": [
+    "A p-nilpotent nilpotent thickening matches the A4 deformation groupoids with PEL structures and prime-to-p level",
+    "Characteristic-zero dual numbers K[ε]/ε² do not satisfy the test-base hypothesis: Legendre t=3+ε has j′(3)=31360/27 while the étale BT group lifts uniquely",
+    "Base change of the Iwahori fibre product remains valid independently of the formal-étaleness qualification"
+   ],
+   "prerequisites": [
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/2",
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/4",
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/5",
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/6"
+   ]
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/8",
@@ -255,9 +308,25 @@
    "name": "Proposition 4.1.8: a finiteness criterion",
    "statement": "For f : X → Y finite étale between separated rigid spaces and an open U ⊆ X with U → X quasi-compact, if the geometric fibres of f|_U have constant cardinality then f|_U and f|_{X∖U} are finite étale.",
    "locator": "Proposition 4.1.8, p. 997 (published version)",
-   "status": "missing",
+   "status": "planned",
    "library": [],
-   "planned": []
+   "planned": [
+    "AdicSpacesPartII:R2",
+    "AdicSpacesPartII:R0"
+   ],
+   "note": "Import the integrated node AdicSpacesPartII:R2/fibral-finiteness-criterion (Conrad A.1.2): flat, quasi-compact, separated, finite fibres, locally constant fibre rank ⇒ finite. Étaleness gives flatness and equality of geometric fibre cardinality with rank. The quasi-compact open immersion and finite f give quasi-compactness. R0 supplies finite/étale and proper open-immersion consequences: U is also closed in X, then the complement is finite étale. BPS is an application/alternate source retained in route 1, not a second missing theorem. The accepted packet is partial and the criterion has implementationStatus unchecked; its formal-model imports remain explicit.",
+   "api": [
+    "bps_finitenessCriterion_from_Conrad_A12: verify every R2 hypothesis for f|U, then import its finiteness conclusion",
+    "qc_open_finite_overBase_isClosed using the separated finite Y-space X; finiteEtale_complement from R0"
+   ],
+   "unitTests": [
+    "Constant geometric fibre cardinality becomes locally constant fibre rank under étaleness; test empty U and U=X",
+    "Dropping quasi-compactness is rejected: {|t|=1} ⊔ {|t|<1}→{|t|≤1} is the standard nonfinite bijective local isomorphism",
+    "Assert U→X open and closed, not merely U→Y (existing E4)"
+   ],
+   "prerequisites": [
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/20"
+   ]
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/22",
@@ -317,17 +386,56 @@
    "locator": "Theorem 4.4.1, pp. 1000–1001; proof and Lemmas 4.4.2–4.4.4, pp. 1001–1004 (published version)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "Preserve Theorem 4.4.1 and Lemma 4.4.3, but repair the E17 false helper. On E12 closed quasi-compact degree boxes, use full B_k^rig with its finite étale forgetting map p to X_Iw^rig. Each coordinate quotient q_j is finite by the finite coordinate-forgetting map to C_i^rig and its finite p2 projection (§2.2). Pull back V_l along each q_j separately, intersect the finitely many quasi-compact opens with p^(-1)(U), and take the finite étale p-image using Proposition 4.1.4 (/20). Separatedness of the full cover supplies quasi-separatedness for finite intersections. Neither q to the product nor a restriction of q_j to an arbitrary open is asserted finite étale. k=0 is the empty-intersection case.",
+   "api": [
+    "distinctTupleCover_full k with finiteEtale forgetToBase and finite coordinateForget_j_to_Ci; quotientCoordinate_j := p2∘coordinateForget_j",
+    "badCountOpen k l U := p(p^(-1)(U) ∩ ⋂_j q_j^(-1)(V_l)); prove equals {x∈U | N_l(x)≥k}",
+    "qc_badCountOpen from finite coordinate preimages, separated/quasi-separated finite intersections and /20 finiteEtale_image; feed Lemma 4.4.3 and Theorem 4.4.1",
+    "Run on E12 closed boxes, then exhaust/glue to cover half-open boxes"
+   ],
+   "unitTests": [
+    "k=2 and positive-dimensional genus-two moduli: source dimension 3, product target dimension 6, so product étaleness must not be used",
+    "One coordinate (k=1) and empty tuple (k=0) specialize correctly; duplicate complements are excluded on the full tuple cover",
+    "Finite intersection retains all coordinate conditions; images count distinct complements rather than repeated tuples",
+    "Half-open degree box does not silently acquire quasi-compactness; use closed sub-boxes and E12 exhaustion"
+   ],
+   "prerequisites": [
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/7",
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/13",
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/20",
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/21",
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/24",
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/25",
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/26"
+   ]
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/28",
    "kind": "theorem",
    "name": "Lemma 4.4.5: norm of the bad operators",
-   "statement": "If U_i^bad on V involves only complements L_0 of type U_i with deg L ≥ ν, where L = F_i^+·L_0 in type (A) and L = F_i·L_0 in type (C) (so deg L_0 = n·deg L, Remark 4.3.4), then ‖U_i^bad‖_V ≤ p^{d_ia_ib_i − ν·inf_j(k_{i,j,a_i} + l_{i,j,b_i})} (type (A)) or p^{d_ia_i(a_i+1)/2 − ν·inf_j k_{i,j,a_i}} (type (C)), κ written as (k_{i,j,1} ≥ ··· ; l_{i,j,1} ≥ ···).",
+   "statement": "Put c_i=min_j k_{i,j,a_i} in type (C), or min_j(k_{i,j,a_i}+l_{i,j,b_i}) in type (A); put n_i=d_i a_i(a_i+1)/2 or d_i a_i b_i respectively. If c_i≥0 and U_i^bad on V uses only complements L_0 of type U_i with deg L≥ν, where L=F_i·L_0 in (C) or F_i^+·L_0 in (A), then ‖U_i^bad‖_V≤p^(n_i−ν c_i). For arbitrary dominant integral weights, keep the actual branch partial degrees/elementary-divisor valuations with their signed weight contributions in the pullback estimate before taking the supremum and trace bound; do not replace actual degrees by the lower bound ν when its coefficient is negative. The convention deg L_0=n·deg L is unchanged.",
    "locator": "Lemma 4.4.5, p. 1004 (published version)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "E16 supplies the missing sign condition in the published Lemma 4.4.5. Dominance does not imply c_i≥0. The type-(C) scalar weight (−1,−1), n_i=3, canonical complement degree 2 and allowed ν=1 gives actual branch norm p^5, exceeding the printed p^4. For the classicality application /29, the source states v(α_i)≥0 on p. 994; Hypothesis 4.5.1 gives c_i>v(α_i)+n_i≥0, hence strict positivity. If using another normalization, this valuation input must be re-established or assumed explicitly.",
+   "api": [
+    "branchPullbackNorm_actualSignedWeights: retain the partial degree/elementary-divisor valuations and all signed weight factors; include the p^(n_i) normalization and integral trace estimate",
+    "badOperatorNorm_degreeLowerBound (hc : 0≤c_i) (hdeg : ∀L, ν≤deg L): norm≤p^(n_i−ν*c_i)",
+    "degreeSubstitution_requires_nonnegativeCoefficient; exact scalar determinant test for c_i<0; no unchecked replacement by ν"
+   ],
+   "unitTests": [
+    "c_i=0 gives p^(n_i), and positive c_i makes the upper bound decrease with ν",
+    "Negative scalar genus-two test: actual exponent 3−2*(−1)=5, printed lower-degree exponent 3−1*(−1)=4; the hc gate rejects it",
+    "Type A uses the sum of the two last entries, not separate positivity of each entry",
+    "/29 plus the p. 994 valuation input discharges positivity before /30 uses the contraction bound"
+   ],
+   "prerequisites": [
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/13",
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/14",
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/27"
+   ]
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/29",
@@ -337,7 +445,22 @@
    "locator": "Hypothesis 4.5.1, p. 1004 (published version)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "For the source normalization explicitly import v(α_i)≥0 (p. 994) and n_i≥0. Hypothesis 4.5.1 implies c_i>0 and therefore the sign hypothesis of /28. Choose rational ε>0 sufficiently small that n_i+v(α_i)−(1−ε)c_i<0; this gives u_0<1 for /30. The small-slope theorem is retained, not strengthened to arbitrary normalization without the eigenvalue-valuation input.",
+   "api": [
+    "weightSlopeCondition κ α := ∀i, c_i>v(α_i)+n_i with v(p)=1",
+    "weightSlope_positive_minimum using eigenvalueValuation_nonnegative for the chosen normalization",
+    "choose_epsilon_contraction : ∃ε∈(0,1), n_i+v(α_i)−(1−ε)c_i<0"
+   ],
+   "unitTests": [
+    "Boundary c_i=v(α_i)+n_i is rejected (strict inequality)",
+    "c_i positive follows even at valuation 0 and n_i=0; choose ε smaller than the normalized positive gap",
+    "If the valuation input is omitted or negative, positivity is not inferred"
+   ],
+   "prerequisites": [
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/14",
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/28"
+   ]
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/30",
@@ -347,7 +470,8 @@
    "locator": "Definition 4.5.2 and Lemma 4.5.3, pp. 1005–1006 (published version)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "Apply /28 only after /29 derives c_i>0 from the small-slope condition and v(α_i)≥0. Choose ε to make the displayed exponent negative. Build uniformly bounded series on E12 closed quasi-compact boxes, then exhaust; no arbitrary-weight lower-degree norm estimate is imported."
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/31",
@@ -597,7 +721,7 @@
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/22",
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/42"
    ],
-   "reason": "R0 constructs finite and étale maps of rigid spaces, R2 owns admissible formal schemes, blow-ups and generic fibres, and R3 coherent sheaves, finite étale traces and Kiehl-type finiteness. The paper's general rigid-geometry inputs are statements about those objects, used by any analytic-continuation argument: the Kassaei–Bartenwerfer description of sections by bounded sections, images of opens and strict neighbourhoods under finite étale maps (through Bosch–Lütkebohmert flattening), the finiteness criterion 4.1.8, the identity principle and the maximum modulus principle. PAPER-PILLONI-20's accepted route sends Bartenwerfer's theorems to R0, R2 and R3 as well."
+   "reason": "R0 constructs finite and étale maps of rigid spaces, R2 owns admissible formal schemes, blow-ups and generic fibres, and R3 coherent sheaves, finite étale traces and Kiehl-type finiteness. The paper's general rigid-geometry inputs are statements about those objects, used by any analytic-continuation argument: the Kassaei–Bartenwerfer description of sections by bounded sections, images of opens and strict neighbourhoods under finite étale maps (through Bosch–Lütkebohmert flattening), the finiteness criterion 4.1.8, the identity principle and the maximum modulus principle. PAPER-PILLONI-20's accepted route sends Bartenwerfer's theorems to R0, R2 and R3 as well. Item /21 is now planned at the existing AdicSpacesPartII:R2/fibral-finiteness-criterion, with R0 finite/étale consequences: retain it here only as a BPS application/alternate source, never as a new missing frontier. The route has four missing items plus this planned application; preserve the integrated partial packet, unchecked node status and explicit formal-model imports."
   },
   {
    "route": "source",
@@ -668,7 +792,7 @@
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/41",
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/43"
    ],
-   "brief": "This route joins the proposal of HigherHidaAndColemanTheory made from PAPER-PILLONI-20 and joined by PAPER-BOXER-CALEGARI-GEE-PILLONI-21 and PAPER-BOXER-PILLONI-26 (same id, parent, title and area); the design job merges its brief with theirs. Bijakowski–Pilloni–Stroh (Ann. of Math. 183 (2016), 975–1014) supply the degree-0 Coleman theory for PEL Shimura varieties of type (A) and (C) at Iwahori level with p unramified and split in the reflex field: Theorem 5.3.1, an overconvergent eigenform of every U_i with non-zero eigenvalues and weight large against the slopes (Hypothesis 4.5.1: for every 1 ≤ i ≤ h, inf_{1≤j≤d_i}(k_{i,j,a_i} + l_{i,j,b_i}) > v(α_i) + d_ia_ib_i in type (A) and inf_{1≤j≤d_i} k_{i,j,a_i} > v(α_i) + d_ia_i(a_i + 1)/2 in type (C), k_{i,j,a_i} and l_{i,j,b_i} being the smallest entries of κ) is classical. Build, in order: Barsotti–Tate stacks with Iwahori level and X_Iw, with its normality, which identifies it with ShimuraCompactifications C5's normalization model, and its ordinary loci (Remark 1.5.1); Fargues's degree map δ and the ordinary-multiplicative tube; overconvergent forms; the Hecke correspondences U_i normalised by p^{−n_i}; the dynamics (Propositions 3.1.1–3.2.2); continuation to X_Iw(1−) by finite slope alone; the good/bad decomposition of U_i^N over good sequences of opens (§§4.3–4.4) with the norm bound of Lemma 4.4.5; Kassaei series and their gluing modulo p^{A_N} (§4.5), on closed boxes and then exhausting the half-open ones (PAPER-BIJAKOWSKI-PILLONI-STROH-16/E12); and the formal and rigid Köcher principles with GAGA to algebraise. Keep the case where the symmetric space has dimension ≤ 1 explicit (PAPER-BIJAKOWSKI-PILLONI-STROH-16/E6): Coleman–Kassaei covers only the modular curve. Import PEL moduli (PELModuli M0, M2, M4), Serre–Tate (AbelianSchemesAndArithmeticModuli A4), automorphic bundles and classical forms (AutomorphicBundles B2, B4), Fargues's degree (HodgeTateAndCanonicalSubgroups T0), rigid geometry and GAGA (AdicSpacesPartII R0–R3), Lemma 1.1.4 and Wedhorn's theorem (PELModuli M0, M2) and Lan's compactifications of the normalization model and Köcher principle (ShimuraCompactifications C5). The higher Coleman theory of the joined briefs recovers this degree-0 statement for GSp_{2g}; the design should record the comparison rather than build two classicality theorems for the same group.",
+   "brief": "This route joins the proposal of HigherHidaAndColemanTheory made from PAPER-PILLONI-20 and joined by PAPER-BOXER-CALEGARI-GEE-PILLONI-21 and PAPER-BOXER-PILLONI-26 (same id, parent, title and area); the design job merges its brief with theirs. Bijakowski–Pilloni–Stroh (Ann. of Math. 183 (2016), 975–1014) supply the degree-0 Coleman theory for PEL Shimura varieties of type (A) and (C) at Iwahori level with p unramified and split in the reflex field: Theorem 5.3.1, an overconvergent eigenform of every U_i with non-zero eigenvalues and weight large against the slopes (Hypothesis 4.5.1: for every 1 ≤ i ≤ h, inf_{1≤j≤d_i}(k_{i,j,a_i} + l_{i,j,b_i}) > v(α_i) + d_ia_ib_i in type (A) and inf_{1≤j≤d_i} k_{i,j,a_i} > v(α_i) + d_ia_i(a_i + 1)/2 in type (C), k_{i,j,a_i} and l_{i,j,b_i} being the smallest entries of κ) is classical. Build, in order: Barsotti–Tate stacks with Iwahori level and X_Iw, with its normality, which identifies it with ShimuraCompactifications C5's normalization model, and its ordinary loci (Remark 1.5.1); Fargues's degree map δ and the ordinary-multiplicative tube; overconvergent forms; the Hecke correspondences U_i normalised by p^{−n_i}; the dynamics (Propositions 3.1.1–3.2.2); continuation to X_Iw(1−) by finite slope alone; the good/bad decomposition of U_i^N over good sequences of opens (§§4.3–4.4) with the norm bound of Lemma 4.4.5; Kassaei series and their gluing modulo p^{A_N} (§4.5), on closed boxes and then exhausting the half-open ones (PAPER-BIJAKOWSKI-PILLONI-STROH-16/E12); and the formal and rigid Köcher principles with GAGA to algebraise. Keep the case where the symmetric space has dimension ≤ 1 explicit (PAPER-BIJAKOWSKI-PILLONI-STROH-16/E6): Coleman–Kassaei covers only the modular curve. Import PEL moduli (PELModuli M0, M2, M4), Serre–Tate (AbelianSchemesAndArithmeticModuli A4), automorphic bundles and classical forms (AutomorphicBundles B2, B4), Fargues's degree (HodgeTateAndCanonicalSubgroups T0), rigid geometry and GAGA (AdicSpacesPartII R0–R3), Lemma 1.1.4 and Wedhorn's theorem (PELModuli M0, M2) and Lan's compactifications of the normalization model and Köcher principle (ShimuraCompactifications C5). The higher Coleman theory of the joined briefs recovers this degree-0 statement for GSp_{2g}; the design should record the comparison rather than build two classicality theorems for the same group. Fix #5503 design gates: /7 keeps algebraic P and X_Iw, but formal étaleness is only on p-locally-nilpotent test bases or p-adic formal completions of fixed signature/dimension, imported from A4 (E15). /27 replaces the E17 simultaneous-product-map helper: on E12 closed boxes use the full distinct-tuple cover, finite coordinate quotient preimages, finite quasi-compact intersections in a separated space and the finite étale forgetting-image theorem /20; no product-map étaleness or arbitrary-open finiteness is used. /28 exports the degree-lower-bound norm inequality only with c_i≥0; otherwise retain actual partial degrees with signed weight exponents (E16). /29 explicitly uses the normalized eigenvalue valuations v(α_i)≥0 on p. 994 and Hypothesis 4.5.1 to get c_i>0, then chooses ε and applies /28 for contraction in /30. The classicality conclusion and the E12 closed-box exhaustion remain. Import BPS /21 as the already planned Conrad R2 criterion and R0 consequence, not new rigid finiteness machinery.",
    "reason": "Classicality of small-slope overconvergent forms is Coleman theory for coherent cohomology in degree 0, which is exactly the direction of the proposed HigherHidaAndColemanTheory; PadicFamilies itself stops at modular curves and totally real fields in one degree, and OverconvergentAutomorphicForms builds coefficient sheaves, not classicality."
   }
  ],
@@ -945,6 +1069,53 @@
     "reason": "Added by this review and checked on the page image at the locator.",
     "by": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
    }
+  },
+  {
+   "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E15",
+   "kind": "error",
+   "locator": "§1.3, p. 984 (published version, Annals 183 (2016), exact PDF in sourceVersions)",
+   "printed": "“le morphisme P est formellement étale”, with no p-nilpotent test-base qualification.",
+   "correction": "Restrict formal étaleness to p-locally-nilpotent test schemes; equivalently use the p-adic formal completions with fixed height/dimension/signature components. Keep the unrestricted algebraic morphism and Iwahori fibre product.",
+   "reason": "Katz Theorem 1.2.1 assumes p nilpotent. Over algebraically closed K of characteristic zero the étale p-divisible group lifts uniquely across K[ε]/ε², while the Legendre elliptic curve t=3+ε has nonzero j-derivative 31360/27 and a nontrivial deformation. Thus unrestricted P is not formally unramified. The restricted deformation assertion suffices for the formal use.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2 October 2026: Annals article page https://annals.math.princeton.edu/2016/183-3/p05 lists no erratum/corrigendum; title-specific erratum/corrigendum searches found no relevant correction. Crossref DOI 10.4007/annals.2016.183.3.5 has empty relation and no update-to/updated-by fields.",
+    "2 October 2026: Stroh https://webusers.imj-prg.fr/~benoit.stroh/ and Pilloni https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/ list the article without a corresponding erratum. Stroh’s undated 33-page author copy repeats the relevant claims on pp. 8,24,25; it is not treated as a corrigendum. arXiv:1212.2035 still ends at v2 (28 April 2015), preceding publication. This is a bounded search, not a proof that no correction exists."
+   ]
+  },
+  {
+   "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E16",
+   "kind": "error",
+   "locator": "Lemma 4.4.5, p. 1004; weight domain and valuation input p. 994 (published version, Annals 183 (2016), exact PDF in sourceVersions)",
+   "printed": "The lemma assumes “deg L≥ν” and concludes ‖U_i^bad‖≤p^(n_i−ν·c_i), with no c_i≥0 hypothesis.",
+   "correction": "Add c_i≥0, where c_i is the minimum last weight in type C or minimum sum of last weights in type A. Otherwise keep actual partial degrees with signed weight contributions. In the classicality use derive c_i>0 from Hypothesis 4.5.1, v(α_i)≥0 and n_i≥0.",
+   "reason": "Negative coefficients reverse the degree-substitution inequality. In genus two over Q, scalar weight (−1,−1), n_i=3, an ordinary canonical multiplicative complement has degree 2 and acts by p on both invariant differentials (Katz Lemma 4.1.3). Its det^(-1) factor and p^(-3) normalization give branch norm p^5; ν=1 predicts p^4. The source small-slope hypothesis excludes this negative case, so the intended classicality chain survives.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2 October 2026: Annals article page https://annals.math.princeton.edu/2016/183-3/p05 lists no erratum/corrigendum; title-specific erratum/corrigendum searches found no relevant correction. Crossref DOI 10.4007/annals.2016.183.3.5 has empty relation and no update-to/updated-by fields.",
+    "2 October 2026: Stroh https://webusers.imj-prg.fr/~benoit.stroh/ and Pilloni https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/ list the article without a corresponding erratum. Stroh’s undated 33-page author copy repeats the relevant claims on pp. 8,24,25; it is not treated as a corrigendum. arXiv:1212.2035 still ends at v2 (28 April 2015), preceding publication. This is a bounded search, not a proof that no correction exists."
+   ]
+  },
+  {
+   "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E17",
+   "kind": "error",
+   "locator": "Proof of Lemma 4.4.3, p. 1003 (published version, Annals 183 (2016), exact PDF in sourceVersions)",
+   "printed": "“p et q sont finis et étales”, for q:B_k^0→(X_Iw^rig)^k given by simultaneous quotients.",
+   "correction": "On E12 closed quasi-compact boxes, use the full tuple cover B_k^rig. Each coordinate map q_j is finite. Intersect its quasi-compact preimage of V_l with all other coordinate preimages and p^(-1)(U), using separatedness/quasi-separatedness. Proposition 4.1.4 gives a quasi-compact open p-image under the full finite étale forgetting map. Preserve Lemma 4.4.3 and Theorem 4.4.1.",
+   "reason": "For positive dimension D and k≥2, the nonempty source has dimension D and the product target kD, so the simultaneous map cannot be étale (e.g. D=3,k=2). The coordinate maps factor through the finite projections in §2.2, pp. 989–990. Do not infer finite coordinate maps on arbitrary open restrictions. The helper is false but the desired conclusion has the stated replacement.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2 October 2026: Annals article page https://annals.math.princeton.edu/2016/183-3/p05 lists no erratum/corrigendum; title-specific erratum/corrigendum searches found no relevant correction. Crossref DOI 10.4007/annals.2016.183.3.5 has empty relation and no update-to/updated-by fields.",
+    "2 October 2026: Stroh https://webusers.imj-prg.fr/~benoit.stroh/ and Pilloni https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/ list the article without a corresponding erratum. Stroh’s undated 33-page author copy repeats the relevant claims on pp. 8,24,25; it is not treated as a corrigendum. arXiv:1212.2035 still ends at v2 (28 April 2015), preceding publication. This is a bounded search, not a proof that no correction exists."
+   ]
   }
- ]
+ ],
+ "libraryPins": {
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+ },
+ "libraryAuditNote": "Fix #5503: reviewed A4 audit (not built, with imported R07 foundations) read. No reviewed R0/R2 entries were present, not an absence certificate. Read integrated accepted partial AdicSpacesPartII criterion and actual pinned Mathlib Morita matrix equivalence declarations. Specialized whole-Lean-text search found only unrelated Fontaine bibliography matches. Read Tau Ceti kaehlerBasisOfFormallyEtale: it is a ring-theoretic differential-basis extension theorem, not the PEL deformation theorem. No new library-complete claim; planned criterion remains implementationStatus unchecked with explicit imports."
 }
