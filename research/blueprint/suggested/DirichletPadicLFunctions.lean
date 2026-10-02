@@ -31742,3 +31742,121 @@ example (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVecto
       kubertRationalCartanValue N (q • a) := by sorry
 
 end DirichletPadic.SuggestedKubertNewPrimeSumTests
+
+/- Actual root-level norm transfer and all-point prime-root sums. -/
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertRationalCartanValue_prime_exact_target_sum (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)] [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (q : ℕ) (hq : q.Prime) (hqN : q ∣ (N : ℕ))
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) (ha : addOrderOf a.val=(N : ℕ)/q) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => q • b.val=a.val),kubertRationalCartanValue N b)=
+      kubertRationalCartanValue N a := by sorry
+
+lemma kubertRationalCartanValue_exact_root_norm_sum (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (M : ℕ)).ker] [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (m : ℕ) (hmM : m ∣ (M : ℕ)) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (M : ℕ)).ker) (ha : addOrderOf a.val=(M : ℕ)/m) :
+    kubertCartanProductNorm 1 ℚ M N hMN
+      (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (M : ℕ)).ker => m • b.val=a.val),kubertRationalCartanValue M b)=
+        ∑ c ∈ Finset.univ.filter (fun c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => m • c.val=(AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) a).val),
+          kubertRationalCartanValue N c := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertRationalCartanValue_prime_exact_target_norm_sum (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    [Fintype (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)] [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (M : ℕ)).ker] [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (q : ℕ) (hq : q.Prime) (hqM : q ∣ (M : ℕ))
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (M : ℕ)).ker) (ha : addOrderOf a.val=(M : ℕ)/q) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => q • b.val=(AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) a).val),
+      kubertRationalCartanValue N b)=kubertRationalCartanValue N (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) a) := by sorry
+
+lemma kubertRationalCartanValue_prime_target_sum (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (q : ℕ) (hq : q.Prime) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (hlevel : q*addOrderOf a.val ∣ (N : ℕ)) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => q • b.val=a.val),kubertRationalCartanValue N b)=
+      kubertRationalCartanValue N a := by sorry
+
+lemma kubertCartanLevel_smul_order_mul_dvd (N : ℕ+) (m : ℕ) (hmN : m ∣ (N : ℕ)) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    m*addOrderOf ((m • a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker).val) ∣ (N : ℕ) := by sorry
+
+lemma kubertRationalCartanValue_prime_level_sum (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (q : ℕ) (hq : q.Prime) (hqN : q ∣ (N : ℕ)) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => q • b.val=q • a.val),kubertRationalCartanValue N b)=
+      kubertRationalCartanValue N (q • a) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertPrimeLevelReductionTests
+open scoped Classical BigOperators
+noncomputable section
+-- nonprimitive_point_root_sum_at_twelve
+example : kubertRationalCartanValue 12 (⟨fun _ : Fin 1 => ((1/3 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 12).ker)+kubertRationalCartanValue 12 (⟨fun _ : Fin 1 => ((5/6 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 12).ker)=kubertRationalCartanValue 12 (⟨fun _ : Fin 1 => ((2/3 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 12).ker) := by sorry
+-- zero_target_includes_the_zero_root
+example : kubertRationalCartanValue 6 (⟨fun _ : Fin 1 => ((0 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker)+kubertRationalCartanValue 6 (⟨fun _ : Fin 1 => ((1/2 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker)=kubertRationalCartanValue 6 (⟨fun _ : Fin 1 => ((0 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker) ∧ kubertRationalCartanValue 6 (⟨fun _ : Fin 1 => ((1/2 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker)=0 := by sorry
+-- target_level_condition_is_necessary
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker] : (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker => 2 • b.val=((⟨fun _ : Fin 1 => ((1/6 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker)).val),kubertRationalCartanValue 6 b)=0 ∧ kubertRationalCartanValue 6 (⟨fun _ : Fin 1 => ((1/6 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker)≠0 := by sorry
+-- full_root_sum_transfers_from_six_to_thirty
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker] [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 30).ker] : kubertCartanProductNorm 1 ℚ 6 30 (by sorry) (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker => 2 • b.val=((⟨fun _ : Fin 1 => ((1/3 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker)).val),kubertRationalCartanValue 6 b)=(∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 30).ker => 2 • b.val=((⟨fun _ : Fin 1 => ((1/3 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 30).ker)).val),kubertRationalCartanValue 30 b) := by sorry
+end
+end DirichletPadic.SuggestedKubertPrimeLevelReductionTests
+namespace DirichletPadic.SuggestedKubertPrimeLevelReductionTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic DirichletPadic
+
+-- rationalCartanValue_prime_exact_target_sum_typed_api
+example (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)] [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (q : ℕ) (hq : q.Prime) (hqN : q ∣ (N : ℕ))
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) (ha : addOrderOf a.val=(N : ℕ)/q) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => q • b.val=a.val),kubertRationalCartanValue N b)=
+      kubertRationalCartanValue N a := by sorry
+
+-- rationalCartanValue_exact_root_norm_sum_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (M : ℕ)).ker] [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (m : ℕ) (hmM : m ∣ (M : ℕ)) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (M : ℕ)).ker) (ha : addOrderOf a.val=(M : ℕ)/m) :
+    kubertCartanProductNorm 1 ℚ M N hMN
+      (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (M : ℕ)).ker => m • b.val=a.val),kubertRationalCartanValue M b)=
+        ∑ c ∈ Finset.univ.filter (fun c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => m • c.val=(AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) a).val),
+          kubertRationalCartanValue N c := by sorry
+
+end DirichletPadic.SuggestedKubertPrimeLevelReductionTests
+
+namespace DirichletPadic.SuggestedKubertPrimeLevelReductionTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic DirichletPadic
+
+-- rationalCartanValue_prime_exact_target_norm_sum_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    [Fintype (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)] [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (M : ℕ)).ker] [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (q : ℕ) (hq : q.Prime) (hqM : q ∣ (M : ℕ))
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (M : ℕ)).ker) (ha : addOrderOf a.val=(M : ℕ)/q) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => q • b.val=(AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) a).val),
+      kubertRationalCartanValue N b)=kubertRationalCartanValue N (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) a) := by sorry
+
+-- rationalCartanValue_prime_target_sum_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (q : ℕ) (hq : q.Prime) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (hlevel : q*addOrderOf a.val ∣ (N : ℕ)) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => q • b.val=a.val),kubertRationalCartanValue N b)=
+      kubertRationalCartanValue N a := by sorry
+
+-- cartanLevel_smul_order_mul_dvd_typed_api
+example (N : ℕ+) (m : ℕ) (hmN : m ∣ (N : ℕ)) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    m*addOrderOf ((m • a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker).val) ∣ (N : ℕ) := by sorry
+
+-- rationalCartanValue_prime_level_sum_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (q : ℕ) (hq : q.Prime) (hqN : q ∣ (N : ℕ)) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => q • b.val=q • a.val),kubertRationalCartanValue N b)=
+      kubertRationalCartanValue N (q • a) := by sorry
+
+end DirichletPadic.SuggestedKubertPrimeLevelReductionTests

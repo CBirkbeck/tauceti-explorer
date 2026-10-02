@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Ten L3 lemmas complete the actual new-prime corrected-value root sum and combine it with the repeated-prime case for every original primitive point. All2,183 predecessor nodes and1,278 baseline records remain whole. The general composite-multiplier distribution reduction remains open.",
+  "summary": "Six L3 lemmas extend the actual corrected prime-root sum to every original degree-one level point by primitive lifting and complete root-fiber norm transfer. All2,193 predecessor nodes and1,282 baseline records remain whole. Composite multipliers remain open.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -141265,6 +141265,344 @@
       "acceptance": [
         "AtN6,p2 the corrected target value at1/3 is half of[1]−[5], the primitive-root contribution is[1]−[5], and the actual exceptional point2/3 contributes negative one half of[1]−[5]. Omitting that exceptional value fails. AtN2 the zero target has corrected value1 while the nonzero primitive point has value0. AtN9 all three actual3-roots of1/3 give the earlier repeated-prime sum."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-level-reduction-rational-cartan-value-prime-exact-target-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every target of complementary order has the prime-root sum",
+      "kind": "lemma",
+      "statement": "For q prime dividing N and an actual target a in the level-N kernel with order N/q, the sum of original corrected values at all level-N q-roots of a equals r_N(a).",
+      "hypotheses": [
+        "All degrees are one. M and N are positive levels, and every inclusion, primitive point, finite Cartan group and full coefficient norm is the original previously constructed object.",
+        "The first target reduction assumes the actual additive order of the target is N/q, with q prime dividing N. An actual primitive preimage is obtained from the existing all-divisors primitive-lifting theorem, rather than supplied as a hypothesis.",
+        "For norm transfer M divides N, m divides M and the actual target at level M has order M/m. Every upper-level m-root is proved to belong to the lower level M, so the transported sum covers the complete upper root set.",
+        "The general prime-target criterion is q times the actual target order dividing N. The proof uses the actual smallest level M=q times target order, existing primitive lifting and full-norm compatibility.",
+        "For any original level-N point a and any m dividing N, m times the order of ma divides N. This criterion makes the final prime-root formula apply to all level points, without a primitivity assumption.",
+        "The final formula sums over all actual level-N points b with qb=qa and returns the original corrected value r_N(qa), for q prime dividing N and arbitrary a in the original level kernel. Composite multipliers, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Form the positive target-order level D=N/q.",
+        "Use the existing all-divisors primitive-lifting theorem to obtain an actual point b of order N with (N/D)b=a.",
+        "Compute N/D=q and put b in the original level-N kernel.",
+        "Apply the proved prime-root law at the primitive point b and substitute the actual target equality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-transfer-primitive-lift-all-divisors",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level",
+        "DirichletPadicLFunctions:L3/kubert-new-prime-sum-rational-cartan-value-prime-root-sum"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeLevelReduction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanValue_prime_exact_target_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published195–196 Proposition4.8 on full-norm compatibility, and196–197 Proposition4.10 on the corrected-value distribution relation and prime reduction.",
+          "excerpt": "By induction",
+          "match": "Makes the level reduction behind the general distribution argument explicit: construct actual primitive roots at the smallest root level, prove complete root-set transport by the original norm, and deduce the prime-root law for every original level point. Composite multipliers remain a separate step."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeLevelReductionTests.rationalCartanValue_prime_exact_target_sum_typed_api",
+          "kind": "compatibility",
+          "statement": "For q prime dividing N and an actual target a in the level-N kernel with order N/q, the sum of original corrected values at all level-N q-roots of a equals r_N(a)."
+        }
+      ],
+      "acceptance": [
+        "AtN12 the nonprimitive point1/3 doubles to2/3 and the two roots1/3 and5/6 have orders3 and6; their corrected values sum to the corrected target. AtN6 the2-roots of zero are zero and1/2, with the half-point contribution zero. The primitive target1/6 has no2-root inside level6 and nonzero corrected value, so the target-order divisibility condition is necessary. Full norm6→30 transports the entire2-root fiber of1/3."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-level-reduction-rational-cartan-value-exact-root-norm-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The full coefficient norm transports every exact-order root",
+      "kind": "lemma",
+      "statement": "For M dividing N, m dividing M and an actual level-M target a of order M/m, the original full norm sends the sum of r_M over its level-M m-roots to the sum of r_N over every level-N m-root of the actual included target.",
+      "hypotheses": [
+        "All degrees are one. M and N are positive levels, and every inclusion, primitive point, finite Cartan group and full coefficient norm is the original previously constructed object.",
+        "The first target reduction assumes the actual additive order of the target is N/q, with q prime dividing N. An actual primitive preimage is obtained from the existing all-divisors primitive-lifting theorem, rather than supplied as a hypothesis.",
+        "For norm transfer M divides N, m divides M and the actual target at level M has order M/m. Every upper-level m-root is proved to belong to the lower level M, so the transported sum covers the complete upper root set.",
+        "The general prime-target criterion is q times the actual target order dividing N. The proof uses the actual smallest level M=q times target order, existing primitive lifting and full-norm compatibility.",
+        "For any original level-N point a and any m dividing N, m times the order of ma divides N. This criterion makes the final prime-root formula apply to all level points, without a primitivity assumption.",
+        "The final formula sums over all actual level-N points b with qb=qa and returns the original corrected value r_N(qa), for q prime dividing N and arbitrary a in the original level kernel. Composite multipliers, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "The original linear norm carries the finite sum to the sum of the pointwise norms.",
+        "Use full corrected-value norm compatibility for every actual summand.",
+        "Map each lower root by the original level inclusion, preserving its actual point and root equation.",
+        "Every upper root lies in level M by the earlier generic root-membership theorem, because M divided by the actual target order is m.",
+        "Use this membership for surjectivity of the actual finite-root reindexing; inclusion injectivity and equality of summands finish the native finite-sum bijection."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-factor-norm-rational-cartan-value-norm",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-level-mono",
+        "DirichletPadicLFunctions:L3/kubert-primitive-lifts-root-mem-level",
+        "DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd",
+        "mathlib:Finset.prod_bij"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeLevelReduction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanValue_exact_root_norm_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published195–196 Proposition4.8 on full-norm compatibility, and196–197 Proposition4.10 on the corrected-value distribution relation and prime reduction.",
+          "excerpt": "By induction",
+          "match": "Makes the level reduction behind the general distribution argument explicit: construct actual primitive roots at the smallest root level, prove complete root-set transport by the original norm, and deduce the prime-root law for every original level point. Composite multipliers remain a separate step."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeLevelReductionTests.full_root_sum_transfers_from_six_to_thirty",
+          "kind": "compatibility",
+          "statement": "The full coefficient norm from6 to30 sends the corrected sum over the2-roots of1/3 at6 to the complete corresponding actual root sum at30."
+        },
+        {
+          "name": "SuggestedKubertPrimeLevelReductionTests.rationalCartanValue_exact_root_norm_sum_typed_api",
+          "kind": "compatibility",
+          "statement": "For M dividing N, m dividing M and an actual level-M target a of order M/m, the original full norm sends the sum of r_M over its level-M m-roots to the sum of r_N over every level-N m-root of the actual included target."
+        }
+      ],
+      "acceptance": [
+        "AtN12 the nonprimitive point1/3 doubles to2/3 and the two roots1/3 and5/6 have orders3 and6; their corrected values sum to the corrected target. AtN6 the2-roots of zero are zero and1/2, with the half-point contribution zero. The primitive target1/6 has no2-root inside level6 and nonzero corrected value, so the target-order divisibility condition is necessary. Full norm6→30 transports the entire2-root fiber of1/3."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-level-reduction-rational-cartan-value-prime-exact-target-norm-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The complementary-order prime law persists in every larger level",
+      "kind": "lemma",
+      "statement": "For M dividing N, q prime dividing M and an actual level-M target a of order M/q, the complete level-N q-root sum equals the corrected value of the actual included target.",
+      "hypotheses": [
+        "All degrees are one. M and N are positive levels, and every inclusion, primitive point, finite Cartan group and full coefficient norm is the original previously constructed object.",
+        "The first target reduction assumes the actual additive order of the target is N/q, with q prime dividing N. An actual primitive preimage is obtained from the existing all-divisors primitive-lifting theorem, rather than supplied as a hypothesis.",
+        "For norm transfer M divides N, m divides M and the actual target at level M has order M/m. Every upper-level m-root is proved to belong to the lower level M, so the transported sum covers the complete upper root set.",
+        "The general prime-target criterion is q times the actual target order dividing N. The proof uses the actual smallest level M=q times target order, existing primitive lifting and full-norm compatibility.",
+        "For any original level-N point a and any m dividing N, m times the order of ma divides N. This criterion makes the final prime-root formula apply to all level points, without a primitivity assumption.",
+        "The final formula sums over all actual level-N points b with qb=qa and returns the original corrected value r_N(qa), for q prime dividing N and arbitrary a in the original level kernel. Composite multipliers, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Reverse the proved exact-root full-norm transport formula.",
+        "Use the lower-level prime-root identity at the actual complementary-order target.",
+        "Apply the existing original corrected-value norm compatibility to the target itself."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-prime-level-reduction-rational-cartan-value-exact-root-norm-sum",
+        "DirichletPadicLFunctions:L3/kubert-prime-level-reduction-rational-cartan-value-prime-exact-target-sum",
+        "DirichletPadicLFunctions:L3/kubert-factor-norm-rational-cartan-value-norm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeLevelReduction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanValue_prime_exact_target_norm_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published195–196 Proposition4.8 on full-norm compatibility, and196–197 Proposition4.10 on the corrected-value distribution relation and prime reduction.",
+          "excerpt": "By induction",
+          "match": "Makes the level reduction behind the general distribution argument explicit: construct actual primitive roots at the smallest root level, prove complete root-set transport by the original norm, and deduce the prime-root law for every original level point. Composite multipliers remain a separate step."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeLevelReductionTests.rationalCartanValue_prime_exact_target_norm_sum_typed_api",
+          "kind": "compatibility",
+          "statement": "For M dividing N, q prime dividing M and an actual level-M target a of order M/q, the complete level-N q-root sum equals the corrected value of the actual included target."
+        }
+      ],
+      "acceptance": [
+        "AtN12 the nonprimitive point1/3 doubles to2/3 and the two roots1/3 and5/6 have orders3 and6; their corrected values sum to the corrected target. AtN6 the2-roots of zero are zero and1/2, with the half-point contribution zero. The primitive target1/6 has no2-root inside level6 and nonzero corrected value, so the target-order divisibility condition is necessary. Full norm6→30 transports the entire2-root fiber of1/3."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-level-reduction-rational-cartan-value-prime-target-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual target-order criterion gives every prime-root sum",
+      "kind": "lemma",
+      "statement": "For q prime and an actual level-N target a, if q times its actual order divides N, then summing r_N over every actual level-N q-root of a gives r_N(a).",
+      "hypotheses": [
+        "All degrees are one. M and N are positive levels, and every inclusion, primitive point, finite Cartan group and full coefficient norm is the original previously constructed object.",
+        "The first target reduction assumes the actual additive order of the target is N/q, with q prime dividing N. An actual primitive preimage is obtained from the existing all-divisors primitive-lifting theorem, rather than supplied as a hypothesis.",
+        "For norm transfer M divides N, m divides M and the actual target at level M has order M/m. Every upper-level m-root is proved to belong to the lower level M, so the transported sum covers the complete upper root set.",
+        "The general prime-target criterion is q times the actual target order dividing N. The proof uses the actual smallest level M=q times target order, existing primitive lifting and full-norm compatibility.",
+        "For any original level-N point a and any m dividing N, m times the order of ma divides N. This criterion makes the final prime-root formula apply to all level points, without a primitivity assumption.",
+        "The final formula sums over all actual level-N points b with qb=qa and returns the original corrected value r_N(qa), for q prime dividing N and arbitrary a in the original level kernel. Composite multipliers, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "The actual target order d is positive.",
+        "Construct the positive level M=qd and use the given divisibility to include it in N.",
+        "The same actual target belongs to level M, and its order equals M/q.",
+        "Obtain the original finite Cartan enumeration from the existing degree-one residue-unit equivalence and the lower level-kernel enumeration from its proved finiteness.",
+        "Apply the full-norm transferred exact-target theorem and identify the included target with the original point."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-prime-level-reduction-rational-cartan-value-prime-exact-target-norm-sum",
+        "DirichletPadicLFunctions:L3/kubert-generators-level-order-pos",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level",
+        "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv",
+        "DirichletPadicLFunctions:L3/kubert-finite-level-torus-level-finite",
+        "mathlib:Fintype.ofEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeLevelReduction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanValue_prime_target_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published195–196 Proposition4.8 on full-norm compatibility, and196–197 Proposition4.10 on the corrected-value distribution relation and prime reduction.",
+          "excerpt": "By induction",
+          "match": "Makes the level reduction behind the general distribution argument explicit: construct actual primitive roots at the smallest root level, prove complete root-set transport by the original norm, and deduce the prime-root law for every original level point. Composite multipliers remain a separate step."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeLevelReductionTests.zero_target_includes_the_zero_root",
+          "kind": "degenerate",
+          "statement": "AtN6 the2-roots of zero are zero and1/2. Their corrected values sum to the corrected zero value, with the half-point contribution zero."
+        },
+        {
+          "name": "SuggestedKubertPrimeLevelReductionTests.target_level_condition_is_necessary",
+          "kind": "non-example",
+          "statement": "AtN6 the primitive target1/6 has no2-root in the level6 kernel, so the level-root sum is zero while its corrected target value is nonzero. The required2 times target-order divisibility fails."
+        },
+        {
+          "name": "SuggestedKubertPrimeLevelReductionTests.rationalCartanValue_prime_target_sum_typed_api",
+          "kind": "compatibility",
+          "statement": "For q prime and an actual level-N target a, if q times its actual order divides N, then summing r_N over every actual level-N q-root of a gives r_N(a)."
+        }
+      ],
+      "acceptance": [
+        "AtN12 the nonprimitive point1/3 doubles to2/3 and the two roots1/3 and5/6 have orders3 and6; their corrected values sum to the corrected target. AtN6 the2-roots of zero are zero and1/2, with the half-point contribution zero. The primitive target1/6 has no2-root inside level6 and nonzero corrected value, so the target-order divisibility condition is necessary. Full norm6→30 transports the entire2-root fiber of1/3."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-level-reduction-cartan-level-smul-order-mul-dvd",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every multiple satisfies the exact root-level divisibility",
+      "kind": "lemma",
+      "statement": "For every actual point a in the positive level-N kernel and every natural m dividing N, m times the actual order of ma divides N.",
+      "hypotheses": [
+        "All degrees are one. M and N are positive levels, and every inclusion, primitive point, finite Cartan group and full coefficient norm is the original previously constructed object.",
+        "The first target reduction assumes the actual additive order of the target is N/q, with q prime dividing N. An actual primitive preimage is obtained from the existing all-divisors primitive-lifting theorem, rather than supplied as a hypothesis.",
+        "For norm transfer M divides N, m divides M and the actual target at level M has order M/m. Every upper-level m-root is proved to belong to the lower level M, so the transported sum covers the complete upper root set.",
+        "The general prime-target criterion is q times the actual target order dividing N. The proof uses the actual smallest level M=q times target order, existing primitive lifting and full-norm compatibility.",
+        "For any original level-N point a and any m dividing N, m times the order of ma divides N. This criterion makes the final prime-root formula apply to all level points, without a primitivity assumption.",
+        "The final formula sums over all actual level-N points b with qb=qa and returns the original corrected value r_N(qa), for q prime dividing N and arbitrary a in the original level kernel. Composite multipliers, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Multiplication by N/m kills the actual point ma, since the resulting multiplier is N.",
+        "The native order-divisibility criterion shows that the order of ma divides N/m.",
+        "Multiply this actual divisibility by m and simplify m times N/m to N."
+      ],
+      "prerequisites": [
+        "mathlib:orderOf_dvd_of_pow_eq_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeLevelReduction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLevel_smul_order_mul_dvd"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published195–196 Proposition4.8 on full-norm compatibility, and196–197 Proposition4.10 on the corrected-value distribution relation and prime reduction.",
+          "excerpt": "By induction",
+          "match": "Makes the level reduction behind the general distribution argument explicit: construct actual primitive roots at the smallest root level, prove complete root-set transport by the original norm, and deduce the prime-root law for every original level point. Composite multipliers remain a separate step."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeLevelReductionTests.cartanLevel_smul_order_mul_dvd_typed_api",
+          "kind": "compatibility",
+          "statement": "For every actual point a in the positive level-N kernel and every natural m dividing N, m times the actual order of ma divides N."
+        }
+      ],
+      "acceptance": [
+        "AtN12 the nonprimitive point1/3 doubles to2/3 and the two roots1/3 and5/6 have orders3 and6; their corrected values sum to the corrected target. AtN6 the2-roots of zero are zero and1/2, with the half-point contribution zero. The primitive target1/6 has no2-root inside level6 and nonzero corrected value, so the target-order divisibility condition is necessary. Full norm6→30 transports the entire2-root fiber of1/3."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-level-reduction-rational-cartan-value-prime-level-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The prime-root distribution law holds at every original level point",
+      "kind": "lemma",
+      "statement": "For every prime q dividing N and every actual point a in the original level-N kernel, the sum of r_N(b) over all actual level-N points with qb=qa equals r_N(qa), including nonprimitive points and zero.",
+      "hypotheses": [
+        "All degrees are one. M and N are positive levels, and every inclusion, primitive point, finite Cartan group and full coefficient norm is the original previously constructed object.",
+        "The first target reduction assumes the actual additive order of the target is N/q, with q prime dividing N. An actual primitive preimage is obtained from the existing all-divisors primitive-lifting theorem, rather than supplied as a hypothesis.",
+        "For norm transfer M divides N, m divides M and the actual target at level M has order M/m. Every upper-level m-root is proved to belong to the lower level M, so the transported sum covers the complete upper root set.",
+        "The general prime-target criterion is q times the actual target order dividing N. The proof uses the actual smallest level M=q times target order, existing primitive lifting and full-norm compatibility.",
+        "For any original level-N point a and any m dividing N, m times the order of ma divides N. This criterion makes the final prime-root formula apply to all level points, without a primitivity assumption.",
+        "The final formula sums over all actual level-N points b with qb=qa and returns the original corrected value r_N(qa), for q prime dividing N and arbitrary a in the original level kernel. Composite multipliers, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Apply the proved prime-target law to the actual point qa.",
+        "The preceding general multiple-order theorem supplies the exact target-level divisibility."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-prime-level-reduction-rational-cartan-value-prime-target-sum",
+        "DirichletPadicLFunctions:L3/kubert-prime-level-reduction-cartan-level-smul-order-mul-dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeLevelReduction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalCartanValue_prime_level_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published195–196 Proposition4.8 on full-norm compatibility, and196–197 Proposition4.10 on the corrected-value distribution relation and prime reduction.",
+          "excerpt": "By induction",
+          "match": "Makes the level reduction behind the general distribution argument explicit: construct actual primitive roots at the smallest root level, prove complete root-set transport by the original norm, and deduce the prime-root law for every original level point. Composite multipliers remain a separate step."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeLevelReductionTests.nonprimitive_point_root_sum_at_twelve",
+          "kind": "computation",
+          "statement": "AtN12, doubling the nonprimitive point1/3 gives2/3; its two roots1/3 and5/6 have orders3 and6, and their corrected values sum to the target value."
+        },
+        {
+          "name": "SuggestedKubertPrimeLevelReductionTests.rationalCartanValue_prime_level_sum_typed_api",
+          "kind": "compatibility",
+          "statement": "For every prime q dividing N and every actual point a in the original level-N kernel, the sum of r_N(b) over all actual level-N points with qb=qa equals r_N(qa), including nonprimitive points and zero."
+        }
+      ],
+      "acceptance": [
+        "AtN12 the nonprimitive point1/3 doubles to2/3 and the two roots1/3 and5/6 have orders3 and6; their corrected values sum to the corrected target. AtN6 the2-roots of zero are zero and1/2, with the half-point contribution zero. The primitive target1/6 has no2-root inside level6 and nonzero corrected value, so the target-order divisibility condition is necessary. Full norm6→30 transports the entire2-root fiber of1/3."
+      ]
     }
   ],
   "requests": [
@@ -141411,7 +141749,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The complete prime-root corrected-value identity is now proved on the original degree-one level kernels for every primitive point and every prime divisor, combining the repeated-prime case with the actual exceptional-root contribution. The exact correction-product split, primitive-label reindexing and singleton/primitive partition are proved. Complete the general composite-multiplier reduction for source4.10 and extend from primitive points using actual finite levels and the previously proved full-norm compatibility4.8 where appropriate. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.",
+        "The prime-root corrected-value law now holds for every original degree-one level point, including zero, via actual primitive lifting at the smallest root level and full-norm transport of the complete root fiber. A general multiple-order divisibility criterion is also proved. Complete the composite-multiplier step of source4.10 by reindexing nested actual finite root sums and induction, carefully retaining the target-level divisibility condition at intermediate roots. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -141443,7 +141781,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The complete prime-root corrected-value identity is now proved on the original degree-one level kernels for every primitive point and every prime divisor, combining the repeated-prime case with the actual exceptional-root contribution. The exact correction-product split, primitive-label reindexing and singleton/primitive partition are proved. Complete the general composite-multiplier reduction for source4.10 and extend from primitive points using actual finite levels and the previously proved full-norm compatibility4.8 where appropriate. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The prime-root corrected-value law now holds for every original degree-one level point, including zero, via actual primitive lifting at the smallest root level and full-norm transport of the complete root fiber. A general multiple-order divisibility criterion is also proved. Complete the composite-multiplier step of source4.10 by reindexing nested actual finite root sums and induction, carefully retaining the target-level divisibility condition at intermediate roots. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -142012,32 +142350,32 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All27 earlier source findings and eight source versions remain whole. No new source issue, independent review verdict or stage closure is added.",
     "validation": {
-      "nodes": 2193,
+      "nodes": 2199,
       "kinds": {
         "definition": 22,
-        "lemma": 1362,
+        "lemma": 1368,
         "construction": 243,
         "theorem": 359,
         "comparison": 207
       },
       "api": 1494,
-      "packetTests": 3852,
+      "packetTests": 3862,
       "definitionConstructionTests": 1004,
-      "typedExamples": 3855,
+      "typedExamples": 3865,
       "planets": 24,
       "baseline": 1282,
-      "preservedWholeNodes": 2183,
-      "preservedBaseline": 1278,
+      "preservedWholeNodes": 2193,
+      "preservedBaseline": 1282,
       "preservedSourceIssues": 27,
       "newSourceIssues": 0,
-      "newNodes": 10,
-      "newNamedDeclarations": 10,
-      "newTypedTests": 15,
+      "newNodes": 6,
+      "newNamedDeclarations": 6,
+      "newTypedTests": 10,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 2455,
-      "dependencyEdges": 9870,
+      "reachableNodes": 2461,
+      "dependencyEdges": 9890,
       "acyclic": true,
       "baselineLeaves": 1448,
       "stageRequestLeaves": [
@@ -142054,7 +142392,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 1121536,
+      "readerWords": 1125224,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -142081,7 +142419,7 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 185,
-      "scratchCompleteLemmas": 1483,
+      "scratchCompleteLemmas": 1489,
       "scratchMathlibModules": 3282,
       "scratchTauModules": 10,
       "scratchErrors": 0,
@@ -142089,24 +142427,25 @@
       "scratchPlaceholders": 0,
       "finiteControls": {
         "levels": 36,
-        "localFactors": 53,
-        "translatedProducts": 575,
-        "translatedCancellationCoefficients": 8757,
-        "primitiveFiberCoefficients": 8757,
-        "newPrimeRootFibers": 439,
-        "newPrimeRootCoefficients": 7045,
-        "allPrimeRootFibers": 575,
-        "allPrimeRootCoefficients": 8757
+        "exactTargetFibers": 188,
+        "exactTargetCoefficients": 2253,
+        "targetCriterionFibers": 308,
+        "targetCriterionCoefficients": 3453,
+        "allPointPrimeFibers": 1079,
+        "allPointPrimeCoefficients": 14358,
+        "multipleOrderDivisibilities": 2935,
+        "fullNormFiberTransfers": 1098,
+        "fullNormCoefficients": 14254
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "cf669c81dc90ce30f2dbc13b56bdafcd6487e09e9d70898df3a25f906072e9ee",
+        "sourceSha256": "836da66ead956ccc0c7ebd31ef87d0ee50c1b92019a1f31e0cbb087cfeecdf9b",
         "modules": 3914,
-        "warnings": 6393,
+        "warnings": 6409,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 6,393 expected placeholder warnings across 3,914 pinned source modules. It includes all 10 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cf669c81dc90ce30f2dbc13b56bdafcd6487e09e9d70898df3a25f906072e9ee.",
+        "scope": "The separate partial signature file also compiled with zero errors and 6,409 expected placeholder warnings across 3,914 pinned source modules. It includes all 6 new named declarations and 10 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 836da66ead956ccc0c7ebd31ef87d0ee50c1b92019a1f31e0cbb087cfeecdf9b.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -142116,7 +142455,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "8104a4a4714c90ca036380a4530354243c2e1eec63295fc5349af328645b1113",
+      "sha256": "aa1dd6ed95db209646f1570030864f76bf92d4a7b675ffcc47b52ab0d3505f40",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -142131,11 +142470,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1483,
+        "completeLemmas": 1489,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "7ff4761008b2976f9d7c6e05ef004a6afea584c9e58c9716d7e06f892971825f"
+        "sha256": "133df2968b5fc739a54a57861651d00a73b3e04a6354e354cb132173cc7a42fd"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -142355,17 +142694,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "cf669c81dc90ce30f2dbc13b56bdafcd6487e09e9d70898df3a25f906072e9ee",
+        "sourceSha256": "836da66ead956ccc0c7ebd31ef87d0ee50c1b92019a1f31e0cbb087cfeecdf9b",
         "modules": 3914,
-        "warnings": 6393,
+        "warnings": 6409,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 6,393 expected placeholder warnings across 3,914 pinned source modules. It includes all 10 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cf669c81dc90ce30f2dbc13b56bdafcd6487e09e9d70898df3a25f906072e9ee.",
+        "scope": "The separate partial signature file also compiled with zero errors and 6,409 expected placeholder warnings across 3,914 pinned source modules. It includes all 6 new named declarations and 10 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 836da66ead956ccc0c7ebd31ef87d0ee50c1b92019a1f31e0cbb087cfeecdf9b.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "74a241f1508c028ef0b2e4c1571e724a8f2601c7",
+      "base": "faedbc6e9797a36533dcdcd4468781d003f26af1",
       "unchangedInputs": 79,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -155301,6 +155640,57 @@
         "warnings": 6393,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 6,393 expected placeholder warnings across 3,914 pinned source modules. It includes all 10 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cf669c81dc90ce30f2dbc13b56bdafcd6487e09e9d70898df3a25f906072e9ee.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertPrimeLevelReduction": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5820,
+      "previousHead": "b55842dadd15337a79e7d6d1a1e32380fee107b8",
+      "previousMerge": "b9239798babb94f290b4302764f457bacfe87d36",
+      "preservedWholeNodes": 2193,
+      "preservedBaseline": 1282,
+      "preservedFindings": 27,
+      "newNodes": 6,
+      "reading": "Source4.8 and4.10 on published195–197 were compared with the proved original norm and prime-root statements. Existing5431 root membership,5452 all-divisors primitive lifting,5414 level finiteness,5496 actual residue-unit equivalence and5800 full corrected-value norm compatibility were read and reused. Native order-divisibility, finite-sum bijection, finite-type transport and exact natural quotient identities were reread. No new external source, baseline claim, source version or finding is added.",
+      "boundary": "The prime-root corrected-value law now holds for every original degree-one level point, including zero, via actual primitive lifting at the smallest root level and full-norm transport of the complete root fiber. A general multiple-order divisibility criterion is also proved. Complete the composite-multiplier step of source4.10 by reindexing nested actual finite root sums and induction, carefully retaining the target-level divisibility condition at intermediate roots. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.",
+      "inputBase": "b9239798babb94f290b4302764f457bacfe87d36",
+      "sourceBoundary": "All27 earlier source findings and eight source versions remain whole. No new source issue, independent review verdict or stage closure is added.",
+      "publication": {
+        "base": "faedbc6e9797a36533dcdcd4468781d003f26af1",
+        "unchangedInputs": 79,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 36,
+        "exactTargetFibers": 188,
+        "exactTargetCoefficients": 2253,
+        "targetCriterionFibers": 308,
+        "targetCriterionCoefficients": 3453,
+        "allPointPrimeFibers": 1079,
+        "allPointPrimeCoefficients": 14358,
+        "multipleOrderDivisibilities": 2935,
+        "fullNormFiberTransfers": 1098,
+        "fullNormCoefficients": 14254
+      },
+      "numericalMethod": "Exact original rational-circle and group-ring arithmetic through level36 checks prime fibers at exact complementary target orders, all admissible target orders, every original level point including zero, the general multiple-order divisibility criterion, and all exact-root norm transfers between divisor levels. Actual rational point sets are compared before comparing the full coefficient norms. These controls supplement the complete native proofs.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "836da66ead956ccc0c7ebd31ef87d0ee50c1b92019a1f31e0cbb087cfeecdf9b",
+        "modules": 3914,
+        "warnings": 6409,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 6,409 expected placeholder warnings across 3,914 pinned source modules. It includes all 6 new named declarations and 10 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 836da66ead956ccc0c7ebd31ef87d0ee50c1b92019a1f31e0cbb087cfeecdf9b.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
