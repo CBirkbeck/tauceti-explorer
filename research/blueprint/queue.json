@@ -33596,8 +33596,9 @@
     "REV-PAPER-CARAIANI-SCHOLZE-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CARAIANI-SCHOLZE-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4047"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4047",
+   "finishedAt": "2026-10-02T08:02:09Z"
   },
   {
    "id": "RT-PAPER-LANDESMAN-LITT-24",
@@ -34640,7 +34641,8 @@
     "REV-PAPER-LI-LIU-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LI-LIU-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5058"
   },
   {
    "id": "RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
