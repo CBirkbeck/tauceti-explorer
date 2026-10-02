@@ -17,6 +17,7 @@ The two partial data structures below are not substitutes for their mathematical
 -/
 
 import Mathlib.Algebra.Category.Ring.Constructions
+import Mathlib.Algebra.QuadraticDiscriminant
 import Mathlib.AlgebraicGeometry.Scheme
 import Mathlib.AlgebraicGeometry.Limits
 import Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion
@@ -1766,3 +1767,62 @@ example : Nat.card {t : ZMod 2 // t ^ 2 = 0} = 1 := by sorry
 end
 end TauCeti.GenusOne.QuadraticPinch
 /- END QUADRATIC POINT PARAMETRIZATION -/
+
+/- BEGIN QUADRATIC ROOT BRANCH COUNTS -/
+namespace TauCeti.GenusOne.QuadraticPinch
+noncomputable section
+variable {k : Type*} [Field k]
+
+open scoped Classical
+
+lemma quadraticRootCount_branch [Finite k] (a b : k) (hd : discrim 1 a b ≠ 0) :
+    Nat.card {t : k // t ^ 2 + a * t + b = 0} =
+      if ∃ t : k, t ^ 2 + a * t + b = 0 then 2 else 0 := by
+  sorry
+
+lemma pointCount_branch [Finite k] (a b : k) (hd : discrim 1 a b ≠ 0) :
+    (⟨a,-b,0,0,0⟩ : WeierstrassCurve k).pointCount =
+      if ∃ t : k, t ^ 2 + a * t + b = 0 then Nat.card k else Nat.card k + 2 := by
+  sorry
+
+lemma frobeniusTrace_branch [Finite k] (a b : k) (hd : discrim 1 a b ≠ 0) :
+    (⟨a,-b,0,0,0⟩ : WeierstrassCurve k).frobeniusTrace =
+      if ∃ t : k, t ^ 2 + a * t + b = 0 then 1 else -1 := by
+  sorry
+
+lemma pointCount_field_map {l : Type*} [Field l] [Finite l]
+    (f : k →+* l) (a b : k) (hd : discrim 1 a b ≠ 0) :
+    (⟨f a,-f b,0,0,0⟩ : WeierstrassCurve l).pointCount =
+      if ∃ t : l, t ^ 2 + f a * t + f b = 0 then Nat.card l else Nat.card l + 2 := by
+  sorry
+
+-- test: QuadraticPinch.quadraticRootCount_branch.test_binary_split
+example : Nat.card {t : ZMod 2 // t ^ 2 + 1 * t + 0 = 0} = 2 := by
+  sorry
+
+-- test: QuadraticPinch.quadraticRootCount_branch.test_binary_nonsplit
+example : Nat.card {t : ZMod 2 // t ^ 2 + 1 * t + 1 = 0} = 0 := by
+  sorry
+
+-- test: QuadraticPinch.pointCount_branch.test_odd_split
+example : (⟨0,1,0,0,0⟩ : WeierstrassCurve (ZMod 3)).pointCount = 3 := by
+  sorry
+
+-- test: QuadraticPinch.frobeniusTrace_branch.test_odd_nonsplit
+example : (⟨0,-1,0,0,0⟩ : WeierstrassCurve (ZMod 3)).frobeniusTrace = -1 := by
+  sorry
+
+-- test: QuadraticPinch.frobeniusTrace_branch.test_repeated_excluded
+example : discrim (1 : ZMod 3) 1 1 = 0 ∧
+    (⟨1,-1,0,0,0⟩ : WeierstrassCurve (ZMod 3)).frobeniusTrace = 0 := by
+  sorry
+
+-- test: QuadraticPinch.pointCount_field_map.test_identity
+example [Finite k] (a b : k) (hd : discrim 1 a b ≠ 0) :
+    (⟨a,-b,0,0,0⟩ : WeierstrassCurve k).pointCount =
+      if ∃ t : k, t ^ 2 + a * t + b = 0 then Nat.card k else Nat.card k + 2 := by
+  sorry
+
+end
+end TauCeti.GenusOne.QuadraticPinch
+/- END QUADRATIC ROOT BRANCH COUNTS -/

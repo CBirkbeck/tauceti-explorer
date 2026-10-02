@@ -4829,3 +4829,119 @@ The universal equations can be instantiated over any specified finite extension 
 The actual-body prototype checks all seven nodes, four API declarations and six examples at the recorded pins; the eleven named declarations have no admitted axiom dependency. The submitted suggested fragment admits every new outer body under PROTOCOL §13 and checks separately with seventeen admission warnings. Because the existing pinned build lacks required Tau Ceti compiled modules, the full combined suggested file remains uncompiled. The check reconstructs the exact public PointCount section at the Tau Ceti pin and uses the existing Mathlib build; it is not evidence of a complete Tau Ceti build or of the geometric endpoints. Every node status remains unchecked.
 
 The source is Schröer's arXiv2004.07025v3 §3, read in its public HTML, especially the conductor diagrams, full displayed Proposition3.1–3.2 proofs and adjoining count table. The explicit native parametrization and cardinality adapter are deductions written here from the affine equation; they are not attributed as printed source lemmas. All 182 inherited node objects, the reserved Ferrand-pushout key, source findings, routes, supplier requests and planets are retained. Completing the projective charts, normalization morphism, conductor ideal sheaf, structure-sheaf exact sequence and H¹ identification remains necessary to connect this numerical strand to the geometric genus-one endpoints.
+
+## Native split and nonsplit quadratic chart counts — current continuation
+
+For the existing untruncated chart q(t)=t²+at+b and native W=(a,−b,0,0,0),
+let D=discrim(1,a,b)=a²−4b. This is not the Weierstrass discriminant.
+Assume D≠0 without inverting2: in characteristic two this means a≠0.
+The existing Mathlib Vieta/discriminant facts are imported, not planned again.
+
+### Distinct roots in a separable quadratic chart
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-root-count-branch`; `QuadraticPinch.quadraticRootCount_branch`.
+
+Nat.card{t∈k:q(t)=0} is2 if q has a k-root and0 otherwise. Counts are of distinct elements of the native equation subtype, not multiset multiplicity.
+
+Hypotheses: k is a finite field, a,b∈k, q(t)=t²+at+b, W=(a,−b,0,0,0) in the actual native WeierstrassCurve carrier. Require the native quadratic discriminant discrim(1,a,b)=a²−4b to be nonzero. There is no assumption that 2 is invertible. In characteristic two this condition is a≠0; the repeated-root case is deliberately excluded. This is not the Weierstrass discriminant, which is zero for these singular equations.
+
+Proof: Use the existing Vieta theorem to obtain s with r+s=−a and rs=b from a root r. The existing root-discriminant identity shows r=s would force discrim(1,a,b)=0, even in characteristic two. Factor q(z)=(z−r)(z−s); the native root subtype is exactly the two-element finset subtype. Transfer cardinality with the existing Fintype.card_of_subtype and pair-card criterion. With no root the subtype corresponds to the empty finset. No quadratic formula dividing by2 is used.
+
+Dependencies: `mathlib:discrim`, `mathlib:vieta_formula_quadratic`, `mathlib:discrim_eq_sq_of_quadratic_eq_zero`, `mathlib:Fintype.card_of_subtype`, `mathlib:Finset.card_pair_eq_two_iff`.
+
+Uses: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-pointcount-branch`: Supplies the exact root term in the existing native balance. `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-trace-branch`: Supplies the root count in the existing native integer invariant.
+
+Tests:
+
+- `QuadraticPinch.quadraticRootCount_branch.test_binary_split` (computation): Over F₂, q=t²+t has exactly2 distinct roots; the checked branch proof works without inverting2.
+- `QuadraticPinch.quadraticRootCount_branch.test_binary_nonsplit` (computation): Over F₂, q=t²+t+1 has0 roots, despite the same nonzero quadratic discriminant.
+
+### Split and nonsplit native projective counts
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-pointcount-branch`; `QuadraticPinch.pointCount_branch`.
+
+W.pointCount=Nat.card(k) when q has a k-root, and Nat.card(k)+2 when it has none, with the singular origin and the infinity point both included.
+
+Hypotheses: k is a finite field, a,b∈k, q(t)=t²+at+b, W=(a,−b,0,0,0) in the actual native WeierstrassCurve carrier. Require the native quadratic discriminant discrim(1,a,b)=a²−4b to be nonzero. There is no assumption that 2 is invertible. In characteristic two this condition is a≠0; the repeated-root case is deliberately excluded. This is not the Weierstrass discriminant, which is zero for these singular equations.
+
+Proof: Insert the root-count dichotomy in the existing native pointCount balance and cancel in natural-number arithmetic. Count the affine equation subtype, not the nonsingular group; pointCount_def already includes the one infinity point.
+
+Dependencies: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-root-count-branch`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-pointcount-balance`.
+
+Uses: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coefficient-count-branch`: Applies the same chart formula over the receiving finite field. `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts`: Supplies the one-component native count once branch splitting over each extension is separately established.
+
+Tests:
+
+- `QuadraticPinch.pointCount_branch.test_odd_split` (computation): Over F₃, W=(0,1,0,0,0), so q=t²−1, has native pointCount3; two roots yield the split value, not the nonsingular-locus count.
+
+### Split and nonsplit native numerical invariants
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-trace-branch`; `QuadraticPinch.frobeniusTrace_branch`.
+
+W.frobeniusTrace=1 when q has a k-root and−1 when it has none. This is the existing integer count defect on a singular model, not an elliptic/cohomological trace claim.
+
+Hypotheses: k is a finite field, a,b∈k, q(t)=t²+at+b, W=(a,−b,0,0,0) in the actual native WeierstrassCurve carrier. Require the native quadratic discriminant discrim(1,a,b)=a²−4b to be nonzero. There is no assumption that 2 is invertible. In characteristic two this condition is a≠0; the repeated-root case is deliberately excluded. This is not the Weierstrass discriminant, which is zero for these singular equations.
+
+Proof: Insert the distinct-root count into the existing frobeniusTrace_roots formula r−1. The nonzero quadratic discriminant excludes the repeated-root value0; retain that boundary rather than asserting every singular model has sign±1.
+
+Dependencies: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-root-count-branch`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-frobenius-trace-roots`.
+
+Uses: `NeronModelsAndSemistableAbelianVarieties:R11.6`: Supplies the equation-side numerical invariant for the explicit quadratic chart, after its separate geometric/Kodaira identification. This does not supply the missing general scheme-level comparison.
+
+Tests:
+
+- `QuadraticPinch.frobeniusTrace_branch.test_odd_nonsplit` (computation): Over F₃, W=(0,−1,0,0,0) has q=t²+1 with no root and native frobeniusTrace−1.
+- `QuadraticPinch.frobeniusTrace_branch.test_repeated_excluded` (counterexample): Over F₃, q=t²+t+1 has quadratic discriminant0 and one distinct repeated root; W=(1,−1,0,0,0) has frobeniusTrace0, so the nonzero-discriminant hypothesis is necessary.
+
+### Native count after a finite receiving-field change
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coefficient-count-branch`; `QuadraticPinch.pointCount_field_map`.
+
+For any unital field homomorphism f:k→L with L finite, W_f=(f(a),−f(b),0,0,0) has pointCount=Nat.card(L) if t²+f(a)t+f(b) has a root in L, and Nat.card(L)+2 otherwise. No separate source-finiteness assumption is required in the signature; injectivity and receiving-field finiteness imply source finiteness.
+
+Hypotheses: k is any field, L is a finite field, f:k→L is any unital ring homomorphism, a,b∈k, and discrim(1,a,b)≠0. Use the actual native W_f with coefficient tuple (f(a),−f(b),0,0,0). No characteristic restriction, odd/even degree criterion or geometric identification is assumed.
+
+Proof: Transport the quadratic discriminant by the actual ring homomorphism: D′=f(D). Native field-map injectivity keeps D′ nonzero; apply the receiving-field pointCount branch formula. This packages the actual coefficient tuple and receiving root predicate, not the still-required odd/even finite-extension splitting criterion.
+
+Dependencies: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-pointcount-branch`, `mathlib:discrim`, `mathlib:RingHom.injective`.
+
+Uses: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts`: Supplies the one-component equation-level count over an arbitrary finite receiving field. Proving roots split exactly at even extension degrees, the geometric identification, nilpotent reduction and the separate I₂ case remain required.
+
+Tests:
+
+- `QuadraticPinch.pointCount_field_map.test_identity` (compatibility): For the identity field homomorphism, the receiving-field count formula is exactly the native source formula, with a and b unchanged.
+
+Source: [Schröer, arXiv2004.07025v3 §3](https://arxiv.org/html/2004.07025v3),
+complete Proposition3.1–3.2 proofs and adjacent conductor/count discussion.
+These native formulas are authored algebraic deductions, not printed scheme
+normalization results. All printed geometric hypotheses remain intact.
+No singular-group carrier is substituted for the equation-solution subtype.
+Field change transports D injectively; the receiving root predicate is not
+silently replaced by an extension-degree parity assertion. The projective
+normalization, conductor, structure-sheaf/H¹ and every-extension/I₂ comparison
+remain required. All implementation statuses remain unchecked.
+
+## Current root-branch verification receipt (Codex codex-a71f92)
+
+This continuation adds four lemmas and six checked examples; all189 inherited
+statements are preserved. There are193 nodes,89 API entries,86 definition/construction
+tests plus9 other lemma tests,150 baseline references and29 planets. All seven
+stages remain partial; the17 gaps and23 supplier requests are unchanged.
+
+The exact370-line native fragment passes with12 examples,15 axiom audits,
+0 errors and0 warnings; no audited declaration depends on an admitted axiom.
+Native SHA256: `1970269a7c653d423ace5bd6fe2192c06672031cffcbd88e9dd1d78eb8b8c6b8`.
+The exact197-line admitted extraction has12 examples,0 errors,27 admission
+warnings and no other warnings.
+Admitted SHA256: `3f1ec7fd1d036deec355313721950174605e5b67b928679385522d7f01f4e802`.
+
+The whole1828-line Tau Ceti-importing suggested file was not compiled: required
+PointCount compiled artifacts are absent in the existing pinned build. No
+library build, setup, cache download or language server was used. The
+[handoff](../handoff/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII.md)
+contains exact diagnostic/resource receipts, durable archive reconstruction
+and the read-only actual checker/intake/assembler scripts. These pass at the
+publication preflight, including all69 required stage paths and acyclicity,
+without adding stage edges or changing unrelated skipped links. Historical
+proofs, regression and source coverage retain their original attribution; they
+are not wholesale recertified by this fragment check.
