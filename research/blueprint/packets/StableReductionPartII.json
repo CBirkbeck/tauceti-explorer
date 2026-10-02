@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Partial coefficient-projectivity and tensor-retraction checkpoint: four consumed native lemmas strengthen the actual section ideal to A-projective, the actual R-linear dual to A-free, and preserve the actual coefficient inclusion after tensoring with any A-module. Admission-free native proofs also establish the two inherited coefficient-flatness contracts. All 157 inherited statement/hypothesis/source/acceptance contracts, eight partial stages, reserved moduli key, six consumer inventories, fourteen gaps and 135 requests survive. The canonical suggested file remains an admitted plan; matrix cokernels, general Hom/Ext exchange, completion and family geometry remain open.",
+  "summary": "Partial matrix-presentation checkpoint: twenty-seven consumed declarations specify both section syzygies, the actual ideal and dual surjections and their kernels, six consumed coordinate/cokernel APIs, and all four alternating and transposed kernel/image comparisons. Separate admission-free native proofs establish the two prescribed R-linear cokernel equivalences and matrix exactness over every commutative coefficient ring. All 161 inherited mathematical statement/hypothesis/source/acceptance contracts survive, as do the eight partial stages, reserved key, six consumer inventories, fourteen gaps and 135 requests. The canonical suggested file remains an admitted plan; arbitrary-module Hom/Ext exchange, tensor/completion and family geometry remain open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -737,6 +737,48 @@
         "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
         "provides": "Tensoring the identity map in the right factor is the identity on the native tensor product.",
         "checked": "Complete statement, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 487; indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:LinearMap.quotKerEquivOfSurjective",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Isomorphisms.lean",
+        "provides": "The quotient of a module by the kernel of a surjective linear map is linearly equivalent to the actual codomain.",
+        "checked": "Statement and surrounding scalar/module assumptions read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:LinearMap.quotKerEquivOfSurjective_apply_mk",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Isomorphisms.lean",
+        "provides": "The first-isomorphism equivalence takes the class of x to f(x).",
+        "checked": "Statement and surrounding scalar/module assumptions read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Submodule.quotEquivOfEq",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "Equal native submodules give linearly equivalent quotient modules.",
+        "checked": "Statement and surrounding scalar/module assumptions read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Submodule.quotEquivOfEq_mk",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "Transport along equality of submodules preserves quotient representatives.",
+        "checked": "Statement and surrounding scalar/module assumptions read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Matrix.mulVecLin_apply",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+        "provides": "The native matrix linear map acts by multiplication on a column vector.",
+        "checked": "Statement and surrounding scalar/module assumptions read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.induction_on",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "A property of a native module quotient can be proved on representatives.",
+        "checked": "Statement and surrounding scalar/module assumptions read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02."
       }
     ]
   },
@@ -2074,15 +2116,13 @@
         "A is any commutative ring; γ,δ,s,t∈A. The proof uses regular F before quotienting, not regularity of A."
       ],
       "prerequisites": [
-        "StableReductionPartII:MC.2/node-matrix-factorization",
-        "StableReductionPartII:MC.2/node-factorization-products",
-        "StableReductionPartII:MC.2/polynomial-relation-regular",
-        "mathlib:Matrix.mulVecLin"
+        "StableReductionPartII:MC.2/section-complex-left-exact",
+        "StableReductionPartII:MC.2/section-complex-right-exact",
+        "StableReductionPartII:MC.2/section-complex-transpose-left-exact",
+        "StableReductionPartII:MC.2/section-complex-transpose-right-exact"
       ],
       "proofSteps": [
-        "Lift a vector killed by Φ to B², write Φz̃=Fw, multiply by Ψ and cancel F coordinatewise. Reduce modulo F.",
-        "Interchange the matrices for the second equality.",
-        "Their transposes also factor FI₂; repeat the same argument for the dual complex."
+        "Assemble the four separately proved kernel/image equalities. Each uses the ordered coordinate syzygies and cb+da=0 in the actual quotient; no general matrix-factorization theorem is assumed."
       ],
       "acceptance": [
         "The conclusion does not hold for arbitrary specialized coordinate values in another ring.",
@@ -2111,6 +2151,16 @@
           "name": "NodeSectionFactorization.PolynomialModel.receivingRingNotExact",
           "kind": "non-example",
           "statement": "Over Z with γ=1,δ=0 and all coordinates zero, both matrices are zero but kernel is Z² and image is zero."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.actualComplexNonreduced",
+          "kind": "compatibility",
+          "statement": "Over Z/4 with γ=δ=t=0 and s=1, actual quotient exactness and transposed quotient exactness hold."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.actualComplexZeroBase",
+          "kind": "degenerate",
+          "statement": "Exactness holds in the actual polynomial quotient over the zero coefficient ring."
         }
       ]
     },
@@ -2519,15 +2569,18 @@
         "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
       ],
       "prerequisites": [
-        "StableReductionPartII:MC.2/node-factorization-exact",
-        "StableReductionPartII:MC.2/section-coordinate-regular",
-        "mathlib:Submodule.Quotient.mk",
-        "mathlib:Matrix.mulVecLin"
+        "StableReductionPartII:MC.2/section-ideal-presentation",
+        "StableReductionPartII:MC.2/section-ideal-presentation-surjective",
+        "StableReductionPartII:MC.2/section-ideal-presentation-kernel",
+        "mathlib:Submodule.quotEquivOfEq",
+        "mathlib:Submodule.quotEquivOfEq_mk",
+        "mathlib:LinearMap.quotKerEquivOfSurjective",
+        "mathlib:LinearMap.quotKerEquivOfSurjective_apply_mk",
+        "StableReductionPartII:MC.2/section-ideal-presentation-formula"
       ],
       "proofSteps": [
-        "κ=((0,−1),(−d,b)) is injective since det κ=−d.",
-        "κΦ=((c,−d),(0,0)); exactness identifies coker Ψ with im Φ.",
-        "Projection to the first coordinate gives precisely the displayed ideal and map."
+        "Use the established kernel equality to transport the native quotient by the matrix range to the quotient by the presentation kernel.",
+        "Apply the pinned first isomorphism theorem to the actual surjective presentation map. Its representative formula gives the prescribed comparison."
       ],
       "acceptance": [
         "The RIGHT matrix has cokernel J."
@@ -2577,6 +2630,16 @@
           "name": "NodeSectionFactorization.PolynomialModel.idealCokernelZero",
           "kind": "degenerate",
           "statement": "The zero vector maps to the zero ideal element."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.actualIdealCokernelNonreduced",
+          "kind": "compatibility",
+          "statement": "Over Z/4 with γ=δ=t=0 and s=1, the actually constructed ideal cokernel equivalence sends the two basis classes to u−1 and −v."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.actualIdealCokernelZeroBase",
+          "kind": "degenerate",
+          "statement": "The actual ideal cokernel comparison exists over the zero coefficient ring Z/1."
         }
       ],
       "uses": [
@@ -2858,16 +2921,19 @@
         "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
       ],
       "prerequisites": [
-        "StableReductionPartII:MC.2/node-factorization-exact",
-        "StableReductionPartII:MC.2/section-dual-normal-form",
-        "StableReductionPartII:MC.2/section-coordinate-regular",
-        "mathlib:Submodule.Quotient.mk",
-        "mathlib:Matrix.mulVecLin"
+        "StableReductionPartII:MC.2/section-dual-presentation",
+        "StableReductionPartII:MC.2/section-dual-presentation-surjective",
+        "StableReductionPartII:MC.2/section-dual-presentation-kernel",
+        "mathlib:Submodule.quotEquivOfEq",
+        "mathlib:Submodule.quotEquivOfEq_mk",
+        "mathlib:LinearMap.quotKerEquivOfSurjective",
+        "mathlib:LinearMap.quotKerEquivOfSurjective_apply_mk",
+        "StableReductionPartII:MC.2/section-dual-presentation-formula",
+        "StableReductionPartII:MC.2/section-dual-generator-formula"
       ],
       "proofSteps": [
-        "λ=((1,0),(−c,d)) is injective, and λΨ=((d,−b),(0,0)).",
-        "Exactness gives coker Φ≅(d,b).",
-        "The calculation Ann(c)=(b) modulo d identifies this ideal divided by d with the actual Hom_R(J,R)."
+        "Use the established kernel equality to transport the native quotient by the matrix range to the quotient by the presentation kernel.",
+        "Apply the pinned first isomorphism theorem to the actual surjective presentation map. Its representative formula gives the prescribed comparison. Multiply evaluations by d and use dε(j)=bj to obtain the denominator-free formula."
       ],
       "acceptance": [
         "The LEFT matrix has cokernel D; its second basis class represents −ε."
@@ -2917,6 +2983,16 @@
           "name": "NodeSectionFactorization.PolynomialModel.dualCokernelZero",
           "kind": "degenerate",
           "statement": "The zero class evaluates to zero on every j."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.actualDualCokernelSignThree",
+          "kind": "computation",
+          "statement": "Over Z/3 with γ=1 and δ=s=t=0, the actually constructed dual cokernel equivalence sends its second basis class to −ε."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.actualDualCokernelCharacteristicTwo",
+          "kind": "compatibility",
+          "statement": "The actual dual cokernel equivalence exists over Z/2 with γ=1 and δ=s=t=0."
         }
       ],
       "uses": [
@@ -9711,7 +9787,9 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.2/polynomial-coordinate-equivalence",
-        "StableReductionPartII:MC.2/polynomial-node-model"
+        "StableReductionPartII:MC.2/polynomial-node-model",
+        "StableReductionPartII:MC.2/polynomial-coordinate-coefficient",
+        "StableReductionPartII:MC.2/polynomial-coordinate-root"
       ],
       "proofSteps": [
         "Write b=u+of(C(s+γt)); use the ordered root and coefficient values of E."
@@ -10142,6 +10220,1352 @@
       "acceptance": [
         "Use the actual native polynomial quotient, ideal and R-linear dual with their existing coefficient action.",
         "Projectivity, freeness and tensoring are over A; no claim of R-projectivity, matrix-complex exactness, Hom exchange or completion follows."
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-syzygy",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Relations between the section ideal generators",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. If cx=dy for x,y∈R, there are r∈R and α∈A with x=dr+ιαb and y=cr−ιαa.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-coordinate-first-multiplication",
+        "StableReductionPartII:MC.2/polynomial-coordinate-section-multiplication",
+        "StableReductionPartII:MC.2/polynomial-coordinate-inverse",
+        "StableReductionPartII:MC.2/polynomial-coordinate-coefficient-multiplication",
+        "StableReductionPartII:MC.2/polynomial-coordinate-dual-numerator",
+        "StableReductionPartII:MC.2/section-coordinate-regular",
+        "StableReductionPartII:MC.2/section-polynomial-relation",
+        "mathlib:Polynomial.X_sub_C_dvd_sub_C_eval"
+      ],
+      "proofSteps": [
+        "Write E(x)=(p,q₁). The second coordinate of cx=dy evaluated at Y=t gives p(t)=(s+γt)q₁(t).",
+        "Put α=q₁(t); divide p−C((s+γt)α) and q₁−Cα by Y−t using the pinned arbitrary-ring monic divisibility theorem. Reconstruct r from their quotient polynomials. E(b)=(C(s+γt),1) gives x=dr+ιαb.",
+        "Substitute this equality into cx=dy, use cb+da=0 and cancel the regular element d to obtain y=cr−ιαa."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealSyzygy",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-ideal-presentation-kernel",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-complex-transpose-right-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/polynomial-coordinate-first-generator",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coordinates of the first section generator",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. E(c)=(−C(s),1).",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-coordinate-equivalence",
+        "StableReductionPartII:MC.2/polynomial-coordinate-coefficient",
+        "StableReductionPartII:MC.2/polynomial-coordinate-root"
+      ],
+      "proofSteps": [
+        "Use E(u)=(0,1), E(ιs)=(Cs,0) and additivity of the existing coordinate equivalence."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_first",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-syzygy",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/polynomial-coordinate-coefficient",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coordinates of a coefficient polynomial",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. For p∈A[Y], E(of(p))=(p,0). The map of:A[Y]→R is the native AdjoinRoot coefficient homomorphism.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-coordinate-equivalence",
+        "StableReductionPartII:MC.2/polynomial-coordinate-inverse"
+      ],
+      "proofSteps": [
+        "Apply the injective inverse coordinate equivalence. Its formula on (p,0) is of(p), so the ordered coordinates follow."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_of",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-coordinate-first-generator",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-coordinate-dual-numerator",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/polynomial-coordinate-root",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coordinates of the polynomial root",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. E(u)=(0,1).",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-coordinate-equivalence",
+        "StableReductionPartII:MC.2/polynomial-coordinate-inverse"
+      ],
+      "proofSteps": [
+        "The inverse coordinate formula on (0,1) is u; injectivity of the inverse gives the stated coordinates."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_root",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-coordinate-first-generator",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-coordinate-dual-numerator",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/polynomial-coordinate-numerator-multiplication",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Multiplication by the dual numerator in coordinates",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. For r∈R, E(br)₁=E(r)₀+(C(s+γt)−Cγ·Y)E(r)₁.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-coordinate-root-multiplication",
+        "StableReductionPartII:MC.2/polynomial-coordinate-coefficient-multiplication"
+      ],
+      "proofSteps": [
+        "Write b=u+of(C(s+γt)); apply the existing root and coefficient multiplication formulas and collect the second coordinate."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_numerator_mul",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-syzygy",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-syzygy",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Relations in the section dual presentation",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. If dx=by for x,y∈R, there are r∈R and α∈A with x=br−ιαa and y=dr+ιαc.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-coordinate-numerator-multiplication",
+        "StableReductionPartII:MC.2/polynomial-coordinate-section-multiplication",
+        "StableReductionPartII:MC.2/polynomial-coordinate-first-generator",
+        "StableReductionPartII:MC.2/polynomial-coordinate-inverse",
+        "StableReductionPartII:MC.2/polynomial-coordinate-coefficient-multiplication",
+        "StableReductionPartII:MC.2/section-coordinate-regular",
+        "StableReductionPartII:MC.2/section-polynomial-relation",
+        "mathlib:Polynomial.X_sub_C_dvd_sub_C_eval"
+      ],
+      "proofSteps": [
+        "Write E(y)=(p,q₁). Evaluate the second coordinate of dx=by at Y=t to get p(t)=−s q₁(t).",
+        "Put α=q₁(t) and divide the two coordinate polynomials after subtracting their values at t by Y−t. Since E(c)=(−Cs,1), inverse coordinates give y=dr+ιαc.",
+        "Use cb+da=0 in dx=by and cancel d to obtain x=br−ιαa."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualSyzygy",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-presentation-kernel",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-complex-transpose-left-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-presentation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The ordered surjection to the section ideal",
+      "kind": "construction",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. Construct the R-linear map P_J:R²→J, P_J(z)=cz₀−dz₁. Its surjectivity and kernel are separate lemmas.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-node-model",
+        "mathlib:Ideal.mem_span_pair"
+      ],
+      "proofSteps": [
+        "The expression belongs to J because its coefficients in the ordered spanning pair are z₀ and −z₁. Additivity and scalar compatibility follow by commutative ring algebra."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.idealPresentation",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealPresentation_apply",
+          "role": "data",
+          "statement": "The underlying element is cz₀−dz₁."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealPresentation_surjective",
+          "role": "characterisation",
+          "statement": "The map to the actual ideal is surjective."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealPresentation_kernel",
+          "role": "characterisation",
+          "statement": "Its kernel equals im Ψ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealPresentationFirst",
+          "kind": "computation",
+          "statement": "P_J(1,0)=c."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealPresentationSecond",
+          "kind": "computation",
+          "statement": "P_J(0,1)=−d, with the ordered sign."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealPresentationZero",
+          "kind": "degenerate",
+          "statement": "P_J(0)=0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-ideal-cokernel",
+          "how": "The explicit surjective native map and separately established kernel give the prescribed cokernel equivalence through the pinned first isomorphism theorem."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-presentation-formula",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Evaluation of the ordered ideal presentation",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. The underlying ring element of P_J(z) equals cz₀−dz₁.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-presentation"
+      ],
+      "proofSteps": [
+        "Read the defining underlying element; this is the interface used by the kernel and quotient comparisons."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.idealPresentation_apply",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-ideal-presentation-surjective",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-ideal-presentation-kernel",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-complex-left-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-ideal-cokernel",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-presentation-surjective",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Surjectivity of the ordered ideal presentation",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. P_J is surjective.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-presentation",
+        "StableReductionPartII:MC.2/section-ideal-presentation-formula",
+        "mathlib:Ideal.mem_span_pair"
+      ],
+      "proofSteps": [
+        "For j∈J choose j=xc+yd using the native two-generator span theorem. The vector (x,−y) maps to j, with the required sign."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.idealPresentation_surjective",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-ideal-cokernel",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-matrix-right-action",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The right node matrix acting on a column",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. For z∈R², Ψz=(dz₀−bz₁,cz₀+az₁).",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/node-matrix-factorization",
+        "mathlib:Matrix.mulVecLin",
+        "mathlib:Matrix.mulVecLin_apply"
+      ],
+      "proofSteps": [
+        "Evaluate the two native matrix row sums in the order 0,1."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.right_mulVec",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-ideal-presentation-kernel",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-complex-left-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-complex-right-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-matrix-left-action",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The left node matrix acting on a column",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. For z∈R², Φz=(az₀+bz₁,−cz₀+dz₁).",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/node-matrix-factorization",
+        "mathlib:Matrix.mulVecLin",
+        "mathlib:Matrix.mulVecLin_apply"
+      ],
+      "proofSteps": [
+        "Evaluate the two native matrix row sums in the order 0,1."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.left_mulVec",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-presentation-kernel",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-complex-left-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-complex-right-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-presentation-kernel",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The relations of the section ideal surjection",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. ker P_J=im Ψ.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-presentation-formula",
+        "StableReductionPartII:MC.2/section-ideal-syzygy",
+        "StableReductionPartII:MC.2/section-matrix-right-action",
+        "StableReductionPartII:MC.2/section-polynomial-relation"
+      ],
+      "proofSteps": [
+        "P_J(z)=0 is exactly cz₀=dz₁. The ideal syzygy gives z=Ψ(r,−ια). Conversely P_J(Ψw)=−w₁(cb+da)=0."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.idealPresentation_kernel",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-complex-left-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-ideal-cokernel",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-presentation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The ordered surjection to the section dual",
+      "kind": "construction",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. For the characterized ε∈D with dε(j)=bj, construct the R-linear map P_D:R²→D sending z to z₀·incl−z₁·ε.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-multiplication",
+        "StableReductionPartII:MC.2/section-dual-generator"
+      ],
+      "proofSteps": [
+        "Combine the actual multiplication map with scalar multiplication of the canonical ε. Check both linear-map laws pointwise on J."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.dualPresentation",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualPresentation_apply",
+          "role": "data",
+          "statement": "Evaluation on j is z₀j−z₁ε(j)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualPresentation_surjective",
+          "role": "characterisation",
+          "statement": "The map to the actual R-linear dual is surjective."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualPresentation_kernel",
+          "role": "characterisation",
+          "statement": "Its kernel equals im Φ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualPresentationFirst",
+          "kind": "computation",
+          "statement": "P_D(1,0) is inclusion."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualPresentationSecond",
+          "kind": "computation",
+          "statement": "P_D(0,1)=−ε."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualPresentationZero",
+          "kind": "degenerate",
+          "statement": "P_D(0)=0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-cokernel",
+          "how": "The explicit surjective native map and separately established kernel give the prescribed cokernel equivalence through the pinned first isomorphism theorem."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-presentation-formula",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Evaluation of the ordered dual presentation",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. For z∈R² and j∈J, P_D(z)(j)=z₀j−z₁ε(j).",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-presentation"
+      ],
+      "proofSteps": [
+        "Evaluate the defined sum of linear maps on j."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.dualPresentation_apply",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-presentation-surjective",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-presentation-zero",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-cokernel",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-presentation-surjective",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Surjectivity of the ordered dual presentation",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. P_D is surjective.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-presentation-formula",
+        "StableReductionPartII:MC.2/section-dual-normal-form",
+        "StableReductionPartII:MC.2/section-dual-generator-formula"
+      ],
+      "proofSteps": [
+        "The established dual normal form writes h=r·incl+ια·ε; hence P_D(r,−ια)=h."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.dualPresentation_surjective",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-cokernel",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-presentation-zero",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The scalar equation for vanishing in the dual",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. P_D(z)=0 if and only if dz₀=bz₁.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-presentation-formula",
+        "StableReductionPartII:MC.2/section-dual-generator-values",
+        "StableReductionPartII:MC.2/section-dual-generator-formula",
+        "StableReductionPartII:MC.2/section-coordinate-regular"
+      ],
+      "proofSteps": [
+        "Evaluate a zero map on d and use ε(d)=b for the forward implication. For the reverse implication multiply the evaluation at any j by d, use dε(j)=bj and cancel d."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.dualPresentation_zero_iff",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-presentation-kernel",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-complex-right-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-presentation-kernel",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The relations of the section dual surjection",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. ker P_D=im Φ.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-presentation-zero",
+        "StableReductionPartII:MC.2/section-dual-syzygy",
+        "StableReductionPartII:MC.2/section-matrix-left-action",
+        "StableReductionPartII:MC.2/section-polynomial-relation"
+      ],
+      "proofSteps": [
+        "Vanishing is dz₀=bz₁. The dual syzygy supplies z=Φ(−ια,r). Conversely the first scalar equation for Φw is w₀(da+bc)=0."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.dualPresentation_kernel",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-complex-right-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-cokernel",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-cokernel-generators",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Generators of the ideal cokernel",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. For any e_J with the prescribed quotient formula, e_J([1,0])=c and e_J([0,1])=−d.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-cokernel"
+      ],
+      "proofSteps": [
+        "Substitute the two standard coordinate vectors into the quotient formula."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.cokernelIdealGenerators",
+      "uses": []
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-cokernel-unique",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Uniqueness of the ideal cokernel comparison",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. Any two R-linear cokernel equivalences with underlying formula [z]↦cz₀−dz₁ agree.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-cokernel",
+        "mathlib:Submodule.Quotient.induction_on"
+      ],
+      "proofSteps": [
+        "Every class has a representative z. Use the two formula hypotheses and ideal subtype extensionality; quotient induction gives equality of the maps."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.cokernelIdealUnique",
+      "uses": []
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-cokernel-generators",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Generators of the dual cokernel",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. For any characterized ε and any e_D with d e_D([z])(j)=(dz₀−bz₁)j, the first basis class is inclusion and the second is −ε.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-cokernel",
+        "StableReductionPartII:MC.2/section-coordinate-regular",
+        "StableReductionPartII:MC.2/section-dual-generator"
+      ],
+      "proofSteps": [
+        "Substitute the two basis vectors. Multiply the target evaluations by d; use the formula for ε and cancel d."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.cokernelDualGenerators",
+      "uses": []
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-cokernel-unique",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Uniqueness of the dual cokernel comparison",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. Any two R-linear cokernel equivalences satisfying the prescribed denominator-free evaluation formula agree.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-cokernel",
+        "StableReductionPartII:MC.2/section-coordinate-regular",
+        "mathlib:Submodule.Quotient.induction_on"
+      ],
+      "proofSteps": [
+        "Apply quotient induction and pointwise dual extensionality. Their evaluations have equal multiples by d, so regularity gives equality."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.cokernelDualUnique",
+      "uses": []
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-complex-left-exact",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Exactness at the left node matrix",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. ker Φ=im Ψ.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-presentation-kernel",
+        "StableReductionPartII:MC.2/section-ideal-presentation-formula",
+        "StableReductionPartII:MC.2/section-matrix-left-action",
+        "StableReductionPartII:MC.2/section-matrix-right-action",
+        "StableReductionPartII:MC.2/section-polynomial-relation"
+      ],
+      "proofSteps": [
+        "The second coordinate of Φz=0 makes P_J(z)=0. Conversely z=Ψw gives Φz=0 coordinatewise from cb+da=0."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.quotientLeftExact",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/node-factorization-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-complex-right-exact",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Exactness at the right node matrix",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. ker Ψ=im Φ.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-presentation-kernel",
+        "StableReductionPartII:MC.2/section-dual-presentation-zero",
+        "StableReductionPartII:MC.2/section-matrix-left-action",
+        "StableReductionPartII:MC.2/section-matrix-right-action",
+        "StableReductionPartII:MC.2/section-polynomial-relation"
+      ],
+      "proofSteps": [
+        "The first coordinate of Ψz=0 is precisely P_D(z)=0. Conversely z=Φw is killed by Ψ using cb+da=0."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.quotientRightExact",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/node-factorization-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-matrix-transpose-left-action",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The transposed left matrix acting on a column",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. Φᵀz=(az₀−cz₁,bz₀+dz₁).",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/node-matrix-factorization",
+        "mathlib:Matrix.mulVecLin",
+        "mathlib:Matrix.mulVecLin_apply"
+      ],
+      "proofSteps": [
+        "Evaluate the two column sums, retaining the negative entry −c."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.transposeLeft_mulVec",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-complex-transpose-left-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-complex-transpose-right-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-matrix-transpose-right-action",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The transposed right matrix acting on a column",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. Ψᵀz=(dz₀+cz₁,−bz₀+az₁).",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/node-matrix-factorization",
+        "mathlib:Matrix.mulVecLin",
+        "mathlib:Matrix.mulVecLin_apply"
+      ],
+      "proofSteps": [
+        "Evaluate the two column sums, retaining the negative entry −b."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.transposeRight_mulVec",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-complex-transpose-left-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-complex-transpose-right-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-complex-transpose-left-exact",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Exactness at the transposed left matrix",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. ker Φᵀ=im Ψᵀ.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-matrix-transpose-left-action",
+        "StableReductionPartII:MC.2/section-matrix-transpose-right-action",
+        "StableReductionPartII:MC.2/section-dual-syzygy",
+        "StableReductionPartII:MC.2/section-polynomial-relation"
+      ],
+      "proofSteps": [
+        "The second zero coordinate gives d(−z₁)=bz₀. Apply the dual syzygy to (−z₁,z₀), giving z=Ψᵀ(r,ια). The reverse containment is a direct two-coordinate use of cb+da=0."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.quotientTransposeLeftExact",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/node-factorization-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-complex-transpose-right-exact",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Exactness at the transposed right matrix",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, let F=X²+C(γY)X+C(δY²−q(s,t)), q(x,y)=x²+γxy+δy², R=AdjoinRoot(F), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), and E:R≃A[Y]×A[Y] the ordered polynomial coordinates. Put Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)). The canonical ε∈D is characterized by dε(j)=bj. The ordered maps are P_J(z)=cz₀−dz₁ and P_D(z)=z₀·incl−z₁·ε. ker Ψᵀ=im Φᵀ.",
+      "hypotheses": [
+        "A may be the zero ring or have nilpotents. No noetherianity, domain or unit-discriminant assumption is made for this polynomial algebra statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-matrix-transpose-left-action",
+        "StableReductionPartII:MC.2/section-matrix-transpose-right-action",
+        "StableReductionPartII:MC.2/section-ideal-syzygy",
+        "StableReductionPartII:MC.2/section-polynomial-relation"
+      ],
+      "proofSteps": [
+        "The first zero coordinate gives c(−z₁)=dz₀. The ideal syzygy gives z=Φᵀ(−ια,−r). The reverse containment follows coordinatewise from cb+da=0."
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and the stated ordered matrices; an arbitrary receiving ring with specialized coordinates does not satisfy this contract.",
+        "Preserve the sign of the second cokernel generator. No conclusion about completion, Hom/Ext exchange or moduli geometry follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, printed pp.11–12, matrix and κ/λ comparisons and Proposition3.1 proof",
+          "excerpt": "matrix-factorization",
+          "match": "The displayed matrices and prescribed cokernel generators are published here under noetherianity and unit discriminant. This declaration is an authored polynomial-coordinate deduction over every commutative A, checked on the actual native quotient. It does not weaken the geometric, relative stable-reflexivity, completion or arbitrary-family hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.quotientTransposeRightExact",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/node-factorization-exact",
+          "how": "Uses the precise statement above in the explicit presentation or matrix-exactness proof."
+        }
       ]
     }
   ],
@@ -11117,8 +12541,9 @@
         "Expand the rigid genus-one embedding and local collision charts into individual lemmas; supply missing Lean family types.",
         "Prove the native polynomial and flat-ambient/completion adapters and tensor coherence. Completion of actual Hom and quotient has native signatures; the pointed-family, relative stable-reflexivity and arbitrary-family descent interfaces remain absent.",
         "The actual coefficient restriction, projection and canonical ε/K naturality, complete dual normal coordinates/residue and corrected ring action have admission-free native checks. Tensor equivalences, arbitrary coefficient-module Hom/Ext exchange and completed-local/family comparisons remain separate obligations.",
-        "Preserve the specified ideal/dual cokernel identifications, including the negative second generator and transpose complexes. Prove the remaining arbitrary coefficient-module Hom/Ext, tensor, completion and family comparisons without assuming them from the dual coordinates.",
-        "The actual coefficient projectivity/freeness and tensorized section retraction now have native admission-free checks, including nonflat M=Z/2 over Z. This proves injectivity only for the split coefficient inclusion J→R; alternating matrix-complex tensor exactness, canonical quotient/tensor-dual comparison and Hom/Ext exchange remain separate obligations."
+        "The specified ideal/dual cokernel identifications, including the negative second generator and transpose complexes, now have admission-free native proof checks; preserve their contracts. Prove the remaining arbitrary coefficient-module Hom/Ext, tensor, completion and family comparisons without assuming them from the dual coordinates.",
+        "The actual coefficient projectivity/freeness and tensorized section retraction now have native admission-free checks, including nonflat M=Z/2 over Z. This proves injectivity only for the split coefficient inclusion J→R; alternating matrix-complex tensor exactness, canonical quotient/tensor-dual comparison and Hom/Ext exchange remain separate obligations.",
+        "The ordinary alternating polynomial matrix complex and its transpose are checked natively. Arbitrary coefficient-module tensor exactness, higher Ext and bidual/relative stable-reflexivity conclusions require separate proofs; do not infer them from ordinary exactness."
       ]
     },
     {
@@ -12022,7 +13447,7 @@
   "prototypeCoverage": {
     "status": "partial",
     "compiled": true,
-    "reason": "The complete Mathlib-only suggested sketch elaborates as an admitted plan. The separate immutable admission-free native archive includes inherited polynomial/ideal/coefficient/basis proofs and now establishes the complete stated dual normal form, equivalence, residue/kernel and corrected ring action on the actual native ideal. No tensor-dual comparison, matrix cokernel, Hom/Ext exchange, completion or geometric interface is certified.",
+    "reason": "The full Mathlib-only sketch is an admitted plan. The separate native archive additionally proves both prescribed actual matrix cokernels, their generator/uniqueness formulas and the alternating complex and its transpose over every commutative coefficient ring. This does not certify arbitrary-module Hom/Ext exchange, tensor transport, completion or moduli geometry.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -12102,7 +13527,34 @@
       "StableReductionPartII:MC.2/section-dual-normal-existence",
       "StableReductionPartII:MC.2/section-dual-coordinate-uniqueness",
       "StableReductionPartII:MC.2/section-dual-multiplication",
-      "StableReductionPartII:MC.2/section-dual-generator-action"
+      "StableReductionPartII:MC.2/section-dual-generator-action",
+      "StableReductionPartII:MC.2/section-ideal-syzygy",
+      "StableReductionPartII:MC.2/polynomial-coordinate-first-generator",
+      "StableReductionPartII:MC.2/polynomial-coordinate-coefficient",
+      "StableReductionPartII:MC.2/polynomial-coordinate-root",
+      "StableReductionPartII:MC.2/polynomial-coordinate-numerator-multiplication",
+      "StableReductionPartII:MC.2/section-dual-syzygy",
+      "StableReductionPartII:MC.2/section-ideal-presentation",
+      "StableReductionPartII:MC.2/section-ideal-presentation-formula",
+      "StableReductionPartII:MC.2/section-ideal-presentation-surjective",
+      "StableReductionPartII:MC.2/section-matrix-right-action",
+      "StableReductionPartII:MC.2/section-matrix-left-action",
+      "StableReductionPartII:MC.2/section-ideal-presentation-kernel",
+      "StableReductionPartII:MC.2/section-dual-presentation",
+      "StableReductionPartII:MC.2/section-dual-presentation-formula",
+      "StableReductionPartII:MC.2/section-dual-presentation-surjective",
+      "StableReductionPartII:MC.2/section-dual-presentation-zero",
+      "StableReductionPartII:MC.2/section-dual-presentation-kernel",
+      "StableReductionPartII:MC.2/section-ideal-cokernel-generators",
+      "StableReductionPartII:MC.2/section-ideal-cokernel-unique",
+      "StableReductionPartII:MC.2/section-dual-cokernel-generators",
+      "StableReductionPartII:MC.2/section-dual-cokernel-unique",
+      "StableReductionPartII:MC.2/section-complex-left-exact",
+      "StableReductionPartII:MC.2/section-complex-right-exact",
+      "StableReductionPartII:MC.2/section-matrix-transpose-left-action",
+      "StableReductionPartII:MC.2/section-matrix-transpose-right-action",
+      "StableReductionPartII:MC.2/section-complex-transpose-left-exact",
+      "StableReductionPartII:MC.2/section-complex-transpose-right-exact"
     ],
     "expressedApi": [
       "NodeForm.eval",
@@ -12216,7 +13668,13 @@
       "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_second_mul",
       "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_root_mul",
       "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_first_mul",
-      "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_dualNumerator"
+      "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_dualNumerator",
+      "NodeSectionFactorization.PolynomialModel.idealPresentation_apply",
+      "NodeSectionFactorization.PolynomialModel.idealPresentation_surjective",
+      "NodeSectionFactorization.PolynomialModel.idealPresentation_kernel",
+      "NodeSectionFactorization.PolynomialModel.dualPresentation_apply",
+      "NodeSectionFactorization.PolynomialModel.dualPresentation_surjective",
+      "NodeSectionFactorization.PolynomialModel.dualPresentation_kernel"
     ],
     "expressedTests": [
       "NodeForm.characteristicTwo",
@@ -12317,7 +13775,19 @@
       "NodeSectionFactorization.PolynomialModel.normalGeneratorNonreduced",
       "NodeSectionFactorization.PolynomialModel.normalRoundTripCanonical",
       "NodeSectionFactorization.PolynomialModel.residueGeneratorCanonical",
-      "NodeSectionFactorization.PolynomialModel.residueMultiplicationCanonical"
+      "NodeSectionFactorization.PolynomialModel.residueMultiplicationCanonical",
+      "NodeSectionFactorization.PolynomialModel.actualComplexNonreduced",
+      "NodeSectionFactorization.PolynomialModel.actualComplexZeroBase",
+      "NodeSectionFactorization.PolynomialModel.actualIdealCokernelNonreduced",
+      "NodeSectionFactorization.PolynomialModel.actualIdealCokernelZeroBase",
+      "NodeSectionFactorization.PolynomialModel.actualDualCokernelSignThree",
+      "NodeSectionFactorization.PolynomialModel.actualDualCokernelCharacteristicTwo",
+      "NodeSectionFactorization.PolynomialModel.idealPresentationFirst",
+      "NodeSectionFactorization.PolynomialModel.idealPresentationSecond",
+      "NodeSectionFactorization.PolynomialModel.idealPresentationZero",
+      "NodeSectionFactorization.PolynomialModel.dualPresentationFirst",
+      "NodeSectionFactorization.PolynomialModel.dualPresentationSecond",
+      "NodeSectionFactorization.PolynomialModel.dualPresentationZero"
     ],
     "omissions": [
       {
@@ -13496,46 +14966,49 @@
         "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualCorrectionMap_product"
       ]
     },
-    "adapterBoundary": "The archive proves the actual canonical evaluation/kernel/projection/splitting, monicity, polynomial-coefficient freeness, second-coordinate regularity, coordinate relation, divisibility, ε, K and their listed APIs. It does not prove normal coordinates for the dual, cokernels, Hom/Ext exchange, tensor transport, completion or moduli geometry. The submitted bodies remain admitted under PROTOCOL§13.",
+    "adapterBoundary": "The native archive proves the actual polynomial ring, ideal and dual coordinates, coefficient projection/flatness, ε/K, both ordered presentations and their prescribed cokernel equivalences, and all four kernel/image comparisons. Its 1505-line inherited proof prefix is byte-preserved. The submitted canonical bodies remain admitted under PROTOCOL §13; module-valued exchange, completion and moduli geometry are not supplied.",
     "validation": {
-      "exitCode": 0,
-      "errors": 0,
-      "admittedProofWarnings": 247,
-      "otherWarnings": 0,
-      "examples": 102,
-      "leanSha256": "2cef0ff8d513fce42e87e894f76b08389690687e9816e89a3feacdf0c2082c03",
-      "normalizedDiagnosticsSha256": "ced976782cf7ceac57c472075db91d1d2fb2219e9e6c5d555d950bf57ea8e604",
-      "reader": "Codex — codex-rtOQ9t",
-      "date": "2026-10-02",
-      "toolchain": "Lean v4.34.0-rc2",
-      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-      "wholeFile": true,
-      "imports": "Mathlib only",
-      "availableMemoryGiB": 56,
-      "wallSeconds": 16.51,
-      "maxResidentKiB": 2990724,
-      "existingArtifactsReused": true,
-      "noSetupCacheLibraryBuildOrServer": true
+      "actualAssembler": true,
+      "declarations": 188,
+      "planets": 35,
+      "ownSkippedLinks": [],
+      "stageDAG": {
+        "vertices": 3050,
+        "edges": 8750,
+        "acyclic": true
+      },
+      "ownDeclarationDAG": {
+        "vertices": 188,
+        "edges": 458,
+        "acyclic": true
+      },
+      "stagesAndReachableDeclarations": {
+        "vertices": 3203,
+        "edges": 9510,
+        "acyclic": true
+      },
+      "reachableDeclarations": 188,
+      "externalDeclarations": [],
+      "unresolved": [],
+      "requiredStagePairsReachable": 81,
+      "stageEdgesUnchanged": true,
+      "ownPendingLinks": [],
+      "otherPendingLinksMatchOriginal": true,
+      "otherSkipsMatchOriginal": true,
+      "unchangedNodeObjects": 157,
+      "scriptSha256": "b9fbb9a330908132d997e0a3f83a2de0bbc23f23ecf185b5829501d1d976109b"
     },
     "compilation": {
-      "exitCode": 0,
-      "errors": 0,
-      "admittedProofWarnings": 204,
+      "exit": 0,
+      "seconds": 18.11,
+      "sha256": "a418ae9c20eed4bc956d20a3ef506bee558f7377197fc6455cf90e750d98a473",
+      "lines": 2167,
+      "examples": 120,
+      "availableGiB": 52,
+      "peakRSSKiB": 3030032,
+      "expectedAdmissionWarnings": 290,
       "otherWarnings": 0,
-      "examples": 84,
-      "leanSha256": "b0e65a36e73f3882a9f6eb257a48f3269361ccc297dbe7a46f31fe4e8aa097c7",
-      "normalizedDiagnosticsSha256": "a52f6ced6ef06b9fcd9aa6de077c1d238cb5f59f114d832b042b6aa1f2f5b4db",
-      "reader": "Codex — codex-a71f92",
-      "date": "2026-10-02",
-      "toolchain": "Lean v4.34.0-rc2",
-      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-      "wholeFile": true,
-      "imports": "Mathlib only",
-      "availableMemoryGiB": 62,
-      "wallSeconds": 15.02,
-      "maxResidentKiB": 2969648,
-      "existingArtifactsReused": true,
-      "noSetupCacheLibraryBuildOrServer": true
+      "diagnosticsSha256": "c3de4d2f31ca8a1cd6b4412b02eb1cf951e1e8d6b05c61bf40b6699d914c602a"
     },
     "previousCompilation": {
       "exitCode": 0,
@@ -13626,101 +15099,20 @@
       }
     },
     "nativeProofVerification": {
-      "status": "partial",
-      "reader": "Codex — codex-rtOQ9t",
-      "date": "2026-10-02",
-      "claimComment": 5959735522,
-      "claimConfirmation": 5959737855,
-      "baseCommit": "46ed8c0cbf3c6b017383bcbf58177a0c672dfcae",
-      "archiveCommit": "5e2a9a9380351b0dfa9dfd19e384be86d7b3a5d8",
-      "archivePath": "research/blueprint/suggested/StableReductionPartII.lean",
-      "archiveMarker": "BEGIN ARCHIVED CHECKED DUAL GENERATOR",
-      "provedCanonicalBodies": [
-        "sectionEval",
-        "sectionEvaluationKernel",
-        "coefficientHom_eq_algebraMap",
-        "sectionEval_smul",
-        "sectionProjection",
-        "sectionProjection_coe",
-        "sectionProjection_ideal",
-        "sectionProjection_coefficient",
-        "sectionSplit",
-        "sectionSplit_first",
-        "sectionSplit_second",
-        "sectionSplit_inverse",
-        "sectionSplit_section",
-        "polynomialMonic",
-        "sectionPolynomialFree",
-        "sectionCoordinateRegular",
-        "sectionRelation",
-        "dualGenerator_divisibility",
-        "dualGenerator",
-        "dualGenerator_spec",
-        "dualGeneratorUnique",
-        "dualGenerator_existsUnique",
-        "sectionFirst_mem",
-        "sectionSecond_mem",
-        "dualGeneratorValues",
-        "dualCorrectionMap",
-        "dualCorrectionMap_apply",
-        "dualCorrectionMap_spec",
-        "dualCorrectionMap_product",
-        "dualCorrectionMap_values",
-        "dualScalarCorrection",
-        "dualScalarCorrectionConstants",
-        "dualScalarCorrectionUnique",
-        "dualCorrectionMap_coefficient"
-      ],
-      "extraction": {
-        "exitCode": 0,
-        "errors": 0,
-        "warnings": 0,
-        "wallSeconds": 4.6,
-        "maxResidentKiB": 2856376,
-        "examples": 16,
-        "axiomPrints": 34,
-        "hasSorryAx": false,
-        "sourceLines": 539,
-        "sourceSha256": "6f9da32441bc234d7b32ee00cd2342c33176a81a8c50d9c45211f403589840f8",
-        "normalizedDiagnosticsSha256": "0e5855c121d826fc8b49f03713de82452435d1aa2d097dbf619800a726d103e2",
-        "availableMemoryGiB": 65
-      },
-      "boundary": "Actual untruncated polynomial quotient, native coordinate ideal and inherited coefficient scalars, over every commutative coefficient ring including zero. Thirteen previous splitting declarations and 21 monicity/freeness/regularity/dual-generator/correction declarations have checked proof bodies. Normal coordinates of the dual, cokernels, Hom/Ext exchange, tensor/completion interfaces and global geometry remain open. The custom-presentation legacy sign test remains admitted; a new canonical sign fixture is proved.",
-      "signatureParity": {
-        "canonicalHeadersCompared": 34,
-        "newExampleHeadersCompared": 4,
-        "mismatches": [],
-        "normalization": "Whitespace, lemma/theorem keyword and expansion of the local second-coordinate notation only."
-      },
-      "atlasProjection": {
-        "actualAssembler": true,
-        "declarations": 133,
-        "planets": 35,
-        "ownSkippedLinks": [],
-        "stageDAG": {
-          "vertices": 3050,
-          "edges": 8750,
-          "acyclic": true
-        },
-        "ownDeclarationDAG": {
-          "vertices": 133,
-          "edges": 303,
-          "acyclic": true
-        },
-        "stagesAndReachableDeclarations": {
-          "vertices": 3148,
-          "edges": 9300,
-          "acyclic": true
-        },
-        "reachableDeclarations": 133,
-        "externalDeclarations": [],
-        "requiredStagePairsReachable": 81,
-        "stageEdgesUnchanged": true,
-        "otherSkipsMatchOriginal": true,
-        "unchangedNodeObjects": 119,
-        "scriptSha256": "892326134dc1670e5b1a4f0f19fa7b19827939fa8c5e16a5523186322031a592"
-      },
-      "preservation": "All125 inherited IDs, kinds, mathematical statements, hypotheses, API/test contracts, acceptance, sources, uses and unchecked statuses retained. All135 requests,14 gaps,35 planets, source/version/consumer/key/restructure/import metadata and old73 baseline entries retained.119 old node objects unchanged; six old objects have dependency/proof/name/API/test additions. Roadmap definition unchanged."
+      "exit": 0,
+      "seconds": 14.21,
+      "sha256": "4d9ee3521709621d23e6d2497febba0e72aa6e462806351440a2a30b1614dddc",
+      "lines": 2084,
+      "audits": 128,
+      "examples": 58,
+      "availableGiB": 52,
+      "peakRSSKiB": 3176164,
+      "warnings": 0,
+      "admissions": 0,
+      "diagnosticsSha256": "db0150adb2d6cdbe86cb7a1d8bfa6792f00f8cfaf405323ff1851434882f31e8",
+      "archiveCommit": "5cf0343f7edeab7223ed8366d75a3a502e7b0181",
+      "marker": "ARCHIVED CHECKED SECTION MATRIX PRESENTATIONS",
+      "predecessorPrefixPreserved": true
     },
     "previousSectionKernelVerification": {
       "status": "partial",
@@ -14111,6 +15503,159 @@
         "definitionConstructionEntries": 178
       },
       "archiveRevision": "d49ebea96b7886d8fd324eeff9bd5e1cb5fc7adc"
+    },
+    "matrixPresentationPreviousCompilation": {
+      "exitCode": 0,
+      "errors": 0,
+      "admittedProofWarnings": 204,
+      "otherWarnings": 0,
+      "examples": 84,
+      "leanSha256": "b0e65a36e73f3882a9f6eb257a48f3269361ccc297dbe7a46f31fe4e8aa097c7",
+      "normalizedDiagnosticsSha256": "a52f6ced6ef06b9fcd9aa6de077c1d238cb5f59f114d832b042b6aa1f2f5b4db",
+      "reader": "Codex — codex-a71f92",
+      "date": "2026-10-02",
+      "toolchain": "Lean v4.34.0-rc2",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "wholeFile": true,
+      "imports": "Mathlib only",
+      "availableMemoryGiB": 62,
+      "wallSeconds": 15.02,
+      "maxResidentKiB": 2969648,
+      "existingArtifactsReused": true,
+      "noSetupCacheLibraryBuildOrServer": true
+    },
+    "matrixPresentationPreviousValidation": {
+      "exitCode": 0,
+      "errors": 0,
+      "admittedProofWarnings": 247,
+      "otherWarnings": 0,
+      "examples": 102,
+      "leanSha256": "2cef0ff8d513fce42e87e894f76b08389690687e9816e89a3feacdf0c2082c03",
+      "normalizedDiagnosticsSha256": "ced976782cf7ceac57c472075db91d1d2fb2219e9e6c5d555d950bf57ea8e604",
+      "reader": "Codex — codex-rtOQ9t",
+      "date": "2026-10-02",
+      "toolchain": "Lean v4.34.0-rc2",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "wholeFile": true,
+      "imports": "Mathlib only",
+      "availableMemoryGiB": 56,
+      "wallSeconds": 16.51,
+      "maxResidentKiB": 2990724,
+      "existingArtifactsReused": true,
+      "noSetupCacheLibraryBuildOrServer": true
+    },
+    "matrixPresentationProofVerification": {
+      "exit": 0,
+      "seconds": 14.21,
+      "sha256": "4d9ee3521709621d23e6d2497febba0e72aa6e462806351440a2a30b1614dddc",
+      "lines": 2084,
+      "audits": 128,
+      "examples": 58,
+      "availableGiB": 52,
+      "peakRSSKiB": 3176164,
+      "warnings": 0,
+      "admissions": 0,
+      "diagnosticsSha256": "db0150adb2d6cdbe86cb7a1d8bfa6792f00f8cfaf405323ff1851434882f31e8",
+      "archiveCommit": "5cf0343f7edeab7223ed8366d75a3a502e7b0181",
+      "marker": "ARCHIVED CHECKED SECTION MATRIX PRESENTATIONS",
+      "predecessorPrefixPreserved": true
+    },
+    "matrixPresentationPreviousNativeProofVerification": {
+      "status": "partial",
+      "reader": "Codex — codex-rtOQ9t",
+      "date": "2026-10-02",
+      "claimComment": 5959735522,
+      "claimConfirmation": 5959737855,
+      "baseCommit": "46ed8c0cbf3c6b017383bcbf58177a0c672dfcae",
+      "archiveCommit": "5e2a9a9380351b0dfa9dfd19e384be86d7b3a5d8",
+      "archivePath": "research/blueprint/suggested/StableReductionPartII.lean",
+      "archiveMarker": "BEGIN ARCHIVED CHECKED DUAL GENERATOR",
+      "provedCanonicalBodies": [
+        "sectionEval",
+        "sectionEvaluationKernel",
+        "coefficientHom_eq_algebraMap",
+        "sectionEval_smul",
+        "sectionProjection",
+        "sectionProjection_coe",
+        "sectionProjection_ideal",
+        "sectionProjection_coefficient",
+        "sectionSplit",
+        "sectionSplit_first",
+        "sectionSplit_second",
+        "sectionSplit_inverse",
+        "sectionSplit_section",
+        "polynomialMonic",
+        "sectionPolynomialFree",
+        "sectionCoordinateRegular",
+        "sectionRelation",
+        "dualGenerator_divisibility",
+        "dualGenerator",
+        "dualGenerator_spec",
+        "dualGeneratorUnique",
+        "dualGenerator_existsUnique",
+        "sectionFirst_mem",
+        "sectionSecond_mem",
+        "dualGeneratorValues",
+        "dualCorrectionMap",
+        "dualCorrectionMap_apply",
+        "dualCorrectionMap_spec",
+        "dualCorrectionMap_product",
+        "dualCorrectionMap_values",
+        "dualScalarCorrection",
+        "dualScalarCorrectionConstants",
+        "dualScalarCorrectionUnique",
+        "dualCorrectionMap_coefficient"
+      ],
+      "extraction": {
+        "exitCode": 0,
+        "errors": 0,
+        "warnings": 0,
+        "wallSeconds": 4.6,
+        "maxResidentKiB": 2856376,
+        "examples": 16,
+        "axiomPrints": 34,
+        "hasSorryAx": false,
+        "sourceLines": 539,
+        "sourceSha256": "6f9da32441bc234d7b32ee00cd2342c33176a81a8c50d9c45211f403589840f8",
+        "normalizedDiagnosticsSha256": "0e5855c121d826fc8b49f03713de82452435d1aa2d097dbf619800a726d103e2",
+        "availableMemoryGiB": 65
+      },
+      "boundary": "Actual untruncated polynomial quotient, native coordinate ideal and inherited coefficient scalars, over every commutative coefficient ring including zero. Thirteen previous splitting declarations and 21 monicity/freeness/regularity/dual-generator/correction declarations have checked proof bodies. Normal coordinates of the dual, cokernels, Hom/Ext exchange, tensor/completion interfaces and global geometry remain open. The custom-presentation legacy sign test remains admitted; a new canonical sign fixture is proved.",
+      "signatureParity": {
+        "canonicalHeadersCompared": 34,
+        "newExampleHeadersCompared": 4,
+        "mismatches": [],
+        "normalization": "Whitespace, lemma/theorem keyword and expansion of the local second-coordinate notation only."
+      },
+      "atlasProjection": {
+        "actualAssembler": true,
+        "declarations": 133,
+        "planets": 35,
+        "ownSkippedLinks": [],
+        "stageDAG": {
+          "vertices": 3050,
+          "edges": 8750,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 133,
+          "edges": 303,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3148,
+          "edges": 9300,
+          "acyclic": true
+        },
+        "reachableDeclarations": 133,
+        "externalDeclarations": [],
+        "requiredStagePairsReachable": 81,
+        "stageEdgesUnchanged": true,
+        "otherSkipsMatchOriginal": true,
+        "unchangedNodeObjects": 119,
+        "scriptSha256": "892326134dc1670e5b1a4f0f19fa7b19827939fa8c5e16a5523186322031a592"
+      },
+      "preservation": "All125 inherited IDs, kinds, mathematical statements, hypotheses, API/test contracts, acceptance, sources, uses and unchecked statuses retained. All135 requests,14 gaps,35 planets, source/version/consumer/key/restructure/import metadata and old73 baseline entries retained.119 old node objects unchanged; six old objects have dependency/proof/name/API/test additions. Roadmap definition unchanged."
     }
   },
   "upstreamImportEncoding": {
@@ -14265,6 +15810,16 @@
       "url": "https://arxiv.org/html/1106.1588v2",
       "scope": "Introduction base-change requirement and full §3 Key Example, including the complete Proposition3.1 and Corollary3.2 proofs, parsed primary HTML. No whole-paper, screenshot, PDF acquisition/hash, or Bourbaki/Eisenbud proof audit claimed.",
       "use": "Motivates native section generators and regularity. Arbitrary-ring coefficient naturality is a checked authored deduction, not a weakening of the printed geometric/relative-reflexivity hypotheses."
+    },
+    {
+      "sourceId": "knudsen2012",
+      "reader": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "url": "https://arxiv.org/html/1106.1588v2",
+      "sha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
+      "pdfSha256": "de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36",
+      "scope": "Fresh complete §3 setup, Proposition3.1, Corollary3.2 and their proofs, primary HTML and PDF printed pp.11–13. No fresh full paper, Eisenbud/Bourbaki proof audit or visual PDF reading claimed.",
+      "use": "Prescribed signs and native polynomial cokernel comparisons. The arbitrary-commutative-ring proof below is an authored coordinate calculation; geometric/relative stable-reflexivity and completion conclusions are separate."
     }
   ],
   "coefficientChangeContinuation": {
@@ -14594,5 +16149,104 @@
     },
     "sourceHtmlSha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
     "archiveRevision": "67f27b2557f3a8c9e86d309f83ebd93e878ac77e"
+  },
+  "matrixPresentationContinuation": {
+    "agent": "Codex",
+    "session": "codex-5ebb6f",
+    "issue": 3342,
+    "claimComment": 5962692534,
+    "botConfirmation": 5962693822,
+    "base": "f6de888f4ad723d376d77b66fa8486d538bd1aeb",
+    "status": "partial checkpoint",
+    "addedNodes": [
+      "StableReductionPartII:MC.2/section-ideal-syzygy",
+      "StableReductionPartII:MC.2/polynomial-coordinate-first-generator",
+      "StableReductionPartII:MC.2/polynomial-coordinate-coefficient",
+      "StableReductionPartII:MC.2/polynomial-coordinate-root",
+      "StableReductionPartII:MC.2/polynomial-coordinate-numerator-multiplication",
+      "StableReductionPartII:MC.2/section-dual-syzygy",
+      "StableReductionPartII:MC.2/section-ideal-presentation",
+      "StableReductionPartII:MC.2/section-ideal-presentation-formula",
+      "StableReductionPartII:MC.2/section-ideal-presentation-surjective",
+      "StableReductionPartII:MC.2/section-matrix-right-action",
+      "StableReductionPartII:MC.2/section-matrix-left-action",
+      "StableReductionPartII:MC.2/section-ideal-presentation-kernel",
+      "StableReductionPartII:MC.2/section-dual-presentation",
+      "StableReductionPartII:MC.2/section-dual-presentation-formula",
+      "StableReductionPartII:MC.2/section-dual-presentation-surjective",
+      "StableReductionPartII:MC.2/section-dual-presentation-zero",
+      "StableReductionPartII:MC.2/section-dual-presentation-kernel",
+      "StableReductionPartII:MC.2/section-ideal-cokernel-generators",
+      "StableReductionPartII:MC.2/section-ideal-cokernel-unique",
+      "StableReductionPartII:MC.2/section-dual-cokernel-generators",
+      "StableReductionPartII:MC.2/section-dual-cokernel-unique",
+      "StableReductionPartII:MC.2/section-complex-left-exact",
+      "StableReductionPartII:MC.2/section-complex-right-exact",
+      "StableReductionPartII:MC.2/section-matrix-transpose-left-action",
+      "StableReductionPartII:MC.2/section-matrix-transpose-right-action",
+      "StableReductionPartII:MC.2/section-complex-transpose-left-exact",
+      "StableReductionPartII:MC.2/section-complex-transpose-right-exact"
+    ],
+    "preservedStatementContracts": 161,
+    "unchangedNodeObjects": 157,
+    "newTests": 12,
+    "actualProof": {
+      "exit": 0,
+      "seconds": 14.21,
+      "sha256": "4d9ee3521709621d23e6d2497febba0e72aa6e462806351440a2a30b1614dddc",
+      "lines": 2084,
+      "audits": 128,
+      "examples": 58,
+      "availableGiB": 52,
+      "peakRSSKiB": 3176164,
+      "warnings": 0,
+      "admissions": 0,
+      "diagnosticsSha256": "db0150adb2d6cdbe86cb7a1d8bfa6792f00f8cfaf405323ff1851434882f31e8"
+    },
+    "fullSuggested": {
+      "exit": 0,
+      "seconds": 18.11,
+      "sha256": "a418ae9c20eed4bc956d20a3ef506bee558f7377197fc6455cf90e750d98a473",
+      "lines": 2167,
+      "examples": 120,
+      "availableGiB": 52,
+      "peakRSSKiB": 3030032,
+      "expectedAdmissionWarnings": 290,
+      "otherWarnings": 0,
+      "diagnosticsSha256": "c3de4d2f31ca8a1cd6b4412b02eb1cf951e1e8d6b05c61bf40b6699d914c602a"
+    },
+    "assembler": {
+      "actualAssembler": true,
+      "declarations": 188,
+      "planets": 35,
+      "ownSkippedLinks": [],
+      "stageDAG": {
+        "vertices": 3050,
+        "edges": 8750,
+        "acyclic": true
+      },
+      "ownDeclarationDAG": {
+        "vertices": 188,
+        "edges": 458,
+        "acyclic": true
+      },
+      "stagesAndReachableDeclarations": {
+        "vertices": 3203,
+        "edges": 9510,
+        "acyclic": true
+      },
+      "reachableDeclarations": 188,
+      "externalDeclarations": [],
+      "unresolved": [],
+      "requiredStagePairsReachable": 81,
+      "stageEdgesUnchanged": true,
+      "ownPendingLinks": [],
+      "otherPendingLinksMatchOriginal": true,
+      "otherSkipsMatchOriginal": true,
+      "unchangedNodeObjects": 157,
+      "scriptSha256": "b9fbb9a330908132d997e0a3f83a2de0bbc23f23ecf185b5829501d1d976109b"
+    },
+    "archiveCommit": "5cf0343f7edeab7223ed8366d75a3a502e7b0181",
+    "boundary": "Ordinary alternating and transpose exactness and both prescribed native polynomial cokernels are checked. Arbitrary-module tensor/Hom/Ext, biduality, completion and family/stack geometry remain open; all implementation statuses unchecked."
   }
 }

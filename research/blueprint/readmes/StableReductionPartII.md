@@ -10,13 +10,16 @@ traits. Here those objects become moduli groupoids and stack morphisms; the
 parent is imported rather than planned a second time. Stable-map moduli are
 not constructed in this continuation.
 
-Every stage is partial. The packet records 161 declaration nodes, 181 distinct
-API names (183 entries across all nodes; 182 definition/construction entries), 168 definition/construction tests plus two exactness
-tests, 35 planets, 135 precise supplier requests, fourteen gaps and 98 inspected
-pinned-library declarations. Every implementation status remains unchecked.
-The complete canonical suggested file is an admitted plan. Separate native
-proof checks establish the section-dual calculation described below; they do
-not close the moduli stages or turn supplier specifications into built theorems.
+Every stage is partial. The packet records 188 declaration nodes, 187 distinct
+API names (189 entries across all nodes; 188 definition/construction entries),
+178 definition/construction tests and 182 tests on all nodes, 35 planets,
+135 precise supplier requests, fourteen gaps and 104 inspected pinned-library
+declarations. Every implementation status remains unchecked. The complete
+canonical suggested file is an admitted plan. The separate native proof checks
+establish the actual polynomial section algebra and now both specified matrix
+cokernel comparisons and the ordinary and transposed alternating complex.
+They do not close any moduli stage or establish arbitrary-module Hom/Ext,
+tensor/completion or actual family/stack comparisons.
 
 The two binding routes contribute nineteen Yuan items and two DGH items.
 The reserved moduli-curves node also serves the six key-definition consumers.
@@ -25,6 +28,93 @@ Chow-ring presentations remain with their existing consumer owners. The source
 proofs and missing foundations listed below must be reconciled before any stage
 can be called source_decomposed or closed.
 
+
+## The two polynomial matrix presentations
+
+This continuation checks ordinary module exactness and the prescribed cokernel
+maps in the actual polynomial node model. It contributes 27 declaration-sized
+items: two ordered syzygies, two actual presentation maps and their APIs,
+six promoted coordinate/cokernel API lemmas, the four matrix action formulas,
+and the separate alternating and transposed exactness lemmas. These are local
+algebra inputs to MC.2. The packet remains a plan with unchecked implementations.
+
+Let A be any commutative ring, including the zero ring. For γ,δ,s,t∈A set
+q(x,y)=x²+γxy+δy² and R=AdjoinRoot(F), where
+F=X²+C(γY)X+C(δY²−q(s,t)). Write u=[X], v=[Y], ι:A→R,
+c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδv+ιδ·ιt+ιγu.
+The actual ideal is J=(c,d), and D=Hom_R(J,R). The existing native coordinate
+equivalence E:R≃A[Y]×A[Y] has inverse (p,q₁)↦of(p)+u·of(q₁).
+It proves that d is regular, and the polynomial relation gives cb+da=0.
+The already characterized ε∈D satisfies dε(j)=bj, ε(c)=−a and ε(d)=b.
+
+The matrices are ordered as Φ=((a,b),(−c,d)) and Ψ=((d,−b),(c,a)).
+Their actions and those of their transposes are separate consumed lemmas.
+The presentations use native linear maps and native module quotients:
+
+| Presentation | Formula on a vector z | Kernel | Cokernel comparison |
+| --- | --- | --- | --- |
+| P_J:R²→J | cz₀−dz₁ | im Ψ | coker Ψ≃J, [z]↦cz₀−dz₁ |
+| P_D:R²→D | z₀·incl−z₁·ε | im Φ | coker Φ≃D, [z]↦z₀·incl−z₁·ε |
+
+The negative second generator is part of both contracts. In particular,
+the second basis class represents −d in J and −ε in D. For the dual comparison
+the denominator-free formula is d e_D([z])(j)=(dz₀−bz₁)j.
+It does not require a chosen fraction ring. Both maps are surjective:
+write a span element as xc+yd to get P_J(x,−y), and use the established dual
+normal form h=r·incl+ια·ε to get P_D(r,−ια).
+The existing Mathlib first isomorphism theorem constructs the equivalences
+after transport along the separately proved kernel equalities. Quotient
+induction proves their uniqueness; regularity of d proves pointwise uniqueness
+for the dual. Generic quotient and first-isomorphism theory are imported.
+
+The first syzygy is: cx=dy implies x=dr+ιαb and y=cr−ιαa for some
+r∈R and α∈A. If E(x)=(p,q₁), the second coordinate evaluated at Y=t gives
+p(t)=(s+γt)q₁(t). Put α=q₁(t), divide the two coordinate polynomials after
+subtracting their values at t by Y−t, and reconstruct r. The identity
+E(b)=(C(s+γt),1) gives x=dr+ιαb. Substitution and cancellation of d give
+the second equality. Hence ker P_J=im Ψ, with the explicit preimage (r,−ια).
+
+The second syzygy is: dx=by implies x=br−ιαa and y=dr+ιαc.
+Now the second coordinate of by, evaluated at t, forces p(t)=−s q₁(t)
+for E(y)=(p,q₁). The promoted formula E(c)=(−Cs,1) gives y=dr+ιαc.
+Cancellation gives x=br−ιαa. Thus ker P_D=im Φ, with preimage (−ια,r).
+The characterization P_D(z)=0 iff dz₀=bz₁ is checked on the actual dual:
+evaluate on d in one direction; multiply every evaluation by d and cancel
+in the other direction.
+
+The second coordinate of Φz and first coordinate of Ψz reduce ordinary
+exactness to these two presentation kernels. For the transposed left matrix,
+its second coordinate gives d(−z₁)=bz₀; the second syzygy yields
+z=Ψᵀ(r,ια). For the transposed right matrix its first coordinate gives
+c(−z₁)=dz₀; the first syzygy yields z=Φᵀ(−ια,−r).
+The reverse containments are direct calculations from cb+da=0.
+All four kernel/image equalities therefore hold without assuming them from
+the matrix product identity.
+
+Fresh source scope is [Knudsen, §3](https://arxiv.org/html/1106.1588v2#S3),
+including the full setup and Proposition 3.1/Corollary 3.2 proofs, also read
+in the primary PDF on printed pp.11–13. Knudsen assumes noetherian A and
+unit discriminant in that passage. The arbitrary coefficient-ring range here
+is an authored coordinate proof, checked in native Lean. It does not extend
+the published relative stable-reflexivity, completion or family conclusions.
+
+Twelve new proof examples exercise both actual presentations on their two
+basis vectors and zero, the constructed ideal comparison over Z/4 and the
+zero ring, the constructed dual comparison over Z/3 and Z/2, and actual
+ordinary/transposed exactness over Z/4 and the zero ring. They instantiate
+constructed equivalences. The inherited sign and receiving-ring counterexamples
+remain. Existing planets are retained; these consumed algebra lemmas do not
+introduce duplicate display targets.
+
+The next algebra input is arbitrary coefficient-module tensor exactness.
+Use the two cokernel comparisons and coefficient projectivity/freeness to
+identify the image modules and obtain the required split exact sequences
+over A before tensoring with an arbitrary A-module M. Check torsion M=Z/2
+over Z explicitly. Actual module-valued Hom exchange, bidual evaluation and
+higher Ext need their own natural maps and proofs. No conclusion about these,
+adic completion, completed-local approximation or actual nodal-family sheaves
+is inferred from ordinary matrix exactness. All eight moduli stages, fourteen
+gaps and 135 supplier requests remain open.
 
 The polynomial model in MC.2 uses the native quotient, ideal and coefficient
 scalar tower. This checkpoint retains the actual A-linear ideal projection
