@@ -34,6 +34,9 @@ import Mathlib.RingTheory.KrullDimension.Module
 import Mathlib.RingTheory.Finiteness.Ideal
 import Mathlib.RingTheory.Ideal.Operations
 import Mathlib.RingTheory.MvPowerSeries.Basic
+import Mathlib.RingTheory.MvPowerSeries.Order
+import Mathlib.RingTheory.MvPowerSeries.NoZeroDivisors
+import Mathlib.LinearAlgebra.Quotient.Basic
 import Mathlib.RingTheory.Support
 import Mathlib.Algebra.Polynomial.Roots
 import Mathlib.Data.ENat.Basic
@@ -1808,4 +1811,121 @@ example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
       (a : adicGradedRing q) • x = 0 := by sorry
 
 end AdicGrading
+end TauCeti.HilbertSamuel
+
+/-! Finite-variable jet adapters for the plane-curve handoff.
+The variable ideal is the algebraic span of the native variables, not a
+new local-ring carrier. Injectivity needs exact finite order and a
+no-zero-divisors coefficient ring. All six planned nodes remain unchecked. -/
+namespace TauCeti.HilbertSamuel
+noncomputable section Jets
+variable {σ k : Type*} [Finite σ] [CommRing k]
+local notation "R" => MvPowerSeries σ k
+local notation "v" => (Ideal.span (Set.range (MvPowerSeries.X : σ → R)))
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order
+lemma mem_variableIdeal_pow_iff (g : R) (r : ℕ) :
+    g ∈ v ^ r ↔ (r : ℕ∞) ≤ g.order := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-denominator
+lemma shiftedJet_denominator (f : R) (d N : ℕ) (hN : d ≤ N)
+    (hd : (d : ℕ∞) ≤ f.order) :
+    (v ^ (N + 1 - d) : Submodule R R) ≤
+      Submodule.comap (LinearMap.mulLeft R f) (v ^ (N + 1) : Submodule R R) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-map
+def shiftedJetMap (f : R) (d N : ℕ) (hN : d ≤ N)
+    (hd : (d : ℕ∞) ≤ f.order) :
+    (R ⧸ v ^ (N + 1 - d)) →ₗ[R] (R ⧸ v ^ (N + 1)) :=
+  Submodule.mapQ _ _ (LinearMap.mulLeft R f) (shiftedJet_denominator f d N hN hd)
+
+lemma shiftedJetMap_apply (f : R) (d N : ℕ) (hN : d ≤ N)
+    (hd : (d : ℕ∞) ≤ f.order) (g : R) :
+    shiftedJetMap f d N hN hd
+      (Submodule.mkQ (v ^ (N + 1 - d)) g) =
+      Submodule.mkQ (v ^ (N + 1)) (f * g) := rfl
+
+def jetProjection (f : R) (N : ℕ) :
+    (R ⧸ v ^ (N + 1)) →ₗ[R]
+      (R ⧸ (Ideal.span {f} ⊔ v ^ (N + 1))) :=
+  Submodule.factor (show (v ^ (N + 1) : Submodule R R) ≤
+    (Ideal.span {f} ⊔ v ^ (N + 1)) from le_sup_right)
+
+omit [Finite σ] in
+lemma jetProjection_apply (f : R) (N : ℕ) (g : R) :
+    jetProjection f N (Submodule.mkQ (v ^ (N + 1)) g) =
+      Submodule.mkQ (Ideal.span {f} ⊔ v ^ (N + 1)) g := rfl
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-injective
+lemma shiftedJetMap_injective [NoZeroDivisors k] (f : R) (d N : ℕ)
+    (hN : d ≤ N) (hd : f.order = (d : ℕ∞)) :
+    Function.Injective (shiftedJetMap f d N hN hd.ge) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-exact
+lemma shiftedJetMap_exact (f : R) (d N : ℕ) (hN : d ≤ N)
+    (hd : (d : ℕ∞) ≤ f.order) :
+    LinearMap.range (shiftedJetMap f d N hN hd) =
+      LinearMap.ker (jetProjection f N) ∧
+      Function.Surjective (jetProjection f N) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/jet-below-equation-order
+lemma jetProjection_below_order (f : R) (d N : ℕ)
+    (hN : N < d) (hd : (d : ℕ∞) ≤ f.order) :
+    Ideal.span {f} ⊔ v ^ (N + 1) = v ^ (N + 1) ∧
+      Function.Bijective (jetProjection f N) := by sorry
+
+-- test: HilbertSamuelJetTest.linear_equation
+example :
+    let f : MvPowerSeries (Fin 2) ℚ := MvPowerSeries.X 0
+    let q : Ideal (MvPowerSeries (Fin 2) ℚ) := Ideal.span (Set.range MvPowerSeries.X)
+    ∃ hd : (1 : ℕ∞) ≤ f.order,
+      shiftedJetMap f 1 1 (by decide) hd (Submodule.mkQ (q ^ 1) 1) =
+        Submodule.mkQ (q ^ 2) f ∧ Submodule.mkQ (q ^ 2) f ≠ 0 := by sorry
+
+-- test: HilbertSamuelJetTest.unit_equation
+example (N : ℕ) :
+    ∀ hd : (0 : ℕ∞) ≤ (1 : MvPowerSeries (Fin 2) ℚ).order,
+      shiftedJetMap (1 : MvPowerSeries (Fin 2) ℚ) 0 N (Nat.zero_le N) hd =
+        LinearMap.id := by
+  intro hd
+  apply LinearMap.ext
+  intro x
+  refine Quotient.inductionOn' x ?_
+  intro g
+  simp [shiftedJetMap]
+
+-- test: HilbertSamuelJetTest.nonreduced_equation
+example :
+    let f : MvPowerSeries (Fin 2) (ZMod 2) := MvPowerSeries.X 0 ^ 4
+    let q : Ideal (MvPowerSeries (Fin 2) (ZMod 2)) := Ideal.span (Set.range MvPowerSeries.X)
+    ∃ hd : f.order = (4 : ℕ∞),
+      shiftedJetMap f 4 4 (by decide) hd.ge (Submodule.mkQ (q ^ 1) 1) =
+        Submodule.mkQ (q ^ 5) f ∧ Submodule.mkQ (q ^ 5) f ≠ 0 ∧
+        Function.Injective (shiftedJetMap f 4 4 (by decide) hd.ge) := by sorry
+
+-- test: HilbertSamuelJetTest.zero_equation
+example (d N : ℕ) (hN : d ≤ N) (hd : (d : ℕ∞) ≤ (0 : R).order) :
+    shiftedJetMap (0 : R) d N hN hd = 0 := by
+  apply LinearMap.ext
+  intro x
+  refine Quotient.inductionOn' x ?_
+  intro g
+  simp [shiftedJetMap]
+
+-- test: HilbertSamuelJetTest.small_index_not_shifted
+example :
+    let f : MvPowerSeries (Fin 2) ℚ := MvPowerSeries.X 0 ^ 4
+    let q : Ideal (MvPowerSeries (Fin 2) ℚ) := Ideal.span (Set.range MvPowerSeries.X)
+    Function.Bijective (jetProjection f 0) ∧
+      ¬ Function.Injective
+        (LinearMap.mulLeft (MvPowerSeries (Fin 2) ℚ ⧸ q)
+          (Ideal.Quotient.mk q f)) := by sorry
+
+-- test: HilbertSamuelJetTest.zero_divisor_base
+example :
+    let f : MvPowerSeries (Fin 2) (ZMod 4) := MvPowerSeries.C 2 * MvPowerSeries.X 0
+    ∃ hd : (1 : ℕ∞) ≤ f.order,
+      ¬ Function.Injective (shiftedJetMap f 1 1 (by decide) hd) := by sorry
+
+end Jets
 end TauCeti.HilbertSamuel
