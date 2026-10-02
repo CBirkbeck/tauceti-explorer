@@ -2,8 +2,9 @@
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 These statements suggest Lean forms so contributors and reviewers converge on names and
 signatures. This is a partial checkpoint; every implementation is unchecked.
-The current elaboration receipt is in the handoff. Open source-proof and baseline adapters
-are listed in the packet; admitted signatures certify no implementation.
+The predecessor elaboration receipt is in the handoff. The lifted-selector continuation
+has NOT been compiled. Open source-proof and baseline adapters are listed in the packet;
+admitted signatures certify no implementation.
 -/
 import Mathlib.Algebra.Category.CommAlgCat.FiniteType
 import Mathlib.Algebra.Category.Ring.FilteredColimits
@@ -395,5 +396,105 @@ example (I : Ideal R) :
 
 -- acceptance: the same root is multiple in characteristic two.
 example : ¬ IsUnit (((Polynomial.X ^ 2 - 1 : Polynomial (ZMod 2)).derivative).eval 1) := by sorry
+
+end TauCeti.Henselization
+
+/-!
+Lifted residue selectors, ChatGPT — gpt-6astra-20261002-c4d9.
+The five declarations below are integrated in the packet and definitive reader.
+They are uncompiled suggested signatures, not new verified implementations.
+All quotient, localization, algebra and neighbourhood carriers are existing ones.
+-/
+namespace TauCeti.Henselization
+universe v
+variable {R : Type v} [CommRing R]
+
+-- node: SchemeAndStackFoundations:SF.0/residue-selector-lifts
+/-- The selector lives in B/IB. Every lift has the required clearing property;
+no idempotence of the chosen lift in B is asserted. -/
+lemma residue_selector_lifts (I : Ideal R)
+    {B : Type v} [CommRing B] [Algebra R B] [Algebra.Etale R B]
+    (σ : B →ₐ[R] R ⧸ I) :
+    ∃ e : B ⧸ I.map (algebraMap R B), IsIdempotentElem e ∧
+      ∀ g : B, Ideal.Quotient.mk (I.map (algebraMap R B)) g = e →
+        σ g = 1 ∧ ∀ b : B, σ b = 0 → g * b ∈ I.map (algebraMap R B) := by
+  sorry
+
+-- node: SchemeAndStackFoundations:SF.0/localized-residue-kernel
+/-- The map is the native localization lift of the given residue section.
+Neither etaleness nor an idempotent hypothesis is needed for this algebra lemma. -/
+lemma localized_residue_kernel (I : Ideal R)
+    {B : Type v} [CommRing B] [Algebra R B]
+    (σ : B →ₐ[R] R ⧸ I) (g : B) (hg : σ g = 1)
+    (hclear : ∀ b : B, σ b = 0 → g * b ∈ I.map (algebraMap R B)) :
+    let ρ : Localization.Away g →ₐ[R] R ⧸ I :=
+      IsLocalization.Away.liftAlgHom g (f := σ) (by rw [hg]; exact isUnit_one)
+    RingHom.ker ρ.toRingHom = I.map (algebraMap R (Localization.Away g)) := by
+  sorry
+
+-- node: SchemeAndStackFoundations:SF.0/localized-residue-equivalence
+/-- The specified equivalence inverts the canonical reduction map and agrees
+with the original section on every source element. It is not an arbitrary
+isomorphism of residue rings. -/
+lemma localized_residue_equiv (I : Ideal R)
+    {B : Type v} [CommRing B] [Algebra R B]
+    (σ : B →ₐ[R] R ⧸ I) (g : B) (hg : σ g = 1)
+    (hclear : ∀ b : B, σ b = 0 → g * b ∈ I.map (algebraMap R B)) :
+    ∃! E : (Localization.Away g ⧸ I.map (algebraMap R (Localization.Away g))) ≃ₐ[R]
+        R ⧸ I,
+      (∀ b : B,
+        E (Ideal.Quotient.mk (I.map (algebraMap R (Localization.Away g)))
+          (algebraMap B (Localization.Away g) b)) = σ b) ∧
+      E.toRingEquiv.toRingHom.comp
+        (reducedMap I (CommAlgCat.of R (Localization.Away g))) = RingHom.id (R ⧸ I) := by
+  sorry
+
+-- node: SchemeAndStackFoundations:SF.0/etale-residue-neighbourhood
+/-- Shrink an etale algebra around its actual residue section. -/
+lemma exists_residue_neighbourhood (I : Ideal R)
+    {B : Type v} [CommRing B] [Algebra R B] [Algebra.Etale R B]
+    (σ : B →ₐ[R] R ⧸ I) :
+    ∃ g : B, σ g = 1 ∧
+      (∀ b : B, σ b = 0 → g * b ∈ I.map (algebraMap R B)) ∧
+      IsNeighbourhood I (CommAlgCat.of R (Localization.Away g)) := by
+  sorry
+
+-- node: SchemeAndStackFoundations:SF.0/neighbourhood-composition
+/-- Composition uses the actual scalar tower and canonical residue maps. -/
+lemma isNeighbourhood_tower (I : Ideal R) (B D : CommAlgCat.{v} R)
+    [Algebra B D] [IsScalarTower R B D]
+    (hB : IsNeighbourhood I B)
+    (hD : IsNeighbourhood (I.map (algebraMap R B)) (CommAlgCat.of B D)) :
+    IsNeighbourhood I D := by
+  sorry
+
+-- test: TauCeti.Henselization.neighbourhood_lifted_selector
+example :
+    let g : ℤ × ℤ := (6, 5)
+    ¬ IsIdempotentElem g ∧
+      IsNeighbourhood (Ideal.span {(5 : ℤ)})
+        (CommAlgCat.of ℤ (Localization.Away g)) := by
+  sorry
+
+-- test: TauCeti.Henselization.neighbourhood_lifted_selector_nonreduced
+example :
+    let g : ZMod 25 × ZMod 25 := (6, 5)
+    ¬ IsIdempotentElem g ∧
+      IsNeighbourhood (Ideal.span {(5 : ZMod 25)})
+        (CommAlgCat.of (ZMod 25) (Localization.Away g)) := by
+  sorry
+
+-- test: TauCeti.Henselization.neighbourhood_reject_all_sheets
+example :
+    let g : ℤ × ℤ := (1, 1)
+    ¬ IsNeighbourhood (Ideal.span {(5 : ℤ)})
+      (CommAlgCat.of ℤ (Localization.Away g)) := by
+  sorry
+
+-- test: TauCeti.Henselization.neighbourhood_unit_ideal_zero
+example :
+    IsNeighbourhood (⊤ : Ideal R)
+      (CommAlgCat.of R (Localization.Away (0 : R))) := by
+  sorry
 
 end TauCeti.Henselization
