@@ -724,6 +724,76 @@ example (c : Z1 G U) (hc hc' : ∀ n ∈ N, c n = 1) :
     descendEquiv N ⟨c,hc⟩ = descendEquiv N ⟨c,hc'⟩ := by sorry
 
 end Z1
+
+-- Actual H¹ inflation continuation — Codex codex-rtOQ9t.
+section QuotientH1
+variable {G : Type u} [Group G] [TopologicalSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+  [IsTopologicalGroup U] [ContinuousSMul G U]
+  (N : Subgroup G) [N.Normal]
+  [ContinuousSMul (G ⧸ N) (FixedPoints.subgroup N U)]
+
+lemma Z1.inflate_smul (x : FixedPoints.subgroup N U)
+    (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    Z1.inflate N (x • d) = x.val • Z1.inflate N d := by sorry
+
+lemma Z1.inflate_gauge_iff (d e : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    (∃ x : U, x • Z1.inflate N d = Z1.inflate N e) ↔
+      ∃ x : FixedPoints.subgroup N U, x • d = e := by sorry
+
+namespace H1
+
+def inflate : H1 (G ⧸ N) (FixedPoints.subgroup N U) → H1 G U := by sorry
+
+lemma inflate_mk (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    inflate N (mk d) = mk (Z1.inflate N d) := by sorry
+
+lemma inflate_one : inflate N (1 : H1 (G ⧸ N) (FixedPoints.subgroup N U)) = 1 := by sorry
+
+lemma inflate_injective :
+    Function.Injective (inflate N : H1 (G ⧸ N) (FixedPoints.subgroup N U) → H1 G U) := by sorry
+
+lemma inflate_eq_one_iff (a : H1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    inflate N a = 1 ↔ a = 1 := by sorry
+
+end H1
+-- test: TauCeti.NonabelianCohomology.H1.inflate.test_one
+example : H1.inflate N (1 : H1 (G ⧸ N) (FixedPoints.subgroup N U)) = 1 := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.inflate.test_gauge
+example (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) (x : FixedPoints.subgroup N U) :
+    H1.inflate N (H1.mk (x • d)) = H1.inflate N (H1.mk d) := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.inflate.test_neutral_reflection
+example (a : H1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    H1.inflate N a = 1 ↔ a = 1 := by sorry
+
+end QuotientH1
+
+-- test: TauCeti.NonabelianCohomology.H1.inflate.test_nonabelian_transposition
+example :
+    let G := Equiv.Perm (Fin 2)
+    let U := Equiv.Perm (Fin 3)
+    letI : TopologicalSpace G := ⊥
+    letI : TopologicalSpace U := ⊥
+    letI : DiscreteTopology G := ⟨rfl⟩
+    letI : DiscreteTopology U := ⟨rfl⟩
+    letI : IsTopologicalGroup U := inferInstance
+    letI : MulDistribMulAction G U := {
+      smul := fun _ x => x
+      one_smul := fun _ => rfl
+      mul_smul := fun _ _ _ => rfl
+      smul_one := fun _ => rfl
+      smul_mul := fun _ _ _ => rfl }
+    letI : ContinuousSMul G U := ⟨continuous_snd⟩
+    let N : Subgroup G := ⊥
+    letI : ContinuousSMul (G ⧸ N) (FixedPoints.subgroup N U) :=
+      ⟨continuous_of_discreteTopology⟩
+    let c : Z1 G U := ⟨fun g => if g = 1 then 1 else Equiv.swap 0 1,
+      continuous_of_discreteTopology, by sorry⟩
+    let d := Z1.descend N c (by sorry)
+    H1.inflate N (H1.mk d) ≠ 1 := by sorry
+
 end TauCeti.NonabelianCohomology
 
 /-!
