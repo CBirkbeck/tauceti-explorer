@@ -28387,3 +28387,186 @@ example :
     (kubertParityOperator (X := X) S w 1).range ≤ (kubertParityOperator (X := X) S w (-1)).ker := by sorry
 
 end DirichletPadic.SuggestedKubertParityOperatorsTests
+
+/- Actual order-two point action and integral norm comparison. -/
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+universe u
+variable {X : Type u} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+noncomputable def kubertSignRepresentation :
+    Representation ℤ (Multiplicative (ZMod 2)) (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) := by sorry
+
+lemma kubertSignRepresentation_one_apply (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) : kubertSignRepresentation S w 1 z=z := by sorry
+
+lemma kubertSignRepresentation_generator (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertSignRepresentation S w (Multiplicative.ofAdd (1 : ZMod 2)) z = kubertQuotientNegation S w z := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+universe u
+
+lemma kubertSignGroup_cases (g : Multiplicative (ZMod 2)) : g=1 ∨ g=Multiplicative.ofAdd (1 : ZMod 2) := by sorry
+
+lemma kubertSignGroup_generator (g : Multiplicative (ZMod 2)) : g ∈ Subgroup.zpowers (Multiplicative.ofAdd (1 : ZMod 2)) := by sorry
+
+variable {X : Type u} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+lemma kubertSignRepresentation_generator_of (a : X) :
+    kubertSignRepresentation S w (Multiplicative.ofAdd (1 : ZMod 2))
+      (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of a)) =
+      QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a)) := by sorry
+
+lemma kubertSignRepresentation_norm_apply (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    (kubertSignRepresentation S w).norm z = z+kubertQuotientNegation S w z := by sorry
+
+lemma kubertSignRepresentation_norm_operator :
+    (kubertSignRepresentation (X := X) S w).norm =
+      (kubertParityOperator (X := X) S w (-1)).toIntLinearMap := by sorry
+
+lemma kubertSignRepresentation_difference_operator :
+    kubertSignRepresentation (X := X) S w (Multiplicative.ofAdd (1 : ZMod 2)) - LinearMap.id =
+      (kubertParityOperator (X := X) S w 1).toIntLinearMap := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+universe u v t
+variable {X : Type u} [AddCommGroup X] {Y : Type v} [AddCommGroup Y]
+variable {Z : Type t} [AddCommGroup Z]
+variable (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+variable [∀ (n : S) (a : Y), Fintype {b : Y // (n.val : ℕ) • b=a}]
+variable [∀ (n : S) (a : Z), Fintype {b : Z // (n.val : ℕ) • b=a}]
+
+lemma kubertSignRepresentation_unique (ρ : Representation ℤ (Multiplicative (ZMod 2)) (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w))
+    (hρ : ∀ z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w), ρ (Multiplicative.ofAdd (1 : ZMod 2)) z=kubertQuotientNegation S w z) :
+    ρ=kubertSignRepresentation S w := by sorry
+
+noncomputable def kubertSignIntertwining (e : X ≃+ Y) :
+    Representation.IntertwiningMap (kubertSignRepresentation (X := X) S w)
+      (kubertSignRepresentation (X := Y) S w) := by sorry
+
+lemma kubertSignIntertwining_toLinearMap (e : X ≃+ Y) :
+    (kubertSignIntertwining S w e).toLinearMap=(kubertQuotientEquiv S w e).toIntLinearEquiv.toLinearMap := by sorry
+
+lemma kubertSignIntertwining_bijective (e : X ≃+ Y) : Function.Bijective (kubertSignIntertwining S w e) := by sorry
+
+lemma kubertSignIntertwining_refl : kubertSignIntertwining S w (AddEquiv.refl X) =
+    Representation.IntertwiningMap.id (kubertSignRepresentation (X := X) S w) := by sorry
+
+lemma kubertSignIntertwining_trans (e : X ≃+ Y) (f : Y ≃+ Z) :
+    kubertSignIntertwining S w (e.trans f) = (kubertSignIntertwining S w f).comp (kubertSignIntertwining S w e) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertSignRepresentationTests
+open scoped Classical BigOperators
+noncomputable section
+universe u
+-- generator_moves_actual_point_label
+example : kubertSignRepresentation (∅ : Set ℕ+) 0 (Multiplicative.ofAdd (1 : ZMod 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5)))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5))) := by sorry
+-- norm_doubles_zero_generator_integrally
+example : (kubertSignRepresentation (∅ : Set ℕ+) 0).norm (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5)))=2 • (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5))) ∧ (kubertSignRepresentation (∅ : Set ℕ+) 0).norm (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5)))≠0 := by sorry
+-- point_action_is_not_scalar_minus_one
+example : kubertSignRepresentation (∅ : Set ℕ+) 0 (Multiplicative.ofAdd (1 : ZMod 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5)))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5))) ∧ kubertSignRepresentation (∅ : Set ℕ+) 0 (Multiplicative.ofAdd (1 : ZMod 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5)))≠-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 5))) := by sorry
+-- intertwiner_signed_difference
+example : kubertSignIntertwining (∅ : Set ℕ+) 0 (AddEquiv.neg (ZMod 5)) ((QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 5))))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (3 : ZMod 5))) := by sorry
+-- intertwiner_inverse_roundtrip
+example (z : FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) : kubertSignIntertwining (∅ : Set ℕ+) 0 (AddEquiv.neg (ZMod 5)) (kubertSignIntertwining (∅ : Set ℕ+) 0 (AddEquiv.neg (ZMod 5)) z)=z := by sorry
+-- intertwiner_preserves_actual_norm
+example : kubertSignIntertwining (∅ : Set ℕ+) 0 (AddEquiv.neg (ZMod 5)) ((kubertSignRepresentation (∅ : Set ℕ+) 0).norm (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5))))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4 : ZMod 5)))+(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 5))) := by sorry
+end
+end DirichletPadic.SuggestedKubertSignRepresentationTests
+namespace DirichletPadic.SuggestedKubertSignRepresentationTests
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+universe u
+variable {X : Type u} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+-- signRepresentation_one_apply_typed_api
+example (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) : kubertSignRepresentation S w 1 z=z := by sorry
+
+-- signRepresentation_generator_typed_api
+example (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertSignRepresentation S w (Multiplicative.ofAdd (1 : ZMod 2)) z = kubertQuotientNegation S w z := by sorry
+
+end DirichletPadic.SuggestedKubertSignRepresentationTests
+
+namespace DirichletPadic.SuggestedKubertSignRepresentationTests
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+universe u
+
+-- signGroup_cases_typed_api
+example (g : Multiplicative (ZMod 2)) : g=1 ∨ g=Multiplicative.ofAdd (1 : ZMod 2) := by sorry
+
+-- signGroup_generator_typed_api
+example (g : Multiplicative (ZMod 2)) : g ∈ Subgroup.zpowers (Multiplicative.ofAdd (1 : ZMod 2)) := by sorry
+
+variable {X : Type u} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+-- signRepresentation_generator_of_typed_api
+example (a : X) :
+    kubertSignRepresentation S w (Multiplicative.ofAdd (1 : ZMod 2))
+      (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of a)) =
+      QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a)) := by sorry
+
+-- signRepresentation_norm_apply_typed_api
+example (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    (kubertSignRepresentation S w).norm z = z+kubertQuotientNegation S w z := by sorry
+
+-- signRepresentation_norm_operator_typed_api
+example :
+    (kubertSignRepresentation (X := X) S w).norm =
+      (kubertParityOperator (X := X) S w (-1)).toIntLinearMap := by sorry
+
+-- signRepresentation_difference_operator_typed_api
+example :
+    kubertSignRepresentation (X := X) S w (Multiplicative.ofAdd (1 : ZMod 2)) - LinearMap.id =
+      (kubertParityOperator (X := X) S w 1).toIntLinearMap := by sorry
+
+end DirichletPadic.SuggestedKubertSignRepresentationTests
+
+namespace DirichletPadic.SuggestedKubertSignRepresentationTests
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+universe u v t
+variable {X : Type u} [AddCommGroup X] {Y : Type v} [AddCommGroup Y]
+variable {Z : Type t} [AddCommGroup Z]
+variable (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+variable [∀ (n : S) (a : Y), Fintype {b : Y // (n.val : ℕ) • b=a}]
+variable [∀ (n : S) (a : Z), Fintype {b : Z // (n.val : ℕ) • b=a}]
+
+-- signRepresentation_unique_typed_api
+example (ρ : Representation ℤ (Multiplicative (ZMod 2)) (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w))
+    (hρ : ∀ z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w), ρ (Multiplicative.ofAdd (1 : ZMod 2)) z=kubertQuotientNegation S w z) :
+    ρ=kubertSignRepresentation S w := by sorry
+
+-- signIntertwining_toLinearMap_typed_api
+example (e : X ≃+ Y) :
+    (kubertSignIntertwining S w e).toLinearMap=(kubertQuotientEquiv S w e).toIntLinearEquiv.toLinearMap := by sorry
+
+-- signIntertwining_bijective_typed_api
+example (e : X ≃+ Y) : Function.Bijective (kubertSignIntertwining S w e) := by sorry
+
+-- signIntertwining_refl_typed_api
+example : kubertSignIntertwining S w (AddEquiv.refl X) =
+    Representation.IntertwiningMap.id (kubertSignRepresentation (X := X) S w) := by sorry
+
+-- signIntertwining_trans_typed_api
+example (e : X ≃+ Y) (f : Y ≃+ Z) :
+    kubertSignIntertwining S w (e.trans f) = (kubertSignIntertwining S w f).comp (kubertSignIntertwining S w e) := by sorry
+
+end DirichletPadic.SuggestedKubertSignRepresentationTests
