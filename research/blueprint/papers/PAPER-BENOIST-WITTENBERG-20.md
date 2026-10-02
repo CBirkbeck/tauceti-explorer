@@ -7,7 +7,9 @@ Issue [#1296](https://github.com/CBirkbeck/tauceti-explorer/issues/1296). Status
   - The author-hosted published PDF was re-fetched; its SHA-256 (daeb43ec…) matches the checkpoint.
   - Crossref registers no erratum.
 - **Items.** The result has **193 items: 7 library, 9 planned and 177 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
-- **Mistakes.** Ten are recorded under `sourceIssues`.
+- **Mistakes.** Eleven are now recorded under `sourceIssues`; the original extraction recorded E1–E10.
+
+Repair by Codex, session `codex-rtOQ9t`, 2 October 2026, for [#5510](https://github.com/CBirkbeck/tauceti-explorer/issues/5510), after independent confirmation of all three red-team findings. The item statuses, seven owners and route memberships, dependency edges and original provenance remain unchanged. The repair details and source-reading scope are in [RT-PAPER-BENOIST-WITTENBERG-20.fixes.md](../redteam/RT-PAPER-BENOIST-WITTENBERG-20.fixes.md). The extraction/checkpoint/review accounts below retain their historical attribution.
 
 ## This continuation (cc-442dc5)
 
@@ -40,14 +42,27 @@ Issue [#1296](https://github.com/CBirkbeck/tauceti-explorer/issues/1296). Status
 - **E2** (misprint; affects nothing), Inventiones mathematicae 222 (2020), §2.2, the paragraph introducing the constant classes, immediately before Example 2.5. *Printed:* k ≥ 0 *Correction:* "let k > 0 be even": both assertions fail for k = 0.
 - **E3** (error; affects a stated result), Published version, Example4.4 p.59; same data in arXiv v3 partie_1.tex lines3990–4023. *Printed:* Zariski dense *Correction:* No stable smooth complete intersection exists for the displayed action and one equation from each Λ_i. Replace the construction; its intended real-empty surface consequence remains unproved here.
 - **E4** (misprint; affects nothing), Published version, Lemma2.14 proof p.43. *Printed:* δ=ι*(γ−π*α) *Correction:* δ=−ι*(γ−π*α). The lemma and equation(2.5) retain their statements.
-- **E5** (misprint; affects nothing), Published version, §1.2.6 p.19, final ordinary real-locus pushforward. *Printed:* H^p(X(R)) *Correction:* The source of that pushforward is H^p(Y(R)), with the printed coefficient field F2; its target remains H^(p−c)(X(R)).
+- **E5** (misprint; affects nothing), Published version, §1.2.6 p.19, final ordinary real-locus pushforward. *Printed:* H^p(X(R)) *Correction:* The domain is H^p(Y(R),F2), and the target is H^(p+c)(X(R),F2), with c=dim X−dim Y. The source's positive degree shift was already correct. The earlier erratum entry introduced the negative sign; this repair corrects that entry while preserving the valid domain correction and original review history.
 - **E6** (misprint; affects nothing), Published version, Lemma3.4 proof p.48, first sentence. *Printed:* ψ *Correction:* Use ψ′ for the map whose image is M*, as in the lemma statement.
 - **E7** (misprint; affects nothing), Published version, §3.6.2 p.55, introductory definition of φ=ψ∘cl. *Printed:* Pic(X) *Correction:* The domain is CH_1(X). Pic(X)=CH_1(X) is only the surface case.
 - **E8** (misprint; affects nothing), Published version, Proposition2.15 proof p.44, last sentence. *Printed:* P^k(R) *Correction:* Use P^k(C) inside the equivariant cohomology group to which Theorem1.26 is applied.
 - **E9** (misprint; affects nothing), Published version, §2.1 p.37, sentence immediately after equation(2.1). *Printed:* H^{2k} *Correction:* Retain the subscript G in the group containing the admissible equivariant Hodge classes.
 - **E10** (gap; affects a stated result), Published version, Remarks 5.10 (i) and (ii), pp.71–72. *Printed:* CH_1(X) ≃ Z ⊕ Z/2Z ⊕ (R/Z)^30; CH_1(X)_tors ≃ Z/2Z ⊕ (Q/Z)^30 for x0⁴ + x1⁴ = x2⁴ + x3⁴ + x4⁴ *Correction:* Treat both as announced computations: (i) needs the structure of the real points of the intermediate Jacobian of the quartic threefold of Proposition 5.7, and (ii) needs the analogue of Lemma 5.9 and [29, Proposition 7.7] for the displayed Fermat-type quartic.
+- **E11** (error; affects a stated result), Published version, §1.1.4, (1.16), p.14. Finite exponent alone is insufficient for an algebraically perfect pairing: require a locally constant sheaf of finite abelian groups, with finite stalks. The cited SGA4 XVIII §3.2.6 assumes locally constant constructible Z/n coefficients. The new source record awaits its own review; the existing E1–E10 review records are retained.
 
 The reasons and the places searched are in the JSON.
+
+## Confirmed repairs (2 October 2026)
+
+**Geyer's map.** For a smooth proper geometrically integral curve B over a real closed R with no real points, Lemma 3.7 concerns the descent map `Pic(B)[2∞]→Pic(B_C)^G[2∞]`. It is onto precisely in even genus. The next arrow, the Brauer obstruction to Br(R)=F₂, is zero on that torsion in even genus and onto in odd genus. Item /geyer now uses the correct arrow; this was an extraction reversal, not a paper erratum.
+
+The anisotropic conic `x²+y²+z²=0` over ℝ is the distinguishing case: its genus is zero, its complex Picard group is Z and its invariant 2-primary torsion is zero. Descent on torsion is `0→0`, hence onto, while the obstruction restricted to torsion is `0→F₂`, hence not onto. The full Picard obstruction is different from its torsion restriction. The /phi-genus consumer was checked against the normalization/pushforward diagram on pp.49–50; it continues to detect even geometric genus. The downstream even-genus criteria retain their statements and the existing E1 dimension/real-point hypothesis.
+
+**Finite-stalk duality.** Item /semialg-duality and the shared EquivariantTopologyRealVarieties brief now require locally constant finite abelian stalks for both algebraic adjoint maps to be isomorphisms. On a point, `M=⊕_N F₂` has exponent two and dual `∏_N F₂`, but is not algebraically bidual: a nonzero functional on the product modulo the finite-support subspace vanishes on every coordinate vector and cannot be evaluation by an element of M. Finite point stalks supply the positive control. Proposition 1.10's finite G-module hypothesis and /integral-pontryagin's separate completion/topology remain unchanged. This finite-stalk restriction does not claim to close the deferred supplier-proof gap.
+
+**Pushforward degree.** The published p.19 target is `H^{p+c}(X(R),F₂)`. A real point included in P¹ has c=1 and pushes its degree-zero generator to the nonzero point class in H¹(RP¹,F₂); a negative shift would give H⁻¹=0. Item /real-push-coordinates already had the correct sign and is unchanged. Only E5's correction text and its reader copy required repair, with the former text and the reviewer's explicitly unresolved exponent retained as history.
+
+Fresh repair reading used the author-hosted published PDF, SHA-256 `daeb43ec861bd6c30564543dac796c55c7f21aa943c442f826b32613e72a46a9`, at pp.13–15,18–19,49–55, with images of pp.14,19,50 inspected. SGA4 XVIII §3.2.6 was read visually at marginal printed p.586, PDF p.78. Publisher, both author pages, Crossref and arXiv-history checks plus bounded correction searches found no relevant correction; the listed Intermediate Jacobians erratum concerns another paper. This is not an exhaustive novelty search or a fresh full-paper/preprint collation. The seven-route ownership and all 193 item statuses are retained; no new registered atlas node or dependency edge is introduced.
 
 ## Gaps: status after this continuation
 
