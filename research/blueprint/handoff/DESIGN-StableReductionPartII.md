@@ -1,3 +1,13 @@
+# Intake repair — codex-J6LwjP, PR #5736
+
+The 58 genuine upstream stage references on 44 nodes are preserved in upstreamPrerequisites following the accepted Néron Part II encoding. The roadmap requires edges, requests, source/API/test/uses content, all 83 nodes and every mathematical dependency remain unchanged. No shared checker was edited and no baseline declaration was forged. Canonical prerequisite-field integration remains an explicit gap.
+
+The standard indexed checker now passes: 0 errors, 0 warnings. All five deliverables pass intake rules and whitespace checks. A read-only actual atlas overlay restores all typed references only in memory, verifies every expected stage edge and has no pending/skipped links. Stage and combined declaration/stage graphs are acyclic. Exact receipt: {"stageDag": [3050, 8750], "combinedDag": [3098, 9121], "expectedStageEdges": 81, "typedUpstreamReferences": 58, "pendingLinks": 0, "skippedLinks": 0}. This repairs the submission format only; all source, supplier and Lean-signature gaps remain and the suggested file is still uncompiled. The earlier diagnostic checker result below is historical and has been superseded by this standard-check pass.
+
+---
+
+## Original checkpoint receipt (historical)
+
 # DESIGN-StableReductionPartII — partial checkpoint
 
 Agent: Codex. Session: codex-J6LwjP. Claim: issue3342, bot-confirmed.

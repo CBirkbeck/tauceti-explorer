@@ -219,7 +219,6 @@
         "The full range, base and auxiliary data are specified in the statement; none are suppressed by a global stable-pair convention."
       ],
       "prerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
         "SchemeAndStackFoundations:SF.1",
         "mathlib:AlgebraicGeometry.Scheme"
       ],
@@ -310,7 +309,10 @@
       ],
       "planet": {
         "name": "Moduli stacks of pointed curves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.0/pullback-coherence",
@@ -365,8 +367,7 @@
         "StableReductionPartII:MC.0/pullback-coherence",
         "SchemeAndStackFoundations:SF.1",
         "AlgebraicModuliForArithmeticGeometry:R09.3",
-        "mathlib:CategoryTheory.Pseudofunctor.IsStack",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "mathlib:CategoryTheory.Pseudofunctor.IsStack"
       ],
       "proofSteps": [
         "Descend the relatively ample log-dualizing line with the family by polarized-scheme descent.",
@@ -388,7 +389,10 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC0",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.0/universal-curve",
@@ -501,8 +505,6 @@
         "The full range, base and auxiliary data are specified in the statement; none are suppressed by a global stable-pair convention."
       ],
       "prerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
         "AlgebraicModuliForArithmeticGeometry:R09.1"
       ],
       "proofSteps": [
@@ -524,7 +526,11 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC1",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.1/tricanonical-hilbert",
@@ -540,8 +546,7 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.1/tricanonical-cohomology",
-        "AlgebraicModuliForArithmeticGeometry:R09.2",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+        "AlgebraicModuliForArithmeticGeometry:R09.2"
       ],
       "proofSteps": [
         "Use the universal flat Hilbert family with the stated polynomial.",
@@ -610,7 +615,10 @@
       ],
       "planet": {
         "name": "Tricanonical Hilbert locus"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.1/frame-torsor",
@@ -744,7 +752,6 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.1/isom-representable",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
         "SchemeAndStackFoundations:SF.0"
       ],
       "proofSteps": [
@@ -766,7 +773,10 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC1",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.1/isom-proper",
@@ -782,8 +792,6 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.1/isom-representable",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
         "SchemeAndStackFoundations:SF.0"
       ],
       "proofSteps": [
@@ -805,7 +813,11 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC1",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.1/finite-unramified-diagonal",
@@ -863,8 +875,6 @@
         "The full range, base and auxiliary data are specified in the statement; none are suppressed by a global stable-pair convention."
       ],
       "prerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
         "AlgebraicModuliForArithmeticGeometry:R09.6"
       ],
       "proofSteps": [
@@ -886,7 +896,11 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC1",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.1/versal-node-parameters",
@@ -902,7 +916,6 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.1/obstruction-vanishing",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
         "StableReductionPartII:MC.1/tricanonical-cohomology",
         "AlgebraicModuliForArithmeticGeometry:R09.6"
       ],
@@ -929,7 +942,10 @@
       },
       "planet": {
         "name": "Node-smoothing parameters"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.1/smooth-dimension",
@@ -1024,7 +1040,6 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.1/finite-unramified-diagonal",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
         "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
       "proofSteps": [
@@ -1049,7 +1064,10 @@
       },
       "planet": {
         "name": "Properness of stable moduli"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.2/binary-node-form",
@@ -1404,7 +1422,6 @@
       "prerequisites": [
         "StableReductionPartII:MC.2/pointed-node-normal-form",
         "StableReductionPartII:MC.2/node-factorization-exact",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
         "SchemeAndStackFoundations:SF.1"
       ],
       "proofSteps": [
@@ -1427,7 +1444,10 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.2/expansion",
@@ -1444,7 +1464,6 @@
       "prerequisites": [
         "StableReductionPartII:MC.0/universal-curve",
         "StableReductionPartII:MC.2/dual-section-ideal",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
         "AlgebraicModuliForArithmeticGeometry:R09.1"
       ],
       "proofSteps": [
@@ -1514,7 +1533,10 @@
       ],
       "planet": {
         "name": "Pointed expansion"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.2/expansion-flat",
@@ -1570,9 +1592,7 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.2/expansion-flat",
-        "StableReductionPartII:MC.2/expansion",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+        "StableReductionPartII:MC.2/expansion"
       ],
       "proofSteps": [
         "Identify geometric fibres by the Proj charts, including nodal and collision cases.",
@@ -1594,7 +1614,11 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.2/forget",
@@ -1610,8 +1634,6 @@
       ],
       "prerequisites": [
         "StableReductionPartII:key/moduli-curves",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
         "StableReductionPartII:MC.0/pullback-coherence"
       ],
       "proofSteps": [
@@ -1684,7 +1706,11 @@
       ],
       "planet": {
         "name": "Forgetful morphism"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.2/expansion-contraction-inverses",
@@ -1700,8 +1726,7 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.2/expansion-stable",
-        "StableReductionPartII:MC.2/forget",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+        "StableReductionPartII:MC.2/forget"
       ],
       "proofSteps": [
         "The parent contraction of an expanded tail or bridge recovers the original family with its arbitrary section.",
@@ -1726,7 +1751,10 @@
       },
       "planet": {
         "name": "Universal-curve equivalence"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.2/genus-zero-base",
@@ -1742,8 +1770,6 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.0/effective-descent",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
         "SchemeAndStackFoundations:SF.0"
       ],
       "proofSteps": [
@@ -1765,7 +1791,11 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.2/higher-genus-pointed",
@@ -1822,8 +1852,6 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.2/higher-genus-pointed",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
         "StableReductionPartII:MC.2/expansion-contraction-inverses",
         "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
@@ -1847,7 +1875,11 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.2/genus-one-base",
@@ -1949,7 +1981,6 @@
       "prerequisites": [
         "StableReductionPartII:MC.2/genus-zero-base",
         "StableReductionPartII:MC.2/expansion-contraction-inverses",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
         "SchemeAndStackFoundations:SF.0"
       ],
       "proofSteps": [
@@ -1971,7 +2002,10 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.3/separating-clutching",
@@ -1987,7 +2021,6 @@
       ],
       "prerequisites": [
         "StableReductionPartII:key/moduli-curves",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
         "StableReductionPartII:MC.0/pullback-coherence"
       ],
       "proofSteps": [
@@ -2060,7 +2093,10 @@
       ],
       "planet": {
         "name": "Separating clutching"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.3/nonseparating-clutching",
@@ -2076,7 +2112,6 @@
       ],
       "prerequisites": [
         "StableReductionPartII:key/moduli-curves",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
         "StableReductionPartII:MC.0/pullback-coherence"
       ],
       "proofSteps": [
@@ -2149,7 +2184,10 @@
       ],
       "planet": {
         "name": "Nonseparating clutching"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.3/clutching-finite-unramified",
@@ -2167,7 +2205,6 @@
         "StableReductionPartII:MC.3/separating-clutching",
         "StableReductionPartII:MC.3/nonseparating-clutching",
         "StableReductionPartII:MC.2/pointed-dm-theorem",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
         "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
       "proofSteps": [
@@ -2193,7 +2230,10 @@
       },
       "planet": {
         "name": "Finite unramified clutching"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.3/boundary-types",
@@ -2208,7 +2248,6 @@
         "The full range, base and auxiliary data are specified in the statement; none are suppressed by a global stable-pair convention."
       ],
       "prerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
         "StableReductionPartII:MC.3/separating-clutching",
         "StableReductionPartII:MC.3/nonseparating-clutching",
         "SchemeAndStackFoundations:SF.1"
@@ -2283,7 +2322,10 @@
       ],
       "planet": {
         "name": "Stable boundary graphs"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.3/boundary-normalization",
@@ -2341,7 +2383,6 @@
       "prerequisites": [
         "StableReductionPartII:MC.0/universal-curve",
         "StableReductionPartII:MC.2/pointed-dm-theorem",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
         "SchemeAndStackFoundations:SF.1"
       ],
       "proofSteps": [
@@ -2410,7 +2451,10 @@
       ],
       "planet": {
         "name": "Marking cotangent lines"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.3/forget-cotangent-line",
@@ -2427,8 +2471,7 @@
       "prerequisites": [
         "StableReductionPartII:MC.3/cotangent-line",
         "StableReductionPartII:MC.2/forget",
-        "StableReductionPartII:MC.3/boundary-types",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "StableReductionPartII:MC.3/boundary-types"
       ],
       "proofSteps": [
         "Apply the local contraction comparison for the section cotangent sheaf.",
@@ -2449,7 +2492,10 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC3",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.3/node-conormal",
@@ -2466,8 +2512,7 @@
       "prerequisites": [
         "StableReductionPartII:MC.3/cotangent-line",
         "StableReductionPartII:MC.3/boundary-normalization",
-        "StableReductionPartII:MC.1/versal-node-parameters",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+        "StableReductionPartII:MC.1/versal-node-parameters"
       ],
       "proofSteps": [
         "In the local smoothing xy=t, coordinate changes x↦ux,y↦vy transform t by uv.",
@@ -2489,7 +2534,10 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC3",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.4/coarse-space",
@@ -2647,7 +2695,6 @@
       "prerequisites": [
         "StableReductionPartII:MC.1/tricanonical-cohomology",
         "StableReductionPartII:MC.1/tricanonical-hilbert",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
         "AlgebraicModuliForArithmeticGeometry:R09.2"
       ],
       "proofSteps": [
@@ -2670,7 +2717,10 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.4/moduli-determinant-ample",
@@ -2946,8 +2996,6 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.4/full-level",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
         "PELModuli:M6"
       ],
       "proofSteps": [
@@ -2970,7 +3018,11 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.4/fine-level-scheme",
@@ -3075,7 +3127,6 @@
       "prerequisites": [
         "StableReductionPartII:MC.0/universal-curve",
         "StableReductionPartII:MC.2/pointed-dm-theorem",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
         "SchemeAndStackFoundations:SF.1"
       ],
       "proofSteps": [
@@ -3156,7 +3207,10 @@
       ],
       "planet": {
         "name": "Hodge bundle"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.5/hodge-determinant",
@@ -3281,9 +3335,7 @@
       "prerequisites": [
         "StableReductionPartII:MC.5/hodge-bundle",
         "StableReductionPartII:MC.5/hodge-determinant",
-        "StableReductionPartII:MC.2/forget",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "StableReductionPartII:MC.2/forget"
       ],
       "proofSteps": [
         "Use the parent’s universally trivial O-pushforward and zero R¹ along the rational contraction.",
@@ -3304,7 +3356,11 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC5",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.5/separating-hodge",
@@ -3321,9 +3377,7 @@
       "prerequisites": [
         "StableReductionPartII:MC.5/hodge-bundle",
         "StableReductionPartII:MC.5/hodge-determinant",
-        "StableReductionPartII:MC.3/separating-clutching",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "StableReductionPartII:MC.3/separating-clutching"
       ],
       "proofSteps": [
         "The normalization exact sequence for O has no new graph-cycle H¹ in the separating case.",
@@ -3344,7 +3398,11 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC5",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.5/nonseparating-hodge",
@@ -3361,9 +3419,7 @@
       "prerequisites": [
         "StableReductionPartII:MC.5/hodge-bundle",
         "StableReductionPartII:MC.5/hodge-determinant",
-        "StableReductionPartII:MC.3/nonseparating-clutching",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "StableReductionPartII:MC.3/nonseparating-clutching"
       ],
       "proofSteps": [
         "Use the parent residue description of nodal dualizing forms; opposite residues give one additional one-dimensional quotient.",
@@ -3384,7 +3440,11 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC5",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.5/boundary-divisor",
@@ -3401,8 +3461,7 @@
       "prerequisites": [
         "StableReductionPartII:MC.1/normal-crossing-boundary",
         "StableReductionPartII:MC.3/boundary-types",
-        "StableReductionPartII:MC.2/pointed-dm-theorem",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "StableReductionPartII:MC.2/pointed-dm-theorem"
       ],
       "proofSteps": [
         "Use the local product of the independent node parameters.",
@@ -3479,7 +3538,10 @@
       ],
       "planet": {
         "name": "Boundary divisor"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.5/rational-noether",
@@ -3497,7 +3559,6 @@
         "StableReductionPartII:MC.5/hodge-determinant",
         "StableReductionPartII:MC.5/boundary-divisor",
         "StableReductionPartII:MC.1/versal-node-parameters",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
         "SchemeAndStackFoundations:SF.5"
       ],
       "proofSteps": [
@@ -3520,7 +3581,10 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC5",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.5/complex-picard-torsion-free",
@@ -3705,7 +3769,6 @@
         "StableReductionPartII:MC.1/proper-moduli",
         "StableReductionPartII:MC.1/smooth-dimension",
         "StableReductionPartII:MC.4/irreducible-geometric-fibres",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
         "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
       "proofSteps": [
@@ -3727,7 +3790,10 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC5",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.5/semi-canonical-noether",
@@ -3822,7 +3888,6 @@
       "prerequisites": [
         "StableReductionPartII:MC.5/boundary-divisor",
         "StableReductionPartII:MC.1/versal-node-parameters",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
         "SchemeAndStackFoundations:SF.5"
       ],
       "proofSteps": [
@@ -3845,7 +3910,10 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC5",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.6/maximal-variation",
@@ -3940,7 +4008,6 @@
       ],
       "prerequisites": [
         "StableReductionPartII:key/moduli-curves",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
         "SchemeAndStackFoundations:SF.0"
       ],
       "proofSteps": [
@@ -4008,7 +4075,10 @@
       ],
       "planet": {
         "name": "Stable compactification"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.6/graph-closure",
@@ -4183,7 +4253,6 @@
       "prerequisites": [
         "StableReductionPartII:MC.4/fine-level-scheme",
         "StableReductionPartII:MC.4/full-level",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
         "SchemeAndStackFoundations:SF.3",
         "PELModuli:M5",
         "PELModuli:M6"
@@ -4254,7 +4323,10 @@
       ],
       "planet": {
         "name": "Torelli morphism"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.6/torelli-finite-fibres",
@@ -4270,8 +4342,7 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.6/smooth-torelli",
-        "StableReductionPartII:MC.4/level-rigidity",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+        "StableReductionPartII:MC.4/level-rigidity"
       ],
       "proofSteps": [
         "Import strong classical Torelli: a ppav isomorphism of Jacobians equals ± the Jacobian of a curve isomorphism, with the hyperelliptic qualification.",
@@ -4293,7 +4364,10 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.6/jacobian-hodge-comparison",
@@ -4311,7 +4385,6 @@
         "StableReductionPartII:MC.5/hodge-bundle",
         "StableReductionPartII:MC.5/hodge-determinant",
         "StableReductionPartII:MC.6/smooth-torelli",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
         "AbelianSchemesAndArithmeticModuli:A1"
       ],
       "proofSteps": [
@@ -4333,7 +4406,10 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.6/compactified-torelli",
@@ -4438,7 +4514,6 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.4/fine-level-scheme",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
         "SchemeAndStackFoundations:SF.3"
       ],
       "proofSteps": [
@@ -4504,7 +4579,10 @@
       ],
       "planet": {
         "name": "Level Picard parameters"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.7/picard-triples-comparison",
@@ -4520,7 +4598,6 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.7/level-picard-parameter",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
         "SchemeAndStackFoundations:SF.1"
       ],
       "proofSteps": [
@@ -4542,7 +4619,10 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC7",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.4/smooth-generic-direct-image-nef",
@@ -4557,9 +4637,6 @@
         "The full range, base and auxiliary data are specified in the statement; none are suppressed by a global stable-pair convention."
       ],
       "prerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
         "SchemeAndStackFoundations:SF.5"
       ],
       "proofSteps": [
@@ -4583,7 +4660,12 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.4/dualizing-section-degree",
@@ -4598,8 +4680,7 @@
         "The full range, base and auxiliary data are specified in the statement; none are suppressed by a global stable-pair convention."
       ],
       "prerequisites": [
-        "StableReductionPartII:MC.4/smooth-generic-direct-image-nef",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "StableReductionPartII:MC.4/smooth-generic-direct-image-nef"
       ],
       "proofSteps": [
         "For sufficiently large m the sequence restricting ω^m to s has zero R¹ for ω^m(−s).",
@@ -4620,7 +4701,10 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.4/pointed-normalization-nef",
@@ -4637,7 +4721,6 @@
       "prerequisites": [
         "StableReductionPartII:MC.4/smooth-generic-direct-image-nef",
         "StableReductionPartII:MC.4/dualizing-section-degree",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
         "SchemeAndStackFoundations:SF.5"
       ],
       "proofSteps": [
@@ -4660,7 +4743,10 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     },
     {
       "id": "StableReductionPartII:MC.4/persistent-node-residue-sequence",
@@ -4675,8 +4761,6 @@
         "The full range, base and auxiliary data are specified in the statement; none are suppressed by a global stable-pair convention."
       ],
       "prerequisites": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
         "StableReductionPartII:MC.4/pointed-normalization-nef",
         "SchemeAndStackFoundations:SF.1"
       ],
@@ -4700,7 +4784,11 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
         "namespace": "TauCeti.ModuliCurves"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ]
     }
   ],
   "requests": [
@@ -6119,7 +6207,7 @@
         "StableReductionPartII:MC.4/pointed-normalization-nef",
         "StableReductionPartII:MC.4/persistent-node-residue-sequence"
       ],
-      "detail": "scripts/check_blueprint.py tests its baseline-reference regex before known stage membership and therefore rejects genuine upstream stage IDs. Reported at issue3342 comment5950082999. Only job deliverables may be edited, so the script is not patched and no baseline entries are forged. A scratch diagnostic excludes roadmap IDs from the baseline regex; it is not a standard-check pass."
+      "detail": "The standard checker dispatches tauceti roadmap stage ids as baseline declarations. To preserve these genuine upstream imports without forging declaration entries, their exact node-level ids are retained in upstreamPrerequisites, following the accepted NeronModelsAndSemistableAbelianVarietiesPartII encoding. Roadmap requires edges, reader supplier contracts and requests are unchanged. The independent atlas overlay appends all 58 typed references to prerequisites only in memory and verifies their integration. Restore canonical prerequisite entries when the checker supports known upstream stages, or replace them with exact genuine declaration/node exports. No mathematical dependency is removed."
     }
   ],
   "sourceIssues": [
@@ -7687,5 +7775,28 @@
         "reason": "Requires supplier types and the precise statement in the reader."
       }
     ]
+  },
+  "upstreamImportEncoding": {
+    "agent": "Codex",
+    "session": "codex-J6LwjP",
+    "date": "2026-10-02",
+    "affectedNodes": 44,
+    "referencesPreserved": 58,
+    "scope": "CI compatibility only; all mathematical node statements, sources, APIs, tests, uses, requests and roadmap edges preserved. Typed references retained per node, never forged as baseline declarations.",
+    "integration": "Validated with the actual merger by restoring typed references only in an in-memory copy; canonical field integration remains explicitly recorded in the checker gap.",
+    "validation": {
+      "stageDag": [
+        3050,
+        8750
+      ],
+      "combinedDag": [
+        3098,
+        9121
+      ],
+      "expectedStageEdges": 81,
+      "typedUpstreamReferences": 58,
+      "pendingLinks": 0,
+      "skippedLinks": 0
+    }
   }
 }
