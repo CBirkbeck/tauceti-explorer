@@ -1,3 +1,134 @@
+# Polynomial-model integration — Codex, 2026-10-02
+
+Refs #3342. Session `codex-J6LwjP`; branch `codex-J6LwjP-design-stable-ii`;
+base `8acea9f`. Claim comment `5954006417`, confirmed by bot `5954010066`;
+the full issue was reread after confirmation.
+
+Partial research checkpoint. All 83 inherited node IDs, 135 supplier requests,
+source issues, 21 Yuan/DGH routes, shared key coverage and 58 typed upstream
+references are preserved. No implementation status, stage or shared key is closed.
+The 19 new polynomial declarations bring the packet to 102 nodes:
+8 definitions, 23 constructions, 9 lemmas, 61 theorems and one application.
+There are 98 definition/construction API items, 95 definition/construction
+tests plus two exactness tests, 35 unchanged planets, 28 baseline declarations,
+15 still-open gaps and eight partial stages.
+
+## What was integrated
+
+The inherited native candidates are now linked to canonical packet nodes and
+the definitive reader. The existing `MC.2/node-factorization-exact` ID retains
+all consumers and now states only the four kernel/range equalities. The two
+cokernel constructions are separate: the RIGHT matrix Ψ gives J through
+[z]↦cz₀−dz₁; the LEFT matrix Φ gives the actual Hom_R(J,R) through
+[z]↦z₀incl−z₁ε. The latter has ε(c)=−a and ε(d)=b.
+
+The new nodes expose the native polynomial ring, monic relation regularity,
+unique normal form, regular d, section kernel, dual generator and normal pair,
+A-linear equivalence, residue, scalar correction/action, A-flatness, coefficient
+map and natural tensor comparisons for R, J and D. The namespace is
+`TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel`;
+`prototypeCoverage.nativeExports` maps every new node to its actual signature.
+The canonical cokernel API name is now `PolynomialModel.cokernels`, matching
+the native module parameters. No opaque dual or arbitrary geometric predicate
+is introduced. The suggested file expresses 24 nodes, 33 API items and
+32 labeled packet tests, with 34 native examples in total.
+
+All polynomial calculations hold over every commutative ring, including the
+zero ring. This is the monic lift-and-cancel derivation documented in the
+preceding two handoffs and the new proof outlines. It strengthens the range
+of Knudsen2012 §3; his printed Proposition3.1 assumes noetherianity and unit
+discriminant. Unit discriminant is still needed for the geometric node claim.
+General matrix-factorization/MCM theory remains with StablePeriodicCurved
+layer7; this task plans only this explicit polynomial application.
+
+In particular K(rz)=rK(z)+ι(ev z)K(r), and the action on normal coordinates
+is z·(r,α)=(zr+ιαK(z),(ev z)α). The A-linear splitting is not R-linear:
+for nonzero A, regular d kills the section module A but acts injectively on D.
+These distinctions appear in APIs, typed examples and the regression checks.
+
+## Current source and library receipts
+
+Fresh public download: [Knudsen2012](https://arxiv.org/pdf/1106.1588), PDF header
+identifies arXiv:1106.1588v2, 3 April 2012. Read header, introduction/Main Lemma
+(pp.1–3), §3 in full (pp.11–12), Corollary3.2 and §4 in full (p.13).
+PDF SHA-256 `de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36`;
+extracted-text SHA-256 `dbd7f847de99169ef0d742f7e7840fa42ae71177686e6b35b09baadb65800360`.
+These bytes match the predecessor packet source pin. The packet retains its
+historical whole-paper receipts and adds a separately authored scoped reading
+receipt; no fresh whole-paper or KnudsenII Appendix reading is claimed.
+
+Read the current full upstream StableReduction document, the matrix-
+factorization owner’s layer7 description, relevant parent aggregate audit
+entries (layers0–3 and9) and the full accepted REV-AUDIT-02 review. Earlier
+JacobianChallenge/Multiquadratic source/ownership reading in this continuous
+session remains applicable. No upstream document or shared packet is edited.
+No direct link entry names this proposed MC.2 stage.
+
+Fresh statements for all 19 added baseline records were read at Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174`; their exact lines and module blobs
+are durable in baseline.declarations. In particular generic monic regularity,
+quotient maps, tensor lift and free/retract/linear-equivalence flatness are
+imported instead of replanned. Tau Ceti remains pinned to
+`f790474821cf4256814db967cb154e7af3d0c369`. No present-head matrix library
+is silently promoted to pinned evidence.
+
+## Executed verification
+
+- Standard packet checker with the pinned declaration index: zero errors and
+  zero warnings. The 58 typed upstream references retain their repaired encoding.
+- Deliverable intake: five files, zero problems. Whitespace check passes.
+- Normal atlas assemble path with this packet/roadmap injected read-only,
+  including the normal removal of replaced decomposition layers: stage graph
+  3050 vertices/8750 edges, acyclic.
+  Adding the current nodes and recursively reachable accepted declarations
+  gives 3117 vertices/9185 edges, acyclic. No current
+  pending or skipped link. The atlas has 20 unrelated pending links; this is
+  not a certification of every already-promoted declaration graph.
+- The full suggested file elaborates in the existing build, after checking
+  76 GB available memory: exit0, 77 admitted-proof warnings, zero other
+  warnings, 10.23 seconds, 34 examples. No project/cache/build/server was
+  created. Suggested-file SHA-256 `26d2c7e1e4401e4da135385d682bbd5db8db8cb3e2efef4229913a2bc52a0a4b`;
+  log SHA-256 `8b6cb93eb83ec701a56e0f91f12bec236a062b2902d224045cb02e7406498363`.
+  Imports are Mathlib-only; no Tau Ceti geometric signature is claimed compiled.
+
+Fresh finite regressions use the UNTRUNCATED normal quotient
+(Z/m)[v][u]/(u²+γuv+δv²−q(s,t)), m=2,3,4, with 116 coefficient/parameter
+cases, allowing zero divisors and degenerate discriminants. Degree≤1 inputs
+retain all output powers of v; no vᴺ=0 relation is imposed. They check
+74,796 distinct dual normal pairs, 19,556 denominator-free correction
+identities, 8,036 twisted product laws, 74,796 scalar-action pairs and
+65,536 coefficient-reduction comparisons along Z/4→F₂, which is nonflat.
+Receipt SHA-256 `eb0d239ecf839998c20c5040c5b571b8efd9415ece62d49585fc9c4c89270ec3`. These bounded computations support the
+sign/formula regressions; they are not proofs of the universal statements.
+
+## Exact continuation work
+
+The native tensor signatures currently give A′-linear equivalences and the
+natural evaluation formula. Supply R′-module/scalar and algebra-equiv adapters,
+identity/composition coherence for the dual tensor comparisons, and the actual
+residue-quotient transport signature. The mathematics follows the specified
+monomial normal form and correction formula; these stronger native exports
+are not yet in the coverage ledger.
+
+Then read KnudsenII Appendix (PDF32–39), state its actual stable-reflexivity
+and flat-completion/faithful-descent interfaces, and supply finite-presentation
+approximation for arbitrary bases. Neither this polynomial computation nor
+its arbitrary coefficient map proves completed-local normal forms or global
+sheaf base change for an arbitrary nodal family. `MC.2/dual-section-ideal` and
+the universal-curve theorem remain open. All original requests and 15 gaps
+remain: DM §§2–4/algebraization and valuative inputs; geometric family/stack
+carriers; collision and rigid genus-one charts; corrected clutching/boundary
+normalization; level rigidity, tame components and positivity; integral
+Deligne pairing/determinants; relative Jacobian/Picᵈ, strong and compactified
+Torelli, and the Brauer obstruction. Exact supplier/source scopes remain in
+the packet, reader and prior handoffs below.
+
+Scratch is removed after publication; no process is left running. Current
+receipts above supersede the uncompiled/unintegrated statements of older
+handoffs, which are retained with their original authorship.
+
+---
+
 # Local dual and coefficient-base-change checkpoint — 2026-10-02
 
 Agent: ChatGPT. Model: GPT-6 Astra Pro. Session: `gpt-6astra-20261002-c4d9`.

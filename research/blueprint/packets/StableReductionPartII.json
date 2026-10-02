@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Checkpoint: declaration-level draft for pointed curve stacks, universal curves, boundary morphisms, coarse and level moduli, integral Hodge comparison, stable compactification and Torelli. Every stage remains partial; exact supplier extensions, source-read boundaries and missing type signatures are recorded, with no closure or implementation claim.",
+  "summary": "Partial checkpoint: 19 declaration-sized polynomial node-ring helpers integrate the monic exactness, two cokernels, actual dual normal form/residue/scalar action and arbitrary coefficient base change. All geometric/moduli stages and the reserved key remain partial; no implementation or global stable-reflexivity claim.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -80,6 +80,139 @@
         "module": "Mathlib/Data/Matrix/Mul.lean",
         "provides": "The finite-index matrix product entry is the sum of products of entries; statement read at line298.",
         "checked": "Actual statement read at pinned Mathlib commit082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Polynomial.divByMonic",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "provides": "Quotient in division by a monic polynomial.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 132; blob 7c27999b35c585576885d167b838afa9aea9c9f5."
+      },
+      {
+        "ref": "mathlib:Polynomial.modByMonic",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "provides": "Remainder in division by a monic polynomial.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 137; blob 7c27999b35c585576885d167b838afa9aea9c9f5."
+      },
+      {
+        "ref": "mathlib:Polynomial.mapRingHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "Coefficientwise mapping as a bundled polynomial ring homomorphism.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 534; blob c42ff574f952192ec1f14d4e4c4091432ab0aec7."
+      },
+      {
+        "ref": "mathlib:Polynomial.evalRingHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "Polynomial evaluation as a bundled ring homomorphism.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 616; blob c42ff574f952192ec1f14d4e4c4091432ab0aec7."
+      },
+      {
+        "ref": "mathlib:Polynomial.Monic.isRegular",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Monic.lean",
+        "provides": "A monic polynomial is a regular element over every ring.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 515; blob facebe38cd161f5df111d1885d9039377494cd53."
+      },
+      {
+        "ref": "mathlib:Matrix.mulVecLin",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+        "provides": "Matrix-vector multiplication as a native linear map.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 286; blob e27ea745bb8ab9f7766890e55c6a48e85d89a370."
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.mk",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "Native projection to a quotient by a linear-map range.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 61; blob 2c25d9a529dfd044d3bf88361d79a3e8de23fda3."
+      },
+      {
+        "ref": "mathlib:TensorProduct.lift",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
+        "provides": "Extends a bilinear map to the tensor product; pure-tensor evaluation specifies it.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 122; blob 8227c91e6c37dd509c47ca80aa2e8cb0896c4605."
+      },
+      {
+        "ref": "mathlib:TensorProduct",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+        "provides": "Native tensor product of modules over a commutative semiring.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 71; blob 35ca03514c24a635f1f95b8303f07e61d35b8398."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "Native quotient A[X]/(F); no pointed-node theorem.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 62; blob 1945b7728630a10baf56374f183be1bcfa3727f0."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.of",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "Coefficient ring map into the native quotient.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 108; blob 1945b7728630a10baf56374f183be1bcfa3727f0."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.root",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "Class of the polynomial variable in the quotient.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 169; blob 1945b7728630a10baf56374f183be1bcfa3727f0."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.lift",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "Descends evaluation given its actual vanishing relation.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 296; blob 1945b7728630a10baf56374f183be1bcfa3727f0."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "Induced quotient ring map with the required divisibility condition.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 402; blob 1945b7728630a10baf56374f183be1bcfa3727f0."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.map_comp_map",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "Composition of the existing quotient coefficient maps.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 411; blob 1945b7728630a10baf56374f183be1bcfa3727f0."
+      },
+      {
+        "ref": "mathlib:Module.Flat",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "provides": "Actual coefficient-module flatness predicate, characterized by tensor injectivity.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 113; blob b827fedf96ce35fa107badc6b41b7de0b8e14c66."
+      },
+      {
+        "ref": "mathlib:Module.Flat.of_retract",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "provides": "A linear retract of a flat module is flat.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 172; blob b827fedf96ce35fa107badc6b41b7de0b8e14c66."
+      },
+      {
+        "ref": "mathlib:Module.Flat.of_linearEquiv",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "provides": "Transport of flatness through a linear equivalence.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 181; blob b827fedf96ce35fa107badc6b41b7de0b8e14c66."
+      },
+      {
+        "ref": "mathlib:Module.Flat.of_free",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "provides": "Free modules are flat.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 231; blob b827fedf96ce35fa107badc6b41b7de0b8e14c66."
       }
     ]
   },
@@ -1133,7 +1266,7 @@
         },
         {
           "where": "StableReductionPartII:MC.2/node-matrix-factorization",
-          "how": "Let A be noetherian and d=γ²−4δ a unit. In B=A[x,y], put w=q(x,y)−q(s,t), Φ=((δy+δt+γx,x+s+γt);(−(x−s),y−t)) and Ψ=((y−t,−(x+s+γt));(x−s,δy+δt+γx)). Define the pair of explicit 2×2 matrices associated with this pointed node. Their products in either order are wI₂. Over R=B/(w) their induced alternating complex and its dual are exact, with cokernels identified with J=(x−s,y−t) and J∨. This special exactness is proved by monic division and kernel calculations; no theorem requiring A regular is invoked."
+          "how": "For a commutative ring A and γ,δ,x,y,s,t∈A define Φ=((δy+δt+γx,x+s+γt);(−(x−s),y−t)) and Ψ=((y−t,−(x+s+γt));(x−s,δy+δt+γx)). These explicit matrices constitute the special node-section factorization; their polynomial product relation and the noetherian nodal exactness theorem are separate nodes. No unit-discriminant hypothesis is needed to form the matrices."
         },
         {
           "where": "StableReductionPartII:MC.2/node-factorization-products",
@@ -1141,7 +1274,7 @@
         },
         {
           "where": "StableReductionPartII:MC.2/node-factorization-exact",
-          "how": "For noetherian A and unit discriminant in the pointed quadratic model R=A[x,y]/(q(x,y)−q(s,t)), the alternating Φ,Ψ complex and its dual are exact. Their two cokernels identify with the section ideal J and its dual through the explicit maps κ and λ of Knudsen2012 Proposition3.1."
+          "how": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). In this actual quotient the alternating Φ,Ψ complex and its transpose are exact: ker Φ=im Ψ, ker Ψ=im Φ, ker Φᵀ=im Ψᵀ and ker Ψᵀ=im Φᵀ. Cokernel identifications are the two separate construction nodes."
         }
       ],
       "planet": {
@@ -1276,9 +1409,9 @@
           "statement": "ΦΨ=ΨΦ=(q(x,y)−q(s,t))I₂."
         },
         {
-          "name": "NodeSectionFactorization.cokernels",
+          "name": "NodeSectionFactorization.PolynomialModel.cokernels",
           "role": "characterisation",
-          "statement": "Modulo w the two cokernels identify with J and J∨ through the explicit maps."
+          "statement": "In the polynomial quotient, cokernel Ψ is J via [z]↦cz₀−dz₁; cokernel Φ is Hom_R(J,R) via [z]↦z₀incl−z₁ε. These are separate construction nodes."
         }
       ],
       "tests": [
@@ -1296,6 +1429,11 @@
           "name": "NodeSectionFactorization.repeatedRootExcluded",
           "kind": "non-example",
           "statement": "The geometric node conclusions require unit discriminant; the raw matrix product identity alone does not exclude a double line."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.receivingRingNotExact",
+          "kind": "non-example",
+          "statement": "Unit discriminant with both matrices zero in Z gives kernel Z² and image zero; the actual polynomial quotient is essential."
         }
       ],
       "uses": [
@@ -1305,7 +1443,7 @@
         },
         {
           "where": "StableReductionPartII:MC.2/node-factorization-exact",
-          "how": "For noetherian A and unit discriminant in the pointed quadratic model R=A[x,y]/(q(x,y)−q(s,t)), the alternating Φ,Ψ complex and its dual are exact. Their two cokernels identify with the section ideal J and its dual through the explicit maps κ and λ of Knudsen2012 Proposition3.1."
+          "how": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). In this actual quotient the alternating Φ,Ψ complex and its transpose are exact: ker Φ=im Ψ, ker Ψ=im Φ, ker Φᵀ=im Ψᵀ and ker Ψᵀ=im Φᵀ. Cokernel identifications are the two separate construction nodes."
         }
       ]
     },
@@ -1354,22 +1492,24 @@
       ],
       "title": "Exactness of the node-section complex",
       "kind": "theorem",
-      "statement": "For noetherian A and unit discriminant in the pointed quadratic model R=A[x,y]/(q(x,y)−q(s,t)), the alternating Φ,Ψ complex and its dual are exact. Their two cokernels identify with the section ideal J and its dual through the explicit maps κ and λ of Knudsen2012 Proposition3.1.",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). In this actual quotient the alternating Φ,Ψ complex and its transpose are exact: ker Φ=im Ψ, ker Ψ=im Φ, ker Φᵀ=im Ψᵀ and ker Ψᵀ=im Φᵀ. Cokernel identifications are the two separate construction nodes.",
       "hypotheses": [
-        "The full range, base and auxiliary data are specified in the statement; none are suppressed by a global stable-pair convention."
+        "A is any commutative ring; γ,δ,s,t∈A. The proof uses regular F before quotienting, not regularity of A."
       ],
       "prerequisites": [
         "StableReductionPartII:MC.2/node-matrix-factorization",
         "StableReductionPartII:MC.2/node-factorization-products",
-        "StableReductionPartII:MC.2/binary-node-form"
+        "StableReductionPartII:MC.2/polynomial-relation-regular",
+        "mathlib:Matrix.mulVecLin"
       ],
       "proofSteps": [
-        "The polynomial w is monic in x, hence regular even when A has zero-divisors.",
-        "Reduce representatives to f(y)+xg(y) and compute the kernels of κ and λ.",
-        "The same calculation for the transposed factorization identifies the dual kernels."
+        "Lift a vector killed by Φ to B², write Φz̃=Fw, multiply by Ψ and cancel F coordinatewise. Reduce modulo F.",
+        "Interchange the matrices for the second equality.",
+        "Their transposes also factor FI₂; repeat the same argument for the dual complex."
       ],
       "acceptance": [
-        "A need not be regular; no general MCM equivalence is invoked."
+        "The conclusion does not hold for arbitrary specialized coordinate values in another ring.",
+        "No general MCM/matrix-factorization equivalence is reproved."
       ],
       "sources": [
         {
@@ -1382,6 +1522,1107 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves"
+      },
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.quotientCharacteristicTwo",
+          "kind": "compatibility",
+          "statement": "In A[u,v]/(u²+uv), characteristic two does not affect ker Φ=im Ψ."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.receivingRingNotExact",
+          "kind": "non-example",
+          "statement": "Over Z with γ=1,δ=0 and all coordinates zero, both matrices are zero but kernel is Z² and image is zero."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/polynomial-node-model",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Polynomial ring of a pointed section",
+      "kind": "construction",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). Construct these as native polynomial quotient, ideal and linear-map modules; the section evaluation ev:R→A sends u to s and v to t.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/binary-node-form",
+        "mathlib:AdjoinRoot",
+        "mathlib:AdjoinRoot.of",
+        "mathlib:AdjoinRoot.root",
+        "mathlib:AdjoinRoot.lift",
+        "mathlib:Polynomial.evalRingHom"
+      ],
+      "proofSteps": [
+        "Use the nested polynomial A[Y][X] and the existing quotient AdjoinRoot F.",
+        "Evaluation at (s,t) kills F, so its ring map descends.",
+        "Take the two-generator ideal and its actual R-linear dual."
+      ],
+      "acceptance": [
+        "The section can meet the singular point; no smoothness or invertibility of J is assumed."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.polynomial",
+          "role": "data",
+          "statement": "F=X²+γYX+δY²−q(s,t) in A[Y][X]."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.coefficientHom",
+          "role": "functoriality",
+          "statement": "ι is the composite of the two coefficient inclusions and the quotient map."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionEval",
+          "role": "projection",
+          "statement": "ev(u)=s, ev(v)=t, ev(ιz)=z."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdeal",
+          "role": "data",
+          "statement": "J is Ideal.span {u−ιs,v−ιt}; sectionDual is J→ₗ[R]R."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.modelRelation",
+          "kind": "computation",
+          "statement": "q(u,v)=ι(q(s,t))."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.modelZero",
+          "kind": "degenerate",
+          "statement": "If A is the zero ring then R, J and D are subsingleton."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.evaluationCoordinates",
+          "kind": "compatibility",
+          "statement": "Native AdjoinRoot.lift evaluates u,v and coefficients to s,t and the original coefficient."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/node-factorization-exact",
+          "how": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). In this actual quotient the alternating Φ,Ψ complex and its transpose are exact: ker Φ=im Ψ, ker Ψ=im Φ, ker Φᵀ=im Ψᵀ and ker Ψᵀ=im Φᵀ. Cokernel identifications are the two separate construction nodes."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/polynomial-relation-regular",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Regularity of the monic relation",
+      "kind": "lemma",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). Multiplication by F on A[Y][X] is injective.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-node-model",
+        "mathlib:Polynomial.Monic.isRegular"
+      ],
+      "proofSteps": [
+        "For nonzero A, F is monic of degree two in X; the top nonzero coefficient of a product survives.",
+        "If A is the zero ring the domain is a singleton."
+      ],
+      "acceptance": [
+        "Do not deduce this from unit discriminant after specializing coordinates to a receiving ring."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/polynomial-normal-form",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Monic normal form in the section ring",
+      "kind": "lemma",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). For every r∈R there is a unique pair (p,q₁)∈A[Y]² with r=p(v)+u q₁(v). Thus R is free over A[Y] with basis (1,u), and free over A by the monomials vⁿ,u vⁿ.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-node-model",
+        "mathlib:Polynomial.divByMonic",
+        "mathlib:Polynomial.modByMonic"
+      ],
+      "proofSteps": [
+        "Divide a representative by the monic quadratic F in X.",
+        "The remainder has X-degree less than two, giving the pair.",
+        "A difference of two such representatives divisible by F must vanish by degree, or is zero in the zero-ring case."
+      ],
+      "acceptance": [
+        "No relation truncating powers of v is introduced."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-coordinate-regular",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Regularity of the second section coordinate",
+      "kind": "lemma",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). Multiplication by d=v−ιt on R is injective.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-normal-form",
+        "mathlib:Polynomial.Monic.isRegular"
+      ],
+      "proofSteps": [
+        "In the unique two-coefficient form, multiplication by d multiplies each coefficient polynomial by Y−t.",
+        "Cancel the monic Y−t separately on both coefficient polynomials."
+      ],
+      "acceptance": [
+        "A can have zero divisors; d is not chosen to be invertible."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-evaluation-kernel",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Kernel of section evaluation",
+      "kind": "lemma",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). ev∘ι=id_A, ker(ev)=J, and 0→J→R→A→0 splits A-linearly by ι.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-normal-form",
+        "StableReductionPartII:MC.2/polynomial-node-model"
+      ],
+      "proofSteps": [
+        "For r=p(v)+u q₁(v), subtract ι(p(t)+s q₁(t)).",
+        "Divide p(Y)−p(t) and q₁(Y)−q₁(t) by Y−t; the difference is d times a polynomial expression plus c·ι(q₁(t)).",
+        "Both generators evaluate to zero; ev∘ι=id gives the splitting."
+      ],
+      "acceptance": [
+        "The splitting is A-linear; the section map ι is not R-linear for the evaluation action on A."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-cokernel",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Cokernel presentation of the section ideal",
+      "kind": "construction",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). For Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), construct eJ:coker Ψ≃ₗ[R]J with eJ([z₀,z₁])=c z₀−d z₁.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/node-factorization-exact",
+        "StableReductionPartII:MC.2/section-coordinate-regular",
+        "mathlib:Submodule.Quotient.mk",
+        "mathlib:Matrix.mulVecLin"
+      ],
+      "proofSteps": [
+        "κ=((0,−1),(−d,b)) is injective since det κ=−d.",
+        "κΦ=((c,−d),(0,0)); exactness identifies coker Ψ with im Φ.",
+        "Projection to the first coordinate gives precisely the displayed ideal and map."
+      ],
+      "acceptance": [
+        "The RIGHT matrix has cokernel J."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.cokernelIdeal",
+          "role": "characterisation",
+          "statement": "The R-linear equivalence is specified by [z]↦c z₀−d z₁."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.cokernelIdealGenerators",
+          "role": "simp",
+          "statement": "The classes of (1,0),(0,1) map to c,−d."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.cokernelIdealUnique",
+          "role": "extensionality",
+          "statement": "Any two linear equivalences with the displayed quotient formula agree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealCokernelFirst",
+          "kind": "computation",
+          "statement": "[1,0] maps to c."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealCokernelSecond",
+          "kind": "computation",
+          "statement": "[0,1] maps to −d, retaining the sign outside characteristic two."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealCokernelZero",
+          "kind": "degenerate",
+          "statement": "The zero vector maps to the zero ideal element."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/node-factorization-exact",
+          "how": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). In this actual quotient the alternating Φ,Ψ complex and its transpose are exact: ker Φ=im Ψ, ker Ψ=im Φ, ker Φᵀ=im Ψᵀ and ker Ψᵀ=im Φᵀ. Cokernel identifications are the two separate construction nodes."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-generator",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Denominator-free dual generator",
+      "kind": "construction",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). There is a unique ε∈D with d ε(j)=b j for every j∈J. Its generator values are ε(c)=−a and ε(d)=b.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-coordinate-regular",
+        "StableReductionPartII:MC.2/node-factorization-products",
+        "StableReductionPartII:MC.2/polynomial-node-model"
+      ],
+      "proofSteps": [
+        "For j=cx+dy set ε(j)=−ax+by.",
+        "If cx+dy=0, multiply by b and use bc=−ad to obtain d(−ax+by)=0; cancel d.",
+        "This defines an R-linear map and its two values. Multiplication by regular d proves uniqueness."
+      ],
+      "acceptance": [
+        "The notation b/d is explanatory only; no inverse or localization surrogate is used."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualGenerator_existsUnique",
+          "role": "characterisation",
+          "statement": "Exactly one actual R-linear map satisfies d ε(j)=b j."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualGeneratorValues",
+          "role": "simp",
+          "statement": "ε(c)=−a and ε(d)=b."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualGeneratorUnique",
+          "role": "extensionality",
+          "statement": "Two R-linear maps with the denominator-free characterization are equal."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualZeroBase",
+          "kind": "degenerate",
+          "statement": "For a zero coefficient ring D and R×A are subsingleton."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualSignThree",
+          "kind": "computation",
+          "statement": "In F₃[u,v]/(u²+uv), ε(u)=−u, ε(v)=u and u≠−u."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualGeneratorSecond",
+          "kind": "compatibility",
+          "statement": "For every A and all coefficients the value on d is b, including A with zero divisors."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/node-factorization-exact",
+          "how": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). In this actual quotient the alternating Φ,Ψ complex and its transpose are exact: ker Φ=im Ψ, ker Ψ=im Φ, ker Φᵀ=im Ψᵀ and ker Ψᵀ=im Φᵀ. Cokernel identifications are the two separate construction nodes."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-normal-form",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Normal form in the actual section dual",
+      "kind": "lemma",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). With the characterized ε, every h∈D has a unique expression h=r·incl+ια·ε with (r,α)∈R×A.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-generator",
+        "StableReductionPartII:MC.2/section-coordinate-regular",
+        "StableReductionPartII:MC.2/polynomial-normal-form"
+      ],
+      "proofSteps": [
+        "Linearity gives d h(c)=c h(d). Modulo d, R/dR=A[X]/(cb). Cancel monic X−s to obtain Ann(c)=(b).",
+        "Write h(d)=dr+bz. The difference h−r incl−zε vanishes on d, hence on all J by regularity of d.",
+        "Write z=ι(ev z)+cx+dy and use cε=−a incl, dε=b incl.",
+        "If d r+ια b=0, compare the coefficient of u in r=p(v)+u q₁(v): (v−t)q₁(v)+α=0. Evaluate at v=t to get α=0; cancel d to get r=0."
+      ],
+      "acceptance": [
+        "The second coordinate lies in A, not a second independent copy of R."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-normal-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient-linear normal coordinates of the dual",
+      "kind": "construction",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). Construct the A-linear equivalence D≃ₗ[A]R×A whose inverse sends (r,α) to j↦rj+ια ε(j).",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-normal-form"
+      ],
+      "proofSteps": [
+        "Choose the unique normal pair for each map; additivity and A-linearity follow by uniqueness.",
+        "The inverse formula is R-linear in j and A-linear in (r,α).",
+        "The two inverse identities are exactly existence and uniqueness of normal form."
+      ],
+      "acceptance": [
+        "This equivalence is not R-linear for the componentwise action."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualNormalEquiv",
+          "role": "characterisation",
+          "statement": "The inverse evaluates as rj+ιαε(j)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualNormalEquivInclusion",
+          "role": "simp",
+          "statement": "The inclusion j↦j has coordinates (1,0)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualNormalEquivGenerator",
+          "role": "simp",
+          "statement": "The dual generator ε has coordinates (0,1)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.normalInclusion",
+          "kind": "computation",
+          "statement": "The coordinates of inclusion are (1,0)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.normalGenerator",
+          "kind": "computation",
+          "statement": "The coordinates of ε are (0,1)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.normalRoundTrip",
+          "kind": "compatibility",
+          "statement": "Applying the equivalence after its inverse fixes every pair (r,α)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/node-factorization-exact",
+          "how": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). In this actual quotient the alternating Φ,Ψ complex and its transpose are exact: ker Φ=im Ψ, ker Ψ=im Φ, ker Φᵀ=im Ψᵀ and ker Ψᵀ=im Φᵀ. Cokernel identifications are the two separate construction nodes."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-cokernel",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Cokernel presentation of the section dual",
+      "kind": "construction",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). Construct eD:coker Φ≃ₗ[R]D with d eD([z₀,z₁])(j)=(d z₀−b z₁)j; equivalently [z]↦z₀ incl−z₁ ε.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/node-factorization-exact",
+        "StableReductionPartII:MC.2/section-dual-normal-form",
+        "StableReductionPartII:MC.2/section-coordinate-regular",
+        "mathlib:Submodule.Quotient.mk",
+        "mathlib:Matrix.mulVecLin"
+      ],
+      "proofSteps": [
+        "λ=((1,0),(−c,d)) is injective, and λΨ=((d,−b),(0,0)).",
+        "Exactness gives coker Φ≅(d,b).",
+        "The calculation Ann(c)=(b) modulo d identifies this ideal divided by d with the actual Hom_R(J,R)."
+      ],
+      "acceptance": [
+        "The LEFT matrix has cokernel D; its second basis class represents −ε."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.cokernelDual",
+          "role": "characterisation",
+          "statement": "The denominator-free evaluation formula specifies the equivalence."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.cokernelDualGenerators",
+          "role": "simp",
+          "statement": "[1,0] acts as inclusion and [0,1] as −ε."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.cokernelDualUnique",
+          "role": "extensionality",
+          "statement": "Two equivalences with the displayed evaluation formula agree by regularity of d."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualCokernelFirst",
+          "kind": "computation",
+          "statement": "[1,0] evaluates on d to d."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualCokernelSecond",
+          "kind": "computation",
+          "statement": "[0,1] evaluates on d to −b."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualCokernelZero",
+          "kind": "degenerate",
+          "statement": "The zero class evaluates to zero on every j."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/node-factorization-exact",
+          "how": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). In this actual quotient the alternating Φ,Ψ complex and its transpose are exact: ker Φ=im Ψ, ker Ψ=im Φ, ker Φᵀ=im Ψᵀ and ker Ψᵀ=im Φᵀ. Cokernel identifications are the two separate construction nodes."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-residue",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Residue of the section dual",
+      "kind": "construction",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). Construct the A-linear residue ρ:D→A as the second normal coordinate. It is surjective, ρ(ε)=1, and ker ρ is exactly the image of injective multiplication R→D. Furthermore ρ(zh)=ev(z)ρ(h). Hence D/R≅A with the section action.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-normal-equivalence",
+        "StableReductionPartII:MC.2/section-evaluation-kernel",
+        "StableReductionPartII:MC.2/section-coordinate-regular"
+      ],
+      "proofSteps": [
+        "Use the unique pair to define ρ; α↦ιαε is an A-linear section.",
+        "The first-coordinate image is precisely ker ρ; multiplication is injective by evaluation on regular d.",
+        "Reduce z modulo J and use cε=−a incl and dε=b incl to compute the R action on the residue."
+      ],
+      "acceptance": [
+        "For nonzero A, there is no R-linear section of ρ: d kills A but acts injectively on D."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualResidue",
+          "role": "characterisation",
+          "statement": "ρ is surjective with the specified kernel and section action."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualResidueGenerator",
+          "role": "simp",
+          "statement": "Every characterized residue sends ε to 1."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualResidueInclusion",
+          "role": "simp",
+          "statement": "Every characterized residue kills multiplication maps j↦rj."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.residueGenerator",
+          "kind": "computation",
+          "statement": "ρ(ε)=1."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.residueInclusion",
+          "kind": "compatibility",
+          "statement": "ρ(incl)=0."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.residueNoRingSplit",
+          "kind": "non-example",
+          "statement": "For nonzero A a right inverse σ of ρ cannot satisfy σ(ev(r)z)=r·σ(z) for all r,z."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/node-factorization-exact",
+          "how": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). In this actual quotient the alternating Φ,Ψ complex and its transpose are exact: ker Φ=im Ψ, ker Ψ=im Φ, ker Φᵀ=im Ψᵀ and ker Ψᵀ=im Φᵀ. Cokernel identifications are the two separate construction nodes."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-scalar-correction",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Scalar correction in dual coordinates",
+      "kind": "construction",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). There is a unique A-linear K:R→R satisfying d K(r)=b(r−ι(ev r)). It obeys K(rz)=rK(z)+ι(ev z)K(r), K(c)=−a, K(d)=b and K(ια)=0.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-evaluation-kernel",
+        "StableReductionPartII:MC.2/section-dual-generator",
+        "StableReductionPartII:MC.2/section-coordinate-regular"
+      ],
+      "proofSteps": [
+        "For r=p(v)+u q₁(v), let P=(p(Y)−p(t))/(Y−t), Q=(q₁(Y)−q₁(t))/(Y−t) by exact monic division.",
+        "Set K(r)=b(P(v)+uQ(v))−a·ι(q₁(t)); multiply by d and use bc=−ad.",
+        "A-linearity, uniqueness and the twisted product identity follow by multiplying by d and cancelling."
+      ],
+      "acceptance": [
+        "The product law uses ev(z) multiplying K(r); reversing that convention without changing the first term is incorrect."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualScalarCorrection",
+          "role": "characterisation",
+          "statement": "The denominator-free identity uniquely specifies the correction."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualScalarCorrectionConstants",
+          "role": "simp",
+          "statement": "K(ια)=0 for every α∈A."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualScalarCorrectionUnique",
+          "role": "extensionality",
+          "statement": "Two A-linear maps satisfying the identity agree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.correctionFirst",
+          "kind": "computation",
+          "statement": "K(c)=−a."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.correctionSecond",
+          "kind": "computation",
+          "statement": "K(d)=b."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.correctionConstants",
+          "kind": "compatibility",
+          "statement": "K(ια)=0, including α=1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/node-factorization-exact",
+          "how": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). In this actual quotient the alternating Φ,Ψ complex and its transpose are exact: ker Φ=im Ψ, ker Ψ=im Φ, ker Φᵀ=im Ψᵀ and ker Ψᵀ=im Φᵀ. Cokernel identifications are the two separate construction nodes."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-scalar-action",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Node-ring action on the dual coordinates",
+      "kind": "lemma",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). For normal coordinates (r,α) of h and the unique K, the coordinates of z·h are (zr+ια K(z), (ev z)α).",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-normal-equivalence",
+        "StableReductionPartII:MC.2/section-dual-scalar-correction",
+        "StableReductionPartII:MC.2/section-dual-residue"
+      ],
+      "proofSteps": [
+        "The defining equation for K and regularity of d give (z−ιev z)ε=K(z)incl.",
+        "Expand z(r incl+ιαε), then invoke uniqueness of normal coordinates."
+      ],
+      "acceptance": [
+        "The correction term rules out a componentwise R action."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-flat",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient flatness of the section ideal",
+      "kind": "lemma",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). J is flat as an A-module.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-evaluation-kernel",
+        "StableReductionPartII:MC.2/polynomial-normal-form",
+        "mathlib:Module.Flat.of_retract",
+        "mathlib:Module.Flat.of_free"
+      ],
+      "proofSteps": [
+        "R is A-free by monomial normal form.",
+        "The A-linear retraction R→J sends r to r−ιev(r); the evaluation splitting makes J a direct summand.",
+        "Apply the existing retract-of-flat theorem."
+      ],
+      "acceptance": [
+        "No claim that J is R-flat, projective over R or invertible at the node."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-flat",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient flatness of the section dual",
+      "kind": "lemma",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). D is A-free and hence A-flat.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-normal-equivalence",
+        "StableReductionPartII:MC.2/polynomial-normal-form",
+        "mathlib:Module.Flat.of_linearEquiv",
+        "mathlib:Module.Flat.of_free"
+      ],
+      "proofSteps": [
+        "Normal coordinates identify D with R×A as A-modules.",
+        "The right side is A-free; transport and apply the existing free-flat instance."
+      ],
+      "acceptance": [
+        "The theorem is about the actual R-linear dual with restriction to A."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-coefficient-map",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient map of pointed node rings",
+      "kind": "construction",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). For any ring map f:A→A′, define R′ using the mapped coefficients and φ:R→R′ by the native AdjoinRoot.map. It sends u,v and ιz to u′,v′ and ι′f(z), preserves the section evaluation and sends c,d,a,b to their primed counterparts.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-node-model",
+        "mathlib:AdjoinRoot.map",
+        "mathlib:Polynomial.mapRingHom",
+        "mathlib:AdjoinRoot.map_comp_map"
+      ],
+      "proofSteps": [
+        "Coefficient mapping sends F to F′. Apply the existing quotient map construction.",
+        "Check the images on the two variables and coefficients.",
+        "Use the existing composition law and generator extensionality for identity and composition."
+      ],
+      "acceptance": [
+        "No flatness or injectivity of f is required."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.coefficientMap",
+          "role": "functoriality",
+          "statement": "The native quotient homomorphism is induced by the mapped polynomial."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.coefficientMapValues",
+          "role": "simp",
+          "statement": "φ(u)=u′, φ(v)=v′ and φ(ιz)=ι′f(z)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.coefficientMapIdentity",
+          "role": "compatibility",
+          "statement": "For f=id_A, φ=id_R."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.coefficientMapComposition",
+          "role": "functoriality",
+          "statement": "For A→A′→A″, φ_g∘φ_f=φ_{g∘f}."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.mapIdentity",
+          "kind": "compatibility",
+          "statement": "The identity coefficient map induces the identity on R."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.mapZeroCoefficient",
+          "kind": "degenerate",
+          "statement": "φ(ι0)=0 for every coefficient map."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.mapSectionCoordinates",
+          "kind": "computation",
+          "statement": "φ(c)=c′ and φ(d)=d′ with all four parameters mapped."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Provides the explicit polynomial-model calculation used before the separately open completed-local and sheaf descent steps."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/node-factorization-exact",
+          "how": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). In this actual quotient the alternating Φ,Ψ complex and its transpose are exact: ker Φ=im Ψ, ker Ψ=im Φ, ker Φᵀ=im Ψᵀ and ker Ψᵀ=im Φᵀ. Cokernel identifications are the two separate construction nodes."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ring-base-change",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient base change of the node ring",
+      "kind": "theorem",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). For any f:A→A′, the canonical A′-linear map A′⊗_A R→R′, a′⊗r↦ι′a′ φ(r), is an equivalence (and respects the algebra multiplication).",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-coefficient-map",
+        "StableReductionPartII:MC.2/polynomial-normal-form",
+        "mathlib:TensorProduct.lift"
+      ],
+      "proofSteps": [
+        "Extend the monomial basis vⁿ,u vⁿ through tensoring.",
+        "The same monic normal form over A′ identifies the image basis with that of R′.",
+        "Multiplication compatibility follows on pure tensors."
+      ],
+      "acceptance": [
+        "The native prototype certifies the specified A′-linear equivalence; the algebra-equiv adapter remains a recorded signature gap."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-base-change",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient base change of the section ideal",
+      "kind": "theorem",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). For any f:A→A′, the canonical map A′⊗_A J→J′, a′⊗j↦ι′a′ φ(j), is an A′-linear equivalence onto J′=(c′,d′).",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ring-base-change",
+        "StableReductionPartII:MC.2/section-evaluation-kernel",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-flat",
+        "mathlib:TensorProduct.lift"
+      ],
+      "proofSteps": [
+        "Tensor the split A-linear evaluation sequence: it stays exact for every A′.",
+        "Identify R′ and A′ and compare their evaluations.",
+        "The kernel is exactly J′, with the specified images of c,d."
+      ],
+      "acceptance": [
+        "No flatness of f is used; the source sequence is split."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-base-change",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Natural coefficient base change of the section dual",
+      "kind": "theorem",
+      "statement": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). For every f:A→A′, the natural comparison A′⊗_A D≃ₗ[A′]D′ satisfies e(a′⊗h)(φ(j))=ι′a′φ(h(j)). It sends ε to ε′ and multiplication maps to multiplication maps; residue and K commute with coefficient mapping.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-base-change",
+        "StableReductionPartII:MC.2/section-dual-normal-equivalence",
+        "StableReductionPartII:MC.2/section-dual-scalar-correction",
+        "StableReductionPartII:MC.2/section-coordinate-regular",
+        "mathlib:TensorProduct.lift"
+      ],
+      "proofSteps": [
+        "Identify the two sides with R′×A′ by the normal equivalences and ring base change.",
+        "The relation d′φ(ε(j))=b′φ(j) and regularity of d′ identify the mapped generator with ε′.",
+        "Exact monic division for P,Q commutes with coefficient mapping; hence φ(Kr)=K′φ(r).",
+        "The correction formula proves compatibility with the scalar action of φ(r), and pure tensors specify the natural evaluation comparison."
+      ],
+      "acceptance": [
+        "The formal signature presently gives A′-linearity and natural evaluation. Native R′-module transport, identity/composition of dual tensor comparisons, and a quotient-equivalence adapter remain explicit integration gaps; no global sheaf conclusion follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1",
+          "match": "The explicit polynomial model and its maps are read directly here. The stated arbitrary-ring range is the monic lift-and-cancel strengthening proved in this checkpoint; the published proposition assumes noetherian A and unit discriminant. No geometric strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
       }
     },
     {
@@ -1399,10 +2640,14 @@
       "prerequisites": [
         "StableReductionPartII:MC.2/pointed-node-normal-form",
         "StableReductionPartII:MC.2/node-factorization-exact",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "StableReductionPartII:MC.2/section-dual-residue",
+        "StableReductionPartII:MC.2/section-dual-base-change",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-flat",
+        "StableReductionPartII:MC.2/section-dual-coefficient-flat"
       ],
       "proofSteps": [
-        "Use the matrix complex to compute the dual and its quotient in the local nodal model.",
+        "Apply the separately named polynomial dual, residue, coefficient-flatness and natural coefficient-base-change calculations; these are inputs to the completed-local comparison, not the global conclusion.",
         "Apply the source’s flat-completion and faithful-descent comparison to transfer the calculation to the local family.",
         "Use the invertible-ideal calculation at smooth points and descend the fibrewise-compatible local identifications."
       ],
@@ -5677,7 +6922,8 @@
       "status": "partial",
       "remaining": [
         "Read KnudsenII Appendix; finish noetherian approximation and arbitrary-base-change proof.",
-        "Expand the rigid genus-one embedding and local collision charts into individual lemmas; supply missing Lean family types."
+        "Expand the rigid genus-one embedding and local collision charts into individual lemmas; supply missing Lean family types.",
+        "Finish native R′-scalar, algebra-equivalence, identity/composition and residue-quotient transport adapters for the natural polynomial tensor comparisons; the A′-linear prototypes are not global sheaf descent."
       ]
     },
     {
@@ -5890,7 +7136,7 @@
         "StableReductionPartII:MC.2/expansion-stable",
         "StableReductionPartII:MC.2/expansion-contraction-inverses"
       ],
-      "detail": "The repaired node calculation was checked in Knudsen2012 under noetherian hypotheses. Supply finite-presentation approximation, descent and arbitrary-base-change tests to justify the moduli definition over arbitrary schemes. Read KnudsenII Appendix (PDF32–39), not yet read."
+      "detail": "The polynomial-model monic proofs and arbitrary coefficient-base-change comparisons are separated into named nodes over every commutative ring. This does not establish a pointed completed-local normal form, stable reflexivity, sheaf comparison or descent for general families. Read KnudsenII Appendix (PDF32–39), apply its precise flat-completion/faithful-descent statements and finite-presentation approximation; all these remain open."
     },
     {
       "title": "Rigid genus-one locus and boundary normalization details",
@@ -5985,7 +7231,7 @@
         "StableReductionPartII:MC.4/pointed-normalization-nef",
         "StableReductionPartII:MC.4/persistent-node-residue-sequence"
       ],
-      "detail": "The pinned libraries have schemes but no stable pointed-family, algebraic-stack, relative Picard, or invertible sheaf interfaces of the strength required here. The suggested file gives real ring/matrix signatures and explicitly lists omitted moduli signatures. All remaining APIs/tests need actual Lean types from supplier packets; arbitrary Prop fields or axioms standing for moduli objects would falsify the prototype."
+      "detail": "The pinned libraries have schemes but no stable pointed-family, algebraic-stack, relative Picard, or invertible sheaf interfaces of the strength required here. The suggested file gives real ring/matrix signatures and explicitly lists omitted moduli signatures. All remaining APIs/tests need actual Lean types from supplier packets; arbitrary Prop fields or axioms standing for moduli objects would falsify the prototype. The polynomial model now uses compiled native AdjoinRoot/Ideal/LinearMap/tensor signatures. Its base-change exports specify A′-linear equivalences and natural pure-tensor evaluation; native R′-scalar/algebra-equiv adapters, dual-comparison identity/composition and quotient transport still require explicit signatures."
     },
     {
       "title": "Source-locator and published-version collation",
@@ -6621,13 +7867,33 @@
   ],
   "prototypeCoverage": {
     "status": "partial",
-    "compiled": false,
-    "reason": "No pre-existing built environment at the pinned commits. Only real ring/matrix signatures are present.",
+    "compiled": true,
+    "reason": "Full suggested file elaborated using an existing build at pinned Mathlib; only admitted-proof warnings. No Tau Ceti imports or supplied geometric interfaces are required by the expressed polynomial signatures. All eight stages remain partial.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
       "StableReductionPartII:MC.2/node-matrix-factorization",
-      "StableReductionPartII:MC.2/small-extension-coordinate-correction"
+      "StableReductionPartII:MC.2/small-extension-coordinate-correction",
+      "StableReductionPartII:MC.2/polynomial-node-model",
+      "StableReductionPartII:MC.2/polynomial-relation-regular",
+      "StableReductionPartII:MC.2/polynomial-normal-form",
+      "StableReductionPartII:MC.2/section-coordinate-regular",
+      "StableReductionPartII:MC.2/section-evaluation-kernel",
+      "StableReductionPartII:MC.2/section-ideal-cokernel",
+      "StableReductionPartII:MC.2/section-dual-generator",
+      "StableReductionPartII:MC.2/section-dual-normal-form",
+      "StableReductionPartII:MC.2/section-dual-normal-equivalence",
+      "StableReductionPartII:MC.2/section-dual-cokernel",
+      "StableReductionPartII:MC.2/section-dual-residue",
+      "StableReductionPartII:MC.2/section-dual-scalar-correction",
+      "StableReductionPartII:MC.2/section-dual-scalar-action",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-flat",
+      "StableReductionPartII:MC.2/section-dual-coefficient-flat",
+      "StableReductionPartII:MC.2/section-coefficient-map",
+      "StableReductionPartII:MC.2/section-ring-base-change",
+      "StableReductionPartII:MC.2/section-ideal-base-change",
+      "StableReductionPartII:MC.2/section-dual-base-change",
+      "StableReductionPartII:MC.2/node-factorization-exact"
     ],
     "expressedApi": [
       "NodeForm.eval",
@@ -6635,7 +7901,34 @@
       "NodeForm.map",
       "NodeSectionFactorization.left",
       "NodeSectionFactorization.products",
-      "NodeSectionFactorization.right"
+      "NodeSectionFactorization.right",
+      "NodeSectionFactorization.PolynomialModel.polynomial",
+      "NodeSectionFactorization.PolynomialModel.coefficientHom",
+      "NodeSectionFactorization.PolynomialModel.sectionEval",
+      "NodeSectionFactorization.PolynomialModel.sectionIdeal",
+      "NodeSectionFactorization.PolynomialModel.cokernelIdeal",
+      "NodeSectionFactorization.PolynomialModel.cokernelIdealGenerators",
+      "NodeSectionFactorization.PolynomialModel.cokernelIdealUnique",
+      "NodeSectionFactorization.PolynomialModel.dualGenerator_existsUnique",
+      "NodeSectionFactorization.PolynomialModel.dualGeneratorValues",
+      "NodeSectionFactorization.PolynomialModel.dualGeneratorUnique",
+      "NodeSectionFactorization.PolynomialModel.dualNormalEquiv",
+      "NodeSectionFactorization.PolynomialModel.dualNormalEquivInclusion",
+      "NodeSectionFactorization.PolynomialModel.dualNormalEquivGenerator",
+      "NodeSectionFactorization.PolynomialModel.cokernelDual",
+      "NodeSectionFactorization.PolynomialModel.cokernelDualGenerators",
+      "NodeSectionFactorization.PolynomialModel.cokernelDualUnique",
+      "NodeSectionFactorization.PolynomialModel.dualResidue",
+      "NodeSectionFactorization.PolynomialModel.dualResidueGenerator",
+      "NodeSectionFactorization.PolynomialModel.dualResidueInclusion",
+      "NodeSectionFactorization.PolynomialModel.dualScalarCorrection",
+      "NodeSectionFactorization.PolynomialModel.dualScalarCorrectionConstants",
+      "NodeSectionFactorization.PolynomialModel.dualScalarCorrectionUnique",
+      "NodeSectionFactorization.PolynomialModel.coefficientMap",
+      "NodeSectionFactorization.PolynomialModel.coefficientMapValues",
+      "NodeSectionFactorization.PolynomialModel.coefficientMapIdentity",
+      "NodeSectionFactorization.PolynomialModel.coefficientMapComposition",
+      "NodeSectionFactorization.PolynomialModel.cokernels"
     ],
     "expressedTests": [
       "NodeForm.characteristicTwo",
@@ -6643,7 +7936,33 @@
       "NodeForm.split",
       "NodeSectionFactorization.atOrigin",
       "NodeSectionFactorization.characteristicTwo",
-      "NodeSectionFactorization.repeatedRootExcluded"
+      "NodeSectionFactorization.repeatedRootExcluded",
+      "NodeSectionFactorization.PolynomialModel.modelRelation",
+      "NodeSectionFactorization.PolynomialModel.modelZero",
+      "NodeSectionFactorization.PolynomialModel.evaluationCoordinates",
+      "NodeSectionFactorization.PolynomialModel.idealCokernelFirst",
+      "NodeSectionFactorization.PolynomialModel.idealCokernelSecond",
+      "NodeSectionFactorization.PolynomialModel.idealCokernelZero",
+      "NodeSectionFactorization.PolynomialModel.dualZeroBase",
+      "NodeSectionFactorization.PolynomialModel.dualSignThree",
+      "NodeSectionFactorization.PolynomialModel.dualGeneratorSecond",
+      "NodeSectionFactorization.PolynomialModel.normalInclusion",
+      "NodeSectionFactorization.PolynomialModel.normalGenerator",
+      "NodeSectionFactorization.PolynomialModel.normalRoundTrip",
+      "NodeSectionFactorization.PolynomialModel.dualCokernelFirst",
+      "NodeSectionFactorization.PolynomialModel.dualCokernelSecond",
+      "NodeSectionFactorization.PolynomialModel.dualCokernelZero",
+      "NodeSectionFactorization.PolynomialModel.residueGenerator",
+      "NodeSectionFactorization.PolynomialModel.residueInclusion",
+      "NodeSectionFactorization.PolynomialModel.residueNoRingSplit",
+      "NodeSectionFactorization.PolynomialModel.correctionFirst",
+      "NodeSectionFactorization.PolynomialModel.correctionSecond",
+      "NodeSectionFactorization.PolynomialModel.correctionConstants",
+      "NodeSectionFactorization.PolynomialModel.mapIdentity",
+      "NodeSectionFactorization.PolynomialModel.mapZeroCoefficient",
+      "NodeSectionFactorization.PolynomialModel.mapSectionCoordinates",
+      "NodeSectionFactorization.PolynomialModel.quotientCharacteristicTwo",
+      "NodeSectionFactorization.PolynomialModel.receivingRingNotExact"
     ],
     "omissions": [
       {
@@ -6842,19 +8161,9 @@
         "reason": "Requires supplier types and the precise statement in the reader."
       },
       {
-        "name": "NodeSectionFactorization.cokernels",
-        "kind": "API",
-        "reason": "Requires stable pointed-family/stack/line/Picard types; no surrogate Prop signature."
-      },
-      {
-        "name": "StableReductionPartII:MC.2/node-factorization-exact",
-        "kind": "node",
-        "reason": "Requires supplier types and the precise statement in the reader."
-      },
-      {
         "name": "StableReductionPartII:MC.2/dual-section-ideal",
         "kind": "node",
-        "reason": "Requires supplier types and the precise statement in the reader."
+        "reason": "Polynomial local dual, flatness and coefficient-base-change signatures elaborate. The completed-local, stable-reflexivity and arbitrary-family sheaf/descent signatures remain absent."
       },
       {
         "name": "StableReductionPartII:MC.2/expansion",
@@ -7691,7 +9000,89 @@
         "kind": "node",
         "reason": "Requires supplier types and the precise statement in the reader."
       }
-    ]
+    ],
+    "nativeExports": {
+      "StableReductionPartII:MC.2/polynomial-node-model": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.polynomial",
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.Ring",
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.coefficientHom",
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionEval",
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionIdeal",
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionDual"
+      ],
+      "StableReductionPartII:MC.2/polynomial-relation-regular": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.polynomialRelationRegular"
+      ],
+      "StableReductionPartII:MC.2/polynomial-normal-form": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.normalForm",
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.normalFormFree"
+      ],
+      "StableReductionPartII:MC.2/section-coordinate-regular": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionCoordinateRegular"
+      ],
+      "StableReductionPartII:MC.2/section-evaluation-kernel": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionEvaluationKernel"
+      ],
+      "StableReductionPartII:MC.2/section-ideal-cokernel": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.cokernelIdeal"
+      ],
+      "StableReductionPartII:MC.2/section-dual-generator": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualGenerator_existsUnique"
+      ],
+      "StableReductionPartII:MC.2/section-dual-normal-form": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualNormalForm"
+      ],
+      "StableReductionPartII:MC.2/section-dual-normal-equivalence": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualNormalEquiv"
+      ],
+      "StableReductionPartII:MC.2/section-dual-cokernel": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.cokernelDual"
+      ],
+      "StableReductionPartII:MC.2/section-dual-residue": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualResidue"
+      ],
+      "StableReductionPartII:MC.2/section-dual-scalar-correction": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualScalarCorrection"
+      ],
+      "StableReductionPartII:MC.2/section-dual-scalar-action": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.dualScalarAction"
+      ],
+      "StableReductionPartII:MC.2/section-ideal-coefficient-flat": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionIdeal_flat"
+      ],
+      "StableReductionPartII:MC.2/section-dual-coefficient-flat": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionDual_flat"
+      ],
+      "StableReductionPartII:MC.2/section-coefficient-map": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.coefficientMap"
+      ],
+      "StableReductionPartII:MC.2/section-ring-base-change": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionRing_baseChange"
+      ],
+      "StableReductionPartII:MC.2/section-ideal-base-change": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionIdeal_baseChange"
+      ],
+      "StableReductionPartII:MC.2/section-dual-base-change": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.sectionDual_baseChange"
+      ],
+      "StableReductionPartII:MC.2/node-factorization-exact": [
+        "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.quotientExact"
+      ]
+    },
+    "adapterBoundary": "The coefficient comparisons are native A′-linear equivalences with their natural evaluation formulas. R′-scalar/algebra-equiv transport, dual tensor identity/composition and residue quotient equivalence signatures remain open. No completed-local or sheaf export is expressed.",
+    "validation": {
+      "date": "2026-10-02",
+      "toolchain": "Lean 4.34.0-rc2",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "exitCode": 0,
+      "admittedProofWarnings": 77,
+      "otherWarnings": 0,
+      "seconds": 10.23,
+      "wholeFile": true,
+      "leanSha256": "26d2c7e1e4401e4da135385d682bbd5db8db8cb3e2efef4229913a2bc52a0a4b",
+      "logSha256": "8b6cb93eb83ec701a56e0f91f12bec236a062b2902d224045cb02e7406498363",
+      "examples": 34
+    }
   },
   "upstreamImportEncoding": {
     "agent": "Codex",
@@ -7715,5 +9106,17 @@
       "pendingLinks": 0,
       "skippedLinks": 0
     }
-  }
+  },
+  "sourceReadReceipts": [
+    {
+      "sourceId": "knudsen2012",
+      "reader": "Codex — codex-J6LwjP",
+      "date": "2026-10-02",
+      "url": "https://arxiv.org/pdf/1106.1588",
+      "scope": "Fresh PDF header, introduction/Main Lemma (printed pp.1–3), §3 in full (pp.11–12), Corollary3.2 and §4 in full (p.13); other sections are historical predecessor reading.",
+      "version": "PDF header identifies arXiv:1106.1588v2, 3 April 2012",
+      "sha256": "de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36",
+      "extractedTextSha256": "dbd7f847de99169ef0d742f7e7840fa42ae71177686e6b35b09baadb65800360"
+    }
+  ]
 }
