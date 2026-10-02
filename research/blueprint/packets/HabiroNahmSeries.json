@@ -9666,9 +9666,9 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-topology~2",
-    "date": "2026-09-30",
-    "notes": "Independent supplier review of FIX-RT-AREA-topology~2 (#5166, PR #5232, 95281ad), following independent-review-REV-HabiroNahmSeries (archived verbatim in reviewHistory). Accepted /11 and the supplier side of /21: the six HB.4/HB.8/HB.9 exports retain analytic positivity/root-order/branch/remainder hypotheses or formal non-degeneracy/coefficient-ring/excluded-prime restrictions; HB.10 records formal knot-derived Nahm data without importing QT.6/QT.7 as inputs or proving their topological/quantum-modularity claims. Read GSWZ v2 pp.14-17,48 and GZ v1 pp.2-5; checked the actual positive-definite Gaussian density theorem at Tau Ceti f790474 as a near miss for formal integration. Figure-eight A*(1,-1)=0 exactly, excluding use of the analytic radial theorem. Checked the two HB.10 reader interfaces and the suggested comments; no new nodes, baseline citations, theorem signatures, or errata introduced. Existing sourceIssues/sourceVersions preserved, including prior GZ/GSWZ corrections. BP-ArithmeticQuantumTopology consumer rewiring remains that blueprint's task; /22-/123 are maintainer notices outside this review. Packet remains partial/unchecked. Checker with the pinned index: zero errors and zero warnings. No matching pre-existing Lean build exists; no compilation performed."
+    "reviewer": "independent-review-REV-FIX-RT-AREA-topology~3",
+    "date": "2026-10-02",
+    "notes": "Accepted supplier regression check for FIX-RT-AREA-topology~3 (#5543, PR #5574, Claude cc-c2c06b), following the independent round-two acceptance (archived verbatim). This packet and its reader/suggested Lean are unchanged. Read six exact HB.4/HB.8/HB.9 exports and both HB.10 reader boundaries: analytic positivity/root-order/branch/remainder hypotheses, formal nondegenerate specialization and module coefficient/Bloch/excluded-prime restrictions remain; no QT.6/QT.7 input or topological-invariance consequence. Fresh GSWZ v2 pp.14-17,48 and GZ v1 pp.2-5 read; pinned Tau Gaussian density checked as a near miss; exact figure-eight null vector excludes analytic radial use. Reviewer codex-rtOQ9t authored round-two FIX, which codex-5ebb6f independently reviewed; this checks Claude's round-three disposition and preserves that acceptance. Consumer rewiring remains QT's job; historical upstream findings are maintainer notices. No mathematical payload/errata/baseline changed; partial/unchecked and all gaps preserved. Checker zero errors/warnings; no pinned build, Lean not compiled."
   },
   "reviewHistory": [
     {
@@ -10223,6 +10223,12 @@
           "note": "Added from checker D's decomposition (gswz, §1.5, after Theorem 2, p. 11): The abelian worked example: the figure-eight datum over Q(√−3)."
         }
       ]
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~2",
+      "date": "2026-09-30",
+      "notes": "Independent supplier review of FIX-RT-AREA-topology~2 (#5166, PR #5232, 95281ad), following independent-review-REV-HabiroNahmSeries (archived verbatim in reviewHistory). Accepted /11 and the supplier side of /21: the six HB.4/HB.8/HB.9 exports retain analytic positivity/root-order/branch/remainder hypotheses or formal non-degeneracy/coefficient-ring/excluded-prime restrictions; HB.10 records formal knot-derived Nahm data without importing QT.6/QT.7 as inputs or proving their topological/quantum-modularity claims. Read GSWZ v2 pp.14-17,48 and GZ v1 pp.2-5; checked the actual positive-definite Gaussian density theorem at Tau Ceti f790474 as a near miss for formal integration. Figure-eight A*(1,-1)=0 exactly, excluding use of the analytic radial theorem. Checked the two HB.10 reader interfaces and the suggested comments; no new nodes, baseline citations, theorem signatures, or errata introduced. Existing sourceIssues/sourceVersions preserved, including prior GZ/GSWZ corrections. BP-ArithmeticQuantumTopology consumer rewiring remains that blueprint's task; /22-/123 are maintainer notices outside this review. Packet remains partial/unchecked. Checker with the pinned index: zero errors and zero warnings. No matching pre-existing Lean build exists; no compilation performed."
     }
   ]
 }
