@@ -4,17 +4,17 @@ Issue #1391. Claude Code, session cc-442dc5. The extraction is complete. Impleme
 
 David Hansen, Tasho Kaletha and Jared Weinstein, *On the Kottwitz conjecture for local shtuka spaces*, Forum Math. Pi 10 (2022), e13, 79 pp. (doi 10.1017/fmp.2022.7; arXiv 1709.06651).
 
-The result has **126 items**:
+The current repaired result has **139 items** (Codex, `codex-rtOQ9t`, FIX issue #5524, 2 October 2026):
 
 - no library items;
-- 22 planned items: the Fargues–Scholze foundations, geometric Satake, the six operations on diamonds, stable conjugacy and endoscopic data, and the GL_n comparison, all planned in the atlas;
-- 104 missing items, routed as follows:
+- 25 planned items: the Fargues–Scholze foundations, geometric Satake, the six operations on diamonds, stable conjugacy and endoscopic data, and the GL_n comparison, all planned in the atlas;
+- 114 missing items, routed as follows:
   - 50 to a **Part II of HeckeStacksAndLocalShtukas**, *the Lefschetz–Verdier trace formula and the Kottwitz conjecture* (area `langlands`);
-  - 36 to a **Part II of VStackSheavesAndLisseCategories**, *decent v-stacks, cohomological correspondences and the Lefschetz–Verdier trace formula* (area `etale`);
-  - 12 to a **Part II of SmoothRepresentationsOfLocalGroups**, *characters, trace Paley–Wiener and ℓ-adic lattices* (area `representations`);
-  - 6 as **sources** of existing layers: ET.0 (4 items) and EDC.8 (2 items).
+  - 38 to a **Part II of VStackSheavesAndLisseCategories**, *decent v-stacks, cohomological correspondences and the Lefschetz–Verdier trace formula* (area `etale`);
+  - 15 to a **Part II of SmoothRepresentationsOfLocalGroups**, *characters, trace Paley–Wiener and ℓ-adic lattices* (area `representations`);
+  - 11 as **sources** of existing layers: ET.0 (4 items), EDC.8 (2 items), and RG2.2–RG2.3 (5 items).
 
-Fourteen mistakes are recorded under `sourceIssues`: thirteen misprints, and an error in the proof of Lemma 3.1.1 that does not affect the lemma.
+Nineteen source issues are recorded. The fourteen original independent verdicts are preserved; E15–E19 await review. E15 and E16 qualify general statements; the incidental building-proof slips E17–E19 do not change the intended fixed-point conclusion.
 
 ## What the paper proves
 
@@ -95,7 +95,7 @@ All sources were accessed on 23 September 2026.
 - Mathlib has 1-categorical duality: `CategoryTheory.ExactPairing` and `CategoryTheory.HasRightDual` (`Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean:77`, `:236`). It has no traces in symmetric monoidal 2-categories. This is recorded on item 049.
 - Neither library has diamonds, v-stacks, étale six functors, Bun_G, affine Grassmannians, geometric Satake, smooth representations of p-adic groups, characters or local Langlands. No item is a library item.
 
-**The atlas plans the foundations (22 items):**
+**The atlas plans the foundations (25 items):**
 
 - **Local shtuka moduli and cohomology:**
   - B(G, μ) and inner forms: BunGAndNewtonStrata BG0–BG1 (006);
@@ -105,10 +105,10 @@ All sources were accessed on 23 September 2026.
   - Hecke stacks and Hecke operators: HS0 and HS1 (093, 108).
 - **Sheaves on Bun_G:** ULA objects and sheaves on basic strata: VStackSheavesAndLisseCategories VS4–VS5 (106).
 - **Six operations on diamonds:** DiamondSixOperations S0–S3 and S4 (037, 038).
-- **Scheme-level inputs:** the scheme Lefschetz–Verdier formalism at EtaleDualityAndPerverseSheaves EDC.8 (070); the perfect-scheme comparison at AdicCoefficientsAndComparisons L1–L2 (072).
+- **Scheme-level inputs:** the scheme Lefschetz–Verdier formalism at EtaleDualityAndPerverseSheaves EDC.8 (070); the perfect-scheme comparison at AdicCoefficientsAndComparisons L1–L3 (072), with full faithfulness and the exceptional-operation interface supplied by L3.
 - **Geometric Satake:** the B_dR^+ and Witt vector Grassmannians, Beilinson–Drinfeld degeneration, semi-infinite orbits and Satake at GeometricSatakeAndFusion GS0–GS4 (077, 078, 083, 088, 089).
 - **Groups and endoscopy:** strongly regular and elliptic elements, transfer of elliptic tori and endoscopic data at EndoscopicTransferAndUnitaryTraceComparison ET.0 (019, 099, 116).
-- **Parameters:** the GL_n comparison of Fargues–Scholze parameters at ExcursionOperatorsAndSpectralAction ES7:GLn-comparison (005).
+- **Parameters:** the GL_n comparison at ES7:GLn-comparison (005), semisimple parameter construction at ES5 (129), parabolic induction at ES7:parabolic (130), and Hecke/excursion compatibility at ES1:spectral-center with ES5 (131), all in ExcursionOperatorsAndSpectralAction.
 
 **The atlas has none of the paper's own mathematics:**
 
@@ -125,17 +125,19 @@ All sources were accessed on 23 September 2026.
 1. **Part II of HeckeStacksAndLocalShtukas: "the Lefschetz–Verdier trace formula and the Kottwitz conjecture"** (50 items).
    - **What it covers.** HS stops at constructing shtuka cohomology as a functor. This continuation computes it, and exports Theorems 1.0.2, 1.0.3, 3.2.9, 5.1.3, 6.2.3, 6.5.2 and 6.5.4.
    - **Layers:** the objects of the conjecture; Hecke transfer; local terms on Grassmannians; Hecke stacks and fixed points; distribution transfer; trace distributions; and the main theorems.
-   - **Imports** are by id, including the other two Part IIs.
+   - **Imports** are by id, including the other two Part IIs, ES7:parabolic, ES1:spectral-center and the building source inputs 135–139. The complete/split hypotheses of the cited building inputs must be justified in applying the printed arbitrary-DVR target.
    - **Tests:** the Lubin–Tate case, the GL_2 Jacquet–Langlands example, the GSp(4) and U(1, n−1) cases, and a non-minuscule μ.
-2. **Part II of VStackSheavesAndLisseCategories: "decent v-stacks, cohomological correspondences and the Lefschetz–Verdier trace formula"** (36 items).
+2. **Part II of VStackSheavesAndLisseCategories: "decent v-stacks, cohomological correspondences and the Lefschetz–Verdier trace formula"** (38 items).
    - **Why a Part II.** VS0 builds Artin v-stacks and partial compact supports, and says its π-sharp is not an ordinary Rf_!. Everything in Section 4, Section 5.3 and Appendix B is general sheaf theory on v-stacks, and other consumers (Hecke and excursion operators) need it too.
    - **What the brief asks.** It requires the "straightforward but tedious" monoidality of ⊠ over a base (4.5.7–4.5.8) to be proved. It also flags the overlap with the Abe extraction's proposed EDC Part II on relative categorical traces, so that the generic 2-categorical trace interface has one home.
-3. **Part II of SmoothRepresentationsOfLocalGroups: "characters, trace Paley–Wiener and ℓ-adic lattices"** (12 items).
-   - **What it covers:** Harish-Chandra characters; the locally profinite space of regular semisimple classes; Haar measures on related tori; the stable Weyl integration formula; Bernstein–Deligne–Kazhdan; non-elliptic representations (Theorem C.1.1); and Dat's ν-tempered lattices (Appendix C.2, Lemma 6.5.5).
+3. **Part II of SmoothRepresentationsOfLocalGroups: "characters, trace Paley–Wiener and ℓ-adic lattices"** (15 items).
+   - **What it covers:** Harish-Chandra characters; the locally profinite space of regular semisimple classes; Haar measures on related tori; the stable Weyl integration formula; Bernstein–Deligne–Kazhdan; non-elliptic representations (Theorem C.1.1); and Dat's ν-tempered definitions, Langlands data/classification and lattices (132–134; Appendix C.2, Lemma 6.5.5).
    - **Why a Part II.** SR.0–SR.3 own smooth representations but plan none of these.
 4. **Source routes:**
    - **EndoscopicTransferAndUnitaryTraceComparison ET.0** (021–023, 119): Steinberg's lemma, the isocrystal invariant inv[b](g, g') and its properties, and the dual-group formula for the Kottwitz sign. ET.0 owns stable conjugacy and the parametrization of rational classes in a stable class.
    - **EtaleDualityAndPerverseSheaves EDC.8** (090–091): Varshavsky's theorem that true and naive local terms agree for finite-order automorphisms, and its perfect-scheme form. EDC.8 owns cohomological correspondences and local terms on schemes.
+
+   - **ReductiveGroupsPartII RG2.2–RG2.3** (135–139): Tits’s fixed-apartment criterion, hyperspecial models/fixers, transitivity of apartments through a vertex, apartment normalizers, and integral finite-Weyl lifts. RG2.4 supplies Cartan decomposition. This adds sources within the existing building owner.
 
 ## Judgement calls for the reviewer
 
@@ -200,3 +202,19 @@ sum of the positive roots" where pp. 12 and 15 say `2ρ_G`; §3.4 announces the 
 `rank V_μ[λ′]` between two lines with `rank V_μ[λ]`. The single error, E3, is that `H^1(F, N(T,G))`
 classifies rational maximal tori: it is the **kernel** of `H^1(F,N(T,G)) → H^1(F,G)`, and the proof uses
 only well-definedness, so nothing downstream moves.
+
+
+## Confirmed red-team repairs (FIX issue #5524, 2 October 2026)
+
+All six findings confirmed by `RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22.review.json` are applied. The historical extraction/review above describes its original reading, not a fresh full-paper audit by this fix worker. Fresh versions, hashes and bounded reading scopes are in `sourceVersions`.
+
+1. **General classifying-stack maps (127).** A map BG→BH carries an H-torsor P with commuting G-action. Choosing P≅H gives the homomorphism case; the conjugation formula remains for maps induced by specified homomorphisms. Over Spd Q_p the nontrivial unramified quadratic C₂-torsor supplies a map B1→BC₂ missing from the homomorphism-only description (E15).
+2. **Proper correspondences (059).** In addition to X/S proper require Y/S proper, so Theorem 4.3.8 has both p and q proper. For Y=X this is automatic. A countable disjoint union Y of S gives a constant-one trace in ∏Λ but not compact-support ⊕Λ, so the unrestricted integral is undefined (E16).
+3. **Perfect-scheme comparison (072).** Import L3 together with L1/L2. Preserve prime-to-p torsion coefficients and separated perfectly finite type morphisms. Full faithfulness does not assert essential surjectivity, and the natural RHom/Rf^! comparison maps are not unconditionally isomorphisms.
+4. **FS inputs (129–131).** ES5 supplies semisimple parameters; ES7:parabolic supplies the source’s unnormalized induction formula with its cyclotomic twist and the normalized dictionary; ES1:spectral-center explicitly supplies Hecke compatibility. For Q̄_ℓ the center-order condition holds. This preserves parameters of irreducible cohomology constituents in the displayed HKW complex, without asserting semisimplicity of the whole cohomology.
+5. **Dat inputs (132–134).** The norm is ℓ-adic, with |p|=1; ν-temperedness tests normalized Jacquet exponents for every standard Levi, including G. Langlands data use a strict positive chamber and have ν-unitary twisting ambiguity. The standard module and invariant are well defined by the classification. Item 124 now gives the actual −ν exponent set of the normalized **opposite** Jacquet module. The published page and included TeX already have this minus sign: no source sign error is alleged. The fresh Dat source is an author preprint; publication collation and proof closure belong to the future blueprint.
+6. **Building inputs (135–139).** Add the precise Tits apartment criterion and the directly used BT model/fixer/normalizer results, plus hyperspecial Weyl lifting. All five missing suppliers go once to existing RG2.2–RG2.3; route 1 consumes them. Retain complete valuation, split-group and root-unit hypotheses. For the paper’s printed arbitrary-DVR statement, the future owner must justify reduction to this setting; the actual complete loop-field applications fit it.
+
+During that bounded building-proof reading three further source slips were found and recorded, awaiting independent review: **E17**, local finiteness fails because rank-one neighbors are P¹(k) with k infinite; **E18**, apartment preservation gives LN(T,G), not L⁺N(T,G); **E19**, torus cosets are fixed by L⁺T, while LT translates them. The intended Grassmannian conclusion remains unchanged. No sourceIssue verdict has been added by the fix worker.
+
+Validation: paper checker, swarm file intake, sourceIssue/version checks, planned-stage resolution, exact single routing of all 114 missing items, preservation of the original statuses/owners and fourteen independent sourceIssue records, an acyclic local input graph, and explicit finite mathematical controls. No Lean file is a deliverable and none was compiled. The full per-finding account is in [the fixes report](../redteam/RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22.fixes.md).

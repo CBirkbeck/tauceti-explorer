@@ -47,7 +47,7 @@
   "atlasChecked": "35031e7 (tauceti-explorer main, 23 September 2026)",
   "note": "Declarations read at the pinned Mathlib: CategoryTheory.ExactPairing and CategoryTheory.HasRightDual (Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean:77, :236), which give 1-categorical duality data but no traces in symmetric monoidal 2-categories; no item is a library item. Neither library has diamonds, v-stacks, étale six functors, Bun_G, affine Grassmannians, geometric Satake, smooth representations of p-adic groups, Harish-Chandra characters or the local Langlands correspondence."
  },
- "summary": "Hansen, Kaletha and Weinstein compute the cohomology of Scholze's local shtuka spaces Sht_{G,b,μ} (one leg, b basic, μ arbitrary) on the elliptic locus. Assuming Kaletha's refined local Langlands correspondence, they prove the generalized Kottwitz conjecture, without the Weil group and modulo representations with vanishing elliptic character: Mant_{b,μ}(ρ) = Σ_π dim Hom_{S_φ}(δ_{π,ρ}, r_μ)π + err, with err = 0 in the supercuspidal case (Theorem 1.0.2). As an application, the Fargues–Scholze parameters of inner forms of GL_n are the usual ones (Theorem 1.0.3).\n\nThe proof:\n- builds a Lefschetz–Verdier trace formula for decent v-stacks through Lu–Zheng's categorical traces, with characteristic classes, a Künneth formula and trace distributions on classifying stacks (§4);\n- computes local terms of Satake sheaves at fixed points of strongly regular elements, degenerating to the Witt vector Grassmannian and Varshavsky's theorem (§5);\n- shows that elliptic fixed points on Hecke stacks are admissible, and identifies the resulting transfer of distributions with an explicit Hecke transfer of characters, which the endoscopic character identities evaluate (§§3, 6).\n\nThe atlas plans the Fargues–Scholze foundations (Bun_G, Hecke stacks, local shtuka moduli and their cohomology, geometric Satake, ULA and admissible objects, parameters), stable conjugacy and transfer factors, and the GL_n comparison. It has none of the trace formalism on v-stacks, the Hecke transfer, the local terms or the Kottwitz conjecture.\n\nThese are routed to three Part IIs:\n- of HeckeStacksAndLocalShtukas, for the computation;\n- of VStackSheavesAndLisseCategories, for the general Lefschetz–Verdier formalism;\n- of SmoothRepresentationsOfLocalGroups, for characters, trace Paley–Wiener and ℓ-adic lattices.\n\nTwo source routes feed ET.0 (the isocrystal invariant, the Kottwitz sign) and EDC.8 (Varshavsky's local terms). Fourteen mistakes are recorded: thirteen misprints, and an error in the proof of Lemma 3.1.1 that does not affect the lemma.",
+ "summary": "Hansen, Kaletha and Weinstein compute the cohomology of Scholze's local shtuka spaces Sht_{G,b,μ} (one leg, b basic, μ arbitrary) on the elliptic locus. Assuming Kaletha's refined local Langlands correspondence, they prove the generalized Kottwitz conjecture, without the Weil group and modulo representations with vanishing elliptic character: Mant_{b,μ}(ρ) = Σ_π dim Hom_{S_φ}(δ_{π,ρ}, r_μ)π + err, with err = 0 in the supercuspidal case (Theorem 1.0.2). As an application, the Fargues–Scholze parameters of inner forms of GL_n are the usual ones (Theorem 1.0.3).\n\nThe proof:\n- builds a Lefschetz–Verdier trace formula for decent v-stacks through Lu–Zheng's categorical traces, with characteristic classes, a Künneth formula and trace distributions on classifying stacks (§4);\n- computes local terms of Satake sheaves at fixed points of strongly regular elements, degenerating to the Witt vector Grassmannian and Varshavsky's theorem (§5);\n- shows that elliptic fixed points on Hecke stacks are admissible, and identifies the resulting transfer of distributions with an explicit Hecke transfer of characters, which the endoscopic character identities evaluate (§§3, 6).\n\nThe atlas plans the Fargues–Scholze foundations (Bun_G, Hecke stacks, local shtuka moduli and their cohomology, geometric Satake, ULA and admissible objects, parameters), stable conjugacy and transfer factors, and the GL_n comparison. It has none of the trace formalism on v-stacks, the Hecke transfer, the local terms or the Kottwitz conjecture.\n\nThese are routed to three Part IIs:\n- of HeckeStacksAndLocalShtukas, for the computation;\n- of VStackSheavesAndLisseCategories, for the general Lefschetz–Verdier formalism;\n- of SmoothRepresentationsOfLocalGroups, for characters, trace Paley–Wiener and ℓ-adic lattices.\n\nThree source routes feed ET.0 (the isocrystal invariant, the Kottwitz sign), EDC.8 (Varshavsky's local terms), and RG2.2–RG2.3 (five building/fixer inputs). The repaired extraction has 139 items: 0 library, 25 planned and 114 missing. Nineteen source issues are recorded: fourteen with their original independent verdicts, five additions awaiting review. The added FS interfaces are imported from ES5, ES7:parabolic and ES1:spectral-center; the Dat definitions and classification join the existing representation-theory continuation.",
  "items": [
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/001",
@@ -71,7 +71,13 @@
    "name": "Theorem 1.0.2(2): vanishing of the error term",
    "statement": "In Theorem 1.0.2, if the packet Π_φ(G) consists of supercuspidal representations and the Fargues–Scholze semisimple parameter φ_ρ of ρ is supercuspidal, then err = 0.",
    "locator": "Theorem 1.0.2, p. 4; second paragraph; Theorem 6.5.1, p. 65",
-   "status": "missing"
+   "status": "missing",
+   "prerequisites": [
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/002",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/129",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/130",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/131"
+   ]
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/004",
@@ -80,7 +86,13 @@
    "statement": "Let G be any inner form of GL_n/F and π an irreducible smooth representation of G(F). Then the L-parameter φ_π attached to π by Fargues–Scholze (§I.9) agrees with the usual semisimplified L-parameter of π.",
    "locator": "Theorem 1.0.3, p. 5; restated as Theorem 6.6.1, p. 69",
    "status": "missing",
-   "note": "For G = GL_n itself this is Fargues–Scholze IX.7.4, planned at ExcursionOperatorsAndSpectralAction ES7:GLn-comparison (item 005); the inner forms are new."
+   "note": "For G = GL_n itself this is Fargues–Scholze IX.7.4, planned at ExcursionOperatorsAndSpectralAction ES7:GLn-comparison (item 005); the inner forms are new.",
+   "prerequisites": [
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/005",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/129",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/130",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/131"
+   ]
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/005",
@@ -550,9 +562,10 @@
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/059",
    "kind": "theorem",
    "name": "The Lefschetz trace formula for proper diamonds",
-   "statement": "For S = Spd C, q: X → S a nice proper diamond, A ULA over S and f = (c, u) over c: Y → X ×_S X, RΓ(X, A) is perfect and tr(q_*(f) | RΓ(X, A)) = ∫_{Fix(c)} ω for the trace class ω; if Fix(g) is finitely many isolated points, tr(g | RΓ(X, A)) = Σ_i loc_{x_i}(g, A).",
+   "statement": "Let S = Spd C for C algebraically closed perfectoid, q: X → S a nice proper diamond, and A ∈ D_ét(X,Λ) ULA over S, with the Section 4 prime-to-p torsion coefficient hypotheses. For a fine correspondence c = (c_1,c_2): Y → X ×_S X and u: c_1^*A → c_2^!A, additionally assume p: Y → S proper (equivalently c_1 proper in this proper-X setting). Theorem 4.3.8 applies with X′ = Y′ = S and p,q proper: it defines the induced endomorphism q_*(c,u) of the perfect complex RΓ(X,A) and tr(q_*(c,u)) = ∫_{Fix(c)} tr_c(u,A). For an automorphism g of X, Y = X is automatically proper; if its fixed locus consists of finitely many isolated points x_i, tr(g | RΓ(X,A)) = Σ_i loc_{x_i}(g,A).",
    "locator": "Example 4.3.10, p. 33; equation (4.3.5)",
-   "status": "missing"
+   "status": "missing",
+   "note": "FIX-RT /2: E16 records the omitted hypothesis in Example 4.3.10. Properness of X alone does not define an operator or compact-support integral for arbitrary Y. No unspecified proper-support generalization is a target. The automorphism and proper-correspondence applications retain their stated formulas."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/060",
@@ -658,13 +671,15 @@
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/072",
    "kind": "theorem",
    "name": "Perfect schemes and v-sheaves: the comparison of local terms",
-   "statement": "For k perfect, the functor X ↦ X^♢ from perfect schemes over k commutes with finite limits, sends separated perfectly finite type maps to maps representable in locally spatial diamonds, compactifiable of finite dim.trg, and c_X^*: D_ét(X, Λ) → D_ét(X^♢, Λ) is fully faithful symmetric monoidal, compatible with f^* and Rf_!, with maps c_X^*RHom → RHom and c_X^*Rf^! → Rf^{♢!}c_Y^* (ECD §27).",
+   "statement": "Fix a perfect field k/F_p and Λ a Z/ℓ^n-algebra with ℓ ≠ p, in the Section 5.3 torsion étale setting. The functor X ↦ X^♢ on perfect k-schemes commutes with finite limits. A separated perfectly finite type f: X → Y induces a compactifiable map f^♢ representable in locally spatial diamonds with finite dim.trg. There is a fully faithful symmetric monoidal c_X^*: D_ét(X,Λ) → D_ét(X^♢,Λ), compatible with f^* and Rf_!, and natural comparison maps c_X^*RHom(−,−) → RHom(c_X^*−,c_X^*−) and c_X^*Rf^! → Rf^{♢!}c_Y^*. These maps are not asserted to be equivalences without the further hypotheses of ECD §27.",
    "locator": "Section 5.3, p. 47; pp. 48–49",
    "status": "planned",
    "planned": [
     "AdicCoefficientsAndComparisons:L1",
-    "AdicCoefficientsAndComparisons:L2"
-   ]
+    "AdicCoefficientsAndComparisons:L2",
+    "AdicCoefficientsAndComparisons:L3"
+   ],
+   "note": "FIX-RT /3: L1 supplies diamondification, L2 scheme compactification, and L3 the cohomological comparison including full faithfulness and the exceptional-operation interface. Full faithfulness is not essential surjectivity. The local-term equality itself remains item 073 in the v-stack continuation."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/073",
@@ -728,7 +743,15 @@
    "name": "Fixed points of strongly regular elements on affine Grassmannians",
    "statement": "Let K^+ be a discrete valuation ring with algebraically closed residue field k and fraction field K, G reductive over K^+, g ∈ G(K^+) with strongly regular image in G(k), T = Cent(g, G). Then T(K)/T(K^+) ≅ (G(K)/G(K^+))^g, so the fixed points are X_*(T); for any incarnation of the affine Grassmannian, Gr^g_{G,≤μ} is finite over the base with underlying set X_*(T)_{≤μ} (proof through the Bruhat–Tits building of G_K and its hyperspecial vertex).",
    "locator": "Proposition 5.1.2, p. 45",
-   "status": "missing"
+   "status": "missing",
+   "prerequisites": [
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/135",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/136",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/137",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/138",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/139"
+   ],
+   "note": "FIX-RT /6: items 135–139 expose Tits 3.6.1, BT84 5.1.40/4.6.29/4.6.28, BT72 7.4.10 and the hyperspecial Weyl lifting step, sourced once at RG2.2–RG2.3; import RG2.4 for Cartan decomposition. Their source hypotheses are complete valuation and split group. The paper’s broader arbitrary-DVR target is retained verbatim; the future blueprint must justify reduction to this eligible building setting or provide a separate argument, rather than assuming every such DVR henselian. Actual B_dR/Witt/loop-field applications have the complete setting. E17–E19 record three incidental proof slips; they do not disprove the fixed-point conclusion."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/080",
@@ -1125,15 +1148,24 @@
    "name": "ν-tempered irreducible representations admit lattices",
    "statement": "Every irreducible smooth Q̄_ℓ-representation of G(F) that is ν-tempered (Dat) admits a Z̄_ℓ-lattice.",
    "locator": "Lemma C.2.3, p. 76",
-   "status": "missing"
+   "status": "missing",
+   "prerequisites": [
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/132"
+   ]
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/124",
    "kind": "theorem",
    "name": "Langlands data decrease along the standard module",
-   "statement": "Write π = j_P^G(σ ⊗ ψ) (Dat's ℓ-adic Langlands classification, λ_π = −ν(ψ)); for π' a subquotient of I(π) = i_M^G(σ ⊗ ψ), λ_{π'} ≤ λ_π, with strict inequality if π' is a subquotient of ker(I(π) → π). More precisely, exponents μ' of any subquotient of i_P^G(σ ⊗ ψ) satisfy μ' ≤ μ = −ν(ψ), strictly on the kernel of the Langlands quotient.",
+   "statement": "In the ℓ-adic setting of Appendix C.2, write an irreducible π = j_P^G(σ⊗ψ) for its Langlands triple and I(π)=i_P^G(σ⊗ψ), with normalized induction. Every nonzero irreducible subquotient π′ of I(π) has λ_{π′} ≤ λ_π, strictly if π′ is a subquotient of ker(I(π) → π), in the usual positive-root partial ordering on a_{M_0}^* (Lemma C.2.4). More precisely, for standard P=MU and Q=LN, σ irreducible ν-tempered, ψ unramified with μ=−ν(ψ) ∈ (a_P^G)^*,+, and π′ any subquotient of i_P^G(σ⊗ψ), each μ′ ∈ −ν(E(A_L,r_G^{opposite Q}(π′))) satisfies μ′ ≤ μ; if π′ is a subquotient of the kernel of the Langlands-quotient map, μ′ < μ (Proposition C.2.5). The Jacquet functor is normalized and taken for the opposite parabolic.",
    "locator": "Lemma C.2.4, p. 76; Proposition C.2.5, p. 76",
-   "status": "missing"
+   "status": "missing",
+   "prerequisites": [
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/132",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/133",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/134"
+   ],
+   "note": "FIX-RT /5: the published statement and included arXiv v4 TeX both already contain the leading minus sign. This repairs the extraction’s unspecified exponent range, not a source sign error. Items 132–134 supply the definitions and classification instead of leaving them implicit."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/125",
@@ -1155,10 +1187,10 @@
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/127",
    "kind": "construction",
    "name": "Classifying stacks of group diamonds and their 2-morphisms",
-   "statement": "Let S be a diamond and G → S a group diamond. The stack BG = [S/G] classifying G-torsors is a small v-stack, because S ×_{[S/G]} S ≅ G is already a diamond. For another group diamond H → S, the morphisms [S/G] → [S/H] correspond to S-homomorphisms G → H, and for two homomorphisms f_1, f_2 : G → H with induced morphisms φ_1, φ_2 : [S/G] → [S/H], the set of 2-morphisms φ_1 ⇒ φ_2 is identified with the set of h ∈ H(S) such that f_1 = (ad h) ∘ f_2.",
+   "statement": "Let S be a diamond and G → S a group diamond. BG = [S/G], the small v-stack of right G-torsors, has S ×_{BG} S ≅ G. For a group diamond H → S, the groupoid of S-morphisms BG → BH is equivalent to the groupoid of right H-torsors P on S equipped with a left G-action commuting with H, equivalently a homomorphism G → Aut_H(P); arrows are equivariant H-torsor isomorphisms. The corresponding map sends a right G-torsor Q to Q ×^G P. Only after choosing a trivialization P ≅ H does this become a homomorphism G → H. For maps φ_1, φ_2 induced by specified homomorphisms f_1, f_2, the paper's convention identifies 2-morphisms φ_1 ⇒ φ_2 with h ∈ H(S) satisfying f_1 = (ad h) ∘ f_2; this statement concerns those induced maps, not all maps over arbitrary S.",
    "locator": "Example 4.1.1, p. 22 (published version; the same in arXiv v4)",
    "status": "missing",
-   "note": "Added by REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22: the extraction's §4.1 items begin at Definition 4.1.3, so this example and Remark 4.1.2 were the only numbered statements of the paper not covered by a locator. It is the template for the classifying stacks [S/G_S] that the admissibility and trace-distribution items (061, 062) and the Hecke-stack application work with, and it fixes the identification of 2-morphisms that Definitions 4.3.3–4.3.4 use."
+   "note": "Added by REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22: the extraction's §4.1 items begin at Definition 4.1.3, so this example and Remark 4.1.2 were the only numbered statements of the paper not covered by a locator. It is the template for the classifying stacks [S/G_S] that the admissibility and trace-distribution items (061, 062) and the Hecke-stack application work with, and it fixes the identification of 2-morphisms that Definitions 4.3.3–4.3.4 use.\n\nFIX-RT /1: correct Example 4.1.1 as recorded in E15. For S = Spd Q_p, G = 1 and H the constant group C_2, the unramified quadratic extension gives a nontrivial H-torsor and hence a map B1 → BH not induced by 1 → H. The later homomorphism-induced maps used in the paper retain their conjugation formula."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/128",
@@ -1168,6 +1200,134 @@
    "locator": "Remark 4.1.2, p. 22 (published version; the same in arXiv v4)",
    "status": "missing",
    "note": "Added by REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22. Stated as a remark in the paper but used as a compatibility throughout §4.3, where 1-morphisms of cohomological correspondences are composed and 2-morphisms are pushed through units and counits; the two diagrams are the content, not the existence of α_* and α^*."
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/129",
+   "kind": "construction",
+   "name": "Fargues–Scholze semisimple parameters",
+   "statement": "Fix ℓ ≠ p and Q̄_ℓ coefficients with a chosen square root of the residue cardinality q. A Schur-irreducible A ∈ D_lis(Bun_G,Q̄_ℓ), with condensed endomorphism algebra Q̄_ℓ, has a continuous semisimple parameter φ_A: W_F → Ĝ(Q̄_ℓ) ⋊ W_F, with prescribed projection, unique up to Ĝ-conjugacy, recovered from its excursion eigenvalues. In particular this defines φ_π for irreducible smooth π of G(F), and φ_ρ for irreducible ρ on a basic inner-form stratum via the basic-stratum embedding. It supplies semisimple Weil data, not monodromy.",
+   "locator": "HKW proof of Theorem 6.5.1, p. 68, citing FS Proposition I.9.1; FS arXiv:2102.13459v1 pp. 34–35; v4 Proposition IX.4.1 pp. 327–328",
+   "status": "planned",
+   "planned": [
+    "ExcursionOperatorsAndSpectralAction:ES5"
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/130",
+   "kind": "theorem",
+   "name": "Parameters and parabolic induction",
+   "statement": "Let P ⊂ G have Levi M, ℓ ≠ p, and σ be an irreducible smooth Q̄_ℓ-representation of M(F). Every irreducible subquotient τ of unnormalized Ind_P^G σ has φ_τ conjugate to the composite of φ_σ with the geometric Levi L-group map, including its cyclotomic twist. With the pinned actions this map multiplies the Levi cocycle by (2ρ_{Ĝ}−2ρ_{M̂})(sqrt(q))^{deg(w)}, deg(geometric Frobenius)=1. The normalized induction i_P^G = Ind_P^G(δ_P^{1/2}·−) used in HKW Appendix C requires the modulus/cyclotomic dictionary of ES7:parabolic; in that convention it yields the usual normalized Levi parameter compatibility.",
+   "locator": "HKW pp. 68–69 citing FS Theorem I.9.6(viii); FS v1 p. 37; v4 Corollary IX.7.3 pp. 337–338 (unnormalized induction)",
+   "status": "planned",
+   "planned": [
+    "ExcursionOperatorsAndSpectralAction:ES7:parabolic"
+   ],
+   "note": "Do not suppress the source cyclotomic twist or substitute ES6 duality for this supplier. The normalized formula is imported only with the stated dictionary.",
+   "prerequisites": [
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/129"
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/131",
+   "kind": "theorem",
+   "name": "Hecke operations preserve excursion parameters of constituents",
+   "statement": "Over Q̄_ℓ, the spectral-center action on D_lis(Bun_G) commutes with each Hecke functor T_V (FS IX.5.2); the required invertibility of |π_0 Z(G)| is automatic. Thus in the basic-b HKW setup, for irreducible smooth ρ of G_b(F), every irreducible constituent τ of each H^n(i_1^* T_{V_μ^∨} i_{b*}ρ), the displayed shtuka cohomology complex, has φ_τ = φ_ρ up to conjugacy, using the compatible stratum and parameter interfaces.",
+   "locator": "HKW proof of Theorem 6.5.1 pp. 68–69 and proof of Theorem 6.6.1 p. 69; FS v4 Theorem IX.5.2 p. 329",
+   "status": "planned",
+   "planned": [
+    "ExcursionOperatorsAndSpectralAction:ES1:spectral-center",
+    "ExcursionOperatorsAndSpectralAction:ES5"
+   ],
+   "note": "ES1:spectral-center explicitly plans Hecke compatibility; ES0 and HS1 provide excursion and Hecke constructions. The assertion is about irreducible cohomology constituents; it is not an assertion that the cohomology representation is semisimple.",
+   "prerequisites": [
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/129"
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/132",
+   "kind": "definition",
+   "name": "ℓ-adic ν-tempered representations",
+   "statement": "Let F/Q_p be finite, ℓ ≠ p, K = Q̄_ℓ with its usual norm (or a finite coefficient extension before scalar extension), with a chosen square root of p for normalized parabolic functors, and ν = −log|·|_K, a positive multiple of the ℓ-adic valuation. Fix a minimal parabolic and use normalized Jacquet functors. For a standard Levi M, let A_M be its maximal F-split central torus and E(A_M,r_G^M π) the characters occurring as generalized A_M-exponents. An admissible smooth π is ν-tempered if for every standard M, including G, every such exponent χ satisfies |χ(a)|_K ≤ 1 for every a ∈ A_M ∩ M_0^+, where M_0^+ is defined by val_F(α(a)) ≥ 0 for the simple roots of the chosen minimal parabolic. Equivalently −νχ lies in the closed positive dual cone of Dat Definition 3.2; the identification of rational characters with valuations uses −val_F. This is ℓ-adic temperedness, with |p|_K = 1, not complex temperedness.",
+   "locator": "HKW Appendix C.2 p. 76, unnumbered setup; Dat author copy (5 March 2004), §3 Definition 3.2 pp. 9–10",
+   "status": "missing",
+   "note": "For a torus the condition is that its character has unit norm on all elements. Trivial and Steinberg representations are ν-tempered in this ℓ-adic setting; a torus character with nonunit value at a uniformizer is not. Retain the closed cone in the temperedness condition."
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/133",
+   "kind": "definition",
+   "name": "Langlands triples, standard modules and their invariant",
+   "statement": "In the preceding ℓ-adic setting, a Langlands triple (M,σ,ψ) consists of a standard Levi M of P, an irreducible ν-tempered smooth σ of M(F), and an unramified character ψ with −ν(ψ) in the strict positive chamber (a_P)^*,+ of Dat/HKW. Its standard module is i_P^G(σ⊗ψ), using normalized induction. Given its Langlands quotient π, write I(π) = i_P^G(σ⊗ψ) and λ_π = −ν(ψ) in a_{M_0}^*. The classification theorem below makes these independent of the essentially unique data. For the exponent comparison of Proposition C.2.5 one uses the center-zero space (a_P^G)^*,+ after arranging integral central character.",
+   "locator": "HKW Appendix C.2 p. 76, paragraphs between Lemmas C.2.3 and C.2.4; Dat author copy Definition 3.6 p. 12",
+   "status": "missing",
+   "note": "The chamber for Langlands data is strict; the zero datum has M=G. Twisting ψ by a ν-unitary unramified character and compensating in σ preserves σ⊗ψ, I(π) and λ_π. Arbitrary triples are not literally unique.",
+   "prerequisites": [
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/132"
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/134",
+   "kind": "theorem",
+   "name": "Dat’s ℓ-adic Langlands classification",
+   "statement": "Every Langlands triple (M,σ,ψ) has a unique irreducible quotient j_P^G(σ⊗ψ) of i_P^G(σ⊗ψ), and every irreducible smooth Q̄_ℓ-representation of G(F) is such a quotient. Two standard triples have isomorphic quotients precisely when their Levis agree, ν(ψ_2 ψ_1^{-1}) = 0, and σ_1⊗ψ_1 ≅ σ_2⊗ψ_2. Consequently I(π) and λ_π are well defined; π is ν-tempered iff λ_π=0, and the walls of λ_π determine M.",
+   "locator": "HKW Appendix C.2 p. 76, citing Dat05 Theorem 3.11; Dat author copy Theorem 3.11 p. 13",
+   "status": "missing",
+   "note": "The source freshly read is Dat’s 49-page author preprint, not the 73-page Duke version of record. HKW’s published quotation supplies the application; the future owner must collate the publication and close the supplier proof.",
+   "prerequisites": [
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/132",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/133"
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/135",
+   "kind": "theorem",
+   "name": "Tits’s torus-unit fixed-apartment criterion",
+   "statement": "Let K be complete discretely valued with perfect residue field, O its valuation ring and m its maximal ideal. Let G/K be split connected reductive with split maximal torus T, A its apartment in the reduced Bruhat–Tits building, and M ⊂ T(O). Then B^M = A iff α(M) is not contained in 1+m for every root α. In particular, if g ∈ T(O) and α(g)−1 ∈ O^× for every root, B^g=A. Units act trivially on the central vector factor of the extended building, so its fixed set is A × X_*(A_G)_R.",
+   "locator": "HKW proof of Proposition 5.1.2 p. 45; Tits, Reductive groups over local fields (1979), §0.2 printed p. 30 and §3.6.1 printed p. 54 (scan PDF pp. 2,26)",
+   "status": "missing",
+   "note": "Missing source addition at ReductiveGroupsPartII:RG2.2. Existence of some fixed point for a bounded subgroup does not identify the whole fixed set with the torus apartment. The complete-field hypothesis is retained; no local-finiteness assumption is made."
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/136",
+   "kind": "theorem",
+   "name": "Hyperspecial models and their building fixers",
+   "statement": "For a complete discrete valuation ring O with algebraically closed residue field and a split connected reductive O-model G, there is a corresponding hyperspecial vertex ō in the reduced building of G_K. Its integral subgroup G(O) fixes precisely ō. For o=(ō,z) in the extended building, Stab_{G(K)}(o)=G(O), using the hyperspecial Cartan decomposition and the cocharacter translations on the apartment including its central vector factor. Thus G(K)/G(O) identifies equivariantly with the orbit of o.",
+   "locator": "HKW proof of Proposition 5.1.2 p. 45; BT84 §5.1.40 printed p. 161, §4.6.29 printed p. 136 and global fixer Corollary §5.1.39 printed p. 161",
+   "status": "missing",
+   "note": "Missing source addition at ReductiveGroupsPartII:RG2.3. Import buildings/fixers from RG2.2 and the Cartan decomposition from RG2.4. The reduced fixer and extended stabilizer are different statements; in particular central translations are not lost."
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/137",
+   "kind": "theorem",
+   "name": "Hyperspecial fixers act transitively on containing apartments",
+   "statement": "In the same complete split hyperspecial setting, the subgroup G(O) fixing ō acts transitively on apartments of the reduced building that contain ō. More generally BT84 §4.6.28 proves transitivity of its connected integral fixer group on apartments containing the specified nonempty bounded subset Ω of an apartment, under the valued-root-datum group-scheme hypothesis (Sch), automatic here for discrete valuation.",
+   "locator": "HKW proof of Proposition 5.1.2 p. 45; BT84 §4.6.28(iii) printed pp. 135–136 (scan PDF pp. 132–133)",
+   "status": "missing",
+   "note": "Missing source addition at ReductiveGroupsPartII:RG2.2, consumed after the hyperspecial model identification in item 136. Do not replace it by transitivity on all apartments without fixing the vertex.",
+   "prerequisites": [
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/136"
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/138",
+   "kind": "theorem",
+   "name": "The apartment stabilizer is the torus normalizer",
+   "statement": "For the valued-root-datum building of a split reductive group over the preceding complete discretely valued field, the setwise stabilizer in G(K) of the apartment of a split maximal torus T is N_G(T)(K); the pointwise fixer is the valued-root-datum H subgroup. Consequently, after a right G(O)-adjustment gives h^{-1}A=A, one obtains h ∈ N_G(T)(K), not N_G(T)(O).",
+   "locator": "HKW proof of Proposition 5.1.2 p. 45; BT72 §7.4.10 printed p. 173 (scan PDF p. 170)",
+   "status": "missing",
+   "note": "Missing source addition at ReductiveGroupsPartII:RG2.2; E18 records the extra plus in HKW’s loop-group notation."
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/139",
+   "kind": "theorem",
+   "name": "Finite Weyl elements lift in a hyperspecial fixer",
+   "statement": "Let x be a hyperspecial vertex in the apartment of a split maximal torus T in the preceding split integral setting. The map N_G(T)(K) ∩ G(O) → W(G,T) is surjective: each finite Weyl reflection has an integral representative fixing x. Hence n ∈ N_G(T)(K) may be right multiplied by a representative in G(O) to lie in T(K). A resulting coset hG(O), h ∈ T(K), is fixed by T(O); T(K) acts on these cosets by translations.",
+   "locator": "HKW proof of Proposition 5.1.2 p. 45, hyperspecial Weyl step; BT84 proof of §5.2.14 printed p. 167 (scan PDF p. 164)",
+   "status": "missing",
+   "note": "Missing source addition at ReductiveGroupsPartII:RG2.3; E19 records LT versus L^+T. The general finite-Weyl statement is not supplied by the existing rank-one matrix Bruhat theory.",
+   "prerequisites": [
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/136",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/138"
+   ]
   }
  ],
  "prerequisites": [
@@ -1316,7 +1476,7 @@
     "PAPER-HANSEN-KALETHA-WEINSTEIN-22/117",
     "PAPER-HANSEN-KALETHA-WEINSTEIN-22/118"
    ],
-   "brief": "Extend Hecke correspondences and local shtuka cohomology (HeckeStacksAndLocalShtukas), starting where it stops: HS0–HS3 construct Hecke stacks, the Hecke action, local shtuka moduli and their cohomology as a representation-valued functor, but compute nothing about that cohomology. This Part II computes it on the elliptic locus, following Hansen–Kaletha–Weinstein, On the Kottwitz conjecture for local shtuka spaces (Forum Math. Pi 10 (2022) e13). Final theorems, as stated there:\n\nTheorem 1.0.2. Assume the refined local Langlands correspondence (Kaletha, Conjecture G). Let φ: W_F × SL_2 → ^LG be a discrete L-parameter with Q̄_ℓ-coefficients and ρ ∈ Π_φ(G_b), b the basic class of B(G, μ). After ignoring the W_E-action, Mant_{b,μ}(ρ) = Σ_{π∈Π_φ(G)} dim Hom_{S_φ}(δ_{π,ρ}, r_μ)·π + err in Groth(G(F)), with err a virtual representation whose character vanishes on the elliptic locus; if Π_φ(G) is supercuspidal and the Fargues–Scholze parameter φ_ρ is supercuspidal, err = 0.\n\nTheorem 1.0.3. For G an inner form of GL_n/F and π irreducible smooth, the Fargues–Scholze parameter φ_π is the usual semisimplified L-parameter.\n\nAlso export Theorem 3.2.9 (the endoscopic trace relation for the Hecke transfer maps), Theorem 5.1.3 (local terms of Satake sheaves at fixed points: (−1)^{⟨2ρ,ν_x⟩} rank V[ν_x]), Theorem 6.2.3 (elliptic fixed points are admissible), Proposition 6.4.7 and Theorem 6.5.2 (the trace distribution of shtuka cohomology on the elliptic locus is the transfer of trdist ρ), and Theorem 6.5.4 (tr(φ × w | RΓ(G, b, μ)[−]) is a trace form, Taylor's conjecture for Rapoport–Zink spaces).\n\nCoverage, in order. (1) The objects of the conjecture: rigid inner forms, Kottwitz's gerbe description of B(G), the refined LLC (Conjecture G) as an explicit hypothesis, S_φ^+, δ_{π,ρ} and its independence (Section 2); if the Kaletha extraction's proposed Part II of EndoscopicTransferAndUnitaryTraceComparison (rigid inner forms) is accepted, import these from it instead. (2) Hecke transfer maps: Rel_b, T_{b,μ}, Theorem 3.2.9 with the sign identity, adjointness (Section 3 and Appendix A.1). (3) Fixed points and local terms on the B_dR^+-, Beilinson–Drinfeld and Witt Grassmannians (Section 5 except 5.3). (4) Hecke stacks as decent v-stacks, shtuka spaces as their fibres, fixed points and elliptic admissibility, inertia (Sections 6.1–6.2). (5) The distribution transfer (Section 6.3). (6) The trace distribution of RΓ(G, b, μ)[ρ], the lattice and general cases, the trace-form theorem (Sections 6.4–6.5). (7) Theorems 1.0.2 and 1.0.3 (Sections 6.5–6.6).\n\nImports: HeckeStacksAndLocalShtukas HS0–HS3 (parent); the proposed Part II of VStackSheavesAndLisseCategories (decent v-stacks and the Lefschetz–Verdier formalism) and the proposed Part II of SmoothRepresentationsOfLocalGroups (characters, trace Paley–Wiener, lattices) from this extraction; VStackSheavesAndLisseCategories VS4–VS5; GeometricSatakeAndFusion GS0–GS4; ExcursionOperatorsAndSpectralAction ES5, ES6 and ES7:GLn-comparison (the GL_n case of Theorem 1.0.3); EndoscopicTransferAndUnitaryTraceComparison ET.0, ET.1 and ET.6 (stable conjugacy, transfer factors, Jacquet–Langlands); BunGAndNewtonStrata BG0–BG3; ReductiveGroupsPartII RG2.2 (buildings); EtaleDualityAndPerverseSheaves EDC.8 (scheme local terms, with Varshavsky's theorem added there).\n\nTests: the Lubin–Tate case (GL_n, μ = (1, 0, …, 0), b of slope 1/n: Mant = nπ + err, recovering Faltings, Strauch and Mieda); Example 3.2.10 (GL_2, the Jacquet–Langlands identity Θ_ρ(g') = −Θ_π(g)); the GSp(4) and U(1, n−1) basic Rapoport–Zink cases (Mieda, Shen); a non-minuscule μ; and the multi-leg extension the paper leaves to the reader (cohomology over (Div^1)^I).",
+   "brief": "Extend Hecke correspondences and local shtuka cohomology (HeckeStacksAndLocalShtukas), starting where it stops: HS0–HS3 construct Hecke stacks, the Hecke action, local shtuka moduli and their cohomology as a representation-valued functor, but compute nothing about that cohomology. This Part II computes it on the elliptic locus, following Hansen–Kaletha–Weinstein, On the Kottwitz conjecture for local shtuka spaces (Forum Math. Pi 10 (2022) e13). Final theorems, as stated there:\n\nTheorem 1.0.2. Assume the refined local Langlands correspondence (Kaletha, Conjecture G). Let φ: W_F × SL_2 → ^LG be a discrete L-parameter with Q̄_ℓ-coefficients and ρ ∈ Π_φ(G_b), b the basic class of B(G, μ). After ignoring the W_E-action, Mant_{b,μ}(ρ) = Σ_{π∈Π_φ(G)} dim Hom_{S_φ}(δ_{π,ρ}, r_μ)·π + err in Groth(G(F)), with err a virtual representation whose character vanishes on the elliptic locus; if Π_φ(G) is supercuspidal and the Fargues–Scholze parameter φ_ρ is supercuspidal, err = 0.\n\nTheorem 1.0.3. For G an inner form of GL_n/F and π irreducible smooth, the Fargues–Scholze parameter φ_π is the usual semisimplified L-parameter.\n\nAlso export Theorem 3.2.9 (the endoscopic trace relation for the Hecke transfer maps), Theorem 5.1.3 (local terms of Satake sheaves at fixed points: (−1)^{⟨2ρ,ν_x⟩} rank V[ν_x]), Theorem 6.2.3 (elliptic fixed points are admissible), Proposition 6.4.7 and Theorem 6.5.2 (the trace distribution of shtuka cohomology on the elliptic locus is the transfer of trdist ρ), and Theorem 6.5.4 (tr(φ × w | RΓ(G, b, μ)[−]) is a trace form, Taylor's conjecture for Rapoport–Zink spaces).\n\nCoverage, in order. (1) The objects of the conjecture: rigid inner forms, Kottwitz's gerbe description of B(G), the refined LLC (Conjecture G) as an explicit hypothesis, S_φ^+, δ_{π,ρ} and its independence (Section 2); if the Kaletha extraction's proposed Part II of EndoscopicTransferAndUnitaryTraceComparison (rigid inner forms) is accepted, import these from it instead. (2) Hecke transfer maps: Rel_b, T_{b,μ}, Theorem 3.2.9 with the sign identity, adjointness (Section 3 and Appendix A.1). (3) Fixed points and local terms on the B_dR^+-, Beilinson–Drinfeld and Witt Grassmannians (Section 5 except 5.3). (4) Hecke stacks as decent v-stacks, shtuka spaces as their fibres, fixed points and elliptic admissibility, inertia (Sections 6.1–6.2). (5) The distribution transfer (Section 6.3). (6) The trace distribution of RΓ(G, b, μ)[ρ], the lattice and general cases, the trace-form theorem (Sections 6.4–6.5). (7) Theorems 1.0.2 and 1.0.3 (Sections 6.5–6.6).\n\nImports: HeckeStacksAndLocalShtukas HS0–HS3 (parent); the proposed Part II of VStackSheavesAndLisseCategories (decent v-stacks and the Lefschetz–Verdier formalism) and the proposed Part II of SmoothRepresentationsOfLocalGroups (characters, trace Paley–Wiener, lattices) from this extraction; VStackSheavesAndLisseCategories VS4–VS5; GeometricSatakeAndFusion GS0–GS4; ExcursionOperatorsAndSpectralAction ES0, ES1:spectral-center, ES5, ES6, ES7:parabolic and ES7:GLn-comparison (the GL_n case of Theorem 1.0.3); EndoscopicTransferAndUnitaryTraceComparison ET.0, ET.1 and ET.6 (stable conjugacy, transfer factors, Jacquet–Langlands); BunGAndNewtonStrata BG0–BG3; ReductiveGroupsPartII RG2.2–RG2.4 (buildings, hyperspecial fixers and Cartan decomposition); EtaleDualityAndPerverseSheaves EDC.8 (scheme local terms, with Varshavsky's theorem added there).\n\nTests: the Lubin–Tate case (GL_n, μ = (1, 0, …, 0), b of slope 1/n: Mant = nπ + err, recovering Faltings, Strauch and Mieda); Example 3.2.10 (GL_2, the Jacquet–Langlands identity Θ_ρ(g') = −Θ_π(g)); the GSp(4) and U(1, n−1) basic Rapoport–Zink cases (Mieda, Shen); a non-minuscule μ; and the multi-leg extension the paper leaves to the reader (cohomology over (Div^1)^I).\n\nFIX-RT /4 and /6: consume the explicit planned suppliers 129–131 (semisimple parameters, parabolic induction with its normalization dictionary, and Hecke/excursion compatibility preserving constituent parameters). ES6 is not a substitute for ES7:parabolic. For Proposition 5.1.2 consume the source additions 135–139 from the existing reductive-group owner; retain complete valuation, split-group and root-unit hypotheses, and justify any passage from the printed arbitrary-DVR target to that setting. No local-finiteness premise is available over algebraically closed residue fields.",
    "reason": "The paper computes the cohomology of the local shtuka spaces that HeckeStacksAndLocalShtukas constructs (HS2) and turns into a representation-valued functor (HS3); that is the direction of HS, which stops before any computation. Its new mathematics (Hecke transfer, local terms of Satake sheaves, fixed points on Hecke stacks, the distribution transfer, the Kottwitz conjecture, inner forms of GL_n) extends that roadmap. The general trace formalism and the representation-theoretic tools go to their own owners (routes 2 and 3)."
   },
   {
@@ -1365,7 +1525,7 @@
     "PAPER-HANSEN-KALETHA-WEINSTEIN-22/127",
     "PAPER-HANSEN-KALETHA-WEINSTEIN-22/128"
    ],
-   "brief": "Extend Artin v-stacks, solid and lisse coefficient categories (VStackSheavesAndLisseCategories), starting where VS0–VS1 stop (Artin v-stacks, partial compact-support functors, ULA objects): construct Gulotta–Hansen–Weinstein's decent v-stacks and fine morphisms with genuine !-functors for stacky maps, and the Lefschetz–Verdier trace formalism of Hansen–Kaletha–Weinstein §4 and §5.3 (Forum Math. Pi 10 (2022) e13), following Lu–Zheng's categorical traces. Final theorems, as stated there:\n\nTheorem 4.1.8 (GHW). For any fine map f of decent v-stacks there are Rf_!, Rf^! satisfying the projection formula, local Verdier duality, (P5) and base change, agreeing with Scholze's for maps representable in nice diamonds, pseudo-functorial, with Rf_! ≅ Rf_* for proper f, and cohomological smoothness with smooth base change.\n\nTheorem 4.3.8 (relative Lefschetz–Verdier). For (X, A) dualizable in CoCorr_S and f ∈ End(X, A) over C → X ×_S X, with proper q: X → X', p: C → C' compatible with C' → X' ×_S X', (X', q_*A) is dualizable, there is a unique f' over C' filled by p, and a 2-morphism tr(f) ⇒ tr(f') over tr(p). Corollary 4.3.9: In_S(p)_*cc_{X/S}(A) = cc_{X'/S}(p_!A).\n\nAlso: Proposition 4.3.5 and the equivalence dualizable ⇔ ULA for fine maps; Proposition 4.4.1 and 4.4.3 (admissible objects on [S/G_S], cc = trdist); Theorem 4.5.3 (Künneth for characteristic classes over a base with smooth diagonal, via BCoCorr_S); Theorem 4.6.1 (cc on [X/G] is the universal local term); Propositions 5.3.1–5.3.2 (local terms commute with base change and with passage from perfect schemes to v-sheaves); Examples 4.2.1–4.2.5 (locally profinite sets, classifying stacks, Haar measures); Lemmas B.1.1–B.1.2 (dualizable = perfect in D(Λ)) and B.2.1–B.2.5 (sheaves on locally profinite sets). The functoriality and monoidality of ⊠ over a base (4.5.7–4.5.8), which the paper calls 'straightforward but tedious', must be proved.\n\nImports: VStackSheavesAndLisseCategories VS0, VS1, VS4 (parent; FS V.1.1 for classifying stacks); DiamondSixOperations S0–S5; EnhancedDerivedSheaves E0–E3 (the ∞-categorical machinery GHW use, following Liu–Zheng); DiamondEtaleCohomology; AdicCoefficientsAndComparisons L1–L2 (ECD §27); EtaleDualityAndPerverseSheaves EDC.8 (the scheme case, SGA 5 III); Mathlib's monoidal duality (CategoryTheory.ExactPairing) for the 1-categorical shadow. The Abe extraction's proposed Part II of EtaleDualityAndPerverseSheaves (EtaleDualityAndPerverseSheavesPartIIRelativeTraces) plans the same generic 2-categorical trace interface for schemes, after Lu–Zheng; the two continuations should share one home for it rather than duplicate it. Tests: X = Spec k (perfect complexes and Euler characteristics), a locally profinite set, [S/G_S] for G = GL_n(Z_p) and G = Q_p^×, a proper diamond with isolated fixed points, and the affinoid disc with T ↦ T + 1, where j_!Λ is not ULA and the naive formula fails.",
+   "brief": "Extend Artin v-stacks, solid and lisse coefficient categories (VStackSheavesAndLisseCategories), starting where VS0–VS1 stop (Artin v-stacks, partial compact-support functors, ULA objects): construct Gulotta–Hansen–Weinstein's decent v-stacks and fine morphisms with genuine !-functors for stacky maps, and the Lefschetz–Verdier trace formalism of Hansen–Kaletha–Weinstein §4 and §5.3 (Forum Math. Pi 10 (2022) e13), following Lu–Zheng's categorical traces. Final theorems, as stated there:\n\nTheorem 4.1.8 (GHW). For any fine map f of decent v-stacks there are Rf_!, Rf^! satisfying the projection formula, local Verdier duality, (P5) and base change, agreeing with Scholze's for maps representable in nice diamonds, pseudo-functorial, with Rf_! ≅ Rf_* for proper f, and cohomological smoothness with smooth base change.\n\nTheorem 4.3.8 (relative Lefschetz–Verdier). For (X, A) dualizable in CoCorr_S and f ∈ End(X, A) over C → X ×_S X, with proper q: X → X', p: C → C' compatible with C' → X' ×_S X', (X', q_*A) is dualizable, there is a unique f' over C' filled by p, and a 2-morphism tr(f) ⇒ tr(f') over tr(p). Corollary 4.3.9: In_S(p)_*cc_{X/S}(A) = cc_{X'/S}(p_!A).\n\nAlso: Proposition 4.3.5 and the equivalence dualizable ⇔ ULA for fine maps; Proposition 4.4.1 and 4.4.3 (admissible objects on [S/G_S], cc = trdist); Theorem 4.5.3 (Künneth for characteristic classes over a base with smooth diagonal, via BCoCorr_S); Theorem 4.6.1 (cc on [X/G] is the universal local term); Propositions 5.3.1–5.3.2 (local terms commute with base change and with passage from perfect schemes to v-sheaves); Examples 4.2.1–4.2.5 (locally profinite sets, classifying stacks, Haar measures); Lemmas B.1.1–B.1.2 (dualizable = perfect in D(Λ)) and B.2.1–B.2.5 (sheaves on locally profinite sets). The functoriality and monoidality of ⊠ over a base (4.5.7–4.5.8), which the paper calls 'straightforward but tedious', must be proved.\n\nImports: VStackSheavesAndLisseCategories VS0, VS1, VS4 (parent; FS V.1.1 for classifying stacks); DiamondSixOperations S0–S5; EnhancedDerivedSheaves E0–E3 (the ∞-categorical machinery GHW use, following Liu–Zheng); DiamondEtaleCohomology; AdicCoefficientsAndComparisons L1–L3 (L1 diamondification, L2 compactification, L3 cohomological comparison, ECD §27); EtaleDualityAndPerverseSheaves EDC.8 (the scheme case, SGA 5 III); Mathlib's monoidal duality (CategoryTheory.ExactPairing) for the 1-categorical shadow. The Abe extraction's proposed Part II of EtaleDualityAndPerverseSheaves (EtaleDualityAndPerverseSheavesPartIIRelativeTraces) plans the same generic 2-categorical trace interface for schemes, after Lu–Zheng; the two continuations should share one home for it rather than duplicate it. Tests: X = Spec k (perfect complexes and Euler characteristics), a locally profinite set, [S/G_S] for G = GL_n(Z_p) and G = Q_p^×, a proper diamond with isolated fixed points, and the affinoid disc with T ↦ T + 1, where j_!Λ is not ULA and the naive formula fails.\n\nFIX-RT /1–/3: build general BG → BH maps from H-torsors with commuting G-action (127), retaining the conjugation formula only for specified homomorphism-induced maps. In 059 require both X/S and Y/S proper, applying 4.3.8 to proper p:Y→S and q:X→S; the automorphism case remains automatic. Use L3 for full faithfulness and exceptional-operation comparison in 072, retaining coefficient/morphism hypotheses and distinguishing natural transformations from equivalences.",
    "reason": "Decent v-stacks with !-functors for stacky maps, cohomological correspondences, categorical traces and characteristic classes are general sheaf theory on v-stacks, owned by VStackSheavesAndLisseCategories (VS0 builds Artin v-stacks and partial compact supports but says its π-sharp is not an ordinary Rf_!). They are planned once there so that other consumers (Hecke operators, excursion operators) can import them."
   },
   {
@@ -1386,9 +1546,12 @@
     "PAPER-HANSEN-KALETHA-WEINSTEIN-22/123",
     "PAPER-HANSEN-KALETHA-WEINSTEIN-22/124",
     "PAPER-HANSEN-KALETHA-WEINSTEIN-22/125",
-    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/126"
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/126",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/132",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/133",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/134"
    ],
-   "brief": "Extend Smooth representations of local groups (SmoothRepresentationsOfLocalGroups), starting where SR.0–SR.3 stop (smooth categories, Hecke algebras, induction and Jacquet functors, admissibility): add the character theory and ℓ-adic tools that Hansen–Kaletha–Weinstein (Forum Math. Pi 10 (2022) e13) use for connected reductive G over a p-adic field F. Final theorems: (1) Harish-Chandra's theorem that the trace distribution of a finite-length admissible representation is given on G(F)_sr by a locally constant character Θ_π; (2) G(F)_rs//G(F) is locally profinite, a disjoint union of T(F)_rs/N(T, G)(F) (Lemma 3.1.1); (3) compatible Haar measures on inner forms and related tori, the orbital-integral isomorphism C_c(G(F)_sr, Λ)_{G(F)} ≅ C_c(G(F)_sr//G(F), Λ) and the stable Weyl integration formula (§3.4); (4) the trace Paley–Wiener theorem of Bernstein–Deligne–Kazhdan; (5) Theorem C.1.1: a finite-length virtual representation is non-elliptic iff it is a Q-linear combination of proper parabolic inductions (van Dijk; Dat, On the K_0 of a p-adic group); (6) Dat's ℓ-adic Langlands classification and ν-tempered representations: ν-tempered irreducibles admit Z̄_ℓ-lattices (Lemma C.2.3), the exponent inequalities of Lemma C.2.4 and Proposition C.2.5, standard modules of lattice-admitting representations generate Groth(G(F)) (Proposition C.2.2), and representations with lattices are dense for trace forms (Lemma 6.5.5). Imports: SmoothRepresentationsOfLocalGroups SR.0–SR.3 and SR.6 (parent); EndoscopicTransferAndUnitaryTraceComparison ET.0–ET.1 (stable conjugacy, orbital integrals); ReductiveGroupsPartII RG2.0 (topology of G(F)); the Tau Ceti Lie groups roadmap's Weyl integration (Layer 6) as the real model. Tests: GL_2 (principal series non-elliptic, Steinberg and supercuspidals), SL_2, the units of a quaternion division algebra (all regular semisimple elements elliptic), and a torus.",
+   "brief": "Extend Smooth representations of local groups (SmoothRepresentationsOfLocalGroups), starting where SR.0–SR.3 stop (smooth categories, Hecke algebras, induction and Jacquet functors, admissibility): add the character theory and ℓ-adic tools that Hansen–Kaletha–Weinstein (Forum Math. Pi 10 (2022) e13) use for connected reductive G over a p-adic field F. Final theorems: (1) Harish-Chandra's theorem that the trace distribution of a finite-length admissible representation is given on G(F)_sr by a locally constant character Θ_π; (2) G(F)_rs//G(F) is locally profinite, a disjoint union of T(F)_rs/N(T, G)(F) (Lemma 3.1.1); (3) compatible Haar measures on inner forms and related tori, the orbital-integral isomorphism C_c(G(F)_sr, Λ)_{G(F)} ≅ C_c(G(F)_sr//G(F), Λ) and the stable Weyl integration formula (§3.4); (4) the trace Paley–Wiener theorem of Bernstein–Deligne–Kazhdan; (5) Theorem C.1.1: a finite-length virtual representation is non-elliptic iff it is a Q-linear combination of proper parabolic inductions (van Dijk; Dat, On the K_0 of a p-adic group); (6) Dat's ℓ-adic Langlands classification and ν-tempered representations: ν-tempered irreducibles admit Z̄_ℓ-lattices (Lemma C.2.3), the exponent inequalities of Lemma C.2.4 and Proposition C.2.5, standard modules of lattice-admitting representations generate Groth(G(F)) (Proposition C.2.2), and representations with lattices are dense for trace forms (Lemma 6.5.5). Imports: SmoothRepresentationsOfLocalGroups SR.0–SR.3 and SR.6 (parent); EndoscopicTransferAndUnitaryTraceComparison ET.0–ET.1 (stable conjugacy, orbital integrals); ReductiveGroupsPartII RG2.0 (topology of G(F)); the Tau Ceti Lie groups roadmap's Weyl integration (Layer 6) as the real model. Tests: GL_2 (principal series non-elliptic, Steinberg and supercuspidals), SL_2, the units of a quaternion division algebra (all regular semisimple elements elliptic), and a torus.\n\nFIX-RT /5: extract and build items 132–134 before the standard-module induction. Pin the ℓ-adic norm, all normalized Jacquet exponent conditions including M=G, the closed temperedness cone, the strict Langlands chamber, the ν-unitary ambiguity in uniqueness, and the well-defined standard module/invariant. Use the exact opposite-Jacquet exponent set in item 124. These inputs share this representation-theory owner; supplier proof closure is its future blueprint work.",
    "reason": "Harish-Chandra characters, Weyl integration, the trace Paley–Wiener theorem, non-elliptic representations and Dat's ℓ-adic Langlands classification are general representation theory of p-adic groups; SmoothRepresentationsOfLocalGroups owns the smooth-representation foundations (SR.0–SR.3) but plans none of them."
   },
   {
@@ -1416,6 +1579,22 @@
     "PAPER-HANSEN-KALETHA-WEINSTEIN-22/091"
    ],
    "reason": "EDC.8 constructs cohomological correspondences and trace classes on fixed-point schemes. Varshavsky's theorem that true and naive local terms agree for automorphisms of finite prime-to-p order, and its extension to perfect schemes (Proposition 5.6.2), are statements about those local terms."
+  },
+  {
+   "route": "source",
+   "roadmap": "ReductiveGroupsPartII",
+   "stages": [
+    "ReductiveGroupsPartII:RG2.2",
+    "ReductiveGroupsPartII:RG2.3"
+   ],
+   "items": [
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/135",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/136",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/137",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/138",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/139"
+   ],
+   "reason": "Tits’s torus-unit fixed-apartment theorem and the hyperspecial model, fixer, apartment-normalizer and Weyl-lift inputs of HKW Proposition 5.1.2 belong to the existing buildings and integral-model direction. These are source additions to RG2.2–RG2.3, not a second building owner. RG2.4 supplies the Cartan decomposition used by the extended stabilizer adapter."
   }
  ],
  "sourceIssues": [
@@ -1698,6 +1877,155 @@
     "reason": "Confirmed verbatim: the composite in Definition 4.3.4 ends '\\to (c_2\\times_S d_2)^! (A_2\\boxtimes A_2')'. The target object of the tensor product of 1-morphisms is (X_1' x_S X_2', A_1' boxtimes_S A_2'), and the kappa quoted in the same definition is adjoint to the Kuenneth isomorphism for (c_2)_!B_1 boxtimes (d_2)_!B_2, so A_1' boxtimes_S A_2' is meant.",
     "by": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
    }
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E15",
+   "kind": "error",
+   "locator": "Example 4.1.1, published p. 22; included arXiv v4 LefschetzVerdierRevised.tex",
+   "printed": "The source identifies morphisms [S/G] → [S/H] with S-homomorphisms G → H.",
+   "correction": "Use H-torsors P on S with a commuting G-action; homomorphisms G→H require a chosen trivialization of P. The stated conjugation formula applies to maps induced by specified homomorphisms.",
+   "reason": "For S=Spd Q_p, G=1 and H=C_2, the nontrivial unramified quadratic H-torsor is a map S→BH not induced by the unique homomorphism 1→H. The homomorphism-induced maps used later remain valid.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-02: fresh published Cambridge PDF (79 pages), targeted locators checked visually and against included arXiv v4 TeX; the HTML article endpoint exceeded browser fetch size, so no complete HTML errata listing is claimed.",
+    "2026-10-02: arXiv:1709.06651 submission history, latest v4 dated 17 March 2022; included source files LefschetzVerdierRevised.tex and LocalTermsOnGrassmannian.tex at the affected passages.",
+    "2026-10-02: Crossref DOI metadata for 10.1017/fmp.2022.7 has no update/correction relation; Tasho Kaletha’s public papers page and bounded title/author/erratum searches found no matching correction.",
+    "2026-10-02: targeted title plus locally finite / L^+N / fixed by all correction searches found no relevant correction. This is a bounded search, not a claim about every author communication."
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E16",
+   "kind": "error",
+   "locator": "Example 4.3.10, published p. 33; Theorem 4.3.8 on p. 32; included arXiv v4 LefschetzVerdierRevised.tex",
+   "printed": "The source now imposes properness of X over S.",
+   "correction": "For a general correspondence also require Y/S proper (equivalently c_1 proper here), or explicitly formulate proper-support data. For an automorphism Y=X this is automatic.",
+   "reason": "Theorem 4.3.8 requires p and q proper. For X=S and Y a countable disjoint union of S with c_1=c_2 its structure map, the constant-one trace section is in ∏Λ but not compact-support ⊕Λ; its compact-support integral and the asserted operator are undefined.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-02: fresh published Cambridge PDF (79 pages), targeted locators checked visually and against included arXiv v4 TeX; the HTML article endpoint exceeded browser fetch size, so no complete HTML errata listing is claimed.",
+    "2026-10-02: arXiv:1709.06651 submission history, latest v4 dated 17 March 2022; included source files LefschetzVerdierRevised.tex and LocalTermsOnGrassmannian.tex at the affected passages.",
+    "2026-10-02: Crossref DOI metadata for 10.1017/fmp.2022.7 has no update/correction relation; Tasho Kaletha’s public papers page and bounded title/author/erratum searches found no matching correction.",
+    "2026-10-02: targeted title plus locally finite / L^+N / fixed by all correction searches found no relevant correction. This is a bounded search, not a claim about every author communication."
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E17",
+   "kind": "error",
+   "locator": "Proof of Proposition 5.1.2, published p. 45; included arXiv v4 LocalTermsOnGrassmannian.tex",
+   "printed": "The source describes the simplicial complex as locally finite.",
+   "correction": "The affine building here need not be locally finite. Use its building/apartment structure without this additional assertion.",
+   "reason": "For GL_2 or SL_2 over k((t)), the neighbors of the standard lattice vertex are parametrized by P^1(k). An algebraically closed residue field is infinite, so that vertex has infinitely many neighbors. The proof uses fixed apartments and fixers, not local finiteness.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-02: fresh published Cambridge PDF (79 pages), targeted locators checked visually and against included arXiv v4 TeX; the HTML article endpoint exceeded browser fetch size, so no complete HTML errata listing is claimed.",
+    "2026-10-02: arXiv:1709.06651 submission history, latest v4 dated 17 March 2022; included source files LefschetzVerdierRevised.tex and LocalTermsOnGrassmannian.tex at the affected passages.",
+    "2026-10-02: Crossref DOI metadata for 10.1017/fmp.2022.7 has no update/correction relation; Tasho Kaletha’s public papers page and bounded title/author/erratum searches found no matching correction.",
+    "2026-10-02: targeted title plus locally finite / L^+N / fixed by all correction searches found no relevant correction. This is a bounded search, not a claim about every author communication."
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E18",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 5.1.2, published p. 45, sentence citing BT72 7.4.10; same in included arXiv v4 TeX",
+   "printed": "h ∈ L^+N(T,G)",
+   "correction": "h ∈ LN(T,G) = N_G(T)(K).",
+   "reason": "The cited result identifies the setwise apartment stabilizer with the K-points of the normalizer. A nonzero cocharacter evaluated at a uniformizer preserves the apartment but is not integral. Removing the finite Weyl component by right multiplication then gives h∈LT, as required for arbitrary cocharacter fixed-point cosets.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-02: fresh published Cambridge PDF (79 pages), targeted locators checked visually and against included arXiv v4 TeX; the HTML article endpoint exceeded browser fetch size, so no complete HTML errata listing is claimed.",
+    "2026-10-02: arXiv:1709.06651 submission history, latest v4 dated 17 March 2022; included source files LefschetzVerdierRevised.tex and LocalTermsOnGrassmannian.tex at the affected passages.",
+    "2026-10-02: Crossref DOI metadata for 10.1017/fmp.2022.7 has no update/correction relation; Tasho Kaletha’s public papers page and bounded title/author/erratum searches found no matching correction.",
+    "2026-10-02: targeted title plus locally finite / L^+N / fixed by all correction searches found no relevant correction. This is a bounded search, not a claim about every author communication."
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E19",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 5.1.2, published p. 45, final paragraph; same in included arXiv v4 TeX",
+   "printed": "The source asserts that every element of LT fixes x=ho.",
+   "correction": "x=ho is fixed by all of L^+T.",
+   "reason": "For h∈T(K), the coset hG(O) is fixed by T(O), since torus elements commute. T(K) acts on T(K)/T(O) by translation; a uniformizer cocharacter moves the base coset, and also moves ho in the extended apartment. The immediately following coset argument only needs integral torus units.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-02: fresh published Cambridge PDF (79 pages), targeted locators checked visually and against included arXiv v4 TeX; the HTML article endpoint exceeded browser fetch size, so no complete HTML errata listing is claimed.",
+    "2026-10-02: arXiv:1709.06651 submission history, latest v4 dated 17 March 2022; included source files LefschetzVerdierRevised.tex and LocalTermsOnGrassmannian.tex at the affected passages.",
+    "2026-10-02: Crossref DOI metadata for 10.1017/fmp.2022.7 has no update/correction relation; Tasho Kaletha’s public papers page and bounded title/author/erratum searches found no matching correction.",
+    "2026-10-02: targeted title plus locally finite / L^+N / fixed by all correction searches found no relevant correction. This is a bounded search, not a claim about every author communication."
+   ]
   }
- ]
+ ],
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S2050508622000075",
+   "read": "2026-10-02",
+   "sha256": "4c8c6d96becb5440bf5029753fed07693b69d3116f6f078fb4e1721484f4d181",
+   "scope": "Fresh bounded reading: pp. 1,4–5,22,32–33,45,47–49,68–69,75–77. Formula images checked at 22,33,45,68,69,76,77. This is not a new full-paper audit; the original full reading is preserved in source."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/e-print/1709.06651v4",
+   "read": "2026-10-02",
+   "sha256": "ff665124be0feef5a7d9450139bf23602a866743ecdd36bc5174a30e3d60bdb4",
+   "scope": "Only affected passages in included LefschetzVerdierRevised.tex, LocalTermsOnGrassmannian.tex, ApplicationToLocalShimuraVarieties.tex and Appendix.tex were reread. The obsolete LefschetzVerdier.tex is not included by the main file."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2102.13459v1",
+   "read": "2026-10-02",
+   "sha256": "49cb4e8dd857b018d8e89420e3cb7d6747f43cd02a91c16daad9f1af2d4c6414",
+   "scope": "Bounded cited interfaces, PDF pp. 34–37: I.9.1 and I.9.6. Not a proof audit of FS."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2102.13459v4",
+   "read": "2026-10-02",
+   "sha256": "1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027",
+   "scope": "Latest arXiv v4, 27 November 2024; bounded PDF pp. 327–330,335–338: IX.4.1, IX.5.2 and IX.7.3. Not a complete rereading."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://webusers.imj-prg.fr/~jean-francois.dat/recherche/publis/nu.pdf",
+   "read": "2026-10-02",
+   "sha256": "fd49503fbaf22fc6a491d135b20b2cb342dadcc96309ecc497c80811108ce4f7",
+   "scope": "49-page author preprint dated 5 March 2004, pp. 9–13, Definitions 3.2/3.6 and Theorem 3.11; not the Duke version of record."
+  },
+  {
+   "kind": "published",
+   "url": "https://gkorpal.github.io/files/Tits1979.pdf",
+   "read": "2026-10-02",
+   "sha256": "6c19a30ab016f4f8968293c56e192b6371603828b476bd13579ca60ee4d5a743",
+   "scope": "Scan of Tits79: PDF pp. 2–4 and26, printed pp. 30–32,54; §0.2 conventions and §3.6.1 only, not the full paper."
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/article/PMIHES_1984__60__5_0.pdf",
+   "read": "2026-10-02",
+   "sha256": "8ebdf6e30e6c9613bcb8b43f283fbf7c01a61bc27db0f0626210d1f23c8e6fdb",
+   "scope": "BT84: PDF pp. 132–133,158,164 (printed pp. 135–136,161,167), bounded cited fixer/model/Weyl passages; not the full paper."
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/article/PMIHES_1972__41__5_0.pdf",
+   "read": "2026-10-02",
+   "sha256": "0250583927c80b8a52c0aadc464ffbfcde893d3befc1018fbad31d8f719d6f8e",
+   "scope": "BT72: PDF p. 170 (printed p. 173), §7.4.9–§7.4.10 only; not the full paper."
+  }
+ ],
+ "verification": {
+  "job": "FIX-RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "date": "2026-10-02",
+  "atlasBase": "934d593804a641b42df0563411f9b9d4d81968d4",
+  "scope": "All six independently confirmed findings; bounded supplier extraction, not a new full-paper or supplier proof audit.",
+  "libraryEvidence": "Read reviewed ES5, ES7:parabolic, ES1:spectral-center and L3 coverage rows, and the full implicated layer descriptions. RG2.2/RG2.3 have no exact coverage row: that is not absence evidence. Pinned keyword searches for Bruhat–Tits/buildings/hyperspecial/Fargues/tempered found no corresponding supplier. Mathlib Algebra/Module/Lattice.lean was read: Submodule.IsLattice is a finite spanning module predicate, not the building/apartment theory. Existing Tau Ceti matrix/Coxeter Bruhat results do not supply arbitrary reductive-group buildings. No new library status is asserted.",
+  "sourceIssueReview": "The fourteen original independent verdicts are preserved. New E15–E19 await independent sourceIssue review; the first two implement confirmed RT findings but no sourceIssue verdict is fabricated.",
+  "remaining": "Future blueprints close Dat/Tits/BT proofs, collate the Dat publication, and justify the arbitrary-DVR building reduction. No Lean deliverable and no compilation."
+ }
 }
