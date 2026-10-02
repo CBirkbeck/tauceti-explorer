@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Partial native section-dual coordinate checkpoint: twelve consumed declaration nodes derive polynomial multiplication, the dual value relation, decomposition, existence/uniqueness and the actual multiplication/generator action. Separate admission-free native proofs check the complete stated dual normal form, A-linear equivalence, surjective residue, kernel and corrected ring action over every commutative ring. All 145 inherited statement/hypothesis/source/acceptance contracts, eight stages, reserved moduli key, six consumer inventories, fourteen gaps and 135 requests survive. The canonical suggested file remains an admitted plan; tensor/cokernel, relative stable-reflexivity, completion and family geometry remain open.",
+  "summary": "Partial coefficient-projectivity and tensor-retraction checkpoint: four consumed native lemmas strengthen the actual section ideal to A-projective, the actual R-linear dual to A-free, and preserve the actual coefficient inclusion after tensoring with any A-module. Admission-free native proofs also establish the two inherited coefficient-flatness contracts. All 157 inherited statement/hypothesis/source/acceptance contracts, eight partial stages, reserved moduli key, six consumer inventories, fourteen gaps and 135 requests survive. The canonical suggested file remains an admitted plan; matrix cokernels, general Hom/Ext exchange, completion and family geometry remain open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -695,6 +695,48 @@
         "module": "Mathlib/LinearAlgebra/Prod.lean",
         "provides": "Native linear second projection from a product module.",
         "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 70; indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:Module.Projective.of_split",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Projective.lean",
+        "provides": "A retract of a projective module is projective; used with the actual coefficient-linear ideal inclusion and projection.",
+        "checked": "Complete statement, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 165; indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:Module.Free.of_equiv",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
+        "provides": "Transport freeness along a native semilinear equivalence with inverse ring maps; used here as an A-linear equivalence.",
+        "checked": "Complete statement, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 118; indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:Module.Free.prod",
+        "kind": "instance",
+        "module": "Mathlib/LinearAlgebra/Basis/Prod.lean",
+        "provides": "The product of two free modules over a semiring is free.",
+        "checked": "Complete statement, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 100; indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:Module.Flat.of_projective",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "provides": "A projective coefficient module is flat.",
+        "checked": "Complete statement, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 227; indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:LinearMap.lTensor_comp",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "provides": "Tensoring in the right factor respects the actual composition of linear maps.",
+        "checked": "Complete statement, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 464; indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:LinearMap.lTensor_id",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "provides": "Tensoring the identity map in the right factor is the identity on the native tensor product.",
+        "checked": "Complete statement, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 487; indexed name confirmed."
       }
     ]
   },
@@ -2706,6 +2748,11 @@
           "name": "NodeSectionFactorization.PolynomialModel.dualNormalEquivGenerator",
           "role": "simp",
           "statement": "The dual generator ε has coordinates (0,1)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDual_coefficient_free",
+          "role": "characterisation",
+          "statement": "The actual R-linear dual D=Hom_R(J,R), restricted to coefficients, is free over A."
         }
       ],
       "tests": [
@@ -2738,6 +2785,16 @@
           "name": "NodeSectionFactorization.PolynomialModel.normalRoundTripCanonical",
           "kind": "compatibility",
           "statement": "An actually constructed equivalence satisfies every pair round trip and the prescribed pointwise inverse formula."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.coefficientDualFreeNonreduced",
+          "kind": "computation",
+          "statement": "Over Z/4 with γ=δ=t=0 and s=1, the actual R-linear dual is free over coefficients."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.coefficientDualFlatZero",
+          "kind": "degenerate",
+          "statement": "Over Z/1 with zero parameters, the actual R-linear dual is coefficient-flat."
         }
       ],
       "uses": [
@@ -2748,6 +2805,10 @@
         {
           "where": "StableReductionPartII:MC.2/node-factorization-exact",
           "how": "Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u, J=(c,d), D=Hom_R(J,R). In this actual quotient the alternating Φ,Ψ complex and its transpose are exact: ker Φ=im Ψ, ker Ψ=im Φ, ker Φᵀ=im Ψᵀ and ker Ψᵀ=im Φᵀ. Cokernel identifications are the two separate construction nodes."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-coefficient-free",
+          "how": "The monomial basis makes R A-free. The existing product instance makes R×A free. Transport that instance along the inverse equivalence."
         }
       ]
     },
@@ -3140,12 +3201,15 @@
         "mathlib:Module.Flat.of_free",
         "StableReductionPartII:MC.2/section-evaluation-split",
         "StableReductionPartII:MC.2/section-evaluation-projection",
-        "StableReductionPartII:MC.2/section-projection-retraction"
+        "StableReductionPartII:MC.2/section-projection-retraction",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-projective",
+        "mathlib:Module.Flat.of_projective"
       ],
       "proofSteps": [
         "R is A-free by the existing monomial normal form.",
         "The native sectionProjection is the A-linear retraction R→J and fixes each actual ideal element; it is exactly the sectionSplit first coordinate.",
-        "Apply the already cited retract-of-flat theorem. No R-flatness or relative stable reflexivity is asserted."
+        "Apply the already cited retract-of-flat theorem. No R-flatness or relative stable reflexivity is asserted.",
+        "An alternative checked native proof consumes section-ideal-coefficient-projective and the existing projective/free-flat instance. The earlier valid proof route is retained."
       ],
       "acceptance": [
         "No claim that J is R-flat, projective over R or invertible at the node."
@@ -3179,11 +3243,13 @@
         "StableReductionPartII:MC.2/section-dual-normal-equivalence",
         "StableReductionPartII:MC.2/polynomial-normal-form",
         "mathlib:Module.Flat.of_linearEquiv",
-        "mathlib:Module.Flat.of_free"
+        "mathlib:Module.Flat.of_free",
+        "StableReductionPartII:MC.2/section-dual-coefficient-free"
       ],
       "proofSteps": [
         "Normal coordinates identify D with R×A as A-modules.",
-        "The right side is A-free; transport and apply the existing free-flat instance."
+        "The right side is A-free; transport and apply the existing free-flat instance.",
+        "An alternative checked native proof consumes section-dual-coefficient-free and the existing projective/free-flat instance. The earlier valid proof route is retained."
       ],
       "acceptance": [
         "The theorem is about the actual R-linear dual with restriction to A."
@@ -7926,6 +7992,21 @@
           "name": "NodeSectionFactorization.PolynomialModel.sectionProjection_coefficient",
           "role": "simp",
           "statement": "For a∈A the projection of ι(a) is the zero element of J."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdeal_coefficient_projective",
+          "role": "characterisation",
+          "statement": "The actual section ideal J is projective as an A-module."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionProjection_lTensor_retraction",
+          "role": "characterisation",
+          "statement": "For every A-module M, (id_M⊗p)∘(id_M⊗i)=id on M⊗_A J, where i:J→R is the actual inclusion and p is the canonical coefficient projection."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdeal_lTensor_injective",
+          "role": "characterisation",
+          "statement": "For every A-module M, the actual coefficient-linear inclusion id_M⊗i:M⊗_A J→M⊗_A R is injective, without a flatness assumption on M."
         }
       ],
       "tests": [
@@ -7948,6 +8029,26 @@
           "name": "NodeSectionFactorization.PolynomialModel.sectionProjectionNotRingLinear",
           "kind": "non-example",
           "statement": "Over ℚ with γ=1 and δ=s=t=0, p(1)=0 and p(u)=u≠0. The identity p(rz)=r p(z) fails for (r,z)=(u,1)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.coefficientProjectiveNonreduced",
+          "kind": "computation",
+          "statement": "Over Z/4 with γ=δ=t=0 and s=1, the actual ideal is projective over its coefficient ring."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.coefficientIdealFlatZero",
+          "kind": "degenerate",
+          "statement": "Over Z/1 with zero parameters, the actual ideal is coefficient-flat with no nontriviality hypothesis."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.tensorInclusionTorsion",
+          "kind": "compatibility",
+          "statement": "Over A=Z with zero parameters and M=Z/2, the actual tensorized ideal inclusion is injective; no flatness of M is assumed."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.tensorRetractionPointwise",
+          "kind": "compatibility",
+          "statement": "For every coefficient module M and every z in M⊗_A J, tensor projection after actual tensor inclusion returns z."
         }
       ],
       "uses": [
@@ -7958,6 +8059,18 @@
         {
           "where": "StableReductionPartII:MC.2/section-ideal-coefficient-flat",
           "how": "Supplies the actual retraction required by the built retract-of-flat theorem."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-ideal-coefficient-projective",
+          "how": "Use the actual coefficient-linear inclusion J→R and canonical sectionProjection R→J. Its composite with inclusion is the identity by sectionProjection_ideal. Apply the existing direct-summand theorem."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-projection-tensor-retraction",
+          "how": "Import the existing tensor composition and identity laws. Tensor the established equality; no flatness of M is required."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-ideal-tensor-injective",
+          "how": "Rewrite both composites using the proved tensor retraction to recover equality of the original tensors."
         }
       ]
     },
@@ -9700,6 +9813,163 @@
         "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
       },
       "declarationName": "NodeSectionFactorization.PolynomialModel.dualGenerator_action"
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example and Proposition3.1, printed pp.11–12; Corollary3.2",
+          "match": "Explicit algebraic deductions from the published polynomial model and its coefficient section. The published proposition assumes noetherian A and unit discriminant. These coefficient-action and ideal-projection calculations hold over any commutative ring by the checked native quotient proofs; no geometric, relative stable-reflexivity or completion strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-projective",
+      "title": "Coefficient projectivity of the actual section ideal",
+      "kind": "lemma",
+      "statement": "The actual section ideal J is projective as an A-module.",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-projection-retraction",
+        "StableReductionPartII:MC.2/polynomial-normal-form",
+        "mathlib:Module.Projective.of_split"
+      ],
+      "proofSteps": [
+        "The native ordered monomial basis makes R free over A, hence projective.",
+        "Use the actual coefficient-linear inclusion J→R and canonical sectionProjection R→J. Its composite with inclusion is the identity by sectionProjection_ideal. Apply the existing direct-summand theorem."
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdeal_coefficient_projective",
+      "acceptance": [
+        "Use the actual native polynomial quotient, ideal and R-linear dual with their existing coefficient action.",
+        "Projectivity, freeness and tensoring are over A; no claim of R-projectivity, matrix-complex exactness, Hom exchange or completion follows."
+      ]
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example and Proposition3.1, printed pp.11–12; Corollary3.2",
+          "match": "Explicit algebraic deductions from the published polynomial model and its coefficient section. The published proposition assumes noetherian A and unit discriminant. These coefficient-action and ideal-projection calculations hold over any commutative ring by the checked native quotient proofs; no geometric, relative stable-reflexivity or completion strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-free",
+      "title": "Coefficient freeness of the actual section dual",
+      "kind": "lemma",
+      "statement": "The actual R-linear dual D=Hom_R(J,R), restricted to coefficients, is free over A.",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-normal-equivalence",
+        "StableReductionPartII:MC.2/polynomial-normal-form",
+        "mathlib:Module.Free.of_equiv",
+        "mathlib:Module.Free.prod"
+      ],
+      "proofSteps": [
+        "Use the already constructed normal equivalence D≃ₗ[A]R×A, with the actual native dual as source.",
+        "The monomial basis makes R A-free. The existing product instance makes R×A free. Transport that instance along the inverse equivalence."
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDual_coefficient_free",
+      "acceptance": [
+        "Use the actual native polynomial quotient, ideal and R-linear dual with their existing coefficient action.",
+        "Projectivity, freeness and tensoring are over A; no claim of R-projectivity, matrix-complex exactness, Hom exchange or completion follows."
+      ]
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.",
+        "M is an arbitrary additive commutative group with an A-module structure; M need not be flat or finitely generated."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example and Proposition3.1, printed pp.11–12; Corollary3.2",
+          "match": "Explicit algebraic deductions from the published polynomial model and its coefficient section. The published proposition assumes noetherian A and unit discriminant. These coefficient-action and ideal-projection calculations hold over any commutative ring by the checked native quotient proofs; no geometric, relative stable-reflexivity or completion strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/section-projection-tensor-retraction",
+      "title": "Tensorized coefficient retraction",
+      "kind": "lemma",
+      "statement": "For every A-module M, (id_M⊗p)∘(id_M⊗i)=id on M⊗_A J, where i:J→R is the actual inclusion and p is the canonical coefficient projection.",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-projection-retraction",
+        "mathlib:LinearMap.lTensor_comp",
+        "mathlib:LinearMap.lTensor_id"
+      ],
+      "proofSteps": [
+        "The actual coefficient-linear composite p∘i equals the identity by native linear-map extensionality and sectionProjection_ideal.",
+        "Import the existing tensor composition and identity laws. Tensor the established equality; no flatness of M is required."
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionProjection_lTensor_retraction",
+      "acceptance": [
+        "Use the actual native polynomial quotient, ideal and R-linear dual with their existing coefficient action.",
+        "Projectivity, freeness and tensoring are over A; no claim of R-projectivity, matrix-complex exactness, Hom exchange or completion follows."
+      ]
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.",
+        "M is an arbitrary additive commutative group with an A-module structure; M need not be flat or finitely generated."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example and Proposition3.1, printed pp.11–12; Corollary3.2",
+          "match": "Explicit algebraic deductions from the published polynomial model and its coefficient section. The published proposition assumes noetherian A and unit discriminant. These coefficient-action and ideal-projection calculations hold over any commutative ring by the checked native quotient proofs; no geometric, relative stable-reflexivity or completion strengthening is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/section-ideal-tensor-injective",
+      "title": "Tensorized ideal inclusion is injective",
+      "kind": "lemma",
+      "statement": "For every A-module M, the actual coefficient-linear inclusion id_M⊗i:M⊗_A J→M⊗_A R is injective, without a flatness assumption on M.",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-projection-tensor-retraction"
+      ],
+      "proofSteps": [
+        "Apply id_M⊗p to an equality of images under id_M⊗i.",
+        "Rewrite both composites using the proved tensor retraction to recover equality of the original tensors."
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdeal_lTensor_injective",
+      "acceptance": [
+        "Use the actual native polynomial quotient, ideal and R-linear dual with their existing coefficient action.",
+        "Projectivity, freeness and tensoring are over A; no claim of R-projectivity, matrix-complex exactness, Hom exchange or completion follows."
+      ]
     }
   ],
   "requests": [
@@ -10674,7 +10944,8 @@
         "Expand the rigid genus-one embedding and local collision charts into individual lemmas; supply missing Lean family types.",
         "Prove the native polynomial and flat-ambient/completion adapters and tensor coherence. Completion of actual Hom and quotient has native signatures; the pointed-family, relative stable-reflexivity and arbitrary-family descent interfaces remain absent.",
         "The actual coefficient restriction, projection and canonical ε/K naturality, complete dual normal coordinates/residue and corrected ring action have admission-free native checks. Tensor equivalences, arbitrary coefficient-module Hom/Ext exchange and completed-local/family comparisons remain separate obligations.",
-        "Preserve the specified ideal/dual cokernel identifications, including the negative second generator and transpose complexes. Prove the remaining arbitrary coefficient-module Hom/Ext, tensor, completion and family comparisons without assuming them from the dual coordinates."
+        "Preserve the specified ideal/dual cokernel identifications, including the negative second generator and transpose complexes. Prove the remaining arbitrary coefficient-module Hom/Ext, tensor, completion and family comparisons without assuming them from the dual coordinates.",
+        "The actual coefficient projectivity/freeness and tensorized section retraction now have native admission-free checks, including nonflat M=Z/2 over Z. This proves injectivity only for the split coefficient inclusion J→R; alternating matrix-complex tensor exactness, canonical quotient/tensor-dual comparison and Hom/Ext exchange remain separate obligations."
       ]
     },
     {
@@ -14062,5 +14333,93 @@
       "definitionConstructionEntries": 178
     },
     "archiveRevision": "d49ebea96b7886d8fd324eeff9bd5e1cb5fc7adc"
+  },
+  "coefficientFlatnessContinuation": {
+    "agent": "Codex",
+    "session": "codex-J6LwjP",
+    "issue": 3342,
+    "claimComment": 5962363236,
+    "botConfirmation": 5962364540,
+    "base": "a6094bd6d7c7856944d7cf3b905c7e9bf11d90fd",
+    "status": "partial checkpoint",
+    "addedNodes": [
+      "StableReductionPartII:MC.2/section-ideal-coefficient-projective",
+      "StableReductionPartII:MC.2/section-dual-coefficient-free",
+      "StableReductionPartII:MC.2/section-projection-tensor-retraction",
+      "StableReductionPartII:MC.2/section-ideal-tensor-injective"
+    ],
+    "preservedStatementContracts": 157,
+    "sourceScope": "Fresh complete Knudsen arXiv:1106.1588v2 §3 setup and Proposition 3.1/Corollary 3.2 proofs. Arbitrary coefficient-ring statements are authored native algebra deductions, not extensions of the printed noetherian/unit-discriminant geometric theorem.",
+    "boundary": "All eight stages partial, all implementations unchecked. Matrix cokernels and their transpose complexes, general tensor-dual quotient/Hom/Ext comparisons, completion and actual family geometry remain open.",
+    "actualProof": {
+      "source": "1e5b1f1de1a3282ee855112a4675dc7cd0df4f5859cee63438b60d94bcb9c37b",
+      "diagnostics": "1db44e60198082e9f37827a3ed0f78d9322f7087a71363e8d352fcc0e484502c",
+      "lines": 1505,
+      "examples": 46,
+      "audits": 98,
+      "errors": 0,
+      "admissions": 0,
+      "otherWarnings": 0,
+      "seconds": 10.8,
+      "peakRSSKiB": 3012868,
+      "availableGiB": 54
+    },
+    "fullSuggested": {
+      "source": "45866c58c516769a3b82459630feed280cfce7dd0d06050d6dd6f3509223c54e",
+      "diagnostics": "8eac28674a256d5064d9a6b04725e965b2fa0f97c4f64e449cd4e64b7f32ef51",
+      "lines": 1975,
+      "examples": 108,
+      "audits": 0,
+      "errors": 0,
+      "admissions": 257,
+      "otherWarnings": 0,
+      "seconds": 16.41,
+      "peakRSSKiB": 2999668,
+      "availableGiB": 54
+    },
+    "assembler": {
+      "actualAssembler": true,
+      "declarations": 161,
+      "planets": 35,
+      "ownSkippedLinks": [],
+      "stageDAG": {
+        "vertices": 3050,
+        "edges": 8750,
+        "acyclic": true
+      },
+      "ownDeclarationDAG": {
+        "vertices": 161,
+        "edges": 377,
+        "acyclic": true
+      },
+      "stagesAndReachableDeclarations": {
+        "vertices": 3176,
+        "edges": 9402,
+        "acyclic": true
+      },
+      "reachableDeclarations": 161,
+      "externalDeclarations": [],
+      "unresolved": [],
+      "requiredStagePairsReachable": 81,
+      "stageEdgesUnchanged": true,
+      "ownPendingLinks": [],
+      "otherPendingLinksMatchOriginal": true,
+      "otherSkipsMatchOriginal": true,
+      "unchangedNodeObjects": 153,
+      "scriptSha256": "962dce472858183cc7be5db8c54291354e166722f9d40a13575d8233c4b9b604"
+    },
+    "signatureParity": {
+      "publicDeclarations": 6,
+      "exactHeadersAfterWhitespaceAndLemmaTheoremNormalization": true,
+      "newExampleHeaders": 6
+    },
+    "unchangedNodeObjects": 153,
+    "apiCounts": {
+      "distinctAllNodes": 181,
+      "entriesAllNodes": 183,
+      "definitionConstructionEntries": 182
+    },
+    "sourceHtmlSha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
+    "archiveRevision": "67f27b2557f3a8c9e86d309f83ebd93e878ac77e"
   }
 }
