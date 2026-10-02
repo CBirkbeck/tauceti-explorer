@@ -3977,13 +3977,13 @@
     }
   ],
   "verification": {
-    "leanCompiled": false,
-    "reason": "No existing built project at both pins; no project setup, cache acquisition, build or language server started.",
+    "leanCompiled": true,
+    "reason": "All imports are Mathlib modules. Entire suggested file elaborated against the existing exact-pin Mathlib build using Lean v4.34.0-rc2. This does not certify a Tau Ceti build or any omitted global signature. No project/cache setup, library build or language server started.",
     "mathematics": "All nodes are declaration-sized plans. Intrinsic algebra uses specified exterior calculus and exact named supplier contracts; no complete stage or formal implementation claimed.",
     "sourceIssueScope": "One narrow inherited EG20/E10 misprint subset is freshly confirmed; no new source error or corrected correspondence is claimed. Relative dλ=0 is input, not an EG erratum.",
     "checks": {
       "packetChecker": "0 errors, 0 warnings with pinned declaration index",
-      "preservation": "12 inherited node ids and all 149 assigned input item ids preserved",
+      "preservation": "Current continuation: all 47 predecessor nodes, 100 APIs, 85 tests, 149 routed input ids, sources, baseline declarations, requests, gaps, coverage and restructure preserved exactly.",
       "nameParity": "All 47 node ids, 100 API names and 85 test names occur in reader and suggested file; 35 global signatures are explicitly omitted, not elaborated",
       "atlasProjection": {
         "vertices": 3022,
@@ -3998,6 +3998,29 @@
         "scope": "Exact polynomial/matrix scalar Leibniz, additive extension, curvature and variable-parameter defect; tensor, dual, gauge, rescaling; characteristic-two commutator; ordered-word and nonreduced nilpotence examples; finite Griffiths Rees fibers. No general proof or Lean elaboration."
       },
       "sourceExcerpts": "All unique PDF excerpt strings confirmed after Unicode/whitespace normalization; Stacks ordinary-connection excerpt checked on tag 07J5."
+    },
+    "historicalReceiptTree": "dc0c470bcc064a08d8d9161ea963afe12b2c4b8d",
+    "historicalReceiptScope": "Retained prior-worker model/source-excerpt/atlas-projection receipts; not rerun in the codex-J6LwjP elaboration continuation.",
+    "elaborationContinuation": {
+      "agent": "Codex",
+      "session": "codex-J6LwjP",
+      "base": "ead8d4f",
+      "errors": 0,
+      "sorryWarnings": 106,
+      "nativeExamples": 44,
+      "globalNodesOmitted": 35,
+      "globalApiItemsOmitted": 65,
+      "globalTestsOmitted": 54,
+      "changes": [
+        "Use lam instead of the reserved lambda token in native identifiers.",
+        "Infer the frame as an implicit parameter in Connection methods.",
+        "Separate finite index universes from the coefficient-ring universe.",
+        "Annotate polynomial scalar types and coerce inverses of matrix units explicitly."
+      ],
+      "implementationStatus": "unchecked",
+      "exitCode": 0,
+      "suggestedSha256": "cdf1b95ef9ab04bf23785ca2237351c811135d72e3683fc9116ab9ba9c87f35e",
+      "logSha256": "dd795b2ea3338409471533d2f4766c0755d17885156bd5ea6038fe0d0b2cb6f8"
     }
   }
 }
