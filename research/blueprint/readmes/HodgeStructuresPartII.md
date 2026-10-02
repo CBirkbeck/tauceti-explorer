@@ -2164,10 +2164,10 @@ Hypotheses:
 Proof plan:
 
 1. Use the native tensor map of id_E and v; compose with the native right tensor unit equivalence and θ.
-2. Linearity in v follows on pure tensors from evaluation and scalar balancing; tensor induction proves it for arbitrary θ(e).
+2. Use native TensorProduct.map_add_right and map_smul_right to prove linearity in the contracting functional, then compose with θ and rid. This actual affine proof works for arbitrary modules.
 3. On local finite projective charts, evaluation separates tensor coefficients. Its sheaf/co-evaluation and gluing interface is the E1 supplier, not an assumption that global sections commute with tensor.
 
-Dependencies: mathlib:Module.Dual, mathlib:TensorProduct.map, mathlib:TensorProduct.rid.
+Dependencies: mathlib:Module.Dual, mathlib:TensorProduct.map, mathlib:TensorProduct.rid, mathlib:TensorProduct.map_add_right, mathlib:TensorProduct.map_smul_right.
 
 Planning API:
 
@@ -2199,9 +2199,9 @@ Proof plan:
 1. Lift a through the built TensorAlgebra.lift, whose target is an associative semiring, so End(E) is allowed.
 2. For each native TensorAlgebra.SymRel generator, the two images a(v)a(w) and a(w)a(v) agree. RingCon.ringConGen_le therefore places the symmetric congruence in the kernel of the tensor lift.
 3. Descend using native RingCon.liftₐ. RingCon.liftₐ_mk and TensorAlgebra.lift_ι_apply give the generator formula.
-4. Precompose any competing map with the surjective native symmetric quotient. TensorAlgebra.hom_ext and RingCon.Quotient.hom_extₐ give uniqueness. SymmetricAlgebra.lift and its algHom_ext have a commutative target restriction at this pin and cannot be applied directly to End(E).
+4. Use native SymmetricAlgebra.induction on scalars, generators, sums and products to prove uniqueness into the associative End(E) target; the zero action is the composite of algebraMapInv with the scalar algebra map. No commutative target instance is imposed. SymmetricAlgebra.lift and algHom_ext cannot be applied directly to End(E) at this pin.
 
-Dependencies: HodgeStructuresPartII:H.0/affine-contractions, mathlib:TensorAlgebra.lift, mathlib:TensorAlgebra.SymRel, mathlib:RingCon.ringConGen_le, mathlib:RingCon.liftₐ, mathlib:TensorAlgebra.hom_ext, mathlib:RingCon.Quotient.hom_extₐ.
+Dependencies: HodgeStructuresPartII:H.0/affine-contractions, mathlib:TensorAlgebra.lift, mathlib:TensorAlgebra.SymRel, mathlib:RingCon.ringConGen_le, mathlib:RingCon.liftₐ, mathlib:TensorAlgebra.hom_ext, mathlib:RingCon.Quotient.hom_extₐ, mathlib:SymmetricAlgebra.induction, mathlib:SymmetricAlgebra.algebraMapInv_ι.
 
 Planning API:
 
@@ -2214,6 +2214,7 @@ Unit tests:
 - TwistedHiggsBundle.affineSymmetricAction.test_zero (degenerate): For the zero field every degree-one generator acts by zero.
 - TwistedHiggsBundle.affineSymmetricAction.test_scalar (computation): For E=Q=A and a(id_A)=id_E, the distinguished generator acts as identity, so the action is not nilpotent on a nonzero line.
 - TwistedHiggsBundle.affineSymmetricAction.test_rank_zero (degenerate): On the zero module A^(Fin 0), every element of S acts by the zero endomorphism, including its unit.
+- TwistedHiggsBundle.affineSymmetricAction.test_noncommuting (non-example): On ℚ² the actual endomorphisms E12 and E21 cannot both be images of degree-one generators under a symmetric-algebra action: their products differ on the first basis vector.
 
 Acceptance: Given an A-linear a:V→End_A(E) with pairwise commuting images, construct the unique A-algebra map α:S→End_A(E) satisfying α(ι(v))=a(v). For a=a_θ on finite locally free charts, this is the affine adapter of the existing integrable twisted Higgs symmetric action.
 
@@ -2364,11 +2365,11 @@ Hypotheses:
 Proof plan:
 
 1. Use the built Ideal.Quotient.liftₐ with the actual ideal I^N and the actual endomorphism algebra. Its associative semiring target is sufficient.
-2. The containment supplies the required vanishing on the ideal; Quotient.liftₐ_comp gives the representative formula.
-3. Every quotient class has a representative, giving uniqueness. Conversely any factorization kills I^N because its quotient representatives are zero.
+2. The containment supplies vanishing on I^N. The native quotient lift computes definitionally on representatives, giving the representative formula.
+3. Use Ideal.Quotient.mk_surjective for uniqueness; any competing factorization kills I^N by Ideal.Quotient.eq_zero_iff_mem. These actual affine proofs do not require augmentation_pow_iff_words.
 4. For the zero module the bound N=0 is permitted because the target algebra is the zero algebra; positive bound conventions remain in IterateNul, not in this quotient construction.
 
-Dependencies: HodgeStructuresPartII:H.0/augmentation-power-words, mathlib:Ideal.Quotient.liftₐ, mathlib:Ideal.Quotient.liftₐ_comp.
+Dependencies: HodgeStructuresPartII:H.0/augmentation-power-words, mathlib:Ideal.Quotient.liftₐ, mathlib:Ideal.Quotient.liftₐ_comp, mathlib:Ideal.Quotient.mk_surjective, mathlib:Ideal.Quotient.eq_zero_iff_mem, mathlib:Ideal.pow_mem_pow.
 
 Planning API:
 
@@ -2412,7 +2413,7 @@ The ordered-coordinate statement promotes the existing iterate_coordinates API t
 
 The remaining field/reduced-ring rank bound must distinguish geometric-prime fibres from rigid classical points; reducedness is essential. The nonreduced rank-one multiplication-by-2 example over Z/4 is nonzero and square-zero. Nilpotence filtrations allow ordinary submodules, not necessarily subbundles. The predecessor image-algebra/base-change and nonsplit-kernel arguments remain precise resume leads in the handoff. H.8 real Noether–Lefschetz remains mandatory.
 
-### Current validation receipt
+### Historical codex-rtOQ9t validation receipt
 
 The entire expanded Mathlib-only suggested file elaborates at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 with Lean v4.34.0-rc2: zero errors, 151 admitted-declaration warnings, no other warnings, and 58 native examples. This validates signatures only. The Tau Ceti baseline augmentation theorem was read and cited, not imported into this Mathlib-only file or certified by a Tau Ceti build. Existing build/artifacts were reused; no project/cache/library setup or Lean server.
 
@@ -2423,3 +2424,23 @@ Independent standard-library finite algebra checks passed 11,378 assertions. All
 The indexed packet checker reports zero errors and warnings. Actual in-memory atlas assembly, with normal retirements/restructuring/link overlays and replaced-decomposition trimming, retains 70 declarations and six planets, with no own pending/skipped links. Its complete stage graph has 3,056 vertices and 8,663 edges; this packet’s declaration graph has 70 vertices and 137 edges; stage plus this packet’s recursively used declarations has 3,121 vertices and 8,914 edges. All three are acyclic. All 19 named stage prerequisite pairs are reachable, which does not assert they are all direct displayed edges. The single recursively used external declaration is ColemanPowerSeries:L1/derivation-determinant-unit. The seven unrelated skipped links exactly match unmodified baseline assembly; unrelated declaration graphs were not audited.
 
 All 60 inherited node statements, 103 APIs, 89 tests and 149 routed obligations remain. Fifty-nine inherited node objects are unchanged; the existing symmetric-action object gains only the precise associative-target proof step and dependency. No source issue, restructuring proposal or stage status is removed. H.0 remains partial; H.1–H.8 remain not_read.
+
+### Affine proof continuation — Codex codex-J6LwjP
+
+This checkpoint supplies actual bodies for fifteen existing affine declarations. The contraction map is the composite of θ, the tensor map id⊗v and the right unit equivalence; native tensor-map add/scalar laws prove its linearity. The symmetric action lifts through the tensor algebra and descends through the existing symmetric congruence using the commuting hypothesis. Its generator equation is the native tensor-lift computation. Symmetric-algebra induction proves uniqueness into the associative endomorphism algebra, and comparison with the scalar augmentation proves the zero-action law. No commutative target instance is assumed.
+
+The extension-exists iff commute statement, evaluation on ordered words, and morphism-intertwiner equivalence have actual affine proofs. The intertwiner proof uses induction on scalars, generators, sums and products, retaining composition order. These are the affine parts of Heuer Definition 4.1; the sheaf restriction/finite-dual/gluing interpretation remains a supplier obligation. Fresh selected source reading covered Definition 1.2(2), the complete Definition 4.1 and Remark 4.2 in the [publisher HTML](https://link.springer.com/article/10.1007/s00222-025-01321-4). No further source correspondence theorem is certified here.
+
+The exact I^N quotient action, representative computation, uniqueness and existence iff containment use the already built ideal quotient lift. They have actual bodies independent of the still-admitted augmentation-word criterion. The quotient-zero criterion proves the necessary containment. Surjectivity of representatives proves uniqueness. Bound N=0 is accepted for the zero module. The scalar rejection example uses membership of generator^N in I^N and its image 1, and its proof even works for N=0. The positive-N test statement is retained.
+
+Nine existing examples now have actual proofs: three contraction tests, three symmetric-action tests, and the generator/scalar-rejection/zero-module quotient tests. The new TwistedHiggsBundle.affineSymmetricAction.test_noncommuting constructs E12 and E21 as actual linear endomorphisms of ℚ². Any symmetric action sending generators to them would make their products equal; evaluating on the first basis vector gives 1=0. This tests the essential commuting hypothesis in an endomorphism algebra that is actually noncommutative. The square-zero augmentation example and characteristic-two ordered/projection witnesses remain admitted.
+
+Named affine proof bodies: TwistedHiggsBundle.affineContractions, TwistedHiggsBundle.affineContractions_apply, TwistedHiggsBundle.affineContractions_zero, TwistedHiggsBundle.affineContractions_add, TwistedHiggsBundle.affineSymmetricAction, TwistedHiggsBundle.affineSymmetricAction_generator, TwistedHiggsBundle.affineSymmetricAction_unique, TwistedHiggsBundle.affineSymmetricAction_zero, TwistedHiggsBundle.affineSymmetricAction_iff_commute, TwistedHiggsBundle.symmetricAction_word, TwistedHiggsBundle.symmetricAction_morphism, TwistedHiggsBundle.truncatedSymmetricAction, TwistedHiggsBundle.truncatedSymmetricAction_mk, TwistedHiggsBundle.truncatedSymmetricAction_unique, TwistedHiggsBundle.truncatedSymmetricAction_exists_iff.
+
+The full exact Mathlib-only suggested file elaborates with Lean v4.34.0-rc2: zero errors, 127 admitted-declaration warnings, no other warnings, 59 native examples, 3.55 seconds. Source SHA-256: af7d537a0dc75975f2081fbd6b143a70b7d63a81b92e032511fd9a20d0ae4b83. Compiler-output SHA-256: 9458fef8f76f8955e974846509c23124dd24da5b252d934fc6a0494df7968a3e. A separate focused file contains these fifteen matching declarations and ten proved examples and reports zero errors and warnings. Printing axioms for all fifteen names reports only propext, Classical.choice and Quot.sound, with no admitted-proof axiom. Focused source SHA-256: 4f92141c3c91821a4ce6a20e2a177506ac44554b3a42343e47cc7b0aafeb92be; axiom-output SHA-256: e44351794e0b77d4828e013fc26647c405fe51313db9ae126ee6138ccbf91253. Existing pinned artifacts were reused with one Lean process at a time and 74 GB available before each final invocation; no library/cache/project setup or Lean server.
+
+The indexed packet check reports zero errors and warnings: 70 nodes, 112 API items, 100 planned definition/construction tests, six planets, 69 named baseline citations, eleven gaps and five requests. Six newly cited built statements were read with ambient hypotheses and matched to the pinned index: tensor-map add/scalar laws, augmentation on generators, ideal-quotient representatives and zero criterion, and ideal-power membership. No generic carrier is replanned.
+
+Current actual read-only atlas assembly uses the normal retirement/restructuring/link overlays and replaced-decomposition trimming. The stage graph has 3022 vertices and 8663 edges; the own declaration graph has 70 vertices and 137 edges; stages plus the 71 reachable declarations and explicit supplier-request edges have 3087 vertices and 8914 edges. All three are acyclic. All 21 computed stage prerequisite pairs, including request/stage dependencies, reach their consumers; none is asserted to be a direct displayed edge. The only external declaration is the existing Coleman Jacobi supplier. No own pending/skipped links; unrelated skips and all stage edges match the unchanged 70-node packet overlay. Projection-script SHA-256: 14985a897bb969631f728f35ee9a1bc67280f0245e6034effe465300eec58d41.
+
+All 70 prior node IDs, mathematical statements, hypotheses, APIs, acceptance and source records survive; all 99 prior tests remain and one test is added. Sixty-seven whole node objects are unchanged; only the contraction, symmetric-action and quotient-action proof/dependency/test outlines change. Requests, gaps, source issues, restructuring and all 149 routed obligations remain. Earlier finite-model/PDF receipts are historical and were not rerun here. All nodes remain unchecked; H.0 partial and H.1–H.8 not_read; zero stages closed. Actual affine proofs do not discharge the augmentation-word proof, ordered coefficient theorem, sheaf carrier/gluing omissions, determinant descent, rank bounds or later source decomposition.
