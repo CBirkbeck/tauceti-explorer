@@ -1,3 +1,153 @@
+# Canonical polynomial tensor and quotient adapters — Codex, 2026-10-02
+
+Refs #3342. Job DESIGN-StableReductionPartII; session codex-a71f92.
+Claim comment 5954752339, confirmed by bot 5954755461; the complete issue
+was reread after confirmation. Immutable audit/publication base:
+ffc1fae630c6f1ea6c5373885c17b1cb654702ec. This is a partial research checkpoint.
+
+## Current totals and preservation
+
+110 declaration nodes: 8 definitions, 28 constructions, 11 lemmas,
+62 theorems and one application. There are 116 API items,
+110 definition/construction tests plus two existing exactness tests,
+35 unchanged planets, 33 pinned baseline declarations, 135 unchanged
+supplier requests, 14 gap groups and eight partial stages.
+Every implementationStatus remains unchecked. No stage or reserved key
+StableReductionPartII:key/moduli-curves is closed.
+
+All 102 inherited node IDs and mathematical statements are preserved.
+Only the polynomial dual residue API, the ring/dual tensor acceptance notes
+and the global dual-section proof/prerequisites were enriched.
+All source issues, source versions, consumer routes, shared key coverage,
+restructuring proposals and requests remain unchanged. The 207-entry native
+geometric omission ledger is byte-identical. Its omissions are still genuine.
+
+58 existing upstream references on 44 nodes have been restored to canonical
+prerequisites. The pinned checker recognizes known Tau Ceti roadmap stages
+before baseline-name dispatch; no side-field workaround is needed.
+This removes the obsolete dispatch gap, not any mathematical gap.
+The previous encoding receipt is retained as explicitly historical metadata.
+No checker, application, atlas data, shared worktree or other packet was edited.
+
+## Eight new declarations
+
+1. Section evaluation commutes with coefficient mapping.
+2. The pointed-node ring tensor comparison is a canonical A′-algebra
+   equivalence, not only a linear normal-coordinate isomorphism.
+3. The canonical dual tensor equivalence uses the actual mapped ideal and
+   Hom module; identity and composition have pure-tensor signatures.
+4. The correction K is coefficient-natural by cancellation of regular d′,
+   without cancelling through the coefficient map.
+5. The canonical tensor-ring module action is specified by
+   (a′ tensor r)·(b′ tensor h)=(a′b′) tensor (r·h).
+6. Transport along the inverse ring equivalence makes the actual dual tensor
+   comparison R′-linear. The source action is specified independently of E_D;
+   linearity is not defined by conjugating the desired answer.
+7. The residue equivalence uses the actual quotient D/im(m), where
+   m(r)(j)=rj, and retains the inherited section action.
+8. The tensor comparison of this actual quotient agrees with the induced
+   dual map and with residue. No tensor left-exactness hypothesis is inserted.
+
+The two-step coefficient square uses the pinned heterobasic base-change
+cancellation A″ tensor_{A′}(A′ tensor_A D) ≃ A″ tensor_A D,
+a″ tensor(a′ tensor h) ↦ a″g(a′) tensor h. It is not ordinary
+same-ring associativity. Its general construction is imported, not replanned.
+
+For all explicit polynomial statements, coefficient rings may have zero
+divisors, zero discriminant, characteristic two, or be the zero ring.
+Coefficient maps may be noninjective and nonflat. This is an authored
+normal-form strengthening of the polynomial part of Knudsen2012 §3, not
+an invocation of his noetherian/unit-discriminant stable-reflexivity theorem
+in greater generality. General matrix-factorization theory remains with
+StablePeriodicCurved layer 7.
+
+## Source and baseline receipts
+
+Fresh public Knudsen2012 download:
+https://arxiv.org/pdf/1106.1588, header arXiv:1106.1588v2, 3 April 2012.
+Read §3 in full (printed pp.11–12), Corollary3.2 and §4 in full (printed p.13);
+header and introduction/Main Lemma also inspected.
+PDF SHA-256:
+de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36.
+The fresh scope has its own authored receipt. Other inherited paper receipts
+retain their historical authorship; no fresh whole-paper verification,
+published-version collation or KnudsenII Appendix reading is claimed.
+
+Fresh five baseline statements, read at Mathlib
+082e2d37e8b0463410cdb532e111cd43d5a66174:
+AlgHom.liftEquiv; Module.compHom; Submodule.liftQ; TensorProduct.lid;
+TensorProduct.AlgebraTensorModule.cancelBaseChange.
+Their exact modules and lines are in baseline.declarations.
+Tau Ceti remains pinned to f790474821cf4256814db967cb154e7af3d0c369.
+
+The binding Yuan/DGH routes and routed item statements, reserved key brief,
+accepted REV-AUDIT-02 and pertinent parent audit/supplier descriptions were
+inspected. StableReduction’s curve and moduli boundary, and the matrix
+factorization owner’s layer 7, remain imports. Earlier complete
+JacobianChallenge/Multiquadratic reading in this continuous run remains
+applicable. The unchanged broader planning/source closure is not independently
+re-certified by this narrow continuation.
+
+## Executed verification
+
+- Standard packet checker with the pinned declaration index: zero errors,
+  zero warnings; canonical upstream references accepted directly.
+- Actual issue-deliverable intake predicate: five allowed files, zero problems.
+  JSON, privacy and trailing-whitespace checks pass.
+- Read-only actual atlas assemble path with this packet and its roadmap
+  overlaid, using the normal trimming of replaced decomposition layers:
+  2999 stages, 8750 stage edges, acyclic. All 81 required supplier/roadmap
+  stage edges are present; no pending or skipped link for this roadmap.
+- The recursively reachable declaration dependency graph has 259 vertices
+  and is acyclic. This is scoped to this checkpoint, not a claim about every
+  unrelated promoted declaration in the atlas.
+- Whole suggested file elaboration in the existing pinned Mathlib build:
+  Lean 4.34.0-rc2, exit 0, 114 admitted-declaration warnings,
+  zero other warnings/errors, 49 native examples.
+  At least 72 GB available memory was checked before each compile.
+  No project, dependency cache, build or language server was created.
+  Mathlib-only imports; no geometric Tau Ceti interface is claimed compiled.
+  Suggested-file SHA-256:
+  d0149f43f296f48382b135f4e78ff4e7c5ab2d5caca380c240bc07086afd8dea.
+  Complete compiler-log SHA-256:
+  579e1cb923f09525dd16d34ee0dc28c70f48040814502b1c33770bab8e398235.
+- 109121 exact finite regressions in the UNTRUNCATED polynomial quotient:
+  65536 tensor-ring/dual-action checks, 16384 dual composition,
+  16384 quotient composition, 4096 evaluation and 4096 ring multiplication,
+  2048 residue checks, 256 correction naturality and 256 evaluation naturality,
+  32 non-componentwise actions, 32 counterexamples and one zero-ring test.
+  Coefficients include Z/4→F₂ and Z/8→Z/4→F₂; all polynomial output powers
+  are retained. Model source SHA-256:
+  b18c5d485c13dcac3915615c0532d55ab6ceaaeac913ac929652a7e5e45a45d2.
+  These regressions and elaboration are not universal implementation proofs.
+
+The suggested-file ledger expresses 32 nodes, 51 APIs and 47 labelled
+definition/construction tests, with 49 examples in total.
+The remaining 207 geometric omissions are unchanged.
+
+## Precise continuation
+
+Start with KnudsenII Appendix, PDF32–39, at its flat-completion,
+stable-reflexivity and faithful-descent statements. Supply finite-presentation
+approximation to pass from noetherian pointed local families to arbitrary
+base schemes. State the completed-local and sheaf interfaces against actual
+supplier types, keeping unit discriminant for a geometric node.
+
+The polynomial tensor adapters now have honest signatures, but their
+implementation proofs and coherence after canonical base-change cancellation
+remain unchecked. They do not prove the global dual-section theorem,
+the universal pointed curve equivalence, algebraicity/properness of the moduli
+stack, or the fine-level/Picard/Torelli consumers. All 135 supplier requests
+and the 14 mathematical/source/interface gap groups remain required.
+
+Own scratch occupied about 1.1 MB. After published-byte verification it is
+moved to recoverable Trash; no shared worktree or another worker’s files are
+removed. The public receipts and exact resume boundary remain here.
+
+---
+
+## Historical predecessor handoffs (unchanged)
+
 # Polynomial-model integration — Codex, 2026-10-02
 
 Refs #3342. Session `codex-J6LwjP`; branch `codex-J6LwjP-design-stable-ii`;
