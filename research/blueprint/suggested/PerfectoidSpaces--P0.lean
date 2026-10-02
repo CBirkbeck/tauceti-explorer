@@ -5687,6 +5687,13 @@ comparable ideals are associate. -/
 theorem IsPrimitive.associated_of_span_le {ξ ξ' : WittVector p P.plus} (hξ : IsPrimitive ξ)
     (hξ' : IsPrimitive ξ') (h : Ideal.span {ξ'} ≤ Ideal.span {ξ}) : Associated ξ ξ' := sorry
 
+/- REV-FIX-RT-AREA-padic-2~3 acceptance correction: in W(𝒪_{ℂ_p♭}),
+p − [p♭] and ξ_cyc = ∑_{i<p}[ε]^{i/p} generate the same theta kernel, hence
+are associates. They are not an example of incomparable primitive ideals.
+The product μ = [ε] − 1 = ([ε]^{1/p} − 1) * ξ_cyc lies in the kernel but
+does not generate it: the first factor is a nonunit, while ξ_cyc is regular.
+This is a proposed mathematical negative control, not an elaborated Lean test. -/
+
 end Distinguished
 
 /-! ## PerfectoidSpaces:P1/quotient-by-primitive-element (lemma) -/
