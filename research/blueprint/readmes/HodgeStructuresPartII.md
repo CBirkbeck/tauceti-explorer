@@ -3188,3 +3188,214 @@ The canonical affine field θ_S is the native linear-map scalar extension compos
 If S is faithfully flat over R, evaluating θ_S on 1⊗e and undoing the tensor distributor detects θ(e) in E⊗_R Q. Thus θ_S=0 iff θ=0, without flatness of E or Q. The actual singleton tensor-power equivalence gives the corresponding degree-one iterate criterion. Torsion source/coefficient examples over ℤ check this generality; the field e↦2e⊗1 becomes zero over ℤ/2 and checks the need for faithful flatness in reflection. A horizontal test retains vanishing only on the image of f_S.
 
 These are authored affine deductions motivated by [Heuer, §4.2, Theorem 4.8 and Remark 4.9](https://arxiv.org/html/2307.01303v3), whose local formula and displayed proof were freshly read. They do not discharge that analytic theorem or its chart independence. The predecessor's finite-basis all-degree scalar-extension contracts remain unchanged. Receiving-ring naturality alone does not identify I_n(θ_S) with scalar extension of I_n(θ): the arbitrary-Q cross-ring tensor-power unit/prepend coherence and comparison are still open, followed by finite-projective restriction and E1 sheaf equality detection/gluing. The complete new proof and exact final-sketch receipts are in the current handoff; inherited wider source receipts remain historical.
+
+## Arbitrary-coefficient cross-ring ordered coherence — codex-a71f92
+
+Read base: `f6de888f4ad723d376d77b66fa8486d538bd1aeb`. This is a partial affine checkpoint, not a closed H.0 stage or a global sheaf implementation. The reserved general parameter-connection carrier and all 149 binding route obligations remain unchanged.
+Let E_S=S⊗_R E and Q_S=S⊗_R Q. Write α_R,n for the exact native singleton/multiplication/cast left-prepend equivalence already used by the ordered step. The adapter T_n is an actual equivalence, recursively built from native distributors, not an assumed comparison or a second tensor carrier. D_n is the binary distributor followed by id⊗T_n.
+Fresh primary reading is limited to Heuer’s [arXiv v3](https://arxiv.org/html/2307.01303v3), Definition 1.2(1)–(2), Definition 4.1, Theorem 4.8(1)–(3), Remark 4.9 and the complete displayed proof. Download SHA-256: `ec7742d917b413a52d05e5eeffbab9fdaab3bed13412dc2c9e426ffb8bcb8081`, accessed 2026-10-02. The following arbitrary-ring tensor equations are authored algebraic deductions; the geometric correspondence and its descent are not proved here.
+
+### Scalar extension of ordered coefficient powers
+
+`HodgeStructuresPartII:H.0/affine-tensor-power-base-change` — `TwistedHiggsBundle.affineTensorPowerBaseChange` (construction).
+Construct T_n:S⊗_R Q^⊗n≃_S Q_S^⊗n for every n≥0, with Q_S=S⊗_R Q. T_0 is the scalar extension of (R≃Q^⊗0)⁻¹ followed by S⊗_R R≃S and S≃Q_S^⊗0. T_(n+1) is the scalar extension of α_R,n⁻¹, followed by the native binary distributor, id_(Q_S)⊗T_n and α_S,n. No basis of Q is chosen.
+
+Hypotheses:
+
+- R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.
+- Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.
+- These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs.
+
+Prerequisites: `mathlib:TensorPower.algebraMap₀`, `mathlib:LinearEquiv.baseChange`, `mathlib:TensorProduct.AlgebraTensorModule.rid`, `mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange`, `mathlib:TensorProduct.congr`, `mathlib:PiTensorProduct.subsingletonEquiv`, `mathlib:TensorPower.mulEquiv`, `mathlib:TensorPower.cast`.
+
+Proof plan:
+
+1. At degree zero compose the three specified existing linear equivalences; no nontriviality assumption is used.
+2. At a successor compose the four specified native linear equivalences. The private syntactic abbreviation α is exactly the singleton/multiplication/cast composite already used by affineOrderedStep, not a replacement tensor carrier.
+3. Primitive recursion supplies the actual S-linear equivalence and its actual inverse at every degree; no comparison property or bijectivity is stored as an assumption.
+
+API:
+
+- `TwistedHiggsBundle.affineTensorPowerBaseChange_unit` (compatibility): For every a∈S, T_0(a⊗algebraMap₀_R(1))=algebraMap₀_S(a). In particular the empty coefficient word maps to the tensor unit, with no premise on Q.
+- `TwistedHiggsBundle.affineTensorPowerBaseChange_prepend` (compatibility): For every n≥0, a∈S, q∈Q and t∈Q^⊗n, T_(n+1)(a⊗α_R,n(q⊗t))=α_S,n((a⊗q)⊗T_n(1⊗t)). This is the actual cross-ring prepend equation, not same-ring coefficient-map naturality.
+
+Tests:
+
+- `TwistedHiggsBundle.affineTensorPowerBaseChange.test_torsion_unit` (computation): For R=ℤ, S=ℤ/4 and Q=ℤ/2, T_0(a⊗1_0)=algebraMap₀(a) in Q_S^⊗0, for every a∈S. The coefficient module is not free over ℤ.
+- `TwistedHiggsBundle.affineTensorPowerBaseChange.test_torsion_prepend` (compatibility): For R=S=ℤ, Q=ℤ/2, q∈Q and t∈Q^⊗1, T_2(1⊗α_R,1(q⊗t))=α_S,1((1⊗q)⊗T_1(1⊗t)). This keeps the new factor on the left without a coefficient basis.
+- `TwistedHiggsBundle.affineTensorPowerBaseChange.test_nonflat_distributor` (characterisation): For R=ℤ, S=Q=ℤ/2, every n≥0 and x∈S⊗_R Q^⊗n, T_n⁻¹(T_n(x))=x. The distributor remains an equivalence although S is not flat over R; this alone does not reflect scalar-extended vanishing.
+
+Uses:
+
+- `HodgeStructuresPartII:H.0/affine-tensor-power-base-change-unit`: Keep the empty-word tensor unit in the iterate comparison.
+- `HodgeStructuresPartII:H.0/affine-tensor-power-base-change-prepend`: Keep the coefficient order in the successor square.
+- `HodgeStructuresPartII:H.0/affine-ordered-base-change`: Combine this coefficient-power adapter with the existing binary distributor.
+Source: Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3; literal excerpt “Higgs field”. The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing.
+
+### Scalar extension preserves the empty coefficient word
+
+`HodgeStructuresPartII:H.0/affine-tensor-power-base-change-unit` — `TwistedHiggsBundle.affineTensorPowerBaseChange_unit` (lemma).
+For every a∈S, T_0(a⊗algebraMap₀_R(1))=algebraMap₀_S(a). In particular the empty coefficient word maps to the tensor unit, with no premise on Q.
+
+Hypotheses:
+
+- R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.
+- Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.
+- These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-power-base-change`, `mathlib:LinearEquiv.baseChange_tmul`, `mathlib:TensorProduct.AlgebraTensorModule.rid_tmul`.
+
+Proof plan:
+
+1. Unfold T_0, evaluate the scalar-extended inverse degree-zero equivalence, then the native right tensor unit. The two degree-zero inverse evaluations and 1 acting on a give the displayed equality.
+Source: Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3; literal excerpt “Higgs field”. The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing.
+
+### Scalar extension respects ordered coefficient prepending
+
+`HodgeStructuresPartII:H.0/affine-tensor-power-base-change-prepend` — `TwistedHiggsBundle.affineTensorPowerBaseChange_prepend` (lemma).
+For every n≥0, a∈S, q∈Q and t∈Q^⊗n, T_(n+1)(a⊗α_R,n(q⊗t))=α_S,n((a⊗q)⊗T_n(1⊗t)). This is the actual cross-ring prepend equation, not same-ring coefficient-map naturality.
+
+Hypotheses:
+
+- R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.
+- Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.
+- These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-power-base-change`, `mathlib:LinearEquiv.baseChange_tmul`, `mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange_tmul`.
+
+Proof plan:
+
+1. Evaluate the successor definition on the specified elementary tensor, cancel α_R,n with its inverse, and use the existing binary distributor evaluation and tensor congruence. No permutation of the coefficient factors is made.
+Source: Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3; literal excerpt “Higgs field”. The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing.
+
+### Scalar extension of ordered iterate codomains
+
+`HodgeStructuresPartII:H.0/affine-ordered-base-change` — `TwistedHiggsBundle.affineOrderedBaseChange` (construction).
+Construct D_n:S⊗_R(E⊗_R Q^⊗n)≃_S E_S⊗_S Q_S^⊗n as the native binary distributor followed by id_(E_S)⊗T_n, at every n≥0. Both E and Q are arbitrary modules.
+
+Hypotheses:
+
+- R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.
+- Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.
+- These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-power-base-change`, `mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange`, `mathlib:TensorProduct.congr`.
+
+Proof plan:
+
+1. Compose the existing binary distributor with tensor congruence for id_(E_S) and T_n. This introduces no new scalar-extension, tensor-product or module carrier.
+2. Evaluate on elementary tensors using the binary distributor: D_n(a⊗(e⊗t))=(a⊗e)⊗T_n(1⊗t).
+
+API:
+
+- `TwistedHiggsBundle.affineOrderedBaseChange_tmul` (simp): For all n,a,e,t, D_n(a⊗(e⊗t))=(a⊗e)⊗T_n(1⊗t).
+- `TwistedHiggsBundle.affineOrderedBaseChange_step` (compatibility): For every θ:E→E⊗_R Q and n≥0, D_(n+1)∘(S_θ,n)_S=S_(θ_S),n∘D_n as actual S-linear maps on S⊗_R(E⊗_R Q^⊗n).
+
+Tests:
+
+- `TwistedHiggsBundle.affineOrderedBaseChange.test_unit` (degenerate): For arbitrary R,S,E,Q and a∈S,e∈E, D_0(a⊗(e⊗1_0))=(a⊗e)⊗1_0 in E_S⊗_S Q_S^⊗0. No field or horizontal-morphism hypothesis is needed.
+- `TwistedHiggsBundle.affineOrderedBaseChange.test_torsion_degree_two` (compatibility): For R=S=ℤ and E=Q=ℤ/2, D_2∘(I_2(θ))_S=I_2(θ_S) for every θ:E→E⊗_R Q. Neither E nor Q is flat over R.
+- `TwistedHiggsBundle.affineOrderedBaseChange.test_zero_module` (degenerate): For E=(Fin 0→R), every n≥0 and x∈S⊗_R(E⊗_R Q^⊗n), D_n(x)=0, without any hypothesis on Q or S beyond the ring/algebra structure.
+
+Uses:
+
+- `HodgeStructuresPartII:H.0/affine-ordered-base-change-step`: Transport the actual successor step between rings.
+- `HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-comparison`: Compare the entire scalar-extended iterate, including the degree-zero unit.
+- `HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary-faithful`: Use the actual equivalence's injectivity before applying faithful-flat one-tensor detection.
+Source: Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3; literal excerpt “Higgs field”. The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing.
+
+### Scalar extension commutes with the ordered successor step
+
+`HodgeStructuresPartII:H.0/affine-ordered-base-change-step` — `TwistedHiggsBundle.affineOrderedBaseChange_step` (lemma).
+For every θ:E→E⊗_R Q and n≥0, D_(n+1)∘(S_θ,n)_S=S_(θ_S),n∘D_n as actual S-linear maps on S⊗_R(E⊗_R Q^⊗n).
+
+Hypotheses:
+
+- R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.
+- Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.
+- These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-ordered-base-change`, `HodgeStructuresPartII:H.0/affine-tensor-power-base-change-prepend`, `HodgeStructuresPartII:H.0/affine-ordered-step`, `HodgeStructuresPartII:H.0/affine-base-change`, `mathlib:TensorProduct.AlgebraTensorModule.ext`, `mathlib:LinearMap.baseChange_tmul`, `mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange_tmul`.
+
+Proof plan:
+
+1. Use heterobasic tensor extensionality, then tensor induction to reduce the input to a⊗(e⊗t).
+2. Expand the actual field and step maps before tensor-inducting on θ(e). Zero and sum cases follow from additivity; for x⊗q use the cross-ring prepend equation with scalar 1.
+3. The E factor carries a; the new Q factor carries 1; remaining coefficients use T_n. Both sides thus have the same left-prepended ordered tensor.
+Source: Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3; literal excerpt “Higgs field”. The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing.
+
+### Scalar extension of every ordered Higgs iterate
+
+`HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-comparison` — `TwistedHiggsBundle.affineOrderedIterate_baseChange_comparison` (lemma).
+For every θ:E→E⊗_R Q and n≥0, D_n∘(I_n(θ))_S=I_n(θ_S) as actual S-linear maps E_S→E_S⊗_S Q_S^⊗n. Here (I_n(θ))_S is native scalar extension of the source-ring iterate, whereas I_n(θ_S) is formed recursively over S. No coefficient basis or integrability premise is required.
+
+Hypotheses:
+
+- R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.
+- Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.
+- These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-ordered-base-change`, `HodgeStructuresPartII:H.0/affine-tensor-power-base-change-unit`, `HodgeStructuresPartII:H.0/affine-ordered-base-change-step`, `HodgeStructuresPartII:H.0/affine-ordered-iterate`, `HodgeStructuresPartII:H.0/affine-base-change`, `mathlib:LinearMap.baseChange_comp`.
+
+Proof plan:
+
+1. At n=0 evaluate on a⊗e, use the actual tensor-unit definition and the cross-ring degree-zero unit equation. Do not assume a zero field or discard the empty word.
+2. At n+1 apply native baseChange_comp to the iterate recursion. Associate compositions, insert the promoted step square, then the inductive comparison. The result is precisely the receiving-ring recursion.
+Source: Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3; literal excerpt “Higgs field”. The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing.
+
+### Preserve ordered nilpotence without a coefficient basis
+
+`HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary` — `TwistedHiggsBundle.affineOrderedIterate_baseChange_zero_of_arbitrary_coefficients` (lemma).
+For every specified n≥0 and every R-algebra S, I_n(θ)=0 implies I_n(θ_S)=0 at the identical n, for arbitrary R-modules E and Q. S need not be flat.
+
+Hypotheses:
+
+- R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.
+- Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.
+- These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-comparison`, `mathlib:LinearMap.baseChange_zero`.
+
+Proof plan:
+
+1. Rewrite the receiving-ring iterate by the cross-ring comparison. Scalar extension of the zero source iterate is zero; composition with D_n remains zero. No finite-basis coordinate criterion is invoked.
+Source: Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3; literal excerpt “Higgs field”. The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing.
+
+### Reflect ordered nilpotence without a coefficient basis
+
+`HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary-faithful` — `TwistedHiggsBundle.affineOrderedIterate_baseChange_zero_iff_of_arbitrary_coefficients` (lemma).
+If S is faithfully flat over R, then for every specified n≥0, I_n(θ_S)=0 if and only if I_n(θ)=0, for arbitrary modules E and Q. The exponent is unchanged, and no flatness or finiteness of E or Q is needed.
+
+Hypotheses:
+
+- R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.
+- Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.
+- These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs.
+- Only this reflection result additionally assumes Module.FaithfullyFlat R S. This is a hypothesis on the algebra S, not on E or Q.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-comparison`, `HodgeStructuresPartII:H.0/affine-ordered-base-change`, `HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary`, `mathlib:Module.FaithfullyFlat.one_tmul_eq_zero_iff`.
+
+Proof plan:
+
+1. For reflection evaluate the comparison on 1⊗e. The receiving iterate is zero, so injectivity of the actual D_n gives 1⊗I_n(θ)(e)=0.
+2. Apply the native faithful-flat one-tensor detection theorem to the arbitrary module E⊗_R Q^⊗n; extensionality gives I_n(θ)=0.
+3. For preservation apply the preceding arbitrary-algebra fixed-bound lemma. Nonfaithful extensions do not satisfy this equivalence.
+Source: Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3; literal excerpt “Higgs field”. The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing.
+
+### Existing ordered-iterate API and new regression tests
+
+Keep the finite-basis preservation/reflection contracts and their names unchanged; the general results have distinct names. The existing iterate construction gains the promoted comparison and two arbitrary-coefficient bound APIs above, plus these tests:
+- `TwistedHiggsBundle.affineOrderedIterate.test_arbitrary_coefficient_preservation` (compatibility): For R=ℤ, E=ℤ/4, Q=ℤ/2 and S=ℤ/2, I_n(θ)=0 implies I_n(θ_S)=0 for every specified n≥0 and actual θ. The extension S and both coefficient/source modules are not flat; no reflection is asserted.
+- `TwistedHiggsBundle.affineOrderedIterate.test_arbitrary_coefficient_reflection` (compatibility): For R=S=ℤ, E=ℤ/4 and Q=ℤ/2, I_n(θ_S)=0 iff I_n(θ)=0 at every specified n≥0 for every θ, using the faithfully flat identity algebra, without source or coefficient flatness.
+- `TwistedHiggsBundle.affineOrderedIterate.test_arbitrary_coefficient_degree_zero` (non-example): If R is nontrivial and S is faithfully flat, the degree-zero receiving iterate of every θ:R→R⊗_R Q is nonzero, even for Q=0. Tensor nilpotence at exponent zero cannot mean the zero field.
+
+### Exact boundary and checks
+
+Current codex-a71f92 checkpoint supplies actual native arbitrary-Q affine cross-ring unit/prepend/step/iterate equations and all-degree same-exponent preservation and faithfully-flat reflection, including n=0; earlier affine missing-work wording above is retained as checkpoint history. Finite-projective chart restriction, sheaf tensor-power comparison/equality detection/gluing, exterior-integrability transport, globally uniform versus locally varying exponents, rank bounds and all global/source/supplier obligations remain open. This does not identify sheaf tensor sections with tensors of global sections or assert kernel/image base-change compatibility.
+The full suggested file remains the admitted signature plan required by PROTOCOL §13. A distinct complete native proof, its immutable public archive and a portable read-only checker/assembly recipe are recorded in the handoff. All implementation statuses remain unchecked, every old contract and key carrier is retained, H.0 remains partial and H.1–H.8 remain not_read. No source route, supplier request, global omission or stage is closed.
+
+### Native equivalence inverse API
+
+`TwistedHiggsBundle.affineTensorPowerBaseChange_symm_apply` (characterisation): For every n≥0 and x∈S⊗_R Q^⊗n, T_n⁻¹(T_n(x))=x. The inverse is the actual inverse of the recursively composed native equivalences, with no flatness or basis premise.
+
+The ordered-codomain distributor also exposes `TwistedHiggsBundle.affineOrderedIterate_baseChange_comparison` as its compatibility API, referring to the single promoted comparison node above. No duplicate theorem is introduced.
