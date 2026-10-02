@@ -1896,3 +1896,80 @@ example (r : R₀) : dualMultiplication A γ δ s t r = 0 ↔ r = 0 := by
 
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+
+-- Coefficient projectivity, freeness and tensor retraction continuation.
+
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+open scoped TensorProduct
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+local notation "R₀" => Ring A γ δ s t
+local notation "J₀" => (Ideal.span {AdjoinRoot.root (polynomial A γ δ s t) - coefficientHom A γ δ s t s,
+  AdjoinRoot.of (polynomial A γ δ s t) (Polynomial.X : Polynomial A) - coefficientHom A γ δ s t t} : Ideal R₀)
+local notation "D₀" => J₀ →ₗ[R₀] R₀
+
+lemma sectionIdeal_coefficient_projective : Module.Projective A J₀ := by
+  sorry
+
+lemma sectionDual_coefficient_free : Module.Free A D₀ := by
+  sorry
+
+lemma sectionProjection_lTensor_retraction (M : Type*) [AddCommGroup M] [Module A M] :
+    ((sectionProjection A γ δ s t).lTensor M).comp
+      ((((J₀).subtype).restrictScalars A).lTensor M) = LinearMap.id := by
+  sorry
+
+lemma sectionIdeal_lTensor_injective (M : Type*) [AddCommGroup M] [Module A M] :
+    Function.Injective ((((J₀).subtype).restrictScalars A).lTensor M) := by
+  sorry
+
+-- Coefficient projectivity is available over the nonreduced ring Z/4.
+-- NodeSectionFactorization.PolynomialModel.coefficientProjectiveNonreduced
+example : Module.Projective (ZMod 4)
+    (Ideal.span {AdjoinRoot.root (polynomial (ZMod 4) 0 0 1 0) - coefficientHom (ZMod 4) 0 0 1 0 1,
+      AdjoinRoot.of (polynomial (ZMod 4) 0 0 1 0) (Polynomial.X : Polynomial (ZMod 4)) -
+        coefficientHom (ZMod 4) 0 0 1 0 0} : Ideal (Ring (ZMod 4) 0 0 1 0)) := by
+  sorry
+
+-- No nontriviality assumption is hidden in the coefficient-flatness proof.
+-- NodeSectionFactorization.PolynomialModel.coefficientIdealFlatZero
+example : Module.Flat (ZMod 1)
+    (Ideal.span {AdjoinRoot.root (polynomial (ZMod 1) 0 0 0 0) - coefficientHom (ZMod 1) 0 0 0 0 0,
+      AdjoinRoot.of (polynomial (ZMod 1) 0 0 0 0) (Polynomial.X : Polynomial (ZMod 1)) -
+        coefficientHom (ZMod 1) 0 0 0 0 0} : Ideal (Ring (ZMod 1) 0 0 0 0)) := by
+  sorry
+
+-- The actual dual is free over coefficients, including nonreduced coefficients.
+-- NodeSectionFactorization.PolynomialModel.coefficientDualFreeNonreduced
+example : Module.Free (ZMod 4)
+    ((Ideal.span {AdjoinRoot.root (polynomial (ZMod 4) 0 0 1 0) - coefficientHom (ZMod 4) 0 0 1 0 1,
+      AdjoinRoot.of (polynomial (ZMod 4) 0 0 1 0) (Polynomial.X : Polynomial (ZMod 4)) -
+        coefficientHom (ZMod 4) 0 0 1 0 0} : Ideal (Ring (ZMod 4) 0 0 1 0)) →ₗ[Ring (ZMod 4) 0 0 1 0]
+        Ring (ZMod 4) 0 0 1 0) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.coefficientDualFlatZero
+example : Module.Flat (ZMod 1)
+    ((Ideal.span {AdjoinRoot.root (polynomial (ZMod 1) 0 0 0 0) - coefficientHom (ZMod 1) 0 0 0 0 0,
+      AdjoinRoot.of (polynomial (ZMod 1) 0 0 0 0) (Polynomial.X : Polynomial (ZMod 1)) -
+        coefficientHom (ZMod 1) 0 0 0 0 0} : Ideal (Ring (ZMod 1) 0 0 0 0)) →ₗ[Ring (ZMod 1) 0 0 0 0]
+        Ring (ZMod 1) 0 0 0 0) := by
+  sorry
+
+-- Tensoring the inclusion with the torsion Z-module Z/2 stays injective.
+-- NodeSectionFactorization.PolynomialModel.tensorInclusionTorsion
+example : Function.Injective
+    ((((Ideal.span {AdjoinRoot.root (polynomial ℤ 0 0 0 0) - coefficientHom ℤ 0 0 0 0 0,
+      AdjoinRoot.of (polynomial ℤ 0 0 0 0) (Polynomial.X : Polynomial ℤ) - coefficientHom ℤ 0 0 0 0 0} :
+        Ideal (Ring ℤ 0 0 0 0)).subtype).restrictScalars ℤ).lTensor (ZMod 2)) := by
+  sorry
+
+-- Retraction holds pointwise on every tensor, without assuming M is flat.
+-- NodeSectionFactorization.PolynomialModel.tensorRetractionPointwise
+example (M : Type*) [AddCommGroup M] [Module A M] (z : M ⊗[A] J₀) :
+    ((sectionProjection A γ δ s t).lTensor M)
+      ((((J₀).subtype).restrictScalars A).lTensor M z) = z := by
+  sorry
+
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
