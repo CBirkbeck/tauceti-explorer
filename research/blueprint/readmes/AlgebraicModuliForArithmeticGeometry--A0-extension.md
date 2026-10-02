@@ -1,0 +1,4518 @@
+# Algebraic moduli for arithmetic geometry: A0 extension
+
+This is the reader for issue #672 and the packet with part A0-extension. It covers exactly A0-extension and R09.1–R09.7. It is a partial checkpoint: implementations are unchecked, requests are open, and none of the eight stages is closed. The declaration catalogue develops gerbes, arbitrary-module fpqc descent, torsor twisting and relative Picard descent. Full parameter spaces, Picard representability, Artin, algebraization and resolution remain work in this same scope. The suggested Lean file has not been compiled. Its exact type and signature omissions are recorded below rather than hidden by unspecified propositions.
+
+## Carriers and conventions
+
+A stack is the pinned Mathlib Cat-valued pseudofunctor with its existing IsStack predicate. Mathlib does not require its values to be groupoids. The gerbe predicate adds invertibility of all fibre arrows, local nonemptiness and local isomorphism. Covering sieves express these two local conditions without assuming a chosen global object or a single covering map. Sheaf Hom and descent equivalences are imported from the existing IsPrestack and IsStack APIs.
+
+An abelian band is a fixed abelian sheaf A together with compatible automorphism identifications. Both restriction and conjugation equations are required. The sheaf is additive; multiplicative notation is used only when identifying its sections with automorphism groups. Mathlib's automorphism multiplication follows function composition and therefore reverses the order of categorical Iso.trans. Postcomposition by the target band automorphism defines the torsor action on Isom(x,y); the band equation also identifies it with precomposition by the source automorphism. This pins the contracted-product relation used in changes of band and lifting gerbes.
+
+Neutralization means a fibre object over the terminal site object. Relative neutralizations over U are fibre objects over U, equivalently global objects on the slice site. Their arrows and automorphisms survive the choice of object. Neither a neutralization nor a coarse space turns a stack into a sheaf by forgetting its inertia. The gerbe of nth roots of a line bundle has roots of unity as inertia everywhere; the root stack of a line bundle with a section has different inertia off the divisor and belongs to its existing reserved owner.
+
+## Derived classification and source closure
+
+The cohomology group in Giraud's classification is the pinned derived Sheaf.H, defined as Ext from the constant integer sheaf. The generic connecting map, its exactness and its naturality are already in Tau Ceti and are reused. The map Sheaf.H.map changes coefficients on one fixed site. Pullback along a base morphism needs a separate geometric-morphism and derived-cohomology comparison; it cannot be obtained merely by renaming this coefficient map.
+
+The selected classification route embeds A in an injective sheaf I and writes D=I/A. Positive Ext into I vanishes in the baseline. Thus the existing boundary gives a bijection H1(D)→H2(A). A D-torsor is sent to its gerbe of I-torsor liftings, constructed as a genuine two-fibre product. The reverse route extends the gerbe band to I, neutralizes it, and constructs a D-torsor from pairs of local gerbe objects and identifications with that neutralizing object. The inverse identities, sign convention and independence of choices are separate proof leaves.
+
+The Olsson/Geraschenko course notes explicitly mark their raw-cocycle effectivity argument as incomplete and leave the inverse check as an exercise. Milne supplies an alternative exact-sequence sketch, and Breen retains the hypercohomological interpretation. This reader does not claim those sketches discharge the missing proof leaves. The repaired injective-neutrality route needs injectivity on slice sites, the derived H1 torsor comparison and acyclicity of the injective Čech complex on a cover. Each input has an exact supplier request. Stacks 0CJZ proves a sufficient neutrality criterion with H1 vanishings on the cover and its overlaps; it is not a proof of the general classification. GWZ20B §3.1 explicitly uses Čech notation and separately cites the quasi-projective comparison. Its notation is not an unconditional derived-H2 theorem on arbitrary sites.
+
+Self-equivalences are treated as a groupoid. A chosen neutralization gives the familiar equivalence with A-torsors. Transgression requires the stronger assertion for a possibly nonneutral gerbe. The construction glues Isom(x,ηx) for local objects x: transporting an isomorphism through η and conjugating is independent of the chosen object isomorphism because η preserves the band. Modifications supply actual torsor isomorphisms. For a quotient [Y/Γ], the centralizer coherence descends this torsor on each fixed locus to the corresponding inertia component. A bare H1 class has insufficient data for this descent.
+
+## Finite and profinite gerbes
+
+Finite étale gerbes retain a finite étale groupoid presentation. Abstract finiteness of a geometric automorphism group is insufficient by itself. The profinite construction uses the fpqc site. Its objects are finite-stage objects and specified transition isomorphisms satisfying unit and composition coherence; its arrows are compatible families of arrows. Taking the inverse limit of the isomorphism-class sets loses automorphisms and does not define this groupoid.
+
+Borne–Vistoli's presentation can use a Boolean cofiltered two-category or a cofiltered poset with pseudofunctor data. Their Boolean condition is not asserted for an arbitrary ordinary cofiltered category. The nonempty-limit gerbe theorem assumes a compatible object over a nonempty scheme, not necessarily over k. This assumption and the affine faithfully-flat Isom-limit proof are retained. No theorem that every abstract cofiltered diagram of gerbes automatically has the required object is inserted.
+
+Local fullness means faithful flatness of the automorphism-group schemes, or the equivalent fpqc-local surjectivity of Isom sheaves. Over R the square map on Gm is faithfully flat but misses negative real points, so point surjectivity is a wrong replacement. The classifying gerbe of the constant profinite integers has arbitrarily large finite coordinate stages and is not algebraic of finite presentation. Its finite stages remain finite étale. A coordinate-ring argument makes the obstruction explicit: finitely many algebra generators would lie in one finite-dimensional stage, whereas later stages contain arbitrarily many nonzero orthogonal idempotents.
+
+## Binding ownership for all eight stages
+
+The accepted RS-27 result and the reserved definitions govern the scope. Ordinary descent data, stackification, groupoid quotients and two-fibre products come from DiamondsAndVStacks D0. The existing D0 nodes are used whenever their statements provide the interface. Algebraic-space carriers, representable diagonals and atlas independence come from SchemeAndStackFoundations SF.1. Coherent duality comes from the reserved SchemeAndStackFoundations:key/coherent-duality. Stable pointed-curve moduli now has the reserved StableReductionPartII:key/moduli-curves owner; this resolves the earlier area finding's choice of possible owners without constructing it twice.
+
+R09.1 imports the relative Grassmannian and invariant-subbundle equations from ModularCurves 0G and relative Proj, ampleness and projective morphisms from StableReduction Layer 2. It must add the projective-bundle quotient convention, O(n) cohomology, Plücker embedding and smoothness, flag incidence, Hilbert polynomials, regularity and boundedness, and the semilinear Frobenius and rank loci still required. R09.2 owns the Hilbert/Quot extension beyond those Grassmannians, its boundedness and representability proof, universal-family flatness and base-change laws, Hom/Isom graph constructions, and the proper-modification/devissage input for proper GAGA. Flatness of a universal family does not imply flatness of the parameter map: the degree-one Hilbert functor of the closed point of Spec(k[ε]/ε²) is that nonflat closed point itself.
+
+R09.3 owns the effective fpqc equivalence for quasi-coherent modules on arbitrary schemes. The existing affine comonadicity theorem is an input, not the completed module-pseudofunctor descent theorem. Coherent étale-presentation descent for proper GAGA is stated in the locally Noetherian finite-presentation setting, with subclass hypotheses kept separately. Scheme-object descent imports the existing ModularCurves 0E cases and the polarized étale StableReduction cases. The general fppf projective descent extension carries an ample bundle and its descent datum. Weil restriction imports the affine 0F case and extends it to algebraic spaces using Stacks 05YC/05YF, comparing with RG2.0a where applicable. Abelian-specific polarization data belong downstream to AbelianSchemes A2 and PEL M1; they cannot be imported backwards here.
+
+R09.4 keeps algebraic and Deligne–Mumford stack properties, algebraicity of quotient stacks and precise conditional moduli criteria. The elliptic comparison uses ModularCurves 1E/4A. Generalized elliptic and polarized abelian moduli applications are supplied downstream by their object owners. R09.5 keeps the finite-inertia coarse-space theorem with its actual flat/tame base-change hypotheses, general rigidification, normalization and finite-correspondence descent. Elliptic coarse and auxiliary-level constructions are imported from ModularCurves 4C/9D/9E. The generalized elliptic and abelian auxiliary-level applications remain downstream.
+
+A0-extension imports locally Noetherian proper coherent cohomology and base change in all relative dimensions, not just curves. Its new extension concerns non-Noetherian finite-presentation and perfect-complex/Tor-amplitude hypotheses. It owns the general relative Picard representability criteria and the selected Artin criterion. Coherent duality is an import. R09.6 supplies deformation-groupoid/completed-local comparisons and the approximation input, using the Artin theorem from A0 rather than proving it twice. Approximation proof leaves must precede Artin at node level; the Artin-dependent versal comparison follows it. An indiscriminate pair of reciprocal stage dependencies would obscure this order. Popescu, excellence and henselization use their existing reserved/assigned suppliers.
+
+R09.7 retains the full characteristic-zero resolution algorithm and compactification targets of its child stages. The ordinary Rees blowup, charts, exceptional divisor and strict transform are imported from StableReduction Layer 4. Controlled transforms, marked ideals, maximal contact, coefficient ideals, the complete invariant, permissible centers, termination and boundary compactification are still required proof work. Bierstone–Milman's full published 1997 paper is the proof source; the earlier 30-page arXiv excerpt is not. Local-isomorphism compatibility of Theorem13.2 is not silently strengthened to all smooth maps. No general mixed-characteristic resolution theorem is claimed.
+
+## Quasi-coherent and Picard descent
+
+The pinned comonadic scalar-extension theorem already proves the affine categorical input. It does not supply the comparison with overlap isomorphisms or with the pinned all-test-object descent data. That comparison is a separate construction and gap. The scheme proof then separates faithfulness by faithfully flat stalk maps, fullness by affine refinements and open gluing, and effectivity by gluing the local modules. Its last leaf verifies that the recovered datum agrees with the original one, including transition maps. No Noetherian or finiteness condition is imposed on quasi-coherent modules. Finite presentation and finite local freeness descend as additional properties; they do not narrow the category being descended.
+
+For algebraic spaces the small etale ringed site comes from SF1. Chartwise scheme descent supplies the quasi-inverse, and full faithfulness checks its functoriality and unit/composition equations. The current Stacks04W8 proof strategy inadvertently calls an fpqc refinement fppf; the underlying scheme theorem is already fpqc. An infinite extension of fields gives a flat quasi-compact cover without finite presentation, so that distinction cannot be dropped.
+
+The relative Picard functor is a sheafification, not the pointwise quotient of line bundles by base line bundles. The pinned LineBundleClass is only a commutative monoid in the inspected file; the general scheme Picard-group laws are imported from JacobianChallenge Layer A. Algebraic-space invertibility and site comparison are supplier contracts. Picard arrows are isomorphisms: the full category InvertibleSheaf also has noninvertible module maps, so its core is required.
+
+Under the universal isomorphism OT→fT*OXT, the sequence 0→Pic(T)→Pic(XT)→PicX/B(T) has the asserted middle kernel. A section makes it split exact by identifying the relative sheaf with the kernel of restriction along the section. Choose local rigidifications, normalize each overlap isomorphism by its discrepancy along the section, and use the global-functions hypothesis to show that the triple discrepancy is one. Actual invertible-module descent then gives a global representative and its rigidification. No Brauer-vanishing hypothesis is used. Stacks0D02/0D24 were read for the next algebraicity/representability route, but their backward coherent-stack and Artin proof inputs are not yet decomposed here.
+
+## Stage coverage and continuation
+
+
+### AlgebraicModuliForArithmeticGeometry:A0-extension — partial
+
+- The six relative-Picard leaves plan sheafification, base change, the middle kernel and section-rigidified splitting. Picard-stack algebraicity (Stacks0D02), general representability (0D24), local separation, Pic0 and the precise Artin1969/approximation extension remain undecomposed.
+
+- General proper coherent cohomology/base change imports the locally Noetherian StableReduction/Jacobian input in all relative dimensions; the non-Noetherian finite-presentation/perfect/Tor-amplitude extension, analytification and proper GAGA remain source work.
+
+- Normalization/excellence, Raynaud finite Picard subgroup–dual torsor and trait (N)* criteria, the Gm Leray/Brauer obstruction, K/O devissage and the exact divisor/ramified-trace adapters remain pending. Import coherent duality from its reserved owner.
+
+### AlgebraicModuliForArithmeticGeometry:R09.1 — not_read
+
+- Import ModularCurves0G Grassmannian projectivity/universal quotient/invariant loci and StableReduction2 Proj/ampleness; source-decompose O(n), Plucker comparison and smoothness, flag spaces, relative very-ampleness, Hilbert polynomials and regularity bounds.
+
+- Verify bounded-degree finiteness of Hilbert polynomials and the Chow parameter inputs at the routed paper locators; split semilinear Frobenius and determinantal rank-locus constructions.
+
+### AlgebraicModuliForArithmeticGeometry:R09.2 — not_read
+
+- Develop bounded projective Hilbert/Quot functors, representability proof leaves, flat universal families and base-change maps beyond the imported Grassmannians. Do not assert flatness of the parameter map.
+
+- Hom/Isom by Hilbert graphs, polarized Isom, Chow/proper modification and coherent devissage for proper GAGA require original-source reading and nodes.
+
+### AlgebraicModuliForArithmeticGeometry:R09.3 — partial
+
+- Fourteen leaves cover arbitrary-scheme and algebraic-space QCoh fpqc descent and finite-presentation/finite-local-free detection, conditional on the explicit supplier and overlap/coalgebra comparison obligations.
+
+- Complete the exact tensor/overlap/all-test-object descent-data comparison and its coherence against the pinned carriers.
+
+- Coherent locally Noetherian etale-presentation descent and proper GAGA remain pending. Import ordinary object descent from ModularCurves0E and polarized etale Proj descent from StableReduction2.
+
+- General polarized fppf projective-scheme descent, finite-locally-free Weil restriction on algebraic spaces (Stacks05YC/05YF, compare RG2.0a), and their base-change/effectivity leaves remain pending. Abelian-specific data belong downstream.
+
+### AlgebraicModuliForArithmeticGeometry:R09.4 — partial
+
+- The gerbe, banding, neutralization, derived-H2 route, compatible profinite limits, torsor twisting and prime-to-p inertia branches are partial; resolve each recorded proof gap and request before closure.
+
+- Import ordinary stacks from D0 and spaces/sites/diagonals from SF1. Algebraic/Deligne–Mumford properties, algebraicity of quotient stacks and coherent-sheaf moduli stacks, and exact Artin moduli criteria remain undecomposed.
+
+- Finite-field rational-point atlases, stack differentials/degree/local-character adapters and groupoid mass remain pending at their paper locators. Import stable pointed-curve moduli from StableReductionPartII:key/moduli-curves and elliptic comparisons from ModularCurves1E/4A.
+
+### AlgebraicModuliForArithmeticGeometry:R09.5 — partial
+
+- The affine-kernel rigidification leaf is only the affine-gerbe case. General ACV rigidification, vertical inertia and representability, its universal property, and auxiliary-level distinctions need separate source-checked nodes.
+
+- Finite-inertia coarse-space existence, tame versus arbitrary flat base change, finite curve quotients, normalization and finite-correspondence descent remain pending. Elliptic coarse/level cases import ModularCurves4C/9D/9E.
+
+### AlgebraicModuliForArithmeticGeometry:R09.6 — not_read
+
+- Read and decompose deformation groupoids, completed-local comparison, effectivity and versal algebraization. Import the selected Artin criterion from A0-extension rather than plan it twice.
+
+- Order approximation leaves before A0 Artin and Artin-dependent versal leaves after it; verify hypotheses on G-rings, henselian bases, Artin common etale neighbourhoods and the assigned Popescu/excellence suppliers.
+
+### AlgebraicModuliForArithmeticGeometry:R09.7 — not_read
+
+- All R09.7a–d targets remain open: read the full published Bierstone–Milman1997 proof, especially Theorems11.14,12.2,13.2. The short arXiv excerpt is insufficient.
+
+- Import ordinary blowups from StableReduction4. Develop marked ideals, controlled transforms, SNC permissible centers, maximal contact, coefficient ideals, history, the complete invariant and termination.
+
+- Develop boundary compactification preserving the chosen open and the Cartier-divisor separating adapter. Theorem13.2 gives local-isomorphism compatibility; do not silently strengthen it to arbitrary smooth functoriality.
+
+## Routed paper obligations
+
+All 68 distinct explicit PAPER item IDs in issue672 are accounted for below, separately from the mandatory gerbe key. Reading these extraction records is not primary-source closure. Only sources.readSections records passages actually read. Every item remains open. Reserved imports are continuation obligations, not claims that a supplier has already completed its proof.
+
+### PAPER-KISIN-ZHOU-25/C10 — Rational-point smooth atlas for the relevant stack
+
+For the smooth algebraic stack appearing after pulling back the local-model curve and an F_q-rational object, choose a smooth scheme atlas over F_q with an F_q-rational point above that object.
+
+Locator: Proof of 5.2.7; LMB Theorem6.3. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: A smooth atlas without the rational point is insufficient; the exact LMB hypotheses need original-source verification.
+
+### PAPER-CHEN-24/25 — Smoothness of the coarse scheme of a 1-dimensional stack (Lemma 2.1.10)
+
+Let X be a smooth proper Deligne–Mumford stack over a regular Noetherian scheme S whose fibres have pure dimension 1, and suppose its coarse space X is a scheme. Then X is smooth and proper over S.
+
+Locator: arXiv:2011.12940v2 (19 June 2021), §2.1, p. 16, Lemma 2.1.10. Owner: AlgebraicModuliForArithmeticGeometry:R09.5; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Proof route: the local structure of Deligne–Mumford stacks gives an étale cover by [V_i/G_i] with V_i smooth affine, and quotients of smooth affine curves by finite groups are smooth by [KM85, p. 508]. Tests: the j-line as the coarse space of M(1).
+
+### PAPER-CHEN-24/40 — Rigidification of a stack by a group of automorphisms (Theorem 2.5.7)
+
+Let H be a flat finitely presented separated group scheme over S and X an algebraic stack such that every object ξ carries a compatible embedding H(S) ↪ Aut_S(ξ). Then the rigidification X ⫽ H exists, together with a smooth surjective finitely presented map X → X ⫽ H, such that (a) H(S) lies in the kernel of Aut_S(ξ) → Aut_S(η); (b) X → X ⫽ H is a gerbe, universal for such maps; (c) over an algebraically closed field Aut(η) = Aut(ξ)/H; (d) coarse spaces agree and the map is a homeomorphism on topological spaces; (e) Deligne–Mumfordness is preserved and the map is étale; (f) smoothness and properness are preserved.
+
+Locator: arXiv:2011.12940v2 (19 June 2021), §2.5.2, pp. 29–30, Theorem 2.5.7, quoting [ACV03, Theorem 5.1.5]. Owner: AlgebraicModuliForArithmeticGeometry:R09.5; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Verify the original ACV hypotheses and the extracted smoothness assertion before general rigidification; affine-kernel gerbe rigidification is not the full theorem.
+
+Extraction note: Notation X ⫽ H follows [Rom0504]. The reviewed audit of AlgebraicModuliForArithmeticGeometry R09.5 records rigidification in the sense of auxiliary level structures, not this quotient-by-inertia construction, and neither is in the libraries. Review note on status: AlgebraicModuliForArithmeticGeometry:R09.5 ('Coarse spaces and rigidification') is the natural owner, but its description covers rigidification by auxiliary level, not the Abramovich–Corti–Vistoli rigidification X⫽H by a flat group of automorphisms. 'missing' is correct unless R09.5 is widened.
+
+### PAPER-CHEN-24/38 — Vertical automorphism groups (Definition 2.5.5)
+
+For a map of algebraic stacks f : X → Y and a T-point t, the vertical automorphism group of t is the kernel of f_* : Aut_{X(T)}(t) → Aut_{Y(T)}(f(t)); for Deligne–Mumford stacks f is representable exactly when all vertical automorphism groups of geometric points are trivial. Unless said otherwise the vertical automorphism group is taken relative to the map to M(1)‾ and written Aut^v(t); for a point of Adm⁰(G) given by π : C → E it is the group of G-equivariant automorphisms σ of C with π ∘ σ = π.
+
+Locator: arXiv:2011.12940v2 (19 June 2021), §2.5.2, p. 29, Definition 2.5.5 and the paragraph after it. Owner: AlgebraicModuliForArithmeticGeometry:R09.5; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: API: the vertical group, its relation to representability, and its computation for covers. Tests: for a smooth cover it is Z(G) (Proposition 2.5.6).
+
+### PAPER-CHEN-24/31 — Quotients of curves by finite group actions (Lemma 2.4.1)
+
+Let C → S be flat, proper and finitely presented with reduced geometric fibres of pure dimension 1, and let a finite group G act S-linearly on C. Then (a) C is a union of G-invariant affine opens; (b) the categorical quotient C/G exists, π : C → C/G is finite and O_{C/G} ≅ (π_*O_C)^G; (c) if |G| is invertible on S, formation of C/G commutes with arbitrary base change. (a) and (b) need no tameness hypothesis.
+
+Locator: arXiv:2011.12940v2 (19 June 2021), §2.4, pp. 21–22, Lemma 2.4.1 and Remark 2.4.2. Owner: AlgebraicModuliForArithmeticGeometry:R09.5; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Tests: the quotient of a nodal curve by a balanced action is again nodal; base change along S' → S. Review (REV-PAPER-CHEN-24): statement corrected against the paper: Part (c) needs |G| invertible on S (the paper's standing tameness hypothesis, via [KM85, A7.1.3(4)]); the item implies this but should state it. The paper's proof of (a) has a gap (see the new issue on Lemma 2.4.1).
+
+### PAPER-CHEN-24/45 — Sheaf of relative differentials and relative dualizing sheaf for stacks
+
+For a representable morphism f : C → X of algebraic stacks, Ω_{C/X} is defined by descent from a smooth presentation, and for a representable flat proper finitely presented morphism with geometrically connected Cohen–Macaulay fibres the relative dualizing sheaf ω_{C/X} is defined by ω_{C/X}(t) := Γ(T, τ*ω_{C_T/T}) over schemes T → X, using that relative dualizing sheaves commute with arbitrary base change.
+
+Locator: arXiv:2011.12940v2 (19 June 2021), §3.1.1–3.1.2, pp. 33–35, Definitions 3.1.1 and 3.1.2. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Relative dualizing complexes and Grothendieck duality are absent from both libraries; the stack-level definition is what §3 needs. API: base change, the descent construction, and the invertibility for prestable curves.
+
+### PAPER-CHEN-24/46 — Very ampleness and the canonical map Ω → ω for marked curves (Lemma 3.1.3, Proposition 3.1.4)
+
+For a stable marked curve (f : C → X, R) over a scheme, ω_{C/X}(R)^{⊗3} is relatively very ample and f_*ω_{C/X}(R)^{⊗3} is locally free. For a prestable curve f : C → X of Noetherian algebraic stacks with a finite étale R ⊂ C making every base change a stable marked curve, there is a canonical map ϕ : Ω_{C/X} → ω_{C/X} which is an isomorphism at every geometric point where f is smooth.
+
+Locator: arXiv:2011.12940v2 (19 June 2021), §3.1.3, pp. 35–36, Lemma 3.1.3 and Proposition 3.1.4. Owner: AlgebraicModuliForArithmeticGeometry:R09.1; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Import curve dualizing sheaves; retain the marked very-ampleness and Omega-to-omega adapter with its exact hypotheses.
+
+Extraction note: Proof route: embed C in the projective bundle P(f*L) with L := f_*(ω_{C/X}(R)^{⊗3}) and use the theory of determinants [KM76]; for schemes this is Stacks 0E9Z. Tests: at a node the map is not an isomorphism; over the smooth locus it is.
+
+### PAPER-CHEN-24/49 — Degrees of line bundles on 1-dimensional stacks (Lemma 3.4.1, Definition 3.4.2, Proposition 3.4.3)
+
+Let X be a connected proper algebraic stack of pure dimension 1 over a field k. If p_i : U_i → X (i = 1, 2) are finite flat surjections from connected schemes, then deg(p₁*L)/deg p₁ = deg(p₂*L)/deg p₂. So, when such a cover exists, deg(L) := deg(p*L)/deg p ∈ ℚ is well defined. Such a cover by a smooth k-scheme exists if X is a smooth separated generically tame 1-dimensional Deligne–Mumford stack of finite type over k whose coarse space is a scheme (quasi-projective, e.g. because X is proper) [KV04]. In particular it exists for Adm(G)‾_k and M(G)‾_k when char k ∤ 2|G|.
+
+Locator: arXiv:2011.12940v2 (19 June 2021), §3.4, pp. 38–39, Lemma 3.4.1, Definition 3.4.2 and Proposition 3.4.3, following [BDP17], [KV04], [EHKV01]. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Degrees on a stack are rational, which is the second obstruction to the congruence. Tests: the degree of a line bundle pulled back from the coarse space is an integer divided by the generic automorphism order. Review (REV-PAPER-CHEN-24): statement corrected against the paper: Proposition 3.4.3(a) as printed has no properness (or finite-type/quasi-projective) hypothesis, but its proof uses Theorem 2.1.9(f), which needs X proper (see the new issue). The item copies (a) unchanged; add 'proper' (true in both applications) or 'of finite type' (then the separated 1-dimensional coarse space is quasi-projective).
+
+### PAPER-CHEN-24/50 — Local characters and integrality of degrees (Proposition 3.4.4, Definition 3.4.5, Propositions 3.4.6 and 3.4.7)
+
+For a locally finitely presented tame separated Deligne–Mumford stack with coarse scheme c : X → X, pullback along c is an equivalence from invertible sheaves on X to those invertible sheaves on X whose local characters at all geometric points are trivial, with quasi-inverse c_*. If X is connected tame smooth proper 1-dimensional with generic automorphism group of order n, then any invertible sheaf with trivial local characters satisfies deg(L) = (1/n) deg(c_*L) ∈ (1/n)ℤ. Moreover deg(f*L) = d · deg L for a finite flat map of degree d; deg(c*L) = deg(L)/n; and for f : Y → X inducing a finite flat map of coarse schemes, deg(f*L) = (n_X/n_Y) deg(f) deg(L).
+
+Locator: arXiv:2011.12940v2 (19 June 2021), §3.4, pp. 39–41, Propositions 3.4.4, 3.4.6, 3.4.7, Definition 3.4.5, quoting [Ols12, Proposition 6.1]. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: The local character at a geometric point is the rank-1 representation of the automorphism group on the fibre. m_X is defined as the least m with (σ*Ω)^{⊗m} of trivial local character. Tests: on the stacky point Bμ_n a line bundle has degree in (1/n)ℤ.
+
+### PAPER-CHEN-24/100 — Noetherian approximation for prestable curves with a group action (Remark 6.1.1)
+
+A prestable curve C → S with an effective Cartier divisor R finite étale over a quasi-compact quasi-separated S and an S-linear action of a finite group G preserving R is the base change of the same data over some finite-type ℤ-scheme S_i, writing S as a cofiltered limit of such with affine transitions.
+
+Locator: arXiv:2011.12940v2 (19 June 2021), §6.1, p. 86, Remark 6.1.1. Owner: AlgebraicModuliForArithmeticGeometry:R09.6; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Used to reduce statements about prestable curves to the Noetherian case. Tests: the limit presentation of a quasi-compact quasi-separated base.
+
+### PAPER-CHEN-24/101 — Eigenspace decomposition and henselization of invariants (Lemmas 6.1.2, 6.1.3)
+
+(Lemma 6.1.2) Let A be a ring with Spec A connected, e ≥ 1 invertible in A and μ_{e,A} totally split, and let M be an A-module with an A-linear action of a cyclic group ⟨g⟩ with g^e = 1. For ζ ∈ μ_e(A) put p_ζ(m) := (1/e)Σ_{j=0}^{e−1} ζ^{−j}g^j(m). Then p_ζ(M) = M_ζ := {m : gm = ζm}, ⊕_ζ p_ζ : M → ⊕_{ζ∈μ_e(A)} M_ζ is an isomorphism, and M ↦ M_ζ is exact on A[⟨g⟩]-modules. (Lemma 6.1.3) Let R be a ring with an action of a finite group G (no tameness assumption), m_R a G-stable maximal ideal, and m_{R^G} := m_R ∩ R^G. Then m_{R^G} is maximal. The henselizations R^h and (R^G)^h of the pairs (R, m_R) and (R^G, m_{R^G}) are local. R ⊗_{R^G} (R^G)^h ≅ R^h, and (R^G)^h ≅ (R^h)^G. Without G-stability of m_R the first two claims still hold but the last two fail.
+
+Locator: arXiv:2011.12940v2 (19 June 2021), §6.1, pp. 86–88, Lemmas 6.1.2 and 6.1.3. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Split the split-mu_e eigenprojectors (e invertible) from henselization of invariants (group-stable maximal ideal).
+
+Extraction note: Lemma 6.1.3 needs no tameness hypothesis. These are the local tools behind the normalized coordinates of Proposition 6.1.4. Review (REV-PAPER-CHEN-24): statement corrected against the paper: Lemma 6.1.3(c),(d), as printed and as copied here, are false unless the maximal ideal m_R is G-stable (new issue). Counterexample: R = k × k with G = ℤ/2 swapping the factors and m_R = 0 × k. Then (R^G)^h = k and R ⊗_{R^G} (R^G)^h = k × k, but R^h = k. Every use in the paper has m_R G-stable. For Lemma 6.1.2 the item correctly supplies |⟨g⟩| = e, which the paper omits. Review note on status: Stays missing. tauceti:TauCetiRoadmap/ModularCurves#layer-4-the-katzmazur-moduli-formalism owns strict henselisation and its completion, a partial supplier. The statement about invariants is not planned anywhere.
+
+### PAPER-CHEN-24/102 — Normalized coordinates for tame balanced actions (Proposition 6.1.4)
+
+Let G be a finite group whose order is invertible on S, acting S-linearly on a prestable curve C/S, faithfully on fibres. Let p̄ be a geometric point of C over s̄ whose stabiliser G_p̄ is cyclic of order e with generator g. Put A := O_{S,s̄} (strict local ring) and R := O_{C_A,p̄}, and assume G_p̄ acts faithfully on R, i.e. no nontrivial element of G_p̄ fixes pointwise an irreducible component of C_s̄ through p̄ (for instance, G acts freely on a dense open subset of each fibre). (a) If p̄ is smooth in C_s̄, there is φ : A[z] → R identifying R with the strict local ring of A[z] at (m_A,z), G_p̄-equivariant for gz = ζ_e z with ζ_e ∈ A a primitive e-th root of unity. (b) Suppose p̄ is a node of C_s̄, and G_p̄ preserves the two branches of T*_{C_s̄,p̄} and acts through SL(T*_{C_s̄,p̄}). Then there are a ∈ m_A and φ : A[z,w]/(zw−a) → R identifying R with the strict local ring at (m_A,z,w), G_p̄-equivariant for gz = ζ_e z, gw = ζ_e^{−1}w. In particular C → C/G satisfies conditions (4), (5) and (6) of Definition 2.1.4 at such points.
+
+Locator: arXiv:2011.12940v2 (19 June 2021), §6.1, pp. 87–88, Proposition 6.1.4. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Verify faithful strict-local balanced action, not merely faithfulness of the whole fibre action.
+
+Extraction note: This is the precise sense in which a balanced action gives the admissible local models, and it justifies Remark 2.1.5(d). Review (REV-PAPER-CHEN-24): statement corrected against the paper: Needs a stronger faithfulness hypothesis than 'acting faithfully on fibres' (new issue). Counterexample: C = X ∪ Y, two P¹'s meeting in a node, with G = ℤ/2 acting trivially on X and by z ↦ −z on Y. The action is faithful and tame, but at a smooth point p ∈ X, G_p = G acts trivially on O_{C,p}, so (a) fails. The hypothesis needed is that G_p acts faithfully on the strict local ring. It holds in the paper's uses (Proposition 2.4.8, where G acts without inertia on C_sm − R). Locator: pp. 87–88.
+
+### PAPER-CHEN-24/119 — Rigidity of curves with many marked points and representability of M_{g,n}
+
+Over a field of characteristic 0, a nontrivial automorphism of a smooth projective connected curve of genus g ≥ 2 has at most 2g + 2 fixed points. Hence for n ≥ 2g + 3 the moduli stack M_{g,n} of smooth genus-g curves with n distinct marked points is (represented by) a scheme. Each forgetful map M_{g,n} → M_{g,n−1} is the universal curve over the complement of the marked sections, so M_{g,n} → M_g is representable, smooth and of finite type with geometrically connected fibres. (The paper calls this map proper and M_{g,n} the universal family over M_{g,n−1}; see the new issue. Only openness and connected fibres are needed.)
+
+Locator: arXiv:2011.12940v2 (19 June 2021), §3.2, p. 37, proof of Proposition 3.2.2(b), citing [Knud83II] and Hurwitz's automorphism theorem. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: StableReductionPartII:key/moduli-curves.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Import the reserved stable-curve owner; the many-marked-point forgetful map is not proper.
+
+Extraction note: Added by the review REV-PAPER-CHEN-24 (coverage of the paper): To obtain a regular integral scheme U → X with f*R connected, the proof uses Knudsen's moduli M_g, M_{g,n}, the forgetful maps M_{g,n} → M_{g,n−1}, and the fact that M_{g,n} is a scheme once n exceeds the number of fixed points of any nontrivial automorphism. Route: AlgebraicModuliForArithmeticGeometry. FIX-RT-PAPER-CHEN-24 (RT-PAPER-CHEN-24/7): Knudsen 1983 is now in the prerequisites.
+
+### PAPER-LANDESMAN-LITT-24/106 — The moduli stack of n-pointed genus g curves and its Deligne–Mumford compactification
+
+The moduli stack M_{g,n} of smooth proper n-pointed genus g curves with geometrically connected fibres is a smooth separated Deligne–Mumford stack of dimension 3g − 3 + n, with a Deligne–Mumford compactification M̄_{g,n} by stable pointed curves whose boundary is a normal crossings divisor, and it admits finite étale covers that are schemes.
+
+Locator: arXiv:2205.15352v4 (23 February 2025), Notation 1.10.1, p. 10; Lemma 2.1.4, p. 13 (finite étale covers of M_{g,n} that are schemes, [PdJ95, Proposition 2.3.4]); proof of Lemma 8.3.3, p. 40 (the Deligne–Mumford compactification, normal crossings but not strict). PdJ95 is cited only on p. 13, not p. 40.. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: StableReductionPartII:key/moduli-curves.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Import stable pointed curves under 2g-2+n>0 and the exact finite etale scheme-cover hypotheses.
+
+Extraction note: The atlas plans algebraic stacks and moduli-stack algebraicity in layer R09.4 and coarse spaces in R09.5, but the stated targets there are generalised elliptic curves and polarised abelian schemes; M_{g,n} itself is not planned, and neither is M̄_{g,n}, although the Tau Ceti stable-reduction roadmap plans stable pointed curves and marked stabilisation.
+
+### PAPER-LANDESMAN-LITT-24/107 — Strict normal crossings compactification of the moduli stack and boundary monodromy
+
+A strict normal crossings compactification M̄'_{g,n+1} of M_{g,n+1} is obtained by blowing up boundary strata of the Deligne–Mumford compactification, which is only normal crossings; the local monodromy about its boundary components corresponds, under π₁(M_{g,n+1}) = PMod_{g,n+1}, to products of commuting Dehn twists about simple closed curves.
+
+Locator: arXiv:2205.15352v4 (23 February 2025), p. 40, in the proof of Lemma 8.3.3, quoting [LLSS20, Lemma 2.1.1]. Owner: AlgebraicModuliForArithmeticGeometry:R09.7; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: The algebraic SNC adapter belongs to R09.7d; topological Dehn monodromy needs its separate topology supplier.
+
+Extraction note: This is what makes the quasi-unipotence hypothesis of the integrality theorem checkable, via Proposition 8.3.2. The atlas plans characteristic-zero resolution and normal-crossings compactification in general at R09.7, but not this statement about the moduli of curves.
+
+### PAPER-SCHROER-23/182 — Picard classes are represented when a section exists
+
+Let f:X→B be a morphism of algebraic spaces with a section σ and universally O_T≅f_{T,*}O_{X_T}. For every B-scheme T, the sequence 0→Pic(T)→Pic(X_T)→Pic_{X/B}(T)→0 is split exact, with retraction σ_T*.
+
+Locator: Stacks Lemma 99.11.4, https://stacks.math.columbia.edu/tag/0D24; local-projectivity supplement to Proposition 5.5. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: partial_plan.
+
+Planned nodes: AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf, AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Statement and descent proof read. The section rigidifies descent isomorphisms; no vanishing of Br(B) is needed. Review note: REPAIR VERDICT: sound. Statement matches Stacks Lemma 99.11.4 (tag 0D24; read in 0D24.html), in Situation 99.11.1. The hypothesis that O_T→f_{T,*}O_{X_T} is an isomorphism for all T holds for Enriques families: they are flat, proper and finitely presented with geometrically connected, geometrically reduced fibres.
+
+### PAPER-SCHROER-23/211 — Representability of the relative Picard functor (Artin)
+
+(Artin 1969, Theorem 7.3) For f:𝔜→Spec R flat, proper, of finite presentation and cohomologically flat in dimension zero, the fppf sheafification of A↦Pic(𝔜⊗_R A) is representable by a group algebraic space locally of finite presentation over R.
+
+Locator: §5 before Proposition 5.3, p. 14. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Stacks0D24 was read, but the original Artin1969 base hypotheses and the later approximation extension still require source verification.
+
+Extraction note: /49 and /50 specialize it to Enriques families with Ekedahl–Hyland–Shepherd-Barron, Corollary 4.3. Review note: Statement as the paper uses it. Artin's Theorem 7.3 is proved over bases of finite type over a field or an excellent Dedekind ring, and the arbitrary R of §5 follows by noetherian approximation, since Pic commutes with filtered limits. The node should say so.
+
+### PAPER-SCHROER-23/212 — Subgroups of the Picard functor and torsors under the Cartier dual (Raynaud)
+
+(Raynaud 1970, Proposition 6.2.1) Let f:𝔜→S be flat, proper and of finite presentation with f_*O=O, and P⊂Pic_{𝔜/S} a finite locally free commutative subgroup scheme with Cartier dual G=Hom(P,G_m). The inclusion corresponds to a global section of R¹f_*(G_𝔜); by the five-term sequence (2) it comes from a G-torsor over 𝔜 exactly when its image in H²(S,G) vanishes, and such torsors are unique up to pullbacks of G-torsors over S.
+
+Locator: §5, equation (2), pp. 14–15. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: /55–/60 build the canonical coverings of Proposition 5.4 from it.
+
+### PAPER-SCHROER-23/230 — Low-degree Leray sequence for G_m and the Brauer obstruction
+
+Let f:𝔜→S be a flat proper finitely presented morphism of algebraic spaces with O_S→f_*O_𝔜 an isomorphism universally. Then 0→Pic(S)→Pic(𝔜)→Pic_{𝔜/S}(S)→H²(S,G_m)→H²(𝔜,G_m) is exact (étale or fppf cohomology, which agree for G_m). In particular, if H²(S,G_m)=0, every S-point of Pic_{𝔜/S} is represented by an invertible sheaf on 𝔜.
+
+Locator: proof of Theorem 5.6(ii), p. 17. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Added by the review REV-PAPER-SCHROER-23 (coverage of the paper): This is the step that turns a section of the Picard scheme into a line bundle when H²(S,G_m)=0. /56 and /212 treat only the finite coefficient group G, and /182 needs a section. Suggested owner: AlgebraicModuliForArithmeticGeometry:A0-extension (source, with /182, /211, /212); Leray spectral sequence from SchemeAndStackFoundations:SF.2 Route: AlgebraicModuliForArithmeticGeometry.
+
+### PAPER-SCHROER-23/251 — Raynaud degree-one criterion for cohomological flatness
+
+Let f:Y→S be a proper flat relative curve over a trait satisfying Raynaud condition (N)*: the special fiber has no embedded components, Y is normal at its special-fiber maximal points, and f_*O_Y=O_S. If the generic fiber over the strict henselization has a divisor of degree one, then Raynaud 8.2.1(ii)⇒(iii)⇒(iv) gives cohomological flatness and d′=1. A section supplies the degree-one condition; it is not by itself a substitute for (N)*.
+
+Locator: Raynaud, Spécialisation du foncteur de Picard (1970), 6.1.4 pp. 48–49 and 8.2.1 pp. 66–67; Schröer Proposition 8.1, p. 21. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Retain the original Raynaud (N)* criterion on a proper flat trait; a generic section is not a replacement.
+
+Extraction note: General coherent/Picard supplier A0-extension, source route 8, importing the existing relative-curve coherent-base-change prefix where applicable. Cohomological flatness plus connected generic fiber gives the h⁰ base change; h¹=1 in /253 additionally needs the genus-one Euler characteristic χ=0. No general equality h¹=1 is asserted by Raynaud 8.2.1.
+
+### PAPER-DITTMANN-POP-23/valuation-prolongation-integrality — Integral closure detected by prolonged valuation rings
+
+Let E/F be a finite field extension and B an intersection of valuation rings O_v in F. The integral closure of B in E equals the intersection of every valuation ring of E prolonging one of these v.
+
+Locator: Lemma 5.3, reduction to K=κ(T). Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: The empty selected family gives B=F and intersection E, consistent with finite algebraicity. No assumption Frac(B)=F is needed. All prolongations are essential; preserve the split-prime negative example in the report.
+
+### PAPER-DITTMANN-POP-23/finite-normalization-generic — Finiteness of normalization over arithmetic polynomial rings
+
+Let A be a field or the ring of integers of a number field, T a finite tuple of independent variables, and E/Frac(A[T]) a finite field extension. The integral closure of A[T] in E is a finite A[T]-module, without a separability restriction.
+
+Locator: Proposition 5.1; Eisenbud Corollary 13.13 and Proposition 13.14. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Finiteness of normalization is not limited to separable extensions.
+
+Extraction note: Same existing A0-extension owner. The reviewed audit already identifies the purely inseparable polynomial result; this continuation imports it explicitly. General excellent-scheme normalization is a different, broader target.
+
+### PAPER-DITTMANN-POP-23/root-coefficient-descent — All conjugates control the coefficients of a minimal polynomial
+
+Let E/F be finite, N/F a finite normal extension containing E, V⊂F a valuation ring and W⊂N an exact prolongation of V. If σ(x)∈W for every F-embedding σ:E→N, then every coefficient of the monic minimal polynomial of x over F belongs to V. Repeated roots in inseparable characteristic are counted with multiplicity.
+
+Locator: Lemma 5.3 valuation-intersection step; direct coefficient argument in this report. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: All conjugates and inseparable multiplicities matter for coefficient descent.
+
+Extraction note: Acceptance: a split quadratic with two different valuations; a purely inseparable polynomial X^p−a with its repeated root; the trivial extension. Embedding extension and splitting APIs still need exact Lean adapters.
+
+### PAPER-BOXER-PILLONI-26/blow-up-separating-two-cartier-divisors — Proposition-construction 4.1.11: blowing up to separate two Cartier divisors
+
+Let X̄ be a scheme and D_1, D_2 effective Cartier divisors on X̄. Let p: X̃ → X̄ be the blow-up along the ideal generated by O_X̄(−D_1) and O_X̄(−D_2). There are effective Cartier divisors D'_1, D'_2 on X̃ with disjoint supports such that p^*D_1 + D'_2 = p^*D_2 + D'_1. Locally, with X̄ = Spec A, D_i = V(x_i), I = (x_1, x_2) and X̃ = Proj ⊕_n I^n, D'_i is the divisor of the section x'_i of O_X̃(1) given by x_i ∈ I in degree 1. Then x'_1x_2 = x'_2x_1 and V(x'_1, x'_2) = Proj(⊕_n I^n/(x_1, x_2)I^{n−1}) = ∅.
+
+Locator: §4.1.10, Proposition-construction 4.1.11, p. 42. Owner: AlgebraicModuliForArithmeticGeometry:R09.7; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Use the imported ordinary Rees blowup and retain the unrestricted scheme statement.
+
+Extraction note: Missing. Blow-ups themselves are planned. Tau Ceti StableReduction Layer 4 has 'Construct the Rees algebra and the blowup of a quasi-coherent finite-type ideal as a relative Proj. Prove the universal property ... exceptional divisor, strict transform, and affine chart descriptions'. AlgebraicModuliForArithmeticGeometry R09.7a has 'Construct blowups by the Rees algebra with their projective universal property, affine charts, strict/total/controlled transforms'. Mathlib has the Rees algebra (mathlib:reesAlgebra) and the projective spectrum of a graded ring, but no blow-up of a scheme. The separation statement is stated nowhere. It asserts effective Cartier divisors D'_1, D'_2 with disjoint supports and p^*D_1 + D'_2 = p^*D_2 + D'_1, with D'_i the divisor of the section x'_i of O(1). It follows from the affine charts and the invertibility of the exceptional ideal.
+
+### PAPER-BOXER-PILLONI-26/fakhruddin-pilloni-fundamental-class — Fundamental class for lci correspondences ([FP21] Prop. 2.6)
+
+This is the form used in the proof of Prop. 4.3.11 ([FP21], Prop. 2.6). Suppose that in a correspondence (p_1, p_2) the map p_1 is a local complete intersection morphism of relative dimension 0. In the application, p_1: C^tor_t \ ∪_i (p_1^*D_i ∩ p_2^*D_{2g+1−i}) → S^tor \ ∪_i (D_i ∩ D_{2g+1−i}) is a quasi-finite morphism between schemes smooth over Z_p of the same dimension. Then p_1^!O is an invertible sheaf in degree 0, and there is a fundamental class p_2^*O = O → p_1^!O. Where p_1 is finite flat, the fundamental class is given by the trace of p_1.
+
+Locator: proof of Proposition 4.3.11, p. 48. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Import coherent duality and source-check the exact lci correspondence/boundary adapter; keep the corrected open complement from confirmed finding E88.
+
+Extraction note: Missing. Mathlib has the trace of a finite free algebra (mathlib:Algebra.trace), the affine ingredient of the finite flat case. No layer plans the upper-shriek functor, the invertibility of p_1^!O for lci p_1, or the fundamental class p_2^*O → p_1^!O. The extraction of Pilloni (Duke 2020) records the same material from its §4 (Hartshorne duality for embeddable morphisms, f^! of lci maps, fundamental classes from the trace) as missing. It routes that material to AlgebraicModuliForArithmeticGeometry A0-extension by a source route. External input: [FP21] N. Fakhruddin, V. Pilloni, Hecke operators and the coherent cohomology of Shimura varieties, J. Inst. Math. Jussieu (2021), Prop. 2.6
+
+### PAPER-GROECHENIG-WYSS-ZIEGLER-20/4 — Finite and finite abelian quotient stacks
+
+A Deligne–Mumford stack X is a finite quotient stack if X ≃ [Y/Γ] for an algebraic space Y with a generically fixed-point-free action of an abstract finite group Γ, and a finite abelian quotient stack if Γ can moreover be taken abelian.
+
+Locator: §2.1, Definition 2.1, p. 512. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: partial_plan.
+
+Planned nodes: AlgebraicModuliForArithmeticGeometry:R09.4/finite-quotient-presentation. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Quotient stacks of algebraic spaces by finite groups belong with the algebraic stacks of R09.4.
+
+### PAPER-GROECHENIG-WYSS-ZIEGLER-20/6 — Inertia stacks of finite quotient stacks
+
+For a stack X the inertia stack is IX = X ×_{X×X} X; its S-points are pairs (x, α) with x ∈ X(S) and α ∈ Aut(x), and IX → X is a relative group. For a finite quotient stack, IX ≅ ⊔_{[γ] ∈ Γ/conj} [Y^γ/C(γ)], so F and w are locally constant functions on IX(k)_iso. For a groupoid A with A_iso finite, its mass is #A = Σ_{a ∈ A_iso} 1/|Aut(a)|.
+
+Locator: §2.1, Remarks 2.3 and 2.5, pp. 513–514; §2.2.2, p. 518. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: partial_plan.
+
+Planned nodes: AlgebraicModuliForArithmeticGeometry:R09.4/inertia-stack, AlgebraicModuliForArithmeticGeometry:R09.4/quotient-inertia-components. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: The inertia/centralizer branch is planned; the groupoid mass definition and its finiteness hypotheses remain pending.
+
+Extraction note: Inertia stacks and masses of groupoids of points belong with the stacks of R09.4–R09.5, as for GWZ20-B.
+
+### PAPER-GROECHENIG-WYSS-ZIEGLER-20/8 — Gerbes, bandings and their classification
+
+For a Deligne–Mumford stack S and a commutative group scheme A over S, a gerbe over S is a morphism of algebraic stacks α → S whose objects are étale-locally isomorphic and exist étale-locally; an A-banding is a compatible family of isomorphisms A_{S′} ≅ Aut_{S′}(x). A-gerbes up to isomorphism are classified by H²_ét(S, A); automorphisms of an A-gerbe form the groupoid of A-torsors.
+
+Locator: §2.2, Definition 2.6, pp. 514–515. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: partial_plan.
+
+Planned nodes: AlgebraicModuliForArithmeticGeometry:key/gerbes, AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/h2-classification. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Giraud's classification, as routed for GWZ20-B to R09.4–R09.5.
+
+### PAPER-GROECHENIG-WYSS-ZIEGLER-20/32 — Twisting by torsors
+
+Let S be a scheme and Γ a commutative étale group S-scheme. For an S-scheme N with a Γ-action and T ∈ H¹_ét(S, Γ), the T-twist is the algebraic space N_T = [(N ×_S T)/Γ] (anti-diagonal action), with Γ acting through T (Definition 4.5). There is an equivalence [N/Γ] ≃ [N_T/Γ] (Lemma 4.6), proved by exchanging quotients: for commuting actions of fppf group schemes Γ_1, Γ_2, [[N/Γ_1]/Γ_2] ≃ [[N/Γ_2]/Γ_1] (Lemma 4.7).
+
+Locator: §4.2, Definition 4.5, Lemmas 4.6–4.7, pp. 539–540. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: partial_plan.
+
+Planned nodes: AlgebraicModuliForArithmeticGeometry:R09.4/torsor-twist-space, AlgebraicModuliForArithmeticGeometry:R09.4/torsor-twist-quotient-equivalence. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Quotient-stack identities for twisted actions, routed to R09.4 as GWZ20-B's Construction 5.1.
+
+### PAPER-CALEGARI-GERAGHTY-18/verdier-serre-duality — Grothendieck–Serre (‘Verdier’) duality over O/ϖ^n with trace
+
+Let A = O/ϖ^n and π : Y_A := Y ×_O A → Spec A (proper smooth of relative dimension d) with dualizing sheaf ω_{Y_A}. For a (Δ-equivariant) locally free 𝒢 of finite rank: RHom(RHom(O_{Y_A}, 𝒢), A[0]) = RHom(𝒢, ω_{Y_A}[d]), compatibly with the trace morphism RΓ(Y_A, ω_{Y_A}[d]) → A[0] (on H^d: tr : H^d(Y_A, ω_{Y_A}) → A). Consequently H^i(Y, (f^*𝓕)_A) is Pontryagin dual to H^{d−i}(Y, Hom_{O_Y}(f^*𝓕, ω_Y)_A) = H^{d−i}(Y, (f^*𝓔)_A).
+
+Locator: §7.2, pp. 398–399. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Coherent duality is planned only for curves: Tau Ceti JacobianChallenge Layer B (Serre duality over a field k) and StableReduction Layer 2 (relative dualizing sheaf of Cohen–Macaulay curves). SchemeAndStackFoundations SF.3 only integrates those. Grothendieck–Serre duality with trace for smooth proper morphisms of any relative dimension d over O/ϖ^n, in the derived form CG uses, is planned nowhere. CG calls it 'Verdier duality' without a reference. External input: Grothendieck–Serre duality, invoked as ‘Verdier duality’ without a specific reference
+
+### PAPER-CALEGARI-GERAGHTY-18/KO-devissage-cofiniteness — Dévissage and cofiniteness for K/O coefficients on curves over O
+
+For a vector bundle L on a flat proper O-curve Y (Y = X_Δ(Q), X_Δ(Q; x)): 0 → L_k → L_{K/O} →(ϖ) L_{K/O} → 0 is exact; H⁰(Y, L_{K/O})[ϖ] = H⁰(Y, L_k); and H^i(Y, L_{K/O}) is cofinitely generated over O. Hence End_O H⁰(X₁(Q), ω_{K/O}) is O-finite and H_i(Y, L) is finitely generated over O.
+
+Locator: §3.2, pp. 317 ('T^an is a finite O-algebra'), 320, 322 (proof of Lemma 3.7(1)) and 324. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: K/O devissage and cofiniteness are additional input, not supplied by a generic duality theorem alone.
+
+Extraction note: Added by the review REV-PAPER-CALEGARI-GERAGHTY-18. Implicit and standard; E26's repair uses it. Coherent cohomology and base change of proper flat O-schemes is AlgebraicModuliForArithmeticGeometry A0-extension (route 18).
+
+### PAPER-PILLONI-20/embeddable-and-projectively-embeddable-morphisms — Embeddable and projectively embeddable morphisms
+
+A morphism of S-schemes f: X → Y is embeddable if there exist a smooth S-scheme P and a finite morphism i: X → P ×_S Y such that f is the composite of i and the second projection ([32] p. 189). f is projectively embeddable if it is embeddable and P can be taken to be a projective space over S ([32] p. 206).
+
+Locator: §4.1.1, p. 16. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Coherent duality is planned only for curves (Tau Ceti JacobianChallenge Layer B, StableReduction Layer 2, SF.3). Searching the atlas for 'Residues and Duality', 'Grothendieck duality', 'f^!' and 'dualizing' finds only étale or diamond six-functor layers.
+
+### PAPER-PILLONI-20/fundamental-class-and-divisors-construction-1 — Lemma 4.2.4.1 (1): fundamental class respects boundary divisors (Construction 1)
+
+Let D_X ⊂ X and D_Y ⊂ Y be effective reduced Cartier divisors relative to S such that f restricts to D_X → D_Y and D_X → f^{-1}(D_Y) is a homeomorphism. In the setting of Construction 1, assume moreover that D_X ∩ X^sm is a normal crossings divisor in the smooth locus X^sm of X and D_Y ∩ Y^sm is a normal crossings divisor in Y^sm. Then the fundamental class Θ: O_X → f^!O_Y restricts to a morphism O_X(−D_X) → f^!O_Y(−D_Y) (:= f^!O_Y ⊗ f^*O_Y(−D_Y) = f^!(O_Y(−D_Y))).
+
+Locator: §4.2.4, Lemma 4.2.4.1 (1), p. 18. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Planned nowhere. The logarithmic differentials used in the proof are planned only for dagger spaces (AdicSpacesPartII:F1) and log geometry (CrystallineCohomology CR.5), not for this statement.
+
+### PAPER-PILLONI-20/fundamental-class-and-divisors-construction-2 — Lemma 4.2.4.1 (2): fundamental class respects boundary divisors (Construction 2)
+
+With D_X, D_Y as in Lemma 4.2.4.1 (effective reduced Cartier divisors relative to S, f(D_X) ⊂ D_Y, D_X → f^{-1}(D_Y) a homeomorphism) and f finite flat (Construction 2), the fundamental class Θ: O_X → f^!O_Y restricts to O_X(−D_X) → f^!O_Y(−D_Y).
+
+Locator: §4.2.4, Lemma 4.2.4.1 (2), p. 18. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Planned nowhere.
+
+### PAPER-PILLONI-20/fundamental-class-and-trace — Fundamental class Θ: f^*O_Y → f^!O_Y and the trace Tr: Rf_*f^*O_Y → O_Y
+
+Let X, Y be embeddable S-schemes and f: X → Y an embeddable morphism. A fundamental class of f is a map Θ: f^*O_Y (= O_X) → f^!O_Y constructed ad hoc in the situations of Construction 1 (4.2.1) or Construction 2 (4.2.2). If f is moreover projectively embeddable, applying Rf_* and composing with the trace Rf_*f^!O_Y → O_Y gives Tr: Rf_*f^*O_Y → O_Y.
+
+Locator: §4.2, p. 17. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Planned nowhere. AutomorphicBundles:B5 plans 'trace along Hecke correspondences' only on sections in characteristic 0. AUDIT-13 records 'no coherent pullback/trace'.
+
+### PAPER-PILLONI-20/fundamental-class-base-change — Proposition 4.2.5.1 (2): base change of the fundamental class
+
+In the situation of Proposition 4.2.5.1 (i an open immersion or f finite flat), under the isomorphism j^*f^!O_Y ≅ (f')^!O_{Y'}, the pullback j^*Θ: O_{X'} → (f')^!O_{Y'} of the fundamental class of f is the fundamental class of f'.
+
+Locator: §4.2.5, Proposition 4.2.5.1, pp. 18–19. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Planned nowhere.
+
+### PAPER-PILLONI-20/fundamental-class-construction-1-determinant-of-differential — Construction 1: fundamental class as determinant of the differential
+
+Let f: X → Y be an embeddable morphism of embeddable S-schemes. Assume X and Y are local complete intersections over S of the same pure relative dimension, X is normal, and there are an open V ⊂ X smooth over S whose complement has codimension ≥ 2 (printed 'codimension 2') and an open U ⊂ Y smooth over S with f(V) ⊂ U. Over V the fundamental class is det(df), the determinant of df: f^*Ω^1_{U/S} → Ω^1_{V/S}, a section of ω_{V/S} ⊗ f^*ω_{U/S}^{-1} = f^!O_Y|_V (Cor. 4.1.3.1); since f^!O_Y is invertible and X is normal, it extends uniquely to Θ: O_X → f^!O_Y.
+
+Locator: §4.2.1, p. 17. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Planned nowhere. Printed 'codimension 2' means codimension ≥ 2, as the item states.
+
+### PAPER-PILLONI-20/fundamental-class-construction-2-trace — Construction 2: fundamental class of a finite flat morphism is the trace
+
+If f: X → Y is finite flat, then f^!O_Y = Hom_{O_Y}(f_*O_X, O_Y) (as an f_*O_X-module) and the fundamental class Θ: O_X → f^!O_Y is defined by Θ(1) = tr_f, the trace morphism tr_f: f_*O_X → O_Y of the finite locally free algebra f_*O_X.
+
+Locator: §4.2.2, p. 17. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: The affine ingredient is in Mathlib: mathlib:Algebra.trace (Mathlib/RingTheory/Trace/Defs.lean:71, 'the trace of (s * ·)'). AdicSpacesPartII:R3 plans the trace for finite locally free algebras on adic spaces. Nothing plans the scheme-level identification f^!O_Y = Hom(f_*O_X, O_Y) with Θ(1) = tr_f.
+
+### PAPER-PILLONI-20/fundamental-class-constructions-agree — Lemma 4.2.3.1 (2): det(df) is the trace (Constructions 1 and 2 agree)
+
+Let X, Y be smooth S-schemes and f: X → Y finite flat. Then det(df) ∈ ω_{X/Y} = f^!O_Y equals the trace map tr_f ∈ Hom(f_*O_X, O_Y); hence the fundamental classes of Construction 1 and Construction 2 coincide.
+
+Locator: §4.2.3, Lemma 4.2.3.1, pp. 17–18. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Planned nowhere. It needs residues (Hartshorne, property R6).
+
+### PAPER-PILLONI-20/grothendieck-duality-projectively-embeddable — Grothendieck duality for projectively embeddable morphisms
+
+If f: X → Y is projectively embeddable, the trace map induces an isomorphism Hom_{D_qcoh(O_X)}(F, f^!G) ≅ Hom_{D_qcoh(O_Y)}(Rf_*F, G) for all F ∈ D^−_qcoh(O_X) and G ∈ D^+_qcoh(O_Y).
+
+Locator: §4.1.2, p. 16. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Planned nowhere; see PAPER-CALEGARI-GERAGHTY-18/verdier-serre-duality. External input: R. Hartshorne, Residues and Duality (reference [32]), III Thm. 11.1
+
+### PAPER-PILLONI-20/lci-morphism-cotangent-complex-dualizing-sheaf — Local complete intersection morphisms, cotangent complex L_{X/S} and ω_{X/S}
+
+A morphism f: X → S is a local complete intersection (lci) if locally on X it factors as X →^i Z → S with i a regular immersion (EGA IV 16.9.2) and Z smooth over S. For f lci the cotangent complex L_{X/S} is a perfect complex concentrated in degrees −1 and 0, and ω_{X/S} denotes its determinant in the sense of Knudsen–Mumford [43].
+
+Locator: §4.1.3, p. 16. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Some pieces are planned:
+- the cotangent complex and regular quotients (DerivedDeRhamCohomology:DD.0);
+- determinant lines of bounded complexes of finite projective modules (PadicMeasuresIwasawaAlgebras:L5);
+- syntomic (flat lci) morphisms (Tau Ceti StableReduction Layer 1).
+The libraries have no lci morphisms or regular immersions of schemes, only mathlib RingTheory.Sequence.IsRegular. Nothing plans ω_{X/S} := det L_{X/S} as a sheaf, in the Knudsen–Mumford sense, for non-flat lci X → S.
+
+### PAPER-PILLONI-20/quasi-coherent-derived-categories — Derived categories D_qcoh, D^±_qcoh, D^b_qcoh, D^b_qcoh(O_X)_{fTd}; the base S
+
+For a scheme X, D_qcoh(O_X) ⊂ D(O_X) is the full subcategory of complexes with quasi-coherent cohomology sheaves; D^+_qcoh(O_X) (resp. D^−_qcoh(O_X)) consists of objects with vanishing cohomology sheaves in sufficiently negative (resp. positive) degrees; D^b_qcoh(O_X) of objects with only finitely many non-zero cohomology sheaves; D^b_qcoh(O_X)_{fTd} ⊂ D^b_qcoh(O_X) of objects quasi-isomorphic to bounded complexes of flat O_X-modules ([32] Def. 4.3 p. 97). If X is locally noetherian, D^+_qcoh(O_X) is also the derived category of bounded-below complexes of quasi-coherent sheaves ([32] Cor. 7.19). For the rest of §4, S is a fixed noetherian affine scheme.
+
+Locator: §4.1, p. 16. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: The ambient D(O_X) is planned (EnhancedDerivedSheaves:E1, 'For morphisms of sites and ringed topoi, construct the enhanced pullback/pushforward adjunction'). Mathlib has DerivedCategory and SheafOfModules.IsQuasicoherent. Nothing plans D_qcoh, D^±_qcoh, D^b_qcoh(O_X)_fTd, or Hartshorne's comparison D^+_qcoh(O_X) ≃ D^+(QCoh(X)) for locally noetherian X. AUDIT-01 (A0-extension) says Tor-amplitude and perfect complexes on schemes are absent.
+
+### PAPER-PILLONI-20/relative-dualizing-sheaf-between-lci — Corollary 4.1.3.1: f^!O_Y = ω_{X/S} ⊗ f^*ω_{Y/S}^{-1}
+
+Let h: X → S and g: Y → S be embeddable morphisms of S-schemes which are lci of pure relative dimension n, and let f: X → Y be an embeddable morphism of S-schemes. Then f^!O_Y ≅ ω_{X/S} ⊗ f^*ω_{Y/S}^{-1}; in particular f^!O_Y is an invertible sheaf (in degree 0).
+
+Locator: §4.1.3, Corollary 4.1.3.1, pp. 16–17. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Planned nowhere.
+
+### PAPER-PILLONI-20/residue-symbol-trace-property — Residues and the trace (Hartshorne, property (R6))
+
+Let X, Y be smooth S-schemes of relative dimension n and f: X → Y finite flat. The map f_* det L_{X/Y} = Hom(f_*O_X, O_Y) → O_Y is the residue map. It sends ω ∈ f_*Ω^n_{X/S} = f_*ω_{X/S} (printed Ω^1_{X/S}) and local generators (t_1, …, t_n) of the ideal I_X of the graph X → X ×_S Y to Res[ω; t_1, …, t_n]. By [32], property (R6) on p. 198, the determinant of [Ω^1_{Y/S} ⊗_{O_Y} O_X → Ω^1_{X/S}] maps to the usual trace map tr_f.
+
+Locator: §4.2.3, proof of Lemma 4.2.3.1, p. 18. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: The residue symbol of Residues and Duality is planned nowhere. External input: R. Hartshorne, Residues and Duality (reference [32]), property (R6) on p. 198
+
+### PAPER-PILLONI-20/trace-map-projectively-embeddable — Trace map Rf_*f^! ⇒ Id for projectively embeddable f
+
+If f: X → Y is projectively embeddable, there is a natural transformation (trace map) Tr_f: Rf_*f^! ⇒ Id of endofunctors of D^+_qcoh(O_Y).
+
+Locator: §4.1.2, p. 16. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Planned nowhere. CG18's Grothendieck–Serre duality with trace was also marked missing and routed to A0-extension. External input: R. Hartshorne, Residues and Duality (reference [32]), III Thm. 10.5
+
+### PAPER-PILLONI-20/upper-shriek-base-change — Proposition 4.2.5.1 (1): base change of f^!O_Y
+
+Assume f: X → Y is in the situation of Construction 1 or 2, and consider a cartesian square with i: Y' → Y, j: X' = X ×_Y Y' → X and f': X' → Y'. Assume that i is an open immersion or that f is finite flat. Then there is a natural isomorphism of sheaves j^*f^!O_Y ≅ (f')^!O_{Y'}, with j^* the non-derived pullback.
+
+Locator: §4.2.5, Proposition 4.2.5.1, p. 18. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Planned nowhere for coherent f^!.
+
+### PAPER-PILLONI-20/upper-shriek-for-embeddable-morphisms — The functor f^! for embeddable morphisms (Hartshorne)
+
+For an embeddable morphism of S-schemes f: X → Y there is a functor f^!: D^+_qcoh(O_Y) → D^+_qcoh(O_X), compatible with composition of embeddable morphisms ((gf)^! ≅ f^!g^!) and with restriction to open subschemes (part 5 of the theorem); Rf_*: D_qcoh(O_X) → D_qcoh(O_Y) is the derived direct image.
+
+Locator: §4.1.2, p. 16 (compatibilities used on pp. 17–18). Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Hartshorne's f^! for embeddable morphisms is planned nowhere. The f^! in DiamondSixOperations, EtaleDualityAndPerverseSheaves and AdicCoefficientsAndComparisons is étale, not coherent. External input: R. Hartshorne, Residues and Duality, LNM 20 (reference [32]), III Thm. 8.7
+
+### PAPER-PILLONI-20/upper-shriek-of-lci-structure-sheaf — Proposition 4.1.3.1: h^!O_S = ω_{X/S}[n] for lci h
+
+If h: X → S is an embeddable morphism which is a local complete intersection of pure relative dimension n, then h^!O_S ≅ ω_{X/S}[n], where ω_{X/S} is the determinant of the cotangent complex L_{X/S}. (Printed: 'f^!O_X = ω_{X/S}[n]'.)
+
+Locator: §4.1.3, Proposition 4.1.3.1, p. 16. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Planned nowhere; this needs coherent f^!. The paper prints 'f^!O_X = ω_{X/S}[n]'; h^!O_S is meant.
+
+### PAPER-PILLONI-20/upper-shriek-projection-formula — Proposition 4.1.2.1: f^!F ⊗^L Lf^*G = f^!(F ⊗^L G)
+
+Let f: X → Y be an embeddable morphism of S-schemes. For F ∈ D^+_qcoh(O_Y) and G ∈ D^b_qcoh(O_Y)_{fTd} there is a functorial isomorphism f^!F ⊗^L Lf^*G ≅ f^!(F ⊗^L G).
+
+Locator: §4.1.2, Proposition 4.1.2.1, p. 16. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Planned nowhere for coherent f^!. External input: R. Hartshorne, Residues and Duality (reference [32]), III Prop. 8.8
+
+### PAPER-DEMARCO-MAVRAKI-YE-26/11 — Chow varieties of bounded-degree cycles
+
+For an irreducible quasi-projective Y ⊂ ℙ^N over Q̄ with closure Ȳ, Ch(Ȳ, r, D) is the Chow variety of r-dimensional cycles of degree ≤ D supported in Ȳ, a subvariety of Ch(ℙ^N, r, D) defined over Q̄. Ch(Y, r, D) is its open subset of cycles meeting Y, and "degree ≤ D" for subvarieties of Y is independent of the embedding up to changing D.
+
+Locator: §2.5, p.7, citing Gelfand–Kapranov–Zelevinsky [GKZ] and Kollár [Ko], Forum Math. Pi 14 (2026) e4. Owner: AlgebraicModuliForArithmeticGeometry:R09.2; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Separate the bounded Chow parameter statement from Hilbert/Quot representability.
+
+Extraction note: Routed to AlgebraicModuliForArithmeticGeometry R09.1–R09.2 (parameter spaces and boundedness) as a source.
+
+### PAPER-BAKKER-KLINGLER-TSIMERMAN-20/snc-compactification — Existing planned normal-crossing compactification
+
+A smooth complex quasi-projective variety has a smooth projective compactification whose reduced boundary is a simple normal-crossing divisor.
+
+Locator: §4.1, JAMS p. 928 (the paper says 'normal crossing divisor'; Hironaka gives simple normal crossings). Owner: AlgebraicModuliForArithmeticGeometry:R09.7; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: No extraction note
+
+### PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/14 — Coarse moduli space of a tame Deligne–Mumford stack over O_F
+
+For a smooth and tame Deligne–Mumford stack M/O_F, M/O_F denotes a coarse moduli space with canonical map Q : M → M (Keel–Mori), and V ⊂ M the maximal open subscheme for which Q^{-1}(V) → V is an isomorphism.
+
+Locator: arXiv:1810.06739v2 (28 October 2019), Situation 2.6(a), p. 8 ([KM97], [Con05]). Owner: AlgebraicModuliForArithmeticGeometry:R09.5; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Retain tame versus flat base-change hypotheses for the coarse space.
+
+Extraction note: R09.5 plans coarse spaces for the finite-inertia presentations of its own programme; the Keel–Mori statement for tame DM stacks over a discrete valuation ring, and the locus V where the map is an isomorphism, are what this paper needs.
+
+### PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/15 — Zariski-locally a finite étale quotient stack
+
+M is Zariski-locally a finite étale quotient stack if there is a finite covering by Zariski-open substacks M = ∪_{i∈I} M_i with equivalences M_i = [U_i/Γ_i], where Γ_i is a finite étale group O_F-scheme, U_i a smooth O_F-scheme, the action of Γ_i on U_i is generically free and every orbit lies in an affine subset.
+
+Locator: arXiv:1810.06739v2 (28 October 2019), Situation 2.6(b), p. 8. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Source-check the precise Zariski/etale local finite quotient assertion; a general quotient-presentation predicate does not prove it.
+
+Extraction note: By Kresch ([Kre09, Theorem 4.4 and Proposition 5.2]) a smooth tame DM stack over a field with quasi-projective coarse space is of this form, with the Γ_i constant; this is how the hypothesis is verified for M̄^ani_G in Situation 6.1.
+
+### PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/19 — The twisted inertia stack
+
+For a stack X over Spec(k), the twisted inertia stack is the X-stack I_µ̂X = colim_n Hom(Bµ_n, X) → X.
+
+Locator: arXiv:1810.06739v2 (28 October 2019), Definition 2.9, p. 9. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: partial_plan.
+
+Planned nodes: AlgebraicModuliForArithmeticGeometry:R09.4/prime-to-p-twisted-inertia. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Twisting refers to the µ_n-gerbes Bµ_n rather than to the constant group Z/n: this is the form of the inertia stack that sees the tame ramification of a local field.
+
+### PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/20 — Rational points of a twisted inertia stack: the groupoid description
+
+Let X/F_q be a stack whose diagonal is of finite presentation, and for a geometric point x ∈ X(F_q) let φ : Aut_{X(F̄_q)}(x) → Aut_{X(F̄_q)}(x) be the automorphism induced by the Frobenius φ ∈ Gal(F̄_q/F_q). Then there is an equivalence of groupoids I_µ̂X(F_q) ≃ {(x, α) : x ∈ X(F_q), α ∈ Hom_cts(µ̂(F̄_q), Aut_{X(F̄_q)}(x)), α ∘ φ = φ ∘ α}.
+
+Locator: arXiv:1810.06739v2 (28 October 2019), Lemma 2.10(a), p. 9. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: partial_plan.
+
+Planned nodes: AlgebraicModuliForArithmeticGeometry:R09.4/twisted-inertia-finite-field. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Makes the twisted inertia stack computable over a finite field.
+
+### PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/21 — Rational points of a twisted inertia stack: after a choice of generator
+
+With ξ a profinite generator of µ̂(F̄_q), sending (x, α) to (x, α(ξ)) gives an equivalence of groupoids [ξ] : I_µ̂X(F_q) ≃ {(x, α) ∈ IX(F̄_q) : x ∈ X(F_q) and φ^*α = α^q}.
+
+Locator: arXiv:1810.06739v2 (28 October 2019), Lemma 2.10(b), p. 9. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: partial_plan.
+
+Planned nodes: AlgebraicModuliForArithmeticGeometry:R09.4/twisted-inertia-generator. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: The comparison with the ordinary inertia stack; the q-th power condition is the twist.
+
+### PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/22 — Automorphisms of a point of the twisted inertia stack
+
+For (x, α) ∈ I_µ̂X(F_q) as in Lemma 2.10(b) one has Aut_{I_µ̂X(F_q)}(x, α) = {β ∈ Aut_{X(F_q)}(x) : α ∘ β = β ∘ α}.
+
+Locator: arXiv:1810.06739v2 (28 October 2019), Lemma 2.10(c), p. 9 (equation (10)). Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: partial_plan.
+
+Planned nodes: AlgebraicModuliForArithmeticGeometry:R09.4/twisted-inertia-automorphisms. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: The centraliser that appears in the denominator of Theorem 2.21.
+
+### PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/37 — Gerbes banded by an abelian group and their classification
+
+For X a stack and A an abelian sheaf, an A-gerbe on X is a stack over X which is locally non-empty and locally connected with band A; by Giraud's theorem the set of equivalence classes of A-gerbes on X is in natural bijection with the Čech cohomology group Ȟ²_ét(X, A). Unless stated otherwise 'gerbe' means G_m-gerbe, classified by Ȟ²_ét(X, G_m).
+
+Locator: arXiv:1810.06739v2 (28 October 2019), Lemma 3.2 and the conventions around it, p. 16. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: partial_plan.
+
+Planned nodes: AlgebraicModuliForArithmeticGeometry:key/gerbes, AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/h2-classification. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: The paper uses Cech H2 in its special case. The general derived classification remains conditional on the comparison and inverse proof leaves.
+
+Extraction note: R09.4 plans algebraic stacks in the class this programme needs; Giraud's classification of gerbes by degree-two cohomology is the stack-theoretic input this paper adds to it.
+
+### PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/87 — Quotient stacks of twisted group actions
+
+Let S be a base algebraic space, A and B smooth group algebraic spaces over S and X an algebraic space over S with actions of A and B, with A acting on B by group automorphisms so that B ×_S X → X is A-equivariant. For an A-torsor ρ over S the twists X̄ = X ×^A ρ and B̄ = B ×^A ρ carry an action B̄ ×_S X̄ → X̄, the actions of B and A on X × ρ combine to an action of B ⋊ A, and the quotient morphism induces an isomorphism of quotient stacks [(X × ρ)/(B ⋊ A)] ≅ [X̄/B̄].
+
+Locator: arXiv:1810.06739v2 (28 October 2019), Construction 5.1, p. 26. Owner: AlgebraicModuliForArithmeticGeometry:R09.4; status: partial_plan.
+
+Planned nodes: AlgebraicModuliForArithmeticGeometry:R09.4/twisted-group-action-quotient. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: A general fact about quotient stacks; it is the bookkeeping device for every outer twist in Section 5, so it belongs with the stack foundations of R09.4 rather than in the Higgs theory.
+
+### PAPER-GAO-GE-KUHNE-26/33 — Finitely many Hilbert polynomials in bounded degree
+
+For a projective scheme with a (relatively) very ample O(1) over a noetherian base (A over ℚ̄, or 𝔄_g over 𝔸_g with 𝔏_g^{⊗4}), there is a finite set Ξ of polynomials containing the Hilbert polynomial of every irreducible subvariety of any fibre of dimension r and degree d.
+
+Locator: §3.1, p.198 and §3.2, p.200, citing Grothendieck FGA [26, Thm. 2.1(b) and Lem. 2.4]. Owner: AlgebraicModuliForArithmeticGeometry:R09.1; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the finite-list-of-Hilbert-polynomials proof under its exact boundedness hypotheses.
+
+Extraction note: R09.1 plans Hilbert polynomials and "boundedness statements in the exact Noetherian setting later used"; this Chow/Hilbert boundedness is routed to R09.1 as a source.
+
+### PAPER-GAO-GE-KUHNE-26/35 — H_{r,d}(A) and its universal family
+
+H_{r,d}(A) := ⨆_{P ∈ Ξ} H_P(A), a projective scheme over ℚ̄ with universal family X_{r,d}(A) ⊆ A × H_{r,d}(A) (the diagram (3.1)); its fibre over s is the subscheme it parametrizes.
+
+Locator: §3.1, (3.1), p.198. Owner: AlgebraicModuliForArithmeticGeometry:R09.2; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: A flat universal family over a finite union of Hilbert components does not imply flatness of the parameter map.
+
+Extraction note: Routed to R09.2 as a source.
+
+### PAPER-BHATT-ETAL-23/hilbert-isom — Hilbert and polarized Isom representability input
+
+Import fixed-polynomial Hilbert/Quot representability, the flat universal family and polarized Hom/Isom schemes in the finite-presentation projective scope of R09.2.
+
+Locator: Pat18 Theorem9.7; R09.2. Owner: AlgebraicModuliForArithmeticGeometry:R09.2; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Exact existing layer interface imported; planned is not built or Lean-checked. Source/hypothesis adapters remain explicit.
+
+### PAPER-BHATT-ETAL-23/coarse-general — Finite-inertia coarse-space construction
+
+Import the exact finite-inertia/quotient coarse-space theorem and its proved base-change properties from R09.5; verify each stable-stack hypothesis.
+
+Locator: Corollary10.2; R09.5. Owner: AlgebraicModuliForArithmeticGeometry:R09.5; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Exact existing layer interface imported; planned is not built or Lean-checked. Source/hypothesis adapters remain explicit.
+
+### PAPER-BENOIST-19/138 — Serre vanishing and very-ample twists
+
+For projective noetherian S, an ample A and coherent F, H^i(S,F⊗A^l)=0 for i>0 and l sufficiently large; twists of a fixed line bundle are very ample for large l. Apply simultaneously to the finite list in Assumption 5.1 and the restriction surjections for item 69.
+
+Locator: §5.1 pp.85–86 and §6.2 p.93. Owner: AlgebraicModuliForArithmeticGeometry:R09.1; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Import Serre vanishing and ampleness from StableReduction2; add only the exact bounded-family twist adapter.
+
+Extraction note: No extraction note
+
+### PAPER-BOXER-CALEGARI-GEE-PILLONI-21/47 — §3.8.8 and Lemma 3.8.9: coherent duality for embeddable morphisms and f^!O_Y between local complete intersections
+
+Let S be an affine Noetherian scheme. A morphism f : X → Y of S-schemes is embeddable if it factors as X →^i P ×_S Y → Y with P a smooth S-scheme, i finite and the second map the projection. It is projectively embeddable if P can be taken to be a projective space over S; the paper prints 'p'. D_qcoh(O_X) is the derived category of O_X-modules with quasi-coherent cohomology sheaves, and D^+_qcoh(O_X) its bounded-below part. For f embeddable there is an exact functor of triangulated categories f^! : D^+_qcoh(O_Y) → D^+_qcoh(O_X). If f is projectively embeddable, f^! is right adjoint to Rf_*, and the counit is the trace map Rf_*f^! ⇒ Id of endofunctors of D^+_qcoh(O_Y). For X → S a local complete intersection, K_{X/S} is the relative canonical sheaf, the determinant of the cotangent complex. Lemma 3.8.9 ([Pil20, Cor. 4.1.3.1]). Let f : X → Y be an embeddable morphism between two embeddable S-schemes such that X → S and Y → S are local complete intersections of pure relative dimension n. Then f^!O_Y = K_{X/S} ⊗_{O_X} f^*K_{Y/S}^{−1}, an invertible sheaf.
+
+Locator: §3.8.8 with Lemma 3.8.9; arXiv:1812.09269v3 p. 59, the final version; Boxer–Calegari–Gee–Pilloni, Abelian surfaces over totally real fields are potentially modular, Publ. Math. Inst. Hautes Études Sci. 134 (2021), 153–501 (Lemma 3.8.9 is Pilloni, Higher coherent cohomology and p-adic modular forms of singular weights, Cor. 4.1.3.1). Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Split: Lemma 3.8.10, the fundamental classes of §§3.8.11–3.8.15 and Proposition 3.8.17 are separate items. Recorded misprint E37 (affects nothing, present in both versions): 'projectively embeddable if p can be taken to be a projective space' should read P. Status missing: Mathlib and Tau Ceti have no f^!, coherent trace or relative dualizing sheaf, and no atlas layer description plans coherent Grothendieck duality. Routing: this item goes as a source to AlgebraicModuliForArithmeticGeometry A0-extension, with Lemma 3.8.10, the fundamental classes of §§3.8.11–3.8.15 and Proposition 3.8.17. The merged extraction of Pilloni's Duke paper source-routes the same statements there: embeddable morphisms, Hartshorne's f^! and trace, f^!O_Y for lci morphisms, fundamental classes and their base change. These are §§4.1–4.2 of Pilloni's paper and the source of §§3.8.8–3.8.15 here. The merged extraction of Calegari–Geraghty 2018 also sends its general duality statement there, so coherent duality has a single owner. Its consumers are IntegralCoherentHeckeComplexes (the Hecke operators of §3.9.3) and HigherHidaAndColemanTheory (§4).
+
+### PAPER-BOXER-CALEGARI-GEE-PILLONI-21/215 — Lemma 3.8.10: f^! commutes with restriction to the zero locus of a non-zero-divisor
+
+Let S be an affine Noetherian scheme and f : X → Y an embeddable morphism of embeddable S-schemes, each a local complete intersection of pure relative dimension n over S. Let h be a section of a line bundle 𝓛 on Y such that neither h nor f^*h is a zero-divisor. Let Y_{h=0} and X_{h=0} be the vanishing loci of h and f^*h, and f_0 : X_{h=0} → Y_{h=0} the restriction of f. Then for every locally free sheaf 𝓕 on Y, (f^!𝓕)|_{X_{h=0}} = f_0^!(𝓕|_{Y_{h=0}}). The paper calls this an equality of invertible sheaves; both sides are locally free of the rank of 𝓕, and invertible when 𝓕 is a line bundle. The proof uses [Har66, Prop. III.8.8], with O_{Y_{h=0}} represented by the perfect complex 𝓛^{−1} →^h O_Y.
+
+Locator: Lemma 3.8.10 (§3.8.8); arXiv:1812.09269v3 p. 59, the final version; Boxer–Calegari–Gee–Pilloni, Abelian surfaces over totally real fields are potentially modular, Publ. Math. Inst. Hautes Études Sci. 134 (2021), 153–501 (Hartshorne, Residues and Duality, Prop. III.8.8). Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: This is a divisor/base-change adapter; a vector bundle is invertible only when its rank is one.
+
+Extraction note: Split from item 47. Used on its own throughout §4 (pp. 76, 79, 80, 82, 106 and 108), to reduce cohomological correspondences modulo p (h = p) and to restrict them to the vanishing loci of Hasse invariants. The printed 'equality of invertible sheaves' (the same in arXiv v3 and the published version) is accurate only when 𝓕 is a line bundle; for locally free 𝓕 both sides are locally free of the rank of 𝓕. There is no library declaration, and no atlas layer plans it. Routing: it goes as a source to AlgebraicModuliForArithmeticGeometry A0-extension, with item 47.
+
+### PAPER-BOXER-CALEGARI-GEE-PILLONI-21/216 — §§3.8.11–3.8.15: fundamental classes, their agreement, base change and boundary divisors
+
+Let S be affine Noetherian and f : X → Y an embeddable morphism of embeddable S-schemes. A fundamental class Θ : O_X = f^*O_Y → f^!O_Y is constructed in two situations. (a) The lci situation: X and Y are local complete intersections over S of the same relative dimension; X is normal; and there are an open V ⊂ X, smooth over S, whose complement has codimension at least 2 in X (printed 'of codimension 2'), and an open U ⊂ Y, smooth over S, with f(V) ⊂ U. Then f^!O_Y is invertible (Lemma 3.8.9) and f^!O_Y|_V = det Ω^1_{V/S} ⊗ f^*(det Ω^1_{U/S})^{−1}. Θ is the unique extension, by the algebraic Hartogs lemma, of the determinant of df : f^*Ω^1_{U/S} → Ω^1_{V/S}. (b) The finite flat situation: f is finite flat, f_*f^!O_Y = Hom_{O_Y}(f_*O_X, O_Y), and Θ(1) = tr_f, the trace f_*O_X → O_Y. Lemma 3.8.12 ([Pil20, Lem. 4.2.3.1]): if f is finite flat and X, Y are smooth over S, then L_{X/Y} ≅ [Ω^1_{Y/S} ⊗_{O_Y} O_X →^{df} Ω^1_{X/S}] and det(df) ∈ ω_{X/Y} = f^!O_Y is tr_f. §3.8.13: in a Cartesian square with i : Y' → Y an open immersion, j : X' → X and f' : X' → Y', if f is in either situation then so is f'; j^*f^! = (f')^!i^*, and j^*Θ is the fundamental class of f'. Lemma 3.8.15 ([Pil20, Lem. 4.2.4.1]): let D_X ⊂ X and D_Y ⊂ Y be effective reduced Cartier divisors relative to S such that f restricts to D_X → D_Y and D_X → f^{−1}(D_Y) is a homeomorphism. Assume f is in the finite flat situation, or in the lci situation with D_X ∩ X^sm and D_Y ∩ Y^sm normal crossings divisors, X^sm and Y^sm being the smooth loci. Then Θ restricts to a morphism O_X(−D_X) → f^!O_Y(−D_Y).
+
+Locator: §3.8.11, Lemma 3.8.12, §3.8.13, §3.8.14 and Lemma 3.8.15; arXiv:1812.09269v3 pp. 60–61, the final version; Boxer–Calegari–Gee–Pilloni, Abelian surfaces over totally real fields are potentially modular, Publ. Math. Inst. Hautes Études Sci. 134 (2021), 153–501. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: import_pending.
+
+Planned nodes: None yet. Imported suppliers: SchemeAndStackFoundations:key/coherent-duality.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Read the original cited proof, verify all hypotheses and separate its exact declaration leaves or supplier adapters before closing this item.
+
+Extraction note: Split from item 47. §3.8.11 is cited on its own on pp. 100 and 103, and §3.8.13 on p. 79. These are Pilloni's Constructions 1 and 2, Lemma 4.2.3.1, Proposition 4.2.5.1 (open immersion case) and Lemma 4.2.4.1. Routing: they go as a source to AlgebraicModuliForArithmeticGeometry A0-extension, where the merged extraction of Pilloni's paper also sends them. Its item for Construction 1 reads the printed 'codimension 2' as 'codimension ≥ 2'. The statement here reads the printed 'of codimension 2' (the same in arXiv v3 and the published version) in the same way, since the Hartogs extension needs only codimension at least 2. There is no library declaration, and no atlas layer description plans fundamental classes.
+
+### PAPER-BOXER-CALEGARI-GEE-PILLONI-21/217 — Proposition 3.8.17: traces on canonical bundles and restriction to a divisor with ramification
+
+Let k be a field, f : X → Y a finite flat map of smooth k-varieties, and D ⊂ Y a smooth Cartier divisor with f^{−1}(D) = nD' for a smooth Cartier divisor D' ⊂ X. There are trace maps f_*K_X → K_Y and f_*K_{D'} → K_D, and adjunction isomorphisms K_D ≅ K_Y(D)|_D and K_{D'} ≅ K_X(D')|_{D'}. For a line bundle 𝓛 on Y the projection formula gives a twisted trace map f_*(K_X ⊗_{O_X} f^*𝓛) → K_Y ⊗_{O_Y} 𝓛, and similarly over D. Proposition 3.8.17: the following square commutes. Its top map is f_*(K_X(−(n−1)D')) → K_Y, the inclusion K_X(−(n−1)D') ⊂ K_X followed by the trace. Its vertical maps are restriction followed by adjunction, f_*(K_X(−(n−1)D')) → f_*(K_{D'} ⊗ O_X(−nD')|_{D'}) and K_Y → K_D ⊗ O_Y(−D)|_D. Its bottom map is the twisted trace for f : D' → D and the line bundle O_Y(−D)|_D, using f^*O_Y(−D)|_D = O_X(−nD')|_{D'} (printed O_X(−nD)|_{D'}).
+
+Locator: §3.8.16 and Proposition 3.8.17; arXiv:1812.09269v3 pp. 61–62, the final version; Boxer–Calegari–Gee–Pilloni, Abelian surfaces over totally real fields are potentially modular, Publ. Math. Inst. Hautes Études Sci. 134 (2021), 153–501. Owner: AlgebraicModuliForArithmeticGeometry:A0-extension; status: pending_source.
+
+Planned nodes: None yet. Imported suppliers: None assigned in this ledger.
+
+Source audit: Extraction statement and routing read; primary-source coverage is only that explicitly recorded in sources.readSections. No attachment is closed.
+
+Remaining: Retain the corrected ramified boundary twist -nD-prime and the exact nonzerodivisor conditions.
+
+Extraction note: Split from item 47. Used on its own in §§5.6–5.7 (pp. 128 and 131). There f is the partial Frobenius F_w (with n = p) or its square, and D = D' is the rank-one locus Y_1^{I,=w 1}. The purpose is to compare U_{Iw(w),1} and U_{w,2} with traces of partial Frobenius. The printed O_X(−nD)|_{D'} should read O_X(−nD')|_{D'} (sourceIssues E38, a misprint that affects nothing, in both versions). There is no library declaration, and no atlas layer plans it.
+
+## Declaration catalogue
+
+### Gerbes on the existing stack carrier
+
+AlgebraicModuliForArithmeticGeometry:key/gerbes — definition; unchecked.
+
+For F : Cᵒᵖ → Cat a pseudofunctor, IsGerbe(F,J) extends the pinned IsStack predicate, asserts every fibre arrow invertible, and asserts local nonemptiness and local isomorphism of every pair of objects. Formulate locality by covering sieves: for each U choose R∈J(U) with a fibre object over every arrow V→U in R; for x,y over U choose R∈J(U) on whose arrows x|V and y|V are isomorphic. This is a property of F, not a new stack carrier. Gerbe means local existence, not a chosen global object.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: mathlib:CategoryTheory.Pseudofunctor.IsStack, mathlib:CategoryTheory.Pseudofunctor.IsPrestack, mathlib:CategoryTheory.Aut
+
+Proof or construction:
+
+1. Extend IsStack on Cat-valued pseudofunctors, adding the groupoid condition omitted by the pinned definition.
+
+2. Use covering sieves, with no chosen single-cover presentation and no global section required.
+
+3. Express pullbacks through the existing pseudofunctor maps; their coherence is inherited rather than replaced.
+
+API:
+
+- **IsGerbe.toIsStack** (coercion): A gerbe is an instance of the pinned F.IsStack J.
+
+- **IsGerbe.locallyNonempty** (projection): Each U has a J-covering sieve on which the fibre categories are nonempty.
+
+- **IsGerbe.locallyIsomorphic** (projection): Each pair of fibre objects becomes isomorphic on a J-covering sieve.
+
+- **IsGerbe.equivalence_iff** (compatibility): A pseudonatural equivalence over C preserves and reflects IsGerbe.
+
+Unit tests:
+
+- **GerbeTests.classifying** (compatibility): The imported classifying stack BA of any sheaf of groups is a gerbe.
+
+- **GerbeTests.twoComponents** (non-example): On the one-point site with only the maximal cover, the discrete groupoid on two objects is a stack but not a gerbe.
+
+- **GerbeTests.rootNotNeutral** (non-example): For algebraically closed k and n>1 invertible in k, the nth-root gerbe of O(1) on P1 is a gerbe with no global object.
+
+Uses:
+
+- GWZ20 Definition 2.6: Provides the general site-level predicate underlying algebraic μr and Gm gerbes.
+
+- Bresciani24 §2: Provides the predicate before the separate profinite fpqc presentation is imposed.
+
+- Charles16 §4.1 /97–98: The paper explicitly uses a μr-gerbe over the K3 moduli surface; its source-specific moduli construction remains downstream.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: SP06NY, Definition 8.11.1: Exact definition, translated from fibre categories to the pinned pseudofunctor carrier.; OG07, Definition 31.1, p.122: An abelian-banded instance uses the same groupoid and local-existence requirements.
+
+### Gerbes are invariant under stack equivalence
+
+AlgebraicModuliForArithmeticGeometry:R09.4/equivalence-invariance — lemma; unchecked.
+
+If E:F≃G is an equivalence over (C,J), IsGerbe(F,J) iff IsGerbe(G,J).
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:key/gerbes, DiamondsAndVStacks:D0/stackification
+
+Proof or construction:
+
+1. Transport IsStack using the imported stack-equivalence interface.
+
+2. Apply fibre equivalences to local objects and local isomorphisms in both directions.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: SP06NY, Lemma 8.11.2: The complete proof transports precisely these three conditions.
+
+### Relative gerbe morphisms
+
+AlgebraicModuliForArithmeticGeometry:R09.4/relative-gerbe — definition; unchecked.
+
+For a morphism F:X→Y of stacks in groupoids, IsRelativeGerbe(F) means objects of Y lift locally up to isomorphism and, for x,x′ over U, every isomorphism F(x)→F(x′) locally lifts to x→x′. Equivalently, after replacing X by the equivalent iso-comma stack over Y, its projection is a gerbe on the site of Y. Mere local essential surjectivity is insufficient.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:key/gerbes, DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products
+
+Proof or construction:
+
+1. Use the imported iso-comma fibre product to rectify F over Y.
+
+2. Compare local objects and morphisms in the rectification with the two conditions on F.
+
+API:
+
+- **IsRelativeGerbe.localLift** (projection): Every target object admits local lifts up to isomorphism.
+
+- **IsRelativeGerbe.isom_epi** (characterisation): Every induced map of Isom sheaves is locally surjective.
+
+- **IsRelativeGerbe.rectification_iff** (equivalence): The iso-comma projection is a gerbe iff the two local lifting conditions hold.
+
+Unit tests:
+
+- **RelativeGerbeTests.identity** (degenerate): The identity of any stack is a relative gerbe.
+
+- **RelativeGerbeTests.classifying** (compatibility): For the trivial action, [S/G]→S is a relative gerbe for a sheaf of groups G.
+
+- **RelativeGerbeTests.subgroup** (non-example): On an algebraically closed field, BH→BG for a proper subgroup H<G of finite constant groups is locally essentially surjective but not a relative gerbe.
+
+Uses:
+
+- Bresciani24 Lemma2: Locally full finite-stage maps are relative gerbes.
+
+- GWZ20 Definition2.6: Describes a gerbe over a stack without replacing that stack by a space.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: SP06NY, Lemma 8.11.3 and Definition 8.11.4: The conditions avoid a non-invariant requirement that the original F be a fibration over Y.
+
+### Relative gerbes under two-fibre-product base change
+
+AlgebraicModuliForArithmeticGeometry:R09.4/relative-pullback — lemma; unchecked.
+
+In a 2-cartesian square X′→X over Y′→Y, if X→Y is a relative gerbe, so is X′→Y′.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/relative-gerbe, DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products
+
+Proof or construction:
+
+1. Write objects as triples (y′,x,α).
+
+2. Lift y′ locally by lifting its image in Y; retain α.
+
+3. Lift a target isomorphism through the Isom-sheaf epimorphism for X→Y.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: SP06NY, Lemma 8.11.5: The proof uses the two lifting conditions; its displayed F′/G′ labels are corrected in this plan.
+
+### Composition of relative gerbes
+
+AlgebraicModuliForArithmeticGeometry:R09.4/relative-composition — lemma; unchecked.
+
+The composite of two relative gerbe morphisms is a relative gerbe.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/relative-gerbe
+
+Proof or construction:
+
+1. Lift objects twice and compose covering sieves.
+
+2. Lift isomorphisms twice and refine the two covers by transitivity of J.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: SP06NY, Lemma 8.11.6: No algebraicity or representability is needed.
+
+### Descent of the relative gerbe property
+
+AlgebraicModuliForArithmeticGeometry:R09.4/relative-descent — lemma; unchecked.
+
+If Y′→Y is locally essentially surjective and X×Y Y′→Y′ is a relative gerbe, then X→Y is a relative gerbe.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/relative-gerbe, DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products
+
+Proof or construction:
+
+1. First lift a target object to Y′ and then to the relative gerbe.
+
+2. For a target isomorphism choose one local Y′ object, form the two iso-comma objects, and lift its identity.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: SP06NY, Lemma 8.11.7: This is descent of a property of stacks, not effectivity of arbitrary scheme descent.
+
+### Abelian bandings with conjugation compatibility
+
+AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding — definition; unchecked.
+
+For an abelian sheaf A on (C,J) and a gerbe F, an A-banding consists of group isomorphisms b(U,x):A(U)→AutF(U)(x) for all U and x, compatible with restriction along every V→U and conjugation along every isomorphism x→y. Equivalently these define isomorphisms A|U≅Aut(x) of sheaves on C/U compatible with isomorphisms and cartesian pullbacks. Use Multiplicative on A(U) only to express the group equivalence; A remains an abelian sheaf. Fix the band, rather than quotienting choices by Aut(A).
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:key/gerbes, mathlib:CategoryTheory.Pseudofunctor.sheafHom, mathlib:CategoryTheory.Aut.autMulEquivOfIso, mathlib:CategoryTheory.Functor.mapAut
+
+Proof or construction:
+
+1. Use existing Hom sheaves to obtain Aut(x); impose multiplicative equivalences on every slice section.
+
+2. Restriction compatibility supplies a sheaf isomorphism.
+
+3. Conjugation compatibility ensures that all local choices agree on overlaps.
+
+API:
+
+- **AbelianBanding.autEquiv** (projection): For every U,x there is A(U)≃Aut(x) as groups.
+
+- **AbelianBanding.pullback** (compatibility): mapAut of restriction sends b(U,x)(a) to b(V,x|V)(a|V).
+
+- **AbelianBanding.conjugation** (compatibility): Conjugation by x≅y sends b(U,x)(a) to b(U,y)(a).
+
+- **AbelianBanding.ext** (extensionality): Two bandings are equal if their sectionwise automorphism equivalences agree for every U,x,a.
+
+Unit tests:
+
+- **BandingTests.zero** (degenerate): If A(U) is trivial, an A-banding makes every Aut(x) trivial.
+
+- **BandingTests.conjugation** (characterisation): Changing a local trivialization by an object isomorphism leaves the identified element of A unchanged.
+
+- **BandingTests.nonabelian** (non-example): The constant S3 automorphism group cannot have a fixed-sheaf banding satisfying conjugation compatibility with every automorphism.
+
+Uses:
+
+- GWZ20 §2.2.1: Band preservation is needed for a self-equivalence to define an A-torsor.
+
+- Charles16 /97–98: The paper’s scalar μr band must be retained, rather than replaced by an unbanded equivalence or a full Gm band.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: OG07, Definition31.1 and Remark31.2, p.122: The conjugation condition forces commutativity for this fixed-sheaf formulation.; GWZ20, Definition2.6(ii), p.515: Its algebraic instance is recovered with the same band.
+
+### Banded automorphisms commute
+
+AlgebraicModuliForArithmeticGeometry:R09.4/abelian-aut-commute — lemma; unchecked.
+
+For an A-banded gerbe every Aut(x) is commutative; equivalently b(a)b(a′)=b(a′)b(a).
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding
+
+Proof or construction:
+
+1. Transport commutativity through b; alternatively specialize conjugation compatibility to y=x and arbitrary object automorphisms.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: OG07, Remark31.2, p.122: This excludes using a fixed nonabelian group sheaf with the same conjugation condition.
+
+### Conjugation is independent of the chosen object isomorphism
+
+AlgebraicModuliForArithmeticGeometry:R09.4/banding-iso-independent — lemma; unchecked.
+
+For x,y in a gerbe whose automorphism sheaves are abelian, two isomorphisms x≅y induce the same identification of automorphism sheaves. This statement does not presuppose a chosen band.
+
+Hypotheses: F is a gerbe on (C,J).; Every Aut(x) sheaf on C/U is abelian.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:key/gerbes, mathlib:CategoryTheory.Aut.autMulEquivOfIso
+
+Proof or construction:
+
+1. The quotient of the two isomorphisms is an automorphism of x.
+
+2. Its inner conjugation is trivial by the abelian-inertia hypothesis.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: SP06NY, Lemma8.11.8, first part: This is the key input to gluing the abelian band.
+
+### The intrinsic band of an abelian gerbe
+
+AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band — construction; unchecked.
+
+If every automorphism sheaf of a gerbe is abelian, glue these sheaves through their choice-independent local conjugation maps to an abelian sheaf A on C with an A-banding of the gerbe. The intrinsic sheaf is canonical up to unique compatible sheaf isomorphism; an identification with a preselected A remains additional data.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:key/gerbes, AlgebraicModuliForArithmeticGeometry:R09.4/banding-iso-independent, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Locally choose objects and their automorphism sheaves.
+
+2. Use choice-independent conjugation on overlaps, verify the triple-overlap cocycle, and invoke effective descent of sheaves.
+
+3. Compare the constructions on every slice and glue them over varying U; no terminal object is needed for this definition.
+
+API:
+
+- **IntrinsicBand.autIso** (projection): The intrinsic band restricted to U is Aut(x) for every x over U.
+
+- **IntrinsicBand.pullback** (functoriality): Restricting the intrinsic band to V gives the intrinsic band of the restricted gerbe.
+
+- **IntrinsicBand.unique** (universal-property): Compatible automorphism-sheaf identifications determine the intrinsic band up to unique isomorphism.
+
+Unit tests:
+
+- **IntrinsicBandTests.BA** (compatibility): The intrinsic band of BA for abelian A is A.
+
+- **IntrinsicBandTests.trivial** (degenerate): The intrinsic band of a terminal groupoid-valued stack is the zero abelian sheaf.
+
+- **IntrinsicBandTests.unfixed** (non-example): An isomorphism of the intrinsic band with A does not identify two A-bandings differing by a nontrivial automorphism of A as band-preserving objects.
+
+Uses:
+
+- SP06NY §8.11: Passes from abelian inertia to one global coefficient sheaf.
+
+- GWZ20 Definition2.6: Distinguishes intrinsic abelian inertia from a chosen μr or Gm band.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: SP06NY, Lemma8.11.8: The source omits the final varying-U compatibility; it is an explicit proof leaf here.
+
+### Band-preserving morphisms and their two-morphisms
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism — definition; unchecked.
+
+For A-banded gerbes (F,bF),(G,bG), a band-preserving morphism is a pinned StrongTrans η:F→G such that ηU.mapAut(bF(U,x)(a))=bG(U,ηU(x))(a) for all U,x,a. Its morphisms are the pinned modifications; their components are isomorphisms since G has groupoid fibres. Band preservation is a property of η, not another general natural-transformation carrier.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, mathlib:CategoryTheory.Pseudofunctor.StrongTrans, mathlib:CategoryTheory.Pseudofunctor.StrongTrans.Modification, mathlib:CategoryTheory.Functor.mapAut
+
+Proof or construction:
+
+1. Use the existing StrongTrans for η and impose the sectionwise band equation.
+
+2. Restrict the existing modification category to the band-preserving transformations.
+
+3. Use invertibility of all target-fibre arrows to prove every modification invertible.
+
+API:
+
+- **BandPreserving.map_band** (projection): The component mapAut commutes with the two chosen band equivalences.
+
+- **BandPreserving.id** (constructor): The identity transformation is band-preserving.
+
+- **BandPreserving.comp** (functoriality): Composites of band-preserving transformations preserve the same fixed band.
+
+- **BandPreserving.modificationGroupoid** (structure): Compatible modifications are morphisms of a groupoid, with componentwise inverse.
+
+Unit tests:
+
+- **BandMorphismTests.identity** (degenerate): The identity of BA preserves its canonical band.
+
+- **BandMorphismTests.inversion** (non-example): For the constant band Z/3Z, the self-equivalence induced by a↦−a preserves the underlying gerbe but does not preserve the fixed band.
+
+- **BandMorphismTests.modifications** (characterisation): For BA over an algebraically closed point and A constant Z/3Z, the identity band-preserving equivalence has three automorphisms as a transformation, not one.
+
+Uses:
+
+- GWZ20 §2.2.1: Equivariant gerbe equivalences give torsors on fixed loci, with coherence retained.
+
+- Breen94 Proposition2.14: Equivalences fixing the band are the objects of a torsor stack; modifications are necessary.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: OG07, Definition31.1, p.122: Adds the band-preservation equation on the existing transformation type.; GWZ20, §2.2.1, p.515: The self-equivalence groupoid must retain its arrows.
+
+### Isom sheaves as band torsors
+
+AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor — construction; unchecked.
+
+For x,y over U in an A-banded gerbe, the existing sheafHom(x,y) is the sheaf Isom(x,y), since every arrow is invertible. It is an A|U-torsor with p·a=b_y(a)∘p. In the abelian setting this also equals p∘b_x(a). It is locally nonempty and the torsor comparison Isom(x,y)×A|U→Isom(x,y)×Isom(x,y), (p,a)↦(p,p·a), is an isomorphism of sheaves.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, mathlib:CategoryTheory.Pseudofunctor.sheafHom
+
+Proof or construction:
+
+1. Use groupoid fibres to identify Hom and Isom.
+
+2. Local isomorphism supplies local nonempty sections.
+
+3. On a trivializing cover, choose p and identify each q uniquely with b_y(a)∘p; the band and sheaf conditions glue this identification.
+
+API:
+
+- **Gerbe.isomTorsor** (constructor): The Hom sheaf of x,y carries the indicated A|U-torsor structure.
+
+- **Gerbe.isomTorsor_action** (simp): p·a is postcomposition with b_y(a), also precomposition with b_x(a).
+
+- **Gerbe.isomTorsor_pullback** (functoriality): Restriction to V identifies this torsor with Isom(x|V,y|V), respecting the action.
+
+Unit tests:
+
+- **IsomTorsorTests.self** (compatibility): Isom(x,x) is the trivial A|U-torsor through the band, with identity corresponding to zero.
+
+- **IsomTorsorTests.emptySections** (non-example): A nontrivial A-torsor P in BA need not have Isom(A,P)(U) nonempty, although the Isom sheaf is a torsor.
+
+- **IsomTorsorTests.composition** (characterisation): Composing p·a with an isomorphism y→z gives the transported isomorphism acted on by the same a.
+
+Uses:
+
+- OG07 Lemma31.3: Makes a band-preserving map locally an equivariant map between trivial torsors.
+
+- GWZ20 §2.2.1: Produces the torsor associated with an automorphism of a gerbe.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: OG07, Lemma31.3 and Remark31.5, pp.122–123: Spells out the torsor fact used in the equivalence and neutralization proofs.
+
+### Band-preserving morphisms are fully faithful
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful — lemma; unchecked.
+
+A band-preserving morphism of A-gerbes induces isomorphisms of their Isom sheaves; hence each fibre functor is fully faithful.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism, AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor
+
+Proof or construction:
+
+1. The induced map on Isom sheaves is A-equivariant.
+
+2. Locally trivialize the source torsor; the map is translation on A and is invertible.
+
+3. An isomorphism of sheaves is bijective on sections over U, giving fibrewise full faithfulness.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: OG07, Lemma31.3, full-faithfulness proof, p.122: The printed reference back to Lemma31.3 is replaced by the local equivariant-torsor argument.
+
+### Band-preserving morphisms are essentially surjective
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective — lemma; unchecked.
+
+A band-preserving morphism η:F→G between A-gerbes is essentially surjective on every fibre.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful, mathlib:CategoryTheory.Pseudofunctor.isEquivalence_toDescentData
+
+Proof or construction:
+
+1. For z∈G(U) locally choose y∈F and an isomorphism η(y)≅z.
+
+2. Full faithfulness uniquely lifts the descent isomorphisms of z to those of y and reflects their cocycle condition.
+
+3. Effective descent in F gives an object over U; morphism descent in G gives its image isomorphism to z.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: OG07, Lemma31.3, essential-surjectivity proof, pp.122–123: Descent turns local essential surjectivity into the required global fibrewise result.
+
+### Every band-preserving gerbe morphism is an equivalence
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence — theorem; unchecked.
+
+Every band-preserving morphism of A-gerbes is a pseudonatural equivalence over the site, with a band-preserving inverse.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective, AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism
+
+Proof or construction:
+
+1. Combine fibrewise full faithfulness and essential surjectivity.
+
+2. Choose inverses and transport the existing strong naturality; the lifted inverse and unit/counit preserve the band.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: OG07, Lemma31.3: The inverse is part of the stack equivalence, not a bijection of isomorphism-class sets.
+
+### The neutral classifying gerbe
+
+AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe — construction; unchecked.
+
+For an abelian sheaf A, specialize the imported groupoid quotient to BA, the stack of A-torsors with equivariant isomorphisms. Identify Aut(P) with A|U through translations, which is independent of a local trivialization since A is commutative. This supplies its canonical band. The trivial torsor provides a global object over a terminal site object S.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products, AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding
+
+Proof or construction:
+
+1. Reuse the imported torsor quotient stack; do not define a second stack of torsors.
+
+2. Translations identify the automorphisms of a trivial torsor with A.
+
+3. Glue these identifications on overlaps; commutativity makes them independent of the trivialization.
+
+API:
+
+- **ClassifyingGerbe.band** (constructor): BA carries the canonical A-banding.
+
+- **ClassifyingGerbe.trivial** (constructor): The trivial A-torsor is a global object of BA.
+
+- **ClassifyingGerbe.autIso** (compatibility): Aut(P)≅A|U as sheaves, compatible with pullbacks and conjugation.
+
+Unit tests:
+
+- **ClassifyingGerbeTests.zero** (degenerate): B0 is equivalent to the terminal groupoid-valued stack.
+
+- **ClassifyingGerbeTests.point** (computation): For algebraically closed k and A constant Z/3Z, BA(k) has one isomorphism class with automorphism group Z/3Z.
+
+- **ClassifyingGerbeTests.inertia** (non-example): BA for nonzero A is not equivalent to the sheaf of its isomorphism classes.
+
+Uses:
+
+- Bresciani24 §2 p.133: B_kG is interpreted on the fpqc site for profinite G.
+
+- GWZ20 §2.2.1: Neutral A-gerbes and their band-preserving automorphisms are expressed using A-torsors.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: OG07, Lemma31.4, p.123: The automorphism calculation gives the canonical abelian band.; SP06PD, Lemma78.27.2: The general quotient gerbe need not be algebraic.
+
+### Neutralizations of a banded gerbe
+
+AlgebraicModuliForArithmeticGeometry:R09.4/neutralization — definition; unchecked.
+
+For a chosen terminal object S of (C,J), a neutralization of an A-gerbe F is an object x∈F(S); its morphisms are the isomorphisms between such objects. Write IsNeutral(F) for nonemptiness of this groupoid. A neutralization induces, rather than assumes, an equivalence F≃BA preserving the band. Distinct neutralizations need not be uniquely isomorphic.
+
+Hypotheses: The site has a fixed terminal object S.; F is an A-banded gerbe.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:key/gerbes, AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding
+
+Proof or construction:
+
+1. Use the actual fibre at the terminal object for the data.
+
+2. Retain all fibre isomorphisms; nonemptiness gives the property of neutrality without selecting a point.
+
+API:
+
+- **Neutralization.obj** (projection): A neutralization gives an object of F(S).
+
+- **Neutralization.isNeutral** (characterisation): F is neutral iff its groupoid of neutralizations is nonempty.
+
+- **Neutralization.pullback** (functoriality): A neutralization restricts to a neutralization on every slice site.
+
+Unit tests:
+
+- **NeutralizationTests.BA** (degenerate): The trivial A-torsor neutralizes BA.
+
+- **NeutralizationTests.root** (non-example): The nth-root gerbe of O(1) on P1 has no neutralization for n>1 invertible in the algebraically closed ground field.
+
+- **NeutralizationTests.automorphisms** (characterisation): A neutralization x has automorphism group A(S); a chosen point does not remove this group.
+
+Uses:
+
+- GWZ20 §2.2.1: A local neutralization identifies an equivariant gerbe self-equivalence with tensoring by a torsor.
+
+- Milne15 IV §2: The zero class is precisely the neutral gerbe class.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: OG07, Remark31.5, p.123: Its induced equivalence is constructed from an Isom torsor.
+
+### A neutralization identifies the gerbe with BA
+
+AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence — theorem; unchecked.
+
+For x∈F(S), the functor y↦Isom(x|U,y) is a band-preserving equivalence F≃BA; its quasi-inverse twists x by the A-torsor, with descent.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/neutralization, AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor, AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence
+
+Proof or construction:
+
+1. The Isom construction is pseudonatural and respects the chosen band.
+
+2. Apply the band-morphism-equivalence theorem.
+
+3. Describe the inverse by trivializing the torsor locally and descending x with its torsor transition automorphisms.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: OG07, Remark31.5, p.123: This retains objects, arrows and coherence, not only H1 classes.
+
+### The groupoid of neutral-gerbe self-equivalences
+
+AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences — theorem; unchecked.
+
+For an A-gerbe with a neutralization x, its groupoid of band-preserving self-equivalences is equivalent to the groupoid of A-torsors on the base. A torsor P acts on BA by Q↦Q⊗A P. An equivariant isomorphism P≅P′ corresponds to an invertible modification. Composition corresponds to contracted product, and the identity to the trivial torsor.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence, AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism, DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products
+
+Proof or construction:
+
+1. Conjugate along F≃BA.
+
+2. Evaluate a band-preserving equivalence on the trivial torsor to obtain P.
+
+3. Locally trivialize Q to compare its image with Q⊗P; band preservation makes the comparison independent of the chosen trivialization.
+
+4. Recover modifications by evaluation at the trivial torsor and descent, giving full faithfulness.
+
+Acceptance:
+
+- For A=Z/3Z over an algebraically closed point, the self-equivalence groupoid has one isomorphism class and three automorphisms of its identity object.
+
+- Its set of isomorphism classes is H1; this set does not replace the groupoid.
+
+Sources: GWZ20, §2.2.1, p.515: The groupoid equivalence used by transgression.; BREEN94, Proposition2.14, p.56: The equivalences fixing the band form a torsor stack under Tors(A).
+
+### Extension of an abelian band
+
+AlgebraicModuliForArithmeticGeometry:R09.4/change-band — construction; unchecked.
+
+For a homomorphism u:A→B and an A-gerbe F, extend each Isom(x,y) by the contracted product with B; glue composition using the abelian band equation, then apply the imported stackification. The resulting u_*F is a B-gerbe with a u-compatible morphism F→u_*F. It is universal for u-compatible morphisms from F to B-gerbes, at the level of morphism groupoids.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor, AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism, DiamondsAndVStacks:D0/stackification
+
+Proof or construction:
+
+1. Take Isom(x,y)×A B with relation (p·a,b)~(p,b+u(a)).
+
+2. Use band conjugation compatibility to make composition well-defined.
+
+3. Stackify; local objects and local isomorphisms survive, and the local B-band descends.
+
+4. Use the universal property of stackification and contracted products to obtain the morphism-groupoid universal property.
+
+API:
+
+- **Gerbe.changeBand** (constructor): Produces the B-gerbe u_*F and its u-compatible map.
+
+- **Gerbe.changeBand_lift** (universal-property): Composition with F→u_*F is an equivalence on groupoids of band-compatible morphisms.
+
+- **Gerbe.changeBand_comp** (functoriality): v_*(u_*F)≃(v∘u)_*F coherently, and id_*F≃F.
+
+Unit tests:
+
+- **ChangeBandTests.identity** (degenerate): Extension along id_A recovers F preserving its band.
+
+- **ChangeBandTests.BA** (compatibility): Extension sends BA to BB with the induced map on torsors.
+
+- **ChangeBandTests.zero** (characterisation): Extension to the zero band gives a gerbe equivalent to the terminal stack.
+
+Uses:
+
+- Olsson/Geraschenko Theorem31.7: Extension into an injective abelian sheaf is the reverse classification route.
+
+- GWZ20 §2.3: The map μr→Gm pushes the gerbe band and its cohomology class forward.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: OG07, Theorem31.7, reverse construction, p.126: Generalizes the displayed injective-band extension, with the contraction sign fixed explicitly.; MILNE15, IV §2 p.9: The coefficient-change map is separate from change of site.
+
+### The gerbe of liftings of a torsor
+
+AlgebraicModuliForArithmeticGeometry:R09.4/lifting-gerbe — construction; unchecked.
+
+For a short exact sequence 0→A→B→D→0 of abelian sheaves and a D-torsor P, Lift(P)(U) is the groupoid of pairs (Q,α), where Q is a B|U-torsor and α:Q×B D≅P|U is an equivariant isomorphism. Arrows are B-torsor isomorphisms commuting with α. This is an A-gerbe: the stack is a 2-fibre product of the imported torsor stacks; local triviality of P gives local objects; the kernel A gives its band. The sheaf epimorphism B→D, not surjectivity on all section groups, supplies local isomorphisms.
+
+Hypotheses: A short exact sequence in the category of abelian sheaves on the specified site.; P is a D-torsor, with arrows retained.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/relative-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products
+
+Proof or construction:
+
+1. Form BB×BD{P} using the imported 2-fibre-product construction.
+
+2. Trivialize P locally to obtain a lift by the trivial B-torsor.
+
+3. Trivialize two lifts locally; the difference in D is locally liftable to B, giving an isomorphism commuting with α.
+
+4. Identify the automorphism sheaf with ker(B→D)=A and check restriction and conjugation.
+
+API:
+
+- **LiftingGerbe.obj** (constructor): A B-torsor Q and an isomorphism Q×B D≅P give an object.
+
+- **LiftingGerbe.autIso** (compatibility): Automorphisms of (Q,α) form the sheaf A, through the kernel inclusion.
+
+- **LiftingGerbe.neutral_iff** (characterisation): Lift(P) is neutral iff P is the pushforward of a B-torsor.
+
+- **LiftingGerbe.pullback** (functoriality): Restriction of Lift(P) is equivalent to the lifting gerbe of the restricted exact sequence and torsor.
+
+Unit tests:
+
+- **LiftingGerbeTests.trivial** (degenerate): Lift of the trivial D-torsor is a neutral A-gerbe.
+
+- **LiftingGerbeTests.surjectiveSheaf** (non-example): The Kummer sequence with n invertible is locally exact even when units are not all nth powers in the global section ring.
+
+- **LiftingGerbeTests.zeroKernel** (compatibility): If A=0, a lifting gerbe of P is equivalent to the terminal stack because B→D is an isomorphism.
+
+Uses:
+
+- Milne15 IV §2: Realizes the connecting homomorphism by a gerbe, without the incomplete raw-cocycle descent proof.
+
+- GWZ20 §2.3: The Kummer boundary sends a line-bundle torsor to its root gerbe.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: MILNE15, IV §2, p.9: The boundary gerbe is explicitly the category of torsor liftings.; OG07, Remark31.8, p.127: Use the central abelian case; no claim about a noncentral kernel band is made.
+
+### Dimension shifting for derived degree-two classes
+
+AlgebraicModuliForArithmeticGeometry:R09.4/injective-boundary-bijection — lemma; unchecked.
+
+For 0→A→I→D→0 short exact with I injective, the pinned connecting map δ:H1(D)→H2(A) is an isomorphism of abelian groups. This is derived Sheaf.H, not Čech H2.
+
+Hypotheses: HasSheafify and HasExt for the chosen abelian-sheaf category.; I is injective and the sequence is short exact.
+
+Dependencies: mathlib:CategoryTheory.Sheaf.H, mathlib:CategoryTheory.Abelian.Ext.eq_zero_of_injective, tauceti:TauCeti.CategoryTheory.Sheaf.H.δ, tauceti:TauCeti.CategoryTheory.Sheaf.H.exact_map_δ, tauceti:TauCeti.CategoryTheory.Sheaf.H.exact_δ_map
+
+Proof or construction:
+
+1. Positive-degree Ext into I vanishes by the pinned injective lemma.
+
+2. Exactness at H1(D) gives injectivity of δ and exactness at H2(A) gives surjectivity.
+
+Acceptance:
+
+- Both H1(I) and H2(I) vanish by the actual baseline statement.
+
+- No hypothesis asserting an acyclic Čech cover is introduced.
+
+Sources: MILNE15, IV §2 p.9, proof of (i): This is the dimension-shifting step in the stated classification route.
+
+### A torsor representative for a derived degree-two class
+
+AlgebraicModuliForArithmeticGeometry:R09.4/torsor-representative-of-class — construction; unchecked.
+
+Choose a monomorphism A→I into an injective abelian sheaf and let D be its cokernel. For α∈H2(A), take the inverse dimension-shift class in H1(D), choose a D-torsor representing it, and construct Lift(P). This constructs an A-gerbe for α, with the choice of P irrelevant up to band-preserving equivalence. Enough injectives, cokernel exactness and the derived-H1 torsor comparison are inputs, not assumptions that every section of D lifts globally.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/injective-boundary-bijection, AlgebraicModuliForArithmeticGeometry:R09.4/lifting-gerbe, SchemeAndStackFoundations:SF.2
+
+Proof or construction:
+
+1. Use the supplier of enough injectives and ordinary sheaf cokernels to obtain 0→A→I→D→0.
+
+2. Invert the dimension-shift isomorphism.
+
+3. Use the supplier of torsors↔derived H1, then form the lifting gerbe.
+
+API:
+
+- **Gerbe.ofH2** (constructor): A derived H2 class produces an A-gerbe through an injective embedding and a lifting torsor.
+
+- **Gerbe.ofH2_equiv** (compatibility): Isomorphic representative D-torsors give equivalent A-gerbes.
+
+- **Gerbe.ofH2_zero** (simp): The zero class produces a gerbe equivalent to BA.
+
+Unit tests:
+
+- **H2RepresentativeTests.zero** (degenerate): Choose P the trivial D-torsor for α=0; its trivial B-lift neutralizes Lift(P).
+
+- **H2RepresentativeTests.changeTorsor** (compatibility): An isomorphism P≅P′ induces an equivalence of lifting gerbes, respecting the chosen band.
+
+- **H2RepresentativeTests.nonzero** (non-example): A nonzero Kummer boundary δ(O(1)) on P1 cannot be represented by a neutral root gerbe.
+
+Uses:
+
+- GWZ20 Definition2.6: Provides the general derived interpretation of the paper’s gerbe class.
+
+- GWZ20B Lemma3.2: Checks the distinction between Čech notation and the general derived statement.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: OG07, Theorem31.7, p.126: This uses the lifting formulation of its inverse construction.; MILNE15, IV §2 p.9: The positive-degree classification uses dimension shifting.
+
+### A gerbe with injective abelian band is neutral
+
+AlgebraicModuliForArithmeticGeometry:R09.4/injective-gerbe-neutral — lemma; unchecked.
+
+On a site with terminal object S and the slice-site injective restriction and Čech-acyclicity inputs below, every gerbe banded by an injective abelian sheaf I has an object over S.
+
+Hypotheses: The site has a terminal object and the cover/slice interfaces stated in the request.; I is injective in the abelian-sheaf category.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor, mathlib:CategoryTheory.Pseudofunctor.isEquivalence_toDescentData, SchemeAndStackFoundations:SF.2, DiamondsAndVStacks:D0/cech-to-derived-comparison
+
+Proof or construction:
+
+1. Choose local objects on a covering of S.
+
+2. The I-torsors of isomorphisms on pairwise overlaps are trivial because restriction of I is injective and derived H1 computes torsors.
+
+3. Choose overlap isomorphisms; their failure to satisfy the cocycle is a Čech 2-cocycle valued in I.
+
+4. Čech cohomology of injectives vanishes for this cover, so correct the chosen isomorphisms by a 1-cochain.
+
+5. Effective stack descent gives the global object.
+
+Acceptance:
+
+- All Isom sheaves on overlaps, not just those on the original cover pieces, have trivial torsor class.
+
+- The resulting global object is obtained by genuine groupoid descent.
+
+Sources: OG07, Lemma31.6 and Theorem31.7, pp.123–126: This plan explicitly repairs the required slice and acyclicity inputs.; MILNE15, IV §2 p.9, (i″): The source gives an alternate split-monomorphism sketch, not these missing Lean interfaces.
+
+### The derived class of a banded gerbe
+
+AlgebraicModuliForArithmeticGeometry:R09.4/class-of-gerbe — construction; unchecked.
+
+For an A-gerbe F, choose an injective embedding A→I and neutralize the I-gerbe obtained by extension of band. For a neutralizing object z, let Pz be the sheaf of isomorphism classes of pairs (x,φ) with x∈F(U) and φ:u_*x≅z|U; quotient arrows are isomorphisms in F commuting with φ. This is a D=I/A-torsor. Define class(F)=δ([Pz])∈H2(A), with δ the pinned connecting map and the contraction convention fixed above.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/change-band, AlgebraicModuliForArithmeticGeometry:R09.4/injective-gerbe-neutral, AlgebraicModuliForArithmeticGeometry:R09.4/injective-boundary-bijection, SchemeAndStackFoundations:SF.2
+
+Proof or construction:
+
+1. Use injective-band neutrality to choose z.
+
+2. The action of I on the pair sheaf has stabilizer A, so descends to a simply transitive D action.
+
+3. Local objects of F give local sections; descent makes the quotient a sheaf.
+
+4. Take the derived H1 torsor class and apply the baseline δ.
+
+API:
+
+- **Gerbe.class** (data): The class is an element of the pinned derived H2(A).
+
+- **Gerbe.class_equivalence** (compatibility): A band-preserving gerbe equivalence leaves the class unchanged.
+
+- **Gerbe.class_changeNeutralization** (characterisation): Changing z changes Pz by an I-torsor pushforward, whose δ-image is zero.
+
+Unit tests:
+
+- **GerbeClassTests.BA** (degenerate): The canonical neutral object gives class(BA)=0.
+
+- **GerbeClassTests.lift** (compatibility): The class of Lift(P) is δ([P]) for the fixed short exact sequence.
+
+- **GerbeClassTests.banding** (non-example): Changing a chosen band by a coefficient automorphism applies that automorphism to the H2 class; band choices are not silently forgotten.
+
+Uses:
+
+- Charles16 §4.1: Identifies the class of the scalar gerbe used in the twisted-sheaf construction.
+
+- GWZ20 Definition2.6: Supplies the invariant consumed by gerbe transgression.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: OG07, Theorem31.7, reverse map, p.126: The source only sketches the quotient torsor; the stabilizer and sheaf checks are made explicit here.
+
+### Independence of injective and neutralization choices
+
+AlgebraicModuliForArithmeticGeometry:R09.4/class-choice-independent — lemma; unchecked.
+
+The derived class of an A-gerbe is independent of the injective embedding A→I and the chosen neutralization of u_*F.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/class-of-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences, tauceti:TauCeti.CategoryTheory.Sheaf.H.δ_naturality
+
+Proof or construction:
+
+1. Changing a neutralization translates Pz by an I-torsor pushforward; exactness kills its boundary.
+
+2. Compare two injective embeddings in a common injective embedding and transport quotient torsors.
+
+3. Naturality of the pinned connecting maps identifies the two derived classes.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: OG07, Theorem31.7, p.126: The comparison-of-choices argument is distinct from the groupoid descent construction.
+
+### Giraud’s abelian gerbe classification
+
+AlgebraicModuliForArithmeticGeometry:R09.4/h2-classification — theorem; unchecked.
+
+For a fixed abelian sheaf A on the chosen site with terminal object, band-preserving equivalence classes of A-gerbes are naturally in bijection with the pinned derived H2(A). The class and lifting-gerbe constructions are inverse. The zero class is precisely the neutral class. Equivalence fixes the A-banding; the domain is not unbanded gerbes modulo arbitrary band automorphisms.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/torsor-representative-of-class, AlgebraicModuliForArithmeticGeometry:R09.4/class-of-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/class-choice-independent, AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence
+
+Proof or construction:
+
+1. Compare F with the lifting gerbe of its quotient torsor by a band-preserving map, hence an equivalence.
+
+2. For a lifted gerbe, identify its quotient torsor and compute the boundary class.
+
+3. Use both identities to descend the maps to equivalence classes and establish bijectivity.
+
+4. A lift of the trivial torsor supplies a neutralization; conversely a neutralization identifies F with BA.
+
+Acceptance:
+
+- BA has zero class; nonneutral root gerbes give nonzero classes.
+
+- No step identifies arbitrary Čech H2 with derived H2.
+
+- The remaining proof leaves and supplier requests are part of the status, so the theorem is not marked closed.
+
+Sources: MILNE15, IV §2 p.9, (i): States the canonical identification, using exactness and injective-band vanishing.; BREEN94, (2.13.4), Proposition2.14, pp.55–56: Uses hypercohomology and retains the gerbe 2-stack, rather than making arbitrary Čech covers sufficient.
+
+### Root gerbes of line bundles
+
+AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe — construction; unchecked.
+
+For a scheme X, an invertible sheaf L and n>0 invertible on X, RootGerbe_n(L)(T) consists of line bundles M on T and isomorphisms φ:M⊗n≅L|T, with arrows ρ satisfying φ=ψ∘ρ⊗n. It is the lifting gerbe for 1→μn→Gm→Gm→1 and the Gm-torsor of L, hence a μn-gerbe. No section of L is part of the data. The root stack of a line bundle with a section is a different construction owned by FunctionFieldArithmeticPartII:key/root-stacks.
+
+Hypotheses: X is a scheme; n is a positive integer invertible on X.; L is an invertible sheaf, with no chosen section.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/lifting-gerbe, SchemeAndStackFoundations:SF.2
+
+Proof or construction:
+
+1. Use invertibility of n to get étale-local nth roots of units and the Kummer short exact sequence.
+
+2. Use the line-bundle/Gm-torsor equivalence to identify Lift(L) with the displayed pairs and arrows.
+
+3. Identify the band as μn and check the scalar automorphism formula.
+
+API:
+
+- **RootGerbe.obj** (constructor): A pair (M,φ:M⊗n≅L) gives an object.
+
+- **RootGerbe.band** (compatibility): An automorphism is scalar multiplication by a μn section.
+
+- **RootGerbe.pullback** (functoriality): RootGerbe_n(L)×X T≃RootGerbe_n(L|T), respecting its band.
+
+Unit tests:
+
+- **RootGerbeTests.one** (degenerate): For n=1 the root gerbe is equivalent to X.
+
+- **RootGerbeTests.trivialLine** (compatibility): The root gerbe of O_X is equivalent to B_Xμn using its trivial nth root.
+
+- **RootGerbeTests.noSection** (non-example): For n>1 the root gerbe has μn inertia at every geometric point, whereas a divisor root stack has trivial inertia outside the divisor.
+
+Uses:
+
+- Key definition algebraicgeometry/gerbes: Provides the required nonneutral root-gerbe acceptance example.
+
+- GWZ20 §2.3: Identifies the Kummer boundary of a line-bundle class.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: AJT11, §2.2 Definition2.2 and Remark2.4, p.5: The printed source treats complex smooth projective X; the general invertible-n case is the lifting-gerbe extension using Kummer exactness.; GWZ20, §2.3 p.519: Supplies the invertible-order étale Kummer setting.
+
+### The Kummer class of a root gerbe
+
+AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe-class — lemma; unchecked.
+
+class(RootGerbe_n(L))=δ([L]) in derived H2(Xét,μn), with δ the connecting map of the Kummer sequence and with the same sign convention as the lifting-gerbe construction.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/h2-classification, tauceti:TauCeti.CategoryTheory.Sheaf.H.δ
+
+Proof or construction:
+
+1. Identify the root gerbe with the Kummer lifting gerbe.
+
+2. Use the lifting-gerbe boundary identity from the classification route; check the band orientation and δ sign.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: AJT11, Definition2.2, Remark2.4, p.5: Identifies the root-gerbe lifting problem.; GWZ20, §2.3 p.519: Relates μr and Gm gerbes by the cohomological sequence.
+
+### The root gerbe of O(1) is not neutral
+
+AlgebraicModuliForArithmeticGeometry:R09.4/root-o1-nonneutral — theorem; unchecked.
+
+Let k be algebraically closed and n>1 invertible in k. RootGerbe_n(O(1)) on P1_k is locally nonempty, but has no global object and its derived Kummer class is nonzero.
+
+Hypotheses: k algebraically closed; n>1 and n invertible in k.; The imported divisor-degree API on P1 includes degree(O(1))=1 and degree(M⊗n)=n·degree(M).
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe-class, AlgebraicModuliForArithmeticGeometry:R09.4/h2-classification, tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree
+
+Proof or construction:
+
+1. A global pair (M,φ) would give n·deg(M)=deg(O(1))=1.
+
+2. Degree takes integral values and tensor powers multiply it by n, so n>1 makes this impossible.
+
+3. The lifting boundary class vanishes exactly when a global nth root exists.
+
+Acceptance:
+
+- For n=2, a putative root would have degree 1/2, contradicting integral degree.
+
+- For n=1 the construction is neutral, so the inequality n>1 is indispensable.
+
+Sources: AJT11, §2.2 Definition2.2: The global object is precisely an nth root, not a local root.; MILNE15, IV §2 p.9, boundary-gerbe neutrality: The boundary vanishes precisely when the torsor lifts.
+
+### Change of band on derived gerbe classes
+
+AlgebraicModuliForArithmeticGeometry:R09.4/class-coefficient-map — lemma; unchecked.
+
+For u:A→B, class(u_*F)=H2(u)(class(F)), where H2(u) is the pinned same-site coefficient map.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/change-band, AlgebraicModuliForArithmeticGeometry:R09.4/class-of-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/class-choice-independent, mathlib:CategoryTheory.Sheaf.H.map, tauceti:TauCeti.CategoryTheory.Sheaf.H.δ_naturality
+
+Proof or construction:
+
+1. Compare injective embeddings and quotient torsors for u.
+
+2. Apply naturality of the connecting maps and independence of choices.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: MILNE15, IV §2 p.9, coefficient homomorphism: This map is on one site; it is not a geometric pullback.
+
+### Pullback of banded gerbes and their derived classes
+
+AlgebraicModuliForArithmeticGeometry:R09.4/class-site-pullback — theorem; unchecked.
+
+For a geometric morphism of the chosen sheaf topoi induced by base change T→S, with exact inverse-image functor on abelian sheaves and the derived global-cohomology comparison, pullback carries an A-banding to an f* A-banding and class(f*F)=f*(class(F)). The map on H2 is the change-of-site map furnished by that geometric morphism, not Sheaf.H.map on coefficients alone.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/relative-pullback, AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/h2-classification, SchemeAndStackFoundations:SF.2
+
+Proof or construction:
+
+1. Transport the band equations through exact inverse image.
+
+2. Pull back the torsor lifting square and identify the resulting lifting gerbe.
+
+3. Use the derived-cohomology base-change naturality supplied by the change-of-site construction.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: GWZ20, §2.2 Definition2.6(ii), p.515: Requires compatible bandings.; BREEN94, Proposition2.14 and (2.13.4): The cohomological interpretation is natural on the fixed sites.
+
+### Finite étale gerbes over a field
+
+AlgebraicModuliForArithmeticGeometry:R09.4/finite-etale-gerbe — definition; unchecked.
+
+A finite étale gerbe over k is an fpqc gerbe admitting a flat presentation R⇒U with both U and R finite étale k-schemes. Equivalently it is a finite gerbe whose base change to a separable splitting extension is BG for a finite étale group scheme G. Finite geometric automorphism groups alone are not the definition: retain the finite algebraic presentation and gerbe condition.
+
+Hypotheses: k is a field.; The quotient stack and algebraic-space diagonal interfaces are imported, not redefined.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:key/gerbes, DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Specialize the finite groupoid presentation of BV12 Definition4.1 to finite étale schemes.
+
+2. Use the splitting chart to compare with the classifying-gerbe description; descend it as an fpqc stack.
+
+API:
+
+- **FiniteEtaleGerbe.presentation** (data): There is a presentation by a finite étale groupoid R⇒U.
+
+- **FiniteEtaleGerbe.baseChange** (functoriality): Any field extension preserves finite étale gerbes.
+
+- **FiniteEtaleGerbe.autFiniteEtale** (compatibility): Every object over a field extension has finite étale automorphism group scheme.
+
+Unit tests:
+
+- **FiniteGerbeTests.trivial** (degenerate): Spec(k), with the trivial group, is a finite étale gerbe.
+
+- **FiniteGerbeTests.constant** (compatibility): BG for a finite constant group G is a finite étale gerbe, including nonabelian G.
+
+- **FiniteGerbeTests.muP** (non-example): In characteristic p, Bμp is a finite fppf gerbe but is not a finite étale gerbe.
+
+Uses:
+
+- Bresciani24 Lemma2: The finite stages in the relative fundamental-gerbe construction.
+
+- Key definition algebraicgeometry/gerbes: Provides the finite stages of the profinite fpqc 2-limit.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: BV12, §4 Definition4.1, p.7: Finite presentation is part of the carrier, not inferred from an abstract finite group at a point.; BRES24, §2 p.133 and Lemma2 p.135: The paper uses the finite étale specialization.
+
+### Compatible families in a two-limit of gerbes
+
+AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family — definition; unchecked.
+
+Fix a small cofiltered partially ordered index set I and a pseudofunctor Γ from I to fpqc stacks. An object of its 2-limit over T is a family xi∈Γi(T) and isomorphisms θa:Γa(xj)≅xi for each a:j→i, with unit and composition equations using the pseudofunctor constraints. A morphism is a family of component isomorphisms commuting with every θa. For the alternate Boolean cofiltered 2-category presentation also impose compatibility with every index 2-arrow; never identify that notion with an arbitrary ordinary cofiltered category by assertion.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: mathlib:CategoryTheory.Pseudofunctor.StrongTrans, mathlib:CategoryTheory.Pseudofunctor.StrongTrans.Modification, mathlib:CategoryTheory.Pseudofunctor
+
+Proof or construction:
+
+1. Define the object data with transitions, unit and compositional coherence.
+
+2. Define compatible component morphisms; identity and composition are componentwise.
+
+3. Restriction in T acts on every component and transition, inheriting the stack pseudofunctor coherence.
+
+API:
+
+- **GerbeLimitFamily.component** (projection): The family has an object xi at each finite stage.
+
+- **GerbeLimitFamily.transition** (projection): Each index arrow has a specified transition isomorphism satisfying the coherence laws.
+
+- **GerbeLimitFamily.hom_ext** (extensionality): Two compatible-family arrows are equal iff all their component arrows agree.
+
+- **GerbeLimitFamily.pullback** (functoriality): Restriction along T′→T applies to objects, transitions and arrows with inherited coherence.
+
+Unit tests:
+
+- **LimitFamilyTests.singleton** (degenerate): For a singleton index, the groupoid of compatible families is equivalent to the sole stack fibre.
+
+- **LimitFamilyTests.identityTower** (compatibility): For the constant identity system BA, its compatible-family groupoid is equivalent to BA(T), retaining A(T) automorphisms.
+
+- **LimitFamilyTests.classesInsufficient** (non-example): For the constant identity system B(Z/3Z) over an algebraically closed point, the inverse system of singleton isomorphism-class sets has no record of the three automorphisms of a compatible object.
+
+Uses:
+
+- Bresciani24 §2 and Lemma2: The relative gerbe is a genuine 2-limit, used before taking section classes.
+
+- BV12 Definition3.5: Fixes the exact coherence data and morphisms.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: BV12, §3 Definitions3.2–3.5, pp.4–6: The source uses a Boolean cofiltered 2-category, or equivalently a cofiltered poset with pseudofunctor data.
+
+### Compatible-family limits are fpqc stacks
+
+AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent — lemma; unchecked.
+
+The compatible-family construction for a small diagram of fpqc stacks is an fpqc stack in groupoids.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family, mathlib:CategoryTheory.Pseudofunctor.isEquivalence_toDescentData
+
+Proof or construction:
+
+1. Descend every component object through its stack equivalence to descent data.
+
+2. Descend transition isomorphisms by Hom-sheaf descent; their unit and composition equations can be checked locally.
+
+3. Descend compatible morphisms componentwise, retaining the transition commuting squares.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: BV12, Following Definition3.5, p.6: The source calls this a descent exercise; the three required verifications are separated here.
+
+### A nonempty affine two-limit is a gerbe
+
+AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe — theorem; unchecked.
+
+For a cofiltered system of affine fpqc gerbes over a field, if its compatible-family stack has an object over some nonempty k-scheme X, then the 2-limit is an affine fpqc gerbe. This assumption is not a k-rational neutralization and is not suppressed.
+
+Hypotheses: Small cofiltered system of affine fpqc gerbes over k.; A compatible object exists over a nonempty k-scheme X.; Inverse limits of affine faithfully flat schemes in this field-gerbe situation are affine faithfully flat.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family, AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent, AlgebraicModuliForArithmeticGeometry:key/gerbes, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. For two compatible objects, their Isom functor is the inverse limit of the affine finite-stage Isom schemes.
+
+2. The inverse-limit affines and faithful-flatness input makes this Isom scheme affine faithfully flat, giving local isomorphisms.
+
+3. The nonempty X chart and these Isom schemes make X→limΓ an fpqc cover, giving local objects.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: BV12, Remark3.6 and Proposition3.7, p.6: The proposition explicitly conditions the result on nonemptiness.
+
+### Profinite étale gerbes on the fpqc site
+
+AlgebraicModuliForArithmeticGeometry:R09.4/profinite-etale-gerbe — definition; unchecked.
+
+A profinite étale gerbe over k is an fpqc gerbe with a specified presentation, up to coherent equivalence, as the compatible-family 2-limit of a small cofiltered system of finite étale gerbes. Its data include the transition functors, coherence and comparison equivalence. It is not defined by a sequence of isomorphism classes and is not asserted algebraic or of finite presentation.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/finite-etale-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family, AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe
+
+Proof or construction:
+
+1. Specialize BV12 Definition4.6 from finite gerbes to finite étale gerbes.
+
+2. Require the fpqc gerbe condition or verify it through the nonempty-limit theorem; preserve that verification as part of the contract.
+
+3. Retain the presentation equivalence and finite-stage projections.
+
+API:
+
+- **ProfiniteEtaleGerbe.projection** (projection): There is a morphism to each finite stage, with transition 2-isomorphisms.
+
+- **ProfiniteEtaleGerbe.objectEquiv** (equivalence): The fibre over T is the groupoid of compatible finite-stage objects and arrows.
+
+- **ProfiniteEtaleGerbe.cofinal** (compatibility): A cofinal reindexing of the presentation yields an equivalent compatible-family gerbe; all coherence is transported.
+
+Unit tests:
+
+- **ProfiniteGerbeTests.finite** (degenerate): A finite étale gerbe is a profinite étale gerbe via a singleton presentation.
+
+- **ProfiniteGerbeTests.identity** (compatibility): The constant identity presentation recovers the original finite gerbe and its automorphism groupoid.
+
+- **ProfiniteGerbeTests.zHat** (non-example): The fpqc classifying gerbe B(Z_hat) is profinite étale but is not an algebraic stack of finite presentation.
+
+Uses:
+
+- Bresciani24 Lemma2: Finite locally full stages are used to express a relative fundamental gerbe.
+
+- Bresciani24 §2 p.133: Its k-point isomorphism classes become Galois sections only after the gerbe has been constructed.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: BV12, Definition4.6, p.8: The definition includes the gerbe property in addition to a projective-limit presentation.; BRES24, §2 p.133: The profinite classifying objects require the fpqc topology.
+
+### Locally full morphisms of affine gerbes
+
+AlgebraicModuliForArithmeticGeometry:R09.4/locally-full — definition; unchecked.
+
+For affine fpqc gerbes Γ,Δ over a field k, a morphism f:Γ→Δ is locally full if for every extension ℓ/k and every x∈Γ(ℓ), Autℓ(x)→Autℓ(f(x)) is faithfully flat as a morphism of group schemes. This is not surjectivity of ℓ-valued points. For finite étale groups after separable splitting it becomes surjectivity of the finite geometric group homomorphism.
+
+Hypotheses: Γ and Δ are affine fpqc gerbes over k.; f is a morphism of gerbes; no fixed abelian band is assumed.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:key/gerbes, AlgebraicModuliForArithmeticGeometry:R09.4/relative-gerbe, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Use the affine-gerbe diagonal to define the Aut group schemes.
+
+2. Impose faithful flatness after every field extension and object choice.
+
+3. Transport through local isomorphisms of objects and fpqc descent.
+
+API:
+
+- **LocallyFull.autFaithfullyFlat** (projection): Every induced automorphism-group map has faithful flatness.
+
+- **LocallyFull.classifying_iff** (characterisation): BG→BH is locally full iff G→H is faithfully flat.
+
+- **LocallyFull.baseChange** (functoriality): The property is preserved by every field extension.
+
+Unit tests:
+
+- **LocallyFullTests.identity** (degenerate): The identity of an affine gerbe is locally full.
+
+- **LocallyFullTests.square** (non-example): Over R, the square map Gm→Gm is faithfully flat but its map R×→R× misses every negative element; point surjectivity is not the definition.
+
+- **LocallyFullTests.subgroup** (characterisation): For a proper subgroup H of a finite constant G, BH→BG is faithful but not locally full.
+
+Uses:
+
+- Bresciani24 Lemma2 p.135: Produces relative gerbe maps at finite stages.
+
+- Borne–Vistoli19 Proposition3.9: The canonical image factorization separates locally full from faithful maps.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: BV19, Definition3.4, Remarks3.5–3.7, p.8: The group-scheme condition is the definition used by Bresciani.
+
+### Locally full maps and Isom sheaves
+
+AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-isom-epi — lemma; unchecked.
+
+For affine fpqc gerbes over a field, f is locally full iff every IsomΓ(x,y)→IsomΔ(fx,fy) is an epimorphism of fpqc sheaves.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/locally-full, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Locally trivialize the Isom torsors and reduce their map to the induced automorphism-group map.
+
+2. For general affine test schemes, take an fpqc cover on which the objects come from one field-extension object.
+
+3. Use faithful flatness iff an affine-group morphism is an fpqc cover.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: BV19, Proposition3.10(1)⇔(2), pp.9–10: Surjectivity is sheaf-local, not pointwise on the original field.
+
+### Locally full maps are relative gerbes
+
+AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-relative — lemma; unchecked.
+
+A morphism of affine fpqc gerbes is locally full iff it is a relative gerbe. A faithful locally full map is an equivalence.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-isom-epi, AlgebraicModuliForArithmeticGeometry:R09.4/relative-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/relative-descent
+
+Proof or construction:
+
+1. Objects lift locally because both source and target are gerbes and the source is locally nonempty.
+
+2. The Isom-epimorphism condition is exactly relative local morphism lifting.
+
+3. If also faithful, the Isom maps are monomorphisms and epimorphisms, hence isomorphisms; descend the local equivalence.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: BV19, Proposition3.10(2)⇔(3), Remark3.7: The argument is not restricted to abelian-banded equivalences.
+
+### Locally full maps into affine gerbe limits
+
+AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-limit — lemma; unchecked.
+
+Let Γ→lim_iΔi be a morphism of affine fpqc gerbes. If each Γ→Δi is locally full, then Γ→lim_iΔi is locally full.
+
+Hypotheses: Both Γ and the compatible limit are already affine fpqc gerbes.; The affine-group Hopf-algebra faithful-flatness criterion is supplied.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/locally-full, AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. After choosing an object over a field extension, write the stabilizer H of the limit as lim Hi.
+
+2. Its coordinate Hopf algebra is colim ℓ[Hi].
+
+3. Each ℓ[Hi]→ℓ[G] is injective by faithful flatness; a filtered colimit element maps to zero only if its finite-stage representative is zero.
+
+4. The Hopf-algebra criterion for affine group morphisms converts this injection to faithful flatness.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: BV19, Proposition3.11, p.10: The proof is an explicit coordinate-algebra calculation.
+
+### The fpqc classifying gerbe of the constant profinite integers
+
+AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-gerbe — construction; unchecked.
+
+Over a field k, let G=lim_m (Z/m!Z)_k as affine group schemes, with the quotient transition maps. Its fpqc torsor stack BG is an fpqc gerbe and is presented as the 2-limit of B(Z/m!Z)_k. A compatible family of finite torsors yields a G-torsor by affine inverse limit with its action; the torsor comparison and local triviality must be verified in the fpqc topology.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family, AlgebraicModuliForArithmeticGeometry:R09.4/profinite-etale-gerbe, DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Form the affine group G by the filtered colimit of the finite coordinate Hopf algebras.
+
+2. Take the inverse limit of a compatible system of finite torsors and verify faithful flatness, the action and the torsor comparison.
+
+3. Push a G-torsor to its finite quotients and compare it to the original torsor via the affine-limit universal property.
+
+API:
+
+- **ProfiniteIntegersGerbe.finiteProjection** (projection): Each quotient G→Z/m!Z induces BG→B(Z/m!Z).
+
+- **ProfiniteIntegersGerbe.trivial** (constructor): The trivial G-torsor neutralizes BG over k.
+
+- **ProfiniteIntegersGerbe.aut** (compatibility): The automorphism group scheme of the trivial object is G.
+
+Unit tests:
+
+- **ZHatGerbeTests.finiteLevel** (compatibility): At each finite level the stabilizer is the finite étale group Z/m!Z.
+
+- **ZHatGerbeTests.compatibleArrows** (characterisation): An automorphism of the compatible trivial object is a compatible family of finite residues, that is G.
+
+- **ZHatGerbeTests.notFinitePresentation** (non-example): BG is not an algebraic stack of finite presentation because G is not of finite type.
+
+Uses:
+
+- Key definition algebraicgeometry/gerbes: The prescribed counterexample separates fpqc profinite gerbes from finite-presentation algebraic stacks.
+
+- Bresciani24 §2: Tests the necessity of fpqc topology for profinite torsors.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: BRES24, §2 p.133: The classifying-gerbe convention expressly uses fpqc torsors for profinite groups.; BV12, §3 Remark3.6, Definition4.6: The inverse-limit torsor argument uses the affine fpqc setting.
+
+### The constant profinite integer group is not of finite type
+
+AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-not-finite-type — lemma; unchecked.
+
+The affine k-group G=lim_m (Z/m!Z)_k is not of finite type over k.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-gerbe
+
+Proof or construction:
+
+1. Its coordinate ring is the union of the finite-dimensional rings k^(Z/m!Z), with injective transition maps.
+
+2. Every finite list of algebra generators would lie in one finite stage and therefore generate a finite-dimensional subalgebra.
+
+3. Larger finite stages have arbitrarily many nonzero orthogonal idempotents, which are linearly independent and remain nonzero in the colimit.
+
+4. This contradicts generation by that finite-dimensional subalgebra.
+
+Acceptance:
+
+- All transition maps on coordinate rings are injective, so idempotents survive.
+
+- The proof works over arbitrary k and makes no claim about topology on k-valued points.
+
+Sources: BV19, Proposition3.1(4)–(6), pp.5–7: The counterexample uses its finite-type stabilizer condition; the unbounded-idempotent argument is an explicit verification for G.
+
+### The profinite integer gerbe is not algebraic of finite presentation
+
+AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-not-algebraic-fp — theorem; unchecked.
+
+The fpqc gerbe B(Z_hat)_k is not an algebraic stack of finite presentation. In fact its affine-gerbe stabilizer criterion excludes algebraicity.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-not-finite-type, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. If this affine gerbe were algebraic, BV19 Proposition3.1 would make its automorphism group at the trivial object finite type.
+
+2. That group is G, contradicting the explicit coordinate-ring computation.
+
+Acceptance:
+
+- The trivial fpqc object exists, so nonneutrality is not the obstruction.
+
+- Every finite stage is nevertheless finite étale and algebraic.
+
+Sources: BV19, Proposition3.1(3)⇒(5), pp.5–6: Only the necessary stabilizer implication is used, not the tannakian equivalence part.
+
+### Transporting the torsor attached to a gerbe self-equivalence
+
+AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-isom-transport — lemma; unchecked.
+
+Let η be a band-preserving self-equivalence of an A-gerbe F. For an isomorphism φ:x→y, the map Isom(x,ηx)→Isom(y,ηy), p↦η(φ)∘p∘φ⁻¹, is an A-torsor isomorphism independent of φ. These maps compose and commute with restrictions.
+
+Hypotheses: An A-gerbe on the chosen site.; η is band-preserving, with its actual strong-transformation coherence.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism, AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor, AlgebraicModuliForArithmeticGeometry:R09.4/banding-iso-independent
+
+Proof or construction:
+
+1. Replacing φ by φ∘a changes η(φ) by the matching band automorphism η(a).
+
+2. Band preservation and the band conjugation equation move η(a) past p and cancel a⁻¹.
+
+3. Functoriality of η gives composition; its strong naturality gives the restriction comparison.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: GWZ20, §2.2.1, p.515: Makes the local construction independent of the local object, as needed for the paper’s general gerbe.
+
+### The torsor of a gerbe self-equivalence
+
+AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor — construction; unchecked.
+
+For a band-preserving self-equivalence η of any A-gerbe F, choose local objects x and glue the A-torsors Isom(x,ηx) using their choice-independent transport maps. The resulting A-torsor Pη is defined globally without a neutralization of F. Invertible modifications η⇒η′ induce equivariant isomorphisms Pη≅Pη′.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-isom-transport, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Choose local objects using local nonemptiness.
+
+2. Transport on overlaps is independent of object isomorphism and satisfies the cocycle.
+
+3. Descend the torsors and their actions; descend modifications through their component maps.
+
+API:
+
+- **GerbeSelfEquivalence.torsor** (constructor): Associates a global A-torsor Pη to η.
+
+- **GerbeSelfEquivalence.torsor_local** (compatibility): For any local object x, Pη restricts to Isom(x,ηx).
+
+- **GerbeSelfEquivalence.torsor_map** (functoriality): A modification induces a torsor isomorphism, with identity and composition laws.
+
+Unit tests:
+
+- **SelfEquivalenceTorsorTests.identity** (degenerate): For η=id, Pη is the trivial A-torsor, even if F has no global object.
+
+- **SelfEquivalenceTorsorTests.neutral** (compatibility): For a chosen neutralization this agrees with evaluating the induced equivalence of BA on its trivial torsor.
+
+- **SelfEquivalenceTorsorTests.nonNeutralRoot** (non-example): The identity of the nonneutral μn-root gerbe of O(1) still gives the trivial μn-torsor; this construction cannot require a global root.
+
+Uses:
+
+- GWZ20 §2.2.1: Apply ηγ on each fixed locus Yγ, even when the restricted gerbe has no global neutralization.
+
+- GWZ20 transgression: Torsor isomorphisms from equivariant coherence must survive descent to the inertia components.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: GWZ20, §2.2.1, p.515: The statement concerns automorphisms of an arbitrary A-gerbe, not just a globally neutral one.; BREEN94, Proposition2.14, p.56: Its local equivalence stack carries precisely the torsor interpretation.
+
+### Self-equivalences of every abelian-banded gerbe
+
+AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences — theorem; unchecked.
+
+For any A-gerbe F, the groupoid of band-preserving self-equivalences is equivalent to the groupoid of A-torsors. The functor is η↦Pη; its inverse twists local objects by a torsor and descends them. Modifications correspond to equivariant isomorphisms. The assertion holds without a chosen neutralization.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor, AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences, DiamondsAndVStacks:D0/stackification
+
+Proof or construction:
+
+1. On a cover with local objects, use the neutral-gerbe equivalence.
+
+2. Choice-independent transport glues both functors and their unit and counit.
+
+3. Descent of modifications makes the functor fully faithful as a functor of groupoids.
+
+Acceptance:
+
+- Taking isomorphism classes gives H1(A), but the groupoid retains A automorphisms of the identity.
+
+- The nonneutral root gerbe example satisfies the theorem.
+
+Sources: GWZ20, §2.2.1 p.515: The stronger general form is needed for transgression.; BREEN94, Proposition2.14: The torsor-stack interpretation is local on the base.
+
+### Transgression of an equivariant gerbe on a quotient
+
+AlgebraicModuliForArithmeticGeometry:R09.4/quotient-gerbe-transgression — construction; unchecked.
+
+Let a finite constant group Γ act on Y, let A be a commutative band on the chosen site, and let α be an A-gerbe with Γ-equivariant structure ηγ and its unit/composition modifications. On each fixed locus Yγ, ηγ becomes a self-equivalence, hence determines an A-torsor Pγ. The centralizer CΓ(γ) acts coherently on Pγ; descend it to [Yγ/CΓ(γ)]. The sum over conjugacy representatives gives the torsor on I[Y/Γ].
+
+Hypotheses: Finite constant Γ; the quotient and its inertia fixed-locus decomposition are supplied.; A is μr with r invertible or Gm for the paper’s étale applications; the site and topology are fixed.; An actual Γ-equivariant A-banding and its coherent modifications are given.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences, DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products, SchemeAndStackFoundations:SF.1, AlgebraicModuliForArithmeticGeometry:R09.4/quotient-inertia-components
+
+Proof or construction:
+
+1. Restrict ηγ to the fixed locus, keeping the induced identity-pullback isomorphism.
+
+2. Use the general self-equivalence torsor, not a presumed neutralization of α.
+
+3. Transport the equivariant composition modifications along centralizer elements and check the action cocycle.
+
+4. Descend to the quotient and compare conjugate representatives to glue the inertia description.
+
+API:
+
+- **GerbeTransgression.component** (projection): The restriction to [Yγ/CΓ(γ)] is the descended Pγ.
+
+- **GerbeTransgression.conjugation** (compatibility): Conjugate γ give canonically equivalent torsors through equivariant coherence.
+
+- **GerbeTransgression.pullback** (functoriality): Equivariant base changes preserving the band commute with the construction.
+
+Unit tests:
+
+- **TransgressionTests.identity** (degenerate): The identity inertia component gets the trivial A-torsor through ηe and its unit modification.
+
+- **TransgressionTests.trivialEquivariance** (compatibility): A neutral gerbe with trivial Γ-equivariant structure gives trivial component torsors.
+
+- **TransgressionTests.modification** (characterisation): An isomorphism of coherent equivariant gerbes induces an isomorphism of the descended inertia torsors, not merely equality of H1 classes.
+
+Uses:
+
+- GWZ20 §2.2.1: Defines the gerbe-twisted stringy invariant component by component.
+
+- GWZ20B §3.1: Supplies general gerbe interfaces for Hasse-invariant consumers; local-field evaluation is outside this node.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: GWZ20, §2.2.1 p.515: The source’s centralizer-equivariant descent uses the full coherence data.
+
+### Inertia of a groupoid-valued stack
+
+AlgebraicModuliForArithmeticGeometry:R09.4/inertia-stack — construction; unchecked.
+
+For a stack X in groupoids on (C,J), IX(U) is the groupoid of pairs (x,a) with x∈X(U) and a∈Aut(x); an arrow φ:(x,a)→(y,b) is an isomorphism φ:x→y such that b∘φ=φ∘a. It is equivalent to the 2-fibre product of the diagonal X→X×X with itself. Its projection to X has fibre Aut(x), with its group law.
+
+Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
+
+Dependencies: mathlib:CategoryTheory.Aut, DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products
+
+Proof or construction:
+
+1. Specialize the existing 2-fibre-product construction to the two diagonals.
+
+2. Compare its triples with the displayed automorphism pairs, retaining the conjugation equation for arrows.
+
+3. Descend objects and arrows componentwise; the group law on a fixed fibre is composition of automorphisms.
+
+API:
+
+- **InertiaStack.obj** (constructor): An object x and an automorphism a determine an inertia object.
+
+- **InertiaStack.hom_iff** (characterisation): An isomorphism φ is an inertia arrow exactly when b∘φ=φ∘a.
+
+- **InertiaStack.fibre** (compatibility): The fibre of IX→X at x identifies with the Aut(x) sheaf and its group law.
+
+Unit tests:
+
+- **InertiaTests.space** (degenerate): For a sheaf regarded as a stack with trivial automorphisms, inertia is that sheaf.
+
+- **InertiaTests.abelianClassifying** (compatibility): For commutative A, IBA≃BA×A as stacks.
+
+- **InertiaTests.S3** (non-example): The inertia fibre of BS3 at its trivial torsor is S3; the inertia stack is not a stack with one discrete point for each conjugacy class.
+
+Uses:
+
+- GWZ20 Construction2.8: Transgression starts from the induced map of inertia stacks.
+
+- GWZ20 §2.1 and §2.2.1: The quotient formula supplies the fixed-locus components and their stabilizers.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: GWZ20, §2.2.2, p.518: The source gives both the 2-fibre-product and automorphism-pair descriptions.
+
+### Inertia components of a finite quotient stack
+
+AlgebraicModuliForArithmeticGeometry:R09.4/quotient-inertia-components — theorem; unchecked.
+
+For a finite constant group Γ acting on Y, I[Y/Γ]≃⊔_[γ] [Yγ/CΓ(γ)], where one representative is chosen from each conjugacy class and Yγ is the fixed-point sheaf (with representability whenever supplied). Changing representatives gives the canonical equivalent description. No tameness or invertibility of |Γ| is required for this groupoid formula.
+
+Hypotheses: Γ is a finite constant group acting on the sheaf Y.; The source’s scheme applications use the imported fixed-point representability interface.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/inertia-stack, DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products
+
+Proof or construction:
+
+1. Locally trivialize the Γ-torsor of a quotient-stack object.
+
+2. An automorphism is then γ∈Γ fixing its image y in Y.
+
+3. Changing the trivialization acts by simultaneous conjugation on γ and translation on y.
+
+4. Decompose this action groupoid by conjugacy classes, identifying the remaining stabilizer with CΓ(γ), and descend the equivalence.
+
+Acceptance:
+
+- For BS3 over an algebraically closed field, the three components have stabilizers S3, Z/2Z and Z/3Z.
+
+- For a free action, only the identity component remains and the inertia is the quotient space.
+
+- For a trivial Z/2Z action, there are two copies of [Y/(Z/2Z)], in all characteristics.
+
+Sources: GWZ20, §2.2.1, p.515: The quotient decomposition retains the centralizer quotient stack, not its orbit set.
+
+### Canonical factorization of an affine-gerbe morphism
+
+AlgebraicModuliForArithmeticGeometry:R09.4/canonical-affine-factorization — definition; unchecked.
+
+For f:Γ→Δ between affine fpqc gerbes over k, a canonical factorization consists of an affine fpqc gerbe E, maps g:Γ→E and h:E→Δ, an invertible modification h∘g≅f, proof that g is locally full, and proof that h is faithful on all fibre groupoids. Equivalence of such data includes the compatible modification over Δ.
+
+Hypotheses: Γ and Δ are affine fpqc gerbes over a field k.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/locally-full, mathlib:CategoryTheory.Pseudofunctor.StrongTrans, mathlib:CategoryTheory.Pseudofunctor.StrongTrans.Modification
+
+Proof or construction:
+
+1. Use the existing strong-transformation and modification carriers.
+
+2. State local fullness on automorphism group schemes and faithfulness on actual fibre arrows.
+
+API:
+
+- **AffineGerbeFactorization.sourceMap** (projection): The first map g is locally full.
+
+- **AffineGerbeFactorization.targetMap** (projection): The second map h is faithful.
+
+- **AffineGerbeFactorization.factorIso** (projection): The composite h∘g is identified with f by an invertible modification.
+
+Unit tests:
+
+- **CanonicalFactorTests.identity** (degenerate): The identity has E=Γ and both maps identity.
+
+- **CanonicalFactorTests.kernel** (compatibility): For a group morphism G→H the neutral factor is B(G/ker f)→BH.
+
+- **CanonicalFactorTests.notTarget** (non-example): The inclusion B1→B(Z/2Z) cannot have E=B(Z/2Z), because its first map is not locally full.
+
+Uses:
+
+- Bresciani24 Lemma2: Finite presentations must be refined to locally full finite quotients.
+
+- BV19 Proposition3.9: The construction is the affine-gerbe rigidification by the stabilizer kernel.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: BV19, Definition3.8, p.8: This is the displayed local-full/faithful factorization, with its two-morphism retained.
+
+### Rigidification by an affine-gerbe stabilizer kernel
+
+AlgebraicModuliForArithmeticGeometry:R09.5/affine-kernel-rigidification — construction; unchecked.
+
+For f:Γ→Δ between affine fpqc gerbes, there is a canonical factorization Γ→E→Δ. Choose an affine fpqc cover U→Γ, put R=U×ΓU, and let K be the normal stabilizer-kernel sheaf. The quotient sheaf R/K carries an induced groupoid structure over U; its torsor stack E is an affine fpqc gerbe. Affineness of R/K follows after a faithfully flat field extension by identifying it with the quotient of an affine group scheme by a normal subgroup and then descending affineness. No general fpqc stackification in unrestricted universes is presumed.
+
+Hypotheses: Affine fpqc gerbes over a field.; The precise affine normal-quotient and affine fpqc-descent inputs in the supplier request.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/canonical-affine-factorization, DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Construct K objectwise as the kernel of the stabilizer homomorphism, compatible with conjugation.
+
+2. Check that composition of arrows descends to R/K because K is normal, including identity and associativity.
+
+3. After a common fpqc base extension with a gerbe object, identify R/K with G/K and use the affine normal-quotient theorem.
+
+4. Use fpqc descent of affine schemes to descend this quotient.
+
+5. The quotient map has faithfully flat stabilizer maps; the map to Δ has injective stabilizer maps, which gives the required factorization.
+
+API:
+
+- **AffineKernelRigidification.factor** (constructor): Produces the displayed canonical factorization of f.
+
+- **AffineKernelRigidification.homSheaf** (characterisation): For source objects x,y the target Isom sheaf is IsomΓ(x,y)/Kx.
+
+- **AffineKernelRigidification.neutral** (compatibility): For BG→BH the construction identifies with B(G/ker f)→BH.
+
+Unit tests:
+
+- **KernelRigidificationTests.zeroKernel** (degenerate): A faithful f has a trivial kernel and E≃Γ.
+
+- **KernelRigidificationTests.allKernel** (compatibility): For BG→Spec k, the quotient gerbe is Spec k.
+
+- **KernelRigidificationTests.notOrbitSet** (non-example): The quotient B(Z/4Z)→B(Z/2Z) retains Z/2Z as inertia; its middle gerbe is not an orbit-set sheaf.
+
+Uses:
+
+- BV19 Proposition3.9: Supplies the source-specific rigidification used in finite-image factorizations.
+
+- Bresciani24 Lemma2: Supplies finite étale image stages of a profinite gerbe.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: BV19, Proposition3.9 and proof, pp.8–9: The groupoid-quotient proof avoids the source’s expressly dubious unrestricted fpqc stackification.
+
+### Uniqueness of the canonical affine factor
+
+AlgebraicModuliForArithmeticGeometry:R09.4/canonical-factorization-unique — lemma; unchecked.
+
+Two canonical factorizations of the same f:Γ→Δ have equivalent middle affine gerbes over Δ, compatibly with the maps from Γ.
+
+Hypotheses: Two canonical factorizations of an affine-gerbe morphism over a field.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/canonical-affine-factorization, AlgebraicModuliForArithmeticGeometry:R09.5/affine-kernel-rigidification
+
+Proof or construction:
+
+1. Both first maps kill precisely the stabilizer kernel K of f because the second maps are faithful.
+
+2. Their Isom sheaves are the same quotient IsomΓ/K.
+
+3. Identify both middle gerbes with the quotient presentation and obtain the equivalence with its compatibility modifications.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: BV19, Proposition3.9, uniqueness proof, pp.8–9: The quotient Isom sheaf, not only its cardinality, identifies the middle factor.
+
+### Finite étale image of a profinite-gerbe morphism
+
+AlgebraicModuliForArithmeticGeometry:R09.4/finite-etale-image — theorem; unchecked.
+
+For a profinite étale fpqc gerbe Γ over k and a morphism Γ→Δ to a finite étale gerbe, its canonical affine factor E is finite étale, and Γ→E is locally full. The faithful map E→Δ is representable.
+
+Hypotheses: Γ has the fpqc profinite presentation, with the nonemptiness requirement satisfied.; Δ is finite étale over k.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/profinite-etale-gerbe, AlgebraicModuliForArithmeticGeometry:R09.5/affine-kernel-rigidification, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. After a splitting field extension, identify the middle stabilizer with the image of a profinite étale group in a finite étale group.
+
+2. It is a subgroup of a finite constant group after separable splitting, hence finite étale.
+
+3. Descend the finite étale image and its classifying presentation to k.
+
+4. Faithfulness is representability for these finite-type gerbes, by the stabilizer criterion.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: BV19, Proposition3.9 with §3 faithfulness criterion, pp.8–9: The finite-target refinement combines the factorization with finite étale subgroup descent.; BRES24, Lemma2 proof, p.135: The paper uses precisely these locally full finite stages.
+
+### Locally full finite stages of a profinite étale gerbe
+
+AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-finite-presentation — theorem; unchecked.
+
+Every profinite étale fpqc gerbe Γ has a cofinal finite étale presentation Γ≃lim E_i with each projection Γ→E_i locally full. The presentation and comparison include the transition isomorphisms and their coherence.
+
+Hypotheses: A nonempty profinite étale fpqc gerbe over k.; The cofinal pseudodiagram comparison requested below.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/finite-etale-image, AlgebraicModuliForArithmeticGeometry:R09.4/canonical-factorization-unique, AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family, AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-limit, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Replace each finite stage of a chosen presentation by the finite étale image of Γ in that stage.
+
+2. For finitely many stages, take the image into their product to obtain a common refinement.
+
+3. Retain the original compatibility two-morphisms when factoring maps through the images; uniqueness gives the corresponding compatible refinements.
+
+4. Show that compatible objects and arrows for the image stages recover those of the original presentation, using the cofinal comparison for the chosen pseudodiagram.
+
+5. The locally full source projections are supplied by their canonical factorizations.
+
+Acceptance:
+
+- A finite stage not hit fully by Γ is replaced by its image.
+
+- The comparison keeps compatible arrows and does not identify the limit with the product of its fibres.
+
+Sources: BRES24, Lemma2 proof, p.135: The finite-image and common-refinement steps explain the presentation cited from Borne–Vistoli.; BV19, Proposition3.9: This is the source of each locally full projection.
+
+### Proper étale stages of a relative profinite gerbe
+
+AlgebraicModuliForArithmeticGeometry:R09.4/relative-profinite-gerbe-finite-stages — theorem; unchecked.
+
+Let f:Γ→Δ be a locally full map of profinite étale fpqc gerbes over k. Choose synchronized cofinal finite presentations Γ≃lim E_i and Δ≃lim D_i with locally full projections and maps E_i→D_i. Each E_i→D_i is a proper étale relative gerbe. For any scheme C→Δ the pullback Γ×Δ C→C is the compatible two-limit of E_i×D_i C→C, each a proper étale relative gerbe.
+
+Hypotheses: The selected synchronized finite-stage and cofinality comparison, which remains a recorded gap.; Scheme C maps to Δ.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-finite-presentation, AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-relative, AlgebraicModuliForArithmeticGeometry:R09.4/relative-pullback, DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Refine the two finite systems so each target finite map factors through a source finite stage; replace that stage by its image, retaining the triangle modification.
+
+2. The composite Γ→D_i is locally full. On stabilizers, its coordinate map factors through that for E_i→D_i; injectivity of the composite gives injectivity of the latter, hence local fullness.
+
+3. Apply the relative-gerbe criterion. After a common splitting field extension, the map is a finite étale band gerbe; descend properness and étaleness.
+
+4. Pull back along C→D_i and apply base-change stability.
+
+5. Compare the compatible two-limit with Γ×Δ C, retaining both pseudodiagram and pullback coherence.
+
+Acceptance:
+
+- Proper/étale refers to stack morphisms; these gerbes need not be representable by schemes.
+
+- Bresciani’s locally full map of fundamental gerbes is an input from the anabelian owner, not reconstructed here.
+
+Sources: BRES24, Lemma2 and proof, p.135: This isolates the gerbe-theoretic part of the relative fundamental-gerbe argument from its anabelian input.
+
+### Pullback preserves quasi-coherence
+
+AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pullback — lemma; unchecked.
+
+For every morphism f:X→Y of schemes and every quasi-coherent OY-module M, the existing sheaf-module pullback f*M is quasi-coherent.
+
+Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
+
+Dependencies: mathlib:SheafOfModules.IsQuasicoherent, mathlib:AlgebraicGeometry.Scheme.Modules.pullback, mathlib:AlgebraicGeometry.Scheme.Modules.pullbackPushforwardAdjunction
+
+Proof or construction:
+
+1. Pull a local presentation of M to the inverse images of its presentation cover.
+
+2. The existing left-adjoint pullback preserves coproducts and cokernels and sends OY to OX.
+
+3. These pulled presentations witness quasi-coherence, with no finite-index restriction.
+
+Acceptance:
+
+- The statement covers arbitrary modules and keeps all morphisms, with the specified pullback coherence.
+
+Sources: SP01BG, Lemma17.10.4: The proof preserves the arbitrary local presentation.
+
+### Affine pullback agrees with tensor extension
+
+AlgebraicModuliForArithmeticGeometry:R09.3/affine-pullback-tensor — construction; unchecked.
+
+For a commutative ring map R→A, pullback of the existing tilde(M) along Spec A→Spec R is naturally isomorphic to tilde(A⊗R M). The comparison commutes with module maps and with composition of ring maps.
+
+Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pullback, mathlib:AlgebraicGeometry.tildeEquiv, mathlib:AlgebraicGeometry.Scheme.Modules.pullback, mathlib:AlgebraicGeometry.Scheme.Modules.pullbackComp, mathlib:CommRingCat.moduleCatExtendScalarsPseudofunctor
+
+Proof or construction:
+
+1. Use the mapping property of tilde and the pullback adjunction to identify maps from either displayed object into any sheaf module.
+
+2. The tensor/restriction adjunction identifies these two Hom sets; Yoneda gives the comparison.
+
+3. Check naturality and the composition comparison on pure tensors, using the existing extension-of-scalars pseudofunctor.
+
+API:
+
+- **affine_pullback_tensor** (compatibility): The specified natural isomorphism from sheaf-module pullback to tilde of scalar extension.
+
+- **affine_pullback_tensor.naturality** (functoriality): For every module map the square between the two displayed pullback comparisons commutes.
+
+- **affine_pullback_tensor.comp** (compatibility): For R→A→B the two successive comparisons agree with the composite comparison through the baseline tensor and pullback associators.
+
+Unit tests:
+
+- **AffinePullbackTests.identity** (degenerate): For R→R the comparison agrees with the baseline pullback and scalar-extension unit isomorphisms.
+
+- **AffinePullbackTests.localization** (compatibility): For R→R[f⁻¹], the comparison recovers restriction of tilde M to the basic open D(f).
+
+- **AffinePullbackTests.nonflat** (non-example): The comparison also holds for Z→Z/2Z without a flatness hypothesis; it identifies pullback with right-exact tensor extension, not an exact functor.
+
+Uses:
+
+- Stacks023S: Transports the affine module-descent equivalence to quasi-coherent sheaves.
+
+- QCohPseudofunctor.affine: The equivalence of fibres also compares their actual arrow maps.
+
+Acceptance:
+
+- The statement covers arbitrary modules and keeps all morphisms, with the specified pullback coherence.
+
+Sources: SP01I6, Lemma26.7.3(1) and proof: The existing affine equivalence is imported; only its pullback comparison is planned.
+
+### The quasi-coherent pullback pseudofunctor
+
+AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pseudofunctor — construction; unchecked.
+
+Restrict the existing scheme-module pullback functors to the full subcategories of the existing IsQuasicoherent predicate. The result is a Cat-valued pseudofunctor on Schemeᵒᵖ, with the existing sheaf-module unit and composition constraints restricted to these subcategories. Quasi-coherent modules retain arbitrary module morphisms; the fibres are not groupoids.
+
+Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pullback, mathlib:AlgebraicGeometry.Scheme.Modules.pullbackId, mathlib:AlgebraicGeometry.Scheme.Modules.pullbackComp, mathlib:CategoryTheory.Pseudofunctor
+
+Proof or construction:
+
+1. Restrict pullback using the quasi-coherence lemma.
+
+2. Restrict the baseline natural isomorphisms and their coherence; full-subcategory faithfulness reflects their equations.
+
+API:
+
+- **QCohPseudofunctor.fibre** (compatibility): The fibre at X is the full subcategory defined by baseline IsQuasicoherent.
+
+- **QCohPseudofunctor.map** (compatibility): The arrow map is the restriction of baseline Scheme.Modules.pullback.
+
+- **QCohPseudofunctor.affine** (compatibility): The affine comparison through tildeEquiv identifies arrow maps with extendScalars.
+
+- **QCohPseudofunctor.map_forget** (compatibility): Forgetting the quasi-coherent property after the restricted pullback is naturally isomorphic to forgetting first and applying the baseline Scheme.Modules.pullback.
+
+Unit tests:
+
+- **QCohPseudoTests.identity** (degenerate): The unit map is the baseline pullbackId restricted to the full subcategory.
+
+- **QCohPseudoTests.infiniteModule** (non-example): The direct sum of countably many copies of R on Spec R is admitted even though it is not finitely generated when R is a field.
+
+- **QCohPseudoTests.nonInvertibleArrow** (non-example): Multiplication by 2 on O_SpecZ is a fibre morphism, and is not an isomorphism; the category is not truncated to its core.
+
+Uses:
+
+- R09.3 general fpqc descent: Provides the actual Cat-valued pseudofunctor to which baseline DescentData is applied.
+
+- R09.2 Hilbert/Quot: Descent of sheaf quotients depends on retaining all morphisms, not only isomorphisms.
+
+Acceptance:
+
+- The statement covers arbitrary modules and keeps all morphisms, with the specified pullback coherence.
+
+Sources: SP023T, Proposition35.5.2: Its descent category uses exactly these pullbacks.; SP01BG, Lemma17.10.4: Supplies the object-property restriction.
+
+### Module overlap descent and comonad coalgebras
+
+AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction — construction; unchecked.
+
+For a faithfully flat ring map R→A, the usual module descent category, with an A⊗R A-linear transition isomorphism and its cocycle on A⊗R A⊗R A, is equivalent to the coalgebras of the comonad extendScalars(R→A)∘restrictScalars(R→A). For a datum θ:N⊗R A→A⊗R N the coaction is d(n)=θ(n⊗1); conversely d(n)=Σ a_i⊗n_i gives θ(n⊗a)=Σ a_i⊗a n_i. Interpret both formulas through the tensor universal property; no selected decomposition is part of the data.
+
+Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
+
+Dependencies: mathlib:CommRingCat.moduleCatExtendScalarsPseudofunctor, mathlib:CategoryTheory.Pseudofunctor.DescentData, mathlib:comonadicExtendScalars
+
+Proof or construction:
+
+1. Identify the diagonal/unit condition with multiplication composed with d being the identity.
+
+2. Identify the triple-overlap cocycle with coassociativity through tensor associators.
+
+3. Construct the displayed θ from d, prove it is invertible using the two equations, and construct compatible maps in both directions.
+
+4. Compare the overlap presentation with baseline DescentData over arbitrary test objects, using the pushout universal property for A⊗R A.
+
+API:
+
+- **ModuleDescentCoalgebra.equivalence** (constructor): An equivalence preserving the underlying A-module and its maps.
+
+- **ModuleDescentCoalgebra.coaction** (simp): The coaction sends n to θ(n⊗1).
+
+- **ModuleDescentCoalgebra.canonical** (compatibility): The canonical datum on A⊗R M becomes the comparison coalgebra of M.
+
+Unit tests:
+
+- **ModuleCoalgebraTests.identity** (degenerate): For R=A, descent and coalgebras are equivalent to ModuleCat R.
+
+- **ModuleCoalgebraTests.product** (computation): For the diagonal R→R×R the transition identifies the two component modules and recovers one R-module.
+
+- **ModuleCoalgebraTests.cocycle** (non-example): Arbitrary pairwise invertible maps that fail the triple-overlap equation do not define a coalgebra.
+
+Uses:
+
+- Pinned comonadicExtendScalars TODO: Closes the specific comparison missing between comonadicity and ordinary module descent.
+
+- Stacks023S: Supplies the affine algebraic input for quasi-coherent scheme descent.
+
+Acceptance:
+
+- The statement covers arbitrary modules and keeps all morphisms, with the specified pullback coherence.
+
+Sources: SP023N, Proposition35.3.9, equalizer formula and cocycle calculation: The equalizer condition uses precisely the displayed coaction; the categorical comparison is made an explicit proof leaf.
+
+### Effective faithfully flat module descent
+
+AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence — theorem; unchecked.
+
+For a faithfully flat commutative ring map R→A, the functor M↦(A⊗R M,canonical datum) is an equivalence from ModuleCat R to module descent data. An inverse is the equalizer M={n∈N | 1⊗n=θ(n⊗1)}, and the comparison A⊗R M→N is an isomorphism.
+
+Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction, mathlib:comonadicExtendScalars
+
+Proof or construction:
+
+1. Compose the baseline comonadic comparison equivalence with the inverse overlap/coalgebra comparison.
+
+2. The comparison inverse is the equalizer of coaction and the adjunction unit on the underlying R-module.
+
+3. Check that its scalar-extension counit is the canonical tensor map and that the unit and counit identify with the displayed inverse.
+
+Acceptance:
+
+- R→R×R returns the common component module with all module morphisms.
+
+- For R=Z and A=Z/2Z, dropping flatness cannot give this equivalence: multiplication by2 on Z becomes zero and is no longer detected.
+
+Sources: SP023N, Proposition35.3.9(1)–(3): The source omits (2)/(3); the baseline comonadic theorem supplies their categorical proof, after the explicit comparison leaf.
+
+### Quasi-coherent descent for a standard affine fpqc cover
+
+AlgebraicModuliForArithmeticGeometry:R09.3/affine-fpqc-quasicoherent-descent — theorem; unchecked.
+
+For a finite standard fpqc covering {Ui→S} of an affine scheme S, the canonical functor from QCoh(S) to baseline descent data for the cover is an equivalence.
+
+Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pseudofunctor, AlgebraicModuliForArithmeticGeometry:R09.3/affine-pullback-tensor, AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence, mathlib:AlgebraicGeometry.tildeEquiv, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Replace the finite affine cover by its finite disjoint union, which is affine; its ring is the finite product of the component rings.
+
+2. Identify the resulting ring map as faithfully flat by flatness and joint surjectivity.
+
+3. Use the actual tildeEquiv and its tensor pullback comparisons to transport module descent to sheaves.
+
+4. Compare finite-family and disjoint-union descent data, preserving morphisms and cocycles.
+
+Acceptance:
+
+- The statement covers arbitrary modules and keeps all morphisms, with the specified pullback coherence.
+
+Sources: SP023S, Lemma35.5.1 and proof: The finite disjoint-union reduction is essential, not a reduction of arbitrary covers to one affine map.
+
+### Faithfulness of quasi-coherent fpqc descent
+
+AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-faithful — lemma; unchecked.
+
+For an arbitrary fpqc cover {Ui→S} and maps a,b:M→N between quasi-coherent modules on S, equality of all pullbacks implies a=b.
+
+Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pseudofunctor, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. For every s∈S choose u∈Ui over s.
+
+2. The flat map of local rings O_S,s→O_Ui,u is faithfully flat.
+
+3. Equality after tensoring implies equality on stalk maps; stalkwise equality gives a=b.
+
+Acceptance:
+
+- The statement covers arbitrary modules and keeps all morphisms, with the specified pullback coherence.
+
+Sources: SP023T, Proposition35.5.2, faithfulness proof: No quasi-compactness or separatedness hypothesis on S is introduced.
+
+### Fullness of quasi-coherent fpqc descent
+
+AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-full — lemma; unchecked.
+
+For an arbitrary fpqc cover {Ui→S}, every compatible family of maps f_i:M|Ui→N|Ui is the pullback of a unique map M→N.
+
+Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.3/affine-fpqc-quasicoherent-descent, AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-faithful, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Cover S by affine opens Vj and choose a finite standard affine fpqc refinement of each induced cover.
+
+2. Use affine descent fullness to produce a map on every Vj.
+
+3. On Vj∩Vj′ use a common fpqc refinement and faithfulness to prove agreement, without assuming this intersection affine.
+
+4. Glue sheaf-module maps on the open cover; uniqueness follows from faithfulness.
+
+Acceptance:
+
+- The statement covers arbitrary modules and keeps all morphisms, with the specified pullback coherence.
+
+Sources: SP023T, Proposition35.5.2, fullness proof: The common refinement is performed on potentially nonaffine intersections.
+
+### Effectivity of quasi-coherent fpqc descent
+
+AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-effective — lemma; unchecked.
+
+Every quasi-coherent module descent datum on an arbitrary fpqc covering {Ui→S} is effective, with a specified isomorphism from the canonical datum of the glued sheaf to the original datum.
+
+Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.3/affine-fpqc-quasicoherent-descent, AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-full, AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-faithful, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Use finite standard affine refinements over each affine open Vj to obtain local quasi-coherent sheaves Mj.
+
+2. Use fullness to obtain their overlap isomorphisms and faithfulness on triple intersections to establish the cocycle.
+
+3. Glue the sheaf modules on the open cover; quasi-coherence is local by its baseline definition.
+
+4. For each Ui compare with Mi on the pulled open cover Ui×S Vj; descend the local comparison maps and their inverses by fullness.
+
+5. Check that these comparisons commute with the original datum transitions, using faithfulness on each double overlap. This completes the verification omitted by the source.
+
+Acceptance:
+
+- The statement covers arbitrary modules and keeps all morphisms, with the specified pullback coherence.
+
+Sources: SP023T, Proposition35.5.2, effectivity proof and final omitted verification: The missing final identification is written as a distinct check, rather than assumed.
+
+### Effective fpqc descent for quasi-coherent modules
+
+AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent — theorem; unchecked.
+
+For every scheme S and every fpqc covering {Ui→S}, the canonical functor QCoh(S)→QCohPseudofunctor.DescentData(Ui→S) is an equivalence. There is no Noetherian, coherence, finite-generation, finite-presentation, separatedness or smoothness condition.
+
+Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-faithful, AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-full, AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-effective
+
+Proof or construction:
+
+1. Combine faithfulness, fullness and essential surjectivity of the same canonical functor.
+
+2. Retain the constructed datum comparison as the counit; full faithfulness supplies the unit and equivalence coherence.
+
+Acceptance:
+
+- The identity cover gives the identity equivalence.
+
+- Over a field the countably generated free module descends, excluding an accidental coherent-only definition.
+
+- A nonfaithfully-flat cover is excluded; the Z→Z/2Z example loses nonzero maps.
+
+Sources: SP023T, Proposition35.5.2: Exactly the arbitrary-scheme, arbitrary-module statement required by the confirmed area finding.
+
+### Finite quotient-stack presentations
+
+AlgebraicModuliForArithmeticGeometry:R09.4/finite-quotient-presentation — definition; unchecked.
+
+For a Deligne–Mumford stack X, a finite quotient presentation is an algebraic space Y, an action of a finite constant group Γ which is generically fixed-point free, and an equivalence X≃[Y/Γ]. A finite abelian quotient presentation additionally requires Γ abelian. These are properties witnessed by presentations, not a claim that every Deligne–Mumford stack is a finite quotient.
+
+Hypotheses: X is Deligne–Mumford, and Y is an algebraic space over its base.
+
+Dependencies: DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Use the imported ordinary action quotient and the algebraic-space/algebraic-stack comparison interface.
+
+2. Keep the generic freeness and the specified quotient equivalence in the presentation data.
+
+API:
+
+- **FiniteQuotientPresentation.equivalence** (projection): The specified stack equivalence to the action quotient.
+
+- **FiniteQuotientPresentation.genericFree** (projection): The Γ action is free on the specified dense open.
+
+- **FiniteAbelianQuotientPresentation.toFinite** (coercion): An abelian presentation forgets to a finite quotient presentation.
+
+Unit tests:
+
+- **FiniteQuotientTests.trivial** (degenerate): An algebraic space has a presentation by the trivial group.
+
+- **FiniteQuotientTests.sign** (computation): The sign action of Z/2Z on A1 in characteristic different from2 is generically free, though inertia at0 is nontrivial.
+
+- **FiniteQuotientTests.trivialAction** (non-example): The displayed trivial nontrivial-group action on a nonempty Y is not generically free and does not give a presentation of this prescribed kind.
+
+Uses:
+
+- GWZ20 Definition2.4: The stringy invariants start with this finite quotient presentation.
+
+- GWZ20 Definition2.6: The gerbe transgression applies on the fixed-locus inertia components of this presentation.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: GWZ20, Definition2.1, p.512: The source predicate includes generic freeness, unlike the general action quotient.
+
+### Exchange of commuting quotient stacks
+
+AlgebraicModuliForArithmeticGeometry:R09.4/commuting-quotient-exchange — theorem; unchecked.
+
+If fppf group schemes G1,G2 over S act on the S-scheme N through commuting actions, then [[N/G1]/G2]≃[N/(G1×G2)]≃[[N/G2]/G1] as S-stacks. These are equivalences of groupoids over every test scheme T, natural in T.
+
+Hypotheses: G1,G2 are fppf S-group schemes.; The two actions commute; no interchange is claimed for unrelated noncommuting actions.
+
+Dependencies: DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. A double-quotient object over T is a G2-torsor P→T and a G2-equivariant G1-torsor Q→P with its map to N.
+
+2. Descend Q along P→T to a G1-torsor P′→T using its G2-equivariant structure.
+
+3. Identify Q≃P×T P′, with a (G1×G2)-equivariant map to N.
+
+4. This description is symmetric in G1,G2 and includes isomorphisms, yielding the natural equivalences.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: GWZ20, Lemma4.7 and proof, p.540: The corrected test-scheme bases are T throughout, not the paper’s occasional S in the proof.
+
+### An algebraic-space twist by a torsor
+
+AlgebraicModuliForArithmeticGeometry:R09.4/torsor-twist-space — construction; unchecked.
+
+For a commutative étale S-group scheme Γ, an S-scheme N with Γ-action and a Γ-torsor T, the anti-diagonal action on N×S T is free and its quotient N_T=(N×S T)/Γ is an algebraic space. The action through T descends to a Γ-action on N_T. This construction depends on the torsor and its arrows, not on a bare symbol representing its H1 class.
+
+Hypotheses: Γ is a commutative étale S-group scheme.; T is an actual étale Γ-torsor.
+
+Dependencies: DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. The torsor action on T makes the anti-diagonal action free.
+
+2. Étale-locally trivialize T, identify the quotient with N, and descend it as an algebraic space.
+
+3. The commuting action on the T factor descends because Γ is commutative; descend torsor isomorphisms as quotient isomorphisms.
+
+API:
+
+- **TorsorTwist.quotient** (constructor): The quotient is an algebraic space with its descended Γ-action.
+
+- **TorsorTwist.trivial** (compatibility): A chosen trivialization of T identifies N_T with N equivariantly.
+
+- **TorsorTwist.mapTorsor** (functoriality): A Γ-torsor isomorphism T≅T′ induces a Γ-equivariant space isomorphism N_T≅N_T′.
+
+Unit tests:
+
+- **TwistTests.trivial** (degenerate): For Γ=1 the twist is N.
+
+- **TwistTests.freeTorsor** (compatibility): For N=Γ with its regular action, the twist is equivariantly the torsor T.
+
+- **TwistTests.arrows** (non-example): An automorphism of T can act nontrivially on N_T; quotienting the construction to a set of H1 classes loses these arrows.
+
+Uses:
+
+- GWZ20 Lemma4.6: Provides alternate presentations of the same quotient stack.
+
+- GWZ20 §7.5: Twists compare the arithmetic quotient presentations used in the integration argument.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: GWZ20, Definition4.5, p.539: The source explicitly permits an algebraic space rather than asserting scheme representability.
+
+### Torsor twisting preserves the quotient stack
+
+AlgebraicModuliForArithmeticGeometry:R09.4/torsor-twist-quotient-equivalence — theorem; unchecked.
+
+Under the torsor-twist hypotheses, [N/Γ]≃[N_T/Γ] over S, retaining the groupoids of objects and their arrows.
+
+Hypotheses: The commutative étale Γ and actual torsor of the preceding construction.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/torsor-twist-space, AlgebraicModuliForArithmeticGeometry:R09.4/commuting-quotient-exchange
+
+Proof or construction:
+
+1. Express the right side as the double quotient of N×S T by the anti-diagonal and residual Γ actions.
+
+2. Exchange the two commuting quotients.
+
+3. Use [T/Γ]≃S and the canonical triviality of the inner action on [N/Γ], with its actual coherence modification.
+
+4. Check the resulting equivalence under change of torsor trivialization.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: GWZ20, Lemma4.6 and proof, p.539: The equivalence preserves the whole quotient stack, not only the coarse space.
+
+### Quotients for twisted group actions
+
+AlgebraicModuliForArithmeticGeometry:R09.4/twisted-group-action-quotient — theorem; unchecked.
+
+Let A,B be smooth group algebraic spaces over S, with A acting on B by automorphisms and compatible A and B actions on an algebraic space X. For an A-torsor ρ, let Xρ=X×Aρ and Bρ=B×Aρ. Then [(X×Sρ)/(B⋊A)]≃[Xρ/Bρ] naturally in the torsor and equivariant maps.
+
+Hypotheses: Smooth group algebraic spaces A,B over S with the specified semidirect-action compatibility.; ρ is an A-torsor.
+
+Dependencies: DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Trivialize ρ in the fppf topology.
+
+2. Over the trivialization, quotient first by A, identifying Xρ and Bρ with X and B.
+
+3. Identify the remaining B action, transported through A, with the descended action of Bρ.
+
+4. Descend the quotient equivalence and its arrow maps; the transition cocycle is exactly the given A action on B and compatibility with the B action on X.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: GWZ20B, Construction5.1, p.26: The semidirect product and the twisted group must both remain; a commuting-quotient formula alone is insufficient.
+
+### Prime-to-characteristic twisted inertia
+
+AlgebraicModuliForArithmeticGeometry:R09.4/prime-to-p-twisted-inertia — construction; unchecked.
+
+For a stack X over a perfect field k of characteristic p, let μ̂=lim_(n,p)=1 μn with transition μmn→μn given by the mth power. Define Iμ̂X as the two-colimit, with stackification on the chosen site, of the mapping stacks Hom(Bμn,X), indexed by positive n prime to p. The transition functor is precomposition with Bμmn→Bμn. These are all maps of stacks, not only representable maps, and the evaluation at the trivial torsor gives the projection to X. No algebraic finite-presentation assertion for this colimit is included.
+
+Hypotheses: k is perfect of characteristic p.; The ordinary mapping-stack/two-colimit carrier is requested from D0.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/inertia-stack, DiamondsAndVStacks:D0/stackification, DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products
+
+Proof or construction:
+
+1. Construct each mapping stack with modifications as arrows and evaluate at the trivial μn-torsor.
+
+2. Use the specified power maps to construct the directed system, including its coherent composition.
+
+3. Take its two-colimit and stackify on the fixed site.
+
+4. Relate maps Bμn→X over an object x to group homomorphisms μn→Aut(x).
+
+API:
+
+- **TwistedInertia.project** (projection): The projection forgets the homomorphism and retains its object in X.
+
+- **TwistedInertia.finiteStage** (constructor): Every map Bμn→X with n prime to p supplies an object.
+
+- **TwistedInertia.fibre** (characterisation): The fibre at x is the filtered system of Hom(μn,Aut(x)), with conjugation on arrows.
+
+Unit tests:
+
+- **TwistedInertiaTests.space** (degenerate): For an algebraic space regarded as a stack, Iμ̂X≃X.
+
+- **TwistedInertiaTests.zeroHom** (compatibility): The trivial homomorphism is retained; the definition is not the representable cyclotomic inertia substack.
+
+- **TwistedInertiaTests.pGroup** (non-example): For the constant group Z/pZ in characteristic p, all homomorphisms from μ̂ are trivial, but Iμ̂B(Z/pZ) still retains the classifying-stack automorphisms Z/pZ.
+
+Uses:
+
+- GWZ20B Lemma2.10: The finite-field description uses the Tate-twisted prime-to-p group, not Z_hat.
+
+- GWZ20B Theorem2.21: The automorphism denominators come from this groupoid, not its set of points.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: GWZ20B, §2.4 setup and Definition2.9, p.9: The source’s preceding setup restricts the indexing to prime-to-p integers.
+
+### Finite-field objects of twisted inertia
+
+AlgebraicModuliForArithmeticGeometry:R09.4/twisted-inertia-finite-field — theorem; unchecked.
+
+For X/Fq with diagonal of finite presentation, Iμ̂X(Fq) is equivalent to the groupoid of pairs (x,α), with x∈X(Fq), a continuous homomorphism α:μ̂(Fqbar)→Aut(x_Fqbar) for the discrete topology, and Frobenius equivariance φα=αφ. An arrow is an Fq-isomorphism of objects intertwining α. The domain Frobenius acts by qth power.
+
+Hypotheses: X is a stack over Fq with diagonal of finite presentation.; The mapping-stack/Galois-descent comparison at each finite stage is supplied.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/prime-to-p-twisted-inertia, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Describe a finite-stage map over x by a homomorphism μn→Aut(x).
+
+2. Apply Galois descent to these homomorphisms and their conjugating arrows.
+
+3. The finite-presentation diagonal supplies the finite-stage factorization needed for the colimit comparison; retain this hypothesis.
+
+4. Pass to the prime-to-p system, with continuity recording that a homomorphism has finite image and factors through a finite μn.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: GWZ20B, Lemma2.10(a) and proof, pp.9–10: Both Frobenius equivariance and the groupoid arrows are required.
+
+### A generator description of twisted inertia
+
+AlgebraicModuliForArithmeticGeometry:R09.4/twisted-inertia-generator — lemma; unchecked.
+
+For a chosen profinite generator ξ of μ̂(Fqbar), the preceding groupoid is equivalent to pairs (x,a) in ordinary inertia with x defined over Fq and φ(a)=a^q. The finite-presentation hypothesis makes a finite-order geometric automorphism; the displayed equation forces its order prime to p, so it uniquely determines the continuous homomorphism α with α(ξ)=a.
+
+Hypotheses: The hypotheses of the finite-field node.; A choice of profinite generator, explicitly part of the comparison.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/twisted-inertia-finite-field, AlgebraicModuliForArithmeticGeometry:R09.4/inertia-stack, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Any geometric point of a finite-type automorphism group scheme descends to a finite field, and its group of rational points is finite.
+
+2. Choose a power φ^r fixing a; then a=a^(q^r), so its order divides q^r−1 and is prime to p.
+
+3. A prime-to-p finite-order a defines the unique continuous homomorphism from μ̂ sending ξ to a.
+
+4. The equation gives Frobenius equivariance and the conjugating arrows agree.
+
+Acceptance:
+
+- The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.
+
+Sources: GWZ20B, Lemma2.10(b) and proof, pp.9–10: The omitted finite-order explanation is made explicit from the stated diagonal hypothesis.
+
+### Automorphisms in twisted inertia
+
+AlgebraicModuliForArithmeticGeometry:R09.4/twisted-inertia-automorphisms — lemma; unchecked.
+
+For a rational twisted-inertia object (x,a), its automorphism group is {β∈Aut_X(Fq)(x) | aβ=βa}. The rationality condition on β cannot be dropped.
+
+Hypotheses: A rational object of the finite-field twisted-inertia groupoid.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/twisted-inertia-generator
+
+Proof or construction:
+
+1. An arrow of the pair groupoid is a rational isomorphism of x intertwining the homomorphism.
+
+2. Intertwining its generator value is equivalent to intertwining the whole continuous homomorphism.
+
+Acceptance:
+
+- For the identity a=1 the automorphism group is all rational Aut(x).
+
+- For a rational transposition in BS3 over an odd-characteristic finite field, its centralizer has order2.
+
+- If Frobenius acts nontrivially on the geometric centralizer, only its Frobenius-fixed elements are rational automorphisms.
+
+Sources: GWZ20B, Lemma2.10(c), equation(10), p.10: This is the centralizer inside the rational automorphism group, not the geometric one.
+
+### Descent of module finite presentation
+
+AlgebraicModuliForArithmeticGeometry:R09.3/finite-presentation-module-descent — lemma; unchecked.
+
+If S is faithfully flat over a commutative ring R and S⊗R M is a finitely presented S-module, then M is finitely presented over R.
+
+Hypotheses: S is a faithfully flat commutative R-algebra.; M is an arbitrary R-module; no Noetherian hypothesis.
+
+Dependencies: mathlib:Module.Finite.of_finite_tensorProduct_of_faithfullyFlat, mathlib:Module.FinitePresentation.fg_ker_iff, mathlib:ModuleCat.preservesFiniteLimits_extendScalars_of_flat
+
+Proof or construction:
+
+1. Use the baseline finite-generation descent to choose a finite free surjection R^n→M.
+
+2. Flat scalar extension identifies S⊗R ker with the kernel of S^n→S⊗R M.
+
+3. Finite presentation of S⊗R M makes this extended kernel finite by the baseline kernel criterion.
+
+4. Descend finite generation of the kernel and apply the same criterion over R.
+
+Acceptance:
+
+- The statement covers arbitrary modules and keeps all morphisms, with the specified pullback coherence.
+
+Sources: SP05B0, Lemma35.7.3, affine case: The affine proof is made explicit using actual baseline kernel and finite-generation statements.
+
+### Finite local freeness and rank descend
+
+AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent — lemma; unchecked.
+
+For a quasi-coherent module M and an fpqc cover, if the pulled modules are finite locally free, then M is finite locally free. If their rank is the same fixed finite r, the descended module has rank r. In particular invertibility descends. This is not a descent theorem for arbitrary infinite-rank locally free modules.
+
+Hypotheses: An fpqc covering and a quasi-coherent module.; A finite rank r is specified when rank preservation is asserted.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.3/finite-presentation-module-descent, mathlib:Module.Flat.of_flat_tensorProduct, mathlib:Module.Flat.projective_of_finitePresentation, tauceti:TauCeti.SheafOfModules.IsInvertible, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Work on affine standard fpqc refinements, as in the general module-descent proof.
+
+2. Descend finite presentation and flatness, then use the pinned theorem to obtain finite projectivity.
+
+3. Use the finite-projective/local-free comparison; ranks agree after the residue-field extensions at points above every base point.
+
+4. Apply rank1 to the existing invertible-sheaf predicate.
+
+Acceptance:
+
+- The case r=0 gives the zero module and r=1 gives an invertible sheaf.
+
+- The assertion does not replace finite local freeness by infinite local freeness.
+
+Sources: SP05B2, Lemma35.7.6 and proof: Finiteness is essential; rank is compared on residue-field fibres.
+
+### Quasi-coherent modules on an algebraic space
+
+AlgebraicModuliForArithmeticGeometry:R09.3/space-quasicoherent-modules — definition; unchecked.
+
+For an algebraic space X, QCoh(X) is the full category of sheaves of modules on its small étale ringed site satisfying the pinned sheaf-of-modules quasi-coherence predicate. The category is equivalent to compatible quasi-coherent modules on its scheme étale charts, with specified pullback isomorphisms and composition equations. On a scheme this must agree with its ordinary Zariski quasi-coherent category.
+
+Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
+
+Dependencies: mathlib:SheafOfModules.IsQuasicoherent, AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pseudofunctor, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Use the supplier’s small étale site and structure sheaf without redefining algebraic spaces.
+
+2. Apply the existing quasi-coherence predicate on that ringed site.
+
+3. Identify restrictions to scheme charts and check their cartesian composition laws.
+
+API:
+
+- **SpaceQCoh.chart** (projection): Restriction to a scheme étale chart is quasi-coherent.
+
+- **SpaceQCoh.transition** (projection): A chart morphism gives a specified pullback isomorphism with unit/composition coherence.
+
+- **SpaceQCoh.schemeEquivalence** (compatibility): For a scheme X the category agrees with the pinned ordinary quasi-coherent category.
+
+Unit tests:
+
+- **SpaceQCohTests.affine** (compatibility): For Spec R, composition with the existing tildeEquiv identifies this category with ModuleCat R.
+
+- **SpaceQCohTests.identity** (degenerate): The identity atlas of a scheme recovers its existing quasi-coherent modules.
+
+- **SpaceQCohTests.infiniteModule** (non-example): Infinite free modules are allowed on every chart; this is not a coherent-only category.
+
+Uses:
+
+- Stacks0D24: Line-bundle and Picard descent must cover algebraic spaces, not only schemes.
+
+- Proper GAGA area finding: Étale-presentation descent supplies the coherent-subclass extension in its specified locally Noetherian setting.
+
+Acceptance:
+
+- The statement covers arbitrary modules and keeps all morphisms, with the specified pullback coherence.
+
+Sources: SP03G5, Definition66.29.1 and Lemma66.29.3: The scheme comparison is part of the definition’s acceptance, rather than a new competing scheme carrier.
+
+### Effective fpqc quasi-coherent descent on spaces
+
+AlgebraicModuliForArithmeticGeometry:R09.3/space-fpqc-quasicoherent-descent — theorem; unchecked.
+
+For any fpqc covering {Xi→X} of algebraic spaces, the canonical functor QCoh(X)→descent data is an equivalence, retaining all module maps and allowing arbitrary quasi-coherent modules.
+
+Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.3/space-quasicoherent-modules, AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. Refine each Xi by scheme étale charts, producing an fpqc refinement by schemes.
+
+2. For every scheme U→X in the small étale site, apply the scheme theorem to the fpqc cover {U×X Xi→U}.
+
+3. Full faithfulness makes the descended modules functorial in the input datum and supplies the comparisons for chart maps.
+
+4. Faithfulness verifies their unit and composition equations; glue them as a sheaf on the ringed étale site.
+
+5. Compare both composites with identity on objects and morphisms by the same chartwise full faithfulness.
+
+Acceptance:
+
+- The statement covers arbitrary modules and keeps all morphisms, with the specified pullback coherence.
+
+Sources: SP04W8, Proposition74.4.1, steps1–7: Use fpqc, not fppf, in step4 and supply the three verifications omitted there.
+
+### The relative Picard sheaf
+
+AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf — definition; unchecked.
+
+For f:X→B, define PicX/B as the fppf sheafification on Sch/B of T↦Pic(XT), where Pic denotes invertible modules up to isomorphism. Equivalently sheafify the quotient presheaf Pic(XT)/fT*Pic(T), since every line bundle on T is locally trivial. Tensor product supplies the abelian group law. This does not identify its T-points with actual line bundles modulo pullback without a separate descent theorem.
+
+Hypotheses: A specified morphism of algebraic spaces over a scheme S; Picard objects use invertible modules on the small étale site.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.3/space-quasicoherent-modules, tauceti:TauCeti.AlgebraicGeometry.LineBundleClass, DiamondsAndVStacks:D0/stackification, SchemeAndStackFoundations:SF.1, tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree
+
+Proof or construction:
+
+1. On schemes reuse the pinned line-bundle-class carrier, importing its Picard-group completion rather than rebuilding it.
+
+2. Form the presheaf by pullback and fppf sheafify as an abelian group.
+
+3. Show that the base line bundles vanish locally, giving the quotient-presheaf comparison.
+
+API:
+
+- **RelativePicard.ofLineBundle** (constructor): An invertible sheaf on XT gives a point of PicX/B(T).
+
+- **RelativePicard.pullback** (functoriality): Base morphisms pull classes back, respecting identity and composition.
+
+- **RelativePicard.baseLineBundle** (simp): A line bundle pulled back from T maps to zero.
+
+- **RelativePicard.quotientSheaf** (compatibility): Sheafifying Pic(XT)/Pic(T) gives the same fppf sheaf.
+
+Unit tests:
+
+- **PicardSheafTests.identity** (degenerate): For X=B and f=id, the relative Picard sheaf is zero, even when Pic(B) is nonzero.
+
+- **PicardSheafTests.baseChange** (compatibility): Restricting to Sch/T gives PicXT/T.
+
+- **PicardSheafTests.needSheafification** (non-example): Without a section or a separate obstruction-vanishing hypothesis, a point of the sheaf need not have a representative invertible sheaf on XT.
+
+Uses:
+
+- Schröer23 /182,/211,/230: Provides the correct relative Picard functor for the representation and Brauer-obstruction statements.
+
+- General A0 Picard representability: Keeps the general construction separate from the curve-specific imported Picard scheme.
+
+Acceptance:
+
+- The construction distinguishes a sheaf of classes from the Picard groupoid and keeps the precise universal-base-change hypotheses.
+
+Sources: SP0D24, Situation99.11.1: The presheaf values, their sheafification and pointwise quotients are distinct.
+
+### Base change of the relative Picard sheaf
+
+AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-base-change — lemma; unchecked.
+
+For a scheme T→B, the restriction of PicX/B to Sch/T is naturally PicXT/T. Equivalently it is the fibre product of the relative Picard sheaf over B with T.
+
+Hypotheses: A specified morphism of algebraic spaces over a scheme S; Picard objects use invertible modules on the small étale site.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf
+
+Proof or construction:
+
+1. The two presheaves agree under the canonical fibre-product identifications.
+
+2. Fppf covering families in Sch/T agree with their restrictions from Sch/B, so the sheafification comparisons are inverse.
+
+3. Tensor and morphism pullback laws agree.
+
+Acceptance:
+
+- The construction distinguishes a sheaf of classes from the Picard groupoid and keeps the precise universal-base-change hypotheses.
+
+Sources: SP0D24, Paragraph after Situation99.11.1: This is arbitrary base change, not an assertion that every chosen representative descends globally.
+
+### Kernel of passage to relative Picard classes
+
+AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-kernel — lemma; unchecked.
+
+If OT→fT*OXT is an isomorphism for every scheme T→B, then 0→Pic(T)→Pic(XT)→PicX/B(T) is exact. No surjectivity at the last arrow is asserted.
+
+Hypotheses: The universal global-functions isomorphism for all T→B.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf, AlgebraicModuliForArithmeticGeometry:R09.3/space-fpqc-quasicoherent-descent, AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. A base line bundle with trivial pullback is trivial by local trivialization and the universal global-functions isomorphism.
+
+2. A line bundle mapping to zero is fppf-locally trivial after base cover.
+
+3. Its overlap trivializations differ by units on XTij; the global-functions hypothesis identifies these with units on Tij.
+
+4. Their cocycle descends a base line bundle whose pullback is the original line bundle.
+
+Acceptance:
+
+- The construction distinguishes a sheaf of classes from the Picard groupoid and keeps the precise universal-base-change hypotheses.
+
+Sources: SP0D24, Lemma99.11.3 and proof: Only injectivity and the middle kernel are claimed, as printed.
+
+### Picard objects rigidified along a section
+
+AlgebraicModuliForArithmeticGeometry:A0-extension/section-rigidified-picard — definition; unchecked.
+
+For a section σ:B→X, a rigidified Picard object over T is an invertible sheaf L on XT and an isomorphism α:OT≅σT*L. An arrow is an isomorphism of line bundles preserving α. Under universal OT≅fT*OXT every such object has only the identity automorphism, and its isomorphism class lies in ker(σT*:Pic(XT)→Pic(T)). The trivialization is retained in the object, not discarded before descent.
+
+Hypotheses: A specified morphism of algebraic spaces over a scheme S; Picard objects use invertible modules on the small étale site.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.3/space-quasicoherent-modules, tauceti:TauCeti.SheafOfModules.IsInvertible, tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf, DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products
+
+Proof or construction:
+
+1. Use the core of the existing invertible-module category on charts.
+
+2. Add the displayed trivialization and define arrows by its commuting equation.
+
+3. Pull both data through the existing module pullback isomorphisms.
+
+API:
+
+- **RigidifiedPicard.lineBundle** (projection): The underlying invertible sheaf on XT.
+
+- **RigidifiedPicard.trivialization** (projection): The specified isomorphism OT≅σT*L.
+
+- **RigidifiedPicard.pullback** (functoriality): Pullback of rigidified objects retains its unit and composition constraints.
+
+Unit tests:
+
+- **RigidifiedPicardTests.identity** (degenerate): For X=B the unique class is the trivial line bundle with its rigidification.
+
+- **RigidifiedPicardTests.automorphisms** (non-example): An arbitrary scalar automorphism of L is not a rigidified arrow unless it restricts to1 along σ.
+
+- **RigidifiedPicardTests.P1** (compatibility): For P1 with its section, the classes of O(d) retain all integer degrees; rigidification does not force d=0 on X.
+
+Uses:
+
+- Stacks99.11.4: Normalizes overlap isomorphisms to satisfy the cocycle.
+
+- Schröer23 /182: A section eliminates the representative obstruction without assuming Brauer vanishing.
+
+Acceptance:
+
+- The construction distinguishes a sheaf of classes from the Picard groupoid and keeps the precise universal-base-change hypotheses.
+
+Sources: SP0D24, Definition before Lemma99.11.5, Lemma99.11.7: The setoid conclusion uses the universal global-functions hypothesis, not just the existence of σ.
+
+### Rigidified Picard objects have trivial automorphisms
+
+AlgebraicModuliForArithmeticGeometry:A0-extension/rigidified-picard-setoid — lemma; unchecked.
+
+Under universal OT≅fT*OXT, an automorphism of (L,α) is identity. Any two choices of α for the same L give isomorphic rigidified objects, because their ratio is a base unit.
+
+Hypotheses: σ is a section and the universal global-functions isomorphism holds.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:A0-extension/section-rigidified-picard, SchemeAndStackFoundations:SF.1
+
+Proof or construction:
+
+1. An invertible-sheaf automorphism is multiplication by a unique global unit on XT.
+
+2. The rigidification makes its restriction along σ equal1; the global-functions comparison therefore makes the unit1.
+
+3. For two trivializations, multiply by their ratio pulled back from T to obtain a rigidified isomorphism.
+
+Acceptance:
+
+- The construction distinguishes a sheaf of classes from the Picard groupoid and keeps the precise universal-base-change hypotheses.
+
+Sources: SP0D24, Lemma99.11.7 and proof: The setoid property is proved before the representative-descent argument.
+
+### A section splits the relative Picard sequence
+
+AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split — theorem; unchecked.
+
+If σ:B→X is a section and OT→fT*OXT is an isomorphism for all T→B, then 0→Pic(T)→Pic(XT)→PicX/B(T)→0 is split exact, with retraction σT*. Equivalently PicX/B(T)≅ker σT*, naturally in T.
+
+Hypotheses: A section and the universal global-functions isomorphism.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-kernel, AlgebraicModuliForArithmeticGeometry:A0-extension/section-rigidified-picard, AlgebraicModuliForArithmeticGeometry:A0-extension/rigidified-picard-setoid, AlgebraicModuliForArithmeticGeometry:R09.3/space-fpqc-quasicoherent-descent, AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent
+
+Proof or construction:
+
+1. The section gives σT*fT*=id, splitting Pic(XT) into base classes and the kernel.
+
+2. For locally matching kernel classes choose trivializations along σ and overlap isomorphisms.
+
+3. Scale each overlap isomorphism by its base-unit discrepancy along σ.
+
+4. The triple cocycle discrepancy restricts to1; the universal global-functions condition makes it1, so actual invertible-sheaf descent applies.
+
+5. Descend the trivializations as compatible maps and verify their inverses; this supplies the source’s small omitted detail.
+
+6. The kernel presheaf is thus an fppf sheaf and equals the relative Picard sheaf.
+
+Acceptance:
+
+- No hypothesis H2(B,Gm)=0 appears.
+
+- For P1 over B the section provides normalized representatives of every relative class.
+
+Sources: SP0D24, Lemma99.11.4 and proof: The proof needs normalized isomorphisms and their actual cocycle, not merely matching local Picard classes.
+
+## Open requests and proof gaps
+
+- **SchemeAndStackFoundations:SF.1**: Effective descent of sheaves of groups on slice sites, with restriction coherence; use D0 ordinary stack foundations and existing Mathlib sheaf carriers. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band.
+
+- **SchemeAndStackFoundations:SF.2**: For the chosen étale/fppf sites, enough injectives for abelian sheaves; cokernels give short exact sequences; A-torsor isomorphism classes identify naturally with the pinned derived Sheaf.H A 1, including coefficient changes and zero iff the torsor is trivial. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/torsor-representative-of-class, AlgebraicModuliForArithmeticGeometry:R09.4/injective-gerbe-neutral.
+
+- **SchemeAndStackFoundations:SF.2**: On slice sites for a covering object U, prove that restriction of an injective abelian sheaf stays injective via an exact left adjoint (extension by direct sums over fibres); identify these slice cohomology groups with the actual derived Sheaf.H. Supply the enough-injectives and H1-torsor comparisons. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/injective-gerbe-neutral.
+
+- **DiamondsAndVStacks:D0**: For a covering family, the augmented free-abelian sheaf Čech resolution is exact, and applying Hom(-,I) for injective I gives an acyclic cochain complex. No unproved general Čech=derived H2 equivalence is used. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/injective-gerbe-neutral.
+
+- **SchemeAndStackFoundations:SF.2**: Étale Kummer exactness for n invertible on X; the line-bundle/Gm-torsor equivalence and H1(Gm)=Pic(X); preserve the chosen site and restriction maps. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe-class.
+
+- **tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree**: The divisor-degree API on smooth proper curves, tensor-power additivity and degree(O(1) on P1)=1. Use divisor degree, with its Euler-characteristic comparison supplied at the separately owned Layer B. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/root-o1-nonneutral.
+
+- **SchemeAndStackFoundations:SF.2**: Exact inverse-image functors for the chosen base-induced étale/fppf geometric morphisms; preservation of the constant integer sheaf; the derived global-cohomology pullback map and its naturality for short exact sequences. Sheaf.H.map alone does not supply this. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/class-site-pullback.
+
+- **SchemeAndStackFoundations:SF.1**: The algebraic-space diagonal and quotient presentation interface for a finite étale groupoid; descend properties of the Isom and Aut schemes. The generic ordinary quotient stack is supplied by D0. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/finite-etale-gerbe.
+
+- **SchemeAndStackFoundations:SF.1**: Inverse limits of affine schemes represent the compatible limit of Isom functors, with the faithful-flatness statement used in BV12 Remark3.6 for affine fpqc gerbes over a field. Verify ring-map hypotheses rather than asserting faithful flatness for arbitrary nonaffine inverse limits. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe.
+
+- **SchemeAndStackFoundations:SF.1**: The fpqc Isom torsor and affine-group representability interface, including: a homomorphism of affine group schemes over a field is faithfully flat iff its coordinate Hopf-algebra map is injective; coordinate rings of affine inverse limits are filtered colimits. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-isom-epi, AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-limit.
+
+- **SchemeAndStackFoundations:SF.1**: Descent of sheaves with group actions and the torsor comparison isomorphism along covering families. This is sheaf/torsor descent, not arbitrary effectiveness for schemes. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor.
+
+- **SchemeAndStackFoundations:SF.1**: For an affine group scheme G over a field and a normal closed subgroup K, the fpqc sheaf quotient G/K is affine, G→G/K is faithfully flat and its kernel is K. Supply compatibility under field extension, and effective fpqc descent of affine schemes and their morphisms. For a finite étale target, the image quotient is finite étale. These are exact hypotheses of the affine-kernel rigidification, not an arbitrary free-action quotient theorem. Consumers: AlgebraicModuliForArithmeticGeometry:R09.5/affine-kernel-rigidification, AlgebraicModuliForArithmeticGeometry:R09.4/finite-etale-image.
+
+- **SchemeAndStackFoundations:SF.1**: For a finite étale group scheme K over a scheme C, BK→C is a proper étale algebraic-stack morphism; these properties descend fpqc-locally and survive base change. Distinguish a proper étale stack morphism from a representable finite étale morphism. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/relative-profinite-gerbe-finite-stages.
+
+- **SchemeAndStackFoundations:SF.1**: For arbitrary scheme fpqc covers, supply finite standard affine refinements over each affine open, stability under base change and common refinements; finite disjoint unions of affine schemes correspond to product rings, and a flat surjective affine morphism corresponds to a faithfully flat ring map. Supply ordinary open-cover gluing of sheaves of modules and stalkwise map equality. This does not request the current roadmap’s fpqc QCoh descent theorem itself. Consumers: AlgebraicModuliForArithmeticGeometry:R09.3/affine-fpqc-quasicoherent-descent, AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-faithful, AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-full, AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-effective.
+
+- **DiamondsAndVStacks:D0**: Construct ordinary mapping stacks of groupoid-valued stacks, with strong transformations and invertible modifications, and directed two-colimits followed by stackification on a fixed small site. Compare Hom(BG,X) over a chosen x with the groupoid of group-sheaf homomorphisms G→Aut(x). No higher-stack or algebraic finite-presentation assertion is requested. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/prime-to-p-twisted-inertia.
+
+- **SchemeAndStackFoundations:SF.1**: Finite-field Galois descent for finite-presentation automorphism group algebraic spaces and homomorphisms from finite étale group schemes; each geometric point of a finite-type group descends to a finite extension, and rational points over that finite field form a finite group. Apply the exact finite-presentation diagonal hypothesis of the twisted-inertia comparison. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/twisted-inertia-finite-field, AlgebraicModuliForArithmeticGeometry:R09.4/twisted-inertia-generator.
+
+- **SchemeAndStackFoundations:SF.1**: Identify finite projective modules on affine schemes with finite locally free sheaves, including the base-change law for fibre ranks and detection of rank1 under faithfully flat residue-field extension. Compare rank1 with the pinned TauCeti.SheafOfModules.IsInvertible predicate. Consumers: AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent.
+
+- **SchemeAndStackFoundations:SF.1**: The small étale ringed site of an algebraic space and its structure sheaf, cartesian module restrictions, and the equivalence between quasi-coherent modules on a scheme’s small étale site and its ordinary Zariski module category. Supply scheme refinements of space fpqc covers and representability of fibre products of scheme charts. Consumers: AlgebraicModuliForArithmeticGeometry:R09.3/space-quasicoherent-modules, AlgebraicModuliForArithmeticGeometry:R09.3/space-fpqc-quasicoherent-descent.
+
+- **SchemeAndStackFoundations:SF.1**: On the small étale site of algebraic spaces, supply invertible-sheaf pullback and its tensor/dual group laws, with comparison to the pinned scheme line-bundle-class commutative monoid. The relative Picard sheaf construction is owned here; do not replace it by a Picard set without base-change maps. Consumers: AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf.
+
+- **tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree**: Reuse the existing Layer A Picard group on schemes, with the tensor inverse from the dual line bundle and its compatibility with the pinned LineBundleClass commutative monoid. General relative representability and the algebraic-space extension are owned by this packet. Consumers: AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf.
+
+- **SchemeAndStackFoundations:SF.1**: On an algebraic space, identify automorphisms of an invertible module with global units, compatibly with pullback. Under the universal structure-sheaf isomorphism OT→fT*OXT, identify units as well. This supplies the unit calculations in relative and rigidified Picard descent. Consumers: AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-kernel, AlgebraicModuliForArithmeticGeometry:A0-extension/rigidified-picard-setoid.
+
+- **Compatibility of the intrinsic band over varying slice objects**: Stacks8.11.8 explicitly omits this final verification. Check independence under refinements and the composition law for all restriction maps before claiming the construction source-closed. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band.
+
+- **Contracted-product composition and universal property for change of band**: The notes display the injective case, with sign conventions abbreviated. Verify the relation, associativity, identity, and morphism-groupoid universal property for general u before treating the general construction as source-closed. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/change-band.
+
+- **Injective-band neutrality requires slice and cover proof leaves**: The course proof is explicitly incomplete and Milne’s split-map sketch is not a detailed replacement. The repaired proof has exact inputs: injectivity under slice restriction, all overlap torsor vanishings, and injective Čech acyclicity. Those supplier requests must be discharged before this node closes. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/injective-gerbe-neutral.
+
+- **The quotient torsor and the two inverse identities**: The pair quotient Pz must be shown to be a sheaf and an I/A-torsor. Construct F≃Lift(Pz) and prove class(Lift(P))=δ([P]) with the fixed sign. The course notes leave the inverse check as an exercise; no completed source proof was obtained for this general site statement. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/class-of-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/class-choice-independent, AlgebraicModuliForArithmeticGeometry:R09.4/h2-classification.
+
+- **Cofinal reindexing and affine-limit representability**: The compatible-family descent proof and the affine Isom-limit calculation must be transcribed in the pinned carriers. Prove cofinality for the precise pseudo-diagram conventions; BV12 explicitly distinguishes its Boolean 2-index from arbitrary ordinary cofiltered categories. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent, AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/profinite-etale-gerbe.
+
+- **Profinite torsor comparison**: Prove that inverse limits of the compatible finite torsors are fpqc G-torsors and that passage to finite quotients is inverse. The source convention motivates the comparison, but does not by itself formalize it; neither étale local triviality nor finite-presentation algebraicity is asserted for BG. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-gerbe.
+
+- **Centralizer action and coherent torsor descent**: GWZ20 abbreviates the equivariant coherence. Write every unit, composition and conjugation modification, and verify the centralizer cocycle and descent. The source-specific invariants cannot use only the set of equivalence classes of self-equivalences. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/quotient-gerbe-transgression.
+
+- **Cofinal finite-image pseudodiagram comparison**: Specify the indexing two-category of finite quotient maps with compatible modifications, construct its cofiltered refinements, and prove that its compatible-object limit is equivalent to the original profinite presentation. Finite products and image factorizations give common cones; coherence and the essential-surjectivity comparison remain separate unproved leaves. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-finite-presentation.
+
+- **Overlap/coalgebra comparison still needs carrier-level verification**: The formulas identify the intended comparison, but the inverse transition map, tensor pushout comparisons and equivalence with the baseline all-test-object DescentData have not been verified in Lean. The affine module descent chain depends on this exact construction, not just the existing comonadicity instance. Consumers: AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction.
+
+- **Upstream-stage prerequisite encoding**: The packet checker treats canonical tauceti:TauCetiRoadmap stage IDs as baseline declaration names. The two actual Layer A imports are therefore retained as typed upstreamPrerequisites, with exact requests, and included in the independent graph audit. They are not existing Lean declarations; restore ordinary prerequisites when the checker supports upstream stage IDs. Consumers: AlgebraicModuliForArithmeticGeometry:R09.4/root-o1-nonneutral, AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf.
+
+## Sources actually read
+
+Only the passages listed here were read; this is not a full-source coverage claim for the entire scope.
+
+- **SP06NY**: The Stacks Project authors. [Gerbes](https://stacks.math.columbia.edu/tag/06NY). Section 8.11, version accessed 2026-10-02. Read: Definitions 8.11.1, 8.11.4; Lemmas 8.11.2–8.11.8 and their proofs. Accessed 2026-10-02; SHA-256 784df742e6d6c147f90645bfef73a6ad9fa60cb34e9b2d3006401857ed88a32e.
+
+- **SP06PD**: The Stacks Project authors. [Gerbes and quotient stacks](https://stacks.math.columbia.edu/tag/06PD). Section 78.27, version accessed 2026-10-02. Read: Lemmas 78.27.1–78.27.2 and proofs; warning that these stacks need not be algebraic. Accessed 2026-10-02; SHA-256 a4eab26748859af3d26e55c73177c294c74e19e8d5cfa1811a5f5b85913cb07b.
+
+- **SP0CJZ**: The Stacks Project authors. [Second cohomology and gerbes](https://stacks.math.columbia.edu/tag/0CJZ). Section 21.11, version accessed 2026-10-02. Read: Lemma 21.11.1 and proof, including the H1-on-overlaps hypotheses. Accessed 2026-10-02; SHA-256 efd205b3de1fcb89659b32c6825ca04c035aed23506d23b6d7378f34ceca5a63.
+
+- **OG07**: Martin Olsson (lectures); Anton Geraschenko, Tony Várilly, Ed Carter, Anne Shiu and class contributors (notes). [Notes for Math 274 — Stacks](https://stacky.net/files/written/Stacks/Stacks.pdf). Spring 2007 course; undated evolving PDF, exact bytes pinned here. Read: Front matter p.4; §31 Definitions 31.1, Remarks 31.2/31.5, Lemmas 31.3–31.6, Theorem 31.7, Remark 31.8; explicit starred incompleteness at pp.124–127. Accessed 2026-10-02; SHA-256 716bf95c7a200194d5fd1f2af48372253fde5ea65487b5d362bcccb5e0b7426a.
+
+- **MILNE15**: James S. Milne. [Étale Cohomology, corrected Chapter IV: The Brauer Group](https://jmilne.org/math/Books/ECpup4.pdf). Author correction dated 23 November 2015, original Princeton 1980 chapter. Read: Chapter IV §2, pp.8–9: gerbes, bandings and derived-H2 classification sketch; exact-sequence and injective-vanishing route. Accessed 2026-10-02; SHA-256 1aef1301a554ae7c3dd153aea53e8c8a1bdeefe3a5b6c561a280857816618bb7.
+
+- **BREEN94**: Lawrence Breen. [On the classification of 2-gerbes and 2-stacks](https://www.numdam.org/item/AST_1994__225__1_0.pdf). Astérisque 225 (1994). Read: Introduction on hypercovers versus ordinary open covers; §2.13–2.14, pp.54–57: Picard torsors and abelian gerbes. Accessed 2026-10-02; SHA-256 04505e408bc436c4eb2281c8517cc41234ceebadb8df4c52f95aeaf449967801.
+
+- **BV12**: Niels Borne and Angelo Vistoli. [The Nori fundamental gerbe of a fibered category](https://arxiv.org/pdf/1204.1260v5). arXiv:1204.1260v5, 23 December 2012; published J. Algebraic Geometry 24 (2015). Read: §3 Definitions 3.2–3.5 and Remark 3.4; Proposition 3.1, Remark 3.6, Propositions 3.7–3.8 and proofs; §4 Definitions 4.1, 4.4, 4.6, Proposition 4.5. Accessed 2026-10-02; SHA-256 c2a803a6a63837670f8d5eb1b2fa19606b74ab59c81335c6df9b631fa9b21eed.
+
+- **BV19**: Niels Borne and Angelo Vistoli. [Fundamental gerbes](https://arxiv.org/pdf/1610.07341v3). arXiv:1610.07341v3, 20 June 2017; published Algebra & Number Theory 13 (2019), 531–576. Read: §3 Proposition 3.1 and Corollary 3.2; Definitions 3.4, 3.8, Remarks 3.5–3.7; Propositions 3.9–3.11 with proofs. Accessed 2026-10-02; SHA-256 820bc690bb5753e990b580716b93aff2326d873ae03b7bf2aee8e9e935e55ed6.
+
+- **BRES24**: Giulio Bresciani. [On the birational section conjecture with strong birationality assumptions](https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf). Inventiones Mathematicae 235 (2024), 129–150; online 26 September 2023. Read: Front matter; §2 pp.133–135 on fpqc classifying stacks, profinite étale gerbes and locally full finite-stage refinements; Lemma 2 and proof. Accessed 2026-10-02; SHA-256 77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148.
+
+- **GWZ20**: Michael Groechenig, Dimitri Wyss and Paul Ziegler. [Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration](https://link.springer.com/content/pdf/10.1007/s00222-020-00957-8.pdf). Inventiones Mathematicae 221 (2020), 505–596. Read: §2.2 Definition 2.6, pp.514–515; §2.2.1 neutral-gerbe automorphism groupoid; §2.2.2 Construction 2.8, p.518; §2.3 Kummer sequence, p.519; §2.1 Definition2.1 and Remark2.3, pp.512–513; §4.2 Definition4.5 and Lemmas4.6–4.7 with proofs, pp.539–540. Accessed 2026-10-02; SHA-256 f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07.
+
+- **AJT11**: Elena Andreini, Yunfeng Jiang and Hsian-Hua Tseng. [Gromov–Witten theory of root gerbes I: structure of genus 0 moduli spaces](https://arxiv.org/pdf/0907.2087v2). arXiv:0907.2087v2, 31 January 2011. Read: §2.2 pp.5–6, Definition2.2, Proposition2.3, Remarks2.4–2.5 and the distinction from roots of sections. Accessed 2026-10-02; SHA-256 8d07faa51c1917d2e1f0ffe8c9b55b6f79a031fb1e8ec4a158ef058d86351bbc.
+
+- **CHARLES16**: François Charles. [Birational boundedness for holomorphic symplectic varieties, Zarhin’s trick for K3 surfaces, and the Tate conjecture](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf). Annals of Mathematics 184 (2016), 487–526. Read: Front matter; §4.1 p.519, the μr-gerbe of simple twisted sheaves citing Lieblich–Maulik–Snowden Proposition3.4.1. Accessed 2026-10-02; SHA-256 3425f2697b3600f7920f1bdce67681339d06a20dfaf39ea4fdc2a0baebc940e2.
+
+- **GWZ20B**: Michael Groechenig, Dimitri Wyss and Paul Ziegler. [Geometric stabilisation via p-adic integration](https://arxiv.org/pdf/1810.06739v2). arXiv:1810.06739v2, 28 October 2019 (PDF cover 29 October). Read: §3.1 p.16, gerbe conventions, Lemma3.2, and the restricted quasi-projective Čech-to-derived comparison; §2.4 Definition2.9 and Lemma2.10 with proof, pp.9–10; prime-to-characteristic indexing; §5.1 Construction5.1, p.26. Accessed 2026-10-02; SHA-256 0139fc5ac0c4109e049b52c8bd298312954f84e63b29a4cb10b34cf66491a5f2.
+
+- **BV19P**: Niels Borne and Angelo Vistoli. [Fundamental gerbes](https://msp.org/ant/2019/13-3/ant-v13-n3-p01-s.pdf). Published Algebra & Number Theory 13 (2019), 531–576; DOI10.2140/ant.2019.13.531. Read: Proposition3.10 and proof, p.540, collated with arXiv v3 p.10. Accessed 2026-10-02; SHA-256 64fca3767f3c6cbd02fbf84f1fb456c7fda30c7bc95ddc8c8c84cd3bd8629111.
+
+- **SP023T**: The Stacks Project authors. [Fpqc descent of quasi-coherent sheaves](https://stacks.math.columbia.edu/tag/023T). Version accessed 2026-10-02. Read: Proposition35.5.2 and its full proof. Accessed 2026-10-02; SHA-256 ca9e9d7885ae6176696fac333dbb27776f82c57818c2be11b4cb674135ec6508.
+
+- **SP023S**: The Stacks Project authors. [Affine fpqc descent of quasi-coherent sheaves](https://stacks.math.columbia.edu/tag/023S). Version accessed 2026-10-02. Read: Lemma35.5.1 and its full proof. Accessed 2026-10-02; SHA-256 ed24079eb360cc593bf8c7b473873c56f3eb6194957c0a19dff051279e2d58f4.
+
+- **SP023E**: The Stacks Project authors. [Open-cover descent of quasi-coherent sheaves](https://stacks.math.columbia.edu/tag/023E). Version accessed 2026-10-02. Read: Lemma35.2.4 and its proof. Accessed 2026-10-02; SHA-256 5135f4c1fbb1cad92a08ea0e970a889a030984be299b76f26133870dca7e6e71.
+
+- **SP023N**: The Stacks Project authors. [Faithfully flat descent for modules](https://stacks.math.columbia.edu/tag/023N). Version accessed 2026-10-02. Read: Proposition35.3.9 and its proof; explicit omissions of the equivalence and inverse checks. Accessed 2026-10-02; SHA-256 b8d9a77257d45cfdf1068727990ce4b697f54f311b97b80511c9ed85a5f37cbd.
+
+- **SP01BG**: The Stacks Project authors. [Pullback of quasi-coherent modules](https://stacks.math.columbia.edu/tag/01BG). Version accessed 2026-10-02. Read: Lemma17.10.4 and its proof. Accessed 2026-10-02; SHA-256 f68bf1a4192d956d97ff7493ae1c8696d66b89432f25a8dfeb14285cf2537c6a.
+
+- **SP01I6**: The Stacks Project authors. [Quasi-coherent sheaves on affines](https://stacks.math.columbia.edu/tag/01I6). Version accessed 2026-10-02. Read: Lemma26.7.3 and its proof. Accessed 2026-10-02; SHA-256 a84434c8fbcd635e95c75c323faea1f5e1f47367b3ef88e161f424d8ef10cc3d.
+
+- **SP03G5**: The Stacks Project authors. [Quasi-coherent sheaves on algebraic spaces](https://stacks.math.columbia.edu/tag/03G5). Version accessed 2026-10-02. Read: Definition66.29.1, Lemmas66.29.2–66.29.7 and proofs. Accessed 2026-10-02; SHA-256 77482e373a8d7168affeb85119eb59094943dd3418abc864558699bdc48a9f0b.
+
+- **SP04W8**: The Stacks Project authors. [Fpqc descent of quasi-coherent sheaves on spaces](https://stacks.math.columbia.edu/tag/04W8). Version accessed 2026-10-02. Read: Proposition74.4.1 and full proof strategy, with the fpqc/fppf slip in step4. Accessed 2026-10-02; SHA-256 73b3474abccacb2ecd47229ff2322316368c60fa5f90112cb351a1f1b2fe315a.
+
+- **SP05B0**: The Stacks Project authors. [Descent of finite presentation](https://stacks.math.columbia.edu/tag/05B0). Version accessed 2026-10-02. Read: Lemma35.7.3 and its affine reference. Accessed 2026-10-02; SHA-256 6c99f3e956fdfdee18972fc6a4bfdd63f0bb44e981a5cc16d5086cb1667b56fb.
+
+- **SP05B1**: The Stacks Project authors. [Descent of flatness](https://stacks.math.columbia.edu/tag/05B1). Version accessed 2026-10-02. Read: Lemma35.7.5 and its affine reference. Accessed 2026-10-02; SHA-256 8bd34044a42cd72c86e46c1c4ee345b8b6e495d98836fb7881efd62e99bb6261.
+
+- **SP05B2**: The Stacks Project authors. [Descent of finite local freeness](https://stacks.math.columbia.edu/tag/05B2). Version accessed 2026-10-02. Read: Lemma35.7.6 and proof. Accessed 2026-10-02; SHA-256 4cbed905704a364eaded1c82d97dc23a78d6fdca51096d9753c7be72311c5dd6.
+
+- **SP0D24**: The Stacks Project authors. [The Picard functor](https://stacks.math.columbia.edu/tag/0D24). Version accessed 2026-10-02. Read: Situation99.11.1, Lemmas99.11.2–99.11.7, Proposition99.11.8, Lemma99.11.9 with proofs. Accessed 2026-10-02; SHA-256 d0d28a2cc8b6be6b6d0874c36e7ce653c25484bb337af1b67253eb6c71c2e3e7.
+
+- **SP0D02**: The Stacks Project authors. [The Picard stack](https://stacks.math.columbia.edu/tag/0D02). Version accessed 2026-10-02. Read: Lemma99.10.1, Proposition99.10.2 and their proofs. Accessed 2026-10-02; SHA-256 613260ff0de0fc52e9dcec0b9192fb421e550bfb79322980a88a1a0fe7aef495.
+
+## Suggested-file correspondence
+
+The file prototypes the gerbe predicate, chosen band, band-preserving strong transformations, neutralization data, component-family data, injective boundary, restricted QCoh pullback and pseudofunctor, affine tensor comparison and finite-presentation descent against actual baseline types. The remaining ledger names every omitted node, API item and test. Some require unavailable site, quotient, torsor, algebraic-stack or relative-Picard carriers; others still need a signature or coherence transcription. Every omission is unfinished work. These obligations do not assert that their types or conditions already exist.
+
+- **GerbeTests.classifying**: The imported classifying stack BA of any sheaf of groups is a gerbe.
+
+- **GerbeTests.rootNotNeutral**: For algebraically closed k and n>1 invertible in k, the nth-root gerbe of O(1) on P1 is a gerbe with no global object.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/relative-gerbe**: For a morphism F:X→Y of stacks in groupoids, IsRelativeGerbe(F) means objects of Y lift locally up to isomorphism and, for x,x′ over U, every isomorphism F(x)→F(x′) locally lifts to x→x′. Equivalently, after replacing X by the equivalent iso-comma stack over Y, its projection is a gerbe on the site of Y. Mere local essential surjectivity is insufficient.
+
+- **IsRelativeGerbe.localLift**: Every target object admits local lifts up to isomorphism.
+
+- **IsRelativeGerbe.isom_epi**: Every induced map of Isom sheaves is locally surjective.
+
+- **IsRelativeGerbe.rectification_iff**: The iso-comma projection is a gerbe iff the two local lifting conditions hold.
+
+- **RelativeGerbeTests.identity**: The identity of any stack is a relative gerbe.
+
+- **RelativeGerbeTests.classifying**: For the trivial action, [S/G]→S is a relative gerbe for a sheaf of groups G.
+
+- **RelativeGerbeTests.subgroup**: On an algebraically closed field, BH→BG for a proper subgroup H<G of finite constant groups is locally essentially surjective but not a relative gerbe.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/relative-pullback**: In a 2-cartesian square X′→X over Y′→Y, if X→Y is a relative gerbe, so is X′→Y′.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/relative-composition**: The composite of two relative gerbe morphisms is a relative gerbe.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/relative-descent**: If Y′→Y is locally essentially surjective and X×Y Y′→Y′ is a relative gerbe, then X→Y is a relative gerbe.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band**: If every automorphism sheaf of a gerbe is abelian, glue these sheaves through their choice-independent local conjugation maps to an abelian sheaf A on C with an A-banding of the gerbe. The intrinsic sheaf is canonical up to unique compatible sheaf isomorphism; an identification with a preselected A remains additional data.
+
+- **IntrinsicBand.autIso**: The intrinsic band restricted to U is Aut(x) for every x over U.
+
+- **IntrinsicBand.pullback**: Restricting the intrinsic band to V gives the intrinsic band of the restricted gerbe.
+
+- **IntrinsicBand.unique**: Compatible automorphism-sheaf identifications determine the intrinsic band up to unique isomorphism.
+
+- **IntrinsicBandTests.BA**: The intrinsic band of BA for abelian A is A.
+
+- **IntrinsicBandTests.trivial**: The intrinsic band of a terminal groupoid-valued stack is the zero abelian sheaf.
+
+- **IntrinsicBandTests.unfixed**: An isomorphism of the intrinsic band with A does not identify two A-bandings differing by a nontrivial automorphism of A as band-preserving objects.
+
+- **BandPreserving.modificationGroupoid**: Compatible modifications are morphisms of a groupoid, with componentwise inverse.
+
+- **BandMorphismTests.inversion**: For the constant band Z/3Z, the self-equivalence induced by a↦−a preserves the underlying gerbe but does not preserve the fixed band.
+
+- **BandMorphismTests.modifications**: For BA over an algebraically closed point and A constant Z/3Z, the identity band-preserving equivalence has three automorphisms as a transformation, not one.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor**: For x,y over U in an A-banded gerbe, the existing sheafHom(x,y) is the sheaf Isom(x,y), since every arrow is invertible. It is an A|U-torsor with p·a=b_y(a)∘p. In the abelian setting this also equals p∘b_x(a). It is locally nonempty and the torsor comparison Isom(x,y)×A|U→Isom(x,y)×Isom(x,y), (p,a)↦(p,p·a), is an isomorphism of sheaves.
+
+- **Gerbe.isomTorsor**: The Hom sheaf of x,y carries the indicated A|U-torsor structure.
+
+- **Gerbe.isomTorsor_action**: p·a is postcomposition with b_y(a), also precomposition with b_x(a).
+
+- **Gerbe.isomTorsor_pullback**: Restriction to V identifies this torsor with Isom(x|V,y|V), respecting the action.
+
+- **IsomTorsorTests.self**: Isom(x,x) is the trivial A|U-torsor through the band, with identity corresponding to zero.
+
+- **IsomTorsorTests.emptySections**: A nontrivial A-torsor P in BA need not have Isom(A,P)(U) nonempty, although the Isom sheaf is a torsor.
+
+- **IsomTorsorTests.composition**: Composing p·a with an isomorphism y→z gives the transported isomorphism acted on by the same a.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe**: For an abelian sheaf A, specialize the imported groupoid quotient to BA, the stack of A-torsors with equivariant isomorphisms. Identify Aut(P) with A|U through translations, which is independent of a local trivialization since A is commutative. This supplies its canonical band. The trivial torsor provides a global object over a terminal site object S.
+
+- **ClassifyingGerbe.band**: BA carries the canonical A-banding.
+
+- **ClassifyingGerbe.trivial**: The trivial A-torsor is a global object of BA.
+
+- **ClassifyingGerbe.autIso**: Aut(P)≅A|U as sheaves, compatible with pullbacks and conjugation.
+
+- **ClassifyingGerbeTests.zero**: B0 is equivalent to the terminal groupoid-valued stack.
+
+- **ClassifyingGerbeTests.point**: For algebraically closed k and A constant Z/3Z, BA(k) has one isomorphism class with automorphism group Z/3Z.
+
+- **ClassifyingGerbeTests.inertia**: BA for nonzero A is not equivalent to the sheaf of its isomorphism classes.
+
+- **NeutralizationTests.BA**: The trivial A-torsor neutralizes BA.
+
+- **NeutralizationTests.root**: The nth-root gerbe of O(1) on P1 has no neutralization for n>1 invertible in the algebraically closed ground field.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence**: For x∈F(S), the functor y↦Isom(x|U,y) is a band-preserving equivalence F≃BA; its quasi-inverse twists x by the A-torsor, with descent.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences**: For an A-gerbe with a neutralization x, its groupoid of band-preserving self-equivalences is equivalent to the groupoid of A-torsors on the base. A torsor P acts on BA by Q↦Q⊗A P. An equivariant isomorphism P≅P′ corresponds to an invertible modification. Composition corresponds to contracted product, and the identity to the trivial torsor.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/change-band**: For a homomorphism u:A→B and an A-gerbe F, extend each Isom(x,y) by the contracted product with B; glue composition using the abelian band equation, then apply the imported stackification. The resulting u_*F is a B-gerbe with a u-compatible morphism F→u_*F. It is universal for u-compatible morphisms from F to B-gerbes, at the level of morphism groupoids.
+
+- **Gerbe.changeBand**: Produces the B-gerbe u_*F and its u-compatible map.
+
+- **Gerbe.changeBand_lift**: Composition with F→u_*F is an equivalence on groupoids of band-compatible morphisms.
+
+- **Gerbe.changeBand_comp**: v_*(u_*F)≃(v∘u)_*F coherently, and id_*F≃F.
+
+- **ChangeBandTests.identity**: Extension along id_A recovers F preserving its band.
+
+- **ChangeBandTests.BA**: Extension sends BA to BB with the induced map on torsors.
+
+- **ChangeBandTests.zero**: Extension to the zero band gives a gerbe equivalent to the terminal stack.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/lifting-gerbe**: For a short exact sequence 0→A→B→D→0 of abelian sheaves and a D-torsor P, Lift(P)(U) is the groupoid of pairs (Q,α), where Q is a B|U-torsor and α:Q×B D≅P|U is an equivariant isomorphism. Arrows are B-torsor isomorphisms commuting with α. This is an A-gerbe: the stack is a 2-fibre product of the imported torsor stacks; local triviality of P gives local objects; the kernel A gives its band. The sheaf epimorphism B→D, not surjectivity on all section groups, supplies local isomorphisms.
+
+- **LiftingGerbe.obj**: A B-torsor Q and an isomorphism Q×B D≅P give an object.
+
+- **LiftingGerbe.autIso**: Automorphisms of (Q,α) form the sheaf A, through the kernel inclusion.
+
+- **LiftingGerbe.neutral_iff**: Lift(P) is neutral iff P is the pushforward of a B-torsor.
+
+- **LiftingGerbe.pullback**: Restriction of Lift(P) is equivalent to the lifting gerbe of the restricted exact sequence and torsor.
+
+- **LiftingGerbeTests.trivial**: Lift of the trivial D-torsor is a neutral A-gerbe.
+
+- **LiftingGerbeTests.surjectiveSheaf**: The Kummer sequence with n invertible is locally exact even when units are not all nth powers in the global section ring.
+
+- **LiftingGerbeTests.zeroKernel**: If A=0, a lifting gerbe of P is equivalent to the terminal stack because B→D is an isomorphism.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/torsor-representative-of-class**: Choose a monomorphism A→I into an injective abelian sheaf and let D be its cokernel. For α∈H2(A), take the inverse dimension-shift class in H1(D), choose a D-torsor representing it, and construct Lift(P). This constructs an A-gerbe for α, with the choice of P irrelevant up to band-preserving equivalence. Enough injectives, cokernel exactness and the derived-H1 torsor comparison are inputs, not assumptions that every section of D lifts globally.
+
+- **Gerbe.ofH2**: A derived H2 class produces an A-gerbe through an injective embedding and a lifting torsor.
+
+- **Gerbe.ofH2_equiv**: Isomorphic representative D-torsors give equivalent A-gerbes.
+
+- **Gerbe.ofH2_zero**: The zero class produces a gerbe equivalent to BA.
+
+- **H2RepresentativeTests.zero**: Choose P the trivial D-torsor for α=0; its trivial B-lift neutralizes Lift(P).
+
+- **H2RepresentativeTests.changeTorsor**: An isomorphism P≅P′ induces an equivalence of lifting gerbes, respecting the chosen band.
+
+- **H2RepresentativeTests.nonzero**: A nonzero Kummer boundary δ(O(1)) on P1 cannot be represented by a neutral root gerbe.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/injective-gerbe-neutral**: On a site with terminal object S and the slice-site injective restriction and Čech-acyclicity inputs below, every gerbe banded by an injective abelian sheaf I has an object over S.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/class-of-gerbe**: For an A-gerbe F, choose an injective embedding A→I and neutralize the I-gerbe obtained by extension of band. For a neutralizing object z, let Pz be the sheaf of isomorphism classes of pairs (x,φ) with x∈F(U) and φ:u_*x≅z|U; quotient arrows are isomorphisms in F commuting with φ. This is a D=I/A-torsor. Define class(F)=δ([Pz])∈H2(A), with δ the pinned connecting map and the contraction convention fixed above.
+
+- **Gerbe.class**: The class is an element of the pinned derived H2(A).
+
+- **Gerbe.class_equivalence**: A band-preserving gerbe equivalence leaves the class unchanged.
+
+- **Gerbe.class_changeNeutralization**: Changing z changes Pz by an I-torsor pushforward, whose δ-image is zero.
+
+- **GerbeClassTests.BA**: The canonical neutral object gives class(BA)=0.
+
+- **GerbeClassTests.lift**: The class of Lift(P) is δ([P]) for the fixed short exact sequence.
+
+- **GerbeClassTests.banding**: Changing a chosen band by a coefficient automorphism applies that automorphism to the H2 class; band choices are not silently forgotten.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/class-choice-independent**: The derived class of an A-gerbe is independent of the injective embedding A→I and the chosen neutralization of u_*F.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/h2-classification**: For a fixed abelian sheaf A on the chosen site with terminal object, band-preserving equivalence classes of A-gerbes are naturally in bijection with the pinned derived H2(A). The class and lifting-gerbe constructions are inverse. The zero class is precisely the neutral class. Equivalence fixes the A-banding; the domain is not unbanded gerbes modulo arbitrary band automorphisms.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe**: For a scheme X, an invertible sheaf L and n>0 invertible on X, RootGerbe_n(L)(T) consists of line bundles M on T and isomorphisms φ:M⊗n≅L|T, with arrows ρ satisfying φ=ψ∘ρ⊗n. It is the lifting gerbe for 1→μn→Gm→Gm→1 and the Gm-torsor of L, hence a μn-gerbe. No section of L is part of the data. The root stack of a line bundle with a section is a different construction owned by FunctionFieldArithmeticPartII:key/root-stacks.
+
+- **RootGerbe.obj**: A pair (M,φ:M⊗n≅L) gives an object.
+
+- **RootGerbe.band**: An automorphism is scalar multiplication by a μn section.
+
+- **RootGerbe.pullback**: RootGerbe_n(L)×X T≃RootGerbe_n(L|T), respecting its band.
+
+- **RootGerbeTests.one**: For n=1 the root gerbe is equivalent to X.
+
+- **RootGerbeTests.trivialLine**: The root gerbe of O_X is equivalent to B_Xμn using its trivial nth root.
+
+- **RootGerbeTests.noSection**: For n>1 the root gerbe has μn inertia at every geometric point, whereas a divisor root stack has trivial inertia outside the divisor.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe-class**: class(RootGerbe_n(L))=δ([L]) in derived H2(Xét,μn), with δ the connecting map of the Kummer sequence and with the same sign convention as the lifting-gerbe construction.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/root-o1-nonneutral**: Let k be algebraically closed and n>1 invertible in k. RootGerbe_n(O(1)) on P1_k is locally nonempty, but has no global object and its derived Kummer class is nonzero.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/class-coefficient-map**: For u:A→B, class(u_*F)=H2(u)(class(F)), where H2(u) is the pinned same-site coefficient map.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/class-site-pullback**: For a geometric morphism of the chosen sheaf topoi induced by base change T→S, with exact inverse-image functor on abelian sheaves and the derived global-cohomology comparison, pullback carries an A-banding to an f* A-banding and class(f*F)=f*(class(F)). The map on H2 is the change-of-site map furnished by that geometric morphism, not Sheaf.H.map on coefficients alone.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/finite-etale-gerbe**: A finite étale gerbe over k is an fpqc gerbe admitting a flat presentation R⇒U with both U and R finite étale k-schemes. Equivalently it is a finite gerbe whose base change to a separable splitting extension is BG for a finite étale group scheme G. Finite geometric automorphism groups alone are not the definition: retain the finite algebraic presentation and gerbe condition.
+
+- **FiniteEtaleGerbe.presentation**: There is a presentation by a finite étale groupoid R⇒U.
+
+- **FiniteEtaleGerbe.baseChange**: Any field extension preserves finite étale gerbes.
+
+- **FiniteEtaleGerbe.autFiniteEtale**: Every object over a field extension has finite étale automorphism group scheme.
+
+- **FiniteGerbeTests.trivial**: Spec(k), with the trivial group, is a finite étale gerbe.
+
+- **FiniteGerbeTests.constant**: BG for a finite constant group G is a finite étale gerbe, including nonabelian G.
+
+- **FiniteGerbeTests.muP**: In characteristic p, Bμp is a finite fppf gerbe but is not a finite étale gerbe.
+
+- **GerbeLimitFamily.pullback**: Restriction along T′→T applies to objects, transitions and arrows with inherited coherence.
+
+- **LimitFamilyTests.singleton**: For a singleton index, the groupoid of compatible families is equivalent to the sole stack fibre.
+
+- **LimitFamilyTests.identityTower**: For the constant identity system BA, its compatible-family groupoid is equivalent to BA(T), retaining A(T) automorphisms.
+
+- **LimitFamilyTests.classesInsufficient**: For the constant identity system B(Z/3Z) over an algebraically closed point, the inverse system of singleton isomorphism-class sets has no record of the three automorphisms of a compatible object.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent**: The compatible-family construction for a small diagram of fpqc stacks is an fpqc stack in groupoids.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe**: For a cofiltered system of affine fpqc gerbes over a field, if its compatible-family stack has an object over some nonempty k-scheme X, then the 2-limit is an affine fpqc gerbe. This assumption is not a k-rational neutralization and is not suppressed.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/profinite-etale-gerbe**: A profinite étale gerbe over k is an fpqc gerbe with a specified presentation, up to coherent equivalence, as the compatible-family 2-limit of a small cofiltered system of finite étale gerbes. Its data include the transition functors, coherence and comparison equivalence. It is not defined by a sequence of isomorphism classes and is not asserted algebraic or of finite presentation.
+
+- **ProfiniteEtaleGerbe.projection**: There is a morphism to each finite stage, with transition 2-isomorphisms.
+
+- **ProfiniteEtaleGerbe.objectEquiv**: The fibre over T is the groupoid of compatible finite-stage objects and arrows.
+
+- **ProfiniteEtaleGerbe.cofinal**: A cofinal reindexing of the presentation yields an equivalent compatible-family gerbe; all coherence is transported.
+
+- **ProfiniteGerbeTests.finite**: A finite étale gerbe is a profinite étale gerbe via a singleton presentation.
+
+- **ProfiniteGerbeTests.identity**: The constant identity presentation recovers the original finite gerbe and its automorphism groupoid.
+
+- **ProfiniteGerbeTests.zHat**: The fpqc classifying gerbe B(Z_hat) is profinite étale but is not an algebraic stack of finite presentation.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/locally-full**: For affine fpqc gerbes Γ,Δ over a field k, a morphism f:Γ→Δ is locally full if for every extension ℓ/k and every x∈Γ(ℓ), Autℓ(x)→Autℓ(f(x)) is faithfully flat as a morphism of group schemes. This is not surjectivity of ℓ-valued points. For finite étale groups after separable splitting it becomes surjectivity of the finite geometric group homomorphism.
+
+- **LocallyFull.autFaithfullyFlat**: Every induced automorphism-group map has faithful flatness.
+
+- **LocallyFull.classifying_iff**: BG→BH is locally full iff G→H is faithfully flat.
+
+- **LocallyFull.baseChange**: The property is preserved by every field extension.
+
+- **LocallyFullTests.identity**: The identity of an affine gerbe is locally full.
+
+- **LocallyFullTests.square**: Over R, the square map Gm→Gm is faithfully flat but its map R×→R× misses every negative element; point surjectivity is not the definition.
+
+- **LocallyFullTests.subgroup**: For a proper subgroup H of a finite constant G, BH→BG is faithful but not locally full.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-isom-epi**: For affine fpqc gerbes over a field, f is locally full iff every IsomΓ(x,y)→IsomΔ(fx,fy) is an epimorphism of fpqc sheaves.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-relative**: A morphism of affine fpqc gerbes is locally full iff it is a relative gerbe. A faithful locally full map is an equivalence.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-limit**: Let Γ→lim_iΔi be a morphism of affine fpqc gerbes. If each Γ→Δi is locally full, then Γ→lim_iΔi is locally full.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-gerbe**: Over a field k, let G=lim_m (Z/m!Z)_k as affine group schemes, with the quotient transition maps. Its fpqc torsor stack BG is an fpqc gerbe and is presented as the 2-limit of B(Z/m!Z)_k. A compatible family of finite torsors yields a G-torsor by affine inverse limit with its action; the torsor comparison and local triviality must be verified in the fpqc topology.
+
+- **ProfiniteIntegersGerbe.finiteProjection**: Each quotient G→Z/m!Z induces BG→B(Z/m!Z).
+
+- **ProfiniteIntegersGerbe.trivial**: The trivial G-torsor neutralizes BG over k.
+
+- **ProfiniteIntegersGerbe.aut**: The automorphism group scheme of the trivial object is G.
+
+- **ZHatGerbeTests.finiteLevel**: At each finite level the stabilizer is the finite étale group Z/m!Z.
+
+- **ZHatGerbeTests.compatibleArrows**: An automorphism of the compatible trivial object is a compatible family of finite residues, that is G.
+
+- **ZHatGerbeTests.notFinitePresentation**: BG is not an algebraic stack of finite presentation because G is not of finite type.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-not-finite-type**: The affine k-group G=lim_m (Z/m!Z)_k is not of finite type over k.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-not-algebraic-fp**: The fpqc gerbe B(Z_hat)_k is not an algebraic stack of finite presentation. In fact its affine-gerbe stabilizer criterion excludes algebraicity.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-isom-transport**: Let η be a band-preserving self-equivalence of an A-gerbe F. For an isomorphism φ:x→y, the map Isom(x,ηx)→Isom(y,ηy), p↦η(φ)∘p∘φ⁻¹, is an A-torsor isomorphism independent of φ. These maps compose and commute with restrictions.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor**: For a band-preserving self-equivalence η of any A-gerbe F, choose local objects x and glue the A-torsors Isom(x,ηx) using their choice-independent transport maps. The resulting A-torsor Pη is defined globally without a neutralization of F. Invertible modifications η⇒η′ induce equivariant isomorphisms Pη≅Pη′.
+
+- **GerbeSelfEquivalence.torsor**: Associates a global A-torsor Pη to η.
+
+- **GerbeSelfEquivalence.torsor_local**: For any local object x, Pη restricts to Isom(x,ηx).
+
+- **GerbeSelfEquivalence.torsor_map**: A modification induces a torsor isomorphism, with identity and composition laws.
+
+- **SelfEquivalenceTorsorTests.identity**: For η=id, Pη is the trivial A-torsor, even if F has no global object.
+
+- **SelfEquivalenceTorsorTests.neutral**: For a chosen neutralization this agrees with evaluating the induced equivalence of BA on its trivial torsor.
+
+- **SelfEquivalenceTorsorTests.nonNeutralRoot**: The identity of the nonneutral μn-root gerbe of O(1) still gives the trivial μn-torsor; this construction cannot require a global root.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences**: For any A-gerbe F, the groupoid of band-preserving self-equivalences is equivalent to the groupoid of A-torsors. The functor is η↦Pη; its inverse twists local objects by a torsor and descends them. Modifications correspond to equivariant isomorphisms. The assertion holds without a chosen neutralization.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/quotient-gerbe-transgression**: Let a finite constant group Γ act on Y, let A be a commutative band on the chosen site, and let α be an A-gerbe with Γ-equivariant structure ηγ and its unit/composition modifications. On each fixed locus Yγ, ηγ becomes a self-equivalence, hence determines an A-torsor Pγ. The centralizer CΓ(γ) acts coherently on Pγ; descend it to [Yγ/CΓ(γ)]. The sum over conjugacy representatives gives the torsor on I[Y/Γ].
+
+- **GerbeTransgression.component**: The restriction to [Yγ/CΓ(γ)] is the descended Pγ.
+
+- **GerbeTransgression.conjugation**: Conjugate γ give canonically equivalent torsors through equivariant coherence.
+
+- **GerbeTransgression.pullback**: Equivariant base changes preserving the band commute with the construction.
+
+- **TransgressionTests.identity**: The identity inertia component gets the trivial A-torsor through ηe and its unit modification.
+
+- **TransgressionTests.trivialEquivariance**: A neutral gerbe with trivial Γ-equivariant structure gives trivial component torsors.
+
+- **TransgressionTests.modification**: An isomorphism of coherent equivariant gerbes induces an isomorphism of the descended inertia torsors, not merely equality of H1 classes.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/inertia-stack**: For a stack X in groupoids on (C,J), IX(U) is the groupoid of pairs (x,a) with x∈X(U) and a∈Aut(x); an arrow φ:(x,a)→(y,b) is an isomorphism φ:x→y such that b∘φ=φ∘a. It is equivalent to the 2-fibre product of the diagonal X→X×X with itself. Its projection to X has fibre Aut(x), with its group law.
+
+- **InertiaStack.obj**: An object x and an automorphism a determine an inertia object.
+
+- **InertiaStack.hom_iff**: An isomorphism φ is an inertia arrow exactly when b∘φ=φ∘a.
+
+- **InertiaStack.fibre**: The fibre of IX→X at x identifies with the Aut(x) sheaf and its group law.
+
+- **InertiaTests.space**: For a sheaf regarded as a stack with trivial automorphisms, inertia is that sheaf.
+
+- **InertiaTests.abelianClassifying**: For commutative A, IBA≃BA×A as stacks.
+
+- **InertiaTests.S3**: The inertia fibre of BS3 at its trivial torsor is S3; the inertia stack is not a stack with one discrete point for each conjugacy class.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/quotient-inertia-components**: For a finite constant group Γ acting on Y, I[Y/Γ]≃⊔_[γ] [Yγ/CΓ(γ)], where one representative is chosen from each conjugacy class and Yγ is the fixed-point sheaf (with representability whenever supplied). Changing representatives gives the canonical equivalent description. No tameness or invertibility of |Γ| is required for this groupoid formula.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/canonical-affine-factorization**: For f:Γ→Δ between affine fpqc gerbes over k, a canonical factorization consists of an affine fpqc gerbe E, maps g:Γ→E and h:E→Δ, an invertible modification h∘g≅f, proof that g is locally full, and proof that h is faithful on all fibre groupoids. Equivalence of such data includes the compatible modification over Δ.
+
+- **AffineGerbeFactorization.sourceMap**: The first map g is locally full.
+
+- **AffineGerbeFactorization.targetMap**: The second map h is faithful.
+
+- **AffineGerbeFactorization.factorIso**: The composite h∘g is identified with f by an invertible modification.
+
+- **CanonicalFactorTests.identity**: The identity has E=Γ and both maps identity.
+
+- **CanonicalFactorTests.kernel**: For a group morphism G→H the neutral factor is B(G/ker f)→BH.
+
+- **CanonicalFactorTests.notTarget**: The inclusion B1→B(Z/2Z) cannot have E=B(Z/2Z), because its first map is not locally full.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.5/affine-kernel-rigidification**: For f:Γ→Δ between affine fpqc gerbes, there is a canonical factorization Γ→E→Δ. Choose an affine fpqc cover U→Γ, put R=U×ΓU, and let K be the normal stabilizer-kernel sheaf. The quotient sheaf R/K carries an induced groupoid structure over U; its torsor stack E is an affine fpqc gerbe. Affineness of R/K follows after a faithfully flat field extension by identifying it with the quotient of an affine group scheme by a normal subgroup and then descending affineness. No general fpqc stackification in unrestricted universes is presumed.
+
+- **AffineKernelRigidification.factor**: Produces the displayed canonical factorization of f.
+
+- **AffineKernelRigidification.homSheaf**: For source objects x,y the target Isom sheaf is IsomΓ(x,y)/Kx.
+
+- **AffineKernelRigidification.neutral**: For BG→BH the construction identifies with B(G/ker f)→BH.
+
+- **KernelRigidificationTests.zeroKernel**: A faithful f has a trivial kernel and E≃Γ.
+
+- **KernelRigidificationTests.allKernel**: For BG→Spec k, the quotient gerbe is Spec k.
+
+- **KernelRigidificationTests.notOrbitSet**: The quotient B(Z/4Z)→B(Z/2Z) retains Z/2Z as inertia; its middle gerbe is not an orbit-set sheaf.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/canonical-factorization-unique**: Two canonical factorizations of the same f:Γ→Δ have equivalent middle affine gerbes over Δ, compatibly with the maps from Γ.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/finite-etale-image**: For a profinite étale fpqc gerbe Γ over k and a morphism Γ→Δ to a finite étale gerbe, its canonical affine factor E is finite étale, and Γ→E is locally full. The faithful map E→Δ is representable.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-finite-presentation**: Every profinite étale fpqc gerbe Γ has a cofinal finite étale presentation Γ≃lim E_i with each projection Γ→E_i locally full. The presentation and comparison include the transition isomorphisms and their coherence.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/relative-profinite-gerbe-finite-stages**: Let f:Γ→Δ be a locally full map of profinite étale fpqc gerbes over k. Choose synchronized cofinal finite presentations Γ≃lim E_i and Δ≃lim D_i with locally full projections and maps E_i→D_i. Each E_i→D_i is a proper étale relative gerbe. For any scheme C→Δ the pullback Γ×Δ C→C is the compatible two-limit of E_i×D_i C→C, each a proper étale relative gerbe.
+
+- **affine_pullback_tensor.naturality**: For every module map the square between the two displayed pullback comparisons commutes.
+
+- **affine_pullback_tensor.comp**: For R→A→B the two successive comparisons agree with the composite comparison through the baseline tensor and pullback associators.
+
+- **AffinePullbackTests.identity**: For R→R the comparison agrees with the baseline pullback and scalar-extension unit isomorphisms.
+
+- **AffinePullbackTests.localization**: For R→R[f⁻¹], the comparison recovers restriction of tilde M to the basic open D(f).
+
+- **AffinePullbackTests.nonflat**: The comparison also holds for Z→Z/2Z without a flatness hypothesis; it identifies pullback with right-exact tensor extension, not an exact functor.
+
+- **QCohPseudofunctor.affine**: The affine comparison through tildeEquiv identifies arrow maps with extendScalars.
+
+- **QCohPseudoTests.identity**: The unit map is the baseline pullbackId restricted to the full subcategory.
+
+- **QCohPseudoTests.infiniteModule**: The direct sum of countably many copies of R on Spec R is admitted even though it is not finitely generated when R is a field.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction**: For a faithfully flat ring map R→A, the usual module descent category, with an A⊗R A-linear transition isomorphism and its cocycle on A⊗R A⊗R A, is equivalent to the coalgebras of the comonad extendScalars(R→A)∘restrictScalars(R→A). For a datum θ:N⊗R A→A⊗R N the coaction is d(n)=θ(n⊗1); conversely d(n)=Σ a_i⊗n_i gives θ(n⊗a)=Σ a_i⊗a n_i. Interpret both formulas through the tensor universal property; no selected decomposition is part of the data.
+
+- **ModuleDescentCoalgebra.equivalence**: An equivalence preserving the underlying A-module and its maps.
+
+- **ModuleDescentCoalgebra.coaction**: The coaction sends n to θ(n⊗1).
+
+- **ModuleDescentCoalgebra.canonical**: The canonical datum on A⊗R M becomes the comparison coalgebra of M.
+
+- **ModuleCoalgebraTests.identity**: For R=A, descent and coalgebras are equivalent to ModuleCat R.
+
+- **ModuleCoalgebraTests.product**: For the diagonal R→R×R the transition identifies the two component modules and recovers one R-module.
+
+- **ModuleCoalgebraTests.cocycle**: Arbitrary pairwise invertible maps that fail the triple-overlap equation do not define a coalgebra.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence**: For a faithfully flat commutative ring map R→A, the functor M↦(A⊗R M,canonical datum) is an equivalence from ModuleCat R to module descent data. An inverse is the equalizer M={n∈N | 1⊗n=θ(n⊗1)}, and the comparison A⊗R M→N is an isomorphism.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.3/affine-fpqc-quasicoherent-descent**: For a finite standard fpqc covering {Ui→S} of an affine scheme S, the canonical functor from QCoh(S) to baseline descent data for the cover is an equivalence.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-faithful**: For an arbitrary fpqc cover {Ui→S} and maps a,b:M→N between quasi-coherent modules on S, equality of all pullbacks implies a=b.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-full**: For an arbitrary fpqc cover {Ui→S}, every compatible family of maps f_i:M|Ui→N|Ui is the pullback of a unique map M→N.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-effective**: Every quasi-coherent module descent datum on an arbitrary fpqc covering {Ui→S} is effective, with a specified isomorphism from the canonical datum of the glued sheaf to the original datum.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent**: For every scheme S and every fpqc covering {Ui→S}, the canonical functor QCoh(S)→QCohPseudofunctor.DescentData(Ui→S) is an equivalence. There is no Noetherian, coherence, finite-generation, finite-presentation, separatedness or smoothness condition.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/finite-quotient-presentation**: For a Deligne–Mumford stack X, a finite quotient presentation is an algebraic space Y, an action of a finite constant group Γ which is generically fixed-point free, and an equivalence X≃[Y/Γ]. A finite abelian quotient presentation additionally requires Γ abelian. These are properties witnessed by presentations, not a claim that every Deligne–Mumford stack is a finite quotient.
+
+- **FiniteQuotientPresentation.equivalence**: The specified stack equivalence to the action quotient.
+
+- **FiniteQuotientPresentation.genericFree**: The Γ action is free on the specified dense open.
+
+- **FiniteAbelianQuotientPresentation.toFinite**: An abelian presentation forgets to a finite quotient presentation.
+
+- **FiniteQuotientTests.trivial**: An algebraic space has a presentation by the trivial group.
+
+- **FiniteQuotientTests.sign**: The sign action of Z/2Z on A1 in characteristic different from2 is generically free, though inertia at0 is nontrivial.
+
+- **FiniteQuotientTests.trivialAction**: The displayed trivial nontrivial-group action on a nonempty Y is not generically free and does not give a presentation of this prescribed kind.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/commuting-quotient-exchange**: If fppf group schemes G1,G2 over S act on the S-scheme N through commuting actions, then [[N/G1]/G2]≃[N/(G1×G2)]≃[[N/G2]/G1] as S-stacks. These are equivalences of groupoids over every test scheme T, natural in T.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/torsor-twist-space**: For a commutative étale S-group scheme Γ, an S-scheme N with Γ-action and a Γ-torsor T, the anti-diagonal action on N×S T is free and its quotient N_T=(N×S T)/Γ is an algebraic space. The action through T descends to a Γ-action on N_T. This construction depends on the torsor and its arrows, not on a bare symbol representing its H1 class.
+
+- **TorsorTwist.quotient**: The quotient is an algebraic space with its descended Γ-action.
+
+- **TorsorTwist.trivial**: A chosen trivialization of T identifies N_T with N equivariantly.
+
+- **TorsorTwist.mapTorsor**: A Γ-torsor isomorphism T≅T′ induces a Γ-equivariant space isomorphism N_T≅N_T′.
+
+- **TwistTests.trivial**: For Γ=1 the twist is N.
+
+- **TwistTests.freeTorsor**: For N=Γ with its regular action, the twist is equivariantly the torsor T.
+
+- **TwistTests.arrows**: An automorphism of T can act nontrivially on N_T; quotienting the construction to a set of H1 classes loses these arrows.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/torsor-twist-quotient-equivalence**: Under the torsor-twist hypotheses, [N/Γ]≃[N_T/Γ] over S, retaining the groupoids of objects and their arrows.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/twisted-group-action-quotient**: Let A,B be smooth group algebraic spaces over S, with A acting on B by automorphisms and compatible A and B actions on an algebraic space X. For an A-torsor ρ, let Xρ=X×Aρ and Bρ=B×Aρ. Then [(X×Sρ)/(B⋊A)]≃[Xρ/Bρ] naturally in the torsor and equivariant maps.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/prime-to-p-twisted-inertia**: For a stack X over a perfect field k of characteristic p, let μ̂=lim_(n,p)=1 μn with transition μmn→μn given by the mth power. Define Iμ̂X as the two-colimit, with stackification on the chosen site, of the mapping stacks Hom(Bμn,X), indexed by positive n prime to p. The transition functor is precomposition with Bμmn→Bμn. These are all maps of stacks, not only representable maps, and the evaluation at the trivial torsor gives the projection to X. No algebraic finite-presentation assertion for this colimit is included.
+
+- **TwistedInertia.project**: The projection forgets the homomorphism and retains its object in X.
+
+- **TwistedInertia.finiteStage**: Every map Bμn→X with n prime to p supplies an object.
+
+- **TwistedInertia.fibre**: The fibre at x is the filtered system of Hom(μn,Aut(x)), with conjugation on arrows.
+
+- **TwistedInertiaTests.space**: For an algebraic space regarded as a stack, Iμ̂X≃X.
+
+- **TwistedInertiaTests.zeroHom**: The trivial homomorphism is retained; the definition is not the representable cyclotomic inertia substack.
+
+- **TwistedInertiaTests.pGroup**: For the constant group Z/pZ in characteristic p, all homomorphisms from μ̂ are trivial, but Iμ̂B(Z/pZ) still retains the classifying-stack automorphisms Z/pZ.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/twisted-inertia-finite-field**: For X/Fq with diagonal of finite presentation, Iμ̂X(Fq) is equivalent to the groupoid of pairs (x,α), with x∈X(Fq), a continuous homomorphism α:μ̂(Fqbar)→Aut(x_Fqbar) for the discrete topology, and Frobenius equivariance φα=αφ. An arrow is an Fq-isomorphism of objects intertwining α. The domain Frobenius acts by qth power.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/twisted-inertia-generator**: For a chosen profinite generator ξ of μ̂(Fqbar), the preceding groupoid is equivalent to pairs (x,a) in ordinary inertia with x defined over Fq and φ(a)=a^q. The finite-presentation hypothesis makes a finite-order geometric automorphism; the displayed equation forces its order prime to p, so it uniquely determines the continuous homomorphism α with α(ξ)=a.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.4/twisted-inertia-automorphisms**: For a rational twisted-inertia object (x,a), its automorphism group is {β∈Aut_X(Fq)(x) | aβ=βa}. The rationality condition on β cannot be dropped.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent**: For a quasi-coherent module M and an fpqc cover, if the pulled modules are finite locally free, then M is finite locally free. If their rank is the same fixed finite r, the descended module has rank r. In particular invertibility descends. This is not a descent theorem for arbitrary infinite-rank locally free modules.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.3/space-quasicoherent-modules**: For an algebraic space X, QCoh(X) is the full category of sheaves of modules on its small étale ringed site satisfying the pinned sheaf-of-modules quasi-coherence predicate. The category is equivalent to compatible quasi-coherent modules on its scheme étale charts, with specified pullback isomorphisms and composition equations. On a scheme this must agree with its ordinary Zariski quasi-coherent category.
+
+- **SpaceQCoh.chart**: Restriction to a scheme étale chart is quasi-coherent.
+
+- **SpaceQCoh.transition**: A chart morphism gives a specified pullback isomorphism with unit/composition coherence.
+
+- **SpaceQCoh.schemeEquivalence**: For a scheme X the category agrees with the pinned ordinary quasi-coherent category.
+
+- **SpaceQCohTests.affine**: For Spec R, composition with the existing tildeEquiv identifies this category with ModuleCat R.
+
+- **SpaceQCohTests.identity**: The identity atlas of a scheme recovers its existing quasi-coherent modules.
+
+- **SpaceQCohTests.infiniteModule**: Infinite free modules are allowed on every chart; this is not a coherent-only category.
+
+- **AlgebraicModuliForArithmeticGeometry:R09.3/space-fpqc-quasicoherent-descent**: For any fpqc covering {Xi→X} of algebraic spaces, the canonical functor QCoh(X)→descent data is an equivalence, retaining all module maps and allowing arbitrary quasi-coherent modules.
+
+- **AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf**: For f:X→B, define PicX/B as the fppf sheafification on Sch/B of T↦Pic(XT), where Pic denotes invertible modules up to isomorphism. Equivalently sheafify the quotient presheaf Pic(XT)/fT*Pic(T), since every line bundle on T is locally trivial. Tensor product supplies the abelian group law. This does not identify its T-points with actual line bundles modulo pullback without a separate descent theorem.
+
+- **RelativePicard.ofLineBundle**: An invertible sheaf on XT gives a point of PicX/B(T).
+
+- **RelativePicard.pullback**: Base morphisms pull classes back, respecting identity and composition.
+
+- **RelativePicard.baseLineBundle**: A line bundle pulled back from T maps to zero.
+
+- **RelativePicard.quotientSheaf**: Sheafifying Pic(XT)/Pic(T) gives the same fppf sheaf.
+
+- **PicardSheafTests.identity**: For X=B and f=id, the relative Picard sheaf is zero, even when Pic(B) is nonzero.
+
+- **PicardSheafTests.baseChange**: Restricting to Sch/T gives PicXT/T.
+
+- **PicardSheafTests.needSheafification**: Without a section or a separate obstruction-vanishing hypothesis, a point of the sheaf need not have a representative invertible sheaf on XT.
+
+- **AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-base-change**: For a scheme T→B, the restriction of PicX/B to Sch/T is naturally PicXT/T. Equivalently it is the fibre product of the relative Picard sheaf over B with T.
+
+- **AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-kernel**: If OT→fT*OXT is an isomorphism for every scheme T→B, then 0→Pic(T)→Pic(XT)→PicX/B(T) is exact. No surjectivity at the last arrow is asserted.
+
+- **AlgebraicModuliForArithmeticGeometry:A0-extension/section-rigidified-picard**: For a section σ:B→X, a rigidified Picard object over T is an invertible sheaf L on XT and an isomorphism α:OT≅σT*L. An arrow is an isomorphism of line bundles preserving α. Under universal OT≅fT*OXT every such object has only the identity automorphism, and its isomorphism class lies in ker(σT*:Pic(XT)→Pic(T)). The trivialization is retained in the object, not discarded before descent.
+
+- **RigidifiedPicard.lineBundle**: The underlying invertible sheaf on XT.
+
+- **RigidifiedPicard.trivialization**: The specified isomorphism OT≅σT*L.
+
+- **RigidifiedPicard.pullback**: Pullback of rigidified objects retains its unit and composition constraints.
+
+- **RigidifiedPicardTests.identity**: For X=B the unique class is the trivial line bundle with its rigidification.
+
+- **RigidifiedPicardTests.automorphisms**: An arbitrary scalar automorphism of L is not a rigidified arrow unless it restricts to1 along σ.
+
+- **RigidifiedPicardTests.P1**: For P1 with its section, the classes of O(d) retain all integer degrees; rigidification does not force d=0 on X.
+
+- **AlgebraicModuliForArithmeticGeometry:A0-extension/rigidified-picard-setoid**: Under universal OT≅fT*OXT, an automorphism of (L,α) is identity. Any two choices of α for the same L give isomorphic rigidified objects, because their ratio is a base unit.
+
+- **AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split**: If σ:B→X is a section and OT→fT*OXT is an isomorphism for all T→B, then 0→Pic(T)→Pic(XT)→PicX/B(T)→0 is split exact, with retraction σT*. Equivalently PicX/B(T)≅ker σT*, naturally in T.
