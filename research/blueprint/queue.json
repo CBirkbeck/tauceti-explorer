@@ -35153,7 +35153,8 @@
     "REV-PAPER-YUN-ZHANG-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-YUN-ZHANG-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4090"
   },
   {
    "id": "RT-PAPER-GAO-HABEGGER-19",
@@ -37630,8 +37631,9 @@
     "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4163"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4163",
+   "finishedAt": "2026-10-02T07:07:59Z"
   },
   {
    "id": "RT-PAPER-XU-ZHU-22",
