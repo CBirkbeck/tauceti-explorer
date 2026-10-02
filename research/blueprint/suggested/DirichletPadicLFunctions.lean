@@ -27922,3 +27922,288 @@ example  (R : Type u) [Ring R] (g : (∀ p : Nat.Primes, (WittVector p.val (Galo
       kubertCartanLimitRepresentation 1 R g (kubertCartanGlobalValue R a φ) := by sorry
 end
 end DirichletPadic.SuggestedKubertGlobalCartanActionTests
+
+/- Actual weighted distribution quotient transport and Cartan equivariance. -/
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic
+universe u v t
+variable {X : Type u} [AddCommGroup X] {Y : Type v} [AddCommGroup Y]
+
+noncomputable def kubertRootEquiv (e : X ≃+ Y) (m : ℕ) (a : X) :
+    {b : X // m • b = a} ≃ {b : Y // m • b = e a} := by sorry
+
+lemma kubertRootEquiv_coe (e : X ≃+ Y) (m : ℕ) (a : X)
+    (b : {b : X // m • b = a}) : (kubertRootEquiv e m a b).val = e b.val := by sorry
+
+lemma kubertRootEquiv_symm_coe (e : X ≃+ Y) (m : ℕ) (a : X)
+    (b : {b : Y // m • b = e a}) : ((kubertRootEquiv e m a).symm b).val = e.symm b.val := by sorry
+
+lemma kubertRootEquiv_sum {B : Type t} [AddCommMonoid B] (e : X ≃+ Y) (m : ℕ) (a : X)
+    [Fintype {b : X // m • b = a}] [Fintype {b : Y // m • b = e a}]
+    (f : Y → B) :
+    (∑ b : {b : X // m • b = a}, f (e b.val)) =
+      ∑ b : {b : Y // m • b = e a}, f b.val := by sorry
+
+lemma kubertRelation_map_equiv (e : X ≃+ Y) (w m : ℕ) (a : X)
+    [Fintype {b : X // m • b = a}] [Fintype {b : Y // m • b = e a}] :
+    FreeAbelianGroup.map e (kubertRelation w m a) = kubertRelation w m (e a) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic
+universe u v t
+variable {X : Type u} [AddCommGroup X] {Y : Type v} [AddCommGroup Y]
+variable {Z : Type t} [AddCommGroup Z]
+variable (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b = a}]
+variable [∀ (n : S) (a : Y), Fintype {b : Y // (n.val : ℕ) • b = a}]
+variable [∀ (n : S) (a : Z), Fintype {b : Z // (n.val : ℕ) • b = a}]
+
+noncomputable def kubertQuotientHom (e : X ≃+ Y) :
+    (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+
+      (FreeAbelianGroup Y ⧸ kubertRelations (X := Y) S w) := by sorry
+
+lemma kubertQuotientHom_of (e : X ≃+ Y) (a : X) :
+    kubertQuotientHom S w e (QuotientAddGroup.mk' (kubertRelations (X := X) S w)
+      (FreeAbelianGroup.of a)) =
+    QuotientAddGroup.mk' (kubertRelations (X := Y) S w) (FreeAbelianGroup.of (e a)) := by sorry
+
+lemma kubertQuotientHom_refl : kubertQuotientHom S w (AddEquiv.refl X) =
+    AddMonoidHom.id (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) := by sorry
+
+lemma kubertQuotientHom_trans (e : X ≃+ Y) (f : Y ≃+ Z) :
+    kubertQuotientHom S w (e.trans f) = (kubertQuotientHom S w f).comp (kubertQuotientHom S w e) := by sorry
+
+noncomputable def kubertQuotientEquiv (e : X ≃+ Y) :
+    (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ≃+
+      (FreeAbelianGroup Y ⧸ kubertRelations (X := Y) S w) := by sorry
+
+lemma kubertQuotientEquiv_of (e : X ≃+ Y) (a : X) :
+    kubertQuotientEquiv S w e (QuotientAddGroup.mk' (kubertRelations (X := X) S w)
+      (FreeAbelianGroup.of a)) =
+    QuotientAddGroup.mk' (kubertRelations (X := Y) S w) (FreeAbelianGroup.of (e a)) := by sorry
+
+lemma kubertQuotientEquiv_symm (e : X ≃+ Y) :
+    (kubertQuotientEquiv S w e).symm = kubertQuotientEquiv S w e.symm := by sorry
+
+lemma kubertQuotientEquiv_refl : kubertQuotientEquiv S w (AddEquiv.refl X) =
+    AddEquiv.refl (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) := by sorry
+
+lemma kubertQuotientEquiv_trans (e : X ≃+ Y) (f : Y ≃+ Z) :
+    kubertQuotientEquiv S w (e.trans f) = (kubertQuotientEquiv S w e).trans (kubertQuotientEquiv S w f) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+universe u
+variable (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : AddCircle (1 : ℚ)), Fintype {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}]
+
+noncomputable def kubertCartanQuotientEquiv (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : (FreeAbelianGroup (AddCircle (1 : ℚ)) ⧸ kubertRelations (X := AddCircle (1 : ℚ)) S w) ≃+ (FreeAbelianGroup (AddCircle (1 : ℚ)) ⧸ kubertRelations (X := AddCircle (1 : ℚ)) S w) := by sorry
+
+lemma kubertCartanQuotientEquiv_of (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a : AddCircle (1 : ℚ)) :
+    kubertCartanQuotientEquiv S w g
+      (QuotientAddGroup.mk' (kubertRelations (X := AddCircle (1 : ℚ)) S w) (FreeAbelianGroup.of a)) =
+    QuotientAddGroup.mk' (kubertRelations (X := AddCircle (1 : ℚ)) S w)
+      (FreeAbelianGroup.of (kubertCartanGlobalCircleEquiv g a)) := by sorry
+
+lemma kubertCartanQuotientEquiv_one : kubertCartanQuotientEquiv S w 1 = AddEquiv.refl (FreeAbelianGroup (AddCircle (1 : ℚ)) ⧸ kubertRelations (X := AddCircle (1 : ℚ)) S w) := by sorry
+
+lemma kubertCartanQuotientEquiv_mul (g h : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanQuotientEquiv S w (g*h) =
+      (kubertCartanQuotientEquiv S w h).trans (kubertCartanQuotientEquiv S w g) := by sorry
+
+lemma kubertCartanQuotientEquiv_symm (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanQuotientEquiv S w g).symm = kubertCartanQuotientEquiv S w g⁻¹ := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+universe u
+
+lemma kubertCartanDistribution_intertwines (R : Type u) [Ring R] (S : Set ℕ+)
+    [∀ (n : S) (a : AddCircle (1 : ℚ)), Fintype {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}]
+    (φ : AddCircle (1 : ℚ) → R)
+    (hφ : ∀ (n : S) (a : AddCircle (1 : ℚ)) [Fintype {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}],
+      (∑ b : {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}, φ b.val)=φ a) (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanDistribution R S φ hφ).comp (kubertCartanQuotientEquiv S 0 g).toAddMonoidHom =
+      (kubertCartanLimitRepresentation 1 R g).toAddMonoidHom.comp (kubertCartanDistribution R S φ hφ) := by sorry
+
+lemma kubertCartanDistribution_equivariant (R : Type u) [Ring R] (S : Set ℕ+)
+    [∀ (n : S) (a : AddCircle (1 : ℚ)), Fintype {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}]
+    (φ : AddCircle (1 : ℚ) → R)
+    (hφ : ∀ (n : S) (a : AddCircle (1 : ℚ)) [Fintype {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}],
+      (∑ b : {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}, φ b.val)=φ a) (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (z : FreeAbelianGroup (AddCircle (1 : ℚ)) ⧸ kubertRelations (X := AddCircle (1 : ℚ)) S 0) :
+    kubertCartanDistribution R S φ hφ (kubertCartanQuotientEquiv S 0 g z) =
+      kubertCartanLimitRepresentation 1 R g (kubertCartanDistribution R S φ hφ z) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertQuotientActionTests
+open scoped Classical BigOperators
+noncomputable section
+universe u
+-- root_negation_forward
+example : (kubertRootEquiv (AddEquiv.neg (ZMod 6)) 2 2 ⟨1, by decide⟩).val=(5 : ZMod 6) := by sorry
+-- root_negation_inverse
+example : ((kubertRootEquiv (AddEquiv.neg (ZMod 6)) 2 2).symm ⟨2, by decide⟩).val=(4 : ZMod 6) := by sorry
+-- empty_root_fiber_retained
+example : IsEmpty {b : ZMod 6 // 2 • b=1} ∧ IsEmpty {b : ZMod 6 // 2 • b=(AddEquiv.neg (ZMod 6)) 1} := by sorry
+-- quotient_hom_empty_set
+example : kubertQuotientHom (∅ : Set ℕ+) 2 (AddEquiv.neg (ZMod 5)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 2) (FreeAbelianGroup.of (1)))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 2) (FreeAbelianGroup.of (4))) := by sorry
+-- quotient_hom_fixes_point_zero
+example : kubertQuotientHom ({1} : Set ℕ+) 2 (AddEquiv.neg (ZMod 5)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) ({1} : Set ℕ+) 2) (FreeAbelianGroup.of (0)))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) ({1} : Set ℕ+) 2) (FreeAbelianGroup.of (0))) := by sorry
+-- quotient_hom_whole_root_relation
+example : kubertQuotientHom ({2} : Set ℕ+) 0 (AddEquiv.neg (ZMod 6)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 6) ({2} : Set ℕ+) 0) (FreeAbelianGroup.of (2)))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 6) ({2} : Set ℕ+) 0) (FreeAbelianGroup.of (5)))+(QuotientAddGroup.mk' (kubertRelations (X := ZMod 6) ({2} : Set ℕ+) 0) (FreeAbelianGroup.of (2))) := by sorry
+-- quotient_equiv_inverse_on_difference
+example : (kubertQuotientEquiv (∅ : Set ℕ+) 0 (AddEquiv.neg (ZMod 5))).symm (kubertQuotientEquiv (∅ : Set ℕ+) 0 (AddEquiv.neg (ZMod 5)) ((QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2)))))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2))) := by sorry
+-- quotient_equiv_signed_difference
+example : kubertQuotientEquiv (∅ : Set ℕ+) 0 (AddEquiv.neg (ZMod 5)) ((QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2))))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (3))) := by sorry
+-- point_negation_is_not_generator_negation
+example : kubertQuotientEquiv (∅ : Set ℕ+) 0 (AddEquiv.neg (ZMod 5)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1)))≠-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1))) := by sorry
+-- cartan_quotient_unit_two
+example (S : Set ℕ+) (w : ℕ) [∀ (n : S) (a : AddCircle (1 : ℚ)), Fintype {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hg : kubertCartanWittProductProjection 1 5 g=((kubertCartanDegreeOneFiniteEquiv 5).symm (ZMod.unitOfCoprime 2 (by decide : Nat.Coprime 2 5)))) : kubertCartanQuotientEquiv S w g (QuotientAddGroup.mk' (kubertRelations (X := AddCircle (1 : ℚ)) S w) (FreeAbelianGroup.of (((1/5 : ℚ) : AddCircle (1 : ℚ)))))=(QuotientAddGroup.mk' (kubertRelations (X := AddCircle (1 : ℚ)) S w) (FreeAbelianGroup.of (((2/5 : ℚ) : AddCircle (1 : ℚ))))) := by sorry
+-- cartan_quotient_inverse_three
+example (S : Set ℕ+) (w : ℕ) [∀ (n : S) (a : AddCircle (1 : ℚ)), Fintype {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hg : kubertCartanWittProductProjection 1 5 g=((kubertCartanDegreeOneFiniteEquiv 5).symm (ZMod.unitOfCoprime 2 (by decide : Nat.Coprime 2 5)))) : (kubertCartanQuotientEquiv S w g).symm (QuotientAddGroup.mk' (kubertRelations (X := AddCircle (1 : ℚ)) S w) (FreeAbelianGroup.of (((1/5 : ℚ) : AddCircle (1 : ℚ)))))=(QuotientAddGroup.mk' (kubertRelations (X := AddCircle (1 : ℚ)) S w) (FreeAbelianGroup.of (((3/5 : ℚ) : AddCircle (1 : ℚ))))) := by sorry
+-- cartan_quotient_retains_imprimitive
+example (S : Set ℕ+) (w : ℕ) [∀ (n : S) (a : AddCircle (1 : ℚ)), Fintype {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hg : kubertCartanWittProductProjection 1 6 g=((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by decide : Nat.Coprime 5 6)))) : kubertCartanQuotientEquiv S w g (QuotientAddGroup.mk' (kubertRelations (X := AddCircle (1 : ℚ)) S w) (FreeAbelianGroup.of (((1/2 : ℚ) : AddCircle (1 : ℚ)))))=(QuotientAddGroup.mk' (kubertRelations (X := AddCircle (1 : ℚ)) S w) (FreeAbelianGroup.of (((1/2 : ℚ) : AddCircle (1 : ℚ))))) := by sorry
+end
+end DirichletPadic.SuggestedKubertQuotientActionTests
+namespace DirichletPadic.SuggestedKubertQuotientActionTests
+open scoped BigOperators
+open DirichletPadic
+universe u v t
+variable {X : Type u} [AddCommGroup X] {Y : Type v} [AddCommGroup Y]
+
+-- rootEquiv_coe_typed_api
+example (e : X ≃+ Y) (m : ℕ) (a : X)
+    (b : {b : X // m • b = a}) : (kubertRootEquiv e m a b).val = e b.val := by sorry
+
+-- rootEquiv_symm_coe_typed_api
+example (e : X ≃+ Y) (m : ℕ) (a : X)
+    (b : {b : Y // m • b = e a}) : ((kubertRootEquiv e m a).symm b).val = e.symm b.val := by sorry
+
+-- rootEquiv_sum_typed_api
+example {B : Type t} [AddCommMonoid B] (e : X ≃+ Y) (m : ℕ) (a : X)
+    [Fintype {b : X // m • b = a}] [Fintype {b : Y // m • b = e a}]
+    (f : Y → B) :
+    (∑ b : {b : X // m • b = a}, f (e b.val)) =
+      ∑ b : {b : Y // m • b = e a}, f b.val := by sorry
+
+-- relation_map_equiv_typed_api
+example (e : X ≃+ Y) (w m : ℕ) (a : X)
+    [Fintype {b : X // m • b = a}] [Fintype {b : Y // m • b = e a}] :
+    FreeAbelianGroup.map e (kubertRelation w m a) = kubertRelation w m (e a) := by sorry
+
+end DirichletPadic.SuggestedKubertQuotientActionTests
+
+namespace DirichletPadic.SuggestedKubertQuotientActionTests
+open scoped BigOperators
+open DirichletPadic
+universe u v t
+variable {X : Type u} [AddCommGroup X] {Y : Type v} [AddCommGroup Y]
+variable {Z : Type t} [AddCommGroup Z]
+variable (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b = a}]
+variable [∀ (n : S) (a : Y), Fintype {b : Y // (n.val : ℕ) • b = a}]
+variable [∀ (n : S) (a : Z), Fintype {b : Z // (n.val : ℕ) • b = a}]
+
+-- quotientHom_of_typed_api
+example (e : X ≃+ Y) (a : X) :
+    kubertQuotientHom S w e (QuotientAddGroup.mk' (kubertRelations (X := X) S w)
+      (FreeAbelianGroup.of a)) =
+    QuotientAddGroup.mk' (kubertRelations (X := Y) S w) (FreeAbelianGroup.of (e a)) := by sorry
+
+-- quotientHom_refl_typed_api
+example : kubertQuotientHom S w (AddEquiv.refl X) =
+    AddMonoidHom.id (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) := by sorry
+
+-- quotientHom_trans_typed_api
+example (e : X ≃+ Y) (f : Y ≃+ Z) :
+    kubertQuotientHom S w (e.trans f) = (kubertQuotientHom S w f).comp (kubertQuotientHom S w e) := by sorry
+
+-- quotientEquiv_of_typed_api
+example (e : X ≃+ Y) (a : X) :
+    kubertQuotientEquiv S w e (QuotientAddGroup.mk' (kubertRelations (X := X) S w)
+      (FreeAbelianGroup.of a)) =
+    QuotientAddGroup.mk' (kubertRelations (X := Y) S w) (FreeAbelianGroup.of (e a)) := by sorry
+
+-- quotientEquiv_symm_typed_api
+example (e : X ≃+ Y) :
+    (kubertQuotientEquiv S w e).symm = kubertQuotientEquiv S w e.symm := by sorry
+
+-- quotientEquiv_refl_typed_api
+example : kubertQuotientEquiv S w (AddEquiv.refl X) =
+    AddEquiv.refl (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) := by sorry
+
+-- quotientEquiv_trans_typed_api
+example (e : X ≃+ Y) (f : Y ≃+ Z) :
+    kubertQuotientEquiv S w (e.trans f) = (kubertQuotientEquiv S w e).trans (kubertQuotientEquiv S w f) := by sorry
+
+end DirichletPadic.SuggestedKubertQuotientActionTests
+
+namespace DirichletPadic.SuggestedKubertQuotientActionTests
+open scoped BigOperators
+open DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+universe u
+variable (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : AddCircle (1 : ℚ)), Fintype {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}]
+
+-- cartanQuotientEquiv_of_typed_api
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a : AddCircle (1 : ℚ)) :
+    kubertCartanQuotientEquiv S w g
+      (QuotientAddGroup.mk' (kubertRelations (X := AddCircle (1 : ℚ)) S w) (FreeAbelianGroup.of a)) =
+    QuotientAddGroup.mk' (kubertRelations (X := AddCircle (1 : ℚ)) S w)
+      (FreeAbelianGroup.of (kubertCartanGlobalCircleEquiv g a)) := by sorry
+
+-- cartanQuotientEquiv_one_typed_api
+example : kubertCartanQuotientEquiv S w 1 = AddEquiv.refl (FreeAbelianGroup (AddCircle (1 : ℚ)) ⧸ kubertRelations (X := AddCircle (1 : ℚ)) S w) := by sorry
+
+-- cartanQuotientEquiv_mul_typed_api
+example (g h : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanQuotientEquiv S w (g*h) =
+      (kubertCartanQuotientEquiv S w h).trans (kubertCartanQuotientEquiv S w g) := by sorry
+
+-- cartanQuotientEquiv_symm_typed_api
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanQuotientEquiv S w g).symm = kubertCartanQuotientEquiv S w g⁻¹ := by sorry
+
+end DirichletPadic.SuggestedKubertQuotientActionTests
+
+namespace DirichletPadic.SuggestedKubertQuotientActionTests
+open scoped BigOperators
+open DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+universe u
+
+-- cartanDistribution_intertwines_typed_api
+example (R : Type u) [Ring R] (S : Set ℕ+)
+    [∀ (n : S) (a : AddCircle (1 : ℚ)), Fintype {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}]
+    (φ : AddCircle (1 : ℚ) → R)
+    (hφ : ∀ (n : S) (a : AddCircle (1 : ℚ)) [Fintype {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}],
+      (∑ b : {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}, φ b.val)=φ a) (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanDistribution R S φ hφ).comp (kubertCartanQuotientEquiv S 0 g).toAddMonoidHom =
+      (kubertCartanLimitRepresentation 1 R g).toAddMonoidHom.comp (kubertCartanDistribution R S φ hφ) := by sorry
+
+-- cartanDistribution_equivariant_typed_api
+example (R : Type u) [Ring R] (S : Set ℕ+)
+    [∀ (n : S) (a : AddCircle (1 : ℚ)), Fintype {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}]
+    (φ : AddCircle (1 : ℚ) → R)
+    (hφ : ∀ (n : S) (a : AddCircle (1 : ℚ)) [Fintype {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}],
+      (∑ b : {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}, φ b.val)=φ a) (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (z : FreeAbelianGroup (AddCircle (1 : ℚ)) ⧸ kubertRelations (X := AddCircle (1 : ℚ)) S 0) :
+    kubertCartanDistribution R S φ hφ (kubertCartanQuotientEquiv S 0 g z) =
+      kubertCartanLimitRepresentation 1 R g (kubertCartanDistribution R S φ hφ z) := by sorry
+
+end DirichletPadic.SuggestedKubertQuotientActionTests
