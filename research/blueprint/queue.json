@@ -11579,8 +11579,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3371"
+   "state": "external",
+   "note": "claimed on GitHub issue #3371"
   },
   {
    "id": "REV-DESIGN-HodgeStructuresPartII",
@@ -46782,7 +46782,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-11.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5709"
   },
   {
    "id": "REV-FIX-RT-RS-11",
@@ -49285,8 +49286,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-GlobalGaloisDeformations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5719"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5719",
+   "finishedAt": "2026-10-02T18:35:46Z"
   },
   {
    "id": "REV-FIX-RT-BP-GlobalGaloisDeformations",
