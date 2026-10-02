@@ -1,0 +1,175 @@
+{
+  "redteam": "RT-PAPER-DIMITROV-GAO-HABEGGER-21",
+  "findings": [
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed against Definition 1.5 p.5, Propositions 2.1/B.2 pp.8,41 and the actual route 5 acceptance text. In A0 x S the Betti map is a torus isomorphism composed with projection to A0; its differential has rank 2 dim(pr1 X). Thus X is non-degenerate exactly when this projection is generically finite onto its image. A constant section has rank zero and A0 x S rank 2g, so both are degenerate for positive-dimensional S. Restrict the every-subvariety test to S a point and the torsion-section test to positive-dimensional S. This argument was re-derived, not adopted from the sibling brief."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed the unseparated supplier/specialization dependency in item 11 and routes 7/8, checked against pp.23–25. Route 8 names the universal M_g curve owned by route 7, whereas route 7 imports its relative Jacobian from route 8. Split the general relative Picard/Jacobian/degree-one Abel/difference construction over a suitable arbitrary base into the early supplier, and put the M_g-specific level structure and Torelli-square instance in the moduli continuation. Preserve the curve family's smooth, projective, geometrically connected and noetherian-base assumptions when generalizing. A roadmap-level pair of imports is not itself proof of a stage cycle if explicitly separated into early/later layers; the defect here is the briefs' failure to expose that separation. No existing assembled stage cycle is claimed. Coordinate the actual continuation id/title with /9."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed the misplaced Hyp owner: item 9 is in route 6, but items 21/22 in route 5 use it, and route 6 imports route 5. Checked the principal-polarization/level definition on p.5 and the classifying pullback on p.12. Move this lightweight interface to the early Betti supplier, importing its underlying data from PELModuli; export it to the height continuation. Alternatively use a single upstream PEL interface directly rather than a second privately defined predicate. The current atlas is acyclic; this repairs prospective prerequisite ownership, not an observed live cycle."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed the false third clause of item 34 against (4.9)–(4.10) p.18 and the Fubini–Study identification p.17. The right-hand side is (L^d.[X]) for the actual represented c1(L), not the fixed O(1,...,1)-degree: the trivial-bundle zero form disproves the latter. The application uses O(0,1,1) and gives (F^d). State X as a possibly singular irreducible subvariety of a smooth projective ambient variety and integrate over its regular locus. Clarify semipositivity/nonnegative integration. Positive in Demailly's convention can include semipositive, as the paper's footnote explicitly explains; that terminology alone is not an independent counterexample."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed directly in the EMS published PDF: viewed p.643's nested exponent and read pp.640–641's standing polarization and height conventions. The exponent is (r+1) g^{5(dim X+1)^2}, so for a curve and rank zero it is g^{20}. Restore the symmetric ample principal polarization, g=dim A and h0(A)=[k:Q] max(1,h(A)), with the M^{tensor 16} embedding. Fix item 67, E6's exponent and the quoted repair in the earlier review report if that report is authorized for the fixer. DGH pp.35–36 uses the bound after Theorem 1.1 and mentions it in Remark 8.3, not in the proof of Theorem 1.2. The uniform-in-P0 repair survives the correction."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed by reading accepted_routes/paper_designs and the live queue: accepted part-ii calls group by parent and generate AbelianSchemesAndArithmeticModuliPartII, not AbelianSchemesBettiMapsPartII. Route 6 currently imports that nonexistent alias. Correct ids in routes, reasons and the report; preserve the Betti tranche as a required shared supplier. The live four design jobs have empty after fields. A maintainer note can request ordering, but a sentence in a paper brief does not mutate the queue dependency. I wrote the earlier Gao–Habegger extraction/review and fixed Gao–Ge–Kuhne; those current files were checked as coordination evidence, not independently re-approved here."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed the missing theorem-specific imports by reading Theorem 6.2 and its proof pp.26–28 and all four continuation briefs. M_g, the pulled-back universal curve, Torelli quasi-finiteness, relative Abel–Jacobi and family D_M are not in route 5's stated imports. Prefer moving this curve-family application to the height continuation, which already imports moduli, Jacobians and general Betti non-degeneracy, leaving Gao's general criterion in the Betti continuation. Alternatively keep it there with explicit early relative-Jacobian and moduli inputs and appropriate exports. Resolve /2 and /8 first; do not import a family D_M defined downstream in the height continuation back into the Betti supplier."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed the bundled construction and contradictory ownership: item 13 includes both the single abelian-variety map and the family D_M of (6.3)–(6.5), pp.24–25, but its only route is RP.5, while its note names the height Part II. The relative-Jacobian brief also builds it. Split the scalar/base-independent group difference map from the general curve-family map, keep a single supplier for each and record fibrewise compatibility. Prefer a general curve-family supplier alongside relative Picard/Jacobian, with the M_g/Torelli-square specialization in the moduli continuation; both Betti applications and heights import that output. The finding's merged fixes alternately choose routes 6,7,8: do not implement all of them or send the family map downstream while leaving Theorem 6.2 upstream."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed RS-02's accepted extend decision and the fresh atlas title: AbelianSchemesAndArithmeticModuli already is the Jacobian challenge's Part II. paper_designs detects only an id literally ending in base+PartII, so it misses that extension and creates a second Part II. Record the existing extension as first prerequisite and coordinate the relative-curve continuation as Part III, with the parent's exact title. Retitling the proposal alone cannot fix generated ids/titles: queue recognition of accepted extends needs a maintainer change. A2's Picard theory is for duals of abelian schemes, whereas the proposed curve-family Picard theorem is a distinct scope; do not infer that all of item 11 can be discharged merely by relabeling it A2."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed the omitted direct imports, with source checks at pp.19,26,29,35 and the named layer contracts. The Hurwitz bound used in Lemma 6.4 has no path to any of the existing atlas stages named in route 6. Add the protected AlgebraicCurves Layer 11 import. Explicitly name the A2 projective-presentation/polarization supplier, SF.0 quasi-sections, the RP.0 quartic formulas, JacobianChallenge Layer E's cube law, the R35 height comparisons and the PEL/R09 coarse-space comparison. Some are already reachable transitively: make the consumed outputs explicit without claiming every omission is a missing graph path or rebuilding upstream mathematics."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed the absent Hironaka import against both resolution steps on p.38, items 40/41 and fresh stage reachability. Neither R09.7-to-RP.0 nor RP.0-to-R09.7 has a path, so adding the former creates no cycle. Name the characteristic-zero resolution interface in route 1 and item 40's note; its owner blueprint records the request and dependency. No base atlas or upstream roadmap is changed by this verification, and the finding need not demand that the extraction close the cited resolution proof."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed the scope mismatch in route 4 by checking pp.15,17–18, C5/SF.5/SF.6 and the C5 partial packet. C5 supplies smooth de Rham–Betti comparison, not the integration current on a singular analytic subset, compact-support Lelong integrability or the wedge-positivity calculus used here. Split item 34 into these sourced statements, give the analytic additions an explicit owner/extension commitment and give the intersection comparison an SF.5/SF.6 input. Fresh assembly has no path in either direction between SF.5 and C5, so that input is acyclic. The SeveralComplexVariablesKahlerGeometry draft is not an accepted supplier, and its present CV.1/CV.4 do not already export the full Lelong theorem. Do not claim that merely mentioning that draft or the smooth comparison closes these interfaces."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed the missing coarse curve moduli/level-forgetting construction against pp.6,34–36 and all item statements. Item 10 covers fine M_g and item 7 only coarse A_{g,1}/its immersion; neither states the finite forgetful maps that bound [F(s):F] and identify rho(tau(s))=[Jac(C_s)]. Add the missing coarse-curve item to the moduli continuation and the abelian level-forgetting interface to the existing PEL M6/R09.5 supplier. For arithmetic degree bounds keep the chosen geometrically irreducible component's cyclotomic field visible: p.34 fixes ell=3 and Q(zeta_3). The source's arbitrary curve over F gives a rational coarse point, not automatically an F-rational fine family; /31 handles that distinction."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed at Mathlib 082e2d3 by reading Module.rank, IsLocalizedModule.rank_eq/finrank_eq, IsLocalization.rank_eq/finrank_eq, isLocalizedModule_iff_isBaseChange, TensorProduct.isBaseChange and Module.rank_eq_zero_iff_isTorsion with their hypotheses. Specialize to Z, Q and localization at nonzero integers. Module.rank Z Gamma equals dim_Q(Q tensor_Z Gamma); finite rank means that cardinal is below aleph0. Under this finiteness hypothesis Module.finrank gives the intended natural number. It does not mean Gamma is finitely generated over Z, and finrank alone is not a test for finiteness (it is zero also at infinite rank). Mark item 5 library, remove its missing-item route and update counts; universe-lift variants are available. No Lean adapter was compiled."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed the missing single-curve Jacobian/Abel–Jacobi item by reading pp.1–2,27,34 and protected JacobianChallenge Layers D/E/F. Record the field-valued construction/base change/polarization as imported planned work and the closed-immersion requirement explicitly. Milne AV v2.0 Chapter III Proposition 2.3 p.92 independently supplies the closed immersion for positive genus. Qualify the fix: generation is already a consequence of Layer F's Albanese universal property (quotienting by an abelian subvariety containing the image forces that quotient map to vanish). It can be a named derived interface from that protected supplier, rather than a new competing generation theory. State P0 rational over the working field or base-change to its field of definition; a geometric P0 need not define an F-morphism."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed that route 3 overstates the existing SF.5 contract: it plans Chow/intersection/GRR and surface Hodge index, without Siu's higher-dimensional nef/big interface, used on pp.16,22. Explicitly commit the widened source scope or a coordinated positivity extension, rather than label the existing contract sufficient. Also restate item 50's EGA quasi-section theorem for a suitable general quasi-compact base, leaving the C_g/M_g instance to its moduli consumer. Existing nef material in protected curve reduction and positive-characteristic Keel/Grassmannian theory does not supply this characteristic-zero Siu inequality. Detailed asymptotic-RR proof closure belongs to the blueprint under §16, not to the extraction completion gate."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed a missing proof input/interface at p.24, not a false projective-normality theorem. Read the actual flatness sentence, the projective embedding setup pp.13,24, its use pp.19,32 and item 66. Flatness supplies Euler-characteristic constancy; higher-cohomology vanishing and base change supply h0 constancy and a locally free pushforward, and enough base twisting must make its global sections span every fibre. Milne AV v2.0 Theorem I.11.1(c) and its very-ample consequence p.54 independently supply the vanishing needed for these very ample fibres. Add that omitted sourced input, the cohomology/base-change import (protected JacobianChallenge Layer C), the spanning argument and the extra locators. Record any source gap specifically against arXiv v3, with independently checked known/searched metadata; no final Annals collation is claimed. Do not infer projective normality from constant h0 alone."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed the missing height property by reading pp.31,34, item 27 and RP.0/its partial packet. The ball count uses a genuine Euclidean norm on Gamma tensor R, not just a quadratic form with torsion kernel on rational points. Export nonnegativity, torsion-zero and positive definiteness on every finite-rank real span as an RP.0 interface, with the symmetric ample hypothesis. To justify the real-span assertion, choose rational generators in a finitely generated subgroup over one number field and use Northcott/coercivity there; rational positivity alone does not exclude an irrational real radical. The reviewed baseline has elliptic height theory, not a general-abelian-variety replacement for this item."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed the stale Gao–Habegger prerequisite wording and omitted Mumford/Waldschmidt entries by checking the accepted paper files, items 35/66, source bibliography and registry. Record the two actual source works and use a covered-paper link for Gao–Habegger, whose extraction is already accepted. I wrote that sibling extraction/review, so its acceptance is a repository fact used for this wording correction, not an independent mathematical endorsement of my own work."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed the unsupported mixed Ax–Schanuel import against DGH p.7, LD.6, the accepted MPT19/TSIMERMAN18 continuation briefs and the current Gao–Ge–Kuhne Betti brief. The former supplies pure Shimura Ax–Schanuel and the latter mixed Ax–Lindemann, neither the mixed universal-abelian-variety theorem used here. The sibling Betti brief explicitly calls for that distinct primary source. Replace the false LD import with a named shared mixed theorem/supplier commitment; retain early o-minimal and pure functional-transcendence imports. Do not say no proposal mentions it: the Betti proposal already requires it. Extracting the cited Gao theorem is enough here; its proof decomposition is the owning blueprint's work."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed by comparing all four continuation briefs with PROTOCOL §16 and fresh atlas titles. Supply titles as well as exact ids/stage keys, and name the Logic continuation rather than its proposed Part II. Use current restructured titles: AbelianSchemesAndArithmeticModuli is now the Jacobian challenge Part II, not merely its older campaign title. Coordinate /6 and /9 first so this presentation fix does not perpetuate alias ids or a second Part II."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed by direct comparison of the report and Theorem 1.2 p.3: both constants depend on the fixed immersion iota as well as g. Item 2 is already correct. Repair only the report to c1(g,iota), c2(g,iota)."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed the insufficient explanation in item 22/report by checking (2.1) and the change-of-coordinates computation pp.9–10. Pullback of a symplectic form alone gives only one kernel inclusion; a subspace can be isotropic. The Hermitian positivity and Im Z>0 identify the radical with zero Betti differential on real tangent vectors, yielding the reverse inclusion on the complex tangent space. Cite both formulas and the real-analytic identity/connectedness argument where extending from the chosen open set. The theorem statement remains correct; amend the existing misleading proof note rather than demand new proof closure of a cited theorem."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed the explicitly used Baire input on p.8 (recalled p.41), absent from the item list. Read nonempty_interior_of_iUnion_of_closed at Mathlib 082e2d3 with TopologicalSpace, BaireSpace, Nonempty and countable-index/closed-cover hypotheses. Add it as a library item. Its use on the local real-analytic base still needs the usual locally compact/Baire instance in the blueprint; the general theorem is already present."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed the bundled independent theorems in item 14 by reading p.1 and the main counting proof p.34. Split Mordell–Weil at RP.1 from Faltings/Mordell at RP.4; the former supplies finite rank, the latter is introductory background. Faltings's height results used later are separate from the rational-point theorem."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed the source's base-point-domain slip on pp.25–26 and its literal copy in item 47. The intrinsic C_s-P is D1({P} x C_s) for P in C_s, whereas after choosing Ps all translates of that embedded curve by Jacobian points have the same degree. State the intrinsic version and the more general translate bound separately. Record the arXiv-v3 misprint after source-issue metadata checks; do not choose a global curve embedding without a base point."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed the invalid alternative in E9, against the spreading-out allowance on p.19. A positive-dimensional projective base meets every hyperplane, so a nowhere-vanishing linear form is unavailable. Keep the valid max(1,D') repair, or use a form not identically zero on the base and enlarge the bad locus by the full preimage of its zeros in S. This remains proper and stable under multiplication. No recomputation of the existing E9 random multidegree tests is claimed."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed all three occurrences by reading pp.27–28: the displayed Betti targets before and during the proof and after descent say T^{2g}, but the scheme is the M-fold abelian power of relative dimension Mg. Extend E16's locator/printed occurrences to all of them and keep T^{2Mg} as the correction."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed both omitted inputs by reading pp.25–26 and searching all items. Mathlib 082e2d3 Scheme.Hom.isConstructible_image explicitly exports Chevalley for finite-presentation/quasi-compact maps into qcqs targets; the varieties here meet those assumptions. Add the library item, keeping noetherianity for the finite locally closed decomposition. Add the fibred-power irreducibility theorem with smooth surjectivity and geometrically irreducible fibres over an irreducible base; ordinary irreducibility of fibres without geometric qualification is not a substitute after base change. Route this named curve-family requirement to the moduli continuation."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed the omitted setting by reading the paragraph immediately before Lemma 6.3 p.28 and item 51. State k algebraically closed, M,n>=1 and the sum of the O(1,...,1)-degrees of all irreducible components of the possibly reducible Z. The uniform bound depends on that convention."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed the descent distinction and unrecorded correction, with qualification. Read pp.34–35 and item 62. The same rational coarse point need not identify a given F-curve with the fine universal fibre over F(s); their geometric isomorphism is what the proof actually needs. Re-derived the genus-two quadratic-twist witness: with geometric automorphism group {1,hyperelliptic involution}, transport a level basis to a twist by delta nonsquare in F(Jac(C)[ell]). The two geometric level objects give the same moduli point because the involution acts by -1, hence the same s/F(s), but cannot both be F(s)-isomorphic to its fixed universal fibre. No explicit curve with full GSp image was constructed or needed. Clarify the identification as a chosen Qbar-isomorphism and transport Gamma/P0, keeping finitely many geometric isomorphism classes. The p.34 sentence can be read as shorthand for geometric identification; do not call the counting theorem false. If registering a source issue, specify the unsupported F(s)-rational reading and check known/searched metadata anew; do not copy the red team's unperformed searches."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed the explicit correction on p.32 and item 57's bare note. Link its h1 to item 58's addition-and-subtraction polynomials and the paper's correction of DGH19. This is provenance/interface clarification; item 58 already defines the correct h1, and no independent full reading of DGH19 is claimed."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed the omitted excision statement by reading the explicit GW10 Proposition 11.40 use on p.38 and item 42's list. Add that a divisor whose class restricts trivially on a dense open is linearly equivalent to a sum of boundary prime divisors, with the source's noetherian integral scheme hypotheses. This is a cited result the main proof uses, not a request to decompose all of Görtz–Wedhorn."
+    },
+    {
+      "finding": "RT-PAPER-DIMITROV-GAO-HABEGGER-21/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed the misleading report sentence against pp.34–36. Northcott and finite Torelli fibres give finitely many geometric curve types; the uniform count still uses Rémond's bound (and the uniform-in-P0 repair of E6 for torsion). Amend the strategy paragraph accordingly and use the corrected exponent of /5."
+    }
+  ]
+}
