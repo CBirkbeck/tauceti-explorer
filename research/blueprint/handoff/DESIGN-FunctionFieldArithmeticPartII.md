@@ -11,9 +11,9 @@ All119 inherited node IDs and mathematical statements survive. There are now123 
 
 Four new lemmas supply the actual quotient relation tⁿ=f, Euclidean reduction tᵏ=f^⌊k/n⌋•t^(k mod n), native character powers e₁ⁱ=e_i, and the promoted coaction root API. They do not replan general polynomial quotients, μ_n or tensor algebras.
 
-The suggested file now constructs δ through native AdjoinRoot.liftAlgHom, proves its root/constant/unique/weight APIs and the counit and coassociativity equations with actual native Hopf maps. It constructs Θ through native Algebra.TensorProduct.lift and proves its pure-tensor, left-root, right-factor, uniqueness and monomial formulas. Six acceptance computations cover exponent one, F₂ wild roots/characters, the regular nonunit2 over Z, the nilpotent parameter2 over Z/4 and the general n=2 branch-image formula. The old coaction weight signature is corrected to parenthesize its right root power; without these parentheses Lean parsed a power of the entire tensor. Its packet statement already had the correct mathematics.
+The separate proof prototype constructs δ through native AdjoinRoot.liftAlgHom, proves its root/constant/unique/weight APIs and the counit and coassociativity equations with actual native Hopf maps. It constructs Θ through native Algebra.TensorProduct.lift and proves its pure-tensor, left-root, right-factor, uniqueness and monomial formulas. Six acceptance computations cover exponent one, F₂ wild roots/characters, the regular nonunit2 over Z, the nilpotent parameter2 over Z/4 and the general n=2 branch-image formula. The old coaction weight signature is corrected to parenthesize its right root power; without these parentheses Lean parsed a power of the entire tensor. Its packet statement already had the correct mathematics.
 
-The Mathlib-only extraction contains361 lines and14 examples. It uses the actual proved coaction, not an admitted coaction scaffold. Sixteen algebra declarations were audited for axioms; each depends only on propext, Classical.choice and Quot.sound, with no admission axiom. This targeted proof check does not certify the complete Tau Ceti file or any stage. The full file remains uncompiled because no exact-pin compiled Tau Ceti line-bundle/roots-of-unity import set is available. No Lake setup, cache download, library build or Lean server was started.
+The separate Mathlib-only proof extraction contains361 lines and14 examples. It uses the actual proved coaction, not an admitted coaction scaffold. Sixteen algebra declarations were audited for axioms; each depends only on propext, Classical.choice and Quot.sound, with no admission axiom. This targeted proof check does not certify the complete Tau Ceti file or any stage. The full file remains uncompiled because no exact-pin compiled Tau Ceti line-bundle/roots-of-unity import set is available. No Lake setup, cache download, library build or Lean server was started.
 
 ## Reading and ownership
 
@@ -43,11 +43,12 @@ Hashes:
 
 ## Reproducing the targeted native check
 
-Use an already compiled Mathlib build at the exact pin, with no setup/cache/library build. Check free memory first, run one lake env lean process, and stop it at20 minutes. Extract from the submitted suggested file as below; the native generator is expanded to its exact pinned definition. An exact-pin compiled Tau Ceti import set would permit the full-file check, but the current build does not supply it.
+Use an already compiled Mathlib build at the exact pin, with no setup/cache/library build. Check free memory first, run one lake env lean process, and stop it at20 minutes. Reproduce the separately checked proof prototype from immutable commit063ebe93320a784b244ea5a73fe8236bc205830c as below; the native generator is expanded to its exact pinned definition. An exact-pin compiled Tau Ceti import set would permit the full-file check, but the current build does not supply it.
 
 ```python
 from pathlib import Path
-s=Path('research/blueprint/suggested/FunctionFieldArithmeticPartII.lean').read_text();sc=Path('../scratch/DESIGN-FunctionFieldArithmeticPartII-second')
+import subprocess
+s=subprocess.check_output(['git','show','063ebe93320a784b244ea5a73fe8236bc205830c:research/blueprint/suggested/FunctionFieldArithmeticPartII.lean'],text=True);sc=Path('../scratch/DESIGN-FunctionFieldArithmeticPartII-second');sc.mkdir(parents=True,exist_ok=True)
 imports='\n'.join(l for l in s.splitlines() if l.startswith('import Mathlib'))
 initial=s[s.index('abbrev AffineRing (f : A)'):s.index('-- TauCeti.RootStack.affineCoaction.nativePoint')]
 one=s[s.index('-- TauCeti.RootStack.affineCoaction.test_one'):s.index('-- TauCeti.RootStack.affineCoaction.test_sign')]
@@ -147,3 +148,9 @@ print(json.dumps({'counts':dict(counts),'assertions':sum(v for k,v in counts.ite
 6. ST-LISSE, ST-OPS, NORM-2EXACT, FA-APPROX, EXTERIOR-COMP, LEAN-GEOMETRY, LEAN-SECTION-COMP and TOWER-TYPING remain open. The rank-one/YZ geometric endpoints and all-degree multiplicative coherences are not established by these finite algebra proofs. All stages remain partial.
 
 After opening this checkpoint PR, delete its scratch directory and take the next available job in WORKERS order. Never unclaim submitted work, manually merge, close issues or change labels.
+
+## Protocol-format correction
+
+PROTOCOL §13 requires admitted suggested bodies. The submitted file follows that format; the16 checked declaration bodies and six checked examples are kept as the separate historical proof prototype identified above. The proof receipt describes that prototype, whose source hash is unchanged, rather than the currently submitted sketch. No mathematical node statement, source route, API, test, supplier, gap, status or planet changes. Current sketch SHA-256: 01f952ed2b7de668fb83f212f852c3f2b4463f5b1bb0084e98a6d953f76fd9e0.
+
+Current admitted-sketch extraction: exit0,0 errors,42 admitted-body warnings and0 other warnings; SHA-256 dfa146150b279f9cd4db52fd8e9d2e97723452a01d62f8a0ec84089cefa80728. This format check is separate from the historical proof receipt.
