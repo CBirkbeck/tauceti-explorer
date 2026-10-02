@@ -43,6 +43,7 @@ import Mathlib.LinearAlgebra.SymmetricAlgebra.Basic
 import Mathlib.LinearAlgebra.TensorProduct.Associator
 
 import Mathlib.LinearAlgebra.Dual.Defs
+import Mathlib.LinearAlgebra.Basis.Defs
 
 import Mathlib.RingTheory.Congruence.Hom
 
@@ -920,6 +921,58 @@ example (e : R) :
 -- test: TwistedHiggsBundle.affineContractions.test_zero_dual
 example (θ : E →ₗ[R] E ⊗[R] Q) :
     affineContractions θ (0 : Module.Dual R Q) = 0 := sorry
+-- node: HodgeStructuresPartII:H.0/affine-contractions-reconstruction
+theorem affineContractions_reconstruct {I : Type*} [Fintype I]
+    (b : Module.Basis I R Q) (θ : E →ₗ[R] E ⊗[R] Q) (e : E) :
+    θ e = ∑ i, affineContractions θ (b.coord i) e ⊗ₜ[R] b i := by sorry
+
+-- node: HodgeStructuresPartII:H.0/affine-ordered-square
+noncomputable def affineOrderedSquare (θ : E →ₗ[R] E ⊗[R] Q) :
+    E →ₗ[R] E ⊗[R] (Q ⊗[R] Q) := by sorry
+theorem affineOrderedSquare_apply (θ : E →ₗ[R] E ⊗[R] Q) (e : E) :
+    affineOrderedSquare θ e = TensorProduct.assoc R E Q Q
+      (TensorProduct.map θ (LinearMap.id : Q →ₗ[R] Q) (θ e)) := by sorry
+theorem affineOrderedSquare_zero :
+    affineOrderedSquare (0 : E →ₗ[R] E ⊗[R] Q) = 0 := by sorry
+
+-- node: HodgeStructuresPartII:H.0/affine-ordered-square-contraction
+theorem affineOrderedSquare_contraction (θ : E →ₗ[R] E ⊗[R] Q)
+    (v w : Module.Dual R Q) :
+    affineContractions (affineOrderedSquare θ)
+      ((TensorProduct.lid R R).toLinearMap.comp (TensorProduct.map v w)) =
+    affineContractions θ v * affineContractions θ w := by sorry
+
+-- node: HodgeStructuresPartII:H.0/affine-ordered-square-vanishing
+theorem affineOrderedSquare_eq_zero_iff {I : Type*} [Fintype I]
+    (b : Module.Basis I R Q) (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineOrderedSquare θ = 0 ↔
+      ∀ i j, affineContractions θ (b.coord i) * affineContractions θ (b.coord j) = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineOrderedSquare.test_zero
+example : affineOrderedSquare (0 : E →ₗ[R] E ⊗[R] Q) = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineOrderedSquare.test_line_nonzero
+example [Nontrivial R] :
+    affineOrderedSquare ((TensorProduct.rid R R).symm.toLinearMap) ≠ 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineOrderedSquare.test_empty_coefficients
+example [Subsingleton Q] (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineOrderedSquare θ = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineOrderedSquare.test_order
+example :
+    let X : Module.End ℚ (Fin 2 → ℚ) :=
+      Matrix.toLin' (Matrix.single (0 : Fin 2) 1 (1 : ℚ))
+    let Y : Module.End ℚ (Fin 2 → ℚ) :=
+      Matrix.toLin' (Matrix.single (1 : Fin 2) 0 (1 : ℚ))
+    let θ : (Fin 2 → ℚ) →ₗ[ℚ] (Fin 2 → ℚ) ⊗[ℚ] (Fin 2 → ℚ) :=
+      ((TensorProduct.mk ℚ _ _).flip (Pi.single 0 1)).comp X +
+      ((TensorProduct.mk ℚ _ _).flip (Pi.single 1 1)).comp Y
+    let v : Module.Dual ℚ (Fin 2 → ℚ) := LinearMap.proj 0
+    let w : Module.Dual ℚ (Fin 2 → ℚ) := LinearMap.proj 1
+    affineContractions (affineOrderedSquare θ)
+        ((TensorProduct.lid ℚ ℚ).toLinearMap.comp (TensorProduct.map v w)) ≠
+      affineContractions θ w * affineContractions θ v := by sorry
 /-- Affine adapter for the existing symmetric algebra, into actual endomorphisms.
 Global sheaf algebra/endomorphism and restriction coherence are supplied by E1.
 The affine lift uses existing native TensorAlgebra and RingCon objects. -/

@@ -1,265 +1,73 @@
-# DESIGN-HodgeStructuresPartII — source augmentation generator checkpoint
+# DESIGN-HodgeStructuresPartII — ordered affine square checkpoint
 
-Codex — codex-rtOQ9t. Refs #3371. Branch codex-rtOQ9t/hodge-partii-third-continuation; base bd1f62cf742db0535c6427ef929da93c4becc4b0. Claim comment 5956728121, bot confirmation 5956730802; full issue read before and after confirmation. This remains a partial research checkpoint.
+Codex — codex-5ebb6f; Refs #3371. Partial checkpoint. Claim comment5957813346 was confirmed by bot5957816082; the complete issue was reread after confirmation. Base 10fbe71f06e15275bec06bdcc8e7c4bc931c1636 includes merged predecessor PR#5812. The [previous handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/10fbe71f06e15275bec06bdcc8e7c4bc931c1636/research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md) preserves wider source/route history, the augmentation/span proof experiment and its finite regression script. Those historical receipts are not fresh checks here; the finite script was not rerun.
 
-The immediate predecessor's complete handoff is retained at [base commit](https://github.com/CBirkbeck/tauceti-explorer/blob/bd1f62cf742db0535c6427ef929da93c4becc4b0/research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md). Its paper proof and finite script were read completely. Historical affine proof bodies remain at [immutable 9a36f4d](https://github.com/CBirkbeck/tauceti-explorer/blob/9a36f4d1d6743c0202f12020c0df603400149faa/research/blueprint/suggested/HodgeStructuresPartII.lean), source SHA-256 af7d537a0dc75975f2081fbd6b143a70b7d63a81b92e032511fd9a20d0ae4b83. Historical receipts apply to their immutable versions.
+## Delivery
 
-## Changes
+Four new H.0 nodes give finite-basis contraction reconstruction, the native ordered second iterate, its exact two-slot contraction formula and finite-basis zero criterion. Six new declaration signatures and four tests use the existing tensor/module/basis/endomorphism objects. The only changed predecessor node is ordered-coordinate-vanishing: its statement/hypotheses remain identical; its proof/prerequisites now consume the actual affine N=2 contracts. The arbitrary-N unit/induction and sheaf gluing remain open.
 
-One Higgs-specific lemma, H.0/augmentation-power-generators, equates I^N in the source symmetric algebra with the span of length-N degree-one words for every N≥0. Import the already built Tau Ceti augmentation generator equality and HopfIdeal.augmentation_toIdeal, then SymmetricAlgebra.counitAlgHom_eq. The built Submodule.span_pow and Set.mem_pow supply the generic span/word calculation; the predecessor's proposed private induction should not become another generic roadmap node.
+All71 predecessor statements,70 complete predecessor node objects,112 APIs,103 tests,149 routed obligations,five requests,eleven gaps and six planets are preserved. Roadmap stage IDs/requires and owner prerequisites remain unchanged. The embedded overview is refreshed to the current mathematical scope; the full reader remains definitive. Counts:75 nodes (12 definitions,20 constructions,24 lemmas,14 theorems,five comparisons),115 API items,107 total tests,105 required definition/construction tests,82 baseline references and six planets. H.0 partial; H.1–H.8 not_read; every implementation status unchecked,zero stages or reserved keys closed.
 
-The existing augmentation_pow_iff_words statement and hypotheses are unchanged. Its outline now uses that adapter and Ideal.span_le. Source S is commutative; End(E) is an associative target. At N=0, I⁰=S and the empty word is identity, so annihilation means E is the zero module. Two lemma tests record the zero and one boundaries.
+## Mathematics and tests
 
-The new E12/E21 regression has the rank-one action u↦X with I²⊆ker α, while YX=E22 is a nonzero idempotent in the ambient left ideal span{X}. That ambient ideal has no vanishing power. Keep the ideal and action kernel in S. This guards a possible implementation mistake; no packet or source erratum is claimed.
+For finite coefficient basis b of Q, reconstruct θ(e) as Σ_i a_θ(b.coord i)(e)⊗b_i. Tensor induction plus the native basis reconstruction proves this for arbitrary E over every commutative R; E needs no finite basis, field or reducedness assumption.
 
-PROTOCOL §13 requires admitted suggested bodies. The fifteen previously proved affine bodies and ten proved examples are restored to that format without changing their signatures; actual proofs and receipts remain at the immutable commit above. Concrete input fixtures remain honest formulas. Admissions are not proof claims.
+Define θ^[2]=assoc∘(θ⊗id_Q)∘θ in the actual E⊗(Q⊗Q). Two tensor inductions identify contraction by (v,w) with a_θ(v)·a_θ(w), where w is applied first. The newly applied coefficient occupies the left slot. No integrability or commutativity of contractions is required. Reconstructing both factors then proves θ^[2]=0 iff every ordered coefficient product vanishes. Characteristic two does not merge the two slots.
 
-71 unchecked nodes, 112 APIs, 101 required definition/construction tests plus two lemma tests, six planets, 74 baseline references, eleven gaps and five requests. H.0 partial; H.1–H.8 not_read. All 70 prior statements/hypotheses/APIs/source/acceptance records, 100 prior tests, 149 routes, requests, gaps, source issues and restructuring survive. Two inherited node objects change; 68 remain identical.
+The four proved prototype tests cover the zero field, the nonzero rank-one unit field over any nontrivial ring, subsingleton coefficient modules and the explicit ℚ² field θ(e)=E12e⊗q0+E21e⊗q1. Its (q0∨,q1∨) contraction is E11 and differs from the reversed E22. The last field is not assumed integrable. These are actual affine tensor examples, not instantiated global geometric bundles. The rank-one affine test does not itself construct the full O(dx) geometric fixture.
 
-## Fresh reading and limits
+## Fresh reading and ownership
 
-Read the entire issue, handoff and applicable worker/protocol/source-faithfulness instructions. Reviewed Hodge L0–L3 and E1/D3 rows fully read after repairing truncated reads; REV-AUDIT02/10/22 metadata inspected. Built parent carriers are imported. E1/CR.1/DD.1 and D3 ownership boundaries remain explicit.
+Read the full reviewed parent Hodge L0–L3 and E1/D3 target/evidence/duplicate rows, actual CR.1/E1/DD.1/D3 supplier stage descriptions, the reserved key and full current Hodge upstream README. Other upstream-style readings remain part of the continuous-session history. No dedicated PartII audit row exists. Exact index/source searches and complete named statements were read for finite basis coordinates/reconstruction, tensor induction/map/pure tensors/finite sums and the associator. Eight new baseline entries supplement74 preserved entries; generic tensor/basis objects are imported.
 
-At exact source pins read complete named statements for the augmentation ideal/span/kernel bridge, symmetric counit, span powers, set powers as words, Ideal.span_le and Matrix.toLin'. The new lemma specializes built facts; no generic augmentation or span-power object is added.
+Fresh primary reading: complete printed [Heuer25 Definitions1.2(2) and4.1](https://link.springer.com/article/10.1007/s00222-025-01321-4), including the latter's contraction/image/canonical-section and twisting paragraph. Publisher HTML SHA256 0b74ce9469ea21b3eb640da1c4ee5d3b1adc18feff52cb319f405e4e5ee54719. No correspondence proof, arbitrary-N nilpotence proof or other paper's full reading is claimed. New algebraic formulas are deductions, not misattributed printed theorems.
 
-Fresh [Heuer25](https://link.springer.com/article/10.1007/s00222-025-01321-4) reading: Definition 1.2(2), complete Definition 4.1 and Remark 4.2. Fresh [Liu–Zhu v3](https://arxiv.org/pdf/1602.06282v3) reading: complete Lemma 2.15 and its short proof, printed pp.18–19. No full correspondence proof, spectral/coherent-image/twisting consumer or later-source closure is claimed.
+The reserved general Higgs/parameter-connection node is retained. Built parent Hodge theory remains imported. D3 owns common variations, CR.1 ordinary connections, E1 missing sheaf monoidal/finite-duality/descent interfaces, DD.1 filtered/Rees inputs, ColemanPowerSeries the generic Jacobi identity. Heuer spectral/coherent-image/twisting results stay with the p-adic consumer; all accepted BKT/Benoist/other route obligations remain.
 
-## Verification and reproduction
+## Separate proof prototype
 
-Current entire Mathlib-only sketch: Lean v4.34.0-rc2, Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 0 errors, 156 admitted warnings only, 62 examples. Existing exact artifacts reused, at least 70 GB available before checks, one Lean process. No Lake setup/update/cache, library build or language server. No matching Tau Ceti compiled import set certified or created; its pinned primary source was read, not imported.
+The [pushed immutable proof prototype](https://github.com/CBirkbeck/tauceti-explorer/blob/a31c7908e2ba7455d333f1f4e25e07a6563f692b/research/blueprint/suggested/HodgeStructuresPartII.lean) contains actual proofs of the six new declarations and four new examples. It temporarily restores the historical affine-contraction proof and its three tests from9a36f4d, so the checked branch contains no admission dependencies. These proofs are separate from the submitted admitted sketch.
 
-The separate experiment proves the generic word span and kernel criterion from an explicit supplied ideal-generation equality. That equality is local to this experiment and is not an extra public hypothesis. Both declarations check with no errors/warnings; both axiom audits contain only propext, Classical.choice and Quot.sound. This is not a compiled proof of the canonical Tau Ceti augmentation bridge or of global sheaf statements.
+The actual 206-line narrow extraction has seven examples (four new,three inherited) and passes with zero errors,warnings or admissions. Seven axiom audits cover affineContractions and all six new declarations. Dependencies are only propext,Classical.choice,Quot.sound; no admission axiom occurs. Runtime2.30 seconds,maximum RSS2897292 KiB,70 GiB available before compilation. Existing exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Lean4.34.0-rc2 were used with one bounded process.
 
-The exact experiment text and its axiom commands are archived in the [first submitted version](https://github.com/CBirkbeck/tauceti-explorer/blob/b386baf/research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md). Use the displayed source SHA-256 to identify it. Lean code is kept out of the current handoff under the issue’s file-format rule. An existing exact pinned Mathlib build and the worker memory/process restrictions still apply.
+SHA256:
 
+- Full proof source: ff593d09cafb7b524f6391663792370769c026c37c904ee4397eaec8a538d054.
+- Narrow extraction: fc2dac59a3bcb423c8dd635aaddabe3114ab4152aeb1d50a5cd26c859c476a64.
+- Extraction plus audits: 3e7fec73d7d1766616ffaadd0e73754a0a4f50972c0ba7a552ef767ac2f10bb7.
+- Normalized proof log: eb652cfccfe9bb7b22359fbf3343b87ddf9ebe0eda9177160168f2ab24e11639.
 
-The predecessor's exact Python regression was freshly rerun: 88 commuting F₂ pairs, N=0,…,4, 440 cases, and all ambient-ideal, characteristic-two, Z/4 and noncommuting fixtures passed. Finite computations are not general proofs. Save the next block in your own scratch and run with Python 3.
-
-```python
-from itertools import product
-
-def mat(n, m):
-    return tuple((n >> i) & 1 for i in range(m*m))
-
-def mul(A, B, modulus):
-    n = int(len(A)**0.5)
-    assert n*n == len(A) == len(B)
-    return tuple(sum(A[n*i+k]*B[n*k+j] for k in range(n)) % modulus
-                 for i in range(n) for j in range(n))
-
-mats = [mat(i, 2) for i in range(16)]
-idx = {A:i for i,A in enumerate(mats)}
-mt = [[idx[mul(A,B,2)] for B in mats] for A in mats]
-
-def span(S):
-    ans={0}
-    for v in S:
-        ans |= {a ^ v for a in tuple(ans)}
-    return ans
-
-def ideal_product(I,J):
-    return span(mt[a][b] for a in I for b in J)
-
-identity = idx[(1,0,0,1)]
-cases=pairs=0
-for a,b in product(range(16), repeat=2):
-    if mt[a][b] != mt[b][a]:
-        continue
-    pairs += 1
-    # B is the commutative image algebra; do not form an ideal in all End(E).
-    B=span([identity])
-    while True:
-        C=span(list(B)+[mt[g][x] for g in (a,b) for x in B])
-        if C == B:
-            break
-        B=C
-    J=span(mt[g][x] for g in (a,b) for x in B)
-    power=B
-    words={identity}
-    for n in range(5):
-        assert (power=={0}) == (words=={0}), (a,b,n,power,words)
-        cases += 1
-        power=ideal_product(J,power)
-        words={mt[g][w] for g in (a,b) for w in words}
-assert pairs == 88 and cases == 440
-
-# The exact four-basis witnesses used in the suggested Lean file.
-basis=list(product(range(2), repeat=2))
-X=tuple(int(i[0]==1 and j[0]==0 and i[1]==j[1]) for i in basis for j in basis)
-Y=tuple(int(i[1]==1 and j[1]==0 and i[0]==j[0]) for i in basis for j in basis)
-Z=(0,)*16
-I=tuple(int(i==j) for i in range(4) for j in range(4))
-XX,YY,XY,YX=(mul(A,B,2) for A,B in [(X,X),(Y,Y),(X,Y),(Y,X)])
-assert XX==YY==Z and XY==YX and XY!=Z
-assert tuple((a+b)%2 for a,b in zip(XY,YX))==Z
-for w in product([X,Y], repeat=3):
-    value=I
-    for A in w:
-        value=mul(value,A,2)
-    assert value==Z
-# Ordered degree-two coefficients have nonzero mixed entries even though
-# commutative projection adds the two entries and gives zero in characteristic 2.
-assert (XX,XY,YX,YY) != (Z,Z,Z,Z)
-
-# Rank-one nonreduced regression; a rank-one nilpotent need not have bound one.
-assert 2 % 4 != 0 and (2*2) % 4 == 0
-# E12 and E21 do not give an action of a commutative symmetric algebra.
-assert mul((0,1,0,0),(0,0,1,0),2) != mul((0,0,1,0),(0,1,0,0),2)
-# Generating an ideal in all End(E) destroys the nilpotence criterion.
-X2,Y2=(0,1,0,0),(0,0,1,0)
-E22=mul(Y2,X2,2)
-assert mul(X2,X2,2)==(0,0,0,0)
-assert E22!=(0,0,0,0) and mul(E22,E22,2)==E22
-print('ambient End ideal counterexample: passed')
-print('commuting pairs over F2:', pairs)
-print('same-exponent tests N=0,...,4:', cases)
-print('four-basis characteristic-two witness: all six assertions passed')
-print('Z/4 rank-one and noncommuting-pair regressions: passed')
-```
-
-## Atlas, preservation and intake
-
-Indexed packet checker: 0 errors/warnings. Actual read-only assembler with normal retirement/restructuring/link overlays and replaced-decomposition trimming: stage DAG 3,022 vertices/8,663 edges; own declaration DAG 71/138; stages plus 72 reachable declarations and supplier requests 3,088/8,916. All acyclic. All 21 computed stage prerequisite pairs reachable, no own skipped links, stage edges and other-roadmap skips identical to the unmodified packet overlay. The sole external declaration is ColemanPowerSeries:L1/derivation-determinant-unit. Five-file intake, private-path/whitespace checks and prior mathematical signature/test/metadata preservation pass.
-
-Save the following read-only projection script in your own scratch and run from the repository with the named base commit available. It writes only its result next to itself; no site build.
+To reproduce, save and run the Python recipe below in a checkout containing the immutable proof commit. It extracts the exact suggested source, without injecting alternate proofs. Recipe SHA256 09318fcc37f31d485e6f3080557945b6b0b3a97d73f318c0025bac45052560c4. Run square-axioms.lean using lake env lean from an existing exact-pin build root, following WORKERS memory/process/time rules. Do not set up or build a project.
 
 ```python
-import json,sys,subprocess,hashlib,re
 from pathlib import Path
-from collections import defaultdict,deque
-root=Path.cwd();sys.path.insert(0,str(root/"scripts"));import build
-rid="HodgeStructuresPartII"
-packetpath="research/blueprint/packets/"+rid+".json"
-roadmappath="research/blueprint/roadmaps/"+rid+".json"
-base="bd1f62cf742db0535c6427ef929da93c4becc4b0"
-p=json.loads((root/packetpath).read_text());r=json.loads((root/roadmappath).read_text())
-old=json.loads(subprocess.check_output(["git","show",base+":"+packetpath],text=True))
-oldr=json.loads(subprocess.check_output(["git","show",base+":"+roadmappath],text=True))
-load=build.load_promoted
-def assemble(packet,definition):
- def overlay(*a,**k):
-  ps,ds,defs=load(*a,**k)
-  return ([(n,v) for n,v in ps if v.get("roadmapId")!=rid]+[(rid,packet)],
-   {**ds,rid:"research/blueprint/readmes/"+rid+".md"},
-   [x for x in defs if x.get("id")!=rid]+[definition])
- build.load_promoted=overlay
- return build.assemble(require_distances=False)[0]
-a=assemble(p,r);control=assemble(old,oldr)
-def dag(vertices,edges):
- vertices=set(vertices)|{x for e in edges for x in e};following=defaultdict(set);indegree=dict.fromkeys(vertices,0)
- for s,t in set(edges):
-  following[s].add(t);indegree[t]+=1
- q=deque(v for v in vertices if not indegree[v]);seen=[]
- while q:
-  v=q.popleft();seen.append(v)
-  for w in following[v]:
-   indegree[w]-=1
-   if not indegree[w]:q.append(w)
- assert len(seen)==len(vertices),("cycle",sorted(v for v in vertices if indegree[v])[:10])
- return {"vertices":len(vertices),"edges":len(set(edges)),"acyclic":True}
-se={(e["source"],e["target"]) for e in a["stageEdges"]}
-ce={(e["source"],e["target"]) for e in control["stageEdges"]}
-assert se==ce
-stageids={s["id"] for s in a["stages"]}
-own={n["id"]:n for n in p["nodes"]}
-oe={(dep,n["id"]) for n in own.values() for dep in n.get("prerequisites",[]) if dep in own}
-stageDAG=dag(stageids,se);ownDAG=dag(own,oe)
-allnodes=dict(own)
-for folder in ("data/decompositions","data/blueprints","research/blueprint/packets"):
- for path in sorted((root/folder).glob("*.json")):
-  for n in json.loads(path.read_text()).get("nodes",[]):allnodes.setdefault(n["id"],n)
-used=set(own);todo=list(own)
-while todo:
- v=todo.pop()
- for d in allnodes[v].get("prerequisites",[]):
-  if d in allnodes and d not in used:used.add(d);todo.append(d)
-edges=set(se)
-for v in used:
- n=allnodes[v]
- parent=n.get("parentStageId")
- if parent:edges.add((parent,v))
- for d in n.get("prerequisites",[]):
-  if d in stageids or d in used:edges.add((d,v))
-for request in p["requests"]:
- for v in request["neededBy"]:edges.add((request["supplier"],v))
-combined=dag(stageids|used,edges)
-following=defaultdict(set)
-for s,t in se:following[s].add(t)
-def reachable(s,t):
- todo=[s];seen=set()
- while todo:
-  x=todo.pop()
-  if x==t:return True
-  if x not in seen:seen.add(x);todo+=list(following[x])
- return False
-pairs=set()
-for stage in r['stages']:
- for dep in stage.get('requires',[]):pairs.add((dep,rid+':'+stage['key']))
-def stage_of(v):
- seen=set()
- while v in allnodes and v not in seen:
-  seen.add(v);v=allnodes[v].get('parentStageId')
- return v
-for n in own.values():
- for d in n.get("prerequisites",[]):
-  if d in stageids and d not in allnodes and d!=stage_of(n['id']):pairs.add((d,stage_of(n['id'])))
-for req in p["requests"]:
- for v in req["neededBy"]:
-  target=stage_of(v)
-  if req["supplier"]!=target:pairs.add((req["supplier"],target))
-missing=[(s,t) for s,t in pairs if not reachable(s,t)]
-assert not missing,missing
-ar={x["id"]:x for x in a["roadmaps"]};cr={x["id"]:x for x in control["roadmaps"]}
-assert ar[rid]["blueprint"]["declarations"]==71
-assert ar[rid]["blueprint"]["planets"]==6
-assert not ar[rid]["blueprint"]["skippedLinks"]
-assert all(ar[x].get("blueprint",{}).get("skippedLinks")==cr[x].get("blueprint",{}).get("skippedLinks") for x in cr)
-for key in ("requests","gaps","sources","sourceIssues","routeManifest","restructure","upstreamNotes"):
- assert p[key]==old[key],key
-on={n["id"]:n for n in old["nodes"]}
-for id,n in on.items():
- for key in ("id","kind","statement","hypotheses","api","acceptance","sources","implementationStatus","uses"):
-  assert own[id].get(key)==n.get(key),(id,key)
- assert all(t in own[id].get("tests",[]) for t in n.get("tests",[]))
-assert p["baseline"]["declarations"][:len(old["baseline"]["declarations"])]==old["baseline"]["declarations"]
-unchanged=sum(own[id]==n for id,n in on.items())
-lean=(root/"research/blueprint/suggested/HodgeStructuresPartII.lean").read_text()
-for node in p["nodes"]:
- for test in node.get("tests",[]):assert test["name"] in lean,test["name"]
-for node in p["nodes"]:
- for api in node.get("api",[]):assert api["name"].split(".")[-1] in lean,api["name"]
-allowed={packetpath,roadmappath,"research/blueprint/readmes/"+rid+".md","research/blueprint/suggested/"+rid+".lean","research/blueprint/handoff/DESIGN-"+rid+".md"}
-changed=set(subprocess.check_output(["git","diff","--name-only",base],text=True).splitlines())
-assert changed<=allowed,changed
-for path in changed:
- assert not re.search(r"/(?:home|tmp|Users)/|file"+"://",(root/path).read_text()),path
-result={"actualAssembler":True,"declarations":71,"planets":6,"ownSkippedLinks":[],
- "stageDAG":stageDAG,"ownDeclarationDAG":ownDAG,"stagesAndReachableDeclarations":combined,
- "reachableDeclarations":len(used),"externalDeclarations":sorted(used-set(own)),
- "requiredStagePairsReachable":len(pairs),"stageEdgesUnchanged":True,
- "otherSkipsMatchOriginal":True,"unchangedNodeObjects":unchanged,
- "scriptSha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
-Path(__file__).with_suffix(".json").write_text(json.dumps(result,indent=2)+"\n")
-print(json.dumps(result,indent=2))
+import subprocess
+commit = "a31c7908e2ba7455d333f1f4e25e07a6563f692b"
+path = "research/blueprint/suggested/HodgeStructuresPartII.lean"
+s = subprocess.check_output(["git", "show", commit + ":" + path], text=True)
+imports = "\n".join(l for l in s.splitlines() if l.startswith("import Mathlib"))
+a = s.index("namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle")
+b = s.index("/-- Affine adapter", a)
+fragment = imports + "\nopen scoped TensorProduct\nnoncomputable section\n" + s[a:b]
+fragment += "\nend TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle\n"
+Path("square-native.lean").write_text(fragment)
+names = ["affineContractions", "affineContractions_reconstruct", "affineOrderedSquare",
+         "affineOrderedSquare_apply", "affineOrderedSquare_zero",
+         "affineOrderedSquare_contraction", "affineOrderedSquare_eq_zero_iff"]
+audits = "\n".join("#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle." + n for n in names)
+Path("square-axioms.lean").write_text(fragment + "\n" + audits + "\n")
 ```
 
-Exact SHA-256 receipts:
+## Submitted sketch and assembly
 
-- Current native: e7c84108653b8d910a49fb6aebe50ca9880572f206b2e0348ba36e625665af4b
-- native.log: 2c8ff8fa3cfb9ca4ba9deef0bc48a0fdb6436a483149be1da355a8281715482f
-- words.lean: f992d8964bf0d0537ccd3650eaaafd5701de75631319a06160dc993c874956a2
-- words.log: 302b28803b85c8f8c140865854ebec97f21481fe83a0c14664d2b13d0f879326
-- finite.py: 1d51a023fbcd294545fde2255cebff86f5d47945083ba2f6585e82d96ce366c1
-- projection.py: 171b894b6c4ab30417c9c1b19d49443332b8d3ca7bb84a19d245ded8914dfe74
-- Heuer25.html: b3162f810c5064726cd951511bbdb036227e6c2a30b7b682cb4548cb13500fed
-- LZ17-v3.pdf: 8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79
+Under PROTOCOL section13, all six new declaration bodies and four examples are admitted; inherited suggested bodies are byte-preserved outside the new block/import. The entire submitted suggested file was elaborated directly, not merely an extraction:66 examples,zero errors,166 admitted-declaration warnings and no other warnings. Runtime4.20 seconds,maximum RSS2911904 KiB,70 GiB available. Every import is Mathlib; no TauCeti compiled import set is certified or needed for the displayed signatures. All35 inherited global signature omissions remain, so this receipt does not certify them, any sheaf construction or any stage. No setup/update/cache/build/LSP occurred.
+
+Full suggested SHA256 40cf843adc56ed03be635eeccd9b169dca6df7f9f1466479ff2aedb5587ab24d; normalized sketch log SHA256 0363945c0e69da1d73906656f13dedd311a1f39b59bef35a1d86063e156797b2.
+
+Indexed packet and actual five-file intake policy pass with zero errors/warnings; whitespace passes. Reader/native API/test presence and inherited mathematical/source preservation checks pass. The actual read-only assembler shows75 declarations/six planets, no own skipped/pending links and unchanged stage edges/other-roadmap skipped links. Stage DAG:3022 vertices (including51 existing virtual suppliers),8663 edges. Own prerequisite DAG:75 vertices,147 edges. Combined stage/declaration/request DAG:3092 vertices,8929 edges,76 reachable declarations. All acyclic,zero unresolved references and all21 required stage pairs reachable. No site or atlas outputs were written.
 
 ## Resume
 
-1. Instantiate the canonical augmentation bridge when an existing exact Tau Ceti compiled import set is available. Do not set up or build one. Keep proof experiments distinct from admitted suggested bodies.
-2. Supply E1 sheaf symmetric/endomorphism/augmentation quotient and ordered tensor-power interfaces; prove chart coefficient extraction and restriction/gluing. Local word calculations do not discharge global nilpotence.
-3. Continue field/reduced-base rank bounds with genuine hypotheses; the Z/4 rank-one fixture rules out an unconditional rank shortcut.
-4. Discharge CR.1 ordinary/exterior comparison, DD.1 finite Griffiths/Rees interfaces, global determinant/descent and the unbounded filtered-period/Tate adapter. Heuer spectral/coherent-image/twisting results stay with their p-adic consumer.
-5. Read/decompose every remaining routed source definition and complete proof input before advancing H.1–H.8.
+Extend the explicit ordered coefficient proof to arbitrary N with the existing native tensor-power/basis interfaces, keeping the newest coefficient on the left and the N=0 identity boundary. Add change-of-chart/restriction equations and local equality detection, then discharge the E1 sheaf tensor-power/gluing bridge. The N=2 result is not the full ordered-coordinate theorem or the augmentation/sheaf equivalence.
 
-Own scratch is removed after the PR opens; all referenced reproduction code and receipts survive here or at immutable commits.
+Continue the exact canonical TauCeti augmentation bridge only when a matching existing compiled import set is available, without building one. Preserve the noncommutative End target, same exponent and source ideal. Establish field/reduced-base rank bounds with genuine hypotheses; Z/4 rank-one prevents an unconditional shortcut. Discharge CR.1 ordinary/exterior comparison,DD.1 Griffiths/Rees and unbounded period/Tate adapters,global determinant/descent and coefficient equivariance. Read/decompose all remaining routed source definitions/proofs before advancing H.1–H.8. No reserved-key closure is claimed.
