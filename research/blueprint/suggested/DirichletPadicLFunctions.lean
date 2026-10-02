@@ -26776,3 +26776,124 @@ example  (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
       Units.map (ZMod.castHom hMN (ZMod (M : ℕ))).toMonoidHom (kubertCartanDegreeOneFiniteEquiv N u) := by sorry
 end
 end DirichletPadic.SuggestedKubertDegreeOneFiniteCartanTests
+
+/- Actual degree-one Cartan primitive points and the full-lift transfer comparison. -/
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+
+noncomputable def kubertCartanPrimitiveCircleEquiv (N : ℕ+) :
+    (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) ≃ kubertPrimitivePoints (AddCircle (1 : ℚ)) (N : ℕ) := by sorry
+
+lemma kubertCartanPrimitiveCircleEquiv_coe (N : ℕ+) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanPrimitiveCircleEquiv N u : AddCircle (1 : ℚ))=
+      (((kubertCartanDegreeOneFiniteEquiv N u).val.val : ℚ)/(N : ℕ) : ℚ) := by sorry
+
+lemma kubertCartanPrimitiveCircleEquiv_intCast (N : ℕ+) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (a : ℤ) (ha : (a : ZMod (N : ℕ))=(kubertCartanDegreeOneFiniteEquiv N u).val) :
+    (kubertCartanPrimitiveCircleEquiv N u : AddCircle (1 : ℚ))=
+      ((a : ℚ)/(N : ℕ) : ℚ) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+
+lemma kubertCartanPrimitiveCircleEquiv_one (N : ℕ+) :
+    (kubertCartanPrimitiveCircleEquiv N 1 : AddCircle (1 : ℚ))=
+      ((1 : ℚ)/(N : ℕ) : ℚ) := by sorry
+
+lemma kubertCartanPrimitiveCircleEquiv_reduction (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertPrimitiveReduction M N hMN (kubertCartanPrimitiveCircleEquiv N u)=
+      kubertCartanPrimitiveCircleEquiv M (kubertCartanProductReduction 1 M N hMN u) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+noncomputable def kubertCartanPrimitiveCoefficientEquiv (R : Type*) [Semiring R] (N : ℕ+) :
+    MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) ≃ₗ[R]
+      (kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) (N : ℕ) →₀ R) := by sorry
+
+lemma kubertCartanPrimitiveCoefficientEquiv_apply (R : Type*) [Semiring R] (N : ℕ+)
+    (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanPrimitiveCoefficientEquiv R N f
+      (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u))=f.coeff u := by sorry
+
+lemma kubertCartanPrimitiveCoefficientEquiv_single (R : Type*) [Semiring R] (N : ℕ+)
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a : R) :
+    kubertCartanPrimitiveCoefficientEquiv R N (MonoidAlgebra.single u a)=
+      Finsupp.single (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)) a := by sorry
+
+lemma kubertCartanPrimitiveCoefficientEquiv_norm (R : Type*) [Semiring R]
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (f : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanPrimitiveCoefficientEquiv R N (kubertCartanProductNorm 1 R M N hMN f)=
+      kubertPrimitiveTransfer 0 R M N hMN (kubertCartanPrimitiveCoefficientEquiv R M f) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertDegreeOnePrimitiveCircleTests
+open scoped Classical
+noncomputable section
+-- primitive_circle_modulus_one
+example : (kubertCartanPrimitiveCircleEquiv 1 1 : AddCircle (1 : ℚ))=0 := by sorry
+-- primitive_circle_unit5_modulus12
+example : (kubertCartanPrimitiveCircleEquiv 12 ((kubertCartanDegreeOneFiniteEquiv 12).symm (ZMod.unitOfCoprime 5 (by decide : Nat.Coprime 5 12))) : AddCircle (1 : ℚ))=(5/12 : ℚ) := by sorry
+-- primitive_circle_inverse_roundtrip
+example (N : ℕ+) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : (kubertCartanPrimitiveCircleEquiv N).symm (kubertCartanPrimitiveCircleEquiv N u)=u := by sorry
+-- nonunit_does_not_give_primitive_point
+example : addOrderOf ((2/4 : ℚ) : AddCircle (1 : ℚ))=2 ∧ addOrderOf ((2/4 : ℚ) : AddCircle (1 : ℚ))≠4 := by sorry
+-- negative_integer_representative
+example : (kubertCartanPrimitiveCircleEquiv 12 ((kubertCartanDegreeOneFiniteEquiv 12).symm (ZMod.unitOfCoprime 5 (by decide : Nat.Coprime 5 12))) : AddCircle (1 : ℚ))=(-7/12 : ℚ) := by sorry
+-- coefficient_original_roundtrip
+example (R : Type*) [Semiring R] (N : ℕ+) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : (kubertCartanPrimitiveCoefficientEquiv R N).symm (kubertCartanPrimitiveCoefficientEquiv R N f)=f := by sorry
+-- coefficient_linear_combination
+example (R : Type*) [Semiring R] (N : ℕ+) (a : R) (f g : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanPrimitiveCoefficientEquiv R N (a • f+g)=a • kubertCartanPrimitiveCoefficientEquiv R N f+kubertCartanPrimitiveCoefficientEquiv R N g := by sorry
+-- coefficient_identity_basis
+example (R : Type*) [Semiring R] (N : ℕ+) : kubertCartanPrimitiveCoefficientEquiv R N (MonoidAlgebra.single 1 (1 : R))=Finsupp.single (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N 1)) 1 := by sorry
+-- characteristic_two_full_fiber
+example (u : (∀ p : (3 : ℕ).primeFactors, (TruncatedWittVector p.val ((3 : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanPrimitiveCoefficientEquiv (ZMod 2) 3 (kubertCartanProductNorm 1 (ZMod 2) 1 3 (by decide) (MonoidAlgebra.single 1 1)) (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (3 : ℕ) (kubertCartanPrimitiveCircleEquiv 3 u))=1 := by sorry
+-- cartanPrimitiveCircleEquiv_coe_typed_api
+example  (N : ℕ+) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanPrimitiveCircleEquiv N u : AddCircle (1 : ℚ))=
+      (((kubertCartanDegreeOneFiniteEquiv N u).val.val : ℚ)/(N : ℕ) : ℚ) := by sorry
+-- cartanPrimitiveCircleEquiv_intCast_typed_api
+example  (N : ℕ+) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (a : ℤ) (ha : (a : ZMod (N : ℕ))=(kubertCartanDegreeOneFiniteEquiv N u).val) :
+    (kubertCartanPrimitiveCircleEquiv N u : AddCircle (1 : ℚ))=
+      ((a : ℚ)/(N : ℕ) : ℚ) := by sorry
+-- cartanPrimitiveCircleEquiv_one_typed_api
+example  (N : ℕ+) :
+    (kubertCartanPrimitiveCircleEquiv N 1 : AddCircle (1 : ℚ))=
+      ((1 : ℚ)/(N : ℕ) : ℚ) := by sorry
+-- cartanPrimitiveCircleEquiv_reduction_typed_api
+example  (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertPrimitiveReduction M N hMN (kubertCartanPrimitiveCircleEquiv N u)=
+      kubertCartanPrimitiveCircleEquiv M (kubertCartanProductReduction 1 M N hMN u) := by sorry
+-- cartanPrimitiveCoefficientEquiv_apply_typed_api
+example  (R : Type*) [Semiring R] (N : ℕ+)
+    (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanPrimitiveCoefficientEquiv R N f
+      (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u))=f.coeff u := by sorry
+-- cartanPrimitiveCoefficientEquiv_single_typed_api
+example  (R : Type*) [Semiring R] (N : ℕ+)
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a : R) :
+    kubertCartanPrimitiveCoefficientEquiv R N (MonoidAlgebra.single u a)=
+      Finsupp.single (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)) a := by sorry
+-- cartanPrimitiveCoefficientEquiv_norm_typed_api
+example  (R : Type*) [Semiring R]
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (f : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanPrimitiveCoefficientEquiv R N (kubertCartanProductNorm 1 R M N hMN f)=
+      kubertPrimitiveTransfer 0 R M N hMN (kubertCartanPrimitiveCoefficientEquiv R M f) := by sorry
+end
+end DirichletPadic.SuggestedKubertDegreeOnePrimitiveCircleTests
