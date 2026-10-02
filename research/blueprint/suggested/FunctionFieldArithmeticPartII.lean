@@ -1,3 +1,6 @@
+import Mathlib.Data.Finset.Prod
+import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+import Mathlib.Algebra.Field.ZMod
 /-
 This file is not the roadmap and is not exhaustive. The roadmap document is
 definitive. These signatures suggest Lean forms so that contributors and
@@ -1529,6 +1532,64 @@ theorem affineTorsorComparison.determinant (f : A) (n : ℕ) [NeZero n] :
     Matrix.det M = (-1 : A) ^ ((n - 1) * (n * (n - 1) / 2)) *
       f ^ (n * (n - 1) / 2) := by sorry
 
+/-- Restrict the actual cyclic coefficient permutation to the killed columns. -/
+def affineTorsorComparison.wrappingEquiv (n : ℕ) [NeZero n] :
+    {p : Fin n × Fin n // n ≤ p.1.val + p.2.val} ≃
+      {q : Fin n × Fin n // q.2.val < q.1.val} := by
+  sorry
+lemma affineTorsorComparison.wrappingEquiv_apply (n : ℕ) [NeZero n]
+    (p : {p : Fin n × Fin n // n ≤ p.1.val + p.2.val}) :
+    (wrappingEquiv n p).val = coefficientPermutation n p.val := by
+  sorry
+lemma affineTorsorComparison.wrappingEquiv_symm (n : ℕ) [NeZero n]
+    (q : {q : Fin n × Fin n // q.2.val < q.1.val}) :
+    ((wrappingEquiv n).symm q).val = (coefficientPermutation n).symm q.val := by
+  sorry
+lemma affineTorsorComparison.wrappingEquiv_injective (n : ℕ) [NeZero n] :
+    Function.Injective (wrappingEquiv n) := by
+  sorry
+lemma affineTorsorComparison.lower_card (n : ℕ) :
+    Fintype.card {q : Fin n × Fin n // q.2.val < q.1.val} =
+      n * (n - 1) / 2 := by
+  sorry
+lemma affineTorsorComparison.wrapping_card (n : ℕ) [NeZero n] :
+    Fintype.card {p : Fin n × Fin n // n ≤ p.1.val + p.2.val} =
+      n * (n - 1) / 2 := by
+  sorry
+/-- At zero the specified native kernel coordinates have arbitrary A-values. -/
+noncomputable def affineTorsorComparison.kernelZeroEquiv (n : ℕ) [NeZero n] :
+    (LinearMap.ker (affineTorsorComparison (0 : A) n).toLinearMap) ≃ₗ[A]
+      ({p : Fin n × Fin n // n ≤ p.1.val + p.2.val} → A) := by
+  sorry
+lemma affineTorsorComparison.kernelZeroEquiv_apply (n : ℕ) [NeZero n]
+    (z : LinearMap.ker (affineTorsorComparison (0 : A) n).toLinearMap)
+    (p : {p : Fin n × Fin n // n ≤ p.1.val + p.2.val}) :
+    kernelZeroEquiv n z p = sourceCoordinateEquiv (0 : A) n z p.val := by
+  sorry
+lemma affineTorsorComparison.kernelZeroEquiv_injective (n : ℕ) [NeZero n] :
+    Function.Injective (kernelZeroEquiv (A := A) n) := by
+  sorry
+lemma affineTorsorComparison.kernelZeroEquiv_symm_coordinates (n : ℕ) [NeZero n]
+    (d : {p : Fin n × Fin n // n ≤ p.1.val + p.2.val} → A) (p : Fin n × Fin n) :
+    sourceCoordinateEquiv (0 : A) n ((kernelZeroEquiv n).symm d :
+      AffineRing (0 : A) n ⊗[A] AffineRing (0 : A) n) p =
+      if hp : n ≤ p.1.val + p.2.val then d ⟨p, hp⟩ else 0 := by
+  sorry
+lemma affineTorsorComparison.source_finrank (k : Type u) [Field k]
+    (f : k) (n : ℕ) [NeZero n] :
+    Module.finrank k (AffineRing f n ⊗[k] AffineRing f n) = n * n := by
+  sorry
+lemma affineTorsorComparison.kernel_zero_finrank (k : Type u) [Field k]
+    (n : ℕ) [NeZero n] :
+    Module.finrank k (LinearMap.ker (affineTorsorComparison (0 : k) n).toLinearMap) =
+      n * (n - 1) / 2 := by
+  sorry
+lemma affineTorsorComparison.range_zero_finrank (k : Type u) [Field k]
+    (n : ℕ) [NeZero n] :
+    Module.finrank k (LinearMap.range (affineTorsorComparison (0 : k) n).toLinearMap) =
+      n * (n + 1) / 2 := by
+  sorry
+
 /-- At the zero section over a field the loss of rank is exactly triangular. -/
 theorem affineTorsorComparison.zero_rank (k : Type u) [Field k]
     (n : ℕ) [NeZero n] :
@@ -1735,4 +1796,68 @@ example (v : Aˣ) (n : ℕ) [NeZero n] (b : AffineRing (v : A) n) :
       ((1 : MuHopf A n) ⊗ₜ[A] b) = (1 : AffineRing (v : A) n) ⊗ₜ[A] b := by
   sorry
 
+end TauCeti.RootStack
+
+/-! Zero-section rank acceptance computations. -/
+namespace TauCeti.RootStack
+variable {A : Type u} [CommRing A]
+open scoped TensorProduct
+
+-- TauCeti.RootStack.affineTorsorComparison.wrappingEquiv.test_one
+example : Fintype.card {p : Fin 1 × Fin 1 // 1 ≤ p.1.val + p.2.val} = 0 := by
+  sorry
+-- TauCeti.RootStack.affineTorsorComparison.wrappingEquiv.test_two
+example : (affineTorsorComparison.wrappingEquiv 2 ⟨(1,1), by decide⟩).val = (1,0) := by
+  sorry
+-- TauCeti.RootStack.affineTorsorComparison.wrappingEquiv.test_inverse
+example : ((affineTorsorComparison.wrappingEquiv 3).symm ⟨(2,0), by decide⟩).val = (2,1) := by
+  sorry
+-- TauCeti.RootStack.affineTorsorComparison.lower_card.test_zero
+example : Fintype.card {q : Fin 0 × Fin 0 // q.2.val < q.1.val} = 0 := by
+  sorry
+-- TauCeti.RootStack.affineTorsorComparison.lower_card.test_three
+example : Fintype.card {q : Fin 3 × Fin 3 // q.2.val < q.1.val} = 3 := by
+  sorry
+-- TauCeti.RootStack.affineTorsorComparison.wrapping_card.test_three
+example : Fintype.card {p : Fin 3 × Fin 3 // 3 ≤ p.1.val + p.2.val} = 3 := by
+  sorry
+-- TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv.test_one
+example (z : LinearMap.ker (affineTorsorComparison (0 : A) 1).toLinearMap) : z = 0 := by
+  sorry
+-- TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv.test_nonreduced
+example :
+    let d : {p : Fin 2 × Fin 2 // 2 ≤ p.1.val + p.2.val} → ZMod 4 := fun _ => 2
+    let z := (affineTorsorComparison.kernelZeroEquiv 2).symm d
+    affineTorsorComparison.sourceCoordinateEquiv (0 : ZMod 4) 2 z (1,1) = 2 ∧
+      affineTorsorComparison.sourceCoordinateEquiv (0 : ZMod 4) 2 z (0,0) = 0 := by
+  sorry
+-- TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv.test_zero_ring
+example (n : ℕ) [NeZero n]
+    (z : LinearMap.ker (affineTorsorComparison (0 : ZMod 1) n).toLinearMap) :
+    affineTorsorComparison.kernelZeroEquiv n z = 0 := Subsingleton.elim _ _
+-- TauCeti.RootStack.affineTorsorComparison.source_finrank.test_two
+example (k : Type u) [Field k] (f : k) :
+    Module.finrank k (AffineRing f 2 ⊗[k] AffineRing f 2) = 4 := by
+  sorry
+-- TauCeti.RootStack.affineTorsorComparison.kernel_zero_finrank.test_one
+example (k : Type u) [Field k] :
+    Module.finrank k (LinearMap.ker (affineTorsorComparison (0 : k) 1).toLinearMap) = 0 := by
+  sorry
+-- TauCeti.RootStack.affineTorsorComparison.range_zero_finrank.test_wild
+section
+local instance : Fact (Nat.Prime 3) := ⟨by decide⟩
+example :
+    Module.finrank (ZMod 3) (LinearMap.range (affineTorsorComparison (0 : ZMod 3) 3).toLinearMap) = 6 := by
+  sorry
+end
+-- TauCeti.RootStack.affineTorsorComparison.zero_rank.test_two
+example (k : Type u) [Field k] :
+    Module.finrank k (LinearMap.range (affineTorsorComparison (0 : k) 2).toLinearMap) = 3 ∧
+    Module.finrank k (LinearMap.ker (affineTorsorComparison (0 : k) 2).toLinearMap) = 1 := by
+  sorry
+-- TauCeti.RootStack.affineTorsorComparison.zero_rank.test_four
+example :
+    Module.finrank ℚ (LinearMap.range (affineTorsorComparison (0 : ℚ) 4).toLinearMap) = 10 ∧
+    Module.finrank ℚ (LinearMap.ker (affineTorsorComparison (0 : ℚ) 4).toLinearMap) = 6 := by
+  sorry
 end TauCeti.RootStack

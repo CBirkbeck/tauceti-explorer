@@ -1092,19 +1092,23 @@ Hypotheses:
 
 Construction or proof:
 
-1. At f=0, the nonwrapping columns map to distinct target basis vectors with coefficient 1 and the wrapping columns vanish.
-2. The range basis is indexed by the nonwrapping pairs, of cardinal Σ_i(n−i)=n(n+1)/2. Use the native basis-cardinality dimension theorem.
-3. The source has dimension n² by the native tensor basis; rank-nullity gives the simultaneous kernel formula, equivalently the wrapping coordinates form its basis.
+1. Pair the proved native image and kernel dimension formulas; both use the actual coaction-induced comparison. The full nilpotent branch algebra and arbitrary characteristic are retained.
 
-Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial, FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates, FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinates, mathlib:Module.finrank_eq_card_basis, mathlib:LinearMap.finrank_range_add_finrank_ker.
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-range-finrank, FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-finrank.
 
-- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
+Unit tests:
+
+- TauCeti.RootStack.affineTorsorComparison.zero_rank.test_two (computation): For any field k,n=2, the actual range and kernel dimensions are three and one.
+- TauCeti.RootStack.affineTorsorComparison.zero_rank.test_four (computation): For k=Q,n=4, the actual range and kernel dimensions are ten and six.
 
 Acceptance:
 
 - For n=2 over every field, the source dimension is four, the range dimension three and the kernel dimension one.
 
-Sources: TV17 §3.1 pp.14–16, finite P=N grading and chart; [Stacks Tag 040N](https://stacks.math.columbia.edu/tag/040N), the unit-parameter finite-free cover. The coordinate calculations are derived here, not asserted to be printed standalone theorems in either source.
+Sources:
+
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “induces an action”. The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper.
+- STACKS-KUMMER, Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof: “finite free of rank”. The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred.
 
 ## RS.1. Finite root stacks
 
@@ -4874,3 +4878,293 @@ Sources: [Stacks Tag040N](https://stacks.math.columbia.edu/tag/040N), Lemma59.28
 The current native proof extraction has37 examples, all with actual bodies, and22 printed declaration axiom audits. It has zero errors, two admitted assertions (the determinant and the general field-rank theorem), and no other warnings. The unit-inverse declarations have no admission dependency. The four inherited direct examples now have actual proofs: the nonzero branch tensor, the wild unit nilpotent, failure of injectivity preservation under Z→F₂, and the full Z/8 cokernel-equivalence example with an element of order four. The five new unit-chart tests compute the exponent-one character, the wild inverse, the inverse coefficient3 over F₅, the zero ring and the unchanged right factor.
 
 The distinct proposed native signature extraction has37 examples, zero errors,100 admitted-body warnings and no other warnings. The final suggested signatures and examples are admitted under PROTOCOL13. Exact-pin compiled Tau Ceti line-bundle and roots-of-unity modules remain unavailable, so the complete suggested file is uncompiled. All149 nodes stay unchecked and all ten stages stay partial. The eight geometric gaps and thirteen supplier requests remain open. The handoff gives immutable source commits, byte-exact reconstruction recipes and the native atlas projection receipt.
+
+## Native zero-section rank continuation — 2 October 2026
+
+For the actual comparison Θ₀ on the full algebra k[x]/(xⁿ), the native kernel coordinates become W→k. The restricted cyclic permutation identifies W with the strictly lower target coordinates, whose cardinal is n(n−1)/2. The actual tensor source has dimension n². Rank-nullity then gives image dimension n(n+1)/2, using parity before natural-number division. This holds in every characteristic, including when the characteristic divides n. The specified zero-kernel equivalence itself works over every commutative coefficient ring and preserves nilpotent coefficients.
+
+The nine additional unchecked planning nodes and six API records below extend the existing coordinate construction. The checked proof is archived at an immutable public commit recorded in the handoff; the submitted signatures retain admitted bodies. The determinant remains open, along with all geometric supplier contracts. All ten stages remain partial. Earlier source reading, paper routing, finite-field checks and source-finding receipts retain their original attribution.
+
+### Wrapping columns and lower coordinates
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-wrapping-equivalence. construction. Native name: TauCeti.RootStack.affineTorsorComparison.wrappingEquiv.
+
+Restrict the actual cyclic permutation σ(i,j)=(i,i+j mod n) to an equivalence W≃L, where W={(i,j)∈Fin n×Fin n:n≤i+j} and L={(i,k):k<i}. Its inverse is the restriction of σ⁻¹(i,k)=(i,k−i mod n). These are source/target indices of the native comparison, not newly chosen coordinates.
+
+Hypotheses:
+
+- A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis.
+
+Construction or proof:
+
+1. Apply the existing equivalence of subtypes to σ and the proved wrap_iff_lower condition.
+2. The restricted forward/inverse maps retain σ and σ⁻¹; their inverse laws are imported.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-permutation, FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-wrap, mathlib:Equiv.subtypeEquiv.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.0/affine-torsor-wrapping-card — Supplies the specified coordinate or index equivalence used by the zero-section dimension calculation.
+
+API:
+
+- TauCeti.RootStack.affineTorsorComparison.wrappingEquiv_apply (projection): The underlying forward pair is σ(p); its wrapping witness supplies the lower-coordinate witness.
+- TauCeti.RootStack.affineTorsorComparison.wrappingEquiv_symm (simp): The underlying inverse pair is σ⁻¹(q), retaining the original cyclic subtraction.
+- TauCeti.RootStack.affineTorsorComparison.wrappingEquiv_injective (extensionality): Equal lower-coordinate images under the specified restricted map imply equal wrapping source pairs; import the native equivalence injectivity law.
+
+Unit tests:
+
+- TauCeti.RootStack.affineTorsorComparison.wrappingEquiv.test_one (degenerate): At n=1 the wrapping subtype has cardinal zero.
+- TauCeti.RootStack.affineTorsorComparison.wrappingEquiv.test_two (computation): At n=2 the restricted forward map sends (1,1) to (1,0).
+- TauCeti.RootStack.affineTorsorComparison.wrappingEquiv.test_inverse (computation): At n=3 the restricted inverse sends (2,0) to (2,1).
+
+Acceptance:
+
+- W and L are empty at n=1; the lower coordinate (2,0) at n=3 comes from (2,1).
+
+Sources:
+
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+
+
+### Number of lower root coordinates
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-lower-card. lemma. Native name: TauCeti.RootStack.affineTorsorComparison.lower_card.
+
+For every n≥0, the native subtype L={(i,k)∈Fin n×Fin n:k<i} has cardinal n(n−1)/2.
+
+Hypotheses:
+
+- A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis.
+
+Construction or proof:
+
+1. Identify the subtype cardinality with the filtered product of Fin n.
+2. Swap the two factors and import the existing ordered-pair counting theorem; evaluate choose n 2. No generic counting theorem is replanned.
+
+Inputs: mathlib:Fintype.card_subtype, mathlib:Finset.card_product_filter_lt, mathlib:Nat.choose_two_right.
+
+Unit tests:
+
+- TauCeti.RootStack.affineTorsorComparison.lower_card.test_zero (degenerate): The lower-coordinate subtype is empty at n=0.
+- TauCeti.RootStack.affineTorsorComparison.lower_card.test_three (computation): The lower-coordinate subtype has cardinal three at n=3.
+
+Acceptance:
+
+- Includes n=0 and n=1; at n=3 the cardinal is three.
+
+Sources:
+
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+
+
+### Number of killed root columns
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-wrapping-card. lemma. Native name: TauCeti.RootStack.affineTorsorComparison.wrapping_card.
+
+For n≥1, the native wrapping subtype W={(i,j)∈Fin n×Fin n:n≤i+j} has cardinal n(n−1)/2.
+
+Hypotheses:
+
+- A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis.
+
+Construction or proof:
+
+1. Transport the lower-coordinate count through the specified restricted cyclic equivalence.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-wrapping-equivalence, FunctionFieldArithmeticPartII:RS.0/affine-torsor-lower-card, mathlib:Fintype.card_congr.
+
+Unit tests:
+
+- TauCeti.RootStack.affineTorsorComparison.wrapping_card.test_three (computation): At n=3 there are three wrapping columns.
+
+Acceptance:
+
+- Counts the actual killed source columns at f=0, independently of characteristic.
+
+Sources:
+
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+
+
+### Specified zero-section kernel coordinates
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-equivalence. construction. Native name: TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv.
+
+For any commutative A and n≥1, define K₀:ker Θ₀≃ₗ[A](W→A) by the already specified native kernel coordinate equivalence followed pointwise by ker(0·id_A)≃ₗ[A]A. The original tensor element is recovered by extending its wrapping coefficients by zero and using the native source synthesis. No field or reducedness assumption is needed.
+
+Hypotheses:
+
+- A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis.
+
+Construction or proof:
+
+1. At f=0 the annihilator submodule is the top submodule; use its existing linear equivalence with A.
+2. Apply the existing pointwise linear-equivalence constructor and compose with the specified native kernel coordinates.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coordinate-equivalence, mathlib:LinearEquiv.ofTop, mathlib:LinearEquiv.piCongrRight.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-finrank — Supplies the specified coordinate or index equivalence used by the zero-section dimension calculation.
+
+API:
+
+- TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_apply (projection): K₀(z)(p)=Cs(z)(p) for each wrapping pair p, where Cs is the specified native source coordinate equivalence.
+- TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_symm_coordinates (simp): Cs(K₀⁻¹(d))(p)=d(p) if p is wrapping, and 0 otherwise, with the subtype witness retained.
+- TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_injective (extensionality): Equal specified wrapping-coordinate families imply equality in the actual native kernel submodule; import the native linear-equivalence injectivity law.
+
+Unit tests:
+
+- TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv.test_one (degenerate): For n=1 over every commutative A, an element of ker Θ₀ equals zero.
+- TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv.test_nonreduced (computation): For A=Z/4,n=2 and constant wrapping coefficient 2, the inverse has source coordinate 2 at (1,1) and 0 at (0,0).
+- TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv.test_zero_ring (degenerate): For A=Z/1 and any positive n the specified kernel coordinate family is zero.
+
+Acceptance:
+
+- Retains coefficients such as 2∈Z/4, including zero rings; this is the actual kernel submodule of the tensor comparison.
+
+Sources:
+
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+
+
+### Extract zero-section kernel coefficients
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-coordinate. lemma. Native name: TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_apply.
+
+For z∈ker Θ₀ and p∈W, K₀(z)(p)=Cs(z)(p), where Cs is the fixed tensor-monomial source coordinate equivalence.
+
+Hypotheses:
+
+- A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis.
+
+Construction or proof:
+
+1. Unfold the specified pointwise top-submodule equivalence; its forward map is the subtype inclusion.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-equivalence.
+
+Acceptance:
+
+- The coordinate is the original A-value, including nilpotent coefficients.
+
+Sources:
+
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+
+
+### Recover zero-section kernel tensors
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-inverse-coordinate. lemma. Native name: TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_symm_coordinates.
+
+For d:W→A and each p∈Fin n×Fin n, Cs(K₀⁻¹d)(p) equals d(p) when n≤i+j and equals 0 otherwise. The inverse is the actual native tensor synthesis.
+
+Hypotheses:
+
+- A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis.
+
+Construction or proof:
+
+1. Use the preceding kernel-coordinate inverse formula and the inverse top-submodule inclusion, which leaves the A-value unchanged.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-equivalence, FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coordinate-equivalence.
+
+Acceptance:
+
+- Both wrapping coefficients and the zero extension are specified; an arbitrary module equivalence would not satisfy this contract.
+
+Sources:
+
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+
+
+### Dimension of the root tensor source
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-finrank. lemma. Native name: TauCeti.RootStack.affineTorsorComparison.source_finrank.
+
+For any field k, f∈k and n≥1, dim_k(B⊗_k B)=n² for B=k[x]/(xⁿ−f), using the already specified native tensor-monomial coordinates.
+
+Hypotheses:
+
+- A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis.
+
+Construction or proof:
+
+1. Transport dimension through Cs:B⊗B≃ₗ[k](Fin n×Fin n→k).
+2. Import the existing finite-function dimension theorem and evaluate the product cardinality.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinate-equivalence, mathlib:LinearEquiv.finrank_eq, mathlib:Module.finrank_pi.
+
+Unit tests:
+
+- TauCeti.RootStack.affineTorsorComparison.source_finrank.test_two (computation): For every field k and every f∈k, the n=2 native tensor source has dimension four.
+
+Acceptance:
+
+- Applies at every parameter f, including zero, independently of characteristic.
+
+Sources:
+
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+
+
+### Dimension of the zero-section kernel
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-finrank. lemma. Native name: TauCeti.RootStack.affineTorsorComparison.kernel_zero_finrank.
+
+For every field k and n≥1, the actual native kernel submodule ker Θ₀ has k-dimension n(n−1)/2.
+
+Hypotheses:
+
+- A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis.
+
+Construction or proof:
+
+1. Transport dimension through K₀ to W→k.
+2. Use the imported finite-function dimension formula and the root-specific wrapping count.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-equivalence, FunctionFieldArithmeticPartII:RS.0/affine-torsor-wrapping-card, mathlib:LinearEquiv.finrank_eq, mathlib:Module.finrank_pi.
+
+Unit tests:
+
+- TauCeti.RootStack.affineTorsorComparison.kernel_zero_finrank.test_one (degenerate): For every field k, the n=1 kernel has dimension zero.
+
+Acceptance:
+
+- No invertibility-of-n assumption; the complete nilpotent quotient k[x]/(xⁿ) is retained.
+
+Sources:
+
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+
+
+### Dimension of the zero-section image
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-range-finrank. lemma. Native name: TauCeti.RootStack.affineTorsorComparison.range_zero_finrank.
+
+For every field k and n≥1, the actual native range submodule im Θ₀ has k-dimension n(n+1)/2.
+
+Hypotheses:
+
+- A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis.
+
+Construction or proof:
+
+1. Obtain finite dimensionality of the actual tensor source from its injective coordinate equivalence.
+2. Import rank-nullity and substitute the proved source and kernel dimensions.
+3. Use evenness of n(n−1) before dividing by two, together with n²=n(n−1)+n. Natural-number truncation is not treated as rational subtraction.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-finrank, FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-finrank, mathlib:FiniteDimensional.of_injective, mathlib:LinearMap.finrank_range_add_finrank_ker, mathlib:Nat.two_dvd_mul_sub_one.
+
+Unit tests:
+
+- TauCeti.RootStack.affineTorsorComparison.range_zero_finrank.test_wild (computation): For k=F₃,n=3, the actual native range has dimension six; the field instance uses primality of3.
+
+Acceptance:
+
+- Over F₃ with n=3 the range has dimension six, despite 3 being zero in k.
+
+Sources:
+
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.

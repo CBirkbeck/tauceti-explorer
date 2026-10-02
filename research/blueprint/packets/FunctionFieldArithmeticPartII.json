@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded. The affine invariant-ring step is factored through the native μ_n Hopf coaction, its axioms, root weights and point comparison; geometric carriers remain open. Six native root-trivialization comparison nodes now expose the computed unit coefficient and root-arrow scalar equations; no geometric carrier or generic section tensor operation is duplicated. Continuation supplies fpqc descent and thirteen finite/infinite root-transition/Kummer proof leaves; it corrects the inherited infinite H1 topology and separates ordinary stacks, algebraic properties and coarse suppliers. Canonical integration adds the actual finite affine action comparison, weighted tensor coordinates, explicit kernel/module-cokernel maps, sharp injectivity/surjectivity criteria and unit inverse; the branch and normalized-coframe torsors remain distinct. This continuation specifies the native wrapping kernel coordinate equivalence, lower residue map, its surjectivity and exact kernel, and the module cokernel coordinate equivalence with inverse and representative APIs. Separate native proof evidence checks these contracts and nine concrete module-coordinate examples; all planned statuses stay unchecked. The unit-chart continuation specifies the actual promoted algebra comparison and its inverse on every character/right-factor tensor, and checks the four inherited direct counterexamples; determinant and field-rank proof obligations remain.",
+  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded. The affine invariant-ring step is factored through the native μ_n Hopf coaction, its axioms, root weights and point comparison; geometric carriers remain open. Six native root-trivialization comparison nodes now expose the computed unit coefficient and root-arrow scalar equations; no geometric carrier or generic section tensor operation is duplicated. Continuation supplies fpqc descent and thirteen finite/infinite root-transition/Kummer proof leaves; it corrects the inherited infinite H1 topology and separates ordinary stacks, algebraic properties and coarse suppliers. Canonical integration adds the actual finite affine action comparison, weighted tensor coordinates, explicit kernel/module-cokernel maps, sharp injectivity/surjectivity criteria and unit inverse; the branch and normalized-coframe torsors remain distinct. This continuation specifies the native wrapping kernel coordinate equivalence, lower residue map, its surjectivity and exact kernel, and the module cokernel coordinate equivalence with inverse and representative APIs. Separate native proof evidence checks these contracts and nine concrete module-coordinate examples; all planned statuses stay unchecked. The unit-chart continuation specifies the actual promoted algebra comparison and its inverse on every character/right-factor tensor, and checks the four inherited direct counterexamples; determinant and field-rank proof obligations remain. This checkpoint derives the actual zero-section kernel and range dimensions from specified native tensor coordinates and restricted cyclic indices; geometric root stacks remain partial.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -748,6 +748,105 @@
         "checked": "Exact statement with ambient hypotheses read at the pinned Mathlib commit on 2026-10-02 by Codex — codex-J6LwjP.",
         "sourceLine": 597,
         "sourceSha256": "7216df49a09c85120c95db570a663a572320c92ceda0c04e0af706539b37d0c1"
+      },
+      {
+        "ref": "mathlib:Finset.card_product_filter_lt",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Finset/Prod.lean",
+        "line": 367,
+        "provides": "Existing cardinality of strictly ordered pairs in a finite linearly ordered set: choose(card,2).",
+        "checked": "Actual statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceSha256": "13c8756add2710072abee567b38e3447ddb798a2cdac3c9e67a72ac896feec92"
+      },
+      {
+        "ref": "mathlib:Equiv.subtypeEquiv",
+        "kind": "def",
+        "module": "Mathlib/Logic/Equiv/Basic.lean",
+        "line": 263,
+        "provides": "Restrict a supplied equivalence using a pointwise equivalence of predicates; preserves specified forward/inverse functions.",
+        "checked": "Actual statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceSha256": "7ecb0239b0db90f731ec3f8fdb73b12ba74229ccf4b3a30ae86a4af9e2529fcd"
+      },
+      {
+        "ref": "mathlib:Fintype.card_congr",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Fintype/Card.lean",
+        "line": 67,
+        "provides": "Equivalent finite types have equal cardinalities.",
+        "checked": "Actual statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceSha256": "ff7b5a6ad4d5fc2bffce8e481b1af75bff265df7053045908ec31cf97a21a12a"
+      },
+      {
+        "ref": "mathlib:Fintype.card_subtype",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Fintype/Card.lean",
+        "line": 395,
+        "provides": "A finite subtype with decidable predicate has the cardinality of the filtered universal finset.",
+        "checked": "Actual statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceSha256": "ff7b5a6ad4d5fc2bffce8e481b1af75bff265df7053045908ec31cf97a21a12a"
+      },
+      {
+        "ref": "mathlib:Nat.choose_two_right",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Choose/Basic.lean",
+        "line": 110,
+        "provides": "choose n 2=n(n−1)/2 for every natural n.",
+        "checked": "Actual statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceSha256": "3abe93f2b0d22bf844405a917c97a6677a02d39df76429280df4b5ad0dfc6b0d"
+      },
+      {
+        "ref": "mathlib:Nat.two_dvd_mul_sub_one",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Ring/Parity.lean",
+        "line": 339,
+        "provides": "For every natural n,2 divides n(n−1), including n=0.",
+        "checked": "Actual statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceSha256": "ba777f16c09858dc2cb0fe4c46b81cf88ff7eab7401dfb25136d85513ec6e31c"
+      },
+      {
+        "ref": "mathlib:Module.finrank_pi",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+        "line": 289,
+        "provides": "The dimension of the finite function module ι→R equals card ι; instantiated only over fields here.",
+        "checked": "Actual statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceSha256": "ba705b4a5e12709dfbd792ddd9946aafdcc276daf1a8778de760ec2f4e660363"
+      },
+      {
+        "ref": "mathlib:LinearEquiv.piCongrRight",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Pi.lean",
+        "line": 467,
+        "provides": "Pointwise supplied linear equivalences induce a linear equivalence of dependent function modules.",
+        "checked": "Actual statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceSha256": "7216df49a09c85120c95db570a663a572320c92ceda0c04e0af706539b37d0c1"
+      },
+      {
+        "ref": "mathlib:LinearEquiv.ofTop",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Equiv.lean",
+        "line": 100,
+        "provides": "A submodule equal to top is linearly equivalent to the ambient module; the maps are the native subtype inclusion and inclusion inverse.",
+        "checked": "Actual statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceSha256": "ce8909ba1bfc5e1fa0fbf6ddcecbb0233a4ae175622578772b290814a9a7fcc8"
+      },
+      {
+        "ref": "mathlib:FiniteDimensional.of_injective",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Defs.lean",
+        "line": 84,
+        "provides": "An injective linear map into a finite-dimensional vector space transfers finite dimensionality to the domain.",
+        "checked": "Actual statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceSha256": "a3e88c4fe00ba476440d68a1568afecf6be685a488b5b8718f6b2ef969a15fa4"
+      },
+      {
+        "ref": "mathlib:LinearEquiv.finrank_eq",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
+        "line": 116,
+        "provides": "A supplied linear equivalence preserves native module finrank.",
+        "checked": "Actual statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-5ebb6f.",
+        "sourceSha256": "4ab91c2b2e2d56f24c0260f25d55a31042cac8112a943a7c877594528c363e21"
       }
     ]
   },
@@ -7430,16 +7529,11 @@
         "k is any field, n≥1 and f=0."
       ],
       "prerequisites": [
-        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial",
-        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates",
-        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinates",
-        "mathlib:Module.finrank_eq_card_basis",
-        "mathlib:LinearMap.finrank_range_add_finrank_ker"
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-range-finrank",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-finrank"
       ],
       "proofSteps": [
-        "At f=0, the nonwrapping columns map to distinct target basis vectors with coefficient 1 and the wrapping columns vanish.",
-        "The range basis is indexed by the nonwrapping pairs, of cardinal Σ_i(n−i)=n(n+1)/2. Use the native basis-cardinality dimension theorem.",
-        "The source has dimension n² by the native tensor basis; rank-nullity gives the simultaneous kernel formula, equivalently the wrapping coordinates form its basis."
+        "Pair the proved native image and kernel dimension formulas; both use the actual coaction-induced comparison. The full nilpotent branch algebra and arbitrary characteristic are retained."
       ],
       "acceptance": [
         "For n=2 over every field, the source dimension is four, the range dimension three and the kernel dimension one."
@@ -7462,7 +7556,19 @@
           "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.zero_rank.test_two",
+          "kind": "computation",
+          "statement": "For any field k,n=2, the actual range and kernel dimensions are three and one."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.zero_rank.test_four",
+          "kind": "computation",
+          "statement": "For k=Q,n=4, the actual range and kernel dimensions are ten and six."
+        }
+      ]
     },
     {
       "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
@@ -8782,6 +8888,475 @@
       "acceptance": [
         "Includes i=0, i≥n and n=1; it does not choose representatives or divide by n."
       ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-wrapping-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Wrapping columns and lower coordinates",
+      "kind": "construction",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.wrappingEquiv",
+      "statement": "Restrict the actual cyclic permutation σ(i,j)=(i,i+j mod n) to an equivalence W≃L, where W={(i,j)∈Fin n×Fin n:n≤i+j} and L={(i,k):k<i}. Its inverse is the restriction of σ⁻¹(i,k)=(i,k−i mod n). These are source/target indices of the native comparison, not newly chosen coordinates.",
+      "hypotheses": [
+        "A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-permutation",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-wrap",
+        "mathlib:Equiv.subtypeEquiv"
+      ],
+      "proofSteps": [
+        "Apply the existing equivalence of subtypes to σ and the proved wrap_iff_lower condition.",
+        "The restricted forward/inverse maps retain σ and σ⁻¹; their inverse laws are imported."
+      ],
+      "acceptance": [
+        "W and L are empty at n=1; the lower coordinate (2,0) at n=3 comes from (2,1)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "root stacks",
+          "match": "The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.wrappingEquiv.test_one",
+          "kind": "degenerate",
+          "statement": "At n=1 the wrapping subtype has cardinal zero."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.wrappingEquiv.test_two",
+          "kind": "computation",
+          "statement": "At n=2 the restricted forward map sends (1,1) to (1,0)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.wrappingEquiv.test_inverse",
+          "kind": "computation",
+          "statement": "At n=3 the restricted inverse sends (2,0) to (2,1)."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.wrappingEquiv_apply",
+          "role": "projection",
+          "statement": "The underlying forward pair is σ(p); its wrapping witness supplies the lower-coordinate witness."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.wrappingEquiv_symm",
+          "role": "simp",
+          "statement": "The underlying inverse pair is σ⁻¹(q), retaining the original cyclic subtraction."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.wrappingEquiv_injective",
+          "role": "extensionality",
+          "statement": "Equal lower-coordinate images under the specified restricted map imply equal wrapping source pairs; import the native equivalence injectivity law."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-wrapping-card",
+          "how": "Supplies the specified coordinate or index equivalence used by the zero-section dimension calculation."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-lower-card",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Number of lower root coordinates",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.lower_card",
+      "statement": "For every n≥0, the native subtype L={(i,k)∈Fin n×Fin n:k<i} has cardinal n(n−1)/2.",
+      "hypotheses": [
+        "A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis."
+      ],
+      "prerequisites": [
+        "mathlib:Fintype.card_subtype",
+        "mathlib:Finset.card_product_filter_lt",
+        "mathlib:Nat.choose_two_right"
+      ],
+      "proofSteps": [
+        "Identify the subtype cardinality with the filtered product of Fin n.",
+        "Swap the two factors and import the existing ordered-pair counting theorem; evaluate choose n 2. No generic counting theorem is replanned."
+      ],
+      "acceptance": [
+        "Includes n=0 and n=1; at n=3 the cardinal is three."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "root stacks",
+          "match": "The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.lower_card.test_zero",
+          "kind": "degenerate",
+          "statement": "The lower-coordinate subtype is empty at n=0."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.lower_card.test_three",
+          "kind": "computation",
+          "statement": "The lower-coordinate subtype has cardinal three at n=3."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-wrapping-card",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Number of killed root columns",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.wrapping_card",
+      "statement": "For n≥1, the native wrapping subtype W={(i,j)∈Fin n×Fin n:n≤i+j} has cardinal n(n−1)/2.",
+      "hypotheses": [
+        "A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-wrapping-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-lower-card",
+        "mathlib:Fintype.card_congr"
+      ],
+      "proofSteps": [
+        "Transport the lower-coordinate count through the specified restricted cyclic equivalence."
+      ],
+      "acceptance": [
+        "Counts the actual killed source columns at f=0, independently of characteristic."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "root stacks",
+          "match": "The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.wrapping_card.test_three",
+          "kind": "computation",
+          "statement": "At n=3 there are three wrapping columns."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Specified zero-section kernel coordinates",
+      "kind": "construction",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv",
+      "statement": "For any commutative A and n≥1, define K₀:ker Θ₀≃ₗ[A](W→A) by the already specified native kernel coordinate equivalence followed pointwise by ker(0·id_A)≃ₗ[A]A. The original tensor element is recovered by extending its wrapping coefficients by zero and using the native source synthesis. No field or reducedness assumption is needed.",
+      "hypotheses": [
+        "A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coordinate-equivalence",
+        "mathlib:LinearEquiv.ofTop",
+        "mathlib:LinearEquiv.piCongrRight"
+      ],
+      "proofSteps": [
+        "At f=0 the annihilator submodule is the top submodule; use its existing linear equivalence with A.",
+        "Apply the existing pointwise linear-equivalence constructor and compose with the specified native kernel coordinates."
+      ],
+      "acceptance": [
+        "Retains coefficients such as 2∈Z/4, including zero rings; this is the actual kernel submodule of the tensor comparison."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "root stacks",
+          "match": "The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv.test_one",
+          "kind": "degenerate",
+          "statement": "For n=1 over every commutative A, an element of ker Θ₀ equals zero."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv.test_nonreduced",
+          "kind": "computation",
+          "statement": "For A=Z/4,n=2 and constant wrapping coefficient 2, the inverse has source coordinate 2 at (1,1) and 0 at (0,0)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "For A=Z/1 and any positive n the specified kernel coordinate family is zero."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_apply",
+          "role": "projection",
+          "statement": "K₀(z)(p)=Cs(z)(p) for each wrapping pair p, where Cs is the specified native source coordinate equivalence."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_symm_coordinates",
+          "role": "simp",
+          "statement": "Cs(K₀⁻¹(d))(p)=d(p) if p is wrapping, and 0 otherwise, with the subtype witness retained."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_injective",
+          "role": "extensionality",
+          "statement": "Equal specified wrapping-coordinate families imply equality in the actual native kernel submodule; import the native linear-equivalence injectivity law."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-finrank",
+          "how": "Supplies the specified coordinate or index equivalence used by the zero-section dimension calculation."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-coordinate",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Extract zero-section kernel coefficients",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_apply",
+      "statement": "For z∈ker Θ₀ and p∈W, K₀(z)(p)=Cs(z)(p), where Cs is the fixed tensor-monomial source coordinate equivalence.",
+      "hypotheses": [
+        "A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-equivalence"
+      ],
+      "proofSteps": [
+        "Unfold the specified pointwise top-submodule equivalence; its forward map is the subtype inclusion."
+      ],
+      "acceptance": [
+        "The coordinate is the original A-value, including nilpotent coefficients."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "root stacks",
+          "match": "The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-inverse-coordinate",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Recover zero-section kernel tensors",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_symm_coordinates",
+      "statement": "For d:W→A and each p∈Fin n×Fin n, Cs(K₀⁻¹d)(p) equals d(p) when n≤i+j and equals 0 otherwise. The inverse is the actual native tensor synthesis.",
+      "hypotheses": [
+        "A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coordinate-equivalence"
+      ],
+      "proofSteps": [
+        "Use the preceding kernel-coordinate inverse formula and the inverse top-submodule inclusion, which leaves the A-value unchanged."
+      ],
+      "acceptance": [
+        "Both wrapping coefficients and the zero extension are specified; an arbitrary module equivalence would not satisfy this contract."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "root stacks",
+          "match": "The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-finrank",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Dimension of the root tensor source",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.source_finrank",
+      "statement": "For any field k, f∈k and n≥1, dim_k(B⊗_k B)=n² for B=k[x]/(xⁿ−f), using the already specified native tensor-monomial coordinates.",
+      "hypotheses": [
+        "A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinate-equivalence",
+        "mathlib:LinearEquiv.finrank_eq",
+        "mathlib:Module.finrank_pi"
+      ],
+      "proofSteps": [
+        "Transport dimension through Cs:B⊗B≃ₗ[k](Fin n×Fin n→k).",
+        "Import the existing finite-function dimension theorem and evaluate the product cardinality."
+      ],
+      "acceptance": [
+        "Applies at every parameter f, including zero, independently of characteristic."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "root stacks",
+          "match": "The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.source_finrank.test_two",
+          "kind": "computation",
+          "statement": "For every field k and every f∈k, the n=2 native tensor source has dimension four."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-finrank",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Dimension of the zero-section kernel",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.kernel_zero_finrank",
+      "statement": "For every field k and n≥1, the actual native kernel submodule ker Θ₀ has k-dimension n(n−1)/2.",
+      "hypotheses": [
+        "A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-wrapping-card",
+        "mathlib:LinearEquiv.finrank_eq",
+        "mathlib:Module.finrank_pi"
+      ],
+      "proofSteps": [
+        "Transport dimension through K₀ to W→k.",
+        "Use the imported finite-function dimension formula and the root-specific wrapping count."
+      ],
+      "acceptance": [
+        "No invertibility-of-n assumption; the complete nilpotent quotient k[x]/(xⁿ) is retained."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "root stacks",
+          "match": "The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.kernel_zero_finrank.test_one",
+          "kind": "degenerate",
+          "statement": "For every field k, the n=1 kernel has dimension zero."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-range-finrank",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Dimension of the zero-section image",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.range_zero_finrank",
+      "statement": "For every field k and n≥1, the actual native range submodule im Θ₀ has k-dimension n(n+1)/2.",
+      "hypotheses": [
+        "A is any commutative ring; n≥1 for root constructions. Cardinality lower_card also admits n=0. Dimension statements explicitly require a field k. No characteristic or invertibility-of-n hypothesis."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-zero-kernel-finrank",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-finrank",
+        "mathlib:FiniteDimensional.of_injective",
+        "mathlib:LinearMap.finrank_range_add_finrank_ker",
+        "mathlib:Nat.two_dvd_mul_sub_one"
+      ],
+      "proofSteps": [
+        "Obtain finite dimensionality of the actual tensor source from its injective coordinate equivalence.",
+        "Import rank-nullity and substitute the proved source and kernel dimensions.",
+        "Use evenness of n(n−1) before dividing by two, together with n²=n(n−1)+n. Natural-number truncation is not treated as rational subtraction."
+      ],
+      "acceptance": [
+        "Over F₃ with n=3 the range has dimension six, despite 3 being zero in k."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "root stacks",
+          "match": "The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.range_zero_finrank.test_wild",
+          "kind": "computation",
+          "statement": "For k=F₃,n=3, the actual native range has dimension six; the field instance uses primality of3."
+        }
+      ]
     }
   ],
   "requests": [
@@ -8952,7 +9527,7 @@
       "remaining": [
         "Resolve JAC-A’s actual tensor-section/unit coordinate and pullback contracts.",
         "Implement and elaborate the five native root-coordinate comparison nodes and full-file signatures at the exact pins.",
-        "The separate native proof extraction now checks the unit inverse, all four inherited direct examples and five unit-chart examples, as well as the preceding weighted table and specified module kernel/cokernel maps. Complete the determinant sign and field ranks, then native geometric suppliers and full-file elaboration. No geometric or implementation closure is claimed."
+        "The separate native proof extraction checks the weighted comparison, specified module kernel/cokernel and unit inverse, all inherited direct examples and the general zero-section field ranks. Complete the determinant sign, native geometric supplier contracts and full-file elaboration. No stage or implementation closure is claimed."
       ]
     },
     {
@@ -10813,6 +11388,136 @@
         "scriptSha256": "2b531f9fe312a37bbe2f715fe72fa64c8077ea6da3deeb1787cf4638d885fbb2"
       },
       "publicRecipeVerified": true
+    },
+    {
+      "worker": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "base": "404db35ccec72b9ceabd108108d2ba8fa0762b2c",
+      "scope": "Native zero-section triangular ranks, index equivalence and specified arbitrary-ring kernel coordinates; no geometric closure.",
+      "addedNodes": 9,
+      "preservedNodeStatements": 149,
+      "fullSuggestedCompiled": false,
+      "reason": "The exact-pin compiled Tau Ceti imports remain absent. Separate native Mathlib proof and admitted-signature extractions are checked.",
+      "proofCommit": "fdc057a53800a1937f36f157aa7636a94611b5a9",
+      "nativeProofReceipt": {
+        "code": 0,
+        "errors": 0,
+        "admitted": 1,
+        "otherWarnings": 0,
+        "availableGiB": 60,
+        "timeRSS": "TIME 11.30 RSS 3185264",
+        "sourceSha256": "806e853b6b28b5608f6631c48523d66ac16a63bac60964c69601fe51359b1525",
+        "logSha256": "2b929a47164388b41564da68dc8d1dc5027ff6bff7314853752919c0fe6571c6",
+        "examples": 51,
+        "axioms": 36,
+        "lines": 1586
+      },
+      "nativeSketchReceipt": {
+        "code": 0,
+        "errors": 0,
+        "admitted": 126,
+        "otherWarnings": 0,
+        "availableGiB": 60,
+        "timeRSS": "TIME 4.27 RSS 3107284",
+        "sourceSha256": "0b58f3062788163a1ad4e2b53a5d5f370c9f93fa2ff2ad36bbfbfe6af4754759",
+        "logSha256": "558fff11a24827f05b7bd4e25a14c55ccb4b94cff9c8ae6a461152e3b5b57028",
+        "examples": 51,
+        "axioms": 0,
+        "lines": 845
+      },
+      "graphReceipt": {
+        "actualAssembler": true,
+        "declarations": 158,
+        "partDeclarations": 158,
+        "partPlanets": 39,
+        "planets": 39,
+        "ownSkippedLinks": [],
+        "stageDAG": {
+          "vertices": 3056,
+          "edges": 8723,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 158,
+          "edges": 327,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3226,
+          "edges": 9420,
+          "acyclic": true
+        },
+        "virtualStageEndpoints": 51,
+        "unresolvedPrerequisites": [],
+        "reachableDeclarations": 209,
+        "externalDeclarations": [
+          "AlgebraicModuliForArithmeticGeometry:R09.3/affine-fpqc-quasicoherent-descent",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/affine-pullback-tensor",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/canonical-overlap-functor",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-descent-to-overlap",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-equivalence",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-morphisms",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-roundtrips",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-cocycle",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-inverses",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-maps",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/coalgebra-to-overlap",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/descent-equalizer-module-coordinates",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/finite-presentation-module-descent",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-effective",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-faithful",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-full",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-descent-coalgebra",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coaction-roundtrips",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-equivalence",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-morphisms",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-comparison-canonical",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-diagonal",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-diagonal",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-triple",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-chosen-descent",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-coalgebra",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pseudofunctor",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pullback",
+          "AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates",
+          "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+          "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+          "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+          "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+          "AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe",
+          "AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family",
+          "AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor",
+          "AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent",
+          "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization",
+          "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence",
+          "AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe",
+          "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+          "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+          "DiamondsAndVStacks:D0/stackification"
+        ],
+        "requiredStagePairs": 54,
+        "requiredStagePairsReachable": 54,
+        "inheritedMissingStagePairs": [],
+        "stageEdgesUnchanged": true,
+        "otherSkipsMatchOriginal": true,
+        "unchangedNodeObjects": 148,
+        "scriptSha256": "74565ec38c0a1e629d7591763cb6c6e445dac6631ee6d4f2aa7fb8393e1cc294"
+      },
+      "publicRecipeVerified": true,
+      "sourceReads": [
+        "Fresh complete TV17 §3 pp.12–16 (through Corollary3.13 and beginning3.14), including the proof of3.10. The downloaded pinned-version SHA256 matches92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2.",
+        "Fresh complete Stacks040N Lemma59.28.3 statement and proof. Broader source and source-finding receipts retain their earlier attribution."
+      ],
+      "publicationBase": "9be0d75234d712fb5773663482ee55c38ac60ce0",
+      "publicationGuard": "Fourteen protocol/own-deliverable/audit/key-definition inputs match the mathematical base before merging the exact current main SHA into the own publication branch."
     }
   ]
 }
