@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Continuation of the verified prime-filtration baseline, now refining the R03.4 characteristic-zero-point argument into five declaration-sized nodes. The new proof separates nilpotent-uniformizer Artinianness, coefficient injection at a generic prime, an algebraically closed point with the exact kernel, finiteness of its field of values, and the integral local-map assembly. It does not assume flatness, a fixed residue field, or an unproved framed-lifting assertion. The complete local-field interpretation remains a required comparison with its existing owner, not a prerequisite of the algebraic theorem. Earlier baseline records and other-stage worklists are retained; the eight-stage blueprint remains partial. A further continuation adds four R03.3 nodes answering R03.6's requests: the catenary predicate with the Noetherian-local dimension-function criterion (Stacks 0ECF), Cohen–Macaulayness of regular local rings, and freeness of maximal-depth modules over a regular local base (Stacks 00NT, 00O7), with the domain property of regular local rings recorded as a gap. Continuation of 2 October 2026 plans the reserved general Hilbert–Samuel multiplicity once in R03.3, with actual module quotient lengths, cumulative polynomial, intrinsic and ambient normalizations, finite-difference integrality, ideal-power scaling, dimension-normalized additivity and associativity. Its proof leaves and geometric comparisons remain explicit gaps; all nine earlier nodes, source receipts and existing stage coverage are preserved.",
+  "summary": "Continuation of the verified prime-filtration baseline, now refining the R03.4 characteristic-zero-point argument into five declaration-sized nodes. The new proof separates nilpotent-uniformizer Artinianness, coefficient injection at a generic prime, an algebraically closed point with the exact kernel, finiteness of its field of values, and the integral local-map assembly. It does not assume flatness, a fixed residue field, or an unproved framed-lifting assertion. The complete local-field interpretation remains a required comparison with its existing owner, not a prerequisite of the algebraic theorem. Earlier baseline records and other-stage worklists are retained; the eight-stage blueprint remains partial. A further continuation adds four R03.3 nodes answering R03.6's requests: the catenary predicate with the Noetherian-local dimension-function criterion (Stacks 0ECF), Cohen–Macaulayness of regular local rings, and freeness of maximal-depth modules over a regular local base (Stacks 00NT, 00O7), with the domain property of regular local rings recorded as a gap. Continuation of 2 October 2026 plans the reserved general Hilbert–Samuel multiplicity once in R03.3, with actual module quotient lengths, cumulative polynomial, intrinsic and ambient normalizations, finite-difference integrality, ideal-power scaling, dimension-normalized additivity and associativity. Its proof leaves and geometric comparisons remain explicit gaps; all nine earlier nodes, source receipts and existing stage coverage are preserved. Continuation by Codex — codex-J6LwjP develops the P7 minimal-complex strand over arbitrary local rings, using the existing K-projective/homotopy API. Thirteen new nodes separate perfectness, pseudo-coherence, minimality, cancellation, minimal representatives, uniqueness, residual ranks, three-term splitting and residual perfectness/Nakayama. Existing 23 nodes and all eight source obligations remain; derived tensor comparison and remaining P7 theories are explicit proof gaps. Four further P7 proof nodes give finite tail approximation, finite-perfect Hom/filtered-colimit comparison, functorial lower-bounded replacement and the uniformly lower-bounded pseudo-coherent Hom theorem required by reviewed Boxer–Pilloni E26. These use existing linear Hom complexes and module AB5; the scheme application remains with its owner.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -451,6 +451,181 @@
         "module": "Mathlib/Data/ENat/Basic.lean",
         "provides": "Conversion sends infinity to zero; a finiteness proof is required for quotient-length interpretation.",
         "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:Homotopy",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Homology/Homotopy.lean",
+        "provides": "An actual family of degree −1 maps with the cochain homotopy equation; no homology-only substitute.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob 470a7943ffc5c41c678e45c81296f8b92b48a6d8."
+      },
+      {
+        "ref": "mathlib:HomotopyEquiv",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Homology/Homotopy.lean",
+        "provides": "Forward and inverse chain maps with both composition homotopies.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob 470a7943ffc5c41c678e45c81296f8b92b48a6d8."
+      },
+      {
+        "ref": "mathlib:CochainComplex.isKProjective_of_projective",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/HomotopyCategory/KProjective.lean",
+        "provides": "A strictly bounded above cochain complex of categorical projectives is K-projective.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob e53b0d77c9ef0646e78ffda636b86e691e5b2de3."
+      },
+      {
+        "ref": "mathlib:CochainComplex.IsKProjective.Qh_map_bijective",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/KProjective.lean",
+        "provides": "Morphisms from a K-projective complex in the homotopy category identify bijectively with derived-category morphisms.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob 24234f78ff7e716c3f0c489e1400ce85fb61b082."
+      },
+      {
+        "ref": "mathlib:CochainComplex.IsKProjective.quasiIso_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/KProjective.lean",
+        "provides": "For K-projective source and target, a morphism is a quasi-isomorphism iff a homotopy equivalence; the proof chooses the standard derived localization locally.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob 24234f78ff7e716c3f0c489e1400ce85fb61b082."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.mapHomologicalComplex",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/Additive.lean",
+        "provides": "Prolong a zero-morphism-preserving functor to complexes with unchanged shape.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob 6e261a4044d3200b4f707c61dde9453f81a0690d."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.mapHomotopy",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/Homotopy.lean",
+        "provides": "An additive functor sends an actual homotopy to a homotopy of its prolonged chain maps.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob 470a7943ffc5c41c678e45c81296f8b92b48a6d8."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.mapHomotopyEquiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/Homotopy.lean",
+        "provides": "An additive functor transports forward/inverse maps and both homotopies.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob 470a7943ffc5c41c678e45c81296f8b92b48a6d8."
+      },
+      {
+        "ref": "mathlib:ModuleCat.extendScalars",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean",
+        "provides": "The functor associated to a commutative ring homomorphism sends modules to S⊗_R M and maps to linear base change; an additive-instance adapter is needed in the suggested file.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob c57bd910ab26facf20a937ad8eecdec13262e9ed."
+      },
+      {
+        "ref": "mathlib:HasDerivedCategory.standard",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+        "provides": "The explicit standard localization construction, rather than a globally installed instance.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob 7402a18549f6348d33a7f9375c3c2cab542d03f8."
+      },
+      {
+        "ref": "mathlib:DerivedCategory.Q",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+        "provides": "The existing cochain-to-derived localization functor for a chosen HasDerivedCategory.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob 7402a18549f6348d33a7f9375c3c2cab542d03f8."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.split_injective_iff_lTensor_residueField_injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/Module.lean",
+        "provides": "For finite source and finite-free target over a local ring, a linear map has a left inverse iff its residue tensor is injective.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob 1060639082082facdd4775b9cf03982490cab2fc."
+      },
+      {
+        "ref": "mathlib:Module.free_of_lTensor_residueField_injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/Module.lean",
+        "provides": "For M→N→P→0 exact, with M finite and N finite free, residual injectivity of M→N implies freeness of P.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob 1060639082082facdd4775b9cf03982490cab2fc."
+      },
+      {
+        "ref": "mathlib:Module.IsLocalRing.linearCombination_bijective_of_flat",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/Module.lean",
+        "provides": "For a finite flat module, a family whose residual linear combination is bijective has bijective R-linear combination; this lifts residual finite bases.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob 1060639082082facdd4775b9cf03982490cab2fc."
+      },
+      {
+        "ref": "mathlib:CochainComplex.mappingCone",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/HomotopyCategory/MappingCone.lean",
+        "provides": "The actual homotopy cofiber of a cochain morphism, with termwise biproducts and standard signs.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob 7fd925f7157706b3a4a8db9bc5fa33bc3d9698fa."
+      },
+      {
+        "ref": "mathlib:HomologicalComplex.single",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/Single.lean",
+        "provides": "The existing stalk complex functor at an arbitrary degree, with zero terms elsewhere and zero differentials.",
+        "checked": "Statement and applicable parameters read in the pinned checkout on 2026-10-02; git blob a3bfeb86550c5c45d87f030aecdf8ab60a723cac."
+      },
+      {
+        "ref": "mathlib:HomologicalComplex.stupidTrunc",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/Embedding/StupidTrunc.lean",
+        "provides": "The existing brutal truncation functor/carrier. Its inclusion is an explicit TODO, built as a separate new approximation lemma here.",
+        "checked": "Statement and required parameters read at the pin on 2026-10-02; blob 3f23e20d48e1593b6a273bdd74be4e72d6c58e64."
+      },
+      {
+        "ref": "mathlib:CochainComplex.HomComplex.CohomologyClass.toHom_bijective",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/HomotopyCategory/HomComplexCohomology.lean",
+        "provides": "Cocycles modulo coboundaries of the existing Hom complex identify bijectively with morphisms to a shifted complex in the homotopy category.",
+        "checked": "Statement and required parameters read at the pin on 2026-10-02; blob f7720c421940a1a57af732108ef4c101fa7160df."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.AB5OfSize",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Abelian/GrothendieckAxioms/Basic.lean",
+        "provides": "Filtered-colimit exactness class; the actual ModuleCat AB5 instance in Mathlib/Algebra/Category/ModuleCat/AB.lean was also read in full and supplies this class.",
+        "checked": "Statement and required parameters read at the pin on 2026-10-02; blob 880fb7a08b8bcd468abfef3340dfc876f3be0e12."
+      },
+      {
+        "ref": "mathlib:CochainComplex.truncGE",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Homology/Embedding/CochainComplex.lean",
+        "provides": "Smart truncation, with the cokernel term at the boundary; it differs from brutal truncation.",
+        "checked": "Statement and required parameters read at the pin on 2026-10-02; blob a03db783bd220ec9db04e3341678ada4019a6894."
+      },
+      {
+        "ref": "mathlib:CochainComplex.quasiIso_πTruncGE_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/Embedding/CochainComplex.lean",
+        "provides": "The canonical projection to smart lower truncation is a quasi-isomorphism iff the complex has no cohomology below the cutoff.",
+        "checked": "Statement and required parameters read at the pin on 2026-10-02; blob a03db783bd220ec9db04e3341678ada4019a6894."
+      },
+      {
+        "ref": "mathlib:HomologicalComplex.isColimitOfEval",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/HomologicalComplexLimits.lean",
+        "provides": "A cocone of complexes is colimiting if every evaluation cocone is colimiting; the file constructs colimits degreewise.",
+        "checked": "Statement and required parameters read at the pin on 2026-10-02; blob 42169f506cdbb2050e7af8d1f92b3fc00b3b3084."
+      },
+      {
+        "ref": "tauceti:TauCeti.linearHomComplex",
+        "kind": "def",
+        "module": "TauCeti/Algebra/Homology/LinearHomComplex/Basic.lean",
+        "provides": "The R-linear Hom complex uses the actual Mathlib cochain modules and signed differential. It is not a new carrier to plan here.",
+        "checked": "Statement and required parameters read at the pin on 2026-10-02; blob 330ea0263ac59e78ca6577f4322e49921efb386a."
+      },
+      {
+        "ref": "tauceti:TauCeti.forget₂LinearHomComplexIso",
+        "kind": "def",
+        "module": "TauCeti/Algebra/Homology/LinearHomComplex/Basic.lean",
+        "provides": "Forgetting its R-module structure degreewise recovers the Mathlib additive Hom complex with identity component comparison.",
+        "checked": "Statement and required parameters read at the pin on 2026-10-02; blob 330ea0263ac59e78ca6577f4322e49921efb386a."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.of_surjective'",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/Basic.lean",
+        "provides": "A surjective map from a local ring to a nontrivial ring makes the target local. The actual prime quotient adapter in the multiplicity signature uses this theorem, without adding a new mathematical hypothesis.",
+        "checked": "Statement, section parameters and proof read at the pin on 2026-10-02; blob 0c15afafdf275fe888c024385d9ad4a0b7268ed6."
       }
     ]
   },
@@ -743,6 +918,128 @@
       "accessDate": "2026-10-02",
       "readSections": [
         "Introduction p. 2: definition of unmixedness using every associated prime of the completion, and quoted Samuel–Nagata Theorem 1.4. Nagata's own proof not read or certified."
+      ]
+    },
+    {
+      "id": "P7-STACKS-0657",
+      "title": "The Stacks Project, stable tag 0657",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML, downloaded and read 2026-10-02; current sections 15.66/15.76/15.77",
+      "url": "https://stacks.math.columbia.edu/tag/0657",
+      "sha256": "5bb2f697193af15a15fe94f5545e4c9d1b1ef1c73dae9ace8d1689f9655b98f1",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Definition of perfectness, including the direction-of-quasi-isomorphism discussion."
+      ]
+    },
+    {
+      "id": "P7-STACKS-064N",
+      "title": "The Stacks Project, stable tag 064N",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML, downloaded and read 2026-10-02; current sections 15.66/15.76/15.77",
+      "url": "https://stacks.math.columbia.edu/tag/064N",
+      "sha256": "ac5fecdf62e128808008622e84fece915bf463629d35cc5cf8de58e31eea3e29",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Definition 15.66.1 and Lemma 15.66.5 including its descending finite-free padding proof; no claim to have checked all of §15.66."
+      ]
+    },
+    {
+      "id": "P7-STACKS-00MT",
+      "title": "The Stacks Project, stable tag 00MT",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML, downloaded and read 2026-10-02; current sections 15.66/15.76/15.77",
+      "url": "https://stacks.math.columbia.edu/tag/00MT",
+      "sha256": "d4938e69d2e82cfb41f8b03985de60f37fb44cc7a7070094933aaa5767489477",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Whole unit-pivot cancellation statement and proof."
+      ]
+    },
+    {
+      "id": "P7-STACKS-0BCC",
+      "title": "The Stacks Project, stable tag 0BCC",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML, downloaded and read 2026-10-02; current sections 15.66/15.76/15.77",
+      "url": "https://stacks.math.columbia.edu/tag/0BCC",
+      "sha256": "92f9f27af692f2f5ad03dcca454f4c473d77a9ebfb8789164038d2ba4db3800e",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Whole minimal-representative statement and uniqueness proof; lifting dependencies separately tracked."
+      ]
+    },
+    {
+      "id": "P7-STACKS-0F9V",
+      "title": "The Stacks Project, stable tag 0F9V",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML, downloaded and read 2026-10-02; current sections 15.66/15.76/15.77",
+      "url": "https://stacks.math.columbia.edu/tag/0F9V",
+      "sha256": "a8c87ffd76280cf72772162282864ce4a38d41e40144a4d26005fff8ad47bcda",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Whole local stable comparison statement and proof; descent to R_f remains outside the new nodes."
+      ]
+    },
+    {
+      "id": "P7-STACKS-0BC9",
+      "title": "The Stacks Project, stable tag 0BC9",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML, downloaded and read 2026-10-02; current sections 15.66/15.76/15.77",
+      "url": "https://stacks.math.columbia.edu/tag/0BC9",
+      "sha256": "f80ea0608cd21f52bc871afeca5c323ab12f249ad1d6dab9fef15b625e764bbc",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Whole acyclic-lift statement and descending-induction proof, read as an alternative source route."
+      ]
+    },
+    {
+      "id": "P7-STACKS-0BCA",
+      "title": "The Stacks Project, stable tag 0BCA",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML, downloaded and read 2026-10-02; current sections 15.66/15.76/15.77",
+      "url": "https://stacks.math.columbia.edu/tag/0BCA",
+      "sha256": "6c086c1c58698a8a9a78a2d2b0163d055281669aa84f4a53b2783e39d68902da",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Whole complex-lifting statement and proof; the cited derived chain-map lifting lemmas not inspected."
+      ]
+    },
+    {
+      "id": "P7-STACKS-0BCB",
+      "title": "The Stacks Project, stable tag 0BCB",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML, downloaded and read 2026-10-02; current sections 15.66/15.76/15.77",
+      "url": "https://stacks.math.columbia.edu/tag/0BCB",
+      "sha256": "7fc5b495c42440cb458a161727bd63bb3afecdad9feb8cdf730b4efda178eb0d",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Whole stably-free lifting statement and proof; stably-free source references not independently closed."
+      ]
+    },
+    {
+      "id": "P7-BP-AUTHOR-2025",
+      "title": "Higher Hida theory for Siegel modular forms",
+      "authors": "George Boxer and Vincent Pilloni",
+      "edition": "65-page author version built 5 November 2025, byte-identical to the accepted extraction source; not the publisher PDF",
+      "url": "https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf",
+      "sha256": "af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "p.17, Proposition 2.3.13 and proof, to identify the uniform-lower-bound obligation; not yet decomposed.",
+        "pp.21–22, §2.6.1–§2.6.9, especially Lemmas 2.6.6 and 2.6.7 and their full proofs. Geometric applications read for context but remain owned by their existing roadmaps."
+      ],
+      "accessNote": "The publisher content/pdf URL returned HTML rather than PDF. Scope is the author version. Follow the independent paper-review corrections E26 and E33; this packet does not issue a new verdict on either finding."
+    },
+    {
+      "id": "P7-STACKS-0G8W",
+      "title": "The Stacks Project, pseudo-coherent Ext and filtered colimits",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML, downloaded and read 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/0G8W",
+      "sha256": "b96bba198db4526f1b1b9c85ae7a09d195554fd7da572e9d7d021517395034c2",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Whole statement and proof of Lemma 15.67.1; its target modules are generalized here to complexes with a common lower bound by a degreewise Hom argument."
       ]
     }
   ],
@@ -2140,6 +2437,948 @@
       },
       "implementationStatus": "unchecked",
       "declaration": "TauCeti.HilbertSamuel.multiplicityInDegree_associativity"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/perfect-object",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Perfect complexes",
+      "kind": "definition",
+      "statement": "For a commutative ring R, K in the existing DerivedCategory (ModuleCat R) is perfect exactly when there are a cochain complex C, integers a,b, finite projective R-modules C^i in every degree, vanishing C^i outside [a,b], and an isomorphism Q(C) ≅ K in the derived category. No directed quasi-isomorphism from K to a projective representative is required.",
+      "hypotheses": [
+        "R arbitrary commutative; a localization choice HasDerivedCategory is explicit. No local, complete or Noetherian hypothesis."
+      ],
+      "proofSteps": [
+        "Use the pinned DerivedCategory.Q and existentially quantify an actual cochain complex, its finite/projective predicates and its termwise interval bound."
+      ],
+      "acceptance": [
+        "A nonzero finite projective module in degree n is perfect.",
+        "A contractible disk is perfect although its chosen representative has two nonzero terms."
+      ],
+      "prerequisites": [
+        "mathlib:DerivedCategory.Q"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-STACKS-0657",
+          "locator": "Stable tag 0657; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "Defines affine perfectness on the existing derived category."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.LocalPerfect.IsPerfect.of_rep",
+          "role": "constructor",
+          "statement": "A bounded finite-projective C makes Q(C) perfect."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.IsPerfect.of_iso",
+          "role": "compatibility",
+          "statement": "Perfectness transports along K ≅ L."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.IsPerfect.exists_rep",
+          "role": "projection",
+          "statement": "A perfect object has a bounded finite-projective representative and an isomorphism Q(C) ≅ K."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.IsPerfect.zero",
+          "role": "example",
+          "statement": "The zero derived object is perfect."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.IsPerfect.shift",
+          "role": "functoriality",
+          "statement": "All integer shifts preserve perfectness; [a,b] becomes [a−n,b−n] for K[n]."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.LocalPerfect.perfect_zero",
+          "kind": "degenerate",
+          "statement": "The zero derived object is perfect."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.perfect_projective_rep",
+          "kind": "compatibility",
+          "statement": "Q(C) is perfect whenever C is bounded and termwise finite projective."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.perfect_iso_transport",
+          "kind": "characterisation",
+          "statement": "If K ≅ L, IsPerfect K ↔ IsPerfect L."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.perfect_field_stalk",
+          "kind": "characterisation",
+          "statement": "For any field k and k-vector space V, the degree-zero stalk V[0] is perfect iff Module.Finite k V. In particular an infinite-dimensional stalk is not perfect."
+        }
+      ],
+      "uses": [
+        {
+          "where": "P8 patched complex",
+          "how": "The output must have an actual bounded finite-projective representative."
+        },
+        {
+          "where": "Stacks 0BCC and BP Lemma 2.6.7",
+          "how": "Residual finite amplitude produces this representation."
+        }
+      ],
+      "planet": {
+        "name": "Perfect complexes"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-object",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Pseudo-coherent complexes",
+      "kind": "definition",
+      "statement": "K in D(R) is pseudo-coherent iff K ≅ Q(F) for a bounded above cochain complex F of finite free R-modules. The terms need not be bounded below. This is affine pseudo-coherence, independent of Noetherianity; bounded coherent cohomology is not substituted as its definition.",
+      "hypotheses": [
+        "R commutative and a chosen HasDerivedCategory."
+      ],
+      "proofSteps": [
+        "Quantify an integer upper bound, an actual cochain complex and termwise Module.Finite/Module.Free instances."
+      ],
+      "acceptance": [
+        "Over R=k[ε]/ε², k[0] is pseudo-coherent with the resolution ...→R --ε→ R --ε→R. It is not perfect."
+      ],
+      "prerequisites": [
+        "mathlib:DerivedCategory.Q"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-STACKS-064N",
+          "locator": "Stable tag 064N; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "Definition 15.66.1(2), not its Noetherian cohomology characterization."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.LocalPerfect.IsPseudoCoherent.of_rep",
+          "role": "constructor",
+          "statement": "Q(F) is pseudo-coherent for bounded above finite free F."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.IsPseudoCoherent.of_iso",
+          "role": "compatibility",
+          "statement": "Transport through a derived isomorphism."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.IsPseudoCoherent.exists_rep",
+          "role": "projection",
+          "statement": "Extract a bounded above finite-free representative."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.IsPseudoCoherent.zero",
+          "role": "example",
+          "statement": "The zero derived object is pseudo-coherent."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.IsPseudoCoherent.shift",
+          "role": "functoriality",
+          "statement": "Every integer shift preserves pseudo-coherence."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.LocalPerfect.pseudo_zero",
+          "kind": "degenerate",
+          "statement": "The zero object is pseudo-coherent."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.pseudo_free_rep",
+          "kind": "compatibility",
+          "statement": "Every bounded above finite-free F gives a pseudo-coherent Q(F)."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.pseudo_iso_transport",
+          "kind": "characterisation",
+          "statement": "K ≅ L implies IsPseudoCoherent K ↔ IsPseudoCoherent L."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.pseudo_field_stalk",
+          "kind": "characterisation",
+          "statement": "Over a field k, V[0] is pseudo-coherent iff Module.Finite k V; boundedness of the stalk alone does not suffice."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Boxer–Pilloni Lemma 2.6.7",
+          "how": "Finiteness at every degree allows the residual perfectness criterion."
+        },
+        {
+          "where": "Boxer–Pilloni Proposition 2.3.13, reviewed E26",
+          "how": "Finite approximation suffices only for targets with a common lower bound."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/minimal-complex",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Minimal complexes over local rings",
+      "kind": "definition",
+      "statement": "For a local commutative ring (R,m,κ), a cochain complex C is minimal if every differential has image contained in m C^{i+1}. The predicate itself asserts neither finiteness, freeness nor boundedness. On finite-free complexes this is equivalently zero differentials after tensoring with κ, and equivalently all matrix entries lie in m in any chosen bases.",
+      "hypotheses": [
+        "R local; m is IsLocalRing.maximalIdeal R. Use LinearMap.range and ideal action on the actual ModuleCat carriers."
+      ],
+      "proofSteps": [
+        "Define IsMinimal C by range(d_i) ≤ m • top; linearity gives the condition at every integer degree."
+      ],
+      "acceptance": [
+        "[R --π→R] over a DVR is minimal, but [R --1→R] is not.",
+        "The zero complex is minimal."
+      ],
+      "prerequisites": [
+        "mathlib:Homotopy",
+        "mathlib:ModuleCat.extendScalars"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-STACKS-0BCC",
+          "locator": "Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "The proof uses zero residual differentials to obtain uniqueness; the image formulation makes that condition intrinsic."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.LocalPerfect.IsMinimal.iff_residue_d_zero",
+          "role": "characterisation",
+          "statement": "Minimality iff the κ-linear base change of each d_i is zero."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.IsMinimal.of_iso",
+          "role": "compatibility",
+          "statement": "A strict isomorphism of complexes preserves minimality."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.IsMinimal.zero",
+          "role": "example",
+          "statement": "The zero complex is minimal."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.IsMinimal.shift",
+          "role": "functoriality",
+          "statement": "Shifts preserve minimality, including the differential sign."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.IsMinimal.iff_matrix",
+          "role": "characterisation",
+          "statement": "In finite bases, minimality iff every differential coefficient belongs to m."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.LocalPerfect.minimal_zero",
+          "kind": "degenerate",
+          "statement": "The zero cochain complex is minimal."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.minimal_iff_residue",
+          "kind": "compatibility",
+          "statement": "IsMinimal C ↔ ∀ i, (d_i).lTensor κ = 0."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.minimal_iso_transport",
+          "kind": "characterisation",
+          "statement": "C ≅ D as complexes implies IsMinimal C ↔ IsMinimal D."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.minimal_identity_disk",
+          "kind": "non-example",
+          "statement": "The cone of the identity on the nonzero stalk R[1] is not minimal (its two-degree differential is a unit). It is nevertheless contractible."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks 0BCC",
+          "how": "Homotopies become zero after residue change; equivalences become termwise isomorphisms."
+        },
+        {
+          "where": "ACC+ 6.4.3",
+          "how": "Minimal ranks are prescribed by residual cohomology, not original complex ranks."
+        }
+      ],
+      "planet": {
+        "name": "Minimal complexes over local rings"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/unit-pivot-cancellation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Cancel a unit in a differential",
+      "kind": "lemma",
+      "statement": "Given a complex of finite free R-modules with chosen finite bases, if an entry of d_i:C^i→C^{i+1} is a unit, there is a strict complex isomorphism C ≅ C′ ⊕ D_i(R), where D_i is the identity disk in degrees i,i+1. The ranks in those two degrees drop by one; all other degrees are unchanged. The disk has an explicit contracting homotopy.",
+      "hypotheses": [
+        "R any commutative ring; a unit coefficient is required, not merely a nonzero coefficient. No exactness assumption on C."
+      ],
+      "proofSteps": [
+        "Permute the selected row/column and scale the unit to 1. Use elementary basis operations to eliminate the rest of its column and row.",
+        "In d_i=diag(1,d′), d_i d_{i−1}=0 forces the incoming component into the selected summand to vanish; d_{i+1} d_i=0 forces the outgoing component to vanish.",
+        "Restrict the remaining differentials to complements. The inverse elementary operations assemble a complex isomorphism. Contract D_i by the identity map from degree i+1 to i."
+      ],
+      "acceptance": [
+        "Over Z/4, diag(1,2) splits as an identity disk and [R --2→ R].",
+        "Multiplication by 2 over Z/4 cannot be canceled: it is nonzero but a nonunit."
+      ],
+      "prerequisites": [
+        "mathlib:HomotopyEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-STACKS-00MT",
+          "locator": "Stable tag 00MT; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "The unit-pivot decomposition is the local algebra step used below."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/minimal-representative",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Minimal representatives",
+      "kind": "construction",
+      "statement": "For a bounded above finite-free complex C over a local ring there exist a bounded above finite-free minimal complex M and a HomotopyEquiv C M. More precisely C is isomorphic to M plus a locally finite direct sum of identity disks: only finitely many disk summands meet any fixed degree. If C is bounded in [a,b], M has the same termwise bound and the disk sum is finite. The construction is not canonical.",
+      "hypotheses": [
+        "R local, C termwise finite free and bounded above; no Noetherianity or completeness. Fix bases and cancellation choices; uniqueness of the output is a separate theorem."
+      ],
+      "proofSteps": [
+        "Starting at the upper bound b, cancel all unit entries of d_{b−1}, then d_{b−2}, and continue downwards. At each step the finite rank of the relevant terms strictly decreases.",
+        "After a differential has no units, all its coefficients lie in m. Subsequent basis changes preserve this property. Splitting further disks does not introduce coefficients outside m.",
+        "For every fixed degree only finitely many steps affect it: stages above it are finite in number and stages below i−1 do not change degree i. Assemble the stabilized terms, maps and inverse maps degreewise; this is an algebraic degreewise construction, not an unproved topological inverse limit.",
+        "The canceled disk family is degreewise finite. Its componentwise identity contraction is a defined map in every degree. Projection and inclusion give HomotopyEquiv C M. In the bounded case the sum of all original ranks bounds the number of cancellations."
+      ],
+      "acceptance": [
+        "C=[R --1→R] has M=0.",
+        "C=[R --π→R] over a DVR is already minimal; both ranks survive even though only H^0(C) is nonzero.",
+        "Over k[ε]/ε², the infinite resolution of k stays bounded above and minimal but not bounded below."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P7/minimal-complex",
+        "DeformationAndDerivedPatchingAlgebra:P7/unit-pivot-cancellation"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-STACKS-00MT",
+          "locator": "Stable tag 00MT; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "Repeated cancellation, with a degreewise stabilization argument spelled out for bounded above complexes."
+        },
+        {
+          "sourceId": "P7-STACKS-0BCC",
+          "locator": "Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "The resulting complex is the minimal representative in the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.LocalPerfect.minimalRepresentative.exists",
+          "role": "constructor",
+          "statement": "Choose M with termwise finite freeness, upper bound, minimality and a homotopy equivalence C M."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.minimalRepresentative.bounded",
+          "role": "projection",
+          "statement": "If C vanishes outside [a,b], the chosen M may also vanish outside that interval."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.minimalRepresentative.disk_part",
+          "role": "data",
+          "statement": "The discarded part is a locally finite sum of identity disks, with a specified contraction."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.minimalRepresentative.quasiIso",
+          "role": "compatibility",
+          "statement": "Its homotopy equivalence is a quasi-isomorphism by the pinned API."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.minimalRepresentative.unique",
+          "role": "equivalence",
+          "statement": "Two outputs are strictly isomorphic by minimal-homotopy-equivalence-is-iso."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.LocalPerfect.minimal_rep_exists",
+          "kind": "characterisation",
+          "statement": "A bounded above finite-free C admits a minimal finite-free M and Nonempty (HomotopyEquiv C M)."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.minimal_rep_bounded",
+          "kind": "compatibility",
+          "statement": "For C bounded in [a,b], M can be chosen with IsStrictlyGE a and IsStrictlyLE b."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.minimal_rep_already_minimal",
+          "kind": "degenerate",
+          "statement": "When C is minimal the identity HomotopyEquiv C C is an admissible representative."
+        }
+      ],
+      "uses": [
+        {
+          "where": "P8 uniform presentation ranks",
+          "how": "Ranks of minimal complexes depend on residual cohomology, not cancellation choices."
+        },
+        {
+          "where": "Boxer–Pilloni Lemma 2.6.7",
+          "how": "Bounded residual cohomology makes this representative bounded on both sides."
+        }
+      ],
+      "planet": {
+        "name": "Minimal representatives"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/homotopy-residue-equality",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Homotopies on minimal complexes vanish residually",
+      "kind": "lemma",
+      "statement": "For minimal C,D over a local ring, homotopic cochain maps f,g:C→D induce equal κ-linear maps in every degree after residue-field tensoring. This is equality of the residual chain maps, not equality of f and g over R.",
+      "hypotheses": [
+        "R local; no boundedness or finiteness is used in this statement."
+      ],
+      "proofSteps": [
+        "The pinned Homotopy equation expresses f_i−g_i as d_D h_i+h_{i+1}d_C. Tensor with κ using Functor.mapHomotopy or the linear tensor-map identities.",
+        "Every differential is zero residually by minimality, so the residual difference is zero."
+      ],
+      "acceptance": [
+        "On [Z/4 --2→Z/4], maps differing by 2 can be homotopic and unequal over R, although equal modulo 2."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P7/minimal-complex",
+        "mathlib:CategoryTheory.Functor.mapHomotopy"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-STACKS-0BCC",
+          "locator": "Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "Zero residual differentials turn homotopies into residual equality."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/minimal-homotopy-equivalence-is-iso",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Uniqueness of minimal complexes",
+      "kind": "theorem",
+      "statement": "Any homotopy equivalence between termwise finite-free minimal complexes over a local ring has a forward map that is a strict isomorphism of cochain complexes. Consequently two bounded above finite-free minimal complexes representing the same derived object are strictly isomorphic. No uniqueness of the isomorphism is asserted.",
+      "hypotheses": [
+        "The first assertion needs no bound. The derived-object assertion needs bounded above termwise projective complexes, so the pinned K-projective comparison applies."
+      ],
+      "proofSteps": [
+        "Apply homotopy-residue-equality to the composites fg and gf. Their residual component maps are mutually inverse in every degree.",
+        "Apply Module.IsLocalRing.linearCombination_bijective_of_flat in finite bases (or its split-injection form plus residual surjectivity) to each component. A finite-free local map invertible residually is invertible.",
+        "Assemble component inverses; f_i d_D=d_C f_{i+1} implies the inverse chain identities by multiplying with these inverses.",
+        "For a derived isomorphism between bounded above projective representatives, use isKProjective_of_projective and Qh_map_bijective, then quasiIso_iff, to obtain the required homotopy equivalence."
+      ],
+      "acceptance": [
+        "A homotopy equivalence 0→[R --1→R] is not a strict isomorphism; minimality is indispensable.",
+        "The identity and multiplication by any unit congruent to 1 modulo m give distinct isomorphisms of a nonzero stalk complex."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P7/homotopy-residue-equality",
+        "mathlib:Module.IsLocalRing.linearCombination_bijective_of_flat",
+        "mathlib:CochainComplex.isKProjective_of_projective",
+        "mathlib:CochainComplex.IsKProjective.Qh_map_bijective",
+        "mathlib:CochainComplex.IsKProjective.quasiIso_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-STACKS-0BCC",
+          "locator": "Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "The uniqueness is strict once minimal representatives are chosen."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Uniqueness of minimal complexes"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/minimal-residual-ranks",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Minimal ranks from residual cohomology",
+      "kind": "lemma",
+      "statement": "For a termwise finite-free minimal complex M, H^i(M⊗_R κ) ≅ M^i⊗_R κ. Thus rank_R(M^i)=dim_κ H^i(M⊗κ). For bounded above C and its minimal representative M, homotopy invariance identifies the right-hand side with H^i(C⊗κ). In particular M^i=0 iff this residual cohomology is zero.",
+      "hypotheses": [
+        "R local; ordinary termwise tensor of the projective representatives is used. The interpretation as derived base change needs the K-flat comparison recorded separately."
+      ],
+      "proofSteps": [
+        "Minimality makes both neighboring residual differentials zero; cycles are the whole term and boundaries are zero.",
+        "Choose a finite basis of M^i and tensor it to a κ-basis, giving equality of rank and dimension. A finite-dimensional vector space has dimension zero iff it is zero; Nakayama then gives M^i=0.",
+        "Base change a HomotopyEquiv by the pinned mapHomotopyEquiv to preserve residual cohomology."
+      ],
+      "acceptance": [
+        "For [O --π→O] in degrees −1,0 the residual ranks are 1 in both degrees although integral H^(−1)=0.",
+        "An identity disk has residual cohomology zero and minimal representative zero, despite two nonzero chosen terms."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P7/minimal-complex",
+        "DeformationAndDerivedPatchingAlgebra:P7/minimal-representative",
+        "mathlib:CategoryTheory.Functor.mapHomotopyEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-STACKS-0BCC",
+          "locator": "Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "The residual dimensions specify the finite-free ranks."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/three-term-residual-splitting",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Exactness from a residual three-term complex",
+      "kind": "theorem",
+      "statement": "For finite-free M⁰,M¹,M² over any local ring R, and maps d₀,d₁ with d₁d₀=0, if im(d₀⊗κ)=ker(d₁⊗κ), then im d₀=ker d₁. Moreover ker d₀ splits in M⁰, im d₀ splits in M¹, and im d₁ splits in M². Exactness here is only at M¹; no injectivity at M⁰ or surjectivity at M² is asserted.",
+      "hypotheses": [
+        "R arbitrary commutative local, all three modules finite free, and actual composition zero before reduction. No Noetherianity or completeness."
+      ],
+      "proofSteps": [
+        "Choose a κ-basis of ker(d₁⊗κ), and lift preimages through d₀ to vectors x_j in M⁰. Extend d₀(x_j) to a residual basis of M¹.",
+        "The resulting finite-free map R^r⊕R^s→M¹ is an isomorphism by the pinned local basis-lifting theorem. Denote the first factor U. It lies in im d₀ and ker d₁.",
+        "The induced map M¹/U→M² is injective modulo m by residual exactness. Apply split_injective_iff_lTensor_residueField_injective to split it. Therefore ker d₁=U=im d₀ and im d₁ splits in M².",
+        "The chosen x_j define a section of M⁰→U, so its kernel splits in M⁰. U already splits in M¹ by the basis decomposition."
+      ],
+      "acceptance": [
+        "Over Z/4, d₀(x)=(x,0), d₁(x,y)=y gives the split exact middle and all three summands.",
+        "The zero maps R→0→R satisfy the hypothesis without either endpoint exactness.",
+        "Over Z localized at 3 the map multiplication by 2 is invertible; over Z itself, reduction mod 3 of Z --2→Z→0 is exact while the original is not. Locality matters."
+      ],
+      "prerequisites": [
+        "mathlib:Module.IsLocalRing.linearCombination_bijective_of_flat",
+        "mathlib:IsLocalRing.split_injective_iff_lTensor_residueField_injective"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-BP-AUTHOR-2025",
+          "locator": "§2.6.5, Lemma 2.6.6 and complete proof, pp.21–22",
+          "match": "Use the independently confirmed E33 correction: image of d₀ splits in M¹, with superscript 1."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/perfect-is-pseudo-coherent",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Perfect objects are pseudo-coherent",
+      "kind": "lemma",
+      "statement": "Every perfect K is pseudo-coherent over an arbitrary commutative ring. A finite-projective representative need not itself have finite-free terms; adding a bounded above locally finite family of contractible disks produces a finite-free representative.",
+      "hypotheses": [
+        "R commutative; no local hypothesis; the resulting free complex can be unbounded below."
+      ],
+      "proofSteps": [
+        "Starting at the top, choose a finite-projective complement making the highest projective term finite free.",
+        "At each lower degree choose a finite-projective complement making C^i plus the complement from degree i+1 finite free. Put the incoming complement identity into the differential.",
+        "The added complements form contractible disks with only two adjacent terms. The projection to C is a homotopy equivalence degreewise. Use the original derived isomorphism and pseudo-coherent-object."
+      ],
+      "acceptance": [
+        "For a nonfree finite projective module over a nonlocal ring, replacing projective by free in the definition of perfectness without a comparison would lose the object."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P7/perfect-object",
+        "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-object",
+        "mathlib:HomotopyEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-STACKS-064N",
+          "locator": "Stable tag 064N; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "Lemma 15.66.5 proof, the descending finite-free padding construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/residual-perfectness-criterion",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Perfectness detected at the residue field",
+      "kind": "theorem",
+      "statement": "Let K be pseudo-coherent over a local commutative ring R. If K⊗ᴸκ has cohomology only in [a,b], then K is represented by a finite-free complex with terms zero outside [a,b]. In particular K is perfect. Conversely such a representative has residual cohomology only in [a,b].",
+      "hypotheses": [
+        "R local, K pseudo-coherent and a≤b. Here amplitude for the residue-field object is cohomological amplitude, equal to projective/Tor amplitude over a field. No conclusion from ordinary K cohomology alone."
+      ],
+      "proofSteps": [
+        "Take a bounded above finite-free F representing K, using pseudo-coherent-object.",
+        "Choose its minimal representative M. Under the projective derived-base-change comparison, residual-perfectness bounds H^i(F⊗κ).",
+        "minimal-residual-ranks makes M^i zero for every i outside [a,b]. Finite-free terms and this bound give a perfect representative.",
+        "Conversely termwise tensor of that representative is zero outside the same interval."
+      ],
+      "acceptance": [
+        "Over k[ε]/ε² the module k is pseudo-coherent but its residue-derived cohomology extends to all negative degrees, so the premise fails.",
+        "For [O --π→O], the necessary interval is [−1,0], not [0,0]."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-object",
+        "DeformationAndDerivedPatchingAlgebra:P7/minimal-residual-ranks",
+        "DeformationAndDerivedPatchingAlgebra:P7/perfect-object"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-BP-AUTHOR-2025",
+          "locator": "Lemma 2.6.7, p.22, full proof",
+          "match": "Unpacks the perfectness criterion through minimal representatives, retaining pseudo-coherence."
+        },
+        {
+          "sourceId": "P7-STACKS-0BCC",
+          "locator": "Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "Ranks vanish exactly when residual cohomology does."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Perfectness detected at the residue field"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-residual-nakayama",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Residual Nakayama for pseudo-coherent objects",
+      "kind": "theorem",
+      "statement": "For a pseudo-coherent K over a local commutative ring, K⊗ᴸκ=0 iff K=0. For a morphism u between pseudo-coherent objects whose cone is pseudo-coherent, residual base change is an isomorphism iff u is an isomorphism. This theorem is not a statement about arbitrary complexes, and does not require derived completeness.",
+      "hypotheses": [
+        "R local. For the morphism form, explicitly establish pseudo-coherence of the cone; its general triangle closure is still an outstanding P7 proof, not silently assumed."
+      ],
+      "proofSteps": [
+        "Choose a minimal bounded above finite-free representative. minimal-residual-ranks makes every term zero if every residual cohomology group is zero.",
+        "The zero representative gives K=0. The reverse implication is functoriality of base change.",
+        "Apply the object assertion to cone(u), using exactness of derived base change and the existing cone criterion for an isomorphism."
+      ],
+      "acceptance": [
+        "For a DVR O and K=Frac(O)[0], ordinary and derived residual tensor vanish but K is nonzero: the finite/pseudo-coherent hypothesis cannot be dropped.",
+        "For perfect [O --π→O], rationalization vanishes but reduction modulo π does not; inversion and residue reduction are different tests."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P7/minimal-residual-ranks",
+        "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-object"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-STACKS-0BCC",
+          "locator": "Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "Zero residual ranks give the Nakayama conclusion from the source minimal model."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Residual Nakayama for pseudo-coherent objects"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/bounded-residual-acyclic-contractible",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Residual acyclicity gives a contraction",
+      "kind": "theorem",
+      "statement": "For a bounded finite-projective C over a local ring, if C⊗κ is acyclic then the identity map of C is homotopic to zero; hence C is acyclic. More generally a map between bounded finite-projective complexes whose residue map is a quasi-isomorphism is a homotopy equivalence.",
+      "hypotheses": [
+        "R local; finiteness in every degree and boundedness for the stated finite-complex version. Projective terms are finite free by the pinned local theorem."
+      ],
+      "proofSteps": [
+        "Convert finite projective terms to finite free via Module.Flat.of_projective and free_of_flat_of_isLocalRing.",
+        "Minimal-representative and minimal-residual-ranks give a zero minimal part. The identity disk part has the explicit contraction already constructed.",
+        "For a map f, form cone(f), with finite-projective terms and a finite bound, and identify its residue cone with cone(residue f). Residual acyclicity contracts this cone. Use the pinned quasiIso_iff once acyclicity implies f is a quasi-isomorphism."
+      ],
+      "acceptance": [
+        "[R --1→R] contracts but its two terms are nonzero: residual acyclicity is not termwise vanishing.",
+        "[Z/4 --2→Z/4] does not contract: its residual differential is zero."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P7/minimal-representative",
+        "DeformationAndDerivedPatchingAlgebra:P7/minimal-residual-ranks",
+        "mathlib:Module.Flat.of_projective",
+        "mathlib:Module.free_of_flat_of_isLocalRing",
+        "mathlib:CochainComplex.IsKProjective.quasiIso_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-STACKS-00MT",
+          "locator": "Stable tag 00MT; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "The explicit contraction of the canceled disks."
+        },
+        {
+          "sourceId": "P7-STACKS-0BCC",
+          "locator": "Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "Residual acyclicity leaves no minimal terms."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/finite-free-tail-approximation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Finite perfect approximation of a negative tail",
+      "kind": "lemma",
+      "statement": "Let F be a bounded above finite-free cochain complex over a commutative ring and let a be an integer. Its brutal truncation Q=σ_{≥a−1}F is bounded finite free. There is a chain map j:Q→F equal to the identity in degrees ≥a−1. Its quotient complex has terms zero in degrees >a−2. For any E with terms zero in degrees <a, precomposition gives a bijection Hom_D(R)(F,E)→Hom_D(R)(Q,E).",
+      "hypotheses": [
+        "Use brutal truncation for the finite approximation, not the smart truncation: the latter has a cokernel term that need not be projective. F upper bounded; E termwise lower bounded."
+      ],
+      "proofSteps": [
+        "Use the pinned stupidTrunc along embeddingUpIntGE(a−1). The inclusion natural transformation is a TODO in that file, so construct j in P7 by identity/zero components and prove its chain-map equation.",
+        "Finite free terms and the inherited upper bound make Q perfect. F/Q is strictly ≤a−2.",
+        "In the Hom cochain groups of degrees −1,0,1, the only possibly nonzero components F^i→E^{i+n} have i≥a−n. These all lie in Q. Precomposition therefore identifies the three groups and both differentials controlling H⁰.",
+        "Use the pinned HomComplex cohomology-to-homotopy comparison and K-projective-to-derived comparison for F and Q. Both are upper bounded projective complexes. This proves the Hom bijection without postulating a generic RHom functor."
+      ],
+      "acceptance": [
+        "Over dual numbers, truncate the infinite free resolution of k at a−1; it gives the same degree-zero derived Hom into any complex starting in degree a.",
+        "At cutoff a, the degree-one Hom group can lose its i=a−1 component; the extra term is essential to control the cokernel/cocycle condition."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-object",
+        "mathlib:HomologicalComplex.stupidTrunc",
+        "mathlib:CochainComplex.HomComplex.CohomologyClass.toHom_bijective",
+        "mathlib:CochainComplex.IsKProjective.Qh_map_bijective"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-STACKS-064N",
+          "locator": "Stable tag 064N; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "Lemma 15.66.5 uses finite brutal truncations as approximations."
+        },
+        {
+          "sourceId": "P7-STACKS-0G8W",
+          "locator": "Lemma 15.67.1, whole proof",
+          "match": "The Hom-complex proof for modules extends to strict lower-bounded target complexes as explained degree by degree."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/finite-perfect-hom-filtered-colimit",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Finite perfect Hom commutes with filtered colimits",
+      "kind": "theorem",
+      "statement": "For a bounded finite-projective C and a small filtered diagram E_j of cochain complexes of R-modules, the canonical map colim_j Hom_D(R)(Q(C),Q(E_j))→Hom_D(R)(Q(C),Q(colim_j E_j)) is bijective. The target uses the degreewise complex colimit. No uniform bound on the E_j is needed for this finite source.",
+      "hypotheses": [
+        "R commutative; C termwise finite projective and bounded on both sides; small filtered shape with the required colimits."
+      ],
+      "proofSteps": [
+        "A finite-projective module P is a summand of R^r. Hom_R(P,−) is correspondingly a natural summand of the r-fold finite product of the target module, so it commutes with filtered colimits.",
+        "Each degree of the existing linear Hom complex from C is a finite product of those functors: C has a fixed finite interval of nonzero terms. The canonical comparison is an isomorphism of Hom complexes, with the signed differential unchanged.",
+        "Filtered colimits in ModuleCat are exact by the pinned AB5 instance; taking H⁰ therefore commutes. Use the existing linearHomComplex comparison to Mathlib and its cohomology classes.",
+        "Use the pinned K-projective comparison to interpret those classes as derived morphisms."
+      ],
+      "acceptance": [
+        "For C=R[0], this is ordinary cohomology commuting with a filtered colimit of module complexes.",
+        "A bounded complex with an infinite-free term is not enough: Hom from ⊕_nR is an infinite product and can fail to commute with filtered colimits."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P7/perfect-object",
+        "tauceti:TauCeti.linearHomComplex",
+        "tauceti:TauCeti.forget₂LinearHomComplexIso",
+        "mathlib:CategoryTheory.AB5OfSize",
+        "mathlib:CochainComplex.HomComplex.CohomologyClass.toHom_bijective",
+        "mathlib:CochainComplex.IsKProjective.Qh_map_bijective"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-STACKS-0G8W",
+          "locator": "Lemma 15.67.1, last two paragraphs of proof",
+          "match": "Finite-source Hom complexes give the same argument for arbitrary target complexes; projective summands replace free terms."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/lower-bounded-target-replacement",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Functorial lower-bounded target replacement",
+      "kind": "lemma",
+      "statement": "For a filtered diagram E_j of module complexes with H^i(E_j)=0 for every i<a and one fixed a, the smart truncations τ_{≥a}E_j form a diagram of complexes strictly supported ≥a. The natural maps E_j→τ_{≥a}E_j are quasi-isomorphisms, as is the induced map on degreewise filtered colimits. The colimit itself has no cohomology below a.",
+      "hypotheses": [
+        "One common a is required for the final strict-bound comparison. No target termwise finiteness or boundedness above. This is an application of existing smart truncation and exact filtered colimits, not a second truncation construction."
+      ],
+      "proofSteps": [
+        "Use CochainComplex.truncGE, truncGEMap, and quasiIso_πTruncGE_iff. Their functoriality supplies the entire truncated diagram, not separately chosen isomorphic objects.",
+        "Use ModuleCat AB5 to commute kernels/cokernels and homology with filtered colimits. The colimit of the natural quasi-isomorphisms is a quasi-isomorphism.",
+        "The truncated diagram has all terms below a zero, so its degreewise colimit has the same strict lower bound."
+      ],
+      "acceptance": [
+        "A family whose lower bounds tend to −∞ does not yield a single strictly lower-bounded colimit.",
+        "Smart truncation of [R --π→R] at zero has O/π as its boundary term, unlike its brutal truncation."
+      ],
+      "prerequisites": [
+        "mathlib:CochainComplex.truncGE",
+        "mathlib:CochainComplex.quasiIso_πTruncGE_iff",
+        "mathlib:CategoryTheory.AB5OfSize",
+        "mathlib:HomologicalComplex.isColimitOfEval"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-STACKS-0G8W",
+          "locator": "Lemma 15.67.1, filtered-colimit exactness step",
+          "match": "The same exactness preserves objectwise quasi-isomorphisms of a diagram."
+        },
+        {
+          "sourceId": "P7-STACKS-064N",
+          "locator": "Stable tag 064N; online text read 2026-10-02 (current numbering differs from the January book)",
+          "match": "Used only for context on source approximations; the truncation and AB5 carriers are reused from the pin."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-hom-uniform-colimit",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Pseudo-coherent Hom with a uniform lower bound",
+      "kind": "theorem",
+      "statement": "Let P be pseudo-coherent over any commutative ring R, and let E_j be a small filtered diagram of module complexes with H^i(E_j)=0 for all i<a, for one common a. Then the canonical map colim_j Hom_D(R)(P,Q(E_j))→Hom_D(R)(P,Q(colim_j E_j)) is bijective. It is natural in P, in the diagram and in compatible diagram maps. In particular every morphism P→Q(colim E_j) factors through some stage; equality of two stage representatives holds at a common later stage.",
+      "hypotheses": [
+        "Pseudo-coherence of P; filteredness and a single uniform cohomological lower bound on every target. No Noetherianity or local hypothesis. The degreewise complex colimit is a model; no arbitrary colimit in a triangulated category is postulated."
+      ],
+      "proofSteps": [
+        "Choose a bounded above finite-free F representing P, and transport the canonical comparison through that derived isomorphism.",
+        "Replace the target diagram functorially by smart truncations ≥a using lower-bounded-target-replacement. Its colimit remains quasi-isomorphic to the original one.",
+        "Apply finite-free-tail-approximation with cutoff a−1. This gives natural Hom bijections from F to its bounded finite-free Q for all truncated stages and their colimit.",
+        "Apply finite-perfect-hom-filtered-colimit to Q. Naturality identifies the composite with the canonical map for P.",
+        "Surjectivity is stage factorization; injectivity is eventual equality in a filtered set colimit. This is an equality of morphisms in D(R), not a canonical choice of factor or a strict compatible Hecke action."
+      ],
+      "acceptance": [
+        "Over k[ε]/ε², P=k[0] and E_n=⊕_{i=0}^n k[i] violate the common lower bound. The colimit Hom map is ⊕_i k→∏_i k and misses the all-ones sequence.",
+        "When P is perfect, finite-perfect-hom-filtered-colimit removes the lower-bound hypothesis.",
+        "Constant diagrams have their identity Hom comparison; the zero source has the unique zero factorization."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-object",
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-free-tail-approximation",
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-perfect-hom-filtered-colimit",
+        "DeformationAndDerivedPatchingAlgebra:P7/lower-bounded-target-replacement"
+      ],
+      "sources": [
+        {
+          "sourceId": "P7-BP-AUTHOR-2025",
+          "locator": "Proof of Proposition 2.3.13, p.17; reviewed PAPER-BOXER-PILLONI-26/E26",
+          "match": "The affine algebraic input for the paper factorization, with the uniform lower bound confirmed necessary in its independent review."
+        },
+        {
+          "sourceId": "P7-STACKS-0G8W",
+          "locator": "Lemma 15.67.1, complete proof",
+          "match": "The finite-approximation and exact filtered-colimit proof route is extended to uniformly lower-bounded target complexes."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/LocalPerfect",
+        "namespace": "TauCeti.LocalPerfect"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "baselineCoverage": [
@@ -2156,6 +3395,18 @@
       ],
       "consumer": "AutomorphicBundles:B5/fj-injectivity-finite",
       "consumerContract": "Use the existing induction with the property that the constructed Fourier-Jacobi map is injective. The consumer must still prove the zero case, transport its prime-quotient case through linear equivalences by naturality, and prove its nonsplit extension step. No generic prime-filtration request to R03.3 is necessary."
+    },
+    {
+      "stageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "Bounded-above projective homotopy/derived comparison and ordinary change of coefficients on actual chain homotopies",
+      "status": "provided_by_baseline",
+      "refs": [
+        "mathlib:CochainComplex.isKProjective_of_projective",
+        "mathlib:CochainComplex.IsKProjective.Qh_map_bijective",
+        "mathlib:CochainComplex.IsKProjective.quasiIso_iff",
+        "mathlib:CategoryTheory.Functor.mapHomotopyEquiv"
+      ],
+      "consumerContract": "Verify categorical projectivity of ModuleCat terms, the strict upper bound, and additivity of the coefficient functor. This ordinary homotopy transport neither supplies a generic derived tensor functor nor asserts compatibility of an entire inverse-system action."
     }
   ],
   "requests": [
@@ -2177,9 +3428,13 @@
   "coverage": [
     {
       "stageId": "DeformationAndDerivedPatchingAlgebra:P7",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Reconcile the integrated P7 nodes with the accepted RS-08 and the reviewed audit; source-decompose local perfect complexes, minimal models, Tor-amplitude, derived tensor/completion and Nakayama, the Tor spectral sequence and complete-local limit comparisons. Reuse the existing K-projective and homotopy-equivalence API; import the generic Milnor/Mittag-Leffler input from ArithmeticGaloisDuality:R02.1."
+        "Minimal finite-free representatives, uniqueness, residual ranks, three-term split exactness and pseudo-coherent residual perfectness/Nakayama now have separate source-based nodes and concrete prototypes. Complete their actual Lean implementation and the derived-base-change comparison below; this is not a closed stage.",
+        "Construct and compare derived tensor/RHom and duality on the actual derived categories, establish K-flatness of bounded above projective module complexes and independence of the chosen representative. Add Tor-amplitude as a predicate on derived objects with the all-module quantifier; compare it with minimal support. Do not equate Tor-amplitude with ordinary cohomological bounds.",
+        "Retain all triangle and summand closure of perfectness/pseudo-coherence, affine/local comparison with SchemeKTheoryOperations, derived-completion comparison with DerivedDeRhamCohomology, the convergent Tor spectral sequence, and R02.1 Milnor/ML applications. Chain-level actions and inverse-system compatibility remain actual work.",
+        "Read and source-decompose every added paper route in issue #551. In particular Pilloni 2020 infinite completed-free minimal complexes require the completed direct-sum basis from PadicMeasuresIwasawaAlgebras:L0; they are not covered by termwise finite-free cancellation.",
+        "The affine uniformly lower-bounded Hom/filtered-colimit input of Boxer–Pilloni E26 now has four proof nodes. Its scheme globalization and solid/discrete comparison remain with the existing six-functor owner; require the actual proper-map bound there. CG Lemmas 7.5–7.6 and BCGP coefficient interfaces still require primary-source reads."
       ]
     },
     {
@@ -2321,7 +3576,7 @@
       "detail": "Reserved key is planned for general finite modules and ideals of definition, but not closed. Required remaining comparisons: formal plane-curve order e(k[[x,y]]/(f))=ord(f), including smooth/node/cusp/triple-point values with reducedness and characteristic stated; regular-local multiplicity 1 and Nagata converse under formal unmixedness (all associated primes of completion, not merely minimal primes); parameter-ideal bound e≤length and equality iff Cohen–Macaulay; completion invariance on actual completed rings/modules. Decompose these proofs and their APIs rather than claiming that raw rational polynomial tests establish them. Retain every original paper-route requirement for P7–P9/R03.1–R03.5."
     },
     {
-      "title": "New Hilbert–Samuel prototype not elaborated",
+      "title": "Hilbert–Samuel implementation remains unchecked after elaboration",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function",
         "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-maximal-power-annihilation",
@@ -2338,11 +3593,58 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/dimension-normalized-additivity",
         "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-associativity"
       ],
-      "detail": "No existing build at both prescribed pins was found in this worker environment. Do not set up a Lake project, fetch caches, or compile libraries. The new suggested signatures remain uncompiled; the prior worker's successful compilation receipt covers only the older file."
+      "detail": "Historical compilation gap resolved by codex-J6LwjP: the complete suggested file elaborates at Mathlib 082e2d3 with 0 errors and 112 placeholder-proof warnings. The canonical local-ring instance on each prime quotient is supplied by the pinned IsLocalRing.of_surjective' theorem; redundant DVR local-ring instances are removed. Formal-series comparison proofs, finite top-dimensional support and localized-length adapters remain unimplemented. This receipt checks signatures, not mathematical proofs."
+    },
+    {
+      "title": "Derived base change versus the ordinary representative computation",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:P7/residual-perfectness-criterion",
+        "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-residual-nakayama",
+        "DeformationAndDerivedPatchingAlgebra:P7/minimal-residual-ranks"
+      ],
+      "detail": "The pinned ordinary extendScalars functor and mapHomotopyEquiv give well-defined change of coefficients on homotopy-equivalent bounded above projective representatives. A generic derived tensor functor is absent in the reviewed audit. P7 must construct its restriction and prove bounded above projective module complexes K-flat, the resolution comparison and agreement with any later generic derived tensor construction. This missing comparison is not a supplied assumption masquerading as a formal theorem. The suggested residual Nakayama theorem is stated on actual representatives; its derived-object form is an explicitly omitted signature."
+    },
+    {
+      "title": "Remaining minimal-complex comparison and finite approximation proofs",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:P7/perfect-object",
+        "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-object",
+        "DeformationAndDerivedPatchingAlgebra:P7/minimal-representative"
+      ],
+      "detail": "The local stable comparison 0F9V and alternative lifting sources 0BC9/0BCA/0BCB have been read, but descent to R_f and the lifting proof dependencies remain open. The four new affine filtered-colimit proof nodes account for finite approximation and the uniform lower bound. Their library implementation and the scheme-level comparison remain unchecked; triangle/summand closure still needs declaration decomposition."
+    },
+    {
+      "title": "P7 prototypes and source-route coverage remain unchecked",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:P7/perfect-object",
+        "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-object",
+        "DeformationAndDerivedPatchingAlgebra:P7/minimal-complex",
+        "DeformationAndDerivedPatchingAlgebra:P7/unit-pivot-cancellation",
+        "DeformationAndDerivedPatchingAlgebra:P7/minimal-representative",
+        "DeformationAndDerivedPatchingAlgebra:P7/homotopy-residue-equality",
+        "DeformationAndDerivedPatchingAlgebra:P7/minimal-homotopy-equivalence-is-iso",
+        "DeformationAndDerivedPatchingAlgebra:P7/minimal-residual-ranks",
+        "DeformationAndDerivedPatchingAlgebra:P7/three-term-residual-splitting",
+        "DeformationAndDerivedPatchingAlgebra:P7/perfect-is-pseudo-coherent",
+        "DeformationAndDerivedPatchingAlgebra:P7/residual-perfectness-criterion",
+        "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-residual-nakayama",
+        "DeformationAndDerivedPatchingAlgebra:P7/bounded-residual-acyclic-contractible"
+      ],
+      "detail": "The complete suggested file now elaborates against an existing Mathlib build at the exact pin, with only placeholder-proof warnings. No Tau Ceti module is imported; its cited baseline statements were inspected at their source pin. No library was built or cache fetched. Disk rank equations, locally finite disk-family decomposition, generic derived base change and the derived-object Nakayama signature have explicit omission notes in the suggested file; the reader/packet mathematical statements remain definitive. The finite-free strand does not cover the topologically completed infinite-rank or geometric theorem applications."
+    },
+    {
+      "title": "Filtered-colimit comparison signatures and scheme globalization",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-free-tail-approximation",
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-perfect-hom-filtered-colimit",
+        "DeformationAndDerivedPatchingAlgebra:P7/lower-bounded-target-replacement",
+        "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-hom-uniform-colimit"
+      ],
+      "detail": "The suggested file states a canonical colimit comparison on actual diagrams of complexes. The signatures elaborate with placeholder proofs at the Mathlib pin; no mathematical implementation is certified. The proof uses the existing AB5 instance and existing linear Hom carriers, not a claimed built RHom functor. Smart-truncation functoriality, Hom-group naturality and the unbounded-to-finite approximation comparison need actual implementation. The qcqs scheme and solid-category application belongs to the paper’s existing SchemeSixFunctorFormalism supplier, and is not proved by the ring result alone."
     }
   ],
   "sourceIssues": [],
-  "validationBoundary": "The original five baseline entries and baselineCoverage are preserved verbatim. The new declarations were inspected at the exact pin, with source blobs recorded. KW passages were parsed-only after failed screenshots. No Lean compilation or closed stage is asserted. Initial CI exposed that the checker treats any tauceti: prefix as a baseline declaration before testing stage IDs. The algebraic endpoint now has only baseline/local-node prerequisites, matching its five signatures. The local-field and framed-lifting extensions remain explicit requests, gaps and remainingExtensions; no upstream stage is falsely listed as a proved baseline theorem. The handoff's initial uploaded packet hash refers to the pre-CI version; the amended packet is validated by the new submission run. Continuation of 28 September 2026 (cc-39fac3): the suggested file was compiled at the pins with the v4.34.0-rc2 lean against the prebuilt Mathlib 082e2d3 oleans. Before this continuation it had one error, an elab_as_elim motive failure in the prime-filtration induction wrapper, fixed by passing (motive := motive). After the fix and the R03.3 additions it has 0 errors and only placeholder-proof warnings; the R03.4 intermediate-field signatures elaborate. Continuation by Codex — codex-a71f92, 2026-10-02: fresh selected source passages and sixteen additional pinned declaration statements inspected. The general polynomial theorem is not inferred from the pinned rational-series hilbertPoly API. New signatures not compiled; prior compilation receipts are historical only. All new nodes remain unchecked and all stages remain partial/not_read.",
+  "validationBoundary": "The original five baseline entries and baselineCoverage are preserved verbatim. The new declarations were inspected at the exact pin, with source blobs recorded. KW passages were parsed-only after failed screenshots. No Lean compilation or closed stage is asserted. Initial CI exposed that the checker treats any tauceti: prefix as a baseline declaration before testing stage IDs. The algebraic endpoint now has only baseline/local-node prerequisites, matching its five signatures. The local-field and framed-lifting extensions remain explicit requests, gaps and remainingExtensions; no upstream stage is falsely listed as a proved baseline theorem. The handoff's initial uploaded packet hash refers to the pre-CI version; the amended packet is validated by the new submission run. Continuation of 28 September 2026 (cc-39fac3): the suggested file was compiled at the pins with the v4.34.0-rc2 lean against the prebuilt Mathlib 082e2d3 oleans. Before this continuation it had one error, an elab_as_elim motive failure in the prime-filtration induction wrapper, fixed by passing (motive := motive). After the fix and the R03.3 additions it has 0 errors and only placeholder-proof warnings; the R03.4 intermediate-field signatures elaborate. Continuation by Codex — codex-a71f92, 2026-10-02: fresh selected source passages and sixteen additional pinned declaration statements inspected. The general polynomial theorem is not inferred from the pinned rational-series hilbertPoly API. New signatures not compiled; prior compilation receipts are historical only. All new nodes remain unchecked and all stages remain partial/not_read. Codex — codex-J6LwjP read all applicable DDPA AUDIT-17 entries, the accepted RS-08 keeps/links/owner decisions, the original roadmap and integrated P7 node. New baseline statements were read at the pin. This is a mathematical continuation, not an independent review of the earlier checkpoint or a new confirmation of the paper errata. Current codex-J6LwjP receipt: the entire suggested file elaborates with Lean v4.34.0-rc2 against existing Mathlib 082e2d3 oleans, 0 errors and 112 placeholder-proof warnings. No Tau Ceti module is imported or built. Prior no-compilation statements describe earlier checkpoints only. All mathematical implementations remain unchecked; none of the eight stages is closed.",
   "keyDefinitionBoundary": {
     "reservedId": "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
     "status": "planned_with_gaps",
@@ -2356,5 +3658,25 @@
       "LocalGaloisDeformationRings special-fiber examples"
     ],
     "ownership": "Maintainer assign.json fixes this general owner. Other roadmaps keep their special applications/cycles; the multiplicity strand imports no automorphic theorem as a prerequisite."
+  },
+  "continuationBoundary": {
+    "agent": "Codex — codex-J6LwjP",
+    "date": "2026-10-02",
+    "preservedNodes": 23,
+    "addedNodes": 17,
+    "paperReviewImports": [
+      "PAPER-BOXER-PILLONI-26/E26",
+      "PAPER-BOXER-PILLONI-26/E33"
+    ],
+    "scope": "Finite-free local complexes; completed infinite-rank minimality and the remaining eight-stage proofs are retained obligations.",
+    "elaboration": {
+      "lean": "v4.34.0-rc2",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "errors": 0,
+      "placeholderWarnings": 112,
+      "suggestedFileSha256": "fc04c0a556f75d6164a6db08ff5fa3f86e0a3b651cb1dfd0b1dea8454b5557fc",
+      "tauCetiImports": false,
+      "boundary": "Signatures only; source-only Tau Ceti baseline inspection at f790474821cf4256814db967cb154e7af3d0c369."
+    }
   }
 }
