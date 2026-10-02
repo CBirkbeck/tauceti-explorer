@@ -1,13 +1,17 @@
 /-
 Suggested.lean — EllipticCurveModularity (modularity and modular parametrisations of elliptic curves over ℚ)
 
-This file is a prototype, not a library file. It records the signatures, API lemmas and unit tests planned by
-`research/blueprint/packets/EllipticCurveModularity.json`, each proved by `sorry`. Node ids are given in the comments.
+This file is a prototype, not a library file or an exhaustive roadmap. The reader document is definitive;
+these statements suggest names and Lean signatures. Stateable prototypes use `sorry`; the contract ledger below
+records the remaining interfaces without claiming that comments are elaborated declarations. Node ids refer to
+`research/blueprint/packets/EllipticCurveModularity.json`.
 
 Under the accepted restructuring RS-06 this roadmap keeps the application to an arbitrary E/ℚ; the general theory (Tate
 modules, Serre's conjecture, newforms, local–global compatibility, modular quotients, the Abel–Jacobi map) is imported
 from its owners. The arithmetic lemmas of the argument are prototyped here against Mathlib; statements that need objects
-not yet in the pinned libraries (residual representations, newforms, J₀(N)) are recorded as comments.
+not yet available here (the residual-representation/conductor interface and J₀(N)) are recorded as comments.
+`HeckeRing.GL2.Newform` itself exists at Tau Ceti f790474; the missing pieces include the conductor-indexed
+elliptic witness, its residual comparison and the quotient/parametrisation interfaces.
 -/
 import Mathlib.AlgebraicGeometry.EllipticCurve.LFunction
 import Mathlib.NumberTheory.NumberField.Basic
@@ -39,9 +43,41 @@ theorem five_mem_exceptionalPrimes : 5 ∈ exceptionalPrimes E := sorry
 theorem seven_le_of_not_mem {p : ℕ} (hp : p.Prime) (h : p ∉ exceptionalPrimes E) : 7 ≤ p := sorry
 
 /-
-theorem irreducible_of_not_mem (h : p ∉ exceptionalPrimes E) : (ρ̄ E p).IsAbsolutelyIrreducible   -- R01.4, R01.6
+theorem irreducible_of_not_mem (h : p ∉ exceptionalPrimes E) : (ρ̄ E p).IsIrreducible   -- R01.6; p.Prime required
+-- Absolute irreducibility is a separate odd-characteristic application of R01.4.
 theorem conductor_residual_eq (h : p ∉ exceptionalPrimes E) : conductor (ρ̄ E p) = conductor E   -- residual-conductor-equality
 -/
+
+/-! Named packet tests for `exceptional-primes`. These are prototypes, not verified Lean proofs.
+The coefficient order is a₁,a₂,a₃,a₄,a₆. Exact arithmetic supporting the expected values is in the review report. -/
+
+def curve11a1 : WeierstrassCurve ℚ := ⟨0, -1, 1, -10, -20⟩
+def curve26b1 : WeierstrassCurve ℚ := ⟨1, -1, 1, -3, 3⟩
+def curveValuationOnly : WeierstrassCurve ℚ := ⟨1, 0, 0, -7, 9⟩
+def curveCM : WeierstrassCurve ℚ := ⟨0, 0, 0, -1, 0⟩
+
+instance : curve11a1.IsElliptic := by sorry
+instance : curve26b1.IsElliptic := by sorry
+instance : curveValuationOnly.IsElliptic := by sorry
+instance : curveCM.IsElliptic := by sorry
+
+theorem exceptionalPrimes_11a1 :
+    5 ∈ exceptionalPrimes curve11a1 ∧ 11 ∈ exceptionalPrimes curve11a1 := by sorry
+
+theorem exceptionalPrimes_contains_small :
+    2 ∈ exceptionalPrimes E ∧ 3 ∈ exceptionalPrimes E ∧ 5 ∈ exceptionalPrimes E := by sorry
+
+theorem exceptionalPrimes_CM :
+    (exceptionalPrimes curveCM).Finite ∧ 2 ∈ exceptionalPrimes curveCM := by sorry
+
+-- No rational cyclic 7-subgroup: at the good prime 3 the discriminant is 3 mod 7, a nonsquare.
+theorem exceptionalPrimes_11a1_seven : 7 ∉ exceptionalPrimes curve11a1 := by sorry
+
+-- A point of exact order 7, and multiplicative v₂(j) = -7; the curve is good at 7.
+theorem exceptionalPrimes_26b1 : 7 ∈ exceptionalPrimes curve26b1 := by sorry
+
+-- The valuation clause alone: no rational cyclic 7-subgroup, since at 3 the discriminant is 6 mod 7.
+theorem exceptionalPrimes_valuation_only : 7 ∈ exceptionalPrimes curveValuationOnly := by sorry
 
 /-! ## R29.2. Trivial nebentypus by reduction -/
 
@@ -91,7 +127,9 @@ theorem eq_of_eigenvalue_eq_across_levels {N M M' : ℕ} [NeZero N] [NeZero M] [
 Here A_ℓ is the supplier's good Fourier coefficient; after M = M', compare the
 forms by transport. Only finitely many primes divide the nonzero N. The level-11/22 oldform
 acceptance belongs to newform-of-E, and is not a proof of this imported theorem.
-noncomputable def newformOf (E) : HeckeRing.GL2.Newform (conductor E) 2                          -- newform-of-E
+R29.3 first constructs a primitive form at a nonzero M dividing N=conductor E.
+Only after R29.4/exact-conductor may the following final export have level N.
+noncomputable def newformOf (E) : HeckeRing.GL2.Newform (conductor E) 2                          -- final export
 theorem newformOf_coeff_prime (ℓ) (hℓ : ¬ ℓ ∣ conductor E) : a_ℓ (newformOf E) = E.ap ℓ
 theorem newformOf_coeff_int (n) : a_n (newformOf E) ∈ Set.range (Int.cast : ℤ → ℂ)                   -- rational-coefficient-field
 theorem level_newformOf : level (newformOf E) = conductor E                                        -- exact-conductor
@@ -101,6 +139,53 @@ noncomputable def modularParametrisation : X₀ (conductor E) ⟶ E             
 theorem modularParametrisation_cusp : modularParametrisation E ∞ = 0
 theorem modularity : ∃ f : Newform (conductor E) 2, ∀ p, a_p f = E.ap p                             -- modularity-theorem
 theorem LSeries_eq : E.LSeries = LSeries (newformOf E)                                               -- l-function-continuation
+-/
+
+/-
+UNSTATEABLE CONTRACT LEDGER (remaining RT /5 obligation, not Lean declarations).
+All sixteen packet API names are represented either by prototypes above or by these comments.
+No arbitrary-level newform is asserted from a curve without a conductor/level relation.
+
+R29.1:
+  goodReduction_of_not_mem: p.Prime and p ∉ exceptionalPrimes E imply p ∤ conductor E.
+  Needs the supplier's conductor and reduction interfaces; irreducible_of_not_mem likewise
+  needs the actual residual representation. Oddness and absolute irreducibility remain separate.
+
+R29.2:
+  serreWitness: for p.Prime and p ∉ Σ_E, construct a weight-two newform g_p at exact N,
+    trivial character, a coefficient field embedding and a prime λ_p above p.
+  serreWitness_level: project the exact level N, weight two and trivial character data.
+  serreWitness_trace: for ℓ.Prime and ℓ ∤ N*p, a_ℓ(g_p) reduces to a_ℓ(E) modulo λ_p.
+  serreWitness_residual: identify the actual residual representation of g_p at λ_p with E[p].
+  Tests requiring those interfaces:
+    serreWitness_11a1: at p=7 use the level-11 eta-product newform.
+    serreWitness_trace_2: a₂(g_7)=-2=a₂(E) for E=11a1.
+    serreWitness_not_at_exceptional: p=5 is exceptional, so no witness is requested.
+
+R29.3:
+  newformOf_unique: compare normalized weight-two trivial-character newforms of levels M,M′
+    dividing N with the same good prime coefficients; import Layer 5, prove M=M′ and transport.
+  Tests requiring the curve/newform and q-expansion interfaces:
+    newformOf_11a1: the final level-11 newform is η(z)²η(11z)².
+    newformOf_isogeny_invariant: 11a1,11a2,11a3 give the same final form after level transport.
+    newformOf_twist: at good primes away from the twist conductor, coefficients are twisted
+      by the quadratic character; compare primitive levels, not an arbitrary oldform ambient level.
+
+R29.5:
+  modularParametrisation_nonconstant: the actual X₀(N)→E composite has positive degree.
+  modularParametrisation_pullback: pull back ω_E to c·2πi F_E(z)dz for a nonzero scalar c,
+    with the quotient, isogeny and differential conventions specified.
+  Tests requiring curve morphisms, choices and degree:
+    modularParametrisation_11a1: the chosen composite is the degree-one isomorphism X₀(11)→11a1.
+    modularParametrisation_11a3: compose that isomorphism with the chosen minimal 5-isogeny;
+      its degree is 5. Arbitrary isogeny choices do not have this degree.
+    modularParametrisation_37a: the chosen optimal parametrisation has degree 2.
+
+R29.6:
+  The quotient converse must use the R14.5 old/new decomposition with multiplicity τ(N/M).
+  R19.6 compares individual A_f and uses restriction of scalars from K_{f,λ} to ℚ_r.
+  Absolute irreducibility, constituent selection and descent are still proof obligations;
+  semisimplicity alone does not identify V_r(E) with one V_{f,λ}.
 -/
 
 end TauCeti.EllipticCurve.Modularity
