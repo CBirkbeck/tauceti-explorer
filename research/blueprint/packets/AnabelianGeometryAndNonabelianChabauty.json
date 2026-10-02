@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "A partial continuation: twelve declaration-sized NC.0 nodes plan the reserved coefficient-class-aware étale K(π,1) interface, its transports, finite-cover/raw-homotopy comparisons and tested field, curve, product and Artin-tower contracts. The eight-node NC.3 checkpoint is retained, with its twisting equivalence correctly treated as an unpointed bijection unless the target is repointed at the twisting class. All stages remain open; exact foundational/source proof gaps and supplier requests are recorded.",
+  "summary": "A partial continuation: twelve declaration-sized NC.0 nodes plan the reserved coefficient-class-aware étale K(π,1) interface, its transports, finite-cover/raw-homotopy comparisons and tested field, curve, product and Artin-tower contracts. The eight-node NC.3 checkpoint is retained, with its twisting equivalence correctly treated as an unpointed bijection unless the target is repointed at the twisting class. All stages remain open; exact foundational/source proof gaps and supplier requests are recorded. This continuation splits the inherited subgroup exactness bundle: connecting cocycle, its image, change of lift, triviality criterion, fixed-orbit fibres and normal-kernel exactness. The preserved exact-sequence ID now states the single inclusion-kernel theorem. Quotient-level H⁰ packaging remains a precise gap.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -289,6 +289,13 @@
         "module": "Mathlib/RingTheory/Etale/Finite.lean",
         "provides": "Affine fibre functor (FiniteEtale R)^op → FintypeCat for a geometric field Ω; opposite orientation and non-affine gluing stay explicit.",
         "checked": "Actual declaration and hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in this 2026-10-02 continuation; index checked as a name aid."
+      },
+      {
+        "ref": "mathlib:Topology.IsEmbedding.continuous_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Maps/Basic.lean",
+        "provides": "For an embedding g and any f between topological spaces, Continuous f iff Continuous (g ∘ f). Transfers continuity to subgroup-valued preimages.",
+        "checked": "Complete statement, local variables and embedding hypotheses read personally at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact canonical name confirmed in the pinned index."
       }
     ]
   },
@@ -301,7 +308,8 @@
       "url": "https://arxiv.org/abs/math/0409456v1",
       "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941",
       "readSections": [
-        "Read §1 'Torsor spaces' in full (pp. 2–10): the topologies of Lemmas 1–5, continuous cochains and nonabelian H¹, Proposition 1 (torsors and H¹) with proof, Proposition 2 (representability) with the central-extension claim and its proof, the exact sequence of pointed sets and Proposition 3. §2–§3 not read."
+        "Read §1 'Torsor spaces' in full (pp. 2–10): the topologies of Lemmas 1–5, continuous cochains and nonabelian H¹, Proposition 1 (torsors and H¹) with proof, Proposition 2 (representability) with the central-extension claim and its proof, the exact sequence of pointed sets and Proposition 3. §2–§3 not read.",
+        "Fresh Codex codex-J6LwjP reading on 2026-10-02: printed pp. 5–10 in full, from Proposition 1 and continuous cocycle/gauge definitions through Propositions 2–3 and subgroup exactness. Earlier pp. 2–4 and later sections were not freshly read. Same arXiv v1 PDF SHA-256 independently verified."
       ]
     },
     {
@@ -793,23 +801,316 @@
       ]
     },
     {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-cocycle",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Connecting cocycle of an invariant coset lift",
+      "kind": "construction",
+      "statement": "For b ∈ B with b⁻¹(g•b) ∈ i(A) for every g ∈ G, construct the continuous A-valued cocycle c_b uniquely specified by i(c_b(g)) = b⁻¹(g•b). The membership condition expresses that the left coset b i(A) is G-invariant. No normality of i(A), quotient group structure or continuous quotient section is assumed.",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups.",
+        "Continuous actions of G on A and B by automorphisms; i:A → B is a closed embedding and group homomorphism commuting with G."
+      ],
+      "proofSteps": [
+        "For each g choose the unique preimage in A of b⁻¹(g•b), using membership and injectivity of i.",
+        "The composite with i is continuous by continuity of the action at the fixed b and multiplication by b⁻¹. Apply Topology.IsEmbedding.continuous_iff to the embedding underlying i, obtaining continuity into A; pointwise choices need no continuous section.",
+        "Apply i to c_b(gh) and c_b(g)(g•c_b(h)); equivariance and cancellation give the same element b⁻¹((gh)•b). Injectivity proves the cocycle identity. Package the function and both properties in the existing continuous Z¹ carrier."
+      ],
+      "acceptance": [
+        "Works for nonnormal closed G-stable subgroups and arbitrary continuous automorphism actions.",
+        "The formula uses b⁻¹(g•b); reversing the factors is invalid for noncommutative B."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "mathlib:Topology.IsEmbedding.continuous_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, printed pp. 5–6 (cocycle and orbit conventions), p. 9 (subgroup exactness)",
+          "match": "Declaration-sized derivation of the continuous subgroup exactness asserted here; the lift, continuity and gauge calculations are supplied explicitly, not quoted as separate named results of Kim."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.connectingCocycle"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Nonabelian connecting cocycle"
+      },
+      "uses": [
+        {
+          "where": "Kim 2005 §1, printed p. 9; Kim 2009 §3 crystalline kernel",
+          "how": "Construct the class mapping invariant cosets to H¹ without a continuous quotient section."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-change-lift",
+          "how": "Its image identity determines the change-of-lift gauge element and supplies representative independence."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Produce a canonical continuous preimage cocycle for each class killed in H¹(G,B)."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.connectingCocycle_apply",
+          "role": "projection",
+          "statement": "For every g, i(c_b(g)) = b⁻¹(g•b). This item is promoted to connecting-cocycle-image for downstream proofs."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.connectingCocycle_unique",
+          "role": "universal-property",
+          "statement": "Every A-valued continuous cocycle c with i(c(g)) = b⁻¹(g•b) for all g equals c_b, independent of the proof of membership or pointwise preimage choices."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.connectingCocycle_eq_one_of_fixed",
+          "role": "simp",
+          "statement": "If b is G-fixed, c_b is the constant identity cocycle."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.connecting_fixed_lift",
+          "kind": "base-case",
+          "statement": "A G-fixed lift b gives c_b = 1 for every equivariant closed embedding i."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.connecting_identity_embedding",
+          "kind": "comparison",
+          "statement": "For i the identity embedding of B and arbitrary b, c_b = coboundary(b⁻¹), with coboundary(u)(g)=u(g•u)⁻¹."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.connecting_proof_independence",
+          "kind": "compatibility",
+          "statement": "Two proofs that b⁻¹(g•b) lies in i(A) yield equal cocycles for the same b."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.connecting_right_lift",
+          "kind": "compatibility",
+          "statement": "Whenever b and b i(a) satisfy membership, their connecting H¹ classes agree, although their cocycles differ by the gauge a⁻¹."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-cocycle-image",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Image of the connecting cocycle",
+      "kind": "lemma",
+      "statement": "Under the connecting-cocycle hypotheses, i(c_b(g)) = b⁻¹(g•b) for every g.",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups.",
+        "Continuous actions of G on A and B by automorphisms; i:A → B is a closed embedding and group homomorphism commuting with G."
+      ],
+      "proofSteps": [
+        "Unfold the pointwise preimage construction and its membership witness. The defining equation survives the packaging as a continuous cocycle."
+      ],
+      "acceptance": [
+        "The identity is in B and retains the displayed factor order."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-cocycle"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, printed pp. 5–6 (cocycle and orbit conventions), p. 9 (subgroup exactness)",
+          "match": "Declaration-sized derivation of the continuous subgroup exactness asserted here; the lift, continuity and gauge calculations are supplied explicitly, not quoted as separate named results of Kim."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.connectingCocycle_apply"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-change-lift",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Change of lift for a connecting cocycle",
+      "kind": "lemma",
+      "statement": "For a ∈ A and an admissible b, b i(a) is also admissible and c_{b i(a)} = a⁻¹•c_b under the cocycle action (u•c)(g)=u c(g)(g•u)⁻¹. Consequently the H¹ class depends only on the left coset b i(A).",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups.",
+        "Continuous actions of G on A and B by automorphisms; i:A → B is a closed embedding and group homomorphism commuting with G."
+      ],
+      "proofSteps": [
+        "Expand (b i(a))⁻¹(g•(b i(a))) as i(a⁻¹) b⁻¹(g•b) i(g•a); subgroup closure proves membership.",
+        "Apply connecting-cocycle-image to both lifts, expand the gauge action and use injectivity pointwise. This proves the cocycle equality.",
+        "The inherited H¹ orbit quotient identifies cocycles in the same A-orbit. No normality is used."
+      ],
+      "acceptance": [
+        "The gauge is a⁻¹, not a; a nonabelian finite test distinguishes them."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-cocycle-image",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, printed pp. 5–6 (cocycle and orbit conventions), p. 9 (subgroup exactness)",
+          "match": "Declaration-sized derivation of the continuous subgroup exactness asserted here; the lift, continuity and gauge calculations are supplied explicitly, not quoted as separate named results of Kim."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.connectingCocycle_change_lift"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-class-zero",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Trivial connecting class and fixed lifts",
+      "kind": "theorem",
+      "statement": "For an admissible b and any c ∈ Z¹(G,A) with i(c(g))=b⁻¹(g•b), [c]=1 if and only if there is a ∈ A for which b i(a) is G-fixed.",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups.",
+        "Continuous actions of G on A and B by automorphisms; i:A → B is a closed embedding and group homomorphism commuting with G."
+      ],
+      "proofSteps": [
+        "Use the inherited orbit-quotient characterisation: [c]=1 iff c(g)=a(g•a)⁻¹ for one a and all g.",
+        "After applying i, rearrange b⁻¹(g•b)=i(a)(g•i(a))⁻¹ into g•(b i(a))=b i(a). Reverse the calculation for the converse."
+      ],
+      "acceptance": [
+        "This is exactness at invariant cosets expressed entirely in actual group carriers."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, printed pp. 5–6 (cocycle and orbit conventions), p. 9 (subgroup exactness)",
+          "match": "Declaration-sized derivation of the continuous subgroup exactness asserted here; the lift, continuity and gauge calculations are supplied explicitly, not quoted as separate named results of Kim."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.connecting_eq_one_iff"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-fixed-orbits",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Fibres of the connecting class",
+      "kind": "theorem",
+      "statement": "Suppose c,c′ ∈ Z¹(G,A) and b,b′ ∈ B satisfy i(c(g))=b⁻¹(g•b) and i(c′(g))=b′⁻¹(g•b′) for all g. Then [c]=[c′] if and only if there exist a G-fixed t ∈ B and a ∈ A such that b′ = t b i(a). Thus equal connecting classes correspond exactly to the left B^G-orbits of invariant left cosets.",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups.",
+        "Continuous actions of G on A and B by automorphisms; i:A → B is a closed embedding and group homomorphism commuting with G."
+      ],
+      "proofSteps": [
+        "By the orbit quotient [c]=[c′] iff c′=a⁻¹•c for some a ∈ A (invert the gauge variable in the inherited equality characterisation).",
+        "Apply i and the displayed cocycle formulas. Direct cancellation shows t=b′ i(a)⁻¹ b⁻¹ is G-fixed; rearrange to b′=t b i(a).",
+        "Conversely fixedness of t and b′=t b i(a) give i(c′(g))=i(a⁻¹ c(g)(g•a)); injectivity and cocycle extensionality give the gauge equality and hence equal classes."
+      ],
+      "acceptance": [
+        "No commutativity or normality is assumed. The B^G action is on the left, while lift changes multiply by i(a) on the right."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, printed pp. 5–6 (cocycle and orbit conventions), p. 9 (subgroup exactness)",
+          "match": "Declaration-sized derivation of the continuous subgroup exactness asserted here; the lift, continuity and gauge calculations are supplied explicitly, not quoted as separate named results of Kim."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.connecting_classes_eq_iff"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/normal-h1-kernel",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Exactness for a normal coefficient subgroup",
+      "kind": "theorem",
+      "statement": "Let π:B → C be a continuous open surjective equivariant homomorphism to a topological G-group C, with ker π=i(A). For y ∈ H¹(G,B), π_*(y)=1 if and only if y lies in the image of i_*:H¹(G,A) → H¹(G,B). No continuous section of π is required.",
+      "hypotheses": [
+        "G, A and B are groups with topologies; A and B are topological groups.",
+        "Continuous actions of G on A and B by automorphisms; i:A → B is a closed embedding and group homomorphism commuting with G.",
+        "C is a topological group with continuous G-action by automorphisms; π is equivariant, continuous, open, surjective and has kernel i(A)."
+      ],
+      "proofSteps": [
+        "Choose a continuous cocycle d representing y. Triviality of π_*y supplies x ∈ C with π(d(g))=x(g•x)⁻¹.",
+        "Lift the single element x to b ∈ B by surjectivity; the gauge b⁻¹•d takes values in ker π=i(A). Restrict it to A using unique pointwise preimages, and transfer continuity with the embedding continuous_iff theorem. The cocycle law follows by equivariance and injectivity.",
+        "Its H¹ class maps to y because it is a gauge transform of d. Conversely π∘i=1, so every class in the image is killed. Openness allows application to the canonical topological-group quotient; it is not used to lift a whole function."
+      ],
+      "acceptance": [
+        "Canonical quotient by a closed normal subgroup is an instance; the H⁰ connecting cocycle for a nonnormal subgroup does not require this theorem."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
+        "mathlib:Topology.IsEmbedding.continuous_iff",
+        "mathlib:QuotientGroup.continuous_mk",
+        "mathlib:QuotientGroup.isOpenMap_coe"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, printed pp. 5–6 (cocycle and orbit conventions), p. 9 (subgroup exactness)",
+          "match": "Declaration-sized derivation of the continuous subgroup exactness asserted here; the lift, continuity and gauge calculations are supplied explicitly, not quoted as separate named results of Kim."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.exact_H1_of_normal"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Normal nonabelian exactness"
+      }
+    },
+    {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
       "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
       "realises": [
         "AnabelianGeometryAndNonabelianChabauty:NC.3"
       ],
-      "title": "The exact sequences of pointed sets",
+      "title": "Kernel of inclusion in nonabelian cohomology",
       "kind": "theorem",
-      "statement": "Let A ≤ B be a closed subgroup of a topological group B stable under a continuous action of G by automorphisms, and B/A the coset space with the induced (continuous) G-action. (a) The sequence of pointed sets 1 → A^G → B^G → (B/A)^G →δ H¹(G, A) → H¹(G, B) is exact (at each term the image of the incoming map is the preimage of the base point), where δ(bA) is the class of the continuous cocycle g ↦ b⁻¹·(g•b); moreover δ(x) = δ(y) iff x and y lie in one B^G-orbit of (B/A)^G. (b) If A is normal, B/A is a topological group with continuous G-action, and the sequence continues exactly with → H¹(G, B/A): a class of H¹(G, B) maps to the base point of H¹(G, B/A) iff it comes from H¹(G, A). No continuous section of B → B/A is needed.",
+      "statement": "For an equivariant closed embedding i:A → B of topological G-groups and x ∈ H¹(G,A), i_*(x)=1 if and only if there exist b ∈ B and c ∈ Z¹(G,A) such that x=[c] and i(c(g))=b⁻¹(g•b) for every g. Equivalently, the classes killed by inclusion are exactly the connecting classes of invariant left cosets. Normality and a continuous quotient section are not required.",
       "hypotheses": [
-        "G is a topological group and B a topological group with an action of G by group automorphisms (MulDistribMulAction G U) such that the action map G × U → U is continuous (ContinuousSMul G U). A a closed G-stable subgroup of B; for (b), A normal."
+        "G, A and B are groups with topologies; A and B are topological groups.",
+        "Continuous actions of G on A and B by automorphisms; i:A → B is a closed embedding and group homomorphism commuting with G."
       ],
       "proofSteps": [
-        "δ is well defined: g•(bA) = bA gives b⁻¹(g•b) ∈ A; it is continuous in g (continuity of the action) and a cocycle: b⁻¹((gh)•b) = b⁻¹(g•b)·g•(b⁻¹(h•b)). Replacing b by ba replaces the cocycle by a⁻¹·(cocycle) under the twisted-conjugation action, so the class is unchanged.",
-        "Exactness at (B/A)^G: δ(bA) is trivial iff b⁻¹(g•b) = a(g•a)⁻¹ for some a ∈ A and all g, iff ba is G-invariant, iff bA comes from B^G. The same computation with two points gives the orbit statement.",
-        "Exactness at H¹(G, A): the image of [c] in H¹(G, B) is trivial iff c(g) = b⁻¹(g•b) for some b ∈ B, and then bA ∈ (B/A)^G and δ(bA) = [c].",
-        "Exactness at A^G and B^G is exactness of the underlying sets of invariants.",
-        "(b) If A is normal, B/A is a topological group (Mathlib's quotient topology, QuotientGroup.continuous_mk, open quotient map), and G × B/A → B/A is continuous since G × B → G × B/A is an open quotient map. If c ∈ Z¹(G, B) maps to a coboundary x(g•x)⁻¹ of B/A, lift x to b ∈ B (one element, so no continuity issue): the cocycle b⁻¹·c takes values in A, is continuous for the subspace topology, and its class maps to [c]."
+        "Represent x by c. By the inherited H¹ basepoint characterisation, i_*x=1 iff i(c(g))=u(g•u)⁻¹ for one u ∈ B and all g. Put b=u⁻¹ to obtain the displayed formula.",
+        "Conversely that formula makes the image cocycle the B-coboundary of b⁻¹, so its class is the basepoint.",
+        "The formula supplies membership in i(A) for each g and therefore an admissible connecting-cocycle input. Its image identity and injectivity identify it with c. Change of lift and the separate fixed-orbit theorem give the coset interpretation."
       ],
       "acceptance": [
         "Kim's crystalline condition: for U_n(R) ≤ U_n(B_cr ⊗ R), the image of H⁰(G_v, U_n(B_cr ⊗ R)/U_n(R)) → H¹(G_v, U_n(R)) is the set of crystalline torsors (Kim 2009, §3); this is (a) for a subgroup that is not normal.",
@@ -818,12 +1119,9 @@
       "prerequisites": [
         "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
-        "mathlib:FixedPoints.subgroup",
-        "mathlib:Subgroup.Normal",
-        "mathlib:QuotientGroup.Quotient.group",
-        "mathlib:QuotientGroup.continuous_mk",
-        "mathlib:QuotientGroup.isOpenMap_coe",
-        "mathlib:MulAction.QuotientAction"
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-cocycle-image",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-change-lift",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-fixed-orbits"
       ],
       "sources": [
         {
@@ -872,6 +1170,7 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/abelian-comparison",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/normal-h1-kernel",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/twisting",
         "tauceti:TauCeti.ContCohomology.H2",
         "tauceti:TauCeti.ContCohomology.H2pi",
@@ -1814,7 +2113,7 @@
         "Representability: Kim 2005 Propositions 2–3 (H¹(G, U) and H⁰(G, U(B)/U) represented by affine pro-varieties under finite-dimensionality and H⁰-vanishing hypotheses), with the topologies on U(B ⊗_K R) of Kim §1 Lemmas 1–5; the unipotent-group inputs (lower central series, algebraic splittings of central extensions).",
         "Local conditions and Selmer varieties: unramified and crystalline conditions (Kim 2009 §3, Lemma 5: the image of H⁰(G_v, U(B_cr ⊗ R)/U(R)) → H¹(G_v, U(R))), bad-place conditions, the global Selmer variety, and dimension calculations; depth-one agreement with the Kummer map and Selmer group of the Jacobian (HeightsRationalPointsAndObstructions RP.1) and a nontrivial depth-two obstruction.",
         "Inflation–restriction for nonabelian H¹ (Serre, Galois Cohomology I §5.8), not in a freely readable source consulted here.",
-        "Split inherited multi-declaration nodes and supply all API/test forms explicitly omitted by the appended suggested-file audit; no stage is closed here."
+        "The subgroup exactness bundle is split into lift-form declarations. Supply the invariant-coset quotient/action and initial H⁰ exactness; split continuous-cocycles, functoriality and central-extension and complete every inherited omitted API/test. No stage is closed."
       ]
     },
     {
@@ -1923,7 +2222,17 @@
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.3"
       ],
-      "detail": "The eight inherited nodes and their source receipts are retained, not re-audited or closed. continuous-cocycles, functoriality, exact-sequence and central-extension bundle independent declarations and need granular continuation. Several inherited API/test forms are absent or only comment-level in the old suggested file. The appended omission audit accounts for every such name. Twisting's target must be repointed at [c] to make its set bijection pointed."
+      "detail": "The inherited exact-sequence ID is now one inclusion-kernel theorem, with six new nodes separating connecting construction/image/change, triviality, fixed-orbit fibres and normal exactness. All twenty prior IDs survive. continuous-cocycles, functoriality and central-extension still bundle independent declarations and need granular continuation; inherited omitted APIs/tests remain open. Twisting needs its target repointed at [c]."
+    },
+    {
+      "title": "Invariant-coset quotient map and initial H⁰ exactness packaging",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-cocycle",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-class-zero",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-fixed-orbits",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence"
+      ],
+      "detail": "Lift-form declarations supply the actual connecting cocycle, representative independence, triviality, inclusion kernel and fixed-orbit fibres. The inherited target 1 → A^G → B^G → (B/i(A))^G still needs separate native quotient-set construction/action descent, its connecting class map, and declaration-sized exactness at A^G and B^G. This continuation does not silently delete those targets or treat the lift form as the full typed quotient API. The subgroup need not be normal; a quotient group carrier would be wrong."
     }
   ],
   "sourceIssues": [],
@@ -1968,6 +2277,13 @@
       "url": "https://stacks.math.columbia.edu/tag/03QQ",
       "citation": "Stacks Project tags 03QQ and 03RQ",
       "read": "2026-10-02"
+    },
+    {
+      "kind": "arXiv",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "citation": "Kim, arXiv:math/0409456v1; fresh selected continuation read, printed pp. 5–10",
+      "read": "2026-10-02",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941"
     }
   ],
   "restructure": [
@@ -2377,6 +2693,37 @@
           "detail": "Good symmetric fibre-functor paths on P¹ minus {0,1,∞}, their existence and conjugation conventions; catalogue corrected contract read, primary proof not freshly read. These paths are not reconstructed by the K(π,1) predicate."
         }
       ]
+    }
+  ],
+  "continuationReceipts": [
+    {
+      "agent": "Codex — codex-a71f92",
+      "date": "2026-10-02",
+      "auditTree": "c73495ab905f9f59dff658b7f5b4abae3564aeaf",
+      "historical": "The eight NC.3 nodes, 32 baseline checks and three old primary-read/hash receipts belong to Claude Code cc-fb70e5's 2026-09-28 checkpoint. They are preserved, not claimed as fresh primary reads; this continuation read the packet, reader and suggested file.",
+      "checked": [
+        "Reviewed library-coverage NC.0–NC.6, all seven atlas stages and 17 touching stage edges.",
+        "Full-tree pinned git-grep for K(pi,1)/étale-homotopy spellings found no Mathlib/TauCeti matches; seven actual native declaration statements read and index names checked.",
+        "All research/blueprint/links files screened: no links mentioning this roadmap at the immutable tree. Stage edges examined separately.",
+        "JacobianChallenge and StableReduction upstream documents were read during the continuous worker run. EllipticCurves/ProfiniteCohomology were not fully read for this continuation.",
+        "Schmidt–Stix catalogue /14,/31,/68 and FKW /005,/091,/146 checked against selected primary passages. Historical source issues outside those passages are not newly audited.",
+        "Full Schmidt–Stix EtaleHomotopyTypes candidate brief read: unaccepted, no registered stages; reconcile its generic foundation and remove NC.1 consumer cycles rather than propose duplicate ownership.",
+        "BDMTV 19+17 routed IDs/names/locators preserved explicitly as not_read inventory; /58 versus /93 and E9/E10 corrected catalogue contracts read. Chen /57–58 corrected catalogue contracts read; primary reading still open.",
+        "A2 stage scope and A6/hom-is-free-of-finite-rank statement read; precise NS definition/injection request added, not a local definition."
+      ]
+    },
+    {
+      "agent": "Codex — codex-J6LwjP",
+      "date": "2026-10-02",
+      "claim": "5952354457",
+      "confirmation": "5952366247",
+      "checked": [
+        "Full issue reread after bot confirmation; all seven reviewed audit rows and own stage contracts read.",
+        "Seventeen touching atlas edges screened. Twenty-nine link files contain only negative examined entries; no asserted matching dependency or overlap. These are catalogue screens, not complete upstream absence proofs.",
+        "Fresh primary Kim printed pp. 5–10 read and exact PDF hash verified; one new pinned complete baseline statement read.",
+        "JacobianChallenge and StableReduction upstream documents were read earlier in this continuous worker loop, not freshly reread for this checkpoint."
+      ],
+      "scope": "Six new NC.3 nodes and narrowed existing exact-sequence theorem; inherited NC.0 and routed inventory preserved. No completed Selmer or K(pi,1) implementation claimed."
     }
   ]
 }
