@@ -1,0 +1,215 @@
+{
+  "redteam": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24",
+  "findings": [
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/1",
+      "verdict": "confirmed",
+      "reason": "The route's assertion that the general Eisenstein inputs are unplanned conflicts with AS.1, AS.2, AS.4 and AF.3, read against §§4.2–4.3, pp. 34–39, and the accepted BP–Chaudouard–Zydor /28 and Jiang–Zhang route 3. Import cuspidal convergence, constant terms, continuation, and rapid decay. Split off residual inducing data and the particular MW normalization, cone, pole-detection and Hermitian-symmetry results; the existing contracts do not automatically supply every one of these extensions. Request them from their spectral owner before treating them as planned."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/2",
+      "verdict": "confirmed",
+      "reason": "The brief both imports and rebuilds Langlands quotients. Gan–Savin route 3 assigns the general p-adic classification to SR.3; Chenevier–Taïbi, Gan–Ichino and Nelson–Venkatesh assign the archimedean inputs to AF.1. Sections 3.1, 3.4 and 3.6 use both regimes. Split the classification, archimedean GL_n correspondence, and classical-group parameter/central/infinitesimal compatibility. AF.1b is a proposed successor in RT-AREA-automorphic-1.fixes.md, absent from the assembled atlas at this review's base, so it must be referenced conditionally. Preserve the doubling-specific realizations."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/3",
+      "verdict": "confirmed",
+      "reason": "Appendix A, pp. 43–55, invokes general Dixmier–Malliavin, classification, unitary generic exponent bounds and Jacquet–Shalika inputs. Accepted Jiang–Zhang routes 5–6, BP–Chaudouard–Zydor routes 6–7, and Gan–Ichino route 6 already assign these to ET.6, AF.1 and AL.3. Coalesce those sources, including the conflicting Jacquet–Shalika owner proposals. Split bundled items: the specific holomorphy application and holomorphic-family factorization are not supplied simply by importing their general foundations."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/4",
+      "verdict": "confirmed",
+      "reason": "The rs-factors item marks the entire generic and non-generic statement planned at AL.3. Its current contract supplies generic Whittaker theory and cuspidal unfolding, not arbitrary Langlands-data factors; the AL packet does not establish that missing extension. The uses in §3.4, p. 17, and Appendix A must distinguish generic factors from products for non-generic Langlands quotients. Retain the former as planned and request the latter from AL.3 with SR.3/AF.1 inputs, rather than creating a second factor owner."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/5",
+      "verdict": "confirmed",
+      "reason": "The item combines standard GL_n factors, Rankin–Selberg pole/absolute-convergence results and boundary nonvanishing, but credits all of them to AL.3. AL.2 owns the standard factors, and accepted BP–Chaudouard–Zydor /70 still requests the boundary theorem. Moreover E11 and p. 36 give M_2=(L(2s)/L(2s+c′))N_2: the corrected argument needs numerator holomorphy on Re(2s)≥1 and denominator nonvanishing on Re(2s+c′)≥2. Split ownership and retain a missing boundary input only where actually used."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/6",
+      "verdict": "confirmed",
+      "reason": "The ET.7a attribution bundles residual Speh construction with the nonzero global (k,c) coefficient and its factorization used in the unfolding on p. 39. Split those exports; the latter is not supplied by ET.7a's classification statement. Its present requires list has four entries, and I independently counted 437 ancestors, including AS.6 and ET.4; the report's older count of 239 is obsolete. Request an early residual supplier independent of trace comparison, without modifying upstream or declaring an untested new dependency cycle."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/7",
+      "verdict": "confirmed",
+      "reason": "For tempered p-adic τ, the descending-twist quotient defining ρ_c(τ) agrees with the ascending-twist subrepresentation in accepted Atobe–Kondo–Yasuda /speh, source-routed to ET.6. Thus the constructor overlap is real. The remedy must be narrower than marking every field and generic τ planned: unitary non-tempered data, archimedean construction, and the (k,c) model/wavefront/multiplicity results still require separate plans or owner requests. Merge the specialized integral/model work into the shared Part II."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/8",
+      "verdict": "confirmed",
+      "reason": "The pinned Tau Ceti ConstantForm Basic groupScheme and mem_definingPointsSubgroup_iff already supply the quotient enforcing M C Mᵀ=C; Symplectic Basic specializes it to J, and Mathlib supplies Matrix.symplecticGroup. SpecialLinear supplies the determinant-one cut. These are partial reusable foundations, not all of groups. Explicitly reconcile the form orientation with CFK's MᵀJM=J. SpecialOrthogonal Basic uses C=1 and cannot silently be identified with split SO_J. Import upstream ReductiveGroups layers 7–8 and RG.2.5; retain GSpin, the similitude character, embeddings and other missing constructions."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/9",
+      "verdict": "confirmed",
+      "reason": "Theorem 0.1 and Definitions 2.1–2.2, pp. 2 and 8–9, require a number field, c>1, the type-dependent target rank, irreducible cuspidal data, and the archimedean infinitesimal-character condition in weak transfer. Theorem 4.10, p. 41, quantifies all generic twists and all k. Restore those scopes. Remark 4.9 concerns the particular constructed transfer's archimedean component; it does not upgrade every weak transfer to that stronger conclusion."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/10",
+      "verdict": "confirmed",
+      "reason": "The result has no top-level prerequisites list although its statements and §§2–4 repeatedly use CFK22, CFGK23 and GK23 for the construction, local functional equation, models and multiplicity one. These are structural dependencies, not incidental bibliography; their references were checked on pp. 55–57. Add explicit source prerequisites and accessible-source/owner dispositions for the further main-chain inputs. Reconcile these with already routed mathematics instead of reproducing the red team's historical atlas counts or making each reference a new roadmap."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/11",
+      "verdict": "confirmed",
+      "reason": "The standing characteristic-zero setting on p. 6 and the explicit local scope on p. 42 are not carried by many local item statements. A shared informal note cannot license positive-characteristic versions of the constructions, factors or stability theorem. Add the field and representation hypotheses to each affected statement or an explicit inherited scope, including archimedean versus nonarchimedean cases. This confirms an extraction defect, not failure of a positive-characteristic theorem actually stated by CFK."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/12",
+      "verdict": "confirmed",
+      "reason": "The proofs of Lemmas 3.13–3.14, pp. 19–20, cite support, asymptotic and Schwartz estimates from JPSS79a, Jac09, JR96, AGJ09 and FJ93, and use CFGK23 equivariance and DM factorization. The listed prerequisites do not cover these steps. Add the precise (k,c)-model adaptations and dependencies, importing general Whittaker and smooth-representation estimates from their owners. The primary paper's citation establishes the proof obligation; it does not independently verify the cited general theorem or an adaptation beyond its original scope."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/13",
+      "verdict": "confirmed",
+      "reason": "Proposition 3.17, p. 24, and the Appendix convergence arguments require matrix-coefficient growth bounds for the GL_l inducing representation. Z2's dependencies do not include the cited nonarchimedean central-exponent estimates or the archimedean polynomial bound with representation-dependent exponent. Add these inputs and their application. Coordinate general growth estimates with SR.3 and AF.1, whose moderate-growth foundations already overlap, rather than rebuilding an unrestricted archimedean growth theory in the doubling Part II."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/14",
+      "verdict": "confirmed",
+      "reason": "Proposition 3.18 and Lemma 3.20, pp. 27–31, explicitly use HS16's GSpin projection calculation, Yamana's open-cell result and Soudry's Iwasawa bounds. None is a separately stated prerequisite. Add the projections and geometric estimates with the precise group adaptations; the SO result alone does not prove the claimed Sp/GSpin analogues. Preserve the statement of the open embedding and explain the adaptation, instead of treating “similar bounds” as a checked theorem."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/15",
+      "verdict": "confirmed",
+      "reason": "Corollary 3.21's proof on p. 32 needs a finite convolution decomposition whose resulting sections remain entire in s, citing Gourevitch's CFK22 Appendix A. The extracted DM item asserts only factorization for a fixed smooth representation. Add the holomorphic-family theorem and meromorphic-section framework, importing the classical AF.1 factorization. Its actual family hypotheses and continuity must be checked in that appendix; this review confirms the omitted obligation, not the complete external family proof."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/16",
+      "verdict": "confirmed",
+      "reason": "The first part of rev-bounds-for-smooth-matrix-coefficients-of is Sun's continuous-seminorm bound by Ξ on p. 33. Accepted Nelson–Venkatesh /40 already routes the corresponding Sobolev-bound interface to QuantitativeOrbitMethodAndSpectralAsymptotics. Record one shared supplier and the seminorm/Sobolev comparison needed by CFK. Retain the separate Wallach convergence application locally; overlap in this bound does not justify importing all orbit-method estimates or crediting every term of the bundled item as planned."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/17",
+      "verdict": "confirmed",
+      "reason": "Theorem 3.12, p. 19, covers k=1, but poles-local has no prerequisite edge to the extracted Yamana adaptation. CFK explicitly separates that case from the k>1 reduction and calls for adjustments to the groups. Add the existing k=1 item as an edge and describe the O-to-SO/GSpin adaptation as work to prove. The converse twisting set includes characters, so restricting the brief to Appendix A's k>1 argument leaves a main-chain gap."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/18",
+      "verdict": "confirmed",
+      "reason": "Page 40 asserts right-half-plane absolute convergence of the partial standard Euler product. AL.4's contract makes convergence conditional on a supplied eigenvalue bound; the extraction supplies no such bound. Add a uniform unramified unitary Satake-growth estimate and the Euler-product argument, with the standard representation and Haar/Frobenius conventions. Naming a possible root-theoretic or spherical-unitary argument is a proof plan, not evidence that the required bound is already an atlas export."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/19",
+      "verdict": "confirmed",
+      "reason": "The unitary reduction at the start of §4.4, p. 40, is absent from main/coarse-global's graph. For GSpin the missing steps are π=|Υ_c|^s π_0 globally and compatibility of transfer with |det|^s at unramified and infinite places. From the datum on pp. 6–7, Υ_c=2e_0+Σe_i pairs to 1 with each standard dual weight, while the central character twists by |·|^{2s}. Record the global unitarization proof and twist compatibilities before extending the unitary construction to every cuspidal π."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/20",
+      "verdict": "confirmed",
+      "reason": "The stated all-partial-sums criterion is false for k=1 in type D. Using the simple roots on pp. 6–7, the two terminal fundamental coweights require both Σ_{i<c}Re(e_i)−Re(e_c)<0 and Σ_{i≤c}Re(e_i)<0, besides the shorter prefixes. For c=2, (−0.1,−5) satisfies the printed partial sums but violates the first terminal inequality. Restrict the type-C formula and prove the type-D k=1 case separately. This counterexample concerns the extracted criterion, not CFK's final holomorphy theorem."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/21",
+      "verdict": "confirmed",
+      "reason": "Page 41 explicitly uses global genericity of cuspidal GL_l data and the genericity of their local components; §§4.3–4.4 require it for every local twisting representation as well. No extracted item supplies this. Accepted Yu /127 assigns the Fourier/Whittaker interface to AL.3, so add that input and the local-factorization consequence, coordinating any required global-prefix extension with AL.3. AF.3's cuspidality alone is insufficient; an accepted paper attribution does not mean this analytic construction is formalized."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/22",
+      "verdict": "confirmed",
+      "reason": "Page 50 cites Bernstein's continuation principle through Ban98 for general nonarchimedean π. I independently read the reproduced theorem in Banks, pp. 782–783: countable-dimensional V, an irreducible algebraic parameter variety, regular linear equations, and uniqueness on a nonempty ordinary open set yield a rational solution generically outside countably many hypersurfaces. State those hypotheses and the normalized-functional application as a missing input. Distinguish this theorem from Banks's additional holomorphy/pole corollary and from CFK's narrower multiplicativity continuation."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/23",
+      "verdict": "confirmed",
+      "reason": "make_queue.paper_designs, lines 699–728, groups Part II routes by parent and chooses the common id AutomorphicLFunctionsAndLocalFactorsPartII. The current queue contains that single pending job; the accepted CFK, EHLS, Atobe–Kondo–Yasuda and BP–Chaudouard–Zydor proposals share the parent. Correct the claim that the Speh route is a separate job and explain the merged Asai/period scope. BP–Chaudouard 2025 remains a future addition because its current review is revise, not accepted."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/24",
+      "verdict": "confirmed",
+      "reason": "The brief names ids without their titles and omits several actual imports. The statements on pp. 13–14, 24 and 33–39 use smooth Fréchet induction/globalization, automorphic tensor products and cuspidal decay, adelic quotient integration, Schwartz spaces, Godement–Jacquet factors and unramified exterior/symmetric-square factors. List AF.1–AF.3, AA.2, AL.0/AL.2/AL.4 and the spectral/reductive imports by title and id, separating supplied contracts from requested extensions as required by Protocol §16."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/25",
+      "verdict": "confirmed",
+      "reason": "CFK's introduction notes the Arthur alternative for Sp/SO, and accepted Gan–Savin 23-B /32 registers the corresponding standard-transfer interface at ML.4. Add that overlap and coalesce the exported transfer statement while preserving the independent doubling proof and the new GSpin scope. This does not require forcing the early analytic construction to depend on the full Arthur/trace-comparison branch, nor does it credit Arthur with the GSpin result."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/26",
+      "verdict": "confirmed",
+      "reason": "All 30 rev-prefixed items lack prerequisites, and none is referenced by another item's prerequisite list. The cited local/global and Appendix proofs do use their contents, so the disconnected graph is a real defect. Reconstruct edges from those proofs, but do not mechanically copy the proposed edges: gl-integral currently bundles continuation, while gl-multiplicativity helps prove it; matrix-coefficients similarly bundles convergence depending on arch-convergence. Split definitions, initial convergence, conditional identities and continued theorems into acyclic exports before wiring their dependencies."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/27",
+      "verdict": "confirmed",
+      "reason": "On pp. 6–7 the datum has X=X*(T_G), and X∨ is the dual torus's character lattice. The similitude of the dual GSpin group is therefore e_0∨, whereas e_0 is a dual cocharacter. The extraction repeats the inconsistent source notation; p. 12 also uses it in the dual Levi map. Correct the lattice types and record the source discrepancy rather than silently changing the paper. This check is against arXiv v5 and makes no claim about a correction in the inaccessible journal text."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/28",
+      "verdict": "confirmed",
+      "reason": "Pages 8–9 attribute the GL_N converse theorem to Cogdell–Piatetski-Shapiro, CPS94/CPS99, with the η-twisted modification from CKPSS01 §2. The item and opening brief instead name CKPSS as its authors, contradicting the later paragraph. Correct the attribution and retain the twisting character's unitarity, the finite-width vertical strips and the full twisting-set/finite-place hypotheses. These are statement requirements, not a proposal to rebuild the theorem under a new owner."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/29",
+      "verdict": "confirmed",
+      "reason": "Theorem 0.1 assumes c>1, so applying it blindly to the residual G_{c−2l} factor in Corollary 4.11, p. 42, fails at the listed low ranks. Give explicit transfers for these factors and write the isobaric sum, including χ-twisted contragredient GL blocks for GSpin. The Sp_0 convention contributes the trivial GL_1 factor to the odd-dimensional target; zero-dimensional residual blocks in the other cases are omitted, not represented by an actual automorphic representation of GL_0."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/30",
+      "verdict": "confirmed",
+      "reason": "I checked the indicated pages: CPS94 Lemmas 2.1–2.2 are cited on p. 8, the global χ_π notation is in §4.1 on p. 33, and the MW negative-cone criterion starts on p. 36 before the continuation on p. 37. Correct the extraction's locators accordingly. The local χ_π definition remains in §3.1 and should not be confused with the corrected global locator."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/31",
+      "verdict": "confirmed",
+      "reason": "The report's opening still says 46 items, 2 planned, 44 missing and one source issue; its result now has 76 items, 4 planned, 72 missing and 18 sourceIssues. Only the appended review section gives the newer counts. Refresh the headline, ET.7a import and merged-design/ownership description from the final fixed JSON. These figures describe the present extraction and must be recalculated after any splitting or additions in the fix."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/32",
+      "verdict": "confirmed",
+      "reason": "Proposition 3.18, pp. 26–27, has the Langlands-data, generic-τ and k>1 hypotheses and the explicit weighted integral (3.41). Z1-open-cell leaves out the integrand and its dependence on a_R and a, although Proposition 3.19 uses them. Restore those factors and property (2)'s compact-g′ homeomorphism/diffeomorphism restriction, stating its domain and image accurately. A reference to an equation number alone cannot serve as the planned theorem statement."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/33",
+      "verdict": "confirmed",
+      "reason": "Lemma 3.14, p. 20, fixes a (k,c) functional and quantifies the vector, unipotent and compact arguments for arbitrary generic τ. Lemma 3.20, pp. 28–31, likewise permits the stated nonunitary Langlands data and requires the explicit induced sections. Restore their complete bounds and hypotheses. Its conjugation argument also uses the extension to O or GPin outside G, so add that extension and its inner-invariance compatibility instead of assuming the existing G-only item covers it."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/34",
+      "verdict": "confirmed",
+      "reason": "The low-rank example is valid: split SO_2 is a torus, and |·|^a with a<0 is unramified with χ_π=1 but is neither tempered nor covered by the positive-exponent decomposition (3.16). The same issue persists for the e_1 direction of GSpin_2. The definitions on pp. 16–17 and the reduction on p. 32 therefore omit these local cases. E6's l=0 essentially-tempered amendment does not resolve them. Add explicit torus factors and pole-attainment proofs or narrow the local theorem; retain the unaffected unitary global application."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/35",
+      "verdict": "confirmed",
+      "reason": "Theorem 3.12 and its p. 32 argument produce smooth ω, whereas the global assembly on p. 40 uses cusp-form data under the usual K-finite convention. Theorem 3.2(2), p. 14, supplies joint continuity, and Theorem A.11, p. 55, explicitly makes the corresponding finite-vector passage. Add the simultaneous K_G/K_H-finite upgrade, using continuity of the relevant nonzero leading coefficient, or state and justify the chosen smooth cusp-form convention. This is a missing interface argument, not evidence that global nonvanishing is false."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/36",
+      "verdict": "confirmed",
+      "reason": "The proof summary on p. 19 calls Z1 the inner integral of (3.36), but the displayed definition on p. 26 identifies it with the du_0 dy dm dz integral in (3.39). Equation (3.36) contains a different pairing and quotient integral. Record this as a v5 source misprint, with the correct definition and no claim about the inaccessible published version."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/37",
+      "verdict": "confirmed",
+      "reason": "The report misquotes Corollary 3.21's opening on p. 31, assigns π-hypotheses to Proposition 3.17 although that proposition is about σ, and describes every Theorem 3.12 case as a GL_c Appendix reduction. Pages 19, 24 and 31–32 instead distinguish k=1 from k>1 and use GL_l in the latter. Correct the quotation and prose, retaining unitary χ_π, unitary generic τ and the finite-place unramified hypothesis of the local pole-attainment theorem."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/38",
+      "verdict": "confirmed",
+      "reason": "The §4.2 setup on p. 34 restricts θ to a unitary character, but §4.3 sets θ=χ_π for arbitrary cuspidal GSpin π, p. 38. The Speh item also restricts τ more than the displayed global construction. Extend the definitions through the appropriate absolute-value twists and state those compatibilities. Keep the unitary hypotheses for the holomorphy results that actually require them; a broader construction does not establish nonunitary Eisenstein holomorphy."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/39",
+      "verdict": "confirmed",
+      "reason": "Corollary 4.11 on p. 42 invokes a constituent of induction from supercuspidal data. SR.3 explicitly plans supercuspidal support, but the extraction contains no corresponding input. Add a planned nonarchimedean characteristic-zero support item and its edge. Keep the separate quotient-versus-subquotient and ordering obligation already noted in E15: existence of support alone does not assert the precise quotient realization used in the proof."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/40",
+      "verdict": "confirmed",
+      "reason": "The crude global functional equation on p. 41 contains the cuspidal GL Rankin–Selberg case already planned by AL.3 and represented by accepted BP–Chaudouard–Zydor /107. The item labels the whole result missing without acknowledging this foundation. Split off the planned cuspidal identity and retain the extension through isobaric/cuspidal inducing data and multiplicativity as missing, with explicit prerequisites and conventions."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/41",
+      "verdict": "confirmed",
+      "reason": "I inspected the p. 52 image as well as (A.21)–(A.24), pp. 52–53. Normalized induction contributes δ_R^{1/2}(m) to (A.21)'s δ_R^{-1}(m), so the factor remaining in (A.22) must be δ_R^{-1/2}(m). Its printed δ_R^{-1} conflicts with (A.23)'s product of two half-modulus factors. Add this source discrepancy separately from E17's undefined ε and carry the corrected factor through the nonvanishing calculation. No journal-version correction is asserted."
+    },
+    {
+      "finding": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24/42",
+      "verdict": "confirmed",
+      "reason": "The six Appendix items retain a shared initial note specifying G as Sp/SO/GSpin with c>1, despite a later appended warning. Appendix A, pp. 42–43, actually takes G=GL_c, c≥1, and H=GL_kc; that setting has no classical-group r_G or χ_π as in the note. Remove the false prefix and replace it with the Appendix's local-field and representation conventions, rather than expecting a reader to reconcile contradictory sentences."
+    }
+  ]
+}
