@@ -20908,9 +20908,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--P7.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #551"
+   "note": "released on GitHub issue #551"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--P7",
