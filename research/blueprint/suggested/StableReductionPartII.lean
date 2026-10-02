@@ -1973,3 +1973,195 @@ example (M : Type*) [AddCommGroup M] [Module A M] (z : M ⊗[A] J₀) :
 
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+
+/- Native matrix-presentation interfaces; admitted under PROTOCOL §13. -/
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+open Polynomial
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+local notation "F₀" => polynomial A γ δ s t
+local notation "R₀" => Ring A γ δ s t
+local notation "ι₀" => coefficientHom A γ δ s t
+local notation "u₀" => AdjoinRoot.root F₀
+local notation "v₀" => AdjoinRoot.of F₀ (Polynomial.X : Polynomial A)
+local notation "c₀" => u₀ - ι₀ s
+local notation "d₀" => v₀ - ι₀ t
+local notation "b₀" => u₀ + ι₀ s + ι₀ γ * ι₀ t
+local notation "a₀" => ι₀ δ * v₀ + ι₀ δ * ι₀ t + ι₀ γ * u₀
+local notation "J₀" => (Ideal.span {c₀,d₀} : Ideal R₀)
+local notation "D₀" => J₀ →ₗ[R₀] R₀
+local notation "E₀" => polynomialCoordinates A γ δ s t
+local notation "Φ₀" => left (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ t)
+local notation "Ψ₀" => right (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ t)
+
+lemma sectionIdealSyzygy (x y : R₀) (h : c₀ * x = d₀ * y) :
+    ∃ r : R₀, ∃ α : A,
+      x = d₀ * r + ι₀ α * b₀ ∧ y = c₀ * r - ι₀ α * a₀ := by
+  sorry
+
+lemma polynomialCoordinates_first : E₀ c₀ = (-C s,1) := by
+  sorry
+
+lemma polynomialCoordinates_numerator_mul (r : R₀) :
+    (E₀ (b₀ * r)).2 = (E₀ r).1 + (C (s+γ*t) - C γ * X) * (E₀ r).2 := by
+  sorry
+
+lemma sectionDualSyzygy (x y : R₀) (h : d₀ * x = b₀ * y) :
+    ∃ r : R₀, ∃ α : A,
+      x = b₀ * r - ι₀ α * a₀ ∧ y = d₀ * r + ι₀ α * c₀ := by
+  sorry
+
+def idealPresentation : (Fin 2 → R₀) →ₗ[R₀] J₀ := by
+  sorry
+
+lemma idealPresentation_apply (z : Fin 2 → R₀) :
+    (idealPresentation A γ δ s t z : R₀) = c₀*z 0-d₀*z 1 := by
+  sorry
+
+lemma idealPresentation_surjective : Function.Surjective (idealPresentation A γ δ s t) := by
+  sorry
+
+lemma right_mulVec (z : Fin 2 → R₀) :
+    (Ψ₀).mulVecLin z = ![d₀*z 0-b₀*z 1,c₀*z 0+a₀*z 1] := by
+  sorry
+
+lemma left_mulVec (z : Fin 2 → R₀) :
+    (Φ₀).mulVecLin z = ![a₀*z 0+b₀*z 1,-c₀*z 0+d₀*z 1] := by
+  sorry
+
+lemma idealPresentation_kernel :
+    LinearMap.ker (idealPresentation A γ δ s t) = LinearMap.range (Ψ₀).mulVecLin := by
+  sorry
+
+def dualPresentation : (Fin 2 → R₀) →ₗ[R₀] D₀ := by
+  sorry
+
+lemma dualPresentation_apply (z : Fin 2 → R₀) (j : J₀) :
+    dualPresentation A γ δ s t z j = z 0*(j : R₀)-z 1*dualGenerator A γ δ s t j := by
+  sorry
+
+lemma dualPresentation_surjective : Function.Surjective (dualPresentation A γ δ s t) := by
+  sorry
+
+lemma dualPresentation_zero_iff (z : Fin 2 → R₀) :
+    dualPresentation A γ δ s t z = 0 ↔ d₀*z 0=b₀*z 1 := by
+  sorry
+
+lemma dualPresentation_kernel :
+    LinearMap.ker (dualPresentation A γ δ s t) = LinearMap.range (Φ₀).mulVecLin := by
+  sorry
+
+lemma quotientLeftExact : LinearMap.ker (Φ₀).mulVecLin = LinearMap.range (Ψ₀).mulVecLin := by
+  sorry
+
+lemma quotientRightExact : LinearMap.ker (Ψ₀).mulVecLin = LinearMap.range (Φ₀).mulVecLin := by
+  sorry
+
+lemma transposeLeft_mulVec (z : Fin 2 → R₀) :
+    ((Φ₀).transpose).mulVecLin z = ![a₀*z 0-c₀*z 1,b₀*z 0+d₀*z 1] := by
+  sorry
+
+lemma transposeRight_mulVec (z : Fin 2 → R₀) :
+    ((Ψ₀).transpose).mulVecLin z = ![d₀*z 0+c₀*z 1,-b₀*z 0+a₀*z 1] := by
+  sorry
+
+lemma quotientTransposeLeftExact :
+    LinearMap.ker ((Φ₀).transpose).mulVecLin = LinearMap.range ((Ψ₀).transpose).mulVecLin := by
+  sorry
+
+lemma quotientTransposeRightExact :
+    LinearMap.ker ((Ψ₀).transpose).mulVecLin = LinearMap.range ((Φ₀).transpose).mulVecLin := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.idealPresentationFirst
+example : (idealPresentation A γ δ s t ![1,0] : R₀)=c₀ := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.idealPresentationSecond
+example : (idealPresentation A γ δ s t ![0,1] : R₀)=-d₀ := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.idealPresentationZero
+example : idealPresentation A γ δ s t 0=0 := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.dualPresentationFirst
+example (j : J₀) : dualPresentation A γ δ s t ![1,0] j=(j : R₀) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.dualPresentationSecond
+example : dualPresentation A γ δ s t ![0,1] = -dualGenerator A γ δ s t := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.dualPresentationZero
+example : dualPresentation A γ δ s t 0=0 := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.actualIdealCokernelNonreduced
+example :
+    let B := Ring (ZMod 4) 0 0 1 0
+    let ι := coefficientHom (ZMod 4) 0 0 1 0
+    let u := AdjoinRoot.root (polynomial (ZMod 4) 0 0 1 0)
+    let v := AdjoinRoot.of (polynomial (ZMod 4) 0 0 1 0) (X : Polynomial (ZMod 4))
+    let β := right (ι 0) (ι 0) u v (ι 1) (ι 0)
+    ∃ e : ((Fin 2 → B) ⧸ LinearMap.range β.mulVecLin) ≃ₗ[B] Ideal.span {u-ι 1,v-ι 0},
+      (e (Submodule.Quotient.mk (fun i => if i=0 then 1 else 0)) : B)=u-ι 1 ∧
+      (e (Submodule.Quotient.mk (fun i => if i=0 then 0 else 1)) : B)=-(v-ι 0) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.actualDualCokernelSignThree
+example :
+    let B := Ring (ZMod 3) 1 0 0 0
+    let ι := coefficientHom (ZMod 3) 1 0 0 0
+    let u := AdjoinRoot.root (polynomial (ZMod 3) 1 0 0 0)
+    let v := AdjoinRoot.of (polynomial (ZMod 3) 1 0 0 0) (X : Polynomial (ZMod 3))
+    let α := left (ι 1) (ι 0) u v (ι 0) (ι 0)
+    ∃ e : ((Fin 2 → B) ⧸ LinearMap.range α.mulVecLin) ≃ₗ[B] (Ideal.span {u-ι 0,v-ι 0} →ₗ[B] B),
+      e (Submodule.Quotient.mk (fun i => if i=0 then 0 else 1)) =
+        -dualGenerator (ZMod 3) 1 0 0 0 := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.actualIdealCokernelZeroBase
+example :
+    let B := Ring (ZMod 1) 0 0 0 0
+    let ι := coefficientHom (ZMod 1) 0 0 0 0
+    let u := AdjoinRoot.root (polynomial (ZMod 1) 0 0 0 0)
+    let v := AdjoinRoot.of (polynomial (ZMod 1) 0 0 0 0) (X : Polynomial (ZMod 1))
+    let β := right (ι 0) (ι 0) u v (ι 0) (ι 0)
+    Nonempty (((Fin 2 → B) ⧸ LinearMap.range β.mulVecLin) ≃ₗ[B] Ideal.span {u-ι 0,v-ι 0}) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.actualDualCokernelCharacteristicTwo
+example :
+    let B := Ring (ZMod 2) 1 0 0 0
+    let ι := coefficientHom (ZMod 2) 1 0 0 0
+    let u := AdjoinRoot.root (polynomial (ZMod 2) 1 0 0 0)
+    let v := AdjoinRoot.of (polynomial (ZMod 2) 1 0 0 0) (X : Polynomial (ZMod 2))
+    let α := left (ι 1) (ι 0) u v (ι 0) (ι 0)
+    Nonempty (((Fin 2 → B) ⧸ LinearMap.range α.mulVecLin) ≃ₗ[B]
+      (Ideal.span {u-ι 0,v-ι 0} →ₗ[B] B)) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.actualComplexNonreduced
+example :
+    let ι := coefficientHom (ZMod 4) 0 0 1 0
+    let u := AdjoinRoot.root (polynomial (ZMod 4) 0 0 1 0)
+    let v := AdjoinRoot.of (polynomial (ZMod 4) 0 0 1 0) (X : Polynomial (ZMod 4))
+    let α := left (ι 0) (ι 0) u v (ι 1) (ι 0)
+    let β := right (ι 0) (ι 0) u v (ι 1) (ι 0)
+    LinearMap.ker α.mulVecLin=LinearMap.range β.mulVecLin ∧
+      LinearMap.ker β.transpose.mulVecLin=LinearMap.range α.transpose.mulVecLin := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.actualComplexZeroBase
+example :
+    let ι := coefficientHom (ZMod 1) 0 0 0 0
+    let u := AdjoinRoot.root (polynomial (ZMod 1) 0 0 0 0)
+    let v := AdjoinRoot.of (polynomial (ZMod 1) 0 0 0 0) (X : Polynomial (ZMod 1))
+    let α := left (ι 0) (ι 0) u v (ι 0) (ι 0)
+    let β := right (ι 0) (ι 0) u v (ι 0) (ι 0)
+    LinearMap.ker β.mulVecLin=LinearMap.range α.mulVecLin := by
+  sorry
+
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
