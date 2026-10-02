@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Partial checkpoint: 19 declaration-sized polynomial node-ring helpers integrate the monic exactness, two cokernels, actual dual normal form/residue/scalar action and arbitrary coefficient base change. All geometric/moduli stages and the reserved key remain partial; no implementation or global stable-reflexivity claim. Canonical polynomial-model algebra, tensor-module, dual and quotient adapters specify naturality and coherence; the original upstream supplier references are restored to canonical prerequisites. No stage is closed.",
+  "summary": "Partial research checkpoint: declaration-sized polynomial node algebra plus flat ambient ideal/dual/quotient transport and actual noetherian module-completion comparisons. The Appendix relative stable-reflexivity criterion and its unproved/cited completion inputs are recorded precisely, not certified by these ambient adapters. All stages and the shared key remain partial; every implementation status is unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -248,6 +248,159 @@
         "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
         "provides": "The generic heterobasic equivalence M⊗_A(A⊗_R N)≃M⊗_R N; used to specify the two-step base-change coherence square, not replanned.",
         "checked": "Actual statement and construction read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 436."
+      },
+      {
+        "ref": "mathlib:Module.finitePresentation_of_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Module/FinitePresentation.lean",
+        "line": 173,
+        "provides": "Finite-presentation quotient from a surjection with finitely generated kernel.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "8ae31d2f88080cb67c0b331e2525441c1752172b"
+      },
+      {
+        "ref": "mathlib:Submodule.fg_range",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
+        "line": 92,
+        "provides": "Range of a map from a finite module is finitely generated.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "789c0beb4703fdd6f602c57e07e0d1956fae3806"
+      },
+      {
+        "ref": "mathlib:Module.FinitePresentation.isBaseChange_map",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/FinitePresentation.lean",
+        "line": 696,
+        "provides": "For a finitely presented source module and flat algebra, the canonical Hom map is base change.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "8ae31d2f88080cb67c0b331e2525441c1752172b"
+      },
+      {
+        "ref": "mathlib:IsBaseChange.equiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/IsTensorProduct.lean",
+        "line": 403,
+        "provides": "Canonical scalar-linear equivalence from tensor product to the specified base-change module.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "3d0bc96617d2c716281fc104812a7f05489ffb47"
+      },
+      {
+        "ref": "mathlib:IsBaseChange.equiv_tmul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/IsTensorProduct.lean",
+        "line": 415,
+        "provides": "The equivalence sends s⊗m to s·f(m).",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "3d0bc96617d2c716281fc104812a7f05489ffb47"
+      },
+      {
+        "ref": "mathlib:LinearMap.baseChangeHom",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 716,
+        "provides": "Canonical R-linear map sending a linear map to its scalar extension.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "5eade282e80768d37f4b74d1244ed83584c2943b"
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.rid",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 357,
+        "provides": "Scalar-linear tensor unit M⊗R≃M.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "5eade282e80768d37f4b74d1244ed83584c2943b"
+      },
+      {
+        "ref": "mathlib:Module.Flat.lTensor_preserves_injective_linearMap",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "line": 131,
+        "provides": "A flat module preserves injectivity after left tensor.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "b827fedf96ce35fa107badc6b41b7de0b8e14c66"
+      },
+      {
+        "ref": "mathlib:Ideal.map_span",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "line": 185,
+        "provides": "The mapped ideal span is the span of the generator images.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "d3597ae968d410972c69f585a2d41b79585ccca4"
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Quotient.lean",
+        "line": 270,
+        "provides": "Scalar-linear tensor quotient comparison with the actual tensor-image range.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "b604a7a2363aa56e940b000aa93e382c9aaeb1b3"
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv_apply_tmul",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Quotient.lean",
+        "line": 279,
+        "provides": "Pure tensor of a quotient class maps to the class of the pure tensor.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "b604a7a2363aa56e940b000aa93e382c9aaeb1b3"
+      },
+      {
+        "ref": "mathlib:AdicCompletion.flat_of_isNoetherian",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
+        "line": 379,
+        "provides": "Noetherian ring completion is flat for any ideal.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "5c3185b279c744bb7adb3a7a818ea9719d887234"
+      },
+      {
+        "ref": "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
+        "line": 325,
+        "provides": "Finite-module completion is its tensor with ring completion over a noetherian ring.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "5c3185b279c744bb7adb3a7a818ea9719d887234"
+      },
+      {
+        "ref": "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian_apply",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
+        "line": 336,
+        "provides": "The equivalence is the canonical ofTensorProduct map.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "5c3185b279c744bb7adb3a7a818ea9719d887234"
+      },
+      {
+        "ref": "mathlib:isNoetherian_linearMap",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Noetherian/Basic.lean",
+        "line": 230,
+        "provides": "Hom from a finite module into a noetherian module is noetherian.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "5f62a5128556beb0c8aa4c480daca79fe99d0761"
+      },
+      {
+        "ref": "mathlib:Module.Finite.of_injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Noetherian/Basic.lean",
+        "line": 136,
+        "provides": "A module admitting an injective linear map into a noetherian module is finite.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "5f62a5128556beb0c8aa4c480daca79fe99d0761"
+      },
+      {
+        "ref": "mathlib:Module.FaithfullyFlat.lTensor_bijective_iff_bijective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+        "line": 400,
+        "provides": "Faithfully flat tensor preserves and reflects bijectivity.",
+        "checked": "statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; selected source and hypotheses inspected 2026-10-02 by codex-5ebb6f",
+        "sourceBlob": "c2d6c3c609d283fe01bcddb47be836eca8230e50"
       }
     ]
   },
@@ -297,7 +450,8 @@
       "sha256": "18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230",
       "accessDate": "2026-10-02",
       "readSections": [
-        "§§1–3, printed pp.161–191 (PDF1–31), rendered scan"
+        "§§1–3, printed pp.161–191 (PDF1–31), rendered scan",
+        "Appendix, printed191–199 (PDF31–39), fresh visual selected read by codex-5ebb6f; cited Bourbaki proof and Proposition7 exercise remain unresolved."
       ]
     },
     {
@@ -370,6 +524,42 @@
       "accessDate": "2026-10-02",
       "readSections": [
         "PDF6,23–24,§§1.2,6.1; only the two routed moduli items"
+      ]
+    },
+    {
+      "id": "stacks-hom-flat",
+      "title": "Finite-presentation Hom and Ext under flat change",
+      "authors": "The Stacks Project Authors",
+      "edition": "Live public HTML accessed2026-10-02; stable tags determine locators",
+      "url": "https://stacks.math.columbia.edu/tag/087Q",
+      "sha256": "245095fb01f2d4c068c934b53b48f5d7c6f816b6fb4f790614b28e1fe26894e6",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Full statements and proofs of tags087Q and087R; cited resolution/Ext inputs are imports, not freshly verified transitive proofs."
+      ]
+    },
+    {
+      "id": "stacks-completion",
+      "title": "Noetherian completion",
+      "authors": "The Stacks Project Authors",
+      "edition": "Live public HTML accessed2026-10-02; stable tags determine locators",
+      "url": "https://stacks.math.columbia.edu/tag/0BNH",
+      "sha256": "48d4456ce8bb7d5d085a560f835144928d123fad39cfb9608f76476044f0e422",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "§10.97 Lemmas1–3, statements and proofs; paragraph after Lemma6 distinguishes source-maximal-ideal and target-maximal-ideal completion. Other lemmas not certified here."
+      ]
+    },
+    {
+      "id": "stacks-faithful",
+      "title": "Flat modules and faithful detection",
+      "authors": "The Stacks Project Authors",
+      "edition": "Live public HTML accessed2026-10-02; stable tags determine locators",
+      "url": "https://stacks.math.columbia.edu/tag/00H9",
+      "sha256": "2a8b0d6e5e27464d05517762910d5420d4c1fade42f4ec742b821cdaaf59925c",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Definition10.39.1, Lemma10.39.5 and Lemma10.39.14, statements and proofs; selected scope only."
       ]
     }
   ],
@@ -2674,11 +2864,17 @@
         "StableReductionPartII:MC.2/section-dual-coefficient-flat",
         "StableReductionPartII:MC.2/section-dual-tensor-scalar",
         "StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "StableReductionPartII:MC.2/section-ideal-finite-presentation",
+        "StableReductionPartII:MC.2/section-dual-ambient-equivalence",
+        "StableReductionPartII:MC.2/section-dual-ambient-quotient-equivalence",
+        "StableReductionPartII:MC.2/section-dual-completion-equivalence",
+        "StableReductionPartII:MC.2/section-dual-quotient-completion-equivalence",
+        "StableReductionPartII:MC.2/section-dual-ambient-faithful-detection"
       ],
       "proofSteps": [
         "Apply the separately named polynomial dual, residue, coefficient-flatness, ring-linear tensor and actual quotient-base-change calculations; these are inputs to the completed-local comparison, not the global conclusion.",
-        "Apply the source’s flat-completion and faithful-descent comparison to transfer the calculation to the local family.",
+        "Use the named flat ambient ideal/Hom/multiplication-quotient and actual module-completion adapters where their hypotheses hold. Separately prove/import Knudsen Appendix Theorem2, Proposition6, the pointed completed-local hull identification, and coefficient-compatible descent; the ambient adapters alone do not discharge these relative S→R requirements.",
         "Use the invertible-ideal calculation at smooth points and descend the fibrewise-compatible local identifications."
       ],
       "acceptance": [
@@ -2689,6 +2885,11 @@
           "sourceId": "knudsen2012",
           "locator": "Proposition3.1,Corollary3.2 and §4,pp.12–13",
           "match": "The cited passage supplies the construction or proof in the stated range; qualifications and upstream inputs are explicit in the statement and prerequisites."
+        },
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1, Theorem2, Propositions4–7, printed191–195 (PDF31–35)",
+          "match": "Motivates completed-local passage; Proposition6 cites Bourbaki without a proof and Proposition7 is an exercise. These ambient algebra adapters do not claim either proposition or relative stable reflexivity."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6436,6 +6637,588 @@
           "how": "Provides the explicit polynomial quotient comparison required before the separately open completion and sheaf-descent steps."
         }
       ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-finite-presentation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite presentation of the polynomial section ideal",
+      "kind": "lemma",
+      "statement": "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m). J is finitely presented as an R-module, even if A is nonnoetherian.",
+      "hypotheses": [
+        "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m)."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-cokernel",
+        "mathlib:Module.finitePresentation_of_surjective",
+        "mathlib:Submodule.fg_range"
+      ],
+      "proofSteps": [
+        "The inherited eJ identifies J with the cokernel of the two-by-two matrix Ψ.",
+        "The image of R²→R² is finitely generated by the images of two basis vectors.",
+        "Apply the pinned finite-presentation quotient theorem to the surjection R²→J; no coherence assumption on A is used."
+      ],
+      "acceptance": [
+        "Finite generation of an ideal alone would not imply finite presentation over an arbitrary ring. This node uses the inherited exact presentation."
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-hom-flat",
+          "locator": "Stacks tag087R, Lemma15.67.4(1), together with the proof at087Q",
+          "match": "Specialize the canonical finite-presentation Hom comparison to J and R; transport its domain along the actual ideal equivalence. Generic Hom base change is pinned library input, not new theory owned here."
+        },
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1, Theorem2, Propositions4–7, printed191–195 (PDF31–35)",
+          "match": "Motivates completed-local passage; Proposition6 cites Bourbaki without a proof and Proposition7 is an exercise. These ambient algebra adapters do not claim either proposition or relative stable reflexivity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-ambient-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Section ideal under flat ambient extension",
+      "kind": "construction",
+      "statement": "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m). B is a commutative R-algebra flat as an R-module; J_B=J·B is the actual mapped ideal, D_B=Hom_B(J_B,B), m_B(b)(j)=bj and Q_B=D_B/im(m_B). Construct E_J:B⊗_R J≃_B J_B by E_J(b⊗j)=b·φ(j), where φ:R→B is the algebra map.",
+      "hypotheses": [
+        "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m).",
+        "B is a commutative R-algebra flat as an R-module; J_B=J·B is the actual mapped ideal, D_B=Hom_B(J_B,B), m_B(b)(j)=bj and Q_B=D_B/im(m_B)."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-node-model",
+        "mathlib:Module.Flat.lTensor_preserves_injective_linearMap",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid",
+        "mathlib:Ideal.map_span"
+      ],
+      "proofSteps": [
+        "Tensor the injective subtype J→R by the flat R-module B.",
+        "Compose B⊗J→B⊗R with the pinned tensor unit equivalence; its image is exactly the B-span of φ(c),φ(d), hence J_B.",
+        "Corestrict to that actual ideal. Tensor generation determines E_J uniquely."
+      ],
+      "acceptance": [
+        "The extension is over R, not over A. Nonflat ambient maps are not permitted by this result."
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-hom-flat",
+          "locator": "Stacks tag087R, Lemma15.67.4(1), together with the proof at087Q",
+          "match": "Specialize the canonical finite-presentation Hom comparison to J and R; transport its domain along the actual ideal equivalence. Generic Hom base change is pinned library input, not new theory owned here."
+        },
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1, Theorem2, Propositions4–7, printed191–195 (PDF31–35)",
+          "match": "Motivates completed-local passage; Proposition6 cites Bourbaki without a proof and Proposition7 is an exercise. These ambient algebra adapters do not claim either proposition or relative stable reflexivity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientIdealEquiv",
+          "role": "constructor",
+          "statement": "E_J with the stated B-linear source, target and formula."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientIdealEquivTmul",
+          "role": "simp",
+          "statement": "The underlying B-value of E_J(b⊗j) is bφ(j)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientIdealEquivUnique",
+          "role": "extensionality",
+          "statement": "Any B-linear equivalence with these pure-tensor values equals E_J."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Named algebra input to the open completed-local and sheaf comparison; not the global theorem."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientIdealGenerator",
+          "kind": "computation",
+          "statement": "E_J(1⊗j) has underlying value φ(j)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientIdealIdentity",
+          "kind": "compatibility",
+          "statement": "For B=R, E_J(r⊗j)=rj, agreeing with the tensor unit and subtype."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientIdealZero",
+          "kind": "degenerate",
+          "statement": "When B is the zero ring, J_B is subsingleton."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-ambient-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Dual of the extended section ideal",
+      "kind": "construction",
+      "statement": "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m). B is a commutative R-algebra flat as an R-module; J_B=J·B is the actual mapped ideal, D_B=Hom_B(J_B,B), m_B(b)(j)=bj and Q_B=D_B/im(m_B). Construct E_D:B⊗_R D≃_B D_B, canonically characterized by E_D(b⊗h)(E_J(b′⊗j))=bb′φ(h(j)). Also expose the actual B-linear multiplication map m_B:B→D_B.",
+      "hypotheses": [
+        "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m).",
+        "B is a commutative R-algebra flat as an R-module; J_B=J·B is the actual mapped ideal, D_B=Hom_B(J_B,B), m_B(b)(j)=bj and Q_B=D_B/im(m_B)."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-finite-presentation",
+        "StableReductionPartII:MC.2/section-ideal-ambient-equivalence",
+        "mathlib:Module.FinitePresentation.isBaseChange_map",
+        "mathlib:IsBaseChange.equiv",
+        "mathlib:IsBaseChange.equiv_tmul",
+        "mathlib:LinearMap.baseChangeHom",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid"
+      ],
+      "proofSteps": [
+        "Use finite presentation of J and B-flatness in Module.FinitePresentation.isBaseChange_map to identify B⊗Hom_R(J,R) with Hom_B(B⊗J,B⊗R).",
+        "Transport the domain along E_J⁻¹ and the codomain along the pinned tensor unit equivalence.",
+        "Evaluate on pure tensors; the images of c,d generate J_B, giving uniqueness. Define m_B by multiplication, independently of E_D."
+      ],
+      "acceptance": [
+        "The target is Hom_B of the mapped ideal. No free-pair coordinate model replaces that Hom."
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-hom-flat",
+          "locator": "Stacks tag087R, Lemma15.67.4(1), together with the proof at087Q",
+          "match": "Specialize the canonical finite-presentation Hom comparison to J and R; transport its domain along the actual ideal equivalence. Generic Hom base change is pinned library input, not new theory owned here."
+        },
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1, Theorem2, Propositions4–7, printed191–195 (PDF31–35)",
+          "match": "Motivates completed-local passage; Proposition6 cites Bourbaki without a proof and Proposition7 is an exercise. These ambient algebra adapters do not claim either proposition or relative stable reflexivity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientDualEquiv",
+          "role": "constructor",
+          "statement": "The specified B-linear E_D."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientDualEquivEvaluation",
+          "role": "simp",
+          "statement": "E_D(b⊗h)(E_J(b′⊗j))=bb′φ(h(j))."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientDualEquivUnique",
+          "role": "extensionality",
+          "statement": "The displayed evaluations uniquely determine E_D."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientMultiplication",
+          "role": "data",
+          "statement": "m_B:B→_B Hom_B(J_B,B) is the actual multiplication map."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientMultiplicationApply",
+          "role": "simp",
+          "statement": "m_B(b)(j)=bj."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Named algebra input to the open completed-local and sheaf comparison; not the global theorem."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientDualEvaluation",
+          "kind": "computation",
+          "statement": "E_D(1⊗h)(E_J(1⊗j))=φ(h(j))."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientDualIdentity",
+          "kind": "compatibility",
+          "statement": "For B=R the last evaluation is h(j)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientDualZero",
+          "kind": "degenerate",
+          "statement": "When B is the zero ring, Hom_B(J_B,B) is subsingleton."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-ambient-multiplication",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Multiplication maps under ambient transport",
+      "kind": "lemma",
+      "statement": "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m). B is a commutative R-algebra flat as an R-module; J_B=J·B is the actual mapped ideal, D_B=Hom_B(J_B,B), m_B(b)(j)=bj and Q_B=D_B/im(m_B). E_D(b⊗m(r))=m_B(bφ(r)). Consequently E_D carries the image of B⊗m onto im(m_B).",
+      "hypotheses": [
+        "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m).",
+        "B is a commutative R-algebra flat as an R-module; J_B=J·B is the actual mapped ideal, D_B=Hom_B(J_B,B), m_B(b)(j)=bj and Q_B=D_B/im(m_B)."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-ambient-equivalence",
+        "StableReductionPartII:MC.2/section-dual-residue"
+      ],
+      "proofSteps": [
+        "Evaluate both sides on E_J(b′⊗j), using E_D evaluation and m(r)(j)=rj.",
+        "B-linearity and the pure-tensor spanning property give equality.",
+        "Use the tensor unit B⊗R≃B to identify the full image, not only individual multiplication maps."
+      ],
+      "acceptance": [
+        "The quotient comparison uses this range equality; an abstract isomorphism D_B≃B⊕(B⊗A) is insufficient."
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-hom-flat",
+          "locator": "Stacks tag087R, Lemma15.67.4(1), together with the proof at087Q",
+          "match": "Specialize the canonical finite-presentation Hom comparison to J and R; transport its domain along the actual ideal equivalence. Generic Hom base change is pinned library input, not new theory owned here."
+        },
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1, Theorem2, Propositions4–7, printed191–195 (PDF31–35)",
+          "match": "Motivates completed-local passage; Proposition6 cites Bourbaki without a proof and Proposition7 is an exercise. These ambient algebra adapters do not claim either proposition or relative stable reflexivity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-ambient-quotient-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Residue quotient under ambient extension",
+      "kind": "construction",
+      "statement": "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m). B is a commutative R-algebra flat as an R-module; J_B=J·B is the actual mapped ideal, D_B=Hom_B(J_B,B), m_B(b)(j)=bj and Q_B=D_B/im(m_B). Construct E_Q:B⊗_R Q≃_B Q_B with E_Q(b⊗[h])=[E_D(b⊗h)].",
+      "hypotheses": [
+        "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m).",
+        "B is a commutative R-algebra flat as an R-module; J_B=J·B is the actual mapped ideal, D_B=Hom_B(J_B,B), m_B(b)(j)=bj and Q_B=D_B/im(m_B)."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-ambient-multiplication",
+        "mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv",
+        "mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv_apply_tmul"
+      ],
+      "proofSteps": [
+        "Use the pinned tensor-quotient equivalence to quotient B⊗D by the image of B⊗im(m).",
+        "The multiplication range equality identifies this image under E_D with im(m_B).",
+        "Descend the specified map and its inverse; use pure tensors of quotient classes for uniqueness. Right exactness supplies the quotient step; no extra left-exactness of an arbitrary coefficient change is inserted."
+      ],
+      "acceptance": [
+        "If φ(d) is a unit, J_B=B, m_B is an isomorphism and Q_B=0. This prevents confusing ambient localization with a new pointed coefficient model whose residue always looks like A."
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-hom-flat",
+          "locator": "Stacks tag087R, Lemma15.67.4(1), together with the proof at087Q",
+          "match": "Specialize the canonical finite-presentation Hom comparison to J and R; transport its domain along the actual ideal equivalence. Generic Hom base change is pinned library input, not new theory owned here."
+        },
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1, Theorem2, Propositions4–7, printed191–195 (PDF31–35)",
+          "match": "Motivates completed-local passage; Proposition6 cites Bourbaki without a proof and Proposition7 is an exercise. These ambient algebra adapters do not claim either proposition or relative stable reflexivity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientQuotientEquiv",
+          "role": "constructor",
+          "statement": "The B-linear E_Q on the actual multiplication quotient."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientQuotientEquivTmul",
+          "role": "simp",
+          "statement": "E_Q(b⊗[h])=[E_D(b⊗h)]."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientQuotientEquivUnique",
+          "role": "extensionality",
+          "statement": "The stated pure-tensor quotient formula uniquely determines E_Q."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Named algebra input to the open completed-local and sheaf comparison; not the global theorem."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientQuotientMultiplication",
+          "kind": "computation",
+          "statement": "E_Q(b⊗[m(r)])=0."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientQuotientIdentity",
+          "kind": "compatibility",
+          "statement": "For B=R, E_Q(1⊗[h])=[E_D(1⊗h)]."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ambientQuotientAwayFromSection",
+          "kind": "non-example",
+          "statement": "If φ(d) is a unit then Q_B is subsingleton; a constant nonzero residue module over B would fail."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-completion-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Completion of the polynomial section dual",
+      "kind": "construction",
+      "statement": "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m). R is noetherian, I is any ideal of R, C=AdicCompletion I R. Completion of an R-module uses I, not an ideal of the coefficient ring A. Construct Ê_D:AdicCompletion I D≃_C Hom_C(J·C,C), characterized by Ê_D(b·of(h))=E_D(b⊗h).",
+      "hypotheses": [
+        "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m).",
+        "R is noetherian, I is any ideal of R, C=AdicCompletion I R. Completion of an R-module uses I, not an ideal of the coefficient ring A."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-ambient-equivalence",
+        "mathlib:AdicCompletion.flat_of_isNoetherian",
+        "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
+        "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian_apply",
+        "mathlib:isNoetherian_linearMap",
+        "mathlib:Module.Finite.of_injective"
+      ],
+      "proofSteps": [
+        "J is a finite R-module. For noetherian R, the pinned isNoetherian_linearMap theorem makes D=Hom_R(J,R) noetherian. Apply Module.Finite.of_injective to its identity map to obtain finiteness.",
+        "Use the actual module-completion equivalence C⊗D≃AdicCompletion I D, and its inverse.",
+        "Compose that inverse with E_D at B=C; the pinned completion-flatness instance supplies the ambient hypothesis. Check the canonical map of(h) and C-multiples thereof."
+      ],
+      "acceptance": [
+        "Noetherianity is required here; the earlier polynomial calculations did not require it. I need not lie in the Jacobson radical for this equivalence. This is not Knudsen Proposition6."
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-completion",
+          "locator": "Stacks §10.97, Lemmas10.97.1(3),10.97.2(1),10.97.3",
+          "match": "Specialize finite-module completion and flatness to D and its actual multiplication quotient. Faithfulness requires I contained in the Jacobson radical; this node does not impose or claim faithfulness."
+        },
+        {
+          "sourceId": "stacks-hom-flat",
+          "locator": "Stacks tag087R, Lemma15.67.4(1), together with the proof at087Q",
+          "match": "Specialize the canonical finite-presentation Hom comparison to J and R; transport its domain along the actual ideal equivalence. Generic Hom base change is pinned library input, not new theory owned here."
+        },
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1, Theorem2, Propositions4–7, printed191–195 (PDF31–35)",
+          "match": "Motivates completed-local passage; Proposition6 cites Bourbaki without a proof and Proposition7 is an exercise. These ambient algebra adapters do not claim either proposition or relative stable reflexivity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completedDualEquiv",
+          "role": "constructor",
+          "statement": "Ê_D on actual AdicCompletion I D and actual Hom_C(J·C,C)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completedDualEquivOf",
+          "role": "simp",
+          "statement": "Ê_D(of(h))=E_D(1⊗h)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completedDualEquivTensor",
+          "role": "compatibility",
+          "statement": "Ê_D(b·of(h))=E_D(b⊗h)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Named algebra input to the open completed-local and sheaf comparison; not the global theorem."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completedDualMultiplication",
+          "kind": "compatibility",
+          "statement": "Ê_D(of(m(r)))=m_C(φ(r)), retaining the multiplication map."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completedDualZero",
+          "kind": "degenerate",
+          "statement": "Ê_D(0)=0."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completedDualEvaluation",
+          "kind": "computation",
+          "statement": "Ê_D(of(h))(E_J(1⊗j))=φ(h(j))."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-quotient-completion-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Completion of the actual residue quotient",
+      "kind": "construction",
+      "statement": "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m). R is noetherian, I is any ideal of R, C=AdicCompletion I R. Completion of an R-module uses I, not an ideal of the coefficient ring A. Construct Ê_Q:AdicCompletion I Q≃_C Q_C, characterized by Ê_Q(b·of([h]))=[E_D(b⊗h)].",
+      "hypotheses": [
+        "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m).",
+        "R is noetherian, I is any ideal of R, C=AdicCompletion I R. Completion of an R-module uses I, not an ideal of the coefficient ring A."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-completion-equivalence",
+        "StableReductionPartII:MC.2/section-dual-ambient-quotient-equivalence",
+        "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
+        "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian_apply"
+      ],
+      "proofSteps": [
+        "Q is a quotient of the finite R-module D, hence finite.",
+        "Compose the inverse of C⊗Q≃AdicCompletion I Q with E_Q at B=C.",
+        "The two canonical equations show that completion of the quotient agrees with quotient of the completed dual by multiplication maps."
+      ],
+      "acceptance": [
+        "The completed quotient is Q_C=Hom_C(J·C,C)/im(C→Hom_C(J·C,C)), not a guessed coefficient completion."
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-completion",
+          "locator": "Stacks §10.97, Lemmas10.97.1(3),10.97.2(1),10.97.3",
+          "match": "Specialize finite-module completion and flatness to D and its actual multiplication quotient. Faithfulness requires I contained in the Jacobson radical; this node does not impose or claim faithfulness."
+        },
+        {
+          "sourceId": "stacks-hom-flat",
+          "locator": "Stacks tag087R, Lemma15.67.4(1), together with the proof at087Q",
+          "match": "Specialize the canonical finite-presentation Hom comparison to J and R; transport its domain along the actual ideal equivalence. Generic Hom base change is pinned library input, not new theory owned here."
+        },
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1, Theorem2, Propositions4–7, printed191–195 (PDF31–35)",
+          "match": "Motivates completed-local passage; Proposition6 cites Bourbaki without a proof and Proposition7 is an exercise. These ambient algebra adapters do not claim either proposition or relative stable reflexivity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completedQuotientEquiv",
+          "role": "constructor",
+          "statement": "Ê_Q on actual module completion and actual C-multiplication quotient."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completedQuotientEquivOf",
+          "role": "simp",
+          "statement": "Ê_Q(of([h]))=[Ê_D(of(h))]."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completedQuotientEquivTensor",
+          "role": "compatibility",
+          "statement": "Ê_Q(b·of([h]))=[E_D(b⊗h)]."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Named algebra input to the open completed-local and sheaf comparison; not the global theorem."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completedQuotientMultiplication",
+          "kind": "computation",
+          "statement": "Ê_Q(of([m(r)]))=0."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completedQuotientZero",
+          "kind": "degenerate",
+          "statement": "Ê_Q(0)=0."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completedQuotientAwayFromSection",
+          "kind": "non-example",
+          "statement": "If φ(d) is a unit in C then Q_C is subsingleton."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-ambient-faithful-detection",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Faithful detection for the residue quotient",
+      "kind": "lemma",
+      "statement": "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m). If B is a faithfully flat R-algebra and f:Q→_R Q, then 1_B⊗f is bijective if and only if f is bijective.",
+      "hypotheses": [
+        "A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c=u−s,d=v−t, J=(c,d), D=Hom_R(J,R), m:R→D, m(r)(j)=rj, Q=D/im(m).",
+        "B is faithfully flat over R; flatness alone is insufficient."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-ambient-quotient-equivalence",
+        "mathlib:Module.FaithfullyFlat.lTensor_bijective_iff_bijective"
+      ],
+      "proofSteps": [
+        "Apply the pinned faithful-flat bijectivity theorem to the actual R-module Q.",
+        "Transport along E_Q when working with Q_B. Faithfulness is separately required; a flat localization away from the section kills Q."
+      ],
+      "acceptance": [
+        "Identity maps provide the basic case. Nonfaithful flat extension does not reflect a zero endomorphism of a nonzero residue quotient. For completion, first prove I⊂Jac(R), or work at a noetherian local ring with its maximal-ideal completion."
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-faithful",
+          "locator": "Stacks §10.39 Definition10.39.1 and Lemma10.39.14, statements and proof",
+          "match": "Specialize exactness reflection to the kernel and cokernel of f on the residue module; the generic statement is already in Mathlib."
+        },
+        {
+          "sourceId": "stacks-completion",
+          "locator": "Stacks §10.97, Lemmas10.97.1(3),10.97.2(1),10.97.3",
+          "match": "Specialize finite-module completion and flatness to D and its actual multiplication quotient. Faithfulness requires I contained in the Jacobson radical; this node does not impose or claim faithfulness."
+        },
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1, Theorem2, Propositions4–7, printed191–195 (PDF31–35)",
+          "match": "Motivates completed-local passage; Proposition6 cites Bourbaki without a proof and Proposition7 is an exercise. These ambient algebra adapters do not claim either proposition or relative stable reflexivity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
     }
   ],
   "requests": [
@@ -7406,9 +8189,9 @@
       "stageId": "StableReductionPartII:MC.2",
       "status": "partial",
       "remaining": [
-        "Read KnudsenII Appendix; finish noetherian approximation and arbitrary-base-change proof.",
+        "Appendix has been read in full. Prove/import the exact relative stable-reflexivity Theorem2 and Proposition6 over S→R; Proposition7 is an exercise, not a proved leaf. Finish pointed hull identification, actual sheaf comparison and finite-presentation approximation for arbitrary bases.",
         "Expand the rigid genus-one embedding and local collision charts into individual lemmas; supply missing Lean family types.",
-        "Prove the specified native ring/dual/quotient comparisons, including coherence after canonical tensor reassociation; then provide completed-local, stable-reflexivity and arbitrary-family descent interfaces. Pure-tensor coherence signatures do not formalize the global comparison."
+        "Prove the native polynomial and flat-ambient/completion adapters and tensor coherence. Completion of actual Hom and quotient has native signatures; the pointed-family, relative stable-reflexivity and arbitrary-family descent interfaces remain absent."
       ]
     },
     {
@@ -7621,7 +8404,7 @@
         "StableReductionPartII:MC.2/expansion-stable",
         "StableReductionPartII:MC.2/expansion-contraction-inverses"
       ],
-      "detail": "The polynomial-model monic proofs and arbitrary coefficient-base-change comparisons are separated into named nodes over every commutative ring. This does not establish a pointed completed-local normal form, stable reflexivity, sheaf comparison or descent for general families. Read KnudsenII Appendix (PDF32–39), apply its precise flat-completion/faithful-descent statements and finite-presentation approximation; all these remain open."
+      "detail": "Fresh KnudsenII Appendix PDF31–39/printed191–199 supplies the exact relative stable-reflexivity conditions for a flat noetherian S→R: arbitrary S-module Hom comparison and higher Ext vanishing for both M and M∨, equivalently a universally acyclic finite-locally-free bi-infinite complex with universally acyclic dual. Proposition6 compares M with its R-maximal-ideal completion as S-stably and Ŝ-stably reflexive, but cites Bourbaki III5.4.4 without a proof; Proposition7 is left as an exercise. The new actual-ideal/Hom/quotient completion adapters only treat flat ambient change R→B. They do not prove universal S-coefficient change, compatibility of the different base/source completions, a pointed completed-local hull, sheaf globalization or noetherian approximation for arbitrary bases. Require those exact inputs before closing dual-section-ideal. Generic relative stable-reflexivity ownership remains a proposed extension, not an imported closed result."
     },
     {
       "title": "Rigid genus-one locus and boundary normalization details",
@@ -8088,6 +8871,15 @@
       ],
       "detail": "MC.4 combines coarse projectivity, generic positivity applications and full-level component topology.",
       "proposal": "Split MC.4 into coarse-space/projective-cover and fine-level/component sublayers once the generic positivity supplier extension is assigned; current node stage IDs are kept for this checkpoint."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+        "StableReductionPartII"
+      ],
+      "detail": "Layer7 owns general matrix factorizations/complete resolutions but does not specify Knudsen relative stable reflexivity for flat noetherian S→R or its two-base completion comparison. P7 concerns bounded perfect complexes, not this bi-infinite universally acyclic criterion. SF.1 supplies descent, not the missing Ext criterion.",
+      "proposal": "Propose StablePeriodicCurved,Part II with the relative stable-reflexivity predicate and Knudsen Appendix Theorem2/Propositions4–6, compatible with existing complete-resolution theory. Establish precise foundational Ext/base-change ownership before declaration planning. Keep only applications to the polynomial section in MC.2. This is an unapproved ownership proposal, not a supplier request or a claim that the existing layer covers the missing result."
     }
   ],
   "consumerCoverage": [
@@ -8303,7 +9095,7 @@
   "prototypeCoverage": {
     "status": "partial",
     "compiled": true,
-    "reason": "The polynomial model has native algebra-equivalence, specified tensor-module action, R′-linear dual comparison, pure-tensor identity/composition and actual quotient transport signatures. The proofs remain unchecked. Completed-local, stable-reflexivity and arbitrary-family descent interfaces and all 207 inherited geometric omissions remain open.",
+    "reason": "Native signatures now include the actual mapped ideal and dual under flat ambient R→B, multiplication quotients, and completion of the actual dual/quotient modules over a noetherian polynomial node ring. These complement the arbitrary coefficient A→A′ comparison. Relative stable reflexivity, pointed completed-local hull identification and sheaf/arbitrary-base descent remain absent; all207 inherited geometric omissions remain. Proof bodies are unchecked.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -8336,7 +9128,15 @@
       "StableReductionPartII:MC.2/section-dual-tensor-action",
       "StableReductionPartII:MC.2/section-dual-tensor-scalar",
       "StableReductionPartII:MC.2/section-dual-quotient-equivalence",
-      "StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence"
+      "StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence",
+      "StableReductionPartII:MC.2/section-ideal-finite-presentation",
+      "StableReductionPartII:MC.2/section-ideal-ambient-equivalence",
+      "StableReductionPartII:MC.2/section-dual-ambient-equivalence",
+      "StableReductionPartII:MC.2/section-dual-ambient-multiplication",
+      "StableReductionPartII:MC.2/section-dual-ambient-quotient-equivalence",
+      "StableReductionPartII:MC.2/section-dual-completion-equivalence",
+      "StableReductionPartII:MC.2/section-dual-quotient-completion-equivalence",
+      "StableReductionPartII:MC.2/section-dual-ambient-faithful-detection"
     ],
     "expressedApi": [
       "NodeForm.eval",
@@ -8389,7 +9189,24 @@
       "NodeSectionFactorization.PolynomialModel.dualMultiplicationApply",
       "NodeSectionFactorization.PolynomialModel.ringTensorEquiv",
       "NodeSectionFactorization.PolynomialModel.dualTensorAction",
-      "NodeSectionFactorization.PolynomialModel.dualTensorActionUnique"
+      "NodeSectionFactorization.PolynomialModel.dualTensorActionUnique",
+      "NodeSectionFactorization.PolynomialModel.ambientIdealEquiv",
+      "NodeSectionFactorization.PolynomialModel.ambientIdealEquivTmul",
+      "NodeSectionFactorization.PolynomialModel.ambientIdealEquivUnique",
+      "NodeSectionFactorization.PolynomialModel.ambientDualEquiv",
+      "NodeSectionFactorization.PolynomialModel.ambientDualEquivEvaluation",
+      "NodeSectionFactorization.PolynomialModel.ambientDualEquivUnique",
+      "NodeSectionFactorization.PolynomialModel.ambientMultiplication",
+      "NodeSectionFactorization.PolynomialModel.ambientMultiplicationApply",
+      "NodeSectionFactorization.PolynomialModel.ambientQuotientEquiv",
+      "NodeSectionFactorization.PolynomialModel.ambientQuotientEquivTmul",
+      "NodeSectionFactorization.PolynomialModel.ambientQuotientEquivUnique",
+      "NodeSectionFactorization.PolynomialModel.completedDualEquiv",
+      "NodeSectionFactorization.PolynomialModel.completedDualEquivOf",
+      "NodeSectionFactorization.PolynomialModel.completedDualEquivTensor",
+      "NodeSectionFactorization.PolynomialModel.completedQuotientEquiv",
+      "NodeSectionFactorization.PolynomialModel.completedQuotientEquivOf",
+      "NodeSectionFactorization.PolynomialModel.completedQuotientEquivTensor"
     ],
     "expressedTests": [
       "NodeForm.characteristicTwo",
@@ -8438,7 +9255,22 @@
       "NodeSectionFactorization.PolynomialModel.quotientCoordinateKills",
       "NodeSectionFactorization.PolynomialModel.quotientTensorResidue",
       "NodeSectionFactorization.PolynomialModel.quotientTensorIdentity",
-      "NodeSectionFactorization.PolynomialModel.quotientTensorNonflat"
+      "NodeSectionFactorization.PolynomialModel.quotientTensorNonflat",
+      "NodeSectionFactorization.PolynomialModel.ambientIdealGenerator",
+      "NodeSectionFactorization.PolynomialModel.ambientIdealIdentity",
+      "NodeSectionFactorization.PolynomialModel.ambientIdealZero",
+      "NodeSectionFactorization.PolynomialModel.ambientDualEvaluation",
+      "NodeSectionFactorization.PolynomialModel.ambientDualIdentity",
+      "NodeSectionFactorization.PolynomialModel.ambientDualZero",
+      "NodeSectionFactorization.PolynomialModel.ambientQuotientMultiplication",
+      "NodeSectionFactorization.PolynomialModel.ambientQuotientIdentity",
+      "NodeSectionFactorization.PolynomialModel.ambientQuotientAwayFromSection",
+      "NodeSectionFactorization.PolynomialModel.completedDualMultiplication",
+      "NodeSectionFactorization.PolynomialModel.completedDualZero",
+      "NodeSectionFactorization.PolynomialModel.completedDualEvaluation",
+      "NodeSectionFactorization.PolynomialModel.completedQuotientMultiplication",
+      "NodeSectionFactorization.PolynomialModel.completedQuotientZero",
+      "NodeSectionFactorization.PolynomialModel.completedQuotientAwayFromSection"
     ],
     "omissions": [
       {
@@ -9582,6 +10414,21 @@
       "leanSha256": "d0149f43f296f48382b135f4e78ff4e7c5ab2d5caca380c240bc07086afd8dea",
       "logSha256": "579e1cb923f09525dd16d34ee0dc28c70f48040814502b1c33770bab8e398235",
       "examples": 49
+    },
+    "compilation": {
+      "reader": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "imports": "Mathlib-only; no combined TauCeti build or native family/sheaf signatures",
+      "errors": 0,
+      "sorryWarnings": 149,
+      "otherWarnings": 0,
+      "examples": 64,
+      "wallSeconds": 13.1,
+      "availableMemoryGiB": 74,
+      "maxRssKiB": 2914636,
+      "suggestedSha256": "46cd42d06b12bb85540ccab7a105887c3011dab41a23b8f855e8162c4380ed6c",
+      "logSha256": "e75e04e713e9f19ac5720c37fe08b24274a070aef12071266ad93754d3ab0b28"
     }
   },
   "upstreamImportEncoding": {
@@ -9635,6 +10482,55 @@
       "scope": "Fresh §3 in full, printed pp.11–12, Corollary3.2 and §4 in full, printed p.13; source header and introduction/Main Lemma also inspected. Author-derived polynomial tensor/quotient strengthening only. Other source receipts remain historical, not fresh verification.",
       "version": "PDF header arXiv:1106.1588v2, 3 April 2012",
       "sha256": "de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36"
+    },
+    {
+      "sourceId": "stacks-hom-flat",
+      "reader": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/087Q",
+      "scope": "Full statements and proofs of tags087Q and087R; cited resolution/Ext inputs are imports, not freshly verified transitive proofs.",
+      "version": "Live HTML, stable tag087Q",
+      "sha256": "245095fb01f2d4c068c934b53b48f5d7c6f816b6fb4f790614b28e1fe26894e6",
+      "bytes": 15787
+    },
+    {
+      "sourceId": "stacks-hom-flat",
+      "reader": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/087R",
+      "scope": "Full statements and proofs of tags087Q and087R; cited resolution/Ext inputs are imports, not freshly verified transitive proofs.",
+      "version": "Live HTML, stable tag087R",
+      "sha256": "b2724a0dbca8c466ad374aaf29c4d955a24aefdd383302d49cb3d7b17fd5ed2a",
+      "bytes": 14517
+    },
+    {
+      "sourceId": "stacks-completion",
+      "reader": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/0BNH",
+      "scope": "§10.97 Lemmas1–3, statements and proofs; paragraph after Lemma6 distinguishes source-maximal-ideal and target-maximal-ideal completion. Other lemmas not certified here.",
+      "version": "Live HTML, stable tag0BNH",
+      "sha256": "48d4456ce8bb7d5d085a560f835144928d123fad39cfb9608f76476044f0e422",
+      "bytes": 33361
+    },
+    {
+      "sourceId": "stacks-faithful",
+      "reader": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/00H9",
+      "scope": "Definition10.39.1, Lemma10.39.5 and Lemma10.39.14, statements and proofs; selected scope only.",
+      "version": "Live HTML, stable tag00H9",
+      "sha256": "2a8b0d6e5e27464d05517762910d5420d4c1fade42f4ec742b821cdaaf59925c",
+      "bytes": 48301
+    },
+    {
+      "sourceId": "knudsen2",
+      "reader": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "url": "https://journals.msp.org/mscand/article/download/1622/1621/1653",
+      "scope": "Fresh visual reading of scanned PDF31–39, printed191–199: Appendix introduction, Definition1, Theorem2 and its proof, Corollary3, Propositions4–7, explicit split-node matrices/homotopy/dual example and bibliography. Bourbaki III5.4.4 was not acquired; Proposition6 has only that citation and Proposition7 is left as an exercise. No claim to have read their proofs. Earlier §§1–3 reading remains historical.",
+      "version": "Math.Scand.52(1983),161–199;39 scanned PDF pages",
+      "sha256": "18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230"
     }
   ]
 }
