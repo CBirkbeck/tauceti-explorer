@@ -1,131 +1,39 @@
-# DESIGN-HodgeStructuresPartII — augmentation-word research checkpoint
+# DESIGN-HodgeStructuresPartII — source augmentation generator checkpoint
 
-Agent: ChatGPT Pro — `gpt-20261002-hodge-7c41`. Refs #3371. Date: 2026-10-02.
-The bot confirmed this session's claim. This is a **handoff-only research checkpoint**, not a completed blueprint, not a new library implementation, and not a compilation receipt.
+Codex — codex-rtOQ9t. Refs #3371. Branch codex-rtOQ9t/hodge-partii-third-continuation; base bd1f62cf742db0535c6427ef929da93c4becc4b0. Claim comment 5956728121, bot confirmation 5956730802; full issue read before and after confirmation. This remains a partial research checkpoint.
 
-## State and preservation
+The immediate predecessor's complete handoff is retained at [base commit](https://github.com/CBirkbeck/tauceti-explorer/blob/bd1f62cf742db0535c6427ef929da93c4becc4b0/research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md). Its paper proof and finite script were read completely. Historical affine proof bodies remain at [immutable 9a36f4d](https://github.com/CBirkbeck/tauceti-explorer/blob/9a36f4d1d6743c0202f12020c0df603400149faa/research/blueprint/suggested/HodgeStructuresPartII.lean), source SHA-256 af7d537a0dc75975f2081fbd6b143a70b7d63a81b92e032511fd9a20d0ae4b83. Historical receipts apply to their immutable versions.
 
-The packet, roadmap definition, reader and suggested Lean file are unchanged. The inherited status remains **70 unchecked nodes; H.0 partial; H.1–H.8 not_read; zero stages closed**. The existing reserved node `HodgeStructuresPartII:key/higgs-parameter-connections` and all ownership boundaries are retained. No definition, public declaration, supplier request or planet is added by this checkpoint.
+## Changes
 
-The immediately preceding handoff, including its complete counts, compiler receipts, source-reading attribution, DAG checks and links to earlier archives, is preserved at [the immutable predecessor](https://github.com/CBirkbeck/tauceti-explorer/blob/4c60fa3dd0933cd4220d9590ea93b7779089e678/research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md). Its blob is `bf62f0071853b2f380e724a2acfb3280eb000c9c`. Those checks were performed by the predecessor, not by this session. In particular, the predecessor's fifteen proved affine declarations remain as they were; this session has not recompiled or independently certified them.
+One Higgs-specific lemma, H.0/augmentation-power-generators, equates I^N in the source symmetric algebra with the span of length-N degree-one words for every N≥0. Import the already built Tau Ceti augmentation generator equality and HopfIdeal.augmentation_toIdeal, then SymmetricAlgebra.counitAlgHom_eq. The built Submodule.span_pow and Set.mem_pow supply the generic span/word calculation; the predecessor's proposed private induction should not become another generic roadmap node.
 
-The addition here is a detailed proof and implementation handoff for the existing `HodgeStructuresPartII:H.0/augmentation-power-words` node, a new falsifier for an incorrect use of the ambient endomorphism ideal, and reproducible finite regression checks. The corresponding Lean theorem **still has its original `sorry`**. Neither that admission nor any global sheaf omission is discharged by putting a paper proof in this handoff.
+The existing augmentation_pow_iff_words statement and hypotheses are unchanged. Its outline now uses that adapter and Ideal.span_le. Source S is commutative; End(E) is an associative target. At N=0, I⁰=S and the empty word is identity, so annihilation means E is the zero module. Two lemma tests record the zero and one boundaries.
 
-## 1. Precise affine statement and proof
+The new E12/E21 regression has the rank-one action u↦X with I²⊆ker α, while YX=E22 is a nonzero idempotent in the ambient left ideal span{X}. That ambient ideal has no vanishing power. Keep the ideal and action kernel in S. This guards a possible implementation mistake; no packet or source erratum is claimed.
 
-Let R be a commutative ring, Q and E be R-modules, V = Hom_R(Q,R), S = Sym_R(V), and j:V→S its degree-one linear map. Write ε:S→R for the degree-zero augmentation and I = ker(ε). Let B = End_R(E), with multiplication given by composition. B is an associative R-algebra and need not be commutative.
+PROTOCOL §13 requires admitted suggested bodies. The fifteen previously proved affine bodies and ten proved examples are restored to that format without changing their signatures; actual proofs and receipts remain at the immutable commit above. Concrete input fixtures remain honest formulas. Admissions are not proof claims.
 
-Suppose a:V→B is R-linear and α:S→B is an R-algebra map satisfying α(j(v)) = a(v) for every v. For each natural number N, including zero, the existing target is
+71 unchecked nodes, 112 APIs, 101 required definition/construction tests plus two lemma tests, six planets, 74 baseline references, eleven gaps and five requests. H.0 partial; H.1–H.8 not_read. All 70 prior statements/hypotheses/APIs/source/acceptance records, 100 prior tests, 149 routes, requests, gaps, source issues and restructuring survive. Two inherited node objects change; 68 remain identical.
 
-    I^N ⊆ ker(α)  iff  a(v₀) a(v₁) ... a(v_{N−1}) = 0
-                              for every (v₀,...,v_{N−1}) ∈ V^N.
+## Fresh reading and limits
 
-The empty product is 1_B. No finite generation, finite projectivity, reducedness, positive characteristic restriction, algebraic closure or rank hypothesis is used in this affine statement. Existence of α already supplies the required commutativity of its generator images; do not add a commutative-ring instance to all of End_R(E).
+Read the entire issue, handoff and applicable worker/protocol/source-faithfulness instructions. Reviewed Hodge L0–L3 and E1/D3 rows fully read after repairing truncated reads; REV-AUDIT02/10/22 metadata inspected. Built parent carriers are imported. E1/CR.1/DD.1 and D3 ownership boundaries remain explicit.
 
-### Step A: reuse augmentation generation
+At exact source pins read complete named statements for the augmentation ideal/span/kernel bridge, symmetric counit, span powers, set powers as words, Ideal.span_le and Matrix.toLin'. The new lemma specializes built facts; no generic augmentation or span-power object is added.
 
-The existing Tau Ceti theorem `TauCeti.SymmetricAlgebra.augmentation_toIdeal_eq_span_range_ι` identifies the underlying augmentation Hopf ideal with the ideal generated by j(V). Its statement and full proof were read at the pinned commit. It applies to an arbitrary module over an arbitrary commutative ring, so it supplies exactly the needed generality.
+Fresh [Heuer25](https://link.springer.com/article/10.1007/s00222-025-01321-4) reading: Definition 1.2(2), complete Definition 4.1 and Remark 4.2. Fresh [Liu–Zhu v3](https://arxiv.org/pdf/1602.06282v3) reading: complete Lemma 2.15 and its short proof, printed pp.18–19. No full correspondence proof, spectral/coherent-image/twisting consumer or later-source closure is claimed.
 
-Identify its augmentation with ε, using the existing counit/augmentation identification already cited by the packet. This is a bridge between existing objects, not a reason to define another augmentation ideal. The relevant Hopf-ideal and counit declarations still need to be checked together when assembling the native proof; this session read the symmetric augmentation theorem and Hopf structure file, not the complete Hopf-ideal/counit dependency files.
+## Verification and reproduction
 
-### Step B: establish the word-generation equality
+Current entire Mathlib-only sketch: Lean v4.34.0-rc2, Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 0 errors, 156 admitted warnings only, 62 examples. Existing exact artifacts reused, at least 70 GB available before checks, one Lean process. No Lake setup/update/cache, library build or language server. No matching Tau Ceti compiled import set certified or created; its pinned primary source was read, not imported.
 
-For N≥0 define the subset W_N of S by
+The separate experiment proves the generic word span and kernel criterion from an explicit supplied ideal-generation equality. That equality is local to this experiment and is not an extra public hypothesis. Both declarations check with no errors/warnings; both axiom audits contain only propext, Classical.choice and Quot.sound. This is not a compiled proof of the canonical Tau Ceti augmentation bridge or of global sheaf statements.
 
-    W_N = { j(v₀) j(v₁) ... j(v_{N−1}) | (v₀,...,v_{N−1}) ∈ V^N }.
+The exact experiment text and its axiom commands are archived in the [first submitted version](https://github.com/CBirkbeck/tauceti-explorer/blob/b386baf/research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md). Use the displayed source SHA-256 to identify it. Lean code is kept out of the current handoff under the issue’s file-format rule. An existing exact pinned Mathlib build and the worker memory/process restrictions still apply.
 
-Then I^N is the ideal generated by W_N. Here is the complete induction, including the boundary usually hidden by positive-exponent notation.
 
-For N=0, W_0={1_S}; its generated ideal is S, which is I^0. For the induction step, splitting a word into its first letter and its remaining N letters gives W_{N+1}=j(V)·W_N, where the right side is a product of subsets, not pointwise powers of individual elements. The product of the ideals generated by two subsets is the ideal generated by their pairwise products. Therefore
-
-    span(W_{N+1}) = span(j(V)) · span(W_N) = I · I^N = I^{N+1}.
-
-For completeness, the ideal-product fact needs no hidden finiteness input: each generator st of span(S₀·T₀) lies in span(S₀)·span(T₀). Conversely, expand an element of each generated ideal as a finite linear combination of its generators and distribute their product. Every resulting term is a scalar multiple of a generator st. The same argument can be expressed through span induction, without choosing finite generating sets.
-
-A suitable **private supporting lemma signature**, not a newly claimed baseline declaration, is:
-
-```lean
--- Proposed local proof helper; not compiled or added to the suggested file.
--- No extra public carrier or ownership reservation is intended.
-private theorem span_range_pow_eq_span_words
-    {A U : Type*} [CommRing A] (g : U → A) (N : ℕ) :
-    (Ideal.span (Set.range g)) ^ N =
-      Ideal.span (Set.range fun word : Fin N → U =>
-        ((List.ofFn word).map g).prod) := by
-  sorry -- implement the N=0 / first-letter induction above
-```
-
-The hypothesis on U is deliberately only `Type*`. Even an empty generating family has the correct degree-zero case. The helper concerns a commutative source ring A; it does not assert a theorem for arbitrary noncommutative ideal products. It is a routine proof component of the existing node, not an additional global construction.
-
-### Step C: pass to the kernel without enlarging the image ideal
-
-For any ideal K in S, span(W_N)⊆K is equivalent to W_N⊆K. Apply this to K=ker(α). For a word w,
-
-    α(j(w₀)...j(w_{N−1}))
-      = α(j(w₀))...α(j(w_{N−1}))
-      = a(w₀)...a(w_{N−1}).
-
-Only multiplicativity, the generator formula, and membership in a ring-homomorphism kernel are used. The product keeps its order throughout. No permutation of endomorphisms, trace test, characteristic polynomial, polarization identity or division by N! enters the proof. Combining Steps A–C proves the displayed equivalence with **exactly the same N**.
-
-The generic private lemma should be discharged before replacing the existing theorem body. Keep the public theorem's current signature: do not add augmentation generation as an unproved public hypothesis merely to obtain elaboration.
-
-### Step D: boundary and quotient checks
-
-For N=0, the left side is S⊆ker(α), equivalently α(1)=0. Since α is unital, this says 1_B=0. The right side says the same thing through the unique empty word. For B=End_R(E), this is equivalent to E being a subsingleton module. In particular, N=0 is valid for the zero module and is false for a nonzero E.
-
-For N=1, the statement says that I acts trivially precisely when every contraction a(v) is zero. The already-proved `truncatedSymmetricAction_exists_iff` then converts the same kernel containment into factorization through S/I^N. Use that existing construction rather than defining another quotient action. The positive-bound convention in `IterateNul` is a separate definition and must not be imposed on this all-N affine algebra lemma.
-
-This proof does not itself identify global ordered tensor iterates with their coefficients. Finite locally free duality, actual sheaf tensor powers and restriction/descent remain in the E1-dependent global bridge.
-
-## 2. New falsifier: do not generate an ideal in all of End(E)
-
-There is a tempting but incorrect alternative to Step C: map the augmentation generators into End(E), generate an ideal in that entire ring, and test whether its Nth power vanishes. The ambient endomorphism ring contains coefficients that are not in the commutative image of α, so this changes the problem.
-
-Let k be a field, E=k², X=E₁₂, Y=E₂₁, and α:k[u]→End_k(E) send u to X. This is a valid unital algebra map. X is nonzero and X²=0, so (u)²⊆ker(α), while (u) is not contained in ker(α).
-
-But the left ideal generated by X in all of End_k(E) contains YX=E₂₂. Since E₂₂²=E₂₂≠0, that left ideal is not nilpotent. The two-sided ideal is worse: it contains XY=E₁₁ and YX=E₂₂, hence the identity. Thus either ambient-ideal replacement rejects a genuine square-zero action.
-
-The correct alternatives are: keep I^N⊆ker(α) in S, as the existing signature does, or work inside the commutative image algebra α(S) and use its image augmentation ideal there. Do not invoke an ideal-map/power lemma with missing commutativity or surjectivity hypotheses. This is a regression against a potential implementation error, **not a claim that the current packet makes that error**.
-
-Suggested future test for the existing node: use these explicit 2×2 matrices to distinguish the kernel criterion from the ambient-ideal construction. It is not yet inserted into the packet's unit-test count or the suggested file.
-
-## 3. Existing edge cases with full elementary justifications
-
-### Square-zero action, without a rank shortcut
-
-For the suggested file's square-zero example over Q, let X²=0 and X≠0, and suppose α(j(v))=v(1)X for v∈Hom_Q(Q,Q). Every two-letter word is
-
-    (v(1)X)(w(1)X) = v(1)w(1)X² = 0.
-
-The proved-on-paper equivalence gives I²⊆ker(α). The generator associated with the identity functional has image X≠0, so I is not contained in ker(α). The unused-looking nonzero premise in that example is necessary for its second conjunct. No finite-dimensionality of E is needed.
-
-### Characteristic two: ordered tensors versus symmetric projection
-
-Use the existing four-basis fixture with basis e_(i,j), i,j∈{0,1}. X raises the first index from 0 to 1 and kills vectors whose first index is 1. Y does the same for the second index. Then X²=Y²=0. The two operators commute, and XY=YX sends e_(0,0) to e_(1,1), hence is nonzero. Over F₂, XY+YX=0. Every word of length three repeats X or Y; commute the repeated factors together and use their square-zero relation.
-
-Consequently the Higgs field with these two coefficients is integrable, its ordered second tensor iterate is nonzero, and its ordered third iterate is zero. Projection of the second iterate to symmetric tensors instead gives zero: its square coefficients vanish and its two mixed coefficients add to XY+YX. This proves why projected symmetric vanishing cannot replace ordered tensor vanishing, even for integrable fields.
-
-The finite fixture theorem in the suggested Lean file has a decidable closed conclusion. A compiler-capable worker can try a direct kernel-checked finite proof before writing a longer matrix argument; this session makes **no claim** that `decide` elaborates within the pinned compiler's resource limits.
-
-### Nonreduced rank-one base
-
-On the free rank-one module over Z/4, multiplication by 2 is nonzero and its square is zero. The same-exponent augmentation criterion works with N=2. A replacement of the exponent by the module rank would give the false bound N=1. Reducedness belongs only to the separate rank-descent statement, not to the augmentation-word equivalence.
-
-## 4. Fresh verification and its limits
-
-Freshly read: WORKERS, BROWSER_AGENTS, the issue and its confirmed claim, PROTOCOL sections obtained in the preceding tool reads, UPSTREAM_GUIDE, the expansion protocol, the complete immediate handoff, relevant existing suggested-file sections, and the augmentation proof route in the existing reader. The following pinned primary code was read:
-
-- [Tau Ceti augmentation theorem](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/HopfAlgebra/SymmetricAlgebra/Augmentation.lean), including the full statement and proof of `augmentation_toIdeal_eq_span_range_ι`.
-- [Tau Ceti symmetric Hopf structure](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/HopfAlgebra/SymmetricAlgebra/Basic.lean), including its distinction between the symmetric algebra and a commutative target of its lift.
-- [Mathlib ideal operations](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Operations.lean), selected sections containing `Submodule.span_smul_span`, `Ideal.mul_le`, `Ideal.mul_mem_mul`, `Ideal.one_eq_top`, and the ideal power multiplication conventions. `Submodule.span_smul_span` supplies the subset-generation calculation with its stated two-sidedness hypothesis, automatic for the commutative source here.
-
-The large `data/library-coverage.json` returned empty content through both the file and blob readers; it was **not freshly read**. The predecessor's audited-parent results are historical, not a new audit. No new mathematical object is planned on the strength of that failed read. No new paper-source extraction or H.1–H.8 reading is claimed.
-
-There is no existing pinned Lean build in this environment; available memory was below the worker protocol's 20 GB threshold. No Lean compilation, Lake setup, cache fetch, Mathlib build or language server was run. The repository's packet checker and assembler were not run locally. Since only this handoff changes, no JSON, DAG edge, native signature or previous compiler receipt is edited.
-
-A finite exact Python check enumerated **all 88 commuting pairs of 2×2 matrices over F₂**, and checked all five exponents N=0,...,4: **440 same-exponent cases passed**. It also checked the precise characteristic-two four-basis fixture, the nonreduced rank-one counterexample, a noncommuting coefficient pair, and the ambient-End-ideal counterexample. The finite calculation is a regression test, not the general proof, a Lean proof, or an exhaustive check over arbitrary rings.
-
-The exact script below has SHA-256 `1d51a023fbcd294545fde2255cebff86f5d47945083ba2f6585e82d96ce366c1` when saved with its displayed final newline. It is retained here so the scratch copy need not survive the PR.
+The predecessor's exact Python regression was freshly rerun: 88 commuting F₂ pairs, N=0,…,4, 440 cases, and all ambient-ideal, characteristic-two, Z/4 and noncommuting fixtures passed. Finite computations are not general proofs. Save the next block in your own scratch and run with Python 3.
 
 ```python
 from itertools import product
@@ -209,14 +117,149 @@ print('four-basis characteristic-two witness: all six assertions passed')
 print('Z/4 rank-one and noncommuting-pair regressions: passed')
 ```
 
-## 5. Exact resume order
+## Atlas, preservation and intake
 
-1. Obtain the reviewed coverage slice and read the remaining counit/Hopf-ideal bridge declarations at the pin. Assemble the existing augmentation-word theorem from the word-generation induction and the built augmentation theorem. The current suggested file is Mathlib-only: importing the Tau Ceti theorem changes that import boundary and requires a suitable existing pinned Tau Ceti build. Do not pretend that citing it in prose imports it, duplicate its proof solely to evade the dependency, weaken the public statement, or reuse the predecessor's Mathlib-only receipt as verification of a Tau Ceti-dependent change.
-2. Compile the unchanged target with the new proof and the square-zero example; then synchronize its proof receipt and test metadata in the packet, reader, suggested file and handoff. Preserve the same exponent, the N=0 case and the noncommutative target. Add the ambient-End-ideal falsifier if useful, with an honest updated test count. None of these promotions has happened in this checkpoint.
-3. Supply E1's actual sheaf tensor powers, finite dual coevaluation, symmetric/endomorphism algebras, augmentation quotient, and restriction/descent. This is still required for the global ordered-iterate equivalence. Keep the coefficient Tate character and the right tensor unit.
-4. Finish the inherited commuting-nilpotent rank bound: a common-kernel line and induction over a field of positive rank r, then fibrewise descent over a reduced ring. Handle the zero module with positive bound 1. A rigid classical-point version requires the consumer's Jacobson/Nullstellensatz input. Retain the Z/4 falsifier.
-5. Retain the distinction between a lowering submodule filtration and a subbundle filtration. Prove the predecessor's k[x,y] matrix kernel/unimodular obstruction before promoting that native test. Keep spectral image/coherence/twisting in `PadicHodgeTheoryPartIIPadicSimpson`; arbitrary base change of the faithful image algebra need not remain faithful. Read that consumer before adding supplier leaves.
-6. Finish the inherited determinant/exterior/coefficient-equivariance bridge with E1, the exact Coleman Jacobi supplier, and global connection descent. Discharge CR.1's ordinary connection/exterior-calculus convention and DD.1's finite split filtration/Rees interface. Liu–Zhu's unbounded t-adic period filtration is not this finite Rees interface; arbitrary flat connections are not automatically crystals.
-7. Finish all remaining H.0 routed inputs and then H.1–H.8 sources, exact statements, APIs and tests. Import ShimuraData:D3's common variation carrier and the parent's fibrewise Hodge objects. H.8 real Noether–Lefschetz remains mandatory. Preserve fixed torsion determinant, stability, Chern-class, integral-versus-complex and strongly-integral distinctions and the corrected BKT/real briefs.
+Indexed packet checker: 0 errors/warnings. Actual read-only assembler with normal retirement/restructuring/link overlays and replaced-decomposition trimming: stage DAG 3,022 vertices/8,663 edges; own declaration DAG 71/138; stages plus 72 reachable declarations and supplier requests 3,088/8,916. All acyclic. All 21 computed stage prerequisite pairs reachable, no own skipped links, stage edges and other-roadmap skips identical to the unmodified packet overlay. The sole external declaration is ColemanPowerSeries:L1/derivation-determinant-unit. Five-file intake, private-path/whitespace checks and prior mathematical signature/test/metadata preservation pass.
 
-This checkpoint leaves the job incomplete. It must not be marked source-complete, implementation-ready, independently reviewed, or formalised on this evidence. The scratch regression script can be deleted after the PR is open because its exact contents and results are retained above.
+Save the following read-only projection script in your own scratch and run from the repository with the named base commit available. It writes only its result next to itself; no site build.
+
+```python
+import json,sys,subprocess,hashlib,re
+from pathlib import Path
+from collections import defaultdict,deque
+root=Path.cwd();sys.path.insert(0,str(root/"scripts"));import build
+rid="HodgeStructuresPartII"
+packetpath="research/blueprint/packets/"+rid+".json"
+roadmappath="research/blueprint/roadmaps/"+rid+".json"
+base="bd1f62cf742db0535c6427ef929da93c4becc4b0"
+p=json.loads((root/packetpath).read_text());r=json.loads((root/roadmappath).read_text())
+old=json.loads(subprocess.check_output(["git","show",base+":"+packetpath],text=True))
+oldr=json.loads(subprocess.check_output(["git","show",base+":"+roadmappath],text=True))
+load=build.load_promoted
+def assemble(packet,definition):
+ def overlay(*a,**k):
+  ps,ds,defs=load(*a,**k)
+  return ([(n,v) for n,v in ps if v.get("roadmapId")!=rid]+[(rid,packet)],
+   {**ds,rid:"research/blueprint/readmes/"+rid+".md"},
+   [x for x in defs if x.get("id")!=rid]+[definition])
+ build.load_promoted=overlay
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,r);control=assemble(old,oldr)
+def dag(vertices,edges):
+ vertices=set(vertices)|{x for e in edges for x in e};following=defaultdict(set);indegree=dict.fromkeys(vertices,0)
+ for s,t in set(edges):
+  following[s].add(t);indegree[t]+=1
+ q=deque(v for v in vertices if not indegree[v]);seen=[]
+ while q:
+  v=q.popleft();seen.append(v)
+  for w in following[v]:
+   indegree[w]-=1
+   if not indegree[w]:q.append(w)
+ assert len(seen)==len(vertices),("cycle",sorted(v for v in vertices if indegree[v])[:10])
+ return {"vertices":len(vertices),"edges":len(set(edges)),"acyclic":True}
+se={(e["source"],e["target"]) for e in a["stageEdges"]}
+ce={(e["source"],e["target"]) for e in control["stageEdges"]}
+assert se==ce
+stageids={s["id"] for s in a["stages"]}
+own={n["id"]:n for n in p["nodes"]}
+oe={(dep,n["id"]) for n in own.values() for dep in n.get("prerequisites",[]) if dep in own}
+stageDAG=dag(stageids,se);ownDAG=dag(own,oe)
+allnodes=dict(own)
+for folder in ("data/decompositions","data/blueprints","research/blueprint/packets"):
+ for path in sorted((root/folder).glob("*.json")):
+  for n in json.loads(path.read_text()).get("nodes",[]):allnodes.setdefault(n["id"],n)
+used=set(own);todo=list(own)
+while todo:
+ v=todo.pop()
+ for d in allnodes[v].get("prerequisites",[]):
+  if d in allnodes and d not in used:used.add(d);todo.append(d)
+edges=set(se)
+for v in used:
+ n=allnodes[v]
+ parent=n.get("parentStageId")
+ if parent:edges.add((parent,v))
+ for d in n.get("prerequisites",[]):
+  if d in stageids or d in used:edges.add((d,v))
+for request in p["requests"]:
+ for v in request["neededBy"]:edges.add((request["supplier"],v))
+combined=dag(stageids|used,edges)
+following=defaultdict(set)
+for s,t in se:following[s].add(t)
+def reachable(s,t):
+ todo=[s];seen=set()
+ while todo:
+  x=todo.pop()
+  if x==t:return True
+  if x not in seen:seen.add(x);todo+=list(following[x])
+ return False
+pairs=set()
+for stage in r['stages']:
+ for dep in stage.get('requires',[]):pairs.add((dep,rid+':'+stage['key']))
+def stage_of(v):
+ seen=set()
+ while v in allnodes and v not in seen:
+  seen.add(v);v=allnodes[v].get('parentStageId')
+ return v
+for n in own.values():
+ for d in n.get("prerequisites",[]):
+  if d in stageids and d not in allnodes and d!=stage_of(n['id']):pairs.add((d,stage_of(n['id'])))
+for req in p["requests"]:
+ for v in req["neededBy"]:
+  target=stage_of(v)
+  if req["supplier"]!=target:pairs.add((req["supplier"],target))
+missing=[(s,t) for s,t in pairs if not reachable(s,t)]
+assert not missing,missing
+ar={x["id"]:x for x in a["roadmaps"]};cr={x["id"]:x for x in control["roadmaps"]}
+assert ar[rid]["blueprint"]["declarations"]==71
+assert ar[rid]["blueprint"]["planets"]==6
+assert not ar[rid]["blueprint"]["skippedLinks"]
+assert all(ar[x].get("blueprint",{}).get("skippedLinks")==cr[x].get("blueprint",{}).get("skippedLinks") for x in cr)
+for key in ("requests","gaps","sources","sourceIssues","routeManifest","restructure","upstreamNotes"):
+ assert p[key]==old[key],key
+on={n["id"]:n for n in old["nodes"]}
+for id,n in on.items():
+ for key in ("id","kind","statement","hypotheses","api","acceptance","sources","implementationStatus","uses"):
+  assert own[id].get(key)==n.get(key),(id,key)
+ assert all(t in own[id].get("tests",[]) for t in n.get("tests",[]))
+assert p["baseline"]["declarations"][:len(old["baseline"]["declarations"])]==old["baseline"]["declarations"]
+unchanged=sum(own[id]==n for id,n in on.items())
+lean=(root/"research/blueprint/suggested/HodgeStructuresPartII.lean").read_text()
+for node in p["nodes"]:
+ for test in node.get("tests",[]):assert test["name"] in lean,test["name"]
+for node in p["nodes"]:
+ for api in node.get("api",[]):assert api["name"].split(".")[-1] in lean,api["name"]
+allowed={packetpath,roadmappath,"research/blueprint/readmes/"+rid+".md","research/blueprint/suggested/"+rid+".lean","research/blueprint/handoff/DESIGN-"+rid+".md"}
+changed=set(subprocess.check_output(["git","diff","--name-only",base],text=True).splitlines())
+assert changed<=allowed,changed
+for path in changed:
+ assert not re.search(r"/(?:home|tmp|Users)/|file"+"://",(root/path).read_text()),path
+result={"actualAssembler":True,"declarations":71,"planets":6,"ownSkippedLinks":[],
+ "stageDAG":stageDAG,"ownDeclarationDAG":ownDAG,"stagesAndReachableDeclarations":combined,
+ "reachableDeclarations":len(used),"externalDeclarations":sorted(used-set(own)),
+ "requiredStagePairsReachable":len(pairs),"stageEdgesUnchanged":True,
+ "otherSkipsMatchOriginal":True,"unchangedNodeObjects":unchanged,
+ "scriptSha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+Path(__file__).with_suffix(".json").write_text(json.dumps(result,indent=2)+"\n")
+print(json.dumps(result,indent=2))
+```
+
+Exact SHA-256 receipts:
+
+- Current native: e7c84108653b8d910a49fb6aebe50ca9880572f206b2e0348ba36e625665af4b
+- native.log: 2c8ff8fa3cfb9ca4ba9deef0bc48a0fdb6436a483149be1da355a8281715482f
+- words.lean: f992d8964bf0d0537ccd3650eaaafd5701de75631319a06160dc993c874956a2
+- words.log: 302b28803b85c8f8c140865854ebec97f21481fe83a0c14664d2b13d0f879326
+- finite.py: 1d51a023fbcd294545fde2255cebff86f5d47945083ba2f6585e82d96ce366c1
+- projection.py: 171b894b6c4ab30417c9c1b19d49443332b8d3ca7bb84a19d245ded8914dfe74
+- Heuer25.html: b3162f810c5064726cd951511bbdb036227e6c2a30b7b682cb4548cb13500fed
+- LZ17-v3.pdf: 8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79
+
+## Resume
+
+1. Instantiate the canonical augmentation bridge when an existing exact Tau Ceti compiled import set is available. Do not set up or build one. Keep proof experiments distinct from admitted suggested bodies.
+2. Supply E1 sheaf symmetric/endomorphism/augmentation quotient and ordered tensor-power interfaces; prove chart coefficient extraction and restriction/gluing. Local word calculations do not discharge global nilpotence.
+3. Continue field/reduced-base rank bounds with genuine hypotheses; the Z/4 rank-one fixture rules out an unconditional rank shortcut.
+4. Discharge CR.1 ordinary/exterior comparison, DD.1 finite Griffiths/Rees interfaces, global determinant/descent and the unbounded filtered-period/Tate adapter. Heuer spectral/coherent-image/twisting results stay with their p-adic consumer.
+5. Read/decompose every remaining routed source definition and complete proof input before advancing H.1–H.8.
+
+Own scratch is removed after the PR opens; all referenced reproduction code and receipts survive here or at immutable commits.
