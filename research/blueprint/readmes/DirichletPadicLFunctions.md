@@ -59733,3 +59733,556 @@ Exact controls cover48cyclic point groups,13,720integer vectors,27,440boundary-i
 All79captured inputs, the four actual merged predecessor outputs and the complete issue body remain unchanged. The exact native additive torsion-free class, cancellation theorem and additive quotient operations were read at the pinned commits. No new source finding or review verdict is added. Two generated registry files changed during final checks; their entire diff was read. The new AlgebraicModuliForArithmeticGeometry/E5 record concerns the j-index on a contracted faithfully-flat descent expression in Stacks tag023N. All 9124 prior records and all other metadata are unchanged. The record is awaiting review, and its qualified known string places it in the generated already-corrected section, increasing1243to1244. It lies outside this route and is neither adopted nor independently reviewed. All other77inputs, four predecessor outputs and the full issue body are unchanged.
 
 The separate partial signature file also compiled with zero errors and 5,881 expected placeholder warnings across 3,910 pinned source modules. It includes all 16 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 16a38cfe87513985a3e41726a3eea2f30e38e737033ac7a33fb24b4ec08024ab.
+
+
+## Actual conditional integral and binary-field torsion comparisons
+
+Twenty L3 nodes identify the actual Tate images with native torsion submodules and construct integral and F2-linear equivalences, retaining the explicit original-module torsion-free premise. All1,985predecessor nodes and1,226baseline records remain whole.
+
+Kubert published199–200 Corollary4.15(iii) is now matched by actual conditional integer and F2-linear maps on the original parity carriers. SourceE25 and the explicit torsion-free premise remain unchanged. Existing native torsion submodules, actual range equivalences, integer cancellation and ZMod scalar interfaces were read in full and reused. No generic torsion or module theory is replanned, and no source freeness instance or printed-degree periodicity comparison is claimed.
+
+### The actual odd torsion submodule is the Tate image
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-range-eq-torsion` — `DirichletPadic.kubertSignTateZero_range_eq_torsion`
+
+Under the stated torsion-free premise on Q, the image of the actual degree-zero Tate embedding equals the native integer torsion submodule of the original odd quotient.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. Every Tate image is killed by2, so it belongs to the native torsion submodule with the explicit nonzero integer annihilator2.
+2. For a native torsion element, choose its actual nonzero integer annihilator.
+3. Apply the actual parity descent map to the annihilation equation; integer-linearity gives the same annihilator on the descent value in Q.
+4. The stated native torsion-free premise cancels this nonzero integer and forces the descent value to zero.
+5. The previously proved actual descent-kernel identity places the source quotient element in the Tate image.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity-two-nsmul`, `DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent-kernel`, `DirichletPadicLFunctions:L3/kubert-parity-descent-odd-parity-descent`, `mathlib:Submodule.torsion`, `mathlib:Submodule.mem_torsion_iff`, `mathlib:nonZeroDivisors.coe_ne_zero`, `mathlib:IsAddTorsionFree`, `mathlib:IsMulTorsionFree.zpow_eq_one_iff_left`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.signTateZero_range_eq_torsion_typed_api` (compatibility): Under the stated torsion-free premise on Q, the image of the actual degree-zero Tate embedding equals the native integer torsion submodule of the original odd quotient.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The actual integral degree-zero torsion equivalence
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-equiv` — `DirichletPadic.kubertSignTateZeroTorsionEquiv`
+
+Construct an integer-linear equivalence from the actual native degree-zero Tate group to the native torsion submodule of the original odd quotient.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. Use the native linear equivalence from the source of the actual injective Tate map to its actual range.
+2. Use the proved equality of that actual range with the native original-quotient torsion submodule.
+3. Compose with the native equivalence between equal submodules. This retains the underlying source parity map.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-range-eq-torsion`, `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity-injective`, `mathlib:LinearEquiv.ofInjective`, `mathlib:LinearEquiv.ofEq`.
+
+**Uses:**
+
+- Kubert200, Corollary4.15(iii): Supplies the actual torsion comparison, including its F2-linear structure, under the exact explicit original-module torsion-free premise used by the source proof.
+- Concrete parity torsion and fixed-generator calculations: Transports representatives and actual torsion elements in both directions without replacing the original parity quotient or suppressing the zero-labelled fixed class.
+
+**API:**
+
+- `kubertSignTateZeroTorsionEquiv_coe` (compatibility): The underlying original odd quotient value of the integral torsion comparison at x is the existing actual Tate embedding at x.
+- `kubertSignTateZeroTorsionEquiv_class` (compatibility): The underlying original odd quotient value of the comparison at the native Tate class of a kernel representative z is the original source quotient class of z.
+- `kubertSignTateZeroTorsionEquiv_symm_coe` (compatibility): For every actual torsion element y in the original odd quotient, the old Tate embedding applied to the inverse comparison at y equals the underlying original quotient element y.
+- `kubertOddParityTorsion_two_nsmul` (compatibility): Under the stated original-module torsion-free premise, every element of the native torsion submodule of the original odd quotient is killed by2.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.integral_odd_fixed_generator_detected` (non-example): Under the stated true torsion-free premise for this empty-relation example, the comparison preserves the nonzero torsion class of the zero-labelled fixed generator.
+- `SuggestedKubertTorsionComparisonTests.integral_odd_norm_boundary_zero` (computation): The full norm representative[1]+[4] maps to the zero torsion element of the original odd quotient.
+- `SuggestedKubertTorsionComparisonTests.integral_odd_inverse_preserves_torsion_element` (characterisation): The actual inverse followed by the comparison recovers every element of the original torsion submodule, with the exact original subtype value.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The integral degree-zero comparison retains the source map
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-equiv-coe` — `DirichletPadic.kubertSignTateZeroTorsionEquiv_coe`
+
+The underlying original odd quotient value of the integral torsion comparison at x is the existing actual Tate embedding at x.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. The native equivalence to the image retains the original function.
+2. The native equal-submodule equivalence retains the original subtype value.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-equiv`, `mathlib:LinearEquiv.ofInjective`, `mathlib:LinearEquiv.ofEq`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.signTateZeroTorsionEquiv_coe_typed_api` (compatibility): The underlying original odd quotient value of the integral torsion comparison at x is the existing actual Tate embedding at x.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The integral degree-zero comparison retains representatives
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-equiv-class` — `DirichletPadic.kubertSignTateZeroTorsionEquiv_class`
+
+The underlying original odd quotient value of the comparison at the native Tate class of a kernel representative z is the original source quotient class of z.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. Apply the comparison underlying-value formula.
+2. Apply the existing actual Tate embedding representative formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity-class`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.signTateZeroTorsionEquiv_class_typed_api` (compatibility): The underlying original odd quotient value of the comparison at the native Tate class of a kernel representative z is the original source quotient class of z.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The inverse integral degree-zero comparison recovers the torsion element
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-equiv-symm-coe` — `DirichletPadic.kubertSignTateZeroTorsionEquiv_symm_coe`
+
+For every actual torsion element y in the original odd quotient, the old Tate embedding applied to the inverse comparison at y equals the underlying original quotient element y.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. Rewrite the old embedding through the comparison underlying-value formula.
+2. Use the actual linear-equivalence inverse cancellation law.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.signTateZeroTorsionEquiv_symm_coe_typed_api` (compatibility): For every actual torsion element y in the original odd quotient, the old Tate embedding applied to the inverse comparison at y equals the underlying original quotient element y.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The actual odd torsion subgroup is annihilated by two
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-odd-parity-torsion-two-nsmul` — `DirichletPadic.kubertOddParityTorsion_two_nsmul`
+
+Under the stated original-module torsion-free premise, every element of the native torsion submodule of the original odd quotient is killed by2.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. Apply subtype extensionality to reduce to its original quotient value.
+2. Use the inverse comparison formula to express that value as an actual Tate image.
+3. Apply the already proved annihilation of every Tate image by2.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-equiv-symm-coe`, `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity-two-nsmul`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.oddParityTorsion_two_nsmul_typed_api` (compatibility): Under the stated original-module torsion-free premise, every element of the native torsion submodule of the original odd quotient is killed by2.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The actual binary-field degree-zero torsion equivalence
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-z-mod-equiv` — `DirichletPadic.kubertSignTateZeroTorsionZModEquiv`
+
+Construct an F2-linear equivalence from the actual native degree-zero Tate group to the native torsion submodule of the original odd quotient, with the same underlying map as the integral comparison.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. Use the existing native exponent-two module construction on the actual Tate group, with its proved annihilation by2.
+2. Use the same native construction on the actual original-quotient torsion submodule, with the newly proved annihilation by2.
+3. Retain the additive equivalence underlying the integral comparison.
+4. The native ZMod scalar-compatibility theorem for actual additive homomorphisms proves that this additive equivalence is F2-linear. No new generic torsion or module structure is replanned.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-equiv`, `DirichletPadicLFunctions:L3/kubert-torsion-comparison-odd-parity-torsion-two-nsmul`, `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-two-nsmul`, `mathlib:AddCommGroup.zmodModule`, `mathlib:ZMod.map_smul`.
+
+**Uses:**
+
+- Kubert200, Corollary4.15(iii): Supplies the actual torsion comparison, including its F2-linear structure, under the exact explicit original-module torsion-free premise used by the source proof.
+- Concrete parity torsion and fixed-generator calculations: Transports representatives and actual torsion elements in both directions without replacing the original parity quotient or suppressing the zero-labelled fixed class.
+
+**API:**
+
+- `kubertSignTateZeroTorsionZModEquiv_coe` (compatibility): The underlying original odd quotient value of the binary-field comparison at x is the same actual Tate embedding at x.
+- `kubertSignTateZeroTorsionZModEquiv_class` (compatibility): The binary-field comparison sends the actual Tate class of a kernel representative z to the original source odd quotient class of z as its underlying value.
+- `kubertSignTateZeroTorsionZModEquiv_symm_coe` (compatibility): For every actual original odd torsion element y, its inverse field comparison followed by the original Tate embedding recovers the exact underlying quotient element y.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.binary_odd_fixed_generator_detected` (non-example): Under the stated true torsion-free premise for this empty-relation example, the comparison preserves the nonzero torsion class of the zero-labelled fixed generator.
+- `SuggestedKubertTorsionComparisonTests.binary_odd_norm_boundary_zero` (computation): The full norm representative[1]+[4] maps to the zero torsion element of the original odd quotient.
+- `SuggestedKubertTorsionComparisonTests.binary_odd_binary_scalar_compatibility` (compatibility): The actual field-linear comparison commutes with every scalar of F2 on the native Tate group and original torsion carrier, using the constructed native exponent-two actions.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The binary-field degree-zero comparison retains the source map
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-z-mod-equiv-coe` — `DirichletPadic.kubertSignTateZeroTorsionZModEquiv_coe`
+
+The underlying original odd quotient value of the binary-field comparison at x is the same actual Tate embedding at x.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. The field-linear equivalence keeps the integral comparison additive map.
+2. Its underlying original quotient value is unchanged.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-z-mod-equiv`, `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-equiv-coe`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.signTateZeroTorsionZModEquiv_coe_typed_api` (compatibility): The underlying original odd quotient value of the binary-field comparison at x is the same actual Tate embedding at x.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The binary-field degree-zero comparison retains representatives
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-z-mod-equiv-class` — `DirichletPadic.kubertSignTateZeroTorsionZModEquiv_class`
+
+The binary-field comparison sends the actual Tate class of a kernel representative z to the original source odd quotient class of z as its underlying value.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. Use the field comparison underlying-value formula.
+2. Use the already established actual Tate representative formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-z-mod-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-zero-to-parity-class`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.signTateZeroTorsionZModEquiv_class_typed_api` (compatibility): The binary-field comparison sends the actual Tate class of a kernel representative z to the original source odd quotient class of z as its underlying value.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The inverse binary-field degree-zero comparison recovers torsion
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-z-mod-equiv-symm-coe` — `DirichletPadic.kubertSignTateZeroTorsionZModEquiv_symm_coe`
+
+For every actual original odd torsion element y, its inverse field comparison followed by the original Tate embedding recovers the exact underlying quotient element y.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. The field equivalence retains the integral equivalence inverse.
+2. Apply the integral inverse underlying-value formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-z-mod-equiv`, `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-zero-torsion-equiv-symm-coe`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.signTateZeroTorsionZModEquiv_symm_coe_typed_api` (compatibility): For every actual original odd torsion element y, its inverse field comparison followed by the original Tate embedding recovers the exact underlying quotient element y.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The actual even torsion submodule is the Tate image
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-range-eq-torsion` — `DirichletPadic.kubertSignTateNegOne_range_eq_torsion`
+
+Under the stated torsion-free premise on Q, the image of the actual degree-minus-one Tate embedding equals the native integer torsion submodule of the original even quotient.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. Every Tate image is killed by2, so it belongs to the native torsion submodule with the explicit nonzero integer annihilator2.
+2. For a native torsion element, choose its actual nonzero integer annihilator.
+3. Apply the actual parity descent map to the annihilation equation; integer-linearity gives the same annihilator on the descent value in Q.
+4. The stated native torsion-free premise cancels this nonzero integer and forces the descent value to zero.
+5. The previously proved actual descent-kernel identity places the source quotient element in the Tate image.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity-two-nsmul`, `DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent-kernel`, `DirichletPadicLFunctions:L3/kubert-parity-descent-even-parity-descent`, `mathlib:Submodule.torsion`, `mathlib:Submodule.mem_torsion_iff`, `mathlib:nonZeroDivisors.coe_ne_zero`, `mathlib:IsAddTorsionFree`, `mathlib:IsMulTorsionFree.zpow_eq_one_iff_left`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.signTateNegOne_range_eq_torsion_typed_api` (compatibility): Under the stated torsion-free premise on Q, the image of the actual degree-minus-one Tate embedding equals the native integer torsion submodule of the original even quotient.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The actual integral degree-minus-one torsion equivalence
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-equiv` — `DirichletPadic.kubertSignTateNegOneTorsionEquiv`
+
+Construct an integer-linear equivalence from the actual native degree-minus-one Tate group to the native torsion submodule of the original even quotient.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. Use the native linear equivalence from the source of the actual injective Tate map to its actual range.
+2. Use the proved equality of that actual range with the native original-quotient torsion submodule.
+3. Compose with the native equivalence between equal submodules. This retains the underlying source parity map.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-range-eq-torsion`, `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity-injective`, `mathlib:LinearEquiv.ofInjective`, `mathlib:LinearEquiv.ofEq`.
+
+**Uses:**
+
+- Kubert200, Corollary4.15(iii): Supplies the actual torsion comparison, including its F2-linear structure, under the exact explicit original-module torsion-free premise used by the source proof.
+- Concrete parity torsion and fixed-generator calculations: Transports representatives and actual torsion elements in both directions without replacing the original parity quotient or suppressing the zero-labelled fixed class.
+
+**API:**
+
+- `kubertSignTateNegOneTorsionEquiv_coe` (compatibility): The underlying original even quotient value of the integral torsion comparison at x is the existing actual Tate embedding at x.
+- `kubertSignTateNegOneTorsionEquiv_class` (compatibility): The underlying original even quotient value of the comparison at the native Tate class of a kernel representative z is the original source quotient class of z.
+- `kubertSignTateNegOneTorsionEquiv_symm_coe` (compatibility): For every actual torsion element y in the original even quotient, the old Tate embedding applied to the inverse comparison at y equals the underlying original quotient element y.
+- `kubertEvenParityTorsion_two_nsmul` (compatibility): Under the stated original-module torsion-free premise, every element of the native torsion submodule of the original even quotient is killed by2.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.integral_even_nonzero_antisymmetric_boundary` (non-example): The original representative[1]-[4] is nonzero but its negative Tate class maps to zero in the torsion of the even quotient.
+- `SuggestedKubertTorsionComparisonTests.integral_even_free_even_torsion_zero` (degenerate): The actual empty-relation even permutation quotient on ZMod5 has no nonzero torsion, so the inverse comparison sends every torsion element to zero.
+- `SuggestedKubertTorsionComparisonTests.integral_even_inverse_preserves_torsion_element` (characterisation): The actual inverse followed by the comparison recovers every element of the original torsion submodule, with the exact original subtype value.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The integral degree-minus-one comparison retains the source map
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-equiv-coe` — `DirichletPadic.kubertSignTateNegOneTorsionEquiv_coe`
+
+The underlying original even quotient value of the integral torsion comparison at x is the existing actual Tate embedding at x.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. The native equivalence to the image retains the original function.
+2. The native equal-submodule equivalence retains the original subtype value.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-equiv`, `mathlib:LinearEquiv.ofInjective`, `mathlib:LinearEquiv.ofEq`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.signTateNegOneTorsionEquiv_coe_typed_api` (compatibility): The underlying original even quotient value of the integral torsion comparison at x is the existing actual Tate embedding at x.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The integral degree-minus-one comparison retains representatives
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-equiv-class` — `DirichletPadic.kubertSignTateNegOneTorsionEquiv_class`
+
+The underlying original even quotient value of the comparison at the native Tate class of a kernel representative z is the original source quotient class of z.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. Apply the comparison underlying-value formula.
+2. Apply the existing actual Tate embedding representative formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity-class`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.signTateNegOneTorsionEquiv_class_typed_api` (compatibility): The underlying original even quotient value of the comparison at the native Tate class of a kernel representative z is the original source quotient class of z.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The inverse integral degree-minus-one comparison recovers the torsion element
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-equiv-symm-coe` — `DirichletPadic.kubertSignTateNegOneTorsionEquiv_symm_coe`
+
+For every actual torsion element y in the original even quotient, the old Tate embedding applied to the inverse comparison at y equals the underlying original quotient element y.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. Rewrite the old embedding through the comparison underlying-value formula.
+2. Use the actual linear-equivalence inverse cancellation law.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.signTateNegOneTorsionEquiv_symm_coe_typed_api` (compatibility): For every actual torsion element y in the original even quotient, the old Tate embedding applied to the inverse comparison at y equals the underlying original quotient element y.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The actual even torsion subgroup is annihilated by two
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-even-parity-torsion-two-nsmul` — `DirichletPadic.kubertEvenParityTorsion_two_nsmul`
+
+Under the stated original-module torsion-free premise, every element of the native torsion submodule of the original even quotient is killed by2.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. Apply subtype extensionality to reduce to its original quotient value.
+2. Use the inverse comparison formula to express that value as an actual Tate image.
+3. Apply the already proved annihilation of every Tate image by2.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-equiv-symm-coe`, `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity-two-nsmul`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.evenParityTorsion_two_nsmul_typed_api` (compatibility): Under the stated original-module torsion-free premise, every element of the native torsion submodule of the original even quotient is killed by2.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The actual binary-field degree-minus-one torsion equivalence
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-z-mod-equiv` — `DirichletPadic.kubertSignTateNegOneTorsionZModEquiv`
+
+Construct an F2-linear equivalence from the actual native degree-minus-one Tate group to the native torsion submodule of the original even quotient, with the same underlying map as the integral comparison.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. Use the existing native exponent-two module construction on the actual Tate group, with its proved annihilation by2.
+2. Use the same native construction on the actual original-quotient torsion submodule, with the newly proved annihilation by2.
+3. Retain the additive equivalence underlying the integral comparison.
+4. The native ZMod scalar-compatibility theorem for actual additive homomorphisms proves that this additive equivalence is F2-linear. No new generic torsion or module structure is replanned.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-equiv`, `DirichletPadicLFunctions:L3/kubert-torsion-comparison-even-parity-torsion-two-nsmul`, `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-two-nsmul`, `mathlib:AddCommGroup.zmodModule`, `mathlib:ZMod.map_smul`.
+
+**Uses:**
+
+- Kubert200, Corollary4.15(iii): Supplies the actual torsion comparison, including its F2-linear structure, under the exact explicit original-module torsion-free premise used by the source proof.
+- Concrete parity torsion and fixed-generator calculations: Transports representatives and actual torsion elements in both directions without replacing the original parity quotient or suppressing the zero-labelled fixed class.
+
+**API:**
+
+- `kubertSignTateNegOneTorsionZModEquiv_coe` (compatibility): The underlying original even quotient value of the binary-field comparison at x is the same actual Tate embedding at x.
+- `kubertSignTateNegOneTorsionZModEquiv_class` (compatibility): The binary-field comparison sends the actual Tate class of a kernel representative z to the original source even quotient class of z as its underlying value.
+- `kubertSignTateNegOneTorsionZModEquiv_symm_coe` (compatibility): For every actual original even torsion element y, its inverse field comparison followed by the original Tate embedding recovers the exact underlying quotient element y.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.binary_even_nonzero_antisymmetric_boundary` (non-example): The original representative[1]-[4] is nonzero but its negative Tate class maps to zero in the torsion of the even quotient.
+- `SuggestedKubertTorsionComparisonTests.binary_even_free_even_torsion_zero` (degenerate): The actual empty-relation even permutation quotient on ZMod5 has no nonzero torsion, so the inverse comparison sends every torsion element to zero.
+- `SuggestedKubertTorsionComparisonTests.binary_even_binary_scalar_compatibility` (compatibility): The actual field-linear comparison commutes with every scalar of F2 on the native Tate group and original torsion carrier, using the constructed native exponent-two actions.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The binary-field degree-minus-one comparison retains the source map
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-z-mod-equiv-coe` — `DirichletPadic.kubertSignTateNegOneTorsionZModEquiv_coe`
+
+The underlying original even quotient value of the binary-field comparison at x is the same actual Tate embedding at x.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. The field-linear equivalence keeps the integral comparison additive map.
+2. Its underlying original quotient value is unchanged.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-z-mod-equiv`, `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-equiv-coe`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.signTateNegOneTorsionZModEquiv_coe_typed_api` (compatibility): The underlying original even quotient value of the binary-field comparison at x is the same actual Tate embedding at x.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The binary-field degree-minus-one comparison retains representatives
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-z-mod-equiv-class` — `DirichletPadic.kubertSignTateNegOneTorsionZModEquiv_class`
+
+The binary-field comparison sends the actual Tate class of a kernel representative z to the original source even quotient class of z as its underlying value.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. Use the field comparison underlying-value formula.
+2. Use the already established actual Tate representative formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-z-mod-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-tate-parity-embedding-sign-tate-neg-one-to-parity-class`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.signTateNegOneTorsionZModEquiv_class_typed_api` (compatibility): The binary-field comparison sends the actual Tate class of a kernel representative z to the original source even quotient class of z as its underlying value.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+### The inverse binary-field degree-minus-one comparison recovers torsion
+
+`DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-z-mod-equiv-symm-coe` — `DirichletPadic.kubertSignTateNegOneTorsionZModEquiv_symm_coe`
+
+For every actual original even torsion element y, its inverse field comparison followed by the original Tate embedding recovers the exact underlying quotient element y.
+
+**Hypotheses:** Use the original weighted distribution quotient Q on an actual additive commutative point group X:Type, arbitrary set S of positive multipliers and natural weight w, with actual finite multiplication-root fibers. Assume explicitly the native IsAddTorsionFree predicate for this original Q. This is a mathematical hypothesis of these comparison statements; no ordinary or weighted source instance, freeness theorem or lower-rank result is claimed. Retain the actual native order-two point representation, native Tate groups and the original source parity quotient carriers. The torsion target is the existing native Submodule.torsion over the integers, using an actual nonzero integer annihilator. Degree0 compares with torsion in the odd quotient and degree−1 with torsion in the even quotient. The binary-field structures are the existing native exponent-two module constructions on these exact carriers, justified by proved annihilation by2. The printed degree1 convention still requires existing native periodicity.
+
+**Proof:**
+
+1. The field equivalence retains the integral equivalence inverse.
+2. Apply the integral inverse underlying-value formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-z-mod-equiv`, `DirichletPadicLFunctions:L3/kubert-torsion-comparison-sign-tate-neg-one-torsion-equiv-symm-coe`.
+
+**Tests:**
+
+- `SuggestedKubertTorsionComparisonTests.signTateNegOneTorsionZModEquiv_symm_coe_typed_api` (compatibility): For every actual original even torsion element y, its inverse field comparison followed by the original Tate embedding recovers the exact underlying quotient element y.
+
+**Acceptance:** All torsion equivalences retain the explicit native torsion-free premise on the original Q and preserve actual source quotient representatives. In the empty-relation permutation example on ZMod5, the zero-labelled fixed generator yields a nonzero odd torsion class of order2; a complete two-point norm maps to zero, and nonzero antisymmetric boundaries map to zero in the torsion-free even quotient. The field equivalences must commute with every actual scalar in F2 using the native constructed actions.
+
+**Source:** Published199–200, original even/odd quotients and Corollary4.15(iii), including the explicit use of torsion-freeness in its proof; E25 remains the recorded symbol correction. Constructs the actual integral and binary-field equivalences between native low-degree Tate groups and torsion of the original source parity quotients, with the source original-module torsion-free premise stated explicitly. It reuses existing native torsion and exponent-two module structures and does not supply the separate source freeness or printed-degree periodicity input.
+
+**Remaining:** Under the explicit native torsion-free premise on the original distribution quotient Q, the actual degree0 and degree−1 Tate groups now have constructed integral and F2-linear equivalences with torsion in the original odd and even quotients, respectively. The comparisons retain original representatives and recover every actual torsion element in the inverse direction. The source ordinary distribution freeness hypothesis is still unproved here; these conditional equivalences do not close that gap. Next supply the separate source freeness/lower-rank/internal-global input and the existing native periodicity comparison between printed degree1 and degree−1. Character components, general-degree coordinates and fiber counts, and unramified-ring identification remain open.
+
+### Actual conditional integral and binary-field torsion comparisons validation
+
+All 1985 predecessor nodes, 1226 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 20 nodes, 20 named suggested declarations and 28 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2267 reachable nodes, 9300 edges and 1401 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. All new routes end in actual native Tate embeddings and parity descent maps, original source quotient carriers, or existing native torsion, range-equivalence, integer-cancellation and ZMod module declarations. No assumed comparison, source freeness instance, generic torsion duplicate or supplier-stage leaf is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3913 pinned Mathlib modules and 30 pinned Tau Ceti modules. Only 29 Tau module artifacts are available and hash-verified. The 144 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5755 verbatim and adds four constructions and sixteen complete lemmas. Totals are166definitions and1,314lemmas with no placeholders. The public append has20named declarations and28typed examples, all new mathematical bodies placeholders. Native torsion and submodule imports reuse existing pinned artifacts; no library build occurs. The separate probe compiles against 3280 pinned Mathlib modules and 8 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native low-degree Tate and Teichmuller artifacts, with eight Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact integer and F2 controls cover48cyclic groups and13,720vectors, with144binary comparison roundtrips,288scalar checks,480addition checks and72nonzero fixed torsion classes. Exact integer and F2 orbit-coordinate controls on cyclic point groups of orders1–48. All{-1,0,1} vectors through order8 and97 deterministic vectors at larger orders verify that odd quotient torsion is exactly its fixed-point parity coordinates and even quotient torsion is zero in these free permutation examples. Every binary vector, pair and scalar verifies the concrete torsion comparison and its inverse, addition and field action. These finite controls do not establish torsion-freeness of an actual nonempty-relation distribution quotient; that remains an explicit premise of the general Lean comparison. The largest observed discrepancy is 0.
+
+All79captured inputs, four actual merged predecessor outputs and the full issue body are unchanged. Native torsion, linear range equivalences, integer cancellation and binary-field scalar interfaces were read at the pinned commits. No new source issue or review verdict is added.
+
+The separate partial signature file also compiled with zero errors and 5,929 expected placeholder warnings across 3,910 pinned source modules. It includes all 20 new named declarations and 28 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: af5d1d5a919a6046ccc1536304616b7c2631a742cd887da3a8878dc09e60fd28.
