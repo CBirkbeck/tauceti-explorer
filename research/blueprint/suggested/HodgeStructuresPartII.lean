@@ -5,8 +5,9 @@ forms so that contributors and reviewers converge on names and signatures.
 Partial continuation for DESIGN-HodgeStructuresPartII, issue #3371.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-NOT COMPILED: no existing build at both pins was available. No project or cache
-was created, no library was built, and no Lean language server was started.
+COMPILED: the entire file elaborates with Lean v4.34.0-rc2 against the existing
+pinned Mathlib build, with only sorry warnings. All imports are Mathlib modules.
+No project/cache setup, library build or Lean language server was started.
 The affine test prefix is retained. The intrinsic local core uses actual additive
 maps, tensor products and defining equations; its truncated TwoForms input is
 not the general ringed-site object or a higher-degree exterior calculus.
@@ -44,42 +45,42 @@ HodgeStructuresPartII:H.0/joint-nilpotence → Connection.JointNilpotent
 
 namespace TauCeti.Hodge.ParameterConnection.Affine
 
-universe u
+universe u v w
 variable (k R : Type u) [CommRing k] [CommRing R] [Algebra k R]
 
 /-- Commuting coordinate directions and a relatively constant parameter.
 This is input for a local model, not a definition of a general differential site. -/
-structure Frame (d : ℕ) (λ : R) where
+structure Frame (d : ℕ) (lam : R) where
   delta : Fin d → Derivation k R R
   commute : ∀ i j a, delta i (delta j a) = delta j (delta i a)
-  constant : ∀ i, delta i λ = 0
+  constant : ∀ i, delta i lam = 0
 
-variable {k R} {d : ℕ} {λ : R}
+variable {k R} {d : ℕ} {lam : R}
 
-def Frame.zero (d : ℕ) (λ : R) : Frame k R d λ := sorry
+def Frame.zero (d : ℕ) (lam : R) : Frame k R d lam := sorry
 def Frame.polynomial (d : ℕ) (c : k) :
     Frame k (MvPolynomial (Fin d) k) d (MvPolynomial.C c) := sorry
-def Frame.one (F : Frame k R d λ) : Frame k R d 1 := sorry
-theorem Frame.zero_delta (d : ℕ) (λ : R) (i : Fin d) (a : R) :
-    (Frame.zero (k := k) (R := R) d λ).delta i a = 0 := sorry
+def Frame.one (F : Frame k R d lam) : Frame k R d 1 := sorry
+theorem Frame.zero_delta (d : ℕ) (lam : R) (i : Fin d) (a : R) :
+    (Frame.zero (k := k) (R := R) d lam).delta i a = 0 := sorry
 theorem Frame.polynomial_delta (d : ℕ) (c : k) (i : Fin d) :
     (Frame.polynomial (k := k) d c).delta i = MvPolynomial.pderiv i := sorry
-theorem Frame.one_delta (F : Frame k R d λ) (i : Fin d) :
+theorem Frame.one_delta (F : Frame k R d lam) (i : Fin d) :
     F.one.delta i = F.delta i := sorry
 -- Frame tests: zero directions, actual polynomial differentiation, reject identity.
 -- test: Frame.test_zero
-example (a : R) : (Frame.zero (k := k) (R := R) 1 λ).delta 0 a = 0 := sorry
+example (a : R) : (Frame.zero (k := k) (R := R) 1 lam).delta 0 a = 0 := sorry
 -- test: Frame.test_polynomial_X
 example : (Frame.polynomial (k := ℚ) 1 1).delta 0 (MvPolynomial.X 0) = 1 := sorry
 -- test: Frame.test_identity_not_derivation
 example : (1 : ℚ) ≠ 1 * 1 + 1 * 1 := sorry
 
-variable (F : Frame k R d λ) (V : Type u) [Fintype V] [DecidableEq V]
-/-- A coordinate λ-connection before imposing flatness, on the free module R^V. -/
-structure Connection (F : Frame k R d λ) (V : Type u) where
+variable (F : Frame k R d lam) (V : Type v) [Fintype V] [DecidableEq V]
+/-- A coordinate lam-connection before imposing flatness, on the free module R^V. -/
+structure Connection (F : Frame k R d lam) (V : Type v) where
   matrix : Fin d → Matrix V V R
 
-variable {V}
+variable {F V}
 def Connection.zero : Connection F V := ⟨fun _ => 0⟩
 theorem Connection.zero_matrix (i : Fin d) :
     (Connection.zero (F := F) (V := V)).matrix i = 0 := sorry
@@ -96,24 +97,24 @@ example (A : Fin d → Matrix V V R) (i : Fin d) :
 example (A : Fin 1 → Matrix (Fin 1) (Fin 1) ℚ) :
     (Connection.mk A : Connection (Frame.zero (k := ℚ) (R := ℚ) 1 0) (Fin 1)).matrix 0 = A 0 := sorry
 
-/-- D_i(s)=λ δ_i(s)+A_i s; base-linear, not generally R-linear. -/
+/-- D_i(s)=lam δ_i(s)+A_i s; base-linear, not generally R-linear. -/
 def Connection.operator (c : Connection F V) (i : Fin d) : (V → R) →ₗ[k] (V → R) := sorry
 theorem Connection.operator_apply (c : Connection F V) (i : Fin d) (s : V → R) :
-    c.operator i s = (fun v => λ * F.delta i (s v)) + c.matrix i *ᵥ s := sorry
+    c.operator i s = (fun v => lam * F.delta i (s v)) + c.matrix i *ᵥ s := sorry
 theorem Connection.operator_leibniz (c : Connection F V) (i : Fin d) (a : R) (s : V → R) :
-    c.operator i (a • s) = a • c.operator i s + (λ * F.delta i a) • s := sorry
+    c.operator i (a • s) = a • c.operator i s + (lam * F.delta i a) • s := sorry
 theorem Connection.operator_zero (i : Fin d) (s : V → R) :
-    (Connection.zero (F := F) (V := V)).operator i s = fun v => λ * F.delta i (s v) := sorry
+    (Connection.zero (F := F) (V := V)).operator i s = fun v => lam * F.delta i (s v) := sorry
 -- test: Connection.test_operator_zero_section
 example (c : Connection F V) (i : Fin d) : c.operator i 0 = 0 := sorry
 -- test: Connection.test_operator_unit
 example (i : Fin d) (s : V → R) :
-    (Connection.zero (F := F) (V := V)).operator i s = fun v => λ * F.delta i (s v) := sorry
+    (Connection.zero (F := F) (V := V)).operator i s = fun v => lam * F.delta i (s v) := sorry
 -- test: Connection.test_operator_polynomial_leibniz
 example (s : Fin 1 → MvPolynomial (Fin 1) ℚ) :
     (Connection.zero (F := Frame.polynomial (k := ℚ) 1 1) (V := Fin 1)).operator 0
-      (MvPolynomial.X 0 • s) =
-    MvPolynomial.X 0 •
+      ((MvPolynomial.X (0 : Fin 1) : MvPolynomial (Fin 1) ℚ) • s) =
+    (MvPolynomial.X (0 : Fin 1) : MvPolynomial (Fin 1) ℚ) •
       (Connection.zero (F := Frame.polynomial (k := ℚ) 1 1) (V := Fin 1)).operator 0 s + s := sorry
 -- test: Connection.test_operator_parameter_two
 example :
@@ -121,9 +122,9 @@ example :
     let c := Connection.zero (F := F) (V := Fin 1)
     c.operator 0 (fun _ => MvPolynomial.X 0) = fun _ => MvPolynomial.C 2 := sorry
 
-/-- Matrix of the commutator: λδ_i A_j-λδ_j A_i+[A_i,A_j]. -/
+/-- Matrix of the commutator: lamδ_i A_j-lamδ_j A_i+[A_i,A_j]. -/
 def Connection.curvature (c : Connection F V) (i j : Fin d) : Matrix V V R :=
-  λ • (c.matrix j).map (F.delta i) - λ • (c.matrix i).map (F.delta j) +
+  lam • (c.matrix j).map (F.delta i) - lam • (c.matrix i).map (F.delta j) +
     c.matrix i * c.matrix j - c.matrix j * c.matrix i
 theorem Connection.curvature_self (c : Connection F V) (i : Fin d) :
     c.curvature i i = 0 := sorry
@@ -152,25 +153,25 @@ def Connection.flatZero : {c : Connection F V // c.IsFlat} := sorry
 theorem Connection.isFlat_iff (c : Connection F V) :
     c.IsFlat ↔ ∀ i j s, c.operator i (c.operator j s) = c.operator j (c.operator i s) := sorry
 theorem Connection.isFlat_zero : (Connection.zero (F := F) (V := V)).IsFlat := sorry
-theorem Connection.isFlat_one_direction (F : Frame k R 1 λ) (c : Connection F V) :
+theorem Connection.isFlat_one_direction (F : Frame k R 1 lam) (c : Connection F V) :
     c.IsFlat := sorry
 -- test: Connection.test_flat_zero
 example : (Connection.zero (F := F) (V := V)).IsFlat := sorry
 -- test: Connection.test_flat_line
-example (F : Frame k R 1 λ) (c : Connection F V) : c.IsFlat := sorry
+example (F : Frame k R 1 lam) (c : Connection F V) : c.IsFlat := sorry
 -- test: Connection.test_flat_noncommuting
 example :
     let F := Frame.zero (k := ℚ) (R := ℚ) 2 0
     let A : Fin 2 → Matrix (Fin 2) (Fin 2) ℚ := ![Matrix.single 0 1 1, Matrix.single 1 0 1]
     ¬(Connection.mk A : Connection F (Fin 2)).IsFlat := sorry
 
-/-- Components transform by s'=G s, hence A'=G A G⁻¹-λδ(G)G⁻¹. -/
+/-- Components transform by s'=G s, hence A'=G A G⁻¹-lamδ(G)G⁻¹. -/
 def Connection.gauge (c : Connection F V) (G : (Matrix V V R)ˣ) : Connection F V := sorry
 theorem Connection.gauge_matrix (c : Connection F V) (G : (Matrix V V R)ˣ) (i : Fin d) :
-    (c.gauge G).matrix i = (G : Matrix V V R) * c.matrix i * (↑G⁻¹) -
-      λ • ((G : Matrix V V R).map (F.delta i) * (↑G⁻¹)) := sorry
+    (c.gauge G).matrix i = (G : Matrix V V R) * c.matrix i * ((↑(G⁻¹)) : Matrix V V R) -
+      lam • ((G : Matrix V V R).map (F.delta i) * ((↑(G⁻¹)) : Matrix V V R)) := sorry
 theorem Connection.gauge_curvature (c : Connection F V) (G : (Matrix V V R)ˣ) (i j : Fin d) :
-    (c.gauge G).curvature i j = (G : Matrix V V R) * c.curvature i j * (↑G⁻¹) := sorry
+    (c.gauge G).curvature i j = (G : Matrix V V R) * c.curvature i j * ((↑(G⁻¹)) : Matrix V V R) := sorry
 theorem Connection.gauge_flat (c : Connection F V) (G : (Matrix V V R)ˣ) :
     (c.gauge G).IsFlat ↔ c.IsFlat := sorry
 -- test: Connection.test_gauge_identity
@@ -181,10 +182,10 @@ example (c : Connection F V) (G : (Matrix V V R)ˣ) :
 -- test: Connection.test_gauge_zero_correction
 example (G : (Matrix V V R)ˣ) (i : Fin d) :
     ((Connection.zero (F := F) (V := V)).gauge G).matrix i =
-      -λ • ((G : Matrix V V R).map (F.delta i) * (↑G⁻¹)) := sorry
+      -lam • ((G : Matrix V V R).map (F.delta i) * ((↑(G⁻¹)) : Matrix V V R)) := sorry
 
-variable {W : Type u} [Fintype W] [DecidableEq W]
-/-- Same λ on both factors: Kronecker sum, not a 2λ-connection. -/
+variable {W : Type w} [Fintype W] [DecidableEq W]
+/-- Same lam on both factors: Kronecker sum, not a 2lam-connection. -/
 def Connection.tensor (c : Connection F V) (b : Connection F W) : Connection F (V × W) := sorry
 theorem Connection.tensor_matrix (c : Connection F V) (b : Connection F W) (i : Fin d) :
     (c.tensor b).matrix i = Matrix.kronecker (c.matrix i) (1 : Matrix W W R) +
@@ -203,7 +204,7 @@ example (c : Connection F V) (b : Connection F W) (hc : c.IsFlat) (hb : b.IsFlat
 -- test: Connection.test_tensor_parameter
 example (c : Connection F V) (b : Connection F W) (i : Fin d) (a : R) (s : V × W → R) :
     (c.tensor b).operator i (a • s) =
-      a • (c.tensor b).operator i s + (λ * F.delta i a) • s := sorry
+      a • (c.tensor b).operator i s + (lam * F.delta i a) • s := sorry
 
 /-- Dual matrix is minus transpose, using the same parameter and directions. -/
 def Connection.dual (c : Connection F V) : Connection F V := sorry
@@ -220,7 +221,7 @@ example (c : Connection F V) : c.dual.dual = c := sorry
 example (c : Connection F V) (i : Fin d) (v w : V) :
     c.dual.matrix i v w = -c.matrix i w v := sorry
 
-/-- Division by an invertible relatively constant λ also rescales A, not just its type. -/
+/-- Division by an invertible relatively constant lam also rescales A, not just its type. -/
 def Connection.rescale {u : Rˣ} {F : Frame k R d (u : R)} (c : Connection F V) :
     Connection F.one V := sorry
 theorem Connection.rescale_matrix {u : Rˣ} {F : Frame k R d (u : R)}
@@ -292,15 +293,15 @@ structure TwoForms where
   d1_d0 : ∀ a, d1 (d0 a) = 0
 
 variable {k R W Z}
-variable (Ω : TwoForms k R W Z) (λ : R)
+variable (Ω : TwoForms k R W Z) (lam : R)
 variable (E : Type v) [AddCommGroup E] [Module R E]
 
 /-- Ring-level preconnection, additive rather than incorrectly R-linear. -/
 structure Preconnection where
   toAddHom : E →+ (E ⊗[R] W)
-  leibniz : ∀ a e, toAddHom (a • e) = a • toAddHom e + λ • (e ⊗ₜ[R] Ω.d0 a)
+  leibniz : ∀ a e, toAddHom (a • e) = a • toAddHom e + lam • (e ⊗ₜ[R] Ω.d0 a)
 
-variable {λ E}
+variable {lam E}
 
 -- Auxiliary tensor map from the existing bilinear wedge; no new forms carrier.
 def TwoForms.wedgeRight (Ω : TwoForms k R W Z) (ω : W) :
@@ -311,46 +312,46 @@ theorem TwoForms.wedgeRight_tmul (ω α : W) (e : E) :
 
 variable {Ω}
 
-def Preconnection.extensionPair (D : Preconnection Ω λ E) :
+def Preconnection.extensionPair (D : Preconnection Ω lam E) :
     E →+ W →+ (E ⊗[R] Z) := sorry
 
-theorem Preconnection.extensionPair_apply (D : Preconnection Ω λ E) (e : E) (ω : W) :
+theorem Preconnection.extensionPair_apply (D : Preconnection Ω lam E) (e : E) (ω : W) :
     D.extensionPair e ω = Ω.wedgeRight (E := E) ω (D.toAddHom e) +
-      λ • (e ⊗ₜ[R] Ω.d1 ω) := sorry
+      lam • (e ⊗ₜ[R] Ω.d1 ω) := sorry
 
 -- node: HodgeStructuresPartII:H.0/extension-balancing
-theorem Preconnection.extension_balanced (D : Preconnection Ω λ E) (a : R) (e : E) (ω : W) :
+theorem Preconnection.extension_balanced (D : Preconnection Ω lam E) (a : R) (e : E) (ω : W) :
     D.extensionPair (a • e) ω = D.extensionPair e (a • ω) := sorry
 
 -- Native use of the baseline's balanced additive lift, not LinearMap tensor lift.
-def Preconnection.extend (D : Preconnection Ω λ E) : (E ⊗[R] W) →+ (E ⊗[R] Z) :=
+def Preconnection.extend (D : Preconnection Ω lam E) : (E ⊗[R] W) →+ (E ⊗[R] Z) :=
   TensorProduct.liftAddHom D.extensionPair D.extension_balanced
 
-theorem Preconnection.extend_tmul (D : Preconnection Ω λ E) (e : E) (ω : W) :
+theorem Preconnection.extend_tmul (D : Preconnection Ω lam E) (e : E) (ω : W) :
     D.extend (e ⊗ₜ[R] ω) = Ω.wedgeRight (E := E) ω (D.toAddHom e) +
-      λ • (e ⊗ₜ[R] Ω.d1 ω) := sorry
+      lam • (e ⊗ₜ[R] Ω.d1 ω) := sorry
 
 -- node: HodgeStructuresPartII:H.0/intrinsic-curvature
-def Preconnection.curvature (D : Preconnection Ω λ E) : E →+ (E ⊗[R] Z) :=
+def Preconnection.curvature (D : Preconnection Ω lam E) : E →+ (E ⊗[R] Z) :=
   D.extend.comp D.toAddHom
 
-def Preconnection.IsIntegrable (D : Preconnection Ω λ E) : Prop := D.curvature = 0
+def Preconnection.IsIntegrable (D : Preconnection Ω lam E) : Prop := D.curvature = 0
 
-theorem Preconnection.curvature_apply (D : Preconnection Ω λ E) (e : E) :
+theorem Preconnection.curvature_apply (D : Preconnection Ω lam E) (e : E) :
     D.curvature e = D.extend (D.toAddHom e) := sorry
 
-theorem Preconnection.integrable_iff (D : Preconnection Ω λ E) :
+theorem Preconnection.integrable_iff (D : Preconnection Ω lam E) :
     D.IsIntegrable ↔ ∀ e, D.curvature e = 0 := sorry
 
 -- node: HodgeStructuresPartII:H.0/curvature-linearity
-theorem Preconnection.curvature_linear (D : Preconnection Ω λ E)
-    (hλ : Ω.d0 λ = 0) (a : R) (e : E) :
+theorem Preconnection.curvature_linear (D : Preconnection Ω lam E)
+    (hlam : Ω.d0 lam = 0) (a : R) (e : E) :
     D.curvature (a • e) = a • D.curvature e := sorry
 
 -- Local definition under a fixed E; global finite local freeness is in the packet.
 -- node: HodgeStructuresPartII:key/higgs-parameter-connections (local core only)
 structure FlatPreconnection where
-  preconnection : Preconnection Ω λ E
+  preconnection : Preconnection Ω lam E
   integrable : preconnection.IsIntegrable
 
 -- Native degree-zero Higgs specialization.
@@ -370,13 +371,13 @@ theorem Preconnection.zeroHiggs_apply (e : E) :
     (Preconnection.zeroHiggs (Ω := Ω) (E := E)).toAddHom e = 0 := sorry
 
 -- Ring-level unit connection; its parameter is explicit and relatively constant.
-def Preconnection.unit (Ω : TwoForms k R W Z) (λ : R) : Preconnection Ω λ R := sorry
+def Preconnection.unit (Ω : TwoForms k R W Z) (lam : R) : Preconnection Ω lam R := sorry
 
 theorem Preconnection.unit_apply (a : R) :
-    (Preconnection.unit Ω λ).toAddHom a = λ • ((1 : R) ⊗ₜ[R] Ω.d0 a) := sorry
+    (Preconnection.unit Ω lam).toAddHom a = lam • ((1 : R) ⊗ₜ[R] Ω.d0 a) := sorry
 
-theorem Preconnection.unit_flat (hλ : Ω.d0 λ = 0) :
-    (Preconnection.unit Ω λ).IsIntegrable := sorry
+theorem Preconnection.unit_flat (hlam : Ω.d0 lam = 0) :
+    (Preconnection.unit Ω lam).IsIntegrable := sorry
 
 -- Inverting the parameter changes the section map as well as its type.
 def Preconnection.rescale {u : Rˣ} (D : Preconnection Ω (u : R) E) :
@@ -386,15 +387,15 @@ theorem Preconnection.rescale_apply {u : Rˣ} (D : Preconnection Ω (u : R) E) (
     D.rescale.toAddHom e = (↑u⁻¹ : R) • D.toAddHom e := sorry
 
 theorem Preconnection.rescale_curvature {u : Rˣ}
-    (D : Preconnection Ω (u : R) E) (hλ : Ω.d0 (u : R) = 0) (e : E) :
+    (D : Preconnection Ω (u : R) E) (hlam : Ω.d0 (u : R) = 0) (e : E) :
     D.rescale.curvature e = ((↑u⁻¹ : R) * ↑u⁻¹) • D.curvature e := sorry
 
 -- Typed local tests exercise actual tensors and operators, without geometric stand-ins.
 -- local test: Intrinsic.test_leibniz
-example (D : Preconnection Ω λ E) (a : R) (e : E) :
-    D.toAddHom (a • e) = a • D.toAddHom e + λ • (e ⊗ₜ[R] Ω.d0 a) := sorry
+example (D : Preconnection Ω lam E) (a : R) (e : E) :
+    D.toAddHom (a • e) = a • D.toAddHom e + lam • (e ⊗ₜ[R] Ω.d0 a) := sorry
 -- local test: Intrinsic.test_additive_zero
-example (D : Preconnection Ω λ E) : D.toAddHom 0 = 0 := sorry
+example (D : Preconnection Ω lam E) : D.toAddHom 0 = 0 := sorry
 -- local test: Intrinsic.test_higgs_linear
 example (D : Preconnection Ω 0 E) (a : R) (e : E) :
     D.toAddHom (a • e) = a • D.toAddHom e := sorry
@@ -402,18 +403,18 @@ example (D : Preconnection Ω 0 E) (a : R) (e : E) :
 example (θ : E →ₗ[R] (E ⊗[R] W)) :
     (Preconnection.ofLinear (Ω := Ω) θ).toLinear = θ := sorry
 -- local test: Intrinsic.test_extend_balanced
-example (D : Preconnection Ω λ E) (a : R) (e : E) (ω : W) :
+example (D : Preconnection Ω lam E) (a : R) (e : E) (ω : W) :
     D.extend ((a • e) ⊗ₜ[R] ω) = D.extend (e ⊗ₜ[R] (a • ω)) := sorry
 -- local test: Intrinsic.test_extend_zero
 example (x : E ⊗[R] W) :
     (Preconnection.zeroHiggs (Ω := Ω) (E := E)).extend x = 0 := sorry
 -- local test: Intrinsic.test_curvature_scalar
-example (D : Preconnection Ω λ E) (hλ : Ω.d0 λ = 0) (a : R) (e : E) :
+example (D : Preconnection Ω lam E) (hlam : Ω.d0 lam = 0) (a : R) (e : E) :
     D.curvature (a • e) = a • D.curvature e := sorry
 -- local test: Intrinsic.test_zero_flat
 example : (Preconnection.zeroHiggs (Ω := Ω) (E := E)).IsIntegrable := sorry
 -- local test: Intrinsic.test_unit_flat
-example (hλ : Ω.d0 λ = 0) : (Preconnection.unit Ω λ).IsIntegrable := sorry
+example (hlam : Ω.d0 lam = 0) : (Preconnection.unit Ω lam).IsIntegrable := sorry
 -- local test: Intrinsic.test_unit_zero_parameter
 example (a : R) : (Preconnection.unit Ω 0).toAddHom a = 0 := sorry
 -- local test: Intrinsic.test_unit_nonzero
@@ -421,7 +422,7 @@ example (a : R) (hne : (1 : R) ⊗ₜ[R] Ω.d0 a ≠ 0) :
     (Preconnection.unit Ω 1).toAddHom a ≠ 0 := sorry
 -- local test: Intrinsic.test_rescale_flat
 example {u : Rˣ} (D : Preconnection Ω (u : R) E)
-    (hλ : Ω.d0 (u : R) = 0) (hD : D.IsIntegrable) : D.rescale.IsIntegrable := sorry
+    (hlam : Ω.d0 (u : R) = 0) (hD : D.IsIntegrable) : D.rescale.IsIntegrable := sorry
 -- local test: Intrinsic.test_rescale_rule
 example {u : Rˣ} (D : Preconnection Ω (u : R) E) (a : R) (e : E) :
     D.rescale.toAddHom (a • e) = a • D.rescale.toAddHom e + e ⊗ₜ[R] Ω.d0 a := sorry

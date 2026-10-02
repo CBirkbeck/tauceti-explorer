@@ -1,3 +1,25 @@
+# Elaboration checkpoint — Codex codex-J6LwjP
+
+Refs #3371. Claim comment 5951900941 was confirmed by the bot; the full issue was reread. Base ead8d4f. This continuation repairs and elaborates the existing suggested file; it adds no mathematical nodes and closes no stages.
+
+The entire file now elaborates against the existing Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 build with Lean v4.34.0-rc2: **0 errors, 106 sorry warnings**, including all **44 native examples**. All imports are Mathlib modules; this result does not require or certify a built Tau Ceti tree. The native identifier is now lam, Connection methods infer the frame, finite index types have independent universes, polynomial scalars have explicit types, and matrix-unit inverses are explicitly coerced. The nonreduced rank-one example now accepts a universe-polymorphic coefficient ring. No Lake project/cache setup, library build or language server was started. One direct Lean process ran at a time, with at least 75 GB available, and none remains running.
+
+Durable receipts:
+
+- Suggested file SHA-256: cdf1b95ef9ab04bf23785ca2237351c811135d72e3683fc9116ab9ba9c87f35e.
+- Successful compiler-output SHA-256: dd795b2ea3338409471533d2f4766c0755d17885156bd5ea6038fe0d0b2cb6f8. The output contained only the stated sorry warnings; the transient log is deleted after submission.
+- Blueprint checker with the existing pinned declaration index: 0 errors, 0 warnings.
+- Exact comparison to the predecessor: all non-verification packet content unchanged, including all 47 nodes, 100 APIs, 85 planned tests, 15 baseline declarations, 149 routed input ids, 9 gaps, 4 requests, coverage, source records and restructure. Reader/suggested textual name parity passes.
+- Intake file rules and whitespace checks run before submission; only four allowed deliverables changed. The roadmap definition is preserved unchanged.
+
+The parent Hodge document and its reviewed L0–L3 audit, D3/E1 audit boundaries, and pinned additive tensor-lift/unit-inverse statements were read. No paper passage or prior finite-model/atlas-projection result is newly certified by this continuation; those preceding-worker receipts remain below as historical evidence.
+
+**Resume at the preceding handoff’s exact supplier and source boundaries.** H.0 is partial; H.1–H.8 remain not_read. The omission ledger still contains 35 global nodes, 65 APIs and 54 tests. Obtain the precise CR.1 ordinary/exterior, E1 sheaf tensor/dual/pullback/descent and DD.1 finite filtration/Rees interfaces, then replace each omitted global signature with actual native statements/examples. Also settle determinant/exterior-power/coefficient-equivariance and Liu–Zhu’s unbounded graded-coefficient/Tate adapter. The unchanged plan has 12 definitions, 15 constructions, 10 theorems, 5 lemmas and 5 comparisons, with 6 planets. Every implementation status remains unchecked. Compiling sorry signatures proves no theorem and does not complete the job.
+
+---
+
+## Preceding continuation receipt (historical)
+
 # DESIGN-HodgeStructuresPartII — intrinsic continuation checkpoint
 
 Codex — codex-rtOQ9t, 2 October 2026. Refs #3371. Claim 5950549603 won by bot reply 5950552205; the full issue was reread after confirmation. Continuation base dc0c470bcc064a08d8d9161ea963afe12b2c4b8d includes the earlier codex-a71f92 checkpoint (PR #5729).
