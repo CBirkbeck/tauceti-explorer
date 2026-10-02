@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked.",
+  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1116,6 +1116,139 @@
         "module": "Mathlib/RingTheory/Ideal/Operations.lean",
         "provides": "theorem mem_smul_top_iff (N : Submodule R M) (x : N) :",
         "checked": "Actual statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; declaration line 112, source SHA-256 4859dadb42353660e6827c0c070962279d8fabdc8eea013eeed783b5cab59c22. Native quotient scalar descent, polynomial singles/convolution/self equivalence, filtration generation, finite-span and quotient-equivalence passages were inspected; only the adic comparison is planned."
+      },
+      {
+        "ref": "mathlib:DirectSum.linearMap_ext",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/DirectSum/Module.lean",
+        "provides": "theorem linearMap_ext ⦃ψ ψ' : (⨁ i, M i) →ₗ[R] N⦄",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 136, source SHA-256 c09d3585de688a325f759f15393b218abe9454d92792572178975f02ae290ac2. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.ofInjective",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Equiv.lean",
+        "provides": "noncomputable def ofInjective [RingHomInvPair σ₁₂ σ₂₁] [RingHomInvPair σ₂₁ σ₁₂] (h : Injective f) :",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 165, source SHA-256 ce8909ba1bfc5e1fa0fbf6ddcecbb0233a4ae175622578772b290814a9a7fcc8. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.ofInjective_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/Equiv.lean",
+        "provides": "theorem ofInjective_apply [RingHomInvPair σ₁₂ σ₂₁] [RingHomInvPair σ₂₁ σ₁₂] {h : Injective f}",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 170, source SHA-256 ce8909ba1bfc5e1fa0fbf6ddcecbb0233a4ae175622578772b290814a9a7fcc8. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:DirectSum.congrLinearEquiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/DirectSum/Module.lean",
+        "provides": "def congrLinearEquiv (u : (i : ι) → N i ≃ₗ[R] P i) :",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 587, source SHA-256 c09d3585de688a325f759f15393b218abe9454d92792572178975f02ae290ac2. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:DirectSum.lmap_lof",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/DirectSum/Module.lean",
+        "provides": "@[simp] theorem lmap_lof [DecidableEq ι] (i) (x : M i) :",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 257, source SHA-256 c09d3585de688a325f759f15393b218abe9454d92792572178975f02ae290ac2. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:DirectSum.Decomposition.ofLinearMap",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/DirectSum/Decomposition.lean",
+        "provides": "abbrev Decomposition.ofLinearMap (decompose : M →ₗ[R] ⨁ i, ℳ i)",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 250, source SHA-256 9255fa6eb09e0ad03de8ebcc7eb74a6056f70ff0f0c20ac91600691c3b396ac9. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:DirectSum.decomposeLinearEquiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/DirectSum/Decomposition.lean",
+        "provides": "def decomposeLinearEquiv : M ≃ₗ[R] ⨁ i, ℳ i :=",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 261, source SHA-256 9255fa6eb09e0ad03de8ebcc7eb74a6056f70ff0f0c20ac91600691c3b396ac9. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:GradedAlgebra",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/GradedAlgebra/Basic.lean",
+        "provides": "abbrev GradedAlgebra :=",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 170, source SHA-256 fff0d28336e4fa13b0a8e48bc9a490a50cb6f01a86dce1551f5b473e8bcede9b. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:GradedAlgebra.proj",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/GradedAlgebra/Basic.lean",
+        "provides": "def GradedAlgebra.proj (𝒜 : ι → Submodule R A) [GradedAlgebra 𝒜] (i : ι) : A →ₗ[R] A :=",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 229, source SHA-256 fff0d28336e4fa13b0a8e48bc9a490a50cb6f01a86dce1551f5b473e8bcede9b. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:GradedAlgebra.proj_apply",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/GradedAlgebra/Basic.lean",
+        "provides": "theorem GradedAlgebra.proj_apply (i : ι) (r : A) :",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 233, source SHA-256 fff0d28336e4fa13b0a8e48bc9a490a50cb6f01a86dce1551f5b473e8bcede9b. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:GradedModule.isModule",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/GradedModule.lean",
+        "provides": "def isModule : Module A (⨁ i, 𝓜 i) :=",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 202, source SHA-256 7e4526f4a2de4da176b9d34350f2582c097f5fbb304385c3bc8b6b69f3743675. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:GradedModule.linearEquiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/GradedModule.lean",
+        "provides": "def linearEquiv [DirectSum.Decomposition 𝓜] :",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 209, source SHA-256 7e4526f4a2de4da176b9d34350f2582c097f5fbb304385c3bc8b6b69f3743675. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:GradedRing",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/GradedAlgebra/Basic.lean",
+        "provides": "class GradedRing (𝒜 : ι → σ) extends SetLike.GradedMonoid 𝒜, DirectSum.Decomposition 𝒜",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 67, source SHA-256 fff0d28336e4fa13b0a8e48bc9a490a50cb6f01a86dce1551f5b473e8bcede9b. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:DirectSum.Decomposition",
+        "kind": "class",
+        "module": "Mathlib/Algebra/DirectSum/Decomposition.lean",
+        "provides": "class Decomposition where",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 56, source SHA-256 9255fa6eb09e0ad03de8ebcc7eb74a6056f70ff0f0c20ac91600691c3b396ac9. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:SetLike.GradedSMul",
+        "kind": "class",
+        "module": "Mathlib/Algebra/GradedMulAction.lean",
+        "provides": "class SetLike.GradedSMul {S R N M : Type*} [SetLike S R] [SetLike N M] [SMul R M] [VAdd ιA ιB]",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 109, source SHA-256 80ab409f7bf6f0ac37396fb0e246e3e649098e4b5b278bef51a76f3eea4323a1. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:DFinsupp.lapply",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/DFinsupp.lean",
+        "provides": "def lapply (i : ι) : (Π₀ i, M i) →ₗ[R] M i where",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 90, source SHA-256 be549c32e8580435082ec073c0434070c01eda4fc96f004ab2a730bba52aa681. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "mathlib:DirectSum.decompose_coe",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/DirectSum/Decomposition.lean",
+        "provides": "theorem decompose_coe {i : ι} (x : ℳ i) : decompose ℳ (x : M) = DirectSum.of _ i x := by",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; line 131, source SHA-256 9255fa6eb09e0ad03de8ebcc7eb74a6056f70ff0f0c20ac91600691c3b396ac9. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "tauceti:TauCeti.DirectSum.Decomposition.restrict",
+        "kind": "def",
+        "module": "TauCeti/Algebra/DirectSum/Internal.lean",
+        "provides": "noncomputable def DirectSum.Decomposition.restrict {R ι M N : Type*} [Semiring R]",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-02 by Codex — codex-5ebb6f; line 178, source SHA-256 4bf35c373c44769a78dd8f9069a46ccfee2ec48d9bc69f6e08ba0af77cb81157. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
+      },
+      {
+        "ref": "tauceti:TauCeti.DirectSum.map_decompose_shift",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/DirectSum/Internal.lean",
+        "provides": "theorem DirectSum.map_decompose_shift {R ι κ M N : Type*} [Semiring R]",
+        "checked": "Actual declaration, ambient hypotheses and complete construction read at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-02 by Codex — codex-5ebb6f; line 189, source SHA-256 4bf35c373c44769a78dd8f9069a46ccfee2ec48d9bc69f6e08ba0af77cb81157. Native grading/decomposition/projection is reused; only the adic Rees-quotient adapters are planned."
       }
     ]
   },
@@ -1644,6 +1777,17 @@
       "readSections": [
         "Complete 668-line proposed FilteredAlgebra/AssociatedGraded.lean diff, especially hasGSMul, GradedPiece.mk_smul and DirectSum.Gmodule; ring/algebra companion PRs #33218/#33219 metadata and dependency bodies. This is a design screen, not a baseline or source-proof claim."
       ]
+    },
+    {
+      "id": "HS-GRADING-PIN",
+      "title": "Pinned native grading, finite decomposition and homogeneous projection interfaces",
+      "authors": "The Mathlib and Tau Ceti contributors",
+      "edition": "Mathlib 082e2d3 and Tau Ceti f790474",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/GradedModule.lean",
+      "readSections": [
+        "Mathlib GradedAlgebra/Basic lines 1–243; Module/GradedModule through end; DirectSum/Decomposition lines 36–140 and 243–285; DirectSum/Module lines 245–260 and 570–613; Submodule/Equiv lines 140–191; GradedMulAction lines 107–128; LinearAlgebra/DFinsupp lines 69–109; Tau Ceti DirectSum/Internal lines 178–214 and GradedModule/Internal lines 1–119."
+      ],
+      "checked": "Native structures, actual term types and full constructions were read, not inferred from declaration names. Tau Ceti internal grading uses integer indices; no competing wrapper is introduced for the natural-indexed adic application."
     }
   ],
   "nodes": [
@@ -6024,6 +6168,537 @@
       },
       "implementationStatus": "unchecked",
       "declaration": "TauCeti.HilbertSamuel.adicRegularModuleComparison"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Homogeneous submodules of the native adic ring",
+      "kind": "construction",
+      "statement": "For the existing quotient S=Rees(q)/(q Rees(q)), define S_n=range(ι_n) as an A-submodule of S. Identify G_n=q^n/(q·top_(q^n)) with S_n by the existing injectivity of ι_n. Compose the inverse finite expansion S→⊕G_n with the direct sum of these range equivalences to obtain the actual A-linear map d:S→⊕S_n.",
+      "hypotheses": [
+        "A is any commutative ring with identity, q any ideal, and degrees natural numbers. No locality, Noetherianity, proper-ideal, domain or finite-generation premise is required."
+      ],
+      "proofSteps": [
+        "Take LinearMap.range of the existing adicPieceInclusion, not a new quotient or abstract component type. LinearEquiv.ofInjective gives e_n:G_n≃range(ι_n), whose underlying value is ι_n.",
+        "Define d=(DirectSum.congrLinearEquiv e)∘adicDirectSumEquiv.symm. Both maps use native finitely supported direct sums; no infinite product is allowed. This fixes the candidate decomposition before the native grading is registered."
+      ],
+      "acceptance": [
+        "The degree-one class of 2 in gr_(2)(Z/4) survives, while its square vanishes in degree two.",
+        "The residue module over Z/4 has only degree zero although the ring has a nonzero positive-degree component."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-inclusion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-direct-sum",
+        "mathlib:LinearEquiv.ofInjective",
+        "mathlib:LinearEquiv.ofInjective_apply",
+        "mathlib:DirectSum.congrLinearEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Proposition 10.59.5, complete proof, associated graded ring and module",
+          "match": "Register the grading of the existing ordinary adic Rees quotients. This is an adapter derivation, not an additional assertion quoted from Stacks."
+        },
+        {
+          "sourceId": "HS-GRADING-PIN",
+          "locator": "GradedAlgebra/Basic, DirectSum/Decomposition and Module/GradedModule: native structures and comparison maps",
+          "match": "Use the native internally graded ring/module structures on the same Rees quotient and its image submodules; do not define another generic graded carrier."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicRingComponents",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicRingComponentEquiv",
+          "role": "equivalence",
+          "statement": "The existing degree-n quotient is A-linearly equivalent to the actual image submodule S_n."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicRingComponentEquiv_coe",
+          "role": "compatibility",
+          "statement": "The ambient value of e_n(x) is exactly ι_n(x)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicRingDecompose",
+          "role": "data",
+          "statement": "The A-linear map d is the inverse finite expansion followed by the direct sum of range equivalences."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelAdicGradingTest.ring_zero_degree",
+          "kind": "compatibility",
+          "statement": "For q=0, the ambient value of the degree-zero component equivalence equals the existing degree-zero inclusion."
+        },
+        {
+          "name": "HilbertSamuelAdicGradingTest.ring_nonzero_positive",
+          "kind": "non-example",
+          "statement": "For Z/4,q=(2), S_1 contains a nonzero ambient element."
+        },
+        {
+          "name": "HilbertSamuelAdicGradingTest.ring_unit_components",
+          "kind": "degenerate",
+          "statement": "For q=top every S_n is subsingleton."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks 10.59.5 and R03.3/eventual-hilbert-samuel-polynomial",
+          "how": "Supply actual internally graded adic ring/module inputs to the graded length polynomial theorem. This registration does not prove the polynomial induction."
+        },
+        {
+          "where": "Predecessor Hilbert–Serre proof receipt, sections 4–9",
+          "how": "Give finite homogeneous projections on the existing carriers before restricting multiplication to degree n→n+1 and constructing its homogeneous kernel and quotient."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-decomposition",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The adic ring decomposition on each homogeneous class",
+      "kind": "lemma",
+      "statement": "The actual candidate d sends ι_n(x) to lof_n(e_n(x)) for every native quotient class x∈G_n.",
+      "hypotheses": [
+        "A is any commutative ring with identity, q any ideal, and degrees natural numbers. No locality, Noetherianity, proper-ideal, domain or finite-generation premise is required."
+      ],
+      "proofSteps": [
+        "Apply the existing inverse-expansion inclusion formula to ι_n(x).",
+        "The native direct-sum congruence is its coordinatewise lmap; DirectSum.lmap_lof evaluates it on the homogeneous inclusion. This is the generator identity needed for the canonical recomposition inverse, not an arbitrary chosen bijection."
+      ],
+      "acceptance": [
+        "The decomposition sends the original degree-n quotient inclusion to that same component in the native direct sum.",
+        "Only finitely supported sums occur, including q=0 and q=top."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-direct-sum",
+        "mathlib:DirectSum.congrLinearEquiv",
+        "mathlib:DirectSum.lmap_lof"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Proposition 10.59.5, complete proof, associated graded ring and module",
+          "match": "Register the grading of the existing ordinary adic Rees quotients. This is an adapter derivation, not an additional assertion quoted from Stacks."
+        },
+        {
+          "sourceId": "HS-GRADING-PIN",
+          "locator": "GradedAlgebra/Basic, DirectSum/Decomposition and Module/GradedModule: native structures and comparison maps",
+          "match": "Use the native internally graded ring/module structures on the same Rees quotient and its image submodules; do not define another generic graded carrier."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicRingDecompose_inclusion"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-grading-registration",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The native grading of the adic Rees quotient",
+      "kind": "construction",
+      "statement": "Register GradedAlgebra(S_n) on the same S. Its native decomposition is exactly d and its canonical inverse is summation of the submodule inclusions. The unit is in S_0 and S_i S_j⊆S_(i+j). Define π_n:S→S using GradedAlgebra.proj; it is A-linear.",
+      "hypotheses": [
+        "A is any commutative ring with identity, q any ideal, and degrees natural numbers. No locality, Noetherianity, proper-ideal, domain or finite-generation premise is required."
+      ],
+      "proofSteps": [
+        "For the decomposition inverse laws, compare the canonical recomposition with adicDirectSumEquiv composed with the inverse direct-sum range equivalences. The preceding generator identity, range equivalence evaluation and finite linear-map extensionality identify the maps; the inverse laws of the existing linear equivalences finish.",
+        "Represent 1 by the constant Rees monomial of coefficient 1∈q^0, hence it belongs to S_0. For multiplication, choose representatives of the two native quotient classes, use adic-homogeneous-product, and descend the representative identity through the quotient. Thus the product belongs to the actual range S_(i+j).",
+        "Use these four fields to register GradedRing/GradedAlgebra. Reuse GradedAlgebra.proj for projections and its native decomposition formula. The decomposition identity on ι_j fixes π_i(ι_j x) to ι_j x for i=j and zero otherwise. Homogeneous multiplication then gives the displayed projection product law."
+      ],
+      "acceptance": [
+        "The degree-one class of 2 in gr_(2)(Z/4) survives, while its square vanishes in degree two.",
+        "The residue module over Z/4 has only degree zero although the ring has a nonzero positive-degree component."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-decomposition",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-homogeneous-product",
+        "mathlib:GradedAlgebra",
+        "mathlib:GradedRing",
+        "mathlib:DirectSum.Decomposition",
+        "mathlib:GradedAlgebra.proj",
+        "mathlib:GradedAlgebra.proj_apply",
+        "mathlib:DirectSum.decompose_coe",
+        "mathlib:DirectSum.linearMap_ext"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Proposition 10.59.5, complete proof, associated graded ring and module",
+          "match": "Register the grading of the existing ordinary adic Rees quotients. This is an adapter derivation, not an additional assertion quoted from Stacks."
+        },
+        {
+          "sourceId": "HS-GRADING-PIN",
+          "locator": "GradedAlgebra/Basic, DirectSum/Decomposition and Module/GradedModule: native structures and comparison maps",
+          "match": "Use the native internally graded ring/module structures on the same Rees quotient and its image submodules; do not define another generic graded carrier."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicRingGrading",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicRingGrading_decompose",
+          "role": "compatibility",
+          "statement": "The native DirectSum.decompose map is precisely adicRingDecompose."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicRingProjection",
+          "role": "projection",
+          "statement": "The projection π_n is the native GradedAlgebra.proj of the actual image submodule grading, bundled as an A-linear endomorphism."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicRingProjection_inclusion",
+          "role": "simp",
+          "statement": "π_i(ι_j x)=ι_j x if i=j and zero otherwise."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicRingProjection_mul",
+          "role": "relation",
+          "statement": "For x∈S_i,y∈S_j, π_(i+j)(xy)=xy in the original Rees quotient."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelAdicGradingTest.ring_unit_degree_zero",
+          "kind": "computation",
+          "statement": "π_0(1)=1 for every q."
+        },
+        {
+          "name": "HilbertSamuelAdicGradingTest.ring_positive_projection",
+          "kind": "non-example",
+          "statement": "For Z/4,q=(2), some x has π_1(x)≠0 and π_0(x)=0."
+        },
+        {
+          "name": "HilbertSamuelAdicGradingTest.ring_degree_one_square",
+          "kind": "computation",
+          "statement": "For Z/4,q=(2), some nonzero x∈S_1 has π_2(x²)=0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks 10.59.5 and R03.3/eventual-hilbert-samuel-polynomial",
+          "how": "Supply actual internally graded adic ring/module inputs to the graded length polynomial theorem. This registration does not prove the polynomial induction."
+        },
+        {
+          "where": "Predecessor Hilbert–Serre proof receipt, sections 4–9",
+          "how": "Give finite homogeneous projections on the existing carriers before restricting multiplication to degree n→n+1 and constructing its homogeneous kernel and quotient."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Homogeneous submodules of the native adic module",
+      "kind": "construction",
+      "statement": "For the existing module L=Rq(M)/(q Rq·top), define L_n=range(ι_n^M) as an A-submodule of this same quotient. The native degree quotient G_n(M) is A-linearly equivalent to L_n. Composing inverse finite expansion with direct-sum range equivalences gives d_M:L→⊕L_n.",
+      "hypotheses": [
+        "A is any commutative ring with identity, q any ideal, M any A-module, and degrees natural numbers. No locality, Noetherianity, proper-ideal, domain, finite-generation or free-module premise is required."
+      ],
+      "proofSteps": [
+        "Use the actual range of the existing adicModulePieceInclusion. Apply LinearEquiv.ofInjective to its inherited injectivity to get e_n^M, with ambient value ι_n^M(x).",
+        "Define d_M=(DirectSum.congrLinearEquiv e^M)∘adicModuleDirectSumEquiv.symm. It retains the original A action and finite support. It does not identify L with the graded ring unless M=A."
+      ],
+      "acceptance": [
+        "The degree-one class of 2 in gr_(2)(Z/4) survives, while its square vanishes in degree two.",
+        "The residue module over Z/4 has only degree zero although the ring has a nonzero positive-degree component."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-inclusion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum",
+        "mathlib:LinearEquiv.ofInjective",
+        "mathlib:LinearEquiv.ofInjective_apply",
+        "mathlib:DirectSum.congrLinearEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Proposition 10.59.5, complete proof, associated graded ring and module",
+          "match": "Register the grading of the existing ordinary adic Rees quotients. This is an adapter derivation, not an additional assertion quoted from Stacks."
+        },
+        {
+          "sourceId": "HS-GRADING-PIN",
+          "locator": "GradedAlgebra/Basic, DirectSum/Decomposition and Module/GradedModule: native structures and comparison maps",
+          "match": "Use the native internally graded ring/module structures on the same Rees quotient and its image submodules; do not define another generic graded carrier."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleComponents",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleComponentEquiv",
+          "role": "equivalence",
+          "statement": "The existing module degree quotient G_n(M) is A-linearly equivalent to its actual image L_n."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleComponentEquiv_coe",
+          "role": "compatibility",
+          "statement": "The ambient value of e_n^M(x) is exactly the inherited module piece inclusion."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleDecompose",
+          "role": "data",
+          "statement": "The A-linear d_M uses the inverse existing finite expansion followed by the direct sum of range equivalences."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelAdicGradingTest.module_zero_degree",
+          "kind": "compatibility",
+          "statement": "For q=0 the ambient value of e_0^M agrees with the existing piece inclusion."
+        },
+        {
+          "name": "HilbertSamuelAdicGradingTest.module_regular_positive",
+          "kind": "non-example",
+          "statement": "For Z/4,q=(2),M=A, L_1 contains a nonzero ambient element."
+        },
+        {
+          "name": "HilbertSamuelAdicGradingTest.module_residue_positive_zero",
+          "kind": "degenerate",
+          "statement": "For Z/4,q=(2),M=A/q, every L_(n+1) is subsingleton."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks 10.59.5 and R03.3/eventual-hilbert-samuel-polynomial",
+          "how": "Supply actual internally graded adic ring/module inputs to the graded length polynomial theorem. This registration does not prove the polynomial induction."
+        },
+        {
+          "where": "Predecessor Hilbert–Serre proof receipt, sections 4–9",
+          "how": "Give finite homogeneous projections on the existing carriers before restricting multiplication to degree n→n+1 and constructing its homogeneous kernel and quotient."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-decomposition",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The adic module decomposition on each homogeneous class",
+      "kind": "lemma",
+      "statement": "The actual d_M sends ι_n^M(x) to lof_n(e_n^M(x)) for every native module quotient class.",
+      "hypotheses": [
+        "A is any commutative ring with identity, q any ideal, M any A-module, and degrees natural numbers. No locality, Noetherianity, proper-ideal, domain, finite-generation or free-module premise is required."
+      ],
+      "proofSteps": [
+        "Use the existing inverse module-expansion formula on the piece inclusion.",
+        "Evaluate the coordinatewise direct-sum range equivalences with DirectSum.lmap_lof. This pins the native decomposition to the original quotient representatives."
+      ],
+      "acceptance": [
+        "The decomposition sends the original degree-n quotient inclusion to that same component in the native direct sum.",
+        "Only finitely supported sums occur, including q=0 and q=top."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum",
+        "mathlib:DirectSum.congrLinearEquiv",
+        "mathlib:DirectSum.lmap_lof"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Proposition 10.59.5, complete proof, associated graded ring and module",
+          "match": "Register the grading of the existing ordinary adic Rees quotients. This is an adapter derivation, not an additional assertion quoted from Stacks."
+        },
+        {
+          "sourceId": "HS-GRADING-PIN",
+          "locator": "GradedAlgebra/Basic, DirectSum/Decomposition and Module/GradedModule: native structures and comparison maps",
+          "match": "Use the native internally graded ring/module structures on the same Rees quotient and its image submodules; do not define another generic graded carrier."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleDecompose_inclusion"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The native adic homogeneous scalar action",
+      "kind": "lemma",
+      "statement": "For the actual image component families of the native Rees quotients, register SetLike.GradedSMul(S_n,L_n): a∈S_i and x∈L_j imply a·x∈L_(i+j) under the inherited quotient action.",
+      "hypotheses": [
+        "A is any commutative ring with identity, q any ideal, M any A-module, and degrees natural numbers. No locality, Noetherianity, proper-ideal, domain, finite-generation or free-module premise is required."
+      ],
+      "proofSteps": [
+        "Choose representatives in the native degree quotients using range membership. Quotient induction reduces to the inherited adic-homogeneous-module-action identity on Rees monomials; that formula supplies membership in the actual degree-(i+j) range.",
+        "Use this membership as the single field of the native SetLike.GradedSMul instance. No new scalar action or shifted-map definition is introduced."
+      ],
+      "acceptance": [
+        "For Z/4,q=(2), the nonzero ring degree-one component acts nontrivially on the regular module degree zero.",
+        "That same component annihilates the whole residue graded module when M=A/q."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-homogeneous-module-action",
+        "mathlib:SetLike.GradedSMul"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Proposition 10.59.5, complete proof, associated graded ring and module",
+          "match": "Register the grading of the existing ordinary adic Rees quotients. This is an adapter derivation, not an additional assertion quoted from Stacks."
+        },
+        {
+          "sourceId": "HS-GRADING-PIN",
+          "locator": "GradedAlgebra/Basic, DirectSum/Decomposition and Module/GradedModule: native structures and comparison maps",
+          "match": "Use the native internally graded ring/module structures on the same Rees quotient and its image submodules; do not define another generic graded carrier."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleGradedSMul"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The native grading and action of the adic Rees module",
+      "kind": "construction",
+      "statement": "Register DirectSum.Decomposition(L_n) using d_M and SetLike.GradedSMul(S_n,L_n) using the existing action of S=gr_q(A) on L=gr_q(M). Thus S_i·L_j⊆L_(i+j) for that same action. With the precise native GradedModule.isModule instance, GradedModule.linearEquiv gives L≃ₗ[S]⊕L_n. Define the A-linear ambient projection π_n^M by native decomposition, DFinsupp.lapply and the image-submodule inclusion.",
+      "hypotheses": [
+        "A is any commutative ring with identity, q any ideal, M any A-module, and degrees natural numbers. No locality, Noetherianity, proper-ideal, domain, finite-generation or free-module premise is required."
+      ],
+      "proofSteps": [
+        "Identify the canonical recomposition with the existing module expansion composed with inverse range equivalences. Check on each lof using the previous homogeneous-decomposition identity and ambient range formula; finite linear extensionality and equivalence inverse laws give both inverse identities required by DirectSum.Decomposition.ofLinearMap.",
+        "Import the separately registered native homogeneous scalar-action lemma. The existing quotient action, rather than a transported alternative, is the input to the native external graded action.",
+        "Use GradedModule.isModule explicitly for the external direct sum. The native GradedModule.linearEquiv is S-linear, whereas d_M and the individual ambient projections are A-linear. Individual degree projections are generally not S-linear: positive-degree scalars shift degree.",
+        "Compose DirectSum.decomposeLinearEquiv with DFinsupp.lapply n and the subtype linear map. The homogeneous inclusion identity gives π_i^M(ι_j^M x)=ι_j^M x if i=j, else zero. The graded scalar law gives π_(i+j)^M(a·x)=a·x for homogeneous inputs."
+      ],
+      "acceptance": [
+        "The degree-one class of 2 in gr_(2)(Z/4) survives, while its square vanishes in degree two.",
+        "The residue module over Z/4 has only degree zero although the ring has a nonzero positive-degree component."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-decomposition",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-grading-registration",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-homogeneous-module-action",
+        "mathlib:DirectSum.Decomposition.ofLinearMap",
+        "mathlib:SetLike.GradedSMul",
+        "mathlib:GradedModule.isModule",
+        "mathlib:GradedModule.linearEquiv",
+        "mathlib:DirectSum.decomposeLinearEquiv",
+        "mathlib:DFinsupp.lapply",
+        "mathlib:DirectSum.decompose_coe",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action",
+        "mathlib:DirectSum.linearMap_ext"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Proposition 10.59.5, complete proof, associated graded ring and module",
+          "match": "Register the grading of the existing ordinary adic Rees quotients. This is an adapter derivation, not an additional assertion quoted from Stacks."
+        },
+        {
+          "sourceId": "HS-GRADING-PIN",
+          "locator": "GradedAlgebra/Basic, DirectSum/Decomposition and Module/GradedModule: native structures and comparison maps",
+          "match": "Use the native internally graded ring/module structures on the same Rees quotient and its image submodules; do not define another generic graded carrier."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleDecomposition",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleSumModule",
+          "role": "instance",
+          "statement": "Use precisely GradedModule.isModule(S_n,L_n) on the external direct sum; the suggested file installs this instance locally to make the scalar choice explicit."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleGradedEquiv",
+          "role": "equivalence",
+          "statement": "The native internally/externally graded comparison is linear over the original graded ring S."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleGradedEquiv_inclusion",
+          "role": "simp",
+          "statement": "The S-linear equivalence sends the existing degree-n inclusion to the native direct-sum inclusion of e_n^M(x)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleProjection",
+          "role": "projection",
+          "statement": "π_n^M is an A-linear ambient projection using native decomposition, coordinate evaluation and subtype inclusion."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleProjection_inclusion",
+          "role": "simp",
+          "statement": "π_i^M(ι_j^M x)=ι_j^M x if i=j, else zero."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleProjection_smul",
+          "role": "relation",
+          "statement": "For a∈S_i and x∈L_j, π_(i+j)^M(a·x)=a·x for the original quotient action."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelAdicGradingTest.module_zero_higher_projection",
+          "kind": "degenerate",
+          "statement": "For q=0 every positive-degree ambient module projection is zero."
+        },
+        {
+          "name": "HilbertSamuelAdicGradingTest.module_regular_positive_projection",
+          "kind": "non-example",
+          "statement": "For Z/4,q=(2),M=A, some x has π_1^M(x)≠0 and π_0^M(x)=0."
+        },
+        {
+          "name": "HilbertSamuelAdicGradingTest.module_residue_action_zero",
+          "kind": "computation",
+          "statement": "For Z/4,q=(2),M=A/q, every a∈S_1 acts as zero on all of L."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks 10.59.5 and R03.3/eventual-hilbert-samuel-polynomial",
+          "how": "Supply actual internally graded adic ring/module inputs to the graded length polynomial theorem. This registration does not prove the polynomial induction."
+        },
+        {
+          "where": "Predecessor Hilbert–Serre proof receipt, sections 4–9",
+          "how": "Give finite homogeneous projections on the existing carriers before restricting multiplication to degree n→n+1 and constructing its homogeneous kernel and quotient."
+        }
+      ]
     }
   ],
   "baselineCoverage": [
@@ -6216,14 +6891,16 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum",
         "DeformationAndDerivedPatchingAlgebra:R03.3/adic-homogeneous-module-action"
       ],
-      "detail": "The existing nine ring nodes and eleven new module adapter nodes give a source-decomposed plan for the native stable-adic Rees quotient, its coefficient denominator, each inherited G_n, action of this same Gr_q(A), A/q scalar towers, finite homogeneous expansion, degree-zero generation, finite generation for finite M and the explicit M=A specialization. Their mathematical implementations remain unchecked. Remaining: register the transported direct-sum grading as the exact graded-ring/module interface needed by Hilbert–Serre, including homogeneous projections and any required graded submodule/shift maps. No generic Rees carrier or native scalar-descent instance is reconstructed. DD.1 retains generic derived filtered/Rees theory; the increasing Tau Ceti word filtration is not the ordinary decreasing adic supplier. Follow Mathlib open PR #33220 (head 70572cd62395e933e8f6476bcedcee366a5b5e82) GradedPiece/hasGSMul/direct-sum design and reuse the pinned DirectSum.Gmodule. Prove the order-dual adic filtration and comparison with the proposed generic degree quotient before using it; no second generic associated-graded carrier is requested."
+      "detail": "The inherited ring/module adapters and the seven new native homogeneous-component, decomposition and grading nodes give the actual image submodule grading on the same Rees quotients, with A-linear projections and the exact S-linear native external module comparison. All mathematical implementations remain unchecked. Remaining for Hilbert–Serre: construct the homogeneous kernel/range/quotient gradings and their component maps; descend scalars to S/(x), prove smaller-ring finiteness and finite lengths, and certify degreewise exactness. Reuse the existing Tau Ceti DirectSum.Decomposition.restrict and DirectSum.map_decompose_shift where their signatures apply; do not redesign generic shifted maps. Comparison with any future generic associated-graded API remains a distinct adapter proof; no second generic carrier is requested.",
+      "previousDetail": "The existing nine ring nodes and eleven new module adapter nodes give a source-decomposed plan for the native stable-adic Rees quotient, its coefficient denominator, each inherited G_n, action of this same Gr_q(A), A/q scalar towers, finite homogeneous expansion, degree-zero generation, finite generation for finite M and the explicit M=A specialization. Their mathematical implementations remain unchecked. Remaining: register the transported direct-sum grading as the exact graded-ring/module interface needed by Hilbert–Serre, including homogeneous projections and any required graded submodule/shift maps. No generic Rees carrier or native scalar-descent instance is reconstructed. DD.1 retains generic derived filtered/Rees theory; the increasing Tau Ceti word filtration is not the ordinary decreasing adic supplier. Follow Mathlib open PR #33220 (head 70572cd62395e933e8f6476bcedcee366a5b5e82) GradedPiece/hasGSMul/direct-sum design and reuse the pinned DirectSum.Gmodule. Prove the order-dual adic filtration and comparison with the proposed generic degree quotient before using it; no second generic associated-graded carrier is requested."
     },
     {
       "title": "Graded numerical-polynomial induction",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial"
       ],
-      "detail": "The rational antidifference needed by the cumulative existence theorem is now supplied by summatory-polynomial and its evaluation lemma, with the finite initial constant restored by cumulative-polynomial-from-graded-tail. Remaining: decompose Stacks 10.58.7 into x-torsion stabilization, its nilpotent filtration, shifted degree-one multiplication exact sequences and induction on degree-one generators, with actual graded lengths. The new theorem assumes a graded polynomial tail; it does not prove one exists. No general abelian-group-valued numerical-polynomial API or K0 surrogate is claimed."
+      "detail": "Choose the elementary length-valued kernel/cokernel induction in the immutable predecessor proof receipt (#5793). It replaces the separate largest-power-torsion route for this consumer, but still needs canonical declaration decomposition and actual native kernel/quotient gradings. For x of degree one, prove h_M(n+1)−h_M(n)=h_(M/xM)(n+1)−h_(ker x)(n) via two exact image sequences; both smaller modules descend to S/(x). Induct on a designated finite list of degree-one generators. Use D(T)=P_Q(T)−P_K(T−1), N=max(1,N_Q,N_K+1) and P_M(T)=summatoryPolynomial(D)(T)+h_M(N−1)−summatoryPolynomial(D)(N−1). Supply that actual polynomial and threshold to the existing cumulative theorem. The degree bound is at most r−1, not dim M. Finite-length toNat conversions must precede integer subtraction. The source K0 theorem is more general; this consumer does not reconstruct K0. No graded polynomial tail is assumed as its own existence input.",
+      "previousDetail": "The rational antidifference needed by the cumulative existence theorem is now supplied by summatory-polynomial and its evaluation lemma, with the finite initial constant restored by cumulative-polynomial-from-graded-tail. Remaining: decompose Stacks 10.58.7 into x-torsion stabilization, its nilpotent filtration, shifted degree-one multiplication exact sequences and induction on degree-one generators, with actual graded lengths. The new theorem assumes a graded polynomial tail; it does not prove one exists. No general abelian-group-valued numerical-polynomial API or K0 surrogate is claimed."
     },
     {
       "title": "Degree-dimension and Artin–Rees leading-term comparison",
@@ -6564,6 +7241,204 @@
       "pinnedInterfaceHashes": {
         "Mathlib/Algebra/Module/GradedModule.lean": "7e4526f4a2de4da176b9d34350f2582c097f5fbb304385c3bc8b6b69f3743675",
         "Mathlib/RingTheory/FilteredAlgebra/Basic.lean": "b323f39e19883f43ab495f309b563f3431f243615bee81f603a308a8f200a832"
+      }
+    }
+  },
+  "nativeGradingContinuation": {
+    "agent": "Codex — codex-5ebb6f",
+    "date": "2026-10-02",
+    "winningClaim": 5956236007,
+    "confirmation": 5956238263,
+    "publicationBase": "50a5391786116e4f2caa037fabe6ea063abb4034",
+    "predecessorProof": "https://github.com/CBirkbeck/tauceti-explorer/blob/8e99678225347331a3fe3e0a66fc6bd6eab6d640/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md",
+    "nodes": [
+      "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-decomposition",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-grading-registration",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-decomposition",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration"
+    ],
+    "baselineRefs": [
+      "mathlib:DirectSum.linearMap_ext",
+      "mathlib:LinearEquiv.ofInjective",
+      "mathlib:LinearEquiv.ofInjective_apply",
+      "mathlib:DirectSum.congrLinearEquiv",
+      "mathlib:DirectSum.lmap_lof",
+      "mathlib:DirectSum.Decomposition.ofLinearMap",
+      "mathlib:DirectSum.decomposeLinearEquiv",
+      "mathlib:GradedAlgebra",
+      "mathlib:GradedAlgebra.proj",
+      "mathlib:GradedAlgebra.proj_apply",
+      "mathlib:GradedModule.isModule",
+      "mathlib:GradedModule.linearEquiv",
+      "mathlib:GradedRing",
+      "mathlib:DirectSum.Decomposition",
+      "mathlib:SetLike.GradedSMul",
+      "mathlib:DFinsupp.lapply",
+      "mathlib:DirectSum.decompose_coe",
+      "tauceti:TauCeti.DirectSum.Decomposition.restrict",
+      "tauceti:TauCeti.DirectSum.map_decompose_shift"
+    ],
+    "status": "partial",
+    "boundary": "The general graded induction, dimension degree, multiplicity, completion and every other stage remain open. All implementationStatus values stay unchecked; all original node objects, sources, requests and planets are preserved.",
+    "freshReading": [
+      {
+        "url": "https://stacks.math.columbia.edu/tag/00K1",
+        "sha256": "f421fbc2dc074fc0ae392c392f06c6223f60740703e9ccb28d6bd18c5d57afc3",
+        "passage": "Complete Proposition 10.58.7 statement and proof"
+      },
+      {
+        "url": "https://stacks.math.columbia.edu/tag/00K4",
+        "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+        "passage": "Complete section mathematical statements/proofs; the grading adapters use the associated graded pair in 10.59.5"
+      }
+    ],
+    "validation": {
+      "lean": {
+        "errors": 0,
+        "sorryWarnings": 225,
+        "otherWarnings": 0,
+        "examples": 104,
+        "toolchain": "v4.34.0-rc2",
+        "existingBuildMathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "elapsedSeconds": 21.91,
+        "maxRSSKiB": 3524048,
+        "availableGiBBefore": 73,
+        "fileSha256": "959ab431e3d44c4eaaa1f206f05834c553ceeb6185ced824789fc9c2c4270427",
+        "logSha256": "59edb31b332841c9a5145f528245b9ad0c0a75707ed20b0755fb156a3724c782",
+        "boundary": "Full suggested file elaborates with placeholder proofs; no Tau Ceti import, library build, cache download, project setup or language server."
+      },
+      "gradingRegressions": {
+        "models": 11,
+        "totalAssertions": 15171,
+        "scriptSha256": "965bb6babe5eaa998561d7de2fe2e1aedd60eb581d129e11ddf26e14575c5ed9",
+        "outputSha256": "737f279a26f532bf4d9652bce40259fac040d18540871cd247c1ae4169451f56",
+        "reproduction": "Standalone program embedded in this continuation handoff"
+      },
+      "predecessorRegressionReproduction": {
+        "models": 151,
+        "totalAssertions": 24317,
+        "scriptSha256": "c73c4ee301bcf97bdf715905a826fb38bae65efd12336d5962ab719a2378dd6b",
+        "outputSha256": "b486e799696f88e504466f67ca76427cdb6deb3e0fa6cbc0f32b6d9174e7bdcb",
+        "reproduction": "Exact program embedded in the immutable predecessorProof handoff"
+      },
+      "verification": {
+        "originalNodesPreserved": 72,
+        "newNodeApiTestParity": true,
+        "localDeclarationGraph": {
+          "vertices": 79,
+          "edges": 123,
+          "acyclic": true
+        },
+        "atlas": {
+          "roadmaps": 211,
+          "stages": 2952,
+          "stageEdges": 8623,
+          "externalSupplierEndpoints": [
+            "UPSTREAM:AlgebraicCurves",
+            "UPSTREAM:AlgebraicCurves-vector-bundles",
+            "UPSTREAM:AlgebraicGeometry:ProjectiveSchemesAndSmoothMorphisms",
+            "UPSTREAM:Chebotarev",
+            "UPSTREAM:ClassFieldTheory",
+            "UPSTREAM:CohomologicalPointCounting:CompactSupport:5-9",
+            "UPSTREAM:CohomologicalPointCounting:ComplexComparison",
+            "UPSTREAM:CohomologicalPointCounting:ComplexComparison:10-12",
+            "UPSTREAM:CohomologicalPointCounting:ComplexComparison:8",
+            "UPSTREAM:CohomologicalPointCounting:ConstructibleEtale:3",
+            "UPSTREAM:CohomologicalPointCounting:ConstructibleEtale:6",
+            "UPSTREAM:CohomologicalPointCounting:ConstructibleEtale:7-9",
+            "UPSTREAM:CohomologicalPointCounting:EllAdicRealization",
+            "UPSTREAM:CohomologicalPointCounting:EllAdicRealization:0-10",
+            "UPSTREAM:CohomologicalPointCounting:EtaleBaseChange",
+            "UPSTREAM:CohomologicalPointCounting:EtaleBaseChange:3-8",
+            "UPSTREAM:CohomologicalPointCounting:EtaleBaseChange:4-7",
+            "UPSTREAM:CohomologicalPointCounting:EtaleBaseChange:6",
+            "UPSTREAM:CohomologicalPointCounting:EtaleBaseChange:8-9",
+            "UPSTREAM:CohomologicalPointCounting:FrobeniusGeometry",
+            "UPSTREAM:CohomologicalPointCounting:TraceFormula",
+            "UPSTREAM:CohomologicalPointCounting:TraceFormula:0-4",
+            "UPSTREAM:CohomologicalPointCounting:TraceFormula:8",
+            "UPSTREAM:ECD:ADIC",
+            "UPSTREAM:ECD:BASE",
+            "UPSTREAM:ECD:DG",
+            "UPSTREAM:ECD:FF_ADIC",
+            "UPSTREAM:ECD:PROFINITE_COH",
+            "UPSTREAM:ECD:PROFINITE_COH_PLUS",
+            "UPSTREAM:ECD:PRO_P",
+            "UPSTREAM:ECD:SCH_BC",
+            "UPSTREAM:ECD:SCH_SHEAVES",
+            "UPSTREAM:ECD:SCH_SUPPORT_NOETH",
+            "UPSTREAM:EllipticCurves",
+            "UPSTREAM:EllipticFunctions",
+            "UPSTREAM:GorensteinHomologicalAlgebra",
+            "UPSTREAM:GrothendieckEulerForms-ExactStructure",
+            "UPSTREAM:JacobianChallenge",
+            "UPSTREAM:LocalFieldsRamification",
+            "UPSTREAM:Mathlib-and-pinned-TauCeti-foundations",
+            "UPSTREAM:Mathlib-complex-analysis",
+            "UPSTREAM:Mathlib-homotopy-and-category-theory",
+            "UPSTREAM:Mathlib-matrices-and-linear-algebra",
+            "UPSTREAM:Mathlib:CommutativeAlgebra",
+            "UPSTREAM:ModularForms-finite-index-subgroups",
+            "UPSTREAM:Polynomial-cyclotomic-completion-algebra",
+            "UPSTREAM:ProfiniteCohomology",
+            "UPSTREAM:ProjectiveModules-and-ExactK0",
+            "UPSTREAM:RepresentationTheory",
+            "UPSTREAM:Schemes-vector-bundles",
+            "UPSTREAM:Topological-vector-bundles"
+          ],
+          "acyclic": true,
+          "currentPacketDeclarationsListed": 79,
+          "roadmapSkippedLinks": []
+        },
+        "boundary": "Normal read-only atlas assembly with current packet overlaid in memory. Stage graph (including existing external supplier endpoints) and current declaration graph checked, not every accepted declaration graph in the atlas."
+      },
+      "checker": {
+        "summary": {
+          "packet": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json",
+          "roadmap": "DeformationAndDerivedPatchingAlgebra",
+          "status": "partial",
+          "nodes": 79,
+          "kinds": {
+            "lemma": 40,
+            "theorem": 16,
+            "definition": 8,
+            "construction": 15
+          },
+          "apiItems": 99,
+          "unitTests": 79,
+          "planets": 13,
+          "baselineDeclarations": 176,
+          "prerequisites": {
+            "baseline": 212,
+            "node (this packet)": 123,
+            "node (integrated)": 1
+          },
+          "gaps": 14,
+          "requests": 2,
+          "stagesInScope": 8,
+          "stagesClosed": 0
+        },
+        "errors": [],
+        "warnings": []
+      },
+      "inventory": {
+        "nodes": 79,
+        "definitions": 8,
+        "constructions": 15,
+        "lemmas": 40,
+        "theorems": 16,
+        "api": 99,
+        "definitionConstructionTests": 79,
+        "lemmaTests": 4,
+        "nativeExamples": 104,
+        "planets": 13,
+        "baselineDeclarations": 176,
+        "gaps": 14,
+        "requests": 2,
+        "stagesClosed": 0
       }
     }
   }
