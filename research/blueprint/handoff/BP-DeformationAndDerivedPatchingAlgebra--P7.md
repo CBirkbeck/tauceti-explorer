@@ -44,7 +44,7 @@ Fresh pinned source-byte hashes:
 
 ## Native proof archive and canonical suggested file
 
-The [immutable intermediate Lean file](https://github.com/CBirkbeck/tauceti-explorer/blob/ARCHIVE_PENDING/research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean) contains a comment-delimited **128-line standalone checked proof**, SHA-256 `cd8cb5cd1291a582f25dc0363a0a8d020b1bcc57b79766b3471388f2862d3c11`. The final suggested file removes that archive comment and keeps admitted canonical signatures as PROTOCOL §13 requires. The archive implements exactly the three new headers and the unchanged planeCurve_jet_length header, and proves exactly the six registered examples. The raw function definition matches the canonical function. Five axiom audits report only propext, Classical.choice and Quot.sound, with no admission axiom. It does not implement the numerical curve/jet theorems.
+The [immutable intermediate Lean file](https://github.com/CBirkbeck/tauceti-explorer/blob/30299125337a2f2532f316bd5390b3729c64c1b2/research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean) contains a comment-delimited **128-line standalone checked proof**, SHA-256 `cd8cb5cd1291a582f25dc0363a0a8d020b1bcc57b79766b3471388f2862d3c11`. The final suggested file removes that archive comment and keeps admitted canonical signatures as PROTOCOL §13 requires. The archive implements exactly the three new headers and the unchanged planeCurve_jet_length header, and proves exactly the six registered examples. The raw function definition matches the canonical function. Five axiom audits report only propext, Classical.choice and Quot.sound, with no admission axiom. It does not implement the numerical curve/jet theorems.
 
 The native proof elaborated with **0 errors, 0 admissions and 0 warnings**. The complete **2346-line canonical suggested file** elaborated with **0 errors, 294 admission warnings and 0 other warnings**, containing 138 Lean examples. These examples include inherited unregistered examples, so their number differs from the packet's test count. Both runs used one Lean process at a time, an existing pinned Mathlib build and Lean v4.34.0-rc2, without Lake setup/cache/library builds or language servers. Available memory was checked before each run; timeout was 20 minutes. No compiler remains running.
 
@@ -133,11 +133,11 @@ From the repository at this PR's final revision, save the following as a Python 
 import sys, subprocess, hashlib
 from pathlib import Path
 folder=Path(sys.argv[1]).resolve(); folder.mkdir(parents=True,exist_ok=True)
-archive="ARCHIVE_PENDING"
+archive="30299125337a2f2532f316bd5390b3729c64c1b2"
 path="research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean"
 raw=subprocess.check_output(["git","show",archive+":"+path]).decode()
-start="BEGIN ARCHIVE_PENDINGD CHECKED QUOTIENT RING HILBERT SAMUEL\n"
-end="END ARCHIVE_PENDINGD CHECKED QUOTIENT RING HILBERT SAMUEL"
+start="BEGIN ARCHIVED CHECKED QUOTIENT RING HILBERT SAMUEL\n"
+end="END ARCHIVED CHECKED QUOTIENT RING HILBERT SAMUEL"
 proof=raw.split(start,1)[1].split(end,1)[0].encode()
 assert hashlib.sha256(proof).hexdigest()=="cd8cb5cd1291a582f25dc0363a0a8d020b1bcc57b79766b3471388f2862d3c11"
 (folder/"quotient-native.lean").write_bytes(proof)

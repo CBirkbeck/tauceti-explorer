@@ -10122,7 +10122,7 @@
         "scriptSha256": "f91f4e23511a1215d22d29bc6b5c10a78d41fac86d3da92bc45f9d2413185f3a"
       }
     },
-    "proofArchive": "ARCHIVE_PENDING",
+    "proofArchive": "30299125337a2f2532f316bd5390b3729c64c1b2",
     "proofBoundary": "The standalone 128-line native file has the exact three new theorem headers and exact existing planeCurve_jet_length header, six exact example headers and five axiom audits, with no admissions or nonstandard axioms. The complete canonical file elaborates with 294 admission warnings only; all node statuses stay unchecked.",
     "pinnedSourceHashes": {
       "Mathlib/RingTheory/Length.lean": "28058afb0a726d046c7ef25ef25f86707d64762129baf08106944bcde811b466",
