@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-6668 new mistakes confirmed · 1745 awaiting review · 1195 already corrected in print · 90 rejected on review · 20 extractions and packets not yet checked.
+6668 new mistakes confirmed · 1745 awaiting review · 1196 already corrected in print · 90 rejected on review · 20 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -17363,6 +17363,7 @@ The cause is a leftover from HAL v3, where w and w' played swapped roles (𝔏^{
 - William Y. Chen, "Nonabelian level structures, Nielsen equivalence, and Markoff triples", Annals of Mathematics 199 (2024), no. 1 (`PAPER-CHEN-24`), Theorem 1.1.2, last sentence, p. 5 (arXiv v2); the published text was compared at this passage (see publishedText): corrected in the version of record, Ann. of Math. 199 (2024), Corollary 1.1.2, pp. 305–306, omits the sentence.
 - William Y. Chen, "Nonabelian level structures, Nielsen equivalence, and Markoff triples", Annals of Mathematics 199 (2024), no. 1 (`PAPER-CHEN-24`), §6.1, pp. 87–88, Proposition 6.1.4 and its proof (arXiv v2); the published text was compared at this passage (see publishedText): corrected in the version of record, Ann. of Math. 199 (2024), Proposition 6.1.4, p. 424, adds the hypothesis of a faithful action on the strict local ring.
 - William Y. Chen, "Nonabelian level structures, Nielsen equivalence, and Markoff triples", Annals of Mathematics 199 (2024), no. 1 (`PAPER-CHEN-24`), §1.3.2, p. 10 (arXiv v2); the published introduction (pp. 313–314) is rewritten without this sentence, and the correct chain is printed at p. 359: corrected in the version of record, Ann. of Math. 199 (2024): the introduction (pp. 313–314) no longer has the sentence, and p. 359 states m′_X | m_X | 12m′_X.
+- Ciubotaru–Harris, "On the generalized Ramanujan and Arthur conjectures over function fields", Annals of Mathematics 204 (2026), no. 2 (`PAPER-CIUBOTARU-HARRIS-26`), arXiv2311.15300v1, Theorem8.5 pp28–29 and Remark8.7 p30; linked propagation of E11, not a new discovery of its G2 witness: corrected in Additional consequence of the already confirmed E11 witness, independently confirmed as RT-PAPER-CIUBOTARU-HARRIS-26/1; no new published-version criticism..
 - Colmez–Dospinescu–Nizioł, "Cohomology of p-adic Stein spaces", Inventiones Mathematicae (2020) (`PAPER-COLMEZ-DOSPINESCU-NIZIOL-20`), §3.2.1, p. 19: corrected in new — no correction identified in the bounded public checks listed; journal version of record not collated.
 - Colmez–Dospinescu–Nizioł, "Cohomology of p-adic Stein spaces", Inventiones Mathematicae (2020) (`PAPER-COLMEZ-DOSPINESCU-NIZIOL-20`), Remark 4.13, §4.2, p. 35: corrected in new — no correction identified in the bounded public checks listed; journal version of record not collated.
 - Colmez–Dospinescu–Nizioł, "Cohomology of p-adic Stein spaces", Inventiones Mathematicae (2020) (`PAPER-COLMEZ-DOSPINESCU-NIZIOL-20`), §5.2.2, p. 38: corrected in new — no correction identified in the bounded public checks listed; journal version of record not collated.
