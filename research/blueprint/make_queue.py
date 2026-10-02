@@ -952,6 +952,25 @@ def added_sources(rid):
     return ("\nThe maintainer added these sources to this roadmap. Cover them completely, like its own sources (PROTOCOL.md section 0), "
             "within the stages they belong to; what belongs to another roadmap is requested from it:\n" + "\n".join(f"- {paper}" for paper in papers) + "\n")
 
+
+# Roadmaps whose blueprint outgrew one job, now planned one layer per job: each top-level
+# layer is a part with its own review, and an assembly job joins them. The value is the
+# day the whole-roadmap packet was split by layer. DirichletPadicLFunctions ran as one job
+# (issue #713) from 26 Sep in over 200 checkpoints and reached 2,271 nodes, four times
+# the largest accepted blueprint, with every layer still partial.
+ONE_LAYER_PER_PART = {"DirichletPadicLFunctions": "2026-10-02"}
+
+
+def split_note(rid, output):
+    """What a layer job of a split roadmap inherits from the whole-roadmap job."""
+    return (f"\nUntil {ONE_LAYER_PER_PART[rid]} one job, BP-{rid}, planned this whole roadmap, and it grew past what one review "
+            f"can check. Its packet was then split by layer, unchanged: {output} holds this layer's nodes, coverage, gaps, requests "
+            f"and source findings, so continue it. Its document research/blueprint/split/{rid}.md, suggested file "
+            f"research/blueprint/split/{rid}.lean and handoff note research/blueprint/handoff/BP-{rid}.md cover every layer, in "
+            "the order its checkpoints wrote them. Read them for this layer and carry what is right into your own document and "
+            "suggested file, but do not edit them. Close this layer's remaining items at the granularity of PROTOCOL.md "
+            "section 2, one node per library declaration of up to about a page of source.\n")
+
 HABIRO_FAMILY = {"HabiroNumberFields", "HabiroRings", "HabiroCyclotomicCompletions", "HabiroNahmSeries",
                  "HabiroCohomologyFoundations", "ArithmeticQuantumTopology"}
 
@@ -1200,9 +1219,10 @@ def main():
             if s not in top and p:
                 children[p].append(s)
         groups, current, size = [], [], 0
+        limit = 1 if rid in ONE_LAYER_PER_PART else args.max_stages
         for t in top:
             block = [t] + children.get(t["id"], [])
-            if current and size + len(block) > args.max_stages:
+            if current and size + len(block) > limit:
                 groups.append(current); current, size = [], 0
             current += block; size += len(block)
         if current:
@@ -1238,7 +1258,8 @@ def main():
             text = BP_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, TITLE=title, README=readme, SUGGESTED=suggested,
                                       PARTNOTE=f", part {i + 1} of {len(groups)}" if multi else "",
                                       STAGES=stage_lines(group), OUTPUT=output, PART=json.dumps(part),
-                                      EXTRA=extra, FILE=file_id(rid), EDITABLE=output)
+                                      EXTRA=extra + (split_note(rid, output) if rid in ONE_LAYER_PER_PART else ""),
+                                      FILE=file_id(rid), EDITABLE=output)
             add({"id": job_id, "kind": "blueprint", "priority": priority, "order": order * 100 + i,
                  "roadmapIds": [rid], "scope": [s["id"] for s in group], "outputs": [output, readme, suggested],
                  "after": list(after)}, text)
@@ -1423,6 +1444,9 @@ def main():
         text = ASSEMBLY_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, TITLE=roadmaps.get(rid, {}).get("title", rid),
                                         PARTS=", ".join(p[1] for p in parts), PARTDOCS=", ".join(p[2] for p in parts),
                                         PARTLEAN=", ".join(p[3] for p in parts), README=readme, SUGGESTED=suggested)
+        if rid in ONE_LAYER_PER_PART:
+            text += (f"\nresearch/blueprint/split/{file_id(rid)}.md and .lean are the drafts of the job that planned the whole roadmap "
+                     "before it was split by layer. Take from them only what no part carried over, and do not edit them.")
         add({"id": job_id, "kind": "assembly", "priority": 2, "order": 5000, "roadmapIds": [rid], "outputs": [readme, suggested],
              "after": ["REV-" + p[0][3:] for p in parts]}, text)
     # Priority 1: name the planets drawn today (research/expansion/naming/PLANETS.json).
