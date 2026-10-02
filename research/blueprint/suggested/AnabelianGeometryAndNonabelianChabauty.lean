@@ -1,3 +1,6 @@
+import Mathlib.Topology.Algebra.ClopenNhdofOne
+import Mathlib.Tactic.Group
+import Mathlib.GroupTheory.GroupAction.ConjAct
 import Mathlib.Data.Fintype.Card
 import Mathlib.Algebra.Group.Subgroup.Basic
 import Mathlib.Topology.Algebra.OpenSubgroup
@@ -49,18 +52,25 @@ variable {G U}
 
 instance : CoeFun (Z1 G U) (fun _ => G → U) := ⟨Subtype.val⟩
 
-@[ext] theorem ext {c c' : Z1 G U} (h : ∀ g, c g = c' g) : c = c' := by sorry
+@[ext] theorem ext {c c' : Z1 G U} (h : ∀ g, c g = c' g) : c = c' := Subtype.ext (funext h)
 
 theorem continuous (c : Z1 G U) : Continuous (c : G → U) := c.2.1
 
 theorem map_mul (c : Z1 G U) (g h : G) : c (g * h) = c g * g • c h := c.2.2 g h
 
 /-- The trivial cocycle, the base point. -/
-instance : One (Z1 G U) := ⟨⟨fun _ => 1, continuous_const, by sorry⟩⟩
+instance : One (Z1 G U) := ⟨⟨fun _ => 1, continuous_const, by intro g h; simp⟩⟩
 
-theorem map_one (c : Z1 G U) : c 1 = 1 := by sorry
+theorem map_one (c : Z1 G U) : c 1 = 1 := by
+  have h := c.map_mul 1 1
+  simp only [one_mul, one_smul] at h
+  exact (mul_eq_left.mp h.symm)
 
-theorem map_inv (c : Z1 G U) (g : G) : c g⁻¹ = g⁻¹ • (c g)⁻¹ := by sorry
+theorem map_inv (c : Z1 G U) (g : G) : c g⁻¹ = g⁻¹ • (c g)⁻¹ := by
+  have h := c.map_mul g⁻¹ g
+  rw [inv_mul_cancel, c.map_one] at h
+  rw [smul_inv']
+  exact mul_eq_one_iff_eq_inv.mp h.symm
 
 variable [IsTopologicalGroup U] [ContinuousSMul G U]
 
@@ -503,6 +513,170 @@ example : ∃ c : Equiv.Perm (Fin 3) → Equiv.Perm (Fin 3),
 -- TauCeti.NonabelianCohomology.tests.h1_S3 and .not_coboundary_quotient: with `G = Multiplicative
 --   (ZMod 2)` acting trivially on `Equiv.Perm (Fin 3)` (discrete), `Nat.card (Z1 G U) = 4` and
 --   `Nat.card (H1 G U) = 2`; the trivial action needs a `MulDistribMulAction` instance.
+
+-- Discrete cocycle descent continuation.
+namespace Z1
+variable {G : Type u} [Group G] [TopologicalSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+
+-- node: NC.3/cocycle-one-fibre
+/-- A subgroup, not the kernel of a group homomorphism in general. -/
+def oneFibre (c : Z1 G U) : Subgroup G where
+  carrier := {g | c g = 1}
+  one_mem' := c.map_one
+  mul_mem' := by
+    intro g h hg hh
+    change c (g * h) = 1
+    rw [c.map_mul, hg, hh, smul_one, mul_one]
+  inv_mem' := by
+    intro g hg
+    change c g⁻¹ = 1
+    rw [c.map_inv, hg, inv_one, smul_one]
+
+lemma mem_oneFibre (c : Z1 G U) (g : G) : g ∈ c.oneFibre ↔ c g = 1 := Iff.rfl
+
+lemma oneFibre_eq_ker (c : Z1 G U) (f : G →* U) (hf : ∀ g, c g = f g) :
+    c.oneFibre = f.ker := by
+  ext g
+  change c g = 1 ↔ f g = 1
+  rw [hf g]
+
+-- node: NC.3/cocycle-one-fibre-clopen
+lemma oneFibre_isClopen [DiscreteTopology U] (c : Z1 G U) :
+    IsClopen (c.oneFibre : Set G) :=
+  (isClopen_discrete ({1} : Set U)).preimage c.continuous
+
+-- node: NC.3/discrete-normal-killing
+lemma exists_openNormal_killing [IsTopologicalGroup G] [CompactSpace G]
+    [DiscreteTopology U] (c : Z1 G U) :
+    ∃ N : OpenNormalSubgroup G, ∀ n ∈ N, c n = 1 := by
+  obtain ⟨N, hN⟩ := IsTopologicalGroup.exist_openNormalSubgroup_sub_clopen_nhds_of_one
+    c.oneFibre_isClopen c.oneFibre.one_mem
+  exact ⟨N, fun n hn => hN hn⟩
+
+-- node: NC.3/cocycle-right-cosets
+lemma mul_right_eq_of_trivial (c : Z1 G U) (N : Subgroup G)
+    (hc : ∀ n ∈ N, c n = 1) (g n : G) (hn : n ∈ N) : c (g * n) = c g := by
+  rw [c.map_mul, hc n hn, smul_one, mul_one]
+
+-- node: NC.3/cocycle-left-cosets
+lemma mul_left_eq_of_trivial (c : Z1 G U) (N : Subgroup G) [N.Normal]
+    (hc : ∀ n ∈ N, c n = 1) (g n : G) (hn : n ∈ N) : c (n * g) = c g := by
+  have he : n * g = g * (g⁻¹ * n * g) := by group
+  rw [he, c.mul_right_eq_of_trivial N hc]
+  exact Subgroup.Normal.conj_mem' inferInstance n hn g
+
+-- node: NC.3/cocycle-values-fixed
+lemma values_fixed_of_trivial (c : Z1 G U) (N : Subgroup G) [N.Normal]
+    (hc : ∀ n ∈ N, c n = 1) (g n : G) (hn : n ∈ N) : n • c g = c g := by
+  have h := c.map_mul n g
+  rw [hc n hn, one_mul, c.mul_left_eq_of_trivial N hc g n hn] at h
+  exact h.symm
+
+-- node: NC.3/gauge-witness-fixed
+lemma gauge_witness_fixed (c d : Z1 G U) (N : Subgroup G)
+    (hc : ∀ n ∈ N, c n = 1) (hd : ∀ n ∈ N, d n = 1) (x : U)
+    (h : ∀ g, d g = x * c g * (g • x)⁻¹) :
+    ∀ n ∈ N, n • x = x := by
+  intro n hn
+  have he := h n
+  rw [hc n hn, hd n hn, mul_one] at he
+  exact (mul_inv_eq_one.mp he.symm).symm
+
+-- node: NC.3/finite-family-normal-killing
+lemma exists_openNormal_killing_family [IsTopologicalGroup G] [CompactSpace G]
+    {ι : Type w} [Finite ι] (V : ι → Type v) [∀ i, Group (V i)]
+    [∀ i, TopologicalSpace (V i)] [∀ i, DiscreteTopology (V i)]
+    [∀ i, MulDistribMulAction G (V i)] (c : ∀ i, Z1 G (V i)) :
+    ∃ N : OpenNormalSubgroup G, ∀ i n, n ∈ N → c i n = 1 := by
+  let W : Set G := ⋂ i, ((c i).oneFibre : Set G)
+  have hW : IsClopen W := isClopen_iInter_of_finite (fun i => (c i).oneFibre_isClopen)
+  have h1 : (1 : G) ∈ W := by simp only [W, Set.mem_iInter]; exact fun i => (c i).map_one
+  obtain ⟨N, hN⟩ := IsTopologicalGroup.exist_openNormalSubgroup_sub_clopen_nhds_of_one hW h1
+  exact ⟨N, fun i n hn => Set.mem_iInter.mp (hN hn) i⟩
+end Z1
+
+namespace Z1
+variable {G : Type u} [Group G] [TopologicalSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+
+-- node: NC.3/cocycle-values-invariants
+lemma values_mem_fixedPoints (c : Z1 G U) (N : Subgroup G) [N.Normal]
+    (hc : ∀ n ∈ N, c n = 1) (g : G) : c g ∈ FixedPoints.subgroup N U := by
+  rw [FixedPoints.mem_subgroup]
+  intro n
+  exact c.values_fixed_of_trivial N hc g n n.property
+
+lemma oneFibre_eq_top (c : Z1 G U) (hc : ∀ g, c g = 1) : c.oneFibre = ⊤ := by
+  ext g
+  simp only [mem_oneFibre, Subgroup.mem_top, iff_true]
+  exact hc g
+
+-- test: TauCeti.NonabelianCohomology.Z1.oneFibre.test_trivial
+example : (1 : Z1 G U).oneFibre = ⊤ := by
+  apply oneFibre_eq_top
+  intro g
+  rfl
+
+-- test: TauCeti.NonabelianCohomology.Z1.oneFibre.test_native_kernel
+example (f : G →* U) (hf : Continuous f) (htriv : ∀ (g : G) (x : U), g • x = x) :
+    oneFibre (⟨f, hf, by intro g h; rw [f.map_mul, htriv]⟩ : Z1 G U) = f.ker := by
+  apply oneFibre_eq_ker
+  intro g
+  rfl
+
+-- test: TauCeti.NonabelianCohomology.Z1.oneFibre.test_nonnormal
+example [TopologicalSpace (ConjAct (Equiv.Perm (Fin 3)))]
+    [TopologicalSpace (Equiv.Perm (Fin 3))]
+    (c : Z1 (ConjAct (Equiv.Perm (Fin 3))) (Equiv.Perm (Fin 3)))
+    (hc : ∀ g, c g = Equiv.swap (0 : Fin 3) 1 *
+      (g • Equiv.swap (0 : Fin 3) 1)⁻¹) : ¬ c.oneFibre.Normal := by
+  intro hn
+  have ht : ConjAct.toConjAct (Equiv.swap (0 : Fin 3) 1) ∈ c.oneFibre := by
+    rw [mem_oneFibre, hc]
+    decide
+  have hk := hn.conj_mem _ ht (ConjAct.toConjAct (Equiv.swap (1 : Fin 3) 2))
+  rw [mem_oneFibre, hc] at hk
+  have hbad : Equiv.swap (0 : Fin 3) 1 *
+      ((ConjAct.toConjAct (Equiv.swap (1 : Fin 3) 2) *
+        ConjAct.toConjAct (Equiv.swap (0 : Fin 3) 1) *
+        (ConjAct.toConjAct (Equiv.swap (1 : Fin 3) 2))⁻¹) •
+          Equiv.swap (0 : Fin 3) 1)⁻¹ ≠ 1 := by decide
+  exact hbad hk
+
+-- test: TauCeti.NonabelianCohomology.Z1.exists_openNormal_killing_family.test_empty
+example [IsTopologicalGroup G] [CompactSpace G] :
+    ∃ N : OpenNormalSubgroup G, ∀ _i : Fin 0, ∀ n : G, n ∈ N → True := by
+  obtain ⟨N, _⟩ := IsTopologicalGroup.exist_openNormalSubgroup_sub_clopen_nhds_of_one
+    (G := G) isClopen_univ (Set.mem_univ 1)
+  exact ⟨N, fun i => Fin.elim0 i⟩
+
+-- test: TauCeti.NonabelianCohomology.Z1.values_mem_fixedPoints.test_top_trivial
+example (g : G) : (1 : Z1 G U) g ∈ FixedPoints.subgroup (⊤ : Subgroup G) U := by
+  change (1 : U) ∈ _
+  exact Subgroup.one_mem _
+
+-- test: TauCeti.NonabelianCohomology.Z1.gauge_witness_fixed.test_full_subgroup
+example (x : U) (h : ∀ g : G, (1 : U) = x * (g • x)⁻¹) :
+    x ∈ FixedPoints.subgroup G U := by
+  rw [FixedPoints.mem_subgroup]
+  intro g
+  exact (mul_inv_eq_one.mp (h g).symm).symm
+end Z1
+
+namespace Z1
+variable {G : Type u} [Group G] [TopologicalSpace G] [IsTopologicalGroup G] [CompactSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [DiscreteTopology U] [MulDistribMulAction G U]
+
+-- test: TauCeti.NonabelianCohomology.Z1.exists_openNormal_killing.test_finite_quotient
+example (N : OpenNormalSubgroup G) : Finite (G ⧸ N.toSubgroup) :=
+  Subgroup.quotient_finite_of_isOpen N.toSubgroup N.isOpen
+
+-- test: TauCeti.NonabelianCohomology.Z1.exists_openNormal_killing_family.test_single
+example (c : Z1 G U) : ∃ N : OpenNormalSubgroup G, ∀ n ∈ N, c n = 1 := by
+  obtain ⟨N, hN⟩ := exists_openNormal_killing_family (fun _ : Fin 1 => U) (fun _ => c)
+  exact ⟨N, fun n hn => hN 0 n hn⟩
+end Z1
 
 end TauCeti.NonabelianCohomology
 
