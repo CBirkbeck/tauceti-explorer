@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded. The affine invariant-ring step is factored through the native μ_n Hopf coaction, its axioms, root weights and point comparison; geometric carriers remain open. Six native root-trivialization comparison nodes now expose the computed unit coefficient and root-arrow scalar equations; no geometric carrier or generic section tensor operation is duplicated. Continuation supplies fpqc descent and thirteen finite/infinite root-transition/Kummer proof leaves; it corrects the inherited infinite H1 topology and separates ordinary stacks, algebraic properties and coarse suppliers. Canonical integration adds the actual finite affine action comparison, weighted tensor coordinates, explicit kernel/module-cokernel maps, sharp injectivity/surjectivity criteria and unit inverse; the branch and normalized-coframe torsors remain distinct. This continuation specifies the native wrapping kernel coordinate equivalence, lower residue map, its surjectivity and exact kernel, and the module cokernel coordinate equivalence with inverse and representative APIs. Separate native proof evidence checks these contracts and nine concrete module-coordinate examples; all planned statuses stay unchecked. The unit-chart continuation specifies the actual promoted algebra comparison and its inverse on every character/right-factor tensor, and checks the four inherited direct counterexamples; determinant and field-rank proof obligations remain. This checkpoint derives the actual zero-section kernel and range dimensions from specified native tensor coordinates and restricted cyclic indices; geometric root stacks remain partial. This determinant continuation exposes five specified root-coordinate proof leaves, imports thirteen pinned permutation/product/determinant declarations, and checks the general signed determinant over arbitrary commutative rings with eleven additional examples; it makes no geometric or stage-closure claim.",
+  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded. The affine invariant-ring step is factored through the native μ_n Hopf coaction, its axioms, root weights and point comparison; geometric carriers remain open. Six native root-trivialization comparison nodes now expose the computed unit coefficient and root-arrow scalar equations; no geometric carrier or generic section tensor operation is duplicated. Continuation supplies fpqc descent and thirteen finite/infinite root-transition/Kummer proof leaves; it corrects the inherited infinite H1 topology and separates ordinary stacks, algebraic properties and coarse suppliers. Canonical integration adds the actual finite affine action comparison, weighted tensor coordinates, explicit kernel/module-cokernel maps, sharp injectivity/surjectivity criteria and unit inverse; the branch and normalized-coframe torsors remain distinct. This continuation specifies the native wrapping kernel coordinate equivalence, lower residue map, its surjectivity and exact kernel, and the module cokernel coordinate equivalence with inverse and representative APIs. Separate native proof evidence checks these contracts and nine concrete module-coordinate examples; all planned statuses stay unchecked. The unit-chart continuation specifies the actual promoted algebra comparison and its inverse on every character/right-factor tensor, and checks the four inherited direct counterexamples; determinant and field-rank proof obligations remain. This checkpoint derives the actual zero-section kernel and range dimensions from specified native tensor coordinates and restricted cyclic indices; geometric root stacks remain partial. This determinant continuation exposes five specified root-coordinate proof leaves, imports thirteen pinned permutation/product/determinant declarations, and checks the general signed determinant over arbitrary commutative rings with eleven additional examples; it makes no geometric or stage-closure claim. The finite-transition continuation constructs the actual native coefficient maps, coherent composition using the existing equal-polynomial quotient equivalence, specified iterated-quotient inverse and root-power basis, and native faithful flatness for arbitrary commutative coefficients, including zero rings and nilpotent branches. Ten additional proof-sized planning nodes expose the consumed root/coefficient and reconstruction facts. The affine Spec properties consume existing baseline criteria; infinite and root-stack geometry remain open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -964,6 +964,177 @@
         "provides": "A family of equivalences e_a induces the product equivalence (a,b)↦(a,e_a(b)); applied to finite root-coordinate row permutations.",
         "checked": "Complete declaration statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex — codex-a71f92; relevant source files unchanged from that exact HEAD.",
         "sourceSha256": "f39e6eccbabfdd20664ddc80919332cae0c387c058df85acaddc306fa1adcfdb"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.ringHom_ext",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "Native ring homomorphisms out of the quotient are equal when coefficient and distinguished-root maps agree.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 186,
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.ofAlgHom",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "Native coefficient A-algebra homomorphism into an AdjoinRoot quotient.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 177,
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.algEquivOfEq",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "Canonical native algebra equivalence between quotients by equal polynomials; supplies the associativity and exponent-one identifications.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 512,
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.algEquivOfEq_root",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "The canonical equal-polynomial quotient equivalence sends distinguished root to distinguished root.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 525,
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:AlgEquiv.ofAlgHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Algebra/Equiv.lean",
+        "provides": "Construct a native algebra equivalence from two algebra homomorphisms with both composites equal to identity.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 473,
+        "sourceSha256": "685187debda5efdf31ff2071706125df1574d6d22a0192d161126b3bd6cf0b29"
+      },
+      {
+        "ref": "mathlib:Module.Basis",
+        "kind": "structure",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "Native basis specified by a linear equivalence to its finitely supported coordinate module.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 90,
+        "sourceSha256": "89865e3cbfcee915d186b3448eb18c070b0601e4e30c4d0d661bd4862b723d29"
+      },
+      {
+        "ref": "mathlib:Module.subsingletonEquiv",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Finsupp/Defs.lean",
+        "provides": "Every module over a subsingleton coefficient ring has the specified linear equivalence to an arbitrary Finsupp module.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 308,
+        "sourceSha256": "443e643dfcf77a3c2eae25f7fd94fca37fc7f71424abc9a958c16eb186e99504"
+      },
+      {
+        "ref": "mathlib:Module.Basis.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "Transport an existing native basis through a linear equivalence.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 168,
+        "sourceSha256": "89865e3cbfcee915d186b3448eb18c070b0601e4e30c4d0d661bd4862b723d29"
+      },
+      {
+        "ref": "mathlib:Module.Basis.map_apply",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "A transported basis vector is the image of the original vector.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 172,
+        "sourceSha256": "89865e3cbfcee915d186b3448eb18c070b0601e4e30c4d0d661bd4862b723d29"
+      },
+      {
+        "ref": "mathlib:Module.Basis.sum_repr",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "The finite sum of basis coefficients acting on basis vectors reconstructs every module element.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 258,
+        "sourceSha256": "89865e3cbfcee915d186b3448eb18c070b0601e4e30c4d0d661bd4862b723d29"
+      },
+      {
+        "ref": "mathlib:Module.Basis.ne_zero",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Basic.lean",
+        "provides": "Over a nontrivial coefficient semiring every native basis vector is nonzero; used to preserve the zero-parameter branch nilpotent.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 93,
+        "sourceSha256": "ec768078f1436a647d8ff491356be7741a7004f4768ff91bf79a2449cec7bd56"
+      },
+      {
+        "ref": "mathlib:Module.Free.of_basis",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
+        "provides": "A specified native basis supplies the existing free-module structure.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 65,
+        "sourceSha256": "027e0d69569985df6d43b60ac2d6f139c6f03ea620dc2ce2245e3cb446672983"
+      },
+      {
+        "ref": "mathlib:Module.Finite.of_basis",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FreeModule/Finite/Basic.lean",
+        "provides": "A native basis with finite index type supplies the existing finite-module structure.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 39,
+        "sourceSha256": "6749190ddf4cb6a0a6452343f27aa092717de59b88183275b7d4d4528acce453"
+      },
+      {
+        "ref": "mathlib:IsScalarTower.algebraMap_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Tower.lean",
+        "provides": "The coefficient map for a compatible algebra tower is the composite of its two native coefficient maps.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 131,
+        "sourceSha256": "80c681c1674d180828b520f3533b549f302153ee5042c2e65ea7733c8c8c9e38"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.liftAlgHom_root",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "Evaluate the native algebra quotient lift at the distinguished root.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 342,
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:RingHom.Finite",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+        "provides": "A finite ring map means its target is a finite module under the algebra induced by that specific ring map.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 170,
+        "sourceSha256": "0f8bfdc780efe93d11d1256896a310bd32111114ddba302adfaa42596186d760"
+      },
+      {
+        "ref": "mathlib:RingHom.FaithfullyFlat",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/RingHom/FaithfullyFlat.lean",
+        "provides": "A faithfully flat ring map means its target is a faithfully flat module under the algebra induced by that specific map.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 25,
+        "sourceSha256": "e314131df98bbb8645af64a632818db56f95950f72b72db608de5f4b4131caab"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsFinite.SpecMap_iff",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Finite.lean",
+        "provides": "The actual affine Spec map is finite exactly when its coefficient ring homomorphism is finite.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 74,
+        "sourceSha256": "07121fbb322595182ba99bc1caaf9eb647faeaa6781049437d797551fe4183f3"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.flat_and_surjective_SpecMap_iff",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Flat.lean",
+        "provides": "The actual affine Spec map is flat and surjective exactly when its coefficient ring homomorphism is faithfully flat.",
+        "checked": "Actual statement and ambient hypotheses read at the recorded Mathlib pin on 2026-10-02 by Codex — codex-rtOQ9t.",
+        "sourceLine": 182,
+        "sourceSha256": "beb3f499047422f911e5b1d062fadd4bc0f60facea6e339c662288a00e853270"
       }
     ]
   },
@@ -6120,12 +6291,12 @@
         "mathlib:AdjoinRoot",
         "mathlib:AdjoinRoot.liftAlgHom",
         "mathlib:AdjoinRoot.eval₂_root",
-        "mathlib:AdjoinRoot.algHom_ext"
+        "mathlib:AdjoinRoot.algHom_ext",
+        "FunctionFieldArithmeticPartII:RS.0/affine-root-relation"
       ],
       "proofSteps": [
-        "In B_(nm), compute (root^m)^n=root^(mn)=f using its defining equation.",
-        "Apply the native algebra quotient lift, keeping the given A-algebra structures.",
-        "Use the native algebra-hom extensionality to verify the root/constant specification uniquely."
+        "In B_(nm), compute (t_(nm)^m)^n=f using the native distinguished-root relation.",
+        "Apply the native A-algebra quotient lift with root value t_(nm)^m. Its coefficient algebra is the algebra induced by this particular map."
       ],
       "acceptance": [
         "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
@@ -6158,6 +6329,11 @@
           "name": "TauCeti.RootStack.affineTransition.unique",
           "role": "extensionality",
           "statement": "An A-algebra map with the displayed root image equals j_(n,m)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTransition.coefficientAlgebra",
+          "role": "instance",
+          "statement": "Use j_(n,m) as the coefficient map for the B_n-algebra structure on B_(nm); retain the original A-algebra and its compatible coefficient tower."
         }
       ],
       "tests": [
@@ -6202,12 +6378,15 @@
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/affine-transition",
-        "mathlib:AdjoinRoot.algHom_ext"
+        "mathlib:AdjoinRoot.algHom_ext",
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-root",
+        "mathlib:AdjoinRoot.algEquivOfEq",
+        "mathlib:AdjoinRoot.algEquivOfEq_root"
       ],
       "proofSteps": [
-        "Both maps fix every coefficient.",
-        "Both send root_n to (root_(nmk)^k)^m=root_(nmk)^(mk).",
-        "Apply the native algebra-hom extensionality; at m=1 its root value is root_n."
+        "Use the existing canonical equivalence of AdjoinRoot quotients for X^(n(mk))−f=X^((nm)k)−f; it sends root to root and fixes A.",
+        "After composing j_(n,mk) with this equivalence, both A-algebra maps send t_n to t_(nmk)^(mk).",
+        "Apply native quotient extensionality. At m=1 use the same canonical quotient equivalence for n=n·1, giving the identity after identification."
       ],
       "acceptance": [
         "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
@@ -6242,13 +6421,21 @@
         "FunctionFieldArithmeticPartII:RS.2/affine-transition",
         "mathlib:AdjoinRoot.liftAlgHom",
         "mathlib:AdjoinRoot.algHom_ext",
-        "mathlib:AdjoinRoot.eval₂_root"
+        "mathlib:AdjoinRoot.eval₂_root",
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-root",
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-constant",
+        "FunctionFieldArithmeticPartII:RS.2/iterated-reverse",
+        "FunctionFieldArithmeticPartII:RS.2/iterated-reverse-root",
+        "FunctionFieldArithmeticPartII:RS.2/iterated-reverse-coefficient",
+        "mathlib:AdjoinRoot.ringHom_ext",
+        "mathlib:AlgEquiv.ofAlgHom",
+        "mathlib:IsScalarTower.algebraMap_apply"
       ],
       "proofSteps": [
-        "Construct the forward quotient lift by U↦root_(nm); its defining equation is exactly the transition root formula.",
-        "Give the iterated quotient its inherited A-algebra structure. Its new root has nmth power f, so the native quotient lift constructs the inverse A-algebra map.",
-        "Check that the inverse respects B_n coefficients by the transition formula, upgrading it to a B_n-algebra map.",
-        "Check both composites on their distinguished roots using native quotient extensionality."
+        "Construct the forward B_n-algebra quotient lift U↦t_(nm); the transition root formula verifies its equation.",
+        "Use the reverse A-algebra lift and its coefficient-compatibility lemma to upgrade it to a B_n-algebra homomorphism.",
+        "Check the forward-after-reverse composite by native ring-hom extensionality on A coefficients and t_(nm). Check reverse-after-forward by B_n-algebra extensionality on U.",
+        "Form the specified native algebra equivalence from these two inverse homomorphisms."
       ],
       "acceptance": [
         "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
@@ -6265,7 +6452,19 @@
           "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.RootStack.affineTransitionIterated.root",
+          "role": "simp",
+          "statement": "The iterated quotient equivalence sends U to t_(nm)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTransitionIterated.coefficient",
+          "role": "compatibility",
+          "statement": "For every b∈B_n, the iterated quotient equivalence sends its coefficient image to j_(n,m)(b)."
+        }
+      ]
     },
     {
       "id": "FunctionFieldArithmeticPartII:RS.2/affine-transition-basis",
@@ -6281,12 +6480,19 @@
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/affine-transition-iterated",
-        "mathlib:AdjoinRoot.powerBasis'"
+        "mathlib:AdjoinRoot.powerBasis'",
+        "mathlib:Module.Basis",
+        "mathlib:Module.subsingletonEquiv",
+        "mathlib:Module.Basis.map",
+        "mathlib:Module.Basis.reindex",
+        "mathlib:Polynomial.monic_X_pow_sub_C",
+        "mathlib:Polynomial.natDegree_X_pow_sub_C"
       ],
       "proofSteps": [
-        "For a nonzero coefficient ring, the monic polynomial U^m−root_n has natDegree m; use the pinned monic power basis.",
-        "Transport the basis through the iterated quotient equivalence.",
-        "For a zero coefficient ring both the module and the Finsupp module are singleton; the unique linear equivalence gives the same indexed basis without claiming the polynomial has positive degree."
+        "Split on whether the actual coefficient ring B_n is subsingleton.",
+        "In the nontrivial B_n branch, U^m−t_n is monic of nat-degree m. Reindex its existing native power basis along that degree equality and transport it through the specified iterated B_n-algebra equivalence.",
+        "In the zero B_n branch, the actual target module is subsingleton. Use the existing module equivalence to Fin m→₀B_n and the native basis constructor; do not assert positive polynomial degree.",
+        "The separate basis-vector and reconstruction lemmas expose the root-power and coefficient formulas; applying reconstruction to inverse coordinates gives the inverse-coordinate sum."
       ],
       "acceptance": [
         "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
@@ -6336,6 +6542,21 @@
           "name": "TauCeti.RootStack.affineTransitionBasis.test_zeroRing",
           "kind": "non-example",
           "statement": "For the zero ring the indexed basis is still valid although the defining polynomial has natDegree0; no nontriviality premise excludes this case."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTransitionBasis.test_nonreduced",
+          "kind": "non-example",
+          "statement": "For A=Z/4Z and f=2, the actual B_2→B_4 coefficient map is faithfully flat despite the nonreduced base and nilpotent parameter."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTransitionBasis.test_wild",
+          "kind": "non-example",
+          "statement": "For A=F_2 and f=0, the actual B_2→B_4 coefficient map is faithfully flat without invertibility of either exponent."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTransitionBasis.test_finite_free",
+          "kind": "compatibility",
+          "statement": "For arbitrary A,f and positive n,m, the specified finite basis gives both native Module.Free and Module.Finite structures on B_(nm) over B_n."
         }
       ],
       "uses": [
@@ -6365,13 +6586,18 @@
         "FunctionFieldArithmeticPartII:RS.2/affine-transition-basis",
         "mathlib:Module.FaithfullyFlat.finsupp",
         "mathlib:Module.FaithfullyFlat.of_linearEquiv",
-        "SchemeAndStackFoundations:SF.1"
+        "mathlib:Module.Free.of_basis",
+        "mathlib:Module.Finite.of_basis",
+        "mathlib:RingHom.Finite",
+        "mathlib:RingHom.FaithfullyFlat",
+        "mathlib:AlgebraicGeometry.IsFinite.SpecMap_iff",
+        "mathlib:AlgebraicGeometry.flat_and_surjective_SpecMap_iff"
       ],
       "proofSteps": [
         "The specified basis gives finite freeness.",
         "Fin m is nonempty because m>0; its Finsupp module is faithfully flat by the existing instance.",
         "Transport faithful flatness through the coefficient linear equivalence.",
-        "Use the supplier’s affine ring/scheme comparison for the Spec properties; at a branch point the root-stack map has a nontrivial stabilizer kernel when m>1, so it is not inferred representable."
+        "Import the existing finite and flat-and-surjective Spec-map equivalences for the actual ring map. The root-stack representability qualification remains separate."
       ],
       "acceptance": [
         "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
@@ -9747,6 +9973,452 @@
           "statement": "At n=2 the actual monomial matrix entry with row(1,0) and column(1,1) is f."
         }
       ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/affine-transition-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Root of the finite chart transition",
+      "kind": "lemma",
+      "statement": "The actual A-algebra map j_(n,m):B_n→B_(nm) sends the distinguished root t_n to t_(nm)^m.",
+      "hypotheses": [
+        "A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition",
+        "mathlib:AdjoinRoot.liftAlgHom_root"
+      ],
+      "proofSteps": [
+        "Evaluate the native quotient lift at its distinguished root; its chosen value is t_(nm)^m."
+      ],
+      "acceptance": [
+        "For n=m=2 the root of A[t]/(t²−f) maps to the square of the root of A[t]/(t⁴−f), including f=0."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Section3.1 pp.14–16, P=N specialization",
+          "excerpt": "Corollary 3.13.",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.affineTransition.root"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/affine-transition-constant",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Coefficients of the finite chart transition",
+      "kind": "lemma",
+      "statement": "For every a∈A, j_(n,m)(a in B_n)=a in B_(nm); these are the given coefficient algebra maps.",
+      "hypotheses": [
+        "A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition"
+      ],
+      "proofSteps": [
+        "Use the native A-algebra homomorphism coefficient law."
+      ],
+      "acceptance": [
+        "The coefficient map remains the specified map over nonreduced and zero rings."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Section3.1 pp.14–16, P=N specialization",
+          "excerpt": "Corollary 3.13.",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.affineTransition.constant"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/iterated-reverse",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Reverse map from the larger root chart",
+      "kind": "construction",
+      "statement": "Put D_(n,m)=B_n[U]/(U^m−t_n) as the native monic AdjoinRoot quotient with its inherited A-algebra. Construct v_(n,m):B_(nm)→D_(n,m) as an A-algebra homomorphism sending t_(nm) to the actual distinguished root U.",
+      "hypotheses": [
+        "A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-root-relation",
+        "mathlib:AdjoinRoot",
+        "mathlib:AdjoinRoot.liftAlgHom",
+        "mathlib:IsScalarTower.algebraMap_apply"
+      ],
+      "proofSteps": [
+        "In D_(n,m), U^m is the image of t_n, so U^(nm)=(U^m)^n is the image of f under the coefficient tower.",
+        "Apply the native A-algebra quotient lift using that equation. Keep the actual coefficient algebra and the quotient nilpotents."
+      ],
+      "acceptance": [
+        "This is an actual map of the native quotient algebras for arbitrary A, rather than a map between representative coefficient arrays."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Section3.1 pp.14–16, P=N specialization",
+          "excerpt": "Corollary 3.13.",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.affineIteratedReverse",
+      "api": [
+        {
+          "name": "TauCeti.RootStack.affineIteratedReverse.root",
+          "role": "simp",
+          "statement": "v_(n,m)(t_(nm))=U in D_(n,m)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineIteratedReverse.constant",
+          "role": "simp",
+          "statement": "v_(n,m) sends each a∈A in B_(nm) to its image in D_(n,m)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineIteratedReverse.coefficient",
+          "role": "compatibility",
+          "statement": "For every b∈B_n, v_(n,m)(j_(n,m)(b)) equals the coefficient image of b in D_(n,m)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineIteratedReverse.test_root",
+          "kind": "computation",
+          "statement": "Over every field k with f=0 and n=m=2, the reverse map sends t_4 exactly to the distinguished U in B_2[U]/(U²−t_2), fixing its sign as well as its square."
+        },
+        {
+          "name": "TauCeti.RootStack.affineIteratedReverse.test_coefficient",
+          "kind": "computation",
+          "statement": "For n=m=2, v_(2,2)(t_4²) is the coefficient image of t_2 in B_2[U]/(U²−t_2)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineIteratedReverse.test_fourth_power",
+          "kind": "compatibility",
+          "statement": "For n=m=2, v_(2,2)(t_4⁴) equals the coefficient image of f from A in the iterated quotient."
+        },
+        {
+          "name": "TauCeti.RootStack.affineIteratedReverse.test_zeroRing",
+          "kind": "degenerate",
+          "statement": "When A is the zero ring, the reverse map sends every element to zero in the actual iterated quotient."
+        }
+      ],
+      "uses": [
+        {
+          "where": "TV17 §3.1, P=N finite local charts",
+          "how": "The reverse lift supplies the specified inverse in the iterated quotient, needed for finite chart freeness."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/affine-transition-iterated",
+          "how": "Its coefficient compatibility upgrades the A-algebra map to a B_n-algebra inverse."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/iterated-reverse-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Root value of the reverse quotient map",
+      "kind": "lemma",
+      "statement": "The reverse A-algebra quotient lift v_(n,m) sends t_(nm) to U, the distinguished root of D_(n,m).",
+      "hypotheses": [
+        "A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/iterated-reverse",
+        "mathlib:AdjoinRoot.liftAlgHom_root"
+      ],
+      "proofSteps": [
+        "Evaluate the native quotient lift on its actual distinguished root."
+      ],
+      "acceptance": [
+        "The formula holds at a nilpotent branch fibre; U is not replaced by zero."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Section3.1 pp.14–16, P=N specialization",
+          "excerpt": "Corollary 3.13.",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.affineIteratedReverse.root"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/iterated-reverse-coefficient",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Coefficient compatibility of the reverse map",
+      "kind": "lemma",
+      "statement": "For every b∈B_n, v_(n,m)(j_(n,m)(b))=algebraMap(B_n,D_(n,m))(b). Thus v_(n,m) is compatible with the actual B_n coefficient algebra of the transition.",
+      "hypotheses": [
+        "A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/iterated-reverse",
+        "FunctionFieldArithmeticPartII:RS.2/iterated-reverse-root",
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-root",
+        "FunctionFieldArithmeticPartII:RS.0/affine-root-relation",
+        "mathlib:AdjoinRoot.algHom_ext",
+        "mathlib:AdjoinRoot.ofAlgHom"
+      ],
+      "proofSteps": [
+        "Compare the composite v_(n,m)∘j_(n,m) with the native coefficient algebra homomorphism B_n→D_(n,m).",
+        "Both fix A. Their root values are U^m and the coefficient image of t_n, equal by the defining equation of D_(n,m).",
+        "Native quotient extensionality gives equality of A-algebra homomorphisms; evaluate at b."
+      ],
+      "acceptance": [
+        "Compatibility is for all coefficients b, not only t_n or field-valued points."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Section3.1 pp.14–16, P=N specialization",
+          "excerpt": "Corollary 3.13.",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.affineIteratedReverse.coefficient"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/affine-transition-iterated-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Distinguished root under the iterated equivalence",
+      "kind": "lemma",
+      "statement": "The specified B_n-algebra equivalence D_(n,m)≃B_(nm) sends its distinguished root U to t_(nm).",
+      "hypotheses": [
+        "A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-iterated",
+        "mathlib:AdjoinRoot.liftAlgHom_root"
+      ],
+      "proofSteps": [
+        "The forward part of the constructed equivalence is exactly the quotient lift with root value t_(nm)."
+      ],
+      "acceptance": [
+        "The resulting basis transport uses this particular root value, not an unspecified algebra equivalence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Section3.1 pp.14–16, P=N specialization",
+          "excerpt": "Corollary 3.13.",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.affineTransitionIterated.root"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/affine-transition-basis-vector",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Vectors of the finite transition basis",
+      "kind": "lemma",
+      "statement": "For i∈Fin m, the specified B_n-basis vector of B_(nm) is exactly t_(nm)^i.",
+      "hypotheses": [
+        "A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-basis",
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-iterated-root",
+        "mathlib:Module.Basis.map_apply",
+        "mathlib:Module.Basis.reindex_apply"
+      ],
+      "proofSteps": [
+        "In the nontrivial B_n branch, evaluate the reindexed native monic power basis and its transport through the iterated equivalence.",
+        "Use the forward root formula and preservation of powers.",
+        "In the zero B_n branch, both sides are the unique element; do not invoke a false positive-degree equality."
+      ],
+      "acceptance": [
+        "At m=1 the sole vector is 1; over the zero ring the indexed basis is still a basis although every vector is zero."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Section3.1 pp.14–16, P=N specialization",
+          "excerpt": "Corollary 3.13.",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.affineTransitionBasis.apply"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/affine-transition-coordinates",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Finite transition coefficient reconstruction",
+      "kind": "lemma",
+      "statement": "For every b∈B_(nm), its specified basis coordinates c_i∈B_n reconstruct b as ∑_{i∈Fin m} j_(n,m)(c_i)t_(nm)^i.",
+      "hypotheses": [
+        "A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-basis",
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-basis-vector",
+        "mathlib:Module.Basis.sum_repr"
+      ],
+      "proofSteps": [
+        "Apply the native finite-basis reconstruction theorem.",
+        "Replace each basis vector by its distinguished-root power and each coefficient scalar action by multiplication through j_(n,m)."
+      ],
+      "acceptance": [
+        "The scalar action is the transition coefficient algebra, and the coordinates reconstruct every element of the actual quotient."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Section3.1 pp.14–16, P=N specialization",
+          "excerpt": "Corollary 3.13.",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.affineTransitionBasis.repr"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/affine-transition-inverse-coordinates",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Inverse finite transition coordinates",
+      "kind": "lemma",
+      "statement": "For c∈Fin m→₀B_n, the inverse of the specified coordinate equivalence sends c to ∑_{i∈Fin m} j_(n,m)(c_i)t_(nm)^i.",
+      "hypotheses": [
+        "A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-basis",
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-coordinates"
+      ],
+      "proofSteps": [
+        "Apply the reconstruction identity to the inverse coordinate image and cancel the coordinate equivalence with its inverse."
+      ],
+      "acceptance": [
+        "The inverse formula uses the actual transition coefficient action and full quotient, including the zero ring."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Section3.1 pp.14–16, P=N specialization",
+          "excerpt": "Corollary 3.13.",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.affineTransitionBasis.repr_symm"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/affine-transition-Spec-properties",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Finite flat surjective maps of root charts",
+      "kind": "theorem",
+      "statement": "For the actual ring homomorphism j_(n,m):B_n→B_(nm), the native scheme morphism Spec B_(nm)→Spec B_n is finite, flat and surjective.",
+      "hypotheses": [
+        "A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-basis",
+        "FunctionFieldArithmeticPartII:RS.2/affine-transition-faithfully-flat",
+        "mathlib:Module.Finite.of_basis",
+        "mathlib:RingHom.Finite",
+        "mathlib:RingHom.FaithfullyFlat",
+        "mathlib:AlgebraicGeometry.IsFinite.SpecMap_iff",
+        "mathlib:AlgebraicGeometry.flat_and_surjective_SpecMap_iff"
+      ],
+      "proofSteps": [
+        "Apply the existing finite Spec-map equivalence to the exact ring map; its induced coefficient algebra is the transition algebra and the finite basis supplies Module.Finite.",
+        "Apply the existing flat-and-surjective Spec-map equivalence to the same ring map; its RingHom.FaithfullyFlat definition is precisely the checked Module.FaithfullyFlat result."
+      ],
+      "acceptance": [
+        "No extra geometric supplier is needed for the affine Spec translation already in Mathlib. This gives no representability statement about the corresponding root-stack transition."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Section3.1 pp.14–16, P=N specialization",
+          "excerpt": "Corollary 3.13.",
+          "match": "Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.affineTransitionSpecProperties",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTransitionSpecProperties.test_wild",
+          "kind": "non-example",
+          "statement": "Over F_2 with f=0 and n=m=2, the actual nonreduced root-chart Spec map is finite, flat and surjective without an invertible exponent."
+        }
+      ]
     }
   ],
   "requests": [
@@ -9938,7 +10610,6 @@
         "Resolve supplier contract STACK-GEOM.",
         "Resolve supplier contract JAC-A.",
         "Resolve recorded gap LEAN-GEOMETRY.",
-        "Complete the native finite affine transition, iterated quotient, finite-free basis and faithful-flatness proofs.",
         "Complete TOWER-AFF, KUMMER-FINITE and TOWER-TYPING. Infinite torsors and H1 use fpqc; finite Kummer remains fppf. Preserve the roots-of2 counterexample.",
         "Finish coherent factorial reindexing, infinite affine quotient and finite-stage injectivity/surjectivity on Kummer classes; neither set limits nor field points replace these comparisons."
       ]
@@ -11997,6 +12668,110 @@
         "inherited": "Historical whole-source coverage, source-version and errata records are retained, not newly certified. No complete rereading of the Part II source bibliography is claimed.",
         "notCertified": "Whole geometric suggested file, suppliers' geometric carriers, complete source extraction/errata and all ten stage closures."
       }
+    },
+    {
+      "worker": "Codex — codex-rtOQ9t",
+      "date": "2026-10-02",
+      "base": "aec55383b7e77a42d961484dd0f8431212790883",
+      "claim": 5962223442,
+      "bot": 5962225195,
+      "scope": "Native finite affine transitions, exact coefficient iterated quotient, specified finite basis and faithful flatness; ten additional planning nodes, preserving all inherited mathematical contracts.",
+      "addedNodes": 10,
+      "preservedNodeStatements": 163,
+      "fullSuggestedCompiled": false,
+      "readScope": {
+        "current": "Whole issue twice, complete incoming handoff and all 163 mathematical statements/acceptances, all hypothesis groups and ten-stage roadmap, reserved root contract/survey and two consumer inventories, reviewed FA.0–FA.7 audit and REV-AUDIT-20, SF.1/SF.2 descriptions, TV17 v2 printed pp12–16 in full, and exact used pinned quotient/basis/faithful-flatness declarations and native affine Spec criteria.",
+        "inherited": "Historical complete-source coverage, versions and source findings are preserved. StableReduction and JacobianChallenge were read in this continuous worker session; JacobianChallenge was freshly reread here.",
+        "notCertified": "Complete geometric suggested file, supplier root-stack carriers, infinite quotient/Kummer/factorial comparisons, source-wide extraction/errata and stage closure."
+      },
+      "verification": {
+        "lean": {
+          "Native.lean": {
+            "sha256": "d62d7d663f577ed4e6b4e9b45f7fd1b40c9adae1092f2ecb864d66a5d215a5de",
+            "lines": 2081,
+            "examples": 76,
+            "audits": 60,
+            "diagnosticsSha256": "8bf5456dfd9c20fc9322dff49ffe29136b4088631eff1cb33e12376e0272ef4f",
+            "errors": 0,
+            "warnings": 0,
+            "admittedWarnings": 0,
+            "resource": "RESOURCE elapsed=0:12.70 maxRSSKiB=3388620 exit=0",
+            "availableGiB": 54
+          },
+          "Sketch.lean": {
+            "sha256": "1d23cf6d957fc473c1735f93a0d58281bbe4a7ffd290144a2eafe0c5b80ecaa3",
+            "lines": 1164,
+            "examples": 76,
+            "audits": 0,
+            "diagnosticsSha256": "9482afe19feef0cee04e96adbfda0f5972b98cdb5973a20e19c26a9f3d816afb",
+            "errors": 0,
+            "warnings": 174,
+            "admittedWarnings": 174,
+            "resource": "RESOURCE elapsed=0:05.00 maxRSSKiB=3259844 exit=0",
+            "availableGiB": 53
+          },
+          "head": {
+            "sha256": "9a215793bd5d5040498b3aed34f0a2cb2d35a2b8289c6d62c5adff61e49f66cf",
+            "lines": 2075,
+            "examples": 96,
+            "audits": 0
+          }
+        },
+        "graph": {
+          "indexedChecker": "pass",
+          "actualIntake": "pass",
+          "actualAssembler": "pass",
+          "base": "aec55383b7e77a42d961484dd0f8431212790883",
+          "preservedStatements": 163,
+          "unchangedNodes": 158,
+          "addedNodes": 10,
+          "kinds": {
+            "construction": 28,
+            "definition": 9,
+            "comparison": 10,
+            "lemma": 89,
+            "theorem": 36,
+            "application": 1
+          },
+          "api": 123,
+          "tests": 150,
+          "baseline": 150,
+          "planets": 39,
+          "gaps": 8,
+          "requests": 13,
+          "ownDeclarationEdges": 361,
+          "stageVertices": 3005,
+          "stageEdges": 8723,
+          "reachableDependencyVertices": 548,
+          "reachableDeclarations": 224,
+          "requiredStagePairs": 54,
+          "requiredStagePairsReachable": 54,
+          "combinedVertices": 3241,
+          "combinedEdges": 9468,
+          "allDAGs": "acyclic",
+          "pendingLinks": [],
+          "ownSkippedLinks": [],
+          "otherSkips": "unchanged",
+          "newStageEdges": 0,
+          "scriptSha256": "075d60f4dc60380c4c91498d6a9718374c5db357d3ade26aebf56e4ae9b8d0c7"
+        },
+        "archive": {
+          "commit": "441c39e2f866cd6babbdeab694e99d77efc29d8a",
+          "blob": "91963bd40006d05f9b2bb0e11635cafa11a3ee9f",
+          "path": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+          "retainedPredecessor": "6df00ac8cb82d19130a90b5d1ea473e803fd8eae",
+          "signatureParity": 19,
+          "testParity": 14
+        },
+        "loaderSha256": "a7d2d82c078892bfe5fb2eeada11c178e2e237c427dbc1133ac5b7c60bf79cf0",
+        "recoverySha256": "012329aeefc9db327c6c49021d3b46d752a50750e6fe93e1c1aff913126aa676"
+      },
+      "corrections": [
+        "Replace the inherited non-elaborating composition and exponent-one dependent casts by the existing canonical equivalence of quotients by equal polynomials; preserve the same mathematical laws.",
+        "Give finite basis projections the explicit coefficient algebra induced by the transition.",
+        "Use the existing native finite and flat-and-surjective Spec criteria instead of an unnecessary SF.1 prerequisite for the finite chart consequences."
+      ],
+      "reason": "The exact-pin Mathlib native ring, module and affine scheme proofs are checked separately. The full geometric file cannot be compiled because the available build lacks the exact-pin Tau Ceti line-bundle and roots-of-unity compiled imports; no setup, library build, cache download or LSP."
     }
   ]
 }
