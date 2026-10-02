@@ -1563,3 +1563,130 @@ node: StableReductionPartII:MC.4/pointed-normalization-nef
 node: StableReductionPartII:MC.4/persistent-node-residue-sequence
   Requires supplier types and the precise statement in the reader.
 -/
+
+-- Coefficient-change continuation, Codex codex-a71f92; Refs #3342.
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+open Polynomial
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+local notation "w₀" => polynomial A γ δ s t
+local notation "R₀" => Ring A γ δ s t
+local notation "ι₀" => coefficientHom A γ δ s t
+local notation "u₀" => AdjoinRoot.root w₀
+local notation "v₀" => AdjoinRoot.of w₀ (Polynomial.X : Polynomial A)
+local notation "c₀" => u₀ - ι₀ s
+local notation "d₀" => v₀ - ι₀ t
+local notation "b₀" => u₀ + ι₀ s + ι₀ γ * ι₀ t
+local notation "a₀" => ι₀ δ * v₀ + ι₀ δ * ι₀ t + ι₀ γ * u₀
+local notation "J₀" => (Ideal.span {c₀,d₀} : Ideal R₀)
+
+variable {A' : Type*} [CommRing A'] (f : A →+* A')
+local notation "w₁" => polynomial A' (f γ) (f δ) (f s) (f t)
+local notation "R₁" => Ring A' (f γ) (f δ) (f s) (f t)
+local notation "ι₁" => coefficientHom A' (f γ) (f δ) (f s) (f t)
+local notation "u₁" => AdjoinRoot.root w₁
+local notation "v₁" => AdjoinRoot.of w₁ (Polynomial.X : Polynomial A')
+local notation "c₁" => u₁ - ι₁ (f s)
+local notation "d₁" => v₁ - ι₁ (f t)
+local notation "b₁" => u₁ + ι₁ (f s) + ι₁ (f γ) * ι₁ (f t)
+local notation "a₁" => ι₁ (f δ) * v₁ + ι₁ (f δ) * ι₁ (f t) + ι₁ (f γ) * u₁
+local notation "J₁" => (Ideal.span {c₁,d₁} : Ideal R₁)
+local notation "φ" => coefficientMap A γ δ s t f
+
+lemma coefficientMapCoordinates :
+    φ c₀ = c₁ ∧ φ d₀ = d₁ ∧ φ a₀ = a₁ ∧ φ b₀ = b₁ := by
+  sorry
+
+def idealCoefficientMap : J₀ →ₛₗ[φ] J₁ := by
+  sorry
+
+lemma idealCoefficientMap_coe (j : J₀) :
+    (idealCoefficientMap A γ δ s t f j : R₁) = φ (j : R₀) := by
+  sorry
+
+lemma idealCoefficientMap_first :
+    idealCoefficientMap A γ δ s t f ⟨c₀,sectionFirst_mem A γ δ s t⟩ =
+      ⟨c₁,sectionFirst_mem A' (f γ) (f δ) (f s) (f t)⟩ := by
+  sorry
+
+lemma idealCoefficientMap_second :
+    idealCoefficientMap A γ δ s t f ⟨d₀,sectionSecond_mem A γ δ s t⟩ =
+      ⟨d₁,sectionSecond_mem A' (f γ) (f δ) (f s) (f t)⟩ := by
+  sorry
+
+lemma sectionProjection_coefficient_naturality (r : R₀) :
+    idealCoefficientMap A γ δ s t f (sectionProjection A γ δ s t r) =
+      sectionProjection A' (f γ) (f δ) (f s) (f t) (φ r) := by
+  sorry
+
+lemma dualGenerator_coefficient_naturality (j : J₀) :
+    φ (dualGenerator A γ δ s t j) =
+      dualGenerator A' (f γ) (f δ) (f s) (f t) (idealCoefficientMap A γ δ s t f j) := by
+  sorry
+
+lemma dualCorrectionMap_coefficient_naturality (r : R₀) :
+    φ (dualCorrectionMap A γ δ s t r) =
+      dualCorrectionMap A' (f γ) (f δ) (f s) (f t) (φ r) := by
+  sorry
+
+lemma idealCoefficientMap_identity (j : J₀) :
+    idealCoefficientMap A γ δ s t (RingHom.id A) j = j := by
+  sorry
+
+lemma idealCoefficientMap_comp {A'' : Type*} [CommRing A''] (g : A' →+* A'') (j : J₀) :
+    idealCoefficientMap A' (f γ) (f δ) (f s) (f t) g (idealCoefficientMap A γ δ s t f j) =
+      idealCoefficientMap A γ δ s t (g.comp f) j := by
+  sorry
+
+lemma idealCoefficientMap_smul (r : R₀) (j : J₀) :
+    idealCoefficientMap A γ δ s t f (r • j) = φ r • idealCoefficientMap A γ δ s t f j := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.idealCoefficientMap.identity
+example (j : J₀) : idealCoefficientMap A γ δ s t (RingHom.id A) j = j := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.idealCoefficientMap.generators
+example :
+    idealCoefficientMap A γ δ s t f ⟨c₀,sectionFirst_mem A γ δ s t⟩ =
+      ⟨c₁,sectionFirst_mem A' (f γ) (f δ) (f s) (f t)⟩ ∧
+    idealCoefficientMap A γ δ s t f ⟨d₀,sectionSecond_mem A γ δ s t⟩ =
+      ⟨d₁,sectionSecond_mem A' (f γ) (f δ) (f s) (f t)⟩ := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.idealCoefficientMap.nonflat
+set_option maxHeartbeats 1000000 in
+example :
+    let f := Int.castRingHom (ZMod 2)
+    let j : Ideal.span {AdjoinRoot.root (polynomial ℤ 1 0 0 0) -
+      coefficientHom ℤ 1 0 0 0 0,
+      AdjoinRoot.of (polynomial ℤ 1 0 0 0) Polynomial.X -
+      coefficientHom ℤ 1 0 0 0 0} :=
+      (2 : Ring ℤ 1 0 0 0) •
+        ⟨AdjoinRoot.of (polynomial ℤ 1 0 0 0) Polynomial.X -
+          coefficientHom ℤ 1 0 0 0 0,sectionSecond_mem ℤ 1 0 0 0⟩
+    j ≠ 0 ∧ idealCoefficientMap ℤ 1 0 0 0 f j = 0 := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.dualCorrectionMap.coefficientIdentity
+example (r : R₀) :
+    coefficientMap A γ δ s t (RingHom.id A) (dualCorrectionMap A γ δ s t r) =
+      dualCorrectionMap A γ δ s t r := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.dualCorrectionMap.coefficientProjection
+example (j : J₀) :
+    φ (dualCorrectionMap A γ δ s t (j : R₀)) =
+      dualGenerator A' (f γ) (f δ) (f s) (f t) (idealCoefficientMap A γ δ s t f j) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.dualCorrectionMap.nonflatCharacteristicTwo
+example :
+    let u := AdjoinRoot.root (polynomial ℤ 1 0 0 0)
+    coefficientMap ℤ 1 0 0 0 (Int.castRingHom (ZMod 2))
+      (dualCorrectionMap ℤ 1 0 0 0 u) =
+        AdjoinRoot.root (polynomial (ZMod 2) 1 0 0 0) := by
+  sorry
+
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
