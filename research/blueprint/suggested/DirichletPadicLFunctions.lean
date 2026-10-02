@@ -27157,3 +27157,191 @@ example  (R : Type*) [Semiring R]
     kubertCartanCircleValue R 1 x φ=MonoidAlgebra.single 1 (φ 0) := by sorry
 end
 end DirichletPadic.SuggestedKubertDegreeOneDistributionTests
+
+/- Actual all-root Cartan bijections and the degree-one ordinary root law. -/
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic
+
+lemma kubertRoot_mem_level {X : Type*} [AddCommGroup X] (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : (nsmulAddMonoidHom (α := X) (M : ℕ)).ker)
+    (y : X) (hy : ((N : ℕ)/(M : ℕ)) • y=(x : X)) :
+    y ∈ (nsmulAddMonoidHom (α := X) (N : ℕ)).ker := by sorry
+
+noncomputable def kubertLevelRootEquiv {X : Type*} [AddCommGroup X] (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : (nsmulAddMonoidHom (α := X) (M : ℕ)).ker) :
+    {y : X // ((N : ℕ)/(M : ℕ)) • y=(x : X)} ≃
+      {y : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker //
+        ((N : ℕ)/(M : ℕ)) • y=AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) x} := by sorry
+
+lemma kubertLevelRootEquiv_coe {X : Type*} [AddCommGroup X] (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : (nsmulAddMonoidHom (α := X) (M : ℕ)).ker)
+    (y : {y : X // ((N : ℕ)/(M : ℕ)) • y=(x : X)}) :
+    ((kubertLevelRootEquiv M N hMN x y).val : X)=y.val := by sorry
+
+lemma kubertLevelRootEquiv_symm_coe {X : Type*} [AddCommGroup X] (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : (nsmulAddMonoidHom (α := X) (M : ℕ)).ker)
+    (y : {y : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker //
+        ((N : ℕ)/(M : ℕ)) • y=AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) x}) :
+    ((kubertLevelRootEquiv M N hMN x).symm y).val=(y.val : X) := by sorry
+
+lemma kubertCartanCircleLevelEquiv_inclusion (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker) :
+    kubertCartanCircleLevelEquiv N u (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) x)=
+      AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN)
+        (kubertCartanCircleLevelEquiv M (kubertCartanProductReduction 1 M N hMN u) x) := by sorry
+
+noncomputable def kubertCartanCircleRootEquiv (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker) :
+    {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=(x : AddCircle (1 : ℚ))} ≃
+    {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=
+      (kubertCartanCircleLevelEquiv M (kubertCartanProductReduction 1 M N hMN u) x : AddCircle (1 : ℚ))} := by sorry
+
+lemma kubertCartanCircleRootEquiv_coe (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker)
+    (y : {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=(x : AddCircle (1 : ℚ))}) :
+    (kubertCartanCircleRootEquiv M N hMN u x y).val=
+      (kubertCartanCircleLevelEquiv N u (kubertLevelRootEquiv M N hMN x y).val : AddCircle (1 : ℚ)) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+
+lemma kubertCartanCircleRootEquiv_symm_coe (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker)
+    (y : {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=
+      (kubertCartanCircleLevelEquiv M (kubertCartanProductReduction 1 M N hMN u) x : AddCircle (1 : ℚ))}) :
+    ((kubertCartanCircleRootEquiv M N hMN u x).symm y).val=
+      ((kubertCartanCircleLevelEquiv N u).symm (kubertLevelRootEquiv M N hMN
+        (kubertCartanCircleLevelEquiv M (kubertCartanProductReduction 1 M N hMN u) x) y).val : AddCircle (1 : ℚ)) := by sorry
+
+lemma kubertCartanCircleRootEquiv_intCast_coe (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker)
+    (a : ℤ) (ha : (a : ZMod (N : ℕ))=(kubertCartanDegreeOneFiniteEquiv N u).val)
+    (y : {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=(x : AddCircle (1 : ℚ))}) :
+    (kubertCartanCircleRootEquiv M N hMN u x y).val=a • y.val := by sorry
+
+lemma kubertCartanCircleRootEquiv_sum (B : Type*) [AddCommMonoid B]
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker)
+    [Fintype {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=(x : AddCircle (1 : ℚ))}]
+    [Fintype {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=
+      (kubertCartanCircleLevelEquiv M (kubertCartanProductReduction 1 M N hMN u) x : AddCircle (1 : ℚ))}]
+    (f : AddCircle (1 : ℚ) → B) :
+    (∑ y : {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=(x : AddCircle (1 : ℚ))},
+      f (kubertCartanCircleLevelEquiv N u (kubertLevelRootEquiv M N hMN x y).val : AddCircle (1 : ℚ)))=
+    ∑ y : {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=
+      (kubertCartanCircleLevelEquiv M (kubertCartanProductReduction 1 M N hMN u) x : AddCircle (1 : ℚ))}, f y.val := by sorry
+
+lemma kubertCartanCircleValue_root_sum (R : Type*) [Semiring R]
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker)
+    [Fintype {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=(x : AddCircle (1 : ℚ))}]
+    (φ : AddCircle (1 : ℚ) → R)
+    (hφ : ∀ (a : AddCircle (1 : ℚ)) [Fintype {b : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • b=a}],
+      (∑ b : {b : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • b=a}, φ b.val)=φ a) :
+    (∑ y : {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=(x : AddCircle (1 : ℚ))},
+      kubertCartanCircleValue R N (kubertLevelRootEquiv M N hMN x y).val φ)=
+      kubertCartanProductNorm 1 R M N hMN (kubertCartanCircleValue R M x φ) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertDegreeOneRootDistributionTests
+open scoped Classical BigOperators
+noncomputable section
+-- ambient_roots_roundtrip
+example {X : Type*} [AddCommGroup X] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) (x : (nsmulAddMonoidHom (α := X) (M : ℕ)).ker) (y : {y : X // ((N : ℕ)/(M : ℕ)) • y=(x : X)}) : (kubertLevelRootEquiv M N hMN x).symm (kubertLevelRootEquiv M N hMN x y)=y := by sorry
+-- level_one_retains_zero
+example (y : {y : AddCircle (1 : ℚ) // (1 : ℕ) • y=(0 : AddCircle (1 : ℚ))}) : (kubertLevelRootEquiv 1 1 (dvd_refl _) 0 y).val=(0 : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (1 : ℕ)).ker) := by sorry
+-- imprimitive_root_is_retained
+example (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (2 : ℕ)).ker) (hx : (x : AddCircle (1 : ℚ))=(1/2 : ℚ)) (y : {y : AddCircle (1 : ℚ) // (3 : ℕ) • y=(x : AddCircle (1 : ℚ))}) (hy : y.val=(1/2 : ℚ)) : ((kubertLevelRootEquiv 2 6 (by decide) x y).val : AddCircle (1 : ℚ))=(1/2 : ℚ) ∧ addOrderOf ((kubertLevelRootEquiv 2 6 (by decide) x y).val : AddCircle (1 : ℚ))=2 := by sorry
+-- root_action_level_one
+example (y : {y : AddCircle (1 : ℚ) // (1 : ℕ) • y=(0 : AddCircle (1 : ℚ))}) : (kubertCartanCircleRootEquiv 1 1 (dvd_refl _) 1 0 y).val=0 := by sorry
+-- root_action_five_modulo_six
+example (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (2 : ℕ)).ker) (hx : (x : AddCircle (1 : ℚ))=(1/2 : ℚ)) (y : {y : AddCircle (1 : ℚ) // (3 : ℕ) • y=(x : AddCircle (1 : ℚ))}) (hy : y.val=(1/6 : ℚ)) : (kubertCartanCircleRootEquiv 2 6 (by decide) ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by decide : Nat.Coprime 5 6))) x y).val=(5/6 : ℚ) := by sorry
+-- root_action_fixes_imprimitive_half
+example (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (2 : ℕ)).ker) (hx : (x : AddCircle (1 : ℚ))=(1/2 : ℚ)) (y : {y : AddCircle (1 : ℚ) // (3 : ℕ) • y=(x : AddCircle (1 : ℚ))}) (hy : y.val=(1/2 : ℚ)) : (kubertCartanCircleRootEquiv 2 6 (by decide) ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by decide : Nat.Coprime 5 6))) x y).val=(1/2 : ℚ) := by sorry
+-- nonunit_scalar_is_not_injective
+example : (2 : ℕ) • ((1/2 : ℚ) : AddCircle (1 : ℚ))=0 ∧ ((1/2 : ℚ) : AddCircle (1 : ℚ))≠0 := by sorry
+-- constant_one_fails_ordinary_root_law
+example [Fintype {y : AddCircle (1 : ℚ) // (2 : ℕ) • y=(0 : AddCircle (1 : ℚ))}] : (∑ y : {y : AddCircle (1 : ℚ) // (2 : ℕ) • y=(0 : AddCircle (1 : ℚ))}, (1 : ℤ))=2 ∧ (∑ y : {y : AddCircle (1 : ℚ) // (2 : ℕ) • y=(0 : AddCircle (1 : ℚ))}, (1 : ℤ))≠1 := by sorry
+-- zero_scalar_function_root_sum
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker) [Fintype {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=(x : AddCircle (1 : ℚ))}] : (∑ y : {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=(x : AddCircle (1 : ℚ))}, kubertCartanCircleValue ℤ N (kubertLevelRootEquiv M N hMN x y).val 0)=0 := by sorry
+-- root_mem_level_typed_api
+example  {X : Type*} [AddCommGroup X] (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : (nsmulAddMonoidHom (α := X) (M : ℕ)).ker)
+    (y : X) (hy : ((N : ℕ)/(M : ℕ)) • y=(x : X)) :
+    y ∈ (nsmulAddMonoidHom (α := X) (N : ℕ)).ker := by sorry
+-- levelRootEquiv_coe_typed_api
+example  {X : Type*} [AddCommGroup X] (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : (nsmulAddMonoidHom (α := X) (M : ℕ)).ker)
+    (y : {y : X // ((N : ℕ)/(M : ℕ)) • y=(x : X)}) :
+    ((kubertLevelRootEquiv M N hMN x y).val : X)=y.val := by sorry
+-- levelRootEquiv_symm_coe_typed_api
+example  {X : Type*} [AddCommGroup X] (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : (nsmulAddMonoidHom (α := X) (M : ℕ)).ker)
+    (y : {y : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker //
+        ((N : ℕ)/(M : ℕ)) • y=AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) x}) :
+    ((kubertLevelRootEquiv M N hMN x).symm y).val=(y.val : X) := by sorry
+-- cartanCircleLevelEquiv_inclusion_typed_api
+example  (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker) :
+    kubertCartanCircleLevelEquiv N u (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) x)=
+      AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN)
+        (kubertCartanCircleLevelEquiv M (kubertCartanProductReduction 1 M N hMN u) x) := by sorry
+-- cartanCircleRootEquiv_coe_typed_api
+example  (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker)
+    (y : {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=(x : AddCircle (1 : ℚ))}) :
+    (kubertCartanCircleRootEquiv M N hMN u x y).val=
+      (kubertCartanCircleLevelEquiv N u (kubertLevelRootEquiv M N hMN x y).val : AddCircle (1 : ℚ)) := by sorry
+-- cartanCircleRootEquiv_symm_coe_typed_api
+example  (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker)
+    (y : {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=
+      (kubertCartanCircleLevelEquiv M (kubertCartanProductReduction 1 M N hMN u) x : AddCircle (1 : ℚ))}) :
+    ((kubertCartanCircleRootEquiv M N hMN u x).symm y).val=
+      ((kubertCartanCircleLevelEquiv N u).symm (kubertLevelRootEquiv M N hMN
+        (kubertCartanCircleLevelEquiv M (kubertCartanProductReduction 1 M N hMN u) x) y).val : AddCircle (1 : ℚ)) := by sorry
+-- cartanCircleRootEquiv_intCast_coe_typed_api
+example  (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker)
+    (a : ℤ) (ha : (a : ZMod (N : ℕ))=(kubertCartanDegreeOneFiniteEquiv N u).val)
+    (y : {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=(x : AddCircle (1 : ℚ))}) :
+    (kubertCartanCircleRootEquiv M N hMN u x y).val=a • y.val := by sorry
+-- cartanCircleRootEquiv_sum_typed_api
+example  (B : Type*) [AddCommMonoid B]
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker)
+    [Fintype {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=(x : AddCircle (1 : ℚ))}]
+    [Fintype {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=
+      (kubertCartanCircleLevelEquiv M (kubertCartanProductReduction 1 M N hMN u) x : AddCircle (1 : ℚ))}]
+    (f : AddCircle (1 : ℚ) → B) :
+    (∑ y : {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=(x : AddCircle (1 : ℚ))},
+      f (kubertCartanCircleLevelEquiv N u (kubertLevelRootEquiv M N hMN x y).val : AddCircle (1 : ℚ)))=
+    ∑ y : {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=
+      (kubertCartanCircleLevelEquiv M (kubertCartanProductReduction 1 M N hMN u) x : AddCircle (1 : ℚ))}, f y.val := by sorry
+-- cartanCircleValue_root_sum_typed_api
+example  (R : Type*) [Semiring R]
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker)
+    [Fintype {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=(x : AddCircle (1 : ℚ))}]
+    (φ : AddCircle (1 : ℚ) → R)
+    (hφ : ∀ (a : AddCircle (1 : ℚ)) [Fintype {b : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • b=a}],
+      (∑ b : {b : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • b=a}, φ b.val)=φ a) :
+    (∑ y : {y : AddCircle (1 : ℚ) // ((N : ℕ)/(M : ℕ)) • y=(x : AddCircle (1 : ℚ))},
+      kubertCartanCircleValue R N (kubertLevelRootEquiv M N hMN x y).val φ)=
+      kubertCartanProductNorm 1 R M N hMN (kubertCartanCircleValue R M x φ) := by sorry
+end
+end DirichletPadic.SuggestedKubertDegreeOneRootDistributionTests

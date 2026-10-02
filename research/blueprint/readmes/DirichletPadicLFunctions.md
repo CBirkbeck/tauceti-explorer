@@ -55239,3 +55239,316 @@ Exact controls at48positive levels check 22963 coefficients, 1176 sourceSums, 33
 All79 guarded inputs and four predecessor outputs remain unchanged from merged5684. The complete issue body is unchanged, original winning claim retained, and review390 remains blocked and unclaimed. No new source finding or independent verdict is added.
 
 The separate partial signature file also compiled with zero errors and 5,496 expected placeholder warnings across 3,644 pinned source modules. It includes all 9 new named declarations and 14 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: baff263a0c9da4c362e1654b1b1d6644f6a46337ced491bf7d2027443818043a.
+
+
+## Actual all-root Cartan bijections and the degree-one ordinary relation
+
+Eleven L3 nodes prove the actual all-root containment and Cartan root bijection, then derive the degree-one ordinary root law in the original group ring from an explicit scalar law. All1,825 predecessor nodes and1,185 baseline records remain whole.
+
+Published188 equation2.11 and189 first paragraph require the entire ambient root fiber. General additive-group containment and an actual ambient/kernel root equivalence account for every root. Existing torsion inclusion and actual Cartan action restrict native subtype equivalences to these exact fibers. Native finite-sum transport and the explicit scalar root law then prove the actual degree-one Cartan group-ring identity, preserving the inverse convention. All reused native declarations are already indexed in the packet; their complete relevant statements and bodies were read.
+
+### Every ambient root of a smaller-level point lies in the larger kernel
+
+`DirichletPadicLFunctions:L3/kubert-all-root-root-mem-level` — `DirichletPadic.kubertRoot_mem_level`
+
+For any additive commutative group X, positive M dividing positive N, actual x in the kernel of multiplication by M, and ambient y with (N/M)y=x, the point y lies in the actual kernel of multiplication by N. The center and root may both be imprimitive or zero.
+
+**Hypotheses:** M,N are positive integers with M dividing N, and t=N/M is a positive integer. A level-M point is an actual element of the kernel of multiplication by M. Every root fiber is the actual subtype of ambient points y satisfying ty=x, with no primitiveness restriction. Root containment and the ambient-to-kernel equivalence apply to any additive commutative group X. For the Cartan action specialize X to the actual rational circle AddCircle(1:Q), retain the original degree-one finite Cartan groups U(1,N), original reductions r_M,N and the established additive automorphisms A_N(u). Finite sums use enumerations of the actual root fibers. Their finiteness on the rational circle is supplied by the existing proved circle_fiber_finite; no fiber cardinality or assumed torsor is supplied as a hypothesis. Sum transport works in any additive commutative monoid. For the ordinary Cartan root law, R is any semiring and phi:Q/Z→R satisfies the scalar root law for this positive t at every ambient center: the sum of phi over all t-roots equals phi of the center, independently of enumeration. No condition phi(0)=0 is imposed. The target is the original native Cartan group ring with the already constructed full-lift norm.
+
+**Proof:**
+
+1. Divisibility gives N=(N/M)M.
+2. Associativity of natural scalar multiplication rewrites Ny as M((N/M)y).
+3. Substitute the actual root equation and use that M kills x. No exact-order hypothesis is needed.
+
+**Prerequisites:** .
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneRootDistributionTests.root_mem_level_typed_api` (compatibility): For any additive commutative group X, positive M dividing positive N, actual x in the kernel of multiplication by M, and ambient y with (N/M)y=x, the point y lies in the actual kernel of multiplication by N. The center and root may both be imprimitive or zero.
+
+**Acceptance:** At M=2,N=6 and center1/2, the entire root fiber is1/6,1/2,5/6; unit5 swaps the first and last and fixes the imprimitive middle root. At level1 the zero root survives. Constant integer1 fails the two-root scalar law because2 differs from1. The zero-point indicator satisfies the ordinary law, including in characteristic2,3,5; replacing the three roots of zero by only primitive level3 roots changes its sum from1 to0.
+
+**Source:** Published188 equation(2.11) and189 first paragraph, ordinary distribution relation from the scalar root law and Cartan action on the entire division fiber; degree-one case of the source fiber argument. Proves actual all-root containment and an actual Cartan bijection of ambient root fibers, then derives the degree-one group-ring root law from the explicit scalar law using original inverse coefficients and full-lift norms. General-degree lambda fibers and the direct-limit factorization remain separate work.
+
+### Ambient division roots equal the actual larger-kernel roots
+
+`DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv` — `DirichletPadic.kubertLevelRootEquiv`
+
+For every additive commutative group X, positive M dividing positive N and actual level-M point x, construct an equivalence E_M,N,x from ambient roots {y in X:(N/M)y=x} to roots inside the actual level-N kernel of the included point x. The forward map retains y and equips it with its proved kernel membership; the inverse forgets that membership.
+
+**Hypotheses:** M,N are positive integers with M dividing N, and t=N/M is a positive integer. A level-M point is an actual element of the kernel of multiplication by M. Every root fiber is the actual subtype of ambient points y satisfying ty=x, with no primitiveness restriction. Root containment and the ambient-to-kernel equivalence apply to any additive commutative group X. For the Cartan action specialize X to the actual rational circle AddCircle(1:Q), retain the original degree-one finite Cartan groups U(1,N), original reductions r_M,N and the established additive automorphisms A_N(u). Finite sums use enumerations of the actual root fibers. Their finiteness on the rational circle is supplied by the existing proved circle_fiber_finite; no fiber cardinality or assumed torsor is supplied as a hypothesis. Sum transport works in any additive commutative monoid. For the ordinary Cartan root law, R is any semiring and phi:Q/Z→R satisfies the scalar root law for this positive t at every ambient center: the sum of phi over all t-roots equals phi of the center, independently of enumeration. No condition phi(0)=0 is imposed. The target is the original native Cartan group ring with the already constructed full-lift norm.
+
+**Proof:**
+
+1. The root-containment lemma supplies actual membership in the larger kernel for every ambient root.
+2. The existing divisibility inclusion of torsion kernels retains the smaller-level center as the same ambient point.
+3. Subtype extensionality gives the internal root equation; coercion gives the reverse root equation.
+4. Both inverse laws retain the original point definitionally.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-all-root-root-mem-level`, `DirichletPadicLFunctions:L3/kubert-generator-product-level-mono`, `mathlib:Subgroup.inclusion`.
+
+**Uses:**
+
+- Kubert188, equation2.11: Keeps every ambient root as an actual larger-level point, including zero and imprimitive roots, so the ordinary relation uses the complete source fiber.
+- Kubert188–189, scalar root-law argument: Transports the full root sum by the actual invertible Cartan point action and its actual inverse, making the coefficientwise ordinary law rigorous in degree one.
+
+**API:**
+
+- `kubertLevelRootEquiv_coe` (compatibility): For the actual root equivalence E_M,N,x in any additive commutative group, the ambient point underlying the forward image of any root y is exactly y.
+- `kubertLevelRootEquiv_symm_coe` (compatibility): For the actual root equivalence E_M,N,x, the ambient point of its inverse applied to a larger-kernel root is exactly that root's underlying point in X.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneRootDistributionTests.ambient_roots_roundtrip` (characterisation): The ambient-to-kernel root equivalence and its inverse recover every original ambient root, for every additive commutative group.
+- `SuggestedKubertDegreeOneRootDistributionTests.level_one_retains_zero` (degenerate): At M=N=1 the ambient root is the zero point and is retained as zero in the actual kernel.
+- `SuggestedKubertDegreeOneRootDistributionTests.imprimitive_root_is_retained` (non-example): For M=2,N=6 and center1/2, the root1/2 of multiplication by3 remains in the level6 kernel even though it has order2, not6.
+
+**Acceptance:** At M=2,N=6 and center1/2, the entire root fiber is1/6,1/2,5/6; unit5 swaps the first and last and fixes the imprimitive middle root. At level1 the zero root survives. Constant integer1 fails the two-root scalar law because2 differs from1. The zero-point indicator satisfies the ordinary law, including in characteristic2,3,5; replacing the three roots of zero by only primitive level3 roots changes its sum from1 to0.
+
+**Source:** Published188 equation(2.11) and189 first paragraph, ordinary distribution relation from the scalar root law and Cartan action on the entire division fiber; degree-one case of the source fiber argument. Proves actual all-root containment and an actual Cartan bijection of ambient root fibers, then derives the degree-one group-ring root law from the explicit scalar law using original inverse coefficients and full-lift norms. General-degree lambda fibers and the direct-limit factorization remain separate work.
+
+### The root inclusion retains every ambient point
+
+`DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv-coe` — `DirichletPadic.kubertLevelRootEquiv_coe`
+
+For the actual root equivalence E_M,N,x in any additive commutative group, the ambient point underlying the forward image of any root y is exactly y.
+
+**Hypotheses:** M,N are positive integers with M dividing N, and t=N/M is a positive integer. A level-M point is an actual element of the kernel of multiplication by M. Every root fiber is the actual subtype of ambient points y satisfying ty=x, with no primitiveness restriction. Root containment and the ambient-to-kernel equivalence apply to any additive commutative group X. For the Cartan action specialize X to the actual rational circle AddCircle(1:Q), retain the original degree-one finite Cartan groups U(1,N), original reductions r_M,N and the established additive automorphisms A_N(u). Finite sums use enumerations of the actual root fibers. Their finiteness on the rational circle is supplied by the existing proved circle_fiber_finite; no fiber cardinality or assumed torsor is supplied as a hypothesis. Sum transport works in any additive commutative monoid. For the ordinary Cartan root law, R is any semiring and phi:Q/Z→R satisfies the scalar root law for this positive t at every ambient center: the sum of phi over all t-roots equals phi of the center, independently of enumeration. No condition phi(0)=0 is imposed. The target is the original native Cartan group ring with the already constructed full-lift norm.
+
+**Proof:**
+
+1. Evaluate the actual subtype construction; only the proved kernel membership is added.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneRootDistributionTests.levelRootEquiv_coe_typed_api` (compatibility): For the actual root equivalence E_M,N,x in any additive commutative group, the ambient point underlying the forward image of any root y is exactly y.
+
+**Acceptance:** At M=2,N=6 and center1/2, the entire root fiber is1/6,1/2,5/6; unit5 swaps the first and last and fixes the imprimitive middle root. At level1 the zero root survives. Constant integer1 fails the two-root scalar law because2 differs from1. The zero-point indicator satisfies the ordinary law, including in characteristic2,3,5; replacing the three roots of zero by only primitive level3 roots changes its sum from1 to0.
+
+**Source:** Published188 equation(2.11) and189 first paragraph, ordinary distribution relation from the scalar root law and Cartan action on the entire division fiber; degree-one case of the source fiber argument. Proves actual all-root containment and an actual Cartan bijection of ambient root fibers, then derives the degree-one group-ring root law from the explicit scalar law using original inverse coefficients and full-lift norms. General-degree lambda fibers and the direct-limit factorization remain separate work.
+
+### The inverse root comparison only forgets kernel membership
+
+`DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv-symm-coe` — `DirichletPadic.kubertLevelRootEquiv_symm_coe`
+
+For the actual root equivalence E_M,N,x, the ambient point of its inverse applied to a larger-kernel root is exactly that root's underlying point in X.
+
+**Hypotheses:** M,N are positive integers with M dividing N, and t=N/M is a positive integer. A level-M point is an actual element of the kernel of multiplication by M. Every root fiber is the actual subtype of ambient points y satisfying ty=x, with no primitiveness restriction. Root containment and the ambient-to-kernel equivalence apply to any additive commutative group X. For the Cartan action specialize X to the actual rational circle AddCircle(1:Q), retain the original degree-one finite Cartan groups U(1,N), original reductions r_M,N and the established additive automorphisms A_N(u). Finite sums use enumerations of the actual root fibers. Their finiteness on the rational circle is supplied by the existing proved circle_fiber_finite; no fiber cardinality or assumed torsor is supplied as a hypothesis. Sum transport works in any additive commutative monoid. For the ordinary Cartan root law, R is any semiring and phi:Q/Z→R satisfies the scalar root law for this positive t at every ambient center: the sum of phi over all t-roots equals phi of the center, independently of enumeration. No condition phi(0)=0 is imposed. The target is the original native Cartan group ring with the already constructed full-lift norm.
+
+**Proof:**
+
+1. Evaluate the actual inverse subtype map; the root equation is transported by coercion and the point is unchanged.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneRootDistributionTests.levelRootEquiv_symm_coe_typed_api` (compatibility): For the actual root equivalence E_M,N,x, the ambient point of its inverse applied to a larger-kernel root is exactly that root's underlying point in X.
+
+**Acceptance:** At M=2,N=6 and center1/2, the entire root fiber is1/6,1/2,5/6; unit5 swaps the first and last and fixes the imprimitive middle root. At level1 the zero root survives. Constant integer1 fails the two-root scalar law because2 differs from1. The zero-point indicator satisfies the ordinary law, including in characteristic2,3,5; replacing the three roots of zero by only primitive level3 roots changes its sum from1 to0.
+
+**Source:** Published188 equation(2.11) and189 first paragraph, ordinary distribution relation from the scalar root law and Cartan action on the entire division fiber; degree-one case of the source fiber argument. Proves actual all-root containment and an actual Cartan bijection of ambient root fibers, then derives the degree-one group-ring root law from the explicit scalar law using original inverse coefficients and full-lift norms. General-degree lambda fibers and the direct-limit factorization remain separate work.
+
+### Cartan action commutes with the actual torsion-kernel inclusion
+
+`DirichletPadicLFunctions:L3/kubert-all-root-cartan-circle-level-equiv-inclusion` — `DirichletPadic.kubertCartanCircleLevelEquiv_inclusion`
+
+For original u in U(1,N) and actual level-M circle point x, A_N(u) applied to the actual inclusion of x into the level-N kernel equals the inclusion of A_M(r_M,N(u))(x). This is equality of actual larger-kernel elements.
+
+**Hypotheses:** M,N are positive integers with M dividing N, and t=N/M is a positive integer. A level-M point is an actual element of the kernel of multiplication by M. Every root fiber is the actual subtype of ambient points y satisfying ty=x, with no primitiveness restriction. Root containment and the ambient-to-kernel equivalence apply to any additive commutative group X. For the Cartan action specialize X to the actual rational circle AddCircle(1:Q), retain the original degree-one finite Cartan groups U(1,N), original reductions r_M,N and the established additive automorphisms A_N(u). Finite sums use enumerations of the actual root fibers. Their finiteness on the rational circle is supplied by the existing proved circle_fiber_finite; no fiber cardinality or assumed torsor is supplied as a hypothesis. Sum transport works in any additive commutative monoid. For the ordinary Cartan root law, R is any semiring and phi:Q/Z→R satisfies the scalar root law for this positive t at every ambient center: the sum of phi over all t-roots equals phi of the center, independently of enumeration. No condition phi(0)=0 is imposed. The target is the original native Cartan group ring with the already constructed full-lift norm.
+
+**Proof:**
+
+1. The established action-restriction theorem compares the two ambient points, because the original inclusion retains x.
+2. Subtype extensionality upgrades that ambient equality to equality in the actual larger kernel.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-restriction`, `DirichletPadicLFunctions:L3/kubert-generator-product-level-mono`, `mathlib:Subgroup.inclusion`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneRootDistributionTests.cartanCircleLevelEquiv_inclusion_typed_api` (compatibility): For original u in U(1,N) and actual level-M circle point x, A_N(u) applied to the actual inclusion of x into the level-N kernel equals the inclusion of A_M(r_M,N(u))(x). This is equality of actual larger-kernel elements.
+
+**Acceptance:** At M=2,N=6 and center1/2, the entire root fiber is1/6,1/2,5/6; unit5 swaps the first and last and fixes the imprimitive middle root. At level1 the zero root survives. Constant integer1 fails the two-root scalar law because2 differs from1. The zero-point indicator satisfies the ordinary law, including in characteristic2,3,5; replacing the three roots of zero by only primitive level3 roots changes its sum from1 to0.
+
+**Source:** Published188 equation(2.11) and189 first paragraph, ordinary distribution relation from the scalar root law and Cartan action on the entire division fiber; degree-one case of the source fiber argument. Proves actual all-root containment and an actual Cartan bijection of ambient root fibers, then derives the degree-one group-ring root law from the explicit scalar law using original inverse coefficients and full-lift norms. General-degree lambda fibers and the direct-limit factorization remain separate work.
+
+### The actual Cartan action bijects entire ambient division fibers
+
+`DirichletPadicLFunctions:L3/kubert-all-root-cartan-circle-root-equiv` — `DirichletPadic.kubertCartanCircleRootEquiv`
+
+For positive M dividing positive N, original u in U(1,N) and actual level-M circle point x, construct an equivalence C_M,N,u,x from all ambient (N/M)-roots of x to all ambient (N/M)-roots of A_M(r_M,N(u))(x). Its forward map acts by the actual larger-kernel automorphism A_N(u), and its inverse acts by the inverse automorphism; zero and imprimitive roots are included.
+
+**Hypotheses:** M,N are positive integers with M dividing N, and t=N/M is a positive integer. A level-M point is an actual element of the kernel of multiplication by M. Every root fiber is the actual subtype of ambient points y satisfying ty=x, with no primitiveness restriction. Root containment and the ambient-to-kernel equivalence apply to any additive commutative group X. For the Cartan action specialize X to the actual rational circle AddCircle(1:Q), retain the original degree-one finite Cartan groups U(1,N), original reductions r_M,N and the established additive automorphisms A_N(u). Finite sums use enumerations of the actual root fibers. Their finiteness on the rational circle is supplied by the existing proved circle_fiber_finite; no fiber cardinality or assumed torsor is supplied as a hypothesis. Sum transport works in any additive commutative monoid. For the ordinary Cartan root law, R is any semiring and phi:Q/Z→R satisfies the scalar root law for this positive t at every ambient center: the sum of phi over all t-roots equals phi of the center, independently of enumeration. No condition phi(0)=0 is imposed. The target is the original native Cartan group ring with the already constructed full-lift norm.
+
+**Proof:**
+
+1. Use E_M,N,x to regard each actual ambient root as a point in the larger torsion kernel.
+2. The actual additive automorphism A_N(u) commutes with multiplication by N/M.
+3. The inclusion compatibility identifies its image of the included center with the inclusion of A_M(r_M,N(u))(x). Injectivity makes the root predicates equivalent.
+4. Use native Equiv.subtypeEquiv for that actual additive equivalence, then the inverse root comparison for the transformed center.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv`, `DirichletPadicLFunctions:L3/kubert-all-root-cartan-circle-level-equiv-inclusion`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv`, `mathlib:Equiv.subtypeEquiv`.
+
+**Uses:**
+
+- Kubert188, equation2.11: Keeps every ambient root as an actual larger-level point, including zero and imprimitive roots, so the ordinary relation uses the complete source fiber.
+- Kubert188–189, scalar root-law argument: Transports the full root sum by the actual invertible Cartan point action and its actual inverse, making the coefficientwise ordinary law rigorous in degree one.
+
+**API:**
+
+- `kubertCartanCircleRootEquiv_coe` (compatibility): For every actual ambient root y of x, the underlying point C_M,N,u,x(y) is A_N(u) applied to the actual kernel point E_M,N,x(y), coerced to the rational circle.
+- `kubertCartanCircleRootEquiv_symm_coe` (compatibility): For an ambient root y of the transformed center A_M(r_M,N(u))(x), the underlying point of C_M,N,u,x inverse at y is the inverse additive equivalence A_N(u) inverse applied to its actual larger-kernel root point.
+- `kubertCartanCircleRootEquiv_intCast_coe` (compatibility): If integer a represents the underlying residue unit e_N(u), then for every ambient root y of x, the ambient image under C_M,N,u,x is a times y. This includes negative representatives and imprimitive roots.
+- `kubertCartanCircleRootEquiv_sum` (compatibility): For any additive commutative monoid B and function f:Q/Z→B, the sum of f(A_N(u)y) over all ambient (N/M)-roots y of x equals the sum of f(z) over all ambient (N/M)-roots z of A_M(r_M,N(u))(x), where each y is regarded in the larger kernel by E_M,N,x. The equality holds for any enumerations of these actual finite fibers.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneRootDistributionTests.root_action_level_one` (degenerate): At M=N=1 the actual Cartan root bijection fixes the sole zero root.
+- `SuggestedKubertDegreeOneRootDistributionTests.root_action_five_modulo_six` (computation): At M=2,N=6 and center1/2, original unit5 modulo6 sends the root1/6 to5/6; both are actual roots of the same center.
+- `SuggestedKubertDegreeOneRootDistributionTests.root_action_fixes_imprimitive_half` (compatibility): The same unit5 modulo6 fixes the root1/2 in that fiber; the root action is not restricted to primitive points.
+- `SuggestedKubertDegreeOneRootDistributionTests.nonunit_scalar_is_not_injective` (non-example): Multiplication by the nonunit2 at level6 kills the nonzero point1/2, so it cannot supply the required invertible root action.
+
+**Acceptance:** At M=2,N=6 and center1/2, the entire root fiber is1/6,1/2,5/6; unit5 swaps the first and last and fixes the imprimitive middle root. At level1 the zero root survives. Constant integer1 fails the two-root scalar law because2 differs from1. The zero-point indicator satisfies the ordinary law, including in characteristic2,3,5; replacing the three roots of zero by only primitive level3 roots changes its sum from1 to0.
+
+**Source:** Published188 equation(2.11) and189 first paragraph, ordinary distribution relation from the scalar root law and Cartan action on the entire division fiber; degree-one case of the source fiber argument. Proves actual all-root containment and an actual Cartan bijection of ambient root fibers, then derives the degree-one group-ring root law from the explicit scalar law using original inverse coefficients and full-lift norms. General-degree lambda fibers and the direct-limit factorization remain separate work.
+
+### The all-root bijection uses the original forward point action
+
+`DirichletPadicLFunctions:L3/kubert-all-root-cartan-circle-root-equiv-coe` — `DirichletPadic.kubertCartanCircleRootEquiv_coe`
+
+For every actual ambient root y of x, the underlying point C_M,N,u,x(y) is A_N(u) applied to the actual kernel point E_M,N,x(y), coerced to the rational circle.
+
+**Hypotheses:** M,N are positive integers with M dividing N, and t=N/M is a positive integer. A level-M point is an actual element of the kernel of multiplication by M. Every root fiber is the actual subtype of ambient points y satisfying ty=x, with no primitiveness restriction. Root containment and the ambient-to-kernel equivalence apply to any additive commutative group X. For the Cartan action specialize X to the actual rational circle AddCircle(1:Q), retain the original degree-one finite Cartan groups U(1,N), original reductions r_M,N and the established additive automorphisms A_N(u). Finite sums use enumerations of the actual root fibers. Their finiteness on the rational circle is supplied by the existing proved circle_fiber_finite; no fiber cardinality or assumed torsor is supplied as a hypothesis. Sum transport works in any additive commutative monoid. For the ordinary Cartan root law, R is any semiring and phi:Q/Z→R satisfies the scalar root law for this positive t at every ambient center: the sum of phi over all t-roots equals phi of the center, independently of enumeration. No condition phi(0)=0 is imposed. The target is the original native Cartan group ring with the already constructed full-lift norm.
+
+**Proof:**
+
+1. Unfold the two existing root comparisons and native subtype equivalence; all underlying point maps are retained.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-all-root-cartan-circle-root-equiv`, `DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv-symm-coe`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneRootDistributionTests.cartanCircleRootEquiv_coe_typed_api` (compatibility): For every actual ambient root y of x, the underlying point C_M,N,u,x(y) is A_N(u) applied to the actual kernel point E_M,N,x(y), coerced to the rational circle.
+
+**Acceptance:** At M=2,N=6 and center1/2, the entire root fiber is1/6,1/2,5/6; unit5 swaps the first and last and fixes the imprimitive middle root. At level1 the zero root survives. Constant integer1 fails the two-root scalar law because2 differs from1. The zero-point indicator satisfies the ordinary law, including in characteristic2,3,5; replacing the three roots of zero by only primitive level3 roots changes its sum from1 to0.
+
+**Source:** Published188 equation(2.11) and189 first paragraph, ordinary distribution relation from the scalar root law and Cartan action on the entire division fiber; degree-one case of the source fiber argument. Proves actual all-root containment and an actual Cartan bijection of ambient root fibers, then derives the degree-one group-ring root law from the explicit scalar law using original inverse coefficients and full-lift norms. General-degree lambda fibers and the direct-limit factorization remain separate work.
+
+### The inverse all-root bijection uses the actual inverse automorphism
+
+`DirichletPadicLFunctions:L3/kubert-all-root-cartan-circle-root-equiv-symm-coe` — `DirichletPadic.kubertCartanCircleRootEquiv_symm_coe`
+
+For an ambient root y of the transformed center A_M(r_M,N(u))(x), the underlying point of C_M,N,u,x inverse at y is the inverse additive equivalence A_N(u) inverse applied to its actual larger-kernel root point.
+
+**Hypotheses:** M,N are positive integers with M dividing N, and t=N/M is a positive integer. A level-M point is an actual element of the kernel of multiplication by M. Every root fiber is the actual subtype of ambient points y satisfying ty=x, with no primitiveness restriction. Root containment and the ambient-to-kernel equivalence apply to any additive commutative group X. For the Cartan action specialize X to the actual rational circle AddCircle(1:Q), retain the original degree-one finite Cartan groups U(1,N), original reductions r_M,N and the established additive automorphisms A_N(u). Finite sums use enumerations of the actual root fibers. Their finiteness on the rational circle is supplied by the existing proved circle_fiber_finite; no fiber cardinality or assumed torsor is supplied as a hypothesis. Sum transport works in any additive commutative monoid. For the ordinary Cartan root law, R is any semiring and phi:Q/Z→R satisfies the scalar root law for this positive t at every ambient center: the sum of phi over all t-roots equals phi of the center, independently of enumeration. No condition phi(0)=0 is imposed. The target is the original native Cartan group ring with the already constructed full-lift norm.
+
+**Proof:**
+
+1. The inverse native subtype equivalence applies the inverse of the actual additive equivalence.
+2. Both root comparisons retain the same ambient point; their explicit inverse composite gives the formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-all-root-cartan-circle-root-equiv`, `DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv-symm-coe`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneRootDistributionTests.cartanCircleRootEquiv_symm_coe_typed_api` (compatibility): For an ambient root y of the transformed center A_M(r_M,N(u))(x), the underlying point of C_M,N,u,x inverse at y is the inverse additive equivalence A_N(u) inverse applied to its actual larger-kernel root point.
+
+**Acceptance:** At M=2,N=6 and center1/2, the entire root fiber is1/6,1/2,5/6; unit5 swaps the first and last and fixes the imprimitive middle root. At level1 the zero root survives. Constant integer1 fails the two-root scalar law because2 differs from1. The zero-point indicator satisfies the ordinary law, including in characteristic2,3,5; replacing the three roots of zero by only primitive level3 roots changes its sum from1 to0.
+
+**Source:** Published188 equation(2.11) and189 first paragraph, ordinary distribution relation from the scalar root law and Cartan action on the entire division fiber; degree-one case of the source fiber argument. Proves actual all-root containment and an actual Cartan bijection of ambient root fibers, then derives the degree-one group-ring root law from the explicit scalar law using original inverse coefficients and full-lift norms. General-degree lambda fibers and the direct-limit factorization remain separate work.
+
+### The all-root action retains every integer scalar representative
+
+`DirichletPadicLFunctions:L3/kubert-all-root-cartan-circle-root-equiv-int-cast-coe` — `DirichletPadic.kubertCartanCircleRootEquiv_intCast_coe`
+
+If integer a represents the underlying residue unit e_N(u), then for every ambient root y of x, the ambient image under C_M,N,u,x is a times y. This includes negative representatives and imprimitive roots.
+
+**Hypotheses:** M,N are positive integers with M dividing N, and t=N/M is a positive integer. A level-M point is an actual element of the kernel of multiplication by M. Every root fiber is the actual subtype of ambient points y satisfying ty=x, with no primitiveness restriction. Root containment and the ambient-to-kernel equivalence apply to any additive commutative group X. For the Cartan action specialize X to the actual rational circle AddCircle(1:Q), retain the original degree-one finite Cartan groups U(1,N), original reductions r_M,N and the established additive automorphisms A_N(u). Finite sums use enumerations of the actual root fibers. Their finiteness on the rational circle is supplied by the existing proved circle_fiber_finite; no fiber cardinality or assumed torsor is supplied as a hypothesis. Sum transport works in any additive commutative monoid. For the ordinary Cartan root law, R is any semiring and phi:Q/Z→R satisfies the scalar root law for this positive t at every ambient center: the sum of phi over all t-roots equals phi of the center, independently of enumeration. No condition phi(0)=0 is imposed. The target is the original native Cartan group ring with the already constructed full-lift norm.
+
+**Proof:**
+
+1. Use the proved forward root-action formula.
+2. Apply the existing arbitrary-integer scalar formula for the actual level action.
+3. The root inclusion retains the original ambient point y.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-all-root-cartan-circle-root-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-int-cast-coe`, `DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv-coe`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneRootDistributionTests.cartanCircleRootEquiv_intCast_coe_typed_api` (compatibility): If integer a represents the underlying residue unit e_N(u), then for every ambient root y of x, the ambient image under C_M,N,u,x is a times y. This includes negative representatives and imprimitive roots.
+
+**Acceptance:** At M=2,N=6 and center1/2, the entire root fiber is1/6,1/2,5/6; unit5 swaps the first and last and fixes the imprimitive middle root. At level1 the zero root survives. Constant integer1 fails the two-root scalar law because2 differs from1. The zero-point indicator satisfies the ordinary law, including in characteristic2,3,5; replacing the three roots of zero by only primitive level3 roots changes its sum from1 to0.
+
+**Source:** Published188 equation(2.11) and189 first paragraph, ordinary distribution relation from the scalar root law and Cartan action on the entire division fiber; degree-one case of the source fiber argument. Proves actual all-root containment and an actual Cartan bijection of ambient root fibers, then derives the degree-one group-ring root law from the explicit scalar law using original inverse coefficients and full-lift norms. General-degree lambda fibers and the direct-limit factorization remain separate work.
+
+### Finite sums transport across the entire Cartan root bijection
+
+`DirichletPadicLFunctions:L3/kubert-all-root-cartan-circle-root-equiv-sum` — `DirichletPadic.kubertCartanCircleRootEquiv_sum`
+
+For any additive commutative monoid B and function f:Q/Z→B, the sum of f(A_N(u)y) over all ambient (N/M)-roots y of x equals the sum of f(z) over all ambient (N/M)-roots z of A_M(r_M,N(u))(x), where each y is regarded in the larger kernel by E_M,N,x. The equality holds for any enumerations of these actual finite fibers.
+
+**Hypotheses:** M,N are positive integers with M dividing N, and t=N/M is a positive integer. A level-M point is an actual element of the kernel of multiplication by M. Every root fiber is the actual subtype of ambient points y satisfying ty=x, with no primitiveness restriction. Root containment and the ambient-to-kernel equivalence apply to any additive commutative group X. For the Cartan action specialize X to the actual rational circle AddCircle(1:Q), retain the original degree-one finite Cartan groups U(1,N), original reductions r_M,N and the established additive automorphisms A_N(u). Finite sums use enumerations of the actual root fibers. Their finiteness on the rational circle is supplied by the existing proved circle_fiber_finite; no fiber cardinality or assumed torsor is supplied as a hypothesis. Sum transport works in any additive commutative monoid. For the ordinary Cartan root law, R is any semiring and phi:Q/Z→R satisfies the scalar root law for this positive t at every ambient center: the sum of phi over all t-roots equals phi of the center, independently of enumeration. No condition phi(0)=0 is imposed. The target is the original native Cartan group ring with the already constructed full-lift norm.
+
+**Proof:**
+
+1. Apply native Equiv.sum_comp to the constructed actual ambient-root equivalence and the function evaluating f on an underlying root point.
+2. Its forward point formula is exactly the argument of f on the left. No multiplicity factor or average is introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-all-root-cartan-circle-root-equiv`, `DirichletPadicLFunctions:L3/kubert-all-root-cartan-circle-root-equiv-coe`, `mathlib:Equiv.prod_comp`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneRootDistributionTests.cartanCircleRootEquiv_sum_typed_api` (compatibility): For any additive commutative monoid B and function f:Q/Z→B, the sum of f(A_N(u)y) over all ambient (N/M)-roots y of x equals the sum of f(z) over all ambient (N/M)-roots z of A_M(r_M,N(u))(x), where each y is regarded in the larger kernel by E_M,N,x. The equality holds for any enumerations of these actual finite fibers.
+
+**Acceptance:** At M=2,N=6 and center1/2, the entire root fiber is1/6,1/2,5/6; unit5 swaps the first and last and fixes the imprimitive middle root. At level1 the zero root survives. Constant integer1 fails the two-root scalar law because2 differs from1. The zero-point indicator satisfies the ordinary law, including in characteristic2,3,5; replacing the three roots of zero by only primitive level3 roots changes its sum from1 to0.
+
+**Source:** Published188 equation(2.11) and189 first paragraph, ordinary distribution relation from the scalar root law and Cartan action on the entire division fiber; degree-one case of the source fiber argument. Proves actual all-root containment and an actual Cartan bijection of ambient root fibers, then derives the degree-one group-ring root law from the explicit scalar law using original inverse coefficients and full-lift norms. General-degree lambda fibers and the direct-limit factorization remain separate work.
+
+### Finite Cartan values satisfy the degree-one ordinary root law
+
+`DirichletPadicLFunctions:L3/kubert-all-root-cartan-circle-value-root-sum` — `DirichletPadic.kubertCartanCircleValue_root_sum`
+
+Suppose the scalar function phi:Q/Z→R satisfies the ordinary scalar law for the positive integer t=N/M at every ambient center. Then the sum over all actual ambient t-roots y of the level-M point x of the actual finite values V_N(y)(phi) equals the original full-lift norm from M to N applied to V_M(x)(phi). Every y is made an actual level-N point by E_M,N,x. This is an equality in the original group ring R[U(1,N)], for any semiring R.
+
+**Hypotheses:** M,N are positive integers with M dividing N, and t=N/M is a positive integer. A level-M point is an actual element of the kernel of multiplication by M. Every root fiber is the actual subtype of ambient points y satisfying ty=x, with no primitiveness restriction. Root containment and the ambient-to-kernel equivalence apply to any additive commutative group X. For the Cartan action specialize X to the actual rational circle AddCircle(1:Q), retain the original degree-one finite Cartan groups U(1,N), original reductions r_M,N and the established additive automorphisms A_N(u). Finite sums use enumerations of the actual root fibers. Their finiteness on the rational circle is supplied by the existing proved circle_fiber_finite; no fiber cardinality or assumed torsor is supplied as a hypothesis. Sum transport works in any additive commutative monoid. For the ordinary Cartan root law, R is any semiring and phi:Q/Z→R satisfies the scalar root law for this positive t at every ambient center: the sum of phi over all t-roots equals phi of the center, independently of enumeration. No condition phi(0)=0 is imposed. The target is the original native Cartan group ring with the already constructed full-lift norm.
+
+**Proof:**
+
+1. Use native group-ring coefficient extensionality and evaluate at an arbitrary original level-N unit u.
+2. The existing finite-value coefficient formula evaluates the root summands at A_N(u inverse)y; the norm coefficient is the value at the reduced original unit.
+3. Since M divides positive N, t is positive. Existing circle_fiber_finite supplies the actual transformed fiber's finite enumeration.
+4. Use the proved all-root finite-sum transport at u inverse, then apply the stated scalar law at A_M(r_M,N(u inverse))(x).
+5. The original Cartan reduction preserves inverse, so this scalar value is precisely the original full-lift norm coefficient.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv`, `DirichletPadicLFunctions:L3/kubert-all-root-cartan-circle-root-equiv-sum`, `DirichletPadicLFunctions:L3/kubert-circle-fiber-finite`, `DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-coeff`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-coeff-apply`, `mathlib:MonoidAlgebra.coeff_sum`, `mathlib:Finsupp.finsetSum_apply`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneRootDistributionTests.constant_one_fails_ordinary_root_law` (non-example): The constant integer function1 fails the ordinary scalar law for multiplication by2 at zero: its sum over the two actual circle roots is2, not1.
+- `SuggestedKubertDegreeOneRootDistributionTests.zero_scalar_function_root_sum` (degenerate): For every divisor level and center, the zero scalar function gives zero after summing the actual Cartan values over all ambient roots.
+- `SuggestedKubertDegreeOneRootDistributionTests.cartanCircleValue_root_sum_typed_api` (compatibility): Suppose the scalar function phi:Q/Z→R satisfies the ordinary scalar law for the positive integer t=N/M at every ambient center. Then the sum over all actual ambient t-roots y of the level-M point x of the actual finite values V_N(y)(phi) equals the original full-lift norm from M to N applied to V_M(x)(phi). Every y is made an actual level-N point by E_M,N,x. This is an equality in the original group ring R[U(1,N)], for any semiring R.
+
+**Acceptance:** At M=2,N=6 and center1/2, the entire root fiber is1/6,1/2,5/6; unit5 swaps the first and last and fixes the imprimitive middle root. At level1 the zero root survives. Constant integer1 fails the two-root scalar law because2 differs from1. The zero-point indicator satisfies the ordinary law, including in characteristic2,3,5; replacing the three roots of zero by only primitive level3 roots changes its sum from1 to0.
+
+**Source:** Published188 equation(2.11) and189 first paragraph, ordinary distribution relation from the scalar root law and Cartan action on the entire division fiber; degree-one case of the source fiber argument. Proves actual all-root containment and an actual Cartan bijection of ambient root fibers, then derives the degree-one group-ring root law from the explicit scalar law using original inverse coefficients and full-lift norms. General-degree lambda fibers and the direct-limit factorization remain separate work.
+
+**Remaining:** The actual degree-one finite Cartan values now satisfy the ordinary root relation from an explicit scalar ordinary law, with all ambient roots included and actual Cartan bijections transporting the sums. Full-lift norm consistency and inverse coefficients are established. Next construct the actual group-ring direct limit of the original norms and pass the compatible finite maps and ordinary law to the source global universal distribution quotient. Use a genuine divisibility index or a proved cofinal factorial tower; the usual order on positive naturals is not divisibility. General-degree coherent primitive coordinates, unramified integer-ring identification and the general lambda fiber count remain open. FF.4 owns generic Galois-ring theory. Complete the independent lower rank argument through Kubert186–199 and combine it with actual surjections and upper bounds for independence, freeness and internal/global equality. Preserve parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18 gaps and16 requests remain; zero stages close.
+
+### Actual all-root Cartan bijections and the degree-one ordinary relation validation
+
+All 1825 predecessor nodes, 1185 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 11 nodes, 11 named suggested declarations and 18 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2098 reachable nodes, 8792 edges and 1354 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route terminates in actual original torsion inclusion, Cartan action, finite value and norm APIs or existing native subtype equivalence and finite-sum theory. No new supplier-stage leaf or assumed root-count, distribution or rank package is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3648 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5725 verbatim and adds two actual constructions and nine complete lemmas. Totals are134 definitions and1,177 lemmas, plus two routine native primality instances and the retained complete digit non-example, with zero placeholders. The public append contains11 named declarations and18 typed tests, all new mathematical bodies placeholders. No native import or library build is added. The separate probe compiles against 3030 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact controls at48positive levels check 1930 centers, 5433 ambientRoots, 90459 rootImages, 90459 rootInverseChecks, 33494 rootSumComparisons, 66988 ordinaryCoefficientChecks, 100482 characteristicChecks. They use fractional-part minus1/2 and the zero-point indicator as scalar ordinary functions. The indicator works in characteristic2,3,5; omitting the zero root at level3 changes its sum1 to0. Constant integer1 fails the two-root law2not1. Native proofs separately establish arbitrary-level and arbitrary-semiring statements. Exact rational arithmetic modulo1 enumerates all ambient roots, including zero and imprimitive points. The scalar functions are fractional-part minus1/2 and the zero-point indicator; both satisfy the exact scalar root law on these fibers. The indicator also tests coefficients modulo2,3,5 without averaging. Constant-one and primitive-only-root counterexamples are checked separately. Finite controls do not certify the arbitrary-level native proofs. The largest observed discrepancy is 0.
+
+All79 guarded inputs and four predecessor outputs are unchanged from merged5725. The complete issue text and original winning claim remain unchanged; review390 is blocked and unclaimed. No source finding or independent review verdict is added.
+
+The separate partial signature file also compiled with zero errors and 5,525 expected placeholder warnings across 3,644 pinned source modules. It includes all 11 new named declarations and 18 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0a45a4bdfa554f3288f977a22354009cf8a1f1ceb72480b5e1f35c118aeebb3a.
