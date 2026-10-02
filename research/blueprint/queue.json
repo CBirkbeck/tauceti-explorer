@@ -40529,8 +40529,9 @@
     "REV-PAPER-LI-ZHANG-22-B"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LI-ZHANG-22-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4261"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4261",
+   "finishedAt": "2026-10-02T05:23:46Z"
   },
   {
    "id": "RT-PAPER-CLAUSEN-MATHEW-MORROW-21",
