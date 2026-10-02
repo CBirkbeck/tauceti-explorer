@@ -10,9 +10,9 @@ traits. Here those objects become moduli groupoids and stack morphisms; the
 parent is imported rather than planned a second time. Stable-map moduli are
 not constructed in this continuation.
 
-Every stage is partial. The packet records 125 declaration nodes, 142 API items,
-135 definition/construction tests plus two exactness tests, 35 planets,
-135 precise supplier requests and 14 gaps. There are 73 inspected
+Every stage is partial. The packet records 133 declaration nodes, 150 API items,
+139 definition/construction tests plus two exactness tests, 35 planets,
+135 precise supplier requests and 14 gaps. There are 77 inspected
 pinned-library declarations. Nothing is claimed
 formalized: every implementationStatus is unchecked. An open request is a
 dependency on a specification, not evidence that the mathematical library
@@ -27,8 +27,9 @@ can be called source_decomposed or closed.
 
 
 The polynomial model in MC.2 uses the native quotient, ideal and coefficient
-scalar tower. This checkpoint specifies the actual A-linear ideal projection
-and instantiates the inherited canonical section splitting. The complete
+scalar tower. This checkpoint retains the actual A-linear ideal projection
+and canonical section splitting, names the inherited dual generator ε and
+correction map K, and checks their native proof bodies separately. The complete
 Mathlib-only suggested sketch and the separate immutable proof extraction are
 checked separately. Every submitted body added here remains an admitted sketch
 under PROTOCOL section 13; no stage is closed.
@@ -68,17 +69,75 @@ R=ℚ[Y][X]/(X²+YX), p(1)=0 and p(u)=u≠0. Monicity and the native quotient
 degree bound prove u≠0, so p(u·1)≠u p(1). A coefficient splitting does not
 assert R-flatness, R-projectivity or invertibility at the node.
 
-The separate canonical proof extraction has thirteen axiom audits and seven
-examples, zero errors/warnings and no admitted-proof axiom dependency. Its exact
+The separate canonical proof extraction has 34 axiom audits and 16
+examples, zero errors/warnings and no admitted-proof axiom dependency. It includes
+the inherited thirteen evaluation/projection/splitting proofs and 21 dual-generator
+and correction declarations. Its exact
 source survives at the immutable suggested-file revision linked in the
 [handoff](../handoff/DESIGN-StableReductionPartII.md). The complete current
 [suggested sketch](../suggested/StableReductionPartII.lean) is checked separately;
-its admissions do not establish the remaining cokernel, dual, tensor, ambient,
+its admissions do not establish the remaining cokernel, dual normal-coordinate, tensor, ambient,
 completion or moduli assertions.
 
 Historical fifteen-body normal-form, coefficient-freeness, regularity and
 coefficient-map proofs remain at immutable cef4c2085eddbf723e9050f7d4924924d593a0e3.
 They are not freshly checked or reinstalled by this checkpoint.
+
+## Native dual generator and correction
+
+Over every commutative A, including the zero ring, keep the actual quotient
+R, coefficient map ι and ideal J above. Write c=u−ιs, d=v−ιt,
+b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. The quotient relation gives
+cb+da=0. Monicity of F supplies native A[Y]-module freeness directly; the
+free-module torsion-freeness instance makes the action of the monic Y−t
+injective, and this is multiplication by d. This route does not assume the
+full two-coefficient normal-form theorem.
+
+For actual j∈J, native ideal membership gives j=xc+yd. The element
+−ax+by satisfies d(−ax+by)=bj. Choose this witness for each j;
+regularity of d makes it unique and proves additivity and R-linearity.
+This defines the named `dualGenerator : J →ₗ[R] R` on the existing ideal,
+with no denominator or localization. Its formula is dε(j)=bj,
+its values are ε(c)=−a and ε(d)=b, and every map with that formula equals it.
+The membership proofs for c and d are actual lemmas, not admitted arguments.
+
+Restrict ε to coefficient scalars and compose it with the existing ideal
+projection p. This defines `dualCorrectionMap : R →ₗ[A] R`, K(r)=ε(p(r)).
+Consequently dK(r)=b(r−ι(ev(r))). Multiplicativity of ev and ι and cancellation
+of d give K(rz)=rK(z)+ι(ev(z))K(r). The projection fixes c,d and kills
+coefficients, so K(c)=−a, K(d)=b and K(ι(α))=0. The same cancellation proves
+uniqueness among all A-linear maps with the denominator-free formula.
+These are the existing two construction nodes, with concrete canonical names;
+no parallel dual or correction carrier is planned.
+
+Eight additional lemma nodes make the consumed interfaces explicit: monicity,
+A[Y]-freeness, cb+da=0, ideal divisibility, the canonical ε formula, its generic
+generator values, the K formula and its product law. The latter two are
+consumed by coefficient naturality and tensor-action plans. Their proof
+obligations retain the actual quotient and inherited coefficient action.
+The pinned binary-ideal membership, quotient relation, basis torsion-freeness
+and scalar restriction results are imported. The free-module instance exists
+and is used by Lean; its priority-annotated name is absent from the declaration
+index, so its indexed supporting basis theorem is cited in the packet.
+
+The eight added API items are `sectionFirst_mem`, `sectionSecond_mem`,
+`dualGenerator_spec`, `dualCorrectionMap_apply`, `dualCorrectionMap_spec`,
+`dualCorrectionMap_product`, `dualCorrectionMap_values` and
+`dualCorrectionMap_coefficient`, all in the PolynomialModel namespace.
+The two original API lists and their six test contracts are preserved.
+Four extra tests exercise named maps: ε(d)=u+1 over Z/4 at s=1 with zero
+discriminant; ε(c)=−u, ε(d)=u and u≠−u over F₃; K(u)=u over F₂ with unit
+discriminant; and K(rd)=rb for arbitrary r, detecting the product-law orientation.
+The older custom-presentation `dualSignThree` example remains an admitted sketch;
+the new canonical sign fixture is checked on the actual native quotient.
+
+The preceding handoff's C1–C8 derivations for arbitrary coefficient modules,
+Hom exchange and canonical bidual/Ext computations remain available at the
+immutable revision linked in the handoff. This checkpoint integrates the
+native ε calculation, not those entire arguments. Cokernel identifications,
+dual normal coordinates and residue, tensor exchange, two-base completion,
+pointed-family identification and geometric descent still require their
+existing proofs and supplier interfaces. No stage or moduli key is closed.
 
 ## Conventions and interfaces
 
@@ -3191,34 +3250,127 @@ A is any commutative ring; γ,δ,s,t∈A. R=A[Y][X]/(X²+γYX+δY²−q(s,t)), c
 **Source:** knudsen2, Appendix Definition1, Theorem2, Propositions4–7, printed191–195 (PDF31–35). Motivates completed-local passage; Proposition6 cites Bourbaki without a proof and Proposition7 is an exercise. These ambient algebra adapters do not claim either proposition or relative stable reflexivity.
 
 
-## Verified native projection and splitting checkpoint
+## Verification receipts
 
-The native projection p:R→J and the existing sectionSplit are instantiated on
-the actual quotient and ideal using the inherited coefficient scalar tower.
-The six added nodes are coefficient-inclusion-action, section-evaluation-scalars,
-section-evaluation-projection, section-projection-formula,
-section-projection-retraction and section-projection-coefficients. Their statements, APIs and four tests appear
-above. The splitting formulas and three inherited tests keep their original
-statements. Coefficient flatness now consumes the actual native retraction.
-
-The complete current Mathlib-only sketch elaborates with zero errors, 170
-admitted-proof warnings only and 74 examples. The separate canonical proof
-archive has thirteen axiom audits, seven proved examples and zero errors or
-warnings. No admitted axiom is used by those canonical bodies. They are source
-prototypes, and the final suggested file admits their bodies under PROTOCOL§13.
+The complete current Mathlib-only suggested sketch elaborates with zero errors,
+187 admitted-proof warnings only and 78 examples. The separate 539-line canonical
+proof archive has 34 axiom audits and 16 proved examples, zero errors/warnings,
+and no admitted axiom dependency. Its 34 declaration signatures match the
+submitted sketch after whitespace, lemma/theorem keyword and local-notation
+normalization; all four new example statements match exactly after whitespace.
+The archive contains actual proofs; the submitted bodies are admitted under
+PROTOCOL§13. The earlier splitting checkpoint's receipts remain historical in
+the packet and at its immutable revision.
 
 The actual read-only atlas assembler produces acyclic graphs: stages
-3,050 vertices/8,750 edges; own declarations 125/284; stages plus declarations
-and supplier requests 3,140/9,273. All 81 computed stage prerequisite pairs are
+3,050 vertices/8,750 edges; own declarations133/303; stages plus declarations
+and supplier requests3,148/9,300. All81 computed stage prerequisite pairs are
 reachable. Stage edges and unrelated skipped links agree with the original
 packet overlay; no own links are skipped. This scoped check does not certify
-all unrelated atlas declarations. Exact hashes, public archive extraction and
-reproduction script are in the handoff.
+all unrelated atlas declarations. Exact hashes, archive extraction and the
+full reproduction script are in the handoff.
 
-All 119 original mathematical statements, hypotheses, APIs, tests, acceptance
-criteria and sources survive. Of their full node objects, 117 are unchanged;
-only the splitting and coefficient-flatness dependency/proof routes change.
-The reserved moduli-curves key, binding Yuan/DGH routes, 135 requests, fourteen
-gaps, ownership proposal and eight partial stages remain unchanged. Source
-reading here certifies only the selected Knudsen §3 HTML scope. Earlier source
-and finite-regression receipts remain historical.
+All125 inherited mathematical statements, hypotheses, API/test contracts,
+acceptance criteria, sources and uses survive. Of their full node objects,
+119 are unchanged; six receive dependencies, proof routes, canonical names,
+API or test additions. The reserved moduli-curves key, binding Yuan/DGH routes,
+135 requests, fourteen gaps, ownership proposal and eight partial stages
+remain unchanged. The roadmap definition is byte-for-byte unchanged.
+
+## Added declaration interfaces
+
+### StableReductionPartII:MC.2/section-polynomial-monic
+
+For the inherited polynomial F=X²+C(γY)X+C(δY²−q(s,t)) in A[Y][X], F is monic in X.
+
+Hypotheses: A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+Prerequisites: `StableReductionPartII:MC.2/polynomial-node-model`.
+
+Proposed declaration: `NodeSectionFactorization.PolynomialModel.polynomialMonic`.
+
+Proof: The leading X² coefficient is one; both other summands have smaller X degree. No nontriviality or discriminant condition is required.
+
+### StableReductionPartII:MC.2/section-polynomial-freeness
+
+The native quotient R=AdjoinRoot(F) is a free A[Y]-module, for the existing AdjoinRoot algebra structure.
+
+Hypotheses: A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+Prerequisites: `StableReductionPartII:MC.2/section-polynomial-monic`, `mathlib:Polynomial.Monic.free_adjoinRoot`.
+
+Proposed declaration: `NodeSectionFactorization.PolynomialModel.sectionPolynomialFree`.
+
+Proof: Apply the pinned monic AdjoinRoot freeness theorem directly. This short freeness interface does not assume or replace the full two-coefficient normal-form theorem.
+
+### StableReductionPartII:MC.2/section-polynomial-relation
+
+With the inherited coordinates c,d,a,b in R, cb+da=0.
+
+Hypotheses: A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+Prerequisites: `StableReductionPartII:MC.2/polynomial-node-model`, `StableReductionPartII:MC.2/binary-node-form`, `mathlib:AdjoinRoot.mk_self`.
+
+Proposed declaration: `NodeSectionFactorization.PolynomialModel.sectionRelation`.
+
+Proof: The actual quotient map sends F to zero. Expand q(s,t) and the definitions of c,d,a,b; commutative ring normalization identifies cb+da with the quotient relation.
+
+### StableReductionPartII:MC.2/section-dual-divisibility
+
+For every actual j∈J=(c,d), there exists z∈R with dz=bj.
+
+Hypotheses: A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+Prerequisites: `StableReductionPartII:MC.2/section-polynomial-relation`, `mathlib:Ideal.mem_span_pair`.
+
+Proposed declaration: `NodeSectionFactorization.PolynomialModel.dualGenerator_divisibility`.
+
+Proof: Native binary ideal membership gives j=xc+yd. Choose z=−ax+by and use cb+da=0. No ideal-generation assumption, localization or inverse of d is introduced.
+
+### StableReductionPartII:MC.2/section-dual-generator-formula
+
+For every j∈J, d ε(j)=bj for the named canonical R-linear dualGenerator.
+
+Hypotheses: A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+Prerequisites: `StableReductionPartII:MC.2/section-dual-generator`, `StableReductionPartII:MC.2/section-dual-divisibility`.
+
+Proposed declaration: `NodeSectionFactorization.PolynomialModel.dualGenerator_spec`.
+
+Proof: Apply the chosen witness specification in the canonical map. The map linearity was proved by cancelling the regular coordinate d.
+
+### StableReductionPartII:MC.2/section-dual-generator-values
+
+For every R-linear ε:J→R satisfying dε(j)=bj, ε(c)=−a and ε(d)=b, using actual proved membership of both generators.
+
+Hypotheses: A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+Prerequisites: `StableReductionPartII:MC.2/section-dual-generator`, `StableReductionPartII:MC.2/section-coordinate-regular`, `StableReductionPartII:MC.2/section-polynomial-relation`.
+
+Proposed declaration: `NodeSectionFactorization.PolynomialModel.dualGeneratorValues`.
+
+Proof: Substitute c and d into the characterization. Use cb+da=0 for c and commutativity for d; cancel regular d.
+
+### StableReductionPartII:MC.2/section-dual-correction-formula
+
+For every r∈R, d K(r)=b(r−ι(ev(r))) for K=ε∘p.
+
+Hypotheses: A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+Prerequisites: `StableReductionPartII:MC.2/section-dual-scalar-correction`, `StableReductionPartII:MC.2/section-dual-generator-formula`, `StableReductionPartII:MC.2/section-projection-formula`.
+
+Proposed declaration: `NodeSectionFactorization.PolynomialModel.dualCorrectionMap_spec`.
+
+Proof: Apply the canonical dual-generator identity to the actual ideal element p(r). Use the inherited projection formula p(r)=r−ι(ev(r)).
+
+### StableReductionPartII:MC.2/section-dual-correction-product
+
+For all r,z∈R, K(rz)=rK(z)+ι(ev(z))K(r).
+
+Hypotheses: A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement.
+
+Prerequisites: `StableReductionPartII:MC.2/section-dual-correction-formula`, `StableReductionPartII:MC.2/section-coordinate-regular`, `StableReductionPartII:MC.2/section-evaluation-kernel`.
+
+Proposed declaration: `NodeSectionFactorization.PolynomialModel.dualCorrectionMap_product`.
+
+Proof: Multiply both sides by d and use the correction identity at rz,z,r. The two native ring maps ev and ι preserve products. Ring normalization and cancellation of d prove the displayed orientation.
