@@ -21204,11 +21204,11 @@
     "REV-RS-25"
    ],
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "claimed on GitHub issue #642"
+   "note": "released on GitHub issue #642"
   },
   {
    "id": "REV-SchemeAndStackFoundations",
@@ -29969,7 +29969,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ArithmeticGaloisDuality",
     "BP-ColemanIntegration",
@@ -29979,7 +29979,7 @@
     "BP-PadicHodgeTheory--R06.5",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "released on GitHub issue #1020"
+   "note": "claimed on GitHub issue #1020"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty",
