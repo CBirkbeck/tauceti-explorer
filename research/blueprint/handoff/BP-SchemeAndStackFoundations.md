@@ -1,3 +1,42 @@
+# BP-SchemeAndStackFoundations: actual étale section checkpoint
+
+Codex — session `codex-J6LwjP`, 2 October 2026. Refs #642.
+Base `e0a781b71f64383ba41eaefe6f137c668e44053d`. Claim 5954969290 was confirmed by bot 5954972391. The full 55,077-character issue was reread after confirmation. This is a partial checkpoint; all seven stages and every implementation status remain unchecked.
+
+Four new lemma nodes specify and prove the actual étale section selector, complementary kernel, section-compatible product equivalence and section-compatible localization equivalence. The inherited étale-lift uniqueness statement is unchanged and now has a native proof from the selector and the Jacobson-unit criterion. Twenty-three inherited full node objects are unchanged; the other two retain their exact statements with refined proof plans/prerequisites. All twenty-five IDs, 62 source routes, twelve unimplemented findings, source issue E1, requests, ownership proposal and six other stage coverage rows are preserved. The henselization key boundary's stale node count is corrected. Totals: 29 nodes (one definition, two constructions, 22 lemmas, four theorems), fourteen API entries, twelve definition/construction tests, nine additional typed lemma acceptance examples, three planets, 57 baseline references, eight gap groups and zero requests.
+
+The pinned library already builds the unramified diagonal product, idempotent ideal generator, complementary quotient product, surjective kernel quotient and idempotent localization. These are imported, not new atlas constructions. The public diagonal existential statement does not specify its projection; the new actual-section adapters explicitly satisfy the given section equation. They introduce no carrier, new stage, ownership transfer or cross-roadmap edge. The PerfectoidSpaces consolidation proposal remains unaccepted.
+
+The selector proof puts the section's actual B-algebra structure on R, proves the R/B/R tower, and uses formal étaleness plus finite presentation to generate its kernel by an idempotent k. Its complement e=1-k satisfies e*b=e*algebraMap(sigma(b)). The complementary ideal is exactly the section kernel. Built quotient/product and localization equivalences then give both required projection equations. For uniqueness, equal reductions give g(e)-1 in the Jacobson radical, hence g(e) is a unit. Idempotence and cancellation force g(e)=1; applying g to the selector identity gives f=g. This supplies uniqueness, not section existence or unrestricted root uniqueness.
+
+The remaining root-neighbourhood gap is now precise: transport quotient-base-change étaleness to the actual residue algebra; lift its selector to any g in the unquotiented algebra; prove that localization at g has the selected canonical residue quotient, with all scalar/quotient/localization coherences. Such a lift need not be idempotent before reduction, so the new idempotent-localization adapter alone does not close this step. Four finite-data adapters, the iterated tensor coequalizer, source simple-root/étale-section criterion and universal cocone remain admitted/open. The other five reserved keys and all wider API/source/stage obligations are unfinished.
+
+Fresh inputs include the SF.0 reviewed library audit and all seven accepted RS-25 layer decisions. Other AUDIT-01 entries, touching links, complete key brief, exact PerfectoidSpaces overlap, full JacobianChallenge/Multiquadratic upstream documents and confirmed-finding matrices were read in this continuing session or retain the explicit predecessor provenance; no fresh reading of the 62 primary paper routes or full family report is claimed. All twelve newly cited baseline declarations and ambient hypotheses were read at the exact Mathlib pin.
+
+Fresh primary evidence: all mathematical statements and displayed proofs of Stacks 0EM7, Lemmas 15.12.1–8; full statements/proofs of 02FL (10.151.4), 00U8 (10.143.9) and 00U7 (10.143.8). Downloaded HTML SHA-256 receipts are in the packet/reader. 0EM7 is byte-identical to the inherited receipt. Other Stacks/TeX receipts and source issue E1 remain inherited; no independent erratum review or later-lemma closure is claimed.
+
+## Validation
+
+- Indexed packet checker: zero errors and zero warnings; counts above. Exact four-deliverable intake/privacy and whitespace checks pass. Packet/reader/native node markers and names agree. No property-valued replacement, generic carrier duplication, supplier edit or atlas data mutation.
+- Full current Mathlib-only suggested file elaborates at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` with Lean v4.34.0-rc2 in the already-existing build: exit zero, zero errors, 40 admitted-proof warnings, zero other diagnostics, 21 examples, 1.45 seconds. Available memory exceeded 70 GB. Source SHA-256 `a6924c9e2546e628b52e90deca130b5b70328b1aa37d958a1ee01d6fda1b325b`; diagnostic-text SHA-256 `86cd9442f554831a561be8b30edf01f0b2501dc652ed62925b50df272e3ed5d4`. No Tau Ceti imports or combined-build claim; no Lake setup, cache/dependency/library build or language server.
+- Separate full-file kernel axiom audit: exit zero, 1.48 seconds. The four new adapters and `etale_lift_unique` each depend only on `propext`, `Classical.choice` and `Quot.sound`; no admitted axiom is in any of these five dependency closures. Audit diagnostic SHA-256 `522bea23617336f6ee074305004539669d8f601e847639ad3d3dbf7405eb7f45`. Other admitted declarations remain in the file and are not part of this claim.
+- Five new typed acceptance examples have native proofs: explicit selector (1,0) for F5×F5→F5, rejection of (0,1), exact complementary kernel, and product/localization signatures requiring the actual section equation. The sixteen inherited examples are retained. Earlier finite-model receipts are historical; those private scripts are not rerun or required for this checkpoint.
+- Read-only normal atlas assembly with an in-memory replacement of this packet: 29 declarations, three planets, no pending/skipped links; stage graph 2,959 vertices and 8,642 edges acyclic. Adding this packet's complete reachable prerequisites yields 2,985 vertices and 8,735 edges, also acyclic. The 29 reachable declarations introduce no external stage dependency. This is a scoped graph check; it does not certify every other promoted declaration or repair the historical unrelated ArithmeticKTheory/K3BlochGroups cycle. No atlas data is written/promoted.
+- Current main deliverable freshness and remote submission checks are performed before/after publication; no remote outcome is preclaimed here.
+
+## Resume
+
+1. Implement quotient-base-change transport and the localization of an arbitrary lifted residue selector, preserving the actual section equation. Apply the new adapters over the residue base; do not assume the lifted g is idempotent.
+2. Implement the four finite-data adapters and the parallel-map iterated tensor coequalizer with both scalar structures, finite parallel-arrow equalizations and canonical residue identities. Never assume transitions injective or the ideal finitely generated.
+3. Read/decompose Stacks 15.10.3–4 and the Zariski Main inputs of 15.11.5; finish the source criterion, universal cocone and functor laws.
+4. Resolve the PerfectoidSpaces owner overlap and preserve its broad flatness, ideal-power, completion, radical, filtered-pair and integral-base-change API. General faithful flatness fails for the unit ideal.
+5. Continue the other five reserved keys, all seven stages, 62 source routes and twelve findings. Resolve contradictory SF.4/L5 alteration ownership before adding either direction. SF.6 is a process/consumer layer.
+6. Independent review must assess the actual-section proof plans, inherited source E1 and remaining closure. Five kernel-checked prototype proofs do not complete henselization or formalize this roadmap.
+
+All durable mathematics and receipts are in the four deliverables. Own scratch is deleted after PR publication; no private download or log is required to resume.
+
+## Predecessor handoffs (historical provenance; superseded counts and receipts)
+
 # BP-SchemeAndStackFoundations: finite-data descent checkpoint
 
 Codex — session `codex-a71f92`, 2 October 2026. Refs #642.

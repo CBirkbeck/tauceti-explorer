@@ -1,10 +1,11 @@
 # Scheme, stack, cohomology and intersection foundations
 
-Partial continuation by Codex — `codex-a71f92`, 2 October 2026. Refs #642. Inherits the `codex-J6LwjP` checkpoint.
+Partial continuation by Codex — `codex-J6LwjP`, 2 October 2026. Refs #642. Inherits the `codex-a71f92` finite-data checkpoint.
 
-Continuation of the existing general henselization strand in SF.0: twenty-one inherited node IDs retained, with four proof-sized adapters for extended-ideal membership, monic polynomial descent, quotient-unit descent, and simultaneous simple-root data. The canonical residue comparison now has a direct element/kernel argument and the Jacobson/root proofs name their finite-data inputs. Built generic filtered-colimit machinery is cited, not re-planned. Étale splitting, universal-property closure, the PerfectoidSpaces ownership overlap, the other five reserved definitions, every other stage, all source routes and confirmed findings remain open; every implementation stays unchecked.
 
-This document is definitive for this checkpoint. The suggested Mathlib-only file proposes names and signatures and now compiles with admitted-proof warnings only; it proves none of the planned mathematics. There are 25 nodes, 14 API entries, 12 definition/construction tests, four additional typed lemma acceptance checks and three SF.0 planets. All seven stages remain open. The exact reserved henselization ID is present; the other five reserved IDs remain unfinished.
+Continuation of the existing SF.0 henselization strand: all twenty-five inherited IDs retained; four declaration-sized actual-section selector, kernel, product and localization adapters are added with native proofs, and the inherited etale-lift uniqueness statement now has a native proof. The generic unramified diagonal and idempotent/localization machinery are already built and imported. Lifted residue-selector localization, finite-data implementation, source criterion/universal cocone, ownership overlap, all other keys/stages/source routes and confirmed findings remain open; every implementation stays unchecked pending review.
+
+This document is definitive. There are 29 nodes, 14 API entries, twelve definition/construction tests, nine additional typed lemma acceptance checks, three SF.0 planets and 57 baseline references. Five declarations now have native proofs without admitted dependencies; the full suggested file still contains admitted declarations, and all implementation statuses remain unchecked. All seven stages remain open; the other five reserved definitions are unfinished.
 
 The construction uses arbitrary commutative ring/ideal pairs. It does not require Noetherianity, locality or completeness. The ideal I may be the unit ideal, in which case its henselization is the zero ring. General faithful flatness therefore cannot be asserted. The local case preserves the specified residue field; strict henselization remains an upstream import.
 
@@ -25,6 +26,15 @@ All seven applicable AUDIT-01 entries and the complete key/henselization brief w
 - [Product compatibility of henselization](https://stacks.math.columbia.edu/tag/0H7Q): Online tag 0H7Q, retrieved 2026-10-02. Statement and entire proof as displayed in parent section 0EM7, Lemma 15.12.8; the downloaded standalone page is a version receipt. Product compatibility is not a node in this checkpoint. SHA-256 `cc52e43fa913e1f2105ac07ad603e98576d233c57f151b52958b71c45b8531a5`.
 
 - [More on Algebra source text](https://raw.githubusercontent.com/stacks/stacks-project/master/more-algebra.tex): Current master more-algebra.tex, retrieved 2026-10-02. Only the product-henselization proof paragraph containing the circular B double-prime subscript, collated with 0EM7/0H7Q. Not a whole-file read. SHA-256 `0106554339e8966fe04411b2ae9f9cd856b165849feef0c7bc37634819064708`.
+
+
+- [The unramified diagonal splits](https://stacks.math.columbia.edu/tag/02FL): Lemma 10.151.4, complete mathematical statement and displayed proof freshly read. Native section adapters below derive the actual selector/projection equations from already-built pinned ideal and localization facts; no generic diagonal or localization construction is re-planned. HTML SHA-256 `330a0f58f2d18f3f2e2d0cbc346aac7a6044b0db68849cbb5a26468375dca90e`.
+
+
+- [Surjective etale maps are idempotent localizations](https://stacks.math.columbia.edu/tag/00U8): Lemma 10.143.9, complete mathematical statement and displayed proof freshly read. Native section adapters below derive the actual selector/projection equations from already-built pinned ideal and localization facts; no generic diagonal or localization construction is re-planned. HTML SHA-256 `6ab27dae9d6ca9288696aad794e6901382d9224e0e5bbc585cfa6ec8b7d3756c`.
+
+
+- [Maps between etale algebras are etale](https://stacks.math.columbia.edu/tag/00U7): Lemma 10.143.8, complete mathematical statement and displayed proof freshly read. Native section adapters below derive the actual selector/projection equations from already-built pinned ideal and localization facts; no generic diagonal or localization construction is re-planned. HTML SHA-256 `9cc9e26369df8bae48364b390a3ac85bc49afeb917feea3c2813f14e00d44810`.
 
 
 The source product proof has a circular subscript: B''_2 = B_2 \otimes_B B''_2; the intended tensor product uses B''_2 = B_2 \otimes_B B'_2. The finding is a proof misprint awaiting independent review. It is scoped to the downloaded online/current-master versions; the product theorem is not planned here. Searches and reasons are in sourceIssues E1.
@@ -487,11 +497,11 @@ Proof/construction outline:
 
 2. Use exists_stage_simple_root to obtain one neighbourhood B, a monic p, and b, with their exact images f,a0 and with p(b) in IB and p′(b) a unit modulo IB. Construct the explicit standard-étale presentation over B using these actual finite-stage data; no undecomposed general étale-algebra descent theorem is assumed.
 
-3. The residue section of this etale algebra gives a product decomposition R/I × C. Lift the idempotent (1,0) to some g in the algebra and localize at g, making the localized algebra another neighbourhood.
+3. The actual residue section of the etale algebra over B/IB supplies etale_section_product, with the first-projection equation. Lift its selector to any g in the unquotiented algebra; g is not presumed idempotent. The still-missing quotient/localization comparison must show localizing at g has canonical reduction B/IB, thereby making it another neighbourhood.
 
 4. Map that neighbourhood to H. The image of T is the required root; the chosen residue section gives its exact congruence.
 
-5. The finite-data descent now has four named declaration-sized adapters with baseline prerequisites. The étale residue-section/product splitting and localization comparisons are still open leaves, so this root-realization node remains unchecked and its source-proof closure is not asserted.
+5. Finite-data descent and actual section splitting now have named typed adapters, and the four new section adapters have native proofs. Transport of etaleness under quotient base change, localization at a lifted residue selector, and canonical residue/tower coherence remain open, so root-realization/source-proof closure is not asserted.
 
 Acceptance:
 
@@ -527,22 +537,113 @@ Prerequisites: `SchemeAndStackFoundations:SF.0/jacobson-containment`, `SchemeAnd
 
 Source: STACKS-0EM7, Lemma 15.12.1, indicated construction/proof paragraph. The colimit pair is henselian
 
+### An étale section selects an idempotent component
+
+`SchemeAndStackFoundations:SF.0/etale-section-selector` · lemma · `TauCeti.Henselization.etale_section_selector`
+
+For an etale R-algebra B and actual R-algebra section sigma:B→R, there exists e in B with e²=e, sigma(e)=1 and e*b=e*algebraMap(R,B)(sigma(b)) for every b. This fixes the actual section rather than merely asserting an abstract product.
+
+Proof outline:
+
+1. Equip R with the B-algebra structure sigma.toAlgebra and prove the R/B/R scalar tower from sigma.comp_algebraMap. The section is surjective since sigma(algebraMap r)=r.
+
+2. Use FormallyEtale.of_restrictScalars and iff_of_surjective to make ker(sigma) an idempotent ideal. FinitePresentation.ker_fG_of_surjective supplies finite generation; choose its idempotent generator k using Ideal.isIdempotentElem_iff_of_fg.
+
+3. Set e=1-k. Then sigma(k)=0 gives sigma(e)=1 and k²=k gives e²=e. For each b, b-algebraMap(sigma(b)) belongs to ker(sigma), so it is c*k. Multiplication by 1-k kills it and proves the exact selection equation.
+
+4. The current native proof uses only built pinned declarations; the generic unramified diagonal product is already built and is not a new planned construction.
+
+Acceptance:
+
+- For the first projection F5×F5→F5, e=(1,0) satisfies the equation, whereas (0,1) has section image zero and is rejected.
+
+- For the zero base ring, 0=1 and the proof remains valid without a nontriviality assumption.
+
+Prerequisites: `mathlib:Algebra.FormallyEtale.of_restrictScalars`, `mathlib:Algebra.FormallyEtale.iff_of_surjective`, `mathlib:Algebra.FinitePresentation.ker_fG_of_surjective`, `mathlib:Ideal.isIdempotentElem_iff_of_fg`, `mathlib:Ideal.mem_span_singleton'`.
+
+Source: STACKS-00U8, Lemma 10.143.9; derived section-compatible adapter using STACKS-00U7, Lemma 10.143.8 and the pinned declarations.
+
+### The section kernel is the complementary ideal
+
+`SchemeAndStackFoundations:SF.0/etale-selector-kernel` · lemma · `TauCeti.Henselization.etale_selector_kernel`
+
+For any R-algebra map sigma:B→R and e with sigma(e)=1 and e*b=e*algebraMap(sigma(b)) for all b, ker(sigma)=Ideal.span{1-e}. This adapter needs neither etaleness nor a separate idempotence assumption.
+
+Proof outline:
+
+1. If sigma(b)=0, the selection equation yields e*b=0, so b=b*(1-e) belongs to the complementary principal ideal.
+
+2. Conversely sigma(1-e)=0, hence its generated ideal lies in the kernel. Use Ideal.span_le and antisymmetry.
+
+Acceptance:
+
+- The first projection F5×F5→F5 has kernel generated by (0,1); a typed example proves this using the explicit selector.
+
+Prerequisites: `SchemeAndStackFoundations:SF.0/etale-section-selector`, `mathlib:Ideal.mem_span_singleton'`.
+
+Source: STACKS-00U8, Lemma 10.143.9; derived section-compatible adapter using STACKS-00U7, Lemma 10.143.8 and the pinned declarations.
+
+### The product comparison carries the actual section
+
+`SchemeAndStackFoundations:SF.0/etale-section-product` · lemma · `TauCeti.Henselization.etale_section_product`
+
+For an etale R-algebra B and sigma:B→ₐ[R]R, there exists e with e²=e and sigma(e)=1 and an R-algebra equivalence E:B≃R×(B/Ideal.span{e}) such that (E(b)).1=sigma(b) for every b.
+
+Proof outline:
+
+1. Take the section selector e and its exact complementary kernel equality.
+
+2. Use the built complementary-idempotent quotient product equivalence with 1-e and e. Identify B/(1-e) with B/ker(sigma), then with R by the built surjective kernel-quotient equivalence.
+
+3. Compose with the product of that equivalence and the identity. The canonical quotient formulas reduce the first projection on each b to sigma(b); the native proof verifies this by definitional reduction.
+
+Acceptance:
+
+- The typed acceptance signature requires the actual first-projection equation, so an arbitrary abstract product equivalence is insufficient.
+
+Prerequisites: `SchemeAndStackFoundations:SF.0/etale-section-selector`, `SchemeAndStackFoundations:SF.0/etale-selector-kernel`, `mathlib:AlgEquiv.prodQuotientOfIsIdempotentElem`, `mathlib:Ideal.quotientKerAlgEquivOfSurjective`.
+
+Source: STACKS-00U8, Lemma 10.143.9; derived section-compatible adapter using STACKS-00U7, Lemma 10.143.8 and the pinned declarations.
+
+### Localizing the selected component recovers the section target
+
+`SchemeAndStackFoundations:SF.0/etale-section-localization` · lemma · `TauCeti.Henselization.etale_section_localization`
+
+For an etale R-algebra B and sigma:B→ₐ[R]R, there exists e with e²=e and sigma(e)=1 and an R-algebra equivalence E:Localization.Away(e)≃R satisfying E(algebraMap(B,B_e)(b))=sigma(b) for every b.
+
+Proof outline:
+
+1. Give R the B-algebra structure of sigma and its actual R/B/R scalar tower.
+
+2. Apply the existing IsLocalization.away_of_isIdempotentElem to the selector, its exact kernel and section surjectivity.
+
+3. Compare with the existing Localization.Away using IsLocalization.algEquiv, restrict scalars back to R and use its source-commutation equation. This localizes an actual idempotent in B, not an arbitrary lift of a residue idempotent.
+
+Acceptance:
+
+- The typed acceptance signature fixes the image of every source element under the localization equivalence.
+
+- A lift g of an idempotent only modulo IB need not be idempotent in B; applying this statement directly to g would be invalid and remains a separate adapter gap.
+
+Prerequisites: `SchemeAndStackFoundations:SF.0/etale-section-selector`, `SchemeAndStackFoundations:SF.0/etale-selector-kernel`, `mathlib:IsLocalization.away_of_isIdempotentElem`, `mathlib:IsLocalization.algEquiv`.
+
+Source: STACKS-00U8, Lemma 10.143.9; derived section-compatible adapter using STACKS-00U7, Lemma 10.143.8 and the pinned declarations.
+
 ### Étale lifts with the same reduction are unique
 
 `SchemeAndStackFoundations:SF.0/etale-lift-uniqueness` · lemma · `TauCeti.Henselization.etale_lift_unique`
 
 If I⊆Jac(R), B is etale over R and two R-algebra maps B→R have equal reductions modulo I, they are equal. Existence is not asserted by this lemma.
 
-Proof/construction outline:
+Proof outline:
 
-1. The diagonal of the affine etale map splits B tensor_R B as B×C, compatibly with multiplication.
+1. Apply etale_section_selector to f, obtaining e with f(e)=1 and e*b=e*algebraMap(f(b)).
 
-2. Apply the two maps to the tensor product. The complementary diagonal idempotent has image in I because the maps agree modulo I.
+2. Equal quotient reductions give g(e)-1 in I. Jacobson containment makes g(e) a unit by the built isUnit_of_sub_one_mem_jacobson_bot.
 
-3. An idempotent in I⊆Jac(R) is zero: 1−e is a unit and e(1−e)=0. The two maps therefore factor through the diagonal and coincide.
+3. Applying g to e²=e and cancelling this unit gives g(e)=1. Applying g to the selector multiplication identity now gives g(b)=f(b) for every b; conclude by AlgHom extensionality.
 
-4. The diagonal/product decomposition in the pinned etale API remains a named gap; no global uniqueness of arbitrary polynomial roots is assumed.
-
+4. The full native proof is supplied and its axiom dependencies are checked without admitted axioms. It asserts uniqueness only, and does not infer root uniqueness or henselian existence. Implementation status remains unchecked pending independent review.
 
 Acceptance:
 
@@ -550,10 +651,9 @@ Acceptance:
 
 - Without Jacobson containment take R=F2×F2, I=0×F2 and B=R×R. The maps f(x,y)=x and g(x,y)=(x first,y second) are distinct R-algebra maps and have equal reductions modulo I.
 
+Prerequisites: `SchemeAndStackFoundations:SF.0/etale-section-selector`, `mathlib:Ideal.isUnit_of_sub_one_mem_jacobson_bot`, `mathlib:Ideal.Quotient.eq_zero_iff_mem`.
 
-Prerequisites: `mathlib:Algebra.Etale`, `mathlib:Ideal.mem_jacobson_bot`.
-
-Source: STACKS-0EM7, Lemma 15.12.1, uniqueness paragraph using Algebra 10.151.4 and More on Algebra 15.10.2. The diagonal-idempotent proof extends to two maps with the same fixed residue section.
+Source: STACKS-0EM7, Lemma 15.12.1 uniqueness paragraph; the supplied selector/unit-cancellation proof is a derived alternative using STACKS-00U8 and the pinned Jacobson-unit theorem.
 
 ### Simple-root henselianity lifts étale sections
 
@@ -857,7 +957,7 @@ The complete 15.12.1–15.12.8 mathematical text and proofs were freshly read fo
 
 ### SchemeAndStackFoundations:SF.0 — partial
 
-- Complete the twenty-five-node henselization strand. Finite-data descent is now decomposed into four explicit proof adapters and canonical reduction has a direct argument; the actual proofs, étale section/product splitting and the source criterion/universal cocone remain unfinished. Functorial maps and residue naturality remain conditional on universal-property closure.
+- Complete the twenty-nine-node henselization strand. Four finite-data adapters remain admitted. Four actual-section adapters and etale-lift uniqueness now have native proofs; lifted residue-selector quotient/localization coherence and the source criterion/universal cocone remain unfinished. Functorial maps and residue naturality remain conditional on universal-property closure.
 
 - Plan the reserved excellent-schemes key. Reuse existing schemes/morphisms, smooth/etale/proper/flat predicates, QCoh and local algebra. Source-decompose relative Spec, general Proj/canonical comparison without unrestricted O(1) or properness claims.
 
@@ -910,7 +1010,7 @@ Reserved IDs:
 
 - `SchemeAndStackFoundations:key/coherent-duality`: unplanned. Exact reserved ID retained as unfinished work, not falsely supplied by a placeholder node.
 
-- `SchemeAndStackFoundations:key/henselization`: planned_with_gaps. Fifteen-node focused strand; sample API comparisons and proof leaves remain open.
+- `SchemeAndStackFoundations:key/henselization`: planned_with_gaps. Twenty-nine-node focused strand; sample API comparisons and proof leaves remain open.
 
 - `SchemeAndStackFoundations:key/equivariant-sheaf-cohomology`: unplanned. Exact reserved ID retained as unfinished work, not falsely supplied by a placeholder node.
 
@@ -921,7 +1021,7 @@ Reserved IDs:
 
 1. Actual scalar towers in the parallel-map coequalizer. Build the source iterated tensor with both B-algebra structures f and g, the map from C tensor_R C and multiplication map, and prove all AlgHom/tower coherences and canonical residue identities. The native existence signature does not constitute that construction. Needed by: `SchemeAndStackFoundations:SF.0/parallel-equalization`.
 
-2. Etale diagonal and residue-section splitting. Inspect the pinned etale/unramified diagonal and idempotent APIs; otherwise source-decompose the affine etale product splitting used by Stacks 10.143.9 and 10.151.4. A residue section must select the actual R/I component, not an arbitrary point. Needed by: `SchemeAndStackFoundations:SF.0/simple-root-realization`, `SchemeAndStackFoundations:SF.0/etale-lift-uniqueness`, `SchemeAndStackFoundations:SF.0/etale-section-comparison`.
+2. Lifted residue-selector localization and canonical coherence. The unramified diagonal product, idempotent-kernel decomposition and localization criterion are built. Four actual section adapters now have native proofs, and etale_lift_unique is proved from them without admitted dependencies. Still transport the residue quotient etaleness through the actual quotient/tensor equivalence; lift its selector to an arbitrary g and prove the canonical quotient of B[1/g] is the selected residue target. The lift need not be idempotent in B. Supply all section, quotient, localization and scalar-tower equations; neither an abstract product equivalence nor the new idempotent-localization lemma alone closes this gap. Needed by: `SchemeAndStackFoundations:SF.0/simple-root-realization`, `SchemeAndStackFoundations:SF.0/etale-section-comparison`.
 
 3. Simple-root versus source etale-section criterion. Directly read and decompose source 15.10.3, 15.10.4 and all Zariski Main inputs in 15.11.5 against the pinned libraries. The full 15.11.6 proof was read, but these recursively cited leaves have not all been independently read. The forward Gabber-root argument is explicit; no factorization comparison or source proof closure is asserted. Needed by: `SchemeAndStackFoundations:SF.0/etale-section-comparison`, `SchemeAndStackFoundations:SF.0/initial-henselian-pair`, `SchemeAndStackFoundations:SF.0/fixed-henselian-pair`.
 
@@ -1098,8 +1198,8 @@ The exact issue routes below are preserved as a worklist. Each primary paper and
 
 ## Validation boundary
 
-This continuation freshly reads the sixteen additional baseline statements at the exact Mathlib pin. Generic element representation, eventual equality and finite cocones are already built and are imported. The only new declarations are four adapters for the existing chosen neighbourhood colimit. The map is not required to be injective; Ideal.map is a span, not a set image; a quotient unit need not be a stage-ring unit; and monicity is constructed with leading coefficient 1 rather than transported backward through a ring map.
+The full current Mathlib-only file elaborates; precise diagnostics and hashes are in the handoff. The four actual-section adapters and inherited étale-lift uniqueness have complete native proofs. A separate axiom audit verifies that these five declarations have no admitted axiom dependencies. Five new typed examples check the explicit F5 product selector, reject its complement, identify the actual kernel, and demand the product/localization projection equations. The inherited sixteen examples and their admitted proofs are preserved.
 
-The direct residue-comparison proof replaces the earlier scalar-extension/quotient-colimit outline. Removing that finite-data planning gap means its mathematical steps are now named and typed, not proved. The remaining eight gap groups, all seven open stages, all 62 routed-paper obligations, twelve unimplemented confirmed findings, the other five reserved keys and the unaccepted PerfectoidSpaces consolidation proposal remain. Source issue E1 is inherited, unchanged and awaiting independent review.
+The new source reads cover the complete statements and displayed proofs of Stacks 10.151.4, 10.143.9 and 10.143.8 and all mathematical text/proofs of 15.12.1–8. Twelve additional baseline statements were read at the pin. The generic unramified diagonal product already exists; its public existential signature does not specify a projection. The new adapters explicitly carry the given section. A lift of a residue idempotent is not assumed idempotent before reduction.
 
-The exact-file compilation, packet checker, finite-model checks and actual atlas assembly receipts are recorded in the handoff. No atlas data or other worker's files are changed. All twenty-five implementations remain unchecked; neither elaboration nor finite model tests prove the general mathematical statements.
+Eight gap groups, seven open stages, all 62 routed-paper obligations, twelve unimplemented confirmed findings, the other five reserved keys and the unaccepted PerfectoidSpaces consolidation proposal remain. Source issue E1 is inherited unchanged and awaits independent review. Compilation and the local proof audit do not certify the henselization construction or any global roadmap closure.
