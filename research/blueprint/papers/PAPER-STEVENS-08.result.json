@@ -21,7 +21,12 @@
    "§6 Intertwining and supercuspidal representations: a Hecke algebra isomorphism, Weyl group elements, intertwining of β-extensions, supercuspidal types (pp. 34–44)",
    "§7 Exhaustion: a Hecke algebra injection, covers, conclusions (pp. 44–53); bibliography (pp. 53–55)",
    "Every statement and proof was read line by line in the TeX; v1 was diffed against v2 section by section."
-  ]
+  ],
+  "unreadPublished": {
+   "citation": "Invent. Math. 172 (2008) 289–352, doi:10.1007/s00222-007-0099-1. Not read: Springer serves it only to subscribers (Crossref lists a text-and-data-mining licence only), and the UEA repository record (eprint 17017) has no full text; findings are scoped to arXiv v2, the accepted version",
+   "checked": "2026-09-29",
+   "note": "Historical publication/access metadata, not a reading. The original published text remains uncollated; a declared unread published version must not count as reading provenance."
+  }
  },
  "sourceVersions": [
   {
@@ -37,12 +42,21 @@
    "sha256": "a599f5651dfe7ba7e9683718b35df1b5021ed699000d583fb965324e3c5a9f53"
   },
   {
-   "kind": "published",
-   "citation": "Invent. Math. 172 (2008) 289–352, doi:10.1007/s00222-007-0099-1. Not read: Springer serves it only to subscribers (Crossref lists a text-and-data-mining licence only), and the UEA repository record (eprint 17017) has no full text; findings are scoped to arXiv v2, the accepted version",
-   "read": "2026-09-29"
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0607622v2",
+   "read": "2026-10-02",
+   "sha256": "b5b409260344f0d86fbe98bee2c046971a5e9042ab8174f199343d10b5857109",
+   "scope": "This repair: pp.8,15,20,43 text and page images; bounded scalar/relative-obstruction/cuspidality checks, not a fresh full reading."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0607622v1",
+   "read": "2026-10-02",
+   "sha256": "05282d80a07a8a01ab7e76b46a936fdddac41514466ae8b3a208d151411c59ca",
+   "scope": "This repair: §2.1 p.8 scalar wording, text and image only. This PDF hash differs from the historical compressed-source hash, as expected."
   }
  ],
- "summary": "Stevens proves that, for a non-archimedean local field F of odd residual characteristic and G a unitary, symplectic or special orthogonal group over F₀, every irreducible supercuspidal representation of G is compactly induced from an explicit cuspidal type (Theorem 7.14), and that every such type induces irreducibly to a supercuspidal (Proposition 6.18, Corollary 6.19). The types are built from skew semisimple strata and characters, their Heisenberg representations, β-extensions (§4) and cuspidal representations of finite reductive quotients, using Iwahori factorizations and Glauberman transfer (§5), an intertwining computation with Weyl-group elements (§6) and a cover/Hecke-algebra argument based on Morris's level-zero theory (§§1, 7). Miyauchi–Stevens (Math. Ann. 2014) later corrected Definition 6.5, Corollary 6.19 and Theorem 7.14 (maximal-parahoric and compact-centre conditions, and the exclusion of SO(1,1)); the items use the corrected statements. Of 303 items (after the review merged three duplicates), 6 are in Mathlib or Tau Ceti (the base field, Mackey formula and irreducibility criterion, Clifford's theorem, Frobenius reciprocity, intertwining spaces) and 8 are planned (compact induction and supercuspidality in SmoothRepresentationsOfLocalGroups SR.2–SR.3, buildings and parahorics in ReductiveGroupsPartII RG2, projective extension in Tau Ceti's InductionRestriction). The other 289 — the whole classical-group type theory — are missing: 281 go to the accepted Part II SmoothRepresentationsPartII (types, depth and supercuspidal constructions), as its classical-group branch beside Fintzen's tame p ∤ |W| construction, and 2 finite Heisenberg lemmas to FiniteWeilRepresentationsPartII, and (moved by the review) six facts about finite reductive groups to ModularRepresentationsOfFiniteReductiveGroups. 54 mistakes are recorded (twelve added by the independent review): 7 are corrections already published by Miyauchi–Stevens (including the 4 that affect stated results: the introduction's ellipticity claim, Corollary 6.19, Theorem 7.14 and Definition 6.5), and 47 are new, mostly misprints in proofs.",
+ "summary": "Stevens proves that, for a non-archimedean local field F of odd residual characteristic and G a unitary, symplectic or special orthogonal group over F₀, every irreducible supercuspidal representation of G is compactly induced from an explicit cuspidal type (Theorem 7.14), and that every such type induces irreducibly to a supercuspidal (Proposition 6.18, Corollary 6.19). The types are built from skew semisimple strata and characters, their Heisenberg representations, β-extensions (§4) and cuspidal representations of finite reductive quotients, using Iwahori factorizations and Glauberman transfer (§5), an intertwining computation with Weyl-group elements (§6) and a cover/Hecke-algebra argument based on Morris's level-zero theory (§§1, 7). Miyauchi–Stevens (Math. Ann. 2014) later corrected Definition 6.5, Corollary 6.19 and Theorem 7.14 (maximal-parahoric and compact-centre conditions, and the exclusion of SO(1,1)); the items use the corrected statements. Of 302 items (after the review merged three pairs and this repair merged disconnected-cuspidality item 306 into 246), 6 are in Mathlib or Tau Ceti (the base field, Mackey formula and irreducibility criterion, Clifford's theorem, Frobenius reciprocity, intertwining spaces) and 8 are planned (compact induction and supercuspidality in SmoothRepresentationsOfLocalGroups SR.2–SR.3, buildings and parahorics in ReductiveGroupsPartII RG2, projective extension in Tau Ceti's InductionRestriction). The other 288 — the whole classical-group type theory — are missing: 280 go to the accepted Part II SmoothRepresentationsPartII (types, depth and supercuspidal constructions), as its classical-group branch beside Fintzen's tame p ∤ |W| construction, and 2 finite Heisenberg lemmas to FiniteWeilRepresentationsPartII, and (moved by the review) six facts about finite reductive groups to ModularRepresentationsOfFiniteReductiveGroups. 55 source findings are recorded (twelve added by the independent review, with the verified skew-scalar wording added as E55 in this repair): 7 are corrections already published by Miyauchi–Stevens (including the 4 that affect stated results: the introduction's ellipticity claim, Corollary 6.19, Theorem 7.14 and Definition 6.5), and 48 are new, mostly misprints in proofs.",
  "items": [
   {
    "id": "PAPER-STEVENS-08/1",
@@ -769,10 +783,44 @@
    "id": "PAPER-STEVENS-08/78",
    "kind": "theorem",
    "name": "Exact sequences 0 → 𝔟_1(Λ)₋ → 𝔧¹(β,Λ)₋ → (𝔥¹(β,Λ))^*₋ → 𝔟_0(Λ)₋ → 0 ([S4, Lemma 3.17])",
-   "statement": "Standing hypotheses (§2.1): F a non-archimedean local field of any characteristic with residual characteristic p ≠ 2, with a galois involution x↦x̄ of fixed field F_0 (F = F_0 allowed); V an N-dimensional F-space with a nondegenerate ε-hermitian form h (ε = ±1); A = End_F V with adjoint anti-involution a↦ā; G̃ = Aut_F V; σ(g) = ḡ⁻¹ on G̃ and σ(a) = −ā on A; G⁺ = G̃^σ (a unitary, symplectic or orthogonal group over F_0); G = the F_0-points of the connected component of G⁺ (G = G⁺ except SO ⊂ O in the orthogonal case); A₋ = A^σ; self-dual lattice sequences normalized with Λ(k)^# = Λ(1−k) and even period. For a skew semisimple stratum [Λ,n,0,β] there is an exact sequence of o_F-lattices in A₋: 0 → 𝔟_1(Λ)₋ → 𝔧¹(β,Λ)₋ --a_β--> (𝔥¹(β,Λ))^*₋ --s--> 𝔟_0(Λ)₋ → 0, where a_β(x) = βx − xβ, s is a tame corestriction commuting with the involution (PAPER-STEVENS-08/77), and (𝔥¹)^* = {x ∈ A : ψ_A(x𝔥¹) = 1} is the ψ_A-dual lattice.",
+   "statement": "Standing hypotheses (§2.1): F a non-archimedean local field of any characteristic with residual characteristic p ≠ 2, with a galois involution x↦x̄ of fixed field F_0 (F = F_0 allowed); V an N-dimensional F-space with a nondegenerate ε-hermitian form h (ε = ±1); A = End_F V with adjoint anti-involution a↦ā; G̃ = Aut_F V; σ(g) = ḡ⁻¹ on G̃ and σ(a) = −ā on A; G⁺ = G̃^σ (a unitary, symplectic or orthogonal group over F_0); G = the F_0-points of the connected component of G⁺ (G = G⁺ except SO ⊂ O in the orthogonal case); A₋ = A^σ; self-dual lattice sequences normalized with Λ(k)^# = Λ(1−k) and even period. For a skew semisimple stratum [Λ,n,0,β] there is an exact sequence of o_{F₀}-lattices in the F₀-vector space A₋: 0 → 𝔟_1(Λ)₋ → 𝔧¹(β,Λ)₋ --a_β--> (𝔥¹(β,Λ))^*₋ --s--> 𝔟_0(Λ)₋ → 0, where a_β(x) = βx − xβ, s is a tame corestriction commuting with the involution (PAPER-STEVENS-08/77), and (𝔥¹)^* = {x ∈ A : ψ_A(x𝔥¹) = 1} is the ψ_A-dual lattice. The ambient orders and ψ_A-dual lattices in A remain o_F-lattices. The ambient maps a_β and s are F-linear; their restrictions to the skew parts are F₀-linear and the displayed integral maps are o_{F₀}-linear. The underlying lattice sequence Λ in V remains an o_F-lattice sequence.",
    "locator": "§3.2, proof of Lemma 3.6, citing [S4, Lemma 3.17], arXiv v2 p. 15",
    "status": "missing",
-   "note": "No 𝔥, 𝔧 or ψ_A-duality of o_F-orders exists in either library. Searched pinned TauCeti and Mathlib (whole-tree grep -rl … | wc -l, 0 files) for hereditary order, lattice chain/sequence, stratum, simple/semisimple character, Bushnell, Kutzko, tame corestriction, parahoric, Moy–Prasad, Iwahori (only the braid Iwahori–Hecke algebra), Bruhat–Tits; atlas stages SR.0–SR.6, RG2.1–RG2.3, ET.6 read: none plans p-adic strata or semisimple characters. Fintzen's SmoothRepresentationsPartII branch does not cover it: that branch (PAPER-FINTZEN-21 route 1) builds Kim–Yu/Yu data for groups split over a tame extension with p ∤ |W| from Moy–Prasad filtrations; it has no lattice-sequence strata, semisimple characters or Bushnell–Kutzko/Stevens Heisenberg representations, and excludes wildly ramified E/F and p | |W| (for Sp_2n or SO_2n+1, p ≤ n), which Stevens allows."
+   "note": "No 𝔥, 𝔧 or ψ_A-duality of o_F-orders exists in either library. Searched pinned TauCeti and Mathlib (whole-tree grep -rl … | wc -l, 0 files) for hereditary order, lattice chain/sequence, stratum, simple/semisimple character, Bushnell, Kutzko, tame corestriction, parahoric, Moy–Prasad, Iwahori (only the braid Iwahori–Hecke algebra), Bruhat–Tits; atlas stages SR.0–SR.6, RG2.1–RG2.3, ET.6 read: none plans p-adic strata or semisimple characters. Fintzen's SmoothRepresentationsPartII branch does not cover it: that branch (PAPER-FINTZEN-21 route 1) builds Kim–Yu/Yu data for groups split over a tame extension with p ∤ |W| from Moy–Prasad filtrations; it has no lattice-sequence strata, semisimple characters or Bushnell–Kutzko/Stevens Heisenberg representations, and excludes wildly ramified E/F and p | |W| (for Sp_2n or SO_2n+1, p ≤ n), which Stevens allows. Scalar repair: the unitary skew part is stable over the fixed field F₀, not generally over F. The scalar slip in arXiv §2.1 is recorded as E55; this correction does not change the exactness target or the coefficient ring of Λ in V.",
+   "api": [
+    {
+     "name": "StevensSkew.commutator_linear",
+     "role": "map",
+     "statement": "For skew β, restrict x↦βx−xβ to an F₀-linear map on A₋, and to an o_{F₀}-linear map on the indicated integral skew lattices; retain F-linearity of the ambient map on A."
+    },
+    {
+     "name": "StevensSkew.corestriction_linear",
+     "role": "map",
+     "statement": "The involution-compatible F-linear tame corestriction on A restricts to F₀-linear A₋→B₋ and to o_{F₀}-linear integral maps."
+    },
+    {
+     "name": "StevensSkew.exact_sequence",
+     "role": "compatibility",
+     "statement": "State the four-term exactness in o_{F₀}-modules; its inclusion into the ambient o_F-lattice/duality construction commutes with the displayed maps."
+    }
+   ],
+   "tests": [
+    {
+     "kind": "computation",
+     "statement": "Unramified unitary line F₀=ℚ₃, F=ℚ₃(i), i²=−1, h(x,y)=xȳ: Λ(k)=3^ceil(k/2)o_F has period 2 and Λ(k)^#=Λ(1−k); a₀(Λ)₋=ℤ₃i is closed under ℤ₃ scalars.",
+     "name": "StevensSkew.unitary_line_fixed_scalars"
+    },
+    {
+     "kind": "non-example",
+     "statement": "In that same unitary line, i∈o_F and i∈a₀(Λ)₋ but i·i=−1∉A₋. The API must not require o_F-module structure on the skew part.",
+     "name": "StevensSkew.unitary_line_wrong_scalars"
+    },
+    {
+     "kind": "degenerate",
+     "statement": "For F=F₀, the fixed-field ring equals the original ring, so the corrected skew integral maps are o_F-linear while Λ in V and the ambient orders retain their original types.",
+     "name": "StevensSkew.trivial_involution_scalars"
+    }
+   ]
   },
   {
    "id": "PAPER-STEVENS-08/79",
@@ -1075,13 +1123,18 @@
    "planned": [
     "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier"
    ],
-   "note": "Argument read: projective extension → 2-cocycle class of order dividing dim η (a p-power) → restriction to S is trivial → restriction to a Sylow is injective on the p-primary part of H² → class trivial. All components are finite-group facts after passing to K/ker η (ker η is open and normal in K because K normalizes η). Components are items PAPER-STEVENS-08/112–PAPER-STEVENS-08/114; no library or atlas layer states the combined criterion. Fintzen Part II: not covered (Yu's construction extends Heisenberg representations via the Weil representation instead)."
+   "note": "Use the relative Clifford class on Q=K/N, not an absolute class on K/ker η. The finite quotient by ker η supplies the pro-p/determinant bridge; it does not change the obstruction quotient. Let N ⊴ K be open pro-p in a profinite group, with invariant irreducible smooth η of finite p-power dimension d. Smoothness and finite dimension make ker η open in N; invariance makes it normal in K, so K/ker η is finite and N/ker η is a finite p-group. Thus m=ord(det η) is a p-power. For the normalized relative lift ρ of item 112 put D(k)=det ρ(k). Since D(nk)=det η(n)D(k), D^m descends to a normalized cochain D̄_m:K/N→ℂˣ. Taking determinants in the factor-set identity yields δD̄_m=α^(dm), so dm[α]=0 on K/N. This is the relative p-primary bound; the bound d[α]=0 alone is generally false there. Restriction to S/N vanishes because η extends to S. The index [K:S] is prime to p, and restriction/corestriction gives [K:S][α]=0; Bézout with the p-power dm forces [α]=0. The relative criterion then supplies a smooth extension of η to K. Components 112–114 and the exact bridge request expose the proof. This repairs the extraction argument and does not refute Stevens’s extension theorem.",
+   "proofOutline": [
+    "Choose a normalized relative projective lift ρ with ρ(1)=1, ρ|N=η, ρ(nk)=η(n)ρ(k), and ρ(k)η(n)ρ(k)⁻¹=η(knk⁻¹). Its factor set in ρ(k)ρ(l)=α(kN,lN)ρ(kl) is a normalized cocycle on Q=K/N with trivial coefficient action. Its class is independent of these choices. It vanishes iff η extends to K: rescale only by a normalized cochain c:Q→ℂˣ, so λ(k)=c(kN)⁻¹ρ(k) preserves η on N. Absolute linearization on K/ker η permits scalar changes on N and is not this criterion.",
+    "Let N ⊴ K be open pro-p in a profinite group, with invariant irreducible smooth η of finite p-power dimension d. Smoothness and finite dimension make ker η open in N; invariance makes it normal in K, so K/ker η is finite and N/ker η is a finite p-group. Thus m=ord(det η) is a p-power. For the normalized relative lift ρ of item 112 put D(k)=det ρ(k). Since D(nk)=det η(n)D(k), D^m descends to a normalized cochain D̄_m:K/N→ℂˣ. Taking determinants in the factor-set identity yields δD̄_m=α^(dm), so dm[α]=0 on K/N. This is the relative p-primary bound; the bound d[α]=0 alone is generally false there.",
+    "Apply restriction/corestriction on the same relative cohomology carrier: res to S/N is zero, cor∘res=[K:S], and gcd([K:S],dm)=1. The zero relative class gives an extension preserving η, and finite-quotient reduction gives smoothness."
+   ]
   },
   {
    "id": "PAPER-STEVENS-08/112",
    "kind": "theorem",
-   "name": "Projective extension of a normalized irreducible representation; its Schur-multiplier class is the obstruction",
-   "statement": "Let K be a group, N ⊴ K of finite index with K/N finite (or K profinite, N open), and η an irreducible finite-dimensional complex representation of N with ᵏη ≅ η for all k ∈ K. Then η extends to a projective representation of K (a normalized lift ρ: K → GL(V_η) multiplicative up to a factor set α), and η extends to a linear representation of K if and only if the class [α] ∈ H²(K/N', ℂ^×) is trivial (N' = ker η).",
+   "name": "Relative Clifford obstruction on K/N, preserving the prescribed N-representation",
+   "statement": "Let K be a finite group, N ⊴ K and η an irreducible finite-dimensional complex representation of N invariant under K. Equivalently, in the profinite setting use the smooth finite-quotient reduction described in item 111. Choose a normalized relative projective lift ρ with ρ(1)=1, ρ|N=η, ρ(nk)=η(n)ρ(k), and ρ(k)η(n)ρ(k)⁻¹=η(knk⁻¹). Its factor set in ρ(k)ρ(l)=α(kN,lN)ρ(kl) is a normalized cocycle on Q=K/N with trivial coefficient action. Its class is independent of these choices. It vanishes iff η extends to K: rescale only by a normalized cochain c:Q→ℂˣ, so λ(k)=c(kN)⁻¹ρ(k) preserves η on N. Absolute linearization on K/ker η permits scalar changes on N and is not this criterion.",
    "locator": "§4.1, proof of Theorem 4.1 ('we can extend η_M to a projective representation of J⁺_M. This gives rise to a 2-cocycle'), arXiv v2 p. 20",
    "status": "planned",
    "library": [
@@ -1091,16 +1144,24 @@
    "planned": [
     "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier"
    ],
-   "note": "Library (read at f790474): TauCeti/RepresentationTheory/ProjectiveRepresentation/SchurMultiplier.lean:295 `TauCeti.IsProjectiveRep.cohomologyClass_eq_zero_iff [FaithfulSMul kˣ V] (h : IsProjectiveRep ρ α) : h.cohomologyClass = 0 ↔ ∃ (c : G → kˣ) (π : G →* (V ≃ₗ[k] V)), ∀ g, ρ g = (π g).trans (LinearEquiv.smulOfUnit (c g))` — the obstruction criterion for a given projective representation (Basic.lean:91 `IsProjectiveRep`). Not in the library: the existence of the projective extension of a normalized irreducible of a normal subgroup (Clifford obstruction). That is planned: Tau Ceti InductionRestriction layer 7 ('The Clifford-theory obstruction ... cliffordObstruction V in H²(T/N, kˣ) ... V extends iff that class is trivial'); grep for cliffordObstruction in f790474: 0 hits. Fintzen Part II: not relevant/covered."
+   "note": "Import the existing relative Clifford obstruction from Tau Ceti InductionRestriction layer 7, which explicitly places it in H²(T/N,ℂˣ) and characterizes extensions of η. Keep planned status for that actual upstream target. The pinned IsProjectiveRep.cohomologyClass_eq_zero_iff is the absolute linearization ingredient only; it imposes no condition on the scalar cochain restricted to N and cannot replace the relative theorem. The profinite finite-quotient and determinant bridges are explicit requests, not asserted built.",
+   "proofOutline": [
+    "Construct intertwining lifts on the finite quotient; Schur’s lemma gives the relative scalar factor set.",
+    "Choose a normalized relative projective lift ρ with ρ(1)=1, ρ|N=η, ρ(nk)=η(n)ρ(k), and ρ(k)η(n)ρ(k)⁻¹=η(knk⁻¹). Its factor set in ρ(k)ρ(l)=α(kN,lN)ρ(kl) is a normalized cocycle on Q=K/N with trivial coefficient action. Its class is independent of these choices. It vanishes iff η extends to K: rescale only by a normalized cochain c:Q→ℂˣ, so λ(k)=c(kN)⁻¹ρ(k) preserves η on N. Absolute linearization on K/ker η permits scalar changes on N and is not this criterion."
+   ]
   },
   {
    "id": "PAPER-STEVENS-08/113",
    "kind": "theorem",
-   "name": "The obstruction class of a projective extension has order dividing the dimension",
-   "statement": "In the situation of PAPER-STEVENS-08/112, the class [α] ∈ H²(K/N', ℂ^×) of the projective extension of η satisfies (dim η)·[α] = 0; in particular, if dim η is a power of p, [α] has p-power order.",
+   "name": "Absolute determinant bound for a finite-dimensional projective representation",
+   "statement": "For a normalized d-dimensional projective representation ρ:Q→GL_d(ℂ), d>0, with ρ(q)ρ(r)=α(q,r)ρ(qr), put D(q)=det ρ(q). Then δD=α^d and d[α]=0 in H²(Q,ℂˣ). This is an absolute statement on the acting group Q; it does not assert d[α]=0 for the relative Clifford class on K/N of a prescribed η.",
    "locator": "§4.1, proof of Theorem 4.1 ('Since the dimension of η_M is a power of p, the order of the cohomology class of this cocycle is a power of p'), arXiv v2 p. 20",
    "status": "missing",
-   "note": "Standard determinant argument (normalize lifts to have determinant 1; then α takes values in μ_{dim η}). Tau Ceti SchurMultiplier.lean has no order/determinant statement (read the declaration list of RepresentationTheory/ProjectiveRepresentation/*.lean: IsProjectiveRep, factorSet, cohomologyClass, rescale, cohomologyClass_eq_zero_iff, exists_isProjectiveRep_cohomologyClass_eq, twisted algebras — nothing on the order); the atlas layer 7 description does not mention it. dim η_M = (J¹:H¹)^{1/2} (Prop. 3.5) is a p-power because J¹ is pro-p. Fintzen Part II: not covered (generic finite-group fact outside its scope)."
+   "note": "The valid absolute determinant argument is retained separately. In the relative application, det ρ need not descend to K/N; only (det ρ)^m does, for m=ord(det η), giving dm[α]=0. No determinant-one rescaling that changes η|N is permitted. The Heisenberg C₃-centre example has d=1 and relative class of order 3, while its inflated absolute class is zero. The missing exact relative/finite-quotient bridge is requested from the existing InductionRestriction owner; no duplicate projective-representation carrier is proposed.",
+   "proofOutline": [
+    "Take determinants: D(q)D(r)=α(q,r)^d D(qr). Thus α^d is the coboundary of D on Q.",
+    "For the relative application use item 111’s m-th determinant power; do not identify Q with K/N until the cochain descends."
+   ]
   },
   {
    "id": "PAPER-STEVENS-08/114",
@@ -1115,7 +1176,7 @@
    "planned": [
     "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups"
    ],
-   "note": "Library ingredient (read): TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean:893 `TauCeti.ContCohomology.explicitCor2_comp_res2 (x : H2 G M) : explicitCor2 G M U hU (explicitRes2 G M U x) = U.index • x` (continuous H² of a topological group G with a topological G-module M, U open of finite index). The injectivity-on-p-part corollary is not a declaration (grep 'Sylow' in RepresentationTheory/Homological: 0 hits), and Tau Ceti's Schur multiplier (Mathlib groupCohomology.H2) is a different carrier from ContCohomology.H2, so a comparison is also needed. ProfiniteCohomology layer 6 plans cor ∘ res only. Fintzen Part II: not covered."
+   "note": "Library ingredient (read): TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean:893 `TauCeti.ContCohomology.explicitCor2_comp_res2 (x : H2 G M) : explicitCor2 G M U hU (explicitRes2 G M U x) = U.index • x` (continuous H² of a topological group G with a topological G-module M, U open of finite index). The injectivity-on-p-part corollary is not a declaration (grep 'Sylow' in RepresentationTheory/Homological: 0 hits), and Tau Ceti's Schur multiplier (Mathlib groupCohomology.H2) is a different carrier from ContCohomology.H2, so a comparison is also needed. ProfiniteCohomology layer 6 plans cor ∘ res only. Fintzen Part II: not covered. Here the Sylow application must take Q=K/N and S_Q=S/N, with the relative factor-set carrier of item 112. The existing continuous-versus-algebraic carrier comparison remains required; neither the index identity nor the absolute linearization theorem supplies it."
   },
   {
    "id": "PAPER-STEVENS-08/115",
@@ -2315,11 +2376,72 @@
   {
    "id": "PAPER-STEVENS-08/246",
    "kind": "definition",
-   "name": "Irreducible cuspidal representation of the disconnected quotient P(Λ^M_{𝔬_E})/P₁(Λ^M_{𝔬_E})",
-   "statement": "F is a non-archimedean local field of any characteristic whose residual characteristic p is odd, with a (possibly trivial) Galois involution x ↦ x̄ with fixed field F₀; V is an N-dimensional F-space with a nondegenerate ε-hermitian form h (ε = ±1); G̃ = Aut_F(V), G⁺ = U(V,h) is the full isometry group (unitary, symplectic or orthogonal) and G = the F₀-points of its connected component (G = G⁺ except in the orthogonal case, where G = SO(V,h)). For a skew semisimple stratum [Λ^M,n,0,β] with 𝔟₀(Λ^M) a maximal self-dual 𝔬_E-order in B, the finite group J_M/J¹_M ≅ P(Λ^M_{𝔬_E})/P₁(Λ^M_{𝔬_E}) (J_M = J(β,Λ^M), J¹_M = J¹(β,Λ^M)) is the group of points of a possibly disconnected reductive group over k₀; an irreducible representation τ of it is called cuspidal if its restriction to the connected component P°(Λ^M_{𝔬_E})/P₁(Λ^M_{𝔬_E}) contains an irreducible cuspidal representation ρ (i.e. one with no nonzero vectors fixed by the unipotent radical of any proper parabolic subgroup). J°_M = P°(Λ^M_{𝔬_E}) J¹_M.",
-   "locator": "§6.4, paragraph before Definition 6.17, arXiv:math/0607622v2 p. 43",
+   "name": "Cuspidality for a possibly disconnected finite reductive quotient",
+   "statement": "Let 𝒢 be a possibly disconnected reductive algebraic group over a finite field k₀, Q=𝒢(k₀) and Q°=𝒢°(k₀), where 𝒢° is its identity component. An irreducible finite-dimensional complex representation τ of Q is cuspidal in Stevens’s convention iff Res_{Q°}τ contains an irreducible cuspidal representation ρ of Q°. Import the connected predicate of PAPER-FINTZEN-21/33 (also Stevens item 10): ρ has no nonzero invariants under U(k₀) for the unipotent radical of any proper k₀-parabolic of 𝒢°. Apply this to P(Λ_{o_E})/P₁(Λ_{o_E}) with connected subgroup P°(Λ_{o_E})/P₁(Λ_{o_E}); the maximal self-dual-order quotient J_M/J¹_M is a specialization, not a separate definition.",
+   "locator": "§6.4, convention before Definition 6.17, arXiv v2 p.43; maximal-order specialization in Proposition 6.18 and consumers in Lemma 7.4 and §§7.2–7.3, pp.43–53",
    "status": "missing",
-   "note": "The connected-group predicate is PAPER-FINTZEN-21/33 ('Cuspidality for a finite reductive quotient', missing, routed to SmoothRepresentationsPartII); the extension to disconnected quotients by 'restriction to the identity component contains a cuspidal' is not in that item. Libraries: Tau Ceti has finite GL₂(𝔽_q) cuspidal characters (CharacterTable/GL2/EllipticInduction.lean, NonSplitTorus.lean) only; no general finite-reductive cuspidality (searched 'cuspidal': 10 Tau Ceti files, all modular forms or GL₂ docstrings; 1 Mathlib file, modular forms)."
+   "note": "One shared disconnected convention, importing the connected predicate already identified in item 10 and PAPER-FINTZEN-21/33. Item 306 is merged here, retaining both general/exhaustion and maximal-order consumers. No second finite-reductive cuspidality carrier or roadmap is proposed.",
+   "mergedFrom": [
+    {
+     "id": "PAPER-STEVENS-08/306",
+     "name": "Cuspidal representation of a (possibly disconnected) finite reductive group",
+     "statement": "For a connected reductive group 𝒢° over a finite field k, an irreducible complex representation of 𝒢°(k) is cuspidal if it has no nonzero vectors fixed by the k-points of the unipotent radical of any proper k-parabolic. For the possibly disconnected 𝒢=P(Λ_{𝔬_E})/P₁(Λ_{𝔬_E}), an irreducible representation is called cuspidal if its restriction to the connected component 𝒢° contains a cuspidal representation.",
+     "locator": "§6.4 before Definition 6.17 (convention), used in Lemma 7.4 and §§7.2–7.3, arXiv v2 pp. 43–53",
+     "note": "Mathlib/Tau Ceti: no parabolic subgroups of finite reductive groups beyond GL₂ (Tau Ceti GL2Borel, CharacterTheory layer 9) and abstract Tits systems (TauCeti/GroupTheory/TitsSystem/Basic.lean). The connected-group predicate is PAPER-FINTZEN-21/33 ('Cuspidality for a finite reductive quotient'), missing and routed to SmoothRepresentationsPartII — covered there; the disconnected convention is not."
+    }
+   ],
+   "uses": [
+    {
+     "where": "§6.4, Proposition 6.18",
+     "how": "Specialize to the maximal self-dual-order quotient J_M/J¹_M and choose a connected cuspidal constituent in the intertwining argument."
+    },
+    {
+     "where": "Lemma 7.4 and §§7.2–7.3",
+     "how": "Use the same convention on general finite reductive quotients during covers/exhaustion."
+    }
+   ],
+   "api": [
+    {
+     "name": "StevensCuspidal.restrict_iff",
+     "role": "relation",
+     "statement": "For irreducible τ of Q, disconnectedCuspidal τ iff there exists irreducible connected-cuspidal ρ of Q° with nonzero Hom(ρ,Res τ). The connected predicate is imported, not redefined."
+    },
+    {
+     "name": "StevensCuspidal.connected_specialization",
+     "role": "compatibility",
+     "statement": "If 𝒢=𝒢°, the disconnected convention equals the imported connected predicate."
+    },
+    {
+     "name": "StevensCuspidal.maximal_order_specialization",
+     "role": "compatibility",
+     "statement": "Transport the common predicate along J_M/J¹_M≅P(Λ^M_{o_E})/P₁(Λ^M_{o_E}) and its connected subgroup; maximal-order assumptions belong to this application."
+    }
+   ],
+   "tests": [
+    {
+     "kind": "compatibility",
+     "statement": "For a connected quotient Q=Q°, recover PAPER-FINTZEN-21/33 exactly.",
+     "name": "StevensCuspidal.connected_agrees"
+    },
+    {
+     "kind": "computation",
+     "statement": "For Q=Q°×C₂ and τ=ρ⊗χ with ρ irreducible and χ a character, disconnected cuspidality is equivalent to the connected cuspidality of ρ.",
+     "name": "StevensCuspidal.central_component_character"
+    },
+    {
+     "kind": "non-example",
+     "statement": "For a connected quotient with a proper parabolic and an irreducible ρ having nonzero unipotent-radical invariants, its τ=ρ⊗χ on Q°×C₂ fails the shared disconnected predicate.",
+     "name": "StevensCuspidal.non_cuspidal_constituent"
+    }
+   ],
+   "specializations": [
+    {
+     "name": "Maximal self-dual-order quotient",
+     "statement": "F is a non-archimedean local field of any characteristic whose residual characteristic p is odd, with a (possibly trivial) Galois involution x ↦ x̄ with fixed field F₀; V is an N-dimensional F-space with a nondegenerate ε-hermitian form h (ε = ±1); G̃ = Aut_F(V), G⁺ = U(V,h) is the full isometry group (unitary, symplectic or orthogonal) and G = the F₀-points of its connected component (G = G⁺ except in the orthogonal case, where G = SO(V,h)). For a skew semisimple stratum [Λ^M,n,0,β] with 𝔟₀(Λ^M) a maximal self-dual 𝔬_E-order in B, the finite group J_M/J¹_M ≅ P(Λ^M_{𝔬_E})/P₁(Λ^M_{𝔬_E}) (J_M = J(β,Λ^M), J¹_M = J¹(β,Λ^M)) is the group of points of a possibly disconnected reductive group over k₀; an irreducible representation τ of it is called cuspidal if its restriction to the connected component P°(Λ^M_{𝔬_E})/P₁(Λ^M_{𝔬_E}) contains an irreducible cuspidal representation ρ (i.e. one with no nonzero vectors fixed by the unipotent radical of any proper parabolic subgroup). J°_M = P°(Λ^M_{𝔬_E}) J¹_M.",
+     "locator": "§6.4, paragraph before Definition 6.17, arXiv:math/0607622v2 p. 43",
+     "usesSharedPredicate": "PAPER-STEVENS-08/246"
+    }
+   ]
   },
   {
    "id": "PAPER-STEVENS-08/247",
@@ -2848,15 +2970,6 @@
     "tauceti:TauCeti.finrank_hom_indFDRep"
    ],
    "note": "Mathlib Rep.indResAdjunction (Mathlib/RepresentationTheory/Induced.lean:155; read: 'noncomputable def indResAdjunction : indFunctor k φ ⊣ resFunctor.{max w v' u} φ' for φ : G →* H, k a CommRing); Tau Ceti TauCeti.finrank_hom_indFDRep (TauCeti/RepresentationTheory/Induction/FrobeniusReciprocity.lean:109; '[S.FiniteIndex] (A : FDRep k S) (B : FDRep k G) : finrank k (indFDRep A ⟶ B) = finrank k (A ⟶ resFDRep S B)'). Applying it to a smooth π restricted to a compact open subgroup is immediate."
-  },
-  {
-   "id": "PAPER-STEVENS-08/306",
-   "kind": "definition",
-   "name": "Cuspidal representation of a (possibly disconnected) finite reductive group",
-   "statement": "For a connected reductive group 𝒢° over a finite field k, an irreducible complex representation of 𝒢°(k) is cuspidal if it has no nonzero vectors fixed by the k-points of the unipotent radical of any proper k-parabolic. For the possibly disconnected 𝒢=P(Λ_{𝔬_E})/P₁(Λ_{𝔬_E}), an irreducible representation is called cuspidal if its restriction to the connected component 𝒢° contains a cuspidal representation.",
-   "locator": "§6.4 before Definition 6.17 (convention), used in Lemma 7.4 and §§7.2–7.3, arXiv v2 pp. 43–53",
-   "status": "missing",
-   "note": "Mathlib/Tau Ceti: no parabolic subgroups of finite reductive groups beyond GL₂ (Tau Ceti GL2Borel, CharacterTheory layer 9) and abstract Tits systems (TauCeti/GroupTheory/TitsSystem/Basic.lean). The connected-group predicate is PAPER-FINTZEN-21/33 ('Cuspidality for a finite reductive quotient'), missing and routed to SmoothRepresentationsPartII — covered there; the disconnected convention is not."
   }
  ],
  "prerequisites": [
@@ -3188,10 +3301,9 @@
     "PAPER-STEVENS-08/299",
     "PAPER-STEVENS-08/300",
     "PAPER-STEVENS-08/302",
-    "PAPER-STEVENS-08/303",
-    "PAPER-STEVENS-08/306"
+    "PAPER-STEVENS-08/303"
    ],
-   "brief": "This route coalesces with SmoothRepresentationsPartII, proposed by PAPER-FINTZEN-21 route 1 and joined by PAPER-NEWTON-THORNE-21, PAPER-NEWTON-THORNE-21-B and PAPER-NAKAMURA-23; keep its id, title, parent, area and brief. It adds the classical-group branch of Stevens (Invent. Math. 172 (2008)), which the rejected PAPER-GAN-HARRIS-SAWIN-ETAL-24 route 3 could not add because it was unread: F a non-archimedean local field of any characteristic with odd residual characteristic p, a (possibly trivial) Galois involution with fixed field F₀, (V, h) an ε-hermitian space, G⁺ = U(V, h) and G the F₀-points of its identity component (unitary, symplectic, special orthogonal). Final theorems, as corrected by Miyauchi–Stevens (Math. Ann. 358 (2014)): Proposition 6.18 — for a maximal simple type (J_M, λ_M) with G_E of compact centre and P°(Λ^M_{o_E}) a maximal parahoric of G_E, I_G(λ_M) = J_M; Corollary 6.19 — then c-Ind_{J_M}^G λ_M is irreducible supercuspidal and (J_M, λ_M) is a [G, π]_G-type; Theorem 7.14 — for G not the split SO(1,1)(F), every irreducible supercuspidal representation of G is c-Ind_{J_M}^G(κ_M ⊗ τ) for such a type, built from a skew semisimple stratum, a skew semisimple character, its Heisenberg representation, a β-extension and a cuspidal representation τ of the finite reductive quotient. Cover: self-dual lattice sequences and skew semisimple strata with the critical exponent; the self-dual building model and its centralizer embedding; the groups H¹ ⊆ J¹ ⊆ J and skew semisimple characters with transfer; Heisenberg representations and β-extensions (maximal and general case, the G̃ analogues); Iwahori decompositions and factorizations of semisimple characters; Glauberman transfer; the Hecke-algebra isomorphism and Weyl-group elements of §6 with the intertwining of β-extensions; the level-zero Hecke algebra injection (Morris), covers and the exhaustion argument of §7 with Miyauchi–Stevens's replacement of hypothesis (H). Import the smooth category, Hecke algebras, compact induction with Frobenius reciprocity and admissibility/supercuspidality from SmoothRepresentationsOfLocalGroups SR.0:abelian-category, SR.1, SR.2 and SR.3; buildings, parahorics and the generalized affine BN-pair from ReductiveGroupsPartII RG2.1–RG2.4; the general type/cover formalism and ρ-spherical Hecke algebras from this Part II's Fintzen branch; finite Heisenberg representations from FiniteWeilRepresentationsPartII; the six facts about finite reductive groups used in Lemmas 3.9–3.10, 4.10 and 7.9 and §7.2.2 (commutators of unipotent radicals, SL_2(𝔽_3), characters trivial on unipotents, Harish-Chandra irreducibility for GL_{a+b}(k), self-dual cuspidals of GL_d(k)) from ModularRepresentationsOfFiniteReductiveGroups (route 3); and mixed-characteristic GL_m type theory from EndoscopicTransferAndUnitaryTraceComparison ET.6, constructing no second GL_m classification. The Bushnell–Kutzko GL_N simple and semisimple strata/characters Stevens uses are needed in every odd residual characteristic, including equal characteristic, which ET.6 excludes; keep that extension explicit and separately checked, and do not rebuild ET.6's mixed-characteristic case. Keep Fintzen's p ∤ |W| branch and Stevens's odd-p classical branch separate, with a comparison only where both apply. Endo-parameters and L-packets of classical groups are not part of this route.",
+   "brief": "This route coalesces with SmoothRepresentationsPartII, proposed by PAPER-FINTZEN-21 route 1 and joined by PAPER-NEWTON-THORNE-21, PAPER-NEWTON-THORNE-21-B and PAPER-NAKAMURA-23; keep its id, title, parent, area and brief. It adds the classical-group branch of Stevens (Invent. Math. 172 (2008)), which the rejected PAPER-GAN-HARRIS-SAWIN-ETAL-24 route 3 could not add because it was unread: F a non-archimedean local field of any characteristic with odd residual characteristic p, a (possibly trivial) Galois involution with fixed field F₀, (V, h) an ε-hermitian space, G⁺ = U(V, h) and G the F₀-points of its identity component (unitary, symplectic, special orthogonal). Final theorems, as corrected by Miyauchi–Stevens (Math. Ann. 358 (2014)): Proposition 6.18 — for a maximal simple type (J_M, λ_M) with G_E of compact centre and P°(Λ^M_{o_E}) a maximal parahoric of G_E, I_G(λ_M) = J_M; Corollary 6.19 — then c-Ind_{J_M}^G λ_M is irreducible supercuspidal and (J_M, λ_M) is a [G, π]_G-type; Theorem 7.14 — for G not the split SO(1,1)(F), every irreducible supercuspidal representation of G is c-Ind_{J_M}^G(κ_M ⊗ τ) for such a type, built from a skew semisimple stratum, a skew semisimple character, its Heisenberg representation, a β-extension and a cuspidal representation τ of the finite reductive quotient. Cover: self-dual lattice sequences and skew semisimple strata with the critical exponent; the self-dual building model and its centralizer embedding; the groups H¹ ⊆ J¹ ⊆ J and skew semisimple characters with transfer; Heisenberg representations and β-extensions (maximal and general case, the G̃ analogues); Iwahori decompositions and factorizations of semisimple characters; Glauberman transfer; the Hecke-algebra isomorphism and Weyl-group elements of §6 with the intertwining of β-extensions; the level-zero Hecke algebra injection (Morris), covers and the exhaustion argument of §7 with Miyauchi–Stevens's replacement of hypothesis (H). Import the smooth category, Hecke algebras, compact induction with Frobenius reciprocity and admissibility/supercuspidality from SmoothRepresentationsOfLocalGroups SR.0:abelian-category, SR.1, SR.2 and SR.3; buildings, parahorics and the generalized affine BN-pair from ReductiveGroupsPartII RG2.1–RG2.4; the general type/cover formalism and ρ-spherical Hecke algebras from this Part II's Fintzen branch; finite Heisenberg representations from FiniteWeilRepresentationsPartII; the six facts about finite reductive groups used in Lemmas 3.9–3.10, 4.10 and 7.9 and §7.2.2 (commutators of unipotent radicals, SL_2(𝔽_3), characters trivial on unipotents, Harish-Chandra irreducibility for GL_{a+b}(k), self-dual cuspidals of GL_d(k)) from ModularRepresentationsOfFiniteReductiveGroups (route 3); and mixed-characteristic GL_m type theory from EndoscopicTransferAndUnitaryTraceComparison ET.6, constructing no second GL_m classification. The Bushnell–Kutzko GL_N simple and semisimple strata/characters Stevens uses are needed in every odd residual characteristic, including equal characteristic, which ET.6 excludes; keep that extension explicit and separately checked, and do not rebuild ET.6's mixed-characteristic case. Keep Fintzen's p ∤ |W| branch and Stevens's odd-p classical branch separate, with a comparison only where both apply. Endo-parameters and L-packets of classical groups are not part of this route. Repairs after RT-STEVENS: use o_{F₀}-lattices and F₀-linear/o_{F₀}-linear maps for skew parts in A₋, while ambient objects and the underlying Λ in V remain over F/o_F. Include the unramified ℚ₃(i) unitary-line scalar-closure and F=F₀ checks. Import the relative Clifford obstruction on K/N from InductionRestriction layer 7; the absolute projective linearization criterion on K/ker η cannot preserve η by itself. Request the finite-quotient/relative determinant bridge: d=dim η and m=ord(det η) are p-powers, (det ρ)^m descends and δ(det ρ)^m=α^(dm); restriction to S/N and prime-to-p transfer then kill the relative class. Keep item 114’s algebraic/continuous carrier comparison explicit. Item 246 is the single disconnected finite-quotient cuspidality predicate; item 306 is merged into it, importing the connected Fintzen /33 predicate for both maximal-order and §§7.2–7.3 uses.",
    "reason": "Stevens proves that every supercuspidal representation of a p-adic classical group with p odd is compactly induced from an explicit type, the classical-group analogue of Bushnell–Kutzko. Nothing in the atlas plans lattice sequences, skew semisimple strata and characters, β-extensions or these types: SR.0–SR.6 stop at the general smooth theory, RG2 supplies buildings, and ET.6 is mixed-characteristic GL_m. The accepted SmoothRepresentationsPartII (Fintzen's tame p ∤ |W| construction) is exactly the direction — types, depth and the construction of supercuspidal representations — but its hypotheses exclude p ≤ rank for classical groups, and its accepted brief does not contain Stevens's construction; the GHSB attempt to add it was rejected only because the paper had not been read. This extraction reads it, so the classical-group branch joins the same Part II rather than a new roadmap, as the maintainer's note asks."
   },
   {
@@ -3662,7 +3774,8 @@
     "verdict": "confirmed",
     "reason": "Checked at arXiv v2 TeX 1875-1884 (cocycle sentence 1876-1877) (p. 20). TeX 1875-1877: 'Since $\\JJ^+_\\sM$ normalizes $\\eta_\\sM$, we can extend $\\eta_\\sM$ to a projective representation of $\\JJ^+_\\sM$. This gives rise to a $2$-cocycle $\\boldsymbol\\a$ of $\\JJ_\\sM$ in $\\BCx$.' The projective representation is of J^+_M, and the Sylow step (1881-1884: 'J^1_{m,M} is a Sylow pro-p subgroup of J^+_M ... η_M extends to a linear representation λ of J^+_M') needs the class on J^+_M. In this paper J_M means J(β,Λ^M) = J̃∩G (used so explicitly in §6, TeX 3810 '$\\JJ_\\sM=\\JJ(\\b,\\L^\\sM)$'). That is a proper subgroup of index 2 in the orthogonal case, so 'of J_M' is a slip. The same slip occurs in the proof of Lemma 3.9 (TeX 1612, 'Inflating ... to $\\JJ_\\sM$'; recorded as E11). PDF p. 20: 'a 2-cocycle α of JM in C×'. v1 is not available locally, so 'same text in v1' was not checked.",
     "by": "REV-PAPER-STEVENS-08"
-   }
+   },
+   "proofContext": "The original confirmed J_M/J⁺_M superscript slip remains unchanged. Its proof is planned through the relative Clifford obstruction on J⁺_M/J¹_M. The extraction’s old K/ker η iff and relative dimension-only bound were wrong, not counterexamples to Stevens’s extension theorem. Items 111–114 and the relative determinant/finite-quotient request give the repaired proof; the valid absolute determinant lemma is separate."
   },
   {
    "id": "PAPER-STEVENS-08/E17",
@@ -4548,6 +4661,78 @@
     "reason": "Found and checked by the review at the TeX lines given, which adds it.",
     "by": "REV-PAPER-STEVENS-08"
    }
+  },
+  {
+   "id": "PAPER-STEVENS-08/E55",
+   "kind": "misprint",
+   "locator": "arXiv math/0607622v1 and v2, §2.1 p.8, sentence describing the skew filtration a_n(Λ)∩A₋; published Inventiones article not collated",
+   "printed": "“gives a filtration of A₋ by o_F-lattices”",
+   "correction": "Use o_{F₀}-lattices in the F₀-vector space A₋ for the skew filtration; retain o_F-lattices for the ambient filtration in A and for Λ in V.",
+   "reason": "In the unitary case the adjoint is F/F₀-semilinear, so A₋={a:ā=−a} is F₀-linear but not generally F-linear. For F₀=ℚ₃, F=ℚ₃(i), i²=−1, V=F and h(x,y)=xȳ, a₀(Λ)₋=ℤ₃i. Multiplication by the integral scalar i sends i to −1, which is hermitian and not skew. The paper itself identifies A₋ with Lie G over F₀, and the p.15 exact sequence is stated inside A₋. The fixed-field correction repairs this scalar wording/API; it does not disprove the exactness or main representation theorem. For F=F₀ the rings coincide.",
+   "affects": "nothing",
+   "known": "new within the recorded bounded searches; verified in v1 and v2. Published original and its correction status are not collated.",
+   "searched": [
+    "2 October 2026: freshly downloaded v1 and v2 PDFs and read §2.1 p.8 in both text and page images; both contain the same scalar wording.",
+    "2 October 2026: arXiv history still lists v1 (25 July 2006) and v2 (12 November 2007) as latest.",
+    "RT-PAPER-STEVENS-08 recorded a bounded correction search on 1 October 2026 and the independent verifier confirmed this source slip. This repair does not claim a fresh full reading of later correction papers or the paywalled Inventiones original."
+   ],
+   "items": [
+    "PAPER-STEVENS-08/78"
+   ],
+   "evidence": "Independently confirmed RT-PAPER-STEVENS-08/2; this new serialized sourceIssue has not yet received its own source-issue review verdict."
   }
- ]
+ ],
+ "mergedItems": [
+  {
+   "from": "PAPER-STEVENS-08/306",
+   "into": "PAPER-STEVENS-08/246",
+   "reason": "Same disconnected convention; maximal-order and general/exhaustion consumers use one definition. Original provenance retained in canonical.mergedFrom."
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
+   "statement": "Let N ⊴ K be open pro-p in a profinite group, with invariant irreducible smooth η of finite p-power dimension d. Smoothness and finite dimension make ker η open in N; invariance makes it normal in K, so K/ker η is finite and N/ker η is a finite p-group. Thus m=ord(det η) is a p-power. For the normalized relative lift ρ of item 112 put D(k)=det ρ(k). Since D(nk)=det η(n)D(k), D^m descends to a normalized cochain D̄_m:K/N→ℂˣ. Taking determinants in the factor-set identity yields δD̄_m=α^(dm), so dm[α]=0 on K/N. This is the relative p-primary bound; the bound d[α]=0 alone is generally false there.",
+   "consumers": [
+    "PAPER-STEVENS-08/111",
+    "PAPER-STEVENS-08/112",
+    "PAPER-STEVENS-08/113"
+   ],
+   "status": "Exact missing relative determinant/finite-quotient bridge; the relative Clifford criterion itself is already planned at this owner. No upstream roadmap edit or implementation claimed.",
+   "locator": "Stevens v2 §4.1 proof of Theorem 4.1 p.20; worker-derived relative refinement validated by RT /1.",
+   "acceptance": "Use a cochain descending to K/N and obtain dm[α]=0; the Heisenberg C₃-centre case must reject d[α]=0 and the false absolute extension criterion."
+  }
+ ],
+ "upstreamNotes": [
+  {
+   "owner": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
+   "note": "The roadmap already correctly plans the relative obstruction on T/N. The requested finite-quotient/relative determinant bridge is a consumer requirement to formalize there, not an alleged defect of the upstream plan. Do not change Tau Ceti roadmap files in this atlas fix."
+  },
+  {
+   "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+   "note": "Item 114 still needs the algebraic Schur/relative-factor-set versus continuous H² comparison when using the pinned explicitCor2_comp_res2 theorem. No automatic carrier identification is claimed."
+  }
+ ],
+ "repair": {
+  "job": "FIX-RT-PAPER-STEVENS-08",
+  "issue": 5539,
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "date": "2026-10-02",
+  "base": "d1373dd",
+  "findings": [
+   "RT-PAPER-STEVENS-08/1",
+   "RT-PAPER-STEVENS-08/2",
+   "RT-PAPER-STEVENS-08/3"
+  ],
+  "counts": {
+   "items": 302,
+   "library": 6,
+   "planned": 8,
+   "missing": 288,
+   "routes": 3,
+   "sourceIssues": 55
+  },
+  "lean": "No Lean deliverable or compilation."
+ }
 }
