@@ -67224,3 +67224,355 @@ Fresh capture after actual5853 merge finds all79 canonical inputs unchanged. The
 The separate partial signature file also compiled with zero errors and 6,550 expected placeholder warnings across 3,914 pinned source modules. It includes all 7 new named declarations and 11 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 89688d49692652ec025f1320d81746d5b8f3261a407480e8a211252537def927.
 
 The indexed blueprint checker reports zero errors and 26 advisory short-API warnings, including 26 inherited warnings. No new short-API warning is introduced.
+
+
+## Original primary kernels and their exact group-ring products
+
+Thirteen L3 nodes construct the actual primary residue-unit equivalences with the original prime kernels and prove unique subset-product coordinates, exact kernel-sum expansions and the coefficient-one formula. All 2,258 predecessor nodes and 1,285 baseline records remain whole. Admissible-kernel identification, the local-lattice product identity, rational spanning and source injection remain open.
+
+Kubert published 198–199, the actual prime-kernel coordinate description and the displayed product generators in Proposition 4.13, was compared with the original primary equivalence and prime-kernel subgroup. Pinned native single-coordinate multiplication, evaluation of products, finite products of sums, subgroup/equivalence sum reindexing and products of group-ring basis elements were read. Four exact native baseline records are added. No source, source version or finding is added.
+
+### Primary residue units are the original prime kernel
+
+`DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-equiv` — `DirichletPadic.kubertCartanPrimeKernelEquiv`
+
+For every prime p dividing N, construct a multiplicative equivalence from the units modulo p raised to its exponent in N to the original K_p. It sends u to the inverse image under e_N of the primary tuple equal to u at p and one elsewhere; its inverse reads the p-coordinate of the original unit.
+
+**Hypotheses:** The degree is one and N is positive. U_N is the original product of truncated Witt-vector unit groups; e_N is its already constructed multiplicative equivalence with the product of residue-unit groups modulo the actual prime powers dividing N. For a prime p dividing N, K_p is the original subgroup rationalPrimeKernel: an original unit belongs to it exactly when every primary coordinate away from p equals one. No replacement subgroup or supplied primary factorization is assumed. A subset s consists of actual prime factors of N. A primary tuple has one residue unit modulo p raised to its exponent in N for each p in s. Its product lies in the original U_N through the constructed primary-kernel inclusions. Kernel sums and products lie in the original rational Cartan group ring. The statements involving finite sums explicitly carry the finite enumerations of U_N and the local residue-unit groups that their signatures require. Coefficients are rational and convolution uses the original multiplication. This supplies the prime-kernel products needed in the proof of source Proposition 4.13. The identification with the original admissible reduction kernel and distinguished-point values, equality of the local-lattice product with the actual corrected image, rational spanning, source quotient injectivity and freeness remain separate targets.
+
+**Proof:**
+
+1. Insert u at coordinate p using the native single-coordinate function and transport back by the original multiplicative primary equivalence.
+2. Every other coordinate is one, so the image belongs to the original prime kernel by its proved membership criterion.
+3. The inverse extracts coordinate p. The original primary equivalence and the off-p membership equations prove both inverse laws.
+4. Native single-coordinate multiplicativity and the multiplicative original equivalence give the multiplicative law.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-cartan-primary-unit-equiv`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-kernel`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-kernel-mem`, `mathlib:Pi.mulSingle`, `mathlib:Pi.mulSingle_mul`.
+
+**Uses:**
+
+- Kubert published 198, prime-kernel coordinate description: Realizes the original subgroup with every off-prime coordinate equal to one using its actual primary residue units.
+- Kubert published 198–199, Proposition 4.13: Indexes products of the original kernel sums by actual primary tuples, making the absence of convolution multiplicity explicit.
+
+**API:**
+
+- `kubertCartanPrimeKernelEquiv_coe` (coercion): The underlying original unit of the prime-kernel image of u is exactly e_N inverse applied to the tuple with p-coordinate u and every other coordinate one.
+- `kubertCartanPrimeKernelEquiv_coordinates` (simp): Applying e_N to the underlying original unit of the prime-kernel image of u gives exactly the native tuple with u at p and one elsewhere.
+- `kubertCartanPrimeKernelEquiv_primary` (simp): The p-coordinate of the original unit obtained from primary residue unit u by the prime-kernel equivalence is u.
+- `kubertCartanPrimeKernelEquiv_other` (simp): For q distinct from p, the q-coordinate of the original unit obtained from primary residue unit u by the prime-kernel equivalence is one.
+- `kubertCartanPrimeKernelEquiv_symm_apply` (characterisation): The inverse prime-kernel equivalence sends x in the original K_p to the p-coordinate of e_N applied to its underlying original unit.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryKernelsTests.the_actual_identity_has_identity_kernel_coordinates` (degenerate): The original primary unit identity maps to the original prime-kernel identity at level6 and prime2.
+- `SuggestedKubertPrimaryKernelsTests.the_prime_three_coordinate_two_is_original_unit_five` (computation): At level6 the primary3-coordinate unit2, with the other coordinate1, corresponds to the original finite Cartan unit5.
+- `SuggestedKubertPrimaryKernelsTests.the_prime_two_factor_cannot_supply_the_prime_three_unit` (non-example): The original level6 unit5 has nonidentity primary3-coordinate, so it has no preimage in the original prime2 kernel equivalence.
+
+**Acceptance:** At level 6 the prime-2 kernel is the identity subgroup, whereas primary residue unit 2 at prime 3 corresponds to original unit 5. At level 15 the prime-3 kernel sum has coefficient zero at unit 2, but the product over both primes has coefficient one there. Every product coefficient is zero or one, with no tuple multiplicity. At level 1 the empty product is the original group-ring identity.
+
+**Source:** Published 198–199, proof of Proposition 4.13: the displayed products of the prime-kernel sums generate the product of local lattices; on 198 the prime kernel consists of units with every other primary coordinate equal to one. Expands the actual primary kernels and their products, proving the unique primary-tuple decomposition and the coefficient-one formula needed for the displayed lattice-product generators. The subsequent identification with admissible distinguished values is not assumed.
+
+### The underlying original unit is the inverse primary-coordinate image
+
+`DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-equiv-coe` — `DirichletPadic.kubertCartanPrimeKernelEquiv_coe`
+
+The underlying original unit of the prime-kernel image of u is exactly e_N inverse applied to the tuple with p-coordinate u and every other coordinate one.
+
+**Hypotheses:** The degree is one and N is positive. U_N is the original product of truncated Witt-vector unit groups; e_N is its already constructed multiplicative equivalence with the product of residue-unit groups modulo the actual prime powers dividing N. For a prime p dividing N, K_p is the original subgroup rationalPrimeKernel: an original unit belongs to it exactly when every primary coordinate away from p equals one. No replacement subgroup or supplied primary factorization is assumed. A subset s consists of actual prime factors of N. A primary tuple has one residue unit modulo p raised to its exponent in N for each p in s. Its product lies in the original U_N through the constructed primary-kernel inclusions. Kernel sums and products lie in the original rational Cartan group ring. The statements involving finite sums explicitly carry the finite enumerations of U_N and the local residue-unit groups that their signatures require. Coefficients are rational and convolution uses the original multiplication. This supplies the prime-kernel products needed in the proof of source Proposition 4.13. The identification with the original admissible reduction kernel and distinguished-point values, equality of the local-lattice product with the actual corrected image, rational spanning, source quotient injectivity and freeness remain separate targets.
+
+**Proof:**
+
+1. Evaluate the constructed forward map and its subgroup coercion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryKernelsTests.cartanPrimeKernelEquiv_coe_typed_api` (compatibility): The underlying original unit of the prime-kernel image of u is exactly e_N inverse applied to the tuple with p-coordinate u and every other coordinate one.
+
+**Acceptance:** At level 6 the prime-2 kernel is the identity subgroup, whereas primary residue unit 2 at prime 3 corresponds to original unit 5. At level 15 the prime-3 kernel sum has coefficient zero at unit 2, but the product over both primes has coefficient one there. Every product coefficient is zero or one, with no tuple multiplicity. At level 1 the empty product is the original group-ring identity.
+
+**Source:** Published 198–199, proof of Proposition 4.13: the displayed products of the prime-kernel sums generate the product of local lattices; on 198 the prime kernel consists of units with every other primary coordinate equal to one. Expands the actual primary kernels and their products, proving the unique primary-tuple decomposition and the coefficient-one formula needed for the displayed lattice-product generators. The subsequent identification with admissible distinguished values is not assumed.
+
+### The kernel inclusion has the prescribed full primary tuple
+
+`DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-equiv-coordinates` — `DirichletPadic.kubertCartanPrimeKernelEquiv_coordinates`
+
+Applying e_N to the underlying original unit of the prime-kernel image of u gives exactly the native tuple with u at p and one elsewhere.
+
+**Hypotheses:** The degree is one and N is positive. U_N is the original product of truncated Witt-vector unit groups; e_N is its already constructed multiplicative equivalence with the product of residue-unit groups modulo the actual prime powers dividing N. For a prime p dividing N, K_p is the original subgroup rationalPrimeKernel: an original unit belongs to it exactly when every primary coordinate away from p equals one. No replacement subgroup or supplied primary factorization is assumed. A subset s consists of actual prime factors of N. A primary tuple has one residue unit modulo p raised to its exponent in N for each p in s. Its product lies in the original U_N through the constructed primary-kernel inclusions. Kernel sums and products lie in the original rational Cartan group ring. The statements involving finite sums explicitly carry the finite enumerations of U_N and the local residue-unit groups that their signatures require. Coefficients are rational and convolution uses the original multiplication. This supplies the prime-kernel products needed in the proof of source Proposition 4.13. The identification with the original admissible reduction kernel and distinguished-point values, equality of the local-lattice product with the actual corrected image, rational spanning, source quotient injectivity and freeness remain separate targets.
+
+**Proof:**
+
+1. Use the underlying-unit formula.
+2. The original primary equivalence composed with its inverse is the identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-rational-factors-cartan-primary-unit-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryKernelsTests.cartanPrimeKernelEquiv_coordinates_typed_api` (compatibility): Applying e_N to the underlying original unit of the prime-kernel image of u gives exactly the native tuple with u at p and one elsewhere.
+
+**Acceptance:** At level 6 the prime-2 kernel is the identity subgroup, whereas primary residue unit 2 at prime 3 corresponds to original unit 5. At level 15 the prime-3 kernel sum has coefficient zero at unit 2, but the product over both primes has coefficient one there. Every product coefficient is zero or one, with no tuple multiplicity. At level 1 the empty product is the original group-ring identity.
+
+**Source:** Published 198–199, proof of Proposition 4.13: the displayed products of the prime-kernel sums generate the product of local lattices; on 198 the prime kernel consists of units with every other primary coordinate equal to one. Expands the actual primary kernels and their products, proving the unique primary-tuple decomposition and the coefficient-one formula needed for the displayed lattice-product generators. The subsequent identification with admissible distinguished values is not assumed.
+
+### The distinguished primary coordinate is recovered
+
+`DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-equiv-primary` — `DirichletPadic.kubertCartanPrimeKernelEquiv_primary`
+
+The p-coordinate of the original unit obtained from primary residue unit u by the prime-kernel equivalence is u.
+
+**Hypotheses:** The degree is one and N is positive. U_N is the original product of truncated Witt-vector unit groups; e_N is its already constructed multiplicative equivalence with the product of residue-unit groups modulo the actual prime powers dividing N. For a prime p dividing N, K_p is the original subgroup rationalPrimeKernel: an original unit belongs to it exactly when every primary coordinate away from p equals one. No replacement subgroup or supplied primary factorization is assumed. A subset s consists of actual prime factors of N. A primary tuple has one residue unit modulo p raised to its exponent in N for each p in s. Its product lies in the original U_N through the constructed primary-kernel inclusions. Kernel sums and products lie in the original rational Cartan group ring. The statements involving finite sums explicitly carry the finite enumerations of U_N and the local residue-unit groups that their signatures require. Coefficients are rational and convolution uses the original multiplication. This supplies the prime-kernel products needed in the proof of source Proposition 4.13. The identification with the original admissible reduction kernel and distinguished-point values, equality of the local-lattice product with the actual corrected image, rational spanning, source quotient injectivity and freeness remain separate targets.
+
+**Proof:**
+
+1. Evaluate the full primary-coordinate formula at p.
+2. The native single-coordinate function evaluates to its inserted value at p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-equiv-coordinates`, `mathlib:Pi.mulSingle`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryKernelsTests.cartanPrimeKernelEquiv_primary_typed_api` (compatibility): The p-coordinate of the original unit obtained from primary residue unit u by the prime-kernel equivalence is u.
+
+**Acceptance:** At level 6 the prime-2 kernel is the identity subgroup, whereas primary residue unit 2 at prime 3 corresponds to original unit 5. At level 15 the prime-3 kernel sum has coefficient zero at unit 2, but the product over both primes has coefficient one there. Every product coefficient is zero or one, with no tuple multiplicity. At level 1 the empty product is the original group-ring identity.
+
+**Source:** Published 198–199, proof of Proposition 4.13: the displayed products of the prime-kernel sums generate the product of local lattices; on 198 the prime kernel consists of units with every other primary coordinate equal to one. Expands the actual primary kernels and their products, proving the unique primary-tuple decomposition and the coefficient-one formula needed for the displayed lattice-product generators. The subsequent identification with admissible distinguished values is not assumed.
+
+### Every other primary coordinate is one
+
+`DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-equiv-other` — `DirichletPadic.kubertCartanPrimeKernelEquiv_other`
+
+For q distinct from p, the q-coordinate of the original unit obtained from primary residue unit u by the prime-kernel equivalence is one.
+
+**Hypotheses:** The degree is one and N is positive. U_N is the original product of truncated Witt-vector unit groups; e_N is its already constructed multiplicative equivalence with the product of residue-unit groups modulo the actual prime powers dividing N. For a prime p dividing N, K_p is the original subgroup rationalPrimeKernel: an original unit belongs to it exactly when every primary coordinate away from p equals one. No replacement subgroup or supplied primary factorization is assumed. A subset s consists of actual prime factors of N. A primary tuple has one residue unit modulo p raised to its exponent in N for each p in s. Its product lies in the original U_N through the constructed primary-kernel inclusions. Kernel sums and products lie in the original rational Cartan group ring. The statements involving finite sums explicitly carry the finite enumerations of U_N and the local residue-unit groups that their signatures require. Coefficients are rational and convolution uses the original multiplication. This supplies the prime-kernel products needed in the proof of source Proposition 4.13. The identification with the original admissible reduction kernel and distinguished-point values, equality of the local-lattice product with the actual corrected image, rational spanning, source quotient injectivity and freeness remain separate targets.
+
+**Proof:**
+
+1. The constructed image belongs to the original K_p.
+2. Apply the original prime-kernel membership criterion at q.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-equiv`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-kernel-mem`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryKernelsTests.cartanPrimeKernelEquiv_other_typed_api` (compatibility): For q distinct from p, the q-coordinate of the original unit obtained from primary residue unit u by the prime-kernel equivalence is one.
+
+**Acceptance:** At level 6 the prime-2 kernel is the identity subgroup, whereas primary residue unit 2 at prime 3 corresponds to original unit 5. At level 15 the prime-3 kernel sum has coefficient zero at unit 2, but the product over both primes has coefficient one there. Every product coefficient is zero or one, with no tuple multiplicity. At level 1 the empty product is the original group-ring identity.
+
+**Source:** Published 198–199, proof of Proposition 4.13: the displayed products of the prime-kernel sums generate the product of local lattices; on 198 the prime kernel consists of units with every other primary coordinate equal to one. Expands the actual primary kernels and their products, proving the unique primary-tuple decomposition and the coefficient-one formula needed for the displayed lattice-product generators. The subsequent identification with admissible distinguished values is not assumed.
+
+### The inverse kernel equivalence reads the primary coordinate
+
+`DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-equiv-symm-apply` — `DirichletPadic.kubertCartanPrimeKernelEquiv_symm_apply`
+
+The inverse prime-kernel equivalence sends x in the original K_p to the p-coordinate of e_N applied to its underlying original unit.
+
+**Hypotheses:** The degree is one and N is positive. U_N is the original product of truncated Witt-vector unit groups; e_N is its already constructed multiplicative equivalence with the product of residue-unit groups modulo the actual prime powers dividing N. For a prime p dividing N, K_p is the original subgroup rationalPrimeKernel: an original unit belongs to it exactly when every primary coordinate away from p equals one. No replacement subgroup or supplied primary factorization is assumed. A subset s consists of actual prime factors of N. A primary tuple has one residue unit modulo p raised to its exponent in N for each p in s. Its product lies in the original U_N through the constructed primary-kernel inclusions. Kernel sums and products lie in the original rational Cartan group ring. The statements involving finite sums explicitly carry the finite enumerations of U_N and the local residue-unit groups that their signatures require. Coefficients are rational and convolution uses the original multiplication. This supplies the prime-kernel products needed in the proof of source Proposition 4.13. The identification with the original admissible reduction kernel and distinguished-point values, equality of the local-lattice product with the actual corrected image, rational spanning, source quotient injectivity and freeness remain separate targets.
+
+**Proof:**
+
+1. Evaluate the inverse map of the actual multiplicative equivalence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryKernelsTests.cartanPrimeKernelEquiv_symm_apply_typed_api` (compatibility): The inverse prime-kernel equivalence sends x in the original K_p to the p-coordinate of e_N applied to its underlying original unit.
+
+**Acceptance:** At level 6 the prime-2 kernel is the identity subgroup, whereas primary residue unit 2 at prime 3 corresponds to original unit 5. At level 15 the prime-3 kernel sum has coefficient zero at unit 2, but the product over both primes has coefficient one there. Every product coefficient is zero or one, with no tuple multiplicity. At level 1 the empty product is the original group-ring identity.
+
+**Source:** Published 198–199, proof of Proposition 4.13: the displayed products of the prime-kernel sums generate the product of local lattices; on 198 the prime kernel consists of units with every other primary coordinate equal to one. Expands the actual primary kernels and their products, proving the unique primary-tuple decomposition and the coefficient-one formula needed for the displayed lattice-product generators. The subsequent identification with admissible distinguished values is not assumed.
+
+### Coordinates of a product over selected primary kernels
+
+`DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-product-coordinates` — `DirichletPadic.kubertCartanPrimeKernel_product_coordinates`
+
+For a subset s of the prime factors of N and a primary tuple u indexed by s, the q-coordinate of the product of the corresponding original kernel units is u at q when q belongs to s, and one when q is outside s.
+
+**Hypotheses:** The degree is one and N is positive. U_N is the original product of truncated Witt-vector unit groups; e_N is its already constructed multiplicative equivalence with the product of residue-unit groups modulo the actual prime powers dividing N. For a prime p dividing N, K_p is the original subgroup rationalPrimeKernel: an original unit belongs to it exactly when every primary coordinate away from p equals one. No replacement subgroup or supplied primary factorization is assumed. A subset s consists of actual prime factors of N. A primary tuple has one residue unit modulo p raised to its exponent in N for each p in s. Its product lies in the original U_N through the constructed primary-kernel inclusions. Kernel sums and products lie in the original rational Cartan group ring. The statements involving finite sums explicitly carry the finite enumerations of U_N and the local residue-unit groups that their signatures require. Coefficients are rational and convolution uses the original multiplication. This supplies the prime-kernel products needed in the proof of source Proposition 4.13. The identification with the original admissible reduction kernel and distinguished-point values, equality of the local-lattice product with the actual corrected image, rational spanning, source quotient injectivity and freeness remain separate targets.
+
+**Proof:**
+
+1. Transport the original product through e_N and evaluate the native product coordinatewise.
+2. If q belongs to s, isolate its unique factor and apply the primary and other-coordinate formulas.
+3. If q is outside s, every factor has q-coordinate one, so its product is one.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-equiv-primary`, `DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-equiv-other`, `mathlib:Finset.prod_apply`, `mathlib:Finset.prod_eq_single`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryKernelsTests.cartanPrimeKernel_product_coordinates_typed_api` (compatibility): For a subset s of the prime factors of N and a primary tuple u indexed by s, the q-coordinate of the product of the corresponding original kernel units is u at q when q belongs to s, and one when q is outside s.
+
+**Acceptance:** At level 6 the prime-2 kernel is the identity subgroup, whereas primary residue unit 2 at prime 3 corresponds to original unit 5. At level 15 the prime-3 kernel sum has coefficient zero at unit 2, but the product over both primes has coefficient one there. Every product coefficient is zero or one, with no tuple multiplicity. At level 1 the empty product is the original group-ring identity.
+
+**Source:** Published 198–199, proof of Proposition 4.13: the displayed products of the prime-kernel sums generate the product of local lattices; on 198 the prime kernel consists of units with every other primary coordinate equal to one. Expands the actual primary kernels and their products, proving the unique primary-tuple decomposition and the coefficient-one formula needed for the displayed lattice-product generators. The subsequent identification with admissible distinguished values is not assumed.
+
+### Products of distinct primary factors have unique tuple coordinates
+
+`DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-product-injective` — `DirichletPadic.kubertCartanPrimeKernel_product_injective`
+
+For any subset s of prime factors, the map from actual primary tuples indexed by s to the product of their original prime-kernel units is injective.
+
+**Hypotheses:** The degree is one and N is positive. U_N is the original product of truncated Witt-vector unit groups; e_N is its already constructed multiplicative equivalence with the product of residue-unit groups modulo the actual prime powers dividing N. For a prime p dividing N, K_p is the original subgroup rationalPrimeKernel: an original unit belongs to it exactly when every primary coordinate away from p equals one. No replacement subgroup or supplied primary factorization is assumed. A subset s consists of actual prime factors of N. A primary tuple has one residue unit modulo p raised to its exponent in N for each p in s. Its product lies in the original U_N through the constructed primary-kernel inclusions. Kernel sums and products lie in the original rational Cartan group ring. The statements involving finite sums explicitly carry the finite enumerations of U_N and the local residue-unit groups that their signatures require. Coefficients are rational and convolution uses the original multiplication. This supplies the prime-kernel products needed in the proof of source Proposition 4.13. The identification with the original admissible reduction kernel and distinguished-point values, equality of the local-lattice product with the actual corrected image, rational spanning, source quotient injectivity and freeness remain separate targets.
+
+**Proof:**
+
+1. Apply each primary coordinate to an equality of original products.
+2. At a selected coordinate the product formula recovers the corresponding tuple entry.
+3. Function extensionality gives equality of the actual dependent tuples.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-product-coordinates`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryKernelsTests.cartanPrimeKernel_product_injective_typed_api` (compatibility): For any subset s of prime factors, the map from actual primary tuples indexed by s to the product of their original prime-kernel units is injective.
+
+**Acceptance:** At level 6 the prime-2 kernel is the identity subgroup, whereas primary residue unit 2 at prime 3 corresponds to original unit 5. At level 15 the prime-3 kernel sum has coefficient zero at unit 2, but the product over both primes has coefficient one there. Every product coefficient is zero or one, with no tuple multiplicity. At level 1 the empty product is the original group-ring identity.
+
+**Source:** Published 198–199, proof of Proposition 4.13: the displayed products of the prime-kernel sums generate the product of local lattices; on 198 the prime kernel consists of units with every other primary coordinate equal to one. Expands the actual primary kernels and their products, proving the unique primary-tuple decomposition and the coefficient-one formula needed for the displayed lattice-product generators. The subsequent identification with admissible distinguished values is not assumed.
+
+### The product range is exactly the units with trivial outside coordinates
+
+`DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-product-exists-iff` — `DirichletPadic.kubertCartanPrimeKernel_product_exists_iff`
+
+An original unit x is a product of one primary-kernel unit for each prime in s if and only if all its primary coordinates outside s equal one.
+
+**Hypotheses:** The degree is one and N is positive. U_N is the original product of truncated Witt-vector unit groups; e_N is its already constructed multiplicative equivalence with the product of residue-unit groups modulo the actual prime powers dividing N. For a prime p dividing N, K_p is the original subgroup rationalPrimeKernel: an original unit belongs to it exactly when every primary coordinate away from p equals one. No replacement subgroup or supplied primary factorization is assumed. A subset s consists of actual prime factors of N. A primary tuple has one residue unit modulo p raised to its exponent in N for each p in s. Its product lies in the original U_N through the constructed primary-kernel inclusions. Kernel sums and products lie in the original rational Cartan group ring. The statements involving finite sums explicitly carry the finite enumerations of U_N and the local residue-unit groups that their signatures require. Coefficients are rational and convolution uses the original multiplication. This supplies the prime-kernel products needed in the proof of source Proposition 4.13. The identification with the original admissible reduction kernel and distinguished-point values, equality of the local-lattice product with the actual corrected image, rational spanning, source quotient injectivity and freeness remain separate targets.
+
+**Proof:**
+
+1. The product-coordinate formula gives the forward implication.
+2. For the reverse implication choose the actual tuple whose selected entries are the corresponding coordinates of e_N(x).
+3. Its product agrees with x at selected coordinates by construction and outside them by the given equations.
+4. Injectivity of the original primary equivalence proves equality of original units.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-product-coordinates`, `DirichletPadicLFunctions:L3/kubert-rational-factors-cartan-primary-unit-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryKernelsTests.cartanPrimeKernel_product_exists_iff_typed_api` (compatibility): An original unit x is a product of one primary-kernel unit for each prime in s if and only if all its primary coordinates outside s equal one.
+
+**Acceptance:** At level 6 the prime-2 kernel is the identity subgroup, whereas primary residue unit 2 at prime 3 corresponds to original unit 5. At level 15 the prime-3 kernel sum has coefficient zero at unit 2, but the product over both primes has coefficient one there. Every product coefficient is zero or one, with no tuple multiplicity. At level 1 the empty product is the original group-ring identity.
+
+**Source:** Published 198–199, proof of Proposition 4.13: the displayed products of the prime-kernel sums generate the product of local lattices; on 198 the prime kernel consists of units with every other primary coordinate equal to one. Expands the actual primary kernels and their products, proving the unique primary-tuple decomposition and the coefficient-one formula needed for the displayed lattice-product generators. The subsequent identification with admissible distinguished values is not assumed.
+
+### The original kernel indicator is its subgroup basis sum
+
+`DirichletPadicLFunctions:L3/kubert-primary-kernels-rational-prime-kernel-sum-subgroup` — `DirichletPadic.kubertRationalPrimeKernelSum_subgroup`
+
+The original rational prime-kernel sum equals the sum of original group-ring basis elements with coefficient one indexed by the elements of the original subgroup K_p.
+
+**Hypotheses:** The degree is one and N is positive. U_N is the original product of truncated Witt-vector unit groups; e_N is its already constructed multiplicative equivalence with the product of residue-unit groups modulo the actual prime powers dividing N. For a prime p dividing N, K_p is the original subgroup rationalPrimeKernel: an original unit belongs to it exactly when every primary coordinate away from p equals one. No replacement subgroup or supplied primary factorization is assumed. A subset s consists of actual prime factors of N. A primary tuple has one residue unit modulo p raised to its exponent in N for each p in s. Its product lies in the original U_N through the constructed primary-kernel inclusions. Kernel sums and products lie in the original rational Cartan group ring. The statements involving finite sums explicitly carry the finite enumerations of U_N and the local residue-unit groups that their signatures require. Coefficients are rational and convolution uses the original multiplication. This supplies the prime-kernel products needed in the proof of source Proposition 4.13. The identification with the original admissible reduction kernel and distinguished-point values, equality of the local-lattice product with the actual corrected image, rational spanning, source quotient injectivity and freeness remain separate targets.
+
+**Proof:**
+
+1. Use the existing expression as the filtered sum over original finite units.
+2. Native finite-sum transport to the subgroup subtype gives the stated sum without changing its underlying units.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-kernel-sum-eq-sum`, `mathlib:Finset.prod_subtype`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryKernelsTests.rationalPrimeKernelSum_subgroup_typed_api` (compatibility): The original rational prime-kernel sum equals the sum of original group-ring basis elements with coefficient one indexed by the elements of the original subgroup K_p.
+
+**Acceptance:** At level 6 the prime-2 kernel is the identity subgroup, whereas primary residue unit 2 at prime 3 corresponds to original unit 5. At level 15 the prime-3 kernel sum has coefficient zero at unit 2, but the product over both primes has coefficient one there. Every product coefficient is zero or one, with no tuple multiplicity. At level 1 the empty product is the original group-ring identity.
+
+**Source:** Published 198–199, proof of Proposition 4.13: the displayed products of the prime-kernel sums generate the product of local lattices; on 198 the prime kernel consists of units with every other primary coordinate equal to one. Expands the actual primary kernels and their products, proving the unique primary-tuple decomposition and the coefficient-one formula needed for the displayed lattice-product generators. The subsequent identification with admissible distinguished values is not assumed.
+
+### The kernel sum is indexed by actual primary residue units
+
+`DirichletPadicLFunctions:L3/kubert-primary-kernels-rational-prime-kernel-sum-primary` — `DirichletPadic.kubertRationalPrimeKernelSum_primary`
+
+The original prime-kernel sum equals the sum, over residue units modulo the actual p-primary modulus, of the original basis element at the underlying unit supplied by the prime-kernel equivalence.
+
+**Hypotheses:** The degree is one and N is positive. U_N is the original product of truncated Witt-vector unit groups; e_N is its already constructed multiplicative equivalence with the product of residue-unit groups modulo the actual prime powers dividing N. For a prime p dividing N, K_p is the original subgroup rationalPrimeKernel: an original unit belongs to it exactly when every primary coordinate away from p equals one. No replacement subgroup or supplied primary factorization is assumed. A subset s consists of actual prime factors of N. A primary tuple has one residue unit modulo p raised to its exponent in N for each p in s. Its product lies in the original U_N through the constructed primary-kernel inclusions. Kernel sums and products lie in the original rational Cartan group ring. The statements involving finite sums explicitly carry the finite enumerations of U_N and the local residue-unit groups that their signatures require. Coefficients are rational and convolution uses the original multiplication. This supplies the prime-kernel products needed in the proof of source Proposition 4.13. The identification with the original admissible reduction kernel and distinguished-point values, equality of the local-lattice product with the actual corrected image, rational spanning, source quotient injectivity and freeness remain separate targets.
+
+**Proof:**
+
+1. Rewrite the original kernel sum as its subgroup basis sum.
+2. Reindex the sum by the constructed multiplicative equivalence from actual primary residue units to the original subgroup.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-kernels-rational-prime-kernel-sum-subgroup`, `DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-equiv`, `mathlib:Equiv.prod_comp`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryKernelsTests.rationalPrimeKernelSum_primary_typed_api` (compatibility): The original prime-kernel sum equals the sum, over residue units modulo the actual p-primary modulus, of the original basis element at the underlying unit supplied by the prime-kernel equivalence.
+
+**Acceptance:** At level 6 the prime-2 kernel is the identity subgroup, whereas primary residue unit 2 at prime 3 corresponds to original unit 5. At level 15 the prime-3 kernel sum has coefficient zero at unit 2, but the product over both primes has coefficient one there. Every product coefficient is zero or one, with no tuple multiplicity. At level 1 the empty product is the original group-ring identity.
+
+**Source:** Published 198–199, proof of Proposition 4.13: the displayed products of the prime-kernel sums generate the product of local lattices; on 198 the prime kernel consists of units with every other primary coordinate equal to one. Expands the actual primary kernels and their products, proving the unique primary-tuple decomposition and the coefficient-one formula needed for the displayed lattice-product generators. The subsequent identification with admissible distinguished values is not assumed.
+
+### Products of kernel sums expand over actual primary tuples
+
+`DirichletPadicLFunctions:L3/kubert-primary-kernels-rational-prime-kernel-sum-product-sum` — `DirichletPadic.kubertRationalPrimeKernelSum_product_sum`
+
+The product of the original prime-kernel sums over s equals the sum over all actual primary tuples indexed by s of the original basis element at the product of their kernel inclusions, each with coefficient one.
+
+**Hypotheses:** The degree is one and N is positive. U_N is the original product of truncated Witt-vector unit groups; e_N is its already constructed multiplicative equivalence with the product of residue-unit groups modulo the actual prime powers dividing N. For a prime p dividing N, K_p is the original subgroup rationalPrimeKernel: an original unit belongs to it exactly when every primary coordinate away from p equals one. No replacement subgroup or supplied primary factorization is assumed. A subset s consists of actual prime factors of N. A primary tuple has one residue unit modulo p raised to its exponent in N for each p in s. Its product lies in the original U_N through the constructed primary-kernel inclusions. Kernel sums and products lie in the original rational Cartan group ring. The statements involving finite sums explicitly carry the finite enumerations of U_N and the local residue-unit groups that their signatures require. Coefficients are rational and convolution uses the original multiplication. This supplies the prime-kernel products needed in the proof of source Proposition 4.13. The identification with the original admissible reduction kernel and distinguished-point values, equality of the local-lattice product with the actual corrected image, rational spanning, source quotient injectivity and freeness remain separate targets.
+
+**Proof:**
+
+1. Replace the finite subset product by the product indexed by its subtype.
+2. Use the primary residue-unit expression for every original kernel sum.
+3. Distribute the finite product of sums using the native dependent-tuple formula.
+4. Multiply the actual group-ring basis elements with the native basis-product identity; the coefficient remains one.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-kernels-rational-prime-kernel-sum-primary`, `mathlib:Finset.prod_subtype`, `mathlib:Fintype.prod_sum`, `mathlib:MonoidAlgebra.prod_single`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryKernelsTests.the_empty_primary_product_is_the_original_group_ring_identity` (degenerate): At level1 the empty product of original prime-kernel sums is the original group-ring identity.
+- `SuggestedKubertPrimaryKernelsTests.rationalPrimeKernelSum_product_sum_typed_api` (compatibility): The product of the original prime-kernel sums over s equals the sum over all actual primary tuples indexed by s of the original basis element at the product of their kernel inclusions, each with coefficient one.
+
+**Acceptance:** At level 6 the prime-2 kernel is the identity subgroup, whereas primary residue unit 2 at prime 3 corresponds to original unit 5. At level 15 the prime-3 kernel sum has coefficient zero at unit 2, but the product over both primes has coefficient one there. Every product coefficient is zero or one, with no tuple multiplicity. At level 1 the empty product is the original group-ring identity.
+
+**Source:** Published 198–199, proof of Proposition 4.13: the displayed products of the prime-kernel sums generate the product of local lattices; on 198 the prime kernel consists of units with every other primary coordinate equal to one. Expands the actual primary kernels and their products, proving the unique primary-tuple decomposition and the coefficient-one formula needed for the displayed lattice-product generators. The subsequent identification with admissible distinguished values is not assumed.
+
+### A primary-kernel product is the exact indicator of its coordinate range
+
+`DirichletPadicLFunctions:L3/kubert-primary-kernels-rational-prime-kernel-sum-product-coeff` — `DirichletPadic.kubertRationalPrimeKernelSum_product_coeff`
+
+At an original unit x, the product of original prime-kernel sums over s has coefficient one exactly when every primary coordinate of x outside s is one; otherwise its coefficient is zero.
+
+**Hypotheses:** The degree is one and N is positive. U_N is the original product of truncated Witt-vector unit groups; e_N is its already constructed multiplicative equivalence with the product of residue-unit groups modulo the actual prime powers dividing N. For a prime p dividing N, K_p is the original subgroup rationalPrimeKernel: an original unit belongs to it exactly when every primary coordinate away from p equals one. No replacement subgroup or supplied primary factorization is assumed. A subset s consists of actual prime factors of N. A primary tuple has one residue unit modulo p raised to its exponent in N for each p in s. Its product lies in the original U_N through the constructed primary-kernel inclusions. Kernel sums and products lie in the original rational Cartan group ring. The statements involving finite sums explicitly carry the finite enumerations of U_N and the local residue-unit groups that their signatures require. Coefficients are rational and convolution uses the original multiplication. This supplies the prime-kernel products needed in the proof of source Proposition 4.13. The identification with the original admissible reduction kernel and distinguished-point values, equality of the local-lattice product with the actual corrected image, rational spanning, source quotient injectivity and freeness remain separate targets.
+
+**Proof:**
+
+1. Expand the product as the sum over actual primary tuples.
+2. When the outside-coordinate condition holds, the proved range criterion supplies a tuple representing x.
+3. The proved tuple-product injectivity leaves exactly one contributing basis term, so the coefficient is one.
+4. When the condition fails, the range criterion rules out every representing tuple and every basis coefficient is zero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-kernels-rational-prime-kernel-sum-product-sum`, `DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-product-injective`, `DirichletPadicLFunctions:L3/kubert-primary-kernels-cartan-prime-kernel-product-exists-iff`, `mathlib:Finset.prod_eq_single`, `mathlib:MonoidAlgebra.coeff_single`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryKernelsTests.a_missing_primary_coordinate_forces_zero_coefficient` (computation): At level15 the product consisting only of the prime3 kernel sum has coefficient0 at the original unit2, because its primary5-coordinate is not1.
+- `SuggestedKubertPrimaryKernelsTests.all_primary_factors_give_coefficient_one` (compatibility): The product of all original level15 prime-kernel sums has coefficient1 at the original unit2, with one unique primary-factor decomposition.
+- `SuggestedKubertPrimaryKernelsTests.rationalPrimeKernelSum_product_coeff_typed_api` (compatibility): At an original unit x, the product of original prime-kernel sums over s has coefficient one exactly when every primary coordinate of x outside s is one; otherwise its coefficient is zero.
+
+**Acceptance:** At level 6 the prime-2 kernel is the identity subgroup, whereas primary residue unit 2 at prime 3 corresponds to original unit 5. At level 15 the prime-3 kernel sum has coefficient zero at unit 2, but the product over both primes has coefficient one there. Every product coefficient is zero or one, with no tuple multiplicity. At level 1 the empty product is the original group-ring identity.
+
+**Source:** Published 198–199, proof of Proposition 4.13: the displayed products of the prime-kernel sums generate the product of local lattices; on 198 the prime kernel consists of units with every other primary coordinate equal to one. Expands the actual primary kernels and their products, proving the unique primary-tuple decomposition and the coefficient-one formula needed for the displayed lattice-product generators. The subsequent identification with admissible distinguished values is not assumed.
+
+**Remaining:** The actual corrected integer image has the proved admissible distinguished generators. Products of the original prime-kernel sums now have coefficient one exactly on units with every outside primary coordinate equal to one, via an actual multiplicative equivalence and unique primary-tuple decomposition. Next identify this condition with the original reduction kernel for admissible M dividing N and the raw distinguished 1/M value, then prove source 4.13 equality with the product of the original local integer lattices and source 4.11 rational spanning. Universal-distribution identification, source quotient injectivity and freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.
+
+### Original primary kernels and their exact group-ring products validation
+
+All 2258 predecessor nodes, 1285 baseline records, 27 findings, requests and sourceVersions remain whole. This checkpoint adds 13 nodes, 13 named suggested declarations and 18 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2533 reachable nodes, 10116 edges and 1455 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route ends in the original primary coordinate equivalence and prime-kernel subgroup, actual original group-ring sums, or checked native coordinate insertion, products and finite-sum transport. No source quotient injection, rank, basis, transitivity or rational-spanning package is assumed.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3915 pinned Mathlib modules and 32 pinned Tau Ceti modules. Only 31 Tau module artifacts are available and hash-verified. The 152 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains 5854 verbatim and adds one complete construction and twelve complete lemmas. Totals are 192 definitions and 1,555 lemmas without placeholders. The public append has 13 named declarations and 18 typed examples, all new mathematical bodies placeholders. No native import or library build is added. The separate probe compiles against 3282 pinned Mathlib modules and 10 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native periodicity, low-degree Tate and Teichmuller artifacts, with ten Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact controls through 36 levels check 53 actual primary-kernel equivalences, 361 primary unit coordinates, all 109 subsets of prime factors, 583 unique primary tuples and 1,167 convolution coefficients. Each product has coefficient one precisely when its outside primary coordinates are one. Level 6 separates the prime-2 and prime-3 kernels, level 15 distinguishes one primary factor from the full product, and level 1 checks the empty product. Exact original residue-unit coordinates through36 levels identify every primary unit group with the actual prime kernel, checking inverse coordinates and multiplication. Every subset of actual prime factors is enumerated; products of its primary unit labels are injective and their range is exactly the units with all outside coordinates1. Convolution of the original kernel indicators has coefficient1 precisely on that range, with no multiplicity. Level6 separates prime2 and prime3 kernels; level15 distinguishes a single factor from the full product. No admissible-level image identification, rational spanning or source quotient injectivity is assumed. The largest observed discrepancy is 0.
+
+Fresh capture after actual5854 merge finds all79 canonical inputs unchanged. Whole issue, available queue, original winning claim and blocked/unclaimed review390 were checked. All27 findings and eight source versions remain whole; no new source finding or independent verdict is adopted.
+
+The separate partial signature file also compiled with zero errors and 6,581 expected placeholder warnings across 3,914 pinned source modules. It includes all 13 new named declarations and 18 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d.
+
+The indexed blueprint checker reports zero errors and 26 advisory short-API warnings, including 26 inherited warnings. No new short-API warning is introduced.
