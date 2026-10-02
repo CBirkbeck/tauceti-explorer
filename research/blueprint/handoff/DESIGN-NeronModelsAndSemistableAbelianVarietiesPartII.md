@@ -1,3 +1,221 @@
+# Common-ideal localization — current checkpoint
+
+Codex — codex-5ebb6f; 2 October 2026; Refs #3378. Partial substantive continuation from aec55383b7e77a42d961484dd0f8431212790883. Claim5962209216 was confirmed by bot5962211074; the whole issue was read before and after that reply. The packet has208 nodes (13 definitions,11 constructions,153 lemmas,26 theorems,5 comparisons),92 API items,92 construction/definition tests counted by the checker and112 total test entries,29 planets,177 baseline declarations,23 requests and17 gaps. All seven stages remain partial, with zero closed stages and unchecked implementation status throughout.
+
+## Mathematical result and source
+
+For an arbitrary unital map f:A→B and ideal I⊂A, require that the set f(I) is already an ideal and ker(f)∩I=0. If t∈I, then t kills every original kernel element, while every f(t)b has an actual lift in I. The pinned Away.map injectivity/surjectivity criteria imply bijectivity of the specified map A[1/t]→B[1/f(t)]. Native RingEquiv.ofBijective gives its actual equivalence. If f(a)=f(t)b, its inverse sends[b] to a/t, without a domain or cancellation assumption.
+
+The arbitrary-subring conductor supplies these ideal conditions. For A_q=k+qk[X], qh belongs to A_q for every h, so the actual pinch inclusion is bijective after inverting q and the inverse sends[X] to(qX)/q. These statements hold for every polynomial q. Quadratic finiteness/normalization keeps its separate monic degree-two conditions; the localization result is not a projective or sheaf comparison.
+
+Ten nodes are added: eight new named declarations and two promoted inherited containment/membership declarations. The new equivalence’s forward-map API is promoted separately before the inverse node consumes it. All198 inherited statements, hypotheses, acceptances, APIs, tests, uses and names are preserved;196 whole node objects are unchanged. Only localization-complement’s proof/prerequisites/citation and quadratic-pinch-normalization’s appended prerequisites change. Existing route, source-issue, supplier-request and gap objects are preserved. All78 routed items remain accounted for. Seventeen actual pinned declarations are added as baseline, including the already existing localization criteria; those generic criteria are imported rather than planned again.
+
+Fresh source reading: published Ferrand, Conducteur, descente et pincement (BSMF131(4),2003), printed pp555–557 and565–569 in full parsed text, with visual inspection of pp557 and568. PDF https://numdam.org/item/BSMF_2003__131_4_553_0.pdf; SHA2564f1f2438ad6d757d67d2ecf154b1bc920d210d8abd54c02e6acd020805629d91. The inherited localization locator pointed to §1.4; the complete argument is Theorem5.1, printed p568. This is a citation correction, not a new alleged error in the paper. No fresh whole-paper reading is claimed. Reviewed AUDIT-10/R11 was read, with no direct PartII row. Exact key-definition, owner route/brief, applicable SF.0 and upstream StableReduction Layer1 contracts were checked. Current G.0 statements/hypotheses and targeted G.1 contracts were read; other current nodes are preserved mechanically, not claimed freshly read in full. This session’s earlier whole protocols and upstream exemplar readings remain in effect.
+
+## Public proof and checks
+
+The immutable checked source is archived at [f5288262eeafbced0db1da046651a4128ccdd167](https://github.com/CBirkbeck/tauceti-explorer/blob/f5288262eeafbced0db1da046651a4128ccdd167/research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean), between BEGIN/END ARCHIVED CHECKED COMMON IDEAL LOCALIZATION. The current suggested file removes that historical comment and retains admitted planning bodies for the eight new named declarations, two additional API lemmas and ten examples. The promoted inherited declarations and all earlier signatures retain their existing bodies. The archive remains an ancestor of the submission, accessible publicly rather than through private scratch files.
+
+Native source:343 lines,10 examples,16 print-axiom audits,0 errors/admissions/warnings; 0:02.60 wall time, maximumRSS2467288KiB, 54GiB available. Source SHA256 `116f478ae802f6ca455a0299d4af2e355ab3c97b41f0bdba598453f11225507b`; normalized log SHA256 `9be9935b1dddb06b0095c9156a4ef72869c5f374504f0517caa2a67d1043aa2e`. Every audit uses only the standard logical/choice/quotient axioms, never an admission axiom.
+
+Exact submitted extraction:235 lines,10 examples,0 errors,20 expected admission warnings and0 other warnings; 0:02.20 wall time, maximumRSS2452052KiB, 54GiB available. Source SHA256 `06729c398ecf7dcde83b7d37ab2a5a06f830f55ebbcc3cf949a6167f657a52bc`; normalized log SHA256 `a82c39f806f364c9005084ae34a3b2c9173459653b7d190a9d06725a488cf694`. Twenty native/submitted declaration or example headers match exactly. Both checks used the existing Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 build and Lean4.34.0-rc2, one invocation at a time, with memory checks and timeout1200. No build, setup, cache download, update or LSP was used.
+
+The full2077-line Tau Ceti importing suggested file was not compiled: the pinned PointCount, variable-change, WeilDivisor and stable-model compiled artifacts are absent. The Mathlib-only extraction contains all new material and the exact native inherited conductor/pinch fixtures it uses; it makes no claim about the rest of the combined file.
+
+The examples include the identity map and inverse6/2; a noninjective product projection that becomes bijective after localization; a Z/4 nilpotent whose localization is zero; and actual localization failures after dropping the kernel or image-ideal condition. Split, irreducible, characteristic-two cuspidal and zero-polynomial pinches are specialized over arbitrary native localization carriers. Those four tests do not compute geometric fibers.
+
+The indexed packet checker and five-file intake scan pass with no errors/warnings/problems, and scope/whitespace checks pass. The actual read-only assembler passes acyclic stage, declaration and combined graphs, all68 required stage paths, no unresolved prerequisites and no skipped own links. Exact graph receipts are in commonIdealLocalizationContinuation.checks. Publication base099cf06f3b3c49aa0cb075268da13d97b3dc300e was fetched by exact SHA; all five issue files, instructions, audit, key definition, source route and relevant supplier contracts are unchanged from the mathematical base. Main is merged only into this worker’s own branch.
+
+## Reproduce and resume
+
+Save the first Python block as validate.py and the second as graph.py in one small disk-backed scratch directory outside the checkout. From a checkout of this submission, run validate.py, optionally passing the pinned declarations.tsv path as its first argument. Fetch the mathematical base and proof SHA into your own clone if absent. The program reconstructs Native.lean and Admitted.lean from the immutable public archive and current suggested fragment, verifies their exact SHA256 and all twenty headers, preserves the198-node source/base contracts and source routes, and invokes the actual checker, intake scanner and assembler. It writes only its own scratch directory. In an already existing build at the stated pins, run lake env lean on each reconstructed absolute source path, sequentially, with available memory≥20GiB and timeout1200s; no installation or library build. Normalize diagnostics by replacing the absolute source directory with the source basename, removing the timing footer and retaining one final newline. Delete reproduction scratch after use.
+
+Validator SHA256 `90943f01ab3e7b07e7332f422c349134f7a4a2c288716498b72d89dcb476bda3`; graph script SHA256 `6cdd411065546e6b5922eeac161ef6f6da650f86ddc52e03c3338ed734c8538d`. Both scripts include a final newline.
+
+```python
+from pathlib import Path
+from collections import Counter
+import json,re,subprocess,hashlib,sys,runpy
+root=Path.cwd();sc=Path(__file__).parent
+rid='NeronModelsAndSemistableAbelianVarietiesPartII'
+base='aec55383b7e77a42d961484dd0f8431212790883'
+archive='f5288262eeafbced0db1da046651a4128ccdd167'
+def blob(folder,ext,commit=base):
+ name=('DESIGN-' if folder=='handoff' else '')+rid+'.'+ext
+ return subprocess.check_output(['git','show',f'{commit}:research/blueprint/{folder}/{name}'],text=True)
+def read(folder,ext):
+ name=('DESIGN-' if folder=='handoff' else '')+rid+'.'+ext
+ return (root/'research/blueprint'/folder/name).read_text()
+p=json.loads(read('packets','json'));original=json.loads(blob('packets','json'))
+road=json.loads(read('roadmaps','json'));oldroad=json.loads(blob('roadmaps','json'))
+v=p['commonIdealLocalizationContinuation'];old={n['id']:n for n in original['nodes']};own={n['id']:n for n in p['nodes']}
+assert len(old)==198 and len(own)==208 and len(set(own)-set(old))==10
+exceptions={rid+':G.0/localization-complement',rid+':G.1/quadratic-pinch-normalization'}
+for nid,n in old.items():
+ new=own[nid]
+ for k in ['id','kind','statement','hypotheses','acceptance','api','tests','uses','declarationName','implementationStatus','planet','library']:
+  assert n.get(k)==new.get(k),(nid,k)
+ assert n['prerequisites']==new['prerequisites'][:len(n['prerequisites'])],nid
+ if nid not in exceptions:assert n==new,nid
+ if not nid.endswith('/localization-complement'):assert n['sources']==new['sources'] and n['proofSteps']==new['proofSteps'],nid
+assert sum(n==own[nid] for nid,n in old.items())==196
+for k in original:
+ if k not in ['summary','nodes','baseline','sources','coverage']:assert original[k]==p[k],k
+assert p['baseline']['tauceti']==original['baseline']['tauceti']=='f790474821cf4256814db967cb154e7af3d0c369'
+assert p['baseline']['mathlib']==original['baseline']['mathlib']=='082e2d37e8b0463410cdb532e111cd43d5a66174'
+assert p['baseline']['declarations'][:160]==original['baseline']['declarations'] and len(p['baseline']['declarations'])==177
+for a,b in zip(original['sources'],p['sources']):
+ if a['id']!='ferrand':assert a==b
+ else:
+  assert {k:x for k,x in a.items() if k!='continuationReadings'}=={k:x for k,x in b.items() if k!='continuationReadings'}
+  assert b['continuationReadings'][:-1]==a['continuationReadings']
+assert len(original['sources'])==len(p['sources'])
+assert p['status']=='partial' and Counter(c['status'] for c in p['coverage'])=={'partial':7}
+assert all(n['implementationStatus']=='unchecked' for n in own.values())
+for a,b in zip(original['coverage'],p['coverage']):
+ assert {k:x for k,x in a.items() if k!='remaining'}=={k:x for k,x in b.items() if k!='remaining'}
+ assert a['remaining']==b['remaining'][:len(a['remaining'])]
+for k in oldroad:
+ if k not in ['summary','stages']:assert oldroad[k]==road[k],k
+assert road['summary'].startswith(oldroad['summary'])
+for a,b in zip(oldroad['stages'],road['stages']):
+ assert {k:x for k,x in a.items() if k!='description'}=={k:x for k,x in b.items() if k!='description'}
+ assert b['description'].startswith(a['description'])
+lean=read('suggested','lean');reader=read('readmes','md');oldlean=blob('suggested','lean')
+prefix=oldlean.replace('import Mathlib.RingTheory.Conductor\n','import Mathlib.RingTheory.Conductor\nimport Mathlib.RingTheory.Localization.Away.Basic\n')
+fragment=lean.split('/- BEGIN COMMON IDEAL LOCALIZATION -/\n',1)[1].split('/- END COMMON IDEAL LOCALIZATION -/',1)[0]
+assert lean==prefix+'\n/- BEGIN COMMON IDEAL LOCALIZATION -/\n'+fragment+'/- END COMMON IDEAL LOCALIZATION -/\n'
+assert reader.endswith(blob('readmes','md'))
+for nid,n in own.items():
+ if nid in old:continue
+ assert n['statement'] in reader
+ name=n['declarationName'].rsplit('.',1)[-1]
+ assert re.search(r'^(?:lemma|def|noncomputable def) '+re.escape(name)+r'\b',lean,re.M),nid
+ for t in n.get('tests',[]):assert t['name'] in fragment and t['name'] in reader and t['statement'] in reader,t
+ for a in n.get('api',[]):assert a['name'] in reader and a['statement'] in reader,a
+assert not re.search(r'^(?:axiom|opaque)\s|:\s*True\b',fragment,re.M)
+actual=blob('suggested','lean',archive).split('BEGIN ARCHIVED CHECKED COMMON IDEAL LOCALIZATION\n',1)[1].split('END ARCHIVED CHECKED COMMON IDEAL LOCALIZATION\n',1)[0]
+assert hashlib.sha256(actual.encode()).hexdigest()==v['native']['sourceSha256']
+assert not re.search(r'\bsorry\b',actual) and len(re.findall(r'^#print axioms ',actual,re.M))==16
+a=actual.index('namespace TauCeti.GenusOne.AffinePinching');b=actual.index('\n#print axioms')
+newactual='universe v w z\n'+actual[a:b].rstrip()+'\n'
+def headers(s):
+ result=[]
+ for m in re.finditer(r'^(?:lemma|noncomputable def|example)\b',s,re.M):
+  tail=s[m.start():];stop=re.search(r'\n(?=\n|end\b)',tail);assert stop
+  block=tail[:stop.start()];split=re.search(r' :=(?: by\n| by sorry$| rfl$|\n)',block);assert split
+  result.append(block[:split.start()])
+ return result
+assert headers(newactual)==headers(fragment) and len(headers(fragment))==20
+assert len(re.findall(r'^example\b',fragment,re.M))==10 and fragment.count(' := by sorry')==20
+admitted=actual[:a].replace('universe u v w z','universe u')+fragment
+assert hashlib.sha256(admitted.encode()).hexdigest()==v['admittedExtraction']['sourceSha256']
+(sc/'Native.lean').write_text(actual);(sc/'Admitted.lean').write_text(admitted)
+(sc/'original-packets.json').write_text(blob('packets','json'));(sc/'original-roadmaps.json').write_text(blob('roadmaps','json'))
+assert read('handoff','md').endswith(blob('handoff','md'))
+assert not v['wholeSuggestedCompiled'] and v['native']['errors']==v['native']['warnings']==0
+assert v['admittedExtraction']['errors']==0 and v['admittedExtraction']['warnings']==20
+assert v['native']['lines']==343 and v['admittedExtraction']['lines']==235
+scope=subprocess.check_output(['git','diff','--name-only',v.get('publicationPreflight',{}).get('base',base),'--'],text=True).splitlines()
+allowed={f'research/blueprint/{d}/'+('DESIGN-' if d=='handoff' else '')+rid+'.'+e for d,e in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]}
+assert set(scope)==allowed,scope
+subprocess.run(['git','diff','--check'],check=True)
+index=Path(sys.argv[1]) if len(sys.argv)>1 else None
+cmd=[sys.executable,'scripts/check_blueprint.py','research/blueprint/packets/'+rid+'.json','--json']
+if index:cmd+=['--index',str(index)]
+checked=subprocess.run(cmd,text=True,capture_output=True,check=True);check=json.loads(checked.stdout)
+assert not check[0]['errors'] and not check[0]['warnings']
+intake=subprocess.run([sys.executable,'research/blueprint/intake.py','check-files',*sorted(allowed)],text=True,capture_output=True,check=True)
+print(intake.stdout.strip());print(json.dumps(check[0]['summary'],indent=2))
+runpy.run_path(str(sc/'graph.py'),run_name='__main__')
+print('Preservation, exact public reconstruction, header parity, scope, indexed packet, intake and actual assembler checks passed.')
+```
+
+```python
+import sys,json,hashlib
+from pathlib import Path
+from collections import defaultdict,deque
+root=Path.cwd();sc=Path(__file__).parent;sys.path.insert(0,str(root/'scripts'));from build import assemble
+stem='NeronModelsAndSemistableAbelianVarietiesPartII';rid=stem;packet=json.loads((root/'research/blueprint/packets'/f'{stem}.json').read_text());original=json.loads((sc/'original-packets.json').read_text())
+def overlay(name,p):
+ d=sc/name;d.mkdir(exist_ok=True)
+ for f in (root/'data/blueprints').iterdir():
+  if f.name in [stem+'.json','roadmaps']:continue
+  t=d/f.name
+  if not t.exists():t.symlink_to(f,target_is_directory=f.is_dir())
+ rd=d/'roadmaps';rd.mkdir(exist_ok=True)
+ for f in (root/'data/blueprints/roadmaps').glob('*.json'):
+  if f.name==stem+'.json':continue
+  target=rd/f.name
+  if not target.exists():target.symlink_to(f)
+ (rd/(stem+'.json')).write_text((root/'research/blueprint/roadmaps'/f'{stem}.json').read_text())
+ (d/(stem+'.json')).write_text(json.dumps(p))
+ return d
+a,ctx=assemble(require_distances=False,blueprints=overlay('overlay',packet));control,cctx=assemble(require_distances=False,blueprints=overlay('control',original))
+def stats(vertices,edges):
+ vs=set(vertices);out=defaultdict(set);ins=defaultdict(int)
+ for s,t in edges:
+  vs.update([s,t]);out[s].add(t)
+ for s in out:
+  for t in out[s]:ins[t]+=1
+ q=deque(sorted(v for v in vs if ins[v]==0));n=0
+ while q:
+  s=q.popleft();n+=1
+  for t in out[s]:
+   ins[t]-=1
+   if ins[t]==0:q.append(t)
+ return {'vertices':len(vs),'edges':sum(map(len,out.values())),'acyclic':n==len(vs)},out
+stages={s['id'] for s in a['stages']};se={(e['source'],e['target']) for e in a['stageEdges']};ce={(e['source'],e['target']) for e in control['stageEdges']}
+# Exact virtual upstream stage references are graph vertices, never library leaves.
+st,following=stats(stages,se)
+own={n['id']:n for n in packet['nodes']};oe={(x,n['id']) for n in own.values() for x in n['prerequisites'] if x in own};og,_=stats(own,oe)
+universe={}
+for folder in ['data/decompositions','research/blueprint/packets','data/blueprints']:
+ for f in sorted((root/folder).glob('*.json')):
+  p=json.loads(f.read_text())
+  for n in p.get('nodes',[]):universe[n['id']]=n
+universe.update(own);reachable={};unresolved=set();baselines=set();dep=set();todo=list(own)
+while todo:
+ nid=todo.pop()
+ if nid in reachable:continue
+ n=universe[nid];reachable[nid]=n
+ for ref in n.get('prerequisites',[]):
+  if ref in universe:
+   dep.add((ref,nid));todo.append(ref)
+  elif ref in stages or ref.startswith('tauceti:TauCetiRoadmap/'):
+   stages.add(ref);dep.add((ref,nid))
+  elif ref.startswith(('mathlib:','tauceti:')):baselines.add(ref)
+  else:unresolved.add(ref)
+combined,_=stats(stages|set(reachable),se|dep)
+# Required stage paths come from the original touching links and binding RS-08.
+# Planet declaration ids are not their parent stage ids.
+scope=set(packet['scope']);pairs={(x,y) for x,y in ce if x in scope or y in scope}
+for path in ['data/atlas.json']:
+ record=json.loads((root/path).read_text())
+ for edge in record.get('stageEdges',record.get('links',[])):
+  if edge['source'] in scope or edge['target'] in scope:
+   pairs.add((edge['source'],edge['target']))
+def reaches(s,t):
+ seen=set();todo=[s]
+ while todo:
+  x=todo.pop()
+  if x==t:return True
+  if x not in seen:seen.add(x);todo.extend(following.get(x,()))
+ return False
+missing=[list(x) for x in sorted(pairs) if not reaches(*x)]
+roadmaps={r['id']:r for r in a['roadmaps']};cr={r['id']:r for r in control['roadmaps']}
+skips={r['id']:r.get('blueprint',{}).get('skippedLinks',[]) for r in a['roadmaps'] if r['id']!=rid}
+cskips={r['id']:r.get('blueprint',{}).get('skippedLinks',[]) for r in control['roadmaps'] if r['id']!=rid}
+unchanged=sum(own[n['id']]==n for n in original['nodes']);assert unchanged==196
+rec={'actualAssembler':True,'stageDAG':st,'ownDeclarationDAG':og,'stagesAndReachableDeclarations':combined,'reachableDeclarations':len(reachable),'externalDeclarations':sorted(set(reachable)-set(own)),'reachableBaselineReferences':len(baselines),'unresolved':sorted(unresolved),'ownSkippedLinks':roadmaps[rid]['blueprint']['skippedLinks'],'otherSkipsMatchOriginal':skips==cskips,'stageEdgesUnchanged':se==ce,'requiredStagePairs':len(pairs),'requiredStagePairsReachable':len(pairs)-len(missing),'inheritedMissingStagePairs':missing,'unchangedNodeObjects':unchanged,'partDeclarations':len(own),'partPlanets':sum('planet' in n for n in own.values()),'roadmapDeclarations':roadmaps[rid]['blueprint']['declarations'],'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+assert st['acyclic'] and og['acyclic'] and combined['acyclic'];assert not unresolved;assert se==ce and skips==cskips
+(sc/'graph-receipt.json').write_text(json.dumps(rec,indent=2)+'\n');print(json.dumps(rec,indent=2))
+```
+
+Continue with finite generation of k[X] over A_q by1,X, the actual fraction-field and normalization comparison, and the two projective normalization charts. Then identify the conductor ideal sheaf, form the actual E/k quotient structure-sheaf sequence with its module actions, and derive H⁰/H¹ through finite pushforward. For the inherited general Ferrand leaf, convert the specified ring map into the actual basic-open complement isomorphism via supplier section comparisons. Keep nilpotent/zero localization, characteristic2/3, cusp versus node, component permutation and the separate I₂ construction. The remaining G.0–G.6 and source/completeness obligations are all required.
+
+## Preserved incoming handoff
+
 # Quadratic finite-extension parity — #3378
 
 Codex — codex-J6LwjP; 2 October2026. Claim5961771184, bot5961772756. Read base `4a1f4b6f4dc475b67e029001f90053ff85163a04`.

@@ -36,6 +36,7 @@ import Mathlib.AlgebraicGeometry.Morphisms.Proper
 import Mathlib.AlgebraicGeometry.Morphisms.Smooth
 import Mathlib.CategoryTheory.Limits.Shapes.Pullback.IsPullback.Defs
 import Mathlib.RingTheory.Conductor
+import Mathlib.RingTheory.Localization.Away.Basic
 import Mathlib.AlgebraicGeometry.IdealSheaf.Functorial
 import Mathlib.AlgebraicGeometry.Morphisms.SchemeTheoreticallyDominant
 import Mathlib.AlgebraicGeometry.Noetherian
@@ -1899,3 +1900,178 @@ example : (⟨1,-1,0,0,0⟩ : WeierstrassCurve (FiniteField.Extension (ZMod 2) 2
 
 end TauCeti.GenusOne.QuadraticPinch
 /- END QUADRATIC EXTENSION PARITY -/
+
+/- BEGIN COMMON IDEAL LOCALIZATION -/
+universe v w z
+namespace TauCeti.GenusOne.AffinePinching
+variable {A : Type u} {B : Type v} [CommRing A] [CommRing B]
+
+-- node: G.0/common-ideal-kernel-annihilation
+lemma commonIdeal_kill_kernel (f : A →+* B) (I : Ideal A)
+    (hker : RingHom.ker f ⊓ I = ⊥) (t : A) (ht : t ∈ I)
+    (a : A) (ha : f a = 0) : t * a = 0 := by sorry
+
+-- node: G.0/common-ideal-away-bijective
+lemma commonIdeal_away_bijective (At : Type w) (Bt : Type z)
+    [CommRing At] [CommRing Bt] [Algebra A At] [Algebra B Bt]
+    (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A))
+    (hker : RingHom.ker f ⊓ I = ⊥) (t : A) (ht : t ∈ I)
+    [IsLocalization.Away t At] [IsLocalization.Away (f t) Bt] :
+    Function.Bijective (IsLocalization.Away.map At Bt f t) := by sorry
+
+-- node: G.0/common-ideal-away-equiv
+noncomputable def commonIdealAwayEquiv (At : Type w) (Bt : Type z)
+    [CommRing At] [CommRing Bt] [Algebra A At] [Algebra B Bt]
+    (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A))
+    (hker : RingHom.ker f ⊓ I = ⊥) (t : A) (ht : t ∈ I)
+    [IsLocalization.Away t At] [IsLocalization.Away (f t) Bt] : At ≃+* Bt := by sorry
+
+section API
+variable (At : Type w) (Bt : Type z)
+    [CommRing At] [CommRing Bt] [Algebra A At] [Algebra B Bt]
+    (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A))
+    (hker : RingHom.ker f ⊓ I = ⊥) (t : A) (ht : t ∈ I)
+    [IsLocalization.Away t At] [IsLocalization.Away (f t) Bt]
+
+lemma commonIdealAwayEquiv_apply (x : At) :
+    commonIdealAwayEquiv At Bt f I himage hker t ht x =
+      IsLocalization.Away.map At Bt f t x := by sorry
+
+lemma commonIdealAwayEquiv_algebraMap (a : A) :
+    commonIdealAwayEquiv At Bt f I himage hker t ht (algebraMap A At a) =
+      algebraMap B Bt (f a) := by sorry
+
+lemma commonIdealAwayEquiv_symm_algebraMap (a : A) :
+    (commonIdealAwayEquiv At Bt f I himage hker t ht).symm (algebraMap B Bt (f a)) =
+      algebraMap A At a := by sorry
+
+-- node: G.0/common-ideal-away-inverse
+lemma commonIdealAwayEquiv_symm_of_mul (a : A) (b : B) (ha : f a = f t * b) :
+    (commonIdealAwayEquiv At Bt f I himage hker t ht).symm (algebraMap B Bt b) =
+      IsLocalization.mk' At a ⟨t, Submonoid.mem_powers t⟩ := by sorry
+
+end API
+end TauCeti.GenusOne.AffinePinching
+
+namespace TauCeti.GenusOne.AffinePinching
+-- node: G.0/conductor-away-bijective
+lemma conductor_away_bijective {B : Type v} [CommRing B] (S : Subring B)
+    (St : Type w) (Bt : Type z) [CommRing St] [CommRing Bt]
+    [Algebra S St] [Algebra B Bt] (t : S) (ht : (t : B) ∈ S.conductor)
+    [IsLocalization.Away t St] [IsLocalization.Away (S.subtype t) Bt] :
+    Function.Bijective (IsLocalization.Away.map St Bt S.subtype t) := by sorry
+end TauCeti.GenusOne.AffinePinching
+
+namespace TauCeti.GenusOne.QuadraticPinch
+variable {k : Type u} [Field k]
+
+-- node: G.1/quadratic-pinch-localization
+lemma away_bijective (q : k[X])
+    (At : Type w) (Bt : Type z) [CommRing At] [CommRing Bt]
+    [Algebra (algebra q) At] [Algebra k[X] Bt]
+    [IsLocalization.Away
+      (⟨q, (mem_algebra q q).mpr ⟨0, 1, by simp⟩⟩ : algebra q) At]
+    [IsLocalization.Away ((algebra q).toSubring.subtype
+      (⟨q, (mem_algebra q q).mpr ⟨0, 1, by simp⟩⟩ : algebra q)) Bt] :
+    Function.Bijective (IsLocalization.Away.map At Bt (algebra q).toSubring.subtype
+      (⟨q, (mem_algebra q q).mpr ⟨0, 1, by simp⟩⟩ : algebra q)) := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch
+
+namespace TauCeti.GenusOne.QuadraticPinch
+variable {k : Type u} [Field k]
+
+-- node: G.1/quadratic-pinch-localization-generator
+lemma away_inverse_generator (q : k[X])
+    (At : Type w) (Bt : Type z) [CommRing At] [CommRing Bt]
+    [Algebra (algebra q) At] [Algebra k[X] Bt]
+    [IsLocalization.Away
+      (⟨q, (mem_algebra q q).mpr ⟨0, 1, by simp⟩⟩ : algebra q) At]
+    [IsLocalization.Away ((algebra q).toSubring.subtype
+      (⟨q, (mem_algebra q q).mpr ⟨0, 1, by simp⟩⟩ : algebra q)) Bt] :
+    (RingEquiv.ofBijective
+      (IsLocalization.Away.map At Bt (algebra q).toSubring.subtype
+        (⟨q, (mem_algebra q q).mpr ⟨0, 1, by simp⟩⟩ : algebra q))
+      (away_bijective q At Bt)).symm (algebraMap k[X] Bt Polynomial.X) =
+      IsLocalization.mk' At
+        (⟨q * Polynomial.X, (mem_algebra q _).mpr ⟨0, Polynomial.X, by simp⟩⟩ : algebra q)
+        ⟨(⟨q, (mem_algebra q q).mpr ⟨0, 1, by simp⟩⟩ : algebra q),
+          Submonoid.mem_powers _⟩ := by sorry
+end TauCeti.GenusOne.QuadraticPinch
+
+namespace TauCeti.GenusOne.AffinePinching
+-- test: CommonIdealAwayEquiv.identity
+example (t a : ℤ) :
+    commonIdealAwayEquiv (Localization.Away t) (Localization.Away t)
+      (RingHom.id ℤ) ⊤ (by ext; simp) (by simpa using (RingHom.injective_iff_ker_eq_bot (RingHom.id ℤ)).mp (fun _ _ h => h)) t (by simp)
+      (algebraMap ℤ (Localization.Away t) a) =
+      algebraMap ℤ (Localization.Away t) a := by sorry
+
+-- test: CommonIdealAwayEquiv.inverse_fraction
+example :
+    (commonIdealAwayEquiv (Localization.Away (2 : ℤ)) (Localization.Away (2 : ℤ))
+      (RingHom.id ℤ) ⊤ (by ext; simp) (by simpa using (RingHom.injective_iff_ker_eq_bot (RingHom.id _)).mp (fun _ _ h => h)) 2 (by simp)).symm
+      (algebraMap ℤ (Localization.Away (2 : ℤ)) 3) =
+      IsLocalization.mk' (M := Submonoid.powers (2 : ℤ)) (Localization.Away (2 : ℤ)) (6 : ℤ) ⟨2, Submonoid.mem_powers 2⟩ := by sorry
+
+-- test: CommonIdealAwayEquiv.noninjective
+example :
+    ¬ Function.Injective (RingHom.fst ℤ ℤ) ∧
+    Function.Bijective (IsLocalization.Away.map
+      (Localization.Away ((1, 0) : ℤ × ℤ))
+      (Localization.Away (RingHom.fst ℤ ℤ ((1, 0) : ℤ × ℤ)))
+      (RingHom.fst ℤ ℤ) (1, 0)) := by sorry
+
+-- test: CommonIdealAwayEquiv.nilpotent
+example :
+    Function.Bijective (IsLocalization.Away.map
+      (Localization.Away (2 : ZMod 4)) (Localization.Away (2 : ZMod 4))
+      (RingHom.id (ZMod 4)) 2) ∧ Subsingleton (Localization.Away (2 : ZMod 4)) := by sorry
+
+-- test: CommonIdealAwayEquiv.kernel_condition_necessary
+example : ¬ Function.Injective (IsLocalization.Away.map
+    (Localization.Away (1 : ℤ × ℤ))
+    (Localization.Away (RingHom.fst ℤ ℤ (1 : ℤ × ℤ)))
+    (RingHom.fst ℤ ℤ) 1) := by sorry
+
+-- test: CommonIdealAwayEquiv.image_condition_necessary
+example : ¬ Function.Surjective (IsLocalization.Away.map
+    (Localization.Away (1 : ℤ))
+    (Localization.Away (((RingHom.id ℤ).prod (RingHom.id ℤ)) (1 : ℤ)))
+    ((RingHom.id ℤ).prod (RingHom.id ℤ)) 1) := by sorry
+end TauCeti.GenusOne.AffinePinching
+
+namespace TauCeti.GenusOne.QuadraticPinch
+-- test: QuadraticPinch.away_bijective.split
+example (At : Type w) (Bt : Type z) [CommRing At] [CommRing Bt]
+    [Algebra (algebra (Polynomial.X ^ 2 - 1 : (ℚ)[X])) At] [Algebra (ℚ)[X] Bt]
+    [IsLocalization.Away (⟨(Polynomial.X ^ 2 - 1 : (ℚ)[X]), (mem_algebra (Polynomial.X ^ 2 - 1 : (ℚ)[X]) (Polynomial.X ^ 2 - 1 : (ℚ)[X])).mpr ⟨0, 1, by simp⟩⟩ : algebra (Polynomial.X ^ 2 - 1 : (ℚ)[X])) At]
+    [IsLocalization.Away ((algebra (Polynomial.X ^ 2 - 1 : (ℚ)[X])).toSubring.subtype (⟨(Polynomial.X ^ 2 - 1 : (ℚ)[X]), (mem_algebra (Polynomial.X ^ 2 - 1 : (ℚ)[X]) (Polynomial.X ^ 2 - 1 : (ℚ)[X])).mpr ⟨0, 1, by simp⟩⟩ : algebra (Polynomial.X ^ 2 - 1 : (ℚ)[X]))) Bt] :
+    Function.Bijective (IsLocalization.Away.map At Bt (algebra (Polynomial.X ^ 2 - 1 : (ℚ)[X])).toSubring.subtype (⟨(Polynomial.X ^ 2 - 1 : (ℚ)[X]), (mem_algebra (Polynomial.X ^ 2 - 1 : (ℚ)[X]) (Polynomial.X ^ 2 - 1 : (ℚ)[X])).mpr ⟨0, 1, by simp⟩⟩ : algebra (Polynomial.X ^ 2 - 1 : (ℚ)[X]))) := by sorry
+
+-- test: QuadraticPinch.away_bijective.irreducible
+example (At : Type w) (Bt : Type z) [CommRing At] [CommRing Bt]
+    [Algebra (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X])) At] [Algebra (ZMod 2)[X] Bt]
+    [IsLocalization.Away (⟨(Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X]), (mem_algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X]) (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X])).mpr ⟨0, 1, by simp⟩⟩ : algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X])) At]
+    [IsLocalization.Away ((algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X])).toSubring.subtype (⟨(Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X]), (mem_algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X]) (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X])).mpr ⟨0, 1, by simp⟩⟩ : algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X]))) Bt] :
+    Function.Bijective (IsLocalization.Away.map At Bt (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X])).toSubring.subtype (⟨(Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X]), (mem_algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X]) (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X])).mpr ⟨0, 1, by simp⟩⟩ : algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X]))) := by sorry
+
+-- test: QuadraticPinch.away_bijective.cusp
+example (At : Type w) (Bt : Type z) [CommRing At] [CommRing Bt]
+    [Algebra (algebra (Polynomial.X ^ 2 : (ZMod 2)[X])) At] [Algebra (ZMod 2)[X] Bt]
+    [IsLocalization.Away (⟨(Polynomial.X ^ 2 : (ZMod 2)[X]), (mem_algebra (Polynomial.X ^ 2 : (ZMod 2)[X]) (Polynomial.X ^ 2 : (ZMod 2)[X])).mpr ⟨0, 1, by simp⟩⟩ : algebra (Polynomial.X ^ 2 : (ZMod 2)[X])) At]
+    [IsLocalization.Away ((algebra (Polynomial.X ^ 2 : (ZMod 2)[X])).toSubring.subtype (⟨(Polynomial.X ^ 2 : (ZMod 2)[X]), (mem_algebra (Polynomial.X ^ 2 : (ZMod 2)[X]) (Polynomial.X ^ 2 : (ZMod 2)[X])).mpr ⟨0, 1, by simp⟩⟩ : algebra (Polynomial.X ^ 2 : (ZMod 2)[X]))) Bt] :
+    Function.Bijective (IsLocalization.Away.map At Bt (algebra (Polynomial.X ^ 2 : (ZMod 2)[X])).toSubring.subtype (⟨(Polynomial.X ^ 2 : (ZMod 2)[X]), (mem_algebra (Polynomial.X ^ 2 : (ZMod 2)[X]) (Polynomial.X ^ 2 : (ZMod 2)[X])).mpr ⟨0, 1, by simp⟩⟩ : algebra (Polynomial.X ^ 2 : (ZMod 2)[X]))) := by sorry
+
+-- test: QuadraticPinch.away_bijective.zero
+example (At : Type w) (Bt : Type z) [CommRing At] [CommRing Bt]
+    [Algebra (algebra (0 : (ZMod 2)[X])) At] [Algebra (ZMod 2)[X] Bt]
+    [IsLocalization.Away (⟨(0 : (ZMod 2)[X]), (mem_algebra (0 : (ZMod 2)[X]) (0 : (ZMod 2)[X])).mpr ⟨0, 1, by simp⟩⟩ : algebra (0 : (ZMod 2)[X])) At]
+    [IsLocalization.Away ((algebra (0 : (ZMod 2)[X])).toSubring.subtype (⟨(0 : (ZMod 2)[X]), (mem_algebra (0 : (ZMod 2)[X]) (0 : (ZMod 2)[X])).mpr ⟨0, 1, by simp⟩⟩ : algebra (0 : (ZMod 2)[X]))) Bt] :
+    Function.Bijective (IsLocalization.Away.map At Bt (algebra (0 : (ZMod 2)[X])).toSubring.subtype (⟨(0 : (ZMod 2)[X]), (mem_algebra (0 : (ZMod 2)[X]) (0 : (ZMod 2)[X])).mpr ⟨0, 1, by simp⟩⟩ : algebra (0 : (ZMod 2)[X]))) := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch
+/- END COMMON IDEAL LOCALIZATION -/

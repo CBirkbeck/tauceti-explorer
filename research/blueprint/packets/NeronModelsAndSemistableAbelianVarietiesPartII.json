@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 198 declaration nodes. This checkpoint adds five native quadratic finite-extension lemmas and seven typed examples, importing existing finite-field embedding and module cardinality theorems. The irreducible quadratic gains roots exactly in even extension degrees; the native one-component model has count q^n or q^n+2 and numerical trace defect1 or−1. All193 inherited statements, hypotheses, source/acceptance/implementation records,89 API entries,95 tests,78 routes,21 source findings,23 requests,29 planets and the reserved Ferrand key remain; only the every-extension consumer proof/prerequisites are extended. The actual projective-pinch/normalization/conductor/sheaf/cohomology comparison, separate I₂ count and all other G.0–G.6 source obligations remain open. All stages are partial and all implementation statuses unchecked.",
+  "summary": "Seven-stage partial design with 208 declaration nodes. This continuation specifies the actual common-ideal localization equivalence and inverse representatives, allowing a noninjective original map, zero divisors and zero localizations. It promotes two inherited membership/containment APIs and supplies the polynomial-pinch localization and inverse coordinate for every q. Finite normalization, the projective chart comparison, conductor sheaves, finite pushforward cohomology and all later-stage closure obligations remain separate.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1331,6 +1331,159 @@
         "provides": "For a field polynomial of natural degree between one and three, absence of field-valued roots implies irreducibility. Used to verify the small test polynomials.",
         "checked": "Codex codex-J6LwjP freshly read the full named statement/construction and ambient hypotheses at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; prototype compiled against that pin.",
         "sourceSha256": "215b4f3ec51a8a4570482bd50301c83e7b4dc0b061eb937b761e84848c9b02bb"
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "line": 50,
+        "provides": "Existing native localization typeclass at the powers of an element.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "546fba4376cf5014763e2f2702424ec80a11cefeca34423ea71d6bce9865f662"
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "line": 203,
+        "provides": "Existing canonical localized ring map, without injectivity assumptions.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "546fba4376cf5014763e2f2702424ec80a11cefeca34423ea71d6bce9865f662"
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away.map_injective_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "line": 211,
+        "provides": "Existing injectivity criterion: each original kernel element is annihilated by some power.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "546fba4376cf5014763e2f2702424ec80a11cefeca34423ea71d6bce9865f662"
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away.map_surjective_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "line": 223,
+        "provides": "Existing surjectivity criterion: every receiving element has a power-multiple that lifts.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "546fba4376cf5014763e2f2702424ec80a11cefeca34423ea71d6bce9865f662"
+      },
+      {
+        "ref": "mathlib:IsLocalization.mk'",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Localization/Defs.lean",
+        "line": 247,
+        "provides": "Actual localized fraction with numerator and denominator in the specified submonoid.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "b4861bdfcdc514706866e0f7707cba5fcee922b10fb56e9482f7b702b3a6be8d"
+      },
+      {
+        "ref": "mathlib:IsLocalization.map_eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Defs.lean",
+        "line": 614,
+        "provides": "The native map evaluates algebraMap on the specified base map.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "b4861bdfcdc514706866e0f7707cba5fcee922b10fb56e9482f7b702b3a6be8d"
+      },
+      {
+        "ref": "mathlib:IsLocalization.eq_mk'_iff_mul_eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Defs.lean",
+        "line": 280,
+        "provides": "Fraction equality is equivalent to the denominator multiplication equality in the localization.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "b4861bdfcdc514706866e0f7707cba5fcee922b10fb56e9482f7b702b3a6be8d"
+      },
+      {
+        "ref": "mathlib:RingEquiv.ofBijective_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Ring/Equiv.lean",
+        "line": 456,
+        "provides": "The forward function of the existing constructed ring equivalence is the supplied homomorphism.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "10819730b43ee3f89b8acecb485fb53eaee046fe0ba7bc0d65029ef7f396e904"
+      },
+      {
+        "ref": "mathlib:RingEquiv.apply_symm_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Ring/Equiv.lean",
+        "line": 293,
+        "provides": "Existing inverse law for native ring equivalences.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "10819730b43ee3f89b8acecb485fb53eaee046fe0ba7bc0d65029ef7f396e904"
+      },
+      {
+        "ref": "mathlib:Ideal.mem_map_of_mem",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "line": 70,
+        "provides": "An actual image of an ideal element lies in the native ideal map.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11"
+      },
+      {
+        "ref": "mathlib:Ideal.mul_mem_right",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Defs.lean",
+        "line": 64,
+        "provides": "The commutative-ring ideal is closed under right multiplication.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "656d5aabba0ca74ab1fc906dc9cdf93b9fc6c6b25f0f155b58f261ec461e80d1"
+      },
+      {
+        "ref": "mathlib:Subring.subtype_injective",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Ring/Subring/Defs.lean",
+        "line": 385,
+        "provides": "The native subring inclusion is injective.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "6b6e0e5704a75b5deccb5468a65d17227841ac8aff7c9225f5a0696d8fcab4fa"
+      },
+      {
+        "ref": "mathlib:IsLocalization.subsingleton",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Defs.lean",
+        "line": 220,
+        "provides": "A multiplicative subset containing zero has a zero localization, including nilpotent tests.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "b4861bdfcdc514706866e0f7707cba5fcee922b10fb56e9482f7b702b3a6be8d"
+      },
+      {
+        "ref": "mathlib:Ideal.mem_map_iff_of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "line": 350,
+        "provides": "For a surjective map, ideal-map membership is actual element-image membership.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11"
+      },
+      {
+        "ref": "mathlib:RingHom.fst",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Ring/Prod.lean",
+        "line": 183,
+        "provides": "Native first projection of product rings.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "efb2dac132b22a874760f009df7e98c45e0a7863ad3822410acea47b7c2bad87"
+      },
+      {
+        "ref": "mathlib:RingHom.snd",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Ring/Prod.lean",
+        "line": 187,
+        "provides": "Native second projection of product rings.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "efb2dac132b22a874760f009df7e98c45e0a7863ad3822410acea47b7c2bad87"
+      },
+      {
+        "ref": "mathlib:RingHom.prod",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Ring/Prod.lean",
+        "line": 209,
+        "provides": "Native diagonal/product homomorphism used in the missing-image-ideal example.",
+        "checked": "Codex codex-5ebb6f read the actual declaration and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
+        "sourceSha256": "efb2dac132b22a874760f009df7e98c45e0a7863ad3822410acea47b7c2bad87"
       }
     ]
   },
@@ -1389,6 +1542,12 @@
           "agent": "Codex codex-5ebb6f",
           "date": "2026-10-02",
           "extent": "Selected fresh reading: Ferrand printed pp553–557 and565–569; Witaszek pp674–675 Definition2.27 and Lemma2.28, including visual inspection of both Witaszek pages. No fresh full-paper reading is claimed.",
+          "sha256": "4f1f2438ad6d757d67d2ecf154b1bc920d210d8abd54c02e6acd020805629d91"
+        },
+        {
+          "agent": "Codex codex-5ebb6f",
+          "date": "2026-10-02",
+          "extent": "Fresh parsed published pp555–557 and565–569 in full, and visual inspection of pp557 and568. The exact localization paragraph is Theorem5.1 p568, not Lemma1.4. No new whole-paper or source-error finding is claimed.",
           "sha256": "4f1f2438ad6d757d67d2ecf154b1bc920d210d8abd54c02e6acd020805629d91"
         }
       ]
@@ -2026,18 +2185,21 @@
       "statement": "For t∈I in the previous square, A[1/t]→B[1/t] is an isomorphism.",
       "hypotheses": [],
       "proofSteps": [
-        "Since I is a common ideal, t·b∈I⊂A for every b∈B.",
-        "Represent b/tⁿ by (tb)/tⁿ⁺¹; injectivity follows from the inclusion into B after killing torsion."
+        "Use pullback-projection to identify I with the common ideal image and establish ker(f)∩I=0, without assuming the map A→B is injective.",
+        "Apply common-ideal-away-equiv to the actual localization map. The checked inverse representative is a/t whenever f(a)=f(t)b.",
+        "Use the supplier’s actual affine basic-open and section comparisons to identify the union with the complement of the conductor subscheme."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/pullback-projection",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-inverse"
       ],
       "sources": [
         {
           "sourceId": "ferrand",
-          "locator": "§1.4, pp556–557",
-          "match": "Localization argument with the common ideal, not an arbitrary base-change assertion."
+          "locator": "Theorem5.1, printed p568, complete principal-localization paragraph, with Lemma1.3(b) and its converse, pp556–557",
+          "match": "Native localization adapter for the common ideal. No injectivity of the original map or domain hypothesis is assumed."
         }
       ],
       "acceptance": [
@@ -8502,7 +8664,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-conductor",
         "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-localization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-localization-generator"
       ],
       "sources": [
         {
@@ -11235,6 +11399,463 @@
           "statement": "In the actual native degree-two extension of ZMod2, the model (1,−1,0,0,0) has native numerical trace defect1."
         }
       ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-kernel-annihilation",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Common ideal kills the kernel",
+      "kind": "lemma",
+      "statement": "If ker(f)∩I=0, t∈I and f(a)=0, then ta=0. This does not require f(I) to be an ideal.",
+      "hypotheses": [
+        "A,B are arbitrary commutative rings with identity, including the zero ring; f:A→B is unital and I is an ideal of A. No injectivity, finiteness, reducedness, Noetherianity or regularity of t is assumed."
+      ],
+      "proofSteps": [
+        "The element ta is in I because t∈I and in ker(f) because f(a)=0. The stated intersection equality makes it zero."
+      ],
+      "prerequisites": [
+        "mathlib:Ideal.mul_mem_right"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "Theorem5.1, printed p568, complete principal-localization paragraph, with Lemma1.3(b) and its converse, pp556–557",
+          "match": "Native localization adapter for the common ideal. No injectivity of the original map or domain hypothesis is assumed."
+        }
+      ],
+      "acceptance": [
+        "For the first projection Z×Z→Z and I=Z×0, t=(1,0) kills the entire kernel 0×Z."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdeal_kill_kernel"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-bijective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Bijective localization of a common-ideal map",
+      "kind": "lemma",
+      "statement": "Suppose f(I) is already an ideal, expressed by map_f(I)=f(I) as underlying sets, and ker(f)∩I=0. For t∈I and any native localizations A_t,B_f(t), the canonical localization map A_t→B_f(t) is bijective. Zero divisors, nilpotent t and zero localizations are allowed.",
+      "hypotheses": [
+        "A,B are arbitrary commutative rings with identity, including the zero ring; f:A→B is unital and I is an ideal of A. No injectivity, finiteness, reducedness, Noetherianity or regularity of t is assumed."
+      ],
+      "proofSteps": [
+        "Apply the existing Away.map_injective_iff. The preceding annihilation lemma supplies the single exponent1 for every kernel element; the library criterion handles all fractions and denominator torsion.",
+        "For b∈B, f(t)b belongs to map_f(I). The image-ideal equality lifts it to an actual a∈I with f(a)=f(t)b. Apply the existing Away.map_surjective_iff with exponent1."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-kernel-annihilation",
+        "mathlib:IsLocalization.Away.map",
+        "mathlib:IsLocalization.Away.map_injective_iff",
+        "mathlib:IsLocalization.Away.map_surjective_iff",
+        "mathlib:Ideal.mem_map_of_mem",
+        "mathlib:Ideal.mul_mem_right"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "Theorem5.1, printed p568, complete principal-localization paragraph, with Lemma1.3(b) and its converse, pp556–557",
+          "match": "Native localization adapter for the common ideal. No injectivity of the original map or domain hypothesis is assumed."
+        }
+      ],
+      "acceptance": [
+        "The noninjective first projection Z×Z→Z becomes bijective away from (1,0) when I=Z×0.",
+        "The identity of Z/4 remains bijective after inverting2, where both localizations are zero."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdeal_away_bijective"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-equiv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Common-ideal localization equivalence",
+      "kind": "construction",
+      "statement": "Under the common-ideal image and kernel hypotheses, for t∈I define E:A_t≃B_f(t) as the native ring equivalence obtained from the canonical localization map and its proved bijectivity. Its forward map is that specified localization map; its inverse has the native ring-equivalence laws.",
+      "hypotheses": [
+        "A,B are arbitrary commutative rings with identity, including the zero ring; f:A→B is unital and I is an ideal of A. No injectivity, finiteness, reducedness, Noetherianity or regularity of t is assumed."
+      ],
+      "proofSteps": [
+        "Apply the existing RingEquiv.ofBijective to Away.map and common-ideal-away-bijective. Use native localization carriers, ring structures and inverse laws."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-bijective",
+        "mathlib:RingEquiv.ofBijective",
+        "mathlib:IsLocalization.map_eq",
+        "mathlib:RingEquiv.ofBijective_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "Theorem5.1, printed p568, complete principal-localization paragraph, with Lemma1.3(b) and its converse, pp556–557",
+          "match": "Native localization adapter for the common ideal. No injectivity of the original map or domain hypothesis is assumed."
+        }
+      ],
+      "acceptance": [
+        "The equivalence retains the actual section-ring map, rather than an arbitrary chosen isomorphism between the two carriers."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdealAwayEquiv",
+      "api": [
+        {
+          "name": "AffinePinching.commonIdealAwayEquiv_apply",
+          "role": "coercion",
+          "statement": "E(x) is the canonical Away.map(f,t)(x); promoted to common-ideal-away-map."
+        },
+        {
+          "name": "AffinePinching.commonIdealAwayEquiv_algebraMap",
+          "role": "simp",
+          "statement": "For a∈A, E([a])=[f(a)] in B_f(t)."
+        },
+        {
+          "name": "AffinePinching.commonIdealAwayEquiv_symm_algebraMap",
+          "role": "simp",
+          "statement": "For a∈A, E⁻¹([f(a)])=[a] in A_t."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/localization-complement",
+          "how": "Identify the specified localization map on the complement of the pinching ideal."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-inverse",
+          "how": "Recover concrete localized representatives and compare them with chart coordinates."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CommonIdealAwayEquiv.identity",
+          "kind": "compatibility",
+          "statement": "For f=id_Z, I=Z and any t,a, E sends the actual localized image of a to that same image."
+        },
+        {
+          "name": "CommonIdealAwayEquiv.inverse_fraction",
+          "kind": "computation",
+          "statement": "For f=id_Z, I=Z and t=2, E⁻¹([3]) is the actual fraction6/2 in Z[1/2]."
+        },
+        {
+          "name": "CommonIdealAwayEquiv.noninjective",
+          "kind": "non-example",
+          "statement": "The first projection Z×Z→Z is not injective, but its localization away from (1,0) is bijective for I=Z×0."
+        },
+        {
+          "name": "CommonIdealAwayEquiv.nilpotent",
+          "kind": "degenerate",
+          "statement": "For f=id_(Z/4), I=Z/4 and t=2, the actual localized map is bijective and its localization carrier is subsingleton because2²=0."
+        },
+        {
+          "name": "CommonIdealAwayEquiv.kernel_condition_necessary",
+          "kind": "non-example",
+          "statement": "The first projection Z×Z→Z localized at1 is not injective. With I=Z×Z its image is an ideal, but ker(f)∩I is nonzero."
+        },
+        {
+          "name": "CommonIdealAwayEquiv.image_condition_necessary",
+          "kind": "non-example",
+          "statement": "The diagonal Z→Z×Z localized at1 is not surjective. With I=Z its kernel is zero, but the image of I is the diagonal subring and is not an ideal."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Specified forward localization map",
+      "kind": "lemma",
+      "statement": "For every x∈A_t, E(x)=Away.map(f,t)(x), under the common-ideal hypotheses.",
+      "hypotheses": [
+        "A,B are arbitrary commutative rings with identity, including the zero ring; f:A→B is unital and I is an ideal of A. No injectivity, finiteness, reducedness, Noetherianity or regularity of t is assumed."
+      ],
+      "proofSteps": [
+        "Unfold only RingEquiv.ofBijective, whose forward function is the supplied map."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-equiv",
+        "mathlib:RingEquiv.ofBijective_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "Theorem5.1, printed p568, complete principal-localization paragraph, with Lemma1.3(b) and its converse, pp556–557",
+          "match": "Native localization adapter for the common ideal. No injectivity of the original map or domain hypothesis is assumed."
+        }
+      ],
+      "acceptance": [
+        "This pins the forward map even when the localization carriers admit other automorphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdealAwayEquiv_apply"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Inverse localized representative",
+      "kind": "lemma",
+      "statement": "Under the common-ideal hypotheses, if f(a)=f(t)b, then E⁻¹([b])=a/t in the actual localization A_t. The witness a need not be selected canonically, need not lie in I and is not required to be unique before localization.",
+      "hypotheses": [
+        "A,B are arbitrary commutative rings with identity, including the zero ring; f:A→B is unital and I is an ideal of A. No injectivity, finiteness, reducedness, Noetherianity or regularity of t is assumed."
+      ],
+      "proofSteps": [
+        "Apply injectivity of E and its inverse law. The separately promoted forward-map equation and native map_mk′ send a/t to f(a)/f(t).",
+        "The native eq_mk′_iff_mul_eq identifies this fraction with [b] using the witness equality; no cancellation of t in A or B is used."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-map",
+        "mathlib:IsLocalization.map_mk'",
+        "mathlib:IsLocalization.eq_mk'_iff_mul_eq",
+        "mathlib:RingEquiv.apply_symm_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "Theorem5.1, printed p568, complete principal-localization paragraph, with Lemma1.3(b) and its converse, pp556–557",
+          "match": "Native localization adapter for the common ideal. No injectivity of the original map or domain hypothesis is assumed."
+        }
+      ],
+      "acceptance": [
+        "For t=2,a=6,b=3 and the identity map of Z, the inverse is6/2."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdealAwayEquiv_symm_of_mul"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor-containment",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Conductor lies in the subring",
+      "kind": "lemma",
+      "statement": "For an arbitrary subring S⊂B, every element of its general ambient conductor c(S,B) belongs to S.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Evaluate the defining condition b·x∈S at x=1. This promotes the inherited Subring.conductor_le API without introducing a second conductor."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "Theorem5.1, printed p568, complete principal-localization paragraph, with Lemma1.3(b) and its converse, pp556–557",
+          "match": "Native localization adapter for the common ideal. No injectivity of the original map or domain hypothesis is assumed."
+        }
+      ],
+      "acceptance": [
+        "No nonzero, finite or domain assumption is needed."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "Subring"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "Subring.conductor_le"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-away-bijective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Localization at a conductor element",
+      "kind": "lemma",
+      "statement": "For any commutative ring B, subring S⊂B and t∈S whose ambient value lies in c(S,B), the native map S_t→B_t induced by the subtype inclusion is bijective, for any native localization carriers.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Contract the actual conductor to I⊂S. The native map-comap inequality and the promoted containment lemma show that map(I) equals the actual set image of I.",
+        "The subtype inclusion is injective, so its kernel is zero. Apply the general common-ideal localization lemma to this I and t."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-bijective",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor-containment",
+        "mathlib:Ideal.map_comap_le",
+        "mathlib:Ideal.mem_map_of_mem",
+        "mathlib:Subring.subtype_injective",
+        "mathlib:RingHom.injective_iff_ker_eq_bot"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "Theorem5.1, printed p568, complete principal-localization paragraph, with Lemma1.3(b) and its converse, pp556–557",
+          "match": "Native localization adapter for the common ideal. No injectivity of the original map or domain hypothesis is assumed."
+        }
+      ],
+      "acceptance": [
+        "A nilpotent conductor element is allowed; no equality with a principal ideal or finiteness of B/S is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.conductor_away_bijective"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Membership in the polynomial pinch",
+      "kind": "lemma",
+      "statement": "For every field k, polynomial q and f∈k[X], f∈A_q if and only if f=C(c)+qh for some c∈k and h∈k[X]. This is the promoted inherited membership API of the native subalgebra A_q, including q=0 and unit q.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the existing bottom-subalgebra scalar-witness criterion after the actual quotient map. Equality modulo q is equivalent to divisibility by q, then rearrange f−C(c)=qh."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+        "mathlib:Subalgebra.comap",
+        "mathlib:AdjoinRoot.mkₐ",
+        "mathlib:AdjoinRoot.mk_eq_mk",
+        "mathlib:Algebra.mem_bot"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "§4.1, printed p565, pinching along a closed divisor; library-based coordinate adapter for the already defined polynomial preimage",
+          "match": "Promotes the existing library-based membership API used to construct polynomial conductor elements; not a claim that Ferrand prints this polynomial lemma."
+        }
+      ],
+      "acceptance": [
+        "For every q and h, qh∈A_q. No degree or monicity assumption is needed."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.mem_algebra"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-localization",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Polynomial pinch away from its divisor",
+      "kind": "lemma",
+      "statement": "For every field k and polynomial q, the actual inclusion A_q→k[X] induces a bijection A_q[1/q]→k[X][1/q], for any native localization carriers. This holds for every q, including zero, units, inseparable, reducible and irreducible polynomials; quadratic normalization consumers retain their separate monic degree-two hypotheses.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The promoted membership criterion gives q∈A_q and qh∈A_q for every h∈k[X]. Thus q is in the general ambient conductor, without needing to identify the whole conductor with(q).",
+        "Apply conductor-away-bijective to the actual underlying subring and its subtype inclusion."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-away-bijective",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "Theorem5.1, printed p568, complete principal-localization paragraph, with Lemma1.3(b) and its converse, pp556–557",
+          "match": "Native localization adapter for the common ideal. No injectivity of the original map or domain hypothesis is assumed."
+        }
+      ],
+      "acceptance": [
+        "The split quadratic over Q, irreducible quadratic over F₂, inseparable cusp polynomial over F₂ and q=0 all satisfy the same native localization statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.away_bijective",
+      "tests": [
+        {
+          "name": "QuadraticPinch.away_bijective.split",
+          "kind": "compatibility",
+          "statement": "For q=X²−1 over Q, the actual pinch inclusion induces a bijection on any native localizations at q."
+        },
+        {
+          "name": "QuadraticPinch.away_bijective.irreducible",
+          "kind": "compatibility",
+          "statement": "For q=X²+X+1 over F₂, the same actual localization map is bijective; no rational conductor root is assumed."
+        },
+        {
+          "name": "QuadraticPinch.away_bijective.cusp",
+          "kind": "degenerate",
+          "statement": "For q=X² over F₂, the actual localization map is bijective despite the inseparability and cusp."
+        },
+        {
+          "name": "QuadraticPinch.away_bijective.zero",
+          "kind": "degenerate",
+          "statement": "For q=0 over F₂, the actual localization map is still bijective on any native localization carriers. This does not assert a nonempty open complement."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-localization-generator",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Recover the polynomial coordinate",
+      "kind": "lemma",
+      "statement": "For every field k and polynomial q, let E_q be the native RingEquiv.ofBijective of the actual localized pinch inclusion using quadratic-pinch-localization. Its inverse sends the ambient localized polynomial coordinate [X] to the actual fraction(qX)/q in A_q[1/q]. Both numerator and denominator are actual elements of A_q with membership witnesses. No monicity, separability, degree or nonzero hypothesis is used.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Construct the native equivalence directly from the specified localized inclusion and its proved bijectivity. The promoted membership criterion supplies the numerator qX and denominator q as actual subtype elements.",
+        "Apply the equivalence’s injectivity and inverse law. Native map_mk′ and eq_mk′_iff_mul_eq reduce the asserted inverse formula to Xq=qX in the ambient ring."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-localization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership",
+        "mathlib:RingEquiv.ofBijective",
+        "mathlib:RingEquiv.ofBijective_apply",
+        "mathlib:RingEquiv.apply_symm_apply",
+        "mathlib:IsLocalization.map_mk'",
+        "mathlib:IsLocalization.eq_mk'_iff_mul_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "Theorem5.1, printed p568, complete principal-localization paragraph, with Lemma1.3(b) and its converse, pp556–557",
+          "match": "Native localization adapter for the common ideal. No injectivity of the original map or domain hypothesis is assumed."
+        }
+      ],
+      "acceptance": [
+        "This recovers the affine coordinate on the complement, including the cusp, without asserting that the original inclusion is surjective."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.away_inverse_generator"
     }
   ],
   "requests": [
@@ -11588,7 +12209,8 @@
         "Algebraic-space exports and signatures for the verified pinching chain",
         "Suggested signatures for unbuilt geometric conditions",
         "Replace unresolved supplier stage requests by exact verified exports.",
-        "Global conductor signatures remain uncompiled; the generic finite-module annihilator and exact affine quotient/localization exports are requested at SF.0."
+        "Global conductor signatures remain uncompiled; the generic finite-module annihilator and exact affine quotient/localization exports are requested at SF.0.",
+        "The ring localization comparison is explicit. The actual affine basic-open union, structure-sheaf and categorical scheme comparisons still require the named supplier exports; this does not close the scheme or algebraic-space stage."
       ]
     },
     {
@@ -11605,7 +12227,8 @@
         "Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The actual full bivariate range/kernel and canonical quotient algebra equivalence are now stated with a separate checked native prototype. Finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. A k[q]-module instance/freeness interface is not constructed. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked.",
         "The native affine solution equivalence and native pointCount/frobeniusTrace balance are now explicit. They count distinct rational roots; they do not supply projective normalization, conductor schemes, the structure-sheaf exact sequence, H¹ comparison, arbitrary finite-extension packaging or the separate two-component I₂ construction. The inherited affine algebra/presentation and all global/fibration/classification/model obligations remain planned. Full Tau Ceti-importing suggested file remains uncompiled.",
         "Native nonzero-quadratic-discriminant root/cardinality and split/nonsplit pointCount/frobeniusTrace branches, including receiving finite fields under actual field homomorphisms, are separately checked. The finite-field odd/even embedding criterion, scheme/projective normalization identification, conductor/sheaf/cohomology and independent I₂ count remain required; all G.0–G.6 obligations stay partial.",
-        "Current finite-extension checkpoint supersedes the earlier native odd/even-criterion frontier: the irreducible quadratic root existence, distinct-root count, pointCount, cardinal-power and numerical trace-defect formulas have checked prototypes. Their geometric identification with the projective pinching/conductor schemes, nilpotent reduction and separate fixed-component I₂ calculation remain open; no other source obligations are discharged."
+        "Current finite-extension checkpoint supersedes the earlier native odd/even-criterion frontier: the irreducible quadratic root existence, distinct-root count, pointCount, cardinal-power and numerical trace-defect formulas have checked prototypes. Their geometric identification with the projective pinching/conductor schemes, nilpotent reduction and separate fixed-component I₂ calculation remain open; no other source obligations are discharged.",
+        "The polynomial pinch localization and inverse coordinate are explicit. Prove finite generation of the normalization module, the fraction-field/normalization comparison, two projective charts and actual conductor-sheaf/cohomology sequence; retain the separate cusp, I₁ and I₂ distinctions."
       ]
     },
     {
@@ -14645,6 +15268,148 @@
       "upstream": "The two required nearby upstream documents were fully read earlier in this continuous worker loop; no fresh whole-document reread claimed.",
       "links": "No tracked blueprint link JSON mentioned this roadmap. Actual assembler control preserves all existing stage edges and unrelated skipped-link sets.",
       "regression": "Inherited Python regression and earlier archives are preserved with original worker attribution; no fresh rerun of the old Python program claimed."
+    }
+  },
+  "commonIdealLocalizationContinuation": {
+    "worker": "Codex — codex-5ebb6f",
+    "date": "2026-10-02",
+    "claimComment": 5962209216,
+    "botConfirmation": 5962211074,
+    "auditBase": "aec55383b7e77a42d961484dd0f8431212790883",
+    "status": "partial substantive checkpoint; no stage closure",
+    "addedNodes": [
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-kernel-annihilation",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-bijective",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-equiv",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-map",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-inverse",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor-containment",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-away-bijective",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-localization",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-localization-generator"
+    ],
+    "addedBaseline": [
+      "mathlib:IsLocalization.Away",
+      "mathlib:IsLocalization.Away.map",
+      "mathlib:IsLocalization.Away.map_injective_iff",
+      "mathlib:IsLocalization.Away.map_surjective_iff",
+      "mathlib:IsLocalization.mk'",
+      "mathlib:IsLocalization.map_eq",
+      "mathlib:IsLocalization.eq_mk'_iff_mul_eq",
+      "mathlib:RingEquiv.ofBijective_apply",
+      "mathlib:RingEquiv.apply_symm_apply",
+      "mathlib:Ideal.mem_map_of_mem",
+      "mathlib:Ideal.mul_mem_right",
+      "mathlib:Subring.subtype_injective",
+      "mathlib:IsLocalization.subsingleton",
+      "mathlib:Ideal.mem_map_iff_of_surjective",
+      "mathlib:RingHom.fst",
+      "mathlib:RingHom.snd",
+      "mathlib:RingHom.prod"
+    ],
+    "apiPromotions": [
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor-containment",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-map"
+    ],
+    "native": {
+      "exit": 0,
+      "availableGiB": 54,
+      "wallSeconds": 2.6042965159285814,
+      "sourceSha256": "116f478ae802f6ca455a0299d4af2e355ab3c97b41f0bdba598453f11225507b",
+      "logSha256": "753db9c2c71af52f52759ac7a7412eaf911a0bf4b9ae43bcf6ae5bbc00f7eb19",
+      "normalizedLogSha256": "9be9935b1dddb06b0095c9156a4ef72869c5f374504f0517caa2a67d1043aa2e",
+      "lines": 343,
+      "maxRSSKiB": 2467288,
+      "compilerWall": "0:02.60",
+      "errors": 0,
+      "warnings": 0,
+      "examples": 10
+    },
+    "admittedExtraction": {
+      "exit": 0,
+      "availableGiB": 54,
+      "wallSeconds": 2.2042884479742497,
+      "sourceSha256": "06729c398ecf7dcde83b7d37ab2a5a06f830f55ebbcc3cf949a6167f657a52bc",
+      "logSha256": "b6050efaf713a72572e516d8a85facc006bed388e761694b6c72c2db02995cbc",
+      "normalizedLogSha256": "a82c39f806f364c9005084ae34a3b2c9173459653b7d190a9d06725a488cf694",
+      "lines": 235,
+      "maxRSSKiB": 2452052,
+      "compilerWall": "0:02.20",
+      "errors": 0,
+      "warnings": 20,
+      "examples": 10
+    },
+    "proofArchive": {
+      "commit": "f5288262eeafbced0db1da046651a4128ccdd167",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/f5288262eeafbced0db1da046651a4128ccdd167/research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean",
+      "marker": "ARCHIVED CHECKED COMMON IDEAL LOCALIZATION",
+      "axiomAudits": 16,
+      "admissions": 0
+    },
+    "signatureParity": {
+      "headers": 20,
+      "newNamedDeclarations": 8,
+      "additionalAPILemmas": 2,
+      "examples": 10,
+      "promotedInheritedDeclarations": 2
+    },
+    "wholeSuggestedCompiled": false,
+    "reason": "Required pinned Tau Ceti compiled artifacts remain unavailable. Only the exact Mathlib-only native and admitted extractions were elaborated. No setup, cache fetch, library build or LSP was started.",
+    "readScope": "Whole issue before and after winning claim; whole incoming handoff and reviewed R11 audit; all G.0 statement/hypothesis contracts and all78 route records; exact owner brief, SF.0 and upstream normalization contract; targeted G.1 contracts and pinned source statements. Other current packet contracts are preserved mechanically, not claimed freshly reread in full. WORKERS freshly read; binding protocols and upstream examples retain this session’s earlier whole readings.",
+    "remaining": [
+      "Actual scheme open-complement comparison and supplier section exports",
+      "Finite normalization module and fraction-field comparison",
+      "Two projective normalization charts, conductor ideal sheaf and actual quotient sheaf sequence",
+      "Finite pushforward H⁰/H¹, I₂ and the remaining G.0–G.6 and paper obligations"
+    ],
+    "publicationPreflight": {
+      "base": "099cf06f3b3c49aa0cb075268da13d97b3dc300e",
+      "mathematicalDeliverablesInstructionsAuditKeyAndSupplierContracts": "unchanged from auditBase; checked by exact-SHA git diff before own-branch merge"
+    },
+    "checks": {
+      "indexedPacket": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "intakeFiles": 5,
+      "intakeProblems": 0,
+      "graph": {
+        "actualAssembler": true,
+        "stageDAG": {
+          "vertices": 3043,
+          "edges": 8727,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 208,
+          "edges": 495,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3222,
+          "edges": 9402,
+          "acyclic": true
+        },
+        "reachableDeclarations": 208,
+        "externalDeclarations": [],
+        "reachableBaselineReferences": 162,
+        "unresolved": [],
+        "ownSkippedLinks": [],
+        "otherSkipsMatchOriginal": true,
+        "stageEdgesUnchanged": true,
+        "requiredStagePairs": 68,
+        "requiredStagePairsReachable": 68,
+        "inheritedMissingStagePairs": [],
+        "unchangedNodeObjects": 196,
+        "partDeclarations": 208,
+        "partPlanets": 29,
+        "roadmapDeclarations": 208,
+        "scriptSha256": "6cdd411065546e6b5922eeac161ef6f6da650f86ddc52e03c3338ed734c8538d"
+      },
+      "publicValidatorSha256": "90943f01ab3e7b07e7332f422c349134f7a4a2c288716498b72d89dcb476bda3",
+      "publicGraphSha256": "6cdd411065546e6b5922eeac161ef6f6da650f86ddc52e03c3338ed734c8538d"
     }
   }
 }
