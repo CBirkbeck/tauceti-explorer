@@ -1,0 +1,215 @@
+{
+  "redteam": "RT-PAPER-LI-ZHANG-22-B",
+  "findings": [
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/1",
+      "verdict": "confirmed",
+      "reason": "Checked items 30/48/59, both briefs, v3 pp.12/19, and the accepted BKO route 2 and AGHMP route 8, including lift-depth. They assign the same CM formal modules, quasi-canonical lifts and lifting lengths to LubinTateFormalModulesAndQuasiCanonicalLifts. Split the generic Gross inputs from the cycle embedding and KR11 decomposition; import the supplier in both consumers. A pending accepted paper route is a shared construction obligation, not an implemented atlas layer: keep its items missing until an actual planned stage supplies them. Preserve the order-zero canonical case separately from the positive-level degree formula."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/2",
+      "verdict": "confirmed",
+      "reason": "Item 46 and route 2 construct supported formal K-theory privately. Checked SchemeKTheoryOperations S.3/S.4/S.6/S.7 and the accepted Zhang route 10 with items 128–135/176: the scheme infrastructure and formal extension already have distinct shared suppliers. Re-route the formal part to FormalSupportedIntersections and import it; reuse the scheme contracts with their hypotheses. Do not include general formal (B.3) among proved supplier exports; the published Appendix B p.972 explicitly leaves that extension expected (finding /18)."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/3",
+      "verdict": "confirmed",
+      "reason": "Item 11 repeats the false unnormalized cancellation on v3 p.16, verified on the page image. At n=m=1,k=0,L=M=<1>, the rank-two density is (1+q^-1)(1-q^-2), whereas the proposed right side is 1+q^-1. Correct raw cancellation by multiplying Den(<1>^(n+k),L) by Den(<1>^(n+m+k),M), equivalently product i=n+k+1..n+k+m of (1-(-q)^(-i)). Normalized Den and its central derivative still cancel. The author-hosted revised copy p.17 already omits the false raw equality: record this as a v3 defect, not an established error in the published journal version."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/4",
+      "verdict": "confirmed",
+      "reason": "Item 68 reproduces Lemma 5.3.1(iii) without a valid range; checked pp.25–26 and the image. For d=2,i=0,j=1, removing finitely many points from smooth projective Y_2 leaves H^2(1) unchanged; its nonzero hyperplane class is Frobenius-fixed. Repair the required vanishing for j>=d-i by a localization filtration and the codimension shifts for strata of dimensions m>i: j-d+m>=1. This supplies the no-generalized-eigenvalue-1 statement needed by Theorem 5.3.2. Semisimplicity on individual strata does not prove semisimplicity on their union; do not retain that additional assertion without a separate splitting argument."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/5",
+      "verdict": "confirmed",
+      "reason": "Item 20 follows Example 9.1.3's reversed ordering on p.62. Sankaran arXiv:1405.3414v1 Proposition 3.1 explicitly assumes a>=b. Independently, Proposition 3.7.1 gives Den(X,(1,2))=(1-X)(1+qX+X^2). Formula (9.1.3.1) at (a,b)=(0,2) differs from this by q^2(q+1)X(X-1), while (2,0) agrees; exact rational checks pass. Change the convention to a>=b, or swap both variables throughout the formulas. The inequality remains reversed in the inspected author-hosted copy; no identification with the journal PDF is claimed."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/6",
+      "verdict": "confirmed",
+      "reason": "Checked items 96–101/106/108/110/116 and v3 pp.66–72/82–85/89. Theorem 10.3.1 computes on Z(x_0), while (13.5.0.2) computes on the auxiliary space after uniformization. The p.72 Euler-characteristic comparison, regularity and the proper map that is an isomorphism away from zero-dimensional centers supply the missing bridge. The standing geometric assumption starts on p.67; the global formula necessarily permits almost self-dual places. Add this dependency and an explicit comparison lemma, using LRZ Theorem 14.6.2 with the qualifications in /17, or retain the precise geometric hypotheses. This is a dependency omission, not a claim that the global theorem is false. Fix the actual route 2 cycle brief, despite the finding's occasional route-1 label."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/7",
+      "verdict": "confirmed",
+      "reason": "Item 58 copies the positive exponent in §9.2 p.63, verified on the image. Read KR14 arXiv:0912.3758v2 Proposition 10.1 and its measure normalization: gamma(V)^n times |Norm(det S)|^(n/2), for S almost self-dual and unramified, is (-1)^n q^-n=(-q)^-n. This also matches the next display and (9.2.0.1)–(9.2.0.2). Replace the interpolation factor by (-q)^-n and record the discrepancy. The inspected author copy retains it; the journal version was not compared."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/8",
+      "verdict": "confirmed",
+      "reason": "Checked items 25/102–104, §12 pp.77–80, and the accepted EHLS and CFK doubling briefs. EHLS final theorem (4) already owns the degenerate Siegel Eisenstein series and continuation for the same split unitary group. Import that series with an explicit induction/parameter convention conversion. Keep the KR-specific choices and coefficient comparisons downstream. Li–Liu21/20 and Li–Liu22/60 duplicate the incoherent derivative expansion; nominate one supplier and record sibling import handoffs. The adelic Weil operators belong to MP.3/MP.4 and coherent/incoherent sections to MP.6 after the principal-series input. Apply these changes to the actual cycle route 2 and representation route 4; the proposed fix misnumbers them."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/9",
+      "verdict": "confirmed",
+      "reason": "Item 21 and route 2/4 misassign local Fourier theory to MP.2/MP.3. Read AL.0 and its reviewed partial library audit, and VectorFourier.fourierIntegral at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, FourierTransform.lean:82. AL.0 plans self-dual measures, inversion and the lattice indicator formula. Mark the full input planned there, with only the bare integral as library reuse. Correct the fix's adapter: for the paper's positive-sign kernel, take the bilinear map L=-tr(h), or negate the additive character, and transport the unitary character into Circle. Using L=tr(h) gives the opposite-sign transform. No full p-adic Fourier implementation is certified by this declaration."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/10",
+      "verdict": "confirmed",
+      "reason": "Checked item 22/25, route 4, the formulas on p.56 and pp.78–79, and MP.2–MP.6. MP.2 expressly plans the Weil index and generator formulas, so item 22 is planned, with the nonsplit unramified constant as source specialization. Split item 25: the adelic dual-pair representation uses MP.3/MP.4; Siegel–Weil sections need the degenerate principal-series supplier and belong to the downstream MP.6/consumer interface, not a backward import into MP.3. Retain hypotheses on the auxiliary character and Fourier normalization."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/11",
+      "verdict": "confirmed",
+      "reason": "Item 26 routes Tate's full faithfulness to R07.1 without expanding its narrowed contract. Checked RS-02's R07.1/T0 contracts and supplier edge, Li–Zhang p.22, and Tate1967 pp.176–182, including Theorem 3 and Theorem 4/Corollary 1. Tate's chosen proof uses completed-field Galois invariants and the character/differential maps behind Hodge–Tate theory; importing the later T0 into R07.1 would reverse an existing dependency. Put this source theorem downstream with T0 and its Galois-cohomology input, or explicitly supply an independent earlier proof and a single owner for the shared constructions. The evidence does not prove that every possible proof must depend on T0; the repair is an acyclic source-specific proof contract."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/12",
+      "verdict": "confirmed",
+      "reason": "Checked item 49, p.12, both briefs, and the accepted Liu-et-al route 13 with D02/prop-a-1-3-2/lemma-4-3-2. At dimension 2d+1 and h=d+1, the incidence variety and dimension d are the same Y_V. Give the generic variety and its strata one upstream RZ owner; the cycle owner retains its identification with special-cycle strata. Make the extension from the sibling's finite-field convention to general q explicit. Item 2's maximal-isotropic specialization also duplicates count-max-isotropic: GN.3 should supply that count to the RZ consumer."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/13",
+      "verdict": "confirmed",
+      "reason": "Checked the RZ route against the accepted Scholze–Weinstein route 4, items 172/174, and Fargues–Fontaine route 4/item 818. Those suppliers already plan general GL/EL/PEL representability and the relative π-divisible period-space infrastructure, but neither is imported. Add these imports and scope their overlap to one construction; preserve the genuinely unitary determinant/polarization specialization, its formal smoothness proof and Mihatsch's strict-relative comparison. A general EL/PEL closed immersion is not itself a proof of all the unitary smoothness claims."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/14",
+      "verdict": "confirmed",
+      "reason": "Item 107's general Siegel–Weil formula is built in the cycle consumer. Checked its use on p.84, MP.5/MP.6, Li23 item 13 and accepted route 3, and AGHMP's rev-siegel-weil-formula-for-the. The theta integral/regularization theorem belongs to MP.5/MP.6 with the unitary Ichino source; import Eisenstein series from the doubling supplier. Keep the local-density/point-count application in KR. The accepted orthogonal source does not already prove the unitary theorem: add its exact unitary hypotheses and proof there."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/15",
+      "verdict": "confirmed",
+      "reason": "Checked item 115, pp.88–89, Shankar-et-al item 32 and accepted route 2, AGHMP arithmetic-divisor/arithmetic-cm-degree, and Zhang items 73/76 and route 5. The generic arithmetic-divisor quotient and degree are assigned to several consumers. Split out one shared foundational supplier, with a Part II/request to ArakelovGeometryAndAbelianHeights for arbitrary dimension and DM stacks, products through codimension n and proper degree. Retain KR's cycles, currents and generating-series comparison downstream. This extension is a missing construction obligation, not coverage provided merely by R35.1's arithmetic-curve scope or an existing codimension-one consumer."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/16",
+      "verdict": "confirmed",
+      "reason": "Compared all 22 prerequisites with the cited uses on pp.12/21/74/76/78/80/87–88 and the construction briefs. RZ96, Henniges, Faltings strict O-action, He–Li–Zhu, Gillet–Soulé/Gillet, Kudla–Millson and the other named supporting sources are absent. Add the exact works and the results consumed, linking public versions or recording access gaps. LRZ is a later supplementary input, not a citation in v3. Mere bibliography additions do not certify their proofs or discharge the existing source-closure obligations."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/17",
+      "verdict": "confirmed",
+      "reason": "The stale open-conjecture note and missing later input are real. Independently read LRZ arXiv:2404.02214v2 Theorem 1.0.1, Theorem 14.6.2, Example 14.6.3 and Corollary 16.1.5. Correct the blanket proposed repair: the exceptional divisor equals the REDUCED inverse image; the full inverse image can be a fat P^1 of multiplicity q+1. The introduction's EGA blow-up uses an ideal supported at the centers, not necessarily their reduced ideal. Add the actual regularity, finite-flat, proper-isomorphism-off-centers and exceptional-intersection statements with a use-by-use comparison to §10.4–10.5. Preserve the historical v3 conjecture as such; do not declare its literal scheme-theoretic clause proved. The author-hosted revised copy already changes the conjecture's formulation."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/18",
+      "verdict": "confirmed",
+      "reason": "Checked item 46 and dependent items, Li–Zhang pp.9/11/24/33–34/43, and Zhang's published Appendix B pp.971–974. The scheme Adams argument proves (B.3); the formal extension is only expected. Mark general formal filtration multiplicativity as a proof obligation in FormalSupportedIntersections and distinguish the top-filtration special case. Audit the actual KR membership/product uses; prove specific Cartier/regular-sequence cases directly where possible, or use Corollary 6.4.10 and Remark 6.4.11 for the Euler/local-modularity argument. The bypass does not by itself prove every generic formal filtered-K statement. Record the acknowledged scope gap without presenting it as a disproof of the main theorem."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/19",
+      "verdict": "confirmed",
+      "reason": "Checked pp.12/23 and items 32/44–45/61. The proof of horizontal lifting uses the special-Hom/crystalline identification and the Hodge-hyperplane condition for lifting special cycles, but no item supplies that result. Add the precise source-scoped deformation theorem from KR11/Li–Zhu, importing the strict-relative Grothendieck–Messing input. State the nilpotent divided-power thickening and coefficient/action compatibilities; ordinary square-zero thickenings alone are not the full deformation contract."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/20",
+      "verdict": "confirmed",
+      "reason": "Item 52 omits its proof's base case and the common-factor locus input. Read Lemma 2.8.1 pp.13–14: the n<=3 case is imported from Terstiege, while the final affine-stratum argument requires dimension at least two. The KR11 argument supplies the open-and-closed locus. Add separate cited-input items with the precise local factor/regularity hypotheses, and connect the base, divisor regularity and affineness before the induction. A generalization note does not supply the missing base theorem."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/21",
+      "verdict": "confirmed",
+      "reason": "Read Lemma 5.3.1/Theorem 5.3.2 pp.25–26, all extraction items, and EDC.2:pairings/EDC.3. Frobenius-equivariant Poincaré duality, localization and semi-purity/top-cycle classes are used without their own input items; the brief names no supplier. Add the relevant source-scoped planned items and named imports. Distinguish semi-purity for possibly singular closed subsets from an unrestricted absolute-purity isomorphism. The repair of /4 needs those localization and codimension-shift interfaces too."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/22",
+      "verdict": "confirmed",
+      "reason": "Item 77 and p.35 use Terstiege's rank-three intersection calculation with invariants (1,1,a), a odd, before the main theorem is proved. No standalone cited-input item records it. Add Int=(a+1)(q+1)/2+1-q^2 as the required instance, or import a separately proved rank-three KR theorem; the N_1 term follows from the existing cancellation/lifting input. Do not derive this input from Theorem 3.4.1 being proved. The q=3,a=1 lattice count independently gives -4, consistent with the formula."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/23",
+      "verdict": "confirmed",
+      "reason": "Checked item 80 and §6.4 pp.37–39. The perfect Tate-class pairing uses equivariant Poincaré duality and the relevant semisimplicity; injectivity on rational divisor classes uses Kummer plus the fact that Pic^0 over an algebraic closure of a finite field consists of torsion points. Neither input has its own item. Reuse the EDC.2 input from /21 rather than adding a duplicate. Add the divisor-injectivity theorem with smooth-projective/finite-field hypotheses, a Kummer/NS proof contract and an explicit owner; keep it missing if no full supplier is planned."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/24",
+      "verdict": "confirmed",
+      "reason": "Item 99 omits the standing hypothesis immediately preceding Lemma 10.4.2 on p.67. Its Cartier/pullback argument uses regularity of the auxiliary space obtained there from Conjecture 10.4.1. Add that historical condition or the actual later geometric theorem as an explicit prerequisite. Do not silently transfer the unconditional status of Theorem 10.3.1 to this lemma; apply /17's qualified LRZ substitution."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/25",
+      "verdict": "confirmed",
+      "reason": "Items 36–38 omit §11.2's first standing condition, checked on p.74: when p=2, every place above p must be unramified in F. The almost-self-dual and split models retain that setup on pp.75–76. Restore the hypothesis in these items and their final-theorem summaries. The ramified-prime model separately assumes p!=2 and is not repaired by adding a fictitious dyadic case."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/26",
+      "verdict": "confirmed",
+      "reason": "Checked all items and the actual citation sites pp.68–70/83–85: the five cited inputs are not separate items. Add Sankaran's horizontal component, Terstiege's special fiber, Cho's divisor restriction formulas, KR's supersingular-support argument and Sankaran's semi-global reduction. Correct the proposed transport: KR14 v2 Lemma 2.21 proves support in finitely many nonsplit supersingular fibers; the singleton-Diff refinement/general F_0 adaptation needs an additional argument (cf. Proposition 2.22 and Li–Zhang's use), not a verbatim Lemma 2.21 attribution. Terstiege's result must be transported through the blow-up before asserting a strict-transform formula. Sankaran v1 numbers the horizontal theorem 2.8, not the journal's cited 2.9; its horizontal component has degree one before the degree-q+1 pullback. Record these version and transport distinctions."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/27",
+      "verdict": "confirmed",
+      "reason": "Item 28 and the report assign rational Dieudonné–Manin classification solely to R07.2. Checked the accepted RS-02 narrowing and assembled VB0/R07.2 contracts. VB0 supplies the rational isocrystal carrier and slope classification; R07.2 owns the integral group/crystal functor and its rationalization comparison. Name both, distinguish their coefficient scope and update the report."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/28",
+      "verdict": "confirmed",
+      "reason": "Read items 80/86, p.37–38 and RS-18's S.7 ownership decision. SF.5 owns geometric Chern/Todd/GRR machinery; S.7 owns its degree-zero K/G and filtration-to-Chow comparison. Add both owners and state a filtered ring comparison inducing graded-piece isomorphisms, not a pre-existing grading on K_0. For item 80 the Tate-class identification is after extending rational Chow coefficients to Q_l, as (6.4.0.3) states. Preserve the smooth-projective hypotheses and do not infer arbitrary scheme GRR."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/29",
+      "verdict": "confirmed",
+      "reason": "Checked item 87, pp.26/37, and the actual EDC.3/MC.2 contracts. EDC.3 exports the étale cycle-class map with products; MC.2 uses it in motivic realizations. Add the EDC.3 supplier and named import. MC.2 may remain a realization consumer but cannot replace the missing foundational map and compatibility proof."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/30",
+      "verdict": "confirmed",
+      "reason": "Read the extraction/report/accepted review, RS-02/04/18/23 decisions, and the named sibling routes. The no-restructured-stage assertion and eight-sibling attribution are wrong; Feng–Yun–Zhang uses the shtuka-cycle candidate. Independently read pp.57–59: the final proof fixes n and inducts on val(L^flat), closing by support, Fourier vanishing and dual-lattice translations. The SL_2 uncertainty result motivates the argument but is not invoked in §8.2. Correct these descriptions and the supplier summaries; keep source locators version-specific (the quoted transition is on v3 p.57, not p.58)."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/31",
+      "verdict": "confirmed",
+      "reason": "Checked both full briefs and RS-02. Several imports use only ids or paraphrased titles, the étale import lacks even an id, and general Grothendieck–Messing belongs to R07.2 rather than the abelian application A4. Add precise current titles/ids and the source-scoped supplier. Route 2's Theorem 15.5.1 summary also omits inert-admissibility present in item 116 and p.89; restore it alongside the unramified/split and two nonsingular split-place conditions."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/32",
+      "verdict": "confirmed",
+      "reason": "Checked item 56, p.15, and Zhang21 item 16 in the accepted RZ route. Iterated product embeddings are already assigned to the RZ supplier; the KR-specific content is identifying their image with Z(M), transversality and cancellation. Separate those scopes in the item's note and imports. Zhang's unbarred framing convention differs from Li–Zhang's barred convention, so the adapter must preserve the conjugate O_F-action rather than blindly identify the two formulas."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/33",
+      "verdict": "confirmed",
+      "reason": "Item 72 drops the range L^flat<=L'^flat<=L^flat_Lambda_e from Lemma 5.4.4(iv), checked pp.27–29. The type dichotomy is only proved inside that range; outside it integrality of L'^flat+M is not supplied. Restore the quantified range and keep the intermediate lattice sums within it."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/34",
+      "verdict": "confirmed",
+      "reason": "Checked Definition 2.9.1 p.14 and the Breuil construction p.21 against items 54/27. The horizontal subscheme is mislabeled vertical in the first sentence, and the Breuil Frobenius codomain is printed as the group G instead of M(G). The extracted items already correct them, but sourceIssues does not record either. Add version-scoped misprints; avoid claiming a published-journal defect without that text."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/35",
+      "verdict": "confirmed",
+      "reason": "Item 27 describes Breuil's completed divided-power ring S and crystalline evaluation, while the read R07.4 contract states a power-series Kisin-module classification and does not state that base-change comparison. Add the S/crystal comparison as a source obligation in R07.4, with the Kisin A.6 input and the relevant relative coefficient hypotheses; do not treat it as already covered simply by the shared classification name. Item 32's strict O_{F_0}-relative theory remains a distinct required adapter, not a reason to omit the general source construction."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/36",
+      "verdict": "confirmed",
+      "reason": "Read E1, items 75/88/93 and pp.33–34/45/58–59. Independently enumerated the isotropic lines of F_9^3: 28 total, one in span(e1,e2+(1+i)e3), four in span(e1,e2). For F_0=Q_3,F=Q_3(i), L=<3>^3 and f=e2+(1+i)e3, these are the horizontal contributions 1 and 4. The full derivative is -4, so the two vertical derivatives are -5 and -8. The replacement hyperplane has valuation 2<3, as required by the induction step. Thus the printed separate equalities are false, not merely unproved. Strengthen E1 with this analytic counterexample; the equality of differences repair remains valid and does not need the main theorem to establish the counterexample."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/37",
+      "verdict": "confirmed",
+      "reason": "Read E2 and the full proofs pp.38–43. Since c_1 is defined using O(-Z), the projection formula against a curve gives -Int, not +Int. Correct that sign in Lemma 6.4.5's reduction and every transverse lower-dimensional step in Lemma 6.4.6, not only the final display. The corrected zero-class recursion gives product i=1..d of (q^(2i)-1)=(-1)^d c(d)(1-q^(2d)); the nonzero isotropic class gives (-1)^d c(d). Exact recursion checks for q=3,5,7,d<=6 pass. Lemma 6.4.7 inherits the same factor; homogeneous Fourier/local-modularity conclusions survive."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/38",
+      "verdict": "confirmed",
+      "reason": "The p.35 argument invokes (5.4.5.5), whose actual statement on p.30 requires a unit-norm vector, for the larger set of integral-norm vectors outside Lambda. Supply the omitted translation step, using invariance under Lambda from §6.4: choose lambda with unit pairing and a coefficient whose residue trace makes the translated norm a unit. A concrete Q_3(i) example u=(e2+(1+4i)e3)/3 in <3>^3 has norm 6, while u+e2 has unit norm 11; exact arithmetic passes. Record the proof gap and its repair without weakening the valid intersection formula."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/39",
+      "verdict": "confirmed",
+      "reason": "Checked the six named passages pp.33/36/42/45/51/59 and their surrounding definitions. The lattice-image, complementary codimension, m(0), primed-hyperplane, unnamed a_n and nonorthogonal-sum slips are present and not in E3/E4. Record the stated corrections; define a_n=val(u) using §7.1's parity choice. The m(0) slip is harmless in these sums because the nonsplit full-rank integral lattices have positive type. This verifies the v3 notation, not every version of the paper."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/40",
+      "verdict": "confirmed",
+      "reason": "Checked item 41 and §§11.2/14.1–14.2 pp.75/85. The global model omits M8 even though its claimed semi-global base change includes that Eisenstein condition, and G1 permits inert places ramified over the rational prime. Restore M7–M9 and explain when M8 is automatic. The omission affects the written moduli contract; do not classify it as affecting nothing merely because the intended model is clear. Record the source-version scope and corrected construction."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/41",
+      "verdict": "confirmed",
+      "reason": "Checked items 103/109, pp.5/79/85–86/88–89. The introduction defines Diff over all places, while §12.3 restricts it to finite places and then draws conclusions requiring archimedean representability too. Restore all places, or explicitly impose positivity before using a finite-place variant; keep those two notions distinct. The nonarchimedean intersection sum is over places of F_0, consistent with §13.5, rather than of F. These omissions change the literal hypotheses/indexing, so the sourceIssue classification should acknowledge the stated-result effect rather than asserting no effect unconditionally."
+    },
+    {
+      "finding": "RT-PAPER-LI-ZHANG-22-B/42",
+      "verdict": "confirmed",
+      "reason": "Item 40 copies the undefined q_v0 in the isogeny degree on p.82, checked on the image and against M7 on p.75. With q_v0=#k_{F_0,v0}, the almost-principal polarization has p-degree q_v0^2 and u_0 lambda_0 contributes another q_v0^2; the target is principal, so deg(alpha)^2=q_v0^4 and deg(alpha)=q_v0^2. Define the residue-cardinality convention and kernel O_{F,w0}-length one. If q_v0 meant #k_{F,w0}, the numeric degree would already be that symbol, so the ambiguity must be resolved explicitly. The corrected degree is a moduli-contract requirement, not automatically an affects-nothing typo."
+    }
+  ]
+}
