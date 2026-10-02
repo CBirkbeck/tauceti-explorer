@@ -38446,8 +38446,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CESNAVICIUS-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5514"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5514",
+   "finishedAt": "2026-10-02T00:20:14Z"
   },
   {
    "id": "RT-PAPER-WOOD-19",
@@ -39908,7 +39909,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-ATOBE-KONDO-YASUDA-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5526"
   },
   {
    "id": "RT-PAPER-HE-21",
