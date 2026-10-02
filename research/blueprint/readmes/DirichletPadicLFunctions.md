@@ -64333,3 +64333,456 @@ Exact controls through36 levels verify9,519 coefficients each for complete primi
 Fresh capture after the actual merge of5800 found all79 canonical inputs unchanged from the predecessor. The whole issue, queue, original winning claim and blocked/unclaimed review390 were reread. All27 source findings and eight source versions remain whole; no external review conclusion is adopted.
 
 The separate partial signature file also compiled with zero errors and 6,295 expected placeholder warnings across 3,914 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 969e7ecb051936628ead0d9648b7a7e601f8958c4c6c7114d0a382741ca04536.
+
+
+## Actual local convolution and translated primitive fibers
+
+Seventeen L3 nodes prove actual local-kernel/coset convolution and correction-factor cancellation, construct original translated local torus points, and identify their genuine primitive fibers with both convolution terms. All2,154 predecessor nodes and1,273 baseline records remain whole. The exceptional-root equation and new-prime distribution branch remain open.
+
+Published Kubert197 new-prime cancellation and198 local source-point/kernel translation were reread against the original actual local kernels, cosets, correction factors and primitive-fiber sums. The original point/residue comparison from5787 and finite Cartan equivalence5496 were read. Native subgroup cancellation, unit cancellation, basis coefficients, finite sums, natural scalar casts and actual order-of-a-multiple formulas were reread at the pinned source. No new external source, source version or finding is added.
+
+### The actual local kernel indicator is its full basis sum
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-kernel-sum-eq-sum` — `DirichletPadic.kubertRationalPrimeKernelSum_eq_sum`
+
+The existing kernel sum K equals the finite sum of [u] over every original Cartan unit belonging to the actual local subgroup K_p(N).
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Compare the original coefficient functions.
+2. On a kernel label the native finite single-term sum has exactly its own coefficient1.
+3. Outside the actual kernel every basis term has zero coefficient.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum-coeff`, `mathlib:MonoidAlgebra.coeff_sum`, `mathlib:Finsupp.finsetSum_apply`, `mathlib:Finset.prod_eq_single`, `mathlib:Finsupp.single_eq_same`, `mathlib:Finsupp.single_eq_of_ne'`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.rationalPrimeKernelSum_eq_sum_typed_api` (compatibility): The existing kernel sum K equals the finite sum of [u] over every original Cartan unit belonging to the actual local subgroup K_p(N).
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### Actual local kernel elements preserve the full kernel sum
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-kernel-sum-translate` — `DirichletPadic.kubertRationalPrimeKernelSum_translate`
+
+For u in the actual subgroup K_p(N), the original unit basis vector satisfies [u]K=K.
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Evaluate the native coefficient formula for multiplication by a unit basis vector.
+2. The coefficient is the original kernel indicator at u inverse times the tested label.
+3. Native subgroup cancellation, using the proved membership of u inverse, identifies this with the indicator at the original label.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum-coeff`, `mathlib:MonoidAlgebra.coeff_single_mul_apply`, `mathlib:Subgroup.mul_mem_cancel_left`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.actual_kernel_element_preserves_full_kernel_sum` (compatibility): The original residue5 unit belongs to the3-local kernel at6 and its basis vector preserves the entire local kernel sum.
+- `SuggestedKubertLocalConvolutionTests.rationalPrimeKernelSum_translate_typed_api` (compatibility): For u in the actual subgroup K_p(N), the original unit basis vector satisfies [u]K=K.
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### The unnormalized kernel square has its actual cardinality factor
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-kernel-sum-mul` — `DirichletPadic.kubertRationalPrimeKernelSum_mul`
+
+The original rational kernel sum satisfies K²=|K_p(N)|·K, with rational scalar multiplication by its actual cardinality.
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Expand only the first kernel sum as the full actual basis sum.
+2. Distribute multiplication and use invariance under every actual kernel basis element.
+3. Sum the constant K over the full kernel set.
+4. Convert its finite-set cardinality to the native subgroup cardinality and natural scalar multiplication to rational scalar multiplication.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-kernel-sum-eq-sum`, `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-kernel-sum-translate`, `mathlib:Finset.prod_const`, `mathlib:Nat.card_eq_fintype_card`, `mathlib:Fintype.card_subtype`, `mathlib:Nat.cast_smul_eq_nsmul`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.unnormalized_kernel_sum_is_not_idempotent` (non-example): At level6 and p=3 the actual kernel sum has two terms, squares to twice itself and is not idempotent.
+- `SuggestedKubertLocalConvolutionTests.rationalPrimeKernelSum_mul_typed_api` (compatibility): The original rational kernel sum satisfies K²=|K_p(N)|·K, with rational scalar multiplication by its actual cardinality.
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### Kernel/coset convolution counts the actual local coset
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-kernel-sum-mul-coset` — `DirichletPadic.kubertRationalPrimeKernelSum_mul_coset`
+
+The original group-ring sums satisfy KX=|X_p(N)|·X.
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Use the already proved actual coset translation X=[λ_N,p]K.
+2. Commute and associate the original rational Cartan group-ring factors.
+3. Apply the kernel-square cardinality formula and move the rational scalar through the basis product.
+4. Use the actual coset/kernel cardinality equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-coset-sum-translation`, `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-kernel-sum-mul`, `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-card`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.rationalPrimeKernelSum_mul_coset_typed_api` (compatibility): The original group-ring sums satisfy KX=|X_p(N)|·X.
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### The genuine correction factor subtracts the full coset sum
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-kernel-sum-mul-factor` — `DirichletPadic.kubertRationalPrimeKernelSum_mul_factor`
+
+The original local kernel sum and correction factor satisfy Kε=K−X.
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Expand the genuine correction factor1−|X_p(N)| inverse times X.
+2. Distribute multiplication and use the exact kernel/coset convolution factor.
+3. The actual coset cardinality is positive, so its rational inverse cancels its rational cast.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-factor`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-card-pos`, `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-kernel-sum-mul-coset`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.local_three_kernel_annihilates_its_factor` (computation): At level6 and p=3 the translating unit is identity, so kernel and coset sums agree and their correction-factor product is zero.
+- `SuggestedKubertLocalConvolutionTests.rationalPrimeKernelSum_mul_factor_typed_api` (compatibility): The original local kernel sum and correction factor satisfy Kε=K−X.
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### The local cancellation holds at every original unit translate
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-kernel-sum-translate-mul-factor` — `DirichletPadic.kubertRationalPrimeKernelSum_translate_mul_factor`
+
+For every original Cartan unit u, ([u]K)ε=[u]K−[u]X.
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Associate multiplication with the genuine correction factor.
+2. Use the exact kernel-minus-coset identity.
+3. Distribute the original unit basis multiplication over subtraction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-kernel-sum-mul-factor`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.rationalPrimeKernelSum_translate_mul_factor_typed_api` (compatibility): For every original Cartan unit u, ([u]K)ε=[u]K−[u]X.
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### Scalar equality of actual primitive points is residue equality
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-cartan-primitive-point-nsmul-pair-iff` — `DirichletPadic.kubertCartanPrimitivePoint_nsmul_pair_iff`
+
+For any natural t and original units u,v, t·P_N(v)=t·P_N(u) exactly when t times the actual residue of v equals t times the actual residue of u in ZMod N.
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Express both actual primitive points as their original natural residue representatives times the identity primitive point.
+2. The identity primitive point has actual additive order N.
+3. Use the native congruence criterion for equality of natural multiples of that original point.
+4. Translate the natural congruence into the native ZMod equality and reduce the actual residue casts.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-lattice-cartan-primitive-point-nsmul`, `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv`, `mathlib:pow_eq_pow_iff_modEq`, `mathlib:ZMod.natCast_eq_natCast_iff`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.cartanPrimitivePoint_nsmul_pair_iff_typed_api` (compatibility): For any natural t and original units u,v, t·P_N(v)=t·P_N(u) exactly when t times the actual residue of v equals t times the actual residue of u in ZMod N.
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### Unit translation reduces primitive-point scalar equality to identity
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-cartan-primitive-point-nsmul-translate-iff` — `DirichletPadic.kubertCartanPrimitivePoint_nsmul_translate_iff`
+
+The equality t·P_N(v)=t·P_N(u) is equivalent to t·P_N(u inverse times v)=t·P_N(1), for the original unit multiplication.
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Use the actual pairwise residue equality and the existing identity-point scalar criterion.
+2. The original degree-one residue equivalence preserves products and inverses.
+3. Multiply the translated residue equality by the actual residue unit of u.
+4. Native unit cancellation and its inverse law give exactly the original pairwise residue equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-convolution-cartan-primitive-point-nsmul-pair-iff`, `DirichletPadicLFunctions:L3/kubert-local-lattice-cartan-primitive-point-nsmul-eq-iff`, `DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv`, `mathlib:Units.mul_right_inj`, `mathlib:Units.mul_inv`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.cartanPrimitivePoint_nsmul_translate_iff_typed_api` (compatibility): The equality t·P_N(v)=t·P_N(u) is equivalent to t·P_N(u inverse times v)=t·P_N(1), for the original unit multiplication.
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### Translated primary scalar fibers are actual local cosets of the kernel
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-kernel-translate-smul-iff` — `DirichletPadic.kubertRationalPrimeKernel_translate_smul_iff`
+
+For t=p raised to v_p(N), the equality t·P_N(v)=t·P_N(u) holds exactly when u inverse times v belongs to the original subgroup K_p(N).
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Translate the actual primitive-point equality to the identity point using the preceding unit comparison.
+2. Apply the existing actual primary scalar/kernel membership theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-convolution-cartan-primitive-point-nsmul-translate-iff`, `DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-smul-iff`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.rationalPrimeKernel_translate_smul_iff_typed_api` (compatibility): For t=p raised to v_p(N), the equality t·P_N(v)=t·P_N(u) holds exactly when u inverse times v belongs to the original subgroup K_p(N).
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### Actual translated local source points
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point` — `DirichletPadic.kubertRationalPrimeTranslatedPoint`
+
+Construct a_p,u=t·P_N(u) as a point in the original kernel of multiplication by N, using the actual primitive point of the original Cartan unit u.
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Embed the original primitive point P_N(u), of actual order N, in the original level-N kernel.
+2. Apply natural multiplication by the actual primary power t inside that native additive subgroup.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level`.
+
+**Uses:**
+
+- Kubert197, exceptional-root cancellation in Proposition4.10: Identifies the kernel and coset convolution terms with explicit original point fibers. When p occurs only once in N, the remaining argument must prove that the translated coset point is the exceptional smaller-order root.
+- Kubert198, local source generators in4.12: Retains the existing local source point at the identity and extends its actual primitive-fiber interpretation to every original Cartan unit translate.
+
+**API:**
+
+- `kubertRationalPrimeTranslatedPoint_coe` (compatibility): The underlying original torus point of a_p,u is exactly t·P_N(u).
+- `kubertRationalPrimeTranslatedPoint_order` (compatibility): The actual additive order of a_p,u is N/t, where t=p raised to v_p(N).
+- `kubertRationalPrimeTranslatedPoint_fiber` (characterisation): An original primitive label v belongs to the raw fiber at a_p,u exactly when u inverse times v belongs to K_p(N). The multiplier is N divided by the actual order of a_p,u.
+- `kubertRationalPrimeTranslatedPoint_raw_sum` (compatibility): The original raw primitive-fiber sum at a_p,u equals [u]K.
+- `kubertRationalPrimeTranslatedPoint_coset_sum` (compatibility): The original raw primitive-fiber sum at a_p,uλ_N,p equals [u]X.
+- `kubertRationalPrimeTranslatedPoint_one` (compatibility): For the actual identity Cartan unit, a_p,1 equals the already constructed local source point p raised to v_p(N) divided by N.
+- `kubertRationalPrimeTranslatedPoint_mul_factor` (compatibility): The original raw fiber at a_p,u multiplied by ε_p(N) equals the original raw fiber at a_p,u minus the original raw fiber at a_p,uλ_N,p.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.identity_translate_is_one_third` (computation): At level6 and p=2 the translated point for the identity Cartan unit is the actual point1/3.
+- `SuggestedKubertLocalConvolutionTests.residue_five_translate_is_two_thirds` (computation): At level6 and p=2 the translated point for the original residue5 unit is the actual point2/3.
+- `SuggestedKubertLocalConvolutionTests.prime_power_level_translated_point_is_zero` (degenerate): At level9 and p=3 the full primary power is9, so every translated local point is zero and has complementary order1.
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### The translated local point has its actual scalar value
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-coe` — `DirichletPadic.kubertRationalPrimeTranslatedPoint_coe`
+
+The underlying original torus point of a_p,u is exactly t·P_N(u).
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Evaluate the native subgroup scalar multiplication used in the construction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.rationalPrimeTranslatedPoint_coe_typed_api` (compatibility): The underlying original torus point of a_p,u is exactly t·P_N(u).
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### Every translated local point has complementary order
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-order` — `DirichletPadic.kubertRationalPrimeTranslatedPoint_order`
+
+The actual additive order of a_p,u is N/t, where t=p raised to v_p(N).
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. The original primitive point P_N(u) has actual order N.
+2. The actual primary power t is nonzero and divides N by the native factorization projection theorem.
+3. Apply the native order-of-a-multiple formula for a divisor of the actual order.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-coe`, `mathlib:Nat.ordProj_dvd`, `mathlib:orderOf_pow_of_dvd`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.rationalPrimeTranslatedPoint_order_typed_api` (compatibility): The actual additive order of a_p,u is N/t, where t=p raised to v_p(N).
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### The original primitive fiber at the translated point is u times the kernel
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-fiber` — `DirichletPadic.kubertRationalPrimeTranslatedPoint_fiber`
+
+An original primitive label v belongs to the raw fiber at a_p,u exactly when u inverse times v belongs to K_p(N). The multiplier is N divided by the actual order of a_p,u.
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Use the actual complementary-order formula and divide N by N/t to recover t.
+2. Use the original underlying point formula.
+3. Apply the proved translated primary scalar/kernel criterion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-order`, `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-coe`, `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-kernel-translate-smul-iff`, `mathlib:Nat.ordProj_dvd`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.rationalPrimeTranslatedPoint_fiber_typed_api` (compatibility): An original primitive label v belongs to the raw fiber at a_p,u exactly when u inverse times v belongs to K_p(N). The multiplier is N divided by the actual order of a_p,u.
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### Translated kernel sums are the original raw point fibers
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-raw-sum` — `DirichletPadic.kubertRationalPrimeTranslatedPoint_raw_sum`
+
+The original raw primitive-fiber sum at a_p,u equals [u]K.
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Compare coefficients of the original raw primitive-fiber sum with native unit-basis multiplication by the kernel indicator.
+2. The actual translated-fiber criterion identifies both coefficient indicators.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-fiber`, `DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-coeff`, `DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum-coeff`, `mathlib:MonoidAlgebra.coeff_single_mul_apply`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.identity_translate_recovers_original_single_basis` (computation): The original primitive-fiber sum at the translated point1/3 forN6,p2 is the identity basis vector.
+- `SuggestedKubertLocalConvolutionTests.rationalPrimeTranslatedPoint_raw_sum_typed_api` (compatibility): The original raw primitive-fiber sum at a_p,u equals [u]K.
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### Translated coset sums are actual original point fibers
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-coset-sum` — `DirichletPadic.kubertRationalPrimeTranslatedPoint_coset_sum`
+
+The original raw primitive-fiber sum at a_p,uλ_N,p equals [u]X.
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Use the actual translated raw-fiber identity at the original unit uλ_N,p.
+2. Use the earlier actual coset translation X=[λ_N,p]K.
+3. Native multiplication of original unit basis vectors identifies the products.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-raw-sum`, `DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-coset-sum-translation`, `mathlib:MonoidAlgebra.single_mul_single`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.coset_translate_recovers_original_residue_five_basis` (computation): The original primitive-fiber sum at2/3 forN6,p2 is the basis vector of the original residue5 Cartan unit.
+- `SuggestedKubertLocalConvolutionTests.rationalPrimeTranslatedPoint_coset_sum_typed_api` (compatibility): The original raw primitive-fiber sum at a_p,uλ_N,p equals [u]X.
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### The identity translate recovers the existing local source point
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-one` — `DirichletPadic.kubertRationalPrimeTranslatedPoint_one`
+
+For the actual identity Cartan unit, a_p,1 equals the already constructed local source point p raised to v_p(N) divided by N.
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Evaluate both existing constructions; they are the same native primary scalar multiple of the original identity primitive point.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point`, `DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-point`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.rationalPrimeTranslatedPoint_one_typed_api` (compatibility): For the actual identity Cartan unit, a_p,1 equals the already constructed local source point p raised to v_p(N) divided by N.
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+### The genuine correction factor cancels two actual translated point fibers
+
+`DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-mul-factor` — `DirichletPadic.kubertRationalPrimeTranslatedPoint_mul_factor`
+
+The original raw fiber at a_p,u multiplied by ε_p(N) equals the original raw fiber at a_p,u minus the original raw fiber at a_p,uλ_N,p.
+
+**Hypotheses:** The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The unit carrier is the original finite product of truncated-Witt units over the original finite Galois fields, with the existing actual degree-one residue-unit and primitive-circle equivalences. K_p(N) is the actual subgroup with identity at all primary coordinates other than p, and X_p(N)=λ_N,p K_p(N) is the original source coset with off-p coordinates p inverse. Their existing rational group-ring sums are full indicator sums, denoted K and X below. Their cardinalities agree and are positive. The original correction factor is ε=1−|X_p(N)| inverse times X. Neither K nor ε is assumed idempotent; the unnormalized kernel square and kernel/coset convolution retain the actual cardinality factor. P_N(u) is the original primitive one-coordinate rational-torus point corresponding to an actual Cartan unit u. The new translated point a_p,u is the actual point t·P_N(u) in the original level-N kernel. Its order N/t and its primitive-fiber membership criterion are proved from the original unit and point carriers. The original raw primitive-fiber sum at a_p,u is proved equal to [u]K, and the raw sum at a_p,uλ is proved equal to [u]X. The resulting correction-factor identity concerns these actual point fibers, not a supplied convolution or torsor package. These convolution and point-fiber comparisons supply the algebra for the exceptional-root step in the new-prime branch of source4.10. Identifying a_p,uλ as that exceptional root when p occurs to exponent1, combining it with the complete fiber partition, and the general distribution reduction remain open. Full-norm compatibility4.8 and the repeated-prime branch remain proved; image/product4.13, source freeness and lower rank remain open.
+
+**Proof:**
+
+1. Identify the second actual point fiber with the translated source-coset sum.
+2. Identify the first actual point fiber with the translated kernel sum.
+3. Apply the exact translated kernel/coset correction-factor cancellation identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-raw-sum`, `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-coset-sum`, `DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-kernel-sum-translate-mul-factor`.
+
+**Tests:**
+
+- `SuggestedKubertLocalConvolutionTests.actual_translated_fiber_cancellation_at_six` (computation): AtN6,p2 the primitive sum at1/3 multiplied by the correction factor is1 minus the residue5 basis vector; the second term is the actual primitive sum at2/3.
+- `SuggestedKubertLocalConvolutionTests.rationalPrimeTranslatedPoint_mul_factor_typed_api` (compatibility): The original raw fiber at a_p,u multiplied by ε_p(N) equals the original raw fiber at a_p,u minus the original raw fiber at a_p,uλ_N,p.
+
+**Acceptance:** At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1.
+
+**Source:** Published197, new-prime case of Proposition4.10, where the local coset sum times the primitive-root sum yields the actual exceptional-point fiber with the coset-cardinality factor. The local source points and kernel/coset translation are made explicit in4.12 on198. Proves the actual local-kernel convolution multiplicities and correction-factor cancellation, and identifies both terms with original primitive fibers at explicitly constructed translated torus points. This supplies the exact algebra used by the source’s exceptional-root argument without assuming the remaining root equation or general distribution conclusion.
+
+**Remaining:** Actual local-kernel convolution now retains its exact cardinality factor, and multiplying the kernel sum by the genuine correction factor subtracts the full source-coset sum. Both translated terms are proved to be original primitive fibers at explicitly constructed local torus points, with actual complementary orders and exact fiber membership criteria. For the new-prime branch of source4.10, prove that the coset-translated point is the exceptional smaller-order root when p has exponent1, combine this cancellation with the earlier complete root partition, then complete the general distribution reduction. Full-norm compatibility4.8 and the repeated-prime branch remain proved. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.
+
+### Actual local convolution and translated primitive fibers validation
+
+All 2154 predecessor nodes, 1273 baseline records, 27 findings, requests and sourceVersions remain whole. This checkpoint adds 17 nodes, 17 named suggested declarations and 25 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2433 reachable nodes, 9796 edges and 1440 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route ends in the original actual local kernels, cosets, correction factors, residue units and primitive points, or checked native group-ring, finite-sum, unit and order interfaces. No convolution identity, translated-fiber equivalence, exceptional-root law, general distribution or source-freeness package is assumed.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3915 pinned Mathlib modules and 32 pinned Tau Ceti modules. Only 31 Tau module artifacts are available and hash-verified. The 152 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5809 verbatim and adds one complete construction and sixteen complete lemmas. Totals are185 definitions and1,461 lemmas without placeholders. The public append has17 named declarations and25 typed examples, all new mathematical bodies placeholders. No new native import or library build is added. The separate probe compiles against 3282 pinned Mathlib modules and 10 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native periodicity, low-degree Tate and Teichmuller artifacts, with ten Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact controls through36 levels verify53 local factors,575 coefficients each for kernel squares, kernel/coset convolution and kernel/correction-factor cancellation,5,781 kernel-translation coefficients,575 translated point orders,8,757 coefficients each for both translated raw-fiber identities and their cancellation, and23,873 primitive-point scalar comparisons. Exact original degree-one residue-unit, circle-point and rational group-ring arithmetic through level36 checks unnormalized local-kernel convolution and its coset multiplicity, correction-factor cancellation, every translated local point order and both original primitive-fiber identifications. Pairwise scalar-multiple comparisons include0,1,thelevelandactualprimarypowers. Exact finite controls supplement the complete native proofs and are not formal certification. The largest observed discrepancy is 0.
+
+Fresh capture after the actual merge of5809 found all79 canonical inputs unchanged from the predecessor. The whole issue, queue, original winning claim and blocked/unclaimed review390 were reread. All27 source findings and eight source versions remain whole; no external review conclusion is adopted.
+
+The separate partial signature file also compiled with zero errors and 6,337 expected placeholder warnings across 3,914 pinned source modules. It includes all 17 new named declarations and 25 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 01084a9234d391c2c4401c7f5951f91217c227a8ec0a69aaaa568a79152867e5.
