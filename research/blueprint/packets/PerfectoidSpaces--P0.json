@@ -2285,6 +2285,13 @@
         "module": "TauCeti/RingTheory/Huber/Continuous/PowerBounded.lean",
         "provides": "Wedhorn 7.41: rank-one (archimedean value group) continuous valuations are ≤ 1 on power-bounded elements.",
         "checked": "statement read at the pinned commit: [MulArchimedean (ValueGroup₀ v)] (hv : v.IsContinuous) {b} (hb : IsTopologicallyNilpotent b) (hb0 : v b ≠ 0) {a} (ha : IsPowerBounded a) : v a ≤ 1."
+      },
+      {
+        "ref": "mathlib:IsRegularLocalRing",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/RegularLocalRing/Defs.lean:51",
+        "provides": "The existing regular-local-ring predicate, including localness and noetherianity and equality of maximal-ideal spanFinrank with ringKrullDim. It does not provide the Cohen structure theorem or the regular finite-flat tower construction.",
+        "checked": "REV-FIX-RT-AREA-padic-1~2, 2026-10-02: actual class and surrounding equivalences read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
       }
     ]
   },
@@ -12298,7 +12305,7 @@
       "kind": "lemma",
       "statement": "(a) (Gabber–Ramero, arXiv Lemma 6.5.9(i) = LNM 1800 Lemma 6.5.13(i); Sch12 Proposition 5.13(ii); Bhatt Proposition 6.1.4) Let A_0 → B be a map of F_p-algebras such that the relative Frobenius A_0(Φ) ⊗^L_{A_0} B → B(Φ) is an isomorphism in D(A_0). Then L_{B/A_0} ≃ 0. In particular L_{B/F_p} ≃ 0 for B perfect, and L_{B/A_0} ≃ 0 whenever A_0 → B is flat and relatively perfect. (b) The almost version holds over any basic setup (V, m) with V an F_p-algebra: if the relative Frobenius of a map of almost algebras is an isomorphism in the almost derived category, then the almost cotangent complex L^a (P0/almost-cotangent-complex) vanishes. (c) Let R be a perfectoid Tate ring, ϖ = (ϖ♭)♯ with compatible roots, and A a (R°/ϖ)^a-algebra which is (almost) flat over (R°/ϖ)^a with Φ: A/ϖ^{1/p} ≅ A. Then L^a_{A/(R°/ϖ)^a} ≃ 0. For R = K a perfectoid field this is Sch12 Corollary 5.16.",
       "hypotheses": [
-        "OPTIONAL ALTERNATIVE ROUTE (Scholze 2012's deformation-theoretic proof). No node of this packet needs it: the tilting equivalence (P1/tilting-equivalence-and-explicit-tilt) and the mod-ϖ equivalence (P1/perfectoid-mod-varpi-equivalence) are derived from P1/untilts-classified-by-primitive-ideals. Keep the node and its sources, but do not schedule it as a prerequisite (RT-AREA-padic-1/5).",
+        "OPTIONAL ALTERNATIVE ROUTE (Scholze 2012's deformation-theoretic proof). No node outside this optional two-node route depends on it (the optional deformation node still uses the optional cotangent lemma): the tilting equivalence (P1/tilting-equivalence-and-explicit-tilt) and the mod-ϖ equivalence (P1/perfectoid-mod-varpi-equivalence) are derived from P1/untilts-classified-by-primitive-ideals. Keep the node and its sources, but do not schedule it as a prerequisite (RT-AREA-padic-1/5).",
         "The hypothesis in (a) is on the derived relative Frobenius, not on Ω¹ alone.",
         "The classical cotangent complex, its simplicial description, transitivity and Tor-independent base change are requested from DerivedDeRhamCohomology:DD.0; the almost version is P0/almost-cotangent-complex."
       ],
@@ -12372,7 +12379,7 @@
       "kind": "theorem",
       "statement": "Let R be a perfectoid Tate ring and ϖ = (ϖ♭)♯ a pseudo-uniformizer with compatible roots. Reduction modulo ϖ, A ↦ A/ϖ, is an equivalence between (i) ϖ-adically complete R°a-algebras A that are (almost) flat over R°a with Φ: A/ϖ^{1/p} ≅ A/ϖ, and (ii) (almost) flat (R°/ϖ)^a-algebras B with Φ: B/ϖ^{1/p} ≅ B. Concretely B lifts uniquely, through the square-zero extensions (R°/ϖ^n)^a → (R°/ϖ^{n−1})^a, to a compatible system of flat (R°/ϖ^n)^a-algebras B_n with B_n/ϖ^{n−1} ≅ B_{n−1}, and A = lim B_n. For R = K a perfectoid field every perfectoid K°a-algebra is flat and this is Sch12 Theorem 5.10, the step K°a-Perf ≃ (K°a/ϖ)-Perf of Sch12 Theorem 5.2. Over a general base the flat objects form full subcategories; the full categories are compared, without deformation theory, in P1/perfectoid-mod-varpi-equivalence.",
       "hypotheses": [
-        "OPTIONAL ALTERNATIVE ROUTE (Scholze 2012's deformation-theoretic proof). No node of this packet needs it: the tilting equivalence (P1/tilting-equivalence-and-explicit-tilt) and the mod-ϖ equivalence (P1/perfectoid-mod-varpi-equivalence) are derived from P1/untilts-classified-by-primitive-ideals. Keep the node and its sources, but do not schedule it as a prerequisite (RT-AREA-padic-1/5).",
+        "OPTIONAL ALTERNATIVE ROUTE (Scholze 2012's deformation-theoretic proof). No node outside this optional two-node route depends on it (the optional deformation node still uses the optional cotangent lemma): the tilting equivalence (P1/tilting-equivalence-and-explicit-tilt) and the mod-ϖ equivalence (P1/perfectoid-mod-varpi-equivalence) are derived from P1/untilts-classified-by-primitive-ideals. Keep the node and its sources, but do not schedule it as a prerequisite (RT-AREA-padic-1/5).",
         "Flatness is over R°a (resp. (R°/ϖ)^a); ϖ is a nonzerodivisor on R° and ϖ^{n−1}R°/ϖ^nR° ≅ R°/ϖ is square-zero in R°/ϖ^n for n ≥ 2.",
         "Illusie–Gabber–Ramero deformation theory (obstructions in Ext², torsor under Ext¹, automorphisms Hom; lifting of morphisms) in the almost setting is P0/almost-deformation-theory."
       ],
@@ -31509,7 +31516,7 @@
       "statement": "Let (R, m) be a complete regular local ring with residue field k. There is a filtered direct system of finite flat R-algebras R_i such that each (R_i, mR_i) is a regular local ring and (lim→ R_i, m·lim→ R_i) is a regular local ring with algebraically closed residue field. If k is separably closed of characteristic p > 0, the R_i may be chosen of p-power rank over R. The colimit is Noetherian; it is not claimed to be complete.",
       "hypotheses": [
         "R complete regular local, of any characteristic. The proof uses the three Cohen presentations: R ≅ k⟦x_1, …, x_n⟧ (equal characteristic); R ≅ W⟦x_1, …, x_n⟧ with W a complete discrete valuation ring with uniformizer p (p ∈ m∖m²); R ≅ W⟦x_1, …, x_n⟧/(p − f) with f ∈ (p, x_1, …, x_n)² (p ∈ m²).",
-        "The Cohen structure theorem and regular local rings are not in the pinned libraries (gap).",
+        "Reuse Mathlib IsRegularLocalRing at the pin; do not reconstruct the regular-local-ring predicate. The Cohen presentations and the required regularity/normality, power-series, quotient and filtered-colimit comparison theorems remain supplier obligations (gap).",
         "The p-power clause needs k separably closed: then k̄/k is purely inseparable, and its finite subextensions have p-power degree."
       ],
       "proofSteps": [
@@ -31525,7 +31532,8 @@
       ],
       "prerequisites": [
         "mathlib:IsAdicComplete",
-        "mathlib:Module.Flat"
+        "mathlib:Module.Flat",
+        "mathlib:IsRegularLocalRing"
       ],
       "library": {
         "module": "TauCeti/RingTheory/Perfectoid/RegularTower",
@@ -31572,7 +31580,7 @@
       ],
       "acceptance": [
         "R = ℤ_p (n = 0): R_m = ℤ_p[p^{1/p^m}], and R̂_∞ is the p-adic completion of ℤ_p[p^{1/p^∞}], a perfectoid ring.",
-        "Non-example: no finite stage is perfectoid, since Frobenius is not surjective on R_m/p; for R = ℤ_p, p^{1/p^m} is not a p-th power modulo p in ℤ_p[p^{1/p^m}].",
+        "Non-example, R = ℤ_p: for m ≥ 1, R_m/p ≅ 𝔽_p[T]/(T^{p^m}) and T is not a p-th power, so Frobenius is not surjective. At m = 0, R_0 = ℤ_p and Frobenius on R_0/p = 𝔽_p IS surjective, but no ϖ ∈ ℤ_p has (ϖ^p)=(p), since p·v_p(ϖ)=1 is impossible. Thus every finite stage in this example fails the perfectoid criterion, for different reasons at stage zero and positive stages.",
         "The residue field must be perfect: k is a quotient of R_∞/p, so if every element of R_∞/p is a p-th power, every element of k is one.",
         "The completion is p-adic. R_∞ is not complete, and its m_∞-adic topology is not the one used."
       ],
@@ -31582,7 +31590,8 @@
         "PerfectoidSpaces:P1/integral-perfectoid-comparison",
         "mathlib:WittVector",
         "mathlib:IsIntegrallyClosedIn",
-        "mathlib:IsAdicComplete"
+        "mathlib:IsAdicComplete",
+        "mathlib:IsRegularLocalRing"
       ],
       "library": {
         "module": "TauCeti/RingTheory/Perfectoid/RegularTower",
@@ -31992,12 +32001,12 @@
       "detail": "Added by REV-PerfectoidSpaces--P0. The original mod-ϖ node used Z[x^{1/p^∞}]/(x), over which its nonzero characteristic-p objects cannot be flat. The coefficient ring is corrected to F_p[x^{1/p^∞}]/(x), and the predicate is root-ideal almost flatness, matching the elementwise almost annihilator condition in the suggested file. Still supply a declaration-level proof of the equivalence between that criterion and almost flatness, its invariance under almost elements, and its comparison with flat K°a/ϖ-algebras for a perfectoid field K. A route is the flatness criterion on finitely generated ideals, which are generated by root monomials in the truncated root ring, followed by the almost scalar-restriction/base-change comparison. The cited field-base statements alone do not establish this generalization. For ECD Proposition 9.3 specifically, Proposition 7.23 already supplies flatness over the totally disconnected base; do not use arbitrary perfectoid quotients as counterexamples to that proposition."
     },
     {
-      "title": "The Cohen structure theorem and regular local rings are absent from the pinned libraries",
+      "title": "Cohen presentations and regular finite-flat tower comparison theorems need suppliers",
       "neededBy": [
         "PerfectoidSpaces:P7/regular-finite-flat-residue-tower",
         "PerfectoidSpaces:P7/regular-finite-flat-perfectoid-tower"
       ],
-      "detail": "Česnavičius's Lemmas 5.1–5.2 rest on the Cohen structure theorem for complete regular local rings (Matsumura 29.3, 29.7, and the proofs of 29.1 and 29.8(ii)) and on regular local rings with their regular systems of parameters. A search of the pinned declaration index finds neither (Mathlib has regular sequences, not regular local rings), and no atlas stage plans the Cohen structure theorem. Matsumura was not read here; the citations are Česnavičius's. Next action: find an owner in a commutative-algebra roadmap, or record the three presentations as imports (RT-AREA-padic-1/7)."
+      "detail": "Česnavičius’s Lemmas 5.1–5.2 use the three Cohen presentations for complete regular local rings (Matsumura 29.3, 29.7 and the proofs of 29.1 and 29.8(ii)), and regularity/normality of power-series rings, the ramified quotients and the selected filtered colimits. Mathlib already defines IsRegularLocalRing and some regular-ring polynomial results at the pin; this existing predicate is credited, not planned anew. The Cohen presentations and these particular comparison theorems were not established by this review. Matsumura was not read; these citations are Česnavičius’s. Next action: identify the general commutative-algebra supplier and precise missing theorem interfaces, reusing the baseline definition. The reader must remove its obsolete absence claim and synchronize the stage-zero negative test."
     }
   ],
   "restructure": [
@@ -33415,12 +33424,18 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-padic-2~2",
       "date": "2026-10-01",
       "notes": "Follows the partial independent-review-REV-PerfectoidSpaces--P0. Scoped independent review of FIX-RT-AREA-padic-2~2 (53f4c49), by Codex, codex-J6LwjP. The three P1 use-record changes correctly leave primitive-kernel generation and nonzerodivisibility with P1; R06.1 supplies the uniform chosen generator and mixed-characteristic filtration, and AI.0 specializes through Q0. Checked ECD Lemmas 3.14/3.16 and proof, BMS Lemma 3.10/Remark 3.11, Scholze 2013 Lemma 6.3/Corollary 6.4, and the relevant pinned Mathlib PreTilt, untilt, theta, Frobenius and BDeRham declarations including hypotheses and TODOs. Accept these ownership fixes; retain needs_changes because the preceding review explicitly left the comprehensive source/dependency/API/test/planet audit and most declaration statements unfinished. Later FIX-RT-AREA-padic-1~2 modifications are preserved and outside this review. This limited supplier audit does not certify that wider work or close its general-base gaps. No Lean compilation. See REV-FIX-RT-AREA-padic-2~2.md."
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-padic-2~3",
+      "date": "2026-10-02",
+      "notes": "Follows independent-review-REV-FIX-RT-AREA-padic-2~2 and the unfinished independent-review-REV-PerfectoidSpaces--P0. Independent review of FIX-RT-AREA-padic-2~3 by Codex, codex-5ebb6f: the three affected P1 use records and reader copies are correct; fresh BMS 3.10/3.11, Scholze 2013 6.3/6.4 and ECD 3.14/3.16 reading, plus actual pinned PreTilt/untilt/Frobenius/theta/BDeRham statements, confirm the stated supplier and missing-theorem boundaries. Corrected the distinguished-element node's contradictory acceptance example: p-[p-flat] and the cyclotomic sum are associates generating the same theta kernel; added the nonprimitive product [epsilon]-1 as a negative example and an explanatory suggested-file comment. Its reader owner must synchronize these acceptance items. The broader 292 baseline-statement and comprehensive source/dependency/API/test/planet audit left unfinished by REV-PerfectoidSpaces--P0 remains outstanding, together with its general-base gaps. These local corrections do not finish that review. Prior histories and later padic-1 changes are preserved; no new theorem node or Lean compilation claimed. See REV-FIX-RT-AREA-padic-2~3.md."
     }
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-padic-2~3",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-padic-1~2",
     "date": "2026-10-02",
-    "notes": "Follows independent-review-REV-FIX-RT-AREA-padic-2~2 and the unfinished independent-review-REV-PerfectoidSpaces--P0. Independent review of FIX-RT-AREA-padic-2~3 by Codex, codex-5ebb6f: the three affected P1 use records and reader copies are correct; fresh BMS 3.10/3.11, Scholze 2013 6.3/6.4 and ECD 3.14/3.16 reading, plus actual pinned PreTilt/untilt/Frobenius/theta/BDeRham statements, confirm the stated supplier and missing-theorem boundaries. Corrected the distinguished-element node's contradictory acceptance example: p-[p-flat] and the cyclotomic sum are associates generating the same theta kernel; added the nonprimitive product [epsilon]-1 as a negative example and an explanatory suggested-file comment. Its reader owner must synchronize these acceptance items. The broader 292 baseline-statement and comprehensive source/dependency/API/test/planet audit left unfinished by REV-PerfectoidSpaces--P0 remains outstanding, together with its general-base gaps. These local corrections do not finish that review. Prior histories and later padic-1 changes are preserved; no new theorem node or Lean compilation claimed. See REV-FIX-RT-AREA-padic-2~3.md."
+    "notes": "Follows independent-review-REV-FIX-RT-AREA-padic-2~3, independent-review-REV-FIX-RT-AREA-padic-2~2 and unfinished independent-review-REV-PerfectoidSpaces--P0. Reviewed Claude Code cc-c2c06b FIX #5150/PR5269, not the reviewer’s own prior scoped padic-2 review #5537. Scoped /5 and /8 changes are correct; /7 tower statements match fresh Česnavičius v4. Corrected the false absence claim by crediting pinned Mathlib IsRegularLocalRing in both new nodes, narrowed the Cohen/tower supplier gap, corrected the stage-zero Frobenius negative-test explanation and the optional-route consumer wording, and synchronized suggested comments/import. The original broad baseline/source/dependency/API/test/planet review remains unfinished, general-base almost-category gaps remain, and the reader owner must synchronize these new corrections. These fixes do not complete that older review. Fresh source and graph evidence is in the report; no Lean compilation."
   }
 }
