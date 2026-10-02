@@ -28207,3 +28207,183 @@ example (R : Type u) [Ring R] (S : Set ℕ+)
       kubertCartanLimitRepresentation 1 R g (kubertCartanDistribution R S φ hφ z) := by sorry
 
 end DirichletPadic.SuggestedKubertQuotientActionTests
+
+/- Actual integral point-negation and parity operators. -/
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic DirichletPadic
+universe u v
+variable {X : Type u} [AddCommGroup X] {Y : Type v} [AddCommGroup Y]
+variable (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+variable [∀ (n : S) (a : Y), Fintype {b : Y // (n.val : ℕ) • b=a}]
+
+noncomputable def kubertQuotientNegation : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ≃+ (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) := by sorry
+
+lemma kubertQuotientNegation_of (a : X) :
+    kubertQuotientNegation S w (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) = (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a))) := by sorry
+
+lemma kubertQuotientNegation_involutive (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertQuotientNegation S w (kubertQuotientNegation S w z) = z := by sorry
+
+lemma kubertQuotientNegation_zero_point :
+    kubertQuotientNegation S w (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of ((0 : X)))) = (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of ((0 : X)))) := by sorry
+
+lemma kubertQuotientNegation_natural (e : X ≃+ Y) (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertQuotientEquiv S w e (kubertQuotientNegation S w z) =
+      kubertQuotientNegation S w (kubertQuotientEquiv S w e z) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+universe u v
+variable {X : Type u} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+noncomputable def kubertParityOperator (ε : ℤˣ) : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) := by sorry
+
+lemma kubertParityOperator_apply (ε : ℤˣ) (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertParityOperator S w ε z = kubertQuotientNegation S w z - (ε : ℤ) • z := by sorry
+
+lemma kubertParityOperator_of (ε : ℤˣ) (a : X) :
+    kubertParityOperator S w ε (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) = (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a))) - (ε : ℤ) • (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) := by sorry
+
+lemma kubertParity_quotient_action (ε : ℤˣ) (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    QuotientAddGroup.mk' (kubertParityRelations (X := X) S w ε) (kubertQuotientNegation S w z) =
+      (ε : ℤ) • QuotientAddGroup.mk' (kubertParityRelations (X := X) S w ε) z := by sorry
+
+lemma kubertParityOperator_range (ε : ℤˣ) :
+    (kubertParityOperator (X := X) S w ε).range = kubertParityRelations (X := X) S w ε := by sorry
+
+lemma kubertParity_le_ker_iff_all {A : Type v} [AddCommGroup A] (ε : ℤˣ)
+    (g : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A) :
+    kubertParityRelations (X := X) S w ε ≤ g.ker ↔
+      ∀ z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w), g (kubertQuotientNegation S w z)=(ε : ℤ) • g z := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped BigOperators
+open DirichletPadic
+universe u
+variable {X : Type u} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+lemma kubertParityOperator_even_after_odd (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertParityOperator S w 1 (kubertParityOperator S w (-1) z)=0 := by sorry
+
+lemma kubertParityOperator_odd_after_even (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertParityOperator S w (-1) (kubertParityOperator S w 1 z)=0 := by sorry
+
+lemma kubertParityOperator_odd_range_le_even_ker :
+    (kubertParityOperator (X := X) S w (-1)).range ≤ (kubertParityOperator (X := X) S w 1).ker := by sorry
+
+lemma kubertParityOperator_even_range_le_odd_ker :
+    (kubertParityOperator (X := X) S w 1).range ≤ (kubertParityOperator (X := X) S w (-1)).ker := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertParityOperatorsTests
+open scoped Classical BigOperators
+noncomputable section
+universe u
+-- negation_moves_point_label
+example : kubertQuotientNegation (∅ : Set ℕ+) 0 (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1)))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (4))) := by sorry
+-- negation_fixes_nonzero_zero_generator
+example : kubertQuotientNegation (∅ : Set ℕ+) 0 (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0)))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0))) ∧ (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0)))≠0 := by sorry
+-- negation_is_not_additive_inverse
+example : kubertQuotientNegation (∅ : Set ℕ+) 0 (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1)))≠-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1))) := by sorry
+-- even_operator_kills_zero_label
+example : kubertParityOperator (∅ : Set ℕ+) 0 1 (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0)))=0 := by sorry
+-- odd_operator_doubles_zero_label
+example : kubertParityOperator (∅ : Set ℕ+) 0 (-1) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0)))=2 • (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0))) ∧ kubertParityOperator (∅ : Set ℕ+) 0 (-1) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0)))≠0 := by sorry
+-- odd_range_quotient_retains_two_torsion
+example (S : Set ℕ+) [∀ (n : S) (a : AddCircle (1 : ℚ)), Fintype {b : AddCircle (1 : ℚ) // (n.val : ℕ) • b=a}] : (QuotientAddGroup.mk' (kubertParityOperator (X := AddCircle (1 : ℚ)) S 0 (-1)).range (QuotientAddGroup.mk' (kubertRelations (X := AddCircle (1 : ℚ)) S 0) (FreeAbelianGroup.of ((0 : AddCircle (1 : ℚ))))))≠0 ∧ 2 • (QuotientAddGroup.mk' (kubertParityOperator (X := AddCircle (1 : ℚ)) S 0 (-1)).range (QuotientAddGroup.mk' (kubertRelations (X := AddCircle (1 : ℚ)) S 0) (FreeAbelianGroup.of ((0 : AddCircle (1 : ℚ))))))=0 := by sorry
+end
+end DirichletPadic.SuggestedKubertParityOperatorsTests
+namespace DirichletPadic.SuggestedKubertParityOperatorsTests
+open scoped BigOperators
+open DirichletPadic DirichletPadic
+universe u v
+variable {X : Type u} [AddCommGroup X] {Y : Type v} [AddCommGroup Y]
+variable (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+variable [∀ (n : S) (a : Y), Fintype {b : Y // (n.val : ℕ) • b=a}]
+
+-- quotientNegation_of_typed_api
+example (a : X) :
+    kubertQuotientNegation S w (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) = (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a))) := by sorry
+
+-- quotientNegation_involutive_typed_api
+example (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertQuotientNegation S w (kubertQuotientNegation S w z) = z := by sorry
+
+-- quotientNegation_zero_point_typed_api
+example :
+    kubertQuotientNegation S w (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of ((0 : X)))) = (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of ((0 : X)))) := by sorry
+
+-- quotientNegation_natural_typed_api
+example (e : X ≃+ Y) (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertQuotientEquiv S w e (kubertQuotientNegation S w z) =
+      kubertQuotientNegation S w (kubertQuotientEquiv S w e z) := by sorry
+
+end DirichletPadic.SuggestedKubertParityOperatorsTests
+
+namespace DirichletPadic.SuggestedKubertParityOperatorsTests
+open scoped BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+universe u v
+variable {X : Type u} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+-- parityOperator_apply_typed_api
+example (ε : ℤˣ) (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertParityOperator S w ε z = kubertQuotientNegation S w z - (ε : ℤ) • z := by sorry
+
+-- parityOperator_of_typed_api
+example (ε : ℤˣ) (a : X) :
+    kubertParityOperator S w ε (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) = (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a))) - (ε : ℤ) • (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) := by sorry
+
+-- parity_quotient_action_typed_api
+example (ε : ℤˣ) (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    QuotientAddGroup.mk' (kubertParityRelations (X := X) S w ε) (kubertQuotientNegation S w z) =
+      (ε : ℤ) • QuotientAddGroup.mk' (kubertParityRelations (X := X) S w ε) z := by sorry
+
+-- parityOperator_range_typed_api
+example (ε : ℤˣ) :
+    (kubertParityOperator (X := X) S w ε).range = kubertParityRelations (X := X) S w ε := by sorry
+
+-- parity_le_ker_iff_all_typed_api
+example {A : Type v} [AddCommGroup A] (ε : ℤˣ)
+    (g : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A) :
+    kubertParityRelations (X := X) S w ε ≤ g.ker ↔
+      ∀ z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w), g (kubertQuotientNegation S w z)=(ε : ℤ) • g z := by sorry
+
+end DirichletPadic.SuggestedKubertParityOperatorsTests
+
+namespace DirichletPadic.SuggestedKubertParityOperatorsTests
+open scoped BigOperators
+open DirichletPadic
+universe u
+variable {X : Type u} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+-- parityOperator_even_after_odd_typed_api
+example (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertParityOperator S w 1 (kubertParityOperator S w (-1) z)=0 := by sorry
+
+-- parityOperator_odd_after_even_typed_api
+example (z : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w)) :
+    kubertParityOperator S w (-1) (kubertParityOperator S w 1 z)=0 := by sorry
+
+-- parityOperator_odd_range_le_even_ker_typed_api
+example :
+    (kubertParityOperator (X := X) S w (-1)).range ≤ (kubertParityOperator (X := X) S w 1).ker := by sorry
+
+-- parityOperator_even_range_le_odd_ker_typed_api
+example :
+    (kubertParityOperator (X := X) S w 1).range ≤ (kubertParityOperator (X := X) S w (-1)).ker := by sorry
+
+end DirichletPadic.SuggestedKubertParityOperatorsTests
