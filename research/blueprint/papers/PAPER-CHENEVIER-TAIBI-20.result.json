@@ -11,13 +11,13 @@
   "url": "https://pmihes.centre-mersenne.org/articles/10.1007/s10240-020-00115-z/",
   "readSections": [
    "The whole published article (63 pages, open-access PDF https://pmihes.centre-mersenne.org/item/10.1007/s10240-020-00115-z.pdf, SHA-256 ea90fb0faabeaaa56be15f2c6f9c22450e7891c2181130fd79fe356cd83ba3de, accessed 2026-09-22), read in full from the text layer, with formulas, tables and every quoted passage checked on page images",
-   "Compared with arXiv 1907.08783v1 (20 Jul 2019, the only arXiv version; SHA-256 81b7fe2c31d0ab4ac7465c7d5209611638fa0d8c7c4ff11f7f4746866491742c): the published version adds Definition 5.3 (renumbering the later statements of §5) and the references [Kin03], [KSM04]; theorems, tables and numbers agree, and every source issue below is present in both",
+   "Compared with arXiv 1907.08783v1 (20 Jul 2019, the only arXiv version; SHA-256 81b7fe2c31d0ab4ac7465c7d5209611638fa0d8c7c4ff11f7f4746866491742c): the published version adds Definition 5.3 (renumbering the later statements of §5) and the references [Kin03], [KSM04]; theorems, tables and numbers agree, and the original eleven source issues are present in both",
    "The authors' companion material [CT19b] from https://otaibi.perso.math.cnrs.fr/levelone/ (accessed 2026-09-22): readme.html (SHA-256 e86898d20f025e3cb415dc127ad5f371954e99754b640a1df8caac8cdf861012), mot23.pdf (562a1a471954c30733729d59c68bb389d6dbfcd1d8b4992657830269a7178b9f) and levelone_src_data.tar.gz (b0bd028b886b91d996d0562798c0800fdf465d7b39dc82eeea1a2e22ec6be87b): the mass tables, certificate lists, logs, PARI worksheets and the explicit-formula code, used to check Tables 2–3, Remark 3.10, the counts of Section 4 and the normalisation of β_Q",
    "Mestre, Formules explicites et minorations de conducteurs de variétés algébriques, Compositio Math. 58 (1986), §§I.1–I.2 (Numdam PDF http://www.numdam.org/item/CM_1986__58_2_209_0.pdf, SHA-256 98150bde6477d77e4fc4983b4176562b62e7df69755446229c45cb7649bea024, accessed 2026-09-22), for the exact hypotheses of the explicit formula",
    "The other cited inputs (Arthur, Chenevier–Lannes, Taïbi, Moeglin–Renard, Arancibia–Moeglin–Renard, Böcherer, Rallis and others) were not read; their statements are taken as the paper quotes them, and each item resting on one says so"
   ]
  },
- "summary": "Chenevier and Taïbi turn Weil's explicit formula for the Rankin–Selberg L-functions of level one algebraic cusp forms into a positivity criterion on the cone spanned by Π_alg (Proposition 2.2 and Algorithms 2.4.4–2.4.5, certified in interval arithmetic). With it they (1) classify the level one algebraic cuspidal representations of PGL_m over Q of motivic weight 23 with the weight 23/2 of multiplicity one (Theorem 3) and the self-dual regular ones of motivic weight 24 (Theorem 5), and, under GRH, bound the rest of weight 23 (Theorem 4); (2) compute, by solving linear systems, the masses in the elliptic part of Arthur's L²-Lefschetz trace formula for SO_n (n ≤ 17) and Sp_2n (2n ≤ 16) (Theorems 6 and 7), after cutting down the conjugacy classes by spinor norms (Proposition 3.7); and (3) with Arthur's multiplicity formula and the Adams–Johnson and Moeglin–Renard packets, obtain dim S_k(Sp_2g(Z)) for g ≤ 8 and k_g > g (Theorem 1) and for all weights ≤ 13 (Theorem 2, Corollary 1), Eichler's basis problem for k = 4, 8, 12, the theta-series description of the four weight 13 forms, and results for g ≥ 2k (Corollaries 5.11, 5.14, 5.16, Proposition 5.15). The atlas plans Arthur's classification (ML.4), Rankin–Selberg L-functions (AL.3), the invariant trace formula (AS.6), the Satake transform (SR.4), algebraic weights (AF.4), lattice genera and theta series (GN.3, MP.5) and Siegel modular forms as sections of automorphic bundles (AutomorphicBundles B4); the libraries have Kronecker's theorem, cyclotomic polynomials and their values at 1, the archimedean Γ-factors, Mathlib's level one dimension formula for SL_2(Z), the Rayleigh-quotient eigenvector lemma and Tau Ceti's spinor norm over fields. Nothing plans level one automorphic forms of classical groups over Z, the explicit-formula classification method, the mass computation, or Siegel modular forms beyond their definition. These go to a new roadmap (LevelOneAutomorphicFormsForClassicalGroups), and 18 general inputs go as sources to 11 existing layers (AF.1, AL.1, AL.3, AN.3, AN.6, AS.6, ML.4, GN.2, MP.3, CN.4, CN.5). Eleven source issues are recorded, checked against the authors' published data and code: one error in the normalisation of Corollary 2.9 and Algorithm 2.4.5 (the element displayed in Section 4.1 has C(x, x) > 0), a gap in Proposition 4.1(1) (its U lies in the list V, so non-self-duality needs one more certificate, which the worker's uncertified run finds easily), a wrong dimension range for V, and eight misprints (Sp_14 has 1158 classes, not 1157; S_24 for S_23; inconsistent counts and set names in Section 4.1; δ = m = 2; Sp_2n for 2n ≤ 8; 15 for 16 elements; a page reference).",
+ "summary": "Chenevier and Taïbi turn Weil's explicit formula for the Rankin–Selberg L-functions of level one algebraic cusp forms into a positivity criterion on the cone spanned by Π_alg (Proposition 2.2 and Algorithms 2.4.4–2.4.5, certified in interval arithmetic). With it they (1) classify the level one algebraic cuspidal representations of PGL_m over Q of motivic weight 23 with the weight 23/2 of multiplicity one (Theorem 3) and the self-dual regular ones of motivic weight 24 (Theorem 5), and, under GRH, bound the rest of weight 23 (Theorem 4); (2) compute, by solving linear systems, the masses in the elliptic part of Arthur's L²-Lefschetz trace formula for SO_n (n ≤ 17) and Sp_2n (2n ≤ 16) (Theorems 6 and 7), after cutting down the conjugacy classes by spinor norms (Proposition 3.7); and (3) with Arthur's multiplicity formula and the Adams–Johnson and Moeglin–Renard packets, obtain dim S_k(Sp_2g(Z)) for g ≤ 8 and k_g > g (Theorem 1) and for all weights ≤ 13 (Theorem 2, Corollary 1), Eichler's basis problem for k = 4, 8, 12, the theta-series description of the four weight 13 forms, and results for g ≥ 2k (Corollaries 5.11, 5.14, 5.16, Proposition 5.15). The atlas plans Arthur's classification (ML.4), Rankin–Selberg L-functions (AL.3), the invariant trace formula (AS.6), the Satake transform (SR.4), algebraic weights (AF.4), lattice genera and theta series (GN.3, MP.5) and Siegel modular forms as sections of automorphic bundles (AutomorphicBundles B4); the libraries have Kronecker's theorem, cyclotomic polynomials and their values at 1, the archimedean Γ-factors, Mathlib's level one dimension formula for SL_2(Z), the Rayleigh-quotient eigenvector lemma and Tau Ceti's spinor norm over fields. Nothing plans level one automorphic forms of classical groups over Z, the explicit-formula classification method, the mass computation, or Siegel modular forms beyond their definition. These go to a new roadmap (LevelOneAutomorphicFormsForClassicalGroups), and 18 general inputs go as sources through eleven routes to ten existing owners (AF.1, AL.1, AL.3, AN.3, AS.6, ML.4, GN.2, MP.3, CN.4, CN.5); split integral orthogonal models are imported from Tau Ceti ReductiveGroups Layer 9. Eleven original source issues are preserved, checked against the authors' published data and code: one error in the normalisation of Corollary 2.9 and Algorithm 2.4.5 (the element displayed in Section 4.1 has C(x, x) > 0), a gap in Proposition 4.1(1) (its U lies in the list V, so non-self-duality needs one more certificate, which the worker's uncertified run finds easily), a wrong dimension range for V, and eight misprints (Sp_14 has 1158 classes, not 1157; S_24 for S_23; inconsistent counts and set names in Section 4.1; δ = m = 2; Sp_2n for 2n ≤ 8; 15 for 16 elements; a page reference). FIX-RT-PAPER-CHENEVIER-TAIBI-20 corrects all twelve verified findings: 152 items (5 library, 13 planned, 134 missing), 12 routes and 20 source issues. The 11 original source issues remain unchanged. Theorem 3 retains 13 forms with its PGL₂ multiplicity exception; explicit-formula decorations, realness guards, weight/theta hypotheses and enumeration conventions are corrected. New source issues are not yet independently reviewed; no Lean implementation is claimed.",
  "items": [
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/split-classical-groups",
@@ -25,13 +25,35 @@
    "name": "Split classical groups over Z",
    "statement": "A split classical group over Z is the group scheme Sp_2g over Z, or the special orthogonal group scheme SO_n of the quadratic form Σ_{i=1}^{n/2} x_i x_{n+1−i} (n even) or Σ_{i=1}^{(n−1)/2} x_i x_{n+1−i} + x_{(n+1)/2}^2 (n odd) on Z^n. Those of rank n form the families (SO_{2n+1})_{n≥1}, (Sp_{2n})_{n≥1} and (SO_{2n})_{n≥2}.",
    "locator": "Section 1.1, p. 264; Section 1.4, p. 268",
-   "status": "library",
-   "library": [
+   "status": "planned",
+   "note": "Mixed family import: the smooth symplectic scheme and its natural points are existing and separately credited by symplectic-smooth-scheme. The split integral special orthogonal models for the displayed quadratic forms are imported from the planned Chevalley–Demazure construction in ReductiveGroups Layer 9. Their identification with the paper’s split quadratic-form models is an explicit supplier interface obligation, not a library claim. The abstract isometry point groups are partial ingredients only. Tau Ceti’s standard sum-of-squares bilinear determinant-one scheme is not identified with this split model over Z; its smoothness theorem requires 2 invertible. No Tau Ceti roadmap is edited or re-planned. Ring/Spin extensions stay in the existing GN.2 source route.",
+   "planned": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
+   ],
+   "libraryIngredients": [
     "mathlib:Matrix.symplecticGroup",
     "tauceti:TauCeti.QuadraticMap.specialOrthogonalGroup",
     "tauceti:TauCeti.QuadraticMap.orthogonalGroup"
    ],
-   "note": "The libraries have the groups of R-points for every commutative ring R: Matrix.symplecticGroup (A J Aᵀ = J) and Tau Ceti's orthogonal and special orthogonal groups of a quadratic map over a commutative ring (read at f790474, OrthogonalGroup.lean:133 and :290). The paper uses only points over Z, Z_p, Q, Q_p, R, C and A; neither library has these groups as smooth affine group schemes over Z."
+   "prerequisites": [
+    "PAPER-CHENEVIER-TAIBI-20/symplectic-smooth-scheme"
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "ClassicalIntegralModel.orthogonalIdentification",
+     "role": "compatibility",
+     "statement": "Import the split Chevalley–Demazure SO model for the specified root datum and provide its comparison with the displayed split quadratic-form model over Z, including residue characteristic two."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ClassicalIntegralModel.residueTwo",
+     "kind": "scope",
+     "statement": "Do not infer the split integral SO identification or smoothness from the standard bilinear determinant-one point equations in characteristic two.",
+     "status": "specified; not Lean compiled"
+    }
+   ]
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/discrete-series-existence",
@@ -71,10 +93,10 @@
    "id": "PAPER-CHENEVIER-TAIBI-20/W-m-regular",
    "kind": "definition",
    "name": "The sets W_m and regular weights",
-   "statement": "For m ≥ 1, W_m is the set of w = (w_i) ∈ (½Z)^m with w_1 ≥ w_2 ≥ ⋯ ≥ w_m, w_i − w_j ∈ Z and w_i = −w_{m+1−i} for all 1 ≤ i, j ≤ m. An element w ∈ W_m is regular if for all i ≠ j either w_i ≠ w_j, or m ≡ 0 mod 4, i = j − 1 = m/2 and w_i = w_j = 0 (hence w_1 ∈ Z).",
+   "statement": "For m ≥ 1, W_m is the set of w = (w_i) ∈ (½Z)^m with w_1 ≥ w_2 ≥ ⋯ ≥ w_m, w_i − w_j ∈ Z and w_i = −w_{m+1−i} for all 1 ≤ i, j ≤ m. An element w ∈ W_m is regular if for all i < j either w_i ≠ w_j, or m ≡ 0 mod 4, i = j − 1 = m/2 and w_i = w_j = 0 (hence w_1 ∈ Z).",
    "locator": "Section 1.2, p. 264",
    "status": "missing",
-   "note": ""
+   "note": "E13 corrects the ordered-pair quantifier. Equivalently, for all i≠j the zero exception is the unordered pair {i,j}={m/2,m/2+1}. The vector (1,0,0,−1) is regular; all parity and zero conditions are retained."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/N-w-problem-1",
@@ -116,10 +138,10 @@
    "id": "PAPER-CHENEVIER-TAIBI-20/theorem-3",
    "kind": "theorem",
    "name": "Theorem 3 (motivic weight 23, weight 23/2 of multiplicity one)",
-   "statement": "There are exactly 13 level 1 cuspidal algebraic automorphic representations of PGL_m over Q, with m varying, with motivic weight 23 and having the weight 23/2 with multiplicity 1: (i) 2 representations of PGL_2 generated by the eigenforms in S_24(SL_2(Z)); (ii) 3 representations of PGL_4 of weights ±23/2, ±v/2 with v = 7, 9 or 13; (iii) 7 representations of PGL_6 of weights ±23/2, ±v/2, ±u/2 with (v, u) = (13, 5), (15, 3), (15, 7), (17, 5), (17, 9), (19, 3) and (19, 11); (iv) 1 representation of PGL_10 of weights ±23/2, ±21/2, ±17/2, ±11/2, ±3/2. They are all self-dual (symplectic) and uniquely determined by their weights.",
+   "statement": "There are exactly 13 level 1 cuspidal algebraic automorphic representations of PGL_m over Q, with m varying, with motivic weight 23 and having the weight 23/2 with multiplicity 1: (i) 2 representations of PGL_2 generated by the eigenforms in S_24(SL_2(Z)); (ii) 3 representations of PGL_4 of weights ±23/2, ±v/2 with v = 7, 9 or 13; (iii) 7 representations of PGL_6 of weights ±23/2, ±v/2, ±u/2 with (v, u) = (13, 5), (15, 3), (15, 7), (17, 5), (17, 9), (19, 3) and (19, 11); (iv) 1 representation of PGL_10 of weights ±23/2, ±21/2, ±17/2, ±11/2, ±3/2. They are all self-dual (symplectic). In cases (ii)–(iv) each is uniquely determined by its weights; case (i) has two distinct representations with the same weights (23/2,−23/2), denoted Δ¹₂₃ and Δ²₂₃.",
    "locator": "Section 1.3, Theorem 3, pp. 265–266; proof in Section 4.1, pp. 295–297",
    "status": "missing",
-   "note": "Proof: Fincke–Pohst lists U_1 (all effective U ∈ K_∞^{≤23} containing I_23 with B_∞(U,U) ≤ F̂(i/4π), ℓ = 9.74) and U_2 (bound F̂(i/4π)/2); Algorithm 2.4.5 with δ = 0, m = 2 on U_2 and with δ = m = 1 on U_1; the six multiplicity-free survivors are excluded by Section 3; the 181 others contain I_23 twice. Existence: Section 3.3. The counts in this proof carry source issues E4 and E5."
+   "note": "Proof: Fincke–Pohst lists U_1 (all effective U ∈ K_∞^{≤23} containing I_23 with B_∞(U,U) ≤ F̂(i/4π), ℓ = 9.74) and U_2 (bound F̂(i/4π)/2); Algorithm 2.4.5 with δ = 0, m = 2 on U_2 and with δ = m = 1 on U_1; the six multiplicity-free survivors are excluded by Section 3; the 181 others contain I_23 twice. Existence: Section 3.3. The counts in this proof carry source issues E4 and E5. The final published uniqueness sentence is corrected by E12; the total of 13 and the classification list are unchanged."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/theorem-4",
@@ -169,11 +191,11 @@
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/regular-w-unique-G",
    "kind": "theorem",
-   "name": "Every regular weight comes from a unique group",
-   "statement": "Every regular w ∈ W_m, m ≥ 1, is of the form w(λ) for a unique split classical group G over Z (with G(R) having discrete series) and a dominant weight λ of G.",
+   "name": "Inverse of the classical infinitesimal-character formulas on their image",
+   "statement": "For a regular w∈W_m in the image of the displayed formulas, the group G is uniquely specified as follows: (a) m odd ≥3 and all weights integral: G=Sp_{m−1}; (b) m even and all weights half-integral but nonintegral: G=SO_{m+1}; (c) m divisible by 4 and all weights integral: G=SO_m. In each case a dominant integral λ exists. In (c), fix λ_last≥0 to obtain a unique λ, or retain uniqueness only modulo the outer automorphism changing its sign. The case m=1,w=(0) is the trivial automorphic base case, not a positive-rank classical-group instance. Other regular weight/parity cases are excluded from this inverse; the all-W_m automorphic induction first uses the determinant/parity obstruction to return zero there.",
    "locator": "Section 1.4, p. 268",
    "status": "missing",
-   "note": ""
+   "note": "E14 records the overly broad published existence claim and the inverse convention. For example (1,−1)∈W₂ cannot be the half-integral SO₃ character. The dominant SO₄ weights (1,1) and (1,−1) have the same w=(2,1,−1,−2). The source says “some dominant weight”, not explicitly a unique λ; the sign normalization prevents an overreading as a unique pair."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/key-fact-2",
@@ -209,7 +231,7 @@
    "statement": "For every c ∈ C(G), m_c ∈ Q.",
    "locator": "Section 1.4, p. 270",
    "status": "missing",
-   "note": "'It essentially follows from [Gro97, Thm. 9.9] and Siegel's theorem on the rationality of the values of Artin L-functions at non-positive integers [Sie69]'. Stated without further proof."
+   "note": "Correction of the published sentence, not a verbatim quotation: use Gross’s motive formula [Gro97, Thm.9.9] with the relevant Siegel rationality statement at non-positive integers, retaining its character/value-field qualifications. The source prints non-negative (E19); ζ(2)=π²/6 refutes the blanket positive-integer range. This is not an assertion that every Artin character has rational values without rationality hypotheses. Supplier proofs were not recursively audited."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/non-elliptic-terms",
@@ -248,7 +270,7 @@
    "library": [
     "mathlib:ModularForm.dimension_level_one"
    ],
-   "note": "Checked by the worker: the 5×5 matrix [[1,1,1,1,1],[3,−1,0,1,2],[5,1,−1,−1,1],[7,−1,1,−1,−1],[9,1,0,1,−2]] is invertible, the stated masses solve it with right-hand side (1/2, −1/2, −1/2, −1/2, −1/2), and they reproduce dim S_{2k+2}(SL_2(Z)) for k < 40. Mathlib has the level-one dimension formula for even weight (ModularForm.dimension_level_one, read at 082e2d3)."
+   "note": "Checked by the worker: the 5×5 matrix [[1,1,1,1,1],[3,−1,0,1,2],[5,1,−1,−1,1],[7,−1,1,−1,−1],[9,1,0,1,−2]] is invertible, the stated masses solve it with right-hand side (1/2, −1/2, −1/2, −1/2, −1/2), and they reproduce dim S_{2k+2}(SL_2(Z)) for k < 40. Mathlib has the level-one dimension formula for even weight (ModularForm.dimension_level_one, read at 082e2d3). E18 records the printed denominator sin(2π/i); the corrected sin(π/i), displayed matrix and masses are preserved."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/theorem-6",
@@ -569,7 +591,7 @@
    "statement": "π ∈ Π_alg (on PGL_n) is regular if L(π_∞) is multiplicity free. (a) If all non-zero weights of π have multiplicity 1 and 0 has multiplicity 2, then π is regular iff n ≡ 0 mod 4. (b) π is regular iff its weight vector is regular in the sense of W_n. (c) If π is regular and n = 2g + 1 is odd, then L(π_∞) contains ε_{C/R}^g (as det L(π_∞) = 1 and det I_v = ε_{C/R}^{v+1}).",
    "locator": "Section 2.2, p. 274",
    "status": "missing",
-   "note": ""
+   "note": "Use the corrected symmetric/ i<j regularity predicate from W-m-regular (E13), including the double central zero when 4 divides n."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/arthur-selfdual-types",
@@ -641,10 +663,10 @@
    "id": "PAPER-CHENEVIER-TAIBI-20/explicit-formula-forms",
    "kind": "definition",
    "name": "The bilinear forms B_f, B_∞, Z, δ, e⊥",
-   "statement": "For a test function F, the symmetric bilinear forms on RΠ_alg: (a) B_f^F(π, π′) = Σ_{p,k≥1} F(k log p) (log p / p^{k/2}) tr(c_p(π)^k) tr(c_p(π′)^k); (b) B_∞^F(π, π′) = J_F(L(π_∞) ⊗ L(π′_∞)) with J_F(U) = −∫_R Re (Γ′/Γ)(1/2 + 2πit, U) F(t) dt (2.3.4), also viewed on K_∞ by B_∞^F(U, V) = J_F(U·V); (c) Z^F(π, π′) = lim_{T→∞} Σ_ρ ord_{s=ρ} Λ(s, π^∨ × π′) F̂((1 − 2ρ)/4iπ), over zeros with |Im ρ| ≤ T and 0 ≤ Re ρ ≤ 1; (d) δ(π, π′) = 1 if π ≃ π′, 0 otherwise; (e) e⊥(π, π′) = 1 if π, π′ are self-dual with ε(π × π′) = −1, 0 otherwise.",
+   "statement": "For such a test function F, define the real symmetric bilinear forms on RΠ_alg: (a) B_f^F(π,π′)=Re Σ_{p,k≥1} F(k log p)(log p/p^{k/2}) overline(tr(c_p(π)^k)) tr(c_p(π′)^k); (b) B_∞^F(π,π′)=J_F(L(π_∞)⊗L(π′_∞)), where J_F(U)=−∫_R Re[(Γ′/Γ)(1/2+2πit,U)] F̂(t) dt, equivalently the source’s integral without the inner Re for real even F. Also B_∞^F(U,V)=J_F(U·V) on K_∞. (c) Z^F(π,π′)=lim_{T→∞} Σ_ρ ord_{s=ρ} Λ(s,π^∨×π′) Re F̂((1−2ρ)/(4iπ)), with |Im ρ|≤T and 0≤Re ρ≤1; (d) δ is the isomorphism Kronecker pairing; (e) e⊥(π,π′)=1 exactly for a self-dual pair with ε(π×π′)=−1, otherwise 0.",
    "locator": "Section 2.3, (a)–(e) and (2.3.4), pp. 275–276",
    "status": "missing",
-   "note": ""
+   "note": "Throughout these forms, F:R→R is even and satisfies the source’s Mestre test-function axioms; even compactly supported C² functions are a sufficient class. Use F̂(ξ)=∫_R F(x) exp(−2πi xξ) dx, with the extension/strip convergence required by those axioms. The missing conjugate, real parts and Fourier transform were extraction errors; no source erratum is alleged for these formulas."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/explicit-formula-RS",
@@ -653,16 +675,16 @@
    "statement": "For every test function F, B_f^F + B_∞^F + ½ Z^F = F̂(i/4π) δ as bilinear forms on RΠ_alg.",
    "locator": "Section 2.3, (2.3.5), p. 276 ([Mes86, §I.2], [CL19, Prop. 9.3.9])",
    "status": "missing",
-   "note": ""
+   "note": "Throughout these forms, F:R→R is even and satisfies the source’s Mestre test-function axioms; even compactly supported C² functions are a sufficient class. Use F̂(ξ)=∫_R F(x) exp(−2πi xξ) dx, with the extension/strip convergence required by those axioms. All forms refer to the corrected explicit-formula-forms; complex Fourier values are ordered only after taking their real part."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/C-F-and-POS",
    "kind": "definition",
    "name": "The form C^F and condition (POS)",
-   "statement": "C^F := F̂(i/4π) δ − B_∞^F − ½ F̂(0) e⊥ (2.3.6), the computable part of the explicit formula. A test function F satisfies (POS) if F(x) ≥ 0 for all x ∈ R and F̂(ξ) ≥ 0 for all ξ ∈ C with |Im ξ| ≤ 1/4π (Definition 2.1). F̂(0) and F̂(i/4π) are real, and non-negative if F ≥ 0.",
+   "statement": "C^F := F̂(i/4π) δ − B_∞^F − ½ F̂(0) e⊥ (2.3.6), the computable part of the explicit formula. A test function F satisfies (POS) if F(x) ≥ 0 for all x ∈ R and Re F̂(ξ) ≥ 0 for all ξ ∈ C with |Im ξ| ≤ 1/4π (Definition 2.1). F̂(0) and F̂(i/4π) are real, and non-negative if F ≥ 0.",
    "locator": "Section 2.3, (2.3.6) and Definition 2.1, p. 276",
    "status": "missing",
-   "note": ""
+   "note": "Throughout these forms, F:R→R is even and satisfies the source’s Mestre test-function axioms; even compactly supported C² functions are a sufficient class. Use F̂(ξ)=∫_R F(x) exp(−2πi xξ) dx, with the extension/strip convergence required by those axioms. All forms refer to the corrected explicit-formula-forms; complex Fourier values are ordered only after taking their real part."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/prop-2-2",
@@ -671,7 +693,7 @@
    "statement": "Let F be a test function satisfying (POS). Then for every r ≥ 1, π_1, …, π_r ∈ Π_alg and real t_1, …, t_r ≥ 0, C^F(Σ t_i π_i, Σ t_i π_i) ≥ 0 (2.3.7).",
    "locator": "Section 2.3, Proposition 2.2, pp. 276–277",
    "status": "missing",
-   "note": "Proof: C^F = B_f^F + ½(Z^F − F̂(0) e⊥); B_f^F is positive semidefinite as F ≥ 0, and Z^F(π, π′) ≥ F̂(0) e⊥(π, π′) since e⊥ = 1 forces a zero at s = 1/2. For integral t_i this is [CL19, Cor. 9.3.12]."
+   "note": "Proof: C^F = B_f^F + ½(Z^F − F̂(0) e⊥); B_f^F is positive semidefinite as F ≥ 0, and Z^F(π, π′) ≥ F̂(0) e⊥(π, π′) since e⊥ = 1 forces a zero at s = 1/2. For integral t_i this is [CL19, Cor. 9.3.12]. Throughout these forms, F:R→R is even and satisfies the source’s Mestre test-function axioms; even compactly supported C² functions are a sufficient class. Use F̂(ξ)=∫_R F(x) exp(−2πi xξ) dx, with the extension/strip convergence required by those axioms. All forms refer to the corrected explicit-formula-forms; complex Fourier values are ordered only after taking their real part."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/corollary-2-3",
@@ -704,10 +726,10 @@
    "id": "PAPER-CHENEVIER-TAIBI-20/quadratic-problem",
    "kind": "definition",
    "name": "The quadruples Q, the forms β_Q^F and Problem 2",
-   "statement": "A quadruple Q = (r, U, δ, m) consists of r ≥ 1, U = (U_i) ∈ K_∞^r, δ = (δ_i) ∈ {0, 1}^r and m = (m_i) ∈ Z_{≥1}^r (2.4.3). On R^r with its standard scalar product and basis (e_i), β_Q^F(e_i, e_j) = (1/m_i) F̂(i/4π) e_i·e_j − J_F(U_i·U_j) − F̂(0) δ_i δ_j (1 − ε(U_i·U_j))/4 (2.4.4). S_+^{r−1} = {t ∈ R^r : Σ t_i² = 1, t_i ≥ 0}; μ_Q^F is the minimum of β_Q^F(x, x) on D = S_+^{r−1}; for ∅ ≠ I ⊂ {1, …, r}, E_I = ⊕_{i∈I} R e_i, D_I = D ∩ E_I, D̊_I its interior, λ_I the least eigenvalue of (β_Q^F(e_i, e_j))_{i,j∈I} and E_{I,λ_I} its eigenspace. Problem 2: decide whether x ↦ β_Q^F(x, x) takes a negative value on S_+^{r−1}.",
+   "statement": "A quadruple Q = (r, U, δ, m) consists of r ≥ 1, U = (U_i) ∈ K_∞^r, δ = (δ_i) ∈ {0, 1}^r and m = (m_i) ∈ Z_{≥1}^r (2.4.3), with the additional admissibility condition ε(U_i·U_j)∈{−1,1} whenever δ_iδ_j=1. Only for admissible Q do we construct the real matrix and optimization data. On R^r with its standard scalar product and basis (e_i), β_Q^F(e_i, e_j) = (1/m_i) F̂(i/4π) e_i·e_j − J_F(U_i·U_j) − F̂(0) δ_i δ_j (1 − ε(U_i·U_j))/4 (2.4.4). S_+^{r−1} = {t ∈ R^r : Σ t_i² = 1, t_i ≥ 0}; μ_Q^F is the minimum of β_Q^F(x, x) on D = S_+^{r−1}; for ∅ ≠ I ⊂ {1, …, r}, E_I = ⊕_{i∈I} R e_i, D_I = D ∩ E_I, D̊_I its interior, λ_I the least eigenvalue of (β_Q^F(e_i, e_j))_{i,j∈I} and E_{I,λ_I} its eigenspace. Problem 2: decide whether x ↦ β_Q^F(x, x) takes a negative value on S_+^{r−1}.",
    "locator": "Section 2.4.2, (2.4.3)–(2.4.4), Problem 2, pp. 278–279",
    "status": "missing",
-   "note": "The normalisation 1/m_i in (2.4.4) is the one implemented in the authors' code; it does not match the 1/√m weights used later (source issue E3)."
+   "note": "The normalisation 1/m_i in (2.4.4) is the one implemented in the authors' code; it does not match the 1/√m weights used later (source issue E3). Admissibility: ε(U_i·U_j)∈{−1,1} for every pair with δ_iδ_j=1. This is checked before constructing a real Gram matrix, least eigenvalue or minimum. Effective determinant-one Weil parameters satisfy it: det(U⊗V)=det(U)^dim(V)det(V)^dim(U), and the epsilon character has real value on the determinant-one parameters of K_∞. E15 records the source’s overbroad domain, independently of the unchanged normalization correction E3. Taking U₁=1,U₂=ε_{C/R} and δ₁=δ₂=1 yields ε(U₁U₂)=i and a nonreal off-diagonal entry."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/question-2-4-reduction",
@@ -716,16 +738,16 @@
    "statement": "Let Q = (r, U, δ, m) with all m_i = 1. If there are distinct π_1, …, π_r ∈ Π_alg with L((π_i)_∞) = U_i and sd(π_i) = δ_i, then ι: e_i ↦ π_i is an isometry onto V = ⊕ R π_i with C^F(ι(x), ι(y)) = β_Q^F(x, y), using B_∞^F(π_i, π_j) = J_F(U_i·U_j) and e⊥(π_i, π_j) = δ_i δ_j (1 − ε(U_i·U_j))/2 (2.4.5). Hence if β_Q^F(t, t) < 0 for some t ∈ S_+^{r−1} (F satisfying (POS)), no such π_i exist.",
    "locator": "Section 2.4.2, Question 2.4 and (2.4.5), pp. 278–279",
    "status": "missing",
-   "note": ""
+   "note": "Admissibility: ε(U_i·U_j)∈{−1,1} for every pair with δ_iδ_j=1. This is checked before constructing a real Gram matrix, least eigenvalue or minimum. Effective determinant-one Weil parameters satisfy it: det(U⊗V)=det(U)^dim(V)det(V)^dim(U), and the epsilon character has real value on the determinant-one parameters of K_∞. F and its forms use the corrected even-real Fourier convention."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/prop-2-5",
    "kind": "theorem",
    "name": "Proposition 2.5",
-   "statement": "Fix F and Q. Let 𝓘 be the set of non-empty I ⊂ {1, …, r} such that E_{I,λ_I} meets D̊_I. Then 𝓘 ≠ ∅ and μ_Q^F = min_{I ∈ 𝓘} λ_I.",
+   "statement": "Fix a source test function F and an admissible Q. Let 𝓘 be the set of non-empty I ⊂ {1, …, r} such that E_{I,λ_I} meets D̊_I. Then 𝓘 ≠ ∅ and μ_Q^F = min_{I ∈ 𝓘} λ_I.",
    "locator": "Section 2.4.2, Proposition 2.5, p. 279",
    "status": "missing",
-   "note": ""
+   "note": "Admissibility: ε(U_i·U_j)∈{−1,1} for every pair with δ_iδ_j=1. This is checked before constructing a real Gram matrix, least eigenvalue or minimum. Effective determinant-one Weil parameters satisfy it: det(U⊗V)=det(U)^dim(V)det(V)^dim(U), and the epsilon character has real value on the determinant-one parameters of K_∞. F and its forms use the corrected even-real Fourier convention."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/lemma-2-6",
@@ -747,34 +769,34 @@
    "statement": "If r = 2 and (β_Q^F(e_i, e_j)) = (a b; b c) with a, c ≥ 0, then μ_Q^F < 0 iff ac < b² and b < 0, i.e. iff b + √(ac) < 0.",
    "locator": "Section 2.4.2, Example 2.7, p. 280",
    "status": "missing",
-   "note": ""
+   "note": "Admissibility: ε(U_i·U_j)∈{−1,1} for every pair with δ_iδ_j=1. This is checked before constructing a real Gram matrix, least eigenvalue or minimum. Effective determinant-one Weil parameters satisfy it: det(U⊗V)=det(U)^dim(V)det(V)^dim(U), and the epsilon character has real value on the determinant-one parameters of K_∞. F and its forms use the corrected even-real Fourier convention."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/lemma-2-8",
    "kind": "theorem",
    "name": "Lemma 2.8",
-   "statement": "Fix F and Q with μ_Q^F < 0 and F̂(i/4π) > 0, and suppose (U_i, δ_i, m_i) = (U_j, δ_j, m_j) for some i ≠ j. Then every t ∈ D with β_Q^F(t, t) = μ_Q^F has t_i = t_j.",
+   "statement": "Fix a source test function F and an admissible Q with μ_Q^F < 0 and F̂(i/4π) > 0, and suppose (U_i, δ_i, m_i) = (U_j, δ_j, m_j) for some i ≠ j. Then every t ∈ D with β_Q^F(t, t) = μ_Q^F has t_i = t_j.",
    "locator": "Section 2.4.2, Lemma 2.8, p. 280",
    "status": "missing",
-   "note": "Proof via (2.4.6): q(s_i e_i + s_j e_j + Σ_{l≠i,j} t_l e_l) = −(2/m_i) s_i s_j F̂(i/4π) + (a function of s_i + s_j), which is consistent with (2.4.4) as printed."
+   "note": "Proof via (2.4.6): q(s_i e_i + s_j e_j + Σ_{l≠i,j} t_l e_l) = −(2/m_i) s_i s_j F̂(i/4π) + (a function of s_i + s_j), which is consistent with (2.4.4) as printed. Admissibility: ε(U_i·U_j)∈{−1,1} for every pair with δ_iδ_j=1. This is checked before constructing a real Gram matrix, least eigenvalue or minimum. Effective determinant-one Weil parameters satisfy it: det(U⊗V)=det(U)^dim(V)det(V)^dim(U), and the epsilon character has real value on the determinant-one parameters of K_∞. F and its forms use the corrected even-real Fourier convention."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/corollary-2-9",
    "kind": "theorem",
    "name": "Corollary 2.9 (merging equal parameters), corrected normalisation",
-   "statement": "Let Q = (r, U, δ, m) with all m_i = 1, {1, …, r} = ∐_{l=1}^{r′} P_l with (U_i, δ_i) constant on each P_l, and Q′ = (r′, U′, δ′, m′) with m′_l = |P_l|. For F with F̂(i/4π) > 0: μ_Q^F < 0 iff μ_{Q′}^F < 0. With β as in (2.4.4), ρ′: e_l ↦ (1/m′_l) Σ_{i∈P_l} e_i satisfies β_Q^F(ρ′x, ρ′y) = β_{Q′}^F(x, y); the isometry ρ: e_l ↦ (1/√m′_l) Σ_{i∈P_l} e_i satisfies β_Q^F(ρx, ρy) = β_{Q′}^F(Dx, Dy) with D = diag(√m′_l), so μ_Q^F and μ_{Q′}^F need not be equal. (They are equal, as the paper states, if (2.4.4) is replaced by F̂(i/4π) e_i·e_j − √(m_i m_j) (J_F(U_i·U_j) + F̂(0) δ_i δ_j (1 − ε(U_i·U_j))/4).)",
+   "statement": "Let Q be admissible and write Q = (r, U, δ, m) with all m_i = 1, {1, …, r} = ∐_{l=1}^{r′} P_l with (U_i, δ_i) constant on each P_l, and Q′ = (r′, U′, δ′, m′) with m′_l = |P_l|. For F with F̂(i/4π) > 0: μ_Q^F < 0 iff μ_{Q′}^F < 0. With β as in (2.4.4), ρ′: e_l ↦ (1/m′_l) Σ_{i∈P_l} e_i satisfies β_Q^F(ρ′x, ρ′y) = β_{Q′}^F(x, y); the isometry ρ: e_l ↦ (1/√m′_l) Σ_{i∈P_l} e_i satisfies β_Q^F(ρx, ρy) = β_{Q′}^F(Dx, Dy) with D = diag(√m′_l), so μ_Q^F and μ_{Q′}^F need not be equal. (They are equal, as the paper states, if (2.4.4) is replaced by F̂(i/4π) e_i·e_j − √(m_i m_j) (J_F(U_i·U_j) + F̂(0) δ_i δ_j (1 − ε(U_i·U_j))/4).)",
    "locator": "Section 2.4.2, the paragraph before Corollary 2.9 and Corollary 2.9, pp. 280–281",
    "status": "missing",
-   "note": "Corrected statement (source issue E3): as printed, the paper asserts β_Q(ρ(x), ρ(y)) = β_{Q′}(x, y) and μ_{Q′} = μ_Q, which fail with (2.4.4) (one block of size 2 gives μ_Q = 2μ_{Q′}). The sign equivalence, which is all that is used, holds."
+   "note": "Corrected statement (source issue E3): as printed, the paper asserts β_Q(ρ(x), ρ(y)) = β_{Q′}(x, y) and μ_{Q′} = μ_Q, which fail with (2.4.4) (one block of size 2 gives μ_Q = 2μ_{Q′}). The sign equivalence, which is all that is used, holds. Admissibility: ε(U_i·U_j)∈{−1,1} for every pair with δ_iδ_j=1. This is checked before constructing a real Gram matrix, least eigenvalue or minimum. Effective determinant-one Weil parameters satisfy it: det(U⊗V)=det(U)^dim(V)det(V)^dim(U), and the epsilon character has real value on the determinant-one parameters of K_∞. F and its forms use the corrected even-real Fourier convention."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/remark-2-10",
    "kind": "theorem",
    "name": "Remark 2.10 (monotonicity in δ)",
-   "statement": "If Q = (r, U, δ, m) and Q′ = (r, U, δ′, m) with δ′_i ≥ δ_i for all i, and F̂(0) ≥ 0, then β_{Q′}^F(x, y) ≤ β_Q^F(x, y) for all x, y ∈ R_{≥0}^r; hence μ_{Q′}^F ≤ μ_Q^F, and μ_Q^F < 0 implies μ_{Q′}^F < 0.",
+   "statement": "If both quadruples are admissible, Q = (r, U, δ, m) and Q′ = (r, U, δ′, m) with δ′_i ≥ δ_i for all i, and F̂(0) ≥ 0, then β_{Q′}^F(x, y) ≤ β_Q^F(x, y) for all x, y ∈ R_{≥0}^r; hence μ_{Q′}^F ≤ μ_Q^F, and μ_Q^F < 0 implies μ_{Q′}^F < 0.",
    "locator": "Section 2.4.2, Remark 2.10, p. 281",
    "status": "missing",
-   "note": ""
+   "note": "Admissibility: ε(U_i·U_j)∈{−1,1} for every pair with δ_iδ_j=1. This is checked before constructing a real Gram matrix, least eigenvalue or minimum. Effective determinant-one Weil parameters satisfy it: det(U⊗V)=det(U)^dim(V)det(V)^dim(U), and the epsilon character has real value on the determinant-one parameters of K_∞. F and its forms use the corrected even-real Fourier convention. The guard must hold for Q′ as well as Q: newly active pairs after increasing δ require their own real-sign check, unless all U_i are determinant one."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/odlyzko-F",
@@ -810,19 +832,19 @@
    "id": "PAPER-CHENEVIER-TAIBI-20/algorithm-2-4-4",
    "kind": "construction",
    "name": "Algorithm 2.4.4",
-   "statement": "Input Q = (r, U, δ, m). Step 1: choose ℓ > 0 and approximate the Gram matrix of β_Q^{F_ℓ}. Step 2: choose ∅ ≠ I ⊂ {1, …, r} and approximate λ_I and an eigenvector (t_i)_{i∈I} (PARI qfjacobi). Step 3: if λ_I < 0 and all t_i > 0 return (ℓ, I, t), else change I, then ℓ. Step 4: check β_Q^{F_ℓ}(t, t) < 0 rigorously with interval arithmetic. Only the final check is part of a proof; the output (ℓ, I, t) is a certificate that can be re-checked instantly.",
+   "statement": "Input Q = (r, U, δ, m). Step 0: check admissibility; reject an input failing the realness guard. Step 1: choose ℓ > 0 and approximate the Gram matrix of β_Q^{F_ℓ}. Step 2: choose ∅ ≠ I ⊂ {1, …, r} and approximate λ_I and an eigenvector (t_i)_{i∈I} (PARI qfjacobi). Step 3: if λ_I < 0 and all t_i > 0 return (ℓ, I, t), else change I, then ℓ. Step 4: check β_Q^{F_ℓ}(t, t) < 0 rigorously with interval arithmetic. Only the final check is part of a proof; the output (ℓ, I, t) is a certificate that can be re-checked instantly.",
    "locator": "Section 2.4.4, pp. 282–283",
    "status": "missing",
-   "note": "In the applications ℓ ∈ [1/2, 15] ∩ 10^{−2}Z; subsets I are tried by increasing size."
+   "note": "In the applications ℓ ∈ [1/2, 15] ∩ 10^{−2}Z; subsets I are tried by increasing size. Admissibility: ε(U_i·U_j)∈{−1,1} for every pair with δ_iδ_j=1. This is checked before constructing a real Gram matrix, least eigenvalue or minimum. Effective determinant-one Weil parameters satisfy it: det(U⊗V)=det(U)^dim(V)det(V)^dim(U), and the epsilon character has real value on the determinant-one parameters of K_∞. F and its forms use the corrected even-real Fourier convention."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/algorithm-2-4-5",
    "kind": "construction",
    "name": "Algorithm 2.4.5, corrected output",
-   "statement": "Fix U ∈ K_∞, δ ∈ {0, 1}, m ≥ 1 and a known set S ⊂ Π_alg (with L(ϖ_∞) and sd(ϖ) given for ϖ ∈ S), and let 𝒮 be the set of triples (U′, δ′, m′) with exactly m′ elements ϖ ∈ S having (L(ϖ_∞), sd(ϖ)) = (U′, δ′). With r = 1 + |𝒮|, (U_1, δ_1, m_1) = (U, δ, m) and 𝒮 = {(U_i, δ_i, m_i) : 2 ≤ i ≤ r}, apply Algorithm 2.4.4 to Q = (r, U, δ, m) with subsets I ∋ 1. If it returns (ℓ, I, t) with β_Q^{F_ℓ}(t, t) < 0, then there are no distinct π_1, …, π_m ∈ Π_alg ∖ S with L((π_i)_∞) = U and sd(π_i) ≥ δ: otherwise x = (t_1/m)(π_1 + ⋯ + π_m) + Σ_{i=2}^r (t_i/m_i) Σ_{ϖ ↦ i} ϖ satisfies C^{F_ℓ}(x, x) ≤ β_Q^{F_ℓ}(t, t) < 0 (by Remark 2.10), contradicting Proposition 2.2. For S = ∅ this is Corollary 2.3; for |𝒮| = 1 it is [CL19, Scholium 9.3.26] (Example 2.7).",
+   "statement": "Fix an effective determinant-one U ∈ K_∞, δ ∈ {0, 1}, m ≥ 1 and a known set S ⊂ Π_alg (with L(ϖ_∞) and sd(ϖ) given for ϖ ∈ S), and let 𝒮 be the set of triples (U′, δ′, m′) with exactly m′ elements ϖ ∈ S having (L(ϖ_∞), sd(ϖ)) = (U′, δ′). With r = 1 + |𝒮|, (U_1, δ_1, m_1) = (U, δ, m) and 𝒮 = {(U_i, δ_i, m_i) : 2 ≤ i ≤ r}, apply Algorithm 2.4.4 to Q = (r, U, δ, m) with subsets I ∋ 1. If it returns (ℓ, I, t) with β_Q^{F_ℓ}(t, t) < 0, then there are no distinct π_1, …, π_m ∈ Π_alg ∖ S with L((π_i)_∞) = U and sd(π_i) ≥ δ: otherwise x = (t_1/m)(π_1 + ⋯ + π_m) + Σ_{i=2}^r (t_i/m_i) Σ_{ϖ ↦ i} ϖ satisfies C^{F_ℓ}(x, x) ≤ β_Q^{F_ℓ}(t, t) < 0 (by Remark 2.10), contradicting Proposition 2.2. For S = ∅ this is Corollary 2.3; for |𝒮| = 1 it is [CL19, Scholium 9.3.26] (Example 2.7).",
    "locator": "Section 2.4.5, pp. 283 and Remark 2.12",
    "status": "missing",
-   "note": "Corrected statement (source issue E3): the paper uses the weights 1/√m and 1/√m_j (and indexes j = 2, …, m for j = 2, …, r); with (2.4.4) as printed the correct weights are 1/m and 1/m_j. Footnote 10: no non-self-dual element of Π_alg is known."
+   "note": "Corrected statement (source issue E3): the paper uses the weights 1/√m and 1/√m_j (and indexes j = 2, …, m for j = 2, …, r); with (2.4.4) as printed the correct weights are 1/m and 1/m_j. Footnote 10: no non-self-dual element of Π_alg is known. Admissibility: ε(U_i·U_j)∈{−1,1} for every pair with δ_iδ_j=1. This is checked before constructing a real Gram matrix, least eigenvalue or minimum. Effective determinant-one Weil parameters satisfy it: det(U⊗V)=det(U)^dim(V)det(V)^dim(U), and the epsilon character has real value on the determinant-one parameters of K_∞. F and its forms use the corrected even-real Fourier convention. A candidate lacking effectivity or determinant one cannot be a PGL parameter and may be excluded symbolically before the numerical method. Do not silently replace a nonreal ε by Re ε. The known PGL parameters already satisfy determinant one."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/reproof-weight-22",
@@ -885,7 +907,7 @@
    "statement": "(GRH): for all π, π′ ∈ Π_alg, the zeros s ∈ C of Λ(s, π × π′) satisfy Re s = 1/2.",
    "locator": "Section 4.3, p. 298",
    "status": "missing",
-   "note": "A conditional hypothesis for the statement register of AnalyticNumberTheory AN.6."
+   "note": "Conditional hypothesis owned by AnalyticNumberTheory:AN.3 under accepted RS-07. Former AN.6 is dropped; an extant stale stage ID is not an active owner. Theorem 4 stays conditional."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/prop-2-2-grh",
@@ -912,7 +934,7 @@
    "statement": "The stored certificates (ℓ, S′, t) of the computations: 158 + 3 for motivic weight 22 (Section 2.4.6), the δ = 0, m = 2 list for U_2 and the 12106 triples for motivic weight 23 with m = 1 (Section 4.1), the 1256 triples of Lemma 4.3, the GRH list for Theorem 4, the sets Λ of Section 3.3 with their (P1′) certificates, and the tables of masses [CT19b].",
    "locator": "Sections 2.4.6, 3.3, 4.1–4.3; [CT19b]",
    "status": "missing",
-   "note": "Published by the authors (levelone_src_data.tar.gz). Checked by the worker: file counts (12293 = 12106 + 187 for weight 23 with m = 1; 3 and 158 for weight 22), and 7 certificate values recomputed from a port of their formulas. Routed to ComputationalNumberTheory CN.5."
+   "note": "Published by the authors (levelone_src_data.tar.gz). Checked by the worker: file counts (12293 = 12106 + 187 for weight 23 with m = 1; 3 and 158 for weight 22), and 7 certificate values recomputed from a port of their formulas. Routed to ComputationalNumberTheory CN.5. Admissibility: ε(U_i·U_j)∈{−1,1} for every pair with δ_iδ_j=1. This is checked before constructing a real Gram matrix, least eigenvalue or minimum. Effective determinant-one Weil parameters satisfy it: det(U⊗V)=det(U)^dim(V)det(V)^dim(U), and the epsilon character has real value on the determinant-one parameters of K_∞. F and its forms use the corrected even-real Fourier convention. The certificate checker verifies realness/admissibility and Fourier normalization before its exact or interval sign test; an approximate eigenvalue is not a certificate."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/pi-disc",
@@ -993,10 +1015,10 @@
    "id": "PAPER-CHENEVIER-TAIBI-20/holomorphic-lowest-weight",
    "kind": "definition",
    "name": "Holomorphic lowest weight modules ρ_k",
-   "statement": "For k = (k_1 ≥ ⋯ ≥ k_g ≥ 0) ∈ Z^g, ρ_k is the holomorphic unitary lowest weight (g, K)-module of lowest weight k of Sp_2g(R); it exists iff k_g ≥ g − (u + v/2) with u = |{i : k_i = k_g}| and v = |{i : k_i = k_g + 1}|, and is then unique (Enright–Howe–Wallach). The eigenvalues of its infinitesimal character are 0 and ±(k_i − i), 1 ≤ i ≤ g; they are distinct iff k_g > g, which is exactly when ρ_k is a (holomorphic) discrete series. In the scalar case k = (k, …, k) it is written ρ_k(g).",
+   "statement": "For k = (k_1 ≥ ⋯ ≥ k_g ≥ 0) ∈ Z^g, ρ_k is the holomorphic unitary lowest weight (g, K)-module of lowest weight k of Sp_2g(R); it exists iff k_g ≥ g − (u + v/2) with u = |{i : k_i = k_g}| and v = |{i : k_i = k_g + 1}|, and is then unique (Enright–Howe–Wallach). The eigenvalues of its infinitesimal character are 0 and ±(k_i − i), 1 ≤ i ≤ g; they are distinct precisely when, with a_i=k_i−i, every a_i is nonzero and a_i+a_j≠0 for i≠j (the a_i are already strictly decreasing). The condition k_g>g implies distinctness and is separately the criterion for ρ_k to be a holomorphic discrete series; distinctness alone does not imply discreteness. In the scalar case k = (k, …, k) it is written ρ_k(g).",
    "locator": "Section 5.2, p. 302 and footnote 15",
    "status": "missing",
-   "note": "Enright–Howe–Wallach is cited in footnote 15 without a bibliography entry."
+   "note": "Enright–Howe–Wallach is cited in footnote 15 without a bibliography entry. E16 corrects the published “only if”: for g=1,k=(0), the trivial module has eigenvalues 0,−1,1. The later k_g>g calculations keep their original range."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/siegel-to-automorphic",
@@ -1149,10 +1171,10 @@
    "id": "PAPER-CHENEVIER-TAIBI-20/L24",
    "kind": "definition",
    "name": "Notation and the set L_24",
-   "statement": "For v_1 > ⋯ > v_r positive odd (resp. even) integers, Δ_{v_1,…,v_r} (resp. O^e_{v_1,…,v_r}) is the unique self-dual regular π ∈ Π_alg with weights ±v_i/2 when it exists, and O^o_{v_1,…,v_r} the unique self-dual π with weights 0, ±v_i/2 (O^o_22 = Sym²Δ_11); Δ¹_23, Δ²_23 are the two representations generated by eigenforms in S_24(SL_2(Z)). L_24 ⊂ Π_alg is the set of elements of motivic weight ≤ 22, of motivic weight 23 with 23/2 of multiplicity 1, or regular self-dual of motivic weight 24; it has 11 + 13 + 3 = 27 elements, listed in the paper.",
+   "statement": "For v_1 > ⋯ > v_r positive odd (resp. even) integers, Δ_{v_1,…,v_r} (resp. O^e_{v_1,…,v_r}) denotes a self-dual regular π ∈ Π_alg with weights ±v_i/2 only when existence and uniqueness have been established, and O^o_{v_1,…,v_r} the corresponding self-dual π with weights 0, ±v_i/2 under the same existence-and-uniqueness convention (O^o_22 = Sym²Δ_11); Δ¹_23, Δ²_23 are the two representations generated by eigenforms in S_24(SL_2(Z)). L_24 ⊂ Π_alg is the set of elements of motivic weight ≤ 22, of motivic weight 23 with 23/2 of multiplicity 1, or regular self-dual of motivic weight 24; it has 11 + 13 + 3 = 27 elements, listed in the paper.",
    "locator": "Section 5.3, pp. 308–309",
    "status": "missing",
-   "note": ""
+   "note": "At weight 23 the two PGL₂ representations are Δ¹₂₃ and Δ²₂₃; the undecorated symbol Δ₂₃ is not a unique representation. L₂₄ has 27 actual elements, retaining both."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/theorem-1",
@@ -1167,10 +1189,10 @@
    "id": "PAPER-CHENEVIER-TAIBI-20/section-5-3-1",
    "kind": "theorem",
    "name": "The vector-valued enumeration (Section 5.3.1)",
-   "statement": "For k = (k_1, …, k_g) with k_1 ≤ 13 and k_g > g (so 1 ≤ g ≤ 12), each π_i in the standard parameter is regular of motivic weight ≤ 24, so lies in L_24, and π_{i_0} ∈ {1, Sym²Δ_11, O^o_{24,16,8}} with d_{i_0} = 1. There are exactly 199 ψ ∈ Ψ(Sp_2g) with these properties whose ψ_∞ has distinct eigenvalues of absolute value ≤ 12, and exactly 59 of them satisfy (5.1.4) with (5.2.1), (5.1.3) and (5.1.2); they give Table 5 and the part of Table 6 with k > g.",
+   "statement": "For k = (k_1, …, k_g) with k_1 ≤ 13 and k_g > g (so 1 ≤ g ≤ 12), each π_i in the standard parameter is regular of motivic weight ≤ 24, so lies in L_24, and π_{i_0} ∈ {1, Sym²Δ_11, O^o_{24,16,8}} with d_{i_0} = 1. There are exactly 223 actual parameters ψ ∈ Ψ(Sp_2g) for 1≤g≤12 with these properties and distinct eigenvalues of absolute value ≤12, distinguishing Δ¹₂₃ and Δ²₂₃; exactly 58 satisfy (5.1.4) with (5.2.1), (5.1.3) and (5.1.2). Counting shapes instead gives 198/58 for g≥1, or 199/59 if the genus-zero singleton [1] is included; they give Table 5 and the part of Table 6 with k > g.",
    "locator": "Section 5.3.1, pp. 309",
    "status": "missing",
-   "note": "Reproduced by the worker: 199 and 59 come out when the trivial parameter [1] (g = 0) is included and Δ¹_23, Δ²_23 are not distinguished; the 58 solutions with g ≥ 1 are the 29 rows of Table 5 and the 29 rows of Table 6 with k > g."
+   "note": "E20 records the source’s counting convention discrepancy. The exact doubled-weight/sign enumeration was rerun by this fixer: 199/59 shapes including [1], 198/58 positive-genus shapes, 223/58 actual positive-genus parameters. All 25 extra choices involving the doubled Δ₂₃ fail the multiplicity test. This is a reproduction of the corrected conventions, not a literal reproduction of the stated positive-genus counts. Tables 5–6 and dimension conclusions are unchanged."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/theorem-2-table-5",
@@ -1264,10 +1286,10 @@
    "id": "PAPER-CHENEVIER-TAIBI-20/theta-series-properties",
    "kind": "theorem",
    "name": "Properties of ϑ_g",
-   "statement": "Φ ∘ ϑ_g = ϑ_{g−1}. The degree of G ∈ C[X_n] is the least g_0 ≥ 0 with ϑ_{g_0}(G) ≠ 0; ϑ_{g_0}(G) is cuspidal and ϑ_g(G) ≠ 0 for g ≥ g_0. If G is an eigenform of degree g_0 and g ≥ g_0, then ϑ_g(G) is an eigenform (Eichler commutation relations), and if F = ϑ_g(G) is square-integrable then ψ_G = ψ_F ⊕ [n − 2g_0 − 1] for n > 2g_0 + 1 and ψ_F = ψ_G ⊕ [2g_0 + 1 − n] for n < 2g_0 + 1 (Rallis).",
+   "statement": "Φ ∘ ϑ_g = ϑ_{g−1}. The degree of G ∈ C[X_n] is the least g_0 ≥ 0 with ϑ_{g_0}(G) ≠ 0; ϑ_{g_0}(G) is cuspidal and ϑ_g(G) ≠ 0 for g ≥ g_0. If G is an eigenform of degree g_0 and g ≥ g_0, then ϑ_g(G) is an eigenform (Eichler commutation relations), and if F = ϑ_g(G) is square-integrable then ψ_G = ψ_F ⊕ [n − 2g − 1] for n > 2g + 1 and ψ_F = ψ_G ⊕ [2g + 1 − n] for n < 2g + 1 (Rallis).",
    "locator": "Section 5.3.2, p. 312 ([CL19, §§5.1, 7.1], [Ral82, §6])",
    "status": "missing",
-   "note": ""
+   "note": "E17 corrects the parameter relation’s lift genus. Keep g₀ as the degree and in Lemma 5.8’s hypotheses. The two branches now have dimensions n and 2g+1 respectively; n=8,g₀=0,g=8 gives 17=8+9, not 8=17+7."
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/rallis-unramified",
@@ -1466,6 +1488,49 @@
    "locator": "Section 5.5, Corollary 5.16(2), p. 318",
    "status": "missing",
    "note": "'This corollary seems to be new for g = 2k.'"
+  },
+  {
+   "id": "PAPER-CHENEVIER-TAIBI-20/symplectic-smooth-scheme",
+   "kind": "definition",
+   "name": "Existing smooth symplectic group scheme and natural points",
+   "statement": "For every commutative ring R and m≥0, TauCeti.Symplectic.groupScheme R m is the affine symplectic subgroup scheme of GL_{2m}, with coordinate Hopf algebra smooth over R. Its algebra-valued points are naturally multiplicatively equivalent to GLSymplecticFin m A (or GLSymplectic (Fin m) A after reindexing). No invertibility-of-2 hypothesis is required.",
+   "locator": "Published CT20 §1.1 p.264, symplectic family; pinned Tau Ceti Symplectic/Basic.lean and Smooth.lean",
+   "status": "library",
+   "library": [
+    "tauceti:TauCeti.Symplectic.groupScheme",
+    "tauceti:TauCeti.Symplectic.pointsMulEquiv",
+    "tauceti:TauCeti.Symplectic.pointsMulEquiv_mapValue",
+    "tauceti:TauCeti.Symplectic.instSmoothCoordinateHopfAlgebra"
+   ],
+   "note": "Actual statements read at f790474821cf4256814db967cb154e7af3d0c369: Basic.lean lines 122,209,260 and Smooth.lean line 94. This credits the affine scheme, its smooth coordinate algebra and natural point identification, not the split orthogonal model.",
+   "prerequisites": [],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "SymplecticModel.points",
+     "role": "reuse",
+     "statement": "Reuse pointsMulEquiv over each value algebra; use the reindexed equivalence for block coordinates."
+    },
+    {
+     "name": "SymplecticModel.naturalPoints",
+     "role": "compatibility",
+     "statement": "Reuse pointsMulEquiv_mapValue for entrywise scalar maps."
+    }
+   ],
+   "tests": [
+    {
+     "name": "SymplecticModel.baseTwo",
+     "kind": "scope",
+     "statement": "The smooth coordinate algebra assertion specializes to R=Z and F₂ without an Invertible 2 instance.",
+     "status": "specified; not Lean compiled"
+    },
+    {
+     "name": "SymplecticModel.valueMap",
+     "kind": "compatibility",
+     "statement": "The point equivalence commutes with each R-algebra map as the pinned naturality theorem states.",
+     "status": "specified; not Lean compiled"
+    }
+   ]
   }
  ],
  "prerequisites": [
@@ -1734,7 +1799,7 @@
     "PAPER-CHENEVIER-TAIBI-20/corollary-5-16-1",
     "PAPER-CHENEVIER-TAIBI-20/corollary-5-16-2"
    ],
-   "brief": "Level one automorphic forms of the split classical groups over Z, the level one algebraic cusp forms of PGL_m over Q that parametrise them, and Siegel modular forms for Γ_g = Sp_2g(Z), following Chenevier–Taïbi, Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms, Publ. Math. IHÉS 131 (2020) 261–323, and the book it builds on, Chenevier–Lannes, Automorphic forms and even unimodular lattices (Ergebnisse 69, 2019). Final theorems, stated as in the paper (with the corrections recorded in PAPER-CHENEVIER-TAIBI-20). Theorem 1: there is an explicit and implemented formula computing dim S_k(Γ_g) for any g ≤ 8 and any k with k_g > g. Theorem 2: for 13 ≥ k_1 ≥ ⋯ ≥ k_g > g and k non-scalar, dim S_k(Γ_g) is given by Table 5 (at most 1, non-zero for exactly 29 k); for every k ≤ 13 and g ≥ 1 it is given by Table 6, so S_k(Γ_g) = 0 for k ≤ 13 and g ≥ k except dim S_12(Γ_12) = dim S_13(Γ_16) = dim S_13(Γ_24) = 1. Corollary 1: S_13(Γ_g) has dimension 1 for g = 8, 12, 16, 24 and 0 otherwise. Theorem 3: exactly 13 level one cuspidal algebraic representations of PGL_m over Q have motivic weight 23 with the weight 23/2 of multiplicity 1 (two of PGL_2 from S_24(SL_2(Z)); three of PGL_4 with weights ±23/2, ±v/2, v = 7, 9, 13; seven of PGL_6 with (v, u) = (13, 5), (15, 3), (15, 7), (17, 5), (17, 9), (19, 3), (19, 11); one of PGL_10 with weights ±23/2, ±21/2, ±17/2, ±11/2, ±3/2), all symplectic and determined by their weights. Proposition 4.1: if an effective U ∈ K_∞^{≤23} contains I_23 at least twice and T is the set of π with L(π_∞) = U, then |T| ≥ 2 forces U = I_1 + I_7 + I_13 + I_17 + I_21 + 2I_23 and T = {π, π^∨} with π non-self-dual, and T = {π} forces U into an explicit list of 181 elements with π symplectic. Theorem 4 (under GRH): such a π with 23/2 of multiplicity > 1 has m = 16, weights ±1/2, ±7/2, ±11/2, ±15/2, ±19/2, ±21/2 and ±23/2 twice, and is unique. Theorem 5: exactly three self-dual regular level one algebraic cusp forms have motivic weight 24, with weights {±12, ±8, ±4, 0}, {±12, ±9, ±5, ±2} and {±12, ±10, ±7, ±1}. Theorems 6 and 7: the masses m_c of all c ∈ C(G) for G = SO_n (n ≤ 17) and Sp_2n (2n ≤ 16) are those of [CT19b]. Corollary 5.11: for k = 4, 8, 12, ϑ_g: C[X_2k] → M_k(Γ_g) is surjective for all g. Proposition 5.13 and Corollary 5.14: the four weight 13 eigenforms are Siegel theta series with harmonic coefficients, and ϑ_{1,g,24} is an isomorphism for all g ≥ 1. Proposition 5.15: dim M_k(Γ_g) = dim M_k(Γ_2k) for g ≥ 2k, zero unless 4 | k. Corollary 5.16: for g ≥ 2k the Siegel operator Φ_{g+1} is bijective, and if 4 | k then ϑ_g: C[X_2k] → M_k(Γ_g) is an isomorphism. Layers. (1) Level one algebraic cusp forms of PGL_m: Π_alg, archimedean parameters in the ring K_∞, weights and motivic weight, W_m and regularity, N(w) and N⊥(w), self-dual types, root numbers of pairs. (2) The Rankin–Selberg explicit formula on RΠ_alg and the positivity criterion: the forms B_f, B_∞, Z, δ, e⊥ and C^F, (POS), Proposition 2.2, Corollary 2.3, Miller's theorem, the quadratic problem β_Q with Propositions and Lemmas 2.5–2.10 (Corollary 2.9 and the output of Algorithm 2.4.5 in the corrected normalisation), Algorithms 2.4.4–2.4.5, Odlyzko's functions F_ℓ and, under GRH, G_ℓ (Proposition 4.4). (3) Classification in motivic weight ≤ 24: Chenevier–Lannes' theorem in weight ≤ 22 with its new proof, Theorems 3–5, Proposition 4.1 (including the δ = 1, m = 2 step the paper omits), Lemma 4.3, Section 2.4.7; every numerical step is a certificate checked through ComputationalNumberTheory CN.5. (4) Level one Arthur parameters and the explicit multiplicity formula for Sp_2g and SO_n over Z: Ψ(G), ψ_R, C_ψ and ε_ψ, the packets containing ρ_k (Key fact 1, cases (I), (H1), (H2), formulas (5.2.1)–(5.2.12)), and Key fact 2 relating EP(G; λ) to the numbers N⊥ ([Taï17, §4]). (5) Masses: EP(G; λ), w(λ), C(G), the elliptic term and masses, P(G), ∼, P_1(G) with the spinor-norm constraint, Lemmas 3.2–3.3, Corollary 3.9, Tables 2–4, the strategy (P1′)/(P2′), Theorems 6–7, Remark 3.10, the SO_3 example, and characters of V_λ at torsion elements (Weyl, Koike–Terada). (6) Siegel modular forms: ρ_k and the dictionary with Π_disc(Sp_2g), Wallach and Weissauer, the Siegel operator and Zharkovskaya's relation, Theorems 1 and 2 with Lemmas 5.6–5.10, the Ikeda lift. (7) Theta series of even unimodular lattices: level one forms on O_n, X_n and C[X_n], ϑ_g and its degree, Rallis's relation, Lemma 5.8, the eigenforms of C[X_8], C[X_16], C[X_24], harmonic theta series and Böcherer's criterion, Proposition 5.13, the Leech-lattice forms, Corollaries 5.11, 5.14, 5.16, Remark 5.12, Proposition 5.15. Imports, by title and id: Automorphic forms on reductive groups (AutomorphicFormsOnReductiveGroups) AF.1, AF.2, AF.4, with the existence of discrete series and the archimedean Langlands correspondence for GL_n(R) added to AF.1; Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.4; Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors) AL.1 and AL.3; Analytic number theory, zeta functions and prime distribution (AnalyticNumberTheory) AN.3 and AN.6; Automorphic spectral theory and trace distributions (AutomorphicSpectralTheory) AS.6, with Arthur's L²-Lefschetz formula; Modularity, automorphy and Langlands endpoint extensions (ModularityAndLanglandsExtensions) ML.4, for Arthur's classification, the archimedean packets (with Arancibia–Moeglin–Renard and Moeglin–Renard) and the multiplicity formula; Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic) GN.2 (spinor norms over rings, Zassenhaus, Proposition 3.7) and GN.3 (genera, masses, theta interfaces); Metaplectic groups, Weil representations and automorphic theta kernels (MetaplecticAutomorphicForms) MP.3 and MP.5; Automorphic bundles and classical automorphic forms (AutomorphicBundles) B4–B5 for Siegel modular forms; Certified computational number theory and arithmetic data (ComputationalNumberTheory) CN.4–CN.5; and from Tau Ceti, Modular forms — Hecke theory, newforms, and L-functions (tauceti:TauCetiRoadmap/ModularForms) with Mathlib's level-one dimension formula, Integral lattices, discriminant forms, and overlattices (tauceti:Completed/IntegralLattices), Root systems, Weyl groups, and the Cartan-Killing classification (tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems), Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas (tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight, Layer 6), and Clifford algebras, the Pin and Spin groups, and spin representations (tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations). The explicit-formula layer is the single owner of the Stark–Odlyzko method for Rankin–Selberg L-functions of Π_alg; the proposed Part II LevelOneCuspidalCohomologyGLn (PAPER-BOXER-CALEGARI-GEE-25) should import Miller's theorem from it. A statement proved by computation cites a certificate checked in exact or interval arithmetic, never a floating-point run.",
+   "brief": "Level one automorphic forms of the split classical groups over Z, the level one algebraic cusp forms of PGL_m over Q that parametrise them, and Siegel modular forms for Γ_g = Sp_2g(Z), following Chenevier–Taïbi, Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms, Publ. Math. IHÉS 131 (2020) 261–323, and the book it builds on, Chenevier–Lannes, Automorphic forms and even unimodular lattices (Ergebnisse 69, 2019). Final theorems, stated as in the paper (with the corrections recorded in PAPER-CHENEVIER-TAIBI-20). Theorem 1: there is an explicit and implemented formula computing dim S_k(Γ_g) for any g ≤ 8 and any k with k_g > g. Theorem 2: for 13 ≥ k_1 ≥ ⋯ ≥ k_g > g and k non-scalar, dim S_k(Γ_g) is given by Table 5 (at most 1, non-zero for exactly 29 k); for every k ≤ 13 and g ≥ 1 it is given by Table 6, so S_k(Γ_g) = 0 for k ≤ 13 and g ≥ k except dim S_12(Γ_12) = dim S_13(Γ_16) = dim S_13(Γ_24) = 1. Corollary 1: S_13(Γ_g) has dimension 1 for g = 8, 12, 16, 24 and 0 otherwise. Theorem 3: exactly 13 level one cuspidal algebraic representations of PGL_m over Q have motivic weight 23 with the weight 23/2 of multiplicity 1 (two of PGL_2 from S_24(SL_2(Z)); three of PGL_4 with weights ±23/2, ±v/2, v = 7, 9, 13; seven of PGL_6 with (v, u) = (13, 5), (15, 3), (15, 7), (17, 5), (17, 9), (19, 3), (19, 11); one of PGL_10 with weights ±23/2, ±21/2, ±17/2, ±11/2, ±3/2), all symplectic; cases (ii)–(iv) unique by weights and the two PGL₂ cases sharing the weights ±23/2. Proposition 4.1: if an effective U ∈ K_∞^{≤23} contains I_23 at least twice and T is the set of π with L(π_∞) = U, then |T| ≥ 2 forces U = I_1 + I_7 + I_13 + I_17 + I_21 + 2I_23 and T = {π, π^∨} with π non-self-dual, and T = {π} forces U into an explicit list of 181 elements with π symplectic. Theorem 4 (under GRH): such a π with 23/2 of multiplicity > 1 has m = 16, weights ±1/2, ±7/2, ±11/2, ±15/2, ±19/2, ±21/2 and ±23/2 twice, and is unique. Theorem 5: exactly three self-dual regular level one algebraic cusp forms have motivic weight 24, with weights {±12, ±8, ±4, 0}, {±12, ±9, ±5, ±2} and {±12, ±10, ±7, ±1}. Theorems 6 and 7: the masses m_c of all c ∈ C(G) for G = SO_n (n ≤ 17) and Sp_2n (2n ≤ 16) are those of [CT19b]. Corollary 5.11: for k = 4, 8, 12, ϑ_g: C[X_2k] → M_k(Γ_g) is surjective for all g. Proposition 5.13 and Corollary 5.14: the four weight 13 eigenforms are Siegel theta series with harmonic coefficients, and ϑ_{1,g,24} is an isomorphism for all g ≥ 1. Proposition 5.15: dim M_k(Γ_g) = dim M_k(Γ_2k) for g ≥ 2k, zero unless 4 | k. Corollary 5.16: for g ≥ 2k the Siegel operator Φ_{g+1} is bijective, and if 4 | k then ϑ_g: C[X_2k] → M_k(Γ_g) is an isomorphism. Layers. (1) Level one algebraic cusp forms of PGL_m: Π_alg, archimedean parameters in the ring K_∞, weights and motivic weight, W_m and regularity, N(w) and N⊥(w), self-dual types, root numbers of pairs. (2) The Rankin–Selberg explicit formula on RΠ_alg and the positivity criterion: the forms B_f, B_∞, Z, δ, e⊥ and C^F, (POS), Proposition 2.2, Corollary 2.3, Miller's theorem, the admissible real quadratic problem β_Q (ε(U_iU_j)∈{±1} on all active δ pairs, checked before the real matrix and optimization) with Propositions and Lemmas 2.5–2.10 (Corollary 2.9 and the output of Algorithm 2.4.5 in the corrected normalisation), Algorithms 2.4.4–2.4.5, Odlyzko's functions F_ℓ and, under GRH, G_ℓ (Proposition 4.4). (3) Classification in motivic weight ≤ 24: Chenevier–Lannes' theorem in weight ≤ 22 with its new proof, Theorems 3–5, Proposition 4.1 (including the δ = 1, m = 2 step the paper omits), Lemma 4.3, Section 2.4.7; every numerical step is a certificate checked through ComputationalNumberTheory CN.5. (4) Level one Arthur parameters and the explicit multiplicity formula for Sp_2g and SO_n over Z: Ψ(G), ψ_R, C_ψ and ε_ψ, the packets containing ρ_k (Key fact 1, cases (I), (H1), (H2), formulas (5.2.1)–(5.2.12)), and Key fact 2 relating EP(G; λ) to the numbers N⊥ ([Taï17, §4]). (5) Masses: EP(G; λ), w(λ), C(G), the elliptic term and masses, P(G), ∼, P_1(G) with the spinor-norm constraint, Lemmas 3.2–3.3, Corollary 3.9, Tables 2–4, the strategy (P1′)/(P2′), Theorems 6–7, Remark 3.10, the SO_3 example, and characters of V_λ at torsion elements (Weyl, Koike–Terada). (6) Siegel modular forms: ρ_k and the dictionary with Π_disc(Sp_2g), Wallach and Weissauer, the Siegel operator and Zharkovskaya's relation, Theorems 1 and 2 with Lemmas 5.6–5.10, the Ikeda lift. (7) Theta series of even unimodular lattices: level one forms on O_n, X_n and C[X_n], ϑ_g and its degree, Rallis's square-integrable lift relation using actual genus g: ψ_G=ψ_F⊕[n−2g−1] for n>2g+1 and ψ_F=ψ_G⊕[2g+1−n] for n<2g+1; retain g₀ as the degree in Lemma 5.8, the eigenforms of C[X_8], C[X_16], C[X_24], harmonic theta series and Böcherer's criterion, Proposition 5.13, the Leech-lattice forms, Corollaries 5.11, 5.14, 5.16, Remark 5.12, Proposition 5.15. Imports, by title and id: Automorphic forms on reductive groups (AutomorphicFormsOnReductiveGroups) AF.1, AF.2, AF.4, with the existence of discrete series and the archimedean Langlands correspondence for GL_n(R) added to AF.1; Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.4; Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors) AL.1 and AL.3; Analytic number theory, zeta functions and prime distribution (AnalyticNumberTheory) AN.3 (explicit formulas and the transferred RH/GRH statement interface); Automorphic spectral theory and trace distributions (AutomorphicSpectralTheory) AS.6, with Arthur's L²-Lefschetz formula; Modularity, automorphy and Langlands endpoint extensions (ModularityAndLanglandsExtensions) ML.4, for Arthur's classification, the archimedean packets (with Arancibia–Moeglin–Renard and Moeglin–Renard) and the multiplicity formula; Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic) GN.2 (spinor norms over rings, Zassenhaus, Proposition 3.7) and GN.3 (genera, masses, theta interfaces); Metaplectic groups, Weil representations and automorphic theta kernels (MetaplecticAutomorphicForms) MP.3 and MP.5; Automorphic bundles and classical automorphic forms (AutomorphicBundles) B4–B5 for Siegel modular forms; Certified computational number theory and arithmetic data (ComputationalNumberTheory) CN.4–CN.5; and from Tau Ceti, Modular forms — Hecke theory, newforms, and L-functions (tauceti:TauCetiRoadmap/ModularForms) with Mathlib's level-one dimension formula, Integral lattices, discriminant forms, and overlattices (tauceti:Completed/IntegralLattices), Root systems, Weyl groups, and the Cartan-Killing classification (tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems), Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas (tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight, Layer 6), and Clifford algebras, the Pin and Spin groups, and spin representations (tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations). The explicit-formula layer is the single owner of the Stark–Odlyzko method for Rankin–Selberg L-functions of Π_alg; the proposed Part II LevelOneCuspidalCohomologyGLn (PAPER-BOXER-CALEGARI-GEE-25) should import Miller's theorem from it. A statement proved by computation cites a certificate checked in exact or interval arithmetic, never a floating-point run. Additional corrected interfaces: W_m regularity quantifies over i<j, permitting only the prescribed double central zero. Invert w(λ) only for integral odd m≥3, nonintegral half-integral even m, or integral m divisible by 4; normalize the final SO_even highest weight to be nonnegative, and separate the m=1 trivial case. Use the exact a_i=k_i−i infinitesimal-character regularity test; keep the discrete-series condition k_g>g separate. All explicit-formula forms use even real source test functions and F̂(ξ)=∫F(x)e^(−2πixξ)dx; B_f has conjugation and Re, J_F integrates against F̂, Z and POS retain Re. Positive-genus §5.3.1 counts 223/58 actual parameters, or 198/58 shapes; 199/59 includes genus zero. Import the split integral orthogonal model, with its comparison to the paper’s quadratic form, from Reductive groups (tauceti:TauCetiRoadmap/ReductiveGroups), Layer 9. Reuse the pinned smooth symplectic scheme; keep general ring and Spin work at GN.2.",
    "reason": "Nothing in the atlas goes in this direction: no layer plans level one automorphic forms of the split classical groups over Z, the level one algebraic cusp forms of PGL_m and their classification in low motivic weight, the explicit-formula positivity method, the computation of masses in the L²-Lefschetz trace formula, or Siegel modular forms beyond their definition as sections of automorphic bundles (AutomorphicBundles B4). The paper is one step of a coherent programme (Chenevier–Lannes, Chenevier–Renard, Taïbi, Chenevier–Taïbi) whose general inputs already have owners, which the new roadmap imports. As with Lawrence–Venkatesh in the maintainer's guides, a new roadmap is the fit."
   },
   {
@@ -1786,12 +1851,12 @@
    "route": "source",
    "roadmap": "AnalyticNumberTheory",
    "stages": [
-    "AnalyticNumberTheory:AN.6"
+    "AnalyticNumberTheory:AN.3"
    ],
    "items": [
     "PAPER-CHENEVIER-TAIBI-20/grh-rankin-selberg"
    ],
-   "reason": "AN.6 keeps the register of RH- and GRH-type hypotheses for conditional theorems. The (GRH) of Section 4.3 for Λ(s, π × π′), π, π′ ∈ Π_alg, used by Theorem 4, is one."
+   "reason": "Accepted RS-07 assigns the RH/GRH statement interface together with zero analysis and explicit formulas to AN.3. The (GRH) of §4.3 is an input to the conditional Theorem 4, not a theorem inferred from the unconditional classification."
   },
   {
    "route": "source",
@@ -2100,6 +2165,211 @@
     "reason": "Confirmed at the source. In the arXiv TeX (1907.08783, mot23.tex) line 1358 reads 'tail estimates \\cite[(3) p.127]{CheLan}', while line 2559, for the same tail estimates of the two series, reads '\\cite[(3) p. 277]{CheLan}'. The two cannot both be right and 277 is the one used where the estimates are applied.",
     "by": "REV-PAPER-CHENEVIER-TAIBI-20"
    }
+  },
+  {
+   "id": "PAPER-CHENEVIER-TAIBI-20/E12",
+   "kind": "error",
+   "locator": "Theorem 3, final sentence, p.266; published version of record, read 2026-10-02",
+   "printed": "The theorem says their weights specify them uniquely.",
+   "correction": "Uniqueness by weights applies to (ii)–(iv); (i) has two distinct PGL₂ representations with weights ±23/2.",
+   "reason": "Theorem 3(i) lists two eigenforms of S₂₄, with the same weights; §5.3 and the companion parameter table distinguish Δ¹₂₃ and Δ²₂₃. The total of 13 is unchanged.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-02: opened the published journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-020-00115-z/ and searched the paper title with erratum; no matching correction located.",
+    "2026-10-02: opened https://arxiv.org/abs/1907.08783 (only v1 listed) and fetched v1; targeted passages checked, not a complete collation.",
+    "2026-10-02: opened Taïbi’s publication list https://otaibi.perso.math.cnrs.fr/ and companion page/readme at /levelone/; no correction of these passages linked. The current linked mot23.pdf retains the targeted slips.",
+    "2026-10-02: Chenevier’s publication page was found in search, but direct browsing timed out and direct PDF retrieval failed certificate-name validation; his page is not claimed fully read. The Taïbi mirror and its linked author PDF were read instead."
+   ]
+  },
+  {
+   "id": "PAPER-CHENEVIER-TAIBI-20/E13",
+   "kind": "misprint",
+   "locator": "§1.2 regularity definition, p.264; published version of record, read 2026-10-02",
+   "printed": "∀i≠j: w_i≠w_j or (m≡0 mod4, i=j−1=m/2, w_i=w_j=0)",
+   "correction": "Use i<j, or the unordered central pair {i,j}={m/2,m/2+1}.",
+   "reason": "For w=(1,0,0,−1), (i,j)=(2,3) satisfies the exception while the reversed pair does not. §2.2 explicitly intends this double-zero regular case.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-02: opened the published journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-020-00115-z/ and searched the paper title with erratum; no matching correction located.",
+    "2026-10-02: opened https://arxiv.org/abs/1907.08783 (only v1 listed) and fetched v1; targeted passages checked, not a complete collation.",
+    "2026-10-02: opened Taïbi’s publication list https://otaibi.perso.math.cnrs.fr/ and companion page/readme at /levelone/; no correction of these passages linked. The current linked mot23.pdf retains the targeted slips.",
+    "2026-10-02: Chenevier’s publication page was found in search, but direct browsing timed out and direct PDF retrieval failed certificate-name validation; his page is not claimed fully read. The Taïbi mirror and its linked author PDF were read instead."
+   ]
+  },
+  {
+   "id": "PAPER-CHENEVIER-TAIBI-20/E14",
+   "kind": "error",
+   "locator": "§1.4 inverse statement and footnote 5, p.268; published version of record, read 2026-10-02",
+   "printed": "The source asserts that each regular w in W_m corresponds to exactly one split classical group G and to a dominant weight λ.",
+   "correction": "Restrict existence to the three parity/dimension images stated in regular-w-unique-G. For an inverse returning a pair impose λ_last≥0 in SO_even, or quotient the λ ambiguity by the outer automorphism; m=1,w=0 is separate.",
+   "reason": "The regular w=(1,−1)∈W₂ cannot arise from the sole dual-dimension-two group SO₃, whose weights are half-integral nonintegral. The SO₄ formula identifies dominant (1,1) and (1,−1). This records both the failed all-W_m inverse and its sign ambiguity, without attributing a unique-λ sentence to the source: the printed text says some λ.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-02: opened the published journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-020-00115-z/ and searched the paper title with erratum; no matching correction located.",
+    "2026-10-02: opened https://arxiv.org/abs/1907.08783 (only v1 listed) and fetched v1; targeted passages checked, not a complete collation.",
+    "2026-10-02: opened Taïbi’s publication list https://otaibi.perso.math.cnrs.fr/ and companion page/readme at /levelone/; no correction of these passages linked. The current linked mot23.pdf retains the targeted slips.",
+    "2026-10-02: Chenevier’s publication page was found in search, but direct browsing timed out and direct PDF retrieval failed certificate-name validation; his page is not claimed fully read. The Taïbi mirror and its linked author PDF were read instead."
+   ]
+  },
+  {
+   "id": "PAPER-CHENEVIER-TAIBI-20/E15",
+   "kind": "error",
+   "locator": "§2.4.2 (2.4.3)–(2.4.4), p.278; published version of record, read 2026-10-02",
+   "printed": "The source takes U∈K_∞^r and describes β_Q^F as a symmetric bilinear form over the reals.",
+   "correction": "Require ε(U_iU_j)∈{±1} on active δ pairs, or effective determinant-one candidate parameters, before real eigenvalues and minima.",
+   "reason": "Take U₁=1,U₂=ε_{C/R}, δ₁=δ₂=m₁=m₂=1. Since I₀=1⊕ε and ε(I₀)=i, ε(ε)=i. For nonzero F̂(0)>0 the off-diagonal coefficient has imaginary part F̂(0)/4. The authors’ epsil function agrees. This is separate from E3’s normalization error.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-02: opened the published journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-020-00115-z/ and searched the paper title with erratum; no matching correction located.",
+    "2026-10-02: opened https://arxiv.org/abs/1907.08783 (only v1 listed) and fetched v1; targeted passages checked, not a complete collation.",
+    "2026-10-02: opened Taïbi’s publication list https://otaibi.perso.math.cnrs.fr/ and companion page/readme at /levelone/; no correction of these passages linked. The current linked mot23.pdf retains the targeted slips.",
+    "2026-10-02: Chenevier’s publication page was found in search, but direct browsing timed out and direct PDF retrieval failed certificate-name validation; his page is not claimed fully read. The Taïbi mirror and its linked author PDF were read instead."
+   ]
+  },
+  {
+   "id": "PAPER-CHENEVIER-TAIBI-20/E16",
+   "kind": "error",
+   "locator": "§5.2 infinitesimal character, p.302; published version of record, read 2026-10-02",
+   "printed": "The source claims that distinctness of 0, ±(k_i−i) is equivalent to k_g>g.",
+   "correction": "Distinctness is equivalent to all a_i=k_i−i being nonzero and a_i+a_j≠0 for i≠j. Keep k_g>g as sufficient and as the separate holomorphic discrete-series criterion.",
+   "reason": "The existing g=1,k=0 trivial module has eigenvalues 0,−1,1, distinct although 0>1 is false. The nonnegative dominant k imply strictly decreasing a_i, so these are exactly the remaining possible collisions.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-02: opened the published journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-020-00115-z/ and searched the paper title with erratum; no matching correction located.",
+    "2026-10-02: opened https://arxiv.org/abs/1907.08783 (only v1 listed) and fetched v1; targeted passages checked, not a complete collation.",
+    "2026-10-02: opened Taïbi’s publication list https://otaibi.perso.math.cnrs.fr/ and companion page/readme at /levelone/; no correction of these passages linked. The current linked mot23.pdf retains the targeted slips.",
+    "2026-10-02: Chenevier’s publication page was found in search, but direct browsing timed out and direct PDF retrieval failed certificate-name validation; his page is not claimed fully read. The Taïbi mirror and its linked author PDF were read instead."
+   ]
+  },
+  {
+   "id": "PAPER-CHENEVIER-TAIBI-20/E17",
+   "kind": "misprint",
+   "locator": "§5.3.2 after (5.3.1), p.312; published version of record, read 2026-10-02",
+   "printed": "ψ_G=ψ_F⊕[n−2g₀−1], or ψ_F=ψ_G⊕[2g₀+1−n]",
+   "correction": "Replace g₀ by the actual lift genus g in these summands and branch inequalities; retain g₀ as degree and in Lemma 5.8.",
+   "reason": "dim ψ_G=n and dim ψ_F=2g+1; the printed equations force g=g₀. For E₈, n=8,g₀=0,g=8, Lemma 5.8 gives 17=8+9, whereas the printed branch would give 8=17+7.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-02: opened the published journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-020-00115-z/ and searched the paper title with erratum; no matching correction located.",
+    "2026-10-02: opened https://arxiv.org/abs/1907.08783 (only v1 listed) and fetched v1; targeted passages checked, not a complete collation.",
+    "2026-10-02: opened Taïbi’s publication list https://otaibi.perso.math.cnrs.fr/ and companion page/readme at /levelone/; no correction of these passages linked. The current linked mot23.pdf retains the targeted slips.",
+    "2026-10-02: Chenevier’s publication page was found in search, but direct browsing timed out and direct PDF retrieval failed certificate-name validation; his page is not claimed fully read. The Taïbi mirror and its linked author PDF were read instead."
+   ]
+  },
+  {
+   "id": "PAPER-CHENEVIER-TAIBI-20/E18",
+   "kind": "misprint",
+   "locator": "§1.4 SO₃ character formula before matrix, p.271; published version of record, read 2026-10-02",
+   "printed": "sin((2k+1)π/i)/sin(2π/i)",
+   "correction": "Use denominator sin(π/i).",
+   "reason": "For k=0,i=4, the printed ratio is 1/√2 rather than the trivial character 1; at i=2 its denominator vanishes. The matrix already uses the intended character, so its masses remain unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-02: opened the published journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-020-00115-z/ and searched the paper title with erratum; no matching correction located.",
+    "2026-10-02: opened https://arxiv.org/abs/1907.08783 (only v1 listed) and fetched v1; targeted passages checked, not a complete collation.",
+    "2026-10-02: opened Taïbi’s publication list https://otaibi.perso.math.cnrs.fr/ and companion page/readme at /levelone/; no correction of these passages linked. The current linked mot23.pdf retains the targeted slips.",
+    "2026-10-02: Chenevier’s publication page was found in search, but direct browsing timed out and direct PDF retrieval failed certificate-name validation; his page is not claimed fully read. The Taïbi mirror and its linked author PDF were read instead."
+   ]
+  },
+  {
+   "id": "PAPER-CHENEVIER-TAIBI-20/E19",
+   "kind": "misprint",
+   "locator": "§1.4 mass rationality after (1.4.5), p.270; published version of record, read 2026-10-02",
+   "printed": "The source describes the quantities as integers greater than or equal to zero.",
+   "correction": "The invoked special-value range is non-positive integers, with the relevant character/value-field qualifications of the Gross–Siegel application.",
+   "reason": "ζ(2)=π²/6 is irrational, refuting the blanket positive-integer rationality range even for the trivial Artin character. The extraction’s non-positive range was a silent correction, now declared as such.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-02: opened the published journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-020-00115-z/ and searched the paper title with erratum; no matching correction located.",
+    "2026-10-02: opened https://arxiv.org/abs/1907.08783 (only v1 listed) and fetched v1; targeted passages checked, not a complete collation.",
+    "2026-10-02: opened Taïbi’s publication list https://otaibi.perso.math.cnrs.fr/ and companion page/readme at /levelone/; no correction of these passages linked. The current linked mot23.pdf retains the targeted slips.",
+    "2026-10-02: Chenevier’s publication page was found in search, but direct browsing timed out and direct PDF retrieval failed certificate-name validation; his page is not claimed fully read. The Taïbi mirror and its linked author PDF were read instead."
+   ]
+  },
+  {
+   "id": "PAPER-CHENEVIER-TAIBI-20/E20",
+   "kind": "error",
+   "locator": "§5.3.1 enumeration, p.309; published version of record, read 2026-10-02",
+   "printed": "The source counts 199 candidate parameters over 1≤g≤12, of which 59 meet (5.1.4).",
+   "correction": "Distinguish conventions: 223/58 actual positive-genus parameters; 198/58 positive-genus shapes; 199/59 shapes including genus zero.",
+   "reason": "The exact doubled-weight/sign enumerator reproduces all three counts. The companion vvalued.gp enumerates shapes, stores but does not multiply by the Δ₂₃ multiplicity, and retains [1]. All 25 additional actual candidates fail the multiplicity test. Tables 5–6 are unchanged.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-02: opened the published journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-020-00115-z/ and searched the paper title with erratum; no matching correction located.",
+    "2026-10-02: opened https://arxiv.org/abs/1907.08783 (only v1 listed) and fetched v1; targeted passages checked, not a complete collation.",
+    "2026-10-02: opened Taïbi’s publication list https://otaibi.perso.math.cnrs.fr/ and companion page/readme at /levelone/; no correction of these passages linked. The current linked mot23.pdf retains the targeted slips.",
+    "2026-10-02: Chenevier’s publication page was found in search, but direct browsing timed out and direct PDF retrieval failed certificate-name validation; his page is not claimed fully read. The Taïbi mirror and its linked author PDF were read instead."
+   ]
   }
- ]
+ ],
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-020-00115-z.pdf",
+   "read": "2026-10-02",
+   "sha256": "ea90fb0faabeaaa56be15f2c6f9c22450e7891c2181130fd79fe356cd83ba3de",
+   "scope": "Targeted printed pp.264–266,268,270–271,274–276,278–283,292,300–303,308–309,312. Rendered checks of pp.264,266,268,270–271,275–276,278,302,309,312; not a new full-paper reading."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1907.08783v1",
+   "read": "2026-10-02",
+   "sha256": "81b7fe2c31d0ab4ac7465c7d5209611638fa0d8c7c4ff11f7f4746866491742c",
+   "scope": "Targeted corresponding passages and version comparison only, not full collation."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://otaibi.perso.math.cnrs.fr/levelone/mot23.pdf",
+   "read": "2026-10-02",
+   "sha256": "562a1a471954c30733729d59c68bb389d6dbfcd1d8b4992657830269a7178b9f",
+   "scope": "Current linked 63-page author copy; targeted counterpart passages, including PDF pp.5–6,9–11,17–20,43,49,52; no full collation."
+  }
+ ],
+ "fixValidation": {
+  "job": "FIX-RT-PAPER-CHENEVIER-TAIBI-20",
+  "issue": 5534,
+  "agent": "Codex",
+  "session": "codex-J6LwjP",
+  "date": "2026-10-02",
+  "status": "complete",
+  "findings": [
+   "RT-PAPER-CHENEVIER-TAIBI-20/1",
+   "RT-PAPER-CHENEVIER-TAIBI-20/2",
+   "RT-PAPER-CHENEVIER-TAIBI-20/3",
+   "RT-PAPER-CHENEVIER-TAIBI-20/4",
+   "RT-PAPER-CHENEVIER-TAIBI-20/5",
+   "RT-PAPER-CHENEVIER-TAIBI-20/6",
+   "RT-PAPER-CHENEVIER-TAIBI-20/7",
+   "RT-PAPER-CHENEVIER-TAIBI-20/8",
+   "RT-PAPER-CHENEVIER-TAIBI-20/9",
+   "RT-PAPER-CHENEVIER-TAIBI-20/10",
+   "RT-PAPER-CHENEVIER-TAIBI-20/11",
+   "RT-PAPER-CHENEVIER-TAIBI-20/12"
+  ],
+  "counts": {
+   "planned": 13,
+   "missing": 134,
+   "library": 5
+  },
+  "baseline": {
+   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "companion": {
+   "url": "https://otaibi.perso.math.cnrs.fr/levelone/levelone_src_data.tar.gz",
+   "sha256": "b0bd028b886b91d996d0562798c0800fdf465d7b39dc82eeea1a2e22ec6be87b",
+   "read": "2026-10-02",
+   "scope": "README, gp/vvalued.gp and relevant gp/testfin.gp formulas only; no end-to-end Sage/PARI mass computation."
+  },
+  "checks": "Passed paper schema/intake paths and JSON/diff whitespace; 152 unique acyclic items, exact 5/13/134 statuses, all 134 missing routed once, 12 routes and 28 prerequisites preserved, 11 original observations unchanged. Exact regressions: 4592 classical inverses, 12375 lowest-weight vectors, 3400 theta dimensions, 16384 epsilon pairs, 18 monotonicity cases, rational SO3 masses/conjugate trace. Enumeration reproduces 199/59 all shapes, 198/58 positive shapes, 223/58 positive actual parameters. No Lean compiled."
+ }
 }
