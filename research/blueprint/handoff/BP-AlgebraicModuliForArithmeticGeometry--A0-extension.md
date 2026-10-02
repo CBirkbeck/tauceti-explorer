@@ -350,9 +350,9 @@ def reconstruct(repo,submitted):
 
 ### Actual atlas and preservation receipt
 
-The indexed packet checker has zero errors/warnings. Actual intake, four-deliverable, JSON, private-path and whitespace checks pass. The actual build.assemble overlay retains every other promoted part, comparing this candidate with the incoming155-node packet. Own pending/skipped links are empty, other roadmap skips and all stage edges are unchanged, and all24 scope/supplier stage paths are reachable. The own declaration DAG is163 vertices/319 edges; endpoint-complete stage DAG3017/8655; stage-plus166 reachable declarations graph3173/9204. All are acyclic. Three reached external declarations are existing D0 suppliers. No synthetic stage attachment or application/atlas file was written.
+Publication preflight uses immutable main44c8eda3f52da4d734be74ccac5a73f15dc58a94. All fourteen targeted rule/audit/owner/roadmap/deliverable/checker inputs are unchanged from the mathematical base; concurrent changes in other roadmaps are retained in this branch and the actual assembler. The indexed packet checker has zero errors/warnings. Actual intake, four-deliverable, JSON, private-path and whitespace checks pass. The actual build.assemble overlay retains every other promoted part, comparing this candidate with the incoming155-node packet. Own pending/skipped links are empty, other roadmap skips and all stage edges are unchanged, and all24 scope/supplier stage paths are reachable. The own declaration DAG is163 vertices/319 edges; endpoint-complete stage DAG3017/8655; stage-plus166 reachable declarations graph3173/9204. All are acyclic. Three reached external declarations are existing D0 suppliers. No synthetic stage attachment or application/atlas file was written.
 
-The following read-only script reproduces the assembler and preservation checks from the stated base and candidate. Its SHA256cc08988a326a10bcefa68844a906fb5c19f974507e51c74e7717af80d6bf5e7e. Counts include actual endpoint vertices, even when a stage endpoint is not a listed stage object.
+The following read-only script reproduces the assembler and preservation checks from the stated base and candidate. Its SHA256204f1cff78a0c208ce634b8a7cf6819f1bdbc3658906c9ff5a9fbbae892beeac. Counts include actual endpoint vertices, even when a stage endpoint is not a listed stage object.
 
 ```python
 import json,sys,subprocess,hashlib,re
@@ -361,7 +361,7 @@ from collections import defaultdict,deque,Counter
 root=Path.cwd();sys.path.insert(0,str(root/'scripts'));import build
 rid='AlgebraicModuliForArithmeticGeometry';stem=rid+'--A0-extension'
 packetpath='research/blueprint/packets/'+stem+'.json'
-base='62abfc13962892abfacb792ccb3527b37103aa42'
+base='44c8eda3f52da4d734be74ccac5a73f15dc58a94'
 p=json.loads((root/packetpath).read_text())
 old=json.loads(subprocess.check_output(['git','show',base+':'+packetpath],text=True))
 r=json.loads((root/('research/blueprint/atlas/roadmaps/'+rid+'.json')).read_text())
