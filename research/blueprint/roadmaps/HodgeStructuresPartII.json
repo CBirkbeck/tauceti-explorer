@@ -3,8 +3,8 @@
   "title": "Hodge structures (pure, mixed, and polarized), Part II: variations, period maps and non-abelian Hodge theory",
   "area": "algebraicgeometry",
   "parent": "tauceti:TauCetiRoadmap/HodgeStructures",
-  "summary": "Extends the parent fibrewise theory to intrinsic Higgs/relatively constant parameter bundles, complex variations, nonabelian Hodge theory, period geometry and arithmetic/real applications. This partial continuation supplies the reserved ringed-site carrier and its elementary tensor, dual, pullback, twist, nilpotence and finite Griffiths/Rees algebra while retaining the twelve affine tests and all eight binding source routes. Shared sheaf/ordinary-connection/filtered interfaces remain requests; H.1–H.8 remain not source-decomposed.",
-  "readme": "# Hodge structures, Part II\n\nThe definitive reader is research/blueprint/readmes/HodgeStructuresPartII.md. The reserved HodgeStructuresPartII:key/higgs-parameter-connections is supplied as an intrinsic mathematical plan, with additive Leibniz operator, exterior curvature and exact supplier contracts. Forty-seven nodes preserve the twelve affine examples and add generic transport, twisted fields, ordered nilpotence and finite Griffiths/Rees algebra. All statuses are unchecked; H.0 is partial and H.1–H.8 not_read.\n\nShimuraData:D3 owns common variations; CR.1 ordinary connection/crystal interfaces; E1 missing sheaf tensor/dual/pullback/descent; DD.1 generic filtered/Rees carriers. Built sheaf/locally-free objects and parent fibrewise Hodge theory are imported. BKT/Benoist coalesce here, with mandatory H.8. The unbounded Liu–Zhu filtered-coefficient and Tate adapter remains an explicit gap.\n",
+  "summary": "Extends the parent fibrewise theory to intrinsic Higgs/relatively constant parameter bundles, complex variations, nonabelian Hodge theory, period geometry and arithmetic/real applications. This partial continuation supplies the reserved ringed-site carrier and its elementary tensor, dual, pullback, twist, nilpotence and finite Griffiths/Rees algebra while retaining the twelve affine tests and all eight binding source routes. Shared sheaf/ordinary-connection/filtered interfaces remain requests; H.1–H.8 remain not source-decomposed. Adds local determinant trace/curvature/transport adapters while retaining the global exterior-power bridge.",
+  "readme": "# Hodge structures, Part II\n\nThe definitive reader is research/blueprint/readmes/HodgeStructuresPartII.md. The reserved HodgeStructuresPartII:key/higgs-parameter-connections is supplied as an intrinsic mathematical plan, with additive Leibniz operator, exterior curvature and exact supplier contracts. Fifty-five nodes preserve the twelve affine examples and add generic transport, twisted fields, ordered nilpotence and finite Griffiths/Rees algebra. All statuses are unchecked; H.0 is partial and H.1–H.8 not_read.\n\nShimuraData:D3 owns common variations; CR.1 ordinary connection/crystal interfaces; E1 missing sheaf tensor/dual/pullback/descent; DD.1 generic filtered/Rees carriers. Built sheaf/locally-free objects and parent fibrewise Hodge theory are imported. BKT/Benoist coalesce here, with mandatory H.8. The unbounded Liu–Zhu filtered-coefficient and Tate adapter remains an explicit gap.\n",
   "prerequisites": [
     "tauceti:TauCetiRoadmap/HodgeStructures",
     "CrystallineCohomology",
@@ -154,6 +154,19 @@
         "Opening ordinary connection, extension and integrability definitions; Lemma 60.15.1 and full proof read."
       ],
       "readingExtent": "Only this section; the crystal equivalence is neither claimed nor replanned."
+    },
+    {
+      "id": "EG-author-2026",
+      "title": "Rigid connections and F-isocrystals (author-hosted preprint)",
+      "authors": "Hélène Esnault and Michael Groechenig",
+      "edition": "Author-hosted 44-page preprint at the recorded URL, accessed 2026-10-02. Different bytes/pagination from the 56-page Acta published PDF; no complete version collation.",
+      "url": "https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf",
+      "sha256": "0bfa00b7dbae7a59c193d3523028df826741f15d3e88cb50526f8656a7fb8e35",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Fresh reading by codex-J6LwjP: §1 p.2 opening fixed-determinant paragraph, Definition 1.1/Remark 1.2; §2.1 pp.5–6 complete selected Higgs/trace-zero definitions and Lemma 2.1 proof; §4.2 pp.23–24 parameter definition and Lemma 4.9 with its printed proof."
+      ],
+      "readingExtent": "Selected passages only. Published PDF retrieval returned HTTP 403; its historical source receipt is preserved. No new correspondence proof, erratum or version-independent theorem claim."
     }
   ],
   "status": "draft"
