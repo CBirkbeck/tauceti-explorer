@@ -19,6 +19,14 @@ import Mathlib.RingTheory.Regular.RegularSequence
 import Mathlib.RingTheory.Ideal.KrullsHeightTheorem
 import Mathlib.RingTheory.KrullDimension.NonZeroDivisors
 import Mathlib.RingTheory.LocalRing.Module
+import Mathlib.RingTheory.Polynomial.HilbertPoly
+import Mathlib.RingTheory.KrullDimension.Module
+import Mathlib.RingTheory.Finiteness.Ideal
+import Mathlib.RingTheory.Ideal.Operations
+import Mathlib.RingTheory.MvPowerSeries.Basic
+import Mathlib.RingTheory.Support
+import Mathlib.Algebra.Polynomial.Roots
+import Mathlib.Data.ENat.Basic
 
 /-!
 # Suggested forms for prime filtrations and characteristic-zero points
@@ -336,3 +344,326 @@ example (k : Type*) [Field k] :
   sorry
 
 end SuggestedTest.Catenary
+
+
+/-!
+## R03.3: general Hilbert–Samuel strand (Codex — codex-a71f92, 2026-10-02)
+
+The reader's Section 5b is definitive. These additions have not been compiled.
+The historical successful elaboration receipt applies only to the older file.
+The actual associated-graded bridge, Hilbert–Serre induction, degree/dimension
+and Artin–Rees comparison remain explicit packet gaps. A polynomial supplied
+as a hypothesis is not used as a replacement definition of multiplicity.
+
+The raw function takes values in ENat. The polynomial constructor chooses
+from an unproved theorem on the actual module quotients, not from a structure
+which postulates all the desired results. The rational multiplicity is proved
+integral only by the separate theorem. All suggested proofs remain unchecked.
+-/
+
+namespace TauCeti.HilbertSamuel
+
+open scoped Pointwise
+open Polynomial
+
+variable {A : Type u} [CommRing A]
+variable {M : Type v} [AddCommGroup M] [Module A M]
+
+/-- R03.3/hilbert-samuel-function: cumulative n+1 indexing, extended length. -/
+noncomputable def function (q : Ideal A) (n : ℕ) : ℕ∞ :=
+  Module.length A (M ⧸ (q ^ (n + 1) • (⊤ : Submodule A M)))
+
+theorem function_eq_length (q : Ideal A) (n : ℕ) :
+    function (M := M) q n =
+      Module.length A (M ⧸ (q ^ (n + 1) • (⊤ : Submodule A M))) := by
+  rfl
+
+theorem function_zero [Subsingleton M] (q : Ideal A) (n : ℕ) :
+    function (M := M) q n = 0 := by sorry
+
+theorem function_congr {N : Type*} [AddCommGroup N] [Module A N]
+    (e : M ≃ₗ[A] N) (q : Ideal A) (n : ℕ) :
+    function (M := M) q n = function (M := N) q n := by sorry
+
+theorem function_top (n : ℕ) :
+    function (M := M) (⊤ : Ideal A) n = 0 := by sorry
+
+section FiniteLocal
+
+variable [IsNoetherianRing A] [IsLocalRing A] [Module.Finite A M]
+
+/-- R03.3/finite-length-of-maximal-power-annihilation. -/
+theorem finite_length_of_maximal_power (r : ℕ)
+    (h : IsLocalRing.maximalIdeal A ^ r • (⊤ : Submodule A M) = ⊥) :
+    Module.length A M ≠ ⊤ := by sorry
+
+/-- R03.3/finite-adic-quotient-length; this justifies later toNat calls. -/
+theorem function_ne_top (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (n : ℕ) :
+    function (M := M) q n ≠ ⊤ := by sorry
+
+/-- R03.3/eventual-hilbert-samuel-polynomial.
+This is not Polynomial.existsUnique_hilbertPoly, which starts with a series. -/
+theorem existsUnique_polynomial (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    ∃! p : Polynomial ℚ, ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      p.eval (n : ℚ) = ((function (M := M) q n).toNat : ℚ) := by sorry
+
+/-- R03.3/hilbert-samuel-polynomial: no extra polynomial datum from a caller. -/
+noncomputable def polynomial (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) : Polynomial ℚ :=
+  Classical.choose (existsUnique_polynomial (M := M) q hq).exists
+
+theorem polynomial_eventually (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      (polynomial (M := M) q hq).eval (n : ℚ) =
+        ((function (M := M) q n).toNat : ℚ) := by sorry
+
+theorem polynomial_unique (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (p : Polynomial ℚ)
+    (hp : ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      p.eval (n : ℚ) = ((function (M := M) q n).toNat : ℚ)) :
+    p = polynomial (M := M) q hq := by sorry
+
+theorem polynomial_zero [Subsingleton M] (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    polynomial (M := M) q hq = 0 := by sorry
+
+theorem polynomial_congr {N : Type*} [AddCommGroup N] [Module A N] [Module.Finite A N]
+    (e : M ≃ₗ[A] N) (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    polynomial (M := M) q hq = polynomial (M := N) q hq := by sorry
+
+/-- R03.3/hilbert-samuel-degree: the zero module is deliberately excluded. -/
+theorem polynomial_degree [Nontrivial M] (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    polynomial (M := M) q hq ≠ 0 ∧
+      Module.supportDim A M =
+        ((polynomial (M := M) q hq).natDegree : WithBot ℕ∞) := by sorry
+
+/-- Reserved key/hilbert-samuel-multiplicity: intrinsic module dimension.
+leadingCoeff 0 = 0, so the zero-module value is genuinely zero. -/
+noncomputable def multiplicity (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) : ℚ :=
+  ((polynomial (M := M) q hq).natDegree.factorial : ℚ) *
+    (polynomial (M := M) q hq).leadingCoeff
+
+/-- R03.3/degree-indexed-multiplicity.
+The meaningful multiplicity API requires a dimension upper bound. -/
+noncomputable def multiplicityInDegree (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ) : ℚ :=
+  (d.factorial : ℚ) * (polynomial (M := M) q hq).coeff d
+
+theorem multiplicity_zero [Subsingleton M] (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    multiplicity (M := M) q hq = 0 := by sorry
+
+theorem multiplicity_eq_factorial_leadingCoeff (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    multiplicity (M := M) q hq =
+      ((polynomial (M := M) q hq).natDegree.factorial : ℚ) *
+        (polynomial (M := M) q hq).leadingCoeff := by rfl
+
+theorem multiplicity_congr {N : Type*} [AddCommGroup N] [Module A N] [Module.Finite A N]
+    (e : M ≃ₗ[A] N) (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    multiplicity (M := M) q hq = multiplicity (M := N) q hq := by sorry
+
+/-- R03.3/intrinsic-ambient-normalization, equal-dimension clause. -/
+theorem multiplicity_eq_inDegree [Nontrivial M] (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ)
+    (hd : Module.supportDim A M = (d : WithBot ℕ∞)) :
+    multiplicity (M := M) q hq =
+      multiplicityInDegree (M := M) q hq d := by sorry
+
+theorem multiplicityInDegree_zero [Subsingleton M] (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ) :
+    multiplicityInDegree (M := M) q hq d = 0 := by sorry
+
+theorem multiplicityInDegree_eq_coeff (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ) :
+    multiplicityInDegree (M := M) q hq d =
+      (d.factorial : ℚ) * (polynomial (M := M) q hq).coeff d := by rfl
+
+/-- Degree-indexed extractor API; meaningful regardless of whether M is zero. -/
+theorem multiplicityInDegree_eq_zero_of_lt (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ)
+    (hd : (polynomial (M := M) q hq).natDegree < d) :
+    multiplicityInDegree (M := M) q hq d = 0 := by sorry
+
+/-- R03.3/intrinsic-ambient-normalization, higher-dimension clause. -/
+theorem ambient_zero_of_lower_dimension (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (D : ℕ)
+    (hd : Module.supportDim A M < (D : WithBot ℕ∞)) :
+    multiplicityInDegree (M := M) q hq D = 0 := by sorry
+
+/-- R03.3/multiplicity-positive-integer. -/
+theorem multiplicity_pos_integral [Nontrivial M] (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    ∃ e : ℕ, 0 < e ∧ multiplicity (M := M) q hq = (e : ℚ) := by sorry
+
+/-- R03.3/multiplicity-powers: positive powers only, with the actual support dimension. -/
+theorem multiplicity_pow [Nontrivial M] (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (s : ℕ) (hs : 0 < s)
+    (hqs : (q ^ s).radical = IsLocalRing.maximalIdeal A) (d : ℕ)
+    (hd : Module.supportDim A M = (d : WithBot ℕ∞)) :
+    multiplicity (M := M) (q ^ s) hqs =
+      (s : ℚ) ^ d * multiplicity (M := M) q hq := by sorry
+
+/-- R03.3/dimension-normalized-additivity.
+The original maps are exact; their q-adic quotient maps need not be exact. -/
+theorem multiplicityInDegree_additive
+    {M₁ M₃ : Type*} [AddCommGroup M₁] [Module A M₁] [Module.Finite A M₁]
+    [AddCommGroup M₃] [Module A M₃] [Module.Finite A M₃]
+    (f : M₁ →ₗ[A] M) (g : M →ₗ[A] M₃)
+    (hf : Function.Injective f) (hg : Function.Surjective g) (hex : Function.Exact f g)
+    (q : Ideal A) (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ)
+    (hd : Module.supportDim A M ≤ (d : WithBot ℕ∞)) :
+    multiplicityInDegree (M := M) q hq d =
+      multiplicityInDegree (M := M₁) q hq d +
+        multiplicityInDegree (M := M₃) q hq d := by sorry
+
+/-- R03.3/multiplicity-associativity.
+P enumerates the actual top-dimensional support primes. The quotient-ideal
+proofs and finite localized-length proofs are conclusions of the missing
+localization adapter; they are not private substitute module carriers.
+The signature is intentionally explicit in those quotient-ideal proof arguments. -/
+theorem multiplicityInDegree_associativity
+    (q : Ideal A) (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ)
+    (hd : Module.supportDim A M ≤ (d : WithBot ℕ∞))
+    (P : Finset (PrimeSpectrum A))
+    (hP : ∀ p : PrimeSpectrum A, p ∈ P ↔
+      p ∈ Module.support A M ∧ ringKrullDim (A ⧸ p.asIdeal) = (d : WithBot ℕ∞))
+    (hqP : ∀ p : PrimeSpectrum A, p ∈ P →
+      (q.map (Ideal.Quotient.mk p.asIdeal)).radical =
+        IsLocalRing.maximalIdeal (A ⧸ p.asIdeal)) :
+    multiplicityInDegree (M := M) q hq d =
+      ∑ p ∈ P.attach, ((Module.length (Localization.AtPrime p.1.asIdeal)
+        (LocalizedModule p.1.asIdeal.primeCompl M)).toNat : ℚ) *
+        multiplicityInDegree (A := A ⧸ p.1.asIdeal) (M := A ⧸ p.1.asIdeal)
+          (q.map (Ideal.Quotient.mk p.1.asIdeal)) (hqP p.1 p.2) d := by sorry
+
+end FiniteLocal
+
+/-- R03.3/top-coefficient-finite-difference: ordinary rational polynomial algebra. -/
+theorem top_coefficient_finite_difference (p : Polynomial ℚ) (d : ℕ)
+    (hd : p.natDegree ≤ d) (t : ℚ) :
+    ∑ i ∈ Finset.range (d + 1), (-1 : ℚ) ^ i * (Nat.choose d i : ℚ) *
+      p.eval (t - (i : ℚ)) = (d.factorial : ℚ) * p.coeff d := by sorry
+
+end TauCeti.HilbertSamuel
+
+namespace HilbertSamuelTest
+
+open TauCeti.HilbertSamuel Polynomial
+open scoped Pointwise
+
+-- test: HilbertSamuelTest.function_field_rank
+example (k : Type*) [Field k] (r n : ℕ) :
+    function (M := Fin r → k) (⊥ : Ideal k) n = r := by sorry
+
+-- test: HilbertSamuelTest.function_dvr_power
+example (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    (s : ℕ) (hs : 0 < s) (n : ℕ) :
+    function (M := O) (IsLocalRing.maximalIdeal O ^ s) n = s * (n + 1) := by sorry
+
+-- test: HilbertSamuelTest.function_infinite
+example (n : ℕ) : function (M := ℤ) (⊥ : Ideal ℤ) n = ⊤ := by sorry
+
+-- test: HilbertSamuelTest.function_zero
+example (A : Type*) [CommRing A] (q : Ideal A) (n : ℕ) :
+    function (M := Fin 0 → A) q n = 0 := by sorry
+
+-- test: HilbertSamuelTest.polynomial_field
+example (k : Type*) [Field k] (r : ℕ)
+    (hq : (⊥ : Ideal k).radical = IsLocalRing.maximalIdeal k) :
+    polynomial (M := Fin r → k) (⊥ : Ideal k) hq = C (r : ℚ) := by sorry
+
+-- test: HilbertSamuelTest.polynomial_dvr
+example (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [IsNoetherianRing O] [IsLocalRing O] (s : ℕ) (hs : 0 < s)
+    (hq : (IsLocalRing.maximalIdeal O ^ s).radical = IsLocalRing.maximalIdeal O) :
+    polynomial (M := O) (IsLocalRing.maximalIdeal O ^ s) hq =
+      C (s : ℚ) * (X + 1) := by sorry
+
+/-- Actual formal-series quotient for the embedded-prime regression, not an opaque ring. -/
+abbrev EmbeddedRing (k : Type*) [Field k] :=
+  MvPowerSeries (Fin 2) k ⧸ Ideal.span
+    {MvPowerSeries.X 0 * MvPowerSeries.X 1,
+      (MvPowerSeries.X 1 : MvPowerSeries (Fin 2) k) ^ 2}
+
+-- test: HilbertSamuelTest.polynomial_embedded
+example (k : Type*) [Field k] [IsNoetherianRing (EmbeddedRing k)]
+    [IsLocalRing (EmbeddedRing k)]
+    (hq : (IsLocalRing.maximalIdeal (EmbeddedRing k)).radical =
+      IsLocalRing.maximalIdeal (EmbeddedRing k)) :
+    polynomial (M := EmbeddedRing k) _ hq = X + C 2 ∧
+      function (M := EmbeddedRing k) (IsLocalRing.maximalIdeal (EmbeddedRing k)) 0 = 1 ∧
+      (polynomial (M := EmbeddedRing k) _ hq).eval 0 = 2 := by sorry
+
+-- test: HilbertSamuelTest.polynomial_zero
+example (A : Type*) [CommRing A] [IsNoetherianRing A] [IsLocalRing A]
+    (q : Ideal A) (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    polynomial (M := Fin 0 → A) q hq = 0 ∧
+      (polynomial (M := Fin 0 → A) q hq).degree = ⊥ := by sorry
+
+-- test: HilbertSamuelTest.multiplicity_field
+example (k : Type*) [Field k] (r : ℕ)
+    (hq : (⊥ : Ideal k).radical = IsLocalRing.maximalIdeal k) :
+    multiplicity (M := Fin r → k) (⊥ : Ideal k) hq = (r : ℚ) := by sorry
+
+-- test: HilbertSamuelTest.multiplicity_dvr_power
+example (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [IsNoetherianRing O] [IsLocalRing O] (s : ℕ) (hs : 0 < s)
+    (hq : (IsLocalRing.maximalIdeal O ^ s).radical = IsLocalRing.maximalIdeal O) :
+    multiplicity (M := O) (IsLocalRing.maximalIdeal O ^ s) hq = (s : ℚ) := by sorry
+
+-- test: HilbertSamuelTest.multiplicity_residue
+example (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [IsNoetherianRing O] [IsLocalRing O]
+    (hq : (IsLocalRing.maximalIdeal O).radical = IsLocalRing.maximalIdeal O) :
+    multiplicity (M := O ⧸ IsLocalRing.maximalIdeal O) _ hq = 1 := by sorry
+
+-- test: HilbertSamuelTest.multiplicity_embedded
+example (k : Type*) [Field k] [IsNoetherianRing (EmbeddedRing k)]
+    [IsLocalRing (EmbeddedRing k)]
+    (hq : (IsLocalRing.maximalIdeal (EmbeddedRing k)).radical =
+      IsLocalRing.maximalIdeal (EmbeddedRing k)) :
+    multiplicity (M := EmbeddedRing k) _ hq = 1 ∧
+      ¬ IsRegularLocalRing (EmbeddedRing k) := by sorry
+
+-- test: HilbertSamuelTest.inDegree_residue
+example (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [IsNoetherianRing O] [IsLocalRing O]
+    (hq : (IsLocalRing.maximalIdeal O).radical = IsLocalRing.maximalIdeal O) :
+    multiplicityInDegree (M := O ⧸ IsLocalRing.maximalIdeal O) _ hq 0 = 1 ∧
+      multiplicityInDegree (M := O ⧸ IsLocalRing.maximalIdeal O) _ hq 1 = 0 := by sorry
+
+-- test: HilbertSamuelTest.inDegree_mixed
+example (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [IsNoetherianRing O] [IsLocalRing O]
+    (hq : (IsLocalRing.maximalIdeal O).radical = IsLocalRing.maximalIdeal O) :
+    polynomial (M := O × (O ⧸ IsLocalRing.maximalIdeal O)) _ hq = X + C 2 ∧
+      multiplicity (M := O × (O ⧸ IsLocalRing.maximalIdeal O)) _ hq = 1 ∧
+      multiplicity (M := O) _ hq +
+        multiplicity (M := O ⧸ IsLocalRing.maximalIdeal O) _ hq = 2 ∧
+      multiplicityInDegree (M := O × (O ⧸ IsLocalRing.maximalIdeal O)) _ hq 1 =
+        multiplicityInDegree (M := O) _ hq 1 +
+          multiplicityInDegree (M := O ⧸ IsLocalRing.maximalIdeal O) _ hq 1 := by sorry
+
+-- test: HilbertSamuelTest.inDegree_zero
+example (A : Type*) [CommRing A] [IsNoetherianRing A] [IsLocalRing A]
+    (q : Ideal A) (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ) :
+    multiplicityInDegree (M := Fin 0 → A) q hq d = 0 := by sorry
+
+-- test: HilbertSamuelTest.inDegree_factorial
+example (k : Type*) [Field k]
+    [IsNoetherianRing (MvPowerSeries (Fin 2) k)]
+    [IsLocalRing (MvPowerSeries (Fin 2) k)]
+    (hq : (IsLocalRing.maximalIdeal (MvPowerSeries (Fin 2) k)).radical =
+      IsLocalRing.maximalIdeal (MvPowerSeries (Fin 2) k)) :
+    polynomial (M := MvPowerSeries (Fin 2) k) _ hq = (X + 1) * (X + 2) * C (1 / 2) ∧
+      multiplicityInDegree (M := MvPowerSeries (Fin 2) k) _ hq 2 = 1 := by sorry
+
+end HilbertSamuelTest
