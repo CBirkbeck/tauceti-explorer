@@ -32,7 +32,7 @@ packet entries and prototype ledgers. The complete file is checked using an
 existing pinned Mathlib build. The fifteen elementary proof bodies and nine
 proved examples belong to the historical revision cef4c2085eddbf723e9050f7d4924924d593a0e3.
 Current suggested bodies are admitted sketches under PROTOCOL section 13.
-The current exact-file receipt and separate kernel experiment are distinguished
+The current exact-file receipt and separate canonical splitting proof archive are distinguished
 in the handoff; their elaboration
 does not certify those proofs or provide geometric supplier types.
 See handoff/DESIGN-StableReductionPartII.md for hashes and precise boundaries.
@@ -296,6 +296,24 @@ theorem sectionEvaluationKernel (r : R₀) :
       (∀ z : A, sectionEval A γ δ s t (ι₀ z) = z) := by
   sorry
 
+-- StableReductionPartII:MC.2/coefficient-inclusion-action
+lemma coefficientHom_eq_algebraMap : ι₀ = algebraMap A R₀ := sorry
+
+-- StableReductionPartII:MC.2/section-evaluation-scalars
+lemma sectionEval_smul (a : A) (r : R₀) :
+    sectionEval A γ δ s t (a • r) = a * sectionEval A γ δ s t r := sorry
+
+-- StableReductionPartII:MC.2/section-evaluation-projection
+noncomputable def sectionProjection : R₀ →ₗ[A] J₀ := sorry
+
+lemma sectionProjection_coe (r : R₀) :
+    (sectionProjection A γ δ s t r : R₀) = r - ι₀ (sectionEval A γ δ s t r) := sorry
+
+lemma sectionProjection_ideal (j : J₀) : sectionProjection A γ δ s t (j : R₀) = j := sorry
+
+lemma sectionProjection_coefficient (z : A) : sectionProjection A γ δ s t (ι₀ z) = 0 := sorry
+
+
 -- StableReductionPartII:MC.2/section-evaluation-split
 noncomputable def sectionSplit : R₀ ≃ₗ[A] J₀ × A := sorry
 theorem sectionSplit_first (r : R₀) :
@@ -319,6 +337,23 @@ example (r : Ring (ZMod 1) 0 0 0 0) :
 example :
     let Φ := fun r : Ring ℚ 1 0 0 0 =>
       ((sectionSplit ℚ 1 0 0 0 r).1 : Ring ℚ 1 0 0 0)
+    ¬ ∀ r z : Ring ℚ 1 0 0 0, Φ (r * z) = r * Φ z := sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionProjectionIdeal
+example (j : J₀) : sectionProjection A γ δ s t (j : R₀) = j := sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionProjectionZeroBase
+example (r : Ring (ZMod 1) 0 0 0 0) : sectionProjection (ZMod 1) 0 0 0 0 r = 0 := sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionProjectionNonreduced
+example :
+    (sectionProjection (ZMod 4) 0 0 1 0
+      (AdjoinRoot.root (polynomial (ZMod 4) 0 0 1 0)) : Ring (ZMod 4) 0 0 1 0) =
+        AdjoinRoot.root (polynomial (ZMod 4) 0 0 1 0) - coefficientHom (ZMod 4) 0 0 1 0 1 := sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionProjectionNotRingLinear
+example :
+    let Φ := fun r : Ring ℚ 1 0 0 0 => (sectionProjection ℚ 1 0 0 0 r : Ring ℚ 1 0 0 0)
     ¬ ∀ r z : Ring ℚ 1 0 0 0, Φ (r * z) = r * Φ z := sorry
 
 -- StableReductionPartII:MC.2/section-ideal-cokernel
