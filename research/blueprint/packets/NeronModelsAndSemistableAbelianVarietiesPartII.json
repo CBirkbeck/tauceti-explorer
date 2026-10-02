@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 154 declarations. This continuation adds four proof-sized quadratic remainder/uniqueness adapters, supplies native proofs for the existing scalar residue map and exact conductor equality, and proves the inherited arbitrary-subring conductor API and quadratic relation checks. All 150 inherited IDs/statements, 78 routes and 21 source findings are retained. Generic polynomial machinery is imported from the pinned baseline. Global pinching, presentation/normalization, nodal/cohomological/field-extension interfaces and model completeness remain open; all implementation statuses stay unchecked.",
+  "summary": "Seven-stage partial design with158 declarations. This continuation adds four declaration-sized quadratic normal-form adapters, a polynomial spanning API, native generation/cusp proofs and three discriminating characteristic-two/degree-boundary tests. All154 inherited IDs/statements,78 routes,21 source findings,23 requests and29 planets are preserved. Generic polynomial machinery is imported from the pinned baseline; complete native basis/presentation/normalization and global geometric/cohomological/model interfaces remain open. No formalisation or closure claim; all statuses stay unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -741,6 +741,78 @@
         "provides": "theorem C_injective : Injective (C : R → R[X])",
         "checked": "codex-J6LwjP personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. Used in the compiled affine extraction; generic polynomial and subalgebra facts are imported, not new planned constructions.",
         "sha256": "6cf18c0562bd1ce27fe5a018e1a1a897e7ddaaa1b1f9dbd1d7ff72d50842284a"
+      },
+      {
+        "ref": "mathlib:Polynomial.induction_on",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Basic.lean",
+        "line": 923,
+        "provides": "Native induction through constants, addition and multiplication of monomials by X.",
+        "checked": "Codex codex-a71f92 personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. These generic facts are imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_comp",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Lemmas.lean",
+        "line": 379,
+        "provides": "Over a semiring with no zero divisors, natDegree(p.comp q)=natDegree(p)*natDegree(q).",
+        "checked": "Codex codex-a71f92 personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. These generic facts are imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Polynomial.comp_eq_zero_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Lemmas.lean",
+        "line": 421,
+        "provides": "Under Semiring and NoZeroDivisors, p.comp q=0 iff p=0 or p.eval(q.coeff0)=0 and q=C(q.coeff0).",
+        "checked": "Codex codex-a71f92 personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. These generic facts are imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_X_mul",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Operations.lean",
+        "line": 521,
+        "provides": "For a nontrivial semiring and p≠0, natDegree(X*p)=natDegree(p)+1.",
+        "checked": "Codex codex-a71f92 personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. These generic facts are imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_neg",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Defs.lean",
+        "line": 285,
+        "provides": "Over a ring, natDegree(-p)=natDegree(p).",
+        "checked": "Codex codex-a71f92 personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. These generic facts are imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Polynomial.aeval_subalgebra_coe",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/AlgebraMap.lean",
+        "line": 489,
+        "provides": "Evaluation at a native subalgebra element, coerced to the ambient algebra, equals ambient aeval.",
+        "checked": "Codex codex-a71f92 personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. These generic facts are imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Polynomial.comp_eq_aeval",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/AlgebraMap.lean",
+        "line": 316,
+        "provides": "Polynomial composition is native algebra evaluation in the polynomial algebra.",
+        "checked": "Codex codex-a71f92 personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. These generic facts are imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Algebra.subset_adjoin",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Lattice.lean",
+        "line": 516,
+        "provides": "The generating set is contained in its native algebraic adjoin.",
+        "checked": "Codex codex-a71f92 personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. These generic facts are imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Algebra.adjoin_le",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Lattice.lean",
+        "line": 550,
+        "provides": "If the generating set lies in a subalgebra S, its adjoin is contained in S.",
+        "checked": "Codex codex-a71f92 personally read the complete statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. These generic facts are imported, not replanned."
       }
     ]
   },
@@ -767,6 +839,12 @@
           "agent": "codex-J6LwjP",
           "date": "2026-10-02",
           "extent": "Fresh mathematical text of §3, printed pp9–11, including both conductor diagrams, complete displayed proofs of Propositions3.1–3.2 and the Proposition3.3 table. Polynomial adapters are explicitly derived library-based refinements; no fresh full-paper or full Ferrand reread is claimed.",
+          "sha256": "ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61"
+        },
+        {
+          "agent": "Codex — codex-a71f92",
+          "date": "2026-10-02",
+          "extent": "Fresh parsed mathematical text of §3, printed pp9–11, including conductor squares and displayed Proposition3.1–3.2 proofs. PDF screenshot attempts failed: no fresh visual diagram audit or whole-paper reading is claimed. Quadratic normal forms are derived coordinate adapters, not printed source lemmas.",
           "sha256": "ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61"
         }
       ]
@@ -1018,7 +1096,8 @@
       "edition": "Public tag-stable HTML retrieved2 October2026",
       "accessed": "2026-10-02",
       "readSections": [
-        "Codex codex-rtOQ9t read 37.67.1–9 including all displayed proofs; only1–5 used here."
+        "Codex codex-rtOQ9t read 37.67.1–9 including all displayed proofs; only1–5 used here.",
+        "Codex codex-a71f92 freshly read Situation37.67.1 and1–5 with complete displayed proofs; no new global theorem is asserted in this affine integration checkpoint."
       ]
     },
     {
@@ -7455,13 +7534,15 @@
       "hypotheses": [],
       "proofSteps": [
         "Take the preimage of the bottom subalgebra under AdjoinRoot.mkₐ. Algebra.mem_bot supplies an actual scalar witness; AdjoinRoot.mk_eq_mk identifies equality modulo q with divisibility by q. Rearranging the multiplicative witness proves mem_algebra for every q, including zero and units.",
-        "Use native Subalgebra, AdjoinRoot and the existing Ferrand ring pullback rather than introducing a new ring carrier."
+        "Use native Subalgebra, AdjoinRoot and the existing Ferrand ring pullback rather than introducing a new ring carrier.",
+        "The pinch_spanning API uses quadratic-normal-form-exists on h in f=c+qh, replacing its first coordinate by C(c)+tP. The added characteristic-two, inseparable and degree-one tests check these actual polynomial functions."
       ],
       "prerequisites": [
         "mathlib:Subalgebra.comap",
         "mathlib:AdjoinRoot.mkₐ",
         "mathlib:AdjoinRoot.mk_eq_mk",
-        "mathlib:Algebra.mem_bot"
+        "mathlib:Algebra.mem_bot",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-exists"
       ],
       "sources": [
         {
@@ -7494,6 +7575,11 @@
           "name": "QuadraticPinch.generation",
           "role": "characterisation",
           "statement": "For q=t²+at+b, A_q=k[q,tq]; this is promoted to quadratic-pinch-generation below."
+        },
+        {
+          "name": "QuadraticPinch.pinch_spanning",
+          "role": "characterisation",
+          "statement": "For q=t²+at+b and f∈A_q, there exist P,Q∈k[t] with f=P(q)+tqQ(q). This is actual polynomial spanning, not an asserted Basis instance."
         }
       ],
       "tests": [
@@ -7511,6 +7597,21 @@
           "name": "QuadraticPinch.test_f4",
           "kind": "non-example",
           "statement": "Over F₂, t∉A_(t²+t+1) although q and tq belong. The pinch is not all of k[t]."
+        },
+        {
+          "name": "QuadraticPinch.test_normal_form_char2",
+          "kind": "compatibility",
+          "statement": "Over F₂, every h∈F₂[t] has h=P(t²+t+1)+tQ(t²+t+1), with no separability restriction on the general existence result."
+        },
+        {
+          "name": "QuadraticPinch.test_normal_form_inseparable",
+          "kind": "degenerate",
+          "statement": "Over F₂, (P,Q)↦P(t²)+t³Q(t²) is injective, despite the inseparability of t²."
+        },
+        {
+          "name": "QuadraticPinch.test_linear_not_injective",
+          "kind": "non-example",
+          "statement": "Over any field, (P,Q)↦P(t)+tQ(t) is not injective: (t,0) and (0,1) have the same image."
         }
       ],
       "uses": [
@@ -7701,12 +7802,19 @@
       "statement": "For q=t²+at+b over any field, A_q=k[q,tq]. As a k-vector space it has basis 1,q^i (i≥1),tq^j (j≥1). These have degrees0,2i,2j+1 respectively, so no degree1 vector occurs.",
       "hypotheses": [],
       "proofSteps": [
-        "Write f=c+qh using the defining preimage criterion.",
-        "Use t²q=q²−a tq−bq to inductively express each t^n q in q and tq.",
-        "For linear independence compare distinct leading degrees of the displayed monic polynomials; for spanning reduce powers of tq using the relation."
+        "Write f=c+qh by the native membership criterion and decompose h=P(q)+tQ(q) using quadratic-normal-form-exists.",
+        "In S=k[q,tq], native aeval into the subalgebra, aeval_subalgebra_coe and comp_eq_aeval show every P(q) and Q(q) belongs. Thus f=c+qP(q)+(tq)Q(q) lies in S. Conversely q and tq are in A_q, so adjoin_le proves S⊆A_q. This adjoin equality now has a native proof.",
+        "The spanning API rewrites f as P′(q)+tqQ(q). Expand P′ and Q into native polynomial coefficient sums to obtain the displayed vector-space spanning family. Pinch normal-form injectivity makes its coefficients unique.",
+        "Each q^i is monic of degree2i and tq^j is monic of degree2j+1; with1 their degrees are distinct, and degree1 is absent. The native Basis object, coefficient representation and this full degree-family interface remain explicitly omitted; the suggested generation signature certifies the adjoin equality only."
       ],
       "prerequisites": [
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-exists",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normal-form-injective",
+        "mathlib:Polynomial.aeval_subalgebra_coe",
+        "mathlib:Polynomial.comp_eq_aeval",
+        "mathlib:Algebra.subset_adjoin",
+        "mathlib:Algebra.adjoin_le"
       ],
       "sources": [
         {
@@ -7737,14 +7845,16 @@
       "hypotheses": [],
       "proofSteps": [
         "Generation identifies the image.",
-        "Since F is monic of V-degree2, divide any polynomial by F in k[U][V], leaving P(U)+VQ(U).",
-        "Under ψ this remainder becomes P(q)+tq Q(q); its nonzero monomials have distinct even/odd leading degrees. Vanishing therefore forces both P and Q to vanish.",
-        "Use the native first-isomorphism theorem with the identified kernel; do not infer injectivity merely from checking F maps to zero."
+        "Since F is monic of V-degree2, divide any polynomial by F in k[U][V], leaving P(U)+VQ(U). The registered quadratic-pinch-normal-form-injective supplies uniqueness of that actual polynomial remainder.",
+        "Under ψ this remainder becomes P(q)+tq Q(q); its nonzero monomials have distinct even/odd leading degrees. Vanishing therefore forces both P and Q to vanish. The registered quadratic-pinch-normal-form-injective supplies uniqueness of that actual polynomial remainder.",
+        "Use the native first-isomorphism theorem with the identified kernel; do not infer injectivity merely from checking F maps to zero.",
+        "The complete native kernel proof still requires explicit bivariate-to-univariate transport, monic division in V and first-isomorphism compatibility; no image/range equality or complete kernel theorem is certified by the new helper alone."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-relation",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normal-form-injective"
       ],
       "sources": [
         {
@@ -8270,6 +8380,149 @@
           "how": "A conductor element f=c+qh has f*t in A_q, forcing the surviving linear coefficient c to vanish."
         }
       ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-exists",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Polynomial normal forms over a quadratic",
+      "kind": "lemma",
+      "statement": "For every field k, a,b∈k and h∈k[t], put q=t²+at+b. There exist P,Q∈k[t] with h=P(q)+tQ(q). No separability, irreducibility or characteristic restriction is imposed.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the native Polynomial.induction_on: constants have the pair (C(c),0), and addition adds the two pairs.",
+        "For multiplication by t, send (P,Q) to ((t−b)Q,P−aQ). Substitution and t²=q−at−b verify the identity in k[t].",
+        "This is a specialized coordinate decomposition of existing Polynomial, not a replacement polynomial, quotient or power-basis carrier."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.induction_on"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed pp9–11, conductor squares and Proposition3.2",
+          "match": "Derived coordinate adapters for the already owned quadratic affine pinch. These polynomial normal-form lemmas are not presented as printed statements of Schröer."
+        }
+      ],
+      "acceptance": [
+        "The pair update remains valid for q=t² and for q=t²+t+1 over F₂."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.exists_normal_form"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-degrees",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Even and odd degrees of quadratic normal forms",
+      "kind": "lemma",
+      "statement": "For a field k and q,P,Q∈k[t] with natDegree(q)=2 and Q≠0, natDegree(P(q))=2 natDegree(P) and natDegree(tQ(q))=2 natDegree(Q)+1. The first equality includes P=0, where native natDegree(0)=0.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Polynomial.comp_eq_zero_iff and natDegree(q)=2 imply Q(q)≠0: the exceptional constant-composition case contradicts natDegree(C(c))=0.",
+        "Apply Polynomial.natDegree_comp and Polynomial.natDegree_X_mul; rewrite natDegree(q)=2. Keep Q≠0, since natDegree(t·0)=0 is not1."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.comp_eq_zero_iff",
+        "mathlib:Polynomial.natDegree_comp",
+        "mathlib:Polynomial.natDegree_X_mul"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed pp9–11, conductor squares and Proposition3.2",
+          "match": "Derived coordinate adapters for the already owned quadratic affine pinch. These polynomial normal-form lemmas are not presented as printed statements of Schröer."
+        }
+      ],
+      "acceptance": [
+        "The odd-degree assertion excludes Q=0 explicitly; q may be inseparable in characteristic2."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.normal_form_degrees"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-injective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Uniqueness of quadratic polynomial normal forms",
+      "kind": "lemma",
+      "statement": "For a field k and q∈k[t] with natDegree(q)=2, the actual function (P,Q)↦P(q)+tQ(q) from k[t]×k[t] to k[t] is injective.",
+      "hypotheses": [],
+      "proofSteps": [
+        "First prove the zero-form criterion. If P(q)+tQ(q)=0 with Q≠0, P(q)=−tQ(q). Its two native natural degrees have opposite parity by quadratic-normal-form-degrees and natDegree_neg, a contradiction.",
+        "Hence Q=0. Polynomial.comp_eq_zero_iff gives P=0, because q cannot be constant.",
+        "Apply the zero criterion to the componentwise difference of two polynomial pairs, using the native composition/subtraction identities. Recover equality of both components and Prod.ext."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-degrees",
+        "mathlib:Polynomial.comp_eq_zero_iff",
+        "mathlib:Polynomial.natDegree_neg"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed pp9–11, conductor squares and Proposition3.2",
+          "match": "Derived coordinate adapters for the already owned quadratic affine pinch. These polynomial normal-form lemmas are not presented as printed statements of Schröer."
+        }
+      ],
+      "acceptance": [
+        "For q=t, the pairs (t,0) and (0,1) have the same image; the degree-two hypothesis cannot be omitted."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.normal_form_injective"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normal-form-injective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Uniqueness of affine pinching coordinates",
+      "kind": "lemma",
+      "statement": "For a field k and q∈k[t] with natDegree(q)=2, the actual function (P,Q)↦P(q)+tqQ(q) from k[t]×k[t] to k[t] is injective.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Rewrite the pinch form as P(q)+t(tQ)(q). Apply quadratic-normal-form-injective to the pairs (P,tQ).",
+        "Equality of their first components gives equality of P. Cancel the native nonzero polynomial t from the second components to obtain equality of Q.",
+        "This is the zero-remainder certificate for the existing presentation argument, not yet a proof that every bivariate polynomial admits the required remainder modulo the relation."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-injective"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed pp9–11, conductor squares and Proposition3.2",
+          "match": "Derived coordinate adapters for the already owned quadratic affine pinch. These polynomial normal-form lemmas are not presented as printed statements of Schröer."
+        }
+      ],
+      "acceptance": [
+        "The injection holds for q=t² over F₂, so repeated roots do not invalidate this affine argument."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.pinch_normal_form_injective"
     }
   ],
   "requests": [
@@ -8637,7 +8890,7 @@
         "Suggested signatures for unbuilt geometric conditions",
         "Replace unresolved supplier stage requests by exact verified exports.",
         "Pointed genus-one scheme to binary-equation classification adapter; finite coefficient, count and cyclic-group calculations have explicit source-decomposed witnesses.",
-        "Quadratic pinching now includes four native remainder/uniqueness adapters and native residue/conductor proofs. Generation, complete presentation kernel, finite normalization and global P¹/nodal/cohomology/extension-count interfaces remain unfinished. The full suggested file is uncompiled; only the exact Mathlib-only affine extraction is checked."
+        "Quadratic pinching has native normal-form existence, even/odd degree separation, two uniqueness lemmas, actual polynomial spanning and the adjoin generation equality. Its full native Basis interface, complete presentation kernel, finite normalization and global P¹/nodal/cohomology/extension-count interfaces remain unfinished. The full suggested file is uncompiled; only the exact Mathlib-only affine extraction is checked."
       ]
     },
     {
@@ -8844,7 +9097,7 @@
     },
     {
       "id": "quadratic-pinching-native-exports",
-      "detail": "The actual arbitrary-subring conductor API, quotient-preimage membership, quadratic relation, four new remainder/uniqueness adapters, residue-map laws/kernel and ambient quadratic conductor equality now have native proofs in a compiled Mathlib-only extraction. The full file imports Tau Ceti modules without available built artifacts and is not compiled. Generation, complete presentation kernel, finite normalization and its fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension point-count signatures remain open exactly as named in the final native ledger. No full surface/model certificate or roadmap closure is claimed.",
+      "detail": "The existing affine residue and conductor proofs are retained. Four native quadratic normal-form helpers now support an actual polynomial spanning API and a native proof of A_q=k[q,tq], including the cusp equality. The generation node's full vector-space Basis/degree-family interface remains omitted, and the full bivariate presentation kernel remains admitted. Finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open as named in the native ledger. The full Tau Ceti-importing file is not compiled; only its exact Mathlib-only affine extraction is checked. All implementation statuses remain unchecked.",
       "title": "Exact native quadratic-pinching owner interfaces"
     }
   ],
@@ -11065,6 +11318,53 @@
       "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "sha256": "5343882be47490c292c9da2f623221d3d0ea16e0ff252f0f944b4dffb07be5c3",
       "boundary": "Unnamed prime-field instance personally read; its actual module is explicitly imported. No guessed declaration name is registered in the baseline index."
+    }
+  },
+  "quadraticNormalFormContinuation": {
+    "agent": "Codex — codex-a71f92",
+    "date": "2026-10-02",
+    "claimComment": 5957071769,
+    "botConfirmation": 5957074220,
+    "readBase": "d0ee3b9e6c08178c5731865831db82b409306dbb",
+    "addedNodes": [
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-exists",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-degrees",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normal-form-injective",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normal-form-injective"
+    ],
+    "preservedStatements": 154,
+    "unchangedNodeObjects": 151,
+    "sourceBoundary": "Fresh selected source reading only; historical receipts and all21 source findings retain attribution.",
+    "remaining": "Full native Basis and coefficient interface; bivariate division/range/kernel/quotient comparison; finite normalization and global geometric/cohomological/extension-count integration; all17 gap groups remain.",
+    "fullFileCompiled": false,
+    "elaboration": {
+      "exit": 0,
+      "seconds": 2.19,
+      "errors": 0,
+      "examples": 20,
+      "warnings": 6,
+      "admittedWarnings": 6,
+      "otherWarnings": 0,
+      "availableGB": 71,
+      "fullFileCompiled": false,
+      "scope": "Exact Mathlib-only imports; native Subring namespace plus final QuadraticPinch namespace through finite_normalization, before proper_point_pushout. No Tau Ceti modules, geometric replacement carriers or other sections certified.",
+      "suggestedSha256": "6dce27f48b79cf0fa8fabc69a65aaf76ebb1d97e94ff537504509434da61d274",
+      "extractionSha256": "d571654115830d41149a0c64de7d40ec45b7287113bc4af7397e1d33d802face",
+      "logSha256": "0a4f3a6420875c2fb54633cc0964905afc9063ef60fe3f1ef863f69372073712"
+    },
+    "axiomAudit": {
+      "exit": 0,
+      "seconds": 2.24,
+      "declarations": [
+        "TauCeti.GenusOne.QuadraticPinch.exists_normal_form",
+        "TauCeti.GenusOne.QuadraticPinch.normal_form_degrees",
+        "TauCeti.GenusOne.QuadraticPinch.normal_form_injective",
+        "TauCeti.GenusOne.QuadraticPinch.pinch_normal_form_injective",
+        "TauCeti.GenusOne.QuadraticPinch.pinch_spanning",
+        "TauCeti.GenusOne.QuadraticPinch.generation"
+      ],
+      "noAdmittedAxioms": true,
+      "logSha256": "ebaa01f4877eb25f03fe31d3db34a7b9202da4fe23d043588e4bfd62f495e3a6"
     }
   }
 }
