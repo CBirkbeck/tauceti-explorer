@@ -119,9 +119,13 @@ R5 needs R0, R3, AdicEtaleGeometry A1 and PerfectoidSpaces P1–P3. F1 needs R0�
   ambient class, perfectoid × smooth products and the coefficient algebras and sheaves on them.
 - **PadicDifferentialEquationsAndRigidCohomology owns** frames, tubes of frames, `j†`, Robba rings,
   Frobenius structures and rigid cohomology (RD.0–RD.6); **AutomorphicGaloisRepresentationsPartII
-  AG2.4** forms the ordinary-locus cohomology used by HLTT from F1's complexes, identifies it with rigid cohomology
-  through RD.4's Grosse-Klönne comparison (HLTT Lemma 6.8, for the dagger tube of the special fibre), and imports
-  finiteness from RD.5 and Frobenius weights from RD.6 (RT-AREA-padic-2/32). F1 supplies the dagger carrier:
+  AG2.4** forms the ordinary-locus boundary cohomology used by HLTT from F1's complexes. RD.4's
+  Grosse-Klönne comparison (HLTT Lemma 6.8) identifies ordinary de Rham cohomology of the dagger tube
+  of each smooth quasi-projective special-fibre stratum with its rigid cohomology. AG2.4 constructs
+  the boundary-stratum spectral sequence of HLTT Lemma 6.21: these rigid groups form its E₁ page,
+  and cuspidal boundary-support cohomology is its abutment. It passes RD.5 finiteness and RD.6
+  Frobenius weights through that spectral sequence (Corollaries 6.22 and 6.24). General logarithmic
+  or compact-support comparison variants require separate proofs (RT-AREA-padic-2/32). F1 supplies the dagger carrier:
   dagger algebras, weak completions, dagger spaces, affinoid strict neighbourhoods and the de Rham
   complexes; it does not infer a rigid/de Rham comparison from an equality of point sets.
 - **ClassicalAdicEtaleCohomology H1** owns the specialisation morphism of étale sites and the
@@ -9130,12 +9134,18 @@ PadicDifferentialEquationsAndRigidCohomology RD.0 owns Frobenius lifts on dagger
 invariance, and Robba rings; RD.3 owns frames, tubes, strict neighbourhoods of tubes in frames (Berthelot's
 notion, different from the one here) and `j†`; RD.4 owns rigid cohomology, Monsky–Washnitzer cohomology of
 `(σ,∇)`-modules, the de Rham trace for finite locally free maps of MW-type algebras, and the comparison of
-dagger de Rham cohomology of the partially proper space attached to `]Ȳ[` with rigid cohomology
-(Grosse-Klönne's Theorem 5.1, whose proof runs through `j†`). The coherence theorem for proper direct images of
+ordinary dagger de Rham cohomology of the open dagger tube `]Y[` inside the partially proper dagger
+space attached to `]Ȳ[` with `H^q_rig(Y/K)`, under the smoothness hypotheses of Grosse-Klönne's
+Theorem 5.1(c), whose proof runs through `j†`. The coherence theorem for proper direct images of
 dagger spaces (Grosse-Klönne 3.5) is proved through `j†` as well and is placed with RD.4. AG2.4 owns the
-Shimura-variety-specific boundary and slope comparisons, among them the boundary-stratum adapter of HLTT
-Lemma 6.21; it imports the Grosse-Klönne comparison from RD.4, finiteness from RD.5 and the Weil-number
-property of Frobenius eigenvalues from RD.6 (RT-AREA-padic-2/32). Rigid spaces are those of
+Shimura-variety-specific boundary and slope comparisons, among them the boundary-stratum spectral sequence
+of HLTT Lemma 6.21, with `E₁^{i,j} = H^i_rig(∂^(j)Y/K)` and cuspidal boundary-support cohomology
+in total degree `i+j` as abutment. It imports the ordinary comparison on each smooth quasi-projective
+stratum from RD.4 (HLTT Lemma 6.8), finiteness from RD.5 and Frobenius weights from RD.6, and passes
+these inputs through that spectral sequence (HLTT Corollaries 6.22 and 6.24). An identification of
+the whole boundary abutment with an ordinary rigid cohomology group is not supplied by Lemma 6.8;
+generic logarithmic/compact-support comparison adapters remain separate proof obligations
+(RT-AREA-padic-2/32). Rigid spaces are those of
 AdicSpacesPartII:R1/rigid-analytic-space; smooth pairs of adic spaces are AdicSpacesPartII:R4/smooth-pair;
 coherent sheaves, continuous differentials and smooth morphisms of adic spaces are R3 and R0 objects.
 
@@ -10171,6 +10181,14 @@ Let X be a smooth K-dagger space (K is a field complete for a nontrivial nonarch
 
 *Depends on.* F1: `dagger-differentials`, `dagger-smooth-space`, `dagger-coherent-module`, `dagger-coherent-theorem-b`, `dagger-to-rigid-functor`, `dagger-space`; external: `mathlib:ExteriorAlgebra.exteriorPower`, `mathlib:CochainComplex`.
 
+*Uses (synchronized with the reviewed packet).*
+
+- **PadicDifferentialEquationsAndRigidCohomology RD.4/overconvergent-de-rham-complex, RD.4/monsky-washnitzer-cohomology**: de Rham complexes of coherent modules with integrable connection on dagger spaces and strict neighbourhoods; MW cohomology of (σ,∇)-modules
+- **PadicDifferentialEquationsAndRigidCohomology RD.0/frobenius-lifts-induce-homotopic-maps**: the overconvergent de Rham complex Ω^•_{S†} ⊗ K and the decomposition for S†⟨T⟩†
+- **AutomorphicGaloisRepresentationsPartII AG2.4**: F1 supplies the overconvergent de Rham and logarithmic boundary complexes. RD.4 supplies the ordinary dagger-tube/rigid comparison for each smooth quasi-projective boundary stratum (HLTT Lemma 6.8, with its functoriality). AG2.4 separately constructs the boundary-stratum spectral sequence of HLTT Lemma 6.21, with these rigid groups on E₁ and cuspidal boundary-support cohomology as abutment; it does not identify that whole abutment directly with ordinary rigid cohomology by Lemma 6.8. It imports RD.5 finiteness and RD.6 weights on the strata and passes them through the spectral sequence, as in Corollaries 6.22 and 6.24. Generic log/compact-support comparison adapters need separate proofs.
+- **ColemanIntegration L1/good-reduction-datum-exists**: H^1_dR+(Y) = Ω+(Y)/dA+(Y)
+- **PadicDifferentialEquationsAndRigidCohomology RD.4/grosse-kloenne-dagger-comparison (planned by RT-AREA-padic-2/32)**: the de Rham complex whose cohomology the comparison identifies with H^i_rig of the special fibre, functorially and compatibly with Frobenius
+
 *Sources.* GK dagger §4, 4.1, printed p. 19; GK dagger §4, 4.8, printed p. 21; GK finiteness Introduction, printed p. 1; Vezzani Introduction; Kedlaya counting §2, p. 3.
 
 ##### Lemma: De Rham cohomology of dagger polyannuli and the relative Poincaré lemma (`F1/dagger-polyannulus-de-rham-cohomology`)
@@ -10520,6 +10538,12 @@ Let (X, D) be a smooth K-dagger space with a strict normal crossings divisor and
 
 *Depends on.* F1: `log-de-rham-complex`, `dagger-snc-divisor`, `dagger-de-rham-complex`, `dagger-coherent-module`.
 
+*Uses (synchronized with the reviewed packet).*
+
+- **AutomorphicGaloisRepresentationsPartII AG2.4**: F1 supplies the overconvergent de Rham and logarithmic boundary complexes. RD.4 supplies the ordinary dagger-tube/rigid comparison for each smooth quasi-projective boundary stratum (HLTT Lemma 6.8, with its functoriality). AG2.4 separately constructs the boundary-stratum spectral sequence of HLTT Lemma 6.21, with these rigid groups on E₁ and cuspidal boundary-support cohomology as abutment; it does not identify that whole abutment directly with ordinary rigid cohomology by Lemma 6.8. It imports RD.5 finiteness and RD.6 weights on the strata and passes them through the spectral sequence, as in Corollaries 6.22 and 6.24. Generic log/compact-support comparison adapters need separate proofs.
+- **PadicDifferentialEquationsAndRigidCohomology RD.4 request**: compact-support variants of de Rham complexes on dagger spaces
+- **F1/compact-support-localisation-maps**: localisation sequences along boundary components
+
 *Sources.* Stacks Tag 0FMU, proof of Lemma 50.15.2; Stacks Tag 0FMU, Lemma 50.15.2; GK dagger §5, 5.2, printed p. 24.
 
 ##### Lemma: Localisation sequences for boundary-vanishing log de Rham complexes and for compactly supported cohomology (`F1/compact-support-localisation-maps`)
@@ -10590,15 +10614,26 @@ Let (X, D) be a smooth K-dagger space with a strict normal crossings divisor, D 
   of MW-type over `K`.
 - The compact-support log complex of `(P^1, {0, ∞})` has cohomology `0, K, K`, and the localisation sequence
   along `{0}` relates it to the affine line.
+- Its degree-zero cohomology is therefore different from ordinary cohomology of the complement,
+  which contains constants. Restriction of the complex to the complement does not identify its
+  global boundary-supported hypercohomology with ordinary rigid cohomology.
 - The fringe algebras of `W_1` depend on the presentation, while the ind-system of fringe stages and the fringe
   topology do not.
 
 #### Placement notes
 
-Grosse-Klönne's Theorem 3.5 (coherence of proper direct images) and Theorem 5.1 (de Rham cohomology of the
-dagger space of `]Y[` is rigid cohomology) use Berthelot's `j†` and belong with
+Grosse-Klönne's Theorem 3.5 (coherence of proper direct images) and Theorem 5.1(c) (ordinary de Rham
+cohomology of the dagger tube `]Y[` is rigid cohomology when the formal ambient space is smooth along
+`Y`) use Berthelot's `j†` and belong with
 PadicDifferentialEquationsAndRigidCohomology RD.4. Monsky–Washnitzer finiteness (Berthelot, Mebkhout), used in
 F1/dagger-semistable-tube-finiteness, is owned by that roadmap's RD.5.
+
+HLTT Lemma 6.21 uses this ordinary comparison on boundary strata to construct a spectral sequence;
+it does not identify its boundary-support abutment with one ordinary rigid cohomology group.
+Grosse-Klönne Remark 5.2 sketches compact-support variants and does not replace their proof.
+The specific AG2.4 construction remains with #686, and the comparison and its qualifications with
+#964. This synchronization follows `REV-FIX-RT-AREA-padic-2~2`; it preserves the existing scoped
+acceptance, review history, and unrelated gaps without certifying the whole packet again.
 
 ## Declaration index
 
