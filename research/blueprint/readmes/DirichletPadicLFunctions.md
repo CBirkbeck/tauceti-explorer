@@ -55973,3 +55973,297 @@ Exact controls at48positive moduli check 48 cofinal_divisibility, 1176 factorial
 The only two changed guarded inputs are the source-issue registry and generated errata register. Their complete diff adds PAPER-GAN-SAVIN-23-B/E16 and E17, both awaiting review, on exceptional local Langlands and Fell-topology statements in Gan–Savin2023. The awaiting-review count changes1775to1777; all other records are unchanged. These sources and claims are outside the present roadmap dependencies, and none is adopted or independently reviewed here. The other77 guarded inputs, all four predecessor outputs, complete issue text, original winning claim and unclaimed review390 remain unchanged.
 
 The separate partial signature file also compiled with zero errors and 5,563 expected placeholder warnings across 3,663 pinned source modules. It includes all 14 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c016dea0cb94a7a61a97fd174b249eaeeffa6f2dbf5821eee5a99cf7d241830b.
+
+
+## Global degree-one Cartan values and the actual ordinary quotient map
+
+Ten L3 nodes construct global degree-one Cartan values in the actual module limit, prove all-level independence and the full ordinary root law, and construct the actual universal quotient map with finite-level evaluation and uniqueness. All1,850predecessor nodes and1,195baseline records remain whole.
+
+Published187–189 requires consistency in the actual injective limit before the ordinary relation and quotient map. The actual additive order supplies a canonical positive level and divides any other containing level; native AddCircle.addOrderOf_coe_rat proves positivity through quotient induction. AddCircle/Defs495–680 was read, including the rational-order statement and surrounding hypotheses. The existing finite inverse-coefficient values, full-root relation, actual Cartan module limit and universal ordinary quotient are reused. The root-law proof transports the actual entire fiber along N/M=m without restricting to primitive roots or choosing an average.
+
+### Every rational-circle point has positive additive order
+
+`DirichletPadicLFunctions:L3/kubert-global-cartan-circle-order-pos` — `DirichletPadic.kubertCircle_order_pos`
+
+Every actual a in AddCircle(1:Q) has positive additive order. In particular the zero point has order1, so it also has a valid positive canonical level.
+
+**Hypotheses:** The points are actual elements of the rational circle AddCircle(1:Q). The Cartan degree is one, R is any ring, and the target is the actual native Cartan module direct limit L_1(R) of the original full-lift norms, with its proved faithful all-level maps I_N. The scalar function phi:Q/Z→R is arbitrary for the global point value and level-consistency statements. The ordinary root-law statement for a positive multiplier m assumes explicitly that the sum of phi over every actual ambient m-root fiber equals phi of its center, for every enumeration of that finite fiber. No condition phi(0)=0 is imposed. For quotient factorization S is any specified set of positive integers, including the set of all positive integers. Use the existing subgroup of ordinary relations in FreeAbelianGroup(Q/Z), with weight zero, actual full ambient root fibers and finite enumerations. Require the scalar ordinary law for exactly the multipliers in S. These fibers are actually finite by the established circle-fiber theorem; the displayed instances choose their enumerations. The canonical finite level of a circle point a is its positive additive order. Native quotient induction and the denominator formula prove its positivity; that order divides every modulus killing a. The finite Cartan value retains its established inverse-unit coefficient convention. General-degree primitive coordinates, lower rank and internal/global equality are not assumed.
+
+**Proof:**
+
+1. Apply native quotient induction to an actual rational representative q.
+2. The native rational-circle order formula at period1 identifies the order of the class of q with its positive reduced denominator.
+3. Use positivity of that native rational denominator.
+
+**Prerequisites:** `mathlib:AddCircle.addOrderOf_coe_rat`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanValueTests.circle_order_pos_typed_api` (compatibility): Every actual a in AddCircle(1:Q) has positive additive order. In particular the zero point has order1, so it also has a valid positive canonical level.
+
+**Acceptance:** At point1/5 the scalar indicator of3/5 gives the actual level5 unit2 basis class, not the unit3 class obtained by a mistaken forward coefficient convention. The zero-point indicator in characteristic2 gives a nonzero global value at0 and zero at1/3. At center1/2 the three roots1/6,1/2,5/6 all participate, including the imprimitive middle root. Constant1 fails the two-root scalar ordinary law.
+
+**Source:** Published187, ordinary distributions valued in the Cartan injective limit;188 equations(2.9)–(2.11), consistency and the ordinary root law;189 first paragraph, completion of the root-fiber argument. This checkpoint specializes to degree one. Passes the previously constructed actual degree-one finite Cartan values into the actual module limit, proves independence of every containing finite level, proves the ordinary law for every positive multiplier and factors the resulting function through the existing universal ordinary-distribution quotient. No general-degree primitive basis or lower-rank conclusion is inferred.
+
+### The actual global degree-one Cartan value
+
+`DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-global-value` — `DirichletPadic.kubertCartanGlobalValue`
+
+For every actual rational-circle point a, construct an R-linear map V(a):(Q/Z→R)→L_1(R). Let M be the positive additive order of a, regard a as the actual point x in the kernel of multiplication by M, evaluate the existing finite Cartan value V_M(x), and apply the original limit map I_M. Thus V(a)(phi)=I_M(V_M(x)(phi)).
+
+**Hypotheses:** The points are actual elements of the rational circle AddCircle(1:Q). The Cartan degree is one, R is any ring, and the target is the actual native Cartan module direct limit L_1(R) of the original full-lift norms, with its proved faithful all-level maps I_N. The scalar function phi:Q/Z→R is arbitrary for the global point value and level-consistency statements. The ordinary root-law statement for a positive multiplier m assumes explicitly that the sum of phi over every actual ambient m-root fiber equals phi of its center, for every enumeration of that finite fiber. No condition phi(0)=0 is imposed. For quotient factorization S is any specified set of positive integers, including the set of all positive integers. Use the existing subgroup of ordinary relations in FreeAbelianGroup(Q/Z), with weight zero, actual full ambient root fibers and finite enumerations. Require the scalar ordinary law for exactly the multipliers in S. These fibers are actually finite by the established circle-fiber theorem; the displayed instances choose their enumerations. The canonical finite level of a circle point a is its positive additive order. Native quotient induction and the denominator formula prove its positivity; that order divides every modulus killing a. The finite Cartan value retains its established inverse-unit coefficient convention. General-degree primitive coordinates, lower rank and internal/global equality are not assumed.
+
+**Proof:**
+
+1. The positive-order lemma makes M an actual positive modulus.
+2. Native addOrderOf_nsmul_eq_zero puts the same point a in the actual level-M kernel.
+3. Compose the existing linear finite-value map with the actual all-level injection I_M. No choice of a rational representative occurs in the construction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-cartan-circle-order-pos`, `DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value`, `DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of`, `mathlib:pow_orderOf_eq_one`.
+
+**Uses:**
+
+- Kubert188, equations2.9–2.10: Makes the source finite Cartan value into an actual function with values in the original injective limit, independently of the containing modulus and preserving inverse coefficients.
+- Kubert187–189, map from the universal ordinary distribution to the Cartan limit: Supplies the actual homomorphism from the source universal quotient using the proved all-root ordinary relation. Subsequent lower-rank arguments can use its exact finite-level evaluation without assuming its injectivity.
+
+**API:**
+
+- `kubertCartanGlobalValue_level` (compatibility): For positive N and any actual level-N circle point x, V(x)(phi)=I_N(V_N(x)(phi)) for every scalar phi. The global value is therefore independent of the containing finite level, including levels at which x is imprimitive.
+- `kubertCartanGlobalValue_zero` (compatibility): For every scalar phi, V(0)(phi)=I_1(single(1,phi(0))). In particular ordinary-distribution construction does not force this value to vanish.
+- `kubertCartanGlobalValue_root_sum` (compatibility): For every positive multiplier m, actual circle point a and scalar phi satisfying the explicit ordinary m-root law at every center, the sum of V(y)(phi) over the entire actual ambient m-root fiber of a equals V(a)(phi). This includes zero and imprimitive roots and any enumeration of the actual finite fiber.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanValueTests.zero_scalar_global_value` (degenerate): The zero scalar function gives zero at every actual circle point.
+- `SuggestedKubertGlobalCartanValueTests.global_value_keeps_inverse_coefficient` (computation): At circle point1/3, the integer indicator of2/3 gives the image of the original level3 basis element at residue2. It is distinct from the level3 identity basis class.
+- `SuggestedKubertGlobalCartanValueTests.global_inverse_differs_from_forward_action` (non-example): At circle point1/5, the integer indicator of3/5 gives the level5 basis class at residue2, not residue3; replacing inverse Cartan coefficients by forward coefficients fails.
+- `SuggestedKubertGlobalCartanValueTests.global_zero_is_not_normalized_away` (non-example): The zero-point indicator over ZMod2 gives a nonzero global value at0, equal to the embedded level1 identity basis element. Ordinary distribution does not mean vanishing at zero.
+- `SuggestedKubertGlobalCartanValueTests.global_value_agrees_at_distinct_levels` (compatibility): Representing point1/3 at levels3 and6 gives equal global classes via the original finite Cartan values.
+
+**Acceptance:** At point1/5 the scalar indicator of3/5 gives the actual level5 unit2 basis class, not the unit3 class obtained by a mistaken forward coefficient convention. The zero-point indicator in characteristic2 gives a nonzero global value at0 and zero at1/3. At center1/2 the three roots1/6,1/2,5/6 all participate, including the imprimitive middle root. Constant1 fails the two-root scalar ordinary law.
+
+**Source:** Published187, ordinary distributions valued in the Cartan injective limit;188 equations(2.9)–(2.11), consistency and the ordinary root law;189 first paragraph, completion of the root-fiber argument. This checkpoint specializes to degree one. Passes the previously constructed actual degree-one finite Cartan values into the actual module limit, proves independence of every containing finite level, proves the ordinary law for every positive multiplier and factors the resulting function through the existing universal ordinary-distribution quotient. No general-degree primitive basis or lower-rank conclusion is inferred.
+
+### Every containing finite level computes the same global value
+
+`DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-global-value-level` — `DirichletPadic.kubertCartanGlobalValue_level`
+
+For positive N and any actual level-N circle point x, V(x)(phi)=I_N(V_N(x)(phi)) for every scalar phi. The global value is therefore independent of the containing finite level, including levels at which x is imprimitive.
+
+**Hypotheses:** The points are actual elements of the rational circle AddCircle(1:Q). The Cartan degree is one, R is any ring, and the target is the actual native Cartan module direct limit L_1(R) of the original full-lift norms, with its proved faithful all-level maps I_N. The scalar function phi:Q/Z→R is arbitrary for the global point value and level-consistency statements. The ordinary root-law statement for a positive multiplier m assumes explicitly that the sum of phi over every actual ambient m-root fiber equals phi of its center, for every enumeration of that finite fiber. No condition phi(0)=0 is imposed. For quotient factorization S is any specified set of positive integers, including the set of all positive integers. Use the existing subgroup of ordinary relations in FreeAbelianGroup(Q/Z), with weight zero, actual full ambient root fibers and finite enumerations. Require the scalar ordinary law for exactly the multipliers in S. These fibers are actually finite by the established circle-fiber theorem; the displayed instances choose their enumerations. The canonical finite level of a circle point a is its positive additive order. Native quotient induction and the denominator formula prove its positivity; that order divides every modulus killing a. The finite Cartan value retains its established inverse-unit coefficient convention. General-degree primitive coordinates, lower rank and internal/global equality are not assumed.
+
+**Proof:**
+
+1. Let M be the actual positive additive order of the ambient point x and let y be that same point in the actual level-M kernel.
+2. The kernel equation at levelN implies M divides N by the native additive-order divisibility criterion.
+3. The established finite-value restriction identifies nu_M,N(V_M(y)(phi)) with V_N(x)(phi), since the ambient points are identical.
+4. The proved all-level limit compatibility I_N after nu_M,N equals I_M then gives the desired equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-global-value`, `DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-restriction`, `DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of-norm`, `mathlib:orderOf_dvd_iff_pow_eq_one`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanValueTests.cartanGlobalValue_level_typed_api` (compatibility): For positive N and any actual level-N circle point x, V(x)(phi)=I_N(V_N(x)(phi)) for every scalar phi. The global value is therefore independent of the containing finite level, including levels at which x is imprimitive.
+
+**Acceptance:** At point1/5 the scalar indicator of3/5 gives the actual level5 unit2 basis class, not the unit3 class obtained by a mistaken forward coefficient convention. The zero-point indicator in characteristic2 gives a nonzero global value at0 and zero at1/3. At center1/2 the three roots1/6,1/2,5/6 all participate, including the imprimitive middle root. Constant1 fails the two-root scalar ordinary law.
+
+**Source:** Published187, ordinary distributions valued in the Cartan injective limit;188 equations(2.9)–(2.11), consistency and the ordinary root law;189 first paragraph, completion of the root-fiber argument. This checkpoint specializes to degree one. Passes the previously constructed actual degree-one finite Cartan values into the actual module limit, proves independence of every containing finite level, proves the ordinary law for every positive multiplier and factors the resulting function through the existing universal ordinary-distribution quotient. No general-degree primitive basis or lower-rank conclusion is inferred.
+
+### The global value retains the scalar value at the zero point
+
+`DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-global-value-zero` — `DirichletPadic.kubertCartanGlobalValue_zero`
+
+For every scalar phi, V(0)(phi)=I_1(single(1,phi(0))). In particular ordinary-distribution construction does not force this value to vanish.
+
+**Hypotheses:** The points are actual elements of the rational circle AddCircle(1:Q). The Cartan degree is one, R is any ring, and the target is the actual native Cartan module direct limit L_1(R) of the original full-lift norms, with its proved faithful all-level maps I_N. The scalar function phi:Q/Z→R is arbitrary for the global point value and level-consistency statements. The ordinary root-law statement for a positive multiplier m assumes explicitly that the sum of phi over every actual ambient m-root fiber equals phi of its center, for every enumeration of that finite fiber. No condition phi(0)=0 is imposed. For quotient factorization S is any specified set of positive integers, including the set of all positive integers. Use the existing subgroup of ordinary relations in FreeAbelianGroup(Q/Z), with weight zero, actual full ambient root fibers and finite enumerations. Require the scalar ordinary law for exactly the multipliers in S. These fibers are actually finite by the established circle-fiber theorem; the displayed instances choose their enumerations. The canonical finite level of a circle point a is its positive additive order. Native quotient induction and the denominator formula prove its positivity; that order divides every modulus killing a. The finite Cartan value retains its established inverse-unit coefficient convention. General-degree primitive coordinates, lower rank and internal/global equality are not assumed.
+
+**Proof:**
+
+1. Use the all-level formula at the actual zero point of level1.
+2. The established finite level-one value is precisely the original identity basis element with coefficient phi(0).
+3. Apply I_1 to that exact finite formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-global-value-level`, `DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-level-one`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanValueTests.cartanGlobalValue_zero_typed_api` (compatibility): For every scalar phi, V(0)(phi)=I_1(single(1,phi(0))). In particular ordinary-distribution construction does not force this value to vanish.
+
+**Acceptance:** At point1/5 the scalar indicator of3/5 gives the actual level5 unit2 basis class, not the unit3 class obtained by a mistaken forward coefficient convention. The zero-point indicator in characteristic2 gives a nonzero global value at0 and zero at1/3. At center1/2 the three roots1/6,1/2,5/6 all participate, including the imprimitive middle root. Constant1 fails the two-root scalar ordinary law.
+
+**Source:** Published187, ordinary distributions valued in the Cartan injective limit;188 equations(2.9)–(2.11), consistency and the ordinary root law;189 first paragraph, completion of the root-fiber argument. This checkpoint specializes to degree one. Passes the previously constructed actual degree-one finite Cartan values into the actual module limit, proves independence of every containing finite level, proves the ordinary law for every positive multiplier and factors the resulting function through the existing universal ordinary-distribution quotient. No general-degree primitive basis or lower-rank conclusion is inferred.
+
+### The global value satisfies the root law across divisor levels
+
+`DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-global-value-root-sum-of-dvd` — `DirichletPadic.kubertCartanGlobalValue_root_sum_of_dvd`
+
+Let positive M divide positive N and x be an actual level-M circle point. If phi satisfies the scalar ordinary law for t=N/M at every center, then the sum of V(y)(phi) over all ambient t-roots y of x equals V(x)(phi) in the actual Cartan limit.
+
+**Hypotheses:** The points are actual elements of the rational circle AddCircle(1:Q). The Cartan degree is one, R is any ring, and the target is the actual native Cartan module direct limit L_1(R) of the original full-lift norms, with its proved faithful all-level maps I_N. The scalar function phi:Q/Z→R is arbitrary for the global point value and level-consistency statements. The ordinary root-law statement for a positive multiplier m assumes explicitly that the sum of phi over every actual ambient m-root fiber equals phi of its center, for every enumeration of that finite fiber. No condition phi(0)=0 is imposed. For quotient factorization S is any specified set of positive integers, including the set of all positive integers. Use the existing subgroup of ordinary relations in FreeAbelianGroup(Q/Z), with weight zero, actual full ambient root fibers and finite enumerations. Require the scalar ordinary law for exactly the multipliers in S. These fibers are actually finite by the established circle-fiber theorem; the displayed instances choose their enumerations. The canonical finite level of a circle point a is its positive additive order. Native quotient induction and the denominator formula prove its positivity; that order divides every modulus killing a. The finite Cartan value retains its established inverse-unit coefficient convention. General-degree primitive coordinates, lower rank and internal/global equality are not assumed.
+
+**Proof:**
+
+1. The existing actual ambient-to-kernel root equivalence places every root in levelN, retaining its ambient point.
+2. The global level formula identifies each root value with I_N applied to its actual finite Cartan value.
+3. Linearity of I_N moves it outside the finite sum.
+4. The established finite Cartan ordinary law changes the sum to nu_M,N(V_M(x)(phi)).
+5. Original limit compatibility removes the norm, and the global level formula at M identifies the result with V(x)(phi).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-global-value-level`, `DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv`, `DirichletPadicLFunctions:L3/kubert-all-root-cartan-circle-value-root-sum`, `DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of-norm`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanValueTests.cartanGlobalValue_root_sum_of_dvd_typed_api` (compatibility): Let positive M divide positive N and x be an actual level-M circle point. If phi satisfies the scalar ordinary law for t=N/M at every center, then the sum of V(y)(phi) over all ambient t-roots y of x equals V(x)(phi) in the actual Cartan limit.
+
+**Acceptance:** At point1/5 the scalar indicator of3/5 gives the actual level5 unit2 basis class, not the unit3 class obtained by a mistaken forward coefficient convention. The zero-point indicator in characteristic2 gives a nonzero global value at0 and zero at1/3. At center1/2 the three roots1/6,1/2,5/6 all participate, including the imprimitive middle root. Constant1 fails the two-root scalar ordinary law.
+
+**Source:** Published187, ordinary distributions valued in the Cartan injective limit;188 equations(2.9)–(2.11), consistency and the ordinary root law;189 first paragraph, completion of the root-fiber argument. This checkpoint specializes to degree one. Passes the previously constructed actual degree-one finite Cartan values into the actual module limit, proves independence of every containing finite level, proves the ordinary law for every positive multiplier and factors the resulting function through the existing universal ordinary-distribution quotient. No general-degree primitive basis or lower-rank conclusion is inferred.
+
+### The global Cartan value is ordinary for every allowed multiplier
+
+`DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-global-value-root-sum` — `DirichletPadic.kubertCartanGlobalValue_root_sum`
+
+For every positive multiplier m, actual circle point a and scalar phi satisfying the explicit ordinary m-root law at every center, the sum of V(y)(phi) over the entire actual ambient m-root fiber of a equals V(a)(phi). This includes zero and imprimitive roots and any enumeration of the actual finite fiber.
+
+**Hypotheses:** The points are actual elements of the rational circle AddCircle(1:Q). The Cartan degree is one, R is any ring, and the target is the actual native Cartan module direct limit L_1(R) of the original full-lift norms, with its proved faithful all-level maps I_N. The scalar function phi:Q/Z→R is arbitrary for the global point value and level-consistency statements. The ordinary root-law statement for a positive multiplier m assumes explicitly that the sum of phi over every actual ambient m-root fiber equals phi of its center, for every enumeration of that finite fiber. No condition phi(0)=0 is imposed. For quotient factorization S is any specified set of positive integers, including the set of all positive integers. Use the existing subgroup of ordinary relations in FreeAbelianGroup(Q/Z), with weight zero, actual full ambient root fibers and finite enumerations. Require the scalar ordinary law for exactly the multipliers in S. These fibers are actually finite by the established circle-fiber theorem; the displayed instances choose their enumerations. The canonical finite level of a circle point a is its positive additive order. Native quotient induction and the denominator formula prove its positivity; that order divides every modulus killing a. The finite Cartan value retains its established inverse-unit coefficient convention. General-degree primitive coordinates, lower rank and internal/global equality are not assumed.
+
+**Proof:**
+
+1. Use M=addOrderOf(a)>0 and the actual level-M point with ambient value a.
+2. Set N=M m, so M divides N and N/M=m by positive-integer cancellation.
+3. Transport the actual root-fiber type and its finite enumeration along this equality of positive multipliers.
+4. Apply the proved divisor-level global root law with the transported scalar law.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-cartan-circle-order-pos`, `DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-global-value-root-sum-of-dvd`, `DirichletPadicLFunctions:L3/kubert-circle-fiber-finite`, `mathlib:pow_orderOf_eq_one`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanValueTests.cartanGlobalValue_root_sum_typed_api` (compatibility): For every positive multiplier m, actual circle point a and scalar phi satisfying the explicit ordinary m-root law at every center, the sum of V(y)(phi) over the entire actual ambient m-root fiber of a equals V(a)(phi). This includes zero and imprimitive roots and any enumeration of the actual finite fiber.
+
+**Acceptance:** At point1/5 the scalar indicator of3/5 gives the actual level5 unit2 basis class, not the unit3 class obtained by a mistaken forward coefficient convention. The zero-point indicator in characteristic2 gives a nonzero global value at0 and zero at1/3. At center1/2 the three roots1/6,1/2,5/6 all participate, including the imprimitive middle root. Constant1 fails the two-root scalar ordinary law.
+
+**Source:** Published187, ordinary distributions valued in the Cartan injective limit;188 equations(2.9)–(2.11), consistency and the ordinary root law;189 first paragraph, completion of the root-fiber argument. This checkpoint specializes to degree one. Passes the previously constructed actual degree-one finite Cartan values into the actual module limit, proves independence of every containing finite level, proves the ordinary law for every positive multiplier and factors the resulting function through the existing universal ordinary-distribution quotient. No general-degree primitive basis or lower-rank conclusion is inferred.
+
+### The actual Cartan-valued universal ordinary distribution map
+
+`DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-distribution` — `DirichletPadic.kubertCartanDistribution`
+
+For a set S of positive multipliers and scalar phi satisfying the ordinary root law for every multiplier in S, construct an additive homomorphism D_phi from the existing quotient of FreeAbelianGroup(Q/Z) by its S-ordinary, weight-zero relations to the actual Cartan module L_1(R). Its point-generator values are the constructed V(a)(phi). Taking S to be all positive integers gives the source universal ordinary distribution map.
+
+**Hypotheses:** The points are actual elements of the rational circle AddCircle(1:Q). The Cartan degree is one, R is any ring, and the target is the actual native Cartan module direct limit L_1(R) of the original full-lift norms, with its proved faithful all-level maps I_N. The scalar function phi:Q/Z→R is arbitrary for the global point value and level-consistency statements. The ordinary root-law statement for a positive multiplier m assumes explicitly that the sum of phi over every actual ambient m-root fiber equals phi of its center, for every enumeration of that finite fiber. No condition phi(0)=0 is imposed. For quotient factorization S is any specified set of positive integers, including the set of all positive integers. Use the existing subgroup of ordinary relations in FreeAbelianGroup(Q/Z), with weight zero, actual full ambient root fibers and finite enumerations. Require the scalar ordinary law for exactly the multipliers in S. These fibers are actually finite by the established circle-fiber theorem; the displayed instances choose their enumerations. The canonical finite level of a circle point a is its positive additive order. Native quotient induction and the denominator formula prove its positivity; that order divides every modulus killing a. The finite Cartan value retains its established inverse-unit coefficient convention. General-degree primitive coordinates, lower rank and internal/global equality are not assumed.
+
+**Proof:**
+
+1. Use the existing universal distribution lift with point function a↦V(a)(phi), the same S and weight0.
+2. The proved global root law supplies its required relation for every multiplier in S; the factor m to the power zero is1.
+3. The existing quotient lift produces the actual additive homomorphism into the additive group of the actual Cartan module. The relation subgroup and quotient theory are reused unchanged.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-global-value-root-sum`, `DirichletPadicLFunctions:L3/kubert-lift`, `DirichletPadicLFunctions:L3/kubert-relations`, `DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-module`.
+
+**Uses:**
+
+- Kubert188, equations2.9–2.10: Makes the source finite Cartan value into an actual function with values in the original injective limit, independently of the containing modulus and preserving inverse coefficients.
+- Kubert187–189, map from the universal ordinary distribution to the Cartan limit: Supplies the actual homomorphism from the source universal quotient using the proved all-root ordinary relation. Subsequent lower-rank arguments can use its exact finite-level evaluation without assuming its injectivity.
+
+**API:**
+
+- `kubertCartanDistribution_of` (compatibility): For every actual circle point a, D_phi of the existing ordinary-quotient class of the free abelian generator at a equals V(a)(phi).
+- `kubertCartanDistribution_level` (compatibility): For every positive N and actual level-N circle point x, D_phi of the ordinary-quotient generator at x is I_N(V_N(x)(phi)). Thus the original finite group-ring formula computes the actual global quotient map at every containing level.
+- `kubertCartanDistribution_unique` (universal-property): Any additive homomorphism from the same existing ordinary-distribution quotient to the actual Cartan module which sends every point generator a to V(a)(phi) equals D_phi.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanValueTests.zero_scalar_quotient_map` (degenerate): The actual Cartan map from the existing ordinary-distribution quotient is zero for the zero scalar function.
+- `SuggestedKubertGlobalCartanValueTests.zero_class_survives_ordinary_quotient` (non-example): The zero-point indicator in characteristic2 induces a nonzero Cartan image of the actual generator at0, for every allowed set of positive multipliers. No normalization at zero is introduced.
+- `SuggestedKubertGlobalCartanValueTests.zero_indicator_vanishes_at_nonzero_generator` (computation): For the same scalar zero-point indicator, the generator at1/3 maps to zero. Thus the nonzero zero-generator value is a point-sensitive ordinary distribution.
+
+**Acceptance:** At point1/5 the scalar indicator of3/5 gives the actual level5 unit2 basis class, not the unit3 class obtained by a mistaken forward coefficient convention. The zero-point indicator in characteristic2 gives a nonzero global value at0 and zero at1/3. At center1/2 the three roots1/6,1/2,5/6 all participate, including the imprimitive middle root. Constant1 fails the two-root scalar ordinary law.
+
+**Source:** Published187, ordinary distributions valued in the Cartan injective limit;188 equations(2.9)–(2.11), consistency and the ordinary root law;189 first paragraph, completion of the root-fiber argument. This checkpoint specializes to degree one. Passes the previously constructed actual degree-one finite Cartan values into the actual module limit, proves independence of every containing finite level, proves the ordinary law for every positive multiplier and factors the resulting function through the existing universal ordinary-distribution quotient. No general-degree primitive basis or lower-rank conclusion is inferred.
+
+### The quotient map sends each actual generator to its global Cartan value
+
+`DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-distribution-of` — `DirichletPadic.kubertCartanDistribution_of`
+
+For every actual circle point a, D_phi of the existing ordinary-quotient class of the free abelian generator at a equals V(a)(phi).
+
+**Hypotheses:** The points are actual elements of the rational circle AddCircle(1:Q). The Cartan degree is one, R is any ring, and the target is the actual native Cartan module direct limit L_1(R) of the original full-lift norms, with its proved faithful all-level maps I_N. The scalar function phi:Q/Z→R is arbitrary for the global point value and level-consistency statements. The ordinary root-law statement for a positive multiplier m assumes explicitly that the sum of phi over every actual ambient m-root fiber equals phi of its center, for every enumeration of that finite fiber. No condition phi(0)=0 is imposed. For quotient factorization S is any specified set of positive integers, including the set of all positive integers. Use the existing subgroup of ordinary relations in FreeAbelianGroup(Q/Z), with weight zero, actual full ambient root fibers and finite enumerations. Require the scalar ordinary law for exactly the multipliers in S. These fibers are actually finite by the established circle-fiber theorem; the displayed instances choose their enumerations. The canonical finite level of a circle point a is its positive additive order. Native quotient induction and the denominator formula prove its positivity; that order divides every modulus killing a. The finite Cartan value retains its established inverse-unit coefficient convention. General-degree primitive coordinates, lower rank and internal/global equality are not assumed.
+
+**Proof:**
+
+1. Apply the existing universal distribution lift evaluation theorem to the constructed global point function.
+2. The definition of the Cartan distribution uses precisely this native quotient lift and the proved global root laws.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-distribution`, `DirichletPadicLFunctions:L3/kubert-lift-of`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanValueTests.cartanDistribution_of_typed_api` (compatibility): For every actual circle point a, D_phi of the existing ordinary-quotient class of the free abelian generator at a equals V(a)(phi).
+
+**Acceptance:** At point1/5 the scalar indicator of3/5 gives the actual level5 unit2 basis class, not the unit3 class obtained by a mistaken forward coefficient convention. The zero-point indicator in characteristic2 gives a nonzero global value at0 and zero at1/3. At center1/2 the three roots1/6,1/2,5/6 all participate, including the imprimitive middle root. Constant1 fails the two-root scalar ordinary law.
+
+**Source:** Published187, ordinary distributions valued in the Cartan injective limit;188 equations(2.9)–(2.11), consistency and the ordinary root law;189 first paragraph, completion of the root-fiber argument. This checkpoint specializes to degree one. Passes the previously constructed actual degree-one finite Cartan values into the actual module limit, proves independence of every containing finite level, proves the ordinary law for every positive multiplier and factors the resulting function through the existing universal ordinary-distribution quotient. No general-degree primitive basis or lower-rank conclusion is inferred.
+
+### Finite Cartan values compute the actual quotient map
+
+`DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-distribution-level` — `DirichletPadic.kubertCartanDistribution_level`
+
+For every positive N and actual level-N circle point x, D_phi of the ordinary-quotient generator at x is I_N(V_N(x)(phi)). Thus the original finite group-ring formula computes the actual global quotient map at every containing level.
+
+**Hypotheses:** The points are actual elements of the rational circle AddCircle(1:Q). The Cartan degree is one, R is any ring, and the target is the actual native Cartan module direct limit L_1(R) of the original full-lift norms, with its proved faithful all-level maps I_N. The scalar function phi:Q/Z→R is arbitrary for the global point value and level-consistency statements. The ordinary root-law statement for a positive multiplier m assumes explicitly that the sum of phi over every actual ambient m-root fiber equals phi of its center, for every enumeration of that finite fiber. No condition phi(0)=0 is imposed. For quotient factorization S is any specified set of positive integers, including the set of all positive integers. Use the existing subgroup of ordinary relations in FreeAbelianGroup(Q/Z), with weight zero, actual full ambient root fibers and finite enumerations. Require the scalar ordinary law for exactly the multipliers in S. These fibers are actually finite by the established circle-fiber theorem; the displayed instances choose their enumerations. The canonical finite level of a circle point a is its positive additive order. Native quotient induction and the denominator formula prove its positivity; that order divides every modulus killing a. The finite Cartan value retains its established inverse-unit coefficient convention. General-degree primitive coordinates, lower rank and internal/global equality are not assumed.
+
+**Proof:**
+
+1. Evaluate the quotient map on the actual point generator by the proved generator formula.
+2. Apply the proved all-level global-value formula to x.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-distribution-of`, `DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-global-value-level`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanValueTests.cartanDistribution_level_typed_api` (compatibility): For every positive N and actual level-N circle point x, D_phi of the ordinary-quotient generator at x is I_N(V_N(x)(phi)). Thus the original finite group-ring formula computes the actual global quotient map at every containing level.
+
+**Acceptance:** At point1/5 the scalar indicator of3/5 gives the actual level5 unit2 basis class, not the unit3 class obtained by a mistaken forward coefficient convention. The zero-point indicator in characteristic2 gives a nonzero global value at0 and zero at1/3. At center1/2 the three roots1/6,1/2,5/6 all participate, including the imprimitive middle root. Constant1 fails the two-root scalar ordinary law.
+
+**Source:** Published187, ordinary distributions valued in the Cartan injective limit;188 equations(2.9)–(2.11), consistency and the ordinary root law;189 first paragraph, completion of the root-fiber argument. This checkpoint specializes to degree one. Passes the previously constructed actual degree-one finite Cartan values into the actual module limit, proves independence of every containing finite level, proves the ordinary law for every positive multiplier and factors the resulting function through the existing universal ordinary-distribution quotient. No general-degree primitive basis or lower-rank conclusion is inferred.
+
+### The constructed point values uniquely determine the quotient map
+
+`DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-distribution-unique` — `DirichletPadic.kubertCartanDistribution_unique`
+
+Any additive homomorphism from the same existing ordinary-distribution quotient to the actual Cartan module which sends every point generator a to V(a)(phi) equals D_phi.
+
+**Hypotheses:** The points are actual elements of the rational circle AddCircle(1:Q). The Cartan degree is one, R is any ring, and the target is the actual native Cartan module direct limit L_1(R) of the original full-lift norms, with its proved faithful all-level maps I_N. The scalar function phi:Q/Z→R is arbitrary for the global point value and level-consistency statements. The ordinary root-law statement for a positive multiplier m assumes explicitly that the sum of phi over every actual ambient m-root fiber equals phi of its center, for every enumeration of that finite fiber. No condition phi(0)=0 is imposed. For quotient factorization S is any specified set of positive integers, including the set of all positive integers. Use the existing subgroup of ordinary relations in FreeAbelianGroup(Q/Z), with weight zero, actual full ambient root fibers and finite enumerations. Require the scalar ordinary law for exactly the multipliers in S. These fibers are actually finite by the established circle-fiber theorem; the displayed instances choose their enumerations. The canonical finite level of a circle point a is its positive additive order. Native quotient induction and the denominator formula prove its positivity; that order divides every modulus killing a. The finite Cartan value retains its established inverse-unit coefficient convention. General-degree primitive coordinates, lower rank and internal/global equality are not assumed.
+
+**Proof:**
+
+1. Apply the existing uniqueness theorem for the actual universal quotient lift.
+2. The stated equality on every original point generator is exactly its uniqueness hypothesis.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-distribution`, `DirichletPadicLFunctions:L3/kubert-lift-unique`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanValueTests.cartanDistribution_unique_typed_api` (compatibility): Any additive homomorphism from the same existing ordinary-distribution quotient to the actual Cartan module which sends every point generator a to V(a)(phi) equals D_phi.
+
+**Acceptance:** At point1/5 the scalar indicator of3/5 gives the actual level5 unit2 basis class, not the unit3 class obtained by a mistaken forward coefficient convention. The zero-point indicator in characteristic2 gives a nonzero global value at0 and zero at1/3. At center1/2 the three roots1/6,1/2,5/6 all participate, including the imprimitive middle root. Constant1 fails the two-root scalar ordinary law.
+
+**Source:** Published187, ordinary distributions valued in the Cartan injective limit;188 equations(2.9)–(2.11), consistency and the ordinary root law;189 first paragraph, completion of the root-fiber argument. This checkpoint specializes to degree one. Passes the previously constructed actual degree-one finite Cartan values into the actual module limit, proves independence of every containing finite level, proves the ordinary law for every positive multiplier and factors the resulting function through the existing universal ordinary-distribution quotient. No general-degree primitive basis or lower-rank conclusion is inferred.
+
+**Remaining:** The actual degree-one finite Cartan values now define global rational-circle values in the actual native module direct limit, independently of every containing finite level. Their complete ambient-root ordinary law gives an actual homomorphism from the existing universal ordinary distribution quotient, with original finite-level evaluation and uniqueness. Next supply the Cartan action on the actual limit and compare its global distribution map with the source module equivariance and character components; then complete the independent lower-rank argument through Kubert186–199 and combine it with actual surjections and upper bounds for independence, freeness and internal/global equality. The current quotient map is not claimed injective or surjective. General-degree coherent primitive coordinates, unramified integer-ring identification and the general lambda fiber count remain open; FF.4 owns generic Galois-ring theory. Preserve parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18gaps and16requests remain; zero stages close.
+
+### Global degree-one Cartan values and the actual ordinary quotient map validation
+
+All 1850 predecessor nodes, 1195 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 10 nodes, 10 named suggested declarations and 16 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2122 reachable nodes, 8867 edges and 1366 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route terminates in actual original finite Cartan values and norms, the actual module limit, the existing universal distribution quotient or native rational-circle order theory. No new supplier-stage leaf or assumed ordinary-distribution, rank or injectivity package is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3667 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5730 verbatim and adds two actual constructions and eight complete lemmas. Totals are141definitions and1,194lemmas, plus two routine native primality instances and the retained complete digit non-example, with zero placeholders. The public append contains10named declarations and16typed tests, all new mathematical bodies placeholders. No new native import or library build occurs. The separate probe compiles against 3049 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact controls at48positive moduli check 1176 exact_circle_orders, 45926 canonical_to_ambient_coefficients, 66988 all_level_consistency, 66988 ordinary_global_coefficients, 100482 positive_characteristic_indicator. Inverse coefficients at point1/5 with indicator3/5 select unit2, not unit3. The zero-point indicator remains ordinary in characteristics2,3,5 and has nonzero global value at0. Native proofs separately establish every-level independence and the actual quotient factorization. Exact Fraction and integer arithmetic on actual degree-one rational-circle points and residue-unit coordinates. Every canonical additive order is the reduced denominator. Equality of direct-limit classes is controlled at the actual common containing finite level by full-lift coefficient vectors; the complete native proof, rather than these finite computations, proves arbitrary-level independence and the global quotient factorization. The largest observed discrepancy is 0.
+
+All79 guarded inputs and four predecessor outputs are unchanged since the actual merge of5730. The complete issue text is unchanged, original claim5854791937 remains the last winning claim and review390 is unclaimed. No source finding is added or independently reviewed.
+
+The separate partial signature file also compiled with zero errors and 5,589 expected placeholder warnings across 3,663 pinned source modules. It includes all 10 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 883fc6803508ded488818a730af4494b723b27422f0635eb7db363abde217201.
