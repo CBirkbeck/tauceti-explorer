@@ -3,7 +3,7 @@
  "roadmaps": {
   "AlgebraicModuliForArithmeticGeometry": {
    "action": "keep",
-   "reason": "Algebraic moduli is the general theory (projective parameter spaces, Hilbert and Quot schemes, algebraic spaces, stacks, coarse spaces, deformation comparisons, characteristic-zero resolution) that many roadmaps consume: abelian schemes, PEL and Shimura moduli, Faltings finiteness, local Galois deformation rings, K-theory and GAGA. It is not a continuation of Modular curves in that roadmap's own direction; ModularCurvesPartII already plays that role. By PROTOCOL section 15 a general theory that subsumes an existing roadmap's special cases builds on them: it keeps its place, imports what the anchors plan, and proves its general statements compatible with them. So it is kept, with seven layers narrowed."
+   "reason": "Algebraic moduli is the general theory (projective parameter spaces, Hilbert and Quot schemes, algebraic spaces, stacks, coarse spaces, deformation comparisons, characteristic-zero resolution) that many roadmaps consume: abelian schemes, PEL and Shimura moduli, Faltings finiteness, local Galois deformation rings, K-theory and GAGA. It is not a continuation of Modular curves in that roadmap's own direction; ModularCurvesPartII already plays that role. By PROTOCOL section 15 a general theory that subsumes an existing roadmap's special cases builds on them: it keeps its place, imports what the anchors plan, and proves its general statements compatible with them. So it is kept, with eight layers narrowed."
   }
  },
  "layers": {
@@ -27,7 +27,7 @@
   },
   "AlgebraicModuliForArithmeticGeometry:R09.3": {
    "action": "narrow",
-   "keeps": "Algebraic spaces: quotients by étale and fppf equivalence relations as algebraic spaces, their morphisms, fibre products and properties, and descent of fppf sheaves as algebraic spaces; the comparison theorem that on the finite locally free and finite étale equivalence relations of Modular curves 0C, 4C and 9A this quotient is their scheme quotient (cited, not rebuilt); Weil restriction as an algebraic space along finite locally free morphisms for arbitrary targets, with the Stacks 05YC base-change map and 05YF representability, restricting to 0F in the affine case; and effective fppf descent for polarised projective schemes of arbitrary relative dimension and for polarisations of abelian schemes, separating descent of the line bundle from descent of the polarised object, built on 0E's affine and finite cases and StableReduction layer 2's graded-algebra (relative Proj) method.",
+   "keeps": "Effective fpqc descent of quasi-coherent modules on schemes: the equivalence between quasi-coherent modules and descent data along fpqc coverings, with full faithfulness and effectivity (Stacks 023T), its functoriality and its coherence with pullback, base change and tensor product, and the finite-type, finitely presented, coherent and finite locally free subclasses under the hypotheses stated in each result, built on the affine faithfully flat case that Mathlib already has (comonadicExtendScalars in Mathlib/Algebra/Category/ModuleCat/Descent.lean, whose effective-descent corollary is still marked TODO there) and not on representability of sheaves of sets; quasi-coherent and coherent modules on algebraic spaces through étale presentations, with effective descent of coherent modules along étale presentations of algebraic spaces of finite presentation over a locally Noetherian base in the proper-GAGA setting consumed by ComplexComparisonPartII C3; the fpqc equivalence for arbitrary quasi-coherent modules above does not need a Noetherian hypothesis, and no unrestricted preservation of coherent modules by every base change is asserted; the comparison theorem that on the finite locally free and finite étale equivalence relations of Modular curves 0C, 4C and 9A the algebraic-space quotient of SchemeAndStackFoundations SF.1 is their scheme quotient (cited, not rebuilt); Weil restriction as an algebraic space along finite locally free morphisms for arbitrary targets, with the Stacks 05YC base-change map and 05YF representability, restricting to 0F in the affine case; and effective fppf descent for projective schemes of arbitrary relative dimension equipped with a relatively ample invertible sheaf, separating descent of the line bundle from descent of the object with that bundle, built on 0E's affine and finite cases and StableReduction layer 2's graded-algebra (relative Proj) method. This exports the general scheme/module/morphism descent interface. The abelian-specific application to a polarization morphism A → A∨, using the relative dual and its base-change laws, is owned by AbelianSchemesAndArithmeticModuli A2 after A1 defines abelian schemes; PELModuli M1 applies it to full PEL data. It is not a producer obligation or backward import of R09.3. Algebraic spaces themselves (quotients of schemes by étale and fppf equivalence relations, effective fppf descent of sheaves as algebraic spaces, representable diagonals, atlases and atlas independence) are SF.1's and are imported.",
    "suppliedBy": [
     "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
     "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
@@ -35,36 +35,40 @@
     "tauceti:TauCetiRoadmap/ModularCurves#1e-the-cubic-polarisation-and-elliptic-descent",
     "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
     "tauceti:TauCetiRoadmap/ModularCurves#9a-katzmazur-quotient-problems",
-    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+    "SchemeAndStackFoundations:SF.1"
    ],
-   "reason": "Modular curves layer 0 owns quotients by finite locally free equivalence relations and free finite group actions (0C), effective faithfully flat descent for affine and finite locally free schemes, sections, morphisms, polarised projective curves, group objects, finite locally free subgroup schemes, level structures and torsors (0E), and affine Weil restriction (0F). 1E applies descent to elliptic curves with their cubic polarisation, and 4C and 9A build the finite étale quotients of rigidified and quotient moduli problems. StableReduction layer 2 owns étale descent of polarised schemes through relative Proj. R09.3 keeps the general algebraic-space theory, which subsumes these special cases; it cites them and proves compatibility, as its own document already asks for #81."
+   "reason": "Modular curves layer 0 owns quotients by finite locally free equivalence relations and free finite group actions (0C), effective faithfully flat descent for affine and finite locally free schemes, sections, morphisms, polarised projective curves, group objects, finite locally free subgroup schemes, level structures and torsors (0E), and affine Weil restriction (0F). 1E applies descent to elliptic curves with their cubic polarisation, and 4C and 9A build the finite étale quotients of rigidified and quotient moduli problems. StableReduction layer 2 owns étale descent of polarised schemes through relative Proj. R09.3 keeps the additional quotient comparisons, module descent, Weil restriction and general projective-object descent on the algebraic-space carrier imported from SF.1; it cites the anchor special cases and proves compatibility, as its own document already asks for #81. FIX-RT-RS-27: RT-RS-27/4 (confirmed; it is RT-AREA-algebraicgeometry/1) found that SF.1, as accepted in RS-25, keeps algebraic-space quotients, representable diagonals and atlas independence, so R09.3 now imports the algebraic-space foundations from SF.1 instead of building a second carrier, and keeps the comparisons, Weil restriction and moduli descent. RT-RS-27/1 (confirmed) found that the earlier narrowing kept descent of fppf sheaves as algebraic spaces but lost R09.3's own target, effective descent for the (quasi-coherent) sheaves, which ComplexComparisonPartII C3 still requests; neither the anchors nor SF.1 export the module-descent equivalence, so it is restored here, with an owner record, and reaches C3 through the existing R09.3 → C3 edge. REV-FIX-RT-RS-27: the same object-before-application boundary as /2 also excludes constructing abelian-specific polarization descent here. A2 owns that application to its relative dual; M1 retains descent of full PEL data. The existing R09.3 → A0 → A2 route carries the general input, with no A2 → R09.3 edge; A6 uses the generic Weil-restriction theorem and A2's earlier abelian-specific results, not M1 as a backward supplier."
   },
   "AlgebraicModuliForArithmeticGeometry:R09.4": {
    "action": "narrow",
-   "keeps": "General categories fibred in groupoids, stacks and stackification, representable diagonals, smooth and étale atlases, algebraic and Deligne–Mumford stacks with their distinct separatedness, properness and tameness properties, quotient stacks, and the algebraicity of the moduli stacks of generalised elliptic curves and polarised abelian schemes; and the comparison showing that the stack of elliptic curves restricts to Modular curves 4A's Ell/R, with relative representability over Ell/R equal to representability of morphisms of stacks.",
+   "keeps": "Categories fibred in groupoids over (Sch/S)_fppf and the moduli stacks of arithmetic geometry as instances of DiamondsAndVStacks D0's ordinary prestacks and stacks (D0 owns descent data, stackification, 2-fibre products and groupoid quotients), on Mathlib's existing CategoryTheory.Pseudofunctor.IsStack carrier rather than a replacement; algebraic and Deligne–Mumford stacks on SF.1's representable diagonals and smooth or étale atlases, with their distinct separatedness, properness and tameness properties; quotient stacks as algebraic stacks, built on D0's groupoid quotients; the conditional algebraicity and representability criteria, with their hypotheses stated, that ModularCurvesPartII R13.2, PELModuli M1, M2 and M6 and HilbertModularVarietiesAndShimuraCurves H1 apply to their own moduli problems; and the algebraicity of the stack of elliptic curves, through Modular curves 1E's descent, with the comparison showing that it restricts to Modular curves 4A's Ell/R and that relative representability over Ell/R is representability of morphisms of stacks. The algebraicity of the stacks of generalised elliptic curves and of polarised abelian schemes is not kept here: those are applications owned by the stages that define the objects (owner records).",
    "suppliedBy": [
-    "tauceti:TauCetiRoadmap/ModularCurves#4a-moduli-problems-over-ellr"
+    "tauceti:TauCetiRoadmap/ModularCurves#4a-moduli-problems-over-ellr",
+    "SchemeAndStackFoundations:SF.1",
+    "DiamondsAndVStacks:D0"
    ],
-   "reason": "Modular curves 4A owns the fibred category Ell/R and representability, affineness, finiteness, flatness and étaleness relative to it. 4A says it is not a general theory of stacks, so the general theory stays in R09.4, which cites 4A for the elliptic case."
+   "reason": "Modular curves 4A owns the fibred category Ell/R and representability, affineness, finiteness, flatness and étaleness relative to it. 4A says it is not a general theory of stacks, so the general theory stays in R09.4, which cites 4A for the elliptic case. FIX-RT-RS-27: RT-RS-27/4 (confirmed; it is RT-AREA-algebraicgeometry/1 and /39) found that accepted RS-05 keeps ordinary stackification and groupoid quotients at D0, and accepted RS-25 keeps representable diagonals and atlas independence at SF.1; R09.4 now imports both and keeps the algebraic-stack properties, quotient stacks, the conditional criteria and the elliptic comparison. RT-RS-27/2 (confirmed) found that generalised elliptic curves are defined in ModularCurvesPartII R13.1, and abelian schemes and their polarisations in AbelianSchemesAndArithmeticModuli A1 and A2, with PEL data and level in PELModuli M1, all downstream of R09.4 (through R09.4 → R09.5 → R13.1 and R09.4 → A0 → A1); the algebraicity of their moduli stacks cannot be proved here without a backward import that closes a cycle, so it moves to R13.2 and to M1 and M2, which already plan it, and R09.4 keeps the general criteria they apply."
   },
   "AlgebraicModuliForArithmeticGeometry:R09.5": {
    "action": "narrow",
-   "keeps": "The general coarse-space theorem for algebraic stacks with finite inertia, with the base-change statements actually available (flat base change and the tame case), for the generalised-elliptic-curve and polarised-abelian-scheme stacks; auxiliary prime-to-characteristic level for abelian schemes and generalised elliptic curves; normalisation, schematic closure and descent of finite correspondences for Deligne–Mumford stacks; and the proof that on Modular curves' affine problems over Ell this recovers 9D's M(𝒫) with its base-change statements (KM 8.1.6), and 9E's coarse j-line for [Γ(1)].",
+   "keeps": "The general coarse-space theorem for algebraic stacks with finite inertia, with the base-change statements actually available (flat base change and the tame case), stated for any stack meeting its hypotheses so that ModularCurvesPartII R13.4a and PELModuli M6 apply it to their own stacks; normalisation, schematic closure and descent of finite correspondences for Deligne–Mumford stacks; and the proof that on Modular curves' affine problems over Ell this recovers 9D's M(𝒫) with its base-change statements (KM 8.1.6), and 9E's coarse j-line for [Γ(1)], using 4C's elliptic rigidifiers (KM 4.7.0). Rigidification by auxiliary prime-to-characteristic level of generalised elliptic curves and of abelian schemes, and the coarse spaces of their moduli stacks, are applications owned downstream (owner records).",
    "suppliedBy": [
     "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
     "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
     "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n"
    ],
-   "reason": "Modular curves 4C owns rigidification of elliptic moduli by auxiliary level (KM 4.7.0), and 9D–9E own coarse moduli schemes of affine problems over Ell as finite quotients with base change, including the coarse j-line. The link-rescope evidence records the same split: R09.5 keeps the general finite-inertia theorem and does not rebuild elliptic rigidification."
+   "reason": "Modular curves 4C owns rigidification of elliptic moduli by auxiliary level (KM 4.7.0), and 9D–9E own coarse moduli schemes of affine problems over Ell as finite quotients with base change, including the coarse j-line. The link-rescope evidence records the same split: R09.5 keeps the general finite-inertia theorem and does not rebuild elliptic rigidification. FIX-RT-RS-27: RT-RS-27/2 (confirmed) found that auxiliary level for generalised elliptic curves and abelian schemes, and the coarse spaces of their stacks, need objects defined downstream of R09.5. They move to ModularCurvesPartII R13.2 and R13.4a and to PELModuli M2 and M6; R09.5 keeps the general theorem, the Deligne–Mumford criteria and the elliptic recovery."
   },
   "AlgebraicModuliForArithmeticGeometry:R09.6": {
    "action": "narrow",
-   "keeps": "The general comparison between the deformation functor at a geometric point of an algebraic stack, with stabilisers and versality, and the completed local ring of the constructed scheme or stack; algebraisation with effectivity; Artin representability with its hypotheses, for the abelian, PEL and generalised-elliptic moduli; and the check that on rigidified elliptic moduli it gives Modular curves 7B's identification and 7D's universal deformation over W(k)[[T]].",
+   "keeps": "The general comparison between the deformation functor at a geometric point of an algebraic stack, with stabilisers and versality, and the completed local ring of the constructed scheme or stack; algebraisation with effectivity; the conditional representability interface obtained from A0-extension's Artin criterion, which R09.6 imports and does not reprove, with the comparison of the resulting versal deformations and completed local rings stated under that criterion's hypotheses; and the check that on rigidified elliptic moduli it gives Modular curves 7B's identification and 7D's universal deformation over W(k)[[T]]. Verifying the criterion's hypotheses for the abelian and PEL, Hilbert–Blumenthal and generalised-elliptic moduli belongs to PELModuli M2, HilbertModularVarietiesAndShimuraCurves H1 and ModularCurvesPartII R13.2 (owner records).",
    "suppliedBy": [
     "tauceti:TauCetiRoadmap/ModularCurves#7b-local-algebra-and-local-schemes",
-    "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves"
+    "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+    "AlgebraicModuliForArithmeticGeometry:A0-extension"
    ],
-   "reason": "Modular curves 7B identifies the completed strict-henselian local rings of rigidified finite elliptic moduli schemes with the rings prorepresenting their deformation groupoids, and 7D constructs the universal deformation of an elliptic curve. These are special cases that R09.6 imports."
+   "reason": "Modular curves 7B identifies the completed strict-henselian local rings of rigidified finite elliptic moduli schemes with the rings prorepresenting their deformation groupoids, and 7D constructs the universal deformation of an elliptic curve. These are special cases that R09.6 imports. FIX-RT-RS-27: RT-RS-27/3 (confirmed; it carries out RT-AUDIT-01/6) found that R09.6 kept Artin representability with no supplier, while A0-extension proves the criterion ('For the selected Artin route prove the criterion itself'). R09.6's own text allows 'a proof or an assigned supplier', so A0-extension is the single owner and supplies it through the link A0-extension → R09.6; the AdicSpacesPartII F0 and R3 imports for formal geometry are unchanged. RT-RS-27/2 (confirmed): applying the criterion to specific moduli moves to the stages that define them."
   },
   "AlgebraicModuliForArithmeticGeometry:R09.7": {
    "action": "keep",
@@ -80,11 +84,11 @@
   },
   "AlgebraicModuliForArithmeticGeometry:A0-extension": {
    "action": "narrow",
-   "keeps": "Coherent cohomology and base change for proper flat morphisms of finite presentation over non-Noetherian bases, with the Tor-amplitude and perfect-complex hypotheses stated in each result, extending StableReduction layer 2's locally Noetherian theorems in all relative dimensions; the relative degree-zero Picard representability criteria for abelian schemes through algebraic spaces and Artin's criterion (limit preservation, representable diagonal, deformation and obstruction theory, openness of versality, algebraisation), verified in every PEL application; analytification on étale presentations with descent of local-isomorphism comparisons; and finiteness of normalisation under excellence.",
+   "keeps": "Coherent cohomology and base change for proper flat morphisms of finite presentation over non-Noetherian bases, with the Tor-amplitude and perfect-complex hypotheses stated in each result, extending StableReduction layer 2's locally Noetherian theorems in all relative dimensions; the relative degree-zero Picard representability criteria for abelian schemes, through algebraic spaces and Artin's criterion; Artin's criterion itself for the selected route (limit preservation, representable diagonal, deformation and obstruction theory, openness of versality, algebraisation), of which A0-extension is the single owner and which it exports to R09.6 as a conditional theorem with all its hypotheses; analytification on étale presentations with descent of local-isomorphism comparisons; and finiteness of normalisation under excellence. Verifying the criterion's hypotheses in each PEL application is owned by PELModuli M2 and, for Hilbert–Blumenthal moduli, by HilbertModularVarietiesAndShimuraCurves H1.",
    "suppliedBy": [
     "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
    ],
-   "reason": "StableReduction layer 2 plans coherent pushforward under proper morphisms over locally Noetherian bases, with the full cohomology-and-base-change theorem, Grauert's theorem and upper semicontinuity, stated for proper morphisms in general and specialised to curves only afterwards. A0-extension imports these and keeps the finite-presentation extension and the Picard and Artin material."
+   "reason": "StableReduction layer 2 plans coherent pushforward under proper morphisms over locally Noetherian bases, with the full cohomology-and-base-change theorem, Grauert's theorem and upper semicontinuity, stated for proper morphisms in general and specialised to curves only afterwards. A0-extension imports these and keeps the finite-presentation extension and the Picard and Artin material. FIX-RT-RS-27: RT-RS-27/2 and /3 (confirmed): the clause 'verified in every PEL application' is removed, because PELModuli M2 ('Verify the representability criterion') and HilbertModularVarietiesAndShimuraCurves H1 ('Verify the determinant condition and the appropriate representability hypotheses') own those checks and consume the general criterion downstream. A0-extension is named the single owner of the criterion itself, which R09.6 now imports."
   }
  },
  "links": [
@@ -251,12 +255,32 @@
   {
    "source": "tauceti:TauCetiRoadmap/ModularCurves#1e-the-cubic-polarisation-and-elliptic-descent",
    "target": "AlgebraicModuliForArithmeticGeometry:R09.4",
-   "reason": "Forwarding for the narrowed R09.3 (REV-RS-27 correction): the algebraicity of the moduli stack of elliptic curves uses effective descent of elliptic curves with their polarisation, group law and level structures, the stack condition, which Modular curves 1E now owns; R09.3 keeps the general algebraic-space theory and fppf descent of polarised projective schemes in all dimensions."
+   "reason": "Forwarding for the narrowed R09.3 (REV-RS-27 correction): the algebraicity of the moduli stack of elliptic curves uses effective descent of elliptic curves with their polarisation, group law and level structures, the stack condition, which Modular curves 1E now owns; R09.3 keeps additional comparisons and general fppf descent of projective schemes with an ample line bundle on SF.1's algebraic-space carrier; abelian-specific polarization descent is at A2."
   },
   {
    "source": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
    "target": "AlgebraicModuliForArithmeticGeometry:R09.7b",
    "reason": "Forwarding for the narrowed R09.7a (REV-RS-27 correction): the local invariant and maximal-contact argument works on Rees-algebra blowups and their affine charts, which StableReduction layer 4 now owns; R09.7a keeps the transforms and marked ideals."
+  },
+  {
+   "source": "SchemeAndStackFoundations:SF.1",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.3",
+   "reason": "FIX-RT-RS-27 (RT-RS-27/4): supply SF.1's algebraic-space foundations, which accepted RS-25 keeps there: algebraic spaces as quotients of schemes by étale and fppf equivalence relations, effective fppf descent with its algebraic-space interfaces, representable diagonals, atlases and atlas independence. R09.3 builds quasi-coherent descent on algebraic spaces, the comparison with Modular curves 0C, 4C and 9A, Weil restriction as an algebraic space and moduli descent on this carrier. Acyclic: no path from the consumer to the supplier exists in data/atlas.json's stage edges together with every link proposed in research/blueprint/restructure/*.result.json and research/blueprint/links/*.json."
+  },
+  {
+   "source": "SchemeAndStackFoundations:SF.1",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.4",
+   "reason": "FIX-RT-RS-27 (RT-RS-27/4): supply representable diagonals, smooth and étale atlases and atlas independence, and the distinction between moduli functors, stacks, coarse and fine spaces, on which R09.4's algebraic and Deligne–Mumford stacks, quotient stacks and conditional algebraicity criteria are built. Acyclic: no path from the consumer to the supplier exists in data/atlas.json's stage edges together with every link proposed in research/blueprint/restructure/*.result.json and research/blueprint/links/*.json."
+  },
+  {
+   "source": "DiamondsAndVStacks:D0",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.4",
+   "reason": "FIX-RT-RS-27 (RT-RS-27/4): supply ordinary groupoid-valued prestacks and stacks on a site, with descent data, stackification, 2-fibre products and groupoid quotients, which accepted RS-05 keeps at D0, extending Mathlib's CategoryTheory.Pseudofunctor.IsStack. R09.4 takes categories fibred in groupoids over (Sch/S)_fppf as instances. D0's only suppliers are AdicSpaces layer 1 and the ECD base. Acyclic: no path from the consumer to the supplier exists in data/atlas.json's stage edges together with every link proposed in research/blueprint/restructure/*.result.json and research/blueprint/links/*.json."
+  },
+  {
+   "source": "AlgebraicModuliForArithmeticGeometry:A0-extension",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.6",
+   "reason": "FIX-RT-RS-27 (RT-RS-27/3): supply Artin's representability criterion for the selected route, with its hypotheses (limit preservation, representable diagonal, deformation and obstruction theory, openness of versality, algebraisation), of which A0-extension is the single owner. R09.6 uses it for its conditional representability interface and its comparison of versal deformations with completed local rings. R09.6's imports from AdicSpacesPartII F0 and R3 stay; A0-extension does not depend on R09.6, so no deformation prefix has to be split off. Acyclic: no path from the consumer to the supplier exists in data/atlas.json's stage edges together with every link proposed in research/blueprint/restructure/*.result.json and research/blueprint/links/*.json."
   }
  ],
  "owners": [
@@ -381,18 +405,108 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7a",
     "AlgebraicModuliForArithmeticGeometry:R09.7"
    ]
+  },
+  {
+   "target": "Algebraic spaces: quotients of schemes by étale and fppf equivalence relations, effective fppf descent of sheaves as algebraic spaces, representable diagonals, smooth and étale atlases and atlas independence, and the distinction between moduli functors, stacks, coarse and fine spaces",
+   "owner": "SchemeAndStackFoundations:SF.1",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.3",
+    "AlgebraicModuliForArithmeticGeometry:R09.4"
+   ]
+  },
+  {
+   "target": "Ordinary groupoid-valued prestacks and stacks on a site: descent data, stackification, 2-fibre products and quotients of groupoids",
+   "owner": "DiamondsAndVStacks:D0",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.4"
+   ]
+  },
+  {
+   "target": "Effective fpqc descent of quasi-coherent modules on schemes (full faithfulness and effectivity, with its coherence with pullback and base change) and effective descent of coherent modules along étale presentations of algebraic spaces",
+   "owner": "AlgebraicModuliForArithmeticGeometry:R09.3",
+   "formerly": []
+  },
+  {
+   "target": "Artin's representability criterion for the selected route: limit preservation, representable diagonal, deformation and obstruction theory, openness of versality and algebraisation",
+   "owner": "AlgebraicModuliForArithmeticGeometry:A0-extension",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.6"
+   ]
+  },
+  {
+   "target": "Algebraicity and representability of the compactified moduli stacks of generalised elliptic curves with level structure, including rigidification by auxiliary prime-to-characteristic level and the verification of the representability hypotheses",
+   "owner": "ModularCurvesPartII:R13.2",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.4",
+    "AlgebraicModuliForArithmeticGeometry:R09.5",
+    "AlgebraicModuliForArithmeticGeometry:R09.6"
+   ]
+  },
+  {
+   "target": "Coarse spaces of the compactified generalised-elliptic level stacks, by the finite-inertia quotient",
+   "owner": "ModularCurvesPartII:R13.4a",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.5"
+   ]
+  },
+  {
+   "target": "The stack property of the PEL moduli problems: effective descent of polarised abelian schemes with endomorphisms and level structure, for objects and morphisms",
+   "owner": "PELModuli:M1",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.4"
+   ]
+  },
+  {
+   "target": "Algebraicity of the moduli of polarised abelian schemes with PEL data: verification of the representability (Artin) criterion's hypotheses, and rigidification by sufficiently rigidifying auxiliary prime-to-p level",
+   "owner": "PELModuli:M2",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.4",
+    "AlgebraicModuliForArithmeticGeometry:R09.5",
+    "AlgebraicModuliForArithmeticGeometry:R09.6",
+    "AlgebraicModuliForArithmeticGeometry:A0-extension"
+   ]
+  },
+  {
+   "target": "Coarse spaces of the PEL moduli stacks at non-rigidifying level, by R09.5's finite-inertia theorem",
+   "owner": "PELModuli:M6",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.5"
+   ]
+  },
+  {
+   "target": "Verification of the representability hypotheses for the Hilbert–Blumenthal moduli problems",
+   "owner": "HilbertModularVarietiesAndShimuraCurves:H1",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.6",
+    "AlgebraicModuliForArithmeticGeometry:A0-extension"
+   ]
+  },
+  {
+   "target": "Effective descent of polarization morphisms of abelian schemes, using R09.3's general scheme/module/morphism descent and A2's relative dual and base-change compatibility; distinct from descent of a projective scheme equipped with an ample line bundle and from M1's full PEL datum",
+   "owner": "AbelianSchemesAndArithmeticModuli:A2",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.3"
+   ]
   }
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-RS-27",
-  "date": "2026-09-29",
-  "notes": "Independent review by Claude Code, session cc-58621d, of the proposal by Claude Code session cc-fb70e5 (#3954), at main d62a8362. Read the member document in full, all twelve stages (nine listed in the proposal, R09.7b–R09.7d unchanged), the seventeen owner records, the thirty-one links, the family file and the report, and every anchor layer the proposal names (Modular curves 0C, 0E, 0F, 0G, 1E, 4A, 4C, 7B, 7D, 9A, 9D, 9E; Stable reduction layers 2 and 4). The keep decision is PROTOCOL section 15's rule for a general theory subsuming special cases; the anchors are unchanged; each narrowed layer states what it keeps and every moved piece has one anchor owner. The anchor layers do state what the owners claim: SR layer 2 proves cohomology and base change, Grauert and semicontinuity for proper morphisms over locally Noetherian bases before specializing to curves, SR layer 4 the Rees-algebra blowup as relative Proj, MC 0F the general finite-locally-free Weil restriction; MC 0G's Grassmannian is built for the Hopf algebra as a finite locally free module, the generality point the report already flags. On the current assembled atlas the links are acyclic and five already exist. Forwarding: for every consumer of a narrowed layer without a supplier link I checked for another path to the supplier and read its text; three later AM layers relied on moved pieces and lacked links (corrected below). The two links to MordellLawrenceVenkatesh LV.3 and LV.7 name a designed roadmap not yet in the atlas; restructure.py records them as skipped until it is promoted. check_restructure.py passes before and after the correction. Report: research/blueprint/reviews/REV-RS-27.md.",
-  "corrections": [
-   "Added the link StableReduction layer 2 -> R09.2: R09.2's projective Hilbert and Quot constructions use relative ampleness, projective morphisms and relative Proj, which R09.1 no longer owns.",
-   "Added the link Modular curves 1E -> R09.4: R09.4's algebraicity of the moduli stack of elliptic curves uses effective descent of elliptic curves, which R09.3 no longer owns.",
-   "Added the link StableReduction layer 4 -> R09.7b: R09.7b's local invariant works on the Rees-algebra blowups that R09.7a no longer owns.",
-   "Added this review object."
-  ]
- }
+  "reviewer": "independent-review-REV-FIX-RT-RS-27",
+  "date": "2026-10-02",
+  "notes": "Codex session codex-rtOQ9t independently reviewed Claude Code cc-c2c06b's FIX-RT-RS-27 (#5573). Follows REV-RS-27 (preserved in reviewHistory) and the independent RT-RS-27 verification by codex-J6LwjP; this session authored the original red-team report, not the fixes, and #5554 requires independence from FIX-RT-RS-27. Checked all four finding/evidence/fix records, all nine layer decisions, 38 links and 27 pre-review owners, receiving object/application stages and the SF.1/D0 contracts of accepted RS-25/RS-05. Read pinned comonadicExtendScalars and Pseudofunctor.IsStack and public Stacks 023T/05YC/05YF. Corrected the residual R09.3 abelian-polarization producer obligation: its application now has owner A2, after abelian schemes and relative duals, while R09.3 exports general descent and M1 owns full PEL-data descent. Made C3's locally Noetherian coherent setting explicit, removed two stale general-algebraic-space ownership claims, and corrected eight narrowed layers. The four fix links and the A2 forwarding path are acyclic in fresh assembled and all-proposal-union graphs; the two absent LV targets remain deferred. check_restructure.py and intake checks pass. No upstream contracts, stage identifiers or edge endpoints changed; this accepts the fixes and forwarding contracts, not completed theorem proofs or full blueprints. Report: research/blueprint/reviews/REV-FIX-RT-RS-27.md."
+ },
+ "reviewHistory": [
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-RS-27",
+   "date": "2026-09-29",
+   "notes": "Independent review by Claude Code, session cc-58621d, of the proposal by Claude Code session cc-fb70e5 (#3954), at main d62a8362. Read the member document in full, all twelve stages (nine listed in the proposal, R09.7b–R09.7d unchanged), the seventeen owner records, the thirty-one links, the family file and the report, and every anchor layer the proposal names (Modular curves 0C, 0E, 0F, 0G, 1E, 4A, 4C, 7B, 7D, 9A, 9D, 9E; Stable reduction layers 2 and 4). The keep decision is PROTOCOL section 15's rule for a general theory subsuming special cases; the anchors are unchanged; each narrowed layer states what it keeps and every moved piece has one anchor owner. The anchor layers do state what the owners claim: SR layer 2 proves cohomology and base change, Grauert and semicontinuity for proper morphisms over locally Noetherian bases before specializing to curves, SR layer 4 the Rees-algebra blowup as relative Proj, MC 0F the general finite-locally-free Weil restriction; MC 0G's Grassmannian is built for the Hopf algebra as a finite locally free module, the generality point the report already flags. On the current assembled atlas the links are acyclic and five already exist. Forwarding: for every consumer of a narrowed layer without a supplier link I checked for another path to the supplier and read its text; three later AM layers relied on moved pieces and lacked links (corrected below). The two links to MordellLawrenceVenkatesh LV.3 and LV.7 name a designed roadmap not yet in the atlas; restructure.py records them as skipped until it is promoted. check_restructure.py passes before and after the correction. Report: research/blueprint/reviews/REV-RS-27.md.",
+   "corrections": [
+    "Added the link StableReduction layer 2 -> R09.2: R09.2's projective Hilbert and Quot constructions use relative ampleness, projective morphisms and relative Proj, which R09.1 no longer owns.",
+    "Added the link Modular curves 1E -> R09.4: R09.4's algebraicity of the moduli stack of elliptic curves uses effective descent of elliptic curves, which R09.3 no longer owns.",
+    "Added the link StableReduction layer 4 -> R09.7b: R09.7b's local invariant works on the Rees-algebra blowups that R09.7a no longer owns.",
+    "Added this review object."
+   ]
+  }
+ ]
 }

@@ -353,8 +353,8 @@
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 26,
   "bibliographicSources": 46,
-  "roadmapEdges": 1766,
-  "stageEdges": 8684,
+  "roadmapEdges": 1768,
+  "stageEdges": 8688,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -503,8 +503,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 30678171,
-  "htmlSha256": "41def8b3f269e3de4bdc16d659b585d880c042f2aa9f40efb7e9e6cb33d62601",
+  "htmlBytes": 30689341,
+  "htmlSha256": "a2b5b7014150fd25bd3fcc880b4b44ad574737d1dda380fa3e1143e9388aac64",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -535,8 +535,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "029c363c456a2241bfad1c811037849e899d702398d0bcbdce3726d782cc32cd",
-    "data/galaxy-layout.json": "40fb0b2fd42c7581c1908ba54bffd8d5046a35e56cac757e47c06d886803e832",
+    "data/roadmap-distances.json": "ba8e97476775e69a796f4257035113616aa9d2720bfc47084af588b4fc212248",
+    "data/galaxy-layout.json": "a563f8a5fc810abe4d604487d77f6222bf89822fde7830c1c1b5df064208a132",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -718,8 +718,8 @@
     "data/restructure/RS-25.result.json": "41ad10b47e1c8a39b11235c2a20ef497ab8d634dd949cbf953588c228586025a",
     "data/restructure/RS-26.md": "27317b38350dc3e794b823a3150147a9f9ed87c8c4d74a78c6e4309ac91c289a",
     "data/restructure/RS-26.result.json": "f6457cd48d5da633d20adae154ed31253b278466b926f0f51653eb6ccec8f804",
-    "data/restructure/RS-27.md": "2be241cf63366dcb5c30a7a8b17e203257258aba6ed88e6f10bfa466f98ec1ed",
-    "data/restructure/RS-27.result.json": "b9139d1012b7d39c1c7f5d630f2d231c3387a3ae247e14966966c6ab9e72bdf2",
+    "data/restructure/RS-27.md": "c3265a597d7361badac6b72e739da1b31632aef0fd1f13a6efb696c3cd0ce626",
+    "data/restructure/RS-27.result.json": "44ed5c28049df3537eba487ee5b54d003f67ddc174c2f445640760a0324cc799",
     "data/restructure/RS-28.md": "44cb81f4a5a8110a889a2715928ecc58b16dd5661f6020b6d15d1564cd9ff180",
     "data/restructure/RS-28.result.json": "d47c024cbb6a73d23bcdc27995389a77d2c862434024c58755e995a21710bf9e",
     "data/restructure/RS-29.md": "fe9607fc575d2db6fb45b621a26712ce4c5f77bb9b9659233dc1d16e1bf5b656",
