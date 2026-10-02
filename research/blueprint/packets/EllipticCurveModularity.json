@@ -127,6 +127,20 @@
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
     "provides": "The complex L-series of a Weierstrass curve.",
     "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+    "kind": "roadmap-stage",
+    "module": "content/tau-ceti/ModularForms/README.md",
+    "provides": "Existing upstream roadmap contract, NOT a Lean declaration. Layer 4 supplies finiteness, bad-prime newform facts and the retained level-11/22 oldform acceptance input.",
+    "checked": "Stage text and reviewed AUDIT-16 read 2 October 2026. Compatibility record because check_blueprint.py parses tauceti: roadmap stage IDs as baseline refs before consulting atlas stages; do not look up this stage as a Lean declaration. Actual pinned declarations are checked separately."
+   },
+   {
+    "ref": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+    "kind": "roadmap-stage",
+    "module": "content/tau-ceti/ModularForms/README.md",
+    "provides": "Existing upstream roadmap contract, NOT a Lean declaration or a built theorem. Layer 5 owns cross-level newform–newform strong multiplicity one.",
+    "checked": "Stage text and reviewed AUDIT-16 read 2 October 2026. Compatibility record because check_blueprint.py parses tauceti: roadmap stage IDs as baseline refs before consulting atlas stages; do not look up this stage as a Lean declaration. Actual pinned declarations are checked separately."
    }
   ]
  },
@@ -740,48 +754,6 @@
    "implementationStatus": "unchecked"
   },
   {
-   "id": "EllipticCurveModularity:R29.3/strong-multiplicity-one-across-levels",
-   "parentStageId": "EllipticCurveModularity:R29.3",
-   "realises": [
-    "EllipticCurveModularity:R29.3"
-   ],
-   "title": "Strong multiplicity one across levels dividing N",
-   "kind": "lemma",
-   "statement": "Let f and g be normalised newforms of weight 2 and trivial character, of levels M and M′ dividing N. If A_ℓ(f) = A_ℓ(g) for all but finitely many primes ℓ ∤ N, then M = M′ and f = g.",
-   "hypotheses": [
-    "Tau Ceti proves strong multiplicity one only at a fixed level and nebentypus (HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq); the library audit (data/library-coverage.json, AUDIT-16, ModularForms Layer 4) records the newform decomposition across levels (Miyake Cor. 4.6.20, Diamond–Shurman Thm 5.8.3) as absent.",
-    "The Atkin–Lehner–Li decomposition S₂(Γ₀(L)) = ⊕_{M″|L} ⊕_{d|L/M″} S₂(Γ₀(M″))^new(dz) and the description of good-Hecke eigenspaces are requested from Tau Ceti ModularForms Layer 4."
-   ],
-   "proofSteps": [
-    "Put L = lcm(M, M′), which divides N. The forms f(dz) (d | L/M) and g(z) lie in S₂(Γ₀(L)) and are eigenvectors of every T_ℓ with ℓ ∤ L, with the eigenvalues of f and g respectively (Tau Ceti's level raising).",
-    "Atkin–Lehner–Li (requested): the simultaneous eigenspace of the T_ℓ, ℓ ∤ N, in S₂(Γ₀(L)) for the eigenvalues of f is spanned by the f(dz), d | L/M; eigenvalues agreeing for almost all ℓ determine the eigenvalue system at all ℓ ∤ N (Tau Ceti's EigenformAwayFromLevel.eigenvalue_eq_of_forall_notMem), so g lies in it.",
-    "The sum ⊕_{M″|L} ⊕_{d|L/M″} S₂(Γ₀(M″))^new(dz) is direct, g lies in the (M′, 1) summand and the f(dz) in (M, d) summands; if M′ ≠ M, g = Σ c_d f(dz) forces g = 0, which is impossible. So M = M′.",
-    "At the common level M, the fixed-level theorem HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq (trivial nebentypus on both sides) gives f = g."
-   ],
-   "acceptance": [
-    "Test: the unique newform of level 11 and its level-raised copies f(z), f(2z) in S₂(Γ₀(22)): f(2z) is not a newform, and the newform decomposition of S₂(Γ₀(22)) (dimension 2) is f(z), f(2z) with no new part.",
-    "Non-example of the fixed-level statement alone: it cannot compare a newform of level 11 with one of level 33, which is why this lemma is separate."
-   ],
-   "prerequisites": [
-    "tauceti:HeckeRing.GL2.Newform",
-    "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq"
-   ],
-   "library": {
-    "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
-    "namespace": "TauCeti.EllipticCurve.Modularity"
-   },
-   "sources": [
-    {
-     "sourceId": "CREMONA-AMEC-1997",
-     "locator": "Chapter II, §2.7, p. 26 (printed page; PDF page 20)",
-     "excerpt": "We also need to identify “oldclasses”: these are also common eigenspaces for all the T p (though not for all the Wq , see below) but have dimension greater than 1.",
-     "match": "Oldclasses are the good-Hecke eigenspaces of lower-level newforms (Atkin–Lehner); the theorem itself is requested from Tau Ceti ModularForms Layer 4."
-    }
-   ],
-   "implementationStatus": "unchecked",
-   "addedBy": "REV-EllipticCurveModularity"
-  },
-  {
    "id": "EllipticCurveModularity:R29.3/newform-of-E",
    "parentStageId": "EllipticCurveModularity:R29.3",
    "realises": [
@@ -791,20 +763,22 @@
    "kind": "definition",
    "statement": "F_E is the unique normalised newform of weight 2 and trivial character, of some level M_E | N, with A_ℓ(F_E) = a_ℓ(E) for all ℓ ∤ N. Uniqueness is strong multiplicity one; its Fourier coefficients are rational integers (rational-coefficient-field).",
    "hypotheses": [
-    "Uniqueness among newforms of all levels dividing N is R29.3/strong-multiplicity-one-across-levels; Tau Ceti's HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq alone covers only a fixed level and nebentypus."
+    "Uniqueness among normalized weight-two, trivial-character newforms of levels dividing N is imported from Tau Ceti ModularForms Layer 5, tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization. Its cross-level theorem assumes agreement at almost all good primes and concludes equality of levels, characters and forms. The pinned fixed-level theorem alone assumes agreement at all good indices outside a finite set and does not provide this statement."
    ],
    "proofSteps": [
     "Existence: the theorem above.",
-    "Uniqueness: two newforms of levels dividing N with the same eigenvalues outside N coincide, and have the same level (strong-multiplicity-one-across-levels)."
+    "Uniqueness: import ModularForms Layer 5’s cross-level newform–newform theorem for f,g of levels M,M′ dividing N. Agreement at primes outside N implies agreement at all but finitely many primes outside MM′, since only primes dividing N can be omitted. The supplier concludes M = M′ and equality after transport to the common level. No local proof of strong multiplicity one is planned here."
    ],
    "acceptance": [
-    "The level M_E is shown to equal N in R29.4 (exact-conductor)."
+    "The level M_E is shown to equal N in R29.4 (exact-conductor).",
+    "Test: the unique newform of level 11 and its level-raised copies f(z), f(2z) in S₂(Γ₀(22)): f(2z) is not a newform, and the newform decomposition of S₂(Γ₀(22)) (dimension 2) is f(z), f(2z) with no new part.",
+    "The imported theorem compares newforms, not arbitrary old eigenforms at an ambient level. Keep the initial M_E | N and prove M_E = N only in R29.4/exact-conductor."
    ],
    "prerequisites": [
     "EllipticCurveModularity:R29.3/a-single-newform-for-infinitely-many-p-and-exact-coefficients",
-    "EllipticCurveModularity:R29.3/strong-multiplicity-one-across-levels",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
     "tauceti:HeckeRing.GL2.Newform",
-    "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq"
+    "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -890,14 +864,14 @@
    ],
    "proofSteps": [
     "For σ ∈ Gal(ℚ̄/ℚ), F_E^σ is a newform of the same level and character with A_ℓ(F_E^σ) = σ(a_ℓ(E)) = a_ℓ(E) for ℓ ∤ N.",
-    "Strong multiplicity one gives F_E^σ = F_E, so every coefficient is σ-fixed, hence rational; coefficients of newforms are algebraic integers, so they lie in ℤ."
+    "ModularForms Layer 5’s prime-agreement strong multiplicity one gives F_E^σ = F_E; every coefficient is σ-fixed, hence rational. Coefficients of newforms are algebraic integers, so they lie in ℤ. The supplier is used at the fixed level M_E but with agreement only at good primes."
    ],
    "acceptance": [
     "Serre only records that the good A_ℓ lie in ℤ; the bad coefficients are rational by this conjugation argument."
    ],
    "prerequisites": [
     "EllipticCurveModularity:R29.3/newform-of-E",
-    "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq"
+    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -1203,7 +1177,7 @@
    "proofSteps": [
     "(i) is newform-of-E with exact-conductor and bad-euler-factors; (ii) is isogeny-to-E, composed with J₀(N) → A_{F_E}; (iii) is modular-parametrisation.",
     "(iii) ⇒ (ii): by the universal property of the Abel–Jacobi map (ModularCurvesPartII R14.6), a nonconstant φ : X₀(N) → E sending ∞ to O factors through a surjection J₀(N) → E.",
-    "(ii) ⇒ (i): V_r(E) is then a Galois quotient of V_r(J₀(N)) ≅ ⊕_f ⊕_{λ|r} V_{f,λ} (R19.6); V_r(E) being semisimple (R28.6), Jordan–Hölder gives V_r(E) ≅ V_{f,λ} for a newform f of level dividing N with a degree-one prime λ | r of its coefficient field; comparing Frobenius polynomials (R01.5) gives a_ℓ(E) = A_ℓ(f) under that embedding for ℓ ∤ Nr, and R29.3–R29.4 (rationality, strong multiplicity one, exact conductor, bad factors) give (i)."
+    "(ii) ⇒ (i): V_r(E) is then a Galois quotient of V_r(J₀(N)) ≅ ⊕_f ⊕_{λ|r} V_{f,λ} (R19.6); V_r(E) being semisimple (R28.6), Jordan–Hölder gives V_r(E) ≅ V_{f,λ} for a newform f of level dividing N with a degree-one prime λ | r of its coefficient field; comparing Frobenius polynomials (R01.5) gives a_ℓ(E) = A_ℓ(f) under that embedding for ℓ ∤ Nr, and R29.3–R29.4 (rationality, imported ModularForms Layer 5 strong multiplicity one, exact conductor, bad factors) give (i)."
    ],
    "acceptance": [
     "Dependency check: the chain R29.1–R29.5 uses R27.6 but no statement that assumes E modular."
@@ -1219,7 +1193,8 @@
     "AutomorphicGaloisRepresentations:R19.6",
     "FaltingsFinitenessAndIsogenyTheorems:R28.6/semisimplicity-of-the-rational-tate-module-of-an-elliptic-curve",
     "ArithmeticGaloisRepresentations:R01.5",
-    "EllipticCurveModularity:R29.3/rational-coefficient-field"
+    "EllipticCurveModularity:R29.3/rational-coefficient-field",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -1393,10 +1368,9 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
-   "need": "Finiteness of the set of normalised newforms of weight 2 and level dividing N; the newform decomposition across levels (Atkin–Lehner–Li: S₂(Γ₀(L)) = ⊕_{M|L} ⊕_{d|L/M} S₂(Γ₀(M))^new(dz), the good-Hecke eigenspace of a newform's eigensystem at level L spanned by the f(dz), and existence and uniqueness of the newform attached to an eigensystem, Miyake Cor. 4.6.20 / Diamond–Shurman Thm 5.8.3); and, for bad primes, that a newform is a U_ℓ-eigenvector with eigenvalue its ℓ-th coefficient, with a_ℓ ∈ {±1} when ℓ ∥ N and a_ℓ = 0 when ℓ² | N in weight 2 with trivial character (Miyake 4.6.17). The library audit (AUDIT-16) lists all three as absent: Tau Ceti's newform results are at one fixed level.",
+   "need": "Finiteness of normalized weight-two newforms of levels dividing N for the pigeonhole argument; and bad-prime U_ℓ eigenvalues/coefficient identification, with a_ℓ ∈ {±1} when ℓ ∥ N and a_ℓ = 0 when ℓ² | N for weight two and trivial character (Miyake 4.6.17). Retain the old/new decomposition only as the input to the level-11/level-22 acceptance example of newform-of-E: S₂(Γ₀(22)) is spanned by f(z),f(2z), with no new part. The good-Hecke-eigenspace proof and existence/uniqueness fragment formerly used to reconstruct cross-level strong multiplicity one are removed; that theorem is imported from Layer 5.",
    "neededBy": [
     "EllipticCurveModularity:R29.3/a-single-newform-for-infinitely-many-p-and-exact-coefficients",
-    "EllipticCurveModularity:R29.3/strong-multiplicity-one-across-levels",
     "EllipticCurveModularity:R29.3/newform-of-E",
     "EllipticCurveModularity:R29.4/bad-euler-factors"
    ],
@@ -1460,6 +1434,16 @@
     "EllipticCurveModularity:R29.6/l-function-continuation"
    ],
    "status": "open"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+   "need": "Cross-level strong multiplicity one specialized to weight two and trivial character: if normalized newforms f,g of nonzero levels M,M′ dividing a nonzero N have A_ℓ(f) = A_ℓ(g) for all but finitely many primes ℓ ∤ N, then M = M′ and the forms agree after transport to that level. Both inputs must be newforms; no same-level conclusion is available for a level-raised old eigenform. Import the Layer 5 theorem (Miyake 4.6.19), not a new proof in R29.3. The finite set of primes dividing N converts the stated agreement to the supplier’s agreement at almost all primes ℓ ∤ MM′.",
+   "neededBy": [
+    "EllipticCurveModularity:R29.3/newform-of-E",
+    "EllipticCurveModularity:R29.3/rational-coefficient-field",
+    "EllipticCurveModularity:R29.6/modularity-theorem"
+   ],
+   "status": "open"
   }
  ],
  "coverage": [
@@ -1479,7 +1463,7 @@
    "stageId": "EllipticCurveModularity:R29.3",
    "status": "source_decomposed",
    "remaining": [],
-   "notes": "Pigeonhole, the algebraic-integer norm argument, the single newform with a_ℓ(E) for ℓ ∤ N, the unique newform F_E and rationality of all its coefficients by conjugation and strong multiplicity one."
+   "notes": "Pigeonhole, the algebraic-integer norm argument, the single newform with a_ℓ(E) for ℓ ∤ N, the unique newform F_E and rationality of all its coefficients by conjugation and strong multiplicity one. Cross-level strong multiplicity one is a Layer 5 import, not an application-roadmap lemma; the level-11/22 regression is retained in newform-of-E."
   },
   {
    "stageId": "EllipticCurveModularity:R29.4",
@@ -1659,5 +1643,23 @@
     "note": "Serre Théorèmes 4 and 5 (pp. 207, 209) quoted correctly."
    }
   ]
+ },
+ "fixRevision": {
+  "job": "FIX-RT-BP-EllipticCurveModularity",
+  "issue": 5045,
+  "agent": "Codex",
+  "session": "codex-J6LwjP",
+  "date": "2026-10-02",
+  "findings": [
+   "RT-BP-EllipticCurveModularity/1"
+  ],
+  "scope": "Apply the single finding listed by issue #5045. Historical review remains unchanged; this revision awaits independent REV-FIX review.",
+  "removedNodes": [
+   "EllipticCurveModularity:R29.3/strong-multiplicity-one-across-levels"
+  ],
+  "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+  "nodes": 20,
+  "requests": 17,
+  "checkerCompatibility": "Two explicitly typed roadmap-stage records satisfy the existing prefix-based checker. These are unbuilt supplier plans, not pinned Lean declarations; the 16 actual declarations were checked separately against the exact pinned index. A checker with --index treats these stage IDs as absent Lean names; this is a checker classification limitation, not a library claim."
  }
 }

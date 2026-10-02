@@ -90,12 +90,19 @@ It is finite by R28.6.
 - **`algebraic-integer-norm-vanishing`:** an algebraic integer in primes above infinitely many p is zero, since p divides
   its norm.
 - **`a-single-newform-for-infinitely-many-p-and-exact-coefficients`:** there is F with A_ℓ(F) = a_ℓ(E) for all ℓ ∤ N.
-- **`newform-of-E`** (definition; planet "The newform F_E"). F_E is the unique such newform, by strong multiplicity one.
+- **`newform-of-E`** (definition; planet "The newform F_E"). F_E initially has a level M_E dividing N;
+  uniqueness across these levels is imported from **Tau Ceti ModularForms Layer 5**, not re-proved here.
+  The supplier compares two normalized newforms agreeing at almost all primes outside N, and concludes
+  equality of levels and forms. R29.4 separately proves M_E = N.
   - *Unit tests.*
     - 11a1.
     - Isogeny invariance.
     - Quadratic twists.
-- **`rational-coefficient-field`:** all coefficients of F_E are in ℤ, by conjugation and strong multiplicity one.
+    - At level 22, the level-11 form f gives oldforms f(z), f(2z), and there is no new part.
+      An arbitrary old eigenform at ambient level 22 must not be treated as a newform of level 22.
+- **`rational-coefficient-field`:** all coefficients of F_E are in ℤ, by conjugation and the imported
+  Layer 5 prime-agreement theorem. The fixed-level library theorem has a stronger all-good-indices
+  hypothesis and alone does not justify this use.
 
 ### R29.4 — Galois comparison and exact conductor
 
@@ -157,3 +164,27 @@ The decomposition's gaps are resolved by the new nodes, except Mazur's theorem, 
 - **Carayol,** Ann. Sci. ÉNS 19 (1986), Numdam. Read Corollaire 0.8.
 - **Deligne–Serre,** Ann. Sci. ÉNS 7 (1974), Numdam. Read Lemme 6.11.
 - **Cremona,** *Algorithms for modular elliptic curves*, 2nd ed., author's online text. Read Chapter II, §§2.6, 2.15.1.
+
+## Confirmed ownership fix (issue #5045, 2 October 2026)
+
+Removed the application-roadmap node `R29.3/strong-multiplicity-one-across-levels`.
+Its owner is the existing Tau Ceti stage
+`tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization`.
+The three consumers `newform-of-E`, `rational-coefficient-field` and `modularity-theorem`
+now name that supplier as a prerequisite, and a request states the precise weight-two,
+trivial-character specialization. The finite set of primes dividing the nonzero conductor N
+bridges agreement outside N to the supplier's agreement at almost all primes outside MM′.
+
+The Layer 4 request keeps finiteness, bad-prime factors and the oldform input needed by
+the preserved level-11/22 acceptance example. It no longer asks Layer 4 for the eigenspace
+argument that was used to reconstruct the Layer 5 theorem. The suggested file records
+`eq_of_eigenvalue_eq_across_levels` as an imported contract with explicit nonzero levels,
+trivial characters and good-prime agreement; it is a comment, not an elaborated local theorem.
+
+There are now 20 local nodes and 17 supplier requests. The packet remains partial because
+those imports are open; the historical accepted review does not certify this revision.
+The [fixes report](../redteam/RT-BP-EllipticCurveModularity.fixes.md) records the scope and checks.
+Only the finding explicitly listed in issue #5045 is addressed here; findings /2–/5 in the
+broader verification remain separate follow-up work. No Lean compilation was run: this
+change touches only a comment in the suggested file, and no existing build at the pins
+was available in the audited baseline checkout.
