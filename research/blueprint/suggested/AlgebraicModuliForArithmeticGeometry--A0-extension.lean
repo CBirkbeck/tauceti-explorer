@@ -26,6 +26,11 @@ import Mathlib.AlgebraicGeometry.Modules.Tilde
 import Mathlib.RingTheory.Finiteness.Descent
 import Mathlib.Algebra.Module.FinitePresentation
 
+import Mathlib.CategoryTheory.Center.Basic
+import Mathlib.Algebra.Group.Subgroup.Basic
+import Mathlib.Algebra.Group.TypeTags.Hom
+import Mathlib.Data.ZMod.Basic
+
 open CategoryTheory Opposite Bicategory
 
 universe u v u' v' w h
@@ -1429,3 +1434,269 @@ Omitted AlgebraicModuliForArithmeticGeometry:R09.3/descent-equalizer-module-coor
 For a native descent datum D with associated coalgebra (N,d), the existing comparison inverse equalizer of U(d) and η_(U N) is the R-submodule M={n∈N | d(n)=1⊗n}. Its inclusion is the ordinary submodule inclusion, its arrow map is the restriction of the underlying module map, and the native comparison counit has element formula a⊗m↦a m. When f is faithfully flat this counit is an isomorphism and agrees with the original datum transitions.
 
 END NATIVE CHOSEN-OVERLAP OMISSIONS -/
+
+/-! Intrinsic-band continuation, Codex codex-rtOQ9t, Refs #672.
+Fifteen new packet leaves use existing CatCenter, units, Aut and slice-Hom
+descent. All signatures below are UNCOMPILED at the pinned commits.
+The old intrinsic-band omission ledger is historical: the concrete section
+model below supplies a new route, while the old slice-glued carrier comparison
+still requires the imported SF1 interface. No proof or stage is closed.
+-/
+
+namespace TauCeti.AlgebraicGeometry
+
+open CategoryTheory Opposite Bicategory
+
+universe v u v' u'
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+
+/-- R09.4/band-center-sections: actual compatible units of existing centers. -/
+noncomputable def intrinsicBandSectionSubgroup (U : C) :
+    Subgroup (∀ (V : C), (V ⟶ U) → (CatCenter (F.obj (.mk (op V))))ˣ) where
+  carrier := {z | ∀ (V W : C) (f : V ⟶ U) (g : W ⟶ V)
+      (x : F.obj (.mk (op V))),
+    (F.map g.op.toLoc).toFunctor.map ((z V f).val.app x) =
+      (z W (g ≫ f)).val.app ((F.map g.op.toLoc).toFunctor.obj x)}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+abbrev IntrinsicBandSection (U : C) := ↥(intrinsicBandSectionSubgroup F U)
+
+namespace IntrinsicBandSections
+
+def val {U : C} (s : IntrinsicBandSection F U) (V : C) (f : V ⟶ U) :
+    (CatCenter (F.obj (.mk (op V))))ˣ := s.val V f
+
+theorem compatible {U : C} (s : IntrinsicBandSection F U)
+    (V W : C) (f : V ⟶ U) (g : W ⟶ V) (x : F.obj (.mk (op V))) :
+    (F.map g.op.toLoc).toFunctor.map ((val F s V f).val.app x) =
+      (val F s W (g ≫ f)).val.app ((F.map g.op.toLoc).toFunctor.obj x) := by
+  sorry
+
+/-- R09.4/band-center-ext. -/
+@[ext] theorem ext {U : C} (s t : IntrinsicBandSection F U)
+    (h : ∀ (V : C) (f : V ⟶ U) (x : F.obj (.mk (op V))),
+      (val F s V f).val.app x = (val F t V f).val.app x) : s = t := by
+  sorry
+
+/-- R09.4/band-center-commute; subgroup operations come from existing groups. -/
+noncomputable instance commGroup (U : C) : CommGroup (IntrinsicBandSection F U) :=
+  { inferInstanceAs (Group (IntrinsicBandSection F U)) with
+    mul_comm := by sorry }
+
+/-- R09.4/band-center-restrict: reindex the family, not the fibre functor. -/
+noncomputable def restrict {U V : C} (f : V ⟶ U) :
+    IntrinsicBandSection F U →* IntrinsicBandSection F V where
+  toFun s := ⟨fun W a ↦ s.val W (a ≫ f), by sorry⟩
+  map_one' := by sorry
+  map_mul' := by sorry
+
+theorem restrict_apply {U V W : C} (f : V ⟶ U)
+    (s : IntrinsicBandSection F U) (a : W ⟶ V) :
+    val F (restrict F f s) W a = val F s W (a ≫ f) := by sorry
+
+/-- R09.4/band-center-restrict-id. -/
+theorem restrict_id {U : C} (s : IntrinsicBandSection F U) :
+    restrict F (𝟙 U) s = s := by sorry
+
+/-- R09.4/band-center-restrict-comp. -/
+theorem restrict_comp {U V W : C} (f : V ⟶ U) (g : W ⟶ V)
+    (s : IntrinsicBandSection F U) :
+    restrict F g (restrict F f s) = restrict F (g ≫ f) s := by sorry
+
+/-- R09.4/band-center-evaluation. -/
+noncomputable def eval {U V : C} (a : V ⟶ U) (x : F.obj (.mk (op V))) :
+    IntrinsicBandSection F U →* Aut x where
+  toFun s := (Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op V)))) (val F s V a)).app x
+  map_one' := by sorry
+  map_mul' := by sorry
+
+theorem eval_mul {U V : C} (a : V ⟶ U) (x : F.obj (.mk (op V)))
+    (s t : IntrinsicBandSection F U) :
+    eval F a x (s * t) = eval F a x s * eval F a x t := by sorry
+
+theorem eval_conjugation {U V : C} (a : V ⟶ U)
+    {x y : F.obj (.mk (op V))} (e : x ≅ y) (s : IntrinsicBandSection F U) :
+    Aut.autMulEquivOfIso e (eval F a x s) = eval F a y s := by sorry
+
+theorem eval_restrict {U V W : C} (a : V ⟶ U) (g : W ⟶ V)
+    (x : F.obj (.mk (op V))) (s : IntrinsicBandSection F U) :
+    (F.map g.op.toLoc).toFunctor.mapAut x (eval F a x s) =
+      eval F (g ≫ a) ((F.map g.op.toLoc).toFunctor.obj x) s := by sorry
+
+/-- Packaging used by R09.4/band-center-sheaf. -/
+noncomputable def presheaf : Cᵒᵖ ⥤ AddCommGrpCat.{max u v u' v'} where
+  obj U := AddCommGrpCat.of (Additive (IntrinsicBandSection F U.unop))
+  map f := AddCommGrpCat.ofHom (MonoidHom.toAdditive (restrict F f.unop))
+  map_id := by sorry
+  map_comp := by sorry
+
+/-- R09.4/band-center-sheaf: glue hom AND inverse via existing Hom sheaves. -/
+theorem isSheaf (J : GrothendieckTopology C) [F.IsPrestack J]
+    (hIso : ∀ (U : C) {x y : F.obj (.mk (op U))} (f : x ⟶ y), IsIso f) :
+    Presheaf.IsSheaf J (presheaf F) := by sorry
+
+variable (J : GrothendieckTopology C) [hGerbe : IsGerbe F J]
+
+/-- Concrete sheaf packaging; proof source is the preceding Hom-descent leaf. -/
+include hGerbe in
+noncomputable def sheaf : Sheaf J AddCommGrpCat.{max u v u' v'} where
+  obj := presheaf F
+  property := by sorry
+
+/-- R09.4/band-center-evaluation-injective. -/
+include hGerbe in
+theorem eval_injective (U : C) (x : F.obj (.mk (op U))) :
+    Function.Injective (eval F (𝟙 U) x) := by sorry
+
+variable (hComm : ∀ (U : C) (x : F.obj (.mk (op U))) (a b : Aut x), a * b = b * a)
+
+/-- R09.4/band-center-evaluation-surjective: local conjugation and refinements. -/
+include hGerbe hComm in
+theorem eval_surjective (U : C) (x : F.obj (.mk (op U))) :
+    Function.Surjective (eval F (𝟙 U) x) := by sorry
+
+/-- R09.4/band-center-evaluation-equivalence. -/
+include hGerbe hComm in
+noncomputable def evalEquiv (U : C) (x : F.obj (.mk (op U))) :
+    IntrinsicBandSection F U ≃* Aut x := by sorry
+
+theorem evalEquiv_apply (U : C) (x : F.obj (.mk (op U)))
+    (s : IntrinsicBandSection F U) :
+    evalEquiv F J hComm U x s = eval F (𝟙 U) x s := by sorry
+
+/-- R09.4/band-center-banding: reuse the inherited actual banding structure. -/
+include hComm in
+noncomputable def banding : AbelianBanding F J (sheaf F J) := by sorry
+
+theorem banding_apply (U : C) (x : F.obj (.mk (op U)))
+    (a : Multiplicative ((sheaf F J).obj.obj (op U))) :
+    (banding F J hComm).autEquiv U x a = eval F (𝟙 U) x a.toAdd.toMul := by sorry
+
+variable {hComm}
+variable (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+
+/-- R09.4/band-center-from-banding: its values are actual band automorphisms. -/
+include b in
+noncomputable def fromBanding (U : C) :
+    Multiplicative (A.obj.obj (op U)) →* IntrinsicBandSection F U := by sorry
+
+theorem fromBanding_eval {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op V)))
+    (a : Multiplicative (A.obj.obj (op U))) :
+    eval F f x (fromBanding F J A b U a) =
+      b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a.toAdd)) := by sorry
+
+theorem fromBanding_restrict {U V : C} (f : V ⟶ U)
+    (a : Multiplicative (A.obj.obj (op U))) :
+    restrict F f (fromBanding F J A b U a) =
+      fromBanding F J A b V (Multiplicative.ofAdd (A.obj.map f.op a.toAdd)) := by sorry
+
+/-- R09.4/band-center-band-unique. Local gerbe objects prove local bijectivity;
+the coefficient sheaf glues the inverse even when F(U) is empty. -/
+theorem band_unique : ∃! e : A ≅ sheaf F J,
+    ∀ (U : C) (x : F.obj (.mk (op U))) (a : Multiplicative (A.obj.obj (op U))),
+      eval F (𝟙 U) x (((Sheaf.homEquiv e.hom).app (op U)) a.toAdd).toMul =
+        b.autEquiv U x a := by sorry
+
+end IntrinsicBandSections
+
+/- Native tests of the new carrier. The group coordinate is fixed, so these
+test nonzero recovery and noncentral exclusion instead of assuming the band
+comparison they are intended to check. -/
+namespace IntrinsicBandTestsRT
+open IntrinsicBandSections
+variable (J : GrothendieckTopology C) [hGerbe : IsGerbe F J]
+include hGerbe
+
+-- BandEvaluationTests.generator, in fixed C3 coordinates.
+example (hComm : ∀ (U : C) (x : F.obj (.mk (op U))) (a b : Aut x), a * b = b * a)
+    (U : C) (x : F.obj (.mk (op U))) (e : Aut x ≃* Multiplicative (ZMod 3)) :
+    ∃ s : IntrinsicBandSection F U,
+      e (eval F (𝟙 U) x s) = Multiplicative.ofAdd (1 : ZMod 3) := by sorry
+
+-- BandCenterTests.identity, conditional on the displayed trivial inertia.
+example (U : C) (x : F.obj (.mk (op U))) (h : Subsingleton (Aut x)) :
+    Subsingleton (IntrinsicBandSection F U) := by sorry
+
+-- BandEvaluationTests.noncentral, with the actual transposition coordinate.
+example (U : C) (x : F.obj (.mk (op U)))
+    (e : Aut x ≃* Equiv.Perm (Fin 3)) (s : IntrinsicBandSection F U) :
+    e (eval F (𝟙 U) x s) ≠ Equiv.swap (0 : Fin 3) 1 := by sorry
+
+example {U V W : C} (f : V ⟶ U) (g : W ⟶ V) (s : IntrinsicBandSection F U) :
+    restrict F g (restrict F f s) = restrict F (g ≫ f) s := by sorry
+
+example {U V : C} (f : V ⟶ U) {x y : F.obj (.mk (op V))}
+    (e e' : x ≅ y) (s : IntrinsicBandSection F U) :
+    Aut.autMulEquivOfIso e (eval F f x s) =
+      Aut.autMulEquivOfIso e' (eval F f x s) := by sorry
+
+example (hComm : ∀ (U : C) (x : F.obj (.mk (op U))) (a b : Aut x), a * b = b * a)
+    (U : C) (x : F.obj (.mk (op U))) (e : Aut x ≃* Multiplicative (ZMod 3)) :
+    ¬ Subsingleton (IntrinsicBandSection F U) := by sorry
+
+-- BandCenterTests.C3, in the chosen automorphism coordinate.
+example (hComm : ∀ (U : C) (x : F.obj (.mk (op U))) (a b : Aut x), a * b = b * a)
+    (U : C) (x : F.obj (.mk (op U))) (e : Aut x ≃* Multiplicative (ZMod 3)) :
+    Nat.card (IntrinsicBandSection F U) = 3 := by sorry
+
+-- BandCenterTests.S3: evaluation lands in the actual trivial center.
+example (U : C) (x : F.obj (.mk (op U)))
+    (e : Aut x ≃* Equiv.Perm (Fin 3)) :
+    Nat.card (IntrinsicBandSection F U) = 1 := by sorry
+
+-- BandRestrictionTests.id applies, in particular, to the nonzero C3 section.
+example (U : C) (s : IntrinsicBandSection F U) : restrict F (𝟙 U) s = s := by sorry
+
+-- BandComparisonTests.inversion: distinct fixed-band coordinates stay distinct.
+example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b b' : AbelianBanding F J A)
+    (U : C) (x : F.obj (.mk (op U)))
+    (e : Multiplicative (A.obj.obj (op U)) ≃* Multiplicative (ZMod 3))
+    (h : b'.autEquiv U x (e.symm (Multiplicative.ofAdd (1 : ZMod 3))) =
+      b.autEquiv U x (e.symm (Multiplicative.ofAdd (2 : ZMod 3)))) :
+    fromBanding F J A b U (e.symm (Multiplicative.ofAdd (1 : ZMod 3))) ≠
+      fromBanding F J A b' U (e.symm (Multiplicative.ofAdd (1 : ZMod 3))) := by sorry
+
+end IntrinsicBandTestsRT
+end TauCeti.AlgebraicGeometry
+
+/- Exact remaining native omissions for this continuation:
+R09.4/band-center-glued-comparison needs the SF1 object of descended slice
+group sheaves, its effective-descent evaluation isomorphisms and Over.map
+restriction coherence. Its proposed signature compares that actual object on
+C/U with restriction of IntrinsicBandSections.sheaf, agrees on every local
+Aut(x) chart, and commutes with every V→U. It must not be replaced by an
+arbitrary Prop or a structure storing the desired comparison as data.
+
+The named point-site B(C3), terminal-gerbe, two-object groupoid and B(S3)
+cardinality tests still need the D0 classifying-stack/point-site carrier;
+their coordinate-specialized native examples above do not claim to construct
+those site fixtures. The C4→C2→C2 chain count and the two disjoint chain
+no-terminal test need those explicit site pseudofunctors. The root-gerbe
+empty-fibre μn test needs the inherited RootGerbe carrier. The changed-band
+C3 inversion test needs that explicit banding fixture. These omissions are
+mathematical tests in the packet and reader, not completed Lean tests.
+-/
+
+/- Named test fixture/statement ledger for all15 new mathematical tests.
+The coordinate-specialized examples above cover some consequences. Where a
+named site fixture is unavailable its full signature is omitted, as described
+in the preceding interface ledger; none is a completed Lean test.
+BandCenterTests.C3: On the one-object point-site gerbe B(C3), there are three central sections, with evaluation recovering all of C3.
+BandCenterTests.identity: For the terminal fibre groupoid, the group of compatible central sections is trivial.
+BandCenterTests.S3: For B(S3) on a point, sections form the trivial center of S3, rather than all six automorphisms. Thus evaluation onto inertia fails without abelian inertia.
+BandRestrictionTests.id: Restriction along identity fixes the nonzero generator of the C3 point band.
+BandRestrictionTests.chain: For the three-object chain with fibre groups C4→C2→C2 and restrictions reduction mod2 then identity, the generator1 restricts to1 by either the composite or the two successive maps.
+BandRestrictionTests.independentFamilies: Dropping vertical compatibility on this chain permits16 independent tuples instead of4 compatible sections over the top object; this wrong product must be rejected.
+BandEvaluationTests.generator: For B(C3) evaluation sends its generator section to the nonidentity automorphism1.
+BandEvaluationTests.changeObject: For a connected two-object C3 groupoid, changing the object through any isomorphism gives the same labelled C3 element.
+BandEvaluationTests.noncentral: The transposition(01) of S3 fails the naturality equation with(12), so it cannot occur as the evaluation of a central section of B(S3).
+BandSheafTests.BC3: For B(C3) on a point the coefficient group is C3 and its banding sends generator to generator.
+BandSheafTests.noTerminal: On two disjoint three-object chains, whose site has no terminal object, the construction gives the specified abelian coefficient groups and restrictions on both components.
+BandSheafTests.rootNonneutral: For the gerbe of nth roots of O(1) on P1, the coefficient sheaf is μn even though the fibre over P1 is empty; assigning the zero band whenever F(U) is empty is incorrect.
+BandComparisonTests.identity: For the canonical C3 band, c_b sends the labelled generator to the generator section.
+BandComparisonTests.inversion: If the C3 banding is changed by a↦-a, c_b sends1 to2; these two coefficient identifications are distinct. They cannot be quotiented by Aut(C3).
+BandComparisonTests.trivial: The zero coefficient on the terminal gerbe gives the unique section homomorphism.
+-/
