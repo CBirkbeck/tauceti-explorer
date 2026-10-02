@@ -64001,3 +64001,335 @@ Exact rational controls through36 levels verify134 local transitions,856 coeffic
 Fresh capture after the actual merge of5797 found all79 canonical inputs unchanged from the predecessor. The whole issue, queue, original winning claim and blocked/unclaimed review390 were reread. All27 source findings and eight source versions remain whole; no external review conclusion is adopted.
 
 The separate partial signature file also compiled with zero errors and 6,264 expected placeholder warnings across 3,914 pinned source modules. It includes all 15 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: eb45266f58496d88a60146e332320f77005703e91a1675bce5fede6b65e1de97.
+
+
+## Actual full root sums at unchanged prime support and repeated primes
+
+Twelve L3 nodes identify the actual unchanged-support full root set with original Cartan primitive labels and prove the corrected rational-value root sum, including the complete repeated-prime case of Kubert4.10. All2,142 predecessor nodes and1,272 baseline records remain whole. The new-prime branch and general distribution reduction remain open.
+
+Published Kubert196–197 Proposition4.10 was reread in full, distinguishing repeated and new primes. The original primitive lifting5431 and prime-fiber partition5441 statements were rediscovered in the retained prefix and read completely; they are reused rather than replanned. Original primitive-circle coordinates5674, raw-fiber sums5773 and corrected values5782 supply the actual carriers. Native subtype/finite-sum reindexing, finite enumeration, order-of-multiple and prime-factor product statements were reread at the pinned sources. No new source finding or version is added.
+
+### The original primitive-fiber sum is its complete Cartan basis sum
+
+`DirichletPadicLFunctions:L3/kubert-prime-root-fiber-cartan-rational-primitive-sum-eq-sum` — `DirichletPadic.kubertCartanRationalPrimitiveSum_eq_sum`
+
+The actual raw Cartan primitive-fiber sum at a equals the sum of [u] over every original Cartan unit satisfying t·P_N(u)=a, with no basis lift omitted.
+
+**Hypotheses:** The degree is one and N is positive. The point carrier is the actual one-coordinate rational torus Fin1→AddCircle(1:Q), and a is an actual point in the kernel of multiplication by N. Its actual additive order d is positive and divides N; put t=N/d. The Cartan carrier is the original finite product of truncated-Witt unit groups over the original finite Galois fields. The existing primitive-circle and one-coordinate equivalences identify each original unit u with its actual primitive level-N torus point P_N(u). No abstract torsor or supplied fiber equivalence is used. The original raw Cartan primitive-fiber sum has coefficient1 precisely at original units satisfying t·P_N(u)=a, and0 elsewhere. The corrected value r_N is this actual sum times the existing product of local correction factors for primes dividing the point’s actual order, with the E27 product correction retained. The full-root comparison assumes that every prime dividing N divides d. Since d divides N, this is equality of the actual prime supports. The prior proved root-primitive theorem then shows that every full t-root of a is primitive of order N. The new equivalence connects those actual roots to the original Cartan labels. For the repeated-prime corollary, q is prime, q divides N and q divides N/q, and the original point a is primitive of order N. The target q·a has order N/q and the same prime support as N; the full q-root relation is proved inside the actual level-N kernel. No same-support hypothesis is imposed silently on the remaining new-prime case. If q does not divide N/q, the full fiber contains an exceptional lower-order point and is not entirely primitive. The general distribution relation4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain open; the original degree-one full-norm compatibility4.8 remains proved.
+
+**Proof:**
+
+1. Compare each original group-ring coefficient with the previously proved raw-fiber indicator.
+2. If its label lies in the actual fiber, native finite single-term summation selects its own unit basis coefficient1.
+3. Outside the actual fiber every basis contribution vanishes by the native off-diagonal coefficient theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-coeff`, `mathlib:MonoidAlgebra.coeff_sum`, `mathlib:Finsupp.finsetSum_apply`, `mathlib:Finset.prod_eq_single`, `mathlib:Finsupp.single_eq_same`, `mathlib:Finsupp.single_eq_of_ne'`.
+
+**Tests:**
+
+- `SuggestedKubertPrimeRootFibersTests.original_fiber_sum_has_identity_coefficient_one` (computation): The original primitive-fiber sum for1/3 at level9 includes the identity Cartan unit with coefficient1.
+- `SuggestedKubertPrimeRootFibersTests.cartanRationalPrimitiveSum_eq_sum_typed_api` (compatibility): The actual raw Cartan primitive-fiber sum at a equals the sum of [u] over every original Cartan unit satisfying t·P_N(u)=a, with no basis lift omitted.
+
+**Acceptance:** At level9 with target1/3 the full3-root set is{1/9,4/9,7/9}, corresponding to original Cartan residues1,4,7; its corrected sum has identity coefficient1/2. At level18 the roots1/18,7/18,13/18 sum to the corrected value at1/6. At level6 the2-root fiber of1/3 also contains2/3 of order3, so its primitive part alone gives the wrong corrected sum. At level1 the empty prime support and singleton full root set retain the identity value.
+
+**Source:** Published196, Proposition4.10, the case q dividing N/q: every root is primitive and the primitive fibers partition the target fiber. The full corrected-value definition is4.5 on194 with E27, and the distinct new-prime case continues on196–197. Connects the original actual Cartan primitive-fiber basis sum to the entire torus root set when the level and actual target order have the same prime support, using the already proved native-carrier primitive lifting theorem. This proves the unchanged-support and repeated-prime corrected-value root sums. The exceptional lower-order contribution in the separate new-prime case is explicitly not omitted or claimed complete.
+
+### Corrected primitive values sum to the raw fiber times all local factors
+
+`DirichletPadicLFunctions:L3/kubert-prime-root-fiber-rational-cartan-value-primitive-fiber-sum` — `DirichletPadic.kubertRationalCartanValue_primitive_fiber_sum`
+
+Sum r_N(P_N(u)) over all original units in the actual primitive t-fiber of a. The result is the raw primitive-fiber sum at a multiplied by the product of every local correction factor at level N.
+
+**Hypotheses:** The degree is one and N is positive. The point carrier is the actual one-coordinate rational torus Fin1→AddCircle(1:Q), and a is an actual point in the kernel of multiplication by N. Its actual additive order d is positive and divides N; put t=N/d. The Cartan carrier is the original finite product of truncated-Witt unit groups over the original finite Galois fields. The existing primitive-circle and one-coordinate equivalences identify each original unit u with its actual primitive level-N torus point P_N(u). No abstract torsor or supplied fiber equivalence is used. The original raw Cartan primitive-fiber sum has coefficient1 precisely at original units satisfying t·P_N(u)=a, and0 elsewhere. The corrected value r_N is this actual sum times the existing product of local correction factors for primes dividing the point’s actual order, with the E27 product correction retained. The full-root comparison assumes that every prime dividing N divides d. Since d divides N, this is equality of the actual prime supports. The prior proved root-primitive theorem then shows that every full t-root of a is primitive of order N. The new equivalence connects those actual roots to the original Cartan labels. For the repeated-prime corollary, q is prime, q divides N and q divides N/q, and the original point a is primitive of order N. The target q·a has order N/q and the same prime support as N; the full q-root relation is proved inside the actual level-N kernel. No same-support hypothesis is imposed silently on the remaining new-prime case. If q does not divide N/q, the full fiber contains an exceptional lower-order point and is not entirely primitive. The general distribution relation4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain open; the original degree-one full-norm compatibility4.8 remains proved.
+
+**Proof:**
+
+1. Each original primitive point has corrected value [u] times the complete level-N correction product by the earlier primitive-value theorem.
+2. Replace every summand by this proved actual basis formula.
+3. Distribute the common product across the finite sum.
+4. Identify the remaining complete basis sum with the original raw primitive-fiber sum.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-cartan-value-primitive`, `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-cartan-rational-primitive-sum-eq-sum`, `mathlib:MonoidAlgebra.coeff_sum`.
+
+**Tests:**
+
+- `SuggestedKubertPrimeRootFibersTests.rationalCartanValue_primitive_fiber_sum_typed_api` (compatibility): Sum r_N(P_N(u)) over all original units in the actual primitive t-fiber of a. The result is the raw primitive-fiber sum at a multiplied by the product of every local correction factor at level N.
+
+**Acceptance:** At level9 with target1/3 the full3-root set is{1/9,4/9,7/9}, corresponding to original Cartan residues1,4,7; its corrected sum has identity coefficient1/2. At level18 the roots1/18,7/18,13/18 sum to the corrected value at1/6. At level6 the2-root fiber of1/3 also contains2/3 of order3, so its primitive part alone gives the wrong corrected sum. At level1 the empty prime support and singleton full root set retain the identity value.
+
+**Source:** Published196, Proposition4.10, the case q dividing N/q: every root is primitive and the primitive fibers partition the target fiber. The full corrected-value definition is4.5 on194 with E27, and the distinct new-prime case continues on196–197. Connects the original actual Cartan primitive-fiber basis sum to the entire torus root set when the level and actual target order have the same prime support, using the already proved native-carrier primitive lifting theorem. This proves the unchanged-support and repeated-prime corrected-value root sums. The exceptional lower-order contribution in the separate new-prime case is explicitly not omitted or claimed complete.
+
+### Unchanged prime support selects every original correction factor
+
+`DirichletPadicLFunctions:L3/kubert-prime-root-fiber-rational-cartan-value-same-prime-support` — `DirichletPadic.kubertRationalCartanValue_same_prime_support`
+
+If every prime dividing N divides the actual order of a, then r_N(a) equals its original raw primitive-fiber sum times the product of all level-N correction factors.
+
+**Hypotheses:** The degree is one and N is positive. The point carrier is the actual one-coordinate rational torus Fin1→AddCircle(1:Q), and a is an actual point in the kernel of multiplication by N. Its actual additive order d is positive and divides N; put t=N/d. The Cartan carrier is the original finite product of truncated-Witt unit groups over the original finite Galois fields. The existing primitive-circle and one-coordinate equivalences identify each original unit u with its actual primitive level-N torus point P_N(u). No abstract torsor or supplied fiber equivalence is used. The original raw Cartan primitive-fiber sum has coefficient1 precisely at original units satisfying t·P_N(u)=a, and0 elsewhere. The corrected value r_N is this actual sum times the existing product of local correction factors for primes dividing the point’s actual order, with the E27 product correction retained. The full-root comparison assumes that every prime dividing N divides d. Since d divides N, this is equality of the actual prime supports. The prior proved root-primitive theorem then shows that every full t-root of a is primitive of order N. The new equivalence connects those actual roots to the original Cartan labels. For the repeated-prime corollary, q is prime, q divides N and q divides N/q, and the original point a is primitive of order N. The target q·a has order N/q and the same prime support as N; the full q-root relation is proved inside the actual level-N kernel. No same-support hypothesis is imposed silently on the remaining new-prime case. If q does not divide N/q, the full fiber contains an exceptional lower-order point and is not entirely primitive. The general distribution relation4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain open; the original degree-one full-norm compatibility4.8 remains proved.
+
+**Proof:**
+
+1. Expand the existing corrected-value definition.
+2. Every actual prime factor of N belongs to the actual order’s prime factors by the stated support inclusion.
+3. It therefore divides the actual order and selects its genuine correction factor rather than1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-cartan-value`, `mathlib:Finset.prod_congr`.
+
+**Tests:**
+
+- `SuggestedKubertPrimeRootFibersTests.rationalCartanValue_same_prime_support_typed_api` (compatibility): If every prime dividing N divides the actual order of a, then r_N(a) equals its original raw primitive-fiber sum times the product of all level-N correction factors.
+
+**Acceptance:** At level9 with target1/3 the full3-root set is{1/9,4/9,7/9}, corresponding to original Cartan residues1,4,7; its corrected sum has identity coefficient1/2. At level18 the roots1/18,7/18,13/18 sum to the corrected value at1/6. At level6 the2-root fiber of1/3 also contains2/3 of order3, so its primitive part alone gives the wrong corrected sum. At level1 the empty prime support and singleton full root set retain the identity value.
+
+**Source:** Published196, Proposition4.10, the case q dividing N/q: every root is primitive and the primitive fibers partition the target fiber. The full corrected-value definition is4.5 on194 with E27, and the distinct new-prime case continues on196–197. Connects the original actual Cartan primitive-fiber basis sum to the entire torus root set when the level and actual target order have the same prime support, using the already proved native-carrier primitive lifting theorem. This proves the unchanged-support and repeated-prime corrected-value root sums. The exceptional lower-order contribution in the separate new-prime case is explicitly not omitted or claimed complete.
+
+### The complete primitive fiber gives the corrected value at unchanged support
+
+`DirichletPadicLFunctions:L3/kubert-prime-root-fiber-rational-cartan-value-same-support-primitive-sum` — `DirichletPadic.kubertRationalCartanValue_same_support_primitive_sum`
+
+Under the actual prime-support inclusion, the sum of corrected values over all original primitive Cartan labels in the t-fiber equals r_N(a).
+
+**Hypotheses:** The degree is one and N is positive. The point carrier is the actual one-coordinate rational torus Fin1→AddCircle(1:Q), and a is an actual point in the kernel of multiplication by N. Its actual additive order d is positive and divides N; put t=N/d. The Cartan carrier is the original finite product of truncated-Witt unit groups over the original finite Galois fields. The existing primitive-circle and one-coordinate equivalences identify each original unit u with its actual primitive level-N torus point P_N(u). No abstract torsor or supplied fiber equivalence is used. The original raw Cartan primitive-fiber sum has coefficient1 precisely at original units satisfying t·P_N(u)=a, and0 elsewhere. The corrected value r_N is this actual sum times the existing product of local correction factors for primes dividing the point’s actual order, with the E27 product correction retained. The full-root comparison assumes that every prime dividing N divides d. Since d divides N, this is equality of the actual prime supports. The prior proved root-primitive theorem then shows that every full t-root of a is primitive of order N. The new equivalence connects those actual roots to the original Cartan labels. For the repeated-prime corollary, q is prime, q divides N and q divides N/q, and the original point a is primitive of order N. The target q·a has order N/q and the same prime support as N; the full q-root relation is proved inside the actual level-N kernel. No same-support hypothesis is imposed silently on the remaining new-prime case. If q does not divide N/q, the full fiber contains an exceptional lower-order point and is not entirely primitive. The general distribution relation4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain open; the original degree-one full-norm compatibility4.8 remains proved.
+
+**Proof:**
+
+1. Use the complete corrected primitive-fiber sum identity.
+2. The unchanged-support formula identifies the target with exactly the same raw sum and full correction product.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-rational-cartan-value-primitive-fiber-sum`, `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-rational-cartan-value-same-prime-support`.
+
+**Tests:**
+
+- `SuggestedKubertPrimeRootFibersTests.new_prime_primitive_part_alone_fails` (non-example): At level6, the primitive part of the2-root fiber of1/3 consists only of1/6; its corrected value differs from the target. The exceptional lower-order root is required in the remaining new-prime argument.
+- `SuggestedKubertPrimeRootFibersTests.rationalCartanValue_same_support_primitive_sum_typed_api` (compatibility): Under the actual prime-support inclusion, the sum of corrected values over all original primitive Cartan labels in the t-fiber equals r_N(a).
+
+**Acceptance:** At level9 with target1/3 the full3-root set is{1/9,4/9,7/9}, corresponding to original Cartan residues1,4,7; its corrected sum has identity coefficient1/2. At level18 the roots1/18,7/18,13/18 sum to the corrected value at1/6. At level6 the2-root fiber of1/3 also contains2/3 of order3, so its primitive part alone gives the wrong corrected sum. At level1 the empty prime support and singleton full root set retain the identity value.
+
+**Source:** Published196, Proposition4.10, the case q dividing N/q: every root is primitive and the primitive fibers partition the target fiber. The full corrected-value definition is4.5 on194 with E27, and the distinct new-prime case continues on196–197. Connects the original actual Cartan primitive-fiber basis sum to the entire torus root set when the level and actual target order have the same prime support, using the already proved native-carrier primitive lifting theorem. This proves the unchanged-support and repeated-prime corrected-value root sums. The exceptional lower-order contribution in the separate new-prime case is explicitly not omitted or claimed complete.
+
+### Actual Cartan labels parametrize the entire root fiber at unchanged support
+
+`DirichletPadicLFunctions:L3/kubert-prime-root-fiber-cartan-same-support-root-equiv` — `DirichletPadic.kubertCartanSameSupportRootEquiv`
+
+Construct an equivalence between original Cartan units u satisfying t·P_N(u)=a and every actual torus point b satisfying t·b=a, when the actual prime supports of N and the order of a agree.
+
+**Hypotheses:** The degree is one and N is positive. The point carrier is the actual one-coordinate rational torus Fin1→AddCircle(1:Q), and a is an actual point in the kernel of multiplication by N. Its actual additive order d is positive and divides N; put t=N/d. The Cartan carrier is the original finite product of truncated-Witt unit groups over the original finite Galois fields. The existing primitive-circle and one-coordinate equivalences identify each original unit u with its actual primitive level-N torus point P_N(u). No abstract torsor or supplied fiber equivalence is used. The original raw Cartan primitive-fiber sum has coefficient1 precisely at original units satisfying t·P_N(u)=a, and0 elsewhere. The corrected value r_N is this actual sum times the existing product of local correction factors for primes dividing the point’s actual order, with the E27 product correction retained. The full-root comparison assumes that every prime dividing N divides d. Since d divides N, this is equality of the actual prime supports. The prior proved root-primitive theorem then shows that every full t-root of a is primitive of order N. The new equivalence connects those actual roots to the original Cartan labels. For the repeated-prime corollary, q is prime, q divides N and q divides N/q, and the original point a is primitive of order N. The target q·a has order N/q and the same prime support as N; the full q-root relation is proved inside the actual level-N kernel. No same-support hypothesis is imposed silently on the remaining new-prime case. If q does not divide N/q, the full fiber contains an exceptional lower-order point and is not entirely primitive. The general distribution relation4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain open; the original degree-one full-norm compatibility4.8 remains proved.
+
+**Proof:**
+
+1. Use the existing original Cartan-to-primitive-circle equivalence followed by the actual one-coordinate primitive-point equivalence.
+2. Apply the earlier proved root-primitive theorem to the actual target a of order d, the divisor d of N and the stated prime-support inclusion. It proves every full t-root primitive of order N.
+3. The forward map takes an original Cartan label to its actual primitive torus point.
+4. The inverse takes an actual full root, packages its proved primitivity and applies the inverse original primitive-point equivalence.
+5. The original equivalence inverse laws verify both compositions, and the actual root equations are retained.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-root-primitive-same-primes`, `DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd`.
+
+**Uses:**
+
+- Kubert196, first case of Proposition4.10: Identifies the original Cartan basis labels with every actual repeated-prime root, so the corrected primitive-value sum accounts for the full fiber.
+- Kubert193 equation4.1 and196–197 Proposition4.10: Makes the distinction between the original primitive fiber and the complete root set explicit. The equivalence requires unchanged prime support and does not discard the exceptional lower-order root in the separate new-prime case.
+
+**API:**
+
+- `kubertCartanSameSupportRootEquiv_coe` (compatibility): The underlying full root associated to an original Cartan label u is exactly P_N(u), the original primitive torus point.
+- `kubertCartanSameSupportRootEquiv_symm_coe` (compatibility): Applying the original primitive-point map to the Cartan label recovered from a full root b gives the actual original point b.
+- `kubertCartanSameSupportRootEquiv_mem_level` (compatibility): Each actual full t-root of a belongs to the original kernel of multiplication by N.
+
+**Tests:**
+
+- `SuggestedKubertPrimeRootFibersTests.identity_unit_gives_actual_one_ninth_root` (computation): For level9 and target1/3, the actual identity Cartan unit maps to the full root1/9.
+- `SuggestedKubertPrimeRootFibersTests.actual_four_ninths_root_recovers_residue_four` (computation): For level9 and target1/3, the inverse root equivalence sends4/9 to the original Cartan unit with residue4.
+- `SuggestedKubertPrimeRootFibersTests.new_prime_support_hypothesis_is_essential` (non-example): At level6 a point of order3 omits the prime2. The full2-root fiber includes the nonprimitive point2/3, so the all-primitive root equivalence cannot satisfy its support hypothesis.
+
+**Acceptance:** At level9 with target1/3 the full3-root set is{1/9,4/9,7/9}, corresponding to original Cartan residues1,4,7; its corrected sum has identity coefficient1/2. At level18 the roots1/18,7/18,13/18 sum to the corrected value at1/6. At level6 the2-root fiber of1/3 also contains2/3 of order3, so its primitive part alone gives the wrong corrected sum. At level1 the empty prime support and singleton full root set retain the identity value.
+
+**Source:** Published196, Proposition4.10, the case q dividing N/q: every root is primitive and the primitive fibers partition the target fiber. The full corrected-value definition is4.5 on194 with E27, and the distinct new-prime case continues on196–197. Connects the original actual Cartan primitive-fiber basis sum to the entire torus root set when the level and actual target order have the same prime support, using the already proved native-carrier primitive lifting theorem. This proves the unchanged-support and repeated-prime corrected-value root sums. The exceptional lower-order contribution in the separate new-prime case is explicitly not omitted or claimed complete.
+
+### The root equivalence preserves the original primitive point
+
+`DirichletPadicLFunctions:L3/kubert-prime-root-fiber-cartan-same-support-root-equiv-coe` — `DirichletPadic.kubertCartanSameSupportRootEquiv_coe`
+
+The underlying full root associated to an original Cartan label u is exactly P_N(u), the original primitive torus point.
+
+**Hypotheses:** The degree is one and N is positive. The point carrier is the actual one-coordinate rational torus Fin1→AddCircle(1:Q), and a is an actual point in the kernel of multiplication by N. Its actual additive order d is positive and divides N; put t=N/d. The Cartan carrier is the original finite product of truncated-Witt unit groups over the original finite Galois fields. The existing primitive-circle and one-coordinate equivalences identify each original unit u with its actual primitive level-N torus point P_N(u). No abstract torsor or supplied fiber equivalence is used. The original raw Cartan primitive-fiber sum has coefficient1 precisely at original units satisfying t·P_N(u)=a, and0 elsewhere. The corrected value r_N is this actual sum times the existing product of local correction factors for primes dividing the point’s actual order, with the E27 product correction retained. The full-root comparison assumes that every prime dividing N divides d. Since d divides N, this is equality of the actual prime supports. The prior proved root-primitive theorem then shows that every full t-root of a is primitive of order N. The new equivalence connects those actual roots to the original Cartan labels. For the repeated-prime corollary, q is prime, q divides N and q divides N/q, and the original point a is primitive of order N. The target q·a has order N/q and the same prime support as N; the full q-root relation is proved inside the actual level-N kernel. No same-support hypothesis is imposed silently on the remaining new-prime case. If q does not divide N/q, the full fiber contains an exceptional lower-order point and is not entirely primitive. The general distribution relation4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain open; the original degree-one full-norm compatibility4.8 remains proved.
+
+**Proof:**
+
+1. Evaluate the constructed forward map.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-cartan-same-support-root-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertPrimeRootFibersTests.cartanSameSupportRootEquiv_coe_typed_api` (compatibility): The underlying full root associated to an original Cartan label u is exactly P_N(u), the original primitive torus point.
+
+**Acceptance:** At level9 with target1/3 the full3-root set is{1/9,4/9,7/9}, corresponding to original Cartan residues1,4,7; its corrected sum has identity coefficient1/2. At level18 the roots1/18,7/18,13/18 sum to the corrected value at1/6. At level6 the2-root fiber of1/3 also contains2/3 of order3, so its primitive part alone gives the wrong corrected sum. At level1 the empty prime support and singleton full root set retain the identity value.
+
+**Source:** Published196, Proposition4.10, the case q dividing N/q: every root is primitive and the primitive fibers partition the target fiber. The full corrected-value definition is4.5 on194 with E27, and the distinct new-prime case continues on196–197. Connects the original actual Cartan primitive-fiber basis sum to the entire torus root set when the level and actual target order have the same prime support, using the already proved native-carrier primitive lifting theorem. This proves the unchanged-support and repeated-prime corrected-value root sums. The exceptional lower-order contribution in the separate new-prime case is explicitly not omitted or claimed complete.
+
+### The inverse root equivalence recovers the given actual point
+
+`DirichletPadicLFunctions:L3/kubert-prime-root-fiber-cartan-same-support-root-equiv-symm-coe` — `DirichletPadic.kubertCartanSameSupportRootEquiv_symm_coe`
+
+Applying the original primitive-point map to the Cartan label recovered from a full root b gives the actual original point b.
+
+**Hypotheses:** The degree is one and N is positive. The point carrier is the actual one-coordinate rational torus Fin1→AddCircle(1:Q), and a is an actual point in the kernel of multiplication by N. Its actual additive order d is positive and divides N; put t=N/d. The Cartan carrier is the original finite product of truncated-Witt unit groups over the original finite Galois fields. The existing primitive-circle and one-coordinate equivalences identify each original unit u with its actual primitive level-N torus point P_N(u). No abstract torsor or supplied fiber equivalence is used. The original raw Cartan primitive-fiber sum has coefficient1 precisely at original units satisfying t·P_N(u)=a, and0 elsewhere. The corrected value r_N is this actual sum times the existing product of local correction factors for primes dividing the point’s actual order, with the E27 product correction retained. The full-root comparison assumes that every prime dividing N divides d. Since d divides N, this is equality of the actual prime supports. The prior proved root-primitive theorem then shows that every full t-root of a is primitive of order N. The new equivalence connects those actual roots to the original Cartan labels. For the repeated-prime corollary, q is prime, q divides N and q divides N/q, and the original point a is primitive of order N. The target q·a has order N/q and the same prime support as N; the full q-root relation is proved inside the actual level-N kernel. No same-support hypothesis is imposed silently on the remaining new-prime case. If q does not divide N/q, the full fiber contains an exceptional lower-order point and is not entirely primitive. The general distribution relation4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain open; the original degree-one full-norm compatibility4.8 remains proved.
+
+**Proof:**
+
+1. Apply the inverse law of the constructed actual root equivalence.
+2. Pass to the underlying rational-torus point.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-cartan-same-support-root-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertPrimeRootFibersTests.cartanSameSupportRootEquiv_symm_coe_typed_api` (compatibility): Applying the original primitive-point map to the Cartan label recovered from a full root b gives the actual original point b.
+
+**Acceptance:** At level9 with target1/3 the full3-root set is{1/9,4/9,7/9}, corresponding to original Cartan residues1,4,7; its corrected sum has identity coefficient1/2. At level18 the roots1/18,7/18,13/18 sum to the corrected value at1/6. At level6 the2-root fiber of1/3 also contains2/3 of order3, so its primitive part alone gives the wrong corrected sum. At level1 the empty prime support and singleton full root set retain the identity value.
+
+**Source:** Published196, Proposition4.10, the case q dividing N/q: every root is primitive and the primitive fibers partition the target fiber. The full corrected-value definition is4.5 on194 with E27, and the distinct new-prime case continues on196–197. Connects the original actual Cartan primitive-fiber basis sum to the entire torus root set when the level and actual target order have the same prime support, using the already proved native-carrier primitive lifting theorem. This proves the unchanged-support and repeated-prime corrected-value root sums. The exceptional lower-order contribution in the separate new-prime case is explicitly not omitted or claimed complete.
+
+### Every root in the unchanged-support comparison is an original level point
+
+`DirichletPadicLFunctions:L3/kubert-prime-root-fiber-cartan-same-support-root-equiv-mem-level` — `DirichletPadic.kubertCartanSameSupportRootEquiv_mem_level`
+
+Each actual full t-root of a belongs to the original kernel of multiplication by N.
+
+**Hypotheses:** The degree is one and N is positive. The point carrier is the actual one-coordinate rational torus Fin1→AddCircle(1:Q), and a is an actual point in the kernel of multiplication by N. Its actual additive order d is positive and divides N; put t=N/d. The Cartan carrier is the original finite product of truncated-Witt unit groups over the original finite Galois fields. The existing primitive-circle and one-coordinate equivalences identify each original unit u with its actual primitive level-N torus point P_N(u). No abstract torsor or supplied fiber equivalence is used. The original raw Cartan primitive-fiber sum has coefficient1 precisely at original units satisfying t·P_N(u)=a, and0 elsewhere. The corrected value r_N is this actual sum times the existing product of local correction factors for primes dividing the point’s actual order, with the E27 product correction retained. The full-root comparison assumes that every prime dividing N divides d. Since d divides N, this is equality of the actual prime supports. The prior proved root-primitive theorem then shows that every full t-root of a is primitive of order N. The new equivalence connects those actual roots to the original Cartan labels. For the repeated-prime corollary, q is prime, q divides N and q divides N/q, and the original point a is primitive of order N. The target q·a has order N/q and the same prime support as N; the full q-root relation is proved inside the actual level-N kernel. No same-support hypothesis is imposed silently on the remaining new-prime case. If q does not divide N/q, the full fiber contains an exceptional lower-order point and is not entirely primitive. The general distribution relation4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain open; the original degree-one full-norm compatibility4.8 remains proved.
+
+**Proof:**
+
+1. Use the inverse root equivalence to identify the full root with an actual primitive point of order N.
+2. Apply the already proved inclusion of original primitive points into the level-N kernel.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-cartan-same-support-root-equiv-symm-coe`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level`.
+
+**Tests:**
+
+- `SuggestedKubertPrimeRootFibersTests.cartanSameSupportRootEquiv_mem_level_typed_api` (compatibility): Each actual full t-root of a belongs to the original kernel of multiplication by N.
+
+**Acceptance:** At level9 with target1/3 the full3-root set is{1/9,4/9,7/9}, corresponding to original Cartan residues1,4,7; its corrected sum has identity coefficient1/2. At level18 the roots1/18,7/18,13/18 sum to the corrected value at1/6. At level6 the2-root fiber of1/3 also contains2/3 of order3, so its primitive part alone gives the wrong corrected sum. At level1 the empty prime support and singleton full root set retain the identity value.
+
+**Source:** Published196, Proposition4.10, the case q dividing N/q: every root is primitive and the primitive fibers partition the target fiber. The full corrected-value definition is4.5 on194 with E27, and the distinct new-prime case continues on196–197. Connects the original actual Cartan primitive-fiber basis sum to the entire torus root set when the level and actual target order have the same prime support, using the already proved native-carrier primitive lifting theorem. This proves the unchanged-support and repeated-prime corrected-value root sums. The exceptional lower-order contribution in the separate new-prime case is explicitly not omitted or claimed complete.
+
+### The sum over the entire unchanged-support root set is the corrected target
+
+`DirichletPadicLFunctions:L3/kubert-prime-root-fiber-rational-cartan-value-same-support-root-sum` — `DirichletPadic.kubertRationalCartanValue_same_support_root_sum`
+
+The sum of r_N(b) over every actual full t-root b of a, included in the original level-N kernel by its proved membership, equals r_N(a).
+
+**Hypotheses:** The degree is one and N is positive. The point carrier is the actual one-coordinate rational torus Fin1→AddCircle(1:Q), and a is an actual point in the kernel of multiplication by N. Its actual additive order d is positive and divides N; put t=N/d. The Cartan carrier is the original finite product of truncated-Witt unit groups over the original finite Galois fields. The existing primitive-circle and one-coordinate equivalences identify each original unit u with its actual primitive level-N torus point P_N(u). No abstract torsor or supplied fiber equivalence is used. The original raw Cartan primitive-fiber sum has coefficient1 precisely at original units satisfying t·P_N(u)=a, and0 elsewhere. The corrected value r_N is this actual sum times the existing product of local correction factors for primes dividing the point’s actual order, with the E27 product correction retained. The full-root comparison assumes that every prime dividing N divides d. Since d divides N, this is equality of the actual prime supports. The prior proved root-primitive theorem then shows that every full t-root of a is primitive of order N. The new equivalence connects those actual roots to the original Cartan labels. For the repeated-prime corollary, q is prime, q divides N and q divides N/q, and the original point a is primitive of order N. The target q·a has order N/q and the same prime support as N; the full q-root relation is proved inside the actual level-N kernel. No same-support hypothesis is imposed silently on the remaining new-prime case. If q does not divide N/q, the full fiber contains an exceptional lower-order point and is not entirely primitive. The general distribution relation4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain open; the original degree-one full-norm compatibility4.8 remains proved.
+
+**Proof:**
+
+1. Use the actual Cartan/full-root equivalence to reindex the complete full-root sum.
+2. Use the native subtype-sum theorem to turn the original Cartan fiber subtype into the complete filtered finite Cartan sum.
+3. Apply the proved corrected primitive-fiber sum at unchanged prime support.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-cartan-same-support-root-equiv`, `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-cartan-same-support-root-equiv-mem-level`, `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-rational-cartan-value-same-support-primitive-sum`, `mathlib:Equiv.prod_comp`, `mathlib:Finset.prod_subtype`.
+
+**Tests:**
+
+- `SuggestedKubertPrimeRootFibersTests.corrected_root_sum_has_half_identity_coefficient` (computation): The corrected value at1/3 at level9 has identity coefficient one half, obtained by summing all three primitive root values.
+- `SuggestedKubertPrimeRootFibersTests.rationalCartanValue_same_support_root_sum_typed_api` (compatibility): The sum of r_N(b) over every actual full t-root b of a, included in the original level-N kernel by its proved membership, equals r_N(a).
+
+**Acceptance:** At level9 with target1/3 the full3-root set is{1/9,4/9,7/9}, corresponding to original Cartan residues1,4,7; its corrected sum has identity coefficient1/2. At level18 the roots1/18,7/18,13/18 sum to the corrected value at1/6. At level6 the2-root fiber of1/3 also contains2/3 of order3, so its primitive part alone gives the wrong corrected sum. At level1 the empty prime support and singleton full root set retain the identity value.
+
+**Source:** Published196, Proposition4.10, the case q dividing N/q: every root is primitive and the primitive fibers partition the target fiber. The full corrected-value definition is4.5 on194 with E27, and the distinct new-prime case continues on196–197. Connects the original actual Cartan primitive-fiber basis sum to the entire torus root set when the level and actual target order have the same prime support, using the already proved native-carrier primitive lifting theorem. This proves the unchanged-support and repeated-prime corrected-value root sums. The exceptional lower-order contribution in the separate new-prime case is explicitly not omitted or claimed complete.
+
+### The original level-kernel root sum obeys the unchanged-support relation
+
+`DirichletPadicLFunctions:L3/kubert-prime-root-fiber-rational-cartan-value-same-support-level-sum` — `DirichletPadic.kubertRationalCartanValue_same_support_level_sum`
+
+Inside the original level-N kernel, the sum of r_N(b) over every b satisfying t·b=a equals r_N(a), under the stated actual prime-support inclusion.
+
+**Hypotheses:** The degree is one and N is positive. The point carrier is the actual one-coordinate rational torus Fin1→AddCircle(1:Q), and a is an actual point in the kernel of multiplication by N. Its actual additive order d is positive and divides N; put t=N/d. The Cartan carrier is the original finite product of truncated-Witt unit groups over the original finite Galois fields. The existing primitive-circle and one-coordinate equivalences identify each original unit u with its actual primitive level-N torus point P_N(u). No abstract torsor or supplied fiber equivalence is used. The original raw Cartan primitive-fiber sum has coefficient1 precisely at original units satisfying t·P_N(u)=a, and0 elsewhere. The corrected value r_N is this actual sum times the existing product of local correction factors for primes dividing the point’s actual order, with the E27 product correction retained. The full-root comparison assumes that every prime dividing N divides d. Since d divides N, this is equality of the actual prime supports. The prior proved root-primitive theorem then shows that every full t-root of a is primitive of order N. The new equivalence connects those actual roots to the original Cartan labels. For the repeated-prime corollary, q is prime, q divides N and q divides N/q, and the original point a is primitive of order N. The target q·a has order N/q and the same prime support as N; the full q-root relation is proved inside the actual level-N kernel. No same-support hypothesis is imposed silently on the remaining new-prime case. If q does not divide N/q, the full fiber contains an exceptional lower-order point and is not entirely primitive. The general distribution relation4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain open; the original degree-one full-norm compatibility4.8 remains proved.
+
+**Proof:**
+
+1. Transport finite enumeration of the original Cartan fiber through the actual full-root equivalence.
+2. Identify the full torus root subtype with the subtype of original level-N points satisfying the same root equation; the membership proof is already established.
+3. Reindex the full-root sum through this actual point-preserving equivalence.
+4. Apply native subtype/filtered-sum comparison and the full unchanged-support root-sum theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-cartan-same-support-root-equiv`, `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-cartan-same-support-root-equiv-mem-level`, `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-rational-cartan-value-same-support-root-sum`, `mathlib:Fintype.ofEquiv`, `mathlib:Equiv.prod_comp`, `mathlib:Finset.prod_subtype`.
+
+**Tests:**
+
+- `SuggestedKubertPrimeRootFibersTests.level_one_full_root_sum_keeps_identity` (degenerate): At level1 the zero point has order1, the supports are both empty, and the full root sum has its single identity value.
+- `SuggestedKubertPrimeRootFibersTests.rationalCartanValue_same_support_level_sum_typed_api` (compatibility): Inside the original level-N kernel, the sum of r_N(b) over every b satisfying t·b=a equals r_N(a), under the stated actual prime-support inclusion.
+
+**Acceptance:** At level9 with target1/3 the full3-root set is{1/9,4/9,7/9}, corresponding to original Cartan residues1,4,7; its corrected sum has identity coefficient1/2. At level18 the roots1/18,7/18,13/18 sum to the corrected value at1/6. At level6 the2-root fiber of1/3 also contains2/3 of order3, so its primitive part alone gives the wrong corrected sum. At level1 the empty prime support and singleton full root set retain the identity value.
+
+**Source:** Published196, Proposition4.10, the case q dividing N/q: every root is primitive and the primitive fibers partition the target fiber. The full corrected-value definition is4.5 on194 with E27, and the distinct new-prime case continues on196–197. Connects the original actual Cartan primitive-fiber basis sum to the entire torus root set when the level and actual target order have the same prime support, using the already proved native-carrier primitive lifting theorem. This proves the unchanged-support and repeated-prime corrected-value root sums. The exceptional lower-order contribution in the separate new-prime case is explicitly not omitted or claimed complete.
+
+### Multiplying a primitive point by a repeated prime preserves prime support
+
+`DirichletPadicLFunctions:L3/kubert-prime-root-fiber-rational-cartan-value-repeated-prime-support` — `DirichletPadic.kubertRationalCartanValue_repeated_prime_support`
+
+For an actual primitive level-N point a and a prime q dividing N/q, the prime factors of the actual order of q·a are exactly the prime factors of N.
+
+**Hypotheses:** The degree is one and N is positive. The point carrier is the actual one-coordinate rational torus Fin1→AddCircle(1:Q), and a is an actual point in the kernel of multiplication by N. Its actual additive order d is positive and divides N; put t=N/d. The Cartan carrier is the original finite product of truncated-Witt unit groups over the original finite Galois fields. The existing primitive-circle and one-coordinate equivalences identify each original unit u with its actual primitive level-N torus point P_N(u). No abstract torsor or supplied fiber equivalence is used. The original raw Cartan primitive-fiber sum has coefficient1 precisely at original units satisfying t·P_N(u)=a, and0 elsewhere. The corrected value r_N is this actual sum times the existing product of local correction factors for primes dividing the point’s actual order, with the E27 product correction retained. The full-root comparison assumes that every prime dividing N divides d. Since d divides N, this is equality of the actual prime supports. The prior proved root-primitive theorem then shows that every full t-root of a is primitive of order N. The new equivalence connects those actual roots to the original Cartan labels. For the repeated-prime corollary, q is prime, q divides N and q divides N/q, and the original point a is primitive of order N. The target q·a has order N/q and the same prime support as N; the full q-root relation is proved inside the actual level-N kernel. No same-support hypothesis is imposed silently on the remaining new-prime case. If q does not divide N/q, the full fiber contains an exceptional lower-order point and is not entirely primitive. The general distribution relation4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain open; the original degree-one full-norm compatibility4.8 remains proved.
+
+**Proof:**
+
+1. The native order-of-a-multiple theorem gives the actual order N/q because a has order N and q divides N.
+2. The positive quotient N/q still contains q by the repeated-prime hypothesis.
+3. Write N=q(N/q) and use the native prime-factor set of a product and of a prime.
+4. The additional singleton{q} is already contained in the quotient’s prime factors, so the two prime sets coincide.
+
+**Prerequisites:** `mathlib:orderOf_pow_of_dvd`, `mathlib:Nat.primeFactors_mul`, `mathlib:Nat.Prime.primeFactors`.
+
+**Tests:**
+
+- `SuggestedKubertPrimeRootFibersTests.rationalCartanValue_repeated_prime_support_typed_api` (compatibility): For an actual primitive level-N point a and a prime q dividing N/q, the prime factors of the actual order of q·a are exactly the prime factors of N.
+
+**Acceptance:** At level9 with target1/3 the full3-root set is{1/9,4/9,7/9}, corresponding to original Cartan residues1,4,7; its corrected sum has identity coefficient1/2. At level18 the roots1/18,7/18,13/18 sum to the corrected value at1/6. At level6 the2-root fiber of1/3 also contains2/3 of order3, so its primitive part alone gives the wrong corrected sum. At level1 the empty prime support and singleton full root set retain the identity value.
+
+**Source:** Published196, Proposition4.10, the case q dividing N/q: every root is primitive and the primitive fibers partition the target fiber. The full corrected-value definition is4.5 on194 with E27, and the distinct new-prime case continues on196–197. Connects the original actual Cartan primitive-fiber basis sum to the entire torus root set when the level and actual target order have the same prime support, using the already proved native-carrier primitive lifting theorem. This proves the unchanged-support and repeated-prime corrected-value root sums. The exceptional lower-order contribution in the separate new-prime case is explicitly not omitted or claimed complete.
+
+### Kubert’s complete repeated-prime root relation
+
+`DirichletPadicLFunctions:L3/kubert-prime-root-fiber-rational-cartan-value-repeated-prime-root-sum` — `DirichletPadic.kubertRationalCartanValue_repeated_prime_root_sum`
+
+For a primitive original level-N point a and prime q dividing N/q, sum r_N(b) over every original level-N point with q·b=q·a. This full sum equals r_N(q·a), proving the repeated-prime case of source4.10.
+
+**Hypotheses:** The degree is one and N is positive. The point carrier is the actual one-coordinate rational torus Fin1→AddCircle(1:Q), and a is an actual point in the kernel of multiplication by N. Its actual additive order d is positive and divides N; put t=N/d. The Cartan carrier is the original finite product of truncated-Witt unit groups over the original finite Galois fields. The existing primitive-circle and one-coordinate equivalences identify each original unit u with its actual primitive level-N torus point P_N(u). No abstract torsor or supplied fiber equivalence is used. The original raw Cartan primitive-fiber sum has coefficient1 precisely at original units satisfying t·P_N(u)=a, and0 elsewhere. The corrected value r_N is this actual sum times the existing product of local correction factors for primes dividing the point’s actual order, with the E27 product correction retained. The full-root comparison assumes that every prime dividing N divides d. Since d divides N, this is equality of the actual prime supports. The prior proved root-primitive theorem then shows that every full t-root of a is primitive of order N. The new equivalence connects those actual roots to the original Cartan labels. For the repeated-prime corollary, q is prime, q divides N and q divides N/q, and the original point a is primitive of order N. The target q·a has order N/q and the same prime support as N; the full q-root relation is proved inside the actual level-N kernel. No same-support hypothesis is imposed silently on the remaining new-prime case. If q does not divide N/q, the full fiber contains an exceptional lower-order point and is not entirely primitive. The general distribution relation4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain open; the original degree-one full-norm compatibility4.8 remains proved.
+
+**Proof:**
+
+1. The actual order of the target q·a is N/q.
+2. Its actual prime support equals that of N by the repeated-prime support theorem.
+3. Apply the full original level-kernel root-sum theorem to this target.
+4. The root multiplier N divided by the target order N/q is exactly q; retain the same original point and full finite root set.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-rational-cartan-value-same-support-level-sum`, `DirichletPadicLFunctions:L3/kubert-prime-root-fiber-rational-cartan-value-repeated-prime-support`, `mathlib:orderOf_pow_of_dvd`.
+
+**Tests:**
+
+- `SuggestedKubertPrimeRootFibersTests.repeated_three_fiber_uses_all_three_actual_points` (computation): At level18, the full3-root fiber of1/6 consists of1/18,7/18 and13/18, and their corrected values sum to the target corrected value.
+- `SuggestedKubertPrimeRootFibersTests.rationalCartanValue_repeated_prime_root_sum_typed_api` (compatibility): For a primitive original level-N point a and prime q dividing N/q, sum r_N(b) over every original level-N point with q·b=q·a. This full sum equals r_N(q·a), proving the repeated-prime case of source4.10.
+
+**Acceptance:** At level9 with target1/3 the full3-root set is{1/9,4/9,7/9}, corresponding to original Cartan residues1,4,7; its corrected sum has identity coefficient1/2. At level18 the roots1/18,7/18,13/18 sum to the corrected value at1/6. At level6 the2-root fiber of1/3 also contains2/3 of order3, so its primitive part alone gives the wrong corrected sum. At level1 the empty prime support and singleton full root set retain the identity value.
+
+**Source:** Published196, Proposition4.10, the case q dividing N/q: every root is primitive and the primitive fibers partition the target fiber. The full corrected-value definition is4.5 on194 with E27, and the distinct new-prime case continues on196–197. Connects the original actual Cartan primitive-fiber basis sum to the entire torus root set when the level and actual target order have the same prime support, using the already proved native-carrier primitive lifting theorem. This proves the unchanged-support and repeated-prime corrected-value root sums. The exceptional lower-order contribution in the separate new-prime case is explicitly not omitted or claimed complete.
+
+**Remaining:** The corrected degree-one rational value now satisfies the full actual root-sum identity whenever the level and target point’s actual additive order have the same prime support. The original Cartan primitive labels are proved equivalent to the entire root set in this case, and the repeated-prime branch of source4.10 is complete for every original primitive level point. Finish the distinct new-prime branch with its actual exceptional lower-order root, then the prime-to-general distribution reduction. The source4.13 image/product comparison, full rational image, source freeness, lower rank and internal-to-global injection remain open. The original full-norm compatibility4.8 remains proved; general-degree primitive coordinates and local-field comparisons remain separate.
+
+### Actual full root sums at unchanged prime support and repeated primes validation
+
+All 2142 predecessor nodes, 1272 baseline records, 27 findings, requests and sourceVersions remain whole. This checkpoint adds 12 nodes, 12 named suggested declarations and 19 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2416 reachable nodes, 9740 edges and 1439 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route ends in the original actual Cartan primitive coordinates, raw and corrected values and earlier proved primitive lifting, or checked native finite-sum, equivalence, order and prime-factor interfaces. No full-root primitivity, fiber partition, general distribution, source-freeness or lower-rank package is assumed.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3915 pinned Mathlib modules and 32 pinned Tau Ceti modules. Only 31 Tau module artifacts are available and hash-verified. The 152 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5800 verbatim and adds one complete construction and eleven complete lemmas. Totals are184 definitions and1,445 lemmas without placeholders. The public append has12 named declarations and19 typed examples, all new mathematical bodies placeholders. No new native import or library build is added. The separate probe compiles against 3282 pinned Mathlib modules and 10 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native periodicity, low-degree Tate and Teichmuller artifacts, with ten Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact controls through36 levels verify9,519 coefficients each for complete primitive basis sums and corrected primitive-fiber sums;468 full root sets with unchanged prime support and7,284 corrected root-sum coefficients; and136 repeated-prime fibers with1,712 corrected coefficients. The level6 new-prime counterexample shows why its exceptional lower-order root cannot be omitted. Exact degree-one cyclic point and rational group-ring arithmetic through level36 checks the full primitive Cartan basis sums and corrected primitive-fiber sums at every point. When level and actual point order have the same prime support, every full root is verified primitive and the complete corrected-value root sum is checked. Every repeated-prime fiber above an original primitive point is checked separately. The new-prime example at6 includes its nonprimitive exceptional root and is deliberately excluded from the same-support equivalence. These controls supplement complete native proofs and are not formal certification. The largest observed discrepancy is 0.
+
+Fresh capture after the actual merge of5800 found all79 canonical inputs unchanged from the predecessor. The whole issue, queue, original winning claim and blocked/unclaimed review390 were reread. All27 source findings and eight source versions remain whole; no external review conclusion is adopted.
+
+The separate partial signature file also compiled with zero errors and 6,295 expected placeholder warnings across 3,914 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 969e7ecb051936628ead0d9648b7a7e601f8958c4c6c7114d0a382741ca04536.
