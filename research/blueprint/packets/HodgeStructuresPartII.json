@@ -14,7 +14,7 @@
     "HodgeStructuresPartII:H.8"
   ],
   "status": "partial",
-  "summary": "General ringed-site Higgs/constant-parameter connection plan, preserving the reserved carrier,intrinsic exterior curvature,determinant/gauge,symmetric-action and native all-order interfaces. This partial checkpoint adds the native affine scalar-extended field,coordinate-contraction and ordered-word comparisons,and same-exponent preservation without flatness and reflection under faithful flatness,with finite-basis Q and arbitrary E. Existing naturality,isomorphism transport and degree-one/two comparisons retain their contracts. Arbitrary-Q tensor-power coherence,finite-projective chart restriction,actual sheaf gluing and allglobal source/supplier obligations remain open. H.0partial,H.1–H.8not_read; no stage or reserved key closed.",
+  "summary": "General ringed-site Higgs/constant-parameter connection plan retaining the reserved carrier,intrinsic exterior curvature,determinant/gauge,symmetric-action,native all-order and scalar-extension interfaces. This continuation adds five coefficient-change nodes,five API entries and five tests: actual coefficient postcomposition,composition,all-degree iterate comparison,same-bound preservation and reflection through a specified coefficient left inverse. All affine modules are arbitrary; no basis,flatness or integrability assumption is introduced. A nonflat-module counterexample excludes reflection from mere injectivity. The100 inherited mathematical node contracts,149 source obligations,requests,planets and roadmap definition remain. H.0partial,H.1–H.8not_read; no global gluing,pullback exterior-integrability,rank-bound or source-route obligation is closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -960,6 +960,27 @@
         "sourceSha256": "d94cdd202de4740f3c568f6cca706baf09d7c21a50f1bb4faf7187841288e5f5",
         "provides": "A monoid homomorphism carries an ordered list product to the product of its image list; neither monoid is required commutative.",
         "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests."
+      },
+      {
+        "ref": "mathlib:TensorProduct.map_comp",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "provides": "Composition on each factor maps to composition on the native tensor; same-ring linear specialization is used.",
+        "checked": "Exact statement and proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:TensorProduct.map_id",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "provides": "Tensor product of identity maps is the native identity.",
+        "checked": "Exact statement and proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:TensorProduct.map_zero_right",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "provides": "Tensoring any map with a zero second map gives zero.",
+        "checked": "Exact statement and proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex codex-J6LwjP."
       }
     ]
   },
@@ -1115,6 +1136,30 @@
         "Definition10.39.1, all four clauses; Lemma10.39.14, complete equivalence and proof."
       ],
       "readingExtent": "Faithful zero detection only. Does not establish a Higgs correspondence, sheaf descent or the full source-route inventory."
+    },
+    {
+      "id": "Heuer-J6LwjP-coefficients",
+      "authors": "Ben Heuer",
+      "title": "A p-adic Simpson correspondence for smooth proper rigid varieties",
+      "edition": "arXiv2307.01303v3,21January2025",
+      "url": "https://arxiv.org/html/2307.01303v3",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Definition1.2(1)–(2) and selected introductory setup"
+      ],
+      "readingExtent": "Scoped fresh reading only; coefficient-map algebra is an explicit deduction. No full-paper or149-item collation claimed."
+    },
+    {
+      "id": "StacksTensor-J6LwjP-coefficients",
+      "title": "Tensor product",
+      "authors": "The Stacks Project authors",
+      "edition": "Section17.16,accessed2October2026",
+      "url": "https://stacks.math.columbia.edu/tag/01CA",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Opening construction/universal-property/functoriality paragraphs; Lemmas17.16.1–5 and displayed proofs"
+      ],
+      "readingExtent": "Records the affine/sheaf boundary,not a proof of missing global gluing."
     }
   ],
   "nodes": [
@@ -3917,7 +3962,7 @@
         "Tensor products here are sheaf tensor products; elementary-section formulas are verified locally and glued. Tensor of global section modules is not identified with global sections of the sheaf tensor."
       ],
       "proofSteps": [
-        "On an affine finite-coefficient-basis chart, use affine-base-change-bound for the scalar-extension leg at the identical exponent, then the existing same-ring coefficient-map naturality for a map Q_S→Q_Y. Import the actual sheaf tensor-power comparison, chart restriction and morphism equality detection from E1 before identifying this with the global pulled-back iterate.",
+        "On an affine finite-coefficient-basis chart,use affine-base-change-bound for the scalar-extension leg at the identical exponent,then the actual affineCoefficientMap and affine-coefficient-map-bound for f*Q→Q_Y. Import the actual sheaf tensor-power comparison,chart restriction and morphism equality detection from E1 before identifying this with the global pulled-back iterate.",
         "A zero map remains zero under pullback and postcomposition on coefficients.",
         "Use the exterior analogue for integrability; do not infer left-exactness of arbitrary pullback."
       ],
@@ -3926,7 +3971,8 @@
         "HodgeStructuresPartII:H.0/twisted-higgs",
         "EnhancedDerivedSheaves:E1",
         "HodgeStructuresPartII:H.0/affine-base-change-bound",
-        "HodgeStructuresPartII:H.0/affine-ordered-iterate-surjective"
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-surjective",
+        "HodgeStructuresPartII:H.0/affine-coefficient-map-bound"
       ],
       "library": {
         "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
@@ -7186,6 +7232,257 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-coefficient-map",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "declaration": "TwistedHiggsBundle.affineCoefficientMap",
+      "title": "Change the coefficient module of an affine field",
+      "kind": "construction",
+      "statement": "Given θ:E→E⊗_R Q and u:Q→P,construct θ_u=(id_E⊗u)∘θ:E→E⊗_R P. It changes only the coefficient module; it carries no automatic global sheaf or integrability claim.",
+      "hypotheses": [
+        "R is any commutative ring; E,Q,P,T are arbitrary R-modules. All carriers, tensor products and maps are native Mathlib. No basis, finiteness, flatness, integrability, field or reducedness is assumed.",
+        "The ordered iterate is the existing Fin n-indexed PiTensorProduct construction: the newest coefficient is on the left; degree0 is the native tensor-unit identity. The coefficient map changes only Q,not E or the base ring."
+      ],
+      "prerequisites": [
+        "mathlib:TensorProduct.map"
+      ],
+      "proofSteps": [
+        "Compose the actual native tensor-product map of id_E and u with θ. The section formula is definitional; identity and zero coefficient maps follow from the existing tensor functor laws."
+      ],
+      "sources": [
+        {
+          "sourceId": "Heuer-J6LwjP-coefficients",
+          "locator": "arXiv2307.01303v3 Definition1.2(2),selected introductory setup",
+          "match": "Motivates the native field carrier; these coefficient-map and left-inverse deductions are authored affine algebra, not named theorems of the correspondence."
+        }
+      ],
+      "acceptance": [
+        "Given θ:E→E⊗_R Q and u:Q→P,construct θ_u=(id_E⊗u)∘θ:E→E⊗_R P. It changes only the coefficient module; it carries no automatic global sheaf or integrability claim."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-coefficient-map-iterate",
+          "how": "Instantiate all-degree naturality on the actual coefficient-changed field."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/pullback-nilpotence",
+          "how": "Supply the coefficient-map leg after native scalar extension. The sheaf/exterior comparison remains an explicit supplier obligation."
+        }
+      ],
+      "api": [
+        {
+          "name": "TwistedHiggsBundle.affineCoefficientMap_apply",
+          "role": "projection",
+          "statement": "Its value at e is the native (id_E⊗u)(θ(e))."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineCoefficientMap_id",
+          "role": "simp",
+          "statement": "Changing coefficients by id_Q leaves θ unchanged."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineCoefficientMap_zero",
+          "role": "simp",
+          "statement": "The zero coefficient map sends every θ to the zero field."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineCoefficientMap_comp",
+          "role": "functoriality",
+          "statement": "For any θ,u:Q→P and v:P→T,(θ_u)_v=θ_(v∘u),as actual native linear maps."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedIterate_coefficientMap",
+          "role": "compatibility",
+          "statement": "For every n≥0,I_n(θ_u)=(id_E⊗u^(⊗n))∘I_n(θ),using the existing ordered tensor powers including n=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TwistedHiggsBundle.affineCoefficientMap.test_identity",
+          "kind": "compatibility",
+          "statement": "The identity coefficient change equals the original arbitrary field."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineCoefficientMap.test_split_all_orders",
+          "kind": "characterisation",
+          "statement": "For the native inclusion Q→Q×P and its first projection,vanishing of every specified degree n≥0 is equivalent before and after coefficient change,for arbitrary E."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineCoefficientMap.test_zero_erases",
+          "kind": "degenerate",
+          "statement": "The native rational unit field is nonzero but its zero coefficient change vanishes."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineCoefficientMap.test_injective_not_tensor_injective",
+          "kind": "non-example",
+          "statement": "Multiplication by2 is an injective ℤ-linear coefficient map ℤ→ℤ. For E=ℤ/2,the native unit field E→E⊗_ℤℤ is nonzero and its coefficient change is zero. Mere coefficient injectivity cannot reflect vanishing for arbitrary E."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineCoefficientMap.test_zero_degree",
+          "kind": "computation",
+          "statement": "Over the nonzero rational line,the degree0 iterate remains nonzero for every coefficient endomap,even the zero map. A positive-degree collapse cannot erase the tensor-unit identity."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-coefficient-map-comp",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "declaration": "TwistedHiggsBundle.affineCoefficientMap_comp",
+      "title": "Successive coefficient changes compose",
+      "kind": "lemma",
+      "statement": "For any θ,u:Q→P and v:P→T,(θ_u)_v=θ_(v∘u),as actual native linear maps.",
+      "hypotheses": [
+        "R is any commutative ring; E,Q,P,T are arbitrary R-modules. All carriers, tensor products and maps are native Mathlib. No basis, finiteness, flatness, integrability, field or reducedness is assumed.",
+        "The ordered iterate is the existing Fin n-indexed PiTensorProduct construction: the newest coefficient is on the left; degree0 is the native tensor-unit identity. The coefficient map changes only Q,not E or the base ring."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-coefficient-map",
+        "mathlib:TensorProduct.map_comp"
+      ],
+      "proofSteps": [
+        "Use associativity of linear-map composition and native TensorProduct.map_comp. The module map on E composes identity with identity; the coefficient map is v∘u."
+      ],
+      "sources": [
+        {
+          "sourceId": "Heuer-J6LwjP-coefficients",
+          "locator": "arXiv2307.01303v3 Definition1.2(2),selected introductory setup",
+          "match": "Motivates the native field carrier; these coefficient-map and left-inverse deductions are authored affine algebra, not named theorems of the correspondence."
+        }
+      ],
+      "acceptance": [
+        "For any θ,u:Q→P and v:P→T,(θ_u)_v=θ_(v∘u),as actual native linear maps."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-coefficient-map-iterate",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "declaration": "TwistedHiggsBundle.affineOrderedIterate_coefficientMap",
+      "title": "Coefficient change on every ordered iterate",
+      "kind": "lemma",
+      "statement": "For every n≥0,I_n(θ_u)=(id_E⊗u^(⊗n))∘I_n(θ),using the existing ordered tensor powers including n=0.",
+      "hypotheses": [
+        "R is any commutative ring; E,Q,P,T are arbitrary R-modules. All carriers, tensor products and maps are native Mathlib. No basis, finiteness, flatness, integrability, field or reducedness is assumed.",
+        "The ordered iterate is the existing Fin n-indexed PiTensorProduct construction: the newest coefficient is on the left; degree0 is the native tensor-unit identity. The coefficient map changes only Q,not E or the base ring."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-coefficient-map",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-natural"
+      ],
+      "proofSteps": [
+        "Instantiate the existing all-degree naturality theorem with f=id_E and ψ=θ_u. Its intertwining equation follows by construction. Identity composition leaves the exact formula with the identical n; no dual coordinates or finite basis enters."
+      ],
+      "sources": [
+        {
+          "sourceId": "Heuer-J6LwjP-coefficients",
+          "locator": "arXiv2307.01303v3 Definition1.2(2),selected introductory setup",
+          "match": "Motivates the native field carrier; these coefficient-map and left-inverse deductions are authored affine algebra, not named theorems of the correspondence."
+        }
+      ],
+      "acceptance": [
+        "For every n≥0,I_n(θ_u)=(id_E⊗u^(⊗n))∘I_n(θ),using the existing ordered tensor powers including n=0."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-coefficient-map-bound",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "declaration": "TwistedHiggsBundle.affineOrderedIterate_coefficientMap_zero",
+      "title": "Preserve the same bound through any coefficient map",
+      "kind": "lemma",
+      "statement": "For every n≥0,I_n(θ)=0 implies I_n(θ_u)=0 for every R-linear u:Q→P,with exactly the same n.",
+      "hypotheses": [
+        "R is any commutative ring; E,Q,P,T are arbitrary R-modules. All carriers, tensor products and maps are native Mathlib. No basis, finiteness, flatness, integrability, field or reducedness is assumed.",
+        "The ordered iterate is the existing Fin n-indexed PiTensorProduct construction: the newest coefficient is on the left; degree0 is the native tensor-unit identity. The coefficient map changes only Q,not E or the base ring."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-coefficient-map-iterate"
+      ],
+      "proofSteps": [
+        "Rewrite by the iterate formula and compose the native tensor map with zero. This is preservation only; tensor products need not preserve an arbitrary injective coefficient map."
+      ],
+      "sources": [
+        {
+          "sourceId": "Heuer-J6LwjP-coefficients",
+          "locator": "arXiv2307.01303v3 Definition1.2(2),selected introductory setup",
+          "match": "Motivates the native field carrier; these coefficient-map and left-inverse deductions are authored affine algebra, not named theorems of the correspondence."
+        }
+      ],
+      "acceptance": [
+        "For every n≥0,I_n(θ)=0 implies I_n(θ_u)=0 for every R-linear u:Q→P,with exactly the same n."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-coefficient-map-bound-retract",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "declaration": "TwistedHiggsBundle.affineOrderedIterate_coefficientMap_zero_iff",
+      "title": "Reflect the same bound through a coefficient retract",
+      "kind": "lemma",
+      "statement": "If v:P→Q is R-linear and v∘u=id_Q,then for every n≥0,I_n(θ_u)=0 iff I_n(θ)=0. E and all coefficient modules are arbitrary.",
+      "hypotheses": [
+        "R is any commutative ring; E,Q,P,T are arbitrary R-modules. All carriers, tensor products and maps are native Mathlib. No basis, finiteness, flatness, integrability, field or reducedness is assumed.",
+        "The ordered iterate is the existing Fin n-indexed PiTensorProduct construction: the newest coefficient is on the left; degree0 is the native tensor-unit identity. The coefficient map changes only Q,not E or the base ring.",
+        "v∘u=id_Q as an actual R-linear-map equality."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-coefficient-map-comp",
+        "HodgeStructuresPartII:H.0/affine-coefficient-map-bound",
+        "mathlib:TensorProduct.map_id"
+      ],
+      "proofSteps": [
+        "Apply the preservation theorem again to θ_u and v at exactly the same n.",
+        "The composition lemma and v∘u=id_Q identify the twice-changed field with θ using the identity API. This proves reflection without asserting left-exactness of tensor products.",
+        "Preservation is the converse implication. A coefficient left inverse is sufficient without flatness of E; mere injectivity is insufficient for arbitrary E,as the ℤ/2 acceptance example proves."
+      ],
+      "sources": [
+        {
+          "sourceId": "Heuer-J6LwjP-coefficients",
+          "locator": "arXiv2307.01303v3 Definition1.2(2),selected introductory setup",
+          "match": "Motivates the native field carrier; these coefficient-map and left-inverse deductions are authored affine algebra, not named theorems of the correspondence."
+        }
+      ],
+      "acceptance": [
+        "If v:P→Q is R-linear and v∘u=id_Q,then for every n≥0,I_n(θ_u)=0 iff I_n(θ)=0. E and all coefficient modules are arbitrary."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -7280,7 +7577,8 @@
         "Local determinant trace/curvature and the five determinant-derivative/gauge/alternating adapters are supplied as plans. Prove the global determinant/exterior-power comparison, restriction/descent and connection functoriality; also the coefficient-equivariance adapter for the p-adic Tate instance. No Tate-basis choice may erase Galois action. The generic Jacobi input is the existing ColemanPowerSeries:L1/derivation-determinant-unit plan, not a duplicated Hodge node.",
         "Supply the filtered-coefficient/period-lattice adapter for Liu–Zhu Definition 3.5–3.6: its t-adic filtration is not a bounded subbundle filtration over the original period ring. Import graded base-ring and Tate degree identifications from DD.1 and the p-adic consumer; the finite Griffiths/Rees specialization here does not discharge that adapter.",
         "Historical affine proofs remain at commit 9a36f4d1d6743c0202f12020c0df603400149faa. The current suggested file uses admitted planning bodies under protocol section 13. The source augmentation-power generator adapter and same-exponent criterion are plans; a separate Mathlib-only conditional span/kernel proof compiles without admissions, but no exact Tau Ceti compiled import set was available. Supply E1 sheaf symmetric/endomorphism/augmentation quotient interfaces and ordered tensor-power coefficient gluing. Field/reduced-rank bounds, the unbounded period/Tate adapter and spectral-image consumer routing remain open. The finite-basis reconstruction and arbitrary-N ordered coefficient criterion have separate checked native proof prototypes; native change-of-chart and same-bound module/coefficient transport are now supplied as affine plans with a separate checked proof; supply arbitrary scalar extension, restriction and actual sheaf gluing before claiming the coordinate theorem.",
-        "The cross-ring affine field and all-order finite-coefficient-basis bound are now planned with a separately checked native proof. Extend the chart proof to finite-projective coefficients, supply scalar-extension/tensor-power coherence for arbitrary Q and actual E1 restriction/gluing. Global source and supplier obligations retain their status."
+        "The cross-ring affine field and all-order finite-coefficient-basis bound are now planned with a separately checked native proof. Extend the chart proof to finite-projective coefficients, supply scalar-extension/tensor-power coherence for arbitrary Q and actual E1 restriction/gluing. Global source and supplier obligations retain their status.",
+        "Native coefficient postcomposition now has all-degree comparison and exact-bound preservation for arbitrary modules,with reflection through a specified linear left inverse. Combine it with the scalar-extension leg only after actual E1 chart restriction/sheaf tensor-power coherence and equality detection. Exterior-integrability comparisons,finite-projective locality and allglobal source obligations remain open."
       ]
     },
     {
@@ -7455,7 +7753,7 @@
         "HodgeStructuresPartII:H.0/ordered-augmentation-nilpotence",
         "HodgeStructuresPartII:H.0/symmetric-action-morphism"
       ],
-      "detail": "Native affine endomorphism-action and ideal-power forms are supplied; global tensor-power, sheaf symmetric algebra, endomorphism/augmentation quotient and gluing remain with E1. The coordinate lemma needs no integrability. The latest predecessor handoff also proves commuting-nilpotent field and reduced-ring rank bounds, finite image-algebra spanning and base-change counterexamples; these are retained as continuation leads, not silently counted as canonical nodes. Spectral image/coherence/twisting belong to the named p-adic Simpson consumer. Nonflat scalar extension need not preserve the image algebra, and nilpotence kernels need not be subbundles. A separate native affine prototype proves reconstruction and the arbitrary-N ordered coefficient criterion, including the tensor unit at N=0, without integrability. The current affine continuation supplies change-of-module/coefficient-map naturality, same-bound transport under two isomorphisms and degree-one/two native comparisons. Arbitrary scalar extension across coefficient rings, restriction and equality detection/gluing of sheaf morphisms, global uniformity and rank bounds remain open. The latest mathematical handoff proves candidate scalar-extension/locality/rank routes; these are inherited leads, not newly elaborated canonical signatures. The cross-ring affine continuation now supplies actual scalar extension and ordered-word comparisons, plus fixed-exponent preservation and faithful-flat reflection with a finite basis of Q and arbitrary E. General arbitrary-Q tensor-power comparison, finite-projective chart restriction and actual sheaf gluing remain open; no global pullback, exterior-integrability or nilpotence-kernel base-change assertion follows.",
+      "detail": "Native affine endomorphism-action and ideal-power forms are supplied; global tensor-power, sheaf symmetric algebra, endomorphism/augmentation quotient and gluing remain with E1. The coordinate lemma needs no integrability. The latest predecessor handoff also proves commuting-nilpotent field and reduced-ring rank bounds, finite image-algebra spanning and base-change counterexamples; these are retained as continuation leads, not silently counted as canonical nodes. Spectral image/coherence/twisting belong to the named p-adic Simpson consumer. Nonflat scalar extension need not preserve the image algebra, and nilpotence kernels need not be subbundles. A separate native affine prototype proves reconstruction and the arbitrary-N ordered coefficient criterion, including the tensor unit at N=0, without integrability. The current affine continuation supplies change-of-module/coefficient-map naturality, same-bound transport under two isomorphisms and degree-one/two native comparisons. Arbitrary scalar extension across coefficient rings, restriction and equality detection/gluing of sheaf morphisms, global uniformity and rank bounds remain open. The latest mathematical handoff proves candidate scalar-extension/locality/rank routes; these are inherited leads, not newly elaborated canonical signatures. The cross-ring affine continuation now supplies actual scalar extension and ordered-word comparisons, plus fixed-exponent preservation and faithful-flat reflection with a finite basis of Q and arbitrary E. General arbitrary-Q tensor-power comparison, finite-projective chart restriction and actual sheaf gluing remain open; no global pullback, exterior-integrability or nilpotence-kernel base-change assertion follows. Native coefficient-change formulas and left-inverse reflection are now explicit for arbitrary modules; no unconditional injective-map reflection is asserted. This does not discharge sheaf restriction/gluing or the exterior-integrability comparison.",
       "previousDetail": "Native affine endomorphism-action and ideal-power forms are supplied; global tensor-power, sheaf symmetric algebra, endomorphism/augmentation quotient and gluing remain with E1. The coordinate lemma needs no integrability. The latest predecessor handoff also proves commuting-nilpotent field and reduced-ring rank bounds, finite image-algebra spanning and base-change counterexamples; these are retained as continuation leads, not silently counted as canonical nodes. Spectral image/coherence/twisting belong to the named p-adic Simpson consumer. Nonflat scalar extension need not preserve the image algebra, and nilpotence kernels need not be subbundles. A separate native affine prototype proves reconstruction and the arbitrary-N ordered coefficient criterion, including the tensor unit at N=0, without integrability. The current affine continuation supplies change-of-module/coefficient-map naturality, same-bound transport under two isomorphisms and degree-one/two native comparisons. Arbitrary scalar extension across coefficient rings, restriction and equality detection/gluing of sheaf morphisms, global uniformity and rank bounds remain open. The latest mathematical handoff proves candidate scalar-extension/locality/rank routes; these are inherited leads, not newly elaborated canonical signatures."
     }
   ],
@@ -8679,5 +8977,87 @@
       "Entire exact final planning file elaborates with84examples,209admission warnings,no errors/no other warnings.",
       "Allowed-file intake,JSON validity,roadmap/stage preservation and git diff --check pass. One bounded Lean process at a time; no setup/cache/library build/LSP; no owned background compile remains."
     ]
+  },
+  "coefficientMapContinuation": {
+    "agent": "Codex — codex-J6LwjP",
+    "date": "2026-10-02",
+    "claimComment": 5960989035,
+    "botConfirmation": 5960991347,
+    "readBase": "99bd12d5634625454ab4a7a41744a2d485083a6e",
+    "addedNodes": 5,
+    "addedAPI": 5,
+    "addedTests": 5,
+    "preservedNodeContracts": 100,
+    "unchangedWholeNodeObjects": 99,
+    "preservedReservedKey": true,
+    "fullFileCompiled": true,
+    "actualProofCommit": "517750c164630533f84985dd6a8eb6ab541fde6e",
+    "actualProofUrl": "https://github.com/CBirkbeck/tauceti-explorer/blob/517750c164630533f84985dd6a8eb6ab541fde6e/research/blueprint/suggested/HodgeStructuresPartII.lean",
+    "proofCheck": {
+      "code": 0,
+      "errors": 0,
+      "admittedWarnings": 0,
+      "otherWarnings": 0,
+      "timeRSS": "1.90 2157608",
+      "availableGiBBefore": 61,
+      "sourceSha256": "ab03c5838c6d32dd74603959cd5fa3aace539b2d0c297e50be40f36486cecbbc",
+      "logSha256": "ad7edd2e34539dd600fc9931a6530e73e4cc41528df2d034f717459a39a092e6"
+    },
+    "axiomAudits": 12,
+    "admittedAxiomDependencies": 0,
+    "submittedCheck": {
+      "code": 0,
+      "errors": 0,
+      "admittedWarnings": 222,
+      "otherWarnings": 0,
+      "timeRSS": "5.00 2952028",
+      "availableGiBBefore": 61,
+      "sourceSha256": "17d5cbd9a97275748d8807def9adfeebf04c58d451dfef8a46a81b35a2965d67",
+      "logSha256": "65957ef16f93bd0b528e910163a2d60e99b8bd8ccdc6ea7b5dab94c4dc538744"
+    },
+    "atlasGraph": {
+      "stage": {
+        "vertices": 3022,
+        "edges": 8663,
+        "acyclic": true
+      },
+      "own": {
+        "vertices": 105,
+        "edges": 196,
+        "acyclic": true
+      },
+      "combinedPrerequisites": {
+        "vertices": 3122,
+        "edges": 8897,
+        "acyclic": true
+      },
+      "virtualSupplierEndpoints": 51,
+      "reachableDeclarations": 106,
+      "unresolvedReferences": 0,
+      "actualBlueprint": {
+        "declarations": 105,
+        "planets": 6,
+        "kinds": {
+          "comparison": 5,
+          "construction": 24,
+          "definition": 12,
+          "lemma": 50,
+          "theorem": 14
+        },
+        "skippedLinks": []
+      },
+      "stageEdgesUnchanged": true,
+      "otherRoadmapSkippedPendingLinksUnchanged": true
+    },
+    "preservation": {
+      "inheritedWholeObjects": 99,
+      "inheritedIDsAndMathematicalContracts": 100,
+      "newOuterHeadersAndExamples": 13,
+      "roadmapByteEqual": true,
+      "suggestedInheritedPrefixByteEqual": true,
+      "requestsSourceFindingsRoutesUnchanged": true,
+      "implementationStatusesUnchecked": true
+    },
+    "checks": "Indexed checker0 errors/warnings; actual assembler3 DAGs acyclic and0 unresolved; current/control stage edges and unrelated skipped/pending links equal; five-file intake and git diff whitespace pass."
   }
 }
