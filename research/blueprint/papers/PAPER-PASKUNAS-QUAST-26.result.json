@@ -13,11 +13,12 @@
       "The published version, read in full: the open-access (CC BY 4.0) PDF from Cambridge Core (96 pages; SHA-256 c265f54f1f1e286cf4b6821579151d42ba9623d48e27b486dc7910364c652374; fetched 23 September 2026; received 22 August 2024, revised 5 January 2026, accepted 17 February 2026, published 30 April 2026). Page numbers are the journal's.",
       "Read: §1 (Theorems 1.1–1.3, 1.5–1.7, Corollary 1.4, Propositions 1.8, 1.9, Lemma 1.10, the strategy of §§1.4–1.5), §2 (Lemmas 2.1–2.4, Definition 2.5 to Proposition 2.30), §3 (Lemmas 3.1–3.5, Proposition 3.6 to Proposition 3.16), §4 (Lemmas 4.1–4.16, Definitions 4.7, 4.10), §5 (Lemma 5.1 to Lemma 5.17), §6 (Remark 6.1 to Remark 6.14), §7 (Definitions 7.1, 7.2, Lemma 7.3 to Remark 7.7), §8 (Lemma 8.1 to Lemma 8.12), §9 (Lemma 9.1 to Remark 9.15), §10 (Proposition 10.1 to Example 10.8), §11 (Proposition 11.1 to Proposition 11.5), §12 (Lemma 12.1 to Corollary 12.18), §13 (the hypothesis (DIM), Lemma 13.1 to Corollary 13.38), §14 (Lemma 14.2 to Example 14.7), §15 (Proposition 15.1 to §15.6), §16 (Lemma 16.1 to Theorem 16.5), Appendix A (Lemmas A.1–A.8), the glossary and the references. Every recorded mistake was checked on the page images; the text extraction drops bars and super/subscripts, so no candidate was accepted from it alone.",
       "arXiv 2404.14622v2 (9 January 2026, 'Revised version after the referee report') was compared at the recorded passages: it has both.",
-      "Cited inputs were not read; items resting on PQ25 (generalised tori), Quast's G-pseudocharacter paper, Cotner, Martin, Bate–Martin–Röhrle, Richardson, Seshadri, Emerson–Morel, Wang-Erickson, Böckle–Juschka, Chenevier, Buzzard–Gee and Langlands state them as the paper uses them."
+      "Cited inputs were not read; items resting on PQ25 (generalised tori), Quast's G-pseudocharacter paper, Cotner, Martin, Bate–Martin–Röhrle, Richardson, Seshadri, Emerson–Morel, Wang-Erickson, Böckle–Juschka, Chenevier, Buzzard–Gee and Langlands state them as the paper uses them.",
+      "Fix #5517 by Codex codex-J6LwjP, 2 October 2026: targeted source rereading and prerequisite inspection are recorded in sourceVersions. The original whole-paper reading is historical; this fix did not repeat it. Targeted prerequisite passages in PQ25, Birkbeck and Conrad were read; other prerequisite proofs remain stated inputs. The previous E1/E2 independent verdicts are preserved without self-review of the new E3–E11 entries."
     ],
     "sha256Note": "Cambridge stamps each download of this article with a footer carrying the date and the requesting IP — the reviewer's own copy carries 'IP address: 178.33.239.142, on 23 Sep 2026 at 20:59:15' on every page — so the byte stream and its hash differ between downloads and this sha256 is not reproducible: a fresh download on 2026-09-23 gave b336113ee34901fde3351a622014c63458356d265cce31a313e5b0e54a43383a, 96 pages, printed page = PDF page. The reproducible pin is the arXiv e-print of 2404.14622, sha256 05a2306efbfa0dabbc885bb86e23b090e8254c19b244ce1fe9140ffa9637e003, whose single source file defG_REV.tex (6796 lines) carries both findings verbatim. Added by the reviewer (issue #1345)."
   },
-  "summary": "For F/ℚ_p finite and any generalised reductive O-group scheme G (smooth affine, reductive neutral component, finite component group; no condition on p), the framed deformation ring R^□_ρ̄ of a continuous ρ̄ : Γ_F → G(k) is a local complete intersection, O-flat of relative dimension dim G_k([F:ℚ_p] + 1), reduced with normal generic fibre (Theorem 1.1); R^□_ψ → R^□_ρ̄ is flat for ψ the projection to G/G′, and a bijection on irreducible components when π_1(G′) is étale (Theorem 1.2, the Böckle–Juschka conjecture), the components being complete-intersection normal domains, factorial for [F:ℚ_p] ≥ 3 (Theorem 1.3, Corollary 1.4); the same holds with 'fixed partial determinant', covering L-groups and C-groups (§16), and R^ps_G for V. Lafforgue's G-pseudocharacters is equidimensional of the expected dimension (Theorem 1.5). The method generalises Böckle–Iyengar–Paškūnas (the GL_d case): a G-valued space of generic matrices X^gen_{G,ρ̄^ss} defined via condensed continuity, its GIT quotient finite and universally homeomorphic onto Spec R^ps_G, and an induction on dim G bounding special fibres through G-complete reducibility, bounds on reductive subgroups (codimension ≥ 2) and W-special loci. The Böckle–Iyengar–Paškūnas extraction proposed a Part II of LocalGaloisDeformationRings for exactly this theory and asked that this paper extend it, so the route coalesces with it; general inputs go as sources to LocalGaloisDeformationRings R08.1, DeformationAndDerivedPatchingAlgebra, IntegralHeckeAndGaloisDeterminants (G-pseudocharacters), ArithmeticGaloisDuality D7 and the condensed foundations layer VS2. One error (Proposition 11.5 is false in characteristic 0, harmlessly for the paper) and one misprint are recorded.",
+  "summary": "For F/ℚ_p finite and any generalised reductive O-group scheme G (smooth affine, reductive neutral component, finite component group; no condition on p), the framed deformation ring R^□_ρ̄ of a continuous ρ̄ : Γ_F → G(k) is a local complete intersection, O-flat of relative dimension dim G_k([F:ℚ_p] + 1), reduced with normal generic fibre (Theorem 1.1); R^□_ψ → R^□_ρ̄ is flat for ψ the projection to G/G′, and a bijection on irreducible components when π_1(G′) is étale (Theorem 1.2, the Böckle–Juschka conjecture), the components being complete-intersection normal domains, factorial for [F:ℚ_p] ≥ 3 (Theorem 1.3, Corollary 1.4); the same holds with 'fixed partial determinant', covering L-groups and C-groups (§16), and R^ps_G for V. Lafforgue's G-pseudocharacters is equidimensional of the expected dimension (Theorem 1.5). The method generalises Böckle–Iyengar–Paškūnas (the GL_d case): a G-valued space of generic matrices X^gen_{G,ρ̄^ss} defined via condensed continuity, its GIT quotient finite and universally homeomorphic onto Spec R^ps_G, and an induction on dim G bounding special fibres through G-complete reducibility, bounds on reductive subgroups (codimension ≥ 2) and W-special loci. The Böckle–Iyengar–Paškūnas extraction proposed a Part II of LocalGaloisDeformationRings for exactly this theory and asked that this paper extend it, so the route coalesces with it; general inputs go as sources to LocalGaloisDeformationRings R08.1, DeformationAndDerivedPatchingAlgebra, IntegralHeckeAndGaloisDeterminants (G-pseudocharacters), ArithmeticGaloisDuality D7 and the condensed foundations layer VS2. The original E1 characteristic-p restriction and E2 misprint are preserved; nine further source issues E3–E11 distinguish false intermediate/proof assertions, citation slips and the 2025 prerequisite proof repair. The 85-item inventory reuses the pinned dynamic Hopf functors (/85) while leaving scheme theorems (/10) missing. The repairs correct the total-space completion, local factoriality, reduced subgroup/positive cocharacter/matrix proof inputs, disconnected finite-map argument, formal torus component labels, Weil-group Langlands input and affine condensed-points boundary; they do not withdraw the final deformation-ring targets or claim their proofs formalized.",
   "items": [
     {
       "id": "PAPER-PASKUNAS-QUAST-26/1",
@@ -50,10 +51,25 @@
       "id": "PAPER-PASKUNAS-QUAST-26/4",
       "kind": "definition",
       "name": "Deformation problems with fixed partial determinant",
-      "statement": "With G^0 split, G/G^0 = Δ = Gal(E/F) constant and ρ̄^{ss} surjecting onto Δ: a Δ-invariant decomposition M = X^*(G^0/G′) = M_1 ⊕ M_2 gives quotients H_1 = (G/G′)/K_2 and H_2 = (G/G′)/K_1 (K_i = Spec O[M_i]); for a lift ψ_1 : Γ_F → H_1(O) of φ_1∘ρ̄, D^{□,ψ_1}_ρ̄(A) = {ρ_A ∈ D^□_ρ̄(A) : φ_1∘ρ_A = ψ_1 ⊗ A}, pro-represented by R^{□,ψ_1}_ρ̄. M_1 = 0 gives R^□; M_1 = M gives fixed determinant. Z_i ⊂ Z(G^0) are the Δ-stable subtori with Z_i → H_i isogenies (from the central isogeny Z(G^0)^0 → G/G′).",
+      "statement": "With G^0 split, G/G^0 = Δ = Gal(E/F) constant and ρ̄^{ss} surjecting onto Δ, a Δ-invariant decomposition M = X^*(G^0/G′) = M_1 ⊕ M_2 gives quotients H_1 = (G/G′)/K_2 and H_2 = (G/G′)/K_1 (K_i = Spec O[M_i]). For a lift ψ_1 : Γ_F → H_1(O) of φ_1∘ρ̄, D^{□,ψ_1}_ρ̄(A) = {ρ_A ∈ D^□_ρ̄(A) : φ_1∘ρ_A = ψ_1⊗A}, pro-represented by R^{□,ψ_1}_ρ̄. M_1 = 0 gives R^□; M_1 = M gives fixed determinant. Put Z = Z(G^0)^0, the maximal central torus of G^0. The connected-group map Z → G^0/G′ is an isogeny. The lattice construction gives Δ-stable subtori Z_i ⊂ Z with isogenies Z_i → H_i^0. They are normal in G; centrality in all of G is not assumed.",
       "locator": "§1.2, p. 4; §15, pp. 75–76",
       "status": "missing",
-      "note": "Generalises the fixed-determinant rings of BIP23 §5; C-groups (§16) are the motivating example."
+      "note": "Generalises the fixed-determinant rings of BIP23 §5; C-groups (§16) are the motivating example. Source issue E3 corrects the disconnected isogenies on p. 76. The finite fixed-partial-determinant morphism uses /70, not a surjection onto the full disconnected product. Here the central torus means the radical/maximal central torus of G^0 (the torus part denoted Z(G^0)^0 in the setup), not the possibly nonreduced raw centre or its special-fibre identity component.",
+      "api": [
+        "fixedPartialDetFunctor and its forgetful natural transformation over A_Λ; membership iff φ_1∘ρ_A = ψ_1⊗A",
+        "neutralCentralTorusIsogeny : Z(G^0)^0 → G^0/G′; subtorusIsogeny : Z_i → H_i^0, with Δ-stability giving normality",
+        "fixedPartialDet_baseChange and representingQuotient; the trivial/full M_1 specializations recover unrestricted/fixed determinant"
+      ],
+      "unitTests": [
+        "G = GL_d recovers fixed determinant; M_1 = 0 recovers unrestricted deformation",
+        "G = G_m × C_2: a connected torus misses the nonidentity component of G/G′; its connected target is G_m",
+        "For Δ acting nontrivially on Z, normality of Z_i does not assert centrality in G"
+      ],
+      "prerequisites": [
+        "PAPER-PASKUNAS-QUAST-26/7",
+        "PAPER-PASKUNAS-QUAST-26/9",
+        "PAPER-PASKUNAS-QUAST-26/17"
+      ]
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/5",
@@ -107,7 +123,23 @@
       "statement": "For a cocharacter λ : 𝔾_{m,A} → G_A, P_λ (resp. U_λ) represents the points g with lim_{t→0} λ(t)gλ(t)^{−1} existing (resp. equal to 1), L_λ = P_λ ∩ P_{−λ}; subgroups of this form are R-parabolic and R-Levi. L_λ is the centraliser of λ, U_λ ⊲ P_λ, L_λ ⋉ U_λ ≅ P_λ, all smooth (CGP [20]); P ∩ G^0 = P^0 is a parabolic of G^0 with Levi L ∩ G^0, L is generalised reductive, and only finitely many R-parabolics Q have Q^0 = P^0 (Lemma 2.13); for connected reductive G over affine S these are the parabolics (Remark 2.15).",
       "locator": "§2.1, Lemmas 2.12, 2.13, Example 2.14, Remark 2.15, pp. 13–14",
       "status": "missing",
-      "note": "Tau Ceti's ReductiveGroups Layer 7 names the dynamic approach to parabolics as a parallel route for connected groups; the non-connected version over O is not planned. Example 2.14: in (𝔾_m × 𝔾_m) ⋊ ℤ/2, P_λ = G^0 and P_μ = G have the same neutral component."
+      "note": "Reuse /85: the pinned dynamic parabolic, Levi and unipotent carriers and functors already apply to arbitrary commutative Hopf algebras, without connectedness or reductivity. Still missing here are their natural identification with the affine group-scheme functor of points, representability by closed finite-presentation subgroup schemes, smoothness for smooth G, geometric unipotence of U, and the R-Levi/neutral-component/finite-component assertions of Lemmas 2.12–2.13. No new disconnected carrier is to be built. Conrad, Reductive group schemes, Theorem 4.1.7, pp. 112–114 supplies the dynamic theorem for finitely presented affine G; smoothness and the smooth geometric-fibre assertions use smooth G. Example 2.14: in (G_m × G_m) ⋊ C_2, P_λ = G^0 and P_μ = G have the same neutral component.",
+      "api": [
+        "dynamicPointsIso : the /85 functors ≅ the functors of points of P_λ, L_λ, U_λ, naturally in the value algebra",
+        "representableDynamicSubgroups for finitely presented affine G; closed immersion, finite presentation, arbitrary base change, and positiveMultiple_invariant",
+        "smoothDynamicSubgroups for smooth G; geometric U connected and unipotent; multiplication L_λ ⋉ U_λ ≅ P_λ via the existing pointwise limit and decomposition",
+        "For generalised reductive G, prove P_λ∩G^0 = P_λ^0, reductivity of L_λ^0, finiteness of L_λ/L_λ^0 and of R-parabolics with fixed neutral component"
+      ],
+      "unitTests": [
+        "Trivial cocharacter: P = L = G, U = 1, including disconnected G",
+        "G = G_m² ⋊ C_2 swapping factors: λ(t)=(t,1) gives P=G^0, while μ(t)=(t,t) gives P=G; same neutral component",
+        "GL_2 with a dominant diagonal cocharacter gives upper triangular P, diagonal L and strictly upper triangular U; positive multiples leave them unchanged",
+        "Base change to dual numbers must preserve the natural inclusions and the limit map"
+      ],
+      "prerequisites": [
+        "PAPER-PASKUNAS-QUAST-26/7",
+        "PAPER-PASKUNAS-QUAST-26/85"
+      ]
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/11",
@@ -251,10 +283,25 @@
       "id": "PAPER-PASKUNAS-QUAST-26/26",
       "kind": "definition",
       "name": "R-condensed maps and representations (Definitions 4.7, 4.10)",
-      "statement": "f : S → X(A) is R-condensed if it underlies a map of condensed sets S → X(A_disc ⊗_{R_disc} R) (A_disc ⊗_{R_disc} R an ind-profinite, quasi-separated 'relatively discrete' module, Lemma 4.6); this is equivalent to the conditions of Lemma 4.2 (Lemma 4.8) and implies continuity for topological R-algebras A (Lemma 4.9). ρ : Γ → G(A) is R-condensed if it is so as a map of sets; then it lifts uniquely to a homomorphism of condensed groups Γ → G(A_disc ⊗_{R_disc} R) (Lemma 4.12).",
+      "statement": "For the affine finite-type R-scheme X = Spec B used in §4, f : S → X(A) is R-condensed if it underlies a map of condensed sets S → X(A_disc ⊗_{R_disc} R) (A_disc ⊗_{R_disc} R an ind-profinite, quasi-separated 'relatively discrete' module, Lemma 4.6); this is equivalent to the conditions of Lemma 4.2 (Lemma 4.8) and implies continuity for topological R-algebras A (Lemma 4.9). ρ : Γ → G(A) is R-condensed if it is so as a map of sets; then it lifts uniquely to a homomorphism of condensed groups Γ → G(A_disc ⊗_{R_disc} R) (Lemma 4.12).",
       "locator": "§4.2–4.3, Lemma 4.6, Definition 4.7, Lemmas 4.8, 4.9, Definition 4.10, Remark 4.11, Lemma 4.12, pp. 27–28",
       "status": "missing",
-      "note": "Inspired by Fargues–Scholze's ℓ ≠ p definition [28, VIII]. Remark 4.11: one may take the embedding criterion as the definition."
+      "note": "Inspired by Fargues–Scholze's ℓ ≠ p definition [28, VIII]. Remark 4.11: one may take the embedding criterion as the definition. For a condensed R-algebra A, define affinePoints(B,A)(S) = Hom_{R-alg}(B,A(S)). This representable functor preserves the products and equalizers needed for condensed descent; finite presentation controls accessibility. Appendix A.1's unrestricted accessible-presheaf claim is not used (E10). Import condensed foundations and the generic affine-points API from /84 at VS2.",
+      "api": [
+        "RCondensedMap for affine finite-type X with affinePoints from /84, and RCondensedRepresentation for affine G",
+        "embeddingCriterion_iff_RCondensed, RCondensedMap.continuous for topological R-algebras, and unique condensed group lift",
+        "affinePoints_eq_polynomialSolutions for a finite affine presentation, compatible with closed immersions and change of value algebra"
+      ],
+      "unitTests": [
+        "X = A^n recovers n-tuples in the condensed algebra; X = Spec R gives the terminal condensed set",
+        "Closed affine subschemes are equalizers of their equations and satisfy the surjection descent condition",
+        "Constant two-element X is accessible but X(A)(∅) has two elements and fails the empty-product axiom; reject it"
+      ],
+      "prerequisites": [
+        "PAPER-PASKUNAS-QUAST-26/25",
+        "PAPER-PASKUNAS-QUAST-26/83",
+        "PAPER-PASKUNAS-QUAST-26/84"
+      ]
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/27",
@@ -309,10 +356,26 @@
       "id": "PAPER-PASKUNAS-QUAST-26/32",
       "kind": "theorem",
       "name": "Proposition 5.16 and Lemma 5.17: completions of X^{gen,τ}_G are framed deformation rings",
-      "statement": "Closed points x of Y (the preimage of the closed point of X^ps) have finite residue fields over k, closed points of X^gen[1/p] finite extensions of L, closed points of X̄^gen ∖ Y local fields of characteristic p. D^□_{ρ,G}(A) ≅ D^□_{τ∘ρ,GL_d}(A) ×_{GL_d^N(A)} G^N(A) (Lemma 5.14); the completion of Λ ⊗ A^{gen,τ}_G at x is R^□_{ρ_x,G} (Proposition 5.16); Ô_{X,x} ≅ R^□_{G,ρ_x} for x ∈ X[1/p] or x ∈ Y and Ô_{X̄,x}⟦T⟧ ≅ R^□_{G,ρ_x} for x ∈ X̄ ∖ Y; O_{X,x} is a complete intersection iff R^□_{G,ρ_x} is (Lemma 5.17).",
+      "statement": "Closed points x of Y (the preimage of the closed point of X^ps) have finite residue fields over k, closed points of X^gen[1/p] finite extensions of L, closed points of X̄^gen ∖ Y local fields of characteristic p. D^□_{ρ,G}(A) ≅ D^□_{τ∘ρ,GL_d}(A) ×_{GL_d^N(A)} G^N(A) (Lemma 5.14); the completion of Λ ⊗ A^{gen,τ}_G at x is R^□_{ρ_x,G} (Proposition 5.16); Ô_{X,x} ≅ R^□_{G,ρ_x} for x ∈ X[1/p] or x ∈ Y and Ô_{X,x}⟦T⟧ ≅ R^□_{G,ρ_x} for x ∈ X̄ ∖ Y, as O-algebras with the coefficient ring Λ for the characteristic-p local residue field retained; reducing the compatible isomorphism modulo the O-uniformizer defining the special fibre gives Ô_{X̄,x}⟦T⟧ ≅ R^□_{G,ρ_x}/ϖ; O_{X,x} is a complete intersection iff R^□_{G,ρ_x} is (Lemma 5.17).",
       "locator": "§5.2, Lemma 5.14, Proposition 5.16, Lemma 5.17, pp. 33–35",
       "status": "missing",
-      "note": "Uses BIP23 Proposition 3.33 and Lemmas 3.36, 3.37."
+      "note": "Uses BIP23 Proposition 3.33 and Lemmas 3.36, 3.37. The total space X, not its special fibre, occurs in Lemma 5.17 as printed on p. 35. In the reduction formula ϖ denotes the uniformizer defining this special fibre (or its image in Λ); do not silently exchange it for a different uniformizer after ramified coefficient extension. The additional variable T and the coefficient ring Λ remain. This is an extraction correction, not a new source issue.",
+      "api": [
+        "completedLocalRing_total_powerSeries_iso at x ∈ X̄∖Y, as O-algebras, with the §5.2 local-field coefficient ring Λ",
+        "completion_reduce_O_uniformizer and powerSeries_reduce_O_uniformizer identify the reduction with Ô_{X̄,x}[[T]]",
+        "completeIntersection_local_iff_framed under Lemma 5.17 hypotheses; record separately the cases x ∈ Y and x ∈ X[1/p]"
+      ],
+      "unitTests": [
+        "In the O-flat deformation-ring case the total completed algebra has characteristic zero, whereas its special fibre has characteristic p",
+        "Reduction modulo the same ϖ on both sides commutes with adjoining T; deleting T gives the wrong relative dimension",
+        "Use a characteristic-p local residue field, not only a finite residual field, and retain its coefficient ring Λ"
+      ],
+      "prerequisites": [
+        "PAPER-PASKUNAS-QUAST-26/17",
+        "PAPER-PASKUNAS-QUAST-26/22",
+        "PAPER-PASKUNAS-QUAST-26/31",
+        "PAPER-PASKUNAS-QUAST-26/33"
+      ]
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/33",
@@ -474,7 +537,7 @@
       "statement": "Let G be generalised reductive over an algebraically closed κ and H a closed reductive subgroup. Either H ⊇ G′ or dim G′ − dim(H ∩ G′) ≥ 2; in the second case dim G − dim H ≥ 2. If a finite-dimensional representation V has V^{G′} = 0 and V^H ≠ 0 then dim G − dim H ≥ 2.",
       "locator": "§1.4.2, Proposition 1.9, p. 8; §10, Proposition 10.1, Corollaries 10.2, 10.3, pp. 51–52",
       "status": "missing",
-      "note": "Proof via Borel subgroups and opposite unipotent radicals (a simplification suggested by Cotner and the referee)."
+      "note": "Proof via Borel subgroups and opposite unipotent radicals (a simplification suggested by Cotner and the referee). Corrected proof input: Conrad, Reductive group schemes, Example 1.1.16, p. 12, for the semisimple derived group being its own derived subgroup (published [16] should be [19], E9)."
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/51",
@@ -483,7 +546,7 @@
       "statement": "If π_1(G′) is étale then ((Lie G′)^*)^{G′} = 0; in general the G′-invariants of (Lie G′_sc)^* vanish (the statement fails in small characteristic without the dual).",
       "locator": "§1.4.2, Lemma 1.10, p. 8; §10, Lemmas 10.4, 10.5, p. 52",
       "status": "missing",
-      "note": "First for SL_2 (Sym² of the standard representation, or a non-split extension in characteristic 2), then root by root."
+      "note": "First for SL_2 (Sym² of the standard representation, or a non-split extension in characteristic 2), then root by root. Corrected proof inputs: Conrad, Reductive group schemes, Example 5.3.9, pp. 170–171, for generation by root subgroups, and Theorem 1.2.7, p. 20, for the rank-one structure. Published [16] in both places should be [19] (E9)."
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/52",
@@ -507,10 +570,32 @@
       "id": "PAPER-PASKUNAS-QUAST-26/54",
       "kind": "theorem",
       "name": "Lemmas 11.3–11.4 and Proposition 11.5: non-speciality near codimension-2 Levis",
-      "statement": "Let H_0 = p_2^{−1}(μ_{p−1}) ⊂ G (p_2 : G → Ḡ → PGL_2, μ_{p−1} ⊂ T_2 ≅ 𝔾_m via α). H_0 is generalised reductive with dim Z(H_0) < dim Z(L) (Lemma 11.3). For ρ : Γ_F → B_2(κ) with character ψ = α∘ρ, if ψ ≠ ω^{±1} (ω = χ_cyc ⊗ κ) and ρ(Γ_F) lies in no maximal split torus of B_2, then h⁰(Γ_F, (Lie SL_2)^*(1)) = 0 (Lemma 11.4). For κ of characteristic p: if ρ : Γ_F → P(κ) lies in no R-Levi of P, its G-semisimplification is not in H_0, and h⁰(Γ_F, (Lie(G′_1)_sc)^*(1)) = 0, then h⁰(Γ_F, (Lie G′_sc)^*(1)) = 0 (Proposition 11.5).",
+      "statement": "Over the algebraically closed (hence perfect) field κ of §11, let H_0 = (p_2^{−1}(μ_{p−1}))_red ⊂ G (p_2 : G → Ḡ → PGL_2, μ_{p−1} ⊂ T_2 ≅ 𝔾_m via α). H_0 is generalised reductive with dim Z(H_0) < dim Z(L) (Lemma 11.3). For ρ : Γ_F → B_2(κ) with character ψ = α∘ρ, if ψ ≠ ω^{±1} (ω = χ_cyc ⊗ κ) and ρ(Γ_F) lies in no maximal split torus of B_2, then h⁰(Γ_F, (Lie SL_2)^*(1)) = 0 (Lemma 11.4). For κ of characteristic p: if ρ : Γ_F → P(κ) lies in no R-Levi of P, its G-semisimplification is not in H_0, and h⁰(Γ_F, (Lie(G′_1)_sc)^*(1)) = 0, then h⁰(Γ_F, (Lie G′_sc)^*(1)) = 0 (Proposition 11.5).",
       "locator": "§11, Lemmas 11.3, 11.4, Proposition 11.5, pp. 54–56",
       "status": "missing",
-      "note": "Lemma 11.4 extends BIP23 Lemma 4.2 to all F. Proposition 11.5 is stated for any algebraically closed κ but is false in characteristic 0; the item adds char κ = p, the case of its only use (Proposition 14.5, on the special fibre). Source issue E1."
+      "note": "Lemma 11.4 extends BIP23 Lemma 4.2 to all F. Proposition 11.5 is stated for any algebraically closed κ but is false in characteristic 0; the item adds char κ = p, the case of its only use (Proposition 14.5, on the special fibre). Source issue E1. Use the reduced closed subgroup: prove reduction is a subgroup over the perfect field, is smooth, and has the same geometric points as the scheme-theoretic inverse image. Apply the reductive-subgroup argument to this reduced subgroup: its image together with Z(L̄) generates L̄, so it is not in a proper R-parabolic; Martin Lemma 6.2 supplies reductivity and the connected centralizer statement. Lift a positive multiple of the central cocharacter by clearing the finite lattice cokernel, giving α∘p_2∘λ(t)=t^n for n>0. The lifted image cannot lie in the finite μ_{p−1}; this proves the strict centre-dimension drop. Positive multiplication preserves the limiting parabolic and contraction of U (Conrad Theorem 4.1.7(1)). In Lemma 11.4 use γ·ē21 = ωψ⁻¹ē21 + 2ωbē11 − ωψb²ē12. The upper-triangular flag and its graded characters ωψ, ω, ωψ⁻¹ are unchanged. New proof obligations E6–E8 are separate from the characteristic restriction E1.",
+      "api": [
+        "reducedPreimageSubgroup over perfect κ, with reducedPreimage_geometricPoints_eq and smooth_reducedSubgroup",
+        "reducedPreimage_generalisedReductive and centreDimension_lt, with the /53 codimension-two setup; apply the subgroup argument only after reduction",
+        "exists_positiveMultiple_cocharacterLift and positiveMultiple_sameParabolic_sameUnipotent; α∘p_2∘λ = powerMap n with n>0",
+        "adjointTwist_basisAction_corrected on M_2/scalars; stableFlag with graded characters ωψ,ω,ωψ⁻¹; invariant implies diagonalizable extension under ψ≠ω^{±1}",
+        "nonSpecial_nearLevi requires char κ=p, no R-Levi containment, semisimplification outside reduced H_0 and vanishing for (G′_1)_sc"
+      ],
+      "unitTests": [
+        "SL_2→PGL_2 in characteristic 2: the inverse image of μ_1 is μ_2 with coordinate ring κ[ε]/ε², while H_0 is the trivial reduced subgroup; geometric points agree, tangent dimensions differ",
+        "The SL_2 diagonal torus→PGL_2 torus is t↦t²: exponent 1 does not lift but exponent 2 does; positive weights keep their signs",
+        "Compute all three basis actions in characteristics 2,3,5,7; the middle coefficient in ē21 vanishes in characteristic 2 and is nonzero for b=ψ=ω=1 in characteristic 3",
+        "The corrected ē21 coefficient changes no graded character and preserves the invariant-line/diagonalization argument of Lemma 11.4",
+        "Retain E1's characteristic-zero cyclotomic counterexample as a negative test for Proposition 11.5"
+      ],
+      "prerequisites": [
+        "PAPER-PASKUNAS-QUAST-26/7",
+        "PAPER-PASKUNAS-QUAST-26/10",
+        "PAPER-PASKUNAS-QUAST-26/19",
+        "PAPER-PASKUNAS-QUAST-26/50",
+        "PAPER-PASKUNAS-QUAST-26/51",
+        "PAPER-PASKUNAS-QUAST-26/53"
+      ]
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/55",
@@ -555,7 +640,7 @@
       "statement": "For H ⊂ L_{k′} closed reductive (H ≠ G if L = G), U open in X̄^git_{HG} ∩ Ū_{LG,ρ̄^ss}, V its preimage and Z = V̄, if (DIM) holds for compatible pairs of smaller dimension then dim G_k([F:ℚ_p] + 1) − dim Z ≥ (dim L_k − dim H)[F:ℚ_p] + dim N_k[F:ℚ_p] − δ(U); hence ≥ (dim L_k − dim H)[F:ℚ_p] (Corollary 13.6), and for L ≠ G with δ(U) ≤ dim L_k − dim H, ≥ dim N_k[F:ℚ_p] ≥ 1, ≥ 2 unless F = ℚ_p and dim N_k = 1 (Corollary 13.7).",
       "locator": "§13.1, Proposition 13.5, Corollaries 13.6, 13.7, pp. 60–62",
       "status": "missing",
-      "note": ""
+      "note": "For the ensuing special-locus argument, the dynamic Lie-weight calculation is Conrad, Reductive group schemes, Theorem 4.1.7(4), pp. 112–114, not [16]; see /61 and E9. The codimension bounds are unchanged."
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/60",
@@ -573,7 +658,7 @@
       "statement": "On X^gen_{G,ρ̄^ss} (and its special and generic fibres) the W-special loci of level j are G^0-invariant, also inside closed G^0-invariant X′ (Proposition 13.11, Corollary 13.12); irreducible components of closed G^0-invariant Z meet Y with dim O_{Z′,x} = dim Z′ on Y and dim Z′ − 1 off Y (Lemma 13.13); dim Z[1/p] ≤ dim Z̄ and dim Z ≤ dim Z̄ + 1 (Proposition 13.14, Corollary 13.15). In the special fibre the image C_{W,j} of the W-special locus in X̄^git is closed and covered by finitely many X̄^git_{H_iG} with H_i reductive over a finite extension of k and dim W^{H_i^0} ≥ j+1; dim H_i ≤ dim G_k − 1 if W^{G^0} = 0 and ≤ dim G_k − 2 if W^{G′} = 0 (Proposition 13.16; Martin [42, Thm 10.3]).",
       "locator": "§13.2, Propositions 13.11, 13.14, 13.16, Corollaries 13.12, 13.15, Lemma 13.13, pp. 63–64",
       "status": "missing",
-      "note": "Lemma 13.13 and Proposition 13.14 as BIP23 Lemmas 3.21, 3.23."
+      "note": "Lemma 13.13 and Proposition 13.14 as BIP23 Lemmas 3.21, 3.23. Proposition 13.11's proof uses Conrad, Reductive group schemes, Theorem 4.1.7(4), pp. 112–114: smooth affine G gives smooth dynamic subgroups and the nonnegative/zero/positive Lie-weight decomposition. The printed [16] on p. 63 should be [19] (E9)."
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/62",
@@ -600,7 +685,23 @@
       "statement": "If (DIM) holds for all pairs of smaller dimension it holds for (G_k, ρ̄^ss) (Proposition 13.25: pass to G/Z(G′), G/Z(G^0) and, by Proposition 2.30, a cover G_3 with π_1(G_3^0) étale, using Corollaries 3.12, 3.14, Proposition 3.16). Hence (DIM) holds throughout, the complement of V̄^{n-spcl} has positive codimension, dim X̄^gen_{G,ρ̄^ss} = dim G_k([F:ℚ_p] + 1) and dim X̄^git_{G,ρ̄^ss} = dim G_k[F:ℚ_p] + dim Z(G_k) (Theorem 13.26).",
       "locator": "§13.3, Proposition 13.25, Theorem 13.26, pp. 68–69",
       "status": "missing",
-      "note": "The core of the paper (§1.4.2)."
+      "note": "The core of the paper (§1.4.2). Proposition 13.25: Z(G^0) of a split reductive group is split diagonalizable, not necessarily a torus. Its finite subgroup μ = Z(G′) has the canonical p-primary/prime-to-p decomposition needed by the proof; do not discard the finite central part by replacing the centre with its maximal torus (E4).",
+      "api": [
+        "splitCentre_diagonalizable; finiteDerivedCentre_primaryDecomposition with characteristic subgroups normal in G",
+        "dimensionCompare_centralQuotients with the paper's étale/connected-kernel hypotheses; no torus predicate required for the finite centre"
+      ],
+      "unitTests": [
+        "G^0 = SL_2 has centre μ_2, not a torus; in characteristic 2 this is infinitesimal",
+        "For μ_n, split n into p-primary and prime-to-p factors and retain their group-scheme structures"
+      ],
+      "prerequisites": [
+        "PAPER-PASKUNAS-QUAST-26/9",
+        "PAPER-PASKUNAS-QUAST-26/16",
+        "PAPER-PASKUNAS-QUAST-26/23",
+        "PAPER-PASKUNAS-QUAST-26/24",
+        "PAPER-PASKUNAS-QUAST-26/58",
+        "PAPER-PASKUNAS-QUAST-26/63"
+      ]
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/65",
@@ -645,7 +746,21 @@
       "statement": "For a ρ̄^ss-compatible R-Levi L with dim G − dim L = 2 there is a closed D̄_L ⊂ X̄^gen of codimension ≥ 1 + [F:ℚ_p] outside which points of V̄_{LG} are (Lie G′_sc)^*-non-special (Proposition 14.5). The (Lie G′_sc)^*-special locus has codimension ≥ 1 + [F:ℚ_p] in X^gen_{G,ρ̄^ss}, in its special fibre and in its generic fibre, and ≥ 2[F:ℚ_p] if no ρ̄^ss-compatible R-Levi has codimension 2 (Theorem 14.6).",
       "locator": "§14, Proposition 14.5, Theorem 14.6, Example 14.7, pp. 73–75",
       "status": "missing",
-      "note": "Example 14.7 (G = GL_1 × GL_2): the bound is 2[F:ℚ_p] if ρ̄_2 is absolutely irreducible and 1 + [F:ℚ_p] if it is reducible."
+      "note": "Example 14.7 (G = GL_1 × GL_2): the bound is 2[F:ℚ_p] if ρ̄_2 is absolutely irreducible and 1 + [F:ℚ_p] if it is reducible. Propagate /54's reduced subgroup: the group pulled back under φ in Proposition 14.5 is the reduced closed inverse image over the perfect special-fibre field. Prove equality of geometric-point containment conditions, reductivity and the strict centre-dimension bound before applying induction and the G^0-saturation bound of /68. These are proof obligations; the codimension statement itself is retained.",
+      "api": [
+        "reducedPullback_codimensionTwoBadSubgroup and geometricPoints_containment_iff; instantiate /54 over char p",
+        "codimension_badLeviLocus using /68 for the reduced reductive group; specialLocus_bound then passes to other fibres using /61"
+      ],
+      "unitTests": [
+        "At p=2, reduction removes μ_2's tangent direction without changing which geometric representations lie in the bad subgroup",
+        "GL_1×GL_2 recovers Example 14.7 for absolutely irreducible/reducible residual GL_2 representations"
+      ],
+      "prerequisites": [
+        "PAPER-PASKUNAS-QUAST-26/54",
+        "PAPER-PASKUNAS-QUAST-26/61",
+        "PAPER-PASKUNAS-QUAST-26/64",
+        "PAPER-PASKUNAS-QUAST-26/68"
+      ]
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/70",
@@ -654,7 +769,24 @@
       "statement": "With Ḡ = G/Z_1: X^{gen,ψ_1}_{G,ρ̄^ss} → X^gen_{Ḡ,ρ̄^ss} is finite (Proposition 15.1), so dim X̄^{gen,ψ_1} ≤ dim Ḡ_k([F:ℚ_p] + 1) (Corollary 15.2), where dim Ḡ_k = dim(H_2)_k + dim G′_k (90); X^{gen,ψ_1}//Z_2G′ → X^git_Ḡ is finite (Corollary 15.3) and its ring is a finite product of complete local rings, local with residue field k if |(G/G^0)(k̄)| and |(Z_1 ∩ Z_2G′)(k̄)| are coprime (Corollary 15.4); irreducible components of closed Z_2G′-invariant subschemes meet Y^{ψ_1} with the expected local dimensions (Corollary 15.5).",
       "locator": "§15.1, Proposition 15.1, Corollaries 15.2–15.5, (90), pp. 76–78",
       "status": "missing",
-      "note": "For G = GL_d with fixed determinant this reduces to PGL_d, unlike BIP23 which untwists by characters."
+      "note": "For G = GL_d with fixed determinant this reduces to PGL_d, unlike BIP23 which untwists by characters. Corrected Proposition 15.1 proof interface (E3): use only finiteness of q:G→H_1×(G/Z_1). Factor q through H_1×_Δ(G/Z_1). Its neutral-component map has finite kernel and is an isogeny onto the connected fibre product, using Z_1→H_1^0 and G^0→(G/Z_1)^0; descend finiteness componentwise after the splitting/constant-component base extension. The fibre product is a closed subscheme of the full product, since Δ is finite separated; hence the composite q is finite. Apply /45 Proposition 8.7 to this finite morphism, base change to ψ_1, and use Proposition 8.10's product identification. The map on components is the diagonal Δ→Δ×Δ, not a surjection. Centrality of q or of Z_1 in disconnected G is not required. Verify these steps in the downstream design before consuming the dimension bound.",
+      "api": [
+        "finite_partialDetGroupMap via the common-Δ fibre product and connected isogeny, with descent through the split constant-component extension",
+        "finite_fixedPartialDetGenericSpace using /45 finite functoriality and base change to ψ_1; projection_product_fixedFirstFactor_iso",
+        "fixedPartialDet_dimension_le and invariantQuotient_finite with the displayed coprimality hypotheses retained"
+      ],
+      "unitTests": [
+        "For G=G_m×C_2 and full fixed determinant, q maps Δ diagonally into Δ²: finite but not surjective",
+        "For GL_d, the connected proof recovers SL_d's fixed-determinant comparison with PGL_d",
+        "A nontrivial component action on Z_1 is allowed; no centrality in all G is used"
+      ],
+      "prerequisites": [
+        "PAPER-PASKUNAS-QUAST-26/4",
+        "PAPER-PASKUNAS-QUAST-26/9",
+        "PAPER-PASKUNAS-QUAST-26/45",
+        "PAPER-PASKUNAS-QUAST-26/64",
+        "PAPER-PASKUNAS-QUAST-26/65"
+      ]
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/71",
@@ -663,7 +795,23 @@
       "statement": "With μ := (μ_{p^∞}(E) ⊗ M_2)^Δ of order p^m and L containing the p^m-th roots of unity: O⟦(Γ_E^{ab,p} ⊗ M_2)^Δ⟧ ≅ R^ps_{H_2,ψ̄_2} (93, [PQ25, Thm 9.3]); A^gen_{H_2,ψ̄_2^ss} ≅ R^ps[t_1^{±1}, …, t_s^{±1}], s = rank M_2 − rank M_2^Δ (94); O⟦(Γ_E^{ab,p} ⊗ M_2)^Δ⟧ ≅ O[μ]⟦x_1..x_r⟧, r = rank M_2[F:ℚ_p] + rank M_2^Δ ([PQ25, Cor. 8.8]), μ being the torsion via the Artin map; so A^gen ≅ O[μ]⟦x⟧[t^{±1}] with r + s = dim(H_2)_k([F:ℚ_p] + 1) (96). Also [PQ25, Cor. 9.5, 9.9] and the canonical free transitive action of X(μ) on components of X^ps_{H_2} ([PQ25, §7.4]).",
       "locator": "§1.4.2, §1.5, pp. 7, 9; §15.2, (93)–(96), pp. 78",
       "status": "missing",
-      "note": "PQ25 = Paškūnas–Quast, On local Galois deformation rings: generalised tori, Forum Math. Sigma 13 (2025) e45, a prerequisite not yet extracted; its results are stated inputs here. Local class field theory's Artin map is planned (Tau Ceti ClassFieldTheory Layer 7)."
+      "note": "PQ25 = Paškūnas–Quast, On local Galois deformation rings: generalised tori, Forum Math. Sigma 13 (2025) e45, a prerequisite not yet extracted; its results are stated inputs here. Local class field theory's Artin map is planned (Tau Ceti ClassFieldTheory Layer 7). Read the 2025 published Theorem 9.3 and §§7.4,8–9 for this repair. Keep invariants J_E=(Γ_E^{ab,p}⊗M_2)^Δ. Rank uses rational normal basis E≅F[Δ] after tensoring with Q_p, not an integral basis of O_E. For Lemma 8.7 choose a normal-basis O_F[Δ]-lattice Λ_nb=O_F[Δ]θ⊂E, scale into the exponential convergence domain, and use the cofinal Δ-stable lattices π_F^nΛ_nb. Their tensor with M_2 under the diagonal action is induced after untwisting, so H¹(Δ,exp(π_F^nΛ_nb)⊗M_2)=0 by Shapiro. These finite-index changes preserve rank and completion, but do not identify O_E or every p_E^n with O_F[Δ] (prerequisite source issue E11). After coefficient extension, retain the splitting and existence of an O-valued lift hypotheses of PQ25 Theorem 9.3; its algebra isomorphism depends on choosing a base point.",
+      "api": [
+        "rationalNormalBasis_rank_invariants for E/F Galois and free character lattice M; r=rank M[F:Q_p]+rank M^Δ",
+        "exists_normalBasisLattice_in_expDomain and scaledLattices_cofinal; untwist_diagonalTensor_induced; H1_vanishes_on_scaledLattices",
+        "fixedResidualPseudoDeformation_iso_completedGroupAlgebra under PQ25 Theorem 9.3 splitting/lift hypotheses, with torsion subgroup μ and an explicit chosen base point",
+        "components_torsor_characterGroup_mu via PQ25 §7.4; preserve invariants rather than swapping them with coinvariants"
+      ],
+      "unitTests": [
+        "Wild E=Q_2(√2): Tr(O_E)=2Z_2 while O_E^Δ=Z_2, unlike the regular module whose trace surjects onto invariants",
+        "Λ_nb=Z_2(1+√2)⊕Z_2(1−√2) has index 2 in O_E, its trace surjects onto its invariants 2Z_2; scaling by 4 places it inside the exponential domain",
+        "For an unramified quadratic E/F at odd p with sign M, Γ_F^{ab,p} has trivial Δ action and yields zero sign invariants, while Γ_E's unit module yields rank [F:Q_p]"
+      ],
+      "prerequisites": [
+        "PAPER-PASKUNAS-QUAST-26/4",
+        "PAPER-PASKUNAS-QUAST-26/17",
+        "PAPER-PASKUNAS-QUAST-26/19"
+      ]
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/72",
@@ -705,19 +853,48 @@
       "id": "PAPER-PASKUNAS-QUAST-26/76",
       "kind": "theorem",
       "name": "Commutative algebra inputs: Serre's criterion, excellence, parafactoriality, miracle flatness",
-      "statement": "Serre's criterion for normality (R_1 + S_2) with Cohen–Macaulayness of complete intersections; finitely generated algebras over complete local noetherian rings are excellent, and completions of excellent local rings regular in codimension i are regular in codimension i ([43, Thm 23.9], [59, Tag 07QW]); Grothendieck's parafactoriality: a complete intersection regular in codimension 3 is factorial ([14]); miracle flatness ([43, Thm 23.1]); invariants of normal domains under reductive groups are normal ([12, Prop. 6.4.1]).",
+      "statement": "Serre's criterion for normality (R_1 + S_2), with Cohen–Macaulayness of noetherian local complete intersections; finitely generated algebras over complete local noetherian rings are excellent, and completions of excellent local rings regular in codimension i remain so ([43, Thm 23.9], [59, Tag 07QW]). The factoriality input is local: a noetherian local complete-intersection ring regular at every prime of height at most 3 is a UFD (Grothendieck's parafactoriality input [14]); on schemes or nonlocal rings this gives local factoriality unless a separate global Picard/class-group argument is supplied. Miracle flatness has the local noetherian regular-base/Cohen–Macaulay-source and dimension hypotheses of [43, Thm 23.1]. Invariants of a normal domain under the stated reductive action are normal ([12, Prop. 6.4.1]).",
       "locator": "§3, §15.3–15.4 (cited)",
       "status": "missing",
-      "note": "The BIP23 extraction routed Serre's criterion, excellence and parafactoriality to DeformationAndDerivedPatchingAlgebra; this item joins them."
+      "note": "The BIP23 extraction routed Serre's criterion, excellence and parafactoriality to DeformationAndDerivedPatchingAlgebra; this item joins them. The complete local deformation-ring application in /75 is retained. The previous arbitrary-ring UFD statement was an extraction error, not a source issue. The reviewed R03.3 audit has regular sequences but no complete-intersection, Cohen–Macaulay or excellence predicates: import its planned general inputs, do not relabel them as library.",
+      "api": [
+        "localCI_regular_height_le_three_isUFD : noetherian local CI + ∀ prime q, ht q≤3→regular R_q implies UFD R",
+        "locallyCI_regular_height_le_three_locallyFactorial for nonlocal rings/schemes; no global UFD conclusion",
+        "excellentCompletion_preserves_Ri; localCI_isCM; normal_iff_R1_and_S2 with all noetherian hypotheses"
+      ],
+      "unitTests": [
+        "The complete local component rings of /75 satisfy the intended local hypotheses for [F:Q_p]≥3",
+        "Z[√−5]=Z[t]/(t²+5) is a regular Dedekind hypersurface, hence locally factorial, yet 6=2·3=(1+√−5)(1−√−5) gives nonunique factorization; norms forbid elements of norm 2 or 3",
+        "Reject a global UFD conclusion for a nonlocal CI solely from height≤3 regularity"
+      ],
+      "prerequisites": [
+        "PAPER-PASKUNAS-QUAST-26/21"
+      ]
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/77",
       "kind": "theorem",
       "name": "Section 15.6: labelling the irreducible components",
-      "statement": "The bijection between components and X(μ) is non-canonical in general (it depends on α in (93)). If H_2 ≅ H_2^0 ⋊ Δ, the Teichmüller section of H_2^0(O) ↠ H_2^0(k) gives a canonical minimally ramified lift σ∘ψ̄_2 and so a canonical component; equivalently a Q̄_p-point with ψ_2(γ) = (Φ(γ), γ|_E) defines a class in H¹(Γ_F, H_2^0(Q̄_p)) ≅ Hom_cont((Γ_F^{ab,p} ⊗ M_2)^Δ, Q̄_p^×) (Langlands' argument for tori), whose restriction to μ labels the component.",
+      "statement": "Put J_E=(Γ_E^{ab,p}⊗M_2)^Δ and μ=J_E,tors=(μ_{p∞}(E)⊗M_2)^Δ. Under the coefficient splitting/lift hypotheses of /71, choosing the isomorphism α:R^ps_{H_2,ψ̄_2}≅O[[J_E]] gives components labelled by characters of μ; this choice is noncanonical in general. If H_2≅H_2^0⋊Δ, the Teichmüller section on the split torus with the component projection gives a canonical minimally ramified lift of ψ̄_2 and hence a distinguished component. Twisting by that lift identifies the framed fixed-residual deformation functor with the torsor of continuous principal-unit cocycles Z¹(Γ_F,Hom(M_2,1+m_A)); its pseudodeformation/component quotient is governed by O[[J_E]] as in /71. Restrict the corresponding formal character J_E→1+m_A to μ to determine the component. This does not identify all H¹(Γ_F,H_2^0(Q̄_p)) with characters of a pro-p group, and does not replace full cocycles by their restriction to Γ_E when p divides |Δ|.",
       "locator": "§15.6, pp. 84–85",
       "status": "missing",
-      "note": "[PQ25, §7.4]; Langlands [38]."
+      "note": "Correction of the published p. 85 labelling display, E5: all three Γ_F^{ab,p} occurrences in this construction become Γ_E^{ab,p}; keep Δ-invariants. Use PQ25 §§7.4,9 for the fixed-residual torsor/pseudodeformation statement. The unrestricted Weil-group correspondence is recorded separately in /81. Teichmüller lifting uses finite residual torus values, is Δ-compatible in the split semidirect case, and supplies the canonical base point only in that case.",
+      "api": [
+        "teichmullerLift_semidirectResidual with compatible fixed component map; principalUnitCocycles_act_simplyTransitively on the framed fixed-residual functor after choosing its lift",
+        "pseudoDeformationTorsor_iso_formalCharacters_JE using /71, not a blanket Z¹/H¹↔Hom(J_E,−) restriction statement",
+        "componentCharacter_of_formalPoint : restriction of the chosen formal character to μ; canonical_baseComponent only in the semidirect Teichmüller case"
+      ],
+      "unitTests": [
+        "Unramified quadratic sign lattice at odd p distinguishes Γ_E from Γ_F and gives the correct rank [F:Q_p]",
+        "An unramified character sending Frobenius to −1 at odd p is a continuous unrestricted Galois character but cannot factor through a pro-p group and has nontrivial residual reduction; it is excluded by the fixed-residual principal-unit condition",
+        "When p divides |Δ| do not infer a bijection from restricting cocycles to Γ_E; use the full cocycle functor and PQ25 theorem",
+        "Translation by the chosen lift changes the general labelling; the semidirect Teichmüller base component is canonical"
+      ],
+      "prerequisites": [
+        "PAPER-PASKUNAS-QUAST-26/4",
+        "PAPER-PASKUNAS-QUAST-26/71",
+        "PAPER-PASKUNAS-QUAST-26/72"
+      ]
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/78",
@@ -753,10 +930,25 @@
       "id": "PAPER-PASKUNAS-QUAST-26/81",
       "kind": "theorem",
       "name": "The local Langlands correspondence for tori",
-      "statement": "For a torus T over F split by E, continuous admissible parameters Γ_F → ᴸT(Q̄_p) up to T̂-conjugacy (equivalently H¹(Γ_F, T̂(Q̄_p))) correspond to continuous characters T(F) → Q̄_p^× (Langlands [38]; p-adic coefficients: Birkbeck [4]).",
+      "statement": "For a torus T over F split by the finite Galois extension E/F, continuous admissible parameters W_{E/F}→T̂(Q̄_p)⋊Gal(E/F), up to T̂-conjugacy, equivalently H¹_cont(W_{E/F},T̂(Q̄_p)), correspond to all continuous characters T(F)→Q̄_p^× (Langlands; Birkbeck, Theorem 1.0.1, p. 134, for divisible topological coefficients). Here W_{E/F} is the relative Weil group extension of Δ by E^×. Separately, a continuous Galois parameter Γ_F→ᴸT(Q̄_p) restricts to W_F and factors through the relative Weil group since Γ_E acts through the abelian dual torus. This restriction followed by the Weil correspondence is the direction used in Theorems 16.4–16.5. No unrestricted Γ_F-side bijection is asserted.",
       "locator": "§15.6, p. 85; §16, proofs of Theorems 16.4, 16.5, pp. 87–88 (cited)",
       "status": "missing",
-      "note": "Not planned in the atlas (ExcursionOperatorsAndSpectralAction ES6 treats tori only inside Fargues–Scholze's ℓ ≠ p assignment). Recorded in the Part II's L-group layer as a stated input."
+      "note": "Not planned in the atlas (ExcursionOperatorsAndSpectralAction ES6 treats tori only inside Fargues–Scholze's ℓ ≠ p assignment). Recorded in the Part II's L-group layer as a stated input. Obtainable proof source: Birkbeck, On the p-adic Langlands correspondence for algebraic tori, https://jtnb.centre-mersenne.org/item/10.5802/jtnb.1114.pdf, Theorem 1.0.1 and §1.1, pp. 134,136. Γ_F is compact; the character with uniformizer value p is on the full Weil side but cannot come from a continuous compact Galois image. Any stronger bounded/unitary Galois bijection would require an additional theorem and is outside this input. This corrects the extraction, not the statements of Theorems 16.4–16.5.",
+      "api": [
+        "torusWeilLanglands : H¹_cont(W_{E/F},T̂(D))≅Hom_cont(T(F),D) for the divisible coefficient group/topology in Birkbeck Theorem 1.0.1",
+        "restrictGaloisParameter_toWeil and factor_relativeWeil; naturality in torus maps and coefficient inclusions",
+        "componentCharacter_fromGaloisPoint via restriction and restriction of the corresponding T(F)-character to p-power torsion; no surjectivity claim for unrestricted Galois parameters"
+      ],
+      "unitTests": [
+        "T=G_m: the unramified character with uniformizer value p is continuous on F^× but valuations of p^n are unbounded, so no compact Γ_F image realizes it",
+        "Uniformizer value 1+p has compact principal-unit cyclic closure and extends via Ẑ→Z_p to an unramified Galois character",
+        "Split tori recover the coordinatewise correspondence; verify the restriction direction used for the connected centre in /80,/82"
+      ],
+      "prerequisites": [
+        "PAPER-PASKUNAS-QUAST-26/71",
+        "PAPER-PASKUNAS-QUAST-26/78",
+        "PAPER-PASKUNAS-QUAST-26/79"
+      ]
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/82",
@@ -788,14 +980,66 @@
       "statement": "Profinite sets are compact objects (Lemma A.1); surjections of condensed sets are effective epimorphisms (Lemma A.2); X is quasi-compact iff some profinite set surjects onto it (Lemma A.3); quasi-separatedness is tested on pullbacks of the diagonal along profinite sets (Lemma A.4); filtered colimits of qcqs condensed sets along quasi-compact injections are quasi-separated (Lemma A.5); subobjects of quasi-separated condensed sets are quasi-separated (Lemma A.6); a map S → X(*) from a profinite set lifts to at most one map of condensed sets when X is quasi-separated (Lemma A.7); for a closed immersion X ↪ 𝔸ⁿ_R and a quasi-separated condensed R-algebra A, X(A) ↪ Aⁿ is a quasi-compact injection (Lemma A.8).",
       "locator": "Appendix A, Lemmas A.1–A.8, pp. 88–91",
       "status": "missing",
-      "note": "Scholze's lectures [52, 53]. VStackSheavesAndLisseCategories VS2 is the atlas's owner of condensed foundations (building on Mathlib's CondensedSet and CondensedMod); these lemmas belong there."
+      "note": "Scholze's lectures [52, 53]. VStackSheavesAndLisseCategories VS2 is the atlas's owner of condensed foundations (building on Mathlib's CondensedSet and CondensedMod); these lemmas belong there. Scope the affine-points construction used in A.8 to X=Spec B of finite presentation: affinePoints(B,A)(S)=Hom_{R-alg}(B,A(S)) is condensed since this representable functor preserves the empty/finite products and descent equalizers of A. Prove accessibility at the required cutoff. This generic construction belongs to VS2 and is imported by /26; do not export Appendix A.1's arbitrary-accessible-presheaf assertion (E10). Lemma A.8's closed-immersion statement and proof by the zero fibre of equations are retained.",
+      "api": [
+        "condensedAffinePoints of finitely presented R-algebra B; empty_value_singleton, finiteDisjointUnion_to_product and surjection_descent_equalizer",
+        "affinePoints_closedImmersion_qc for closed X↪A_R^n and quasi-separated condensed R-algebra A, preserving Lemma A.8",
+        "qcqs_condensed API of A.1–A.7 imported by /26; a future broader functor requires explicit product/equalizer/descent/accessibility hypotheses"
+      ],
+      "unitTests": [
+        "B=R gives the singleton functor and B=R[x_1,…,x_n] gives A^n; polynomial equations give a closed zero fibre",
+        "Constant two-element accessible functor fails at ∅ (2≠1) and on the disjoint union of two singleton profinite sets (2≠4)",
+        "A.8 remains a quasi-compact injection for the closed affine functors actually used"
+      ],
+      "prerequisites": [
+        "PAPER-PASKUNAS-QUAST-26/83"
+      ]
+    },
+    {
+      "id": "PAPER-PASKUNAS-QUAST-26/85",
+      "kind": "definition",
+      "name": "Existing dynamic subgroup carriers and group-valued functors",
+      "statement": "For a commutative ring R and commutative Hopf R-algebra H, with cocharacter l:H→ₐc[R]LaurentPolynomial R, the existing parabolicFunctor, leviFunctor and unipotentFunctor are functors CommAlgCat R→GrpCat with natural inclusions into the ambient points functor. Their objects use WithConv(H→ₐ[R]A); parabolic membership is polynomial extendability of the generic conjugate, Levi membership is fixed generic conjugacy, and unipotent membership is trivial limit. The limit lands in the Levi and retracts its inclusion; every parabolic point factors as an unipotent point times a Levi point, with trivial intersection. No connectedness, reductivity, smoothness or finite-presentation hypothesis is used for these carriers and pointwise laws. Representability and smoothness remain in /10.",
+      "locator": "Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, TauCeti/Algebra/AlgebraicGroup/Dynamic/Parabolic.lean and Dynamic/Functor.lean; source comparison §2.1 and Conrad Theorem 4.1.7",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.Cocharacter.parabolic",
+        "tauceti:TauCeti.Cocharacter.levi",
+        "tauceti:TauCeti.Cocharacter.unipotent",
+        "tauceti:TauCeti.Cocharacter.limit",
+        "tauceti:TauCeti.Cocharacter.mem_parabolic_iff",
+        "tauceti:TauCeti.Cocharacter.mem_levi_iff",
+        "tauceti:TauCeti.Cocharacter.mem_unipotent_iff",
+        "tauceti:TauCeti.Cocharacter.limit_mem_levi",
+        "tauceti:TauCeti.Cocharacter.limit_of_mem_levi",
+        "tauceti:TauCeti.Cocharacter.exists_mem_unipotent_mem_levi",
+        "tauceti:TauCeti.Cocharacter.unipotent_inf_levi",
+        "tauceti:TauCeti.Cocharacter.parabolicFunctor",
+        "tauceti:TauCeti.Cocharacter.leviFunctor",
+        "tauceti:TauCeti.Cocharacter.unipotentFunctor",
+        "tauceti:TauCeti.Cocharacter.parabolicFunctorIncl",
+        "tauceti:TauCeti.Cocharacter.leviFunctorIncl",
+        "tauceti:TauCeti.Cocharacter.unipotentFunctorIncl"
+      ],
+      "note": "Read the actual pinned declarations on 2 October 2026: Functor.lean lines 46–55 impose only CommRing R, CommRing H and HopfAlgebra R H. Parabolic.lean works even over a commutative semiring R with Hopf H; the functor packaging here uses rings. Reuse these exact carriers and natural maps; do not infer representability from packaging alone. Upstream ReductiveGroups is unchanged.",
+      "api": [
+        "Import TauCeti.Algebra.AlgebraicGroup.Dynamic.Functor; instantiate the three functors and their inclusions with the coordinate Hopf algebra of the affine group",
+        "Use mem_parabolic_iff/extend_unique and limit_mem_levi/limit_of_mem_levi for the extension and retraction; use exists_mem_unipotent_mem_levi and unipotent_inf_levi for pointwise decomposition",
+        "Use mapParabolic/mapLevi/mapUnipotent, their coe_map…_apply laws, functor_obj/map and natural inclusions for change of value algebra; /10 supplies the natural scheme identification"
+      ],
+      "unitTests": [
+        "At the trivial cocharacter, P=L=G and U=1, even for a disconnected Hopf group",
+        "For G_m²⋊C_2 with swapping action, compare λ(t)=(t,1) and μ(t)=(t,t): the nonidentity component fails the polynomial extension criterion for λ and satisfies it for μ",
+        "For GL_2 verify upper triangular extension, diagonal limit and unique unipotent-times-Levi decomposition; check change of value algebra and natural inclusions, including dual numbers"
+      ],
+      "prerequisites": []
     }
   ],
   "prerequisites": [
     {
       "citation": "V. Paškūnas, J. Quast, On local Galois deformation rings: generalised tori, Forum Math. Sigma 13 (2025) e45",
-      "link": "10.1017/fms.2024.137",
-      "why": "Theorem 9.3 (R^ps and A^gen for generalised tori; (DIM) for tori), Corollaries 8.8, 9.5, 9.9, §7.4 (labelling components): the base case and the torus inputs of §§3, 13, 15."
+      "link": "https://doi.org/10.1017/fms.2024.137",
+      "why": "Theorem 9.3 (R^ps and A^gen for generalised tori; (DIM) for tori), Corollaries 8.8, 9.5, 9.9, §7.4 (labelling components): the base case and the torus inputs of §§3, 13, 15. For the supporting rank/completion proof carry E11: rational normal basis and cofinal induced normal-basis lattices replace the false integral O_E normal basis. Read published pp. 26–34 during the fix; /71 gives the repair and its hypotheses."
     },
     {
       "citation": "J. Quast, Deformations of G-valued pseudocharacters, Peking Math. J. (2026)",
@@ -850,7 +1094,7 @@
     {
       "citation": "R. P. Langlands, Representations of abelian algebraic groups, Pacific J. Math. 181 (1997), 231–250; C. Birkbeck, On the p-adic Langlands correspondence for algebraic tori, J. Théor. Nombres Bordeaux 32 (2020), 133–158",
       "link": "10.2140/pjm.1997.181.231",
-      "why": "The local Langlands correspondence for tori (§15.6, Theorems 16.4, 16.5)."
+      "why": "The local Langlands correspondence for tori (§15.6, Theorems 16.4, 16.5). Obtainable Birkbeck copy https://jtnb.centre-mersenne.org/item/10.5802/jtnb.1114.pdf, Theorem 1.0.1, p. 134, and §1.1, p. 136: full correspondence uses the relative Weil group; /81 separately restricts the Galois parameters used in this paper."
     },
     {
       "citation": "S. Galatius, A. Venkatesh, Derived Galois deformation rings, Adv. Math. 327 (2018), 470–623",
@@ -861,6 +1105,11 @@
       "citation": "V. Paškūnas, J. Quast, Infinitesimal characters and Lafforgue's pseudocharacters, arXiv:2505.03544; Deformations of pseudocharacters and Mazur's finiteness condition, arXiv:2506.10901",
       "link": "https://arxiv.org/abs/2505.03544",
       "why": "ν[1/p] is an isomorphism (Remark 7.7) and §8 under Mazur's finiteness (footnote 7)."
+    },
+    {
+      "citation": "B. Conrad, Reductive group schemes, in Autour des schémas en groupes, Vol. I (2014), 93–444",
+      "link": "https://math.stanford.edu/~conrad/papers/luminysga3.pdf",
+      "why": "Correct source [19] for the four misbound published [16] references (E9): Example 1.1.16, p. 12; Example 5.3.9, pp. 170–171; Theorem 1.2.7, p. 20; Theorem 4.1.7(4), pp. 112–114. Also Theorem 4.1.7(1) for positive multiples and representable dynamic subgroups, and Corollary 5.3.3 for the connected central-torus isogeny. These locators were read during the fix; the dynamic scheme theorems are distinct from /85 pointwise library reuse."
     }
   ],
   "routes": [
@@ -937,7 +1186,7 @@
         "PAPER-PASKUNAS-QUAST-26/81",
         "PAPER-PASKUNAS-QUAST-26/82"
       ],
-      "brief": "This route coalesces with LocalGaloisDeformationRingsPartIIComponentsAndNormality, proposed by PAPER-BOCKLE-IYENGAR-PASKUNAS-23, whose brief names this paper as the consumer that 'should extend this Part II'; keep its id, title, parent, area and brief. Paškūnas–Quast (Forum Math. Pi 14 (2026) e15) extend every theorem of that Part II from GL_d to generalised reductive group schemes G over O (smooth affine, reductive G^0, finite G/G^0; no hypothesis on p), including L-groups and C-groups. Add, after the GL_d layers and reusing them:\n\n(1) Generalised reductive groups: Definition 2.5 and the group-scheme lemmas of §2; R-parabolics and R-Levis P_λ, L_λ, U_λ (Richardson, CGP) and those containing a split torus; G-semisimplification, G-complete reducibility and G-irreducibility (Serre, Bate–Martin–Röhrle); rigidified extensions and Proposition 2.30 (a cover with étale π_1 and the same κ-points). (2) Continuity: algebraic and condensed R-condensed maps and representations (§4), with the generic condensed lemmas routed to VS2. (3) The G-valued space of generic matrices X^{gen,τ}_G ⊂ Gᴺ × X^ps_{GL_d} and its completions (§5), GIT quotients with Cotner's finiteness theorem and the closed-orbit dictionary (§6), the finite universal homeomorphism X^git_{G,ρ̄^ss} → X^ps_G (§7), the intrinsic description and functoriality (§8), and the absolutely G-irreducible strata U_{LG}, V_{LG} (§9). (4) Group theory for the dimension count: codimension ≥ 2 of reductive subgroups not containing G′ and the vanishing of G′-invariants of (Lie G′_sc)^* (§10); R-Levis of codimension 2 (§11, with Proposition 11.5 restricted to characteristic p — source issue E1). (5) The fibre bounds via X^gen_{P,ρ} and the defect (§12), W-special loci and the induction (DIM) ending in Theorem 13.26, the complete-intersection corollaries 13.27–13.38, and the codimension of the special locus (§14). (6) Components and normality with fixed partial determinant (§15), the labelling of components (§15.6), and the L-group and C-group theorems 16.2–16.5.\n\nImport, never re-plan: LocalGaloisDeformationRings R08.1 (framed G-valued rings, presentations, central quotients — routed there as sources by this extraction); DeformationAndDerivedPatchingAlgebra R03.1, R03.3 (complete-intersection criteria, Lemmas 5.15 and 14.2, Serre's criterion, excellence, parafactoriality — sources); IntegralHeckeAndGaloisDeterminants IHG.0–IHG.1 (determinant laws, Cayley–Hamilton algebras, Wang-Erickson finiteness, and V. Lafforgue's G-pseudocharacters over O with Quast's deformation theory and Emerson–Morel's comparison — sources); ArithmeticGaloisDuality D7 (local duality with local-field coefficients); VStackSheavesAndLisseCategories VS2 and Mathlib's CondensedSet (condensed foundations); ReductiveGroupsPartII RG2.5 (dual groups and L-groups); Tau Ceti's ReductiveGroups Layers 7–8 and ClassFieldTheory Layers 5 and 7; and LanglandsParameterStacks LP2–LP3, with which the invariant theory of G-character varieties should be shared where hypotheses allow. Stated inputs from prerequisites: Paškūnas–Quast's generalised tori (Forum Math. Sigma 13 (2025) e45: Theorems 9.3, Corollaries 8.8, 9.5, 9.9, §7.4), Quast's G-pseudocharacter theorems, Cotner's finiteness theorem, Martin's and Richardson's results on reductive subgroups, Seshadri's GIT, Langlands' correspondence for tori and Buzzard–Gee's C-groups. Tests: G = GL_d recovers the existing layers; G = PGL_d via SL_d/μ_m; G a generalised torus ([PQ25]); Example 9.14; Example 14.7; ᴸH for a non-split torus.",
+      "brief": "This route coalesces with LocalGaloisDeformationRingsPartIIComponentsAndNormality, proposed by PAPER-BOCKLE-IYENGAR-PASKUNAS-23, whose brief names this paper as the consumer that 'should extend this Part II'; keep its id, title, parent, area and brief. Paškūnas–Quast (Forum Math. Pi 14 (2026) e15) extend every theorem of that Part II from GL_d to generalised reductive group schemes G over O (smooth affine, reductive G^0, finite G/G^0; no hypothesis on p), including L-groups and C-groups. Add, after the GL_d layers and reusing them:\n\n(1) Generalised reductive groups: Definition 2.5 and the group-scheme lemmas of §2; R-parabolics and R-Levis P_λ, L_λ, U_λ (Richardson, CGP) and those containing a split torus; G-semisimplification, G-complete reducibility and G-irreducibility (Serre, Bate–Martin–Röhrle); rigidified extensions and Proposition 2.30 (a cover with étale π_1 and the same κ-points). (2) Continuity: algebraic and condensed R-condensed maps and representations (§4), with the generic condensed lemmas routed to VS2. (3) The G-valued space of generic matrices X^{gen,τ}_G ⊂ Gᴺ × X^ps_{GL_d} and its completions (§5), GIT quotients with Cotner's finiteness theorem and the closed-orbit dictionary (§6), the finite universal homeomorphism X^git_{G,ρ̄^ss} → X^ps_G (§7), the intrinsic description and functoriality (§8), and the absolutely G-irreducible strata U_{LG}, V_{LG} (§9). (4) Group theory for the dimension count: codimension ≥ 2 of reductive subgroups not containing G′ and the vanishing of G′-invariants of (Lie G′_sc)^* (§10); R-Levis of codimension 2 (§11, with Proposition 11.5 restricted to characteristic p — source issue E1). (5) The fibre bounds via X^gen_{P,ρ} and the defect (§12), W-special loci and the induction (DIM) ending in Theorem 13.26, the complete-intersection corollaries 13.27–13.38, and the codimension of the special locus (§14). (6) Components and normality with fixed partial determinant (§15), the labelling of components (§15.6), and the L-group and C-group theorems 16.2–16.5.\n\nImport, never re-plan: LocalGaloisDeformationRings R08.1 (framed G-valued rings, presentations, central quotients — routed there as sources by this extraction); DeformationAndDerivedPatchingAlgebra R03.1, R03.3 (complete-intersection criteria, Lemmas 5.15 and 14.2, Serre's criterion, excellence, parafactoriality — sources); IntegralHeckeAndGaloisDeterminants IHG.0–IHG.1 (determinant laws, Cayley–Hamilton algebras, Wang-Erickson finiteness, and V. Lafforgue's G-pseudocharacters over O with Quast's deformation theory and Emerson–Morel's comparison — sources); ArithmeticGaloisDuality D7 (local duality with local-field coefficients); VStackSheavesAndLisseCategories VS2 and Mathlib's CondensedSet (condensed foundations); ReductiveGroupsPartII RG2.5 (dual groups and L-groups); Tau Ceti's ReductiveGroups Layers 7–8 and ClassFieldTheory Layers 5 and 7; and LanglandsParameterStacks LP2–LP3, with which the invariant theory of G-character varieties should be shared where hypotheses allow. Stated inputs from prerequisites: Paškūnas–Quast's generalised tori (Forum Math. Sigma 13 (2025) e45: Theorems 9.3, Corollaries 8.8, 9.5, 9.9, §7.4), Quast's G-pseudocharacter theorems, Cotner's finiteness theorem, Martin's and Richardson's results on reductive subgroups, Seshadri's GIT, Langlands' correspondence for tori and Buzzard–Gee's C-groups. Tests: G = GL_d recovers the existing layers; G = PGL_d via SL_d/μ_m; G a generalised torus ([PQ25]); Example 9.14; Example 14.7; ᴸH for a non-split torus.\n\nConfirmed red-team repairs (Codex codex-J6LwjP, issue #5517, 2 October 2026): (1) Import /85 pinned dynamic Hopf carriers and functors, also for disconnected G; /10 plans only their natural group-scheme identification, representability, smoothness, geometric unipotence and R-Levi/component results. Use Z(G^0)^0→G^0/G′ and Z_i→H_i^0, with Δ-stability/normality; do not assume centrality in all G. (2) Condensed points are those of representable affine finite-type functors; import /84 at VS2, with no arbitrary-accessible-presheaf export. (3) At x∈X̄∖Y the total completion is Ô_{X,x}[[T]]=R^□, and reduction modulo the same ϖ gives Ô_{X̄,x}[[T]]=R^□/ϖ; retain Λ. (4) In /54 and its /69 consumer use the reduced inverse-image subgroup over the perfect special-fibre field, prove its reductivity and strict centre-dimension drop, and lift a positive multiple of the central cocharacter; correct the ē21 middle term while retaining the flag proof and E1 characteristic-p restriction. Correct Conrad proof locators in /50,/51,/59,/61 by title. In /64 the split centre is diagonalizable, not necessarily a torus. (6) Prove /70 using a finite map via the common-Δ fibre product, not a disconnected central isogeny to the full product. Component labelling /77 uses J_E=(Γ_E^{ab,p}⊗M_2)^Δ and the fixed-residual principal-unit cocycle/pseudodeformation torsor after choosing a lift; no all-H¹/pro-p identification. The unrestricted Langlands input /81 uses W_{E/F}, with only Galois-to-Weil restriction needed here. Carry /71 prerequisite E11: rational normal basis for rank and cofinal scaled normal-basis induced lattices for the H¹ vanishing. /76 factoriality is a noetherian local CI theorem with regularity at all height≤3 primes; nonlocal schemes receive local factoriality. These corrections are downstream proof obligations, not claims of Lean formalization; final theorem statements and the existing Part II id/owner are retained.",
       "reason": "The pending Part II owns the geometry of unrestricted framed local deformation rings and its method (generic matrices over R^ps, GIT, fibre counts, special loci); this paper is that theory for generalised reductive G, as the Part II's brief anticipates. A separate roadmap would duplicate every layer."
     },
     {
@@ -968,7 +1217,7 @@
         "PAPER-PASKUNAS-QUAST-26/67",
         "PAPER-PASKUNAS-QUAST-26/76"
       ],
-      "reason": "R03.1 (completions, coefficient categories) and R03.3 (dimension, complete intersections, 'hypotheses on catenarity and excellence') own general commutative algebra: completing a quotient of a non-noetherian local ring (Lemma 5.15), dimension under dominant maps over a complete local base (Lemma 14.2), and Serre's criterion, excellence, parafactoriality and miracle flatness — as for BIP23."
+      "reason": "R03.1 (completions, coefficient categories) and R03.3 (dimension, complete intersections, 'hypotheses on catenarity and excellence') own general commutative algebra: completing a quotient of a non-noetherian local ring (Lemma 5.15), dimension under dominant maps over a complete local base (Lemma 14.2), and Serre's criterion, excellence, parafactoriality and miracle flatness — as for BIP23. The /76 factoriality input is explicitly noetherian local CI with height≤3 regularity; its nonlocal form is local factoriality, and the complete local deformation-ring application remains. Do not export a global UFD assertion."
     },
     {
       "route": "source",
@@ -1006,7 +1255,7 @@
       "items": [
         "PAPER-PASKUNAS-QUAST-26/84"
       ],
-      "reason": "VS2 ('Condensed and solid foundations', building on Mathlib's CondensedSet and CondensedMod) is the atlas's owner of condensed foundations; the quasi-compact/quasi-separated lemmas of Appendix A are general statements about condensed sets of that kind."
+      "reason": "VS2 ('Condensed and solid foundations', building on Mathlib's CondensedSet and CondensedMod) is the atlas's owner of condensed foundations; the quasi-compact/quasi-separated lemmas of Appendix A are general statements about condensed sets of that kind. Include /84 representable affine condensed-points construction and its product/descent/accessibility API used by /26; reject the arbitrary-accessible-functor construction of Appendix A.1 (E10)."
     }
   ],
   "sourceIssues": [
@@ -1050,6 +1299,183 @@
         "reason": "Confirmed verbatim in the arXiv source: `\\begin{lem}\\label{fg_quotient} There is a topologically finitely generated quotient $\\Gamma\\twoheadrightarrow Q$ such that $R^{\\ps,\\Gamma}_{\\GL_d}=R^{\\ps,Q}_{\\GL_d}$ and every $\\rho\\in X^{\\gen}_{\\GL_d}(A)$, where $A\\in R^{\\ps}_G\\text{-}\\alg$, factors as $\\rho:\\Gamma\\rightarrow Q\\rightarrow\\GL_d(A)$.' The functor $X^{\\gen}_{\\GL_d}$ is defined on $R^{\\ps}_{\\GL_d}$-algebras, the rest of the same lemma is stated for $R^{\\ps}_{\\GL_d}$, and the proof immediately above it works over $\\RpsGLd$; $R^{\\ps}_G$ is introduced only in §7.2. A substitution slip.",
         "by": "Claude Code, session cc-7b31c4, issue #1345"
       }
+    },
+    {
+      "id": "PAPER-PASKUNAS-QUAST-26/E3",
+      "kind": "error",
+      "locator": "Published Forum Math. Pi 14 (2026) e15, §15 setup and Proposition 15.1 proof, p. 76",
+      "printed": "“The map Z(G^0) → G/G′ is a central isogeny”; “the map Z_i → H_i is an isogeny”; “the natural map q : G → H is a central isogeny”.",
+      "correction": "Use Z(G^0)^0→G^0/G′ and Z_i→H_i^0. Require only finiteness of G→H_1×(G/Z_1), factoring through the common-Δ fibre product as in /70; Δ-stable Z_i are normal but need not be central in disconnected G.",
+      "reason": "For G=G_m×C_2 a connected torus cannot surject onto the whole disconnected quotient; q has diagonal component map C_2→C_2². The finite-map proof can replace the false central-isogeny claim using the connected isogeny and componentwise finiteness. Proposition 15.1 is retained with these proof obligations.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2 October 2026: arXiv https://arxiv.org/abs/2404.14622 lists latest v2 (9 January 2026); relevant §11, §15.6 and Appendix A.1 passages compared with the published text. https://arxiv.org/abs/2404.14615 lists latest v2 (8 November 2024); its metadata, not its full PDF, was checked for the prerequisite correction search.",
+        "2 October 2026: Crossref works records for 10.1017/fmp.2026.10030 and 10.1017/fms.2024.137 have empty relation objects and no update-to/updated-by fields; this is a bounded metadata check, not proof that no correction exists.",
+        "2 October 2026: Julian Quast public publications page https://www.julianquast.de/ and the institutional listing https://esaga.uni-duisburg-essen.de/julian.quast/ were checked; no correction was listed for these titles. Title-specific erratum/corrigendum searches found no relevant author or publisher correction. The Cambridge article HTML notice pages failed in the browser tool; the published PDFs themselves were accessible and read. No claim about an inaccessible corrections tab is made."
+      ]
+    },
+    {
+      "id": "PAPER-PASKUNAS-QUAST-26/E4",
+      "kind": "error",
+      "locator": "Published §13.4, Proposition 13.25 proof, p. 68",
+      "printed": "“Since Z(G^0) is a split torus, μ is a finite diagonalisable group scheme”.",
+      "correction": "Z(G^0) is split diagonalizable, not necessarily a torus. Diagonalizability suffices for the canonical p-primary/prime-to-p decomposition of its finite subgroup μ=Z(G′); preserve the finite central part in /64.",
+      "reason": "SL_2 has finite centre μ_2, which is not a torus (and is nonreduced at p=2). The needed multiplicative-type finite-centre decomposition remains available; the induction statement is retained.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2 October 2026: arXiv https://arxiv.org/abs/2404.14622 lists latest v2 (9 January 2026); relevant §11, §15.6 and Appendix A.1 passages compared with the published text. https://arxiv.org/abs/2404.14615 lists latest v2 (8 November 2024); its metadata, not its full PDF, was checked for the prerequisite correction search.",
+        "2 October 2026: Crossref works records for 10.1017/fmp.2026.10030 and 10.1017/fms.2024.137 have empty relation objects and no update-to/updated-by fields; this is a bounded metadata check, not proof that no correction exists.",
+        "2 October 2026: Julian Quast public publications page https://www.julianquast.de/ and the institutional listing https://esaga.uni-duisburg-essen.de/julian.quast/ were checked; no correction was listed for these titles. Title-specific erratum/corrigendum searches found no relevant author or publisher correction. The Cambridge article HTML notice pages failed in the browser tool; the published PDFs themselves were accessible and read. No claim about an inaccessible corrections tab is made."
+      ]
+    },
+    {
+      "id": "PAPER-PASKUNAS-QUAST-26/E5",
+      "kind": "error",
+      "locator": "Published §15.6, p. 85 (arXiv 2404.14622v2, p. 94)",
+      "printed": "“Hom_cont_Group((Γ_F^{ab,p} ⊗ M_2)^Δ, Q̄_p^×) ≅ H¹(Γ_F, H_2^0(Q̄_p))”. The following character domain and Artin/torsion sentence also use Γ_F^{ab,p}.",
+      "correction": "Replace all three Γ_F^{ab,p} occurrences in this formal labelling construction by Γ_E^{ab,p}, retaining invariants. Further restrict to the fixed-residual deformation/pseudodeformation torsor after a chosen lift, with principal-unit cocycles and the /71 O[[J_E]] description; do not assert the displayed unrestricted H¹ identification. The full torus correspondence uses the Weil group (/81).",
+      "reason": "For the unramified quadratic sign lattice at odd p, the wrong Γ_F expression has zero sign invariants, while the Γ_E expression has rank [F:Q_p]. Even for the split torus, an unramified order-two character with Frobenius −1 belongs to unrestricted continuous H¹ but cannot factor through a pro-p group; its residual character is nontrivial. PQ25 Theorem 9.3 and §7.4 give the correct fixed-residual formal interface.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2 October 2026: arXiv https://arxiv.org/abs/2404.14622 lists latest v2 (9 January 2026); relevant §11, §15.6 and Appendix A.1 passages compared with the published text. https://arxiv.org/abs/2404.14615 lists latest v2 (8 November 2024); its metadata, not its full PDF, was checked for the prerequisite correction search.",
+        "2 October 2026: Crossref works records for 10.1017/fmp.2026.10030 and 10.1017/fms.2024.137 have empty relation objects and no update-to/updated-by fields; this is a bounded metadata check, not proof that no correction exists.",
+        "2 October 2026: Julian Quast public publications page https://www.julianquast.de/ and the institutional listing https://esaga.uni-duisburg-essen.de/julian.quast/ were checked; no correction was listed for these titles. Title-specific erratum/corrigendum searches found no relevant author or publisher correction. The Cambridge article HTML notice pages failed in the browser tool; the published PDFs themselves were accessible and read. No claim about an inaccessible corrections tab is made."
+      ]
+    },
+    {
+      "id": "PAPER-PASKUNAS-QUAST-26/E6",
+      "kind": "error",
+      "locator": "Published §11, definition before Lemma 11.3 and Lemma 11.3, p. 54; its use in Proposition 14.5, p. 74",
+      "printed": "“Let H_0 be the preimage of μ_{p−1} ⊂ T_2 in G under p_2.” “H_0 is generalised reductive”.",
+      "correction": "Use the reduced inverse-image closed subgroup over the perfect/algebraically closed field; prove it is a subgroup, smooth/generalised reductive, has the same geometric points, and satisfies the strict centre-dimension bound. Propagate reduction to the subgroup used in Proposition 14.5. This is separate from E1.",
+      "reason": "At p=2 with G=SL_2, p_2 is SL_2→PGL_2 and μ_{p−1}=1; the scheme-theoretic inverse image is μ_2, not smooth, so not generalised reductive. Its reduction is the trivial group with the same geometric points but a different tangent space. The corrected /54 proof uses the reduced subgroup before the reductive-subgroup/induction argument.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2 October 2026: arXiv https://arxiv.org/abs/2404.14622 lists latest v2 (9 January 2026); relevant §11, §15.6 and Appendix A.1 passages compared with the published text. https://arxiv.org/abs/2404.14615 lists latest v2 (8 November 2024); its metadata, not its full PDF, was checked for the prerequisite correction search.",
+        "2 October 2026: Crossref works records for 10.1017/fmp.2026.10030 and 10.1017/fms.2024.137 have empty relation objects and no update-to/updated-by fields; this is a bounded metadata check, not proof that no correction exists.",
+        "2 October 2026: Julian Quast public publications page https://www.julianquast.de/ and the institutional listing https://esaga.uni-duisburg-essen.de/julian.quast/ were checked; no correction was listed for these titles. Title-specific erratum/corrigendum searches found no relevant author or publisher correction. The Cambridge article HTML notice pages failed in the browser tool; the published PDFs themselves were accessible and read. No claim about an inaccessible corrections tab is made."
+      ]
+    },
+    {
+      "id": "PAPER-PASKUNAS-QUAST-26/E7",
+      "kind": "error",
+      "locator": "Published §11, Lemma 11.3 proof, p. 54, and Proposition 11.5 proof, pp. 55–56 (arXiv v2 pp. 61–62)",
+      "printed": "“every cocharacter μ : G_m → Z(L̄^0)^Δ can be lifted”; Proposition 11.5 normalizes “α ◦ p_2 ◦ λ = id”.",
+      "correction": "A positive multiple lifts after clearing the finite lattice cokernel: α∘p_2∘λ(t)=t^n for some n>0. Positive multiplication preserves the limit parabolic and contraction of U (Conrad Theorem 4.1.7(1)); use it for the centre-dimension and semisimplification arguments.",
+      "reason": "The SL_2 diagonal torus→PGL_2 torus has cocharacter map m↦2m. Finite cokernel does not lift exponent 1, but exponent 2 lifts. All positive-weight signs and hence contraction/limiting subgroup functors are unchanged. This is a proof repair, not a counterexample to the centre-dimension or non-speciality conclusions.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2 October 2026: arXiv https://arxiv.org/abs/2404.14622 lists latest v2 (9 January 2026); relevant §11, §15.6 and Appendix A.1 passages compared with the published text. https://arxiv.org/abs/2404.14615 lists latest v2 (8 November 2024); its metadata, not its full PDF, was checked for the prerequisite correction search.",
+        "2 October 2026: Crossref works records for 10.1017/fmp.2026.10030 and 10.1017/fms.2024.137 have empty relation objects and no update-to/updated-by fields; this is a bounded metadata check, not proof that no correction exists.",
+        "2 October 2026: Julian Quast public publications page https://www.julianquast.de/ and the institutional listing https://esaga.uni-duisburg-essen.de/julian.quast/ were checked; no correction was listed for these titles. Title-specific erratum/corrigendum searches found no relevant author or publisher correction. The Cambridge article HTML notice pages failed in the browser tool; the published PDFs themselves were accessible and read. No claim about an inaccessible corrections tab is made."
+      ]
+    },
+    {
+      "id": "PAPER-PASKUNAS-QUAST-26/E8",
+      "kind": "error",
+      "locator": "Published §11, Lemma 11.4 proof, p. 55 (arXiv v2 p. 62)",
+      "printed": "“γ·ē21 = ω(γ)ψ⁻¹(γ)ē21 − ω(γ)ψ(γ)b(γ)²ē12”.",
+      "correction": "Add 2ω(γ)b(γ)ē11. Keep the flag ⟨ē12⟩⊂⟨ē12,ē11⟩⊂M_2/scalars and graded characters ωψ,ω,ωψ⁻¹; Lemma 11.4 retains its hypotheses and conclusion.",
+      "reason": "For A=[[1,b],[0,ψ⁻¹]], Ae21A⁻¹=[[b,−ψb²],[ψ⁻¹,−b]]. Mod scalars the diagonal part is 2bē11; twisting multiplies by ω. It vanishes in characteristic 2 but is nonzero at b=ψ=ω=1 in characteristic 3. The corrected expression still preserves the flag used in the proof.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2 October 2026: arXiv https://arxiv.org/abs/2404.14622 lists latest v2 (9 January 2026); relevant §11, §15.6 and Appendix A.1 passages compared with the published text. https://arxiv.org/abs/2404.14615 lists latest v2 (8 November 2024); its metadata, not its full PDF, was checked for the prerequisite correction search.",
+        "2 October 2026: Crossref works records for 10.1017/fmp.2026.10030 and 10.1017/fms.2024.137 have empty relation objects and no update-to/updated-by fields; this is a bounded metadata check, not proof that no correction exists.",
+        "2 October 2026: Julian Quast public publications page https://www.julianquast.de/ and the institutional listing https://esaga.uni-duisburg-essen.de/julian.quast/ were checked; no correction was listed for these titles. Title-specific erratum/corrigendum searches found no relevant author or publisher correction. The Cambridge article HTML notice pages failed in the browser tool; the published PDFs themselves were accessible and read. No claim about an inaccessible corrections tab is made."
+      ]
+    },
+    {
+      "id": "PAPER-PASKUNAS-QUAST-26/E9",
+      "kind": "misprint",
+      "locator": "Published group-theoretic discussion preceding Proposition 10.1 (p. 51), Lemma 10.4 proof (p. 52), and discussion preceding Proposition 13.11 (p. 63)",
+      "printed": "“[16, Example 1.1.16]”; “[16, 5.3.9]”; “[16, 1.2.7]”; “[16, Theorem 4.1.7, part 4]”.",
+      "correction": "All four should refer to [19], Conrad, Reductive group schemes, not [16], Irreducible components of rigid spaces. Cite the title and the checked locators Example 1.1.16 p. 12, Example 5.3.9 pp. 170–171, Theorem 1.2.7 p. 20, Theorem 4.1.7(4) pp. 112–114.",
+      "reason": "The published bibliography identifies [16] as the rigid-spaces paper and [19] as Reductive group schemes. The four group-theoretic inputs exist at the indicated locators in the public author PDF; /50,/51,/59,/61 and the new prerequisite link bind them correctly. No theorem statement is changed.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2 October 2026: arXiv https://arxiv.org/abs/2404.14622 lists latest v2 (9 January 2026); relevant §11, §15.6 and Appendix A.1 passages compared with the published text. https://arxiv.org/abs/2404.14615 lists latest v2 (8 November 2024); its metadata, not its full PDF, was checked for the prerequisite correction search.",
+        "2 October 2026: Crossref works records for 10.1017/fmp.2026.10030 and 10.1017/fms.2024.137 have empty relation objects and no update-to/updated-by fields; this is a bounded metadata check, not proof that no correction exists.",
+        "2 October 2026: Julian Quast public publications page https://www.julianquast.de/ and the institutional listing https://esaga.uni-duisburg-essen.de/julian.quast/ were checked; no correction was listed for these titles. Title-specific erratum/corrigendum searches found no relevant author or publisher correction. The Cambridge article HTML notice pages failed in the browser tool; the published PDFs themselves were accessible and read. No claim about an inaccessible corrections tab is made."
+      ]
+    },
+    {
+      "id": "PAPER-PASKUNAS-QUAST-26/E10",
+      "kind": "error",
+      "locator": "Published Appendix A.1, p. 90 (arXiv v2, p. 100)",
+      "printed": "“Let X : CRing → Set be an accessible presheaf”; “We denote by X(A) the condensed set obtained by composition X ◦ A”.",
+      "correction": "Restrict the construction used here to affine finite-type representable X=Spec B, using Hom_{R-alg}(B,A(S)); prove the product, descent-equalizer and accessibility conditions. A more general X needs explicit sufficient exactness/descent hypotheses. Keep Lemma A.8 for closed affine immersions.",
+      "reason": "The constant two-element accessible functor sends the empty profinite set to two elements instead of one and a disjoint union of two singleton profinite sets to two instead of four. It therefore violates finite-disjoint-union preservation and is not condensed. Representable affine functors preserve the required limits; /26 and /84 use only these.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2 October 2026: arXiv https://arxiv.org/abs/2404.14622 lists latest v2 (9 January 2026); relevant §11, §15.6 and Appendix A.1 passages compared with the published text. https://arxiv.org/abs/2404.14615 lists latest v2 (8 November 2024); its metadata, not its full PDF, was checked for the prerequisite correction search.",
+        "2 October 2026: Crossref works records for 10.1017/fmp.2026.10030 and 10.1017/fms.2024.137 have empty relation objects and no update-to/updated-by fields; this is a bounded metadata check, not proof that no correction exists.",
+        "2 October 2026: Julian Quast public publications page https://www.julianquast.de/ and the institutional listing https://esaga.uni-duisburg-essen.de/julian.quast/ were checked; no correction was listed for these titles. Title-specific erratum/corrigendum searches found no relevant author or publisher correction. The Cambridge article HTML notice pages failed in the browser tool; the published PDFs themselves were accessible and read. No claim about an inaccessible corrections tab is made."
+      ]
+    },
+    {
+      "id": "PAPER-PASKUNAS-QUAST-26/E11",
+      "kind": "error",
+      "locator": "Prerequisite: Paškūnas–Quast, On local Galois deformation rings: generalised tori, Forum Math. Sigma 13 (2025) e45, doi:10.1017/fms.2024.137, Lemmas 8.4 and 8.7 proofs, p. 30",
+      "printed": "Lemma 8.4: “p_E^n ≅ O_E is isomorphic to O_F[Δ] as Z_p[Δ]-module”. Lemma 8.7: “Since p_E^n ≅ O_E ≅ O_F[Δ] as Δ-modules”.",
+      "correction": "For rank tensor with Q_p and use rational normal basis E≅F[Δ]. For Lemma 8.7 choose a full normal-basis O_F[Δ]-lattice Λ_nb⊂E, scale into the exponential domain and use π_F^nΛ_nb. These cofinal Δ-stable induced lattices, tensor M under diagonal action and untwist, give the required H¹ vanishing. Do not assert an integral normal basis for arbitrary wild E/F.",
+      "reason": "For E=Q_2(√2), O_E=Z_2[√2], invariants are Z_2 but the trace image is 2Z_2; the regular Z_2[C_2]-module has trace surjective onto invariants, so these modules cannot be isomorphic. The lattice spanned by 1±√2 is a regular normal-basis lattice of index 2 with trace onto its own invariants. Scaling it into exp preserves inducedness and gives a cofinal neighborhood basis. This repairs a prerequisite proof used by /71; no false 2026 main theorem is asserted.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2 October 2026: arXiv https://arxiv.org/abs/2404.14622 lists latest v2 (9 January 2026); relevant §11, §15.6 and Appendix A.1 passages compared with the published text. https://arxiv.org/abs/2404.14615 lists latest v2 (8 November 2024); its metadata, not its full PDF, was checked for the prerequisite correction search.",
+        "2 October 2026: Crossref works records for 10.1017/fmp.2026.10030 and 10.1017/fms.2024.137 have empty relation objects and no update-to/updated-by fields; this is a bounded metadata check, not proof that no correction exists.",
+        "2 October 2026: Julian Quast public publications page https://www.julianquast.de/ and the institutional listing https://esaga.uni-duisburg-essen.de/julian.quast/ were checked; no correction was listed for these titles. Title-specific erratum/corrigendum searches found no relevant author or publisher correction. The Cambridge article HTML notice pages failed in the browser tool; the published PDFs themselves were accessible and read. No claim about an inaccessible corrections tab is made."
+      ]
+    }
+  ],
+  "libraryPins": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2D7C5400C4BA7789C0E1CFF008D12E60/S2050508626100304a.pdf/div-class-title-on-local-galois-deformation-rings-generalised-reductive-groups-div.pdf",
+      "read": "2026-10-02",
+      "sha256": "244ab225d34deca0ca0aeddf886539c99162d415495b1601b4c9a523aead35a6",
+      "scope": "96 pages, journal page = PDF page; targeted fix passages on pp. 35,51–56,63,68,74,76–78,80,82,85,87–88,90,94 read. Page images checked at pp. 35,51,52,54,55,63,68,76,85,90; fresh Cambridge footer makes hashes download-specific."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2404.14622v2",
+      "read": "2026-10-02",
+      "sha256": "eaa8fba90704e412df15917bfb6496f6b8d36c605af2570413ff55876842ed7c",
+      "scope": "105 pages; targeted §11 pp. 61–62, §15.6 p. 94 and Appendix A.1 p. 100 compared for E5–E8/E10. No whole-paper reread asserted."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/3DCE01773FD67DAD0D207A797BD1D1A4/S2050509424001373a.pdf/on-local-galois-deformation-rings-generalised-tori.pdf",
+      "citation": "Prerequisite, Forum Math. Sigma 13 (2025) e45, doi:10.1017/fms.2024.137",
+      "read": "2026-10-02",
+      "sha256": "df34d6e279333ccddeed610dfa7760d81e5fd269467d50bae3dcf493f6a8dace",
+      "scope": "Published 36-page prerequisite; intro and pp. 26–34 read, p. 30 image checked for E11. Cambridge watermark hash is download-specific."
+    },
+    {
+      "kind": "published",
+      "url": "https://jtnb.centre-mersenne.org/item/10.5802/jtnb.1114.pdf",
+      "read": "2026-10-02",
+      "sha256": "0f0494b8ce539f36c42ad1464972c5f729caebe8753ea65c36c406517b52b272",
+      "scope": "Birkbeck 2020 printed pp. 133–134,136: Theorem 1.0.1 and §1.1 relative Weil-group parameters. Not a full prerequisite proof audit."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.stanford.edu/~conrad/papers/luminysga3.pdf",
+      "read": "2026-10-02",
+      "sha256": "1a63a17e4ccb7e23263d65f05d93a6651262861e978e9eb0c1c53a01fd59140a",
+      "scope": "Conrad Reductive group schemes, Example 1.1.16 p. 12, Theorem 1.2.7 p. 20, Theorem 4.1.7 pp. 112–114, Corollary 5.3.3 p. 164 and Example 5.3.9 pp. 170–171 read."
     }
   ]
 }
