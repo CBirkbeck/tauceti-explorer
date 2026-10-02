@@ -19,23 +19,38 @@
       "References"
     ]
   },
-  "summary": "Im, Kim, Le, Ngo Dac and Pham determine the dimensions of the spaces of alternating multiple zeta values in positive characteristic and prove the analogues of Zagier's and Hoffman's conjectures. Over A = F_q[θ] with K = F_q(θ), Thakur's multiple zeta values ζ_A(s) and Harada's alternating values ζ_A(ε; s) span K-vector spaces Z_w and AZ_w in each weight. Their Theorem A computes dim_K AZ_w = s(w) for an explicit Fibonacci-like sequence and exhibits a Hoffman-like basis; their Theorem B proves Thakur's basis conjecture, that the values ζ_A(s) with s_i ≤ q for i < r and s_r < q form a basis of Z_w, and with it Todd's dimension conjecture. The method does not work inside the theory of alternating multiple zeta values, where the available algorithm only produces a generating set that is too large; instead the paper develops the algebraic theory of alternating Carlitz multiple polylogarithms, whose stuffle relations are simpler, proves a strong Brown theorem there with a generating set AS_w of exactly the right size, and establishes a bridge AZ_w = AL_w between the two theories. The linear independence of the proposed basis comes from the Anderson–Brownawell–Papanikolas criterion applied to dual t-motives, through an improved criterion (their Theorem 2.4) that controls the coefficients of a hypothetical relation, a character-splitting lemma and a Kuan–Lin degree bound. The atlas plans the Carlitz module, its period, Anderson t-motives, Carlitz zeta values and Papanikolas's difference-Galois theory in the roadmap Drinfeld modules, t-motives and characteristic-p special values, and stops at depth one; the classical analogues are planned at PeriodsAndSpecialValues PS.9. Nothing plans multiple zeta values in characteristic p, their alternating versions, Carlitz polylogarithms or the ABP criterion. This extraction proposes the same Part II as the extraction of Chang–Chen–Mishiba, which proves Theorem B independently and simultaneously, and asks for the two to be designed together. Reviewed by REV-PAPER-IM-KIM-LE-ETAL-24 (Claude Code, cc-2aeb03) and corrected in place: 99 items (1 library, 11 planned, 87 missing). 36 mistakes are confirmed (29 misprints, 6 gaps, 1 error; 1 reaches a stated result, 5 a proof). Theorems A and B stand. The gaps are in proofs and are repaired with the paper's own tools: the congruence behind the strong Brown theorem (E12), the passage between Li- and 𝔏𝔦-relations in Theorem 3.4 (E30, E23), the inclusion S_w ⊂ Z_w in Proposition 4.10 (E31) and the empty case of Proposition 4.11 (E33); Condition (2.1) as stated does not make the sub-tuple series converge, which affects none of the applications (E14). Not formalised.",
+  "summary": "Im, Kim, Le, Ngo Dac and Pham determine the dimensions of the spaces of alternating multiple zeta values in positive characteristic and prove the analogues of Zagier's and Hoffman's conjectures. Over A = F_q[θ] with K = F_q(θ), Thakur's multiple zeta values ζ_A(s) and Harada's alternating values ζ_A(ε; s) span K-vector spaces Z_w and AZ_w in each weight. Their Theorem A computes dim_K AZ_w = s(w) for an explicit Fibonacci-like sequence and exhibits a Hoffman-like basis; their Theorem B proves Thakur's basis conjecture, that the values ζ_A(s) with s_i ≤ q for i < r and s_r < q form a basis of Z_w, and with it Todd's dimension conjecture. The method does not work inside the theory of alternating multiple zeta values, where the available algorithm only produces a generating set that is too large; instead the paper develops the algebraic theory of alternating Carlitz multiple polylogarithms, whose stuffle relations are simpler, proves a strong Brown theorem there with a generating set AS_w of exactly the right size, and establishes a bridge AZ_w = AL_w between the two theories. The linear independence of the proposed basis comes from the Anderson–Brownawell–Papanikolas criterion applied to dual t-motives, through an improved criterion (their Theorem 2.4) that controls the coefficients of a hypothetical relation, a character-splitting lemma and a Kuan–Lin degree bound. The atlas plans the Carlitz module, its period, Anderson t-motives, Carlitz zeta values and Papanikolas's difference-Galois theory in the roadmap Drinfeld modules, t-motives and characteristic-p special values, and stops at depth one; the classical analogues are planned at PeriodsAndSpecialValues PS.9. Nothing plans multiple zeta values in characteristic p, their alternating versions, Carlitz polylogarithms or the ABP criterion. This extraction proposes the same Part II as the extraction of Chang–Chen–Mishiba, which proves Theorem B independently and simultaneously, and asks for the two to be designed together. Reviewed by REV-PAPER-IM-KIM-LE-ETAL-24 (Claude Code, cc-2aeb03) and corrected in place: 99 items (1 library, 11 planned, 87 missing). 36 mistakes are confirmed (29 misprints, 6 gaps, 1 error; 1 reaches a stated result, 5 a proof). Theorems A and B stand. The gaps are in proofs and are repaired with the paper's own tools: the congruence behind the strong Brown theorem (E12), the passage between Li- and 𝔏𝔦-relations in Theorem 3.4 (E30, E23), the inclusion S_w ⊂ Z_w in Proposition 4.10 (E31) and the empty case of Proposition 4.11 (E33); Condition (2.1) as stated does not make the sub-tuple series converge, which affects none of the applications (E14). Not formalised. FIX-RT-PAPER-IM-KIM-LE-ETAL-24, Codex codex-J6LwjP, 2026-10-02 (#5519): five confirmed findings applied. Current 102 items (2 library,13 planned,87 missing), two unchanged route memberships and 23 prerequisites. C_∞ is planned at DM.2; general Tate theory imports AdicSpaces Layer 0 using library restricted-series/Gauss ingredients, while ℰ stays specialized Part II work. Termwise convergence is explicit in every prefix/tail construction; /34 retains its normalized restricted relation scope. All 36 source issues and review verdicts remain unchanged.",
   "items": [
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/1",
       "kind": "definition",
-      "name": "The base ring and fields",
-      "statement": "Let F_q be a finite field with q elements, of characteristic p > 0. A = F_q[θ] is the polynomial ring in θ over F_q and A_+ the set of monic polynomials in A; K = F_q(θ) is the fraction field of A, equipped with the rational point ∞; K_∞ is the completion of K at ∞ and C_∞ the completion at ∞ of a fixed algebraic closure K̄ of K. v_∞ is the discrete valuation of K at ∞ normalised by v_∞(θ) = −1, |·|_∞ = q^{−v_∞} the associated absolute value, and the unique valuation of C_∞ extending v_∞ is still written v_∞. F̄_q is the algebraic closure of F_q in K̄. Finally N = {1, 2, …} and Z^{≥0} = {0, 1, 2, …}.",
+      "name": "Algebraic base and valued rational-function completion",
+      "statement": "Let F_q be a finite field of characteristic p>0, q elements. A=F_q[θ], A_+ its monic polynomials and K=F_q(θ). The multiplicative infinity valuation on K has value exp(intDegree(f)) for f≠0 and 0 at zero, so its additive convention is v_∞(θ)=−1. K_∞ is the uniform completion of K for this valuation, with its extended valuation. LaurentSeries supplies a formal Laurent-series carrier, not an asserted normed identification with this completion. N and Z≥0 have their usual meanings. The real absolute value |·|_∞=q^(−v_∞) and the normed/complete algebraic-closure interfaces are isolated in analytic-C-infinity.",
       "locator": "arXiv:2205.07165v2 (10 June 2024), Section 0.2.1, p. 3 (published: Section 1.2.1)",
       "status": "library",
       "library": [
         "mathlib:Polynomial",
         "mathlib:RatFunc",
         "mathlib:LaurentSeries",
-        "mathlib:Polynomial.Monic"
+        "mathlib:Polynomial.Monic",
+        "mathlib:RatFunc.inftyValuation",
+        "mathlib:RatFunc.CompletionAtInfty"
       ],
       "planned": [],
-      "note": "Mathlib has polynomial rings over a finite field, rational functions and Laurent series with monic polynomials; the valuation-theoretic package and C_∞ are assumed by the DrinfeldModulesAndTModules roadmap (analytic uniformisation in DM.2) without being constructed."
+      "note": "FIX-RT #5519 splits the former bundled base. Actual pinned RatFunc declarations construct the valued uniform completion and extended valuation, but do not give the required nontrivially normed-field/rank-one instances or C_∞. Those remain planned at DM.2. No C_∞ availability is inferred from LaurentSeries.",
+      "api": [
+        {
+          "name": "infinityConvention",
+          "statement": "Translate the supplied multiplicative exp(intDegree) convention to the paper additive convention; preserve θ as the reciprocal of an infinity uniformizer."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "thetaAndInverse",
+          "statement": "The library valuation sends θ to exp(1) and θ⁻¹ to exp(−1), corresponding to additive −1 and 1.",
+          "status": "proposed"
+        }
+      ]
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/2",
@@ -50,7 +65,10 @@
         "DrinfeldModulesAndTModules:DM.2",
         "DrinfeldModulesAndTModules:DM.6"
       ],
-      "note": "DM.0 constructs the Carlitz module, DM.2 its uniformisation and period, and DM.6 requires the explicit Carlitz zeta value and period normalisation."
+      "note": "DM.0 constructs the Carlitz module, DM.2 its uniformisation and period, and DM.6 requires the explicit Carlitz zeta value and period normalisation.",
+      "prerequisites": [
+        "PAPER-IM-KIM-LE-ETAL-24/analytic-C-infinity"
+      ]
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/3",
@@ -83,7 +101,10 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The objects the whole proof is carried out with; DM.8 plans Carlitz logarithms, not polylogarithms, and nothing plans the alternating versions."
+      "note": "The objects the whole proof is carried out with; DM.8 plans Carlitz logarithms, not polylogarithms, and nothing plans the alternating versions.",
+      "prerequisites": [
+        "PAPER-IM-KIM-LE-ETAL-24/analytic-C-infinity"
+      ]
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/6",
@@ -336,12 +357,31 @@
       "id": "PAPER-IM-KIM-LE-ETAL-24/28",
       "kind": "construction",
       "name": "The dual t-motives M_{s,Q}, their rigid analytic trivializations Ψ_{s,Q} and Chang's series 𝔏(s;Q) (general case)",
-      "statement": "Let s = (s_1,…,s_r) ∈ ℕ^r be a tuple of positive integers and Q = (Q_1,…,Q_r) ∈ K̄[t]^r satisfy Condition (2.1): (‖Q_1‖_∞/|θ|_∞^{qs_1/(q−1)})^{q^{i_1}} ⋯ (‖Q_r‖_∞/|θ|_∞^{qs_r/(q−1)})^{q^{i_r}} → 0 as 0 ≤ i_r < ⋯ < i_1 and i_1 → ∞ (‖·‖_∞ the Gauss norm). The dual t-motive M_{s,Q} is given by the lower bidiagonal matrix Φ_{s,Q} ∈ Mat_{r+1}(K̄[t]). Its diagonal entries are (Φ_{s,Q})_{k+1,k+1} = (t−θ)^{s_{k+1}+⋯+s_r} for 0 ≤ k ≤ r, so the last one is 1. Its subdiagonal entries are (Φ_{s,Q})_{k+1,k} = Q_k^{(−1)}(t−θ)^{s_k+⋯+s_r} for 1 ≤ k ≤ r, and all other entries are 0. M'_{s,Q} is given by the upper-left r×r submatrix Φ'_{s,Q}. With Ω as in §2.2.1, Chang's series is (2.2) 𝔏(s;Q) = 𝔏(s_1,…,s_r;Q_1,…,Q_r) := Σ_{i_1>⋯>i_r≥0} (Ω^{s_r}Q_r)^{(i_r)} ⋯ (Ω^{s_1}Q_1)^{(i_1)}. The matrix Ψ_{s,Q} ∈ GL_{r+1}(𝕋) is lower triangular, with (Ψ_{s,Q})_{k+1,j} = 𝔏(s_j,…,s_k;Q_j,…,Q_k)·Ω^{s_{k+1}+⋯+s_r} for 1 ≤ j ≤ k+1 ≤ r+1 (with 𝔏(∅) = 1). Its last row is (𝔏(s_1,…,s_r;Q_1,…,Q_r), 𝔏(s_2,…,s_r;Q_2,…,Q_r), …, 𝔏(s_r;Q_r), 1). It satisfies Ψ_{s,Q}^{(−1)} = Φ_{s,Q}Ψ_{s,Q}, so it is a rigid analytic trivialization of M_{s,Q}, and its upper-left r×r submatrix Ψ'_{s,Q} is one of M'_{s,Q}.",
+      "statement": "Let s=(s_1,…,s_r)∈ℕ^r be positive and Q=(Q_1,…,Q_r)∈K̄[t]^r satisfy the corrected termwise convergence hypothesis ‖Q_j‖_∞ < |θ|_∞^(q s_j/(q−1)) for every j. This implies Condition (2.1) for every consecutive subtuple, including prefixes and tails, and makes all entries below defined (accepted E14). The dual t-motive M_{s,Q} is given by the lower bidiagonal matrix Φ_{s,Q} ∈ Mat_{r+1}(K̄[t]). Its diagonal entries are (Φ_{s,Q})_{k+1,k+1} = (t−θ)^{s_{k+1}+⋯+s_r} for 0 ≤ k ≤ r, so the last one is 1. Its subdiagonal entries are (Φ_{s,Q})_{k+1,k} = Q_k^{(−1)}(t−θ)^{s_k+⋯+s_r} for 1 ≤ k ≤ r, and all other entries are 0. M'_{s,Q} is given by the upper-left r×r submatrix Φ'_{s,Q}. With Ω as in §2.2.1, Chang's series is (2.2) 𝔏(s;Q) = 𝔏(s_1,…,s_r;Q_1,…,Q_r) := Σ_{i_1>⋯>i_r≥0} (Ω^{s_r}Q_r)^{(i_r)} ⋯ (Ω^{s_1}Q_1)^{(i_1)}. The matrix Ψ_{s,Q} ∈ GL_{r+1}(𝕋) is lower triangular, with (Ψ_{s,Q})_{k+1,j} = 𝔏(s_j,…,s_k;Q_j,…,Q_k)·Ω^{s_{k+1}+⋯+s_r} for 1 ≤ j ≤ k+1 ≤ r+1 (with 𝔏(∅) = 1). Its last row is (𝔏(s_1,…,s_r;Q_1,…,Q_r), 𝔏(s_2,…,s_r;Q_2,…,Q_r), …, 𝔏(s_r;Q_r), 1). It satisfies Ψ_{s,Q}^{(−1)} = Φ_{s,Q}Ψ_{s,Q}, so it is a rigid analytic trivialization of M_{s,Q}, and its upper-left r×r submatrix Ψ'_{s,Q} is one of M'_{s,Q}.",
       "locator": "arXiv:2205.07165v2 (10 June 2024), Section 2.2.1, Eqs. (2.1)–(2.2), pp. 27–28 (published: Section 3.2.1, Eqs. (3.1)–(3.2)), after [CPY19, §2.3] and [Cha14, §5.3]",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The period interpretation, due to Anderson–Thakur and Chang in the non-alternating case and extended by Harada; it is the bridge between the analytic values and the difference equations. Correction: Condition (2.1) on the whole tuple does not make the sub-tuple series converge; the construction needs the termwise bound (E14)."
+      "note": "The period interpretation, due to Anderson–Thakur and Chang in the non-alternating case and extended by Harada; it is the bridge between the analytic values and the difference equations. Correction: Condition (2.1) on the whole tuple does not make the sub-tuple series converge; the construction needs the termwise bound (E14). The historical full-tuple condition is retained separately, not used alone to construct Ψ. The intended Q_j=γ_j and Q_j=γ_jH_{s_j} satisfy the strengthened bound: |γ_j|=1 and the Anderson–Thakur degree bound gives strict inequality. Direct prerequisite: Chieh-Yu Chang, Matthew A. Papanikolas, Jing Yu, An effective criterion for Eulerian multizeta values in positive characteristic, J. Eur. Math. Soc. 21 (2019), 405–440 (https://arxiv.org/abs/1411.0124); see prerequisites. Supplier remains a cited black box at extraction scope.",
+      "printedConvergenceHypothesis": "Let s = (s_1,…,s_r) ∈ ℕ^r be a tuple of positive integers and Q = (Q_1,…,Q_r) ∈ K̄[t]^r satisfy Condition (2.1): (‖Q_1‖_∞/|θ|_∞^{qs_1/(q−1)})^{q^{i_1}} ⋯ (‖Q_r‖_∞/|θ|_∞^{qs_r/(q−1)})^{q^{i_r}} → 0 as 0 ≤ i_r < ⋯ < i_1 and i_1 → ∞ (‖·‖_∞ the Gauss norm). Historical source hypothesis only: see accepted E14.",
+      "prerequisites": [
+        "PAPER-IM-KIM-LE-ETAL-24/analytic-C-infinity",
+        "PAPER-IM-KIM-LE-ETAL-24/ordinary-tate-algebra-and-gauss-norm",
+        "PAPER-IM-KIM-LE-ETAL-24/tate-algebra-E-and-a-of-t",
+        "PAPER-IM-KIM-LE-ETAL-24/omega-and-carlitz-period"
+      ],
+      "unitTests": [
+        {
+          "name": "suffixDivergenceE14",
+          "statement": "s=(q−1,q−1),Q=(1,θ^(q+1)) passes full-tuple (2.1) but fails the second termwise bound; reject Ψ, whose suffix terms have norm |θ|^(q^i).",
+          "status": "proposed"
+        },
+        {
+          "name": "intendedApplications",
+          "statement": "Constants γ have norm 1 and γH_s has norm below |θ|^(qs/(q−1)); every consecutive subtuple converges.",
+          "status": "proposed"
+        }
+      ]
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/29",
@@ -358,12 +398,23 @@
       "id": "PAPER-IM-KIM-LE-ETAL-24/30",
       "kind": "theorem",
       "name": "The linear-independence criterion",
-      "statement": "Setup (§2.3.1). Let w ∈ ℕ and let {(s_i;Q_i)}_{1≤i≤n} be pairs satisfying Condition (2.1), each s_i of weight w. Write s_i = (s_{i1},…,s_{iℓ_i}) ∈ ℕ^{ℓ_i} and Q_i = (Q_{i1},…,Q_{iℓ_i}) (printed '∈ (F_q^×)^{ℓ_i}'; see the source issue), so that s_{i1}+⋯+s_{iℓ_i} = w. Put I(s_i;Q_i) := {∅, (s_{i1};Q_{i1}), …, (s_{i1},…,s_{i(ℓ_i−1)};Q_{i1},…,Q_{i(ℓ_i−1)})} and I := ∪_i I(s_i;Q_i). Theorem 2.4. Suppose further: (LW) for every weight w' < w, the values 𝔏(t;Q)(θ) with (t;Q) ∈ I and w(t) = w' are K-linearly independent (in particular each 𝔏(t;Q)(θ) is nonzero); (LD) there exist a ∈ A and a_i ∈ A (1 ≤ i ≤ n), not all zero, with a + Σ_{i=1}^n a_i𝔏(s_i;Q_i)(θ) = 0. For (t;Q) ∈ I set (2.8) f_{t;Q} := Σ_i a_i(t)𝔏(s_{i(k+1)},…,s_{iℓ_i};Q_{i(k+1)},…,Q_{iℓ_i}), where a_i(t) := a_i|_{θ=t} ∈ F_q[t] and the sum runs over the indices i with (t;Q) = (s_{i1},…,s_{ik};Q_{i1},…,Q_{ik}) for some 0 ≤ k ≤ ℓ_i − 1. Then f_{t;Q}(θ) ∈ K for all (t;Q) ∈ I.",
+      "statement": "Setup (§2.3.1). Let w ∈ ℕ and let {(s_i;Q_i)}_{1≤i≤n} be pairs satisfying the corrected termwise bounds ‖Q_{ij}‖_∞ < |θ|_∞^(q s_{ij}/(q−1)) for every i,j (E14), each s_i of weight w. Write s_i = (s_{i1},…,s_{iℓ_i}) ∈ ℕ^{ℓ_i} and Q_i = (Q_{i1},…,Q_{iℓ_i}) ∈ K̄[t]^{ℓ_i} (corrected E16; the printed constants-only type is historical), so that s_{i1}+⋯+s_{iℓ_i} = w. Put I(s_i;Q_i) := {∅, (s_{i1};Q_{i1}), …, (s_{i1},…,s_{i(ℓ_i−1)};Q_{i1},…,Q_{i(ℓ_i−1)})} and I := ∪_i I(s_i;Q_i). Theorem 2.4. Suppose further: (LW) for every weight w' < w, the values 𝔏(t;Q)(θ) with (t;Q) ∈ I and w(t) = w' are K-linearly independent (in particular each 𝔏(t;Q)(θ) is nonzero); (LD) there exist a ∈ A and a_i ∈ A (1 ≤ i ≤ n), not all zero, with a + Σ_{i=1}^n a_i𝔏(s_i;Q_i)(θ) = 0. For (t;Q) ∈ I set (2.8) f_{t;Q} := Σ_i a_i(t)𝔏(s_{i(k+1)},…,s_{iℓ_i};Q_{i(k+1)},…,Q_{iℓ_i}), where a_i(t) := a_i|_{θ=t} ∈ F_q[t] and the sum runs over the indices i with (t;Q) = (s_{i1},…,s_{ik};Q_{i1},…,Q_{ik}) for some 0 ≤ k ≤ ℓ_i − 1. Then f_{t;Q}(θ) ∈ K for all (t;Q) ∈ I.",
       "locator": "arXiv:2205.07165v2 (10 June 2024), Theorem 2.4, pp. 29–30, with the setup of §2.3.1 (p. 29) and Eq. (2.8) (published: Theorem 3.4, §3.3.1, Eq. (3.8)); proof pp. 30–33",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The third new ingredient: an improvement of Theorem B of Ngo Dac in two directions, which is what makes the induction on weights work for all weights. Correction: Q_i ranges over K̄[t], as the applications require (E16)."
+      "note": "The third new ingredient: an improvement of Theorem B of Ngo Dac in two directions, which is what makes the induction on weights work for all weights. Correction: Q_i ranges over K̄[t], as the applications require (E16). The termwise bounds make every prefix, intervening subtuple and tail in f_{t;Q} and Ψ converge; Q=γ and γH_s applications satisfy them.",
+      "printedConvergenceHypothesis": "Historical §2.3.1 setup requires pairs satisfying full-tuple Condition (2.1); this is insufficient for tails, as accepted E14 records.",
+      "prerequisites": [
+        "PAPER-IM-KIM-LE-ETAL-24/28"
+      ],
+      "unitTests": [
+        {
+          "name": "undefinedTailRejected",
+          "statement": "The E14 example cannot instantiate this criterion, even if its full-tuple series converges.",
+          "status": "proposed"
+        }
+      ]
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/31",
@@ -710,11 +761,46 @@
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/tate-algebra-E-and-a-of-t",
       "kind": "definition",
-      "name": "The Tate algebra 𝕋, its fraction field 𝕃, the ring ℰ of entire series and a(t)",
-      "statement": "Let t be a variable independent of θ. 𝕋 is the Tate algebra in t with coefficients in ℂ_∞ (power series converging on |t|_∞ ≤ 1), equipped with the Gauss norm ‖·‖_∞, and 𝕃 is the fraction field of 𝕋. ℰ is the ring of series Σ_{n≥0} a_nt^n ∈ K̄[[t]] with lim_{n→+∞} |a_n|_∞^{1/n} = 0 and [K_∞(a_0,a_1,…) : K_∞] < ∞; every f ∈ ℰ is an entire function. For a ∈ A = F_q[θ], a(t) := a|_{θ=t} ∈ F_q[t].",
+      "name": "The specialized entire-series ring ℰ and a(t)",
+      "statement": "Import C_∞ from DM.2 and the ordinary Tate algebra 𝕋, Gauss norm and fraction field 𝕃 from the AdicSpaces Layer 0 interface in ordinary-tate-algebra-and-gauss-norm. Let t be independent of θ. ℰ consists of series Σ a_nt^n in K̄[[t]] for which |a_n|_∞^(1/n)→0 and [K_∞(a_0,a_1,…):K_∞]<∞, with coefficients interpreted in C_∞ via the fixed embeddings. Establish its ring structure, inclusion into 𝕋, entire evaluations (including θ), and the function-field-specific Frobenius-twist/evaluation compatibilities needed by ABP and the period constructions. For a∈A put a(t)=a|_{θ=t}∈F_q[t].",
       "locator": "arXiv:2205.07165v2 (10 June 2024), Section 2, opening paragraphs, p. 26 (published: Section 3)",
       "status": "missing",
-      "note": "ℰ is the ring in the ABP criterion (Theorem 2.2); 𝕋 and 𝕃 are where rigid analytic trivializations live; a(t) enters (2.8) and Φ, Ψ in the proof of Theorem 2.4. Missing: routed to route 1."
+      "note": "Finding 2: the stable historical ID is retained for the specialized ℰ component; general Tate theory was split off and imported. The finite coefficient-field condition is essential in the ABP interface, not implied merely by entire convergence. This component remains missing and routed once to the existing shared Drinfeld Part II.",
+      "prerequisites": [
+        "PAPER-IM-KIM-LE-ETAL-24/analytic-C-infinity",
+        "PAPER-IM-KIM-LE-ETAL-24/ordinary-tate-algebra-and-gauss-norm"
+      ],
+      "api": [
+        {
+          "name": "entireEvaluation",
+          "statement": "Define f(x) at every x∈C_∞ using root decay and prove the ring-homomorphism laws."
+        },
+        {
+          "name": "finiteCoefficientField",
+          "statement": "Preserve the finite-degree coefficient-field witness under addition, multiplication and Frobenius twists."
+        },
+        {
+          "name": "thetaRenaming",
+          "statement": "Transport a∈F_q[θ] to a(t)∈F_q[t] and recover a at t=θ."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "restrictedNotEntire",
+          "statement": "Σ θ^(−n)t^n has root norm q⁻¹, so belongs to 𝕋 but not ℰ and diverges at θ.",
+          "status": "proposed"
+        },
+        {
+          "name": "finiteFieldCondition",
+          "statement": "An entire series whose coefficients generate an infinite extension of K_∞ is rejected despite root decay.",
+          "status": "proposed"
+        },
+        {
+          "name": "polynomialRenaming",
+          "statement": "For a=θ²+θ+1 verify a(t)=t²+t+1 and a(t)|_{t=θ}=a.",
+          "status": "proposed"
+        }
+      ]
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/frobenius-twisting-and-sigma-ring",
@@ -738,7 +824,10 @@
       "planned": [
         "DrinfeldModulesAndTModules:DM.8"
       ],
-      "note": "Used in §2.2 (Ψ_{s,Q}) and throughout the proof of Theorem 2.4. Effective dual t-motives are the 'Frobenius modules' of [CPY19, CH21, Har21, KL16]. Planned: DM.8 constructs the neutral Tannakian category of rigid analytically trivial motives of Papanikolas's theorem with its analytic trivialisation matrix, built from σ-modules over K̄[t] with their Frobenius twisting."
+      "note": "Used in §2.2 (Ψ_{s,Q}) and throughout the proof of Theorem 2.4. Effective dual t-motives are the 'Frobenius modules' of [CPY19, CH21, Har21, KL16]. Planned: DM.8 constructs the neutral Tannakian category of rigid analytically trivial motives of Papanikolas's theorem with its analytic trivialisation matrix, built from σ-modules over K̄[t] with their Frobenius twisting.",
+      "prerequisites": [
+        "PAPER-IM-KIM-LE-ETAL-24/analytic-C-infinity"
+      ]
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/omega-and-carlitz-period",
@@ -747,7 +836,10 @@
       "statement": "π̃ is a fixed fundamental period of the Carlitz module. Fix a (q−1)-st root of −θ and set Ω(t) := (−θ)^{−q/(q−1)} Π_{i≥1}(1 − t/θ^{q^i}) ∈ 𝕋^×, so that Ω^{(−1)} = (t−θ)Ω and 1/Ω(θ) = π̃. Ω is entire, and its zeros are simple and are exactly the points t = θ^{q^k}, k ∈ ℕ.",
       "locator": "arXiv:2205.07165v2 (10 June 2024), Section 2.2.1, p. 27 (published: Section 3.2.1); the simple zeros at θ^{q^k} are used on pp. 32–33",
       "status": "missing",
-      "note": "Checked: Ω^{(−1)} = (−θ)^{−1/(q−1)}(1 − t/θ)Π_{i≥1}(1 − t/θ^{q^i}) = (t−θ)Ω. The normalisation 1/Ω(θ) = π̃ holds for a suitable choice of the root (π̃ is determined only up to F_q^×), as [CPY19, §2.3] says explicitly. The coefficients of Ω are algebraic over K (recursion from Ω^{(−1)} = (t−θ)Ω), so Ω ∈ ℰ, which the ABP criterion needs in the proof of Theorem 2.4. Missing: routed to route 1."
+      "note": "Checked: Ω^{(−1)} = (−θ)^{−1/(q−1)}(1 − t/θ)Π_{i≥1}(1 − t/θ^{q^i}) = (t−θ)Ω. The normalisation 1/Ω(θ) = π̃ holds for a suitable choice of the root (π̃ is determined only up to F_q^×), as [CPY19, §2.3] says explicitly. The coefficients of Ω are algebraic over K (recursion from Ω^{(−1)} = (t−θ)Ω), so Ω ∈ ℰ, which the ABP criterion needs in the proof of Theorem 2.4. Missing: routed to route 1.",
+      "prerequisites": [
+        "PAPER-IM-KIM-LE-ETAL-24/analytic-C-infinity"
+      ]
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/chang-series-entire",
@@ -765,7 +857,7 @@
       "statement": "For s ∈ ℕ^r and Q ∈ K̄[t]^r satisfying Condition (2.1) and every j ∈ ℤ^{≥0}, 𝔏(s;Q)(θ^{q^j}) = (𝔏(s;Q)(θ))^{q^j}.",
       "locator": "arXiv:2205.07165v2 (10 June 2024), Eq. (2.3), p. 27 (published: Eq. (3.3)), quoting [Cha14, Lemma 5.3.5] and [CPY19, Proposition 2.3.3]",
       "status": "missing",
-      "note": "Called 'crucial' by the authors; the proof of Theorem 2.4 uses it for prefixes and tails of the s_i (pp. 32–33). Chang's Lemma 5.3.5 is for constant Q (algebraic points); CPY19, Prop. 2.3.3 is the stated general form. Proof idea: the terms with i_r < j vanish at θ^{q^j} because Ω^{(i)} vanishes at θ^{q^m} for m > i, and the rest is 𝔏^{(j)}. Missing: routed to route 1."
+      "note": "Called 'crucial' by the authors; the proof of Theorem 2.4 uses it for prefixes and tails of the s_i (pp. 32–33). Chang's Lemma 5.3.5 is for constant Q (algebraic points); CPY19, Prop. 2.3.3 is the stated general form. Proof idea: the terms with i_r < j vanish at θ^{q^j} because Ω^{(i)} vanishes at θ^{q^m} for m > i, and the rest is 𝔏^{(j)}. Missing: routed to route 1. Direct prerequisite: Chieh-Yu Chang, Matthew A. Papanikolas, Jing Yu, An effective criterion for Eulerian multizeta values in positive characteristic, J. Eur. Math. Soc. 21 (2019), 405–440 (https://arxiv.org/abs/1411.0124); see prerequisites. Supplier remains a cited black box at extraction scope."
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/anderson-thakur-polynomials",
@@ -789,10 +881,13 @@
       "id": "PAPER-IM-KIM-LE-ETAL-24/amzv-dual-t-motives",
       "kind": "construction",
       "name": "Dual t-motives attached to AMZVs and the series 𝔏(s;ε)",
-      "statement": "Let s = (s_1,…,s_r) ∈ ℕ^r and ε = (ε_1,…,ε_r) ∈ (F_q^×)^r. For each 1 ≤ i ≤ r fix a (q−1)-th root γ_i ∈ F̄_q of ε_i and set Q_{s_i,ε_i} := γ_iH_{s_i}, Q_{s,ε} := (Q_{s_1,ε_1},…,Q_{s_r,ε_r}) and 𝔏(s;ε) := 𝔏(s;Q_{s,ε}). By (2.4), Q_{s,ε} satisfies Condition (2.1). This gives the dual t-motives M_{s,ε} := M_{s,Q_{s,ε}} and M'_{s,ε} := M'_{s,Q_{s,ε}}, with matrices and rigid analytic trivializations (Φ_{s,ε},Ψ_{s,ε}) and (Φ'_{s,ε},Ψ'_{s,ε}).",
+      "statement": "Let s = (s_1,…,s_r) ∈ ℕ^r and ε = (ε_1,…,ε_r) ∈ (F_q^×)^r. For each 1 ≤ i ≤ r fix a (q−1)-th root γ_i ∈ F̄_q of ε_i and set Q_{s_i,ε_i} := γ_iH_{s_i}, Q_{s,ε} := (Q_{s_1,ε_1},…,Q_{s_r,ε_r}) and 𝔏(s;ε) := 𝔏(s;Q_{s,ε}). By (2.4), Q_{s,ε} satisfies Condition (2.1). This gives the dual t-motives M_{s,ε} := M_{s,Q_{s,ε}} and M'_{s,ε} := M'_{s,Q_{s,ε}}, with matrices and rigid analytic trivializations (Φ_{s,ε},Ψ_{s,ε}) and (Φ'_{s,ε},Ψ'_{s,ε}). The termwise bounds ‖Q_j‖_∞ < |θ|_∞^(q s_j/(q−1)) hold for every j (|γ_j|=1, and the strict H_s degree bound in the AMZV case), so /28 applies to all required consecutive subtuples.",
       "locator": "arXiv:2205.07165v2 (10 June 2024), Section 2.2.2, pp. 28–29 (published: Section 3.2.2), after [AT09]",
       "status": "missing",
-      "note": "The main line (Theorems A and B) goes through ACMPLs and does not use it. It is used where Theorem 2.4 is applied directly to AMZVs in the sketch of the proof of Proposition 4.13, p. 58 (published 5.13). Split out of the bundled item 28 ('Section 2.2'). Missing: routed to route 1."
+      "note": "The main line (Theorems A and B) goes through ACMPLs and does not use it. It is used where Theorem 2.4 is applied directly to AMZVs in the sketch of the proof of Proposition 4.13, p. 58 (published 5.13). Split out of the bundled item 28 ('Section 2.2'). Missing: routed to route 1.",
+      "prerequisites": [
+        "PAPER-IM-KIM-LE-ETAL-24/28"
+      ]
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/amzv-period-interpretation",
@@ -801,16 +896,19 @@
       "statement": "For s ∈ ℕ^r and ε ∈ (F_q^×)^r as above, 𝔏(s;ε)(θ) = γ_1⋯γ_rΓ_{s_1}⋯Γ_{s_r}ζ_A(ε;s)/π̃^{w(s)}. Since ζ_A(ε;s) ≠ 0, also 𝔏(s;ε)(θ) ≠ 0.",
       "locator": "arXiv:2205.07165v2 (10 June 2024), Eq. (2.5), p. 29 (published: Eq. (3.5)), quoting [CH21, Proposition 2.12] and, for ζ_A(ε;s) ≠ 0, [Har21, Theorem 2.1] after Thakur",
       "status": "missing",
-      "note": "For ε = (1,…,1) this is Chang's formula in [Cha14, §5.5], Γ_{s_1}⋯Γ_{s_r}ζ_A(s) = π̃^w𝔏(s)(θ), after [AT09]. The factor γ_1⋯γ_r comes from γ^{q^d} = ε^dγ. Missing: routed to route 1."
+      "note": "For ε = (1,…,1) this is Chang's formula in [Cha14, §5.5], Γ_{s_1}⋯Γ_{s_r}ζ_A(s) = π̃^w𝔏(s)(θ), after [AT09]. The factor γ_1⋯γ_r comes from γ^{q^d} = ε^dγ. Missing: routed to route 1. Direct prerequisite: Yen-Tsung Chen, Ryotaro Harada, On lower bounds of the dimensions of multizeta values in positive characteristic, Documenta Mathematica 26 (2021), 537–559 (https://arxiv.org/abs/2012.00340); see prerequisites. Supplier remains a cited black box at extraction scope."
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/acmpl-dual-t-motives",
       "kind": "construction",
       "name": "Dual t-motives attached to ACMPLs and the series 𝔏i(s;ε)",
-      "statement": "Let s ∈ ℕ^r and ε ∈ (F_q^×)^r, with the fixed (q−1)-th roots γ_i of ε_i. Set Q'_{s_i,ε_i} := γ_i, Q'_{s,ε} := (γ_1,…,γ_r) and (2.6) 𝔏i(s;ε) := 𝔏(s;Q'_{s,ε}) = Σ_{i_1>⋯>i_r≥0} (γ_rΩ^{s_r})^{(i_r)} ⋯ (γ_1Ω^{s_1})^{(i_1)}. The printed formula has γ_{i_r}, …, γ_{i_1}; see the source issue. This defines the dual t-motives N_{s,ε} := M_{s,Q'_{s,ε}} and N'_{s,ε} := M'_{s,Q'_{s,ε}} attached to (s,ε).",
+      "statement": "Let s ∈ ℕ^r and ε ∈ (F_q^×)^r, with the fixed (q−1)-th roots γ_i of ε_i. Set Q'_{s_i,ε_i} := γ_i, Q'_{s,ε} := (γ_1,…,γ_r) and (2.6) 𝔏i(s;ε) := 𝔏(s;Q'_{s,ε}) = Σ_{i_1>⋯>i_r≥0} (γ_rΩ^{s_r})^{(i_r)} ⋯ (γ_1Ω^{s_1})^{(i_1)}. The printed formula has γ_{i_r}, …, γ_{i_1}; see the source issue. This defines the dual t-motives N_{s,ε} := M_{s,Q'_{s,ε}} and N'_{s,ε} := M'_{s,Q'_{s,ε}} attached to (s,ε). The termwise bounds ‖Q_j‖_∞ < |θ|_∞^(q s_j/(q−1)) hold for every j (|γ_j|=1, and the strict H_s degree bound in the AMZV case), so /28 applies to all required consecutive subtuples.",
       "locator": "arXiv:2205.07165v2 (10 June 2024), Section 2.2.3, Eq. (2.6), p. 29 (published: Section 3.2.3, Eq. (3.6))",
       "status": "missing",
-      "note": "The object of §3: Lemma 3.2 and Theorem 3.4 apply Theorem 2.4 to 𝔏i, with Q_{ij} = γ_{ij} ∈ F̄_q^×. The constants γ_i have norm 1, so (2.1) holds for every sub-tuple. Split out of the bundled item 28. Missing: routed to route 1."
+      "note": "The object of §3: Lemma 3.2 and Theorem 3.4 apply Theorem 2.4 to 𝔏i, with Q_{ij} = γ_{ij} ∈ F̄_q^×. The constants γ_i have norm 1, so (2.1) holds for every sub-tuple. Split out of the bundled item 28. Missing: routed to route 1.",
+      "prerequisites": [
+        "PAPER-IM-KIM-LE-ETAL-24/28"
+      ]
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/acmpl-period-interpretation",
@@ -819,7 +917,7 @@
       "statement": "For s ∈ ℕ^r and ε ∈ (F_q^×)^r, 𝔏i(s;ε)(θ) = γ_1⋯γ_r Li(ε;s)/π̃^{w(s)}.",
       "locator": "arXiv:2205.07165v2 (10 June 2024), Eq. (2.7), p. 29 (published: Eq. (3.7)), quoting [Cha14, Lemma 5.3.5] and [CPY19, Prop. 2.3.3]",
       "status": "missing",
-      "note": "Checked directly: Ω^{(i)}(θ) = 1/(π̃ℓ_i) with ℓ_i = Π_{k=1}^i(θ − θ^{q^k}), and γ^{q^i} = ε^iγ, so the series at θ is γ_1⋯γ_r Σ ε_1^{i_1}⋯ε_r^{i_r}/(π̃^wℓ_{i_1}^{s_1}⋯ℓ_{i_r}^{s_r}). This matches item 5's definition of Li(ε;s). Used in Lemma 3.2 and in the proof of Theorem 3.4. Missing: routed to route 1."
+      "note": "Checked directly: Ω^{(i)}(θ) = 1/(π̃ℓ_i) with ℓ_i = Π_{k=1}^i(θ − θ^{q^k}), and γ^{q^i} = ε^iγ, so the series at θ is γ_1⋯γ_r Σ ε_1^{i_1}⋯ε_r^{i_r}/(π̃^wℓ_{i_1}^{s_1}⋯ℓ_{i_r}^{s_r}). This matches item 5's definition of Li(ε;s). Used in Lemma 3.2 and in the proof of Theorem 3.4. Missing: routed to route 1. Direct prerequisite: Chieh-Yu Chang, Matthew A. Papanikolas, Jing Yu, An effective criterion for Eulerian multizeta values in positive characteristic, J. Eur. Math. Soc. 21 (2019), 405–440 (https://arxiv.org/abs/1411.0124); see prerequisites. Supplier remains a cited black box at extraction scope."
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/remark-2-5",
@@ -837,7 +935,7 @@
       "statement": "For i = 1, 2 let M_i be an effective dual t-motive given by Φ_i ∈ Mat_{r_i}(K̄[t]) with det Φ_i = c_i(t−θ)^{s_i}, c_i ∈ K̄^×, s_i ≥ 0. If F ∈ Mat_{r_1×r_2}(K̄(t)) satisfies F^{(−1)}Φ_2 = Φ_1F (that is, F represents a K̄(t)[σ]-linear map K̄(t)⊗M_1 → K̄(t)⊗M_2), then the common denominator of the entries of F lies in F_q[t].",
       "locator": "arXiv:2205.07165v2 (10 June 2024), proof of Theorem 2.4, p. 33 (published: proof of Theorem 3.4), quoting [CPY19, Prop. 2.2.1]",
       "status": "missing",
-      "note": "The paper applies it with F = (1 0 0; 0 Id 0; g_0/g (g_{t,Q}/g) 1), Φ_2 = Φ̃ and Φ_1 = diag(1, Φ', 1), which gives b ∈ F_q[t]∖{0}. I checked the statement against CPY19's source. CPY19 prints F ∈ Mat(K̄[t]), a slip for K̄(t), as its proof shows. Missing: routed to route 1."
+      "note": "The paper applies it with F = (1 0 0; 0 Id 0; g_0/g (g_{t,Q}/g) 1), Φ_2 = Φ̃ and Φ_1 = diag(1, Φ', 1), which gives b ∈ F_q[t]∖{0}. I checked the statement against CPY19's source. CPY19 prints F ∈ Mat(K̄[t]), a slip for K̄(t), as its proof shows. Missing: routed to route 1. Direct prerequisite: Chieh-Yu Chang, Matthew A. Papanikolas, Jing Yu, An effective criterion for Eulerian multizeta values in positive characteristic, J. Eur. Math. Soc. 21 (2019), 405–440 (https://arxiv.org/abs/1411.0124); see prerequisites. Supplier remains a cited black box at extraction scope."
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/papanikolas-uniqueness-of-trivializations",
@@ -885,10 +983,14 @@
       "id": "PAPER-IM-KIM-LE-ETAL-24/abp-difference-system-2-12",
       "kind": "theorem",
       "name": "The σ-difference system extracted from the ABP criterion",
-      "statement": "Under the hypotheses (LW) and (LD) of Theorem 2.4 (a, a_i ∈ A), there exist b ∈ F_q[t] ∖ {0}, δ_0 ∈ K̄[t] with δ_0^{(−1)} = δ_0, and δ = (δ_{t;Q})_{(t;Q) ∈ I} ∈ Mat_{1×|I|}(K̄[t]) such that [[Id, 0], [δ, 1]]^{(−1)} [[Φ', 0], [b v, 1]] = [[Φ', 0], [0, 1]] [[Id, 0], [δ, 1]], i.e. δ = δ^{(−1)} Φ' + b v. Here Φ' ∈ Mat_{|I|}(K̄[t]) has Φ'_{∅,∅} = (t − θ)^w, Φ'_{(t;Q),(t;Q)} = (t − θ)^{w − w(t)}, and Φ'_{(t;Q),(t';Q')} = Q_{ij}^{(−1)} (t − θ)^{w − w(t')} when (t; Q) = (s_{i1}, …, s_{ij}; Q_{i1}, …, Q_{ij}) and (t'; Q') = (s_{i1}, …, s_{i(j−1)}; Q_{i1}, …, Q_{i(j−1)}), all other entries 0; and v_{t;Q} = Σ_i a_i(t) Q_{iℓ_i}^{(−1)} (t − θ)^{w − w(t)}, the sum over the i with (t; Q) = (s_{i1}, …, s_{i(ℓ_i−1)}; Q_{i1}, …, Q_{i(ℓ_i−1)}).",
+      "statement": "Under the corrected setup of /30, in particular Q_{ij}∈K̄[t] and ‖Q_{ij}‖_∞ < |θ|_∞^(q s_{ij}/(q−1)) for every i,j, and the hypotheses (LW) and (LD) of Theorem 2.4 (a, a_i ∈ A), there exist b ∈ F_q[t] ∖ {0}, δ_0 ∈ K̄[t] with δ_0^{(−1)} = δ_0, and δ = (δ_{t;Q})_{(t;Q) ∈ I} ∈ Mat_{1×|I|}(K̄[t]) such that [[Id, 0], [δ, 1]]^{(−1)} [[Φ', 0], [b v, 1]] = [[Φ', 0], [0, 1]] [[Id, 0], [δ, 1]], i.e. δ = δ^{(−1)} Φ' + b v. Here Φ' ∈ Mat_{|I|}(K̄[t]) has Φ'_{∅,∅} = (t − θ)^w, Φ'_{(t;Q),(t;Q)} = (t − θ)^{w − w(t)}, and Φ'_{(t;Q),(t';Q')} = Q_{ij}^{(−1)} (t − θ)^{w − w(t')} when (t; Q) = (s_{i1}, …, s_{ij}; Q_{i1}, …, Q_{ij}) and (t'; Q') = (s_{i1}, …, s_{i(j−1)}; Q_{i1}, …, Q_{i(j−1)}), all other entries 0; and v_{t;Q} = Σ_i a_i(t) Q_{iℓ_i}^{(−1)} (t − θ)^{w − w(t)}, the sum over the i with (t; Q) = (s_{i1}, …, s_{i(ℓ_i−1)}; Q_{i1}, …, Q_{i(ℓ_i−1)}).",
       "locator": "arXiv:2205.07165v2 (10 June 2024), proof of Theorem 2.4, Eq. (2.12), p. 33 (published: proof of Theorem 3.4, Eq. (3.12))",
       "status": "missing",
-      "note": "An intermediate result of the proof of Theorem 2.4 (D's page range), not contained in its statement (which only concludes f_{t;Q}(θ) ∈ K), but used as a black box in the proof of Theorem 3.4 ('Now we want to solve (2.12)', p. 37; rewritten as (3.4)–(3.5) on p. 38 with δ_{s_i;ε_i} := a_i(t) and b normalised to 1 by rescaling the relation by b(θ)). Missing: routed to route 1."
+      "note": "An intermediate result of the proof of Theorem 2.4 (D's page range), not contained in its statement (which only concludes f_{t;Q}(θ) ∈ K), but used as a black box in the proof of Theorem 3.4 ('Now we want to solve (2.12)', p. 37; rewritten as (3.4)–(3.5) on p. 38 with δ_{s_i;ε_i} := a_i(t) and b normalised to 1 by rescaling the relation by b(θ)). Missing: routed to route 1. E14 is propagated into the authoritative setup so the entire ABP vector and all tail series exist.",
+      "prerequisites": [
+        "PAPER-IM-KIM-LE-ETAL-24/30",
+        "PAPER-IM-KIM-LE-ETAL-24/27"
+      ]
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/harada-chen-depth-one-product",
@@ -1023,7 +1125,7 @@
       "statement": "Let either w ≤ 3q − 3, or w = 3q − 2 and q = 2. Then dim_K AZ_w ≥ s(w).",
       "locator": "arXiv:2205.07165v2 (10 June 2024), Proposition 4.13, p. 57, proof pp. 57–58 (published: Proposition 5.13)",
       "status": "missing",
-      "note": "Split from item 42. The proof is only an outline. It uses |AT'_w| = s(w), the prefix property of AT'_w, and Theorem 2.4 applied inductively on w, with the resulting σ-linear system shown to have no non-trivial solution 'by direct but complicated calculations'. Details are deferred to [25] (Im–Kim–Le–Ngo Dac–Pham, hal-04240841, published in Acta Math. Vietnam. 2024). AT'_w is shown to be linearly independent; the paper does not claim here that it generates AZ_w. Not used for Theorems A or B. Missing: routed to route 1."
+      "note": "Split from item 42. The proof is only an outline. It uses |AT'_w| = s(w), the prefix property of AT'_w, and Theorem 2.4 applied inductively on w, with the resulting σ-linear system shown to have no non-trivial solution 'by direct but complicated calculations'. Details are deferred to [25] (Im–Kim–Le–Ngo Dac–Pham, hal-04240841, published in Acta Math. Vietnam. 2024). AT'_w is shown to be linearly independent; the paper does not claim here that it generates AZ_w. Not used for Theorems A or B. Missing: routed to route 1. Direct prerequisite: Bo-Hae Im, Hojin Kim, Khac Nhuan Le, Tuan Ngo Dac, Lan Huong Pham, Note on the Linear Independence of Alternating Multiple Zeta Values in Positive Characteristic, Acta Mathematica Vietnamica 49 (2024), 485–521 (https://hal.science/hal-04240841); see prerequisites. Supplier remains a cited black box at extraction scope."
     },
     {
       "id": "PAPER-IM-KIM-LE-ETAL-24/remark-4-14-zeta-like-relations",
@@ -1033,6 +1135,136 @@
       "locator": "arXiv:2205.07165v2 (10 June 2024), Remark 4.14, p. 58 (published: Remark 5.14), citing Lara Rodríguez–Thakur [27, Theorem 3.1]",
       "status": "missing",
       "note": "Split from item 42; part 1 is a cited black box. Checked against [27] (arXiv:1312.4928), Theorem 3.1. Formula (2) with n = 0, s_1 = 1 and s_2 = 1 (k_1 = 0) gives ζ(1, 2q − 2) = ζ(2q − 1)/ℓ_1. With s_2 = 2 (possible for q ≥ 3) it gives ζ(1, 3q − 3) = ζ(3q − 2)/ℓ_1. For q = 2, (1, 3q − 3) = (1, q² − 1) is formula (5): ζ(1, q² − 1) = ζ(q²)(1/ℓ_1 + 1/ℓ_2). So the citation is accurate. It is motivational only and is not used in any proof. Missing: routed to route 1."
+    },
+    {
+      "id": "PAPER-IM-KIM-LE-ETAL-24/analytic-C-infinity",
+      "kind": "construction",
+      "name": "The positive-characteristic analytic field C_∞ and embeddings",
+      "statement": "Over the valued K_∞ supplied by /1, construct its normalized complete nonarchimedean normed-field interface, with |θ|_∞=q. Fix an extension of the infinity place to K̄ and its compatible embedding into an algebraic closure of K_∞. Complete that valued algebraic closure to C_∞; supply complete ultrametric nontrivially normed-field structure, algebraic closedness in characteristic p, and compatible embeddings of K,K_∞,K̄ and the algebraic constants F̄_q. The standard generic-characteristic A embedding is injective. Different compatible choices require comparison interfaces; no canonicity without those choices is asserted.",
+      "locator": "Published §1.2.1, p.4; arXiv:2205.07165v2 §0.2.1; reviewed AUDIT-20 DM.2 analytic-base target.",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "DrinfeldModulesAndTModules:DM.2"
+      ],
+      "prerequisites": [
+        "PAPER-IM-KIM-LE-ETAL-24/1"
+      ],
+      "note": "Split from /1 under finding 1. Reviewed coverage is partial: RatFunc.CompletionAtInfty only has Valued ℤᵐ⁰; norm/rank-one and embedding interfaces remain. IsAlgClosed.of_denseRange assumes CharZero and cannot supply the characteristic-p closure. This is a DM.2 prerequisite import, not Part II base-field reconstruction.",
+      "api": [
+        {
+          "name": "baseEmbedding",
+          "statement": "Expose compatible isometric embeddings and the generic-characteristic A action."
+        },
+        {
+          "name": "completeAlgebraicallyClosed",
+          "statement": "Provide CompleteSpace and IsAlgClosed in characteristic p without using the characteristic-zero density criterion."
+        },
+        {
+          "name": "normalizedInfinityNorm",
+          "statement": "Extend |f/g|=q^(degree f−degree g) and transport the valued completion to the normalized normed-field model."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "characteristicP",
+          "statement": "For F_3 verify characteristic 3 persists in C_∞; the CharZero density theorem is inapplicable.",
+          "status": "proposed"
+        },
+        {
+          "name": "constantAndTheta",
+          "statement": "Nonzero algebraic finite-field constants have norm 1; θ has norm q, its inverse q⁻¹, and the A embedding has zero kernel.",
+          "status": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-IM-KIM-LE-ETAL-24/restricted-series-library-ingredients",
+      "kind": "definition",
+      "name": "Available restricted-series carrier and Gauss-norm ingredients",
+      "statement": "For a normed ring R and real radius c, PowerSeries.IsRestricted c f means ‖coeff n f‖ c^n→0. Over an ultrametric normed ring the restricted series form a subring. The supplied Gauss norm is the supremum of these weighted coefficient norms and is bounded for restricted series. For c>0 and an ultrametric normed ring with NormMulClass it is multiplicative on restricted f,g. This item supplies these ingredients only, without the full Tate Banach algebra, substitution or entire-function package.",
+      "locator": "Published §3 opening p.20, Tate/Gauss ingredients; Mathlib RingTheory/PowerSeries/{Restricted,GaussNorm}.lean and TauCeti RingTheory/PowerSeries/GaussNorm.lean at the pins.",
+      "status": "library",
+      "library": [
+        "mathlib:PowerSeries.IsRestricted",
+        "mathlib:PowerSeries.isRestricted_iff'",
+        "mathlib:PowerSeries.IsRestricted.subring",
+        "mathlib:PowerSeries.gaussNorm",
+        "mathlib:PowerSeries.gaussNorm_eq",
+        "tauceti:TauCeti.PowerSeries.hasGaussNorm_of_isRestricted",
+        "tauceti:TauCeti.PowerSeries.gaussNorm_mul_of_isRestricted"
+      ],
+      "planned": [],
+      "note": "Finding 2 reuse boundary: radius one supplies a carrier once DM.2 supplies the appropriate normed field. Multiplicativity requires the stated positive radius, ultrametric and norm-multiplicativity hypotheses. No completeness theorem is included in this library claim.",
+      "api": [
+        {
+          "name": "radiusOneCarrier",
+          "statement": "At c=1 identify restrictedness with coefficient norms tending to zero."
+        },
+        {
+          "name": "boundedGauss",
+          "statement": "Restrictedness supplies the boundedness needed for the real supremum norm."
+        },
+        {
+          "name": "multiplicativeGauss",
+          "statement": "Reuse the pinned multiplicativity theorem under its exact hypotheses."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "geometricSeries",
+          "statement": "For R=C_∞ and c=1, Σ θ^(−n)t^n is restricted, with Gauss norm 1. The coefficients of Σ t^n do not tend to zero and this series is rejected.",
+          "status": "proposed"
+        },
+        {
+          "name": "radiusGuard",
+          "statement": "A norm-multiplicativity call must retain c>0 and NormMulClass, rather than be applied to an arbitrary radius or base ring.",
+          "status": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-IM-KIM-LE-ETAL-24/ordinary-tate-algebra-and-gauss-norm",
+      "kind": "definition",
+      "name": "General Tate algebra over C_∞, Gauss norm and fraction field",
+      "statement": "Over the complete nonarchimedean normed field C_∞ imported from DM.2, the ordinary one-variable Tate algebra 𝕋=C_∞⟨t⟩ consists of power series whose coefficient norms tend to zero, with the radius-one Gauss norm and complete normed algebra structure. Identify its carrier and norm with the available restricted-series ingredients. Import the general substitution/evaluation and topological interfaces from AdicSpaces Layer 0 §§0.4–0.5; 𝕃 is its fraction field. Unit-disc evaluation has |x|≤1; evaluation at θ, with |θ|=q>1, requires the specialized entire-series ring and is not a generic Tate evaluation.",
+      "locator": "Published §3 opening p.20; arXiv v2 §2 p.26; upstream AdicSpaces Layer 0 §§0.4–0.5.",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras"
+      ],
+      "prerequisites": [
+        "PAPER-IM-KIM-LE-ETAL-24/analytic-C-infinity",
+        "PAPER-IM-KIM-LE-ETAL-24/restricted-series-library-ingredients"
+      ],
+      "note": "Finding 2 splits ordinary Tate theory off the old bundled item. Library ingredients do not discharge completeness, all substitutions or entire-series conditions. Import this upstream owner; do not create a competing general analytic layer in DrinfeldModulesAndTModulesPartII.",
+      "api": [
+        {
+          "name": "restrictedCarrierComparison",
+          "statement": "Transport the radius-one library subring and Gauss norm to the general Tate-algebra model."
+        },
+        {
+          "name": "evaluationOnDisc",
+          "statement": "Expose convergent evaluation and algebra homomorphism laws for |x|≤1."
+        },
+        {
+          "name": "fractionFieldInterface",
+          "statement": "Expose the inclusion 𝕋→𝕃 and transport rigid trivialization equations."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "thetaOutsideDisc",
+          "statement": "The series Σ θ^(−n)t^n is in 𝕋 but diverges at t=θ; generic evaluation must not accept θ.",
+          "status": "proposed"
+        },
+        {
+          "name": "constantPolynomial",
+          "statement": "Compare the constant and polynomial Gauss norms with the imported norm and verify evaluation agrees with polynomial evaluation on the unit disc.",
+          "status": "proposed"
+        }
+      ]
     }
   ],
   "prerequisites": [
@@ -1135,6 +1367,24 @@
       "citation": "Francis Brown, Mixed Tate motives over Z, Ann. of Math. 175 (2012), 949–976",
       "link": "https://doi.org/10.4007/annals.2012.175.2.10",
       "why": "Brown's theorem that the Hoffman elements generate, quoted in the introduction (arXiv:1102.1312)."
+    },
+    {
+      "citation": "Chieh-Yu Chang, Matthew A. Papanikolas, Jing Yu, An effective criterion for Eulerian multizeta values in positive characteristic, J. Eur. Math. Soc. 21 (2019), 405–440",
+      "link": "https://arxiv.org/abs/1411.0124",
+      "doi": "10.4171/JEMS/840",
+      "why": "Direct supplier of /28 (§2.3 motive construction), /cpy-common-denominator (Proposition 2.2.1), /chang-frobenius-property and /acmpl-period-interpretation (Proposition 2.3.3)."
+    },
+    {
+      "citation": "Yen-Tsung Chen, Ryotaro Harada, On lower bounds of the dimensions of multizeta values in positive characteristic, Documenta Mathematica 26 (2021), 537–559",
+      "link": "https://arxiv.org/abs/2012.00340",
+      "doi": "10.4171/DM/821",
+      "why": "Direct supplier of /amzv-period-interpretation, published Eq. (3.5), quoting Proposition 2.12."
+    },
+    {
+      "citation": "Bo-Hae Im, Hojin Kim, Khac Nhuan Le, Tuan Ngo Dac, Lan Huong Pham, Note on the Linear Independence of Alternating Multiple Zeta Values in Positive Characteristic, Acta Mathematica Vietnamica 49 (2024), 485–521",
+      "link": "https://hal.science/hal-04240841",
+      "doi": "10.1007/s40306-024-00554-4",
+      "why": "Supplies the full small-weight proof details deferred by published §5.4, especially /proposition-4-13-lower-bound (published Proposition 5.13); not a prerequisite proof recursively audited here."
     }
   ],
   "routes": [
@@ -1232,7 +1482,7 @@
         "PAPER-IM-KIM-LE-ETAL-24/proposition-4-13-lower-bound",
         "PAPER-IM-KIM-LE-ETAL-24/remark-4-14-zeta-like-relations"
       ],
-      "brief": "Plan alternating multiple zeta values in positive characteristic and the proof of the Zagier–Hoffman conjectures by Im, Kim, Le, Ngo Dac and Pham. The final theorems are their Theorem A — with s(w) = (q − 1)q^{w−1} for 1 ≤ w < q, s(q) = (q − 1)(q^{q−1} − 1) and s(w) = (q − 1)Σ_{i=1}^{q−1} s(w−i) + s(w−q) for w > q, one has dim_K AZ_w = s(w) for the space spanned by the alternating multiple zeta values ζ_A(ε; s) of weight w, with an explicit Hoffman-like basis — and their Theorem B: for every w the set T_w of ζ_A(s) with s_i ≤ q for i < r and s_r < q is a K-basis of Z_w, so dim_K Z_w = d(w). The roadmap must cover: Thakur's multiple zeta values and Harada's alternating values with their non-vanishing and shuffle relations; Carlitz multiple polylogarithms and their alternating versions with the power sums S_d and 𝔖_d and Carlitz's identity making the two agree on Thakur's index set; the combinatorics of tuples and arrays — the partial order, initial tuples, characters, k-admissibility; the calculus of binary and fixed relations with the operators 𝓑* and 𝓒, the decomposition of an ACMPL into three types, and the resulting weak Brown theorem with the generating set AT_w; the Hoffman-like set AS_w indexed by tuples with q ∤ s_i, its cardinality s(w), and the strong Brown theorem that it generates AL_w; the dual t-motive package — effective dual t-motives, the series 𝔏(s; Q) realising these values as periods, the equivalence of K- and K̄-linear independence, and the improved linear-independence criterion; the transcendental theorem determining all K-linear relations between ACMPLs, with the character-splitting lemma and the Kuan–Lin degree bound; and finally the bridge AZ_w = AL_w and the deduction of both main theorems, together with the record of what the direct AMZV approach gives in small weights. Import, and do not re-plan: the Carlitz module and its period from Drinfeld modules, t-motives and characteristic-p special values (DrinfeldModulesAndTModules), stages DM.0 and DM.2; Anderson t-modules and effective t-motives from DM.4; Carlitz zeta values from DM.6; and the Frobenius-difference machinery with the ABP criterion from DM.8, to which this paper is also routed as a source. Import global function fields and their constants from FunctionFieldArithmetic FA.0. The classical analogues — Zagier's and Hoffman's conjectures, Brown's theorem and the Deligne–Goncharov–Terasoma bounds, including the alternating case — are planned at PeriodsAndSpecialValues PS.9 and should be cited, not re-planned. This roadmap must be designed together with the extraction of Chang, Chen and Mishiba, 'On Thakur's basis conjecture for multiple zeta values in positive characteristic' (PAPER-CHANG-CHEN-MISHIBA-23), which proves Theorem B independently and simultaneously by a parallel route: that paper works with an abstract space of indices carrying the harmonic and q-shuffle products and an explicit rewriting operator, this one with alternating Carlitz multiple polylogarithms and the bridge AZ_w = AL_w. The two developments share the ABP criterion, the Frobenius difference systems, the index sets and Carlitz's identity; the design job should plan the shared material once and then both routes, since each proves something the other does not — the alternating dimensions here, the generating set of all linear relations there. Corrections the design must carry: the strong Brown theorem (Theorem 1.11) needs the transition matrix from AT_w to AS_w to be ±1 on the diagonal and 0 elsewhere modulo D_1, which Propositions 1.7 and 1.10 as stated do not give; the design must run Proposition 1.7 at every step with its free character chosen to match the target and track that all coefficients lie in A (E12); the algebra of §1 preserves characters, and Theorem 3.4's final step and its 'in particular' clause need that fact, or Proposition 2.3, to pass between K-relations among the Li-values and among the 𝔏𝔦-values (E30, E23); Condition (2.1) imposed on the whole tuple does not make the series of the sub-tuples converge (s = (q−1, q−1), Q = (1, θ^{q+1})), so the matrices Ψ_{s,Q} need the termwise bound, which every application satisfies (E14); the setup of Theorem 2.4 takes Q_i in K̄[t], not in (F_q^×)^{ℓ_i} as printed, since its applications use γ_i ∈ F̄_q and γ_i·H_s (E16); the inclusion S_w ⊂ Z_w in the proof of Proposition 4.10 needs the trivial-character (CMPL) version of Proposition 1.10 with Lemma 1.2, not Theorem 4.9 (E31); and formula (*) in the proof of Proposition 4.11 must be supplemented by the corrected relation for U = ∅ (E33).",
+      "brief": "Plan alternating multiple zeta values in positive characteristic and the proof of the Zagier–Hoffman conjectures by Im, Kim, Le, Ngo Dac and Pham. The final theorems are their Theorem A — with s(w) = (q − 1)q^{w−1} for 1 ≤ w < q, s(q) = (q − 1)(q^{q−1} − 1) and s(w) = (q − 1)Σ_{i=1}^{q−1} s(w−i) + s(w−q) for w > q, one has dim_K AZ_w = s(w) for the space spanned by the alternating multiple zeta values ζ_A(ε; s) of weight w, with an explicit Hoffman-like basis — and their Theorem B: for every w the set T_w of ζ_A(s) with s_i ≤ q for i < r and s_r < q is a K-basis of Z_w, so dim_K Z_w = d(w). The roadmap must cover: Thakur's multiple zeta values and Harada's alternating values with their non-vanishing and shuffle relations; Carlitz multiple polylogarithms and their alternating versions with the power sums S_d and 𝔖_d and Carlitz's identity making the two agree on Thakur's index set; the combinatorics of tuples and arrays — the partial order, initial tuples, characters, k-admissibility; the calculus of binary and fixed relations with the operators 𝓑* and 𝓒, the decomposition of an ACMPL into three types, and the resulting weak Brown theorem with the generating set AT_w; the Hoffman-like set AS_w indexed by tuples with q ∤ s_i, its cardinality s(w), and the strong Brown theorem that it generates AL_w; the dual t-motive package — effective dual t-motives, the series 𝔏(s; Q) realising these values as periods, the equivalence of K- and K̄-linear independence, and the improved linear-independence criterion; the restricted augmented normalized-period relation theorem for J′_w, followed by reduction of arbitrary ACMPLs to the independent basis AS_w, with the character-splitting lemma and the Kuan–Lin degree bound; and finally the bridge AZ_w = AL_w and the deduction of both main theorems, together with the record of what the direct AMZV approach gives in small weights. Import, and do not re-plan: the Carlitz module and its period from Drinfeld modules, t-motives and characteristic-p special values (DrinfeldModulesAndTModules), stages DM.0 and DM.2; Anderson t-modules and effective t-motives from DM.4; Carlitz zeta values from DM.6; and the Frobenius-difference machinery with the ABP criterion from DM.8, to which this paper is also routed as a source. Import global function fields and their constants from FunctionFieldArithmetic FA.0. The classical analogues — Zagier's and Hoffman's conjectures, Brown's theorem and the Deligne–Goncharov–Terasoma bounds, including the alternating case — are planned at PeriodsAndSpecialValues PS.9 and should be cited, not re-planned. This roadmap must be designed together with the extraction of Chang, Chen and Mishiba, 'On Thakur's basis conjecture for multiple zeta values in positive characteristic' (PAPER-CHANG-CHEN-MISHIBA-23), which proves Theorem B independently and simultaneously by a parallel route: that paper works with an abstract space of indices carrying the harmonic and q-shuffle products and an explicit rewriting operator, this one with alternating Carlitz multiple polylogarithms and the bridge AZ_w = AL_w. The two developments share the ABP criterion, the Frobenius difference systems, the index sets and Carlitz's identity; the design job should plan the shared material once and then both routes, since each proves something the other does not — the alternating dimensions here, the generating set of all linear relations there. Corrections the design must carry: the strong Brown theorem (Theorem 1.11) needs the transition matrix from AT_w to AS_w to be ±1 on the diagonal and 0 elsewhere modulo D_1, which Propositions 1.7 and 1.10 as stated do not give; the design must run Proposition 1.7 at every step with its free character chosen to match the target and track that all coefficients lie in A (E12); the algebra of §1 preserves characters, and Theorem 3.4's final step and its 'in particular' clause need that fact, or Proposition 2.3, to pass between K-relations among the Li-values and among the 𝔏𝔦-values (E30, E23); Condition (2.1) imposed on the whole tuple does not make the series of the sub-tuples converge (s = (q−1, q−1), Q = (1, θ^{q+1})), so the matrices Ψ_{s,Q} need the termwise bound, which every application satisfies (E14); the setup of Theorem 2.4 takes Q_i in K̄[t], not in (F_q^×)^{ℓ_i} as printed, since its applications use γ_i ∈ F̄_q and γ_i·H_s (E16); the inclusion S_w ⊂ Z_w in the proof of Proposition 4.10 needs the trivial-character (CMPL) version of Proposition 1.10 with Lemma 1.2, not Theorem 4.9 (E31); and formula (*) in the proof of Proposition 4.11 must be supplemented by the corrected relation for U = ∅ (E33). FIX-RT #5519 ownership boundary: import the full C_∞ analytic base, normalized norm/completion and compatible embeddings from DrinfeldModulesAndTModules:DM.2 (reviewed partial coverage), reusing RatFunc.inftyValuation and RatFunc.CompletionAtInfty. Import the ordinary Tate algebra, general topological/substitution/evaluation interfaces and fraction-field compatibility from tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras, §§0.4–0.5, reusing the pinned restricted-series carrier and Gauss-norm ingredients. Only the specialized ℰ finite coefficient-field ring, its entire θ-evaluation and function-field Frobenius/period compatibility are new Part II work. In /28, /30 and the ABP difference-system setup enforce ‖Q_{ij}‖_∞ < |θ|_∞^(q s_{ij}/(q−1)) termwise; the printed whole-tuple condition is historical and insufficient for tails. The γ and γH_s applications satisfy this corrected bound. Keep /34 exactly as stated: normalize periods by γ and π̃^w, retain indices J′_w and character qualifications, and assert uniqueness only after the nonzero constant coefficient is normalized to 1. Add CPY19, CH21 and the separate Im–Kim–Le–Ngo Dac–Pham Note to the prerequisite batch; supplier proof closure is for the owning blueprint.",
       "reason": "The atlas plans the Carlitz module (DM.0), its analytic uniformisation and period (DM.2), Anderson t-modules and effective t-motives (DM.4), Carlitz zeta values (DM.6) and Papanikolas's difference-Galois theory (DM.8), and stops at depth one. Multiple zeta values in characteristic p, their alternating versions, Carlitz multiple polylogarithms, the Brown-type generating theorems and the transcendence results are new layers in that roadmap's direction, hence a Part II. The same Part II, with the same id and title, is proposed by the extraction of Chang–Chen–Mishiba (PAPER-CHANG-CHEN-MISHIBA-23): the two papers prove Thakur's basis conjecture independently and at the same time, they share most of their machinery, and the brief asks for them to be designed together rather than as two roadmaps that would duplicate each other."
     },
     {
@@ -1899,5 +2149,33 @@
         "by": "REV-PAPER-IM-KIM-LE-ETAL-24"
       }
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B9AC9CF28F90ABB495FDC43093D51E05/S2050508624000180a.pdf/zagierhoffmans_conjectures_in_positive_characteristic.pdf",
+      "read": "2026-10-02",
+      "sha256": "82e85086688c1274207d7265a310381a4b04d02243d11ee78bf67a8105ab7e98",
+      "coverage": "Targeted published pp.4,20–23,27,30,47–48; rendered pp.20,22,23,30 for analytic definitions, matrices, application bounds and normalized theorem. No full-paper rereading or preprint collation in this fix."
+    }
+  ],
+  "fixValidation": {
+    "job": "FIX-RT-PAPER-IM-KIM-LE-ETAL-24",
+    "agent": "Codex",
+    "session": "codex-J6LwjP",
+    "date": "2026-10-02",
+    "issue": 5519,
+    "findingsApplied": [
+      "RT-PAPER-IM-KIM-LE-ETAL-24/1",
+      "RT-PAPER-IM-KIM-LE-ETAL-24/2",
+      "RT-PAPER-IM-KIM-LE-ETAL-24/3",
+      "RT-PAPER-IM-KIM-LE-ETAL-24/4",
+      "RT-PAPER-IM-KIM-LE-ETAL-24/5"
+    ],
+    "limits": [
+      "Targeted correction and pinned supplier-interface checks, not a new complete extraction or recursive supplier-proof audit.",
+      "All 36 existing sourceIssues and their review verdicts unchanged; accepted E14 is propagated, not newly alleged.",
+      "No upstream or packet edits authorized; no Lean file or compilation."
+    ]
+  }
 }
