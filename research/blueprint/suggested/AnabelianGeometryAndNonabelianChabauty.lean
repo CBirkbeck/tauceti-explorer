@@ -1,3 +1,6 @@
+import Mathlib.Data.Fintype.Card
+import Mathlib.Algebra.Group.Subgroup.Basic
+import Mathlib.Topology.Algebra.OpenSubgroup
 import Mathlib.Data.ZMod.Basic
 import Mathlib.RepresentationTheory.Homological.GroupCohomology.Shapiro
 import Mathlib.AlgebraicGeometry.Noetherian
@@ -1001,3 +1004,137 @@ example : (2 : ZMod 3) * 1 ≠ 0 := by sorry
 example (x : ZMod 1) : x = 0 := by sorry
 example (a : ℕ) : ((3 ^ a : ℕ) : ZMod (3 ^ a)) = 0 := by sorry
 end TauCeti.EtaleKPiOne.ArithmeticSmoke
+
+
+/-
+# NC.0 product proof — mathematical omission contracts
+
+OMITTED TauCeti.EtaleKPiOne.exists_connected_cover_kills_finiteFamily
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement
+Contract: Let W be a connected noetherian scheme with a geometric point and the full finite-coefficient étale K(π,1) property. For any finite index set I, primes p_i, positive degrees q_i and classes a_i in H^{q_i}_et(W,F_{p_i}), with constant coefficients, there is a pointed connected finite étale surjective f:W′→W such that f*a_i=0 for every i. The cover may depend on the entire finite family.
+Missing: the actual pointed finite-cover/coefficient/sheaf interfaces, canonical pullbacks and external products from the exact IG.0/SF.2 requests. These are mathematical plans, not fabricated Prop fields or substituted group fixtures.
+
+OMITTED TauCeti.EtaleKPiOne.exists_product_refinement_kills_primeField_class
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/product-cover-effacement
+Contract: Let X,Y be geometrically connected geometrically unibranch varieties over an algebraically closed characteristic-zero field k, each with the full finite-coefficient étale K(π,1) property. For a pointed connected finite étale cover Z→X×_kY, a prime p, q>0 and c∈H^q_et(Z,F_p), there are pointed connected finite étale covers X″→X and Y″→Y and a finite étale surjective map h:X″×_kY″→Z over X×_kY such that h*c=0. The two covers may depend on Z,p,q,c; Z itself need not be a product or a Galois cover.
+Missing: the actual pointed finite-cover/coefficient/sheaf interfaces, canonical pullbacks and external products from the exact IG.0/SF.2 requests. These are mathematical plans, not fabricated Prop fields or substituted group fixtures.
+
+OMITTED TauCeti.EtaleKPiOne.product_algebraicallyClosed
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-product
+Contract: Over an algebraically closed characteristic-zero field k, the product X×_kY of two geometrically connected geometrically unibranch k-varieties with the full finite-coefficient étale K(π,1) property has that full property, defined by the canonical comparisons in all degrees and with its full profinite fundamental group.
+Missing: the actual pointed finite-cover/coefficient/sheaf interfaces, canonical pullbacks and external products from the exact IG.0/SF.2 requests. These are mathematical plans, not fabricated Prop fields or substituted group fixtures.
+
+REFINED TauCeti.EtaleKPiOne.product_charZero
+Contract: Over a characteristic-zero field k, a finite product of geometrically connected geometrically unibranch k-varieties having the full finite-coefficient property again has that property.
+Route: separableClosure_iff, product_algebraicallyClosed, finite induction with the empty-field instance, then descent. All finite coefficients and the original public hypotheses are retained. Its genuine geometric signature remains omitted.
+-/
+/- BEGIN PRODUCT BASELINE SMOKE
+Existing group carriers and finite algebra only. None of these examples is a
+signature of a geometric cover or of the canonical étale comparison.
+-/
+noncomputable section
+namespace TauCeti.EtaleKPiOne.ProductSmoke
+variable {G H : Type*} [Group G] [Group H]
+
+example (K : Subgroup (G × H)) (A : Subgroup G) (B : Subgroup H) :
+    A.prod B ≤ K ↔ A ≤ K.comap (MonoidHom.inl G H) ∧
+      B ≤ K.comap (MonoidHom.inr G H) := by sorry
+
+example (K : Subgroup (G × H)) :
+    (K.comap (MonoidHom.inl G H)).prod (K.comap (MonoidHom.inr G H)) ≤ K := by sorry
+
+example [TopologicalSpace G] [TopologicalSpace H] (K : OpenSubgroup (G × H)) :
+    ∃ (A : OpenSubgroup G) (B : OpenSubgroup H), A.prod B ≤ K := by sorry
+
+example [TopologicalSpace G] [TopologicalSpace H]
+    [CompactSpace G] [CompactSpace H] [SeparatelyContinuousMul G] [SeparatelyContinuousMul H]
+    (K : OpenSubgroup (G × H)) :
+    ∃ (A : OpenSubgroup G) (B : OpenSubgroup H), A.prod B ≤ K ∧
+      Finite (G ⧸ A.toSubgroup) ∧ Finite (H ⧸ B.toSubgroup) := by sorry
+
+-- TauCeti.EtaleKPiOne.ProductSmoke.diagonal_C2
+example :
+    let C := Multiplicative (ZMod 2)
+    let D := (MonoidHom.fst C C).eqLocus (MonoidHom.snd C C)
+    Nat.card ((C × C) ⧸ D) = 2 ∧
+      (D.comap (MonoidHom.inl C C)).prod (D.comap (MonoidHom.inr C C)) = ⊥ ∧
+      Nat.card ((C × C) ⧸ (⊥ : Subgroup (C × C))) = 4 := by sorry
+
+-- TauCeti.EtaleKPiOne.ProductSmoke.diagonal_S3_nonnormal
+example :
+    let S := Equiv.Perm (Fin 3)
+    let D := (MonoidHom.fst S S).eqLocus (MonoidHom.snd S S)
+    ¬ D.Normal ∧ Finite ((S × S) ⧸ D) := by sorry
+
+-- TauCeti.EtaleKPiOne.ProductSmoke.mixed_degree_one
+-- Coordinates (0,2), (1,1), (2,0) of total degree two.
+example :
+    let killHigher := (![0, 1, 0] : Fin 3 → ZMod 2)
+    (fun j : Fin 3 => killHigher j * (![0, 1, 0] : Fin 3 → ZMod 2) j) =
+      (![0, 1, 0] : Fin 3 → ZMod 2) ∧
+      (![0, 1, 0] : Fin 3 → ZMod 2) ≠ 0 := by sorry
+
+-- TauCeti.EtaleKPiOne.ProductSmoke.nonfield_canonical_map
+example :
+    (∀ a b : ZMod 4, 2 * a = 0 → 2 * b = 0 → a * b = 0) ∧
+      (2 : ZMod 4) ≠ 0 ∧ 2 * (2 : ZMod 4) = 0 := by sorry
+
+-- Killing every positive-degree factor removes every summand of positive total degree.
+example (q i j : ℕ) (hq : 0 < q) (hij : i + j = q) :
+    0 < i ∨ 0 < j := by sorry
+
+-- A genuine bilinear map, with no cohomology carrier introduced.
+example (p : ℕ) (B : (ZMod p) →ₗ[ZMod p] (ZMod p) →ₗ[ZMod p] (ZMod p))
+    (x : ZMod p) : B 0 x = 0 ∧ B x 0 = 0 := by sorry
+
+-- Arithmetic groups are fibre products over the base group.
+example : Fintype.card {z : ZMod 2 × ZMod 2 // z.1 = z.2} = 2 ∧
+    Fintype.card (ZMod 2 × ZMod 2) = 4 := by sorry
+
+end TauCeti.EtaleKPiOne.ProductSmoke
+/- END PRODUCT BASELINE SMOKE -/
+
+/-
+Historical baseline experiment only; no geometric declaration is implemented.
+BEGIN ARCHIVED CHECKED PRODUCT RECTANGLE EXPERIMENT
+import Mathlib.Topology.Algebra.OpenSubgroup
+import Mathlib.Algebra.Group.Subgroup.Basic
+
+namespace ProductCoverBaseline
+variable {G H : Type*} [Group G] [Group H]
+
+theorem rectangle_maximal (K : Subgroup (G × H)) (A : Subgroup G) (B : Subgroup H) :
+    A.prod B ≤ K ↔ A ≤ K.comap (MonoidHom.inl G H) ∧
+      B ≤ K.comap (MonoidHom.inr G H) := by
+  rw [Subgroup.prod_le_iff, Subgroup.map_le_iff_le_comap,
+    Subgroup.map_le_iff_le_comap]
+
+theorem rectangle_contained (K : Subgroup (G × H)) :
+    (K.comap (MonoidHom.inl G H)).prod (K.comap (MonoidHom.inr G H)) ≤ K := by
+  exact (rectangle_maximal K _ _).mpr ⟨le_rfl, le_rfl⟩
+
+section Topology
+variable [TopologicalSpace G] [TopologicalSpace H]
+
+theorem open_rectangle (K : OpenSubgroup (G × H)) :
+    ∃ (A : OpenSubgroup G) (B : OpenSubgroup H), A.prod B ≤ K := by
+  let A := K.comap (MonoidHom.inl G H) (continuous_id.prodMk continuous_const)
+  let B := K.comap (MonoidHom.inr G H) (continuous_const.prodMk continuous_id)
+  exact ⟨A, B, rectangle_contained K.toSubgroup⟩
+
+theorem finite_rectangle [CompactSpace G] [CompactSpace H]
+    [SeparatelyContinuousMul G] [SeparatelyContinuousMul H]
+    (K : OpenSubgroup (G × H)) :
+    ∃ (A : OpenSubgroup G) (B : OpenSubgroup H), A.prod B ≤ K ∧
+      Finite (G ⧸ A.toSubgroup) ∧ Finite (H ⧸ B.toSubgroup) := by
+  obtain ⟨A, B, h⟩ := open_rectangle K
+  exact ⟨A, B, h, inferInstance, inferInstance⟩
+
+end Topology
+end ProductCoverBaseline
+#print axioms ProductCoverBaseline.rectangle_maximal
+#print axioms ProductCoverBaseline.rectangle_contained
+#print axioms ProductCoverBaseline.open_rectangle
+#print axioms ProductCoverBaseline.finite_rectangle
+END ARCHIVED CHECKED PRODUCT RECTANGLE EXPERIMENT
+-/
