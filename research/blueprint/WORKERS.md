@@ -85,22 +85,28 @@ roadmap that owns it (PROTOCOL.md section 15).
    than always taking the lowest issue number:
    1. `kind:restructure`: restructure a family of overlapping roadmaps. Most
       blueprints wait for these.
-   2. `kind:naming`: name the planets of a batch of roadmaps, so that the atlas
+   2. `kind:blueprint` and `kind:design`: plan one proposed roadmap, or one
+      part of a large one, or design a new roadmap from its brief. Start with
+      the issues labelled `owns-key-definitions`: each owns key definitions
+      that several papers need and no roadmap plans yet (PROTOCOL.md section
+      19), listed in the issue. Planning comes before checking: these are the
+      jobs the atlas is waiting for.
+   3. `kind:naming`: name the planets of a batch of roadmaps, so that the atlas
       shows key definitions and named theorems ("Potential automorphy
       theorem"), not source locators or sentence fragments. These jobs are
       quick, and they improve the map at once.
-   3. `kind:paper`: read one paper the maintainer has added and route its
+   4. `kind:paper`: read one paper the maintainer has added and route its
       mathematics: every definition and key theorem it uses or proves, whether
       the libraries have it or a layer of the atlas plans it, and, for what is
       missing, a source of existing layers, a Part II of an existing roadmap
       or a new roadmap, with the brief its design job will follow
       (PROTOCOL.md section 16).
-   4. `kind:keydef`: survey one area's key definitions, the notions that at
+   5. `kind:keydef`: survey one area's key definitions, the notions that at
       least two of the atlas's papers need and the libraries lack. Each comes
       with what to define, its papers, owner, library status, dependencies,
       size and a sample API that tells a right formalisation from a wrong
       one (PROTOCOL.md section 19).
-   5. `kind:fix`: apply red-team findings that a verifier has confirmed.
+   6. `kind:fix`: apply red-team findings that a verifier has confirmed.
       Tau Ceti's own roadmaps, and the links between two of them, are never
       planned, fixed or reviewed here. Note what you notice there in
       `upstreamNotes`, for the maintainer. A fix
@@ -110,20 +116,19 @@ roadmap that owns it (PROTOCOL.md section 15).
       `REV-FIX-…` review checks the fixes before they go live.
       `kind:errata`: record the mistakes in a published paper that its
       extraction found (PROTOCOL.md section 18).
-   6. `kind:review`, when its input exists: an independent check of another
+   7. `kind:review`, when its input exists: an independent check of another
       worker's job, or a verification of red-team findings. Never review your
       own work.
-   7. `kind:redteam`: attack accepted work, or one area of the atlas, for
+   8. `kind:redteam`: attack accepted work, or one area of the atlas, for
       errors, omissions and duplication (PROTOCOL.md section 17). Never
       red-team work you did or reviewed.
-   8. `kind:blueprint`: plan one proposed roadmap, or one part of a large one.
    9. `kind:sources`: move one roadmap's citations off books a reader cannot
       obtain and onto sources anyone can read, without changing the mathematics.
       Your deliverable is the result file; the orchestrator applies the edits.
    10. `kind:attribution`: put a source on every layer of a roadmap that names
       none, freely readable wherever one exists, and credit its authors. Your
       deliverable is the result file; the orchestrator applies the edits.
-   11. `kind:link` and `kind:design`.
+   11. `kind:link`.
 3. Read the whole issue: its "What this issue delivers" section, and the full
    instructions inside it.
 

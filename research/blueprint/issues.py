@@ -35,7 +35,8 @@ KIND_TITLE = {"blueprint": "Blueprint", "design": "New roadmap", "link": "Links"
 
 LOCAL_ONLY = {"PLAN-HABIRO", "REV-PLAN-HABIRO"}
 LABEL_COLOURS = {"swarm": "5b6b7a", "state:available": "2da44e", "state:blocked": "c5c9ce", "state:claimed": "bf8700",
-                 "state:running": "1f6feb", "state:submitted": "8250df", "state:done": "57606a", "local-only": "b60205"}
+                 "state:running": "1f6feb", "state:submitted": "8250df", "state:done": "57606a", "local-only": "b60205",
+                 "owns-key-definitions": "0e8a16"}
 
 
 def publicize(text):
@@ -325,6 +326,15 @@ def title(job, roadmaps):
     return f"[{kind}] {name or rid or jid}{part}"[:240]
 
 
+def key_definition_owners():
+    """The jobs that own key definitions no roadmap plans yet (research/blueprint/keydefs/owners.json, PROTOCOL.md section 19)."""
+    path = BP / "keydefs" / "owners.json"
+    try:
+        return {entry.get("owner") for entry in json.loads(path.read_text()).get("definitions", {}).values() if entry.get("owner")}
+    except (OSError, ValueError):
+        return set()
+
+
 def labels_for(job, roadmaps, by_id):
     rid = (job.get("roadmapIds") or [None])[0]
     group = roadmaps[rid].get("group") if rid in roadmaps else job.get("area")
@@ -336,6 +346,8 @@ def labels_for(job, roadmaps, by_id):
         out.append("local-only")
     if group and job["kind"] not in ("classify", "naming", "plan", "status"):
         out.append(f"area:{group}")
+    if job["id"] in key_definition_owners():
+        out.append("owns-key-definitions")
     return out
 
 
