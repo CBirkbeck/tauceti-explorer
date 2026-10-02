@@ -58907,8 +58907,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticModularityEffectiveComparisons.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1691"
+   "state": "pending",
+   "note": "released on GitHub issue #1691"
   },
   {
    "id": "REV-DESIGN-EllipticModularityEffectiveComparisons",
