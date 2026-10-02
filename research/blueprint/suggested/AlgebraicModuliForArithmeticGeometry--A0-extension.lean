@@ -2911,3 +2911,110 @@ example (a b : Aut x) : conjugateCoverEquiv F hComm J R hR x y e (a * b) =
   sorry
 
 end TauCeti.AlgebraicGeometry.GerbeAutTransport
+
+/-! Arbitrary-base conjugation and intrinsic-band lifting. All new public bodies are planning admissions. -/
+namespace TauCeti.AlgebraicGeometry.GerbeAutTransport
+open CategoryTheory Opposite Bicategory
+open Pseudofunctor.LocallyDiscreteOpToCat
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+variable (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+variable (J : GrothendieckTopology C) [F.IsPrestack J]
+set_option backward.isDefEq.respectTransparency false
+
+/-- Native conjugation transport is compatible with every base arrow and unrelated covers. -/
+theorem conjugateCoverAut_baseChange {U V : C} (f : V ⟶ U)
+    (R : Sieve U) (hR : R ∈ J U) (S : Sieve V) (hS : S ∈ J V)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+    (d : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj ((F.map f.op.toLoc).toFunctor.obj x) ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj ((F.map f.op.toLoc).toFunctor.obj y))
+    (a : Aut x) :
+    (F.map f.op.toLoc).toFunctor.mapAut y (conjugateCoverAut F hComm J R hR x y e a) =
+      conjugateCoverAut F hComm J S hS
+        ((F.map f.op.toLoc).toFunctor.obj x) ((F.map f.op.toLoc).toFunctor.obj y) d
+        ((F.map f.op.toLoc).toFunctor.mapAut x a) := by sorry
+/-- Descent respects independent source and target isomorphisms and independent covers. -/
+theorem conjugateCoverAut_naturality
+    {U : C} (R : Sieve U) (hR : R ∈ J U) (S : Sieve U) (hS : S ∈ J U)
+    (x₁ x₂ y₁ y₂ : F.obj (.mk (op U)))
+    (e₁ : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x₁ ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y₁)
+    (e₂ : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x₂ ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y₂)
+    (c : x₁ ≅ x₂) (d : y₁ ≅ y₂) (a₁ : Aut x₁) (a₂ : Aut x₂)
+    (ha : a₁.hom ≫ c.hom = c.hom ≫ a₂.hom) :
+    (conjugateCoverAut F hComm J R hR x₁ y₁ e₁ a₁).hom ≫ d.hom =
+      d.hom ≫ (conjugateCoverAut F hComm J S hS x₂ y₂ e₂ a₂).hom := by sorry
+
+end TauCeti.AlgebraicGeometry.GerbeAutTransport
+
+namespace TauCeti.AlgebraicGeometry.IntrinsicBandSections
+open GerbeAutTransport Pseudofunctor.LocallyDiscreteOpToCat
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+variable (J : GrothendieckTopology C) [IsGerbe F J]
+variable (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+set_option backward.isDefEq.respectTransparency false
+
+/-- Extend one automorphism to the simultaneous compatible-centre section. -/
+noncomputable def lift (J : GrothendieckTopology C) [IsGerbe F J]
+    (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+    {U : C} (x : F.obj (.mk (op U))) :
+    Aut x →* IntrinsicBandSection F U := by sorry
+/-- Evaluation at the identity recovers the chosen automorphism via the native unit constraint. -/
+theorem eval_lift {U : C} (x : F.obj (.mk (op U))) (a : Aut x) :
+    eval F (𝟙 U) x (lift F J hComm x a) = a := by sorry
+theorem lift_one {U : C} (x : F.obj (.mk (op U))) :
+    lift F J hComm x 1 = 1 := by sorry
+theorem lift_mul {U : C} (x : F.obj (.mk (op U))) (a b : Aut x) :
+    lift F J hComm x (a * b) = lift F J hComm x a * lift F J hComm x b := by sorry
+theorem lift_inv {U : C} (x : F.obj (.mk (op U))) (a : Aut x) :
+    lift F J hComm x a⁻¹ = (lift F J hComm x a)⁻¹ := by sorry
+/-- Recovery on any local isomorphism cover, independently of the construction's choices. -/
+theorem lift_app {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op U)))
+    (a : Aut x) (y : F.obj (.mk (op V)))
+    (R : Sieve V) (hR : R ∈ J V)
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj ((F.map f.op.toLoc).toFunctor.obj x) ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) :
+    eval F f y (lift F J hComm x a) =
+      conjugateCoverAut F hComm J R hR ((F.map f.op.toLoc).toFunctor.obj x) y e
+        ((F.map f.op.toLoc).toFunctor.mapAut x a) := by sorry
+theorem lift_globalIso {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op U)))
+    (a : Aut x) (y : F.obj (.mk (op V)))
+    (d : (F.map f.op.toLoc).toFunctor.obj x ≅ y) :
+    eval F f y (lift F J hComm x a) =
+      Aut.autMulEquivOfIso d ((F.map f.op.toLoc).toFunctor.mapAut x a) := by sorry
+/-- Restriction agrees with lifting the pulled automorphism, as whole sections. -/
+theorem lift_restrict {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op U))) (a : Aut x) :
+    restrict F f (lift F J hComm x a) =
+      lift F J hComm ((F.map f.op.toLoc).toFunctor.obj x)
+        ((F.map f.op.toLoc).toFunctor.mapAut x a) := by sorry
+theorem lift_injective {U : C} (x : F.obj (.mk (op U))) :
+    Function.Injective (lift F J hComm x) := by sorry
+-- GerbeBandLiftTests.identity
+example {U : C} (x : F.obj (.mk (op U))) : lift F J hComm x 1 = 1 := by sorry
+-- GerbeBandLiftTests.nontrivial
+example {U : C} (x : F.obj (.mk (op U))) (a : Aut x) (ha : a ≠ 1) :
+    lift F J hComm x a ≠ 1 := by sorry
+-- GerbeBandLiftTests.globalIso
+example {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op U))) (a : Aut x)
+    (y : F.obj (.mk (op V))) (d : (F.map f.op.toLoc).toFunctor.obj x ≅ y) :
+    eval F f y (lift F J hComm x a) =
+      Aut.autMulEquivOfIso d ((F.map f.op.toLoc).toFunctor.mapAut x a) := by sorry
+-- GerbeBandLiftTests.restrictionChain
+example {U V W : C} (f : V ⟶ U) (g : W ⟶ V)
+    (x : F.obj (.mk (op U))) (a : Aut x) :
+    restrict F g (restrict F f (lift F J hComm x a)) =
+      lift F J hComm ((F.map (g ≫ f).op.toLoc).toFunctor.obj x)
+        ((F.map (g ≫ f).op.toLoc).toFunctor.mapAut x a) := by sorry
+-- GerbeBandLiftTests.recovery
+example {U : C} (x : F.obj (.mk (op U))) (a : Aut x) :
+    eval F (𝟙 U) x (lift F J hComm x a) = a := by sorry
+end TauCeti.AlgebraicGeometry.IntrinsicBandSections
