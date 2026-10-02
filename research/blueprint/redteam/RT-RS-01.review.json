@@ -139,7 +139,7 @@
     {
       "finding": "RT-RS-01/28",
       "verdict": "confirmed",
-      "reason": "Confirmed ambiguous agreement boundary. CP.1 and AI.7 both say agreement of prior maps; AI.7's proper S-valued specialization should be distinguished from CP.1's O_C/A_inf diagram, importing PR.6's generic uniqueness input. Narrow that application boundary rather than moving the generic theorem out of PR.6. The inspected BS arXiv v4 has the relevant abstract comparison-isomorphism criterion as Lemma 17.4, pp.120-121; it has no section 18, so use version-qualified locators rather than copying the briefs' section-18 shorthand."
+      "reason": "Confirmed ambiguous agreement boundary. CP.1 and AI.7 both say agreement of prior maps; AI.7's proper S-valued specialization should be distinguished from CP.1's O_C/A_inf diagram, importing PR.6's generic uniqueness input. Narrow that application boundary rather than moving the generic theorem out of PR.6. Correction after reading BS arXiv v4 pp.122-123 on 2 October: section 18 does exist. Notation 18.1 and Theorem 18.2 give uniqueness for the symmetric monoidal prismatic-cohomology functor over a perfect prism on p-completely smooth R-algebras, with maps compatible with its Hodge-Tate structure; no additional Frobenius compatibility is required. Lemma 17.4 is a distinct comparison-isomorphism criterion, not the uniqueness supplier. Preserve the perfect-prism hypothesis and justify the transport to the proper S-valued application rather than apply this theorem directly to an arbitrary Breuil-Kisin prism. This corrects the earlier source note without changing the ownership verdict."
     },
     {
       "finding": "RT-RS-01/29",
