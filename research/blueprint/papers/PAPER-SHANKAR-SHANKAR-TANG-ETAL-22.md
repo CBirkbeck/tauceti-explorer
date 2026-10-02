@@ -2,13 +2,62 @@
 
 Ananth N. Shankar, Arul Shankar, Yunqing Tang and Salim Tayou, *Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields*, [Forum Math. Pi 10 (2022), e21](https://doi.org/10.1017/fmp.2022.14); arXiv [1909.07473](https://arxiv.org/abs/1909.07473).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1393). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.result.json](PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.result.json): 97 items (4 library, 4 planned, 89 missing), 9 routes, 24 prerequisite entries and 6 recorded source issues.
+Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1393). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.result.json](PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.result.json): 97 items (4 library, 4 planned, 89 missing), 9 routes, 24 prerequisite entries and 11 recorded source issues (six original and five additions awaiting independent review).
 
 **Source.** The published open-access PDF (49 pages), SHA-256 `11fbb97a4f7a9e651ea90e249974493aacabf6472daecc0737463c4f64e06d28`, read in full on 2026-09-22.
 
 - Locators are journal pages.
 - arXiv v3 (29 August 2022) is marked as the final version.
 - Bruinier–Kühn's Theorem 4.11 (arXiv:math/0204100v2, pp.27–28) was also read, to check Lemma 5.3.
+
+## Current confirmed fixes (FIX-RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22)
+
+Codex, session `codex-J6LwjP`, 2 October 2026, issue [#5525](https://github.com/CBirkbeck/tauceti-explorer/issues/5525).
+All five confirmed findings are applied in the extraction and route briefs. The [fixes report](../redteam/RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.fixes.md)
+gives the proofs, primary-source versions and checks. The counts remain 97 items (4 library, 4 planned, 89 missing),
+nine routes and 24 prerequisites. All original IDs and the reviewed E1–E6 are retained.
+
+| Finding | Corrected interface | Source observation |
+| --- | --- | --- |
+| 1 | Hanke's s_i is the sum of Jordan block ranks, including dyadic rank-two blocks | E7 |
+| 2 | φ_m(x)=φ̃_m(x,0)+R_x(0,m)−c(m)[ψ(k−1)−2ψ(k)] with the original φ̃ and R | E8 |
+| 3 | Norm-one shell Q(λ)=1 in the count; compact cutoffs in −Q≤T and positive norm ≤2 | E9–E10 |
+| 4 | Pochhammer is a polynomial; the pointwise Gamma quotient and analytic ₂F₁ series have parameter guards | E11 |
+| 5 | General Hodge index is on numerical divisor classes; Pic applies here through the K3 specialization | Extraction correction |
+
+For **dyadic reductions**, s_i=Σ_{j:ν_j=i}rank(L_j). The formulas in Lemma 4.2 remain, including their density normalization.
+For U⊕U⊕⟨4⟩, Q=ab+cd+2t², s_0=4 and s_1=1. For m=2, bad counts modulo 4/8 are **32/640** and good Q′ norm-one
+counts modulo 2/4 are **16/320**. The corrected factor is 2; counting blocks would incorrectly predict 128/2560.
+At odd primes all blocks have rank one, so the conventions agree. Hanke's original p.360 uses the rank sum.
+
+For the **finite part**, write A(u)=2Γ(k−1+u)/Γ(k+2u), with A(0)=4/b and A(0)Res(S)=−c(m).
+The product rule FP(AS)=A(0)FP(S)+A′(0)Res(S) supplies the missing scalar. At b=4,k=3 it is c(m)(2−γ).
+The existing definitions and integral identity for R are preserved. The scalar is O(|c(m)|)=O(m^{b/2}), so Proposition 5.4
+and the stated downstream asymptotic orders survive; this does not withdraw the main Picard-jump theorem.
+
+For **counting**, retain Q(λ)=1 in #{√mλ∈L : Q(λ)=1, |Q(λ_x)|≤1}. Without that constraint the strip is infinite.
+Corollary 4.12 uses smooth nonnegative cutoffs bounded by 2: ω_P≥1 on −Q≤T and zero from −Q≥2T;
+ω_{P⊥}≥1 on Q≤2 and zero from Q≥3. On the normalized shell, Q(λ_{x⊥})=1−Q(λ_x)≤2 for T≤1.
+The product majorizes the required region and has singular integral at most 4μ_∞(Ω_{≤2T})=O(T).
+The theorem conclusions and their error dependence on T are retained.
+
+For **Gamma**, (a)_n=(ascPochhammer C n).eval a for every a. The pointwise quotient Γ(a+n)/Γ(a) requires
+∀j∈N,a≠−j, as the pinned `Complex.Gamma_add_nat_div_Gamma_eq` states. At (a,n)=(0,0) or (−1,1) the polynomial
+values are 1 and −1, while Mathlib's totalized quotients are both zero. Classical analytic ₂F₁ uses c outside nonpositive
+integers; totalized coefficients alone do not supply that analytic interface. Near s=k/2+u, |u|≤1/2 and k≥5/2,
+a=k−1+u, b_hyp=1+u and c=k+2u have positive real parts, so the paper's actual application satisfies all guards.
+E11 is a domain/convention clarification, not an allegation that meromorphic continuation or the positive-parameter use fails.
+
+For **Hodge index**, the nondegenerate form is on N¹(X)_R≅NS(X)⊗R, with signature (1,ρ−1).
+On Pic(X)⊗R its radical is the kernel of the numerical quotient. On E×P¹, a nontorsion degree-zero line bundle pulled
+back from E is a nonzero radical class; the numerical basis has matrix [[0,1],[1,0]]. For the paper's complex K3,
+Pic⁰=0 and the primitive c_1 embedding in /92 justify the Pic signature. SF.5 remains the owner. The published K3
+passage is correct and is not recorded as source errata.
+
+This fix reread targeted passages, not the whole paper or all supplier proofs. `sourceVersions` records the current published,
+arXiv v3, author and Hanke copies with hashes and exact reading scopes. Bounded journal/arXiv/author correction searches
+found no matching correction; the journal HTML opening failed, which is recorded as an access limit. The original full-paper
+reading and review below retain their authors' historical attribution. E7–E11 await independent review. No Lean was compiled.
 
 ## What the paper proves
 
@@ -39,12 +88,12 @@ The proof compares the two sides of the arithmetic height h_Ẑ(m)(Y) = Σ_σ Φ
 ## What the atlas already has
 
 - **Library, Tau Ceti.** Integral lattices, dual lattices, the discriminant group, evenness and signature. Also the order isomorphism between even overlattices and isotropic subgroups of the discriminant form, which is the paper's maximality criterion.
-- **Library, Mathlib.** Clifford algebras with their Z/2-grading and even part, the Gauss hypergeometric function ₂F₁, and Gamma.
+- **Library, Mathlib.** Clifford algebras with their Z/2-grading and even part, polynomial Pochhammer coefficients, the totalized hypergeometric function ₂F₁, and Gamma; the pointwise Gamma quotient and classical analytic series use the guards above.
 - **Planned.**
   - PELModuli M1/M5: the unitary moduli M(r, 1).
   - AbelianSchemesAndArithmeticModuli A4: Serre–Tate and Grothendieck–Messing.
   - NeronModelsAndSemistableAbelianVarieties R11.1: the Néron mapping property.
-  - SchemeAndStackFoundations SF.5: the Hodge index theorem.
+  - SchemeAndStackFoundations SF.5: Hodge index on numerical divisor classes, specialized to K3 via Pic⁰=0 and the primitive first-Chern embedding.
 - **Not in the atlas or the libraries.**
   - GSpin Shimura varieties and their integral models, Kuga–Satake, special endomorphisms and special cycles.
   - Borcherds–Bruinier Green functions and arithmetic modularity.
@@ -66,9 +115,9 @@ The proof compares the two sides of the arithmetic height h_Ẑ(m)(Y) = Σ_σ Φ
      - the lattice counts of §4.3 and all of §§5–6;
      - the counting half of §7, Theorems 2.4 and 1.8, and Theorems 1.4 and 1.6 and Corollary 1.7;
      - the illustrative §7.3.
-   - The brief builds in the corrections E1–E3.
+   - The brief builds in the original E1–E3 and current E7–E11 corrections: total-rank density imports, the finite Laurent scalar, norm-shell/cutoff conditions and Gamma guards.
 3. **New roadmap `K3SurfacesAndSymplecticBoundedness`** (5 items). PAPER-CHARLES-16 proposed this K3 roadmap. It takes the transcendental GSpin datum of a K3 surface, André's Kuga–Satake results, Theorem 1.1, Li–Liedtke's criterion and Corollary 1.3.
-4. **Source of GeometryOfNumbersAndQuadraticArithmetic GN.3** (9 items): the local-density package of §4.1 and Lemma 7.9. These are general statements about maximal lattices of rank ≥ 5.
+4. **Source of GeometryOfNumbersAndQuadraticArithmetic GN.3** (9 items): the local-density package of §4.1 and Lemma 7.9. These are general statements about maximal lattices of rank ≥ 5, with total Jordan ranks in all reduction exponents, including at 2 (E7).
 5. **Source of GN.1 and GN.4** (3 items): successive minima, Minkowski's second theorem, and the Eskin–Katznelson/Schmidt lattice-point count.
 6. **Source of ExponentialSumsAndCircleMethod ES.3 and ES.4** (6 items):
    - singular integrals and series;
@@ -79,7 +128,7 @@ The proof compares the two sides of the arithmetic height h_Ẑ(m)(Y) = Σ_σ Φ
 8. **Source of FaltingsFinitenessAndIsogenyTheorems R28.4** (1 item): Tate's isogeny theorem over finite fields.
 9. **Source of AnalyticNumberTheory AN.2** (1 item): Mertens's first theorem, and Σ_{p | N} log p/p ≤ log log N + O(1).
 
-## Source issues (`sourceIssues` E1–E6)
+## Earlier source issues (`sourceIssues` E1–E6)
 
 - **E1** (gap, affects the proof). This concerns b odd.
   - **The problem.** Lemma 5.3 and Proposition 5.2 are proved only for m with m/D a square: the proof uses that d_0 is independent of m. But Theorems 5.7 and 5.8 are stated for all m. Theorem 5.8 is then applied to arbitrary integers: to M = Q(λ) in Proposition 6.4 and to m = a_1(n)² in Lemma 7.6.
@@ -102,7 +151,7 @@ The proof compares the two sides of the arithmetic height h_Ẑ(m)(Y) = Σ_σ Φ
   - In Proposition 6.4, the explicit constant 14 fails for b ≥ 5, though any constant depending on b works.
 - **E6** (misprint). The printed title of [MST22] omits "over function fields".
 
-**Also checked and correct:**
+**Historical checks by the original extraction (with the current corrections above):**
 - Lemma 4.11 and Lemma 4.14, rederived.
 - The factor 2 in c(m) = −2(2π)^k m^{b/2}Πμ_p/(√|L^∨/L| Γ(k)). It matches the constant term 2𝔢_0 of E_0: for U² ⊕ E_8 the formula gives −1008σ_5 = 2 × (−504σ_5).
 - Corollary 4.3(1), by brute force for x_1x_2 + x_3x_4 + 3x_5² mod 27.
@@ -110,7 +159,7 @@ The proof compares the two sides of the arithmetic height h_Ẑ(m)(Y) = Σ_σ Φ
 - The split example of §9.2, by Hilbert symbols for b = 3, 11 and several d, with b = 5, 7 as controls. d is not specified in the paper.
 - The counting and pigeonhole arguments of §§6–8, and the proof of Theorem 7.1 over S_{D,X}.
 
-Crossref records no correction notice or update relation.
+The original extraction reported no Crossref correction/update relation. The current bounded search and access limits are recorded separately in the fixes report.
 
 ## Prerequisites not yet covered
 
