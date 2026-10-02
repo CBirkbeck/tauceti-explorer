@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Partial 85-declaration blueprint: gerbes and bands on the pinned stack carrier, conditional derived-H2 classification and profinite limits; arbitrary QCoh fpqc descent on schemes and spaces; quotient twisting and prime-to-p inertia; relative Picard sheaf and section-rigidified splitting. All eight stage targets remain open. Exact supplier contracts, source issues, signature omissions and a 68-item routed-source ledger expose remaining work; no implementation is claimed. Continuation by Codex codex-a71f92 adds thirteen R09.3 leaves separating tensor-overlap/native-coalgebra equivalence (arbitrary ring maps) from faithful-flat effectivity, including diagonal normalization, both transition inverse identities, full tensor cocycle, all module arrows, round trips and the actual comparison coaction. Retains all 85 inherited nodes and the 68-item routed ledger; all eight stages remain partial or not_read.",
+  "summary": "Partial 85-declaration blueprint: gerbes and bands on the pinned stack carrier, conditional derived-H2 classification and profinite limits; arbitrary QCoh fpqc descent on schemes and spaces; quotient twisting and prime-to-p inertia; relative Picard sheaf and section-rigidified splitting. All eight stage targets remain open. Exact supplier contracts, source issues, signature omissions and a 68-item routed-source ledger expose remaining work; no implementation is claimed. Continuation by Codex codex-a71f92 adds thirteen R09.3 leaves separating tensor-overlap/native-coalgebra equivalence (arbitrary ring maps) from faithful-flat effectivity, including diagonal normalization, both transition inverse identities, full tensor cocycle, all module arrows, round trips and the actual comparison coaction. Retains all 85 inherited nodes and the 68-item routed ledger; all eight stages remain partial or not_read. Continued with eleven module-specific chosen-pullback/native-descent comparison leaves, importing the existing general descent equivalence. Upstream stage prerequisite encoding is repaired; no stage closes.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -339,6 +339,146 @@
         "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
         "provides": "Maps from a tensor product are equal if they agree on all pure tensors.",
         "checked": "Statement and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02; no elaboration claimed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.DescentData'",
+        "module": "Mathlib/CategoryTheory/Sites/Descent/DescentDataPrime.lean",
+        "provides": "The existing chosen-pair/triple-pullback carrier. Its two relation fields are diagonal normalization and the chosen triple cocycle; the overlap maps are automatically isomorphisms.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "f101070b65acfcb542560568509ad492db17df5e047d12fd922bea5b9cbc472b"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.DescentData'.descentDataEquivalence",
+        "module": "Mathlib/CategoryTheory/Sites/Descent/DescentDataPrime.lean",
+        "provides": "The existing equivalence with all-test-object DescentData, with identity underlying objects and module morphisms. Generic pullHom_hom, hom_self, hom_comp, round trips and naturality are supplied here, not replanned.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "f101070b65acfcb542560568509ad492db17df5e047d12fd922bea5b9cbc472b"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.DescentData'.pullHom'_eq_pullHom",
+        "module": "Mathlib/CategoryTheory/Sites/Descent/DescentDataPrime.lean",
+        "provides": "Restriction to an arbitrary test object is pullHom along its unique map to the chosen pair overlap.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "f101070b65acfcb542560568509ad492db17df5e047d12fd922bea5b9cbc472b"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.DescentData'.pullHom'_ofDescentData_hom",
+        "module": "Mathlib/CategoryTheory/Sites/Descent/DescentDataPrime.lean",
+        "provides": "The extracted chosen-overlap datum recovers every original test-object transition, including pseudofunctor transports.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "f101070b65acfcb542560568509ad492db17df5e047d12fd922bea5b9cbc472b"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.unopUnop",
+        "module": "Mathlib/CategoryTheory/Opposites.lean",
+        "provides": "The double-opposite-to-original functor, on objects and morphisms.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "e53db5b1a854233f88156c346bcaee58dabf9c81a3061ecc0a7eaa56844093af"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.toPseudofunctor",
+        "module": "Mathlib/CategoryTheory/Bicategory/Functor/LocallyDiscrete.lean",
+        "provides": "Lift an existing ordinary functor to locally discrete bicategories.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "412205e7e04b7980e29d4825d0c13a48d5c40f1c79b3fb009bfb76d0306ada1a"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.comp",
+        "module": "Mathlib/CategoryTheory/Bicategory/Functor/Pseudofunctor.lean",
+        "provides": "Native pseudofunctor composition, retaining its actual mapId/mapComp constraints.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "d5ef476a4cbde70668b9be30cf9d8c09dd4478b17a9625abe2b9a12210e8fe1b"
+      },
+      {
+        "ref": "mathlib:CommRingCat.pushoutCoconeIsColimit",
+        "module": "Mathlib/Algebra/Category/Ring/Constructions.lean",
+        "provides": "The tensor product is the pushout of commutative R-algebras; the mediator sends a⊗b to α(a)β(b), with uniqueness.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "6a05f566707ed59be669acbe3c1cd5029417feefa822427e1eedd8616a143697"
+      },
+      {
+        "ref": "mathlib:ModuleCat.extendScalarsId",
+        "module": "Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean",
+        "provides": "Native scalar-extension unit constraint, not a definitional identification.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "83e7c872f0765253fda31771cbdace7b3b74cd24f1d9b3c992162078ed5da69d"
+      },
+      {
+        "ref": "mathlib:ModuleCat.extendScalarsComp",
+        "module": "Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean",
+        "provides": "Native composite extension isomorphism; its hom direction goes from direct extension to iterated extension.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "83e7c872f0765253fda31771cbdace7b3b74cd24f1d9b3c992162078ed5da69d"
+      },
+      {
+        "ref": "mathlib:ModuleCat.extendScalarsComp_hom_app_one_tmul",
+        "module": "Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean",
+        "provides": "The composition constraint sends 1⊗m to 1⊗(1⊗m), with restricted scalar instances.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "83e7c872f0765253fda31771cbdace7b3b74cd24f1d9b3c992162078ed5da69d"
+      },
+      {
+        "ref": "mathlib:ModuleCat.extendScalars_assoc",
+        "module": "Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean",
+        "provides": "Actual associative coherence of scalar-extension constraints.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "83e7c872f0765253fda31771cbdace7b3b74cd24f1d9b3c992162078ed5da69d"
+      },
+      {
+        "ref": "mathlib:ModuleCat.extendScalars_id_comp",
+        "module": "Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean",
+        "provides": "Actual left unit coherence of scalar extension.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "83e7c872f0765253fda31771cbdace7b3b74cd24f1d9b3c992162078ed5da69d"
+      },
+      {
+        "ref": "mathlib:ModuleCat.extendScalars_comp_id",
+        "module": "Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean",
+        "provides": "Actual right unit coherence of scalar extension.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "83e7c872f0765253fda31771cbdace7b3b74cd24f1d9b3c992162078ed5da69d"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Comonad.ComonadicityInternal.comparisonRightAdjointObj",
+        "module": "Mathlib/CategoryTheory/Monad/Comonadicity.lean",
+        "provides": "The existing comparison inverse object is the equalizer of restricted coaction and adjunction unit.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "759fc976a6a0cd641d459e92de54d9b8c658cf7b98af3be78c3ce8de07986aea"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Comonad.ComonadicityInternal.comparisonAdjunction_counit_f_aux",
+        "module": "Mathlib/CategoryTheory/Monad/Comonadicity.lean",
+        "provides": "The comparison counit is the adjunction transpose of the existing equalizer inclusion; this pins its element formula.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "759fc976a6a0cd641d459e92de54d9b8c658cf7b98af3be78c3ce8de07986aea"
+      },
+      {
+        "ref": "mathlib:ModuleCat.kernelIsoKer",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Kernels.lean",
+        "provides": "The existing categorical module kernel is naturally the ordinary linear-map kernel submodule; no generic kernel construction is planned here.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "aaa6de9260d463f2fc022849bfc8fb3a05d988e2c83eb5f062d5d9b85e44037a"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Adjunction.rightAdjointUniq",
+        "module": "Mathlib/CategoryTheory/Adjunction/Unique.lean",
+        "provides": "The existing uniqueness isomorphism compares two right adjoints to the same scalar-extension functor.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "f11fbb6a129a1b43acd345255faf667f48ed1049e794040a044d2310e81d2516"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Adjunction.unit_rightAdjointUniq_hom_app",
+        "module": "Mathlib/CategoryTheory/Adjunction/Unique.lean",
+        "provides": "The adjunction units commute with the actual right-adjoint comparison isomorphism.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "f11fbb6a129a1b43acd345255faf667f48ed1049e794040a044d2310e81d2516"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Adjunction.rightAdjointUniq_hom_app_counit",
+        "module": "Mathlib/CategoryTheory/Adjunction/Unique.lean",
+        "provides": "The adjunction counits commute with scalar extension of the actual right-adjoint comparison.",
+        "checked": "Actual defining fields, parameters and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-5ebb6f; uncompiled.",
+        "sourceSha256": "f11fbb6a129a1b43acd345255faf667f48ed1049e794040a044d2310e81d2516"
       }
     ]
   },
@@ -2515,7 +2655,8 @@
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe",
         "AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe-class",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/h2-classification"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/h2-classification",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
       ],
       "proofSteps": [
         "A global pair (M,φ) would give n·deg(M)=deg(O(1))=1.",
@@ -2544,10 +2685,7 @@
           "match": "The boundary vanishes precisely when the torsor lifts."
         }
       ],
-      "implementationStatus": "unchecked",
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
-      ]
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry:R09.4/class-coefficient-map",
@@ -4316,7 +4454,7 @@
       ],
       "title": "Module overlap descent and comonad coalgebras",
       "kind": "construction",
-      "statement": "For every commutative ring map R→A, the usual tensor-overlap module descent category is equivalent to the existing coalgebras of (extendRestrictScalarsAdj(R→A)).toComonad, preserving the underlying A-module and all its morphisms. The forward coaction is d(n)=θ(n⊗1); the reverse transition is θ(n⊗a)=Σai⊗a ni if d(n)=Σai⊗ni, with inverse ψ(a⊗n)=Σa ni⊗ai. The tensor-overlap category must additionally be compared with the pinned all-test-object Pseudofunctor.DescentData, through the pushout property of A⊗R A and the actual pseudofunctor constraints; that final comparison remains an explicit gap.",
+      "statement": "For every commutative ring map R→A, tensor-overlap module descent is equivalent to the existing scalar-extension comonad coalgebras, preserving the underlying A-module and every morphism. The native all-test-object DescentData category is identified with this presentation through Mathlib’s existing chosen-pullback descent equivalence and the module-specific coordinate comparison. The coaction is d(n)=θ(n⊗1); the reverse transition and its inverse are the inherited coaction-transition maps. No flatness is required for these presentation comparisons.",
       "hypotheses": [
         "Commutative rings R,A in one universe and an arbitrary ring map R→A. Modules and their morphisms are arbitrary; faithful flatness is needed only for the following effective-descent theorem."
       ],
@@ -4324,11 +4462,13 @@
         "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-equivalence",
         "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-comparison-canonical",
         "mathlib:CommRingCat.moduleCatExtendScalarsPseudofunctor",
-        "mathlib:CategoryTheory.Pseudofunctor.DescentData"
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-descent-coalgebra"
       ],
       "proofSteps": [
-        "Use the thirteen fine leaves in this continuation for the tensor-overlap/native-coalgebra comparison; the diagonal, both inverse identities, cocycle, object round trips and morphism square are explicit.",
-        "Separately compare the overlap presentation with pinned DescentData: evaluate arbitrary test objects through the tensor-pushout map and insert the actual mapId/mapComp constraints. This coherence is not discharged by the presentation equivalence and remains the recorded gap."
+        "Use the inherited thirteen overlap/coalgebra leaves.",
+        "Use the new chosen-overlap coordinate and equivalence leaves; import the baseline chosen/all-test equivalence rather than reconstructing generic test-object coherence.",
+        "The same underlying module and all module arrows are retained throughout. The typing and elaboration of these comparisons remain recorded limitations."
       ],
       "acceptance": [
         "The statement covers arbitrary modules and keeps all morphisms, with the specified pullback coherence."
@@ -4399,18 +4539,20 @@
       ],
       "title": "Effective faithfully flat module descent",
       "kind": "theorem",
-      "statement": "For a faithfully flat commutative ring map R→A, the functor M↦(A⊗R M,canonical datum) is an equivalence from ModuleCat R to module descent data. An inverse is the equalizer M={n∈N | 1⊗n=θ(n⊗1)}, and the comparison A⊗R M→N is an isomorphism.",
+      "statement": "For a faithfully flat commutative ring map R→A, the native canonical functor ModuleCat R→affine ModuleCat DescentData for the singleton f.op is an equivalence. Under the tensor-overlap comparison its inverse is M={n∈N | 1⊗n=θ(n⊗1)}. The comparison A⊗R M→N is a↦(m↦a m) and is an isomorphism of the actual descent data, not merely of modules.",
       "hypotheses": [
         "Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction",
-        "mathlib:comonadicExtendScalars"
+        "mathlib:comonadicExtendScalars",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/descent-equalizer-module-coordinates"
       ],
       "proofSteps": [
-        "Compose the baseline comonadic comparison equivalence with the inverse overlap/coalgebra comparison.",
-        "The comparison inverse is the equalizer of coaction and the adjunction unit on the underlying R-module.",
-        "Check that its scalar-extension counit is the canonical tensor map and that the unit and counit identify with the displayed inverse."
+        "Use the pinned comonadicExtendScalars and the native canonical comparison; transfer IsEquivalence through the specified native-descent/coalgebra equivalence.",
+        "Identify the inverse and its counit by descent-equalizer-module-coordinates, including the right-adjoint uniqueness transport.",
+        "Keep the native unit/counit and every module-map naturality square; faithful flatness is used here, after the arbitrary-map presentation equivalences."
       ],
       "acceptance": [
         "R→R×R returns the common component module with all module morphisms.",
@@ -5347,7 +5489,8 @@
         "AlgebraicModuliForArithmeticGeometry:R09.3/space-quasicoherent-modules",
         "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass",
         "DiamondsAndVStacks:D0/stackification",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
       ],
       "proofSteps": [
         "On schemes reuse the pinned line-bundle-class carrier, importing its Picard-group completion rather than rebuilding it.",
@@ -5421,10 +5564,7 @@
       ],
       "planet": {
         "name": "Relative Picard functor"
-      },
-      "upstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
-      ]
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-base-change",
@@ -6434,6 +6574,598 @@
           "how": "Supplies the actual canonical transition, its cocycle and maps before comparing with native Comonad.comparison."
         }
       ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.3",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "title": "Tensor coordinates of the chosen overlap modules",
+      "kind": "construction",
+      "statement": "Put B=A⊗R A, with i0(a)=a⊗1 and i1(a)=1⊗a. For an A-module N, define B-linear isomorphisms c0:B⊗_(A,i0)N→N⊗R A and c1:B⊗_(A,i1)N→A⊗R N. Their formulas are c0((a⊗b)⊗n)=a n⊗b and c1((a⊗b)⊗n)=a⊗b n; inverses send n⊗b to (1⊗b)⊗n and a⊗n to (a⊗1)⊗n. Retain the two different B-actions and naturality for every A-linear map.",
+      "hypotheses": [
+        "Commutative rings R,A in the pinned universe, an arbitrary homomorphism f:R→A and arbitrary A-modules with all their module morphisms.",
+        "Use the transported native scalar-extension pseudofunctor on the double opposite of CommRingCat. Choose the native tensor pushout for the pair overlap and the iterated pushout over the shared middle factor for the triple overlap. No flatness or finiteness is required unless the conclusion explicitly assumes faithful flatness."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum",
+        "mathlib:CommRingCat.pushoutCoconeIsColimit",
+        "mathlib:ModuleCat.extendScalarsComp",
+        "mathlib:TensorProduct.lift",
+        "mathlib:TensorProduct.ext'"
+      ],
+      "proofSteps": [
+        "Construct the maps by balanced tensor lifts. For c0, the i0 balancing relation identifies (a r⊗b)⊗n with (a⊗b)⊗r n; c1 uses the analogous i1 relation.",
+        "The displayed inverse formulas respect R-balancing. On pure tensors both composites reduce to identity by the A-balancing relation; use tensor extensionality.",
+        "The B actions on the targets are (a⊗b)·(n⊗t)=a n⊗b t and (a⊗b)·(s⊗n)=a s⊗b n. Check both factors and arbitrary module maps.",
+        "Use the existing pushout proof for the diagram in CommRingCatᵒᵖ; no new tensor product, chosen-pullback carrier or generic universal property is constructed."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Retain the prescribed two overlap actions, native unit/composition transports and all module morphisms; no faithful-flatness hypothesis enters an arbitrary-map presentation comparison."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Descent/Modules",
+        "namespace": "TauCeti.AlgebraicGeometry.ModuleDescentAllTests"
+      },
+      "sources": [
+        {
+          "sourceId": "SP023F",
+          "locator": "Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated",
+          "excerpt": "descent datum",
+          "match": "Module-specific derivation combining the source tensor convention with the actual pinned chosen-pullback DescentData equivalence; not a statement that the source supplies Mathlib carrier coherence."
+        }
+      ],
+      "api": [
+        {
+          "name": "OverlapPullbackCoordinates.left",
+          "role": "compatibility",
+          "statement": "The first extension module has the displayed c0 and inverse."
+        },
+        {
+          "name": "OverlapPullbackCoordinates.right",
+          "role": "compatibility",
+          "statement": "The second extension module has the displayed c1 and inverse."
+        },
+        {
+          "name": "OverlapPullbackCoordinates.map",
+          "role": "compatibility",
+          "statement": "Both isomorphisms commute with every A-linear map N→N′."
+        }
+      ],
+      "tests": [
+        {
+          "name": "OverlapPullbackTests.identity",
+          "kind": "degenerate",
+          "statement": "For f=idR, both coordinates reduce to native scalar-extension unitors."
+        },
+        {
+          "name": "OverlapPullbackTests.factors",
+          "kind": "computation",
+          "statement": "For R=F3,A=F3×F3,N=A, the left coordinate puts the first idempotent action on N and the right coordinate puts the second there; swapping the actions fails."
+        },
+        {
+          "name": "OverlapPullbackTests.zeroRing",
+          "kind": "degenerate",
+          "statement": "For the zero coefficient ring, both maps are the unique maps of zero modules; no Nontrivial premise is added."
+        }
+      ],
+      "uses": [
+        {
+          "where": "R09.3 affine effective descent and FunctionFieldArithmeticPartII RS.1 fpqc root descent",
+          "how": "Compare the arbitrary-module overlap construction with the exact native descent-data carrier, keeping the canonical functor and every morphism."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-diagonal",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.3",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "title": "The native diagonal has the overlap normalization",
+      "kind": "lemma",
+      "statement": "Transport θ:N⊗R A≅A⊗R N to H=c1^−1 θ c0 between the native pair-overlap extensions. The native DescentData′ pullHom′ of H along the diagonal of f.op is identity on N. Its tensor mediator is multiplication μ:B→A, and this identity is exactly the existing overlap-diagonal lemma after inserting the native unit and composition isomorphisms.",
+      "hypotheses": [
+        "Commutative rings R,A in the pinned universe, an arbitrary homomorphism f:R→A and arbitrary A-modules with all their module morphisms.",
+        "Use the transported native scalar-extension pseudofunctor on the double opposite of CommRingCat. Choose the native tensor pushout for the pair overlap and the iterated pushout over the shared middle factor for the triple overlap. No flatness or finiteness is required unless the conclusion explicitly assumes faithful flatness."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-diagonal",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData'.pullHom'_eq_pullHom",
+        "mathlib:ModuleCat.extendScalarsId",
+        "mathlib:ModuleCat.extendScalarsComp"
+      ],
+      "proofSteps": [
+        "The pushout mediator for the two identity maps A→A is μ(a⊗b)=ab.",
+        "Conjugate H by the actual mapComp inverse at the source and mapComp hom at the target, as in native pullHom; then apply the mapId unitors.",
+        "On n the resulting map is ε(θ(n⊗1)), which is identity by overlap-diagonal.",
+        "Use the native left/right unit coherence to identify the resulting map with the literal pullHom′_hom_self field, rather than imposing that field as a new assumption."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Retain the prescribed two overlap actions, native unit/composition transports and all module morphisms; no faithful-flatness hypothesis enters an arbitrary-map presentation comparison."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Descent/Modules",
+        "namespace": "TauCeti.AlgebraicGeometry.ModuleDescentAllTests"
+      },
+      "sources": [
+        {
+          "sourceId": "SP023F",
+          "locator": "Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated",
+          "excerpt": "descent datum",
+          "match": "Module-specific derivation combining the source tensor convention with the actual pinned chosen-pullback DescentData equivalence; not a statement that the source supplies Mathlib carrier coherence."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-triple",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.3",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "title": "The native triple cocycle is the tensor insertion equation",
+      "kind": "lemma",
+      "statement": "Choose the native triple overlap by the pullback of the two pair overlaps over their shared middle A-factor. Its coordinate ring identifies with (A⊗R A)⊗R A. Under the displayed extension coordinates and native scalar-extension associators, native pullHom′ along p01,p12,p02 gives θ01,θ12,θ02 respectively. Thus its relation H01≫H12=H02 is exactly θ12∘θ01=θ02, with categorical and function-composition orders distinguished.",
+      "hypotheses": [
+        "Commutative rings R,A in the pinned universe, an arbitrary homomorphism f:R→A and arbitrary A-modules with all their module morphisms.",
+        "Use the transported native scalar-extension pseudofunctor on the double opposite of CommRingCat. Choose the native tensor pushout for the pair overlap and the iterated pushout over the shared middle factor for the triple overlap. No flatness or finiteness is required unless the conclusion explicitly assumes faithful flatness."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum",
+        "mathlib:CommRingCat.pushoutCoconeIsColimit",
+        "mathlib:ModuleCat.extendScalars_assoc",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData'.pullHom'_eq_pullHom",
+        "mathlib:TensorProduct.ext'"
+      ],
+      "proofSteps": [
+        "The iterated pair-overlap pushout is over the shared middle A-action. Its universal ring map sends (a⊗b)⊗_(A)(c⊗d) to a⊗bc⊗d; its inverse sends a⊗b⊗d to (a⊗b)⊗_(A)(1⊗d). Verify balancing and both composites on pure tensors.",
+        "The three pair projections have ring maps a⊗b↦a⊗b⊗1, a⊗b↦1⊗a⊗b and a⊗b↦a⊗1⊗b. These are uniquely fixed by their A-factor composites.",
+        "Compute each pullHom′ using the native composition constraints; use extendScalars_assoc to compare the three parenthesizations.",
+        "On n⊗b⊗c the two routes become the existing tensor-cocycle routes. Tensor extensionality gives the chosen triple relation. No generic all-test-object cocycle theorem is replanned."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Retain the prescribed two overlap actions, native unit/composition transports and all module morphisms; no faithful-flatness hypothesis enters an arbitrary-map presentation comparison."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Descent/Modules",
+        "namespace": "TauCeti.AlgebraicGeometry.ModuleDescentAllTests"
+      },
+      "sources": [
+        {
+          "sourceId": "SP023F",
+          "locator": "Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated",
+          "excerpt": "descent datum",
+          "match": "Module-specific derivation combining the source tensor convention with the actual pinned chosen-pullback DescentData equivalence; not a statement that the source supplies Mathlib carrier coherence."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-chosen-descent",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.3",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "title": "An overlap datum on the native chosen-pullback carrier",
+      "kind": "construction",
+      "statement": "An existing ModuleOverlapDatum(f) defines an object of the existing affine module pseudofunctor DescentData′ for the singleton f.op and the chosen tensor pair/triple pullbacks. Its sole object is N, its native overlap map is c1^−1 θ c0, and its two equation fields are the preceding diagonal and triple comparisons. On arrows it retains every A-linear overlap morphism.",
+      "hypotheses": [
+        "Commutative rings R,A in the pinned universe, an arbitrary homomorphism f:R→A and arbitrary A-modules with all their module morphisms.",
+        "Use the transported native scalar-extension pseudofunctor on the double opposite of CommRingCat. Choose the native tensor pushout for the pair overlap and the iterated pushout over the shared middle factor for the triple overlap. No flatness or finiteness is required unless the conclusion explicitly assumes faithful flatness."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-diagonal",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-triple",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData'",
+        "mathlib:CategoryTheory.unopUnop",
+        "mathlib:CategoryTheory.Functor.toPseudofunctor",
+        "mathlib:CategoryTheory.Pseudofunctor.comp"
+      ],
+      "proofSteps": [
+        "Transport the existing CommRingCat scalar-extension pseudofunctor through unopUnop; its constraints are the native composite constraints, not independently chosen maps.",
+        "Use the actual native chosen-pullback objects, and fill obj, hom, pullHom′_hom_self and pullHom′_hom_comp with the preceding lemmas.",
+        "The native Hom.comm field is the old overlap square conjugated by c0 and c1; identities and compositions are inherited componentwise."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Retain the prescribed two overlap actions, native unit/composition transports and all module morphisms; no faithful-flatness hypothesis enters an arbitrary-map presentation comparison."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Descent/Modules",
+        "namespace": "TauCeti.AlgebraicGeometry.ModuleDescentAllTests"
+      },
+      "sources": [
+        {
+          "sourceId": "SP023F",
+          "locator": "Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated",
+          "excerpt": "descent datum",
+          "match": "Module-specific derivation combining the source tensor convention with the actual pinned chosen-pullback DescentData equivalence; not a statement that the source supplies Mathlib carrier coherence."
+        }
+      ],
+      "api": [
+        {
+          "name": "ModuleOverlapDatum.toChosen",
+          "role": "compatibility",
+          "statement": "Construct the native DescentData′ object on N."
+        },
+        {
+          "name": "ModuleOverlapDatum.toChosen_hom",
+          "role": "compatibility",
+          "statement": "The native overlap morphism is c1^−1 θ c0."
+        },
+        {
+          "name": "ModuleOverlapDatum.toChosen_map",
+          "role": "compatibility",
+          "statement": "Every overlap morphism gives the same underlying A-linear native arrow."
+        }
+      ],
+      "tests": [
+        {
+          "name": "OverlapChosenTests.identity",
+          "kind": "degenerate",
+          "statement": "For f=idR and the canonical overlap, the native datum is identity through the existing unitors."
+        },
+        {
+          "name": "OverlapChosenTests.nonflat",
+          "kind": "non-example",
+          "statement": "The conversion exists for Z→Z/2Z; it makes no claim that ModuleCat Z is equivalent to these data."
+        },
+        {
+          "name": "OverlapChosenTests.zeroMap",
+          "kind": "degenerate",
+          "statement": "The zero module map between canonical data remains a morphism; no groupoid core or invertibility premise is imposed."
+        }
+      ],
+      "uses": [
+        {
+          "where": "R09.3 affine effective descent and FunctionFieldArithmeticPartII RS.1 fpqc root descent",
+          "how": "Compare the arbitrary-module overlap construction with the exact native descent-data carrier, keeping the canonical functor and every morphism."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-descent-to-overlap",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.3",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "title": "A tensor overlap from native chosen descent data",
+      "kind": "construction",
+      "statement": "From a singleton native DescentData′ object D recover ModuleOverlapDatum(f) on D.obj(*) by θ=c1 D.hom(*,*) c0^−1. The native IsIso instance supplies its inverse. Native diagonal and triple fields, transported by the preceding comparisons, give the exact old overlap cocycle. The construction retains the underlying module and all its morphisms.",
+      "hypotheses": [
+        "Commutative rings R,A in the pinned universe, an arbitrary homomorphism f:R→A and arbitrary A-modules with all their module morphisms.",
+        "Use the transported native scalar-extension pseudofunctor on the double opposite of CommRingCat. Choose the native tensor pushout for the pair overlap and the iterated pushout over the shared middle factor for the triple overlap. No flatness or finiteness is required unless the conclusion explicitly assumes faithful flatness."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-diagonal",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-triple",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData'"
+      ],
+      "proofSteps": [
+        "Take the actual native D.obj and D.hom and conjugate through the two distinct extension-coordinate maps.",
+        "Use the native chosen-datum IsIso instance, which follows from its two relation fields; do not assume its arrows are invertible independently.",
+        "The tensor triple comparison converts the native relation to the old cocycle. Convert each native Hom.comm square by c0,c1 naturality."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Retain the prescribed two overlap actions, native unit/composition transports and all module morphisms; no faithful-flatness hypothesis enters an arbitrary-map presentation comparison."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Descent/Modules",
+        "namespace": "TauCeti.AlgebraicGeometry.ModuleDescentAllTests"
+      },
+      "sources": [
+        {
+          "sourceId": "SP023F",
+          "locator": "Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated",
+          "excerpt": "descent datum",
+          "match": "Module-specific derivation combining the source tensor convention with the actual pinned chosen-pullback DescentData equivalence; not a statement that the source supplies Mathlib carrier coherence."
+        }
+      ],
+      "api": [
+        {
+          "name": "ChosenModuleDescent.toOverlap",
+          "role": "compatibility",
+          "statement": "Recover the tensor overlap on the same module."
+        },
+        {
+          "name": "ChosenModuleDescent.toOverlap_transition",
+          "role": "compatibility",
+          "statement": "The transition is c1 D.hom c0^−1, with its transported inverse."
+        },
+        {
+          "name": "ChosenModuleDescent.toOverlap_map",
+          "role": "compatibility",
+          "statement": "A native datum arrow gives the same A-linear overlap arrow."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ChosenOverlapTests.canonical",
+          "kind": "computation",
+          "statement": "A canonical native datum recovers θ((a⊗m)⊗b)=a⊗(b⊗m)."
+        },
+        {
+          "name": "ChosenOverlapTests.zero",
+          "kind": "degenerate",
+          "statement": "The zero native datum recovers the zero overlap datum."
+        },
+        {
+          "name": "ChosenOverlapTests.noninvertible",
+          "kind": "non-example",
+          "statement": "The zero map between nonzero canonical data remains an overlap map and is not made invertible."
+        }
+      ],
+      "uses": [
+        {
+          "where": "R09.3 affine effective descent and FunctionFieldArithmeticPartII RS.1 fpqc root descent",
+          "how": "Compare the arbitrary-module overlap construction with the exact native descent-data carrier, keeping the canonical functor and every morphism."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-roundtrips",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.3",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "title": "The chosen-datum conversions are inverse on objects",
+      "kind": "lemma",
+      "statement": "Converting an overlap datum to chosen descent and back returns its original θ; converting a native chosen datum to overlap and back returns its original hom. The underlying modules stay identical; proof fields agree by proof irrelevance and the specified coordinate isomorphisms.",
+      "hypotheses": [
+        "Commutative rings R,A in the pinned universe, an arbitrary homomorphism f:R→A and arbitrary A-modules with all their module morphisms.",
+        "Use the transported native scalar-extension pseudofunctor on the double opposite of CommRingCat. Choose the native tensor pushout for the pair overlap and the iterated pushout over the shared middle factor for the triple overlap. No flatness or finiteness is required unless the conclusion explicitly assumes faithful flatness."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-chosen-descent",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-descent-to-overlap"
+      ],
+      "proofSteps": [
+        "Expand the two conjugations and cancel c0,c1 with their inverses. No flatness or injectivity of tensoring is used.",
+        "Use the resulting equality of overlap maps or native hom fields to compare objects, including their equation fields by proof irrelevance.",
+        "For the singleton index, compare all object components using its Unique instance; the comparison arrows have identity underlying module maps."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Retain the prescribed two overlap actions, native unit/composition transports and all module morphisms; no faithful-flatness hypothesis enters an arbitrary-map presentation comparison."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Descent/Modules",
+        "namespace": "TauCeti.AlgebraicGeometry.ModuleDescentAllTests"
+      },
+      "sources": [
+        {
+          "sourceId": "SP023F",
+          "locator": "Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated",
+          "excerpt": "descent datum",
+          "match": "Module-specific derivation combining the source tensor convention with the actual pinned chosen-pullback DescentData equivalence; not a statement that the source supplies Mathlib carrier coherence."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-morphisms",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.3",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "title": "The chosen comparison preserves every module morphism",
+      "kind": "lemma",
+      "statement": "For an A-linear h:N→N′, the tensor overlap commuting square holds if and only if the native chosen DescentData′ Hom.comm equation holds after c0,c1 transport. Both conversions retain h and its identity/composition laws, including noninvertible h.",
+      "hypotheses": [
+        "Commutative rings R,A in the pinned universe, an arbitrary homomorphism f:R→A and arbitrary A-modules with all their module morphisms.",
+        "Use the transported native scalar-extension pseudofunctor on the double opposite of CommRingCat. Choose the native tensor pushout for the pair overlap and the iterated pushout over the shared middle factor for the triple overlap. No flatness or finiteness is required unless the conclusion explicitly assumes faithful flatness."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-chosen-descent",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-descent-to-overlap",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData'"
+      ],
+      "proofSteps": [
+        "Conjugate the native square by c0,c1 and use their naturality on each module-map side.",
+        "Cancel the coordinate isomorphisms to obtain the old overlap square in both directions.",
+        "Native and overlap Hom extensionality identify maps by the sole underlying module morphism. This reflects the unit/counit naturality equations."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Retain the prescribed two overlap actions, native unit/composition transports and all module morphisms; no faithful-flatness hypothesis enters an arbitrary-map presentation comparison."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Descent/Modules",
+        "namespace": "TauCeti.AlgebraicGeometry.ModuleDescentAllTests"
+      },
+      "sources": [
+        {
+          "sourceId": "SP023F",
+          "locator": "Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated",
+          "excerpt": "descent datum",
+          "match": "Module-specific derivation combining the source tensor convention with the actual pinned chosen-pullback DescentData equivalence; not a statement that the source supplies Mathlib carrier coherence."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-equivalence",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.3",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "title": "Tensor overlap and native chosen descent are equivalent",
+      "kind": "comparison",
+      "statement": "ModuleOverlapDatum(f) is equivalent over ModuleCat A to the native singleton DescentData′ category for the chosen tensor overlaps. The unit and counit are identities on the underlying module, using the proved object round trips. No new generic descent carrier, test-object coherence or quotient of morphisms is defined.",
+      "hypotheses": [
+        "Commutative rings R,A in the pinned universe, an arbitrary homomorphism f:R→A and arbitrary A-modules with all their module morphisms.",
+        "Use the transported native scalar-extension pseudofunctor on the double opposite of CommRingCat. Choose the native tensor pushout for the pair overlap and the iterated pushout over the shared middle factor for the triple overlap. No flatness or finiteness is required unless the conclusion explicitly assumes faithful flatness."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-roundtrips",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-morphisms"
+      ],
+      "proofSteps": [
+        "Use the two conversions for object and arrow maps.",
+        "Object round trips give identity-on-module unit and counit; the morphism lemma gives naturality.",
+        "The triangle identity is reflected by the faithful underlying-module functor and is identity composition there."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Retain the prescribed two overlap actions, native unit/composition transports and all module morphisms; no faithful-flatness hypothesis enters an arbitrary-map presentation comparison."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Descent/Modules",
+        "namespace": "TauCeti.AlgebraicGeometry.ModuleDescentAllTests"
+      },
+      "sources": [
+        {
+          "sourceId": "SP023F",
+          "locator": "Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated",
+          "excerpt": "descent datum",
+          "match": "Module-specific derivation combining the source tensor convention with the actual pinned chosen-pullback DescentData equivalence; not a statement that the source supplies Mathlib carrier coherence."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-descent-coalgebra",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.3",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "title": "Native affine descent data and coalgebras",
+      "kind": "theorem",
+      "statement": "For every f:R→A the native all-test-object affine ModuleCat DescentData for the singleton f.op is equivalent to the existing coalgebras of (extendRestrictScalarsAdj f).toComonad. The equivalence retains the underlying A-module and every module morphism. It is the composite of the existing chosen/all-test equivalence, the module-specific chosen/overlap equivalence, and the inherited overlap/coalgebra equivalence. This comparison needs no faithful flatness.",
+      "hypotheses": [
+        "Commutative rings R,A in the pinned universe, an arbitrary homomorphism f:R→A and arbitrary A-modules with all their module morphisms.",
+        "Use the transported native scalar-extension pseudofunctor on the double opposite of CommRingCat. Choose the native tensor pushout for the pair overlap and the iterated pushout over the shared middle factor for the triple overlap. No flatness or finiteness is required unless the conclusion explicitly assumes faithful flatness."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-equivalence",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-equivalence",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData'.descentDataEquivalence"
+      ],
+      "proofSteps": [
+        "Use the inverse of the actual baseline descentDataEquivalence to extract the chosen datum; use the inverse chosen/overlap equivalence, then the existing overlap/coalgebra equivalence.",
+        "The generic baseline equivalence already proves all-test-object pullback compatibility, diagonal and triple relations, and its own round trips. These are imported, not new node obligations.",
+        "Compose the three specified underlying-module comparisons. Because each retains the sole object and module arrows, the resulting forgetful natural isomorphism has identity underlying maps.",
+        "For α,β:A→C agreeing on R, the baseline lift is the tensor-pushout mediator χ(a⊗b)=α(a)β(b); its pullHom formula inserts actual mapComp constraints. This identifies the displayed native comparison on every test ring, including nonflat C."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Retain the prescribed two overlap actions, native unit/composition transports and all module morphisms; no faithful-flatness hypothesis enters an arbitrary-map presentation comparison."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Descent/Modules",
+        "namespace": "TauCeti.AlgebraicGeometry.ModuleDescentAllTests"
+      },
+      "sources": [
+        {
+          "sourceId": "SP023F",
+          "locator": "Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated",
+          "excerpt": "descent datum",
+          "match": "Module-specific derivation combining the source tensor convention with the actual pinned chosen-pullback DescentData equivalence; not a statement that the source supplies Mathlib carrier coherence."
+        }
+      ],
+      "planet": {
+        "name": "Affine module descent comparison"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.3",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "title": "The native canonical datum matches the comonadic comparison",
+      "kind": "comparison",
+      "statement": "Let E be the native all-test-object-to-coalgebra equivalence. The native canonical toDescentData functor followed by E.functor is naturally isomorphic to Comonad.comparison(extendRestrictScalarsAdj f). The isomorphism is identity on the underlying A⊗R M; its coaction is a⊗m↦a⊗(1⊗m), and its arrow map is a⊗m↦a⊗h(m).",
+      "hypotheses": [
+        "Commutative rings R,A in the pinned universe, an arbitrary homomorphism f:R→A and arbitrary A-modules with all their module morphisms.",
+        "Use the transported native scalar-extension pseudofunctor on the double opposite of CommRingCat. Choose the native tensor pushout for the pair overlap and the iterated pushout over the shared middle factor for the triple overlap. No flatness or finiteness is required unless the conclusion explicitly assumes faithful flatness."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-descent-coalgebra",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-comparison-canonical",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/canonical-overlap-functor",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData",
+        "mathlib:ModuleCat.extendScalarsComp",
+        "mathlib:ModuleCat.extendScalarsComp_hom_app_one_tmul",
+        "mathlib:ModuleCat.extendScalars_assoc",
+        "mathlib:ModuleCat.extendScalars_id_comp",
+        "mathlib:ModuleCat.extendScalars_comp_id"
+      ],
+      "proofSteps": [
+        "Read native DescentData.ofObj: at α,β its transition is the source mapComp inverse followed by the target mapComp hom.",
+        "At the chosen tensor overlap, apply the extension coordinates. On (a⊗m)⊗b the resulting map is a⊗(b⊗m), the inherited canonical overlap formula; prove equality by tensor extensionality.",
+        "Apply the inherited canonical overlap/coalgebra comparison to identify the native comonadic object and arrow fields.",
+        "Naturality holds on every R-module map. Native associativity and unit coherence ensure the comparison is for the same canonical functor, not only an abstract equivalence of categories."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Retain the prescribed two overlap actions, native unit/composition transports and all module morphisms; no faithful-flatness hypothesis enters an arbitrary-map presentation comparison."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Descent/Modules",
+        "namespace": "TauCeti.AlgebraicGeometry.ModuleDescentAllTests"
+      },
+      "sources": [
+        {
+          "sourceId": "SP023F",
+          "locator": "Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated",
+          "excerpt": "descent datum",
+          "match": "Module-specific derivation combining the source tensor convention with the actual pinned chosen-pullback DescentData equivalence; not a statement that the source supplies Mathlib carrier coherence."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.3/descent-equalizer-module-coordinates",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.3",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "title": "The native comparison inverse has the stated fixed module",
+      "kind": "lemma",
+      "statement": "For a native descent datum D with associated coalgebra (N,d), the existing comparison inverse equalizer of U(d) and η_(U N) is the R-submodule M={n∈N | d(n)=1⊗n}. Its inclusion is the ordinary submodule inclusion, its arrow map is the restriction of the underlying module map, and the native comparison counit has element formula a⊗m↦a m. When f is faithfully flat this counit is an isomorphism and agrees with the original datum transitions.",
+      "hypotheses": [
+        "Commutative rings R,A in the pinned universe, an arbitrary homomorphism f:R→A and arbitrary A-modules with all their module morphisms.",
+        "Use the transported native scalar-extension pseudofunctor on the double opposite of CommRingCat. Choose the native tensor pushout for the pair overlap and the iterated pushout over the shared middle factor for the triple overlap. No flatness or finiteness is required unless the conclusion explicitly assumes faithful flatness."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison",
+        "mathlib:CategoryTheory.Comonad.ComonadicityInternal.comparisonRightAdjointObj",
+        "mathlib:CategoryTheory.Comonad.ComonadicityInternal.comparisonAdjunction_counit_f_aux",
+        "mathlib:ModuleCat.kernelIsoKer",
+        "mathlib:ModuleCat.extendRestrictScalarsAdj_unit_app_apply",
+        "mathlib:comonadicExtendScalars",
+        "mathlib:CategoryTheory.Adjunction.rightAdjointUniq",
+        "mathlib:CategoryTheory.Adjunction.unit_rightAdjointUniq_hom_app",
+        "mathlib:CategoryTheory.Adjunction.rightAdjointUniq_hom_app_counit"
+      ],
+      "proofSteps": [
+        "The existing equalizer pair is exactly U(d),η_(U N). Evaluate the native unit to obtain 1⊗n and use the existing module kernel/submodule comparison for their difference; no generic equalizer is replanned.",
+        "The inherited coalgebra morphism equation sends equalizing elements to equalizing elements, so the inverse arrow is the restricted module map and agrees with the native equalizer universal map.",
+        "Use the existing comparisonAdjunction_counit_f_aux: the counit is the adjunction transpose of the equalizer inclusion. Evaluate the tensor/restriction adjunction to get a⊗m↦a m.",
+        "The native coalgebra counit is a coalgebra morphism. Transport it through E and the canonical comparison to obtain an isomorphism of the original native descent data when comonadicExtendScalars applies.",
+        "The actual comonadicExtendScalars construction invokes the native Beck theorem with extendRestrictScalarsAdj f; its structure fields have R=restrictScalars f and adj equal to that specific adjunction, up to the source convert transport. Verify those fields when transcribing it. If the chosen instance introduces another right adjoint, use rightAdjointUniq and its two unit/counit compatibility lemmas: applying L to the comparison and composing each coaction gives the inverse coalgebra transports, with the laws following from those compatibilities. Do not silently substitute an unrelated chosen adjunction."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Retain the prescribed two overlap actions, native unit/composition transports and all module morphisms; no faithful-flatness hypothesis enters an arbitrary-map presentation comparison."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Descent/Modules",
+        "namespace": "TauCeti.AlgebraicGeometry.ModuleDescentAllTests"
+      },
+      "sources": [
+        {
+          "sourceId": "SP023F",
+          "locator": "Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated",
+          "excerpt": "descent datum",
+          "match": "Module-specific derivation combining the source tensor convention with the actual pinned chosen-pullback DescentData equivalence; not a statement that the source supplies Mathlib carrier coherence."
+        }
+      ]
     }
   ],
   "requests": [
@@ -6625,8 +7357,8 @@
       "stageId": "AlgebraicModuliForArithmeticGeometry:R09.3",
       "status": "partial",
       "remaining": [
-        "Twenty-seven leaves cover the existing arbitrary-scheme/algebraic-space QCoh descent chain, finite-presentation/finite-local-free detection, and thirteen explicit tensor-overlap/native-coalgebra proof leaves. No stage is closed: supplier and typed all-test-object comparison obligations remain.",
-        "Complete and elaborate the exact tensor-pushout/all-test-object DescentData comparison with its unit/composition and equalizer coherence. The two transition inverses and full tensor cocycle now have explicit separate proof outlines; no Lean verification is claimed.",
+        "Thirty-eight module-descent leaves now include eleven native chosen-pullback comparison leaves. The baseline chosen/all-test-object equivalence is imported. No stage closes: all typed adapter proofs and geometric supplier contracts remain unchecked.",
+        "Implement and elaborate the module extension-coordinate maps, diagonal/triple identification, chosen-overlap equivalence, native canonical comparison and equalizer/counit coordinates. Prove the actual right-adjoint uniqueness transport before invoking the chosen comonadic adjunction.",
         "Coherent locally Noetherian etale-presentation descent and proper GAGA remain pending. Import ordinary object descent from ModularCurves0E and polarized etale Proj descent from StableReduction2.",
         "General polarized fppf projective-scheme descent, finite-locally-free Weil restriction on algebraic spaces (Stacks05YC/05YF, compare RG2.0a), and their base-change/effectivity leaves remain pending. Abelian-specific data belong downstream."
       ]
@@ -6728,20 +7460,15 @@
       ]
     },
     {
-      "title": "All-test-object descent-data and tensor-pushout coherence remain unverified",
-      "detail": "The thirteen continuation leaves now decompose the overlap/native-coalgebra proof, including both inverse maps and all morphisms, for arbitrary ring maps. What remains is a typed comparison between this tensor presentation and the pinned Pseudofunctor.DescentData, which quantifies over all test rings and includes pullHom_hom, hom_self and hom_comp. Construct it using the tensor-pushout universal property, prove its inverse and naturality against actual moduleCatExtendScalarsPseudofunctor mapId/mapComp constraints, and check its equalizer identification. The proposed overlap-action/extension carrier is not yet implemented or elaborated; none of the new mathematical proof outlines closes a formalized statement.",
+      "title": "Native chosen-overlap coordinates and comparison elaboration",
+      "detail": "The baseline already supplies DescentData′ and its chosen/all-test equivalence. Eleven new leaves supply the module-specific coordinates, diagonal/triple identification, forward/reverse conversions, full morphisms and round trips, canonical-functor and equalizer comparisons. Type and elaborate the overlap-action/extension carrier, all native transports and the specified right-adjoint comparison at the pinned build. No generic all-test coherence is missing as a baseline theorem; these module adapters and their Lean proofs remain unchecked.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction",
         "AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum",
-        "AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence"
-      ]
-    },
-    {
-      "title": "Upstream-stage prerequisite encoding",
-      "detail": "The packet checker treats canonical tauceti:TauCetiRoadmap stage IDs as baseline declaration names. The two actual Layer A imports are therefore retained as typed upstreamPrerequisites, with exact requests, and included in the independent graph audit. They are not existing Lean declarations; restore ordinary prerequisites when the checker supports upstream stage IDs.",
-      "neededBy": [
-        "AlgebraicModuliForArithmeticGeometry:R09.4/root-o1-nonneutral",
-        "AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf"
+        "AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/descent-equalizer-module-coordinates"
       ]
     }
   ],
@@ -7846,5 +8573,23 @@
     "closed": 0,
     "keyObligation": "AlgebraicModuliForArithmeticGeometry:key/gerbes",
     "method": "Deduplicated every explicit PAPER item ID in issue672, read each extracted statement and note, and matched it to owned work or reserved imports. The broader gerbe key consumers are recorded in node uses and the source registry. The attachment audit is not a claim to have read every primary paper."
-  }
+  },
+  "continuationResolved": [
+    {
+      "agent": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "what": "The merged checker now resolves tauceti:TauCetiRoadmap IDs as actual stages. Both JacobianChallenge Layer A imports are restored to ordinary prerequisites; the encoding gap is removed. This is not completion of the upstream mathematical contracts."
+    }
+  ],
+  "continuationHistory": [
+    {
+      "agent": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "preservedNodes": 98,
+      "addedNodes": 11,
+      "source": "Fresh full Stacks35.3 reading and pinned native DescentDataPrime, ChosenPullback, scalar-extension and comonadicity statement/proof reads.",
+      "sourceHash": "d5b82802e667aa651dffd7498d362bb9a5aadf49f838b1351233d2dc3536c282",
+      "compiled": false
+    }
+  ]
 }
