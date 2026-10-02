@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes.",
+  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1431,6 +1431,111 @@
         "module": "Mathlib/RingTheory/Ideal/Maps.lean",
         "provides": "Ideal pushforward commutes with every natural ideal power, under a commutative-ring homomorphism.",
         "checked": "Actual statement, context and displayed construction personally read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t. Source intervals and hashes are in HS-TOTAL-JET-PIN."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.ResidueField",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/LocalRing/ResidueField/Defs.lean",
+        "provides": "For a commutative local ring R, ResidueField R is the actual quotient R/maximalIdeal R, with its native field structure.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name verified by Codex — codex-5ebb6f on 2026-10-02. Specialized native residue/length adapter; no generic local-ring theorem replanned."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.residue",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/LocalRing/ResidueField/Defs.lean",
+        "provides": "For a commutative local ring R, residue R:R→ResidueField R is the native quotient ring homomorphism.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name verified by Codex — codex-5ebb6f on 2026-10-02. Specialized native residue/length adapter; no generic local-ring theorem replanned."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.ResidueField.lift",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/LocalRing/ResidueField/Basic.lean",
+        "provides": "For a commutative local R, a field S and a local ring homomorphism f:R→S, lift f:ResidueField R→S is the descended ring homomorphism.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name verified by Codex — codex-5ebb6f on 2026-10-02. Specialized native residue/length adapter; no generic local-ring theorem replanned."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.ResidueField.lift_residue_apply",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/ResidueField/Basic.lean",
+        "provides": "With the lift hypotheses, lift f (residue R x)=f x for each x∈R.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name verified by Codex — codex-5ebb6f on 2026-10-02. Specialized native residue/length adapter; no generic local-ring theorem replanned."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.residue_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/LocalRing/ResidueField/Basic.lean",
+        "provides": "For a commutative local ring R, residue R:R→ResidueField R is surjective.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name verified by Codex — codex-5ebb6f on 2026-10-02. Specialized native residue/length adapter; no generic local-ring theorem replanned."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.isUnit_iff_constantCoeff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Inverse.lean",
+        "provides": "For any variable type σ and commutative coefficient ring R, a native series φ is a unit exactly when constantCoeff φ is a unit.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name verified by Codex — codex-5ebb6f on 2026-10-02. Specialized native residue/length adapter; no generic local-ring theorem replanned."
+      },
+      {
+        "ref": "mathlib:AlgEquiv.ofBijective",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Algebra/Equiv.lean",
+        "provides": "For algebras A₁,A₂ over a commutative semiring R, a bijective algebra homomorphism f gives the algebra equivalence ofBijective f.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name verified by Codex — codex-5ebb6f on 2026-10-02. Specialized native residue/length adapter; no generic local-ring theorem replanned."
+      },
+      {
+        "ref": "mathlib:RingHom.injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/SimpleRing/Basic.lean",
+        "provides": "Every ring homomorphism from a simple nonassociative ring into a nontrivial nonassociative semiring is injective; used here only for fields.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name verified by Codex — codex-5ebb6f on 2026-10-02. Specialized native residue/length adapter; no generic local-ring theorem replanned."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.length_restrictScalars",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/Length.lean",
+        "provides": "For commutative local rings A,B with an A-algebra B and local algebraMap, and any additive B-module M with compatible A-module tower, length_A M=length_B M·length_(ResidueField A)(ResidueField B) in extended naturals, including infinite lengths.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name verified by Codex — codex-5ebb6f on 2026-10-02. Specialized native residue/length adapter; no generic local-ring theorem replanned."
+      },
+      {
+        "ref": "mathlib:Module.length_eq_one",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "For a semiring R and additive commutative monoid M with Module R M and IsSimpleModule R M, Module.length R M=1.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name verified by Codex — codex-5ebb6f on 2026-10-02. Specialized native residue/length adapter; no generic local-ring theorem replanned."
+      },
+      {
+        "ref": "mathlib:Module.Finite.equiv",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
+        "provides": "For a semiring R, additive commutative monoid modules M,N, finite M and an R-linear equivalence M≃N, N is a finite R-module.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name verified by Codex — codex-5ebb6f on 2026-10-02. Specialized native residue/length adapter; no generic local-ring theorem replanned."
+      },
+      {
+        "ref": "mathlib:Module.finrank_prod",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+        "provides": "For a ring satisfying StrongRankCondition and finite free modules M,M′, finrank_R(M×M′)=finrank_R M+finrank_R M′; used here over a field, where freeness and StrongRankCondition are native.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name verified by Codex — codex-5ebb6f on 2026-10-02. Specialized native residue/length adapter; no generic local-ring theorem replanned."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.constantCoeff",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "For any variable type σ and coefficient semiring R, constantCoeff:MvPowerSeries σ R→R is the native ring homomorphism extracting the zero-exponent coefficient.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name verified by Codex — codex-5ebb6f on 2026-10-02. Specialized native residue/length adapter; no generic local-ring theorem replanned."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff_X",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "For any variable type σ with decidable equality and coefficient semiring R, coeff_n(X_s)=1 if n=single s 1 and 0 otherwise.",
+        "checked": "Full statement and ambient hypotheses freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name verified by Codex — codex-5ebb6f on 2026-10-02. Specialized native residue/length adapter; no generic local-ring theorem replanned."
+      },
+      {
+        "ref": "mathlib:Module.Finite.of_basis",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FreeModule/Finite/Basic.lean",
+        "provides": "For a semiring R, additive commutative monoid module M and finite index ι, an actual R-basis b indexed by ι implies Module.Finite R M.",
+        "checked": "Full statement, proof and ambient hypotheses freshly read at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact indexed name verified on 2026-10-02."
       }
     ]
   },
@@ -2026,6 +2131,44 @@
         "Mathlib/RingTheory/MvPowerSeries/Equiv.lean": "27aef74f5d3dc61eefe378d7cbdd9233ae1789e40bedd9e94df667d7093db3a4",
         "Mathlib/RingTheory/MvPowerSeries/Trunc.lean": "413e3cb0130b634de540bf20a6cab33ae9561f6795ceed473bc5f51372799a2e"
       }
+    },
+    {
+      "id": "HS-RESIDUE-LENGTH-PIN",
+      "title": "Native residue fields and restriction of local-ring module length",
+      "authors": "The Mathlib contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalRing/Length.lean",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "LocalRing/Length.lean complete file, especially ambient assumptions and the complete length_restrictScalars proof; LocalRing/ResidueField/Defs.lean complete definitions; Basic.lean residue_surjective, native coefficient algebra/tower, lift and its full representative proof. MvPowerSeries/Inverse.lean unit criterion and built local-ring instances; Basic.lean constant coefficient and variable coefficient formulas. Algebra/Algebra/Equiv.lean ofBijective, SimpleRing/Basic.lean injective, Finiteness/Basic.lean Finite.equiv and Dimension/Constructions.lean finrank_prod statements and ambient assumptions read at the exact pin.",
+        "Length.lean surjective scalar comparison, simple-module length and finite field length statements read; these already-built theorems receive no duplicate nodes. Bounded searches in both pinned trees found no matching specialized series residue equivalence/length adapter; no exhaustive library-absence claim.",
+        "FreeModule/Finite/Basic.lean 39–45: complete finite-index actual-basis finiteness statement and proof freshly read for the promoted API."
+      ],
+      "sourceHashes": {
+        "Mathlib/RingTheory/LocalRing/ResidueField/Defs.lean": "5b9d61b479e6491d03e7a23b2ec862a2c87a6fea1207529a47d96138a1129773",
+        "Mathlib/RingTheory/LocalRing/ResidueField/Basic.lean": "efa215fca3b680c2e83c576f39980f9bcf85df90c99268d2a59a496d96e29d5c",
+        "Mathlib/RingTheory/MvPowerSeries/Inverse.lean": "fd1a532f929b64b0a28a31eefd69e4c3e1d4e38c7571eafbcf21343e087198e2",
+        "Mathlib/Algebra/Algebra/Equiv.lean": "685187debda5efdf31ff2071706125df1574d6d22a0192d161126b3bd6cf0b29",
+        "Mathlib/RingTheory/SimpleRing/Basic.lean": "a7533e6639806f0905b9a31bcf07efcc046137eaf607b99257afcfdc43d60a25",
+        "Mathlib/RingTheory/LocalRing/Length.lean": "e9ce787da9f1184f805ecc503de117c396d2242e4d7ff24809a8e5cc7f47b5b4",
+        "Mathlib/RingTheory/Length.lean": "28058afb0a726d046c7ef25ef25f86707d64762129baf08106944bcde811b466",
+        "Mathlib/RingTheory/Finiteness/Basic.lean": "33a377162fbc237ea7d67c74f9eeaee015fe5c08f72a41817826fbd5272e3fb1",
+        "Mathlib/LinearAlgebra/Dimension/Constructions.lean": "ba705b4a5e12709dfbd792ddd9946aafdcc276daf1a8778de760ec2f4e660363",
+        "Mathlib/RingTheory/MvPowerSeries/Basic.lean": "fb6303b35ede9edf896a799d46d5656faca3e55f7f05cbfb02b86e3c7bb9b865",
+        "Mathlib/LinearAlgebra/FreeModule/Finite/Basic.lean": "6749190ddf4cb6a0a6452343f27aa092717de59b88183275b7d4d4528acce453"
+      }
+    },
+    {
+      "id": "HS-STACKS-LOCAL-LENGTH",
+      "title": "Lengths under a local-ring extension",
+      "authors": "The Stacks Project Authors",
+      "edition": "Stacks Project, tag 02M0, Lemma 10.52.12, accessed 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/02M0",
+      "accessDate": "2026-10-02",
+      "sha256": "00e8584bf16e6a75416e40bb3f2281a4728f1ee5e92ee26befe4c04847690dd6",
+      "readSections": [
+        "Complete mathematical statement and proof of Lemma 10.52.12, freshly read; Section 10.52 (00IU) definitions and mathematical proofs also freshly inspected. This is selected length-source reading, not closure of any routed paper. The Stacks displayed formula assumes finite B-length and finite residue degree; the stronger extended-natural form used here is the existing pinned Mathlib theorem, including its infinite-length branch."
+      ]
     }
   ],
   "nodes": [
@@ -7544,6 +7687,357 @@
           "statement": "For k=F₂ and r=3, length_k(R/v³)=6. The rectangular cutoff would give 9 rather than 6."
         }
       ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/series-residue-equivalence",
+      "kind": "construction",
+      "title": "Coefficient field of formal series",
+      "declaration": "TauCeti.HilbertSamuel.seriesResidueEquiv",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "Construct the actual k-algebra equivalence κ(R)≃k descending constantCoeff. Its inverse sends a∈k to the native residue class of C(a). This fixes the native maximal-ideal quotient and coefficient scalar action, rather than supplying an unrelated isomorphic field.",
+      "hypotheses": [
+        "σ is any type, k is a field, R=MvPowerSeries σ k, and κ=IsLocalRing.ResidueField R with the native coefficient k-algebra structure. Neither finite σ nor any characteristic, algebraic-closure, completeness or finite-field assumption is imposed."
+      ],
+      "proofSteps": [
+        "The built unit criterion makes constantCoeff:R→k a local ring homomorphism: a unit constant coefficient implies the series is a unit. The native local-ring instance of R and native residue field are reused.",
+        "Descend constantCoeff through the built ResidueField.lift. It commutes with the coefficient algebra map because lift(residue(C(a)))=constantCoeff(C(a))=a.",
+        "The lifted map between fields is injective by the built RingHom.injective. It is surjective with preimage residue(C(a)). Apply the built AlgEquiv.ofBijective.",
+        "The quotient representative formula is the native lift formula. Injectivity and the coefficient-section calculation determine the inverse, while algebra commutation is inherited from the constructed AlgEquiv."
+      ],
+      "prerequisites": [
+        "mathlib:IsLocalRing.ResidueField",
+        "mathlib:IsLocalRing.residue",
+        "mathlib:IsLocalRing.ResidueField.lift",
+        "mathlib:IsLocalRing.ResidueField.lift_residue_apply",
+        "mathlib:MvPowerSeries.constantCoeff",
+        "mathlib:MvPowerSeries.isUnit_iff_constantCoeff",
+        "mathlib:RingHom.injective",
+        "mathlib:AlgEquiv.ofBijective"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-RESIDUE-LENGTH-PIN",
+          "locator": "ResidueField/Basic.lean lift and lift_residue_apply; Inverse.lean isUnit_iff_constantCoeff; native coefficient section",
+          "match": "Specialize existing native constructions and theorems to series over a field; no generic residue field, scalar restriction or module-length theorem is replanned."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelResidueTest.coefficient_section",
+          "kind": "compatibility",
+          "statement": "For every a∈k, E(residue(C(a)))=a and E⁻¹(a)=residue(C(a)); the native coefficient inclusion is the chosen section."
+        },
+        {
+          "name": "HilbertSamuelResidueTest.empty_variables",
+          "kind": "degenerate",
+          "statement": "For σ=Empty and k=ℚ, E(residue(C(3)))=3; the construction requires no inhabited or finite variable type."
+        },
+        {
+          "name": "HilbertSamuelResidueTest.variable_not_identity",
+          "kind": "non-example",
+          "statement": "For every variable i∈σ over any field, E(residue(X_i))=0 while the native series X_i≠0. An identity map on series fails the residue assertion, and a zero replacement fails the coefficient-section assertion."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.seriesResidueEquiv_residue",
+          "role": "simp",
+          "statement": "For every native series g, E(residue(g))=constantCoeff(g)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.seriesResidueEquiv_symm",
+          "role": "simp",
+          "statement": "For every coefficient a, E⁻¹(a)=residue(C(a))."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.seriesResidueEquiv_algebraMap",
+          "role": "compatibility",
+          "statement": "For every a∈k, E(algebraMap k κ(R) a)=a, with the inherited coefficient algebra on the actual residue field."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Plane-curve handoff §3 and worklist J03, J06–J07",
+          "how": "Fix the actual residue coefficient field and its scalar action when interpreting native R-module length."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/series-residue-coefficients-surjective and series-module-length",
+          "how": "The constructed algebra equivalence supplies injectivity and built algebra commutation; no separate nilpotent-filtration theorem is introduced."
+        }
+      ],
+      "acceptance": [
+        "For every a∈k, E(residue(C(a)))=a and E⁻¹(a)=residue(C(a)); the native coefficient inclusion is the chosen section.",
+        "For σ=Empty and k=ℚ, E(residue(C(3)))=3; the construction requires no inhabited or finite variable type.",
+        "For every variable i∈σ over any field, E(residue(X_i))=0 while the native series X_i≠0. An identity map on series fails the residue assertion, and a zero replacement fails the coefficient-section assertion."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/series-residue-coefficients-surjective",
+      "kind": "lemma",
+      "title": "Coefficients surject onto the series residue field",
+      "declaration": "TauCeti.HilbertSamuel.seriesResidue_coeff_surjective",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "The native algebraMap k κ(R) is surjective for a formal series ring over a field; the coefficient map k→R itself is not asserted to be surjective.",
+      "hypotheses": [
+        "σ is any type, k is a field, R=MvPowerSeries σ k, and κ=IsLocalRing.ResidueField R with the native coefficient k-algebra structure. Neither finite σ nor any characteristic, algebraic-closure, completeness or finite-field assumption is imposed."
+      ],
+      "proofSteps": [
+        "For x∈κ(R), choose a=seriesResidueEquiv(x). Under the native algebra equivalence, algebraMap(a) and x both map to a by standard algebra commutation.",
+        "Injectivity of the equivalence proves algebraMap(a)=x. This uses the AlgEquiv structure of the preceding construction; its optional representative APIs are not extra prerequisites."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/series-residue-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-RESIDUE-LENGTH-PIN",
+          "locator": "Native AlgEquiv commutation and injectivity after the specialized residue equivalence",
+          "match": "Specialize existing native constructions and theorems to series over a field; no generic residue field, scalar restriction or module-length theorem is replanned."
+        }
+      ],
+      "acceptance": [
+        "Applies to every variable type and every field; surjectivity is onto the native residue field."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/series-module-length",
+      "kind": "lemma",
+      "title": "Series length equals coefficient-field length",
+      "declaration": "TauCeti.HilbertSamuel.seriesModule_length_eq_coeff_length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "For every compatible R-module M, Module.length R M=Module.length k M in extended naturals. Infinite lengths are included. The residue coefficient field has degree one, so no finite generation or nilpotent variable-ideal filtration premise is needed.",
+      "hypotheses": [
+        "σ is any type, k is a field, R=MvPowerSeries σ k, and κ=IsLocalRing.ResidueField R with the native coefficient k-algebra structure. Neither finite σ nor any characteristic, algebraic-closure, completeness or finite-field assumption is imposed.",
+        "M is an additive commutative group with R-module and k-module structures and IsScalarTower k R M for the native coefficient algebra k→R."
+      ],
+      "proofSteps": [
+        "By the surjective native coefficient map onto κ(R), the built scalar restriction theorem identifies length_k κ(R) with length_κ(R) κ(R)=1.",
+        "By surjectivity of the native residue map k→κ(k), the same module length over κ(k) is one. All scalar towers are the inherited quotient/algebra towers, not newly assigned actions.",
+        "Apply the built IsLocalRing.length_restrictScalars to A=k, B=R and M. The coefficient map is local because its source is a field. Its residue factor is one; multiplication by one in extended naturals gives the stated equality.",
+        "The built proof handles finite-length composition series and the infinite-length branch. No new generic filtration or local-extension-length theorem is planned. The coefficient inclusion k→R need not be onto."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/series-residue-coefficients-surjective",
+        "mathlib:IsLocalRing.residue_surjective",
+        "mathlib:IsLocalRing.length_restrictScalars",
+        "mathlib:Module.length_eq_of_surjective",
+        "mathlib:Module.length_eq_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-RESIDUE-LENGTH-PIN",
+          "locator": "LocalRing/Length.lean length_restrictScalars with A=k, B=R; native quotient scalars",
+          "match": "Specialize existing native constructions and theorems to series over a field; no generic residue field, scalar restriction or module-length theorem is replanned."
+        },
+        {
+          "sourceId": "HS-STACKS-LOCAL-LENGTH",
+          "locator": "Lemma 10.52.12, complete statement and composition-factor proof",
+          "match": "Finite-length version of the same residue-degree formula. The unrestricted extended-natural statement is justified by the stronger already-built pinned theorem, not attributed verbatim to Stacks."
+        }
+      ],
+      "acceptance": [
+        "No Module.Finite or IsFiniteLength hypothesis occurs in the equality; both lengths can be infinite."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/series-module-finite-length",
+      "kind": "lemma",
+      "title": "Finite series-module length from coefficient dimension",
+      "declaration": "TauCeti.HilbertSamuel.seriesModule_length_eq_finrank",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "For any compatible R-module M finite over k, length_R M=(finrank_k M:ℕ∞). Finiteness over R alone is insufficient for this conclusion.",
+      "hypotheses": [
+        "σ is any type, k is a field, R=MvPowerSeries σ k, and κ=IsLocalRing.ResidueField R with the native coefficient k-algebra structure. Neither finite σ nor any characteristic, algebraic-closure, completeness or finite-field assumption is imposed.",
+        "M is an additive commutative group with R-module and k-module structures and IsScalarTower k R M for the native coefficient algebra k→R.",
+        "Module.Finite k M."
+      ],
+      "proofSteps": [
+        "Apply series-module-length to compare the actual R-module length with k-module length.",
+        "Use the built Module.length_eq_finrank over the coefficient field with the stated finite k-module hypothesis. The natural finrank is explicitly cast to extended naturals."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/series-module-length",
+        "mathlib:Module.length_eq_finrank"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-RESIDUE-LENGTH-PIN",
+          "locator": "Length.lean finite field length after the local-ring specialization",
+          "match": "Specialize existing native constructions and theorems to series over a field; no generic residue field, scalar restriction or module-length theorem is replanned."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelResidueTest.residue_module_length",
+          "kind": "computation",
+          "statement": "For the actual residue R-module κ(R), length_R κ(R)=1."
+        },
+        {
+          "name": "HilbertSamuelResidueTest.zero_module_length",
+          "kind": "degenerate",
+          "statement": "For the native zero module Fin 0→κ(R), length_R(Fin 0→κ(R))=0."
+        },
+        {
+          "name": "HilbertSamuelResidueTest.residue_pair_length",
+          "kind": "computation",
+          "statement": "For the native product κ(R)×κ(R) with componentwise R-action, length_R(κ(R)×κ(R))=2, using its actual finite coefficient module structure."
+        }
+      ],
+      "acceptance": [
+        "Applies in positive characteristic and to any variable type. The finite-k premise is retained."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-finite",
+      "kind": "lemma",
+      "title": "Finiteness of the native total jet",
+      "declaration": "TauCeti.HilbertSamuel.totalJetBasis_finite",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "For any finite σ, any commutative k and every r≥0, the actual ideal quotient R/v^r is a finite k-module, where v is the algebraic ideal span of the native variables. Promote the existing totalJetBasis_finite API to a node because the ring-length adapter consumes it.",
+      "hypotheses": [
+        "σ is finite, k is a commutative ring, R=MvPowerSeries σ k, v=span{X_i}, and r is a natural cutoff; r=0 is included."
+      ],
+      "proofSteps": [
+        "Use the existing total-jet-monomial-basis construction indexed by exponent vectors of degree<r.",
+        "The index is finite by the built finite_of_degree_lt. Apply the native Module.Finite.of_basis to this finite actual basis. This is the same existing API declaration, not a second finiteness construction."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-monomial-basis",
+        "mathlib:Finsupp.finite_of_degree_lt",
+        "mathlib:Module.Finite.of_basis"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-RESIDUE-LENGTH-PIN",
+          "locator": "Existing totalJetBasis_finite API; same actual quotient and finite basis",
+          "match": "Specialize existing native constructions and theorems to series over a field; no generic residue field, scalar restriction or module-length theorem is replanned."
+        }
+      ],
+      "acceptance": [
+        "Applies to the actual native quotient, including cutoff zero and zero-divisor coefficient rings."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-ring-length",
+      "kind": "lemma",
+      "title": "Ring-module length of a total jet",
+      "declaration": "TauCeti.HilbertSamuel.totalJet_length_eq_finrank",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "For a field k, finite σ and every r≥0, length_R(R/v^r)=finrank_k(R/v^r), in extended naturals, using the actual quotient R-action. No numerical monomial count is assumed in this statement.",
+      "hypotheses": [
+        "σ is finite, k is a field, R=MvPowerSeries σ k, v=span{X_i}, r∈ℕ; the native coefficient/quotient scalar tower is used."
+      ],
+      "proofSteps": [
+        "Install exactly the finite k-module instance supplied by the promoted total-jet-finite node.",
+        "Apply series-module-finite-length to the actual quotient with its native R-action, coefficient k-action and inherited scalar tower. This specializes the generic built length comparison through the explicit residue-degree-one proof."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-finite",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/series-module-finite-length"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-RESIDUE-LENGTH-PIN",
+          "locator": "Native quotient module structure plus the promoted finite-basis API",
+          "match": "Specialize existing native constructions and theorems to series over a field; no generic residue field, scalar restriction or module-length theorem is replanned."
+        }
+      ],
+      "acceptance": [
+        "At r=0 both lengths are zero; no ambient dimension convention is substituted for the length."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-total-jet-ring-length",
+      "kind": "lemma",
+      "title": "Length of a two-variable total jet",
+      "declaration": "TauCeti.HilbertSamuel.planeTotalJet_length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "For every field k and every r≥0, R=k[[X_0,X_1]] with v=(X_0,X_1) satisfies length_R(R/v^r)=binom(r+1,2), cast to extended naturals. This is the native R-module length, including the zero cutoff.",
+      "hypotheses": [
+        "k is a field, σ=Fin 2, R=MvPowerSeries (Fin 2) k, v=span{X_0,X_1}, and r∈ℕ. No assumption on characteristic, algebraic closure, perfectness or an equation f."
+      ],
+      "proofSteps": [
+        "Apply total-jet-ring-length with σ=Fin 2 to compare the actual ring-module length with coefficient dimension.",
+        "Use the existing plane-total-jet-finrank node, whose basis count is binom(r+1,2). Cast its natural equality into extended naturals.",
+        "For Hilbert–Samuel index N use r=N+1, giving binom(N+2,2). This ambient jet length alone does not compute a curve quotient or intrinsic/ambient multiplicity."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-ring-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-total-jet-finrank"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-RESIDUE-LENGTH-PIN",
+          "locator": "Inherited two-variable count combined with the residue-aware R-length adapter",
+          "match": "Specialize existing native constructions and theorems to series over a field; no generic residue field, scalar restriction or module-length theorem is replanned."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelResidueTest.ring_jet_length_six",
+          "kind": "computation",
+          "statement": "For k=F₂, σ=Fin 2 and r=3, length_R(R/v³)=6 using the actual native R-action; a rectangular cutoff gives 9 and fails."
+        }
+      ],
+      "acceptance": [
+        "r=0 gives zero and r=1 gives one; characteristic two is allowed. The inherited basis/count proofs remain unchecked."
+      ]
     }
   ],
   "baselineCoverage": [
@@ -7670,7 +8164,7 @@
         "Supply the domain property of regular local rings (Stacks 00NP, through the associated graded ring 00NO), used by regular-local-cohen-macaulay; see the gap.",
         "The reserved general multiplicity strand includes positivity and now the native graded-length definition, adic transition length step, cumulative extended/natural length identities, finite coefficient lengths, rational summation polynomial and conditional graded-to-cumulative tail theorem. Its remaining leaves are associated-graded ring/module structure and finiteness, graded numerical-polynomial induction, degree/dimension and Artin–Rees comparisons, finite top-dimensional localization lengths, regular-local domain theorem and geometric/complete-ring comparisons. Existence of the graded polynomial remains open, so cumulative polynomial existence and the full key definition are not certified closed.",
         "Discharge the nine adic graded-ring and eleven adic graded-module comparison proofs, then register the exact graded ring/module interfaces and decompose the graded Hilbert–Serre induction. Native Rees carriers and native quotient scalar descent are reused. All earlier local algebra, multiplicity, degree/dimension, completion and routed-paper obligations remain open.",
-        "Six shifted-jet and four total-jet nodes now integrate the actual variable-ideal kernel, shifted maps, polynomial equivalence, monomial basis and field dimension. Implement their admitted bodies; prove the R-length/k-dimension adapter using the finite variable-ideal filtration. Built quotient-of-quotient and surjective scalar length restriction are baseline; apply them to the shifted sequence to obtain exact all-index curve lengths, full tangent-cone kernel and the comparison with the general intrinsic/ambient multiplicities. General Hilbert–Serre induction and the key definition remain open."
+        "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open."
       ]
     },
     {
@@ -7846,9 +8340,12 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-injective",
         "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-exact",
         "DeformationAndDerivedPatchingAlgebra:R03.3/jet-below-equation-order",
-        "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity"
+        "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-finite",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-ring-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-total-jet-ring-length"
       ],
-      "detail": "The inherited six shifted-jet nodes and four total-jet kernel/equivalence/basis/dimension nodes have written proofs and actual pinned signatures; substantive implementations remain unchecked. The native double-quotient equivalence, ideal map_pow and surjective scalar length restriction are already built baseline, not missing generic theorems. Remaining: prove R-module length equals k-dimension for finite R-modules annihilated by a variable-ideal power using the actual residue-field action and finite filtration; integrate the built quotient/scalar maps into the existing shifted sequence and derive all-index A-jet lengths; full graded tangent-cone kernel; eventual polynomial comparison with the general Hilbert–Samuel construction, dimension, intrinsic/ambient multiplicity, powers and changes of coefficients/coordinates. Retain nonzero/unit boundaries, positive characteristic and nonreduced equations. Field length of a jet alone does not discharge R-length or geometric multiplicity."
+      "detail": "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open. Retain f=0 and unit boundaries, positive characteristic and nonreduced equations. An arbitrary finite R-module is not thereby finite over k."
     }
   ],
   "sourceIssues": [],
@@ -8489,6 +8986,93 @@
         "scriptSha256": "ed9dc3d82ba5b988e95634bfd035821efcd4ebda2e552465c757e38b9df73a35",
         "outputSha256": "058a580c33c92c372851ded432b1740fb069243fa5e19a24943c6a3c86b182d5",
         "boundary": "The unchanged durable predecessor script reproduced; finite calculations are not arbitrary-series proofs."
+      }
+    }
+  },
+  "residueLengthContinuation": {
+    "agent": "Codex — codex-5ebb6f",
+    "date": "2026-10-02",
+    "winningClaim": 5959071488,
+    "confirmation": 5959074464,
+    "publicationBase": "d2c01b60c52cf46809c0de093cf75f37f47e5aa8",
+    "status": "partial",
+    "preservedNodeObjects": 89,
+    "nodesAdded": 7,
+    "promotedApi": "TauCeti.HilbertSamuel.totalJetBasis_finite",
+    "sourceBoundary": "Fresh selected Stacks length section and exact native declaration statements; no new full routed-paper/source closure. Existing source issues, requests, owner/key-definition fields and all eight coverage statuses unchanged.",
+    "proofBoundary": "Seven native foundation declarations and six tests checked without admissions or added axioms. The two total-jet length lemmas still consume inherited unchecked basis/dimension statements; the submitted sketch admits every new body under PROTOCOL section 13.",
+    "validation": {
+      "lean": {
+        "errors": 0,
+        "admittedWarnings": 270,
+        "otherWarnings": 0,
+        "elapsed": "0:22.51",
+        "maximumRSSKiB": 3540004,
+        "logSha256": "53e31b9ce2d3e4a8888b905993bf4427fc3902f35727cd63821f3b45b67e1ad0",
+        "suggestedSha256": "a574278b8c31753aff401ffd3312ce400c28e40bb90172005cef7a51efbfebec",
+        "availableGiBBeforeCompile": 67,
+        "nativeExamples": 126,
+        "toolchain": "v4.34.0-rc2",
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+      },
+      "prototype": {
+        "errors": 0,
+        "warnings": 0,
+        "declarations": 7,
+        "nativeExamples": 6,
+        "axiomAudits": 7,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "sourceSha256": "e123da1f4b68b77a81bd08a2fb116c7a77f5475b568af9c8872e33ea5959321d",
+        "logSha256": "d866e02e4f96f109668b891d2605ff60f589c954cb590801951172e9a3a68f21",
+        "elapsed": "0:01.60",
+        "maximumRSSKiB": 2505544,
+        "availableGiBBeforeCompile": 67,
+        "archiveCommit": "20fb961cd54398638ba6a9b1b9b818fb546163bf",
+        "canonicalSignaturesMatched": 7,
+        "boundary": "Admission-free actual native residue and length foundation only. Does not certify inherited jet basis/count, numerical jet-length adapters, curve quotient or multiplicity."
+      },
+      "assembler": {
+        "actualAssembler": true,
+        "declarations": 149,
+        "partDeclarations": 96,
+        "partPlanets": 13,
+        "planets": 19,
+        "ownSkippedLinks": [],
+        "stageDAG": {
+          "vertices": 3003,
+          "edges": 8623,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 96,
+          "edges": 143,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3087,
+          "edges": 8863,
+          "acyclic": true
+        },
+        "reachableDeclarations": 97,
+        "externalDeclarations": [
+          "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds"
+        ],
+        "requiredStagePairs": 13,
+        "requiredStagePairsReachable": 12,
+        "inheritedMissingStagePairs": [
+          [
+            "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+            "DeformationAndDerivedPatchingAlgebra:R03.4"
+          ]
+        ],
+        "stageEdgesUnchanged": true,
+        "otherSkipsMatchOriginal": true,
+        "unchangedNodeObjects": 89,
+        "scriptSha256": "b50255d3c75b8e3155fe97668b6e8d63da06f6b694cff68c5118467847ab3933"
       }
     }
   }

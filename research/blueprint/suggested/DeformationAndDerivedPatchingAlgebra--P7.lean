@@ -1,3 +1,7 @@
+import Mathlib.RingTheory.MvPowerSeries.Inverse
+import Mathlib.RingTheory.LocalRing.Length
+import Mathlib.RingTheory.LocalRing.ResidueField.Basic
+import Mathlib.LinearAlgebra.Dimension.Constructions
 import Mathlib.Algebra.Category.ModuleCat.AB
 import Mathlib.Algebra.Homology.HomologicalComplexLimits
 import Mathlib.Algebra.Homology.Embedding.StupidTrunc
@@ -208,6 +212,7 @@ and integral closures; no structure stores the desired point theorem.
 The local-field/topology transport and framed-lifting theorem are recorded
 as separate open owner interfaces in the packet and reader.
 -/
+
 
 namespace TauCeti.FiniteLocalAlgebra
 
@@ -2046,4 +2051,104 @@ example (f : R) (r : ℕ) :
       Module.length (R ⧸ I) ((R ⧸ I) ⧸ n ^ r) := by sorry
 
 end TotalJets
+end TauCeti.HilbertSamuel
+
+/-! Native residue and module-length adapters (codex-5ebb6f).
+The checked proof source is archived separately; all new bodies here are
+admitted under PROTOCOL section 13. The jet basis and count remain unchecked. -/
+namespace TauCeti.HilbertSamuel
+noncomputable section SeriesResidue
+variable {σ k : Type*} [Field k]
+local notation "R" => MvPowerSeries σ k
+local notation "κ" => IsLocalRing.ResidueField R
+
+local instance constantCoeff_local : IsLocalHom (MvPowerSeries.constantCoeff : R →+* k) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/series-residue-equivalence
+def seriesResidueEquiv : κ ≃ₐ[k] k := by sorry
+
+lemma seriesResidueEquiv_residue (g : R) :
+    seriesResidueEquiv (σ := σ) (k := k) (IsLocalRing.residue R g) =
+      MvPowerSeries.constantCoeff g := by sorry
+
+lemma seriesResidueEquiv_symm (a : k) :
+    (seriesResidueEquiv (σ := σ) (k := k)).symm a =
+      IsLocalRing.residue R (MvPowerSeries.C a) := by sorry
+
+lemma seriesResidueEquiv_algebraMap (a : k) :
+    seriesResidueEquiv (σ := σ) (k := k) (algebraMap k κ a) = a := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/series-residue-coefficients-surjective
+lemma seriesResidue_coeff_surjective : Function.Surjective (algebraMap k κ) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/series-module-length
+lemma seriesModule_length_eq_coeff_length (M : Type*) [AddCommGroup M] [Module R M]
+    [Module k M] [IsScalarTower k R M] : Module.length R M = Module.length k M := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/series-module-finite-length
+lemma seriesModule_length_eq_finrank (M : Type*) [AddCommGroup M] [Module R M]
+    [Module k M] [IsScalarTower k R M] [Module.Finite k M] :
+    Module.length R M = Module.finrank k M := by sorry
+
+
+-- test: HilbertSamuelResidueTest.coefficient_section
+example (a : k) :
+    seriesResidueEquiv (σ := σ) (k := k) (IsLocalRing.residue R (MvPowerSeries.C a)) = a ∧
+      (seriesResidueEquiv (σ := σ) (k := k)).symm a =
+        IsLocalRing.residue R (MvPowerSeries.C a) := by sorry
+
+
+-- test: HilbertSamuelResidueTest.empty_variables
+example :
+    seriesResidueEquiv (σ := Empty) (k := ℚ)
+      (IsLocalRing.residue (MvPowerSeries Empty ℚ) (MvPowerSeries.C 3)) = 3 := by sorry
+
+
+-- test: HilbertSamuelResidueTest.variable_not_identity
+example (i : σ) :
+    seriesResidueEquiv (σ := σ) (k := k) (IsLocalRing.residue R (MvPowerSeries.X i)) = 0 ∧
+      (MvPowerSeries.X i : R) ≠ 0 := by sorry
+
+
+-- test: HilbertSamuelResidueTest.residue_module_length
+example : Module.length R κ = 1 := by sorry
+
+
+-- test: HilbertSamuelResidueTest.zero_module_length
+example : Module.length R (Fin 0 → κ) = 0 := by sorry
+
+
+-- test: HilbertSamuelResidueTest.residue_pair_length
+example : Module.length R (κ × κ) = 2 := by sorry
+
+
+end SeriesResidue
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section ResidueJetLength
+variable {σ k : Type*} [Finite σ] [Field k]
+local notation "R" => MvPowerSeries σ k
+local notation "v" => (Ideal.span (Set.range (MvPowerSeries.X : σ → R)))
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-finite
+-- Promotes the existing totalJetBasis_finite signature above; no duplicate declaration.
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-ring-length
+lemma totalJet_length_eq_finrank (r : ℕ) :
+    Module.length R (R ⧸ v ^ r) = Module.finrank k (R ⧸ v ^ r) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-total-jet-ring-length
+lemma planeTotalJet_length {k : Type*} [Field k] (r : ℕ) :
+    let q : Ideal (MvPowerSeries (Fin 2) k) := Ideal.span (Set.range MvPowerSeries.X)
+    Module.length (MvPowerSeries (Fin 2) k) (MvPowerSeries (Fin 2) k ⧸ q ^ r) =
+      (Nat.choose (r + 1) 2 : ℕ∞) := by sorry
+
+-- test: HilbertSamuelResidueTest.ring_jet_length_six
+example :
+    let q : Ideal (MvPowerSeries (Fin 2) (ZMod 2)) := Ideal.span (Set.range MvPowerSeries.X)
+    Module.length (MvPowerSeries (Fin 2) (ZMod 2))
+      (MvPowerSeries (Fin 2) (ZMod 2) ⧸ q ^ 3) = 6 := by sorry
+
+end ResidueJetLength
 end TauCeti.HilbertSamuel
