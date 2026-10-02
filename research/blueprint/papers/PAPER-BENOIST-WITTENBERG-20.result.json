@@ -19,7 +19,7 @@
       "Codex codex-c83e7a third checkpoint: independently read every published page 1–77, including proofs and references. Visually checked pp.19,34,37,43,44,48,55,59; checked Example4.4 against arXiv v3 partie_1.tex lines3973–4048. Page34 projection arrow is correctly oriented, not a source issue."
     ]
   },
-  "summary": "Benoist–Wittenberg formulate the real integral Hodge conjecture in the equivariant cohomology of X(C) and, assuming it for 1-cycles, describe the algebraic classes on X(R), the existence of curves of even geometric genus and the image of torsion 1-cycles (Theorems A and C); for rationally connected or simply connected Calabi–Yau threefolds they reduce the conjecture to these conditions (Theorem B). Complete (cc-442dc5): every numbered statement is an item (the four Questions added), every missing item is routed exactly once, and ten findings are recorded. Theorem A(ii)/3.16(ii) is false for curves with a real point (E1), the Example 4.4 construction is impossible (E3), and Remarks 5.10 are announced without proof (E10). Not formalised.",
+  "summary": "Benoist–Wittenberg formulate the real integral Hodge conjecture in the equivariant cohomology of X(C) and, assuming it for 1-cycles, describe the algebraic classes on X(R), the existence of curves of even geometric genus and the image of torsion 1-cycles (Theorems A and C); for rationally connected or simply connected Calabi–Yau threefolds they reduce the conjecture to these conditions (Theorem B). Complete (cc-442dc5): every numbered statement is an item (the four Questions added), every missing item is routed exactly once, and the original ten findings are recorded. Repair (Codex codex-rtOQ9t, 2October2026) corrects the Geyer descent arrow, restricts algebraic perfect duality to finite stalks (new E11), and restores E5’s already printed positive target-degree shift. Theorem A(ii)/3.16(ii) is false for curves with a real point (E1), the Example 4.4 construction is impossible (E3), and Remarks 5.10 are announced without proof (E10). Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauCeti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1411,7 +1411,7 @@
       "id": "PAPER-BENOIST-WITTENBERG-20/semialg-duality",
       "kind": "theorem",
       "name": "Finite-coefficient Poincaré duality",
-      "statement": "For a locally complete pure-v-dimensional semialgebraic homology manifold V and a locally constant sheaf F of finite exponent, complete-support cohomology pairs perfectly with ordinary cohomology: H_c^i(V,F)×H^{v−i}(V,F^∨⊗or_V)→Q/Z, where F^∨=Hom(F,Q/Z).",
+      "statement": "For a locally complete pure-v-dimensional semialgebraic homology manifold V and a locally constant sheaf F of finite abelian groups (finite stalks), complete-support cohomology pairs perfectly with ordinary cohomology: H_c^i(V,F)×H^{v−i}(V,F^∨⊗or_V)→Q/Z, where F^∨=Hom(F,Q/Z).",
       "locator": "§1.1.4, (1.16)",
       "status": "missing",
       "ownershipGroup": "EQ",
@@ -1426,7 +1426,26 @@
       "gaps": [
         "GAP-SEMIALG"
       ],
-      "classificationEvidence": "No matching pinned implementation; read all upstream AT stages and use a single shared Part II beyond them."
+      "classificationEvidence": "No matching pinned implementation; read all upstream AT stages and use a single shared Part II beyond them.",
+      "statementBeforeRepair": "For a locally complete pure-v-dimensional semialgebraic homology manifold V and a locally constant sheaf F of finite exponent, complete-support cohomology pairs perfectly with ordinary cohomology: H_c^i(V,F)×H^{v−i}(V,F^∨⊗or_V)→Q/Z, where F^∨=Hom(F,Q/Z).",
+      "note": "Algebraic perfect pairing means both adjoint maps to Hom(−,Q/Z) are isomorphisms. Finite exponent alone is insufficient: on a point M=⊕_N F2 has dual ∏_N F2, and evaluation M→M^{∨∨} is not onto. SGA4 XVIII §3.2.6 assumes locally constant constructible Z/n coefficients. Integral coefficients retain derived/Ext terms; the separately stated profinite/Pontryagin completion in /integral-pontryagin is unchanged.",
+      "acceptance": [
+        {
+          "name": "SemialgebraicDuality.finite_point_stalk",
+          "kind": "degenerate",
+          "statement": "On a point and finite abelian M, evaluation M→Hom(Hom(M,Q/Z),Q/Z) is an isomorphism; the degree-zero pairing matches evaluation."
+        },
+        {
+          "name": "SemialgebraicDuality.infinite_exponent_two",
+          "kind": "non-example",
+          "statement": "On a point M=⊕_N F2 is excluded despite exponent2: a nonzero functional on (∏_N F2)/(⊕_N F2) vanishes on every coordinate vector but is not evaluation by a finite-support element of M."
+        },
+        {
+          "name": "SemialgebraicDuality.finite_consumer",
+          "kind": "compatibility",
+          "statement": "Proposition1.10 already has a finite G-module and /psi-real uses F2; their hypotheses satisfy the finite-stalk contract. Remark1.11(ii) keeps its separate profinite completion/Pontryagin topology."
+        }
+      ]
     },
     {
       "id": "PAPER-BENOIST-WITTENBERG-20/finite-borel",
@@ -3683,13 +3702,14 @@
       ],
       "implementationStatus": "unchecked",
       "gaps": [],
-      "classificationEvidence": "Full MC.7 selected-case theorem register and all near-area layers: this exact real integral-Hodge statement is not already a pinned theorem or an exact named planned target."
+      "classificationEvidence": "Full MC.7 selected-case theorem register and all near-area layers: this exact real integral-Hodge statement is not already a pinned theorem or an exact named planned target.",
+      "note": "Rechecked against published pp49–50: after normalization the proper-pushforward diagram identifies φ([B]) with ψ_{B′}(1). By Theorem3.3 and corrected Lemma3.7, ψ_{B′} is onto exactly when the Picard descent map on 2-primary torsion is onto, equivalently when the Brauer obstruction restricted there is zero. This occurs in even genus. Conjugate components contribute zero through the norm map. The theorem statement and all downstream even-genus criteria are retained, including E1’s dimension/real-point gate."
     },
     {
       "id": "PAPER-BENOIST-WITTENBERG-20/geyer",
       "kind": "theorem",
       "name": "Geyer descent criterion for a curve",
-      "statement": "For a smooth proper geometrically integral curve B/R with B(R)=empty, Pic(B_C)^G[2∞]→Br(R)=F2 is surjective iff the genus of B is even.",
+      "statement": "For a smooth proper geometrically integral curve B over a real closed field R, with C=R(i), G=Gal(C/R) and B(R)=empty, the natural descent map Pic(B)[2∞]→Pic(B_C)^G[2∞] is surjective if and only if the genus of B is even (Lemma3.7). Equivalently, the Brauer obstruction Pic(B_C)^G[2∞]→Br(R)=F2 is zero in even genus and surjective in odd genus; this is the next arrow, not the descent map.",
       "locator": "Lemma3.7",
       "status": "missing",
       "ownershipGroup": "MC7",
@@ -3698,14 +3718,23 @@
         "PAPER-BENOIST-WITTENBERG-20/pic-descent-parity"
       ],
       "proofSteps": [
-        "Use the Witt–Pfister vanishing of Br(R) in Br(B), the even-Euler-characteristic descent test and divisibility of Pic^0(B) in the odd-genus case."
+        "Use the vanishing of the natural map Br(R)→Br(B) for a real-empty curve to obtain 0→Pic(B)→Pic(B_C)^G→Br(R)→0. In even genus, invariant 2-primary torsion has degree zero and descends by Sublemma3.8. In odd genus choose a nondescent class, twist by a closed-point class to degree zero, and use 2-divisibility of Pic^0(B) to subtract a real class with the same double; the resulting invariant 2-torsion class has nonzero obstruction."
       ],
       "implementationStatus": "unchecked",
       "gaps": [
         "GAP-QUADRATIC",
         "GAP-PICARD"
       ],
-      "classificationEvidence": "Full MC.7 selected-case theorem register and all near-area layers: this exact real integral-Hodge statement is not already a pinned theorem or an exact named planned target."
+      "classificationEvidence": "Full MC.7 selected-case theorem register and all near-area layers: this exact real integral-Hodge statement is not already a pinned theorem or an exact named planned target.",
+      "statementBeforeRepair": "For a smooth proper geometrically integral curve B/R with B(R)=empty, Pic(B_C)^G[2∞]→Br(R)=F2 is surjective iff the genus of B is even.",
+      "note": "Extraction repair, not a source erratum: the published Lemma3.7 has the correct Picard descent arrow. Surjectivity of that arrow is equivalent to zero obstruction on invariant 2-primary torsion, whereas surjectivity of the obstruction itself occurs in odd genus.",
+      "acceptance": [
+        {
+          "name": "Geyer.anisotropic_conic",
+          "kind": "degenerate",
+          "statement": "For x²+y²+z²=0 over R=ℝ, genus0 and empty real locus: Pic(B_C)=Z, hence invariant 2-primary torsion0. The natural descent map on torsion is0→0 and is onto, but the obstruction restricted to torsion is0→F2 and is not onto. The full obstruction on Pic(B_C)^G is degree mod2; do not confuse its full-group and torsion restrictions."
+        }
+      ]
     },
     {
       "id": "PAPER-BENOIST-WITTENBERG-20/pic-descent-parity",
@@ -6703,7 +6732,7 @@
         "PAPER-BENOIST-WITTENBERG-20/remark-barred-gamma"
       ],
       "reason": "The eight upstream Algebraic Topology stages stop before C2 equivariant real-locus theory and Steenrod squares. The immediately preceding Benoist19 extraction already proposes this exact Part II; expand its source coverage once, importing LD.6 and EDC/SF foundations.",
-      "brief": "Extend Algebraic topology of spaces and manifolds (tauceti:TauCetiRoadmap/AlgebraicTopology), beginning strictly after its ordinary local-coefficient cohomology, products, finite-cover descent and manifold duality. Coalesce this proposal with the same ID from PAPER-BENOIST-19; it is not a second owner. Import real-closed definable geometry from Logic, definability, valued fields and motivic integration (LogicAndDefinabilityInNumberTheory:LD.6), and use the pinned derived-category, sheaf-cohomology, cyclic-resolution and Shapiro APIs. Build Borel equivariant semialgebraic sheaf cohomology, sign twists, support and relative-complement objects, finite sphere approximations, purity/Gysin, canonical parity decompositions, Bockstein reduction and Steenrod operations. Prove BW Proposition1.3's canonical mod-two splitting; Proposition1.7's integral splitting ONLY for j≡d−1 mod2; Proposition1.8's low-component surjectivity; Theorem1.12's self-dual corrected localization sequence with its γ-weighted pairing; and Propositions1.14–1.16's exact affine/Lefschetz bounds. Prove the Steenrod-conjugated proper-pushforward formula of Proposition1.22 over every real closed field using the actual semialgebraic site. Import scheme/étale comparison from Scheme and stack foundations (SchemeAndStackFoundations), and export the topology to Motives and algebraic cycles (MotivesAndAlgebraicCycles) and RealSurfacePeriodIndex. Never identify Borel with Bredon equivariance, relative with supported cohomology, or integral products with mod-two convolution. Each definition needs its API and tests on a point, a sign local system, an empty real locus and a non-Archimedean field.",
+      "brief": "Extend Algebraic topology of spaces and manifolds (tauceti:TauCetiRoadmap/AlgebraicTopology), beginning strictly after its ordinary local-coefficient cohomology, products, finite-cover descent and manifold duality. Coalesce this proposal with the same ID from PAPER-BENOIST-19; it is not a second owner. Import real-closed definable geometry from Logic, definability, valued fields and motivic integration (LogicAndDefinabilityInNumberTheory:LD.6), and use the pinned derived-category, sheaf-cohomology, cyclic-resolution and Shapiro APIs. Build Borel equivariant semialgebraic sheaf cohomology, sign twists, support and relative-complement objects, finite sphere approximations, purity/Gysin, canonical parity decompositions, Bockstein reduction and Steenrod operations. Prove BW Proposition1.3's canonical mod-two splitting; Proposition1.7's integral splitting ONLY for j≡d−1 mod2; Proposition1.8's low-component surjectivity; Theorem1.12's self-dual corrected localization sequence with its γ-weighted pairing; and Propositions1.14–1.16's exact affine/Lefschetz bounds. Prove the Steenrod-conjugated proper-pushforward formula of Proposition1.22 over every real closed field using the actual semialgebraic site. Import scheme/étale comparison from Scheme and stack foundations (SchemeAndStackFoundations), and export the topology to Motives and algebraic cycles (MotivesAndAlgebraicCycles) and RealSurfacePeriodIndex. Never identify Borel with Bredon equivariance, relative with supported cohomology, or integral products with mod-two convolution. Each definition needs its API and tests on a point, a sign local system, an empty real locus and a non-Archimedean field. For the algebraic perfect Poincaré pairing of /semialg-duality, require locally constant finite abelian stalks, consistent with SGA4 XVIII §3.2.6 constructible coefficients. Finite exponent alone is insufficient, as M=⊕_N F2 on a point shows. Require both adjoint isomorphisms; use finite-point evaluation as the positive control and the product/direct-sum quotient functional as the excluded case. Proposition1.10 retains finite G-modules; Remark1.11(ii) separately retains profinite completion and Pontryagin duality, rather than an algebraic biduality claim. Proper real-locus pushforward has domain H^p(Y(R),F2) and target H^{p+c}(X(R),F2), c=dim X−dim Y; the point-in-P¹ test distinguishes the sign.",
       "coalescesWith": "research/blueprint/papers/PAPER-BENOIST-19.result.json"
     },
     {
@@ -7373,7 +7402,7 @@
       "kind": "misprint",
       "locator": "Published version, §1.2.6 p.19, final ordinary real-locus pushforward",
       "printed": "H^p(X(R))",
-      "correction": "The source of that pushforward is H^p(Y(R)), with the printed coefficient field F2; its target remains H^(p−c)(X(R)).",
+      "correction": "The source of that pushforward is H^p(Y(R),F2), and the target is H^{p+c}(X(R),F2), c=dim X−dim Y. The printed target degree was already correct; only the source variety is a published misprint.",
       "reason": "The map is induced by f:Y→X. Diagram(1.35) directly above has domain Y(R). The sentence has accidentally repeated the target variety in its source. The real-push-coordinates item already has the correct variance.",
       "affects": "nothing",
       "known": "new",
@@ -7387,7 +7416,9 @@
         "verdict": "confirmed",
         "reason": "Confirmed on the point that matters. Published p. 19 ends §1.2.6 by saying that (1.35) coincides with the direct sum, over p, of the push-forward map printed with source $H^p(X(R),Z/2Z)$ — but the map is the push-forward along f : Y -> X, and the display immediately above it has source $H^p(Y(R),Z/2Z)$. So the source must be Y(R), as the correction says. I could not read the target's exponent reliably from the PDF text layer (it extracts as p+c, the entry says p-c), and record that rather than claim it.",
         "by": "Claude Code (cc-fb70e5)"
-      }
+      },
+      "correctionBeforeRepair": "The source of that pushforward is H^p(Y(R)), with the printed coefficient field F2; its target remains H^(p−c)(X(R)).",
+      "repairNote": "RT finding3 corrects the extraction’s erratum entry, not a second source typo. The existing review record is preserved verbatim; it explicitly did not resolve the target exponent. Published p19 was inspected visually on 2October2026."
     },
     {
       "id": "PAPER-BENOIST-WITTENBERG-20/E6",
@@ -7491,6 +7522,24 @@
         "reason": "Confirmed as a gap rather than an error. Remarks 5.10(i) and (ii) state the two CH_1(X) computations while describing them as obtained 'at the price of a significantly more involved computation' and 'we have verified', and the computations are not given; Part II is cited only for the Hodge input. Remark 5.10(i) is cross-referenced from the introduction, so the results are used rhetorically, but nothing else in the paper depends on them — which is why 'announced computations' is the right reading and the entry does not impugn any proof.",
         "by": "Claude Code (cc-fb70e5)"
       }
+    },
+    {
+      "id": "PAPER-BENOIST-WITTENBERG-20/E11",
+      "kind": "error",
+      "locator": "Author-hosted published Inventiones222(2020), §1.1.4, equation(1.16), p14",
+      "printed": "abelian groups of finite exponent",
+      "correction": "For the algebraic perfect-pairing statement use a locally constant sheaf of finite abelian groups (finite stalks). A broader continuous-dual or one-sided contract needs its own precise topology and proof.",
+      "reason": "Take V a point and M=⊕_N F2. Its algebraic dual is ∏_N F2. The quotient of this product by the finite-support subspace is nonzero, so a nonzero F2-linear functional on the quotient pulls back to a nonzero functional vanishing on every coordinate vector. Such a functional cannot be evaluation by a finite-support element of M. Hence M→M^{∨∨} is not onto. The cited SGA4 XVIII §3.2.6 explicitly assumes constructible locally constant Z/n coefficients. The paper’s finite-coefficient consumers remain valid.",
+      "affects": "a stated result",
+      "known": "Confirmed consequence of independently verified RT-PAPER-BENOIST-WITTENBERG-20/2; newly serialized source record awaiting its own review.",
+      "searched": [
+        "2October2026: freshly downloaded author-hosted published Inventiones222(2020),1–77 PDF; read pp13–15,18–19,49–55, and visually checked14,19,50. SHA256 daeb43ec861bd6c30564543dac796c55c7f21aa943c442f826b32613e72a46a9.",
+        "2October2026: SGA4 XVIII §3.2.6, marginal printed p586, retyped PDF p78, was inspected visually; it assumes locally constant constructible Z/n coefficients.",
+        "2October2026: publisher article, both author publication pages, arXiv history through v3 (11March2020), Crossref relation={} and no update-to/updated-by, and bounded title/author/DOI erratum/corrigendum searches found no relevant correction. The authors’ 2025 Intermediate Jacobians erratum concerns a different paper. This is not an exhaustive novelty claim."
+      ],
+      "items": [
+        "PAPER-BENOIST-WITTENBERG-20/semialg-duality"
+      ]
     }
   ],
   "validation": {
@@ -7687,5 +7736,37 @@
     "status": "complete",
     "reading": "Author-hosted published PDF re-fetched (hash matches); Theorem A/3.16, Example 4.4 and Remarks 5.10 re-read; every numbered statement checked against the items.",
     "changes": "Questions 2.1, 2.6, 2.16 and 4.9 added; E1 and E3 rechecked; E4 reclassified to affect nothing; new E10; gap statuses normalized; status complete."
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.math.ens.psl.eu/~benoist/articles/hodgereel1.pdf",
+      "read": "2026-10-02",
+      "sha256": "daeb43ec861bd6c30564543dac796c55c7f21aa943c442f826b32613e72a46a9",
+      "scope": "Fresh bounded reading pp13–15,18–19,49–55; images14,19,50 inspected. No fresh full-paper or preprint collation."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.normalesup.org/~forgogozo/SGA4/18/18.pdf",
+      "citation": "SGA4 XVIII §3.2.6, marginal printed p586 in the retyped chapter PDF, PDF p78",
+      "read": "2026-10-02",
+      "sha256": "458851856ba253e0a6047adb15da13a9124c9fe2ac922b214f2ac8c27b7abbc5",
+      "scope": "Bounded visual reading of §3.2.6 and its immediately preceding duality context on PDF p78; not a full SGA4 supplier audit."
+    }
+  ],
+  "repair": {
+    "job": "FIX-RT-PAPER-BENOIST-WITTENBERG-20",
+    "issue": 5510,
+    "agent": "Codex",
+    "session": "codex-rtOQ9t",
+    "date": "2026-10-02",
+    "base": "695be4285859480286f1dcf7ad31d8f0441d14e3",
+    "findings": [
+      "RT-PAPER-BENOIST-WITTENBERG-20/1",
+      "RT-PAPER-BENOIST-WITTENBERG-20/2",
+      "RT-PAPER-BENOIST-WITTENBERG-20/3"
+    ],
+    "scope": "All193 item IDs/statuses, seven route memberships/owners, all original prerequisite edges, thirteen prerequisite records, original baseline/source/coverage/review history and existing gaps retained. Nine unrelated sourceIssues unchanged; E5 corrected with its review preserved; E11 awaits review.",
+    "lean": "No Lean deliverable required or compiled."
   }
 }
