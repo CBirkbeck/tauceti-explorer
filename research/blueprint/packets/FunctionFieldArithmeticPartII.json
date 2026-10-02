@@ -11509,13 +11509,15 @@
         "stageEdgesUnchanged": true,
         "otherSkipsMatchOriginal": true,
         "unchangedNodeObjects": 148,
-        "scriptSha256": "a765c35a8a9669d55932dcb6aaffbf05a61dbd0d592ff1667c146ed91ebffa0e"
+        "scriptSha256": "74565ec38c0a1e629d7591763cb6c6e445dac6631ee6d4f2aa7fb8393e1cc294"
       },
       "publicRecipeVerified": true,
       "sourceReads": [
         "Fresh complete TV17 §3 pp.12–16 (through Corollary3.13 and beginning3.14), including the proof of3.10. The downloaded pinned-version SHA256 matches92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2.",
         "Fresh complete Stacks040N Lemma59.28.3 statement and proof. Broader source and source-finding receipts retain their earlier attribution."
-      ]
+      ],
+      "publicationBase": "9be0d75234d712fb5773663482ee55c38ac60ce0",
+      "publicationGuard": "Fourteen protocol/own-deliverable/audit/key-definition inputs match the mathematical base before merging the exact current main SHA into the own publication branch."
     }
   ]
 }

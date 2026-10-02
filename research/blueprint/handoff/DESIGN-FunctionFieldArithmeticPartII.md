@@ -4,6 +4,8 @@ Worker: Codex — codex-5ebb6f. Date:2026-10-02. Issue3403; claim5960931694, con
 
 The continuation derives the general zero-section field ranks from the actual native kernel coordinates. Nine additional planning nodes (two constructions and seven lemmas), six API records and fourteen tests give158 unchecked nodes:9 definitions,27 constructions,76 lemmas,35 theorems,10 comparisons and1 application. There are117 required API records,119 required definition/construction tests,131 total tests,39 planets and118 baseline entries. All ten stages remain partial with eight gaps and thirteen requests. This is a research checkpoint; the geometric roadmap and complete suggested file remain unfinished.
 
+Publication base9be0d75234d712fb5773663482ee55c38ac60ce0 was merged into this own branch after checking that fourteen protocol, own-deliverable, reviewed-audit and key-definition inputs matched the mathematical base. The public proof commit remains an ancestor. The fresh publication projection passes.
+
 ## Native mathematics and preservation
 
 Keep B=A[x]/(xⁿ−f) as native AdjoinRoot, H=A[Multiplicative(ZMod n)] and the actual coaction-induced comparison Θ:B⊗_A B→H⊗_A B. The predecessor specifies the source coordinate equivalence Cs, target coordinates and cyclic permutation σ(i,j)=(i,i+j mod n). These maps, including all predecessor proofs, are retained.
@@ -79,7 +81,7 @@ Delete own scratch after submission. The unchanged predecessor statement-level s
 
 ## Reproduce projection and preservation
 
-Save and run this script from the checkout; it imports the normal assembler read-only and writes no atlas files. Script SHA256a765c35a8a9669d55932dcb6aaffbf05a61dbd0d592ff1667c146ed91ebffa0e.
+Save and run this script from the checkout; it imports the normal assembler read-only and writes no atlas files. Script SHA25674565ec38c0a1e629d7591763cb6c6e445dac6631ee6d4f2aa7fb8393e1cc294.
 
 ```python
 import json,sys,subprocess,hashlib,re
@@ -91,6 +93,7 @@ stem=rid
 packetpath="research/blueprint/packets/"+stem+".json"
 roadmappath="research/blueprint/roadmaps/"+rid+".json"
 base="404db35ccec72b9ceabd108108d2ba8fa0762b2c"
+publicationbase="9be0d75234d712fb5773663482ee55c38ac60ce0"
 p=json.loads((root/packetpath).read_text());r=json.loads((root/roadmappath).read_text())
 old=json.loads(subprocess.check_output(["git","show",base+":"+packetpath],text=True))
 oldr=json.loads(subprocess.check_output(["git","show",base+":"+roadmappath],text=True))
@@ -215,7 +218,7 @@ for node in p["nodes"][len(old["nodes"]):]:
 for node in p["nodes"][len(old["nodes"]):]:
  for api in node.get("api",[]):assert api["name"].split(".")[-1] in lean,api["name"]
 allowed={packetpath,"research/blueprint/readmes/"+stem+".md","research/blueprint/suggested/"+stem+".lean","research/blueprint/handoff/DESIGN-"+stem+".md"}
-changed=set(subprocess.check_output(["git","diff","--name-only",base],text=True).splitlines())
+changed=set(subprocess.check_output(["git","diff","--name-only",publicationbase],text=True).splitlines())
 assert changed<=allowed,changed
 for path in changed:
  assert not re.search(r"/(?:home|tmp|Users)/|file"+"://",(root/path).read_text()),path
