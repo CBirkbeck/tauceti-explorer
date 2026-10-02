@@ -22,7 +22,7 @@
     ],
     "publicationComparison": "Primary reading is the published PDF itself. The erroneous inserted display in published Lemma 6.6 is already correct in arXivv3. No identity of the remaining versions is asserted."
   },
-  "summary": "Skorobogatov and Sofos prove Schinzel's Hypothesis (H) for 100% of n-tuples of integer polynomials of fixed degrees ordered by height: an averaged Bateman–Horn estimate (Theorem 1.9) by Linnik's dispersion method, with two-point prime correlations over coefficient boxes from Davenport's Möbius cancellation (§3) and local densities from a Bernoulli model (§2). They deduce density-one Hasse principles for cyclic norm equations N(z) = P(t) and diagonal conic bundles, and a 56% lower bound for x² + y² = f(t) (§§5–7). 103 items (6 library, 6 planned, 91 missing) are routed to two proposed Part IIs (Schinzel averages; random fibrations) and to ArithmeticStatistics ST.0, AnalyticNumberTheory AN.2/AN.5, ExponentialSumsAndCircleMethod ES.0, SieveMethodsAndPrimePatterns SV.2/SV.4 and HeightsRationalPointsAndObstructions RP.2. Twenty-two findings are recorded. The main one: Lemma 3.14 is false for positive primes (E1), and the von Mangoldt function must be even on ℤ (E4); the proofs establish the both-sign forms, and the main theorems survive through the von Mangoldt count and a bound on negative values that uses A₁ > n. Reviewed by REV-PAPER-SKOROBOGATOV-SOFOS-23 (Claude Code, cc-2aeb03) and corrected in place: 149 items (7 library, 10 planned, 132 missing). 42 mistakes are recorded (26 misprints, 11 gaps, 5 errors; 5 reach a stated result, 8 a proof). Lemmas 3.14 and 4.9 are false as printed because they count only positive prime values (E1, E30); read with Λ even on ℤ they hold, and Theorems 1.1–1.5 and 1.9 stand; Corollary 1.10 and the square case of Corollary 1.7 are unproved as printed. Not formalised.",
+  "summary": "Skorobogatov and Sofos prove Schinzel's Hypothesis (H) for 100% of n-tuples of integer polynomials of fixed degrees ordered by height: an averaged Bateman–Horn estimate (Theorem 1.9) by Linnik's dispersion method, with two-point prime correlations over coefficient boxes from Davenport's Möbius cancellation (§3) and local densities from a Bernoulli model (§2). They deduce density-one Hasse principles for cyclic norm equations N(z) = P(t) and diagonal conic bundles, and a 56% lower bound for x² + y² = f(t) (§§5–7). 103 items (6 library, 6 planned, 91 missing) are routed to two proposed Part IIs (Schinzel averages; random fibrations) and to ArithmeticStatistics ST.0, AnalyticNumberTheory AN.2/AN.5, ExponentialSumsAndCircleMethod ES.0, SieveMethodsAndPrimePatterns SV.2/SV.4 and HeightsRationalPointsAndObstructions RP.2. Twenty-two findings are recorded. The main one: Lemma 3.14 is false for positive primes (E1), and the von Mangoldt function must be even on ℤ (E4); the proofs establish the both-sign forms, and the main theorems survive through the von Mangoldt count and a bound on negative values that uses A₁ > n. Reviewed by REV-PAPER-SKOROBOGATOV-SOFOS-23 (Claude Code, cc-2aeb03) and corrected in place: 149 items (7 library, 10 planned, 132 missing). 42 mistakes are recorded (26 misprints, 11 gaps, 5 errors; 5 reach a stated result, 8 a proof). Lemmas 3.14 and 4.9 are false as printed because they count only positive prime values (E1, E30); read with Λ even on ℤ they hold, and Theorems 1.1–1.5 and 1.9 stand; Corollary 1.10 and the square case of Corollary 1.7 are unproved as printed. Not formalised.\nFIX-RT-PAPER-SKOROBOGATOV-SOFOS-23, Codex codex-J6LwjP, 2026-10-02 (#5506): all three confirmed extraction/routing findings applied. Degree-compatible residues and eventual nonempty density denominators are explicit; the two-sided truncated-von-Mangoldt L1 bound retains z≤H; strict Hilbert class fields import ClassFieldTheory Layer 13. Original counts (149 items,7 library,10 planned,132 missing), eight routes, twelve prerequisites and 42 source issues are preserved. No new published-source errata are alleged.",
   "items": [
     {
       "id": "PAPER-SKOROBOGATOV-SOFOS-23/1",
@@ -35,7 +35,7 @@
       "planned": [],
       "cluster": "prime",
       "prerequisites": [],
-      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply. For every normalized coefficientwise congruence family used here, M≥1 and deg Q_i≤d_i (the sufficient generalized condition is that every coefficient above d_i vanishes modulo M). Poly(H) is nonempty for sufficiently large H; use its exact cardinality as denominator only after this is established. A concrete nonempty witness for H≥M chooses every coefficient below d_i in {0,…,M−1} and the leading coefficient in {1,…,M} representing the required residue. Under gcd(∏Q_i(n₀),M)=1, /24 gives eventual positive Schinzel count; the relative-density denominator is then also nonzero.",
       "api": [
         {
           "name": "SS23.1.api1",
@@ -48,6 +48,10 @@
         {
           "name": "SS23.1.api3",
           "statement": "The leading coefficient may vanish after reduction; never require deg Q_i=d_i."
+        },
+        {
+          "name": "SS23.1.eventualNonempty",
+          "statement": "For M≥1 and deg Q_i≤d_i, choosing bounded coefficient representatives gives #Poly(H)>0 for H≥M; with the source unit condition, /24 makes its Schinzel subset eventually nonempty."
         }
       ],
       "unitTests": [
@@ -59,6 +63,11 @@
         {
           "name": "SS23.1.test2",
           "statement": "Q=1 mod 4 is allowed for every positive degree.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.1.degreeCompatibility",
+          "statement": "n=d_1=1,M=2,n₀=0,Q=t²+1 has gcd(Q(0),2)=1 but Poly(H)=∅ at every H. For Q=1, P=2t+1 belongs for H≥2. Compatible M=4,Q=1 has no degree-one positive-leading representative at H=3 but has one at H=4.",
           "status": "proposed"
         }
       ],
@@ -427,7 +436,7 @@
         "PAPER-SKOROBOGATOV-SOFOS-23/6",
         "PAPER-SKOROBOGATOV-SOFOS-23/7"
       ],
-      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply. For every normalized coefficientwise congruence family used here, M≥1 and deg Q_i≤d_i (the sufficient generalized condition is that every coefficient above d_i vanishes modulo M). Poly(H) is nonempty for sufficiently large H; use its exact cardinality as denominator only after this is established.",
       "api": [
         {
           "name": "SS23.8.api1",
@@ -470,7 +479,7 @@
       "id": "PAPER-SKOROBOGATOV-SOFOS-23/9",
       "kind": "theorem",
       "name": "Quantitative mean Schinzel discrepancy",
-      "statement": "Printed Theorem 1.9: Let n,d_1,…,d_n,M be positive integers. Let n₀∈ℤ and let Q=(Q_i(t))∈(ℤ[t])^n. Fix arbitrary A_1,A_2∈ℝ with n<A_1<A_2. Then for all H≥3 and all x≥3 with (log H)^{A_1}<x≤(log H)^{A_2} we have R(x,H)≪x/√(log x), where the implied constant depends only on d_1,…,d_n,M,n₀,Q,A_1,A_2. (No coprimality of ∏Q_i(n₀) and M and no deg Q_i≤d_i is required in the printed statement.)",
+      "statement": "Usable Theorem 1.9 contract: fix n,d_1,…,d_n,M≥1, n₀∈Z and Q_i∈Z[t] with deg Q_i≤d_i, and n<A_1<A_2. Use the coefficient-box definition of /1; for this general mean-discrepancy interface no coprimality assumption is added. For all sufficiently large H and x≥3 with (log H)^{A_1}<x≤(log H)^{A_2}, R(x,H)≪x/√log x. The implied constant depends only on d_1,…,d_n,M,n₀,Q,A_1,A_2. The degree condition ensures Poly(H) is eventually nonempty; the shorter literal printed theorem is retained separately in printedStatement and is read with the p.677 standing definition.",
       "locator": "Published Theorem 1.9 p. 680",
       "status": "missing",
       "library": [],
@@ -479,7 +488,7 @@
       "prerequisites": [
         "PAPER-SKOROBOGATOV-SOFOS-23/8"
       ],
-      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply. FIX-RT #5506 restores the coefficient degree compatibility; omission from the local theorem sentence is not permission to remove it from Poly(H). Sufficiently large H avoids an empty denominator at small heights. The existing even-von-Mangoldt repair remains in force; this repair does not strengthen the mean-discrepancy theorem by a new coprimality hypothesis.",
       "executionStatus": "source endpoint; the analytic chain is repaired (items 28, 34, 35, 40, 46, 47, 101)",
       "uses": [
         {
@@ -498,6 +507,14 @@
       "proofSteps": [
         "Item 47: V(x, H) ≪ x²/log x through the von Mangoldt count θ^Λ and the positive-prime correction (a bound the paper does not state but which holds: the mean over the box of θ^Λ_P(x) − θ_P(x) is ≪ (log H)^n log x).",
         "Cauchy–Schwarz: R(x, H)² ≤ V(x, H)."
+      ],
+      "printedStatement": "Printed Theorem 1.9: Let n,d_1,…,d_n,M be positive integers. Let n₀∈ℤ and let Q=(Q_i(t))∈(ℤ[t])^n. Fix arbitrary A_1,A_2∈ℝ with n<A_1<A_2. Then for all H≥3 and all x≥3 with (log H)^{A_1}<x≤(log H)^{A_2} we have R(x,H)≪x/√(log x), where the implied constant depends only on d_1,…,d_n,M,n₀,Q,A_1,A_2.",
+      "unitTests": [
+        {
+          "name": "SS23.9.emptyFamily",
+          "statement": "For degree one and residue t²+1 mod 2, the t² coefficient contradicts coefficientwise congruence at every H; an average cannot be formed.",
+          "status": "proposed"
+        }
       ]
     },
     {
@@ -552,7 +569,7 @@
       "id": "PAPER-SKOROBOGATOV-SOFOS-23/11",
       "kind": "theorem",
       "name": "Quantitative many-prime-value theorem",
-      "statement": "Fix data as in item 9 with gcd(∏Q_i(n₀),M)=1, A>0, D=Σd_i. Among Schinzel P∈Poly(H), the proportion with #S_{n+A}(P)≥(log|P|)^{A/3} is 1+O((logloglogH)^{D−n}/√loglog H). Constants may depend on the fixed data and A.",
+      "statement": "Fix n,d_i,M≥1,n₀∈Z,Q_i∈Z[t] with deg Q_i≤d_i and gcd(∏Q_i(n₀),M)=1, A>0 and D=Σd_i. For sufficiently large H, among Schinzel P∈Poly(H), the proportion with #S_{n+A}(P)≥(log|P|)^{A/3} is 1+O((logloglogH)^{D−n}/√loglog H). The denominator #{P∈Poly(H):P Schinzel} is eventually positive by /24. Constants may depend on the fixed data and A.",
       "locator": "Theorem 1.5, Eq. (1.3), p. 677",
       "status": "missing",
       "library": [],
@@ -562,7 +579,7 @@
         "PAPER-SKOROBOGATOV-SOFOS-23/9",
         "PAPER-SKOROBOGATOV-SOFOS-23/10"
       ],
-      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply. Theorem 1.5 retains the assumptions of Theorem 1.2, including deg Q_i≤d_i. It does not inherit arbitrary residues from a literal shortened transcription of /9.",
       "executionStatus": "source endpoint",
       "uses": [
         {
@@ -1016,7 +1033,7 @@
         "PAPER-SKOROBOGATOV-SOFOS-23/1",
         "PAPER-SKOROBOGATOV-SOFOS-23/23"
       ],
-      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply. For every normalized coefficientwise congruence family used here, M≥1 and deg Q_i≤d_i (the sufficient generalized condition is that every coefficient above d_i vanishes modulo M). Poly(H) is nonempty for sufficiently large H; use its exact cardinality as denominator only after this is established. For a Schinzel relative denominator retain gcd(∏Q_i(n₀),M)=1 and apply /24 before division.",
       "uses": [
         {
           "where": "PAPER-SKOROBOGATOV-SOFOS-23/25",
@@ -1745,7 +1762,7 @@
         "PAPER-SKOROBOGATOV-SOFOS-23/46",
         "PAPER-SKOROBOGATOV-SOFOS-23/88"
       ],
-      "note": "The paper's §4.4 with the corrections E1, E4 and E10 made explicit. #Poly(H) ≍ H^{d+n} with constants depending on M.",
+      "note": "The paper's §4.4 with the corrections E1, E4 and E10 made explicit. #Poly(H) ≍ H^{d+n} with constants depending on M. For every normalized coefficientwise congruence family used here, M≥1 and deg Q_i≤d_i (the sufficient generalized condition is that every coefficient above d_i vanishes modulo M). Poly(H) is nonempty for sufficiently large H; use its exact cardinality as denominator only after this is established.",
       "uses": [],
       "proofSteps": [
         "Since 0 ≤ θ ≤ θ^Λ, (θ − Sx)² − (θ^Λ − Sx)² = D² − 2D(θ^Λ − Sx) ≤ 2DSx with D = θ^Λ − θ.",
@@ -1758,7 +1775,7 @@
       "id": "PAPER-SKOROBOGATOV-SOFOS-23/48",
       "kind": "theorem",
       "name": "Markov passage inside the admissible family",
-      "statement": "Assume the standing hypotheses on Poly(H) (p. 677): n, d_i, M ∈ ℕ, n_0 ∈ ℤ, Q_i ∈ ℤ[t] with deg Q_i ≤ d_i and gcd(∏Q_i(n_0), M) = 1. Let ε: ℝ → (0, ∞) be any function and fix A_1, A_2 with n < A_1 < A_2. Then for all x, H ≥ 2 with (log H)^{A_1} < x < (log H)^{A_2}: #{P ∈ Poly(H): P Schinzel, |θ_P(x) − S_P(x)x| ≤ ε(x)x} / #{P ∈ Poly(H): P Schinzel} = 1 + O(1/(ε(x)(log x)^{1/2})). Equivalently (4.9), the proportion with |θ_P(x) − S_P(x)x| > ε(x)x is ≪ 1/(ε(x)(log x)^{1/2}). The implied constant depends on n, d_i, M, n_0, Q, A_1, A_2, but not on ε, x or H. The statement holds for each x separately, not uniformly over a range of x.",
+      "statement": "Assume the standing hypotheses on Poly(H) (p. 677): n, d_i, M ∈ ℕ, n_0 ∈ ℤ, Q_i ∈ ℤ[t] with deg Q_i ≤ d_i and gcd(∏Q_i(n_0), M) = 1. Let ε: ℝ → (0, ∞) be any function and fix A_1, A_2 with n < A_1 < A_2. Then for all x, H ≥ 2 with (log H)^{A_1} < x < (log H)^{A_2}: #{P ∈ Poly(H): P Schinzel, |θ_P(x) − S_P(x)x| ≤ ε(x)x} / #{P ∈ Poly(H): P Schinzel} = 1 + O(1/(ε(x)(log x)^{1/2})). Equivalently (4.9), the proportion with |θ_P(x) − S_P(x)x| > ε(x)x is ≪ 1/(ε(x)(log x)^{1/2}). The implied constant depends on n, d_i, M, n_0, Q, A_1, A_2, but not on ε, x or H. The statement holds for each x separately, not uniformly over a range of x. This normalized statement is used only for sufficiently large H, with compatible deg Q_i≤d_i and a nonzero indicated denominator.",
       "locator": "Published Lemma 4.10 pp. 714–715",
       "status": "missing",
       "library": [],
@@ -1768,7 +1785,7 @@
         "PAPER-SKOROBOGATOV-SOFOS-23/9",
         "PAPER-SKOROBOGATOV-SOFOS-23/24"
       ],
-      "note": "Not formalized; source issues and completion gates apply.",
+      "note": "Not formalized; source issues and completion gates apply. For every normalized coefficientwise congruence family used here, M≥1 and deg Q_i≤d_i (the sufficient generalized condition is that every coefficient above d_i vanishes modulo M). Poly(H) is nonempty for sufficiently large H; use its exact cardinality as denominator only after this is established. For a Schinzel relative denominator retain gcd(∏Q_i(n₀),M)=1 and apply /24 before division.",
       "uses": []
     },
     {
@@ -2227,11 +2244,11 @@
       "status": "planned",
       "library": [],
       "planned": [
-        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence"
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
       ],
       "cluster": "import",
       "prerequisites": [],
-      "note": "Not formalized; source issues and completion gates apply.",
+      "note": "Not formalized; source issues and completion gates apply. FIX-RT #5506: Layer 13 is the named-field/splitting supplier; Layer 12 supplies the underlying global correspondence used by Layer 13, not a competing strict Hilbert field construction. The reviewed Layer 13 audit and actual roadmap contract were read; this remains planned, not library.",
       "api": [
         {
           "name": "SS23.63.api1",
@@ -2611,7 +2628,7 @@
       "id": "PAPER-SKOROBOGATOV-SOFOS-23/74",
       "kind": "theorem",
       "name": "Average character cancellation",
-      "statement": "Fix the data ofDefinition6.4, d_i,M≥1,Q withgcd(Q_i(n₀),M)=1, n<A₁<A₂. Uniformly H≥3,log^{A₁}H<x≤log^{A₂}H, average_P|η_P(x;h,k)|≪x^{1/2+n/(2A₁)}. The proof establishes the squared average≪x^{1+n/A₁}; constants depend on fixed degree/congruence/range data, not the bounded functions.",
+      "statement": "Fix the bounded functions and indices of Definition 6.4, n≥2, d_i,M≥1,n₀∈N and Q_i∈Z[t] with deg Q_i≤d_i and gcd(Q_i(n₀),M)=1. Fix n<A₁<A₂. For sufficiently large H and (log H)^{A₁}<x≤(log H)^{A₂}, average_{P∈Poly(H)}|η_P(x;h,k)|≪x^{1/2+n/(2A₁)}. The squared average is ≪x^{1+n/A₁}; constants depend on fixed degree/congruence/range data, not the bounded functions. Poly(H) is eventually nonempty by coefficient degree compatibility.",
       "locator": "Published Proposition 6.5 pp. 727–729",
       "status": "missing",
       "library": [],
@@ -2621,7 +2638,7 @@
         "PAPER-SKOROBOGATOV-SOFOS-23/72",
         "PAPER-SKOROBOGATOV-SOFOS-23/73"
       ],
-      "note": "Not formalized; source issues and completion gates apply.",
+      "note": "Not formalized; source issues and completion gates apply. This is an extraction-domain repair: retain p.677 degree compatibility when applying the p.727 theorem to its normalized coefficient family. No extra published error is asserted.",
       "uses": [
         {
           "where": "PAPER-SKOROBOGATOV-SOFOS-23/75",
@@ -3467,10 +3484,32 @@
       "id": "PAPER-SKOROBOGATOV-SOFOS-23/l1-bound-truncated-von-mangoldt",
       "kind": "theorem",
       "name": "Pointwise and mean bounds for Λ_z and E_z",
-      "statement": "For f ∈ {Λ_z, E_z} and t ∈ ℕ: |f(t)| ≤ Σ_{m|t} log m ≤ τ(t) log t. Hence Σ_{t≤y} |f(t)| ≪ y(log y)², and, for natural k, m ≤ (log H)^{δ2} and 𝓜 = max{k,m}, S_{|f|}(0) = Σ_{|c|≤(d+1)𝓜^d H} |f(c)| ≪ H(log H)²𝓜^d ≪ H(log H)^{2+dδ2}.",
+      "statement": "With the even extension Λ(t)=Λ(|t|), Λ(0)=0 and E_z=Λ−Λ_z: (1) for z≥1, f∈{Λ_z,E_z} and integers t≥1, |f(t)|≤Σ_{e|t}log e≤τ(t)log t. For y sufficiently large, Σ_{1≤t≤y}|f(t)|≪y(log y)² uniformly in z, with an absolute implied constant. (2) Fix d≥1 and δ₂>0. For H sufficiently large, positive integers k,m≤(log H)^{δ₂}, 𝓜=max{k,m} and 1≤z≤H, S_{|f|}(0)=Σ_{c∈Z, |c|≤(d+1)𝓜^dH}|f(c)|≪_{d,δ₂}H(log H)²𝓜^d≪_{d,δ₂}H(log H)^{2+dδ₂}. Proposition 3.8 uses the narrower source range H^{δ₁}≤z≤H with fixed 0<δ₁<1; its additional δ₁ dependence is retained when applying that proposition.",
       "locator": "Published proof of Proposition 3.8 p. 694",
       "status": "missing",
-      "note": "It uses the classical black box Σ_{t≤y} τ(t) ≪ y log y (Dirichlet), which the paper does not cite. With Λ even the bound applies to c < 0 through |c|. The c = 0 term needs |Λ_z(0)| ≤ Σ_{d≤z} log d ≤ z log z ≤ H log H and |E_z(0)| ≤ z log z, which still fit the stated bound (E4). The printed 'log t' for t ≤ 0 is meaningless. Missing: routed to route 1."
+      "note": "The positive-input bound follows from the divisor expansion; Σ_{t≤y}τ(t)≪y log y supplies the mean bound. With even Λ, negative c use |c|. At c=0, every positive e divides 0: Λ_z(0)=−Σ_{e≤z}μ(e)log e and E_z(0)=−Λ_z(0), so |f(0)|≤Σ_{e≤z}log e≤z log z≤H log H under z≤H. Since 𝓜≥1, this fits the two-sided bound, and log((d+1)𝓜^dH)≪_{d,δ₂}log H for sufficiently large H. No bound uniform in arbitrary z with fixed H is asserted. This fixes the extraction, not the source Proposition 3.8. The separate source δ₁ range in /98 is unchanged. Routed to route 1.",
+      "api": [
+        {
+          "name": "SS23.L1.positive",
+          "statement": "The divisor bound is on t≥1; handle zero separately before passing to an even two-sided sum."
+        },
+        {
+          "name": "SS23.L1.zeroRange",
+          "statement": "The zero term is ≤z log z; absorb it into H(log H)²𝓜^d only under the stated z≤H range."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.L1.primeJump",
+          "statement": "At every prime p, Λ_p(0)−Λ_{p−1}(0)=log p; hence at least one adjacent absolute value is ≥log p/2. This excludes unrestricted uniformity in z at fixed H.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.L1.one",
+          "statement": "For t=1 the divisor sum and both values are zero; Λ_z(0) requires its separate formula.",
+          "status": "proposed"
+        }
+      ]
     },
     {
       "id": "PAPER-SKOROBOGATOV-SOFOS-23/crt-coefficient-box-count",
@@ -3479,7 +3518,7 @@
       "statement": "For q ∈ ℕ, a ∈ Z and an interval I ⊂ ℝ of length L, ♯{c ∈ Z ∩ I : c ≡ a mod q} = L/q + O(1). Consequently, for W squarefree and coprime to M, and sets S_ℓ ⊆ Ω_ℓ(d_1)×…×Ω_ℓ(d_n) for ℓ | W: ♯{P ∈ Poly(H) : P mod ℓ ∈ S_ℓ for all ℓ | W} = 2^{−n}(2H/(WM) + O(1))^{d+n} ∏_{ℓ|W} ♯S_ℓ, with an absolute O(1) inside the power.",
       "locator": "Published proof of Proposition 2.8 p. 689 ('by the Chinese remainder theorem applied to the coefficients')",
       "status": "missing",
-      "note": "This is the finite CRT count behind K(H). With S_ℓ = T_ℓ and W ≤ H^{1/2} it gives K(H) = 2^d(H/M)^{d+n}∏_{ℓ|W}(1−c_ℓ) + O(H^{d+n−1/2}). The same count recurs in Lemma 3.10, p. 697. Missing: routed to route 1."
+      "note": "This is the finite CRT count behind K(H). With S_ℓ = T_ℓ and W ≤ H^{1/2} it gives K(H) = 2^d(H/M)^{d+n}∏_{ℓ|W}(1−c_ℓ) + O(H^{d+n−1/2}). The same count recurs in Lemma 3.10, p. 697. Missing: routed to route 1. For every normalized coefficientwise congruence family used here, M≥1 and deg Q_i≤d_i (the sufficient generalized condition is that every coefficient above d_i vanishes modulo M). Poly(H) is nonempty for sufficiently large H; use its exact cardinality as denominator only after this is established."
     },
     {
       "id": "PAPER-SKOROBOGATOV-SOFOS-23/one-point-fourier-identity-progression",
@@ -3497,7 +3536,7 @@
       "statement": "Removing the condition P_i ≡ Q_i (mod M) can only increase ♯Poly(H)·V(x,H), so ♯Poly(H)V(x,H) ≤ Σ_P θ_P(x)² − 2x Σ_P 𝔖_P(x)θ_P(x) + x² Σ_P 𝔖_P(x)², all three sums over P ∈ ℤ[t]^n with |P| ≤ H, deg P_i = d_i, P_i > 0. Section 4 proves V(x,H) ≪ x²/log x from this, and Theorem 1.9 follows from R(x,H)² ≤ V(x,H).",
       "locator": "Opening of §4, p. 703, (4.1)",
       "status": "missing",
-      "note": "Valid because each (θ_P − 𝔖_P x)² ≥ 0. Used in §4.4 (p. 714). Only an upper bound for Σθ² and a lower bound for Σ𝔖θ are needed, which is why E10 is harmless and E1 is repairable. The printed target 'x²/(log x)^{−1}' is E9. Missing: routed to route 1."
+      "note": "Valid because each (θ_P − 𝔖_P x)² ≥ 0. Used in §4.4 (p. 714). Only an upper bound for Σθ² and a lower bound for Σ𝔖θ are needed, which is why E10 is harmless and E1 is repairable. The printed target 'x²/(log x)^{−1}' is E9. Missing: routed to route 1. For every normalized coefficientwise congruence family used here, M≥1 and deg Q_i≤d_i (the sufficient generalized condition is that every coefficient above d_i vanishes modulo M). Poly(H) is nonempty for sufficiently large H; use its exact cardinality as denominator only after this is established."
     },
     {
       "id": "PAPER-SKOROBOGATOV-SOFOS-23/wintner-iwaniec-kowalski-4-2",
@@ -3584,10 +3623,10 @@
       "id": "PAPER-SKOROBOGATOV-SOFOS-23/many-schinzel-large-theta-4-10",
       "kind": "theorem",
       "name": "Most Schinzel tuples have a large prime count (Eq. 4.10)",
-      "statement": "Assume gcd(∏Q_i(n_0), M) = 1 and fix A > 0. Put A_1 = n + A/2 and A_2 = n + 3A/4, and let β_0 be as in Lemma 4.11 (item 49). For all sufficiently large H and every x with (log H)^{A_1} < x < (log H)^{A_2}: #{P ∈ Poly(H): P Schinzel, θ_P(x) ≥ (β_0/2)(log log x)^{n−d}x} / #{P ∈ Poly(H): P Schinzel} = 1 + O((log log log H)^{d−n}(log log H)^{−1/2}).",
+      "statement": "Assume M≥1, deg Q_i≤d_i and gcd(∏Q_i(n_0), M) = 1 and fix A > 0. Put A_1 = n + A/2 and A_2 = n + 3A/4, and let β_0 be as in Lemma 4.11 (item 49). For all sufficiently large H and every x with (log H)^{A_1} < x < (log H)^{A_2}: #{P ∈ Poly(H): P Schinzel, θ_P(x) ≥ (β_0/2)(log log x)^{n−d}x} / #{P ∈ Poly(H): P Schinzel} = 1 + O((log log log H)^{d−n}(log log H)^{−1/2}).",
       "locator": "Published end of proof of Theorem 1.5, pp. 716–717, Eq. (4.10)",
       "status": "missing",
-      "note": "Proof: Lemma 4.10 (item 48) with ε(x) = (β_0/2)(log log x)^{n−d}, together with Lemma 4.11. Uses log x ≍ log log H and log log x = log log log H + O(1). Missing: routed to route 1."
+      "note": "Proof: Lemma 4.10 (item 48) with ε(x) = (β_0/2)(log log x)^{n−d}, together with Lemma 4.11. Uses log x ≍ log log H and log log x = log log log H + O(1). Missing: routed to route 1. For every normalized coefficientwise congruence family used here, M≥1 and deg Q_i≤d_i (the sufficient generalized condition is that every coefficient above d_i vanishes modulo M). Poly(H) is nonempty for sufficiently large H; use its exact cardinality as denominator only after this is established. For a Schinzel relative denominator retain gcd(∏Q_i(n₀),M)=1 and apply /24 before division."
     },
     {
       "id": "PAPER-SKOROBOGATOV-SOFOS-23/small-height-tuples-rare",
@@ -3771,19 +3810,19 @@
       "id": "PAPER-SKOROBOGATOV-SOFOS-23/T-S-P-average-bound",
       "kind": "theorem",
       "name": "Average bound for T_{S,P} (claim (6.8))",
-      "statement": "For all H≥3 and all x with (log H)^{2n}<x≤(log H)^{3n}, and every S in Σ*: (1/♯Poly(H)) Σ_{P∈Poly(H)} |T_{S,P}(x)| ≪ x^{3/4}. Proof: after quadratic reciprocity, T_{S,P}(x)=η_P(x;h,k) for suitable indices h≠k, bounded functions F₁,F₂,G (independent of P) and a sign. Here h lies in some S_{i′}^c and k∈S_i, which needs n₁,n₂>0. Then apply Proposition 6.5 with A₁=2n, A₂=3n.",
+      "statement": "For all H≥3 and all x with (log H)^{2n}<x≤(log H)^{3n}, and every S in Σ*: (1/♯Poly(H)) Σ_{P∈Poly(H)} |T_{S,P}(x)| ≪ x^{3/4}. Proof: after quadratic reciprocity, T_{S,P}(x)=η_P(x;h,k) for suitable indices h≠k, bounded functions F₁,F₂,G (independent of P) and a sign. Here h lies in some S_{i′}^c and k∈S_i, which needs n₁,n₂>0. Then apply Proposition 6.5 with A₁=2n, A₂=3n. This normalized statement is used only for sufficiently large H, with compatible deg Q_i≤d_i and a nonzero indicated denominator.",
       "locator": "Published proof of Proposition 6.7 pp. 732–733, (6.8)",
       "status": "missing",
-      "note": "The distinctness condition in T_{S,P} must also be absorbed into F₁,F₂,G. See the new gap recorded under sourceIssues. Missing: routed to route 2."
+      "note": "The distinctness condition in T_{S,P} must also be absorbed into F₁,F₂,G. See the new gap recorded under sourceIssues. Missing: routed to route 2. For every normalized coefficientwise congruence family used here, M≥1 and deg Q_i≤d_i (the sufficient generalized condition is that every coefficient above d_i vanishes modulo M). Poly(H) is nonempty for sufficiently large H; use its exact cardinality as denominator only after this is established."
     },
     {
       "id": "PAPER-SKOROBOGATOV-SOFOS-23/C-P-average-comparison",
       "kind": "theorem",
       "name": "C_P is close to 2^{1−n}θ_P on average",
-      "statement": "For H≥3 and (log H)^{2n}<x≤(log H)^{3n}: (1/♯Poly(H)) Σ_{P∈Poly(H)} |C_P(x)−2^{1−n}θ_P(x)| ≪ x^{3/4}. Hence ♯{P∈Poly(H): |C_P(x)−2^{1−n}θ_P(x)|>x^{4/5}} ≪ ♯Poly(H)(log H)^{−n/10}. Combined with (4.10) and Proposition 2.8, this gives C_P(x)>0 for 100% of Schinzel P≡Q (mod M).",
+      "statement": "For H≥3 and (log H)^{2n}<x≤(log H)^{3n}: (1/♯Poly(H)) Σ_{P∈Poly(H)} |C_P(x)−2^{1−n}θ_P(x)| ≪ x^{3/4}. Hence ♯{P∈Poly(H): |C_P(x)−2^{1−n}θ_P(x)|>x^{4/5}} ≪ ♯Poly(H)(log H)^{−n/10}. Combined with (4.10) and Proposition 2.8, this gives C_P(x)>0 for 100% of Schinzel P≡Q (mod M). This normalized statement is used only for sufficiently large H, with compatible deg Q_i≤d_i and a nonzero indicated denominator.",
       "locator": "Published proof of Proposition 6.7 p. 732",
       "status": "missing",
-      "note": "Uses (6.5), (6.8) and (6.7); see E19 for the needed averaged form of (6.7). Using (4.10) with x up to (log H)^{3n} needs Lemma 4.10 with A₁=2n, A₂=3n. That is allowed, because (4.10) was derived for general n<A₁<A₂, and one x per H suffices. Missing: routed to route 2."
+      "note": "Uses (6.5), (6.8) and (6.7); see E19 for the needed averaged form of (6.7). Using (4.10) with x up to (log H)^{3n} needs Lemma 4.10 with A₁=2n, A₂=3n. That is allowed, because (4.10) was derived for general n<A₁<A₂, and one x per H suffices. Missing: routed to route 2. For every normalized coefficientwise congruence family used here, M≥1 and deg Q_i≤d_i (the sufficient generalized condition is that every coefficient above d_i vanishes modulo M). Poly(H) is nonempty for sufficiently large H; use its exact cardinality as denominator only after this is established. For a Schinzel relative denominator retain gcd(∏Q_i(n₀),M)=1 and apply /24 before division."
     },
     {
       "id": "PAPER-SKOROBOGATOV-SOFOS-23/generic-conic-bundle-family",
@@ -3941,7 +3980,7 @@
         "PAPER-SKOROBOGATOV-SOFOS-23/euler-product-values"
       ],
       "reason": "ST.0–5 provide height-family and number-field/Selmer counting infrastructure, but not positive-prime values of fixed-degree integer polynomials in growing coefficient boxes. This is different from the previously proposed growing-degree random-irreducibility direction. The local evaluation laws and three matched dispersion moments require new layers, importing generic family density and Fourier/arithmetic suppliers.",
-      "brief": "Extend Arithmetic statistics, counting fields and Selmer distributions (ArithmeticStatistics). Import ST.0 relative height-family density; Sieve methods, prime gaps and prime patterns (SieveMethodsAndPrimePatterns) for quadratic-character bilinear input; Exponential sums, decoupling and the circle method (ExponentialSumsAndCircleMethod) for kernel estimates; Analytic number theory, zeta functions and prime distribution (AnalyticNumberTheory) for Möbius, Mertens, PNT and multiplicative means. Endpoint contracts are items 9,11–15,24–25,74,79 and 83–84. In particular for fixed positive degrees d_i and M, n<A₁<A₂ and log^{A₁}H<x≤log^{A₂}H, the desired average absolute discrepancy is O(x/√log x); for Schinzel tuples in compatible congruence classes the fraction with at least (log|P|)^{A/3} prime witnesses up to (log|P|)^{n+A} is 1+O((logloglogH)^{D−n}/√loglog H). Preserve the common input, positive primes, positive leading coefficients, coefficientwise congruence and exact normalization. Use the even von Mangoldt function on ℤ (item 28): Theorem 3.1, Proposition 3.8 and Lemma 3.9 hold for it, and Lemma 3.14 holds in its von Mangoldt form (item 34), not for positive primes alone (E1). Run the dispersion for θ^Λ (item 100) and pass to positive primes with a bound the paper does not state but which holds: the mean over the box of θ^Λ_P(x) − θ_P(x) is ≪ (log H)^n log x; this uses n < A₁. State Corollary 1.10 pointwise in x (item 15). Construct finite-field coefficient probability, Vandermonde fibers, G_p, c_p, γ_n, singular series, CRT counting, large-prime tails and weighted counts with the stated API/tests. Reuse the built Vandermonde and natural Mangoldt APIs. Distinct-prime claims require deleting the repeated-polynomial diagonals. Proposed files: TauCeti/NumberTheory/PolynomialPrimeValues/LocalModels.lean and Dispersion.lean. Import the Bouniakowsky and Schinzel predicates (items 3, 4) from SieveMethodsAndPrimePatterns:SV.4. Proposed landmarks: Bernoulli Euler factors; Schinzel on average; quadratic-character cancellation. No conjectural full Schinzel or fixed-polynomial Bateman–Horn theorem is a proved endpoint. Corrections the design must carry: Lemma 3.14 as printed counts only positive prime values and is false; the main term needs the von Mangoldt function read evenly on ℤ (E1), and Theorem 3.1 likewise needs Λ extended evenly to the negative integers (E4); Lemmas 4.1 and 4.4 and (4.5) inherit the one-sided proof (E10); Lemma 4.9 is false for θ_P and holds for θ^Λ, which is enough for Theorem 1.9 since A₁ > n (E30); Corollary 1.10 needs one exceptional set valid for all x at once, which the paper does not supply (E11); and (6.7) must exclude tuples with a repeated polynomial, which form a negligible proportion (E19)."
+      "brief": "Extend Arithmetic statistics, counting fields and Selmer distributions (ArithmeticStatistics). Import ST.0 relative height-family density; Sieve methods, prime gaps and prime patterns (SieveMethodsAndPrimePatterns) for quadratic-character bilinear input; Exponential sums, decoupling and the circle method (ExponentialSumsAndCircleMethod) for kernel estimates; Analytic number theory, zeta functions and prime distribution (AnalyticNumberTheory) for Möbius, Mertens, PNT and multiplicative means. Endpoint contracts are items 9,11–15,24–25,74,79 and 83–84. In particular for fixed positive degrees d_i and M, n<A₁<A₂ and log^{A₁}H<x≤log^{A₂}H, the desired average absolute discrepancy is O(x/√log x); for Schinzel tuples in compatible congruence classes the fraction with at least (log|P|)^{A/3} prime witnesses up to (log|P|)^{n+A} is 1+O((logloglogH)^{D−n}/√loglog H). Preserve the common input, positive primes, positive leading coefficients, coefficientwise congruence and exact normalization. Use the even von Mangoldt function on ℤ (item 28): Theorem 3.1, Proposition 3.8 and Lemma 3.9 hold for it, and Lemma 3.14 holds in its von Mangoldt form (item 34), not for positive primes alone (E1). Run the dispersion for θ^Λ (item 100) and pass to positive primes with a bound the paper does not state but which holds: the mean over the box of θ^Λ_P(x) − θ_P(x) is ≪ (log H)^n log x; this uses n < A₁. State Corollary 1.10 pointwise in x (item 15). Construct finite-field coefficient probability, Vandermonde fibers, G_p, c_p, γ_n, singular series, CRT counting, large-prime tails and weighted counts with the stated API/tests. Reuse the built Vandermonde and natural Mangoldt APIs. Distinct-prime claims require deleting the repeated-polynomial diagonals. Proposed files: TauCeti/NumberTheory/PolynomialPrimeValues/LocalModels.lean and Dispersion.lean. Import the Bouniakowsky and Schinzel predicates (items 3, 4) from SieveMethodsAndPrimePatterns:SV.4. Proposed landmarks: Bernoulli Euler factors; Schinzel on average; quadratic-character cancellation. No conjectural full Schinzel or fixed-polynomial Bateman–Horn theorem is a proved endpoint. Corrections the design must carry: Lemma 3.14 as printed counts only positive prime values and is false; the main term needs the von Mangoldt function read evenly on ℤ (E1), and Theorem 3.1 likewise needs Λ extended evenly to the negative integers (E4); Lemmas 4.1 and 4.4 and (4.5) inherit the one-sided proof (E10); Lemma 4.9 is false for θ_P and holds for θ^Λ, which is enough for Theorem 1.9 since A₁ > n (E30); Corollary 1.10 needs one exceptional set valid for all x at once, which the paper does not supply (E11); and (6.7) must exclude tuples with a repeated polynomial, which form a negligible proportion (E19).\nConfirmed FIX-RT #5506 requirements: every coefficient-family average uses M≥1, deg Q_i≤d_i and sufficiently large H with #Poly(H)>0. For Schinzel relative density keep the source unit condition and establish eventual positive Schinzel count by /24; Theorem 1.5 and average character cancellation /74 explicitly retain the degree bound. A shorter literal Theorem 1.9 transcription must be labelled and separated from this usable contract; no new coprimality restriction is imposed on its general mean-discrepancy form. In the L1 supplier split positive t≥1 from the two-sided sum containing zero; require d≥1, fixed δ₂>0, positive k,m≤(log H)^{δ₂}, H sufficiently large and 1≤z≤H, with constants depending on d,δ₂. Keep Proposition 3.8’s source H^{δ₁}≤z≤H range at its actual use. Tests: incompatible linear residue t²+1 mod 2 yields an empty family at every H; compatible Q=1 admits 2t+1; Λ_p(0)−Λ_{p−1}(0)=log p at primes."
     },
     {
       "route": "part-ii",
@@ -3992,7 +4031,7 @@
         "PAPER-SKOROBOGATOV-SOFOS-23/theorem-1-4-normalisation"
       ],
       "reason": "RP.2–3 own Brauer evaluation and descent, not density-one existence theorems across arbitrary-degree coefficient families. Add their arithmetic-family applications as new layers. Do not rebuild class field theory, Hasse–Minkowski, generic scheme carriers or the prime-value engine.",
-      "brief": "Extend Heights, rational points and obstructions (HeightsRationalPointsAndObstructions), importing RP.2 cyclic norm obstruction APIs and ArithmeticStatisticsPartIISchinzelAverages for fixed-degree prime-value statistics. Import Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), layers 5,6,10,12, for local invariants, unramified norm units, ABHN and strict ray-class splitting, and Global quadratic forms (tauceti:TauCetiRoadmap/GlobalQuadraticForms), layer 5, for Hasse–Minkowski. Endpoint 61 is relative density 1 of rational points among cyclic norm fibers satisfying the specified unit-integral local conditions at ramified primes, together with positive ambient coefficient density. Endpoint 67 retains the column-sum Brauer conditions for a product of generic polynomials. Endpoint 65 gives a positive proportion of integral affine norm equations only under the additional hypothesis K^(+)/Q abelian. Endpoints 80–82 give relative density 1 of locally unit-soluble diagonal conic bundles and positive ambient proportion for arbitrary nonzero diagonal coefficients, with n₁,n₂>0,n₃≥0 and all prescribed polynomial degrees positive; resulting points lie in smooth fibers. Endpoints 86–87 give the exact product lower bound and >56% for x²+y²=P(t), d≥2. They use the prime-value input of the Schinzel-averages Part II, with the repair recorded there (E1, E4). Build basis-independent integral norm forms, unit-open universal families, joint smooth local persistence, compact-image finite CRT covers, invariant matrices, character indicators and thin-diagonal removal. Preserve the distinction between affine integral solutions and integral points of the unit-open scheme. The real sign hypothesis and nonzero projective vector must be explicit. Suggested files: TauCeti/ArithmeticGeometry/RandomFibrations/Norm.lean and Conic.lean. Suggested landmarks: local congruence cover; random cyclic norm Hasse principle; conic-solubility indicator;56percent integral Châtelet bound. No unrestricted Brauer–Manin completeness is asserted. Corrections the design must carry: in Lemma 5.2 the joint map (g, h) is open because f is smooth, not because g and h are (E14); the proofs of Theorems 5.3 and 5.8 need ℤ_p-points on the fibres, not only ℚ_p-points, which holds for cyclic K by a short norm argument (E32); in §6.3 the modulus must be a multiple of 8a₁a₂a₃ (E40), local points on the family must be exhibited for the positive-density claim (E41), and the distinctness of prime values must be carried into T_{S,P} (E37); and the proof of Corollary 1.7 works only when a is not a square, since for square a Holzer's solution has z = 0 (E24)."
+      "brief": "Extend Heights, rational points and obstructions (HeightsRationalPointsAndObstructions), importing RP.2 cyclic norm obstruction APIs and ArithmeticStatisticsPartIISchinzelAverages for fixed-degree prime-value statistics. Import Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), layers 5,6,10 for local invariants, unramified norm units and ABHN, and Layer 13 (tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields) for the strict Hilbert class field, its totally-positive-principal splitting law, the cyclic Hasse norm theorem and Kronecker–Weber; Layer 12 is an underlying global-correspondence prerequisite. Import Global quadratic forms (tauceti:TauCetiRoadmap/GlobalQuadraticForms), layer 5, for Hasse–Minkowski. Endpoint 61 is relative density 1 of rational points among cyclic norm fibers satisfying the specified unit-integral local conditions at ramified primes, together with positive ambient coefficient density. Endpoint 67 retains the column-sum Brauer conditions for a product of generic polynomials. Endpoint 65 gives a positive proportion of integral affine norm equations only under the additional hypothesis K^(+)/Q abelian. Endpoints 80–82 give relative density 1 of locally unit-soluble diagonal conic bundles and positive ambient proportion for arbitrary nonzero diagonal coefficients, with n₁,n₂>0,n₃≥0 and all prescribed polynomial degrees positive; resulting points lie in smooth fibers. Endpoints 86–87 give the exact product lower bound and >56% for x²+y²=P(t), d≥2. They use the prime-value input of the Schinzel-averages Part II, with the repair recorded there (E1, E4). Build basis-independent integral norm forms, unit-open universal families, joint smooth local persistence, compact-image finite CRT covers, invariant matrices, character indicators and thin-diagonal removal. Preserve the distinction between affine integral solutions and integral points of the unit-open scheme. The real sign hypothesis and nonzero projective vector must be explicit. Suggested files: TauCeti/ArithmeticGeometry/RandomFibrations/Norm.lean and Conic.lean. Suggested landmarks: local congruence cover; random cyclic norm Hasse principle; conic-solubility indicator;56percent integral Châtelet bound. No unrestricted Brauer–Manin completeness is asserted. Corrections the design must carry: in Lemma 5.2 the joint map (g, h) is open because f is smooth, not because g and h are (E14); the proofs of Theorems 5.3 and 5.8 need ℤ_p-points on the fibres, not only ℚ_p-points, which holds for cyclic K by a short norm argument (E32); in §6.3 the modulus must be a multiple of 8a₁a₂a₃ (E40), local points on the family must be exhibited for the positive-density claim (E41), and the distinctness of prime values must be carried into T_{S,P} (E37); and the proof of Corollary 1.7 works only when a is not a square, since for square a Holzer's solution has z = 0 (E24).\nFor each finite local congruence neighborhood constructed inside the fixed-degree coefficient space, choose Q_i of degree at most d_i. The prime-value and character averages import the corrected route-1 contracts; prove eventual nonempty denominators before relative-density division. Do not re-plan the class fields or norm theorems owned by Tau Ceti."
     },
     {
       "route": "source",
@@ -5218,5 +5257,32 @@
       "inputCommit": "c1aaf2a (tauceti-explorer main, 23 September 2026)",
       "readingBoundary": "The published PDF (SHA-256 8499680e…, re-downloaded and matched) was reread in full. The arXiv v3 Te X source (SHA-256 53903219…) was compared at every finding. Crossref was checked for corrections."
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://eprints.gla.ac.uk/292484/1/292484.pdf",
+      "read": "2026-10-02",
+      "sha256": "8499680e907e06bf0b1eeae0c1bc7d46e5cbe93411388b17e843f3b8c6a0e9b1",
+      "coverage": "Targeted published pp.675,677,680,691,694,720,727 checked on rendered pages for the three fixes; no new full-paper rereading or preprint collation."
+    }
+  ],
+  "fixValidation": {
+    "job": "FIX-RT-PAPER-SKOROBOGATOV-SOFOS-23",
+    "agent": "Codex",
+    "session": "codex-J6LwjP",
+    "date": "2026-10-02",
+    "issue": 5506,
+    "findingsApplied": [
+      "RT-PAPER-SKOROBOGATOV-SOFOS-23/1",
+      "RT-PAPER-SKOROBOGATOV-SOFOS-23/2",
+      "RT-PAPER-SKOROBOGATOV-SOFOS-23/3"
+    ],
+    "limits": [
+      "Targeted source rereading and correction-interface checks, not a new complete extraction or reproof of the analytic dispersion repair.",
+      "All 42 sourceIssues and their existing review verdicts are unchanged; no own verdict or new source error is added.",
+      "No upstream roadmap or blueprint packet is authorized for this paper fix; existing supplier boundaries are corrected only here.",
+      "No Lean deliverable or pinned compiled build; no compilation."
+    ]
+  }
 }
