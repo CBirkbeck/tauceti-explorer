@@ -4,18 +4,57 @@ Gaëtan Chenevier and Olivier Taïbi, *Discrete series multiplicities for classi
 
 Extraction by Claude Code, session `cc-d67081`, 22 September 2026 (issue #1452). Status: **complete**. The whole published article was read, and every missing item is routed exactly once. The machine-readable extraction is [PAPER-CHENEVIER-TAIBI-20.result.json](PAPER-CHENEVIER-TAIBI-20.result.json):
 
-- 151 items: 5 library, 12 planned, 134 missing;
+- 152 items: 5 library, 13 planned, 134 missing;
 - 12 routes: one new roadmap and eleven source routes;
 - 28 prerequisite entries;
-- 11 source issues.
+- 20 source issues: eleven original observations and nine new corrections awaiting review.
 
 **Source.** The open-access published PDF from pmihes.centre-mersenne.org (63 pages, SHA-256 `ea90fb0f…cd83ba3de`), read on 2026-09-22. Formulas, tables and every quoted passage were checked on page images.
 
-- **arXiv v1** (20 July 2019, SHA-256 `81b7fe2c…6491742c`) was compared with it. The published version adds Definition 5.3 (so the later statements of §5 are numbered one higher) and two references; the theorems, tables and numbers agree. Every source issue below is in both versions.
+- **arXiv v1** (20 July 2019, SHA-256 `81b7fe2c…6491742c`) was compared with it. The published version adds Definition 5.3 (so the later statements of §5 are numbered one higher) and two references; the theorems, tables and numbers agree. The original eleven source issues were compared in both versions by that extraction; this fix records separate targeted version scopes for its additions.
 - **The authors' companion material** [CT19b] was downloaded from https://otaibi.perso.math.cnrs.fr/levelone/ (a mirror of Chenevier's page): the mass tables, the certificate lists, the computation logs, the PARI worksheets and the code for the explicit formula. It was used to check the paper's numbers (see Checks).
 - **Mestre 1986**, §§I.1–I.2 (Numdam), was read for the exact hypotheses of the explicit formula.
 
 The other cited inputs were not read, and each item that rests on one says so. These include Arthur's book, Chenevier–Lannes, Taïbi 2017, Moeglin–Renard, Arancibia–Moeglin–Renard, Böcherer and Rallis. The paper quotes them precisely, and the routing only needs what it quotes.
+
+## Current confirmed fixes (FIX-RT-PAPER-CHENEVIER-TAIBI-20)
+
+Codex, session `codex-J6LwjP`, 2 October 2026, issue [#5534](https://github.com/CBirkbeck/tauceti-explorer/issues/5534).
+All twelve confirmed findings are applied. These corrections supersede the affected statements and library/route claims
+in the historical extraction and review below. See the [finding-by-finding fixes report](../redteam/RT-PAPER-CHENEVIER-TAIBI-20.fixes.md)
+for proofs, sources, checks and limits. No Lean implementation or new independent review verdict is claimed.
+
+| Finding | Corrected interface | Source observation |
+| --- | --- | --- |
+| 1 | Theorem 3 keeps thirteen forms; uniqueness applies to (ii)–(iv), with two PGL₂ forms sharing ±23/2; L24 notation is conditional on uniqueness | E12 |
+| 2 | Regularity quantifies over i<j; (1,0,0,−1) is regular under the central-zero exception | E13 |
+| 3 | The inverse uses only the three integral/half-integral parity images; SO_even fixes λ_last≥0 or quotients by the outer automorphism; m=1 is separate | E14 |
+| 4 | B_f restores conjugation/Re; J_F uses F̂(t); Z and POS use Re, with even real F and F̂(ξ)=∫F(x)e^(−2πixξ)dx | Extraction error only |
+| 5 | ε(U_iU_j)∈{±1} is checked on active δ pairs before real matrices/minima; both monotonicity inputs and certificates retain the guard | E15 |
+| 6 | a_i=k_i−i must be nonzero with a_i+a_j≠0 for i≠j; k_g>g remains sufficient and the separate discrete-series criterion | E16 |
+| 7 | Square-integrable theta relations use lift genus g in summands and inequalities; degree g₀ and Lemma 5.8 are preserved | E17 |
+| 8 | Existing smooth Sp scheme is library; the split integral SO model is a planned ReductiveGroups Layer 9 import, with the quadratic-model comparison owed | Library correction |
+| 9 | SO₃ denominator sin(π/i) is retained; matrix and masses unchanged | E18 |
+| 10 | Non-positive special values are explicitly a correction, retaining character/rational-motive qualifications | E19 |
+| 11 | Positive-genus counts: 223/58 actual parameters, or 198/58 shapes; 199/59 includes genus zero | E20 |
+| 12 | GRH statement interface uses AN.3 under accepted RS-07; Theorem 4 remains conditional | Routing correction |
+
+For finding 3 the published text says **some** dominant λ, not explicitly unique λ. E14 records the false unrestricted
+existence assertion and the sign ambiguity in its inverse, without inventing an additional unique-λ source quotation.
+For finding 5 effective determinant-one candidate parameters suffice; Algorithm 2.4.5 rejects other candidates symbolically
+before numerical work. The earlier normalization correction E3 is unchanged. Tables 5–6 and their dimension conclusions
+are preserved. The parameter relations now have dimensions n and 2g+1; e.g. the E₈ higher lift gives 17=8+9.
+
+The fix reread targeted passages of the published PDF, arXiv v1 and the currently linked author copy, checked rendered
+formula pages and the relevant companion code. It did not reread the full paper, recursively audit Arthur/Gross/Rallis,
+rerun the end-to-end mass computations, or recertify every stored decimal. URLs, dates, hashes and version scopes are
+in `sourceVersions` and the fixes report. No matching correction was found in the bounded journal/arXiv/author checks;
+one author's direct publication page was inaccessible, which is recorded rather than treated as an absence result.
+
+The correction checks pass for all 152 items, all 134 missing routes and nine new source observations. Exact regressions
+cover 4,592 classical inverses, 12,375 lowest-weight vectors, 3,400 theta dimensions, 16,384 determinant-one epsilon pairs,
+18 monotonicity cases and the rational SO₃ mass system. The earlier full-paper reading and accepted review below are their
+original authors’ historical reports. New source observations await independent review.
 
 ## What the paper proves
 
@@ -61,7 +100,8 @@ Library (read at the pinned commits):
 - Kronecker's theorem (`NumberField.Embeddings.pow_eq_one_of_norm_eq_one`);
 - cyclotomic polynomials and their values at 1;
 - the archimedean Γ-factors, as Deligne's `Complex.Gammaℝ` and `Complex.Gammaℂ` with the duplication formula;
-- the groups of R-points of Sp_2g (`Matrix.symplecticGroup`) and of SO(q) over any commutative ring (Tau Ceti);
+- the smooth affine symplectic scheme (`TauCeti.Symplectic.groupScheme`), its smooth coordinate algebra and natural algebra-valued point equivalence;
+- the abstract quadratic orthogonal point groups as partial ingredients. The split integral SO model for the paper’s quadratic form is a planned import from Tau Ceti ReductiveGroups Layer 9, including the required identification in characteristic two; the standard bilinear SO scheme is not silently substituted;
 - Tau Ceti's spinor norm over a field, whose kernel is the image of Spin.
 
 Mathlib also has three partial tools, cited in item notes:
@@ -70,6 +110,7 @@ Mathlib also has three partial tools, cited in item notes:
 - the digamma function.
 
 Planned in the atlas:
+- the split integral orthogonal model from Tau Ceti ReductiveGroups Layer 9, with the comparison for the paper’s displayed quadratic form;
 - level one and algebraic weights (AF.2, AF.4);
 - Satake parameters (SR.4);
 - Rankin–Selberg L-functions with their poles (AL.3);
@@ -109,7 +150,7 @@ Two remarks for the design job:
 - **AutomorphicLFunctionsAndLocalFactors AL.1:** the ε-factors of representations of W_R (ε(I_w) = i^{w+1}, in Tate's normalisation). They are the archimedean case of AL.1's local factors.
 - **AutomorphicLFunctionsAndLocalFactors AL.3:** Gelbart–Shahidi's boundedness of Λ(s, π × π′) in vertical strips, the last analytic input the explicit formula needs.
 - **AnalyticNumberTheory AN.3:** Mestre's general explicit formula, with its exact hypotheses, read in Mestre 1986. The Rankin–Selberg case on Π_alg stays in the new roadmap.
-- **AnalyticNumberTheory AN.6:** the hypothesis (GRH) for Λ(s, π × π′), π, π′ ∈ Π_alg, used by Theorem 4, for AN.6's register of conditional hypotheses.
+- **AnalyticNumberTheory AN.3:** the hypothesis (GRH) for Λ(s, π × π′), π, π′ ∈ Π_alg, used by Theorem 4; accepted RS-07 transfers the RH/GRH statement interface here from the dropped process layer.
 - **AutomorphicSpectralTheory AS.6:** Arthur's L²-Lefschetz formula (Arthur 1989). It is the evaluation of the invariant trace formula at pseudocoefficients of discrete series, a general theorem that the level one mass computation only specialises. ET.1 constructs pseudocoefficients only for unitary groups, so their general construction belongs here as well.
 - **ModularityAndLanglandsExtensions ML.4:** Arancibia–Moeglin–Renard (Adams–Johnson packets are Arthur packets, with multiplicity one) and Moeglin–Renard (the packets of Sp_2n(R) containing scalar holomorphic modules). Both are statements about archimedean Arthur packets; their level one specialisations stay in the new roadmap.
 - **GeometryOfNumbersAndQuadraticArithmetic GN.2:** five items of general quadratic-form theory that build on Tau Ceti's field-level spinor norm:
@@ -122,9 +163,9 @@ Two remarks for the design job:
 - **ComputationalNumberTheory CN.4:** the certified evaluation of the explicit-formula quantities (digamma values and series with tail bounds), and the exact Fincke–Pohst enumeration with certified rational bounds.
 - **ComputationalNumberTheory CN.5:** the certificate lists and mass tables of [CT19b].
 
-## Source issues (`sourceIssues` E1–E11)
+## Earlier source issues (`sourceIssues` E1–E11)
 
-The authors' published data and code made most of these checkable, and several were checked against it. None changes a main theorem.
+The authors' published data and code made most of these checkable, and several were checked against it. The original eleven observations below retain their historical scope; the current theorem-level corrections E12–E20 are explained above and in the fixes report.
 
 **Two are substantive.**
 - **E3 (error).** The normalisation of the quadratic form β_Q in (2.4.4), with the factor 1/m_i, is what the authors' code computes. It does not fit the weights 1/√m used afterwards.
@@ -150,7 +191,7 @@ The authors' published data and code made most of these checkable, and several w
 - **E10.** The proof of Lemma 4.3 has 15 for 16 elements; the 15 counts pairs.
 - **E11.** §2.4.3 cites [CL19, (3) p.127], and §4.3 cites the same estimate at p. 277. Page 127 lies in the book's chapter on theta series.
 
-No erratum was found: arXiv has one version, and neither the journal page nor the authors' pages list one. All eleven are recorded as new.
+The original extraction found no erratum in its recorded searches and marked the eleven observations new. The current fix’s bounded correction search and access limits are recorded separately above.
 
 ## Prerequisites not yet covered
 
@@ -198,7 +239,7 @@ All computations were done in the worker's scratch space. None of them is in the
 - **Tables 2 and 3.** Recounted from Definition 3.1, Definition 3.8 and the relation ∼. All entries agree except Sp_14 (E1).
 - **Remark 3.10.** Against the authors' twenty mass files, exactly six zero-mass classes in P_1 for SO_13 and six for SO_17, and no non-zero mass outside P_1(G), as Corollary 3.9 says.
 - **The SO_3 example.** The stated masses solve the displayed linear system and reproduce dim S_{2k+2}(SL_2(Z)) for k < 40.
-- **§5.3.1.** The enumeration was redone: 199 parameters and 59 solutions. These come out when the trivial parameter (g = 0) is included and Δ¹_23, Δ²_23 are not distinguished. The 58 solutions with g ≥ 1 are the 29 rows of Table 5 and the 29 rows of Table 6 with k > g.
+- **§5.3.1.** Current corrected enumeration: 223 actual candidates and 58 accepted for positive genus, or 198/58 shapes. The historical 199/59 counts shapes with the trivial genus-zero parameter included and the two Δ₂₃ forms collapsed. The fix reran all three conventions against the source signs and companion list; 58 accepted cases are the 29 rows of Table 5 plus 29 scalar rows of Table 6 with k>g (E20).
 - **Lemma 4.3.** Recounted: 1260 candidates, all of dimension at most 25.
 - **§4 counts.** Checked against the authors' certificate files and log:
   - 12293 = 12106 + 187 for weight 23 with m = 1;
