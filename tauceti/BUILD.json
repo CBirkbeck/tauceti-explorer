@@ -28,7 +28,7 @@
   "plainTextPlanetLabels": 81,
   "hiddenPlanets": 209,
   "mappedStageStatuses": 350,
-  "libraryAuditStatuses": 5,
+  "libraryAuditStatuses": 38,
   "bibliographicSources": 46,
   "roadmapEdges": 91,
   "stageEdges": 366,
@@ -38,13 +38,13 @@
       "file": "AdicEtaleGeometry",
       "roadmap": "AdicEtaleGeometry",
       "nodes": 153,
-      "reviewer": "independent-review-REV-AdicEtaleGeometry"
+      "reviewer": "independent-review-REV-FIX-RT-AREA-padic-1~2"
     },
     {
       "file": "AdicSpacesPartII",
       "roadmap": "AdicSpacesPartII",
       "nodes": 537,
-      "reviewer": "independent-review-REV-FIX-RT-AREA-padic-2~2"
+      "reviewer": "independent-review-REV-FIX-RT-AREA-padic-1~2"
     },
     {
       "file": "ArithmeticKTheory--N.1",
@@ -140,7 +140,7 @@
       "file": "HabiroNahmSeries",
       "roadmap": "HabiroNahmSeries",
       "nodes": 109,
-      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~2"
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~3"
     },
     {
       "file": "HabiroNumberFields",
@@ -170,7 +170,7 @@
       "file": "Polylogarithms",
       "roadmap": "Polylogarithms",
       "nodes": 75,
-      "reviewer": "independent-review-REV-Polylogarithms"
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~3"
     },
     {
       "file": "SmallRamificationAndAbelianVarietyBaseCases",
@@ -180,8 +180,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 11285664,
-  "htmlSha256": "4ab0da95321f30662534de13ae39c84001514e3ceaa1fc85d11c577be85e411c",
+  "htmlBytes": 11372761,
+  "htmlSha256": "b33b2fac761f723d2e0d2e9361675ddb1490641c1cb18a11c73babcaca8fd84f",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -200,7 +200,7 @@
     "src/app.js": "2edab54d4b58f8061ad287d88e17074ca69ec6967f4d3c05263b95ca688f6945",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "b2b491ac10849e7a38318ae606c6a29c1dcf64236c680976bfb6dd6c7f82d849",
+    "data/tauceti-progress.json": "4bb662eaf372ed7951b1e585d5e32c13cb657f91bbf299841f3dcdf69a3e31de",
     "data/tauceti-new-roadmaps.json": "b5886e144aa30e52901a3aede786b672637f7bf2824a8327ac8e37c7fb151581",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
@@ -212,8 +212,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "ca5374350cef2dac1cc80711605c9d503fc257e05b56b2307389d1e7d680b74c",
-    "data/galaxy-layout.json": "fc00ef980326005d81c0f3003cc9e40208bdde1b18f932df86adb466914f790e",
+    "data/roadmap-distances.json": "962a7a3ade665fdb69d88beccd624230f92351be6d606423475f736f4a3d3603",
+    "data/galaxy-layout.json": "a563f8a5fc810abe4d604487d77f6222bf89822fde7830c1c1b5df064208a132",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -270,10 +270,10 @@
     "data/decompositions/VectorBundlesAndIsocrystals.json": "fdbac76db40806c39866334c8b06f46f938a7c806c886caa06b0020a8172dd9f",
     "data/decompositions/WeightsInEtaleCohomology.json": "4a41151244faf21477866c23a4cd43d5a212e2fbafac8a6b5504f0e19d5f3b43",
     "data/decompositions/WeilConjectures.json": "532f2a6f1ccd3188a4ed372133937f0cc0057236fd5a981d640a0295c7566d41",
-    "data/blueprints/AdicEtaleGeometry.json": "83b84ccbd58958b2d07727f9ad6415acd444d7ec985776ca045cb842853e7eb9",
-    "data/blueprints/AdicEtaleGeometry.md": "f064b3d35d3ce3cc150b346a8980e00cb40c2cd12a6e35d3d0e36eee16cc4b74",
-    "data/blueprints/AdicSpacesPartII.json": "dabfcb849ac00f9a3b2e4eec49078b701650f2c7c8aa24b9e454284793987001",
-    "data/blueprints/AdicSpacesPartII.md": "d888497cf72b7ee74a0f2f41bbea6a4c764ad3e21fc685a9ffdaac76fdfd81ea",
+    "data/blueprints/AdicEtaleGeometry.json": "99497353570273dc940038827e1a5eef68adcf05099ff390767a11a2f7cc8d45",
+    "data/blueprints/AdicEtaleGeometry.md": "d580cd34ef211625d8012c497854b46ee450aa7ac374676e1bf668406e0d86cc",
+    "data/blueprints/AdicSpacesPartII.json": "e45a2b12a1dba869acdbe200a2e6034876ace6c72b51a1fa40114c27c12ea6c4",
+    "data/blueprints/AdicSpacesPartII.md": "8a1f3c92f73b34c23b252cf127b24ebd4567784d77c9e64b9a4a67f83091d442",
     "data/blueprints/ArithmeticKTheory--N.1.json": "7a7063a34016e59e2e0b88f4dfcff26acba90e8159feb9613cf33f3c06e71683",
     "data/blueprints/ArithmeticKTheory--N.1.md": "edda1f3cc5d29b969cb72bd343840816730703bcb47bd5448350acac97295a9f",
     "data/blueprints/ArithmeticKTheory--N.7.json": "c2e15013d0254a01323d4e90056fce843ce340c3531a49ddfd0cec77b57a942d",
@@ -304,7 +304,7 @@
     "data/blueprints/HabiroCohomologyFoundations--HQ.1.md": "1234aa3f09946c388578081fe64b6f03e4f617df8bc79dbce4ac41f6c5bef30b",
     "data/blueprints/HabiroCyclotomicCompletions.json": "8c78181e54669682102500158cf934aa102adb38fd0af43cca7417623495b50a",
     "data/blueprints/HabiroCyclotomicCompletions.md": "4639b41bf3f48f54a55066d96efa11ab071b16e2da2437309f6971dc97624a06",
-    "data/blueprints/HabiroNahmSeries.json": "f0837e5a92c150ac35cd9df7d1d0101efb74b34ecee1ad4368beb41697a85b49",
+    "data/blueprints/HabiroNahmSeries.json": "eb0ca2488778710e8ca3d30f9389870faa9119d10c37b9b771c3d435904d358d",
     "data/blueprints/HabiroNahmSeries.md": "57e69d599eabed639adfa0cd5958bb19f50385bc3b2737e77a60c045aacd4b23",
     "data/blueprints/HabiroNumberFields.json": "4fdb7141018eab742384a041a6a5e2baa437a2e5b746e46bb34e1eadd6e35d36",
     "data/blueprints/HabiroNumberFields.md": "6dacd129ca08c9fc3747d9ffb451223707b6b47e1b9f78aebe03a907cf11df9d",
@@ -314,8 +314,8 @@
     "data/blueprints/K2SymbolsBrauer--T.3.md": "008cc52b3b52ce5e0674e8af693faa037a4932c9096fc8e64a06c947216c1ed9",
     "data/blueprints/K3BlochGroups.json": "ac9ba93202af2d2e5d7dcf6a6db0c8c84550756cad0cede5425905a178aac599",
     "data/blueprints/K3BlochGroups.md": "165b68c2bffead7bf468a831b3900aa954e06bbea3e85878621915d056c4c05f",
-    "data/blueprints/Polylogarithms.json": "2cb09d18d91fb86a9a3b6e32c727e93a2fb57aa302257bace65e21571844384f",
-    "data/blueprints/Polylogarithms.md": "010b7847408a01f3e73e680b1adee5851d2a3f5127cb8a5955cf6e877c8c7c22",
+    "data/blueprints/Polylogarithms.json": "c9068486dd97c07d99f56c54ed6af8d7bd29607a0f6069817ec95927f968bb86",
+    "data/blueprints/Polylogarithms.md": "1d28e812ddc1cdf712e71814d4ba70a913d2107cd694003639dd5cc7ea08cf43",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.json": "fb0daca4a0b888dfad1d7bb862a800af846fc2f9553abe9f9cd2e61567e6d3a7",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md": "bf5bb37e33b91d56f46879172730f6ced43c4f448c1ff01efeec27bc66d0141e",
     "data/links/tauceti_Completed_EffectiveBounds.json": "a1493c80585e5e41a95005979315013c4406ce3be31b57b9fd2fb8bc9c278805",
@@ -381,22 +381,22 @@
     "data/restructure/RS-18.result.json": "e6b65ec21a95e4e48a11999f267aa4e6da58c4d1f425c906fb20ec0d39763660",
     "data/restructure/RS-19.md": "0c01e14231d954a306df919a8d33ce9ec11f4627d8aaf75b3f1b0a0801df690a",
     "data/restructure/RS-19.result.json": "4c4e23596364cf51e0629e6fb42e72043ca9e52bb8afb87210bace8b987ebb7a",
-    "data/restructure/RS-20.md": "a80e3ee0e7e3f3889c6cb8af4be643a8e238c8de376ba1d8af0af8f63f4f0690",
-    "data/restructure/RS-20.result.json": "94b054ac2d67c1ebac0d28b357257dd45c5982a846242f0366d876f024e28974",
+    "data/restructure/RS-20.md": "4168ea7a7b8e5b52e4286b180ed894405fcece672d346df3928d62ec3d0affa9",
+    "data/restructure/RS-20.result.json": "f1e5ac5e417e100cfa2c8e4652ccee727d23a224211f3569fff2fde82fd24260",
     "data/restructure/RS-21.md": "c4b4c13699b1507abfd052a0262281950f4f4e8ec5a82e01297c9c395e1336f8",
     "data/restructure/RS-21.result.json": "7fea0b8ec706a954a77917a9648a2e07c43ceb52dca4263020167f87b7e38d6a",
     "data/restructure/RS-22.md": "a71ec9e46134af1542271262b14da388e1bdb38e6ab0cf194eb7961a4cc2acca",
     "data/restructure/RS-22.result.json": "6ebb865c5d9a273d72af9564125e1b779d1250d830c8d32d226001d9551f72e9",
-    "data/restructure/RS-23.md": "3b42a658708e0fbbae096319073b59741a558f5d9df2a2e32ae6f4a3a0d40bd4",
-    "data/restructure/RS-23.result.json": "412e0a564dc41e311e8913fe8591f7ca0c91393da200885a3c7b988f6342747d",
+    "data/restructure/RS-23.md": "38df64d3d6364ba4685cbee8f20ebe9b7af0059c9a695e8279b062d2b8be7fad",
+    "data/restructure/RS-23.result.json": "4e9d4691a05078f0e4751780956afa169a2f07c2635fab812f2cc794c8b0fe0f",
     "data/restructure/RS-24.md": "f482ae94acaa7f7ec371c8472d4ad2bb3dd93be06ed9a0d628cf6155f91bf50f",
     "data/restructure/RS-24.result.json": "d3e408505fabd957339d6bbe5f2f972b9b908a928bcc4688dc0f7dc4ee9d4ba8",
     "data/restructure/RS-25.md": "0fb65543bc1079607c3b20ad431417b8859e1af7b984bd3a28a7ce22ac1534a6",
     "data/restructure/RS-25.result.json": "41ad10b47e1c8a39b11235c2a20ef497ab8d634dd949cbf953588c228586025a",
     "data/restructure/RS-26.md": "27317b38350dc3e794b823a3150147a9f9ed87c8c4d74a78c6e4309ac91c289a",
     "data/restructure/RS-26.result.json": "f6457cd48d5da633d20adae154ed31253b278466b926f0f51653eb6ccec8f804",
-    "data/restructure/RS-27.md": "2be241cf63366dcb5c30a7a8b17e203257258aba6ed88e6f10bfa466f98ec1ed",
-    "data/restructure/RS-27.result.json": "b9139d1012b7d39c1c7f5d630f2d231c3387a3ae247e14966966c6ab9e72bdf2",
+    "data/restructure/RS-27.md": "c3265a597d7361badac6b72e739da1b31632aef0fd1f13a6efb696c3cd0ce626",
+    "data/restructure/RS-27.result.json": "44ed5c28049df3537eba487ee5b54d003f67ddc174c2f445640760a0324cc799",
     "data/restructure/RS-28.md": "44cb81f4a5a8110a889a2715928ecc58b16dd5661f6020b6d15d1564cd9ff180",
     "data/restructure/RS-28.result.json": "d47c024cbb6a73d23bcdc27995389a77d2c862434024c58755e995a21710bf9e",
     "data/restructure/RS-29.md": "fe9607fc575d2db6fb45b621a26712ce4c5f77bb9b9659233dc1d16e1bf5b656",
@@ -411,15 +411,15 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-01T18:52:47Z",
+    "exportedAt": "2026-10-02T00:59:28Z",
     "roadmaps": 68,
     "unplaced": 0,
     "layers": {
-      "done": 222,
-      "partial": 244,
-      "untouched": 101,
-      "unassessed": 0,
-      "total": 567
+      "done": 218,
+      "partial": 195,
+      "untouched": 96,
+      "unassessed": 59,
+      "total": 568
     },
     "added": [
       "tauceti:TauCetiRoadmap/AlgebraicVectorBundles",
