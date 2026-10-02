@@ -14,7 +14,7 @@
     "HodgeStructuresPartII:H.8"
   ],
   "status": "partial",
-  "summary": "Intrinsic ringed-site Higgs/constant-parameter connection continuation, preserving the twelve affine test nodes. The reserved definition, graded extension, curvature, transport and coefficient/filtration algebra are supplied as plans with explicit supplier boundaries. H.0 remains partial while supplier interfaces and full source decomposition remain open; H.1–H.8 stay unread. Eight coordinate determinant/gauge declarations add trace coefficients, trace curvature, flatness, dual/tensor compatibility and gauge-curvature invariance. The global exterior-power and determinant-line descent bridge remains explicit.",
+  "summary": "Intrinsic ringed-site Higgs/constant-parameter connection continuation, preserving the twelve affine test nodes. The reserved definition, graded extension, curvature, transport and coefficient/filtration algebra are supplied as plans with explicit supplier boundaries. H.0 remains partial while supplier interfaces and full source decomposition remain open; H.1–H.8 stay unread. Eight coordinate determinant/gauge declarations add trace coefficients, trace curvature, flatness, dual/tensor compatibility and gauge-curvature invariance. The global exterior-power and determinant-line descent bridge remains explicit. Five further affine declaration plans decompose determinant differentiation, the trace row-action identity, coefficient/frame gauge compatibility, and determinant evaluation of the induced alternating operator. Global exterior-power/descent and all later-stage obligations remain open; changed suggested signatures elaborate with admitted-declaration bodies, not proofs. The generic matrix-unit Jacobi identity is imported once from ColemanPowerSeries:L1/derivation-determinant-unit.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -206,6 +206,104 @@
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "Trace commutes with a distributive scalar action.",
         "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:Matrix.detRowAlternating",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "The native alternating multilinear map on rows; reused rather than replanned.",
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+      },
+      {
+        "ref": "mathlib:Matrix.det_apply'",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Permutation determinant formula with integer permutation signs.",
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+      },
+      {
+        "ref": "mathlib:Matrix.det_updateRow_add",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Additivity in a replaced row.",
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+      },
+      {
+        "ref": "mathlib:Matrix.det_updateRow_smul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Scalar linearity in a replaced row.",
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+      },
+      {
+        "ref": "mathlib:Matrix.det_updateRow_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "A duplicated row has zero determinant, including characteristic two.",
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+      },
+      {
+        "ref": "mathlib:Matrix.det_transpose",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Transposition preserves determinant.",
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+      },
+      {
+        "ref": "mathlib:Matrix.det_mul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Determinant is multiplicative over a commutative ring.",
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+      },
+      {
+        "ref": "mathlib:Matrix.detMonoidHom",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Native determinant monoid homomorphism; sends matrix units to scalar units.",
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+      },
+      {
+        "ref": "mathlib:Matrix.scalar",
+        "kind": "def",
+        "module": "Mathlib/Data/Matrix/Basic.lean",
+        "provides": "Native scalar ring homomorphism, specialized to Fin 1 for line frames.",
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+      },
+      {
+        "ref": "mathlib:Units.map",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Units/Hom.lean",
+        "provides": "Native induced homomorphism on units, with inverse data.",
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+      },
+      {
+        "ref": "mathlib:Units.coe_map",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Units/Hom.lean",
+        "provides": "Value of a transported unit equals the image of the original value.",
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+      },
+      {
+        "ref": "mathlib:Derivation.map_intCast",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Derivation/Basic.lean",
+        "provides": "Integer constants, hence determinant permutation signs, have derivative zero.",
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+      },
+      {
+        "ref": "mathlib:Derivation.map_one_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Derivation/Basic.lean",
+        "provides": "Derivative of 1 is zero, including the rank-zero determinant.",
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+      },
+      {
+        "ref": "tauceti:Matrix.sum_det_updateRow_mul_row",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/Determinant.lean",
+        "provides": "Built special column-weight sum: Σ_r det(updateRow S r (j↦d_j S_rj))=(Σ_j d_j)det S. This is a near miss, NOT the arbitrary derivation formula or the general left row-action identity; no node replans this native statement.",
+        "checked": "Entire pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 module and hypotheses personally read by Codex codex-a71f92 on 2026-10-02; exact index matched."
       }
     ]
   },
@@ -281,7 +379,8 @@
       "readSections": [
         "Fresh reading by codex-J6LwjP: §1 p.2 opening fixed-determinant paragraph, Definition 1.1/Remark 1.2; §2.1 pp.5–6 complete selected Higgs/trace-zero definitions and Lemma 2.1 proof; §4.2 pp.23–24 parameter definition and Lemma 4.9 with its printed proof."
       ],
-      "readingExtent": "Selected passages only. Published PDF retrieval returned HTTP 403; its historical source receipt is preserved. No new correspondence proof, erratum or version-independent theorem claim."
+      "readingExtent": "Selected passages only. Published PDF retrieval returned HTTP 403; its historical source receipt is preserved. No new correspondence proof, erratum or version-independent theorem claim.",
+      "continuationReading": "Codex codex-a71f92 freshly retrieved identical 44-page author bytes at the recorded SHA-256 and personally read §1 p.2 fixed-determinant opening/Definition 1.1/Remark 1.2, §2.1 pp.5–6 definitions and complete printed Lemma 2.1 proof, §4.2 pp.23–24 parameter definition and complete printed Lemma 4.9 proof. That proof cites Simpson results not freshly proved here. No complete edition collation, new erratum or full-paper reading."
     }
   ],
   "nodes": [
@@ -3949,6 +4048,253 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/determinant-derivation-rows",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Derivation of a determinant by row replacements",
+      "declaration": "det_derivation_rows",
+      "statement": "For a k-linear derivation δ:R→R and any square matrix S, δ(det S)=Σ_r det(updateRow S r (j↦δ(S_rj))). S need not be invertible.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N and λ∈R; all derivations are k-linear.",
+        "V is a finite decidable index type, including the empty type. No domain, field, characteristic-zero, factorial or rank-invertibility hypothesis is used."
+      ],
+      "proofSteps": [
+        "Use the pinned det_apply' permutation formula. Additivity moves δ through the finite sum; Derivation.map_intCast kills each integer-valued permutation sign.",
+        "Induct over the finite product for each permutation: δ(Π_j S_(σj),j)=Σ_j δ(S_(σj),j) Π_{l≠j} S_(σl),l. The empty product derivative is δ(1)=0. This is an induction using the existing Leibniz rule, not a new generic product carrier.",
+        "For a fixed permutation, the row-replacement determinant has exactly one differentiated factor, in the column j=σ⁻¹(r). Reindex the finite row sum r=σ(j), then exchange the permutation and column sums. The permutation sign is unchanged.",
+        "No inverse is introduced. The argument also works for singular matrices, repeated rows and characteristic two; do not prove alternating vanishing by cancelling 2."
+      ],
+      "acceptance": [
+        "The 0×0 determinant is 1, whose derivative and empty row sum are zero.",
+        "For S=diag(x,x) over F₂[x], δ(det S)=δ(x²)=0, and the two replacement terms cancel in characteristic two.",
+        "The formula applies to singular matrices; invertibility is added only at the unit Jacobi node."
+      ],
+      "prerequisites": [
+        "mathlib:Derivation.leibniz",
+        "mathlib:Derivation.map_intCast",
+        "mathlib:Derivation.map_one_eq_zero",
+        "mathlib:Matrix.det_apply'"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG-author-2026",
+          "locator": "§1 p.2 Definition 1.1; §2.1 pp.5–6 fixed-determinant trace condition; §4.2 pp.23–24 parameter Leibniz rule",
+          "excerpt": "determinant line bundle",
+          "match": "The selected fixed-determinant and parameter passages motivate this local adapter. Its explicit proof is derived from the pinned Leibniz rule and alternating determinant, not a named theorem asserted by the paper; no global determinant sheaf, moduli result or edition-independent proof is claimed."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/determinant-row-action",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Trace of infinitesimal left row action",
+      "declaration": "sum_det_updateRow_left_mul",
+      "statement": "For square matrices A and S over R, Σ_r det(updateRow S r ((A*S)r)) = tr(A) det(S). S is arbitrary, including singular matrices.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N and λ∈R; all derivations are k-linear.",
+        "V is a finite decidable index type, including the empty type. No domain, field, characteristic-zero, factorial or rank-invertibility hypothesis is used."
+      ],
+      "proofSteps": [
+        "Expand (A*S)_r=Σ_j A_rj • S_j using the native matrix multiplication finite sum.",
+        "For each fixed replacement row r, use determinant additivity and scalar linearity in that row to move this sum outside: Σ_j A_rj det(updateRow S r S_j). Finite-sum linearity follows by induction from det_updateRow_add and det_updateRow_smul.",
+        "If j≠r, the replacement matrix has rows j and r equal, so det_updateRow_eq_zero applies. This native alternating lemma works in characteristic two without dividing by 2.",
+        "The only surviving term is j=r, with updateRow S r S_r=S. Sum A_rr det(S) over r and identify the diagonal sum with Matrix.trace. In rank zero both sides vanish."
+      ],
+      "acceptance": [
+        "For A=diag(a,b) and S=diag(x,y), the sum is (a+b)xy.",
+        "An off-diagonal elementary A has trace zero, and every nonzero candidate replacement term has duplicated rows.",
+        "Do not confuse this statement with Tau Ceti's existing column-weight identity sum_det_updateRow_mul_row, whose replacement entries are d_j S_rj, not (A*S)_rj."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.det_updateRow_add",
+        "mathlib:Matrix.det_updateRow_smul",
+        "mathlib:Matrix.det_updateRow_eq_zero",
+        "mathlib:Matrix.trace"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG-author-2026",
+          "locator": "§1 p.2 Definition 1.1; §2.1 pp.5–6 fixed-determinant trace condition; §4.2 pp.23–24 parameter Leibniz rule",
+          "excerpt": "determinant line bundle",
+          "match": "The selected fixed-determinant and parameter passages motivate this local adapter. Its explicit proof is derived from the pinned Leibniz rule and alternating determinant, not a named theorem asserted by the paper; no global determinant sheaf, moduli result or edition-independent proof is claimed."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/determinant-gauge-matrix",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Determinant coefficient under coordinate change",
+      "declaration": "Connection.determinant_gauge_matrix",
+      "statement": "For the inherited convention s′=Gs and frame F, (det(c.gauge G)).matrix_i,0,0 = tr(A_i) − λ det(G⁻¹) δ_i(det G). The determinant connection coefficient is not generally gauge invariant.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N and λ∈R; all derivations are k-linear.",
+        "V is a finite decidable index type, including the empty type. No domain, field, characteristic-zero, factorial or rank-invertibility hypothesis is used.",
+        "F is the inherited coordinate frame with commuting derivations annihilating λ; c is an arbitrary, not necessarily flat, connection on that frame."
+      ],
+      "proofSteps": [
+        "Apply determinant_matrix to c.gauge G, then the inherited gauge_matrix formula A′_i=G A_i G⁻¹−λ(δ_iG)G⁻¹.",
+        "Move trace through subtraction and scalar multiplication using the existing trace_sub and trace_smul declarations; trace_units_conj reduces the first term to tr(A_i).",
+        "Import ColemanPowerSeries:L1/derivation-determinant-unit with δ=F.delta i and use the pinned Matrix.trace_mul_comm to match its G⁻¹δG trace orientation. Multiply its identity by det(G⁻¹), using determinant multiplicativity and the matrix-unit inverse law; this logarithmic form converts the trace of the derivative correction into det(G⁻¹)δ_i(det G).",
+        "Keep the minus sign dictated by s′=Gs, and retain λ rather than rank·λ. For λ=0 the derivative term vanishes; this is the conjugation-only Higgs specialization."
+      ],
+      "acceptance": [
+        "For A=0, λ=1 and G=diag(x,1), the new line coefficient is −x⁻¹, not zero.",
+        "For G=diag(x,x⁻¹) the determinant correction vanishes even though the vector connection changes.",
+        "An empty vector bundle induces the unit line: det G=1 and the transformed line coefficient remains zero."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/determinant-matrix",
+        "HodgeStructuresPartII:H.0/gauge",
+        "ColemanPowerSeries:L1/derivation-determinant-unit",
+        "mathlib:Matrix.trace_units_conj",
+        "mathlib:Matrix.trace_sub",
+        "mathlib:Matrix.trace_smul",
+        "mathlib:Matrix.trace_mul_comm"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG-author-2026",
+          "locator": "§1 p.2 Definition 1.1; §2.1 pp.5–6 fixed-determinant trace condition; §4.2 pp.23–24 parameter Leibniz rule",
+          "excerpt": "determinant line bundle",
+          "match": "The selected fixed-determinant and parameter passages motivate this local adapter. Its explicit proof is derived from the pinned Leibniz rule and alternating determinant, not a named theorem asserted by the paper; no global determinant sheaf, moduli result or edition-independent proof is claimed."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/determinant-gauge",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "theorem",
+      "title": "Determinant connection commutes with gauge transport",
+      "declaration": "Connection.determinant_gauge",
+      "statement": "Let g=Units.map Matrix.detMonoidHom G∈Rˣ, and let ℓ(g)=Units.map (Matrix.scalar (Fin 1)).toMonoidHom g be the native one-by-one matrix unit. Then (c.gauge G).determinant = c.determinant.gauge ℓ(g), with the same F and λ.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N and λ∈R; all derivations are k-linear.",
+        "V is a finite decidable index type, including the empty type. No domain, field, characteristic-zero, factorial or rank-invertibility hypothesis is used.",
+        "F is the inherited coordinate frame with commuting derivations annihilating λ; c is an arbitrary, not necessarily flat, connection on that frame."
+      ],
+      "proofSteps": [
+        "Build g and ℓ(g) only by the existing native monoid homomorphisms and Units.map. Units.coe_map exposes values det G and scalar(det G); inverse values are det(G⁻¹) and scalar(det(G⁻¹)). No new determinant-line carrier or arbitrary choice is introduced.",
+        "Apply the inherited gauge_matrix formula to the one-by-one determinant connection. Its coefficient is (det G) tr(A_i) det(G⁻¹) − λ δ_i(det G)det(G⁻¹).",
+        "Use det_mul and the inverse equation to simplify the conjugation scalar product to tr(A_i). Commutativity reorders the derivative factors; determinant-gauge-matrix supplies equality with the left side.",
+        "Connections are determined by their matrix field. Extensionality over directions and the unique Fin 1 row and column proves equality of coordinate connection objects. Their operator compatibility then follows from the inherited operator definition.",
+        "This is exact finite-coordinate frame coherence. It does not construct exterior-power sheaves or glue local operators; those remain E1/global-comparison obligations."
+      ],
+      "acceptance": [
+        "The transformation uses det G, not tr G, and exactly the existing gauge convention.",
+        "A nonconstant diagonal Laurent gauge reproduces the negative logarithmic derivative term on both sides.",
+        "The rank-zero vector frame maps to the identity one-by-one frame on the unit line."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/determinant-gauge-matrix",
+        "HodgeStructuresPartII:H.0/determinant-matrix",
+        "HodgeStructuresPartII:H.0/gauge",
+        "mathlib:Matrix.det_mul",
+        "mathlib:Matrix.detMonoidHom",
+        "mathlib:Matrix.scalar",
+        "mathlib:Units.map",
+        "mathlib:Units.coe_map"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG-author-2026",
+          "locator": "§1 p.2 Definition 1.1; §2.1 pp.5–6 fixed-determinant trace condition; §4.2 pp.23–24 parameter Leibniz rule",
+          "excerpt": "determinant line bundle",
+          "match": "The selected fixed-determinant and parameter passages motivate this local adapter. Its explicit proof is derived from the pinned Leibniz rule and alternating determinant, not a named theorem asserted by the paper; no global determinant sheaf, moduli result or edition-independent proof is claimed."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/determinant-alternating-operator",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "theorem",
+      "title": "Alternating determinant evaluation intertwines the section operator",
+      "declaration": "Connection.determinant_alternating_operator",
+      "statement": "Represent an ordered family of sections as the rows of S. For each direction i, Σ_r det(updateRow S r (c.operator i (S r))) = c.determinant.operator i (fun _↦det S) 0 = λδ_i(det S)+tr(A_i)det S. No flatness or invertibility of S is assumed.",
+      "hypotheses": [
+        "k and R are commutative rings and R is a k-algebra.",
+        "d∈N and λ∈R; all derivations are k-linear.",
+        "V is a finite decidable index type, including the empty type. No domain, field, characteristic-zero, factorial or rank-invertibility hypothesis is used.",
+        "F is the inherited coordinate frame with commuting derivations annihilating λ; c is an arbitrary, not necessarily flat, connection on that frame."
+      ],
+      "proofSteps": [
+        "Expand each section operator as λδ_i(S_r)+A_i*ᵥS_r. Use determinant linearity in the replaced row to split the derivative and matrix-action sums.",
+        "Pull λ out of each derivative replacement using det_updateRow_smul. The determinant-derivation-rows identity reduces that sum to λδ_i(det S).",
+        "For any perturbation matrix H, the sum of single-row replacement determinants Σ_r det(updateRow S r H_r) equals the sum of single-column replacement determinants Σ_j det(updateCol S j (r↦H_rj)). Expand det_apply' on both sides: each permutation term replaces exactly one entry S_(σj),j by H_(σj),j, and the row index is reindexed as r=σ(j). No derivation or invertibility is needed for this finite-sum reindexing.",
+        "For H_r=A_i*ᵥS_r, entrywise H=S*A_iᵀ, not A_i*S. Convert its replacement-row sum to the preceding replacement-column sum, transpose each determinant, and observe Hᵀ=A_i*Sᵀ. The determinant-row-action node with A_i and Sᵀ now gives tr(A_i)det(Sᵀ)=tr(A_i)det S. This explicitly justifies the column-vector/row-family orientation; duplicate-row vanishing, not cancellation by 2, handles every characteristic.",
+        "Apply determinant_operator to identify the resulting scalar with the one-by-one line section operator. The empty family evaluates to det(∅)=1 and both sides are zero because δ_i(1)=0.",
+        "This is the local alternating universal-property test needed by a future top-wedge comparison. It is not yet a connection on a global exterior-power module/sheaf."
+      ],
+      "acceptance": [
+        "With S=diag(x,y), λ=1, δ=∂x and A=diag(a,b), both sides equal y+(a+b)xy.",
+        "For an off-diagonal A, the action part is zero on every S, not merely invertible S.",
+        "Rank zero gives the derivative of the unit section, not a zero determinant line."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/operator",
+        "HodgeStructuresPartII:H.0/determinant-coordinate",
+        "HodgeStructuresPartII:H.0/determinant-derivation-rows",
+        "HodgeStructuresPartII:H.0/determinant-row-action",
+        "mathlib:Matrix.det_updateRow_add",
+        "mathlib:Matrix.det_updateRow_smul",
+        "mathlib:Matrix.det_transpose",
+        "mathlib:Matrix.trace_transpose"
+      ],
+      "library": {
+        "module": "TauCeti/Hodge/ParameterConnection/Affine",
+        "namespace": "TauCeti.Hodge.ParameterConnection.Affine"
+      },
+      "sources": [
+        {
+          "sourceId": "EG-author-2026",
+          "locator": "§1 p.2 Definition 1.1; §2.1 pp.5–6 fixed-determinant trace condition; §4.2 pp.23–24 parameter Leibniz rule",
+          "excerpt": "determinant line bundle",
+          "match": "The selected fixed-determinant and parameter passages motivate this local adapter. Its explicit proof is derived from the pinned Leibniz rule and alternating determinant, not a named theorem asserted by the paper; no global determinant sheaf, moduli result or edition-independent proof is claimed."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -4019,6 +4365,14 @@
         "HodgeStructuresPartII:H.8"
       ],
       "need": "Provide the common local-system/holomorphic-bundle variation carrier with fibrewise opposedness, rationality/polarizability options and Griffiths transversality. Its packet has no D3 supplier node; import this carrier instead of defining another variation here."
+    },
+    {
+      "supplier": "ColemanPowerSeries:L1",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0/determinant-gauge-matrix",
+        "HodgeStructuresPartII:H.0/determinant-gauge"
+      ],
+      "need": "Import the exact already-planned generic declaration ColemanPowerSeries:L1/derivation-determinant-unit: over arbitrary commutative k-algebra R and finite decidable V, δ(det G)=det G·tr(G⁻¹δG) for every native matrix unit G, including rank zero and characteristic two. This is an existing supplier plan, not new work requested or a second Hodge theorem. Matrix.trace_mul_comm matches the right logarithmic-derivative convention; determinant multiplicativity and unit inverse data yield the inverse-scalar form. No Hodge/sheaf dependency is added to the supplier."
     }
   ],
   "coverage": [
@@ -4029,7 +4383,7 @@
         "Discharge the CR.1 ordinary connection/exterior-calculus comparison and E1 sheaf tensor, finite dual evaluation, tensor-kernel exactness, pullback and descent requests; native sheaf carriers and presheaf tensor must be reused.",
         "Discharge DD.1 finite split filtration/Rees carrier and specialization equations, then elaborate the global signatures listed in the suggested-file omission ledger.",
         "Freshly source-decompose all other H.0 definitions/proof inputs required by the full 149-item route inventory; the reserved carrier and its present algebra are supplied as plans, not implementation.",
-        "Seven affine trace-coordinate determinant declarations are supplied; prove the global determinant/exterior-power comparison and connection functoriality and the coefficient-equivariance adapter for the p-adic Tate instance at declaration granularity; no choices of a Tate basis may erase Galois action.",
+        "Local determinant trace/curvature and the five determinant-derivative/gauge/alternating adapters are supplied as plans. Prove the global determinant/exterior-power comparison, restriction/descent and connection functoriality; also the coefficient-equivariance adapter for the p-adic Tate instance. No Tate-basis choice may erase Galois action. The generic Jacobi input is the existing ColemanPowerSeries:L1/derivation-determinant-unit plan, not a duplicated Hodge node.",
         "Supply the filtered-coefficient/period-lattice adapter for Liu–Zhu Definition 3.5–3.6: its t-adic filtration is not a bounded subbundle filtration over the original period ring. Import graded base-ring and Tate degree identifications from DD.1 and the p-adic consumer; the finite Griffiths/Rees specialization here does not discharge that adapter."
       ]
     },
@@ -4191,9 +4545,12 @@
         "HodgeStructuresPartII:H.0/determinant-coordinate",
         "HodgeStructuresPartII:H.0/coordinate-comparison",
         "HodgeStructuresPartII:H.1",
-        "HodgeStructuresPartII:H.5"
+        "HodgeStructuresPartII:H.5",
+        "HodgeStructuresPartII:H.0/determinant-gauge-matrix",
+        "HodgeStructuresPartII:H.0/determinant-gauge",
+        "HodgeStructuresPartII:H.0/determinant-alternating-operator"
       ],
-      "detail": "The seven new affine declarations describe a trace-coordinate line and its transport tests. Still import finite locally free exterior powers/determinant sheaves, build the induced alternating connection, compare its chosen top-wedge frame with trace(A), and prove frame-change by det(G) using the derivation Jacobi formula before local descent. The curvature trace identity alone is not this bridge. Fixed determinant includes the specified line connection and its identification; trace zero is the Higgs local coefficient condition, not a condition built into every parameter connection."
+      "detail": "The five new affine plans now decompose the row-derivative/trace row-action formulas, with Jacobi imported from ColemanPowerSeries:L1/derivation-determinant-unit, determinant coefficient change, exact one-by-one gauge coherence and local alternating evaluation. Their changed Lean signatures elaborate with admitted-declaration bodies; proofs remain plans. Still import finite locally free exterior powers/determinant sheaves from E1; descend the induced alternating operator using the exterior universal property, identify its top-wedge frame with the local determinant-evaluation theorem, then use the planned det(G) gauge coherence to glue and prove restriction/pullback/functoriality. No global bridge is closed. Fixed determinant includes the specified line connection and identification; trace zero is only the Higgs local coefficient condition, not built into every parameter connection."
     }
   ],
   "sourceIssues": [
@@ -4548,112 +4905,177 @@
   ],
   "verification": {
     "leanCompiled": true,
-    "reason": "Entire expanded suggested file elaborated against the existing exact-pin Mathlib build with Lean v4.34.0-rc2, only admitted-proof warnings. All imports are Mathlib; no Tau Ceti build is required or certified. All 35 global omissions remain, and no implementation status changes.",
-    "mathematics": "All nodes are declaration-sized plans. Intrinsic algebra uses specified exterior calculus and exact named supplier contracts; no complete stage or formal implementation claimed.",
-    "sourceIssueScope": "Inherited EG20/E10 receipt remains historical. This continuation reads a different author-preprint edition for fixed determinant and parameter definitions; no new source issue or complete version collation is claimed.",
-    "checks": {
-      "packetChecker": "0 errors, 0 warnings with the pinned declaration index",
-      "preservation": "All 47 predecessor node objects, 100 existing APIs, 85 existing tests, 149 routed input IDs, 15 baseline prefix records, 4 source prefix records, sourceIssues and restructure preserved exactly. The E1 request is extended precisely for exterior/determinant carriers; H.0 remaining text and a new gap identify the global bridge.",
-      "nativeParity": "Every new statement occurs verbatim in the reader; all eight node names, three construction API forms and four new examples have native declarations/forms. One existing gauge API is promoted without a duplicate declaration. The inherited global 35-node/65-API/54-test omission ledger remains unchanged.",
-      "atlasProjection": {
-        "inheritedNodesPreserved": 47,
-        "newNodes": 8,
-        "routeManifestPreserved": true,
-        "totalNodes": 55,
-        "apiItems": 103,
-        "tests": 89,
-        "planets": 6,
-        "baselineDeclarations": 29,
-        "gaps": 10,
-        "requests": 4,
-        "requiredLayerEdges": 18,
-        "missingEdges": 0,
-        "pendingLinks": 0,
-        "skippedLinks": 0,
-        "stageDAG": {
+    "reason": "The entire changed suggested file elaborated with Lean v4.34.0-rc2 against an existing build at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: zero errors, 123 admitted-declaration warnings, no other warnings. All 48 native examples elaborate; all 35 global omission entries remain byte-identical. No library build, cache retrieval or language server was run. The initial nested-project invocation failed on the Aesop search path and auto-fetched redundant dependency copies; those copies were removed to recoverable trash, then the existing top-level project was used successfully.",
+    "mathematics": "All 60 declaration nodes remain unchecked; proofs are mathematical plans, not formalization. H.0 is partial, H.1–H.8 not_read; all 35 global omission entries remain.",
+    "checks": [
+      "Indexed check_blueprint: zero errors, zero warnings.",
+      "Actual five-file intake and private-path/whitespace checks.",
+      "All 55 previous nodes, 103 API items, 89 tests, six planets, sourceIssues, routeManifest, restructure and global omission ledger preserved.",
+      "Read-only actual build.assemble projection and full reachable declaration/request DAG including the Coleman Jacobi supplier.",
+      "6,303 exact Laurent-dual-number algebra regressions on 720 rank-0–3 pairs in characteristics 0, 2 and 3.",
+      "Full changed-file Lean elaboration, 123 admitted-declaration warnings only; mathematical proofs remain planned."
+    ],
+    "previousCheckpoint": {
+      "leanCompiled": true,
+      "reason": "Entire expanded suggested file elaborated against the existing exact-pin Mathlib build with Lean v4.34.0-rc2, only admitted-proof warnings. All imports are Mathlib; no Tau Ceti build is required or certified. All 35 global omissions remain, and no implementation status changes.",
+      "mathematics": "All nodes are declaration-sized plans. Intrinsic algebra uses specified exterior calculus and exact named supplier contracts; no complete stage or formal implementation claimed.",
+      "sourceIssueScope": "Inherited EG20/E10 receipt remains historical. This continuation reads a different author-preprint edition for fixed determinant and parameter definitions; no new source issue or complete version collation is claimed.",
+      "checks": {
+        "packetChecker": "0 errors, 0 warnings with the pinned declaration index",
+        "preservation": "All 47 predecessor node objects, 100 existing APIs, 85 existing tests, 149 routed input IDs, 15 baseline prefix records, 4 source prefix records, sourceIssues and restructure preserved exactly. The E1 request is extended precisely for exterior/determinant carriers; H.0 remaining text and a new gap identify the global bridge.",
+        "nativeParity": "Every new statement occurs verbatim in the reader; all eight node names, three construction API forms and four new examples have native declarations/forms. One existing gauge API is promoted without a duplicate declaration. The inherited global 35-node/65-API/54-test omission ledger remains unchanged.",
+        "atlasProjection": {
+          "inheritedNodesPreserved": 47,
+          "newNodes": 8,
+          "routeManifestPreserved": true,
+          "totalNodes": 55,
+          "apiItems": 103,
+          "tests": 89,
+          "planets": 6,
+          "baselineDeclarations": 29,
+          "gaps": 10,
+          "requests": 4,
+          "requiredLayerEdges": 18,
+          "missingEdges": 0,
+          "pendingLinks": 0,
+          "skippedLinks": 0,
+          "stageDAG": {
+            "vertices": 3022,
+            "edges": 8662,
+            "acyclic": true
+          },
+          "combinedDAG": {
+            "vertices": 3071,
+            "edges": 8862,
+            "acyclic": true
+          }
+        },
+        "concreteModels": {
+          "polynomialConnectionPairs": 270,
+          "laurentGaugeCases": 90,
+          "characteristics": [
+            "zero",
+            2,
+            3
+          ],
+          "scope": "Exact trace curvature, dual, Kronecker rank multiplicities and nonconstant invertible Laurent gauge transformations; nonflat connections with flat determinant and positive-characteristic trace loss. Algebraic regression only, not general proof.",
+          "receiptSha256": "c6e05c58d20ebdc98bde25972dd8eac496dd858e4a29df031c7c4d0b723eaef4"
+        },
+        "sourceExcerpts": "The eight new source excerpts are the same three-word literal in the freshly read author-preprint opening definition; no fresh certification of the inherited published/LZ/Heuer excerpts."
+      },
+      "historicalReceiptTree": "dc0c470bcc064a08d8d9161ea963afe12b2c4b8d",
+      "historicalReceiptScope": "Retained prior-worker model/source-excerpt/atlas-projection receipts; not rerun in the codex-J6LwjP elaboration continuation.",
+      "elaborationContinuation": {
+        "agent": "Codex",
+        "session": "codex-J6LwjP",
+        "base": "ead8d4f",
+        "errors": 0,
+        "sorryWarnings": 106,
+        "nativeExamples": 44,
+        "globalNodesOmitted": 35,
+        "globalApiItemsOmitted": 65,
+        "globalTestsOmitted": 54,
+        "changes": [
+          "Use lam instead of the reserved lambda token in native identifiers.",
+          "Infer the frame as an implicit parameter in Connection methods.",
+          "Separate finite index universes from the coefficient-ring universe.",
+          "Annotate polynomial scalar types and coerce inverses of matrix units explicitly."
+        ],
+        "implementationStatus": "unchecked",
+        "exitCode": 0,
+        "suggestedSha256": "cdf1b95ef9ab04bf23785ca2237351c811135d72e3683fc9116ab9ba9c87f35e",
+        "logSha256": "dd795b2ea3338409471533d2f4766c0755d17885156bd5ea6038fe0d0b2cb6f8"
+      },
+      "historicalVerification": {
+        "packetChecker": "0 errors, 0 warnings with pinned declaration index",
+        "preservation": "Current continuation: all 47 predecessor nodes, 100 APIs, 85 tests, 149 routed input ids, sources, baseline declarations, requests, gaps, coverage and restructure preserved exactly.",
+        "nameParity": "All 47 node ids, 100 API names and 85 test names occur in reader and suggested file; 35 global signatures are explicitly omitted, not elaborated",
+        "atlasProjection": {
           "vertices": 3022,
           "edges": 8662,
-          "acyclic": true
+          "requiredLayerEdges": 18,
+          "acyclic": true,
+          "pendingLinks": 0,
+          "skippedLinks": 0
         },
-        "combinedDAG": {
-          "vertices": 3071,
-          "edges": 8862,
-          "acyclic": true
-        }
+        "concreteModels": {
+          "passed": 20,
+          "scope": "Exact polynomial/matrix scalar Leibniz, additive extension, curvature and variable-parameter defect; tensor, dual, gauge, rescaling; characteristic-two commutator; ordered-word and nonreduced nilpotence examples; finite Griffiths Rees fibers. No general proof or Lean elaboration."
+        },
+        "sourceExcerpts": "All unique PDF excerpt strings confirmed after Unicode/whitespace normalization; Stacks ordinary-connection excerpt checked on tag 07J5."
       },
-      "concreteModels": {
-        "polynomialConnectionPairs": 270,
-        "laurentGaugeCases": 90,
-        "characteristics": [
-          "zero",
+      "determinantContinuation": {
+        "agent": "Codex",
+        "session": "codex-J6LwjP",
+        "date": "2026-10-02",
+        "base": "72b8733",
+        "claim": "5952774707",
+        "bot": "5952777457",
+        "newNodes": 8,
+        "nativeGlobalOmissionsUnchanged": true,
+        "primaryEdition": "EG-author-2026",
+        "checksPending": false,
+        "exitCode": 0,
+        "seconds": 2.27,
+        "errors": 0,
+        "sorryWarnings": 118,
+        "otherWarnings": 0,
+        "nativeExamples": 48,
+        "suggestedSha256": "df692430d323e907f4a419970dbde6f4a72a6d354f5759a96a1c5a42c7c154e7",
+        "logSha256": "b80d7603656e0947d9747150790f767c08eaf021e9fcc846b064b789c708518c"
+      }
+    },
+    "determinantDerivationContinuation": {
+      "agent": "Codex — codex-a71f92",
+      "issue": 3371,
+      "claim": 5953381486,
+      "confirmation": 5953384526,
+      "baseTree": "f9cfbaf2b11b46e79508bfaa1c4d60823bd266de",
+      "addedNodes": [
+        "HodgeStructuresPartII:H.0/determinant-derivation-rows",
+        "HodgeStructuresPartII:H.0/determinant-row-action",
+        "HodgeStructuresPartII:H.0/determinant-gauge-matrix",
+        "HodgeStructuresPartII:H.0/determinant-gauge",
+        "HodgeStructuresPartII:H.0/determinant-alternating-operator"
+      ],
+      "originalNodesPreserved": 55,
+      "nativeBaselineCount": 43,
+      "sourceScope": "Selected EG author-version passages and full selected native statements only; no full-paper/edition-collation or source-erratum claim.",
+      "ownershipScope": "Parent Hodge and ReductiveGroups documents read fully; parent L0/L1/L3 built and L2 partly built AUDIT-02 verdicts imported; D3 not built and E1 partly built. CR.1/E1/DD.1/D3 stage descriptions reread. No HodgeStructuresPartII link-map entries found. Exact determinant-derivation search located ColemanPowerSeries:L1/derivation-determinant-unit in identical generality: its complete statement, hypotheses and proof outline were read and are imported rather than duplicated. Remaining finite row-derivative and row-action helpers support local alternating evaluation, not a replan of that unit Jacobi theorem.",
+      "remaining": "Global exterior/determinant carriers, induced sheaf operator, top-wedge comparison, restriction/descent/functoriality, CR.1/E1/DD.1 supplier requests, coefficient-equivariance and unbounded period-lattice/Tate adapter; H.1–H.8 source decomposition.",
+      "leanReceipt": {
+        "leanVersion": "v4.34.0-rc2",
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "sha256": "6e90608f1e0748728112b947e7f5f6bf3b1c55398d62235d80cdf7a6300ad290",
+        "errors": 0,
+        "sorryWarnings": 123,
+        "otherWarnings": 0,
+        "nativeExamples": 48,
+        "scope": "Full changed native file, not a global-sheaf implementation or proof certificate."
+      },
+      "modelReceipt": {
+        "seed": 3371,
+        "rings": "Q,F2,F3 Laurent polynomial rings with a nonzero square-zero epsilon",
+        "ranks": [
+          0,
+          1,
           2,
           3
         ],
-        "scope": "Exact trace curvature, dual, Kronecker rank multiplicities and nonconstant invertible Laurent gauge transformations; nonflat connections with flat determinant and positive-characteristic trace loss. Algebraic regression only, not general proof.",
-        "receiptSha256": "c6e05c58d20ebdc98bde25972dd8eac496dd858e4a29df031c7c4d0b723eaef4"
+        "pairs": 720,
+        "assertions": 6303,
+        "scope": "Independent finite model regressions, not Lean proofs."
       },
-      "sourceExcerpts": "The eight new source excerpts are the same three-word literal in the freshly read author-preprint opening definition; no fresh certification of the inherited published/LZ/Heuer excerpts."
-    },
-    "historicalReceiptTree": "dc0c470bcc064a08d8d9161ea963afe12b2c4b8d",
-    "historicalReceiptScope": "Retained prior-worker model/source-excerpt/atlas-projection receipts; not rerun in the codex-J6LwjP elaboration continuation.",
-    "elaborationContinuation": {
-      "agent": "Codex",
-      "session": "codex-J6LwjP",
-      "base": "ead8d4f",
-      "errors": 0,
-      "sorryWarnings": 106,
-      "nativeExamples": 44,
-      "globalNodesOmitted": 35,
-      "globalApiItemsOmitted": 65,
-      "globalTestsOmitted": 54,
-      "changes": [
-        "Use lam instead of the reserved lambda token in native identifiers.",
-        "Infer the frame as an implicit parameter in Connection methods.",
-        "Separate finite index universes from the coefficient-ring universe.",
-        "Annotate polynomial scalar types and coerce inverses of matrix units explicitly."
-      ],
-      "implementationStatus": "unchecked",
-      "exitCode": 0,
-      "suggestedSha256": "cdf1b95ef9ab04bf23785ca2237351c811135d72e3683fc9116ab9ba9c87f35e",
-      "logSha256": "dd795b2ea3338409471533d2f4766c0755d17885156bd5ea6038fe0d0b2cb6f8"
-    },
-    "historicalVerification": {
-      "packetChecker": "0 errors, 0 warnings with pinned declaration index",
-      "preservation": "Current continuation: all 47 predecessor nodes, 100 APIs, 85 tests, 149 routed input ids, sources, baseline declarations, requests, gaps, coverage and restructure preserved exactly.",
-      "nameParity": "All 47 node ids, 100 API names and 85 test names occur in reader and suggested file; 35 global signatures are explicitly omitted, not elaborated",
-      "atlasProjection": {
-        "vertices": 3022,
-        "edges": 8662,
-        "requiredLayerEdges": 18,
+      "graphReceipt": {
+        "actualAssemblyStages": 2971,
+        "actualAssemblyEdges": 8663,
+        "requiredLayerEdges": 19,
+        "reachableDeclarationVertices": 128,
+        "skippedLinks": [],
+        "pendingLinks": [],
         "acyclic": true,
-        "pendingLinks": 0,
-        "skippedLinks": 0
-      },
-      "concreteModels": {
-        "passed": 20,
-        "scope": "Exact polynomial/matrix scalar Leibniz, additive extension, curvature and variable-parameter defect; tensor, dual, gauge, rescaling; characteristic-two commutator; ordered-word and nonreduced nilpotence examples; finite Griffiths Rees fibers. No general proof or Lean elaboration."
-      },
-      "sourceExcerpts": "All unique PDF excerpt strings confirmed after Unicode/whitespace normalization; Stacks ordinary-connection excerpt checked on tag 07J5."
-    },
-    "determinantContinuation": {
-      "agent": "Codex",
-      "session": "codex-J6LwjP",
-      "date": "2026-10-02",
-      "base": "72b8733",
-      "claim": "5952774707",
-      "bot": "5952777457",
-      "newNodes": 8,
-      "nativeGlobalOmissionsUnchanged": true,
-      "primaryEdition": "EG-author-2026",
-      "checksPending": false,
-      "exitCode": 0,
-      "seconds": 2.27,
-      "errors": 0,
-      "sorryWarnings": 118,
-      "otherWarnings": 0,
-      "nativeExamples": 48,
-      "suggestedSha256": "df692430d323e907f4a419970dbde6f4a72a6d354f5759a96a1c5a42c7c154e7",
-      "logSha256": "b80d7603656e0947d9747150790f767c08eaf021e9fcc846b064b789c708518c"
+        "auditTree": "f9cfbaf2b11b46e79508bfaa1c4d60823bd266de"
+      }
     }
   }
 }

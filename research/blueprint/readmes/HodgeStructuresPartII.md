@@ -2,7 +2,7 @@
 
 ## Continuation scope and conventions
 
-This is a partial design checkpoint with 47 declaration nodes: 5 comparison, 15 construction, 12 definition, 5 lemma, 10 theorem. It has 100 API items, 85 planned definition/construction unit tests, six H.0 planets and fifteen actual pinned baseline references. Every implementation status is unchecked. No stage is closed. The current suggested file elaborates against the existing pinned Mathlib build with only sorry warnings; its global omission ledger remains unimplemented. H.1–H.8 retain the complete inherited obligations and remain not_read.
+This is a partial design checkpoint with 60 declaration nodes: 5 comparison, 16 construction, 12 definition, 14 lemma, 13 theorem. It retains 103 API items, 89 planned definition/construction unit tests, six H.0 planets and has 43 pinned baseline references. Every implementation status is unchecked. No stage is closed. The full changed suggested file elaborates with Lean v4.34.0-rc2 at the pinned Mathlib commit: zero errors, 123 sorry warnings, no other warnings. This is a signature check, not formalization. Its preceding exact-file receipt remains historical only. The 35-entry global omission ledger is unchanged. H.0 is partial; H.1–H.8 retain all inherited obligations and remain not_read.
 
 The reserved **HodgeStructuresPartII:key/higgs-parameter-connections** is now supplied as a mathematical declaration plan. It defines finite locally free coefficients on a general commutative ringed differential site with an actual additive λ-Leibniz operator, a defined exterior extension and curvature-zero equality. Its sheaf tensor, ordinary-connection and filtration prerequisites are explicit supplier requests. The twelve inherited free affine matrix nodes remain as examples and sign tests. They are not the definition of the global object.
 
@@ -1714,7 +1714,7 @@ H.1–H.8 retain their exact inherited remaining lists, all binding source tranc
 
 The suggested file retains all twelve affine signatures, their APIs and thirty-one examples. It adds a native ring-level additive-balanced core against existing derivations and tensor products. Its TwoForms input contains concrete degree-zero/one/two operations and their defining equations, not a fictitious curvature proposition. It models arbitrary modules in a local chart and does not claim to be the global sheaf object. Every global signature, API and unit test that cannot yet be expressed against the missing sheaf monoidal/filtered interfaces is explicitly listed in its omission ledger, with the actual mathematical statement and the missing carrier. There are no fabricated Proposition-valued stand-ins for those objects. Higher-degree statements are not justified by a truncation to two forms. The entire current file was elaborated by codex-J6LwjP with Lean v4.34.0-rc2 and the existing Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 build: zero errors and 106 sorry warnings. All imports are Mathlib modules, so this check does not require or certify a built Tau Ceti tree. The continuation repaired the reserved lambda identifier, implicit frame inference, independent universes for finite index types, polynomial scalar annotations and explicit matrix-unit inverse coercions. These repairs change no mathematical node, source, supplier request or global omission. No Lake project/cache setup, library build or language server was started.
 
-The six selected planets are Integrable parameter bundles, Twisted Higgs bundles, Joint Higgs nilpotence, Griffiths filtrations, Graded Higgs field and Rees parameter connection. The former affine preconnection and coordinate-curvature planets were removed so the layer shows its intrinsic definitions and remains within the six-planet limit. All affine node ids survive.
+The five selected planets are Integrable parameter bundles, Twisted Higgs bundles, Joint Higgs nilpotence, Griffiths filtrations, Graded Higgs field and Rees parameter connection. The former affine preconnection and coordinate-curvature planets were removed so the layer shows its intrinsic definitions and remains within the five-planet limit. All affine node ids survive.
 
 
 ## Retained affine declaration IDs
@@ -1970,4 +1970,174 @@ The new public source is the 44-page author preprint at https://www.mi.fu-berlin
 
 The global determinant/exterior-power bridge remains a gap: import locally free exterior powers and determinant lines from E1, define the induced alternating operator, prove its trace expression in a top-wedge frame, and prove the det(G) transition law using the Jacobi derivative identity before descent. Curvature invariance alone is insufficient. All 35 global signature omissions and later-stage source obligations remain.
 
-The expanded entire suggested file elaborated at the exact pinned Mathlib commit with zero errors, 118 sorry warnings, no other warnings and 48 native examples. The global omission ledger remains unchanged. The packet checker and five-file intake pass; actual atlas projection preserves all 18 required layer edges without pending/skipped links and is acyclic. Fresh exact polynomial/Laurent gauges over characteristics zero, two and three support the determinant formulas; reproduction counts and hashes are in the handoff.
+Historical receipt from the preceding codex-J6LwjP checkpoint ONLY (SHA-256 df692430d323e907f4a419970dbde6f4a72a6d354f5759a96a1c5a42c7c154e7; not the current changed file): the expanded entire suggested file elaborated at the exact pinned Mathlib commit with zero errors, 118 sorry warnings, no other warnings and 48 native examples. The global omission ledger remains unchanged. The packet checker and five-file intake pass; actual atlas projection preserves all 18 required layer edges without pending/skipped links and is acyclic. Fresh exact polynomial/Laurent gauges over characteristics zero, two and three support the determinant formulas; reproduction counts and hashes are in the handoff.
+
+
+## Current continuation: determinant derivative and frame bridge
+
+Codex — codex-a71f92, issue #3371; immutable audit tree f9cfbaf2b11b46e79508bfaa1c4d60823bd266de. Five finite-coordinate declaration plans are added; all 55 preceding node objects, their 103 API items and 89 planned definition/construction tests, the six planets, eight binding route entries and source-issue records are preserved. Older checkpoint counts/compilation receipts describe their own exact bytes only.
+
+The EG author-hosted preprint was freshly retrieved at SHA-256 0bfa00b7dbae7a59c193d3523028df826741f15d3e88cb50526f8656a7fb8e35. Fresh selected reading: §1 p.2 fixed-determinant opening/Definition 1.1/Remark 1.2; §2.1 pp.5–6 Higgs/trace-zero definitions and complete printed Lemma 2.1 proof; §4.2 pp.23–24 parameter definition and complete printed Lemma 4.9 proof. Simpson's cited results are not freshly verified. This is the 44-page author version, not the 56-page Acta bytes; no complete edition collation, new erratum or full-paper reading is claimed.
+
+Ownership screening found **ColemanPowerSeries:L1/derivation-determinant-unit** already plans the general matrix-unit Jacobi formula with exactly these commutative-ring/native-derivation hypotheses. Its whole node and proof outline were read. It is imported, not duplicated or moved, and a fifth supplier request makes that exact dependency explicit. Its trace orientation G⁻¹δG is converted to δG G⁻¹ by the pinned Matrix.trace_mul_comm; multiplying by det(G⁻¹) gives the scalar logarithmic-derivative version. The supplier proof uses existing dual numbers and first-order determinants, not a new Hodge or sheaf input. The row-derivative and row-action helpers below remain separate local alternating-evaluation inputs and do not replan the unit Jacobi theorem.
+
+Pinned Mathlib supplies alternating determinants, row additivity/scalar linearity, duplicate-row vanishing, determinant multiplication/transposition, determinant/scalar homomorphisms and native unit transport. Tau Ceti's Matrix.sum_det_updateRow_mul_row is already built for column weights d_j S_rj; its entire pinned module was read. It is not the general derivation or left row-action identity. CR.1/E1/DD.1/D3 contracts remain unchanged; no sheaf/exterior or common-variation carrier is duplicated.
+
+### Derivation of a determinant by row replacements
+
+Declaration: det_derivation_rows. Node: HodgeStructuresPartII:H.0/determinant-derivation-rows.
+
+For a k-linear derivation δ:R→R and any square matrix S, δ(det S)=Σ_r det(updateRow S r (j↦δ(S_rj))). S need not be invertible.
+
+Hypotheses:
+
+- k and R are commutative rings and R is a k-algebra.
+- d∈N and λ∈R; all derivations are k-linear.
+- V is a finite decidable index type, including the empty type. No domain, field, characteristic-zero, factorial or rank-invertibility hypothesis is used.
+
+Proof plan:
+
+1. Use the pinned det_apply' permutation formula. Additivity moves δ through the finite sum; Derivation.map_intCast kills each integer-valued permutation sign.
+2. Induct over the finite product for each permutation: δ(Π_j S_(σj),j)=Σ_j δ(S_(σj),j) Π_{l≠j} S_(σl),l. The empty product derivative is δ(1)=0. This is an induction using the existing Leibniz rule, not a new generic product carrier.
+3. For a fixed permutation, the row-replacement determinant has exactly one differentiated factor, in the column j=σ⁻¹(r). Reindex the finite row sum r=σ(j), then exchange the permutation and column sums. The permutation sign is unchanged.
+4. No inverse is introduced. The argument also works for singular matrices, repeated rows and characteristic two; do not prove alternating vanishing by cancelling 2.
+
+Acceptance:
+
+- The 0×0 determinant is 1, whose derivative and empty row sum are zero.
+- For S=diag(x,x) over F₂[x], δ(det S)=δ(x²)=0, and the two replacement terms cancel in characteristic two.
+- The formula applies to singular matrices; invertibility is added only at the unit Jacobi node.
+
+Prerequisites: mathlib:Derivation.leibniz, mathlib:Derivation.map_intCast, mathlib:Derivation.map_one_eq_zero, mathlib:Matrix.det_apply'.
+
+Source: [EG author preprint](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf), selected fixed-determinant/parameter passages above; the displayed proof is an explicit algebraic derivation from the pinned native declarations and the named supplier plan, not a named source theorem.
+
+### Trace of infinitesimal left row action
+
+Declaration: sum_det_updateRow_left_mul. Node: HodgeStructuresPartII:H.0/determinant-row-action.
+
+For square matrices A and S over R, Σ_r det(updateRow S r ((A*S)r)) = tr(A) det(S). S is arbitrary, including singular matrices.
+
+Hypotheses:
+
+- k and R are commutative rings and R is a k-algebra.
+- d∈N and λ∈R; all derivations are k-linear.
+- V is a finite decidable index type, including the empty type. No domain, field, characteristic-zero, factorial or rank-invertibility hypothesis is used.
+
+Proof plan:
+
+1. Expand (A*S)_r=Σ_j A_rj • S_j using the native matrix multiplication finite sum.
+2. For each fixed replacement row r, use determinant additivity and scalar linearity in that row to move this sum outside: Σ_j A_rj det(updateRow S r S_j). Finite-sum linearity follows by induction from det_updateRow_add and det_updateRow_smul.
+3. If j≠r, the replacement matrix has rows j and r equal, so det_updateRow_eq_zero applies. This native alternating lemma works in characteristic two without dividing by 2.
+4. The only surviving term is j=r, with updateRow S r S_r=S. Sum A_rr det(S) over r and identify the diagonal sum with Matrix.trace. In rank zero both sides vanish.
+
+Acceptance:
+
+- For A=diag(a,b) and S=diag(x,y), the sum is (a+b)xy.
+- An off-diagonal elementary A has trace zero, and every nonzero candidate replacement term has duplicated rows.
+- Do not confuse this statement with Tau Ceti's existing column-weight identity sum_det_updateRow_mul_row, whose replacement entries are d_j S_rj, not (A*S)_rj.
+
+Prerequisites: mathlib:Matrix.det_updateRow_add, mathlib:Matrix.det_updateRow_smul, mathlib:Matrix.det_updateRow_eq_zero, mathlib:Matrix.trace.
+
+Source: [EG author preprint](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf), selected fixed-determinant/parameter passages above; the displayed proof is an explicit algebraic derivation from the pinned native declarations and the named supplier plan, not a named source theorem.
+
+### Determinant coefficient under coordinate change
+
+Declaration: Connection.determinant_gauge_matrix. Node: HodgeStructuresPartII:H.0/determinant-gauge-matrix.
+
+For the inherited convention s′=Gs and frame F, (det(c.gauge G)).matrix_i,0,0 = tr(A_i) − λ det(G⁻¹) δ_i(det G). The determinant connection coefficient is not generally gauge invariant.
+
+Hypotheses:
+
+- k and R are commutative rings and R is a k-algebra.
+- d∈N and λ∈R; all derivations are k-linear.
+- V is a finite decidable index type, including the empty type. No domain, field, characteristic-zero, factorial or rank-invertibility hypothesis is used.
+- F is the inherited coordinate frame with commuting derivations annihilating λ; c is an arbitrary, not necessarily flat, connection on that frame.
+
+Proof plan:
+
+1. Apply determinant_matrix to c.gauge G, then the inherited gauge_matrix formula A′_i=G A_i G⁻¹−λ(δ_iG)G⁻¹.
+2. Move trace through subtraction and scalar multiplication using the existing trace_sub and trace_smul declarations; trace_units_conj reduces the first term to tr(A_i).
+3. Import ColemanPowerSeries:L1/derivation-determinant-unit with δ=F.delta i and use the pinned Matrix.trace_mul_comm to match its G⁻¹δG trace orientation. Multiply its identity by det(G⁻¹), using determinant multiplicativity and the matrix-unit inverse law; this logarithmic form converts the trace of the derivative correction into det(G⁻¹)δ_i(det G).
+4. Keep the minus sign dictated by s′=Gs, and retain λ rather than rank·λ. For λ=0 the derivative term vanishes; this is the conjugation-only Higgs specialization.
+
+Acceptance:
+
+- For A=0, λ=1 and G=diag(x,1), the new line coefficient is −x⁻¹, not zero.
+- For G=diag(x,x⁻¹) the determinant correction vanishes even though the vector connection changes.
+- An empty vector bundle induces the unit line: det G=1 and the transformed line coefficient remains zero.
+
+Prerequisites: HodgeStructuresPartII:H.0/determinant-matrix, HodgeStructuresPartII:H.0/gauge, ColemanPowerSeries:L1/derivation-determinant-unit, mathlib:Matrix.trace_units_conj, mathlib:Matrix.trace_sub, mathlib:Matrix.trace_smul, mathlib:Matrix.trace_mul_comm.
+
+Source: [EG author preprint](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf), selected fixed-determinant/parameter passages above; the displayed proof is an explicit algebraic derivation from the pinned native declarations and the named supplier plan, not a named source theorem.
+
+### Determinant connection commutes with gauge transport
+
+Declaration: Connection.determinant_gauge. Node: HodgeStructuresPartII:H.0/determinant-gauge.
+
+Let g=Units.map Matrix.detMonoidHom G∈Rˣ, and let ℓ(g)=Units.map (Matrix.scalar (Fin 1)).toMonoidHom g be the native one-by-one matrix unit. Then (c.gauge G).determinant = c.determinant.gauge ℓ(g), with the same F and λ.
+
+Hypotheses:
+
+- k and R are commutative rings and R is a k-algebra.
+- d∈N and λ∈R; all derivations are k-linear.
+- V is a finite decidable index type, including the empty type. No domain, field, characteristic-zero, factorial or rank-invertibility hypothesis is used.
+- F is the inherited coordinate frame with commuting derivations annihilating λ; c is an arbitrary, not necessarily flat, connection on that frame.
+
+Proof plan:
+
+1. Build g and ℓ(g) only by the existing native monoid homomorphisms and Units.map. Units.coe_map exposes values det G and scalar(det G); inverse values are det(G⁻¹) and scalar(det(G⁻¹)). No new determinant-line carrier or arbitrary choice is introduced.
+2. Apply the inherited gauge_matrix formula to the one-by-one determinant connection. Its coefficient is (det G) tr(A_i) det(G⁻¹) − λ δ_i(det G)det(G⁻¹).
+3. Use det_mul and the inverse equation to simplify the conjugation scalar product to tr(A_i). Commutativity reorders the derivative factors; determinant-gauge-matrix supplies equality with the left side.
+4. Connections are determined by their matrix field. Extensionality over directions and the unique Fin 1 row and column proves equality of coordinate connection objects. Their operator compatibility then follows from the inherited operator definition.
+5. This is exact finite-coordinate frame coherence. It does not construct exterior-power sheaves or glue local operators; those remain E1/global-comparison obligations.
+
+Acceptance:
+
+- The transformation uses det G, not tr G, and exactly the existing gauge convention.
+- A nonconstant diagonal Laurent gauge reproduces the negative logarithmic derivative term on both sides.
+- The rank-zero vector frame maps to the identity one-by-one frame on the unit line.
+
+Prerequisites: HodgeStructuresPartII:H.0/determinant-gauge-matrix, HodgeStructuresPartII:H.0/determinant-matrix, HodgeStructuresPartII:H.0/gauge, mathlib:Matrix.det_mul, mathlib:Matrix.detMonoidHom, mathlib:Matrix.scalar, mathlib:Units.map, mathlib:Units.coe_map.
+
+Source: [EG author preprint](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf), selected fixed-determinant/parameter passages above; the displayed proof is an explicit algebraic derivation from the pinned native declarations and the named supplier plan, not a named source theorem.
+
+### Alternating determinant evaluation intertwines the section operator
+
+Declaration: Connection.determinant_alternating_operator. Node: HodgeStructuresPartII:H.0/determinant-alternating-operator.
+
+Represent an ordered family of sections as the rows of S. For each direction i, Σ_r det(updateRow S r (c.operator i (S r))) = c.determinant.operator i (fun _↦det S) 0 = λδ_i(det S)+tr(A_i)det S. No flatness or invertibility of S is assumed.
+
+Hypotheses:
+
+- k and R are commutative rings and R is a k-algebra.
+- d∈N and λ∈R; all derivations are k-linear.
+- V is a finite decidable index type, including the empty type. No domain, field, characteristic-zero, factorial or rank-invertibility hypothesis is used.
+- F is the inherited coordinate frame with commuting derivations annihilating λ; c is an arbitrary, not necessarily flat, connection on that frame.
+
+Proof plan:
+
+1. Expand each section operator as λδ_i(S_r)+A_i*ᵥS_r. Use determinant linearity in the replaced row to split the derivative and matrix-action sums.
+2. Pull λ out of each derivative replacement using det_updateRow_smul. The determinant-derivation-rows identity reduces that sum to λδ_i(det S).
+3. For any perturbation matrix H, the sum of single-row replacement determinants Σ_r det(updateRow S r H_r) equals the sum of single-column replacement determinants Σ_j det(updateCol S j (r↦H_rj)). Expand det_apply' on both sides: each permutation term replaces exactly one entry S_(σj),j by H_(σj),j, and the row index is reindexed as r=σ(j). No derivation or invertibility is needed for this finite-sum reindexing.
+4. For H_r=A_i*ᵥS_r, entrywise H=S*A_iᵀ, not A_i*S. Convert its replacement-row sum to the preceding replacement-column sum, transpose each determinant, and observe Hᵀ=A_i*Sᵀ. The determinant-row-action node with A_i and Sᵀ now gives tr(A_i)det(Sᵀ)=tr(A_i)det S. This explicitly justifies the column-vector/row-family orientation; duplicate-row vanishing, not cancellation by 2, handles every characteristic.
+5. Apply determinant_operator to identify the resulting scalar with the one-by-one line section operator. The empty family evaluates to det(∅)=1 and both sides are zero because δ_i(1)=0.
+6. This is the local alternating universal-property test needed by a future top-wedge comparison. It is not yet a connection on a global exterior-power module/sheaf.
+
+Acceptance:
+
+- With S=diag(x,y), λ=1, δ=∂x and A=diag(a,b), both sides equal y+(a+b)xy.
+- For an off-diagonal A, the action part is zero on every S, not merely invertible S.
+- Rank zero gives the derivative of the unit section, not a zero determinant line.
+
+Prerequisites: HodgeStructuresPartII:H.0/operator, HodgeStructuresPartII:H.0/determinant-coordinate, HodgeStructuresPartII:H.0/determinant-derivation-rows, HodgeStructuresPartII:H.0/determinant-row-action, mathlib:Matrix.det_updateRow_add, mathlib:Matrix.det_updateRow_smul, mathlib:Matrix.det_transpose, mathlib:Matrix.trace_transpose.
+
+Source: [EG author preprint](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf), selected fixed-determinant/parameter passages above; the displayed proof is an explicit algebraic derivation from the pinned native declarations and the named supplier plan, not a named source theorem.
+
+### Current verification and remaining boundary
+
+The five new signatures use native Matrix, Derivation and Units objects and sorry bodies. The full changed file elaborates with zero errors, 123 sorry warnings and no other warnings; all 48 native examples remain. There is no new definition/construction in this continuation, so all 103 API items and 89 planned definition/construction tests are unchanged. Acceptance examples are independently exercised by 6,303 exact computations over Q/F₂/F₃ Laurent polynomial rings with nonzero square-zero ε, using 720 matrix pairs of ranks 0–3. These are finite model regressions, not Lean proofs. Current validation receipts are recorded in the handoff/packet; the earlier 118-sorry compilation covers only its preceding exact-file hash.
+
+The affine row-derivative, trace-action and det(G) coherence steps are decomposed as plans, with the generic Jacobi identity imported from its sole owner. E1 must still supply finite locally free exterior/determinant sheaf carriers; this roadmap owes descent of the induced alternating operator through the exterior universal property, top-wedge comparison using the local formula, restriction/pullback/functoriality and gluing. All 35 global signature omissions remain. The unbounded period-lattice/graded-base-ring/Tate and coefficient-equivariance adapters remain gaps. H.1–H.8, including mandatory real Noether–Lefschetz H.8, remain not_read with all routed obligations retained.
+
+Current exact-file Lean SHA-256: 6e90608f1e0748728112b947e7f5f6bf3b1c55398d62235d80cdf7a6300ad290. The existing top-level project supplied the build. A preliminary nested-project invocation failed on the Aesop search path and automatically fetched redundant dependency copies; those were moved to recoverable trash before using the correct existing project. No library build, cache retrieval or Lean language server was run. The roadmap now explicitly imports ColemanPowerSeries:L1 as a layer dependency so the named unpromoted Jacobi declaration cannot disappear from the provisional atlas link projection.

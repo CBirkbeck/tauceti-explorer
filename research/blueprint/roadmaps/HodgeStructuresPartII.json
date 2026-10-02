@@ -3,23 +3,25 @@
   "title": "Hodge structures (pure, mixed, and polarized), Part II: variations, period maps and non-abelian Hodge theory",
   "area": "algebraicgeometry",
   "parent": "tauceti:TauCetiRoadmap/HodgeStructures",
-  "summary": "Extends the parent fibrewise theory to intrinsic Higgs/relatively constant parameter bundles, complex variations, nonabelian Hodge theory, period geometry and arithmetic/real applications. This partial continuation supplies the reserved ringed-site carrier and its elementary tensor, dual, pullback, twist, nilpotence and finite Griffiths/Rees algebra while retaining the twelve affine tests and all eight binding source routes. Shared sheaf/ordinary-connection/filtered interfaces remain requests; H.1–H.8 remain not source-decomposed. Adds local determinant trace/curvature/transport adapters while retaining the global exterior-power bridge.",
-  "readme": "# Hodge structures, Part II\n\nThe definitive reader is research/blueprint/readmes/HodgeStructuresPartII.md. The reserved HodgeStructuresPartII:key/higgs-parameter-connections is supplied as an intrinsic mathematical plan, with additive Leibniz operator, exterior curvature and exact supplier contracts. Fifty-five nodes preserve the twelve affine examples and add generic transport, twisted fields, ordered nilpotence and finite Griffiths/Rees algebra. All statuses are unchecked; H.0 is partial and H.1–H.8 not_read.\n\nShimuraData:D3 owns common variations; CR.1 ordinary connection/crystal interfaces; E1 missing sheaf tensor/dual/pullback/descent; DD.1 generic filtered/Rees carriers. Built sheaf/locally-free objects and parent fibrewise Hodge theory are imported. BKT/Benoist coalesce here, with mandatory H.8. The unbounded Liu–Zhu filtered-coefficient and Tate adapter remains an explicit gap.\n",
+  "summary": "Extends the parent fibrewise theory to intrinsic Higgs/relatively constant parameter bundles, complex variations, nonabelian Hodge theory, period geometry and arithmetic/real applications. This partial continuation supplies the reserved ringed-site carrier and its elementary tensor, dual, pullback, twist, nilpotence and finite Griffiths/Rees algebra while retaining the twelve affine tests and all eight binding source routes. Shared sheaf/ordinary-connection/filtered interfaces remain requests; H.1–H.8 remain not source-decomposed. Adds local determinant trace/curvature/transport adapters while retaining the global exterior-power bridge. Five affine derivative/row-action/gauge/alternating declaration plans now bridge the previous trace-coordinate formulas toward top-wedge descent; the actual global comparison remains open.",
+  "readme": "# Hodge structures, Part II\n\nThe definitive reader is research/blueprint/readmes/HodgeStructuresPartII.md. The reserved HodgeStructuresPartII:key/higgs-parameter-connections is supplied as an intrinsic mathematical plan, with additive Leibniz operator, exterior curvature and exact supplier contracts. Sixty nodes preserve the twelve affine examples and add generic transport, twisted fields, ordered nilpotence and finite Griffiths/Rees algebra. All statuses are unchecked; H.0 is partial and H.1–H.8 not_read.\n\nShimuraData:D3 owns common variations; CR.1 ordinary connection/crystal interfaces; E1 missing sheaf tensor/dual/pullback/descent; DD.1 generic filtered/Rees carriers. Built sheaf/locally-free objects and parent fibrewise Hodge theory are imported. BKT/Benoist coalesce here, with mandatory H.8. The unbounded Liu–Zhu filtered-coefficient and Tate adapter remains an explicit gap.\n \nThe changed suggested file now elaborates with 123 sorry warnings only at the pinned Mathlib build; proofs remain plans. Preceding compilation receipts still describe their historical exact bytes. Five new affine determinant-derivative and frame-coherence adapters are mathematical plans, not a global exterior-power implementation.\n The generic Jacobi identity is imported from ColemanPowerSeries:L1/derivation-determinant-unit and is not replanned here.\n",
   "prerequisites": [
     "tauceti:TauCetiRoadmap/HodgeStructures",
     "CrystallineCohomology",
     "EnhancedDerivedSheaves",
-    "ShimuraData"
+    "ShimuraData",
+    "ColemanPowerSeries"
   ],
   "stages": [
     {
       "key": "H.0",
       "title": "Higgs fields and parameter connections",
-      "description": "Supply the reserved intrinsic ringed-site finite-locally-free Higgs/λ-connection interface with a central relatively constant parameter, actual additive Leibniz maps, balanced exterior extension, defined curvature and tensor/dual/pullback. Include Ω¹⊗T twisted fields, ordered nilpotence bounds, finite subbundle Griffiths grading and the induced Rees t-connection. Preserve affine comparison/sign tests; import the native sheaf carrier and missing CR.1/E1/DD.1 interfaces. The unbounded filtered-period/Tate adapter remains a gap, so H.0 stays partial.",
+      "description": "Supply the reserved intrinsic ringed-site finite-locally-free Higgs/λ-connection interface with a central relatively constant parameter, actual additive Leibniz maps, balanced exterior extension, defined curvature and tensor/dual/pullback. Include Ω¹⊗T twisted fields, ordered nilpotence bounds, finite subbundle Griffiths grading and the induced Rees t-connection. Preserve affine comparison/sign tests; import the native sheaf carrier and missing CR.1/E1/DD.1 interfaces. The unbounded filtered-period/Tate adapter remains a gap, so H.0 stays partial. Add determinant row-derivative/row-action, det(G) gauge coherence and alternating local-operator comparison as affine plans; global exterior comparison and descent remain open. Import the existing ColemanPowerSeries:L1/derivation-determinant-unit Jacobi input.",
       "requires": [
         "CrystallineCohomology:CR.1",
         "EnhancedDerivedSheaves:E1",
-        "DerivedDeRhamCohomology:DD.1"
+        "DerivedDeRhamCohomology:DD.1",
+        "ColemanPowerSeries:L1"
       ]
     },
     {

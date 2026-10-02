@@ -5,8 +5,12 @@ forms so that contributors and reviewers converge on names and signatures.
 Partial continuation for DESIGN-HodgeStructuresPartII, issue #3371.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-PRECEDING VERSION COMPILED: the entire file elaborates with Lean v4.34.0-rc2 against the existing
-pinned Mathlib build, with only sorry warnings. All imports are Mathlib modules.
+CURRENT VERSION COMPILED: the entire file elaborates with Lean v4.34.0-rc2
+against an existing build at the pinned Mathlib commit, with only sorry warnings.
+This checks native signatures, not proofs or the omitted global sheaf ledger.
+The preceding version's historical receipt applies only to SHA-256
+ df692430d323e907f4a419970dbde6f4a72a6d354f5759a96a1c5a42c7c154e7.
+All imports are Mathlib modules.
 No project/cache setup, library build or Lean language server was started.
 The affine test prefix is retained. The intrinsic local core uses actual additive
 maps, tensor products and defining equations; its truncated TwoForms input is
@@ -24,6 +28,7 @@ import Mathlib.Algebra.Category.ModuleCat.Sheaf.LocallyFree
 import Mathlib.Algebra.Category.ModuleCat.Presheaf.Monoidal
 import Mathlib.Algebra.MvPolynomial.PDeriv
 import Mathlib.Data.Matrix.Basis
+import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.LinearAlgebra.Matrix.Kronecker
 
@@ -328,6 +333,42 @@ example :
     let A : Fin 2 → Matrix (Fin 2) (Fin 2) ℚ := ![Matrix.single 0 1 1, Matrix.single 1 0 1]
     let c : Connection F (Fin 2) := Connection.mk A
     c.determinant.IsFlat ∧ ¬c.IsFlat := sorry
+
+
+/- Determinant derivative and local frame bridge: five unchecked declaration plans.
+Native signatures elaborate against the existing pinned build with sorry bodies.
+Only native matrices/units are used. Global wedge/sheaf descent remains omitted.
+-/
+-- node: HodgeStructuresPartII:H.0/determinant-derivation-rows
+theorem det_derivation_rows (δ : Derivation k R R) (S : Matrix V V R) :
+    δ S.det = ∑ r, (S.updateRow r (fun j => δ (S r j))).det := sorry
+
+-- node: HodgeStructuresPartII:H.0/determinant-row-action
+theorem sum_det_updateRow_left_mul (A S : Matrix V V R) :
+    (∑ r, (S.updateRow r ((A * S) r)).det) = Matrix.trace A * S.det := sorry
+
+-- Generic Jacobi input: import the existing plan
+-- ColemanPowerSeries:L1/derivation-determinant-unit; no duplicate declaration.
+-- node: HodgeStructuresPartII:H.0/determinant-gauge-matrix
+theorem Connection.determinant_gauge_matrix (c : Connection F V)
+    (G : (Matrix V V R)ˣ) (i : Fin d) :
+    (c.gauge G).determinant.matrix i 0 0 = Matrix.trace (c.matrix i) -
+      lam * (G⁻¹).val.det * F.delta i (G.val.det) := sorry
+
+-- node: HodgeStructuresPartII:H.0/determinant-gauge
+-- Native Units.map, detMonoidHom and scalar; no fresh line carrier or choice.
+theorem Connection.determinant_gauge (c : Connection F V) (G : (Matrix V V R)ˣ) :
+    (c.gauge G).determinant = c.determinant.gauge
+      (Units.map (Matrix.scalar (Fin 1)).toMonoidHom
+        (Units.map (Matrix.detMonoidHom : Matrix V V R →* R) G)) := sorry
+
+-- node: HodgeStructuresPartII:H.0/determinant-alternating-operator
+-- The r-th section is a column vector stored as row r of S. Its action family
+-- is S * (c.matrix i)ᵀ, not (c.matrix i) * S; see the reader's transpose proof.
+theorem Connection.determinant_alternating_operator (c : Connection F V)
+    (i : Fin d) (S : Matrix V V R) :
+    (∑ r, (S.updateRow r (c.operator i (S r))).det) =
+      c.determinant.operator i (fun _ => S.det) 0 := sorry
 
 end TauCeti.Hodge.ParameterConnection.Affine
 
