@@ -160,6 +160,72 @@ variable {G : Type u} [Group G] [TopologicalSpace G]
   {C : Type v} [Group C] [TopologicalSpace C] [IsTopologicalGroup C] [MulDistribMulAction G C]
   [ContinuousSMul G C]
 
+/-- NC.3/connecting-cocycle: lift of the coboundary of `b⁻¹` into the subgroup.
+`hb` expresses invariance of the left coset. No quotient section is used. -/
+def connectingCocycle (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (b : B)
+    (hb : ∀ g : G, b⁻¹ * (g • b) ∈ i.range) : Z1 G A := sorry
+
+/-- NC.3/connecting-cocycle-image; promoted construction API. -/
+theorem connectingCocycle_apply (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (b : B)
+    (hb : ∀ g : G, b⁻¹ * (g • b) ∈ i.range) (g : G) :
+    i (connectingCocycle i hi hG b hb g) = b⁻¹ * (g • b) := by sorry
+
+theorem connectingCocycle_unique (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (b : B)
+    (hb : ∀ g : G, b⁻¹ * (g • b) ∈ i.range) (c : Z1 G A)
+    (hc : ∀ g, i (c g) = b⁻¹ * (g • b)) :
+    c = connectingCocycle i hi hG b hb := by sorry
+
+theorem connectingCocycle_eq_one_of_fixed (i : A →* B)
+    (hi : Topology.IsClosedEmbedding i) (hG : ∀ (g : G) (a : A), i (g • a) = g • i a)
+    (b : B) (hb : ∀ g : G, b⁻¹ * (g • b) ∈ i.range)
+    (hfixed : ∀ g : G, g • b = b) : connectingCocycle i hi hG b hb = 1 := by sorry
+
+/-- NC.3/connecting-change-lift. The second membership proof is obtained by
+subgroup closure after expanding the product; it adds no independent hypothesis. -/
+theorem connectingCocycle_change_lift (i : A →* B)
+    (hi : Topology.IsClosedEmbedding i) (hG : ∀ (g : G) (a : A), i (g • a) = g • i a)
+    (b : B) (hb : ∀ g : G, b⁻¹ * (g • b) ∈ i.range) (a : A)
+    (hba : ∀ g : G, (b * i a)⁻¹ * (g • (b * i a)) ∈ i.range) :
+    connectingCocycle i hi hG (b * i a) hba = a⁻¹ • connectingCocycle i hi hG b hb :=
+  by sorry
+
+/-- NC.3/connecting-fixed-orbits: left fixed-element action and right lift change. -/
+theorem connecting_classes_eq_iff (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (b b' : B) (c c' : Z1 G A)
+    (hc : ∀ g, i (c g) = b⁻¹ * (g • b))
+    (hc' : ∀ g, i (c' g) = b'⁻¹ * (g • b')) :
+    H1.mk c = H1.mk c' ↔ ∃ t : B, (∀ g : G, g • t = t) ∧
+      ∃ a : A, b' = t * b * i a := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.connecting_fixed_lift
+example (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (b : B)
+    (hb : ∀ g : G, b⁻¹ * (g • b) ∈ i.range) (hfixed : ∀ g : G, g • b = b) :
+    connectingCocycle i hi hG b hb = 1 := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.connecting_identity_embedding
+example (hi : Topology.IsClosedEmbedding (MonoidHom.id B)) (b : B)
+    (hb : ∀ g : G, b⁻¹ * (g • b) ∈ (MonoidHom.id B).range) :
+    connectingCocycle (MonoidHom.id B) hi (fun _ _ => rfl) b hb =
+      Z1.coboundary b⁻¹ := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.connecting_proof_independence
+example (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (b : B)
+    (hb hb' : ∀ g : G, b⁻¹ * (g • b) ∈ i.range) :
+    connectingCocycle i hi hG b hb = connectingCocycle i hi hG b hb' := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.connecting_right_lift
+example (i : A →* B) (hi : Topology.IsClosedEmbedding i)
+    (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (b : B)
+    (hb : ∀ g : G, b⁻¹ * (g • b) ∈ i.range) (a : A)
+    (hba : ∀ g : G, (b * i a)⁻¹ * (g • (b * i a)) ∈ i.range) :
+    H1.mk (connectingCocycle i hi hG (b * i a) hba) =
+      H1.mk (connectingCocycle i hi hG b hb) := by sorry
+
 /-- NC.3/exact-sequence (a), exactness at `H¹(G, A)` for a closed `G`-stable subgroup `A ↪ B`
 (not necessarily normal): a class dies in `H¹(G, B)` iff it is the connecting image
 `[g ↦ b⁻¹ · g • b]` of a `G`-invariant coset `bA`. -/
@@ -168,14 +234,14 @@ theorem exact_H1_of_subgroup (i : A →* B) (hi : Topology.IsClosedEmbedding i)
     H1.map i hi.continuous hG x = 1 ↔
       ∃ (b : B) (c : Z1 G A), x = H1.mk c ∧ ∀ g : G, i (c g) = b⁻¹ * (g • b) := by sorry
 
-/-- NC.3/exact-sequence (a), exactness at the invariant cosets: the connecting class of `bA` is
+/-- NC.3/connecting-class-zero, exactness at the invariant cosets: the connecting class of `bA` is
 trivial iff `bA` contains a `G`-invariant element. -/
 theorem connecting_eq_one_iff (i : A →* B) (hi : Topology.IsClosedEmbedding i)
     (hG : ∀ (g : G) (a : A), i (g • a) = g • i a) (b : B) (c : Z1 G A)
     (hc : ∀ g : G, i (c g) = b⁻¹ * (g • b)) :
     H1.mk c = 1 ↔ ∃ a : A, ∀ g : G, g • (b * i a) = b * i a := by sorry
 
-/-- NC.3/exact-sequence (b), exactness at `H¹(G, B)` for `1 → A → B → C → 1` with `A` normal
+/-- NC.3/normal-h1-kernel, exactness at `H¹(G, B)` for `1 → A → B → C → 1` with `A` normal
 and `B → C` a continuous open surjection: a class dies in `H¹(G, C)` iff it comes from
 `H¹(G, A)`. No continuous section is needed. -/
 theorem exact_H1_of_normal (i : A →* B) (hi : Topology.IsClosedEmbedding i)
