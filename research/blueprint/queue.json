@@ -36723,7 +36723,8 @@
     "REV-PAPER-HEUER-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HEUER-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5064"
   },
   {
    "id": "RT-PAPER-LIU-WOOD-ZUREICKBROWN-24",
@@ -48022,8 +48023,9 @@
     "REV-ClassicalSerreModularity--R27.3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalSerreModularity--R27.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4430"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4430",
+   "finishedAt": "2026-10-02T03:32:48Z"
   },
   {
    "id": "RT-BP-ClassicalSerreModularity--R33.5",
