@@ -1235,6 +1235,23 @@ lemma coordinates_symm_normal_form (a b : k)
   dsimp
   rw [← coordinates_coe, LinearEquiv.apply_symm_apply]
 
+lemma coordinates_unique (a b : k)
+    (f : algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b))
+    (z : k[X] × k[X]) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    (f : k[X]) = z.1.comp q + Polynomial.X * q * z.2.comp q ↔
+      (coordinates a b).symm f = z := by
+  dsimp
+  rw [← coordinates_coe]
+  constructor
+  · intro h
+    apply (coordinates a b).injective
+    rw [LinearEquiv.apply_symm_apply]
+    exact Subtype.ext h
+  · intro h
+    have hh := congrArg (fun w => (coordinates a b w : k[X])) h
+    simpa only [LinearEquiv.apply_symm_apply] using hh
+
 -- node: G.1/quadratic-pinch-basis
 def basis (a b : k) : Module.Basis (ℕ ⊕ ℕ) k
     (algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b)) :=
