@@ -37779,7 +37779,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5509"
   },
   {
    "id": "RT-PAPER-BENOIST-WITTENBERG-20",
@@ -39247,8 +39248,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BHATT-MATHEW-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5521"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5521",
+   "finishedAt": "2026-10-02T01:38:10Z"
   },
   {
    "id": "RT-PAPER-ANSCHUTZ-LEBRAS-23",
