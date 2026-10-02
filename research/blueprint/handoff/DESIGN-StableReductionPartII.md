@@ -1,3 +1,258 @@
+# Continuation — 2026-10-02, ChatGPT Pro
+
+Session: `gpt6astra-20261002-c84f2a`. Issue: #3342; bot-confirmed claim.
+Status: **partial checkpoint, not completion and not independent review**.
+
+This continuation preserves the 83-node packet, roadmap, reader, all source routes,
+and the earlier handoff below. It adds local algebra proof notes and native
+polynomial-quotient/module candidates to `suggested/StableReductionPartII.lean`.
+It does not assert that any moduli stage is closed or that any Lean theorem has
+been proved. The packet's existing prototype counts have deliberately not been
+increased: the candidate signatures and their helper lemmas still require
+packet/reader/baseline integration. In particular, the old generic explanation
+that *all* omitted interfaces require geometric types is too coarse for these
+local algebra clauses. The global `dual-section-ideal` node really does still
+need the geometric, completion, and descent suppliers.
+
+## Exact scope of this continuation
+
+The focus is `MC.2/node-factorization-exact` and the
+`NodeSectionFactorization.cokernels` API of `MC.2/node-matrix-factorization`.
+The source is Knudsen, *A closer look at the stacks of stable pointed curves*,
+arXiv:1106.1588v2 (3 April 2012), §3, printed pp. 11–12, Proposition 3.1,
+with §4, printed p. 13, inspected to identify the remaining global passage.
+The PDF was read as text and the three pages were also rendered and inspected.
+The current download was not independently hashed; the earlier worker's source
+hash below is historical, not a new hash-verification claim.
+
+The new `NodeSectionFactorization.PolynomialModel` candidates give:
+
+- unique monic normal forms over an arbitrary commutative base;
+- injectivity of multiplication by the section's Y-coordinate difference;
+- all four kernel/range equalities, including the transposed complex;
+- two actual module equivalences, with formulas fixing the cokernel maps;
+- a quotient-level characteristic-two example, and a non-example excluding
+  arbitrary-coordinate substitutes for the quotient model.
+
+Only native polynomial rings, `AdjoinRoot`, matrices, linear maps, ideals,
+submodule quotients and linear equivalences are used. No second abstract node
+ring or matrix-factorization structure is introduced. The candidates use local
+notation for the explicit quotient, not an opaque carrier with assumed results.
+They retain the source's noetherian/unit-discriminant hypotheses on the two
+main API candidates. The elementary argument below establishes that some local
+algebra statements hold more generally; that is a derivation here, not a claim
+that the source printed its proposition in that greater generality.
+
+## Local proof, with signs and dependencies exposed
+
+Let A be a commutative ring, let γ, δ, s, t belong to A, and put
+q(X,Y) = X² + γXY + δY². Work in B = A[Y][X] and set
+F = q(X,Y) − q(s,t), R = B/(F). Write u and v for the images of X and Y;
+coefficient images in R are implicit. Define
+
+a = δv + δt + γu,  b = u + s + γt,  c = u − s,  d = v − t.
+
+Then ad + bc = 0 in R, and the corresponding expression before quotienting is F.
+The matrices already in the packet are
+
+Φ = ((a,b),(-c,d)),  Ψ = ((d,-b),(c,a)).
+
+### 1. Normal forms and regular elements
+
+F is monic of degree two in the outer variable X. Monic division gives a
+unique representative f(Y) + Xg(Y) for every class in R, with f,g in A[Y].
+Consequently R is free over A[Y] with basis 1,u. This statement does not require
+A to be a domain. Multiplication by F is injective in B: the top nonzero
+coefficient of a nonzero polynomial survives multiplication by the monic F.
+The zero ring causes no exception to injectivity.
+
+Similarly Y−t is monic in A[Y], so multiplication by it is injective there.
+In the displayed two-coefficient normal form this proves that d=v−t is a
+non-zero-divisor in R. These are two different regularity facts, used at two
+different steps below; neither follows merely from unit discriminant in an
+arbitrary ring receiving the coordinates.
+
+### 2. Exactness without a regular-local MCM theorem
+
+Before quotienting, ΦΨ = ΨΦ = F I₂. Suppose a vector z in R² is killed by Φ.
+Lift it to a vector z̃ in B². There is w in B² with Φz̃ = Fw. Multiplication
+by Ψ gives Fz̃ = FΨw. Cancel F coordinatewise, using step 1, to obtain
+z̃ = Ψw. Reduction modulo F gives z in im Ψ. The converse follows from the
+product identity. Interchange Φ and Ψ for the other equality. Their transposes
+also factor F I₂, so the same lifting argument proves both dual equalities.
+
+This proves ker Φ = im Ψ, ker Ψ = im Φ, ker Φᵀ = im Ψᵀ and
+ker Ψᵀ = im Φᵀ. It uses the actual hypersurface quotient and regular F;
+it does not invoke the equivalence between matrix factorizations and maximal
+Cohen–Macaulay modules over a regular local base.
+
+### 3. Which cokernel is the section ideal?
+
+Set J=(c,d). Introduce the two comparison matrices
+
+κ = ((0,-1),(-d,b)),  λ = ((1,0),(-c,d)).
+
+They are injective over R because their determinants are respectively −d and d,
+and d is regular. Direct multiplication, before taking the quotient, gives
+
+κΦ = ((c,-d),(-F,0)),  λΨ = ((d,-b),(0,F)).
+
+Exactness identifies coker Ψ with im Φ. The first displayed comparison then
+identifies it with J, by the formula
+
+[z₀,z₁] ↦ cz₀ − dz₁.
+
+Thus it is the RIGHT matrix Ψ whose cokernel is the section ideal. Abstractly
+saying that the two cokernels are J and its dual, without specifying the order
+and maps, loses information needed by the later expansion construction.
+
+### 4. The other cokernel is the actual module dual
+
+The second comparison identifies coker Φ with the ideal I=(d,b). Since d is
+regular, view I/d as the fractional ideal generated by 1 and ε=b/d. The
+relations εc=−a and εd=b show that multiplication by each of 1 and ε maps J
+into R.
+
+Conversely, an R-linear map h:J→R satisfies d h(j)=j h(d) for every j in J,
+so it is multiplication by h(d)/d. Its possible numerators r=h(d) are exactly
+those satisfying rc in dR. To compute them, reduce modulo d. There
+
+R/dR = A[X]/((X−s)(X+s+γt)).
+
+In A[X], X−s is monic and regular. Cancellation shows that an element
+annihilating its class in this quotient is a multiple of X+s+γt. Therefore
+rc in dR is equivalent to r in (d,b)=I. This proves I/d = Hom_R(J,R), with
+no appeal to a substitute dual object.
+
+It follows that coker Φ ≅ Hom_R(J,R), with [z₀,z₁] acting by multiplication
+by z₀−εz₁. A denominator-free characterization, used in the Lean candidate, is
+
+d · h_z(j) = (dz₀−bz₁)j  for every j in J.
+
+Regularity of d proves uniqueness. On the generators it reads
+h_z(c)=cz₀+az₁ and h_z(d)=dz₀−bz₁. This fixes both the sign and the
+identification. As an additional check, p=((0,-1),(1,0)) satisfies
+pΨ=Φᵀp and pΦ=Ψᵀp.
+
+### 5. Local base-change consequences, not global descent
+
+The preceding description also gives Hom_R(J,R)/R ≅ A, with the class of ε
+as generator. Indeed I/dR is the ideal generated by b in R/dR; multiplication
+by the monic polynomial X+s+γt identifies that ideal with A[X]/(X−s)=A.
+The section evaluation R→A splits A-linearly, so J is A-flat, since R is
+A-free. The exact sequence with quotient A just obtained likewise makes the
+dual A-flat. Polynomial quotients and the two finite matrix presentations
+commute with extension of the base coefficients A→A′. Their explicit maps
+show that the resulting comparison is the natural map to the dual after base
+change, rather than merely an unrelated module isomorphism.
+
+This only establishes the explicit polynomial-model passage. It does NOT by
+itself prove the global sheaf statement for an arbitrary nodal family. The
+completed local normal form, faithful descent, stable reflexivity in the
+source's sense and finite-presentation approximation remain to be supplied.
+Do not mark `MC.2/dual-section-ideal`, arbitrary-base moduli descent or the
+universal-curve theorem closed from this calculation.
+
+## Discriminating tests and executed checks
+
+First, in R=Z set γ=1 and δ=x=y=s=t=0. The discriminant is 1 and the two
+matrix products vanish, but both matrices are zero: the kernel is Z² and the
+image is zero. This rules out replacing the polynomial quotient by an
+arbitrary ring with six coordinates satisfying only the product equation.
+The suggested file contains this as a typed non-example.
+
+Second, over Q impose the extra coordinate relation y²=0 and consider
+R′=Q[x,y]/(x²+xy,y²), with γ=1, δ=s=t=0. Its basis is 1,y,x,xy. The two
+periodic matrices still form an exact complex: x²+xy is monic in x over
+Q[y]/(y²), so the cancellation proof applies. However y is now a zero-divisor,
+and the cokernel-to-ideal comparison fails. The cokernel of Ψ has Q-dimension
+4, whereas J=(x,y) has dimension 3. This is a quotient in a coordinate, not
+an extension of the base coefficients A, so it does not contradict the
+base-change statement above.
+
+Executed exact symbolic checks with SymPy: all seven matrix polynomial
+identities listed below vanish in Z[γ,δ,x,y,s,t]. These are symbolic identities,
+not a finite-field sample. A separate exact rational-rank calculation checked
+the second non-example. Receipt:
+
+    PASS: seven polynomial matrix identities over Z[gamma,delta,x,y,s,t]
+    PASS: Q[x,y]/(x^2+xy,y^2), ranks(phi,psi)=(4,4), dim coker(psi)=4, dim J=3
+
+The identities are ΦΨ=FI₂, ΨΦ=FI₂, the two κ/λ comparisons above,
+pΨ=Φᵀp, pΦ=Ψᵀp, and ((c,a),(d,−b))Φ=((0,F),(F,0)).
+For reproducing the rational calculation, multiplication by x and y on the
+ordered basis 1,y,x,xy is respectively
+
+Mx=((0,0,0,0),(0,0,0,0),(1,0,0,0),(0,1,−1,0)),
+My=((0,0,0,0),(1,0,0,0),(0,0,0,0),(0,0,1,0)).
+
+Use block matrices Φ′=((Mx,Mx),(−Mx,My)) and Ψ′=((My,−Mx),(Mx,Mx));
+both ranks are 4, both products are zero, and the rank of (Mx | My) is 3.
+These checks are not Lean elaboration and not an independent review of the
+mathematical proof. The full general proof is given above rather than inferred
+from these tests.
+
+## Inspected library and ownership receipts
+
+Pinned Mathlib: `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+The following source files and relevant statements were read at that pin:
+
+- `Mathlib/RingTheory/AdjoinRoot.lean`, lines 1–180, blob
+  `1945b7728630a10baf56374f183be1bcfa3727f0`: `AdjoinRoot`, its commutative-ring
+  instance, `AdjoinRoot.of`, `AdjoinRoot.mk` and `AdjoinRoot.root`.
+- `Mathlib/LinearAlgebra/Matrix/ToLin.lean`, lines 1–145 and 200–350, blob
+  `e27ea745bb8ab9f7766890e55c6a48e85d89a370`: `Matrix.mulVecLin`, its product
+  and transpose comparisons, and the actual kernel/range usage contracts.
+- `Mathlib/LinearAlgebra/Quotient/Defs.lean`, lines 1–195, blob
+  `2c25d9a529dfd044d3bf88361d79a3e8de23fda3`: native submodule quotients,
+  `Submodule.Quotient.mk`, quotient equality, and the scalar/module instances.
+
+The full upstream StableReduction and JacobianChallenge reader documents were
+read. Their blobs were `53c50f6e5c2ebbde46cac7720978afbf03212859` and
+`aedda48979b6c3544a1dce041d00221204d64655`. Parent curve families, nodal
+geometry, relative duality, contractions and scheme-level clutching remain
+parent-owned; general curve Picard/Jacobian constructions remain Jacobian-owned.
+No upstream roadmap was edited or replanned.
+
+The aggregate `data/library-coverage.json` could not be read through this
+connector (the large file returned no content, and the raw fallback failed).
+The relevant parent inventory was instead checked against the source audit
+`research/blueprint/audit/AUDIT-02.result.json` and its accepted independent
+review `research/blueprint/reviews/REV-AUDIT-02.md` (16 September 2026).
+This is not a claim to have reread the whole aggregate or all 519 audited
+statements. Current Tau Ceti search also found a newer matrix-factorization
+library; its BaseChange file was absent at the fixed Tau Ceti pin
+`f790474821cf4256814db967cb154e7af3d0c369`. No current-head search result was
+silently promoted to pinned-baseline evidence.
+
+## Resume here before promoting these candidates
+
+1. Split the existing combined exactness/cokernel statement into individual
+   proof-sized nodes without losing its ID or consumers. Add the monic-normal-
+   form and regular-coordinate helpers and the precise maps above as explicit
+   prerequisites/proof steps. Keep general matrix-factorization theory in its
+   existing owner; these are applications to the explicit pointed-node model.
+2. Integrate the four candidate signatures into the canonical export names,
+   update `prototypeCoverage`, the baseline declaration records and the reader
+   together, and refine the old generic omission reasons. The unchanged packet
+   does not yet account for the candidate helpers/imports. Add both negative
+   tests to the relevant definition/API acceptance checks; do not upgrade any
+   implementation status from `unchecked`.
+3. Inspect any additional polynomial/ideal declarations used for the final
+   proof at the pinned commits. Elaborate only in a pre-existing built pinned
+   environment, under the resource rules. These candidates have NOT compiled.
+4. Read Knudsen II's Appendix and finish the completed-local/global passage;
+   then continue the exact unresolved source/supplier list preserved below.
+
+No local checkout/pinned index was available, so the standard blueprint checker
+was NOT rerun in this continuation. No Lean project, build, cache or language
+server was started. The earlier standard-check success below is historical,
+not a validation receipt for these new candidates. Submission CI remains the
+external check for the two changed allowed deliverables. The roadmap, packet
+and reader retain their previous partial status and source-reading boundaries.
+
+---
+
 # Intake repair — codex-J6LwjP, PR #5736
 
 The 58 genuine upstream stage references on 44 nodes are preserved in upstreamPrerequisites following the accepted Néron Part II encoding. The roadmap requires edges, requests, source/API/test/uses content, all 83 nodes and every mathematical dependency remain unchanged. No shared checker was edited and no baseline declaration was forged. Canonical prerequisite-field integration remains an explicit gap.
