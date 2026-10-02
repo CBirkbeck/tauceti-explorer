@@ -1,0 +1,305 @@
+{
+  "redteam": "RT-PAPER-JIANG-ZHANG-20",
+  "findings": [
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the parameter characterization. On pp. 750–753 the dual standard dimension is even for orthogonal groups, whereas an orthogonal summand in an even-SO parameter can have odd dimension. Independently, the determinant of the sum is the product of the summands' determinant characters, so parity alone cannot enforce the prescribed even-SO discriminant character. Remove the claimed equivalence and state dimension, sign and determinant conditions explicitly. Qualify the finding's wording: odd-dimensional unitary groups do exist; the obstruction concerns the orthogonal simple-endoscopic group in this orthogonal datum, not all unitary groups. A summand need not belong to another orthogonal group in the paper's restricted list."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an inconsistency requiring a source issue, not as a certified repaired unitary theorem. Page images of pp. 766, 785–786, 791, 805 and 808 distinguish the bilinear integral from the Hermitian pairing. Theorem 5.3 and the summand argument in Theorem 7.1 use the former, while Theorem 6.6 identifies the descent's constituents with the parameter of tau; a non-self-dual unitary character exposes the duality mismatch. The extraction also contradicts itself about (5.6). The proposed fixes contain incompatible alternatives: changing both residue and smaller-group pairings, retaining the smaller bilinear pairing, or reversing base change changes different L-factors. Record the discrepancy throughout the affected statements and rederive one complete normalization dictionary before declaring any alternative proved or withdrawing E26."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed independently of which eventual unitary repair is chosen. Item thm-5-7, the body of route 2 and the reader report retain the unqualified L(s,tau×sigma) conclusion, while their accepted E26 explicitly replaces it by L(s,tau×sigma-dual) for the stated Hermitian period. The printed argument on p. 791 passes through sigma-bar and then asserts the unbarred value without an additional justification. PROTOCOL section 18 requires the extracted statement, source issue and brief to agree. Correct these together with /2, /11, /19 and /22. The fix's references to 'finding 1' mean the unitary-convention finding /2, not the Arthur-parameter finding /1."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Section 6.3 explicitly assumes L(1/2,phi×phi-prime) nonzero on p. 803; Conjecture 6.8 on p. 804 inherits the notation and assumptions above. Items conj-6-8, partitions-p-phi and prop-6-9 do not carry that standing hypothesis. Proposition 5.2 on p. 784 makes the maximal-order residue vanish when the central factor vanishes, so its nonzero Fourier-coefficient conclusion cannot simply be asserted without the hypothesis. Restore the relevant pair, dimension, parameter and nonvanishing assumptions. This conclusion uses the paper's residue criterion, not an independently checked elliptic-curve example; the unitary L-function convention must also be settled."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed against the current assembled stage graph and pp. 783, 818–820. AS.2 precedes AS.3 and AS.6, which precede ML.4 and ET.4→ET.6. Theorem B.2, its packet-specific generic case and the normalization defined through Arthur parameters require precisely those later inputs. Returning them to AS.2 closes those paths. General standard operators and a normalization by supplied factors can remain in AS.2; the packet-dependent theorem and its comparison belong downstream, for example in the proposed descent roadmap. Check the rank-one analytic inputs' own early prerequisites separately; they do not acquire a blanket packet classification merely by sharing an operator name."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a duplication and interface problem in the two new briefs. Route 1 claims the orbit-labelled Bessel subgroup, character and coefficient that route 2 constructs, while route 2 imports Bessel models and periods from route 1. Define the flag-based Bessel subgroup/character/coefficient once in GGP, with its local and global APIs; the descent consumer imports it and proves the identification with partition/orbit data and constructs modules. This does not move the general nilpotent-orbit classification into GGP, and the zero-index restriction convention must be treated separately. A common lower-level supplier is also possible if it leaves the two consumers acyclic."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the merged design's concrete consumer imports, with a qualification. I checked the accepted Liu-et-al. route 17 importing JacquetRallisRelativeTraceComparison, the latter's GGP imports in BPLZZ21 and BPCZ22 route 2, and Nelson–Venkatesh route 2 assigning Theorem 31.11 to GGP while route 1 imports GGP's local-period API. make_queue.paper_designs merges proposals with the same new-roadmap id, so these instructions conflict at the shared owner. Keep proofs requiring trace comparison or microlocal machinery in their consumers. Merely documenting which consumer proves a case is not a theorem dependency and need not itself create a cycle; the error is importing or proving those consumer endpoints in the supplier."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed for positive Bessel index in the full unitary Levi. Scalar norm-one matrices lie in its connected centre and conjugate every unipotent element trivially; they stabilize the character but are absent from the subgroup diag(I_ell,gamma,I_ell) of (2.13). Thus that displayed vector stabilizer cannot be the whole connected character stabilizer as claimed by the item. Specify the chosen smaller Bessel subgroup, or distinguish it from the larger stabilizer including the central torus. Do not replace it uncritically by a derived-group stabilizer, which changes the group. The ell=0 convention is already a separate restriction construction under E12."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item llc-gln is stated for all characteristic-zero local fields, but current ET.6 explicitly constructs the correspondence over finite extensions of Q_p. Its substantial segment and monodromy extension still does not include R or C. Separate the nonarchimedean planned part from the missing archimedean correspondence and route the latter to the shared real-representation extension. AF.1 currently plans globalizations and basic (g,K)-modules, not this classification; the confirmed RT-AREA-automorphic-1/2 proposes AF.1b, but that stage has not yet been implemented in the current atlas. Do not mark the whole item planned from ET.6 alone."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a scope and proof-source overclaim. ML.4 is the classification supplier, but its current contract names Arthur/Mok/KMSW and requires preservation of source-specific conditions; it does not certify every pure-inner-form global packet asserted by items 9 and 78. The paper itself describes Arthur's inner orthogonal extension as an outline on p. 740. Current sources require a case split: Ishimoto gives generic odd-SO classification; Chen–Zou gives generic even-orthogonal/unitary results and additional nongeneric cases under section 7's conditions; KMSW's generic scope cannot silently cover all unitary Arthur parameters. Register the exact replacements and O/SO and packet-label comparison needed. A named pending owner or broad classification stage is not evidence that its full statement is already planned with a complete proof."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The extraction's global-ggp uses a Hermitian period but retains the tensor parameter of pi and sigma without dualizing the second representation. GGP arXiv:0909.2999v1 pp. 88–90 defines the restriction form linearly on the representation of the product and pairs it with its corresponding L-group representation. Under the Hermitian convention the product representation is pi tensor sigma-dual instead. For unitary groups this changes the base-change factor in general. State both conventions explicitly, including the Fourier character's dual when required. Correcting E26 alone does not repair the conjecture item or its route brief; the orthogonal outer-orbit equality of L-factors must not be generalized to arbitrary unitary pairs."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The vogan-packets item defines the local union but describes the global object only as formed from local ones. Theorem 6.10 actually quantifies over globally relevant pure inner forms and cuspidal realizations (pp. 803–806), which cannot be recovered from arbitrary independent local choices. Supply the restricted-product/unramified convention, coherence of the global form and relevance of the pair, and then distinguish packet membership from occurrence in the discrete or cuspidal spectrum. The existing local item already restricts to relevant forms; preserve that rather than treating its local restriction as missing. The added global-Arthur-packet item does not by itself define the global Vogan union for relevant pairs."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Section 3.1's displayed decomposition on pp. 760–761 is introduced for orthogonal groups, but item generic-local-parameters generalizes it to every classical group with ordinary dual blocks and ordinary GL Levi factors. In the nonsplit unitary case the partner is the conjugate dual and the F-Levi uses restriction of scalars; at split places the group and its parameter description become general linear. State the decomposition case by case and transport it through the specified L-embedding. Preserve the paper's definition of a generic parameter through a Whittaker-generic packet member rather than equating genericity with temperedness."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an unstated converse used in the proof. Proposition 2.6 on p. 759 constructs some ambient group from a given smaller group. Pages 765, 785 and 807 apply it to prescribe an already chosen relevant pair and identify the resulting stabilizer with the desired group. That stronger compatibility needs its own quadratic/Hermitian space construction and cancellation argument. Add an explicit lemma for a given relevant pair, with dimensions, hyperbolic summands, anisotropic line and rational orbit, rather than citing the existential proposition as its proof. This verifies the missing argument in the paper; it does not claim to have completed the Hermitian formalization."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed with a necessary declaration correction. At Tau Ceti f790474, Witt/Extension.lean:50 proves QuadraticMap.IsometryEquiv.exists_extension for a regular subspace in finite dimension over a field with 2 invertible; Cancellation.lean:196 cancels a regular finite-dimensional summand; Decomposition.lean:221,226,238 gives the Witt index, anisotropic class and decomposition. These are built, not merely planned, and AUDIT-05 confirms their partial coverage. However the proposed TauCeti.QuadraticMap.anisotropicReflection at CartanDieudonne/Basic.lean:47 is private and must not be a library citation. Use the public TauCeti.QuadraticMap.reflection or reflectionOrthogonal, with reflection_apply_of_isOrtho and det_reflection (OrthogonalGroup.lean:425,475,494,522). Regular-form classes still need conversion to the paper's coordinates; the Hermitian case remains missing. Import ReductiveGroups Layer 7 for general group structure and Bruhat theory."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed for ownership and omitted imports. ReductiveGroups Layer 7 owns the general parabolic/Levi/root/Bruhat structure; accepted PAPER-CIUBOTARU-HARRIS-26 route 1 proposes LieHighestWeightPartIINilpotentOrbits for the missing nilpotent-orbit machinery. TAD should import these and extend the shared orbit owner for the classical partition classification, rather than create another general theory. Qualify the proposed very-even statement: there are two geometric SO-orbits with that partition; Galois can exchange them, so they are not automatically two individually F-stable orbits for every form. Rational orbits and their quadratic/Hermitian invariants require further descent data. None of these ownership proposals proves the source's missing rational classification."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed. grs-tower still says only that there is a criterion in terms of vanishing terms of (7.35). It supplies neither the actual constant-term identity nor the quantified hypotheses and conclusion needed by pp. 756 and 794–795. The original review itself flags this insufficiency. Extract the precise GRS theorem and the adaptation for the intended group, indices and cuspidal-support conditions; keep its source-access limitation visible until the book is read. I checked how Jiang–Zhang uses the theorem, not the full external GRS proof, so this verdict identifies an incomplete extracted statement rather than certifying a replacement theorem."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed. On pp. 775–776 the Whittaker integral maps the inducing sigma to sigma twisted by w_q^ell. In (4.49) and the item, the input has already been changed to sigma-prime, and the matrices on p. 770 satisfy w_q squared equal to 1. Its inner pairing therefore uses sigma, not sigma-prime again. Correct the nonzero-period hypothesis and normalization in zeta-integral-formula to match the actual inducing representation and the involution. This is separate from the unitary bilinear/Hermitian mismatch; spelling out one does not automatically fix the other."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed under the extraction's explicit plain parameter-tensor convention. At a split unitary place, U_3 is GL_3 and diag(z1,u,z2-inverse) gives root characters chi1·mu-inverse, chi2·mu and chi1·chi2. The first two therefore give the Rankin–Selberg normalizing factor with the dual of the smaller-group parameter, not chi1·mu and chi2·mu-inverse from the printed plain tensor denominator. Pages 780 and 782 explicitly identify the L-functions with the un-dualized parameters, so a hidden convention cannot resolve the discrepancy. Correct or qualify (4.47), (5.2) and (5.4) together. Recomputing an unramified factor is not by itself a proof of the general local zeta formula or a license to withdraw E26."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed against AL.3, AL.4 and ML.4. AL.3 constructs GL×GL Rankin–Selberg factors and cuspidal unfolding; AL.4 supplies general unramified Euler factors but expressly no generic analytic continuation. ML.4 supplies classification inputs, not the full ramified exterior-square, symmetric-square and signed-Asai analytic theory and pole criteria claimed by tensor-l-functions. Split the item and route the additional Langlands–Shahidi inputs with exact hypotheses and factor comparisons. Coalesce the Asai portion with the accepted AutomorphicLFunctionsPartIIAsaiAndGLnPeriods proposal; extend a suitable shared local-factor owner for the remaining representations. Do not credit the boundary Re(s)=1 nonvanishing or every ramified identification merely because AL.3 treats some tensor factors."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a missing cited input. Pages 768–769 invoke the vanishing/open-orbit statements from GRS Proposition 4.4 and Jiang–Zhang 2014 Lemma 3.4 and related formulas to reduce the double cosets. rev-generalized-bruhat-decomposition-p-h records representatives and indexing, but does not state the cuspidality and character-vanishing results that discard the other cells. Add those precise adapted statements and their dependency on the general Bruhat owner, leaving the coordinate calculations in the descent consumer. This is checked at Jiang–Zhang's citations and use; the full external GRS/JZ14 proofs were not read in this verification and must still be sourced."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The pole-order argument on p. 788 substitutes the transfer of pi into L(s+1/2,tau×pi). For a conjugate-self-dual unitary transfer tau this is not automatically the contragredient tensor product with the r simple poles: conjugate self-duality does not imply ordinary self-duality. Already a character mu with mu squared nontrivial distinguishes L(s,mu squared) from L(s,mu·mu-dual). Thus the plain parameter definition in tensor-l-functions and the pole assertion cannot both be accepted unchanged. Reconcile the numerator, inducing data, residue pairing and descent parameter as one problem with /2 and /19; choosing a notation alone does not prove Proposition 5.4 in the enlarged unitary scope."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a missing justification for nonvanishing of the composite, not a counterexample to Theorem B.2 itself. Pages 819–820 establish holomorphy/nonzero rank-one factors and then conclude for their composition; nonzero linear maps with kernels need not have nonzero composite. CKPSS pp. 227–228 explicitly invoke Zhang's lemma after establishing holomorphy, so their proof does not support that inference unaided. Add a separate nonvanishing argument at the parameters used by Proposition 5.2. Zhang's lemma is only a candidate until its genericity/group and normalization hypotheses and the archimedean substitute are verified; I have not read Zhang's original theorem. Holomorphy alone is the part established by the displayed rank-one calculation."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the overbroad planned status. AS.1–AS.2 supply Eisenstein convergence, constant-term Weyl sums, standard operators and continuation, whereas intertwining-constant-term also packages the explicit (5.2) L-factor identity and highest pole analysis used on pp. 783–784. Its own note concedes only partial coverage. Split the general operator/constant-term statement from the Gindikin–Karpelevich calculation and the packet-specific global pole comparison. A parameter-free spherical calculation with supplied Satake data can be an early shared analytic input; the Arthur-parameter comparison belongs downstream and must not introduce the /5 cycle. Preserve the missing local normalization and boundary nonvanishing prerequisites rather than infer the full identity from AS.2's title."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed for incomplete hypotheses and section-family handling, with the scalar correction conditional on normalization. Proposition 5.4's item omits the factorizable data and nonzero Bessel functional that the Euler product and the corrected item 38 require; pp. 789–790 make their use explicit. Equation (5.14) retains c_pi,sigma when independently chosen local functionals are multiplied. If those same normalized functionals define Z_nu, carry that scalar; if it was absorbed into a local factor, explain that choice rather than adding it twice. The constructed finite-place sections (A.6) must be handled through the appropriate finite combinations of flat sections with holomorphic coefficients. Do not assert that every arbitrary holomorphic family is automatically a Laurent-polynomial combination."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/26",
+      "verdict": "rejected",
+      "reason": "Rejected as a routing error. As actually stated, item 83 includes the comparison of packet-defined L-factors with the generic member's Langlands–Shahidi factors and the resulting (5.4) normalization. That imports ML.4, which is downstream of AS.2. The proposed fix explicitly moves this whole item into AS.2 while adding an ML.4 import, reproducing the cycle confirmed in /5. A parameter-free tempered-factor analytic statement can be separated and assigned to an early shared local-factor owner, while the packet comparison is proved downstream in TAD/ML.4. The existing placement of that comparison in the downstream descent consumer is not shown wrong merely because its analytic ingredient is reusable."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Lemma 6.5 is stated at every unramified finite place (p. 797), but pp. 793–799 use inverse-paired unramified characters of a single quadratic field and the inert-unitary cases. At a split place E_nu is F_nu×F_nu and the conjugate-self-dual pair of GL_a representations does not force inverse pairs within one GL_a factor. A local GL calculation is therefore missing for the all-places Satake conclusion. One suitable inert place may suffice for the vanishing argument of Proposition 6.2, but not for the almost-everywhere parameter identification in Theorem 6.6. Add the split case with both inducing factors and the exact embedding; do not treat inert-place agreement alone as global strong multiplicity one."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the unrecorded extension used in Proposition 6.3. Pages 794–795 check vanishing conditions by invoking the tower theorem; they do not prove the underlying tower/constant-term formula for all pure inner forms. E5 flags the analogous missing proof for Proposition 2.2, but its residual-case cross-reference does not supply that general extension. Add the inner-form tower statement and its proof/source dependency and propagate it to Proposition 6.3 and Theorem 6.6(1). I checked the actual application in Jiang–Zhang and the extracted GRS item's stated scope; I did not independently read the full GRS book or certify its theorem in a broader scope."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an incomplete reduction. Proposition 6.3 on p. 794 quantifies over every automorphic member of the nongeneric packet. The proof says E_tau×sigma has the least cuspidal support and then, on p. 795, treats its constant terms, asserting that the same argument applies to other residual representations. Minimality of one support does not itself describe or annihilate the constant terms of every other member. Supply the missing support/induction lemma with exact hypotheses, or restrict the verified statement to the representations actually treated and record the wider result as pending. The main application to that explicit residue does not require claiming a classification of every residual member."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed, but the fix must incorporate current nongeneric progress. E4 says the generic classification covers the parameters used in the main theorems; Section 6 explicitly uses psi_tau,sigma with doubled SL2 blocks on pp. 792–794, hence nongeneric packets. Chen–Zou v3 Introduction and section 7 give additional coverage: Assumption 7.2 requires n_i greater than the Witt index whenever d_i>1, and Theorem 7.7 also covers all parameters at F-rank one (anisotropic groups satisfy the first condition). Those results use theta packets and require the stated packet comparisons; they do not blanket-certify the paper's full arbitrary-inner-form packet assertions. Replace 'only generic parameters are needed' with an exact conditional case table; do not say every nongeneric even-orthogonal case remains unproved."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed. psi-tau-sigma drops the relevant-pair/dimension and opposite-type conditions implicit in the construction of pp. 784–785 and 792. Tensoring a simple parameter with the two-dimensional SL2 representation reverses its sign, so arbitrary generic parameters for two same-type orthogonal groups do not automatically combine into the asserted ambient parameter. State tau as the transfer of the prescribed bigger group, sigma for its relevant smaller group, and the parity/type conditions giving H_a+m; then check relevance rather than declaring it for arbitrary independent choices. In the unitary case use conjugate signs with the fixed embedding convention."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed for both ownership and cited scope. The added rev-automorphic-members-of-generic-global item asserts cuspidality across pure inner forms while citing the quasisplit discussion in Jiang–Liu; Jiang–Zhang uses it on p. 803 without giving that extension. It is a classification/multiplicity consequence, so the shared ML.4 supplier should export the correctly scoped theorem and GGP/TAD should import it. Verify the inner-form proof through exact classification and residual-support inputs, including the O/SO convention, rather than merely add an unconditional citation. Chen–Zou's generic section provides a relevant later source, but a proposal to import it is not an implemented atlas proof."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed. grs-local-descent compresses three theorems into 'vanishing above the critical kappa' and 'an explicit unramified principal series', without specifying that critical index, the group cases, quadratic central characters or the inducing characters. Pages 793–800 need those precise data and distinguish split/nonsplit orthogonal and unitary cases. State separate exact vanishing and subquotient results with their ranges and multiplicities, then prove the adaptation and add the split-unitary case of /27. The reviewed source issues correcting dimensions/indices on pp. 798–799 are part of that statement. This verdict checks inadequacy against the consumer; it does not claim the GRS book has been fully verified."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed directly from CKPSS04 pp. 167 and 225. Their G_n is split SO_odd, split SO_even or Sp; Theorem 11.1 is nonarchimedean, assumes the classical representation comes from a globally generic cusp form, allows any unitary generic GL factor, and concludes holomorphic/nonzero for Re(s)>=0. It does not state the all-place/quasisplit/unitary packet theorem attributed to it by item 84 and Jiang–Zhang p. 818. Extract the actual theorem and obtain the missing group/place/globalization inputs separately. The nongeneric-case rank-one argument is a possible extension strategy, but /23 prevents treating its nonvanishing as automatically proved; the original note's 'quasi-split SO_even' scope also needs correction."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed against ET.6 and AF.1's contracts. Segment/Langlands-quotient classification is not the unitarizability/complementary-series classification quoted from Tadic, and AF.1's basic modules/globalizations do not classify the archimedean GL unitary dual. The accepted SmoothRepresentationsPartIIUnitaryDual proposal is a shared owner for nonarchimedean unitary theory, but its current brief does not already prove Tadic's exact generic GL bounds or Vogan's archimedean theorem. Coalesce and extend the reusable inputs with explicit group/field scope, allowing an early analytic prefix where needed, rather than create another unitary-dual theory in ET.6. Keep the archimedean component at an appropriately extended real-representation owner."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/36",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the constructor/registry boundary. grs-descent asserts a Bessel coefficient of an Eisenstein residue and its nonzero cuspidal realization (pp. 802, 809). Those are TAD constructions, whereas ML.5 registers known transfers and the TAD brief already imports ML.5 for this theorem. Giving the proof to ML.5 would require the consumer's objects and reverse that dependency. Keep the explicit descent theorem with its canonical descent owner and export only its transfer consequence to the registry; remove the return import of that registered consequence when proving its own construction. A registry statement can remain in ML.5 if its proof is imported from the downstream owner with the dependency graph adjusted consistently."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an omitted supplier interface. Relevant pure-inner pairs use quadratic/Hermitian spaces with fixed dimension, discriminant/local invariants, embeddings and global coherence, not just a name for an inner twist. Route 1 currently imports ML, SR, AF and AL but neither the existing quadratic-form owners nor GN.2's local-global/Hermitian extension. Import the established quadratic-form and global-form APIs and extend GN.2 for the missing Hermitian classification/embedding results. AUDIT-02 distinguishes built Witt theory from the still missing local/global classification and Hermitian variants. Keep rational equivalence and chosen embeddings separate and avoid rebuilding those foundations in the GGP consumer."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/38",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Page 754 says every F-quasisplit G_n has Witt index floor(dim/2). For nonsplit quasisplit even SO_2n the anisotropic kernel has dimension two and the Witt index is n-1; its relative roots and minimal-parabolic structure elsewhere in the paper already use that distinction. Record the sentence as a source error and use the actual Witt index in all ranges. Split even SO and odd orthogonal/unitary cases must not be changed indiscriminately. This is a source-sentence error, not a claim that every later computation uses the wrong index."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed by pp. 748–749. classical-groups-structure writes the anisotropic-kernel group with a dimension index instead of the paper's floor(dim/2) convention, and its relative-root case split omits the even/odd quasisplit unitary distinction. Rewrite the minimal parabolic with the correct anisotropic-group index and state D for split even SO, C for quasisplit even unitary, and B for the other cases in the paper's range. Keep the actual F-rank/Witt index separate from floor(dim/2), as /38 requires; type agreement must be checked in the explicit coordinates."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/40",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the cited proof scope. grs-descent's blanket transfer assertion includes unitary groups, while CKPSS's setup on p. 167 is explicitly split orthogonal/symplectic. Jiang–Zhang p. 809 cites that source for all its regular-orbit cases without giving the unitary replacement. Add the exact unitary base-change/descent source and hypotheses, with KMSW/Mok or the relevant unitary functoriality work as appropriate, and distinguish even-unitary descent's required U1 datum. I checked the mismatch in the citation; I did not independently verify a Kim–Krishnamurthy replacement or the full GRS constructive transfer."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/41",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The note of prop-2-5 and E7 say that Proposition 2.5 is not cited elsewhere, but p. 802 explicitly cites its F-rank restriction when explaining why the smaller-group datum must be introduced. Remove the absolute no-use claim and record this explanatory use. That reference is a remark, so it does not by itself show the paper's main proof depends on the erroneous sign criterion. The sign correction already recorded in E7 remains a separate mathematical repair."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/42",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a mismatch with the stated source citation. The local-ggp-known item calls Luo's thesis 2020, while the published bibliography [59], p. 824, dates the thesis 2021. Its arXiv paper has a 2020 identifier, which is not sufficient to change the thesis date. Use the published citation's 2021 date or separately identify and verify the thesis's actual bibliographic record; keep the 2020 arXiv version labelled as such. This is not a verdict on the thesis theorem's proof."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/43",
+      "verdict": "confirmed",
+      "reason": "Confirmed. generic-local-parameters uses existence of a Whittaker-generic packet member (pp. 760–761), but no item supplies the classical-group Whittaker datum, nondegenerate character and local/global functional/coefficient definitions used to make that condition meaningful. Current SR.5/AL.3 Whittaker constructions are GL-oriented and cannot silently provide all quasisplit classical cases. Add the general definition and its API at the shared representation/automorphic supplier, with rational conjugacy of Whittaker data and analytic field cases explicit; the descent consumer imports it. Keep genericity of a representation, genericity of a local parameter and a generic global Arthur parameter distinct."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/44",
+      "verdict": "confirmed",
+      "reason": "Confirmed. tensor-l-functions still gives the Asai twist As tensor xi^m, despite E8 and local-l-factor replacing that undefined/sign-incorrect expression by the signed Asai representation with sign (-1) to the dimension of W. The paper prints the former on p. 780; its required ambient parity distinguishes As-plus and As-minus. Apply the accepted sign correction consistently to the tensor item, normalization, theorem notes and brief, stating that the exponent is the dimension, not the half-dimension group index. The independent analytic coverage gap in /20 remains."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/45",
+      "verdict": "confirmed",
+      "reason": "Confirmed by the index range of (4.14) on p. 768 and the displayed Levi/action on pp. 771–772. W_(r_m+a-1,beta-1) would require basis vectors beyond the available r_m+a when beta>2, so it cannot denote the claimed GL_(beta-1) factor. The diagonal action uses the beta-1 coordinates immediately after ell, transported by eta; replace the bad label by the corresponding eta-inverse W_(ell,beta-1) and verify its position and dual block. Add a source misprint and update the added inner-Bessel-datum item, rather than retaining the ill-defined space in an otherwise corrected construction."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/46",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the missing model normalization. Abstract spherical vectors do not have values at the identity until a function model and evaluation are supplied. Theorem 4.8 on p. 781 uses specified unramified section and spherical functions together with the Bessel functional; p. 789 defines a normalized spherical vector through its corresponding function. State the Whittaker/induced function value, normalize the nonzero spherical Bessel pairing and the compact Haar volumes, and explain their relation. Merely writing 'vectors taking value 1' is insufficient, particularly when the local distinguished functional is zero."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/47",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The thm-4-8 note uses Jiang–Soudry–Zhang [44], the arXiv numbering, although its locator and source text are published. In the printed bibliography on p. 823 the deferred unramified calculation is [43]; [44] is Jiang–Sun–Zhu's archimedean Bessel uniqueness. Update the note to [43] with [44] explicitly marked as the v4 number if retained. Preserve the source-access gap; renumbering the reference does not supply its proof."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/48",
+      "verdict": "confirmed",
+      "reason": "Confirmed by pp. 773–774. The mirabolic Fourier expansion cited from JZ14 is applied to phi_pi in Proposition 4.3, before the map producing the tau Whittaker coefficient. The note assigns that justification to whittaker-induction-map instead and omits the separate nonzero generic Whittaker input for tau, which is allowed to be an isobaric sum rather than a cusp form. Attach the mirabolic expansion to its actual step and record the isobaric Whittaker/induction result with exact hypotheses at a shared GL representation/automorphic owner. AL.3's global cuspidal unfolding alone does not prove it."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/49",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the item's excess generality, with a qualification about smooth sections. eisenstein-series allows a general automorphic sigma without the irreducibility condition on p. 764, whereas AS.1 explicitly constructs Eisenstein series from cuspidal Levi data. Tau itself can be an isobaric sum, needing multivariable cuspidal induction and specialization for this one-parameter family. Split the general claim from the cuspidal application or supply the reduction. AS.1 already has holomorphic sections and differentiated growth estimates, so no blanket absence of smooth-family theory follows from its contract; any specific non-K-finite extension and its continuity estimates must be identified precisely instead of automatically replanning them."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/50",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Theorem 5.3 on p. 786 lists nonzero residue as a standing hypothesis, while its implication from a nonzero residue pairing already forces nonzero residue; the converse proof can produce it under the other data. The item's parenthesis attributing that hypothesis only to the forward direction is misleading. State the theorem's domain and the stronger consequence separately. Also use the inducing twist indexed by the special ambient index kappa-star=a-ell-star-1, not a copied ell-star exponent without checking the construction. This edit must agree with the sigma/sigma-prime involution in /18 and the unitary conventions in /2."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/51",
+      "verdict": "confirmed",
+      "reason": "Confirmed. In Appendix A the open-cell section is (A.6), p. 812; (A.5), p. 811, is the U-minus integration defining J_s,nu. The proof on p. 817 explicitly defers the split-unitary GL case with a claim of similar matrix calculations and cites Zhang's p-adic Whittaker–Shintani paper [86], p. 826. That does not specify all characteristic-zero local fields. Correct the locator and add the missing split-field/archimedean construction and inductive nonvanishing input, rather than treating the p-adic citation as a proof of every place."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/52",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The prerequisite list omits ABV, CKPSS04, MW89, Waldspurger's Plancherel source, Dixmier–Malliavin and the general-linear split-case reference used by the added Appendix B/A items. The paper's references on pp. 820–826 identify them and the item locators show where they are needed. Add exact citations and roles, checking existing canonical owners and source availability first; Borel–Wallach already has an owner and should be imported rather than duplicated. Zhang's separate nonvanishing theorem is a further candidate dependency under /23, not a replacement already independently verified here."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/53",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an unnecessary dependency in the proof note. On p. 796 the action is f(g)↦f(epsilon-inverse·g·epsilon). Since epsilon is F-rational, automorphic left invariance makes this the right translate by epsilon, so it preserves every chosen invariant discrete realization, regardless of its multiplicity. Character invariance then transports the Fourier coefficient. Remove the claim that discrete multiplicity one from ML.4 is needed for that argument, retaining the corrected line-versus-vector stabilization of E19. This does not assert multiplicity one or change the theorem's global parameter hypotheses."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/54",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The report calls Corollary 6.11 unconditional for SO_odd×SO2, but pp. 805–807 remove Conjecture 6.8 only in the specified split SO_(2n+1) and anisotropic SO2 situation. The earlier deferred local analytic/unramified input E3 remains part of the paper's proof chain until supplied at that scope. State exactly which hypothesis was discharged and preserve source gaps and form restrictions. The dimension notation in the proposed residue example must also be checked rather than substituting group indices for dimensions; Proposition 6.9 uses SO_(2n+2,2n), of total dimension 4n+2."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/55",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Page 800 explicitly invokes local uniqueness of Bessel models to deduce multiplicity freeness, but the bessel-uniqueness locator list omits that use. Add the Theorem 6.6(2) application and its nonzero-factor assumptions. Theorem 6.10 on p. 805 sets a=n-fraktur-dual=N, the dimension of the standard dual representation, not the half-dimension index n. Correct that notation in the item's locator/note wherever the two are conflated. These are locator/notation repairs; local uniqueness alone does not prove every global spectral decomposition claimed in the paper."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/56",
+      "verdict": "confirmed",
+      "reason": "Confirmed by rendered pp. 813–814 and an independent block multiplication. With d=a-ell and Y of shape d×m, the printed omega_d·iota(Y)^transpose·J_m-inverse is ill-typed; the transpose block needs m×d shape. The displayed representative Y is also transposed relative to its declared shape. Applying p·n-bar to (E1,0,E2) and using the lower and middle equations gives iota(Z-hat)E2=(I-g)E1+YY-prime·E2, not the first equation printed in (A.14). Extend E24 and derive the corrected transpose/order/sign from the fixed form matrix. At X=0 the omitted term vanishes, so these errors alone do not refute the final nonvanishing argument; the general-coordinate parametrization still needs repair."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/57",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Theorem B.2 on p. 818 writes self-dual, while its inducing target (B.4), the definition of tau-star and the unitary global inputs require conjugate self-duality. Its extraction item calls the theorem a local version of Theorem 5.1 but silently retains the wrong stronger ordinary-duality hypothesis. State self-duality for E=F and conjugate self-duality for a quadratic extension, with a separate split-etale convention. Do not simply delete all duality hypotheses on the strength of a more general GL theorem: the classical normalized operator and its target need their own correctly scoped statement."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/58",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the extracted normalization and exponent wording. The added GL×GL item cites (5.3)–(5.4), whose classical-group normalization has an extra exterior/symmetric/signed-Asai factor and is not the GL pair normalization. Specify the GL Rankin–Selberg quotient at its actual rank-one argument. On p. 819 each alpha and beta lies in (0,1/2), but their signed sums in (B.7)–(B.8) range in (-1,1), not uniformly (-1/2,1/2); that is enough for the quoted Re(z)>-1 holomorphy bound at Re(s)>=0. 'Twisted Asai' should be replaced by the exact parity sign where needed, not called false merely because it is an umbrella term."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/59",
+      "verdict": "confirmed",
+      "reason": "Confirmed by direct counting. The reviewed result has 88 items, 9 planned and 79 missing. Its five source routes contain 5 AS.2 items, 1 ML.4 item, 1 ET.6 item, 2 AF.1 items and 1 ML.5 item, totaling 10. The summary still says six source items; the reader report retains the earlier 78/8/70 counts and seven source items, with a review appendix that does not synchronize the headline. Update the machine summary and report counts from the actual corrected routes/items, including the final ownership changes. Historical source-access statements should be labelled by their date rather than left as current assertions."
+    },
+    {
+      "finding": "RT-PAPER-JIANG-ZHANG-20/60",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a pending-owner reconciliation, not a reference to an existing AF.1b stage. RT-AREA-automorphic-1/2 is independently confirmed and proposes a real-representation successor for Langlands/discrete-series/globalization inputs. The current assembled atlas still has AF.1 and AF.1a, with no AF.1b. Route 6 should identify the shared successor when that fix is implemented, and the original/basic stage must not retain a second copy of the moved analytic theory. Dixmier–Malliavin belongs with its smooth representation setting; Vogan's unitary-dual classification requires the extra extension in /35 and is not automatically supplied by naming AF.1b."
+    }
+  ]
+}
