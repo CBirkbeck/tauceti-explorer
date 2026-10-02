@@ -1,6 +1,8 @@
 # FunctionFieldArithmeticPartII — finite root transition checkpoint
 
-Worker: Codex — codex-rtOQ9t. Date: 2026-10-02. Issue #3403; winning claim 5962223442, confirming bot 5962225195. The whole issue was read before and after confirmation. Branch codex-rtOQ9t/root-stack-descent; mathematical and publication base aec55383b7e77a42d961484dd0f8431212790883.
+Worker: Codex — codex-rtOQ9t. Date: 2026-10-02. Issue #3403; winning claim 5962223442, confirming bot 5962225195. The whole issue was read before and after confirmation. Branch codex-rtOQ9t/root-stack-descent; mathematical base aec55383b7e77a42d961484dd0f8431212790883.
+
+Fresh publication projection: e49e08127a3c6b3dadd74ddbe92c7499a11809ce, merged into this own branch after verifying that the governing protocols, own deliverables, reviewed library audit and root key-definition inputs are unchanged. The actual checker, intake and assembler also pass at this publication base with the same graph counts. The public archive remains an ancestor.
 
 This partial checkpoint supplies ten additional declaration-sized planning nodes: one construction, eight lemmas and one theorem. There are 173 unchecked nodes: 9 definitions, 28 constructions, 89 lemmas, 36 theorems, 10 comparisons and 1 application. The packet has 123 API records (121 required definition/construction records), 150 total tests (126 required definition/construction tests), 39 planets and 150 baseline entries. All ten stages remain partial, with the same eight gaps and thirteen supplier requests. Separate native proof evidence does not change implementationStatus or certify the complete geometric suggested file.
 

@@ -12764,14 +12764,53 @@
           "testParity": 14
         },
         "loaderSha256": "a7d2d82c078892bfe5fb2eeada11c178e2e237c427dbc1133ac5b7c60bf79cf0",
-        "recoverySha256": "012329aeefc9db327c6c49021d3b46d752a50750e6fe93e1c1aff913126aa676"
+        "recoverySha256": "012329aeefc9db327c6c49021d3b46d752a50750e6fe93e1c1aff913126aa676",
+        "publicationGraph": {
+          "indexedChecker": "pass",
+          "actualIntake": "pass",
+          "actualAssembler": "pass",
+          "base": "e49e08127a3c6b3dadd74ddbe92c7499a11809ce",
+          "preservedStatements": 163,
+          "unchangedNodes": 158,
+          "addedNodes": 10,
+          "kinds": {
+            "construction": 28,
+            "definition": 9,
+            "comparison": 10,
+            "lemma": 89,
+            "theorem": 36,
+            "application": 1
+          },
+          "api": 123,
+          "tests": 150,
+          "baseline": 150,
+          "planets": 39,
+          "gaps": 8,
+          "requests": 13,
+          "ownDeclarationEdges": 361,
+          "stageVertices": 3005,
+          "stageEdges": 8723,
+          "reachableDependencyVertices": 548,
+          "reachableDeclarations": 224,
+          "requiredStagePairs": 54,
+          "requiredStagePairsReachable": 54,
+          "combinedVertices": 3241,
+          "combinedEdges": 9468,
+          "allDAGs": "acyclic",
+          "pendingLinks": [],
+          "ownSkippedLinks": [],
+          "otherSkips": "unchanged",
+          "newStageEdges": 0,
+          "scriptSha256": "075d60f4dc60380c4c91498d6a9718374c5db357d3ade26aebf56e4ae9b8d0c7"
+        }
       },
       "corrections": [
         "Replace the inherited non-elaborating composition and exponent-one dependent casts by the existing canonical equivalence of quotients by equal polynomials; preserve the same mathematical laws.",
         "Give finite basis projections the explicit coefficient algebra induced by the transition.",
         "Use the existing native finite and flat-and-surjective Spec criteria instead of an unnecessary SF.1 prerequisite for the finite chart consequences."
       ],
-      "reason": "The exact-pin Mathlib native ring, module and affine scheme proofs are checked separately. The full geometric file cannot be compiled because the available build lacks the exact-pin Tau Ceti line-bundle and roots-of-unity compiled imports; no setup, library build, cache download or LSP."
+      "reason": "The exact-pin Mathlib native ring, module and affine scheme proofs are checked separately. The full geometric file cannot be compiled because the available build lacks the exact-pin Tau Ceti line-bundle and roots-of-unity compiled imports; no setup, library build, cache download or LSP.",
+      "publicationBase": "e49e08127a3c6b3dadd74ddbe92c7499a11809ce"
     }
   ]
 }
