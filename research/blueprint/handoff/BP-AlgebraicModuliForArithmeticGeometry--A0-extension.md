@@ -1,3 +1,250 @@
+# Current checkpoint — Codex codex-J6LwjP, issue #672
+
+Claim5961534150 confirmed by bot5961536135; complete issue read again after confirmation. Base4557261650818a24845bd3c8f195e393990ea9c0. This checkpoint changes only the four authorised packet, reader, suggested and handoff paths. Earlier ledgers below are historical.
+
+## Current continuation: cover independence and reversible conjugation
+
+Codex — codex-J6LwjP, issue #672, base 4557261650818a24845bd3c8f195e393990ea9c0. Six consumed native leaves extend the packet from163 to169 declarations (16 definitions,40 constructions,80 lemmas,28 theorems,5 comparisons). All163 inherited statements, hypotheses, sources and mathematical acceptance/API/test contracts remain;162 complete inherited node objects are unchanged. Only the evaluation-surjectivity leaf gains prerequisites and a more precise proof frontier. The99 baseline declarations include one newly read pinned intersection-covering theorem. The packet contains205 raw API entries (197 on definitions/constructions) and185 raw mathematical tests (179 on definitions/constructions), ten planets, nine gaps,21 open requests and68 unchanged source routes. All eight coverage rows and the reserved gerbe key remain partial or not_read, with no closure.
+
+The covering-refinement theorem compares the lift on R with the lift on S when R≤S, although the two local object-isomorphism families may be unrelated. Restrict the S-lift to each actual arrow of R; native local recovery and commutative inertia identify it with the prescribed R-conjugate. Uniqueness on R proves equality. Two unrelated covering sieves are compared through their actual intersection, which the pinned topology already proves covering. This removes the previously explicit cover-change obligation without creating another cover, descent or stack carrier.
+
+Reverse local isomorphisms give inverse transport: recovery twice and native descent faithfulness recover every original automorphism. The inherited group homomorphism therefore yields an actual MulEquiv Aut(x)≃*Aut(y), with the specified forward and inverse maps, native group laws, local restrictions and global-isomorphism comparison. Whole-equivalence extensionality proves independence of the covering sieve. Finally, on one cover, transport x→y→z equals x→z for arbitrary choices of all three local isomorphism families: their composite and the direct family induce equal conjugations by abelian inertia. This is the same-base cocycle used by the intrinsic-band route.
+
+The seven mathematical equivalence tests retain both round trips, every local restriction, agreement with a global native conjugation equivalence, equality under unrelated covers, native products and the identity equivalence when x=y despite arbitrary local automorphisms. These detect loss of source or target automorphisms and a wrong labelled conjugation map. They are generic equations in the actual pinned carriers; no new geometric-site fixture or finite-model receipt is claimed.
+
+The complete checked native source has564 lines,18 examples and32 kernel audits, with zero errors, warnings, admissions or admitted dependencies; Elapsed 2.30 seconds; peak 2073768 KiB. Its immutable archive is [66ab10c1324aa6942326f55697ce5d776118d061](https://github.com/CBirkbeck/tauceti-explorer/commit/66ab10c1324aa6942326f55697ce5d776118d061). All13 new declaration/API headers and seven example headers are retained exactly in the suggested file, with their final bodies admitted under PROTOCOL§13. The1531-line Mathlib-only admitted extraction has60 examples, zero errors,111 admission warnings and no other warnings; Elapsed 5.50 seconds; peak 3346136 KiB. The full2913-line suggested file remains uncompiled because the existing pinned build lacks the imported TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence artifact; no dependency was built.
+
+The actual atlas assembler retains all stage edges and unrelated skips. Stage, own-declaration and combined dependency DAGs are acyclic; all24 old required supplier paths remain reachable, with no own skipped or pending links. The combined graph contains the169 own nodes plus three reachable D0 declarations. Parent-stage→declaration edges in this diagnostic graph provide context only; they do not assert that a stage has been proved or realised.
+
+Fresh reading covers the entire printed [Stacks Lemma8.11.8](https://stacks.math.columbia.edu/tag/0CJY) and [Definition8.4.1](https://stacks.math.columbia.edu/tag/026F), the current eight reviewed audit rows, all163 node statements/hypotheses, full predecessor handoff, accepted RS27 decisions/report, applicable ModularCurves links, confirmed finding claims/verdicts and the gerbe reserved contract. Historical whole-source reading receipts retain their original attribution. The new adapters are derived from the local-conjugation argument; they are not proofs printed by the source, whose varying-base conclusion is explicitly omitted.
+
+Still prove compatibility of the conjugation equivalence with arbitrary further base arrows, retaining native mapComp and mapId, before assembling natural centre units and proving evaluation surjectivity. The chosen-band inverse, SF1 slice comparison, connected/disconnected point sites, restriction-chain site and nonneutral O(1) root-gerbe fixtures remain open, as do all inherited non-gerbe scope gaps. Generic stack/descent belongs to D0, spaces/sites/diagonals/atlases to SF1, coherent duality and stable pointed-curve moduli to their reserved suppliers, and abelian/PEL applications downstream.
+
+
+
+## Reproduction receipts
+
+Actual native source SHA256: 889afb3d3d18c7df3e029e9023bec487baa58b74b2b264a3e33770a3f4b1bc45. Normalized diagnostics SHA256: 2464969f47f0bc7d6fb6bab8b837b713868f0f3781c677fbd68e8198f5af5b5d. Compile with Lean4.34.0-rc2 and the already-existing Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 / TauCeti f790474821cf4256814db967cb154e7af3d0c369 build, individual Mathlib imports only.58GiB was available before the final actual run. All32 audits list only standard kernel axioms; no sorryAx. No background process remains.
+
+Final admitted Mathlib extraction SHA256: a90f771beb5701fc05f4a930a4c82a6cac22a1adb700ed2c7e46f4f6dd2dbd6f; normalized diagnostics SHA256: d33c82a026b118a4e453ca447ecd99e05a0c630fc43a4bc7de18b551205cb7c4.58GiB available before its run. Normalize by replacing only the source filename with SubmittedMathlib.lean, remove the timing wrapper and strip outer whitespace plus add one newline. The final native proof diagnostics have no filename lines. Compiler invocation was bounded by1200 seconds and used the existing build's library path; no project, setup, download, cache or dependency build was performed.
+
+The archive comment is absent from the final suggested file but remains durably accessible at the immutable intermediate commit. It contains all342 lines of predecessor proof recovered from57332e8119e7f8e152f41484583d1291bfc2f92d and verified against9af35ace261858f92b9980584627d8803adf5c06281a64948e3ed7b52e1227ac, plus the complete new proof/API/examples/audits. No admitted gerbe or intrinsic-band stub enters its dependencies.
+
+```python
+from pathlib import Path
+import hashlib, subprocess
+stem = 'AlgebraicModuliForArithmeticGeometry--A0-extension'
+path = 'research/blueprint/suggested/' + stem + '.lean'
+archive = '66ab10c1324aa6942326f55697ce5d776118d061'
+t = subprocess.check_output(['git', 'show', archive + ':' + path], text=True)
+proof = t.split('BEGIN 66ab10c1324aa6942326f55697ce5d776118d061D CHECKED GERBE COVER REFINEMENT\n', 1)[1].split('END 66ab10c1324aa6942326f55697ce5d776118d061D CHECKED GERBE COVER REFINEMENT', 1)[0]
+assert hashlib.sha256(proof.encode()).hexdigest() == '889afb3d3d18c7df3e029e9023bec487baa58b74b2b264a3e33770a3f4b1bc45'
+# Save this source in your own disk scratch before the one permitted Lean invocation.
+# Public fallback, if the archive object is absent:
+# https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/66ab10c1324aa6942326f55697ce5d776118d061/research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension.lean
+submitted = Path(path).read_text()
+imports = '\n'.join(l for l in submitted.splitlines() if l.startswith('import Mathlib'))
+prefix = submitted[submitted.index('open CategoryTheory Opposite Bicategory'):submitted.index('variable {A : Sheaf')]
+marker = 'namespace TauCeti.AlgebraicGeometry\n\nopen CategoryTheory Opposite Bicategory\n\nvariable {C'
+central = submitted[submitted.index(marker, submitted.index('/-! Intrinsic-band continuation')):]
+mathlib_only = imports + '\n' + prefix + '\nend TauCeti.AlgebraicGeometry\n' + central
+assert hashlib.sha256(mathlib_only.encode()).hexdigest() == 'a90f771beb5701fc05f4a930a4c82a6cac22a1adb700ed2c7e46f4f6dd2dbd6f'
+```
+
+Fresh source HTML hashes: Stacks0CJY41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e and026F0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0. Accessed2026-10-02. The new baseline intersection theorem was read in full at the pin, together with native Presieve.category/categoryMk, prestack full faithfulness and preimageIso. Existing upstream document and whole-paper receipts are inherited, not new claims.
+
+## Actual assembler and preservation check
+
+Indexed packet checker:169 nodes,197 definition/construction API entries,179 required mathematical tests,10 planets,99 baseline declarations,9 gaps,21 requests,8 stages,0 closed;0 errors or warnings. The raw packet totals205 API and185 tests additionally count lemma API/tests. Intake and diff whitespace checks run on the four authorised paths.
+
+The read-only reproducer below uses scripts/build.py assemble(require_distances=False), candidate versus base packet injected before blueprint trimming, preserving the other packet part. It checks acyclicity, all24 required old stage paths, immutable stage edges, unchanged unrelated skips, absence of own unresolved links and contract preservation. It adds parent-stage→declaration context edges only in the combined diagnostic graph; these are not extra mathematical prerequisites or realises assertions. Results:
+
+```json
+{
+  "actualAssembler": true,
+  "base": "4557261650818a24845bd3c8f195e393990ea9c0",
+  "declarations": 169,
+  "ownDeclarations": 169,
+  "kinds": {
+    "definition": 16,
+    "lemma": 80,
+    "construction": 40,
+    "theorem": 28,
+    "comparison": 5
+  },
+  "apiTotal": 205,
+  "testsTotal": 185,
+  "baseline": 99,
+  "planets": 10,
+  "gaps": 9,
+  "requests": 21,
+  "ownSkippedLinks": [],
+  "ownPendingLinks": [],
+  "stageDAG": {
+    "vertices": 3017,
+    "edges": 8655,
+    "acyclic": true
+  },
+  "ownDeclarationDAG": {
+    "vertices": 169,
+    "edges": 334,
+    "acyclic": true
+  },
+  "stagesAndReachableDeclarations": {
+    "vertices": 3179,
+    "edges": 9225,
+    "acyclic": true
+  },
+  "reachableDeclarations": 172,
+  "externalDeclarations": [
+    "DiamondsAndVStacks:D0/cech-to-derived-comparison",
+    "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+    "DiamondsAndVStacks:D0/stackification"
+  ],
+  "requiredStagePairs": 24,
+  "requiredStagePairsReachable": 24,
+  "stageEdgesUnchanged": true,
+  "otherSkipsMatchOriginal": true,
+  "unchangedNodeObjects": 162,
+  "preservedStatements": 163,
+  "addedNodes": 6,
+  "scriptSha256": "f42bd4225990cfc31e7cf9b261578d8c21ee509f5d9379ef16b6d8b63054ddee"
+}
+```
+
+Script SHA256f42bd4225990cfc31e7cf9b261578d8c21ee509f5d9379ef16b6d8b63054ddee:
+
+```python
+import json,sys,subprocess,hashlib,re
+from pathlib import Path
+from collections import defaultdict,deque,Counter
+root=Path.cwd();sys.path.insert(0,str(root/'scripts'));import build
+rid='AlgebraicModuliForArithmeticGeometry';stem=rid+'--A0-extension'
+packetpath='research/blueprint/packets/'+stem+'.json'
+base='4557261650818a24845bd3c8f195e393990ea9c0'
+p=json.loads((root/packetpath).read_text())
+old=json.loads(subprocess.check_output(['git','show',base+':'+packetpath],text=True))
+r=json.loads((root/('research/blueprint/atlas/roadmaps/'+rid+'.json')).read_text())
+load=build.load_promoted
+def assemble(packet):
+    def overlay(*a,**k):
+        ps,ds,defs=load(*a,**k)
+        return ([(n,v) for n,v in ps if n!=stem]+[(stem,packet)],
+            {**ds,stem:'research/blueprint/readmes/'+stem+'.md'},defs)
+    build.load_promoted=overlay
+    return build.assemble(require_distances=False)[0]
+a=assemble(p);control=assemble(old)
+def dag(vertices,edges):
+    edges=set(edges);vertices=set(vertices)|{x for e in edges for x in e}
+    following=defaultdict(set);indegree=dict.fromkeys(vertices,0)
+    for s,t in edges:following[s].add(t);indegree[t]+=1
+    q=deque(v for v in vertices if not indegree[v]);seen=[]
+    while q:
+        v=q.popleft();seen.append(v)
+        for w in following[v]:
+            indegree[w]-=1
+            if not indegree[w]:q.append(w)
+    assert len(seen)==len(vertices),('cycle',sorted(v for v in vertices if indegree[v])[:10])
+    return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+se={(e['source'],e['target']) for e in a['stageEdges']}
+ce={(e['source'],e['target']) for e in control['stageEdges']}
+assert se==ce
+stageids={s['id'] for s in a['stages']}
+own={n['id']:n for n in p['nodes']}
+oe={(dep,n['id']) for n in own.values() for dep in n.get('prerequisites',[]) if dep in own}
+stageDAG=dag(stageids,se);ownDAG=dag(own,oe)
+allnodes=dict(own)
+for folder in ('data/decompositions','data/blueprints','research/blueprint/packets'):
+    for path in sorted((root/folder).glob('*.json')):
+        for n in json.loads(path.read_text()).get('nodes',[]):allnodes.setdefault(n['id'],n)
+used=set(own);todo=list(own)
+while todo:
+    v=todo.pop()
+    for d in allnodes[v].get('prerequisites',[]):
+        if d in allnodes and d not in used:used.add(d);todo.append(d)
+edges=set(se)
+for v in used:
+    n=allnodes[v];parent=n.get('parentStageId')
+    if parent:edges.add((parent,v))
+    for d in n.get('prerequisites',[]):
+        if d in stageids or d in used:edges.add((d,v))
+for request in p['requests']:
+    for v in request['neededBy']:edges.add((request['supplier'],v))
+combined=dag(stageids|used,edges)
+following=defaultdict(set)
+for s,t in se:following[s].add(t)
+def reachable(s,t):
+    todo=[s];seen=set()
+    while todo:
+        x=todo.pop()
+        if x==t:return True
+        if x not in seen:seen.add(x);todo+=list(following[x])
+    return False
+pairs=set()
+for stage in r['stages']:
+    for dep in stage.get('requires',[]):pairs.add((dep,rid+':'+stage['key']))
+def stage_of(v):
+    seen=set()
+    while v in allnodes and v not in seen:
+        seen.add(v);v=allnodes[v].get('parentStageId')
+    return v
+for n in own.values():
+    for d in n.get('prerequisites',[]):
+        if d in stageids and d not in allnodes and d!=stage_of(n['id']):pairs.add((d,stage_of(n['id'])))
+for req in p['requests']:
+    for v in req['neededBy']:
+        source=stage_of(req['supplier']);target=stage_of(v)
+        if source!=target:pairs.add((source,target))
+missing=[(s,t) for s,t in sorted(pairs) if not reachable(s,t)]
+assert not missing,missing
+ar={r['id']:r for r in a['roadmaps']};cr={r['id']:r for r in control['roadmaps']}
+assert ar[rid]['blueprint']['declarations']==cr[rid]['blueprint']['declarations']+6
+assert ar[rid]['blueprint']['planets']==cr[rid]['blueprint']['planets']
+assert ar[rid]['blueprint']['skippedLinks']==cr[rid]['blueprint']['skippedLinks']
+assert not ar[rid]['blueprint'].get('pendingLinks')
+assert all(ar[x].get('blueprint',{}).get('skippedLinks')==cr[x].get('blueprint',{}).get('skippedLinks') for x in cr)
+for key in ('sourceIssues','requests','routedItems','keyDefinitions','routedItemAudit','coverage','gaps'):
+    assert p[key]==old[key],key
+assert p['baseline']['declarations'][:len(old['baseline']['declarations'])]==old['baseline']['declarations']
+on={n['id']:n for n in old['nodes']}
+for id,n in on.items():
+    for key in ('id','kind','statement','hypotheses','sources','implementationStatus','uses'):
+        assert own[id].get(key)==n.get(key),(id,key)
+    assert all(t in own[id].get('tests',[]) for t in n.get('tests',[]))
+    assert all(x in own[id].get('api',[]) for x in n.get('api',[]))
+    assert all(x in own[id].get('acceptance',[]) for x in n.get('acceptance',[]))
+assert sum(own[id]==n for id,n in on.items())==162
+assert len(own)==169
+assert all(n['implementationStatus']=='unchecked' for n in own.values())
+lean=(root/('research/blueprint/suggested/'+stem+'.lean')).read_text()
+for node in p['nodes'][len(old['nodes']):]:
+    assert node['declarationName'].split('.')[-1] in lean
+    for test in node.get('tests',[]):assert test['name'] in lean,test['name']
+    for api in node.get('api',[]):assert api['name'].split('.')[-1] in lean,api['name']
+allowed={packetpath,'research/blueprint/readmes/'+stem+'.md','research/blueprint/suggested/'+stem+'.lean','research/blueprint/handoff/BP-'+stem+'.md'}
+changed=set(subprocess.check_output(['git','diff','--name-only',base],text=True).splitlines())
+assert changed<=allowed,changed
+for path in changed:
+    assert not re.search(r'/(?:home|tmp|Users)/|file'+'://',(root/path).read_text()),path
+result={'actualAssembler':True,'base':base,'declarations':ar[rid]['blueprint']['declarations'],'ownDeclarations':len(own),
+    'kinds':dict(Counter(n['kind'] for n in own.values())),
+    'apiTotal':sum(len(n.get('api',[])) for n in own.values()),'testsTotal':sum(len(n.get('tests',[])) for n in own.values()),
+    'baseline':len(p['baseline']['declarations']),'planets':ar[rid]['blueprint']['planets'],'gaps':len(p['gaps']),'requests':len(p['requests']),
+    'ownSkippedLinks':ar[rid]['blueprint']['skippedLinks'],'ownPendingLinks':ar[rid]['blueprint'].get('pendingLinks',[]),
+    'stageDAG':stageDAG,'ownDeclarationDAG':ownDAG,'stagesAndReachableDeclarations':combined,
+    'reachableDeclarations':len(used),'externalDeclarations':sorted(used-set(own)),
+    'requiredStagePairs':len(pairs),'requiredStagePairsReachable':len(pairs)-len(missing),'stageEdgesUnchanged':True,
+    'otherSkipsMatchOriginal':True,'unchangedNodeObjects':162,'preservedStatements':163,'addedNodes':6,
+    'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+print(json.dumps(result,indent=2))
+```
+
+## Resume
+
+Start with arbitrary-base conjugation transport: pull the actual cover back along a base arrow, compare composite and iterated pullbacks via the native mapComp isomorphism, use cover independence and the same-base cocycle, and detect equality by native Hom descent. Then assemble the natural centre unit, prove its inverse/naturality and evaluation at identity using mapId. Do not claim evaluation surjectivity merely from this fixed-base equivalence. Keep the chosen-band inverse, SF1 comparison and actual geometric-site examples explicit. All other scope gaps/requests remain as in the163-node packet.
+
+---
+
 # BP-AlgebraicModuliForArithmeticGeometry--A0-extension
 
 Codex — codex-rtOQ9t; Refs #672. Partial checkpoint. No stage or reserved key is closed.
