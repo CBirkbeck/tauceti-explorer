@@ -42,13 +42,21 @@ The norm sheaf sequence has an explicit local proof. At a ramified stalk, a root
 
 The endpoint tests inverse uniformizer ↔ O(x), the Frobenius cyclic tensor at a closed point of degree δ, split and inert signs, and support moving with the residue-root frames retained. Its trace function is multiplicative on isomorphism classes. Specialized integrations still retain the automorphism groups and 1/#Aut factors; the groupoid equivalence is never replaced by a set bijection.
 
+## Affine continuation and baseline convention
+
+The affine root action uses the existing Tau Ceti μ_n Hopf points and scheme group, rather than planning another group scheme. Its coordinate coaction has all character coefficients available even when geometric points do not separate them. The equalizer of the coaction and b↦1⊗b is the invariant subalgebra. For B=A[t]/(tⁿ−f), its native monic basis and the native group-algebra tensor basis identify that equalizer with the coefficient image. No averaging, reducedness or invertibility of n is required. At n=p over a field of characteristic p the nilpotent t is fixed by every field-valued root of unity but not by the universal coaction. This supplies the ring calculation in the coarse-space proof; SF.1 still supplies the geometric coarse universal property and gluing.
+
+The new coordinate signatures below use native Hopf algebra maps, native tensor-algebra unit and associator equivalences, and the actual unlifted pointsMulEquiv carrier. Tau Ceti's scheme group uses a lifted character group, so these carriers are not identified definitionally. General μ_n, polynomial quotient bases and tensor-product bases are baseline imports, never new nodes.
+
+Continuation provenance: Codex — codex-a71f92 read the TV17 character grading, Lemma 3.7 proof and finite chart Corollary 3.13 at the recorded edition; its downloaded hash matches the existing TV17 receipt. The finite arbitrary-A invariant proof is the coefficient argument written here, not a claim that the source's infinite-monoid lemma literally states it. Prior YZ19, AGV08, B24 and AV23 reading and nine source findings are retained from the preceding worker; this continuation does not claim a fresh whole-paper or erratum audit. All stage coverage remains partial.
+
 ## Declaration plan
 
 Each entry below is one proposed library declaration. Its construction or proof names its non-routine inputs. The packet’s requests and gaps are the exact unresolved leaves. Every entry remains unchecked; source decomposition and acceptance statements are plans, not implementation claims.
 
 ## RS.0. Root-object and affine-chart interfaces
 
-Native invertible-sheaf tensor powers and section powers; isomorphisms of root data; the diagonalizable action on the existing quotient R[T]/(Tⁿ−f). Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.
+Native invertible-sheaf tensor and section powers; isomorphisms of root data; root-specific universal Hopf coaction on A[T]/(Tⁿ−f), its counit/coassociativity, character weights and compatibility with the existing μ_n points. μ_n and monic quotient bases are baseline imports. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.
 
 ### Tensor powers used by root objects
 
@@ -172,9 +180,124 @@ Acceptance: In characteristic p the μ_p action is not detected by its geometric
 
 Source: TV17, §3.1 pp. 14–16, P=N and Corollary 3.13.
 
+### Affine root-chart coaction
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-coaction. construction. Proposed name: TauCeti.RootStack.affineCoaction.
+
+Put B=A[t]/(tⁿ−f), using native AdjoinRoot, and H=A[Multiplicative(ZMod n)], using the native Hopf group algebra. Write e_i for its character basis element indexed by i modulo n. Define the unique A-algebra map δ:B→H⊗_A B with δ(t)=e_1⊗t. Constants map to 1⊗a. This is a universal coordinate map, not an action of the geometric-point set.
+
+Hypotheses: A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor or invertibility-of-n hypothesis is imposed.
+
+Construction or proof:
+
+1. In the native group algebra e_1ⁿ=e_0=1 because the character index is modulo n. Hence (e_1⊗t)ⁿ=1⊗f and the quotient polynomial evaluates to zero.
+2. Apply the native AdjoinRoot algebra lift with this root and the coefficient map to H⊗_A B. The algebra-map law fixes constants.
+3. Native quotient algebra-hom extensionality proves uniqueness. Counit and coassociativity are proved in separate nodes, not assumed fields.
+
+Inputs: mathlib:AdjoinRoot, mathlib:AdjoinRoot.eval₂_root, mathlib:AdjoinRoot.liftAlgHom, mathlib:AdjoinRoot.algHom_ext, mathlib:MonoidAlgebra.single, mathlib:MonoidAlgebra.single_pow, mathlib:Algebra.TensorProduct.includeRight, tauceti:TauCeti.RootsOfUnityGroup.generator, mathlib:MonoidAlgebra.instHopfAlgebra.
+
+Uses:
+
+- FunctionFieldArithmeticPartII:RS.1/affine-chart; Talpo–Vistoli Corollary 3.13 — Supplies the universal diagonalizable coordinate action, including characteristic dividing n.
+- FunctionFieldArithmeticPartII:RS.1/affine-invariants and FunctionFieldArithmeticPartII:RS.1/coarse-space — Defines invariants by δ(b)=1⊗b, not by geometric roots of unity.
+- FunctionFieldArithmeticPartII:RS.0/native-point-action — Compares specialization with the native Hopf point equivalence and affineAction.
+
+API:
+
+- TauCeti.RootStack.affineCoaction.root (simp): δ(t)=e_1⊗t in the native H⊗_A B.
+- TauCeti.RootStack.affineCoaction.constant (simp): For every a∈A, δ(algebraMap(a))=1⊗algebraMap(a).
+- TauCeti.RootStack.affineCoaction.unique (universal-property): An A-algebra map ψ:B→H⊗_A B with ψ(t)=e_1⊗t equals δ.
+
+Unit tests:
+
+- TauCeti.RootStack.affineCoaction.test_one (degenerate): At n=1, δ(b)=1⊗b for every b∈A[t]/(t−f).
+- TauCeti.RootStack.affineCoaction.test_sign (compatibility): At n=2, the native Hopf point corresponding to ζ=−1 through TauCeti.RootsOfUnityGroup.pointsMulEquiv, applied to the H factor of δ(t) and then the native A⊗_A B unit equivalence, gives −t.
+- TauCeti.RootStack.affineCoaction.test_characteristic_p (non-example): For a field k of prime characteristic p, n=p and f=0, t≠0 and δ(t)≠1⊗t, while every ζ∈rootsOfUnity(p,k) fixes t. Field-valued point invariance is therefore not scheme invariance.
+
+Acceptance: The map exists for f=0, nonreduced bases and the zero ring.
+
+Source: TV17, §3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N. Root-specific coordinate calculation derived here from the finite P=N character grading. Native Hopf, quotient and basis declarations are imported, not rebuilt. This is not a claimed verbatim theorem of the paper.
+
+### Character weights of root powers
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-coaction-weight. lemma. Proposed name: TauCeti.RootStack.affineCoaction.weight.
+
+For every integer i≥0, δ(t^i)=e_i⊗t^i, where e_i is indexed by the image of i in ZMod n; coefficients from A have weight zero.
+
+Hypotheses: A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor or invertibility-of-n hypothesis is imposed.
+
+Construction or proof:
+
+1. Apply multiplicativity of δ to t^i and use δ(t)=e_1⊗t with native tensor multiplication.
+2. Rewrite e_1^i as the basis element at the residue of i. At i=n this agrees with tⁿ=f having weight zero.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:MonoidAlgebra.single_pow.
+
+Acceptance: At i=0 the image is 1⊗1; at i=n it is 1⊗f even when n is zero in A.
+
+Source: TV17, §3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N. Root-specific coordinate calculation derived here from the finite P=N character grading. Native Hopf, quotient and basis declarations are imported, not rebuilt. This is not a claimed verbatim theorem of the paper.
+
+### Counit law for the root coaction
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-coaction-counit. lemma. Proposed name: TauCeti.RootStack.affineCoaction.counit.
+
+Let ε:H→A be the native Hopf counit. The composite of δ, ε⊗id and the native tensor left-unit equivalence H⊗_A B→A⊗_A B→B is id_B.
+
+Hypotheses: A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor or invertibility-of-n hypothesis is imposed.
+
+Construction or proof:
+
+1. The native group-like basis theorem gives ε(e_1)=1.
+2. The composite sends t to t. Both maps are A-algebra maps, so native quotient extensionality establishes equality without an assumed counit predicate.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:MonoidAlgebra.instBialgebra, mathlib:MonoidAlgebra.isGroupLikeElem_single_one, mathlib:Bialgebra.counitAlgHom, mathlib:Algebra.TensorProduct.map, mathlib:Algebra.TensorProduct.lid, mathlib:AdjoinRoot.algHom_ext.
+
+Acceptance: The action identity holds also for n=1 and zero coefficient rings.
+
+Source: TV17, §3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N. Root-specific coordinate calculation derived here from the finite P=N character grading. Native Hopf, quotient and basis declarations are imported, not rebuilt. This is not a claimed verbatim theorem of the paper.
+
+### Coassociativity of the root coaction
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-coaction-coassoc. lemma. Proposed name: TauCeti.RootStack.affineCoaction.coassoc.
+
+Let Δ:H→H⊗_A H be the native Hopf comultiplication. Under the native associator (H⊗_A H)⊗_A B≅H⊗_A(H⊗_A B), the maps (Δ⊗id)δ and (id⊗δ)δ are equal.
+
+Hypotheses: A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor or invertibility-of-n hypothesis is imposed.
+
+Construction or proof:
+
+1. The native group-like basis theorem gives Δ(e_1)=e_1⊗e_1.
+2. Both composites send t to e_1⊗(e_1⊗t) after reassociation; quotient extensionality proves equality. The associator is explicit, not a definitional identification of tensor parentheses.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:MonoidAlgebra.instBialgebra, mathlib:MonoidAlgebra.isGroupLikeElem_single_one, mathlib:Bialgebra.comulAlgHom, mathlib:Algebra.TensorProduct.map, mathlib:Algebra.TensorProduct.assoc, mathlib:AdjoinRoot.algHom_ext.
+
+Acceptance: This uses the existing tensor-algebra associator, not a new tensor carrier.
+
+Source: TV17, §3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N. Root-specific coordinate calculation derived here from the finite P=N character grading. Native Hopf, quotient and basis declarations are imported, not rebuilt. This is not a claimed verbatim theorem of the paper.
+
+### Native roots-of-unity point specialization
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/native-point-action. comparison. Proposed name: TauCeti.RootStack.affineCoaction.nativePoint.
+
+For ζ∈rootsOfUnity(n,A), let p_ζ:H→A be the algebra map underlying the inverse of TauCeti.RootsOfUnityGroup.pointsMulEquiv. The composite of δ with p_ζ⊗id and the native tensor left-unit equivalence is the algebra homomorphism underlying affineAction(f,n,ζ).
+
+Hypotheses: A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor or invertibility-of-n hypothesis is imposed.
+
+Construction or proof:
+
+1. The native point equivalence on the actual unlifted group-algebra carrier gives p_ζ(e_1)=ζ.
+2. Specialize δ(t) to ζt and compare the defining image of t under affineAction. Constants agree since both are A-algebra maps; quotient extensionality completes the comparison.
+3. Apply the statement over every coefficient A-algebra to retain infinitesimal points. The scheme group object's ULift character carrier is not asserted to be definitionally this unlifted group algebra.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-coaction, FunctionFieldArithmeticPartII:RS.0/affine-action, tauceti:TauCeti.RootsOfUnityGroup.pointsMulEquiv, tauceti:TauCeti.RootsOfUnityGroup.pointsMulEquiv_symm_apply_single_generator, mathlib:Algebra.TensorProduct.map, mathlib:Algebra.TensorProduct.lid, mathlib:AdjoinRoot.algHom_ext.
+
+Acceptance: For ζ=1 specialization is identity; at n=2, ζ=−1 gives the sign action. Nonreduced coefficient rings retain infinitesimal points.
+
+Source: TV17, §3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N. Root-specific coordinate calculation derived here from the finite P=N character grading. Native Hopf, quotient and basis declarations are imported, not rebuilt. This is not a claimed verbatim theorem of the paper.
+
 ## RS.1. Finite root stacks
 
-The canonical root stack of a line bundle with section, including stack bases, Cartier divisors, affine quotient charts, base change, full fibres and relative coarse space; the regular tame DM case. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.
+The canonical root stack of a line bundle with section, including stack bases, Cartier divisors, affine quotient charts, base change, full fibres and relative coarse space; the invariant-ring calculation via the universal Hopf coaction, valid in arbitrary characteristic; the regular tame DM case. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.
 
 ### Root stacks of line bundles and sections
 
@@ -250,9 +373,9 @@ If X=Spec A and (L,s) is trivialized with s=f, then √[n]{(L,s)/X}≃[Spec Adjo
 
 Hypotheses: The exponent n is a positive integer; the scheme or stack base and all base changes use the stated fppf topology.
 
-Construction or proof: 1. A trivialization of a root line respecting φ is a μ_n-torsor. 2. On the torsor the root section is a function t satisfying tⁿ=f. 3. Conversely descend the trivial root line and function on an equivariant torsor; show the two operations inverse on objects and arrows.
+Construction or proof: 1. Use the affine coaction with its counit and coassociativity laws and native-point comparison. A trivialization of a root line respecting φ is a μ_n-torsor. 2. On the torsor the root section is a function t satisfying tⁿ=f. 3. Conversely descend the trivial root line and function on an equivariant torsor; show the two operations inverse on objects and arrows.
 
-Inputs: FunctionFieldArithmeticPartII:RS.1/two-pullback, FunctionFieldArithmeticPartII:RS.0/affine-action, SchemeAndStackFoundations:SF.1.
+Inputs: FunctionFieldArithmeticPartII:RS.1/two-pullback, FunctionFieldArithmeticPartII:RS.0/affine-action, SchemeAndStackFoundations:SF.1, FunctionFieldArithmeticPartII:RS.0/affine-coaction-counit, FunctionFieldArithmeticPartII:RS.0/affine-coaction-coassoc, FunctionFieldArithmeticPartII:RS.0/native-point-action.
 
 
 Acceptance: When f=0 the chart is Spec A[t]/tⁿ; its nilpotents remain present.
@@ -276,6 +399,27 @@ Acceptance: Over Q at n=2 the full fibre has t≠0 and t²=0; only its reduction
 
 Source: AGV08, B.2 p. 54 closed-locus discussion; YZ19 A.1.3 pp. 515–516 corrected; B24 p. 135.
 
+### Invariants of an affine root chart
+
+Declaration: FunctionFieldArithmeticPartII:RS.1/affine-invariants. theorem. Proposed name: TauCeti.RootStack.affineCoaction.invariants.
+
+For every b∈B=A[t]/(tⁿ−f), δ(b)=1⊗b if and only if b=algebraMap(a) for some a∈A. Thus the scheme-theoretic invariant subalgebra is precisely the coefficient image, for all commutative A, f∈A and n≥1, including characteristic dividing n.
+
+Hypotheses: A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor or invertibility-of-n hypothesis is imposed.
+
+Construction or proof:
+
+1. Separate the subsingleton coefficient-ring case: its unital algebra B and tensor algebra are subsingleton, so both assertions hold with a=0. This avoids invoking the polynomial degree theorem without its nontriviality hypothesis.
+2. For nontrivial A, Xⁿ−f is monic and has nat-degree n. Import the native monic AdjoinRoot power basis and reindex along that equality to write b uniquely as ∑_{0≤i<n} a_i t^i. The generic quotient basis is already library mathematics.
+3. Use the weight lemma and the tensor-product basis of the native group-algebra basis and root power basis. In δ(b), a_i occurs at (i mod n,i); in 1⊗b it occurs at (0,i). For 0<i<n these index pairs differ, forcing a_i=0. This remains valid with torsion or nilpotents; it never divides by n or averages over field-valued points.
+4. Only a_0 remains, giving b=algebraMap(a_0). Conversely the A-algebra-map law and tensor scalar relation give δ(algebraMap(a))=1⊗algebraMap(a).
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-coaction, FunctionFieldArithmeticPartII:RS.0/affine-coaction-weight, mathlib:Polynomial.monic_X_pow_sub_C, mathlib:Polynomial.natDegree_X_pow_sub_C, mathlib:AdjoinRoot.powerBasis', mathlib:MonoidAlgebra.basis, mathlib:Module.Basis.tensorProduct.
+
+Acceptance: At n=1 every element is a coefficient. At f=0 the nilpotent root powers remain independent. In characteristic p, field-point invariance is strictly weaker than δ-invariance.
+
+Source: TV17, §3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N. Root-specific coordinate calculation derived here from the finite P=N character grading. Native Hopf, quotient and basis declarations are imported, not rebuilt. This is not a claimed verbatim theorem of the paper.
+
 ### Coarse-space projection
 
 Declaration: FunctionFieldArithmeticPartII:RS.1/coarse-space. Theorem.
@@ -284,9 +428,9 @@ For a scheme base X, the projection of the root stack to X is its coarse-space m
 
 Hypotheses: The exponent n is a positive integer; the scheme or stack base and all base changes use the stated fppf topology.
 
-Construction or proof: 1. The quotient ring has basis 1,t,…,tⁿ⁻¹ and μ_n character degrees 0,…,n−1, so its invariant subring is A. 2. Apply the supplier’s diagonalizable quotient coarse-space theorem, with its universal property; glue across trivializations. 3. Use base change to interpret the stack-base statement relatively.
+Construction or proof: 1. Apply the affine-invariants theorem to the actual Hopf coaction, in arbitrary characteristic. The native monic basis also gives faithful coefficient inclusion in the nontrivial case. 2. Apply the supplier’s diagonalizable quotient coarse-space theorem, with its universal property; glue across trivializations. 3. Use base change to interpret the stack-base statement relatively.
 
-Inputs: FunctionFieldArithmeticPartII:RS.1/affine-chart, FunctionFieldArithmeticPartII:RS.1/base-change, SchemeAndStackFoundations:SF.1.
+Inputs: FunctionFieldArithmeticPartII:RS.1/affine-chart, FunctionFieldArithmeticPartII:RS.1/base-change, SchemeAndStackFoundations:SF.1, FunctionFieldArithmeticPartII:RS.1/affine-invariants.
 
 
 Acceptance: At n=1 over BG the projection is identity BG; the absolute coarse space remains the coarse space of BG.

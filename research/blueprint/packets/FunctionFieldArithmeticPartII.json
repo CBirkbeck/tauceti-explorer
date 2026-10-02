@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded.",
+  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded. The affine invariant-ring step is factored through the native μ_n Hopf coaction, its axioms, root weights and point comparison; geometric carriers remain open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -163,6 +163,144 @@
         "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf.lean",
         "provides": "Native transport of compatible sections by a module-sheaf morphism.",
         "checked": "Declaration statement read at the recorded pinned commit on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.liftAlgHom",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "Native algebra-hom quotient lift from a root; used instead of reconstructing a polynomial quotient.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.algHom_ext",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "Two algebra homs out of AdjoinRoot agree when their distinguished-root images agree.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.single",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "The native character basis element with its coefficient.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.single_pow",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "Powers of a character basis element multiply its index and raise its coefficient.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.instBialgebra",
+        "module": "Mathlib/RingTheory/Bialgebra/MonoidAlgebra.lean",
+        "provides": "Existing bialgebra on the monoid algebra, inherited from its coefficients.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.instHopfAlgebra",
+        "module": "Mathlib/RingTheory/HopfAlgebra/MonoidAlgebra.lean",
+        "provides": "Existing Hopf algebra on a group algebra; no new μ_n coordinate Hopf algebra is planned.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.isGroupLikeElem_single_one",
+        "module": "Mathlib/RingTheory/Bialgebra/MonoidAlgebra.lean",
+        "provides": "Counit is one and comultiplication is self tensor self on each single-character basis element.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Bialgebra.counitAlgHom",
+        "module": "Mathlib/RingTheory/Bialgebra/Basic.lean",
+        "provides": "The actual counit as an algebra homomorphism.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Bialgebra.comulAlgHom",
+        "module": "Mathlib/RingTheory/Bialgebra/Basic.lean",
+        "provides": "The actual comultiplication as an algebra homomorphism to the tensor algebra.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.includeRight",
+        "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+        "provides": "Native inclusion b↦1⊗b into a tensor algebra.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.map",
+        "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
+        "provides": "Native tensor product of algebra homomorphisms with its pure-tensor formula.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.lid",
+        "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
+        "provides": "Native algebra equivalence A⊗_A B≅B; used in counit and point specialization.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.assoc",
+        "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
+        "provides": "Native tensor-algebra associator, with the actual parentheses in the coaction law.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Polynomial.monic_X_pow_sub_C",
+        "module": "Mathlib/Algebra/Polynomial/Monic.lean",
+        "provides": "Xⁿ−C(f) is monic for n≠0 over any ring.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_X_pow_sub_C",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Operations.lean",
+        "provides": "For a nontrivial coefficient ring, Xⁿ−C(f) has nat-degree n. The invariant proof handles the zero-ring case separately.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.powerBasis'",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "Existing power basis for the monic quotient, with distinguished-root powers as basis vectors.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.basis",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Module.lean",
+        "provides": "Existing free-module character basis of the group algebra, not a field-only independence statement.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:Module.Basis.tensorProduct",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
+        "provides": "Existing tensor-product basis, with indexed pure tensors and coefficient formula.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "tauceti:TauCeti.RootsOfUnityGroup.generator",
+        "module": "TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Basic.lean",
+        "provides": "Native standard character generator Multiplicative.ofAdd(1).",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "tauceti:TauCeti.RootsOfUnityGroup.pointsMulEquiv",
+        "module": "TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Basic.lean",
+        "provides": "Convolution group of points of the unlifted cyclic group algebra is naturally rootsOfUnity n A.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "tauceti:TauCeti.RootsOfUnityGroup.pointsMulEquiv_symm_apply_single_generator",
+        "module": "TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Basic.lean",
+        "provides": "The point corresponding to ζ evaluates the character generator at ζ.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "tauceti:TauCeti.RootsOfUnityGroup.groupScheme",
+        "module": "TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Scheme.lean",
+        "provides": "Existing μ_n group object over Spec A uses an ULift character carrier; not definitionally the unlifted group algebra.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "tauceti:TauCeti.RootsOfUnityGroup.schemePointsMulEquiv",
+        "module": "TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Scheme.lean",
+        "provides": "Existing roots-of-unity equivalence for scheme points. It is a positive baseline boundary, not a new root-stack node.",
+        "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
       }
     ]
   },
@@ -762,10 +900,13 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.1/two-pullback",
         "FunctionFieldArithmeticPartII:RS.0/affine-action",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction-counit",
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction-coassoc",
+        "FunctionFieldArithmeticPartII:RS.0/native-point-action"
       ],
       "proofSteps": [
-        "A trivialization of a root line respecting φ is a μ_n-torsor.",
+        "Use the affine coaction with its counit and coassociativity laws and native-point comparison. A trivialization of a root line respecting φ is a μ_n-torsor.",
         "On the torsor the root section is a function t satisfying tⁿ=f.",
         "Conversely descend the trivial root line and function on an equivariant torsor; show the two operations inverse on objects and arrows."
       ],
@@ -846,10 +987,11 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.1/affine-chart",
         "FunctionFieldArithmeticPartII:RS.1/base-change",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "FunctionFieldArithmeticPartII:RS.1/affine-invariants"
       ],
       "proofSteps": [
-        "The quotient ring has basis 1,t,…,tⁿ⁻¹ and μ_n character degrees 0,…,n−1, so its invariant subring is A.",
+        "Apply the affine-invariants theorem to the actual Hopf coaction, in arbitrary characteristic. The native monic basis also gives faithful coefficient inclusion in the nontrivial case.",
         "Apply the supplier’s diagonalizable quotient coarse-space theorem, with its universal property; glue across trivializations.",
         "Use base change to interpret the stack-base statement relatively."
       ],
@@ -4409,6 +4551,319 @@
       "planet": {
         "name": "Ramified geometric class field theory"
       }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-coaction",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Affine root-chart coaction",
+      "kind": "construction",
+      "declarationName": "TauCeti.RootStack.affineCoaction",
+      "statement": "Put B=A[t]/(tⁿ−f), using native AdjoinRoot, and H=A[Multiplicative(ZMod n)], using the native Hopf group algebra. Write e_i for its character basis element indexed by i modulo n. Define the unique A-algebra map δ:B→H⊗_A B with δ(t)=e_1⊗t. Constants map to 1⊗a. This is a universal coordinate map, not an action of the geometric-point set.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor or invertibility-of-n hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "mathlib:AdjoinRoot",
+        "mathlib:AdjoinRoot.eval₂_root",
+        "mathlib:AdjoinRoot.liftAlgHom",
+        "mathlib:AdjoinRoot.algHom_ext",
+        "mathlib:MonoidAlgebra.single",
+        "mathlib:MonoidAlgebra.single_pow",
+        "mathlib:Algebra.TensorProduct.includeRight",
+        "tauceti:TauCeti.RootsOfUnityGroup.generator",
+        "mathlib:MonoidAlgebra.instHopfAlgebra"
+      ],
+      "proofSteps": [
+        "In the native group algebra e_1ⁿ=e_0=1 because the character index is modulo n. Hence (e_1⊗t)ⁿ=1⊗f and the quotient polynomial evaluates to zero.",
+        "Apply the native AdjoinRoot algebra lift with this root and the coefficient map to H⊗_A B. The algebra-map law fixes constants.",
+        "Native quotient algebra-hom extensionality proves uniqueness. Counit and coassociativity are proved in separate nodes, not assumed fields."
+      ],
+      "acceptance": [
+        "The map exists for f=0, nonreduced bases and the zero ring."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.affineCoaction.root",
+          "role": "simp",
+          "statement": "δ(t)=e_1⊗t in the native H⊗_A B."
+        },
+        {
+          "name": "TauCeti.RootStack.affineCoaction.constant",
+          "role": "simp",
+          "statement": "For every a∈A, δ(algebraMap(a))=1⊗algebraMap(a)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineCoaction.unique",
+          "role": "universal-property",
+          "statement": "An A-algebra map ψ:B→H⊗_A B with ψ(t)=e_1⊗t equals δ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineCoaction.test_one",
+          "kind": "degenerate",
+          "statement": "At n=1, δ(b)=1⊗b for every b∈A[t]/(t−f)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineCoaction.test_sign",
+          "kind": "compatibility",
+          "statement": "At n=2, the native Hopf point corresponding to ζ=−1 through TauCeti.RootsOfUnityGroup.pointsMulEquiv, applied to the H factor of δ(t) and then the native A⊗_A B unit equivalence, gives −t."
+        },
+        {
+          "name": "TauCeti.RootStack.affineCoaction.test_characteristic_p",
+          "kind": "non-example",
+          "statement": "For a field k of prime characteristic p, n=p and f=0, t≠0 and δ(t)≠1⊗t, while every ζ∈rootsOfUnity(p,k) fixes t. Field-valued point invariance is therefore not scheme invariance."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.1/affine-chart; Talpo–Vistoli Corollary 3.13",
+          "how": "Supplies the universal diagonalizable coordinate action, including characteristic dividing n."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.1/affine-invariants and FunctionFieldArithmeticPartII:RS.1/coarse-space",
+          "how": "Defines invariants by δ(b)=1⊗b, not by geometric roots of unity."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/native-point-action",
+          "how": "Compares specialization with the native Hopf point equivalence and affineAction."
+        }
+      ],
+      "planet": {
+        "name": "Affine root coaction"
+      },
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "implementationStatus": "unchecked",
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "Root-specific coordinate calculation derived here from the finite P=N character grading. Native Hopf, quotient and basis declarations are imported, not rebuilt. This is not a claimed verbatim theorem of the paper."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-coaction-weight",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Character weights of root powers",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineCoaction.weight",
+      "statement": "For every integer i≥0, δ(t^i)=e_i⊗t^i, where e_i is indexed by the image of i in ZMod n; coefficients from A have weight zero.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor or invertibility-of-n hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction",
+        "mathlib:MonoidAlgebra.single_pow"
+      ],
+      "proofSteps": [
+        "Apply multiplicativity of δ to t^i and use δ(t)=e_1⊗t with native tensor multiplication.",
+        "Rewrite e_1^i as the basis element at the residue of i. At i=n this agrees with tⁿ=f having weight zero."
+      ],
+      "acceptance": [
+        "At i=0 the image is 1⊗1; at i=n it is 1⊗f even when n is zero in A."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "Root-specific coordinate calculation derived here from the finite P=N character grading. Native Hopf, quotient and basis declarations are imported, not rebuilt. This is not a claimed verbatim theorem of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-coaction-counit",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Counit law for the root coaction",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineCoaction.counit",
+      "statement": "Let ε:H→A be the native Hopf counit. The composite of δ, ε⊗id and the native tensor left-unit equivalence H⊗_A B→A⊗_A B→B is id_B.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor or invertibility-of-n hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction",
+        "mathlib:MonoidAlgebra.instBialgebra",
+        "mathlib:MonoidAlgebra.isGroupLikeElem_single_one",
+        "mathlib:Bialgebra.counitAlgHom",
+        "mathlib:Algebra.TensorProduct.map",
+        "mathlib:Algebra.TensorProduct.lid",
+        "mathlib:AdjoinRoot.algHom_ext"
+      ],
+      "proofSteps": [
+        "The native group-like basis theorem gives ε(e_1)=1.",
+        "The composite sends t to t. Both maps are A-algebra maps, so native quotient extensionality establishes equality without an assumed counit predicate."
+      ],
+      "acceptance": [
+        "The action identity holds also for n=1 and zero coefficient rings."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "Root-specific coordinate calculation derived here from the finite P=N character grading. Native Hopf, quotient and basis declarations are imported, not rebuilt. This is not a claimed verbatim theorem of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-coaction-coassoc",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Coassociativity of the root coaction",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineCoaction.coassoc",
+      "statement": "Let Δ:H→H⊗_A H be the native Hopf comultiplication. Under the native associator (H⊗_A H)⊗_A B≅H⊗_A(H⊗_A B), the maps (Δ⊗id)δ and (id⊗δ)δ are equal.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor or invertibility-of-n hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction",
+        "mathlib:MonoidAlgebra.instBialgebra",
+        "mathlib:MonoidAlgebra.isGroupLikeElem_single_one",
+        "mathlib:Bialgebra.comulAlgHom",
+        "mathlib:Algebra.TensorProduct.map",
+        "mathlib:Algebra.TensorProduct.assoc",
+        "mathlib:AdjoinRoot.algHom_ext"
+      ],
+      "proofSteps": [
+        "The native group-like basis theorem gives Δ(e_1)=e_1⊗e_1.",
+        "Both composites send t to e_1⊗(e_1⊗t) after reassociation; quotient extensionality proves equality. The associator is explicit, not a definitional identification of tensor parentheses."
+      ],
+      "acceptance": [
+        "This uses the existing tensor-algebra associator, not a new tensor carrier."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "Root-specific coordinate calculation derived here from the finite P=N character grading. Native Hopf, quotient and basis declarations are imported, not rebuilt. This is not a claimed verbatim theorem of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/native-point-action",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Native roots-of-unity point specialization",
+      "kind": "comparison",
+      "declarationName": "TauCeti.RootStack.affineCoaction.nativePoint",
+      "statement": "For ζ∈rootsOfUnity(n,A), let p_ζ:H→A be the algebra map underlying the inverse of TauCeti.RootsOfUnityGroup.pointsMulEquiv. The composite of δ with p_ζ⊗id and the native tensor left-unit equivalence is the algebra homomorphism underlying affineAction(f,n,ζ).",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor or invertibility-of-n hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction",
+        "FunctionFieldArithmeticPartII:RS.0/affine-action",
+        "tauceti:TauCeti.RootsOfUnityGroup.pointsMulEquiv",
+        "tauceti:TauCeti.RootsOfUnityGroup.pointsMulEquiv_symm_apply_single_generator",
+        "mathlib:Algebra.TensorProduct.map",
+        "mathlib:Algebra.TensorProduct.lid",
+        "mathlib:AdjoinRoot.algHom_ext"
+      ],
+      "proofSteps": [
+        "The native point equivalence on the actual unlifted group-algebra carrier gives p_ζ(e_1)=ζ.",
+        "Specialize δ(t) to ζt and compare the defining image of t under affineAction. Constants agree since both are A-algebra maps; quotient extensionality completes the comparison.",
+        "Apply the statement over every coefficient A-algebra to retain infinitesimal points. The scheme group object's ULift character carrier is not asserted to be definitionally this unlifted group algebra."
+      ],
+      "acceptance": [
+        "For ζ=1 specialization is identity; at n=2, ζ=−1 gives the sign action. Nonreduced coefficient rings retain infinitesimal points."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "Root-specific coordinate calculation derived here from the finite P=N character grading. Native Hopf, quotient and basis declarations are imported, not rebuilt. This is not a claimed verbatim theorem of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.1/affine-invariants",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.1"
+      ],
+      "title": "Invariants of an affine root chart",
+      "kind": "theorem",
+      "declarationName": "TauCeti.RootStack.affineCoaction.invariants",
+      "statement": "For every b∈B=A[t]/(tⁿ−f), δ(b)=1⊗b if and only if b=algebraMap(a) for some a∈A. Thus the scheme-theoretic invariant subalgebra is precisely the coefficient image, for all commutative A, f∈A and n≥1, including characteristic dividing n.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor or invertibility-of-n hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction",
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction-weight",
+        "mathlib:Polynomial.monic_X_pow_sub_C",
+        "mathlib:Polynomial.natDegree_X_pow_sub_C",
+        "mathlib:AdjoinRoot.powerBasis'",
+        "mathlib:MonoidAlgebra.basis",
+        "mathlib:Module.Basis.tensorProduct"
+      ],
+      "proofSteps": [
+        "Separate the subsingleton coefficient-ring case: its unital algebra B and tensor algebra are subsingleton, so both assertions hold with a=0. This avoids invoking the polynomial degree theorem without its nontriviality hypothesis.",
+        "For nontrivial A, Xⁿ−f is monic and has nat-degree n. Import the native monic AdjoinRoot power basis and reindex along that equality to write b uniquely as ∑_{0≤i<n} a_i t^i. The generic quotient basis is already library mathematics.",
+        "Use the weight lemma and the tensor-product basis of the native group-algebra basis and root power basis. In δ(b), a_i occurs at (i mod n,i); in 1⊗b it occurs at (0,i). For 0<i<n these index pairs differ, forcing a_i=0. This remains valid with torsion or nilpotents; it never divides by n or averages over field-valued points.",
+        "Only a_0 remains, giving b=algebraMap(a_0). Conversely the A-algebra-map law and tensor scalar relation give δ(algebraMap(a))=1⊗algebraMap(a)."
+      ],
+      "acceptance": [
+        "At n=1 every element is a coefficient. At f=0 the nilpotent root powers remain independent. In characteristic p, field-point invariance is strictly weaker than δ-invariance."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS1",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "Root-specific coordinate calculation derived here from the finite P=N character grading. Native Hopf, quotient and basis declarations are imported, not rebuilt. This is not a claimed verbatim theorem of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Affine root invariants"
+      }
     }
   ],
   "requests": [
@@ -5931,6 +6386,23 @@
       "JacobianChallenge README in full",
       "ClassFieldTheory README in full in this continuous session"
     ],
-    "supplierStatus": "The relevant scheme stack/Picard stages have no exact blueprint nodes for these contracts; the IG packet contains specialization nodes rather than the needed IG.0/IG.1 statements. Stage requests are deliberate, not claims of implementation."
+    "supplierStatus": "The relevant scheme stack/Picard stages have no exact blueprint nodes for these contracts; the IG packet contains specialization nodes rather than the needed IG.0/IG.1 statements. Stage requests are deliberate, not claims of implementation.",
+    "continuation": {
+      "worker": "Codex — codex-a71f92",
+      "auditTree": "7fe283b05e3ea167c3d3b949814a201974ff76fa",
+      "date": "2026-10-02",
+      "reviewedRowsRead": [
+        "FunctionFieldArithmetic FA.1/FA.2/FA.4 target/evidence/duplication records",
+        "SchemeAndStackFoundations SF.1/SF.3 target/evidence/duplication records"
+      ],
+      "upstreamDocumentsRead": [
+        "JacobianChallenge README in full",
+        "StableReduction README in full in this continuous session"
+      ],
+      "primaryReading": "Talpo–Vistoli arXiv:1410.1164v2 §3.1 pp. 14–16 character grading, Lemma 3.7 proof and Corollary 3.13; downloaded hash matches inherited TV17. Other primary source/errata receipts above belong to the preceding worker and are preserved, not asserted freshly repeated.",
+      "libraryBoundary": "Read native RootsOfUnity/Basic and Scheme at Tau Ceti pin; Mathlib Hopf/bialgebra group algebra, tensor maps and bases, and monic AdjoinRoot statements. μ_n and Hopf/scheme point equivalences already exist; only root-specific coaction and invariants are newly planned.",
+      "links": "Read FA.2/FA.4 and SF.1/SF.3 supplier extracts and touching edges; screened blueprint links mentioning this Part II or root stages. No reverse SF.1 dependency or generic group reconstruction.",
+      "preserved": "All original node IDs, 28 first-route/38 sibling-route assignments, nine source issues, eight requests and seven gaps retained. No new primary erratum claim."
+    }
   }
 }

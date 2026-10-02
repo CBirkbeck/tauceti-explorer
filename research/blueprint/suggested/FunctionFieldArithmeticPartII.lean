@@ -15,6 +15,11 @@ import Mathlib.Algebra.Category.ModuleCat.Sheaf.Free
 import Mathlib.CategoryTheory.Core
 import Mathlib.RingTheory.AdjoinRoot
 import Mathlib.RingTheory.RootsOfUnity.Basic
+import TauCeti.Algebra.AlgebraicGroup.RootsOfUnity.Basic
+import Mathlib.RingTheory.HopfAlgebra.MonoidAlgebra
+import Mathlib.LinearAlgebra.TensorProduct.Basis
+import Mathlib.Algebra.Polynomial.Monic
+import Mathlib.Algebra.Polynomial.Degree.Operations
 
 open CategoryTheory AlgebraicGeometry
 
@@ -192,6 +197,120 @@ example (p : ℕ) [Fact p.Prime] [NeZero p] [CharP A p]
       affineAction f p ζ (AdjoinRoot.root (Polynomial.X ^ p - Polynomial.C f)) =
         algebraMap A _ (1 + ε) *
           AdjoinRoot.root (Polynomial.X ^ p - Polynomial.C f) := by
+  sorry
+
+-- Root-specific affine continuation. These abbreviations only name native
+-- carriers; they do not construct another polynomial quotient or μ_n group.
+open scoped TensorProduct
+
+abbrev AffineRing (f : A) (n : ℕ) :=
+  AdjoinRoot (Polynomial.X ^ n - Polynomial.C f)
+
+abbrev MuHopf (R : Type u) [CommRing R] (n : ℕ) :=
+  MonoidAlgebra R (Multiplicative (ZMod n))
+
+-- TauCeti.RootStack.affineCoaction
+def affineCoaction (f : A) (n : ℕ) [NeZero n] :
+    AffineRing f n →ₐ[A] (MuHopf A n ⊗[A] AffineRing f n) := by
+  sorry
+
+lemma affineCoaction.root (f : A) (n : ℕ) [NeZero n] :
+    affineCoaction f n (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
+      MonoidAlgebra.single (TauCeti.RootsOfUnityGroup.generator n) (1 : A) ⊗ₜ[A]
+        AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) := by
+  sorry
+
+lemma affineCoaction.constant (f a : A) (n : ℕ) [NeZero n] :
+    affineCoaction f n (algebraMap A (AffineRing f n) a) =
+      (1 : MuHopf A n) ⊗ₜ[A] algebraMap A (AffineRing f n) a := by
+  sorry
+
+lemma affineCoaction.unique (f : A) (n : ℕ) [NeZero n]
+    (ψ : AffineRing f n →ₐ[A] (MuHopf A n ⊗[A] AffineRing f n))
+    (hψ : ψ (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
+      MonoidAlgebra.single (TauCeti.RootsOfUnityGroup.generator n) (1 : A) ⊗ₜ[A]
+        AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) :
+    ψ = affineCoaction f n := by
+  sorry
+
+-- TauCeti.RootStack.affineCoaction.weight
+lemma affineCoaction.weight (f : A) (n i : ℕ) [NeZero n] :
+    affineCoaction f n ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) ^ i) =
+      MonoidAlgebra.single (Multiplicative.ofAdd (i : ZMod n)) (1 : A) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) ^ i := by
+  sorry
+
+-- TauCeti.RootStack.affineCoaction.counit
+lemma affineCoaction.counit (f : A) (n : ℕ) [NeZero n] :
+    ((Algebra.TensorProduct.lid A (AffineRing f n)).toAlgHom.comp
+      (Algebra.TensorProduct.map (Bialgebra.counitAlgHom A (MuHopf A n))
+        (AlgHom.id A (AffineRing f n)))).comp (affineCoaction f n) =
+      AlgHom.id A (AffineRing f n) := by
+  sorry
+
+-- TauCeti.RootStack.affineCoaction.coassoc
+lemma affineCoaction.coassoc (f : A) (n : ℕ) [NeZero n] :
+    (Algebra.TensorProduct.assoc A A A (MuHopf A n) (MuHopf A n)
+      (AffineRing f n)).toAlgHom.comp
+      ((Algebra.TensorProduct.map (Bialgebra.comulAlgHom A (MuHopf A n))
+        (AlgHom.id A (AffineRing f n))).comp (affineCoaction f n)) =
+      (Algebra.TensorProduct.map (AlgHom.id A (MuHopf A n))
+        (affineCoaction f n)).comp (affineCoaction f n) := by
+  sorry
+
+-- TauCeti.RootStack.affineCoaction.nativePoint
+lemma affineCoaction.nativePoint (f : A) (n : ℕ) [NeZero n]
+    (ζ : rootsOfUnity n A) :
+    ((Algebra.TensorProduct.lid A (AffineRing f n)).toAlgHom.comp
+      (Algebra.TensorProduct.map
+        (((TauCeti.RootsOfUnityGroup.pointsMulEquiv (R := A) (A := A) n).symm ζ).ofConv)
+        (AlgHom.id A (AffineRing f n)))).comp (affineCoaction f n) =
+      (affineAction f n ζ).toAlgHom := by
+  sorry
+
+-- TauCeti.RootStack.affineCoaction.invariants
+theorem affineCoaction.invariants (f : A) (n : ℕ) [NeZero n] (b : AffineRing f n) :
+    affineCoaction f n b = (1 : MuHopf A n) ⊗ₜ[A] b ↔
+      ∃ a : A, b = algebraMap A (AffineRing f n) a := by
+  sorry
+
+-- TauCeti.RootStack.affineCoaction.test_one
+example (f : A) (b : AffineRing f 1) :
+    affineCoaction f 1 b = (1 : MuHopf A 1) ⊗ₜ[A] b := by
+  sorry
+
+-- TauCeti.RootStack.affineCoaction.test_sign
+example (f : A) :
+    ∃ ζ : rootsOfUnity 2 A, ((ζ : Aˣ) : A) = -1 ∧
+      (Algebra.TensorProduct.lid A (AffineRing f 2))
+        (Algebra.TensorProduct.map
+          (((TauCeti.RootsOfUnityGroup.pointsMulEquiv (R := A) (A := A) 2).symm ζ).ofConv)
+          (AlgHom.id A (AffineRing f 2))
+          (affineCoaction f 2 (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f)))) =
+        -AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f) := by
+  sorry
+
+-- TauCeti.RootStack.affineCoaction.test_characteristic_p
+example (k : Type u) [Field k] (p : ℕ) [Fact p.Prime] [NeZero p] [CharP k p] :
+    AdjoinRoot.root (Polynomial.X ^ p - Polynomial.C (0 : k)) ≠ 0 ∧
+      affineCoaction (0 : k) p (AdjoinRoot.root (Polynomial.X ^ p - Polynomial.C (0 : k))) ≠
+        (1 : MuHopf k p) ⊗ₜ[k]
+          AdjoinRoot.root (Polynomial.X ^ p - Polynomial.C (0 : k)) ∧
+      ∀ ζ : rootsOfUnity p k,
+        affineAction (0 : k) p ζ (AdjoinRoot.root (Polynomial.X ^ p - Polynomial.C (0 : k))) =
+          AdjoinRoot.root (Polynomial.X ^ p - Polynomial.C (0 : k)) := by
+  sorry
+
+-- Invariant theorem acceptance: a nonreduced coefficient ring is allowed.
+example (f : A) (b : AffineRing f 2) :
+    affineCoaction f 2 b = (1 : MuHopf A 2) ⊗ₜ[A] b ↔
+      ∃ a : A, b = algebraMap A (AffineRing f 2) a := by
+  sorry
+
+-- Invariant theorem acceptance: the zero-ring case has no artificial degree premise.
+example [Subsingleton A] (f : A) (n : ℕ) [NeZero n] (b : AffineRing f n) :
+    affineCoaction f n b = (1 : MuHopf A n) ⊗ₜ[A] b ∧
+      ∃ a : A, b = algebraMap A (AffineRing f n) a := by
   sorry
 
 end Affine
