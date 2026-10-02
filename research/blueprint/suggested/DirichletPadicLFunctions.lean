@@ -31860,3 +31860,113 @@ example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : 
       kubertRationalCartanValue N (q • a) := by sorry
 
 end DirichletPadic.SuggestedKubertPrimeLevelReductionTests
+
+/- The complete original degree-one corrected distribution. -/
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertCartanLevel_root_order_mul_dvd (N : ℕ+) (m n : ℕ) (a b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (hlevel : (m*n)*addOrderOf a.val ∣ (N : ℕ)) (hroot : n • b.val=a.val) :
+    m*addOrderOf b.val ∣ (N : ℕ) := by sorry
+
+lemma kubertCartanLevel_root_sum_mul (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    {A : Type*} [AddCommMonoid A]
+    (m n : ℕ) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) (f : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker → A) :
+    (∑ c ∈ Finset.univ.filter (fun c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => (m*n) • c.val=a.val),f c)=
+      ∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => n • b.val=a.val),
+        ∑ c ∈ Finset.univ.filter (fun c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => m • c.val=b.val),f c := by sorry
+
+lemma kubertRationalCartanValue_prime_mul_root_sum (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (q n : ℕ) (hq : q.Prime)
+    (hn : ∀ a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker, n*addOrderOf a.val ∣ (N : ℕ) →
+      (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => n • b.val=a.val),kubertRationalCartanValue N b)=kubertRationalCartanValue N a)
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) (hlevel : (q*n)*addOrderOf a.val ∣ (N : ℕ)) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => (q*n) • b.val=a.val),kubertRationalCartanValue N b)=
+      kubertRationalCartanValue N a := by sorry
+
+lemma kubertRationalCartanValue_target_root_sum (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (m : ℕ) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) (hlevel : m*addOrderOf a.val ∣ (N : ℕ)) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => m • b.val=a.val),kubertRationalCartanValue N b)=
+      kubertRationalCartanValue N a := by sorry
+
+lemma kubertRationalCartanValue_divisor_root_sum (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (m : ℕ) (hmN : m ∣ (N : ℕ)) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => m • b.val=m • a.val),kubertRationalCartanValue N b)=
+      kubertRationalCartanValue N (m • a) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic
+
+lemma kubertRationalCartanValue_full_torus_root_sum (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (m : ℕ) (hmN : m ∣ (N : ℕ)) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) [Fintype {b : (Fin 1 → AddCircle (1 : ℚ)) // m • b=m • a.val}] :
+    (∑ b : {b : (Fin 1 → AddCircle (1 : ℚ)) // m • b=m • a.val},kubertRationalCartanValue N ⟨b.val,DirichletPadic.kubertLevel_preimage_mem_level (N : ℕ) m hmN a b.val b.property⟩)=kubertRationalCartanValue N (m • a) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertFullDistributionTests
+open scoped Classical BigOperators
+noncomputable section
+-- composite_four_root_sum_at_twelve
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 12).ker] : (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 12).ker => 4 • b.val=((⟨fun _ : Fin 1 => ((1/3 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 12).ker)).val),kubertRationalCartanValue 12 b)=kubertRationalCartanValue 12 (⟨fun _ : Fin 1 => ((1/3 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 12).ker) := by sorry
+-- identity_level_single_root_value
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 1).ker] : (∑ b : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 1).ker,kubertRationalCartanValue 1 b)=1 := by sorry
+-- full_level_multiplier_sums_every_point
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker] : (∑ b : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker,kubertRationalCartanValue 6 b)=kubertRationalCartanValue 6 (⟨fun _ : Fin 1 => ((0 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker) := by sorry
+-- nondivisor_multiplier_does_not_give_level_distribution
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker] : (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker => 4 • b.val=((⟨fun _ : Fin 1 => ((2/3 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker)).val),kubertRationalCartanValue 6 b)≠kubertRationalCartanValue 6 (⟨fun _ : Fin 1 => ((2/3 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker) := by sorry
+end
+end DirichletPadic.SuggestedKubertFullDistributionTests
+namespace DirichletPadic.SuggestedKubertFullDistributionTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+
+-- cartanLevel_root_order_mul_dvd_typed_api
+example (N : ℕ+) (m n : ℕ) (a b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    (hlevel : (m*n)*addOrderOf a.val ∣ (N : ℕ)) (hroot : n • b.val=a.val) :
+    m*addOrderOf b.val ∣ (N : ℕ) := by sorry
+
+-- cartanLevel_root_sum_mul_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    {A : Type*} [AddCommMonoid A]
+    (m n : ℕ) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) (f : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker → A) :
+    (∑ c ∈ Finset.univ.filter (fun c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => (m*n) • c.val=a.val),f c)=
+      ∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => n • b.val=a.val),
+        ∑ c ∈ Finset.univ.filter (fun c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => m • c.val=b.val),f c := by sorry
+
+-- rationalCartanValue_prime_mul_root_sum_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (q n : ℕ) (hq : q.Prime)
+    (hn : ∀ a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker, n*addOrderOf a.val ∣ (N : ℕ) →
+      (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => n • b.val=a.val),kubertRationalCartanValue N b)=kubertRationalCartanValue N a)
+    (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) (hlevel : (q*n)*addOrderOf a.val ∣ (N : ℕ)) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => (q*n) • b.val=a.val),kubertRationalCartanValue N b)=
+      kubertRationalCartanValue N a := by sorry
+
+-- rationalCartanValue_target_root_sum_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (m : ℕ) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) (hlevel : m*addOrderOf a.val ∣ (N : ℕ)) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => m • b.val=a.val),kubertRationalCartanValue N b)=
+      kubertRationalCartanValue N a := by sorry
+
+-- rationalCartanValue_divisor_root_sum_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (m : ℕ) (hmN : m ∣ (N : ℕ)) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    (∑ b ∈ Finset.univ.filter (fun b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => m • b.val=m • a.val),kubertRationalCartanValue N b)=
+      kubertRationalCartanValue N (m • a) := by sorry
+
+end DirichletPadic.SuggestedKubertFullDistributionTests
+
+namespace DirichletPadic.SuggestedKubertFullDistributionTests
+open scoped Classical BigOperators
+open DirichletPadic
+
+-- rationalCartanValue_full_torus_root_sum_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (m : ℕ) (hmN : m ∣ (N : ℕ)) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) [Fintype {b : (Fin 1 → AddCircle (1 : ℚ)) // m • b=m • a.val}] :
+    (∑ b : {b : (Fin 1 → AddCircle (1 : ℚ)) // m • b=m • a.val},kubertRationalCartanValue N ⟨b.val,DirichletPadic.kubertLevel_preimage_mem_level (N : ℕ) m hmN a b.val b.property⟩)=kubertRationalCartanValue N (m • a) := by sorry
+
+end DirichletPadic.SuggestedKubertFullDistributionTests
