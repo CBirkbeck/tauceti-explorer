@@ -1,3 +1,7 @@
+import Mathlib.AlgebraicGeometry.Noetherian
+import Mathlib.AlgebraicGeometry.Sites.Etale
+import Mathlib.RingTheory.Etale.Finite
+import Mathlib.RepresentationTheory.Homological.ContCohomology.Basic
 import Mathlib.Algebra.Group.Action.End
 import Mathlib.GroupTheory.GroupAction.Quotient
 import Mathlib.Topology.Algebra.Group.Quotient
@@ -9,7 +13,7 @@ import Mathlib.RepresentationTheory.Homological.GroupCohomology.LowDegree
 import TauCeti.RepresentationTheory.Homological.ContCohomology.LowDegree
 
 /-!
-# Anabelian geometry and nonabelian Chabauty — suggested declarations (NC.3, first checkpoint)
+# Anabelian geometry and nonabelian Chabauty — suggested declarations (partial NC.0/NC.3 continuation)
 
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 The statements suggest Lean forms so that contributors and reviewers converge on names
@@ -282,3 +286,373 @@ example : ∃ c : Equiv.Perm (Fin 3) → Equiv.Perm (Fin 3),
 --   `Nat.card (H1 G U) = 2`; the trivial action needs a `MulDistribMulAction` instance.
 
 end TauCeti.NonabelianCohomology
+
+/-!
+## Native carrier smoke forms (not K(π,1) tests)
+These forms consume only declarations personally read at the Mathlib pin. They neither
+construct the missing geometric π/sheaf/comparison bridge nor claim elaboration.
+-/
+
+open CategoryTheory AlgebraicGeometry
+
+-- TauCeti.EtaleKPiOne.native.smallEtaleTopology
+example (X : Scheme) : GrothendieckTopology X.Etale := X.smallEtaleTopology
+
+-- TauCeti.EtaleKPiOne.native.locallyNoetherian
+example (X : Scheme) [IsLocallyNoetherian X] : IsLocallyNoetherian X := inferInstance
+
+-- TauCeti.EtaleKPiOne.native.finiteEtaleFiber
+example (R Ω : Type) [CommRing R] [Field Ω] [Algebra R Ω] :
+    (CommAlgCat.FiniteEtale R)ᵒᵖ ⥤ FintypeCat := CommAlgCat.FiniteEtale.fiber R Ω
+
+-- TauCeti.EtaleKPiOne.native.allDegreeContinuousCohomology
+example (k G : Type) [Ring k] [TopologicalSpace k] [Group G]
+    [TopologicalSpace G] [IsTopologicalGroup G] (A : TopRep k G) (n : ℕ) :
+    TopModuleCat k := continuousCohomology n A
+
+/-
+Exact NC.0 omission ledger — these are NOT Lean signatures or typed tests.
+
+The actual profinite fundamental group of a non-affine scheme, its finite continuous
+coefficient/sheaf dictionary and canonical all-degree ε are not provided at the pins.
+No stand-in Prop field, invented type or arbitrary assumed comparison is inserted.
+Every entry gives the exact intended mathematical contract; the owner must supply the
+missing carriers/maps before a signature can honestly be written.
+
+OMITTED TauCeti.EtaleKPiOne.Is
+Node: AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1
+Contract: Let X be a connected locally noetherian scheme with geometric point x. Put π = π₁ᵉᵗ(X,x), the profinite SGA fundamental group. Let C specify an isomorphism-invariant class of finite discrete abelian groups with continuous π-action, transported along pointed fundamental-group isomorphisms. Define Is(X,x;C) to mean that, for every M in C and every integer n ≥ 0, the canonical comparison εⁿ_M : Hⁿ_cont(π,M) → Hⁿ_et(X,L_x(M)) is an isomorphism of abelian groups. L_x(M) is the finite locally constant étale sheaf corresponding to M, not an arbitrary constructible sheaf. The default full property uses all finite continuous π-modules. The p-primary property uses those whose underlying finite group has p-power order, with p prime; the constant-Fₚ comparison is a separately named specialization, not the definition of either full property. None of these coefficient restrictions changes π to its maximal pro-p quotient.
+Missing: actual geometric π, finite coefficient/sheaf dictionary and canonical ε; use the exact supplier requests and source-proof gaps of this node.
+
+OMITTED TauCeti.EtaleKPiOne.Is.edgeIso
+API (projection): From Is(X,x;C), for M in C and n ≥ 0, obtain the inverse of the canonical εⁿ_M with both inverse identities; it is natural in equivariant coefficient homomorphisms.
+Missing: the key definition's genuine coefficient/sheaf/ε carriers; no independent assumed proposition.
+
+OMITTED TauCeti.EtaleKPiOne.Is.iff_all_comparisons
+API (characterisation): Is(X,x;C) holds exactly when εⁿ_M is an isomorphism for every M in C and every n ≥ 0; checking only n ≤ 1 is not sufficient.
+Missing: the key definition's genuine coefficient/sheaf/ε carriers; no independent assumed proposition.
+
+OMITTED TauCeti.EtaleKPiOne.Is.of_subclass
+API (functoriality): If C′ ⊆ C, then Is(X,x;C) implies Is(X,x;C′); in particular full finite coefficients imply p-primary coefficients and constant-Fₚ comparison.
+Missing: the key definition's genuine coefficient/sheaf/ε carriers; no independent assumed proposition.
+
+OMITTED TauCeti.EtaleKPiOne.Is.pointedIso_iff
+API (functoriality): For a pointed scheme isomorphism f:(X,x) ≅ (Y,y), Is(X,x;f*D) iff Is(Y,y;D), using transported coefficients and the natural comparison square.
+Missing: the key definition's genuine coefficient/sheaf/ε carriers; no independent assumed proposition.
+
+OMITTED TauCeti.EtaleKPiOne.Is.basePoint_iff
+API (compatibility): For geometric points x,y and an étale path between their finite-étale fibre functors, Is(X,x;C) iff Is(X,y;transport C); full and p-primary classes are invariant under every such transport.
+Missing: the key definition's genuine coefficient/sheaf/ε carriers; no independent assumed proposition.
+
+OMITTED TauCeti.EtaleKPiOne.Is.zero_coefficients
+API (simp): For the class containing only the zero π-module, every comparison is 0 → 0 and Is(X,x;C) holds; this case is not evidence for the full property.
+Missing: the key definition's genuine coefficient/sheaf/ε carriers; no independent assumed proposition.
+
+OMITTED TauCeti.EtaleKPiOne.Is.constantFp_edgeIso
+API (compatibility): For p prime, the full or p-primary property supplies Hⁿ_cont(π,Fₚ) ≅ Hⁿ_et(X,Fₚ) via ε in every degree, with trivial π-action; the group in the source is still π.
+Missing: the key definition's genuine coefficient/sheaf/ε carriers; no independent assumed proposition.
+
+OMITTED TauCeti.EtaleKPiOne.tests.field
+Test (degenerate): For every field K and separable geometric point, Is(Spec K,x;all finite coefficients) holds and π identifies with Gal(K_sep/K), with ε equal to the Galois-cohomology comparison.
+Missing: the key definition's carriers plus the precise geometric example/obstruction inputs listed in the packet. This comment is not an example declaration.
+
+OMITTED TauCeti.EtaleKPiOne.tests.projective_line_degree_two
+Test (non-example): For algebraically closed k and prime ℓ invertible in k, π₁ᵉᵗ(P¹_k)=1 and H²_et(P¹_k,Z/ℓ) ≅ Z/ℓ is nonzero, while H²_cont(1,Z/ℓ)=0; hence the full property and the ℓ-primary property both fail although degrees zero and one agree.
+Missing: the key definition's carriers plus the precise geometric example/obstruction inputs listed in the packet. This comment is not an example declaration.
+
+OMITTED TauCeti.EtaleKPiOne.tests.affine_curve
+Test (characterisation): For a geometrically connected smooth affine curve over a characteristic-zero field, including Gₘ and P¹ minus {0,1,∞}, the full finite-coefficient property holds; no claim that every open immersion preserves it is involved.
+Missing: the key definition's carriers plus the precise geometric example/obstruction inputs listed in the packet. This comment is not an example declaration.
+
+OMITTED TauCeti.EtaleKPiOne.tests.positive_genus
+Test (characterisation): For a geometrically connected smooth proper curve of genus at least one over a characteristic-zero field, the full property holds. Nonzero H²_et of an elliptic curve does not contradict it: its profinite fundamental group need not have vanishing H².
+Missing: the key definition's carriers plus the precise geometric example/obstruction inputs listed in the packet. This comment is not an example declaration.
+
+OMITTED TauCeti.EtaleKPiOne.tests.product_char_zero
+Test (compatibility): For two geometrically connected geometrically unibranch characteristic-zero varieties with the full property, their product has it; over a non-algebraically-closed field the arithmetic π₁ of the product is the fibre product over Gal(k_sep/k), not the ordinary product.
+Missing: the key definition's carriers plus the precise geometric example/obstruction inputs listed in the packet. This comment is not an example declaration.
+
+OMITTED TauCeti.EtaleKPiOne.tests.artin_tower
+Test (characterisation): A finite characteristic-zero tower of smooth elementary curve fibrations ending in Spec k has the full property; this includes M₀,n for n ≥ 4 after importing its moduli construction and forgetting-mark fibrations.
+Missing: the key definition's carriers plus the precise geometric example/obstruction inputs listed in the packet. This comment is not an example declaration.
+
+OMITTED TauCeti.EtaleKPiOne.tests.pro_p_not_coefficient_restriction
+Test (non-example): The finite group C₂ acts on F₃ by negation. This is a 3-primary continuous coefficient with invariants 0. Its action does not descend to the trivial maximal pro-3 quotient of C₂; putting F₃ with trivial action on that quotient gives invariants F₃ instead. A p-primary coefficient restriction is not a licence to replace π by π^(p).
+Missing: the key definition's carriers plus the precise geometric example/obstruction inputs listed in the packet. This comment is not an example declaration.
+
+OMITTED TauCeti.EtaleKPiOne.tests.zero_class
+Test (degenerate): The zero-coefficient class passes on P¹, whereas the full and invertible-prime primary classes fail there. The class argument must not be erased.
+Missing: the key definition's carriers plus the precise geometric example/obstruction inputs listed in the packet. This comment is not an example declaration.
+
+OMITTED TauCeti.EtaleKPiOne.Is.of_subclass
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/coefficient-restriction
+Contract: If C′ ⊆ C, then Is(X,x;C) implies Is(X,x;C′); in particular full finite coefficients imply p-primary coefficients and constant-Fₚ comparison.
+Missing: actual geometric π, finite coefficient/sheaf dictionary and canonical ε; use the exact supplier requests and source-proof gaps of this node.
+
+OMITTED TauCeti.EtaleKPiOne.Is.pointedIso_iff
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/pointed-isomorphism
+Contract: For a pointed scheme isomorphism f:(X,x) ≅ (Y,y), Is(X,x;f*D) iff Is(Y,y;D), using transported coefficients and the natural comparison square.
+Missing: actual geometric π, finite coefficient/sheaf dictionary and canonical ε; use the exact supplier requests and source-proof gaps of this node.
+
+OMITTED TauCeti.EtaleKPiOne.Is.basePoint_iff
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport
+Contract: For geometric points x,y and an étale path between their finite-étale fibre functors, Is(X,x;C) iff Is(X,y;transport C); full and p-primary classes are invariant under every such transport.
+Missing: actual geometric π, finite coefficient/sheaf dictionary and canonical ε; use the exact supplier requests and source-proof gaps of this node.
+
+OMITTED TauCeti.EtaleKPiOne.iff_finiteCover_effacement
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement
+Contract: For a connected geometrically unibranch variety X over a field, the full finite-coefficient property holds iff, for every connected finite étale cover X′ → X, every finite abelian group A regarded as a constant sheaf on X′, every i ≥ 2 and every α ∈ Hⁱ_et(X′,A), there is a further finite étale surjective cover X″ → X′ on which α restricts to zero.
+Missing: actual geometric π, finite coefficient/sheaf dictionary and canonical ε; use the exact supplier requests and source-proof gaps of this node.
+
+OMITTED TauCeti.EtaleKPiOne.iff_raw_etale_aspherical
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison
+Contract: For a connected geometrically unibranch variety X with geometric point x, the full finite-coefficient property agrees with the raw étale K(π,1) condition π⁽raw⁾ₙ(X_et,x_et)=0 for every n ≥ 2, equivalently the canonical classifying morphism X_et → Bπ₁(X_et,x_et) is an isomorphism in Ho(pro-ss_*). Here π₁(X_et,x_et) is profinite in this scope and identified with the SGA finite-étale π used by the cohomological definition. This equivalence is not asserted for an arbitrary non-geometrically-unibranch locally noetherian scheme.
+Missing: actual geometric π, finite coefficient/sheaf dictionary and canonical ε; add raw pro-space, classifying map and higher homotopy/fibration carriers described by the packet gaps.
+
+OMITTED TauCeti.EtaleKPiOne.field
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/field
+Contract: For every field K, with a separable geometric point x of Spec K, Is(Spec K,x;all finite coefficients) holds. Under π ≅ Gal(K_sep/K), its comparison εⁿ_M is the canonical Galois-cohomology isomorphism in every degree and for every finite discrete continuous Galois module M.
+Missing: actual geometric π, finite coefficient/sheaf dictionary and canonical ε; use the exact supplier requests and source-proof gaps of this node.
+
+OMITTED TauCeti.EtaleKPiOne.not_projectiveLine
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/projective-line-obstruction
+Contract: For algebraically closed k and prime ℓ invertible in k, P¹_k does not have the full finite-coefficient property, and does not have the ℓ-primary property. For M=Z/ℓ with trivial action, ε²_M has source zero and target isomorphic to Z/ℓ; it is not an isomorphism.
+Missing: actual geometric π, finite coefficient/sheaf dictionary and canonical ε; use the exact supplier requests and source-proof gaps of this node.
+
+OMITTED TauCeti.EtaleKPiOne.smooth_curve_charZero
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve
+Contract: For a geometrically connected smooth curve C over a characteristic-zero field k, if C is affine or its smooth proper model has genus at least one, then Is(C,x;all finite coefficients) holds for every geometric point x.
+Missing: actual geometric π, finite coefficient/sheaf dictionary and canonical ε; use the exact supplier requests and source-proof gaps of this node.
+
+OMITTED TauCeti.EtaleKPiOne.product_charZero
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/products
+Contract: Over a characteristic-zero field k, a finite product of geometrically connected geometrically unibranch k-varieties having the full finite-coefficient property again has that property.
+Missing: actual geometric π, finite coefficient/sheaf dictionary and canonical ε; use the exact supplier requests and source-proof gaps of this node.
+
+OMITTED TauCeti.EtaleKPiOne.elementary_fibration_charZero
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/elementary-fibration
+Contract: Let f:X→Y be an elementary fibration of smooth connected varieties over a characteristic-zero field: X is the complement of a divisor D, finite étale over Y, in a smooth proper geometrically connected curve family X̄→Y, and each fibre of X→Y is a nonempty affine curve. If Y has the full finite-coefficient property, then X has it.
+Missing: actual geometric π, finite coefficient/sheaf dictionary and canonical ε; add raw pro-space, classifying map and higher homotopy/fibration carriers described by the packet gaps.
+
+OMITTED TauCeti.EtaleKPiOne.artin_tower_charZero
+Node: AnabelianGeometryAndNonabelianChabauty:NC.0/artin-neighbourhood
+Contract: For a finite tower X=X_r→⋯→X₀=Spec k of smooth connected characteristic-zero varieties with each arrow an elementary curve fibration as specified in elementary-fibration, X has the full finite-coefficient property. In particular this applies to strongly hyperbolic Artin neighbourhoods of Schmidt–Stix Definition 6.1, whose additional product-embedding condition must not be omitted when naming that stronger notion.
+Missing: actual geometric π, finite coefficient/sheaf dictionary and canonical ε; use the exact supplier requests and source-proof gaps of this node.
+
+-/
+
+/-
+Inherited NC.3 exact-name audit — native prototypes are retained, not recompiled.
+An existing prototype may represent only one part of a bundled node. Exact names absent
+from declaration forms, and comment-only tests, remain explicit omissions rather than
+being counted as typed API coverage. The mathematical roadmap remains definitive.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.Z1
+API: The type of continuous maps c : G → U with c(gh) = c(g)·g•c(h).
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H0
+API: H⁰(G, U) = FixedPoints.subgroup G U, the subgroup of G-invariant elements.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+OMITTED TauCeti.NonabelianCohomology.Z1.mem_iff
+API: c ∈ Z¹ iff c is continuous and satisfies the cocycle identity.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+OMITTED TauCeti.NonabelianCohomology.Z1.one
+API: The trivial cocycle g ↦ 1, the base point.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.Z1.map_one
+API: c(1) = 1 for every cocycle.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.Z1.map_inv
+API: c(g⁻¹) = g⁻¹•(c(g)⁻¹).
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.Z1.coboundary
+API: For u ∈ U, the cocycle g ↦ u·(g•u)⁻¹.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.Z1.equivContinuousMonoidHomOfTrivial
+API: If G acts trivially, Z¹(G, U) ≃ (G →ₜ* U), continuous homomorphisms.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.Z1.ext
+API: Two cocycles are equal iff they agree at every g.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.tests.trivial_group
+test: If G is the trivial group, Z¹(G, U) = {1}.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+OMITTED TauCeti.NonabelianCohomology.tests.trivial_action_hom
+test: For G = ℤ/2 (discrete) acting trivially on the symmetric group S₃ (discrete), Z¹(G, S₃) has exactly 4 elements: the trivial map and the three maps sending the generator to a transposition.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.tests.factor_order
+test: For G = U = S₃ with the trivial action, the identity map satisfies c(gh) = c(g)·(g•c(h)) but not c(gh) = (g•c(h))·c(g) (it is a homomorphism, not an anti-homomorphism): the factor order of the cocycle condition matters for nonabelian U.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+OMITTED TauCeti.NonabelianCohomology.tests.invariants
+test: For G = ℤ/2 acting on U = ℤ by negation, H⁰(G, U) = {0}; for the trivial action H⁰ = U.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+OMITTED TauCeti.NonabelianCohomology.tests.continuity
+test: For G = ∏_{n ∈ ℕ} ℤ/2 (profinite) acting trivially on U = ℤ/2 (discrete), Z¹(G, U) is countable (continuous characters factor through finitely many coordinates), whereas the abstract homomorphisms G → ℤ/2 are uncountable: dropping continuity changes Z¹.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1
+API: H¹(G, U) = MulAction.orbitRel.Quotient U (Z¹ G U).
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+OMITTED TauCeti.NonabelianCohomology.Z1.instMulAction
+API: The action (u·c)(g) = u·c(g)·(g•u)⁻¹ of U on Z¹(G, U).
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.mk
+API: The class map Z¹(G, U) → H¹(G, U).
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.mk_surjective
+API: Every class has a representing cocycle.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.mk_eq_mk_iff
+API: mk c = mk c′ iff c′ = u·c for some u ∈ U.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+OMITTED TauCeti.NonabelianCohomology.H1.instOne
+API: The base point, the class of the trivial cocycle.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.mk_eq_one_iff
+API: mk c = 1 iff there is u ∈ U with c(g) = u·(g•u)⁻¹ for all g.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+OMITTED TauCeti.NonabelianCohomology.H1.equivOfTrivial
+API: For trivial action, H¹(G, U) ≃ (G →ₜ* U) modulo conjugation by U.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+OMITTED TauCeti.NonabelianCohomology.tests.h1_trivial_group
+test: If G is the trivial group, H¹(G, U) is a single point.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+OMITTED TauCeti.NonabelianCohomology.tests.h1_S3
+test: For G = ℤ/2 acting trivially on S₃ (both discrete), H¹(G, S₃) has exactly 2 elements: the base point and the class of the transpositions.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+OMITTED TauCeti.NonabelianCohomology.tests.not_coboundary_quotient
+test: In the same example, identifying cocycles c, c′ when c′(g) = c(g)·u(g•u)⁻¹ for some u gives 4 classes (the action is trivial, so every such b is trivial), not 2: the correct relation is twisted conjugation.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+OMITTED TauCeti.NonabelianCohomology.tests.h1_abelian
+test: For G = ℤ/2 acting on U = ℤ/3 (additive, discrete) by negation, H¹ is a single point, agreeing with Tau Ceti's ContCohomology.H1 (the orders are coprime).
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.map
+API: The map H¹(G, U) → H¹(G, U′) induced by a continuous equivariant homomorphism.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.map_one
+API: H1.map f sends the base point to the base point.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.map_id
+API: H1.map id = id.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+OMITTED TauCeti.NonabelianCohomology.H1.map_comp
+API: H1.map (f′ ∘ f) = H1.map f′ ∘ H1.map f.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.res
+API: The restriction H¹(G, U) → H¹(G′, U) along a continuous homomorphism G′ → G.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+OMITTED TauCeti.NonabelianCohomology.H1.res_comp
+API: Restriction along a composite is the composite of restrictions.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H0.map
+API: The homomorphism of invariants induced by an equivariant homomorphism.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.equivContCohomology
+API: H¹(G, Multiplicative M) ≃ ContCohomology.H1 G M, compatible with the class maps.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+OMITTED TauCeti.NonabelianCohomology.instMulDistribMulActionMultiplicative
+API: A DistribMulAction of G on the additive group M induces a MulDistribMulAction of G on Multiplicative M (not an instance in Mathlib at the pin), and continuity of the action transfers.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+OMITTED TauCeti.NonabelianCohomology.Z1.equivContCohomology
+API: Z¹(G, Multiplicative M) ≃ ContCohomology.Z1 G M, the identity on underlying functions.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.equivContCohomology_one
+API: The base point goes to 0.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+OMITTED TauCeti.NonabelianCohomology.H0.equivContCohomology
+API: H⁰(G, Multiplicative M) corresponds to ContCohomology.H0 G M.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.exact_H1_of_subgroup
+node: Let A ≤ B be a closed subgroup of a topological group B stable under a continuous action of G by automorphisms, and B/A the coset space with the induced (continuous) G-action. (a) The sequence of pointed sets 1 → A^G → B^G → (B/A)^G →δ H¹(G, A) → H¹(G, B) is exact (at each term the image of the incoming map is the preimage of the base point), where δ(bA) is the class of the continuous cocycle g ↦ b⁻¹·(g•b); moreover δ(x) = δ(y) iff x and y lie in one B^G-orbit of (B/A)^G. (b) If A is normal, B/A is a topological group with continuous G-action, and the sequence continues exactly with → H¹(G, B/A): a class of H¹(G, B) maps to the base point of H¹(G, B/A) iff it comes from H¹(G, A). No continuous section of B → B/A is needed.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.map_eq_map_iff_central
+node: Let Z ≤ B be a closed G-stable subgroup contained in the centre of B, and C := B/Z. (a) The abelian group H¹(G, Z) (NC.3/abelian-comparison) acts on H¹(G, B) by [z]·[c] := [g ↦ z(g)c(g)], and the fibres of H¹(G, B) → H¹(G, C) are exactly the orbits of this action. (b) Suppose the projection B → C has a continuous (set-theoretic) section s. Then there is a connecting map δ² : H¹(G, C) → H²(G, Z), Tau Ceti's explicit continuous H² (ContCohomology.H2 of Z written additively), sending the class of c̄ to the class of the 2-cocycle (g, h) ↦ c(g)·(g•c(h))·c(gh)⁻¹ for the continuous lift c = s ∘ c̄; and the image of H¹(G, B) → H¹(G, C) is δ²⁻¹(0). (c) If, for every c ∈ Z¹(G, B), the group C twisted by the image of c (NC.3/twisting) has only the trivial G-invariant element, then the action in (a) is free, so each nonempty fibre is a principal homogeneous space of H¹(G, Z).
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.Twist
+API: The type synonym ₍c₎U of U with the twisted action g ⋆ u = c(g)(g•u)c(g)⁻¹.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.Twist.smul_def
+API: g ⋆ u = c(g)·(g•u)·c(g)⁻¹.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+OMITTED TauCeti.NonabelianCohomology.Twist.continuousSMul
+API: The twisted action is continuous.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.Z1.twistEquiv
+API: The bijection Z¹(G, ₍c₎U) ≃ Z¹(G, U), c′ ↦ c′·c.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.twistEquiv
+API: The induced bijection H¹(G, ₍c₎U) ≃ H¹(G, U).
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.twistEquiv_one
+API: twistEquiv sends the base point to the class of c.
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+OMITTED TauCeti.NonabelianCohomology.Twist.self
+API: Twisting by the trivial cocycle is the original action.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+OMITTED TauCeti.NonabelianCohomology.tests.twist_trivial
+test: Twisting by the trivial cocycle gives back U with its action, and twistEquiv is the identity.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+OMITTED TauCeti.NonabelianCohomology.tests.twist_abelian
+test: For U commutative, g ⋆ u = g•u for every c, and twistEquiv is translation by c.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+OMITTED TauCeti.NonabelianCohomology.tests.twist_S3
+test: For G = ℤ/2 acting trivially on S₃ and c sending the generator to a transposition τ, the twisted action is conjugation by τ, whose invariants form the subgroup {1, τ} of order 2.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+OMITTED TauCeti.NonabelianCohomology.tests.twist_changes_invariants
+test: A twist need not be isomorphic to U as a G-group: for G = ℤ/2 acting trivially on S₃ and c(σ) = τ a transposition, H⁰(G, ₍c₎S₃) = {1, τ} has order 2 while H⁰(G, S₃) = S₃ has order 6; and twistEquiv sends the base point to [c], not to the base point.
+Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+
+EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.Torsor.classOf
+node: A (G, U)-torsor is a topological space P with a continuous right action of U that is free and transitive, such that for one (equivalently every) p ∈ P the orbit map U → P, u ↦ p·u, is a homeomorphism, together with a continuous left action of G satisfying g•(p·u) = (g•p)·(g•u). For p ∈ P let c_p(g) ∈ U be the unique element with g•p = p·c_p(g). Then c_p ∈ Z¹(G, U), c_{p·u} = u⁻¹·c_p under the twisted-conjugation action, so [P] := [c_p] ∈ H¹(G, U) is independent of p and of the isomorphism class of P; P ↦ [P] is a bijection from isomorphism classes of (G, U)-torsors to H¹(G, U), the trivial torsor U corresponds to the base point, and P has a G-fixed point iff [P] is the base point. The inverse sends [c] to U with the twisted G-action g ∗ u := c(g)·(g•u).
+Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+
+-/

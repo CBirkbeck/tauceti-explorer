@@ -1,42 +1,31 @@
-# BP-AnabelianGeometryAndNonabelianChabauty — first checkpoint: nonabelian continuous cohomology (NC.3)
+# BP-AnabelianGeometryAndNonabelianChabauty — partial continuation
 
-Agent: Claude Code, session cc-fb70e5, 2026-09-28. Refs #1020. The claim is comment 5873767196, confirmed by the bot. No packet existed before this checkpoint.
+Agent: Codex — codex-a71f92. Refs #1020. Confirmed claim comment 5951541564, bot 5951544666. The whole issue was re-read after confirmation.
 
-## What this checkpoint supplies
+## Delivered
 
-The checkpoint adds 8 NC.3 nodes that close the dependency chain from the pinned libraries, with 32 baseline declarations:
+Twelve NC.0 declaration-sized nodes add the reserved coefficient-class-aware étale K(π,1) definition, coefficient restriction, pointed/base-point transports, finite-cover effacement and scoped raw-homotopy comparisons, field/projective-line/curve/product/elementary-fibration/Artin-tower contracts. Eight inherited NC.3 nodes and their IDs remain. Twisting is an underlying-set bijection; its target must be repointed at [c] for a pointed equivalence. Three old Lean annotations were removed from mathematical statements without deleting their declarations.
 
-- continuous 1-cocycles and invariants with nonabelian coefficients;
-- H¹(G, U) as the orbit set of twisted conjugation, a pointed set;
-- functoriality in the coefficients and restriction along group homomorphisms;
-- the comparison with Tau Ceti's explicit abelian continuous cohomology (`TauCeti.ContCohomology`);
-- the exact sequences of pointed sets, both for a closed subgroup that need not be normal (with no section needed) and for a normal one;
-- central extensions: the action of H¹ of the central subgroup, whose orbits are the fibres; the connecting map to Tau Ceti's H², given a continuous section; and freeness under vanishing twisted invariants;
-- twisting by a cocycle;
-- the classification of topological (G, U)-torsors by H¹.
+The packet has 20 nodes: 3 definitions, 1 construction, 4 lemmas, 9 theorems and 3 comparisons, 43 API items, 21 unit-test contracts, 9 planets and 39 baseline declarations. All implementationStatus values are unchecked. NC.0 and NC.3 are partial; other stages remain not_read. No stage is closed.
 
-There are 4 planets. NC.3's coverage is partial, and NC.0–NC.2 and NC.4–NC.6 are not read.
+## Evidence and checks
 
-## Sources
+Fresh primary reading: Schmidt–Stix publisher PDF selected Lemma 2.1, §2.3 and Appendix A.3 proofs, Definition 6.1/M₀,n example; FKW arXiv:2110.05534v2 §2.3.1 and Lemma 3.2.2 proof; Stacks 03QQ/03RQ selected proofs. Hashes/dates/reading boundaries are in sourceVersions/sources. The initial Kim/Poonen reads and original 32 baseline checks are historical receipts of Claude Code cc-fb70e5, not fresh primary-read claims.
 
-- **Kim 2005, §1.** arXiv:math/0409456v1 (the published version is Invent. Math. 161, 2005), sha256 00efa6e9…ba941. Read in full.
-- **Kim 2009.** arXiv:math/0510441v4 (the published version is Publ. RIMS 45, 2009), sha256 7b404331…d0f19. The introduction and the §3 passages on local conditions were read.
-- **Poonen, *Rational points on varieties*.** The sections read are §1.3.5, Exercise 1.9, §4.5, §5.11 and §5.12.4.
+Seven new native declarations were read at the Mathlib pin. All-degree continuousCohomology and the small étale site are imported. Full pinned-tree spelling searches found no K(π,1)/étale-homotopy definition. Reviewed audit, actual supplier stage scopes, all seven own stages, seventeen touching atlas edges and relevant source catalogue contracts were read. All blueprint link maps were screened; no matching entries were present. JacobianChallenge and StableReduction upstream documents had been read during this continuous worker run.
 
-Serre's *Galois Cohomology* is not freely available, so its inflation–restriction sequence is left as remaining work. No mistakes in the sources were found.
+Suggested Lean was NOT compiled: no existing build at both required pins was available. No Lake project/cache/build or language server was started. Four new smoke forms use native carriers; they do not test a missing K(π,1) definition. The exact-name omission ledger covers all twelve new nodes, seven API items, eight key tests and every inherited definition/API/test name. Comment-level coverage is not represented as a signature or a typed example.
 
-## Validation
+## Resume exactly here
 
-- `check_blueprint --index` against the pinned index gives 0 errors and 0 warnings.
-- The intake file check is clean.
-- Every node's declaration name appears in the suggested file.
-- **The suggested file was not compiled.** The shared machine has no pinned build. It imports Tau Ceti's `ContCohomology/LowDegree`.
+1. Resolve eleven exact requests to IG.0, IG.1, SF.2, SF.3 and A2: genuine geometric π/sheaf/ε bridge, derived-vs-native finite-discrete cohomology, Spec K and P¹ tests, finite-cover Cartan–Leray/Shapiro, characteristic-zero π₁ products and derived Künneth/geometric descent, curve/genus data, and the shared Néron–Severi definition/injection.
+2. The nine gaps include inherited unipotent point topologies/splittings, generic higher étale homotopy, broader non-unibranch scope, delegated Schmidt 1996/Artin–Mazur/SGA proof leaves, genuine typed signatures, M₀,n supplier, routed source inventory and inherited NC.3 granularity. Obtain the transitive proofs before claiming closure.
+3. Generic raw homotopy/fibration must be reconciled with the existing UNACCEPTED EtaleHomotopyTypes candidate, not a parallel IG Part II owner. The full candidate brief was read; its generic core must not import NC.1, which would cycle through NC.0. Do not turn IG.1's π₁ sequence into a higher-homotopy theorem or use an unregistered stage. StableReductionPartII:key/moduli-curves owns the unbuilt moduli example. Structural proposals also remove process-only NC.6 after acceptance; current coverage is retained.
+4. Read Chen 2024 /57–58 and BDMTV 2019 fully for their routed components: 17 NC.2 and 19 NC.5 items, E9/E10, four applications. Preserve local iterated-integral word expansion /58(40) versus global comparison /93(41). NS is imported from AbelianSchemesAndArithmeticModuli:A2. Generic heights/mixed extensions/local terms belong to pending SelmerComplexesAndPadicHeightsPartII with no NC.5 reverse dependency.
+5. Preserve/split the inherited NC.3 multi-declaration nodes and complete their API/test forms; representability, local conditions, Selmer loci and nonabelian inflation–restriction remain open. No conjecture is promoted to a theorem.
 
-Some statements are recorded as comments rather than signatures, because they need instances that Mathlib lacks at the pin: the central connecting map and its freeness need a `DistribMulAction` on `Additive A`, and the S₃ counting tests need a `MulDistribMulAction` for the trivial action.
+Validation results are recorded below. Only the four allowlisted deliverables are submitted; all scratch sources remain outside the repository and are recoverably cleaned after verified publication.
 
-## Resume
+## Validated checkpoint
 
-1. **NC.3.** Representability (Kim 2005, Propositions 2–3), which needs the point topologies of Kim §1, Lemmas 1–5, and the splittings of unipotent groups (both recorded as gaps). Then local conditions (unramified and crystalline, the latter via the subgroup exact sequence), Selmer varieties, dimension counts, and the depth-one comparison with RP.1's Kummer and Selmer groups.
-2. **NC.0.** Path torsors and sections, importing InverseGaloisAndArithmeticFundamentalGroups IG.0 and IG.1.
-3. **NC.2.** Unipotent fundamental groups, importing the Tannakian torsors of MotivesAndAlgebraicCycles MC.6.
-4. **NC.4 onwards** can then follow.
+Actual check_blueprint: zero errors, zero warnings, zero stages closed. It counts 31 API items on definitions/constructions; the full node list also contains 12 inherited lemma/comparison API entries, so the total is 43. Actual intake rules, historical ID/source/baseline preservation, exact reader/signature-or-omission parity, new-edge cycle checks including typed upstream prerequisites, in-memory atlas projection DAG, source PDF hashes, whitespace and finite S₃/C₂-action regressions passed. The source inventory explicitly preserves all 19 NC.5 and 17 NC.2 route items, Chen /57–58, Schmidt–Stix /14,/31,/68 and FKW /005,/091,/146. The A2 NS request consumes no unregistered stage. These checks were re-run successfully against publication base 9c2a511af6c4b1bba17123a2d13f27fdbd816355; no allowlisted deliverable, relevant source extraction or governing instruction changed from audit tree c73495ab905f9f59dff658b7f5b4abae3564aeaf. In-memory projection: 1,977 stages, 3,520 edges. The source-inventory IDs were compared directly with both catalogue routes.
