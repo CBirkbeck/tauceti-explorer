@@ -1,0 +1,180 @@
+{
+  "redteam": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+  "findings": [
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed at proposal level, not as a cycle in the live atlas. BPLZZ route 2 and BCZ22 route 2 import the GGP roadmap; accepted LIU22 route 17 imports the Jacquet–Rallis continuation in the reverse direction and carries cited-BPLZZ-ggp. BPLZZ items 5 and 63 already give Theorem 1.8 and Remark 4.17 (v3 pp. 4, 41–42). Item 42 also owns the unitary pairs used by route-3 item 9 and V-star. Correct the boundary to GGP definitions/conjectures -> Jacquet–Rallis proved endpoints -> arithmetic applications. Import the unitary pairs into item 42; keep general-linear quotients/matching there; move the V_(S) clause of V-star to route 2. LIU's lemma-8-2-1 is a specialized application, not a theorem to delete: preserve it downstream with reuse of the one proof of the cited endpoint. Coordinate the reverse import with LIU22 and BCZ22; fixing this extraction alone does not repair those other briefs."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with distinct suppliers for construction and uniqueness. The v3 pp. 2–4 and 41 inputs are split between routes 1–3. BCZ22/71 (accepted source route 7 to AL.3), GAN-ICHINO-18/strong-multiplicity-one and LESLIE-25/95 supply direct coalescence evidence for Jacquet–Shalika and Ramakrishnan at AL.3. Isobaric sums themselves belong to the AS.1–AS.2 construction, as BCGP21/335 and its route 25 specify; import their uniqueness from AL.3. Do not follow the first fix paragraph's instruction to send all three items to AL.3. CAI-FRIEDBERG-KAPLAN-24 currently routes its classification item to an AL Part II, not to AL.3, so the finding overstates that precedent; record that remaining coordination instead of claiming it is already harmonized."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. BPLZZ/55 and asai-poles-and-hermitian-cuspidal (route 2) overlap accepted BCZ22/53 and /69 in its Asai/GL_n-periods continuation. The uses on v3 pp. 39 and 41 and Definition 1.5 on p. 3 require the poles and regularity at s=1, beyond AL.4's unramified Euler-product contract. Coalesce the two theorem items with that AL continuation and import it into routes 2 and 3. Keep the eta^(m+1) twist and opposite Asai signs. The queue canonicalizes this parent to AutomorphicLFunctionsAndLocalFactorsPartII; its current four accepted directions must share the foundational Asai layer rather than duplicate it."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. ML.5's current contract names cyclic base change, automorphic induction and selected tensor/symmetric-power transfers, not this descent. JIANG-ZHANG-20/grs-descent is missing on a source route and explicitly limits its stated first-occurrence construction to the listed orthogonal groups and odd unitary groups; it only points to a different character-dependent construction for even unitary groups. BPLZZ v3 Lemma 4.16, p. 41, needs every rank m, and Theorem 1.8 uses both n and n+1. Change /60 to missing, source-route its exact as-used all-rank unitary input to ML.5, and make the even-rank proof acquisition explicit. This checks the paper's cited use, not the original GRS monograph proof."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V3 p. 11 uses the reductive Harish-Chandra isomorphism. AF.1 constructs the enveloping algebra, centre action and character subspaces, without that isomorphism. LieHighestWeight's conventions and layers 7/9 distinguish the Killing-semisimple isomorphism from reductive gl_n; the pinned CentralCharacter.lean constructs vermaCentralCharacter, not the required isomorphism. Split /16, retaining the representation-category clauses at their AF owner and routing the reductive extension to the LieHighestWeight continuation. Qualification: NV21 route 8 is an intended coalescence target added by its fix, but its review file accepts only routes 1 and 2. Do not call route 8 accepted or an available theorem; retain its review gate and coordinate the new contribution with that design."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V3 p. 13 uses the discrete-series parameters and Langlands classification; p. 19 uses the subquotient theorem. They are independent real-representation inputs, whereas BPLZZ route 1 schedules them inside the spectral continuation. The AF family owns that foundation; RT-AREA-automorphic-1.fixes.md /2 specifies AF.1b and NV21's corrected /30 agrees. AF.1b is not yet a live assembled stage, and NV21 route 3 lacks a route-review verdict. Source-route the moved clauses of /20 and the subquotient theorem through AF.1 with an explicit AF.1b handoff, rather than inventing a live identifier or claiming the supplier is proved. Retain minimal-K-type clause (c) at one chosen owner and import the moved foundations; drop 'only needed here'."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The p. 8 definition permits admissible P(R)-representations, and p. 20 actually induces from a real minimal parabolic a representation nontrivial on its unipotent radical. SR.2 is in the nonarchimedean smooth category; AS.1's global cuspidal induced families are not the general real construction used here. Split the existing planned nonarchimedean/adelic clauses from the missing real induction input. Route the real input with the AF representation foundation and identify the general P-representation case needed by Lemma 2.25, rather than silently limiting every inducing representation to an inflation from a Levi. No current AF.1b stage is asserted."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed. On v3 pp. 13 and 45, the abstract Cartan and completed tensor products are foundational inputs to the spectral proofs. Accepted TV16/7 and route 2 own the canonical torus of a reductive group; over C the compatible B/[B,B] system is the abstract Cartan used here. Import that construction from the ReductiveGroups continuation (canonical queue target Part III), retaining the real-form decomposition and universal-isomorphism adapters where needed. BCZ22/112 and source route 5 assign completed projective tensor products to AS.0. Its /110 is now a library item, so it is not itself routed missing work; separately continuous Frechet bilinear maps still need a theorem contribution at the same AS.0 foundation. Route and import that contribution once."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Items pure-inner-forms-of-unitary-groups and V-star use hermitian local/global classification; v3 pp. 31–33 and 42 use the associated pairs. GN.2 explicitly plans quadratic/hermitian invariants and local/global theory. In the freshly assembled graph, GN.2 is not an ancestor of any of JIANG-ZHANG-20 route 1's eight existing stage suppliers. Route 3 merely retains that brief and names no added imports. Add GN.2 as a named supplier for those exact constructions, with AL.3 uniqueness and the Asai continuation separately named. The scoped graph test with GN.2 -> GGP is acyclic; this does not claim all other merged-design directions have been audited."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V3 p. 9 defines canonical products and proves Lemma 2.2 before the specialized vertical-growth construction. Accepted YUN-ZHANG-17/47 and its source route to AN.2 already specify one canonical-product/Hadamard supplier. Send the general genus-p product and entire-function order inputs there as missing contributions, preserving the stronger order <= p+1 contract needed here; keep Definitions 2.3 and the vertical-growth results in the spectral continuation. AN.2's live text alone is not a completed canonical-product theorem. Its source contribution/decomposition debt must be extended and reviewed, not described as an existing implementation."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed as missed reuse, not as full library closure. At Mathlib 082e2d3, CentroidHom.lean:57–61 supplies the additive carrier and both multiplication identities, with composition semiring and scalar module instances at 359/380. The v3 p. 8 definition requires C-linear maps for an arbitrary complex algebra. Add a citation and construct the C-linear subalgebra/extension using CentroidHom; keep the residual item missing unless that scalar-linearity adapter is actually supplied. A zero-product complex algebra admits additive non-C-linear centroids, so 'library' for the whole arbitrary-algebra statement would be false. For the specific Schwartz algebras, automatic linearity additionally requires proving the no-left-annihilator/approximate-unit argument; the library citation does not discharge it."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V3 p. 17 explicitly extends the operator by choosing a sequence in the dense bi-K-finite C_c^infinity subspace. Items /10 and /26 describe the Schwartz space and extension but contain no theorem stating that density. The existing Aizenbud–Gourevitch item concerns density of tensor products on products, not this subspace. Add the precise real reductive G/maximal compact K density theorem to the spectral continuation and link /26's extension proof to it; record the compact-support approximation and K-isotypic approximation in the Frechet topology."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The lattice item still repeats the p. 8 definition without finite generation, whereas E15 and the Corollary 2.6 item repair it. Independently, Z[1/2] tensor_Z C = C but its zero set accumulates, so it violates the p. 9 conclusion. Correct the definition and brief, and repair the 'item 13' pointer. The note's claim that square real lattices cannot be zeros of a moderate-vertical-growth entire function is also false: the square-lattice sigma function has finite order, and the damping construction of Proposition 2.4 produces the required vertical growth while retaining its zeros. Thus the complex-linearly-independent lattice restriction belongs to the source's proof convention, not to a claimed impossibility for all real lattices."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Definition 1.6 (v3 pp. 3–4) uses split local base change without extracting its representation-level construction; the other base-change item supplies Hecke and infinitesimal-character maps. Add the split-place identification and map to the GGP foundation. State choice independence through the canonical identifications: switching w and w^c also changes the identification U(V)(F_v) ~= GL_n(F_v) by the contragredient automorphism, and swaps the two factors. Do not claim that pi tensor pi-dual and pi-dual tensor pi are isomorphic as representations of a fixed ordered product without this transport. Link the global definition to the resulting well-defined local map."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed as duplicated foundational planning. Definition 3.9 and the standard-Levi/central-character notation (v3 pp. 23–24) supply the cuspidal data that AS.1's induced families and AS.4's associate-data spectral theorem already require. They should be assigned to that AS prefix, importing AA.2 character spaces and AA.3 reduction theory, rather than reconstructed in the continuation. Keep the source's a_M^G normalization visible. Qualification: this does not identify the elementary pseudo-Eisenstein decomposition with AS.4's full spectral theorem; finding /20 and the pending area fix place the elementary decomposition at AS.1. Preserve any newly required normalization/admissible-compact lemma as an explicit contribution until reviewed."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed against both the application and an additional published primary source. V3 pp. 36 and 43 use local GGP at nonsplit finite places, but /9 restricts it to archimedean/split places and the bibliography's BP20 is the archimedean memoir. Beuzart-Plessis, Memoires SMF 149 (2016), printed pp. 1–4 and Theorem 18.4.1 on p. 185, states the tempered packet uniqueness over a nonarchimedean characteristic-zero field under the packet properties specified in section 18.1. This is the uniqueness input needed here, not a claim that this memoir alone proves every epsilon-label refinement. Extend /9 to the finite nonsplit case, import the required packet theory from ML.4, add that memoir to prerequisites and qualify the incomplete BP20 citation in a source issue and the route-3 brief."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V3 p. 45 invokes the closed graph theorem twice before the separately continuous bilinear-map step; no item states the Frechet closed graph theorem. Pinned LinearMap.continuous_of_isClosed_graph (Banach.lean:537, with its section assumptions) requires complete normed spaces. The read Tau Ceti Henkel theorem requires a nonarchimedean additive source and does not cover complex Frechet spaces. Record the remaining general locally convex theorem and reuse the normed special case where applicable. Correct the proposed owner: contribute it to AS.0 alongside the Trèves/tensor-product foundation in /8, then import it into route 1, instead of planning this generic theorem a second time in that continuation."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V3 p. 38 uses both annihilation of noncuspidal spectrum by a supercuspidal test function and a compatible split-place transfer of such functions. The positive-type item only provides a coefficient with nonzero relative character; /57 states the endpoint. Add the two as-used inputs and their SR.3 matrix-coefficient/support and AS.4 spectral dependencies. Preserve the support and central-character conventions: matrix coefficients are in general compact only modulo the centre, so the test-function statement must specify the quotient or suitable compactly supported supercuspidal cutoff. Likewise state existence of the matching split test functions used in the proof, not that every arbitrary transfer is automatically a supercuspidal coefficient. The literal unqualified recipe would be too strong."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed for clarity and queue coordination, with qualifications. make_queue.paper_designs groups part-ii routes by parent and emits the canonical parentPartII/PartIII identifier, not each proposal alias. Current accepted members give four AS continuations (including MAO-WAN-ZHANG-26 r8), eight endoscopy continuations and five GGP routes. BPLZZ's routed counts are 80/34/7. The report explicitly says its old counts are superseded, so they are stale presentation rather than a contradictory authoritative census; descriptive proposal aliases are allowed, not intrinsically invalid. Add canonical queue names/full titles at sibling references and refresh the route presentation. Ensure the Jacquet–Rallis prefix remains available to Leslie's consumer if the merged design separates directions; do not override the design/restructure workflow by asserting all directions must stay unsplit."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item /32 describes the elementary pseudo-Eisenstein decomposition on v3 p. 24 but credits AS.4's complete spectral theorem. RT-AREA-automorphic-1.fixes.md /5 separately assigns the pseudo-Eisenstein and elementary cuspidal-data prefix to AS.1, with a restriction-of-scalars transport of Arthur's Q formulation. The fresh atlas still shows the original AS.1/AS.4 contracts, so that fix is a handoff, not a live completed supplier. Rewrite the note with AS.1 as intended owner of the elementary decomposition and AS.4 as the later refinement; carry the F/central-character normalization and the pending review boundary. This is compatible with assigning the data themselves to the AS prefix in /15."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed, scoped to v3 p. 3. The motivational passage assumes only connected reductive G without compact factors. A central translation by exp(t I) on GL_2(R) is a continuous convolution multiplier preserving compact support; its infinitesimal-character eigenvalue is exponential in the central coordinate and is a nonpolynomial W-invariant entire function. The extraction's Delorme item already narrows the statement to semisimple G but does not record that narrowing. Add a source issue for the missing semisimple qualification, with the central-translation counterexample and affects nothing. I checked the cited use and counterexample, not Delorme's original theorem; no assertion is made about the uncollated Annals text."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The p. 15 image shows the scalar double bars in (2.2) and the subsequent minimum over |u|=1. For the entire function of u, the maximum modulus principle equates the disc and circle suprema, so the printed circle choice works. E4's revised correction already says that; /22's note still calls it wrong and the Lemma 2.21 note merely points to the stale note. Move the accurate explanation to the Lemma 2.21 item and remove the obsolete assertion from /22. Update the report's older E4 summary consistently; no new mathematical repair of the circle argument is required."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V3 p. 2 contains the JS81 citation before Theorem 1.3; p. 3 does not. The item locator repeats the p. 29 clause and adds the wrong p. 3, and E37 repeats that error. Lemma 2.23 and proof are on p. 17, listed twice. The p. 28 Definition 3.16 has no '(3.9)' slip; the incorrect reference occurs in Theorem 3.19 on p. 29 and already has its own item/E5. Deduplicate the two locators, repair the E37 page references, and remove the misplaced E5 note from /37."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an omitted extension argument, not as a false endpoint. On v3 p. 27 the scalar multiplier identity is applied to all complex induced parameters, although Theorem 2.13 on p. 12 and Appendix A on p. 43 state it for irreducibles. Such induced modules need not be irreducible/semisimple off the unitary axis. On s in i a_M*, normalized induction of the unitary cuspidal data is unitary and finite length, hence splits into finitely many irreducibles with the stated common infinitesimal character; the identity holds there. That is enough for the pseudo-Eisenstein integral on p. 24. If the all-complex statement is retained, additionally prove holomorphy of the compact-picture matrix coefficients/integrals, then use uniqueness from the totally real unitary axis. Record this short proof obligation for Propositions 3.15/3.17; merely saying 'by holomorphy' without that adapter is not formal closure."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed. E31's parenthetical equates its structural condition with split-over-Q or anisotropic cases. For G=SL_2 x SL_1(D) over Q, M_0=T x SL_1(D); the two standard Levi cases have c_M*=a_M* of dimensions 1 and 0, while G is neither split nor anisotropic. Its own reason already gives this counterexample. Remove the parenthetical or retain the structural condition on Res_{F/Q} Z^0_(M_0). If replacing it by cases, keep the ambient requirement that G be semisimple in both branches; 'F=Q and Z^0_(M_0) split' alone would wrongly include reductive groups with nontrivial centre. Correct the matching review explanation without weakening the condition."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/26",
+      "verdict": "rejected",
+      "reason": "Rejected. At v3 p. 25, chi is fixed throughout the construction. The superscript in mu^chi_infinity denotes that dependence and its suppression in the later mu_infinity introduces no different object, ambiguity in a statement, or invalid step. Similarly, p. 30's 'G-CAP' is the contextual abbreviation of (G,T)-CAP with the fixed T from section 3.1; the proof uses exactly the hypothesis of Theorem 3.6. Neither is evidence of a mathematical misprint requiring a new sourceIssue. A notation note could be added for readability, but I would not manufacture two errata entries for these abbreviations."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed as ownership/closure bookkeeping, not as absence of the mathematical formulas. V3 pp. 22, 25 and 28 use the spherical correspondence, induced Satake eigencharacters and the Weyl-orbit infinitesimal-character formula. Item /29 already states the spherical correspondence; /35 and unramified-induced-t-character already state the orbit formula, and the last item also states exponential type. Thus the finding's 'no item' language is too strong. These standard inputs are bundled into missing construction items in route 1 instead of distinguishing SR.1/SR.4's planned portion from the missing real-induced-character theorem. Split or explicitly cite them once, retain residual bookkeeping, and source-route the real theorem with the AF real induction foundation of /7. Prove/cite the finite-exponential-sum adapter separately if SR.4's contract alone does not cover it."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed with proof-acquisition qualification. Remark 3.20 on v3 p. 30 explicitly replaces the coarse decomposition by the discrete-data spectral decomposition and Donnelly's input by Muller Theorem 0.1. Item /38 embeds the citations in an extension theorem, but does not state the Muller finite-rank consequence needed for the modified Lemma 3.12. Expose AS.4's spectral supplier as planned and the fixed-level/finitely-many-K-types discrete-eigenvalue finite-rank input as missing, then link /38 to both. Preserve that this is Muller's theorem as used by BPLZZ: its original hypotheses and the trace-class-to-counting implication still need acquisition before proof closure. No original Muller proof was read in this verification."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V3 pp. 22–23 fix S_G subset S subset T, product level K, the unitary central character and the M-sharp tensor Hecke definition before the isolation theorems. Items /30, /31 and Theorem 3.19 carry the setup, but the route-1 brief states the final theorems without specifying it. Add those standing data or an explicit precise cross-reference in the brief, so the Hecke centrality and multiplier spaces are well-typed. This is an omission in the design brief, not a new counterexample to the correctly stated theorem items."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed for reuse/imports, with a narrower status correction. V3 pp. 23–26 use admissible K, local Iwasawa decompositions, Levi hyperspecials and compactness of the central norm-one quotient. RG2.4 plans the local decomposition/double-coset foundation; AA.2–AA.3 supply character spaces and reduction theory, and KISIN-17's accepted hyperspecial Iwasawa item points to RG2.4. Add those named imports and reuse the existing planned parts. However, neither these general contracts nor AS.1's induced-family text explicitly supplies Arthur's entire admissibility package (including the real Cartan-involution compatibility). Split off the residual choice/compatibility lemma as a missing AS-prefix contribution or expressly add it there; do not mark the whole item planned solely because Eisenstein series need such a K."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed on the p. 45 image. The printed target has S(G_der^0)_(T_Z) tensor S(Z^0)_(T_der): the group labels are exchanged while the subscript positions remain fixed. Exchanging correctly paired factors would instead be harmless tensor symmetry. E9's correction and review reason are accurate, but its reason and the report's 'swapped factors and K-type subscripts' misdescribe this. Correct only that explanation and summary; retain the existing mathematical correction."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V3 p. 38 requires finiteness with only level and infinitesimal character fixed. Item /33 adds a specified finite set of K-types, and its cited AF.2/AF.3 contracts therefore provide only the weaker input directly. Add the real-representation finiteness theorem for irreducible (g,K)-modules with fixed infinitesimal character, or state the stronger automorphic finiteness theorem as an explicit cited input. With finitely many real modules choose one K-type from each, obtaining a finite set to which the existing fixed-type theorem applies. Assign the local theorem to the AF foundation and retain AF.2/AF.3 for the global conclusion; finite multiplicity of individual K-types is not that local theorem."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/33",
+      "verdict": "rejected",
+      "reason": "Rejected. V3 Theorem 4.14(3), p. 39, uses T_0 and its proof on p. 40 uses T=S union T_0. Definition 3.4 on p. 22 quantifies at all but finitely many primes outside the exceptional set. Since S is finite, the T and T_0 CAP conditions are equivalent for the same inner form and inducing cuspidal datum. Thus taking the T-CAP formulation in the proof is valid and proves the T_0-CAP conclusion; it is not a wrong hypothesis or a missing mathematical argument. An explanatory equivalence note is welcome, but the proposed misprint sourceIssue is not warranted by this change of formulation."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The route-2 field literally says modular, and galaxies.json contains automorphic and langlands but no modular. Its reason requests correction and the report repeats that unresolved request. The eight accepted merged endoscopy directions currently have five modular and three langlands values; paper_designs chooses the most common one, transmitting the invalid value. Use a valid area, preferably langlands for consistency with the parent's classification or automorphic with an explicit shared decision. The two fix paragraphs disagree about that choice, so do not prescribe both. Flag the other member routes for coordinated correction; the rejected BC25 routes are not authoritative accepted-area precedent."
+    },
+    {
+      "finding": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The extraction has E19 and E45 affecting a stated result, but no sourceVersions, despite PROTOCOL section 18 and check_errata.versions_checked requiring the version record. Its readSections records v3 and explicitly says the Annals text was not compared. Add the actual opened preprint PDF URL and matching hash/date (distinguish the extraction's 2026-09-23 reading from this verification's 2026-10-02 re-download); scope quotations to v3 and leave published collation pending. Do not give the PDF hash as if it hashed an arXiv abstract page, or fabricate a published-version reading. Record the unread version-of-record citation separately with its access limitation."
+    }
+  ]
+}
