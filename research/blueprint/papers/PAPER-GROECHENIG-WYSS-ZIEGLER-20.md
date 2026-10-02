@@ -8,9 +8,13 @@ The machine-readable extraction is [PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json
 - 78 items: 3 library, 5 planned, 70 missing;
 - 5 routes: 3 source routes, 1 coalesced Part II and 1 new roadmap;
 - 11 prerequisite entries;
-- 20 recorded source issues.
+- 25 recorded source issues after the 2 October 2026 repair; the original extraction recorded E1–E20.
+
+Repair by Codex, session `codex-rtOQ9t`, for [#5509](https://github.com/CBirkbeck/tauceti-explorer/issues/5509), following independent confirmation of all six red-team findings. The 78 item statuses, five owners and route memberships, eleven prerequisites, and accepted E1–E20 review history are retained. The stronger actual Galois-isomorphism target in Theorem 7.23 remains unresolved; its trace consequence is retained. The full repair account is [RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20.fixes.md](../redteam/RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20.fixes.md).
 
 ## Sources read
+
+The following full-reading and preprint-collation account belongs to the original extraction. The repair's fresh, bounded source reading is recorded below and in `sourceVersions`; it does not claim another full-paper or preprint reread.
 
 - **The published article** (open access) was read in full. Pages below are the journal's.
 - **arXiv v3** was used through its TeX source as a reading aid.
@@ -32,7 +36,7 @@ Then:
 
 It has three refinements:
 - the Hodge-number equality for D = Ω¹ (Corollary 7.22);
-- fibrewise Galois representations that are abstractly isomorphic (Theorem 7.23);
+- the stronger fibrewise actual Galois-isomorphism statement printed as Theorem 7.23, whose purity-to-isomorphism proof step remains unresolved; Theorem 6.12 supplies alternating Frobenius traces over all finite extensions;
 - the Γ-isotypic parts of H^*_c(M^L_{SL_n}), described through the Weil pairing (Theorem 7.24, a form of a conjecture of Hausel).
 
 **The method.**
@@ -89,12 +93,13 @@ It has three refinements:
 4. **Part II (coalesced) → EndoscopicTransferAndUnitaryTraceComparisonPartII**, "Endoscopic transfer and unitary trace comparison, Part II: geometric stabilisation via p-adic integration" (23 items; parent EndoscopicTransferAndUnitaryTraceComparison, area `langlands`).
    - **Contents:**
      - fermionic shift and weight;
-     - gerbes on [Y/Γ] as central extensions, transgression and Lemma 2.9;
-     - H¹(F, Γ) and its Tate pairing;
-     - the μ_r-gerbe form of Lemma 3.12;
+     - gerbes on [Y/Γ] via action-groupoid descent, retaining pullbacks and the equivariant commutative band; ordinary central extensions only with trivial base and band actions;
+     - transgression and Lemma 2.9, using stabilizer scalars on line-bundle fibres and their roots;
+     - H¹(F, Γ), its unramified annihilator and ordered mixed Tate pairing; a full block matrix includes the potentially nonzero complementary diagonal;
+     - the μ_r-gerbe form of Lemma 3.12, with quotients by the image of base classes;
      - twists and their Frobenius;
      - admissible stacks, the orbifold measure, the specialisation map and Theorem 4.16 with its affine and cyclic cases;
-     - all of §5 except Corollary 5.29;
+     - all of §5 except Corollary 5.29, with an explicit unramified enlargement before splitting-based arguments, constant cyclic-inertia coefficients, the inverse tame-character generator, and the existing E15/E16 comparison obligations;
      - Lemmas 6.7 and 6.13.
    - **Why here:** these are the finite-abelian-quotient cases of GWZ20-B's canonical measure, stacky Weil formula, stacky Hasse invariant and Tate-duality lemma, all proposed for this candidate. A second owner would duplicate them. The route keeps the candidate's id, title and area. Its brief asks the design to derive these statements from the general layers.
 5. **New → TopologicalMirrorSymmetryForHitchinSystems**, "Topological mirror symmetry for Hitchin systems" (36 items; area `geomlanglands`).
@@ -106,7 +111,7 @@ It has three refinements:
      - Corollary 5.29;
      - the SL_n and PGL_n Higgs moduli over a Noetherian base: smoothness, properness, twisting, norm preimages, Prym duality, the regular locus, the torsor calculus;
      - the Hausel–Thaddeus gerbes and their duality;
-     - Theorems 7.15–7.16, 7.21, 7.23, 7.24 and Corollary 7.22.
+     - Theorems 7.15–7.16, 7.21, 7.24 and Corollary 7.22; Theorem 7.23 remains a stronger unresolved target requiring arithmetic semisimplicity and justified degree separation, or an independent geometric isomorphism.
    - **Why new:**
      - The atlas has no home for stringy Hodge theory or topological mirror symmetry.
      - ET.2b builds the Hitchin fibration only for the endoscopic comparison over a finite field.
@@ -118,10 +123,12 @@ It has three refinements:
      - Chebotarev recognition from ArithmeticGaloisRepresentations R01.5;
      - purity from DeligneWeightsAndPurity DWP.7;
      - dual abelian schemes from AbelianSchemesAndArithmeticModuli A2.
+   - Character point counts use groupoid weights `1/|Aut(x)|`. Root choices are retained for general prime powers, fractional twists use the corrected coefficient conventions and negative sign, and fixed-determinant norm preimages use `L·det(π_*O)⁻¹`.
+   - R01.5 assumes semisimplicity and DWP.7 does not furnish it from purity. These imports do not discharge Theorem 7.23's stronger target. Its missing proof is recorded as a request to this proposed owner, not as a new registered atlas stage.
 
 ## Source issues (`sourceIssues` E1–E20)
 
-All of these are in the published text. None breaks a main theorem, but E2, E3 and E13 reach stated results, and E1 and E14–E17 reach proofs.
+These are the original, independently reviewed findings. E2, E3 and E13 reach stated results, and E1 and E14–E17 reach proofs. Their accepted review records are preserved. The main mirror-symmetry theorem is retained; the additional E25 proof gap below concerns a stronger refinement.
 
 **Errors.**
 - **E13 (Lemma 5.1, p. 548).**
@@ -134,7 +141,7 @@ All of these are in the published text. None breaks a main theorem, but E2, E3 a
   - **Repair:** pass to L·F_d. Its Galois group Γ ×_{Z/f} Z/d is split, and X_{L·F_d/F} ≅ X_{L/F}.
 - **E3 (Lemma 3.12, second assertion, and Corollary 3.13, p. 534).**
   - **Problem:** the Brauer-group form is false. For y² = x³ − x over Q_5 with r = 2, the left side has order 4 and Ext²(E, μ_2) = H¹(F, E[2]) has order 16.
-  - **Fix:** the μ_r-gerbe form H²(−, μ_r) is correct, and it is what Lemma 6.7 uses.
+  - **Fix:** use μ_r-gerbes in H²(−, μ_r). For a torsor Z, quotient the geometrically trivial classes by the image of H²(F, μ_r), without assuming the base map injective. Normalize along the unit for A. This is the corrected input to Lemma 6.7, which also retains E15/E16's transgression obligations.
 - **E1 (Definition 2.16(c), p. 525).** The claimed independence of the choice of roots of q fails for q = 4: take X = L^{1/2}, Y = 2·[pt], and s_2 = ±2. It holds for primes q = p prime to the values of χ, and those points have density one, which is all that Theorems 2.18–2.19 need.
 - **E2 (Lemma 2.17, pp. 525–526).**
   - **Problem:** with Q_ℓ-coefficients, no ℓ^k-th root of the cyclotomic character exists for large k, because its image is open and (Z_ℓ^×)^{ℓ^k} ⊂ μ_{ℓ−1}(1 + ℓ^{k+1}Z_ℓ).
@@ -162,7 +169,21 @@ All of these are in the published text. None breaks a main theorem, but E2, E3 a
 - **E19:** the Bockstein direction and indices in the proof of Theorem 5.20.
 - **E20:** Lemma 2.7(c) is misquoted in the proof of Lemma 5.12.
 
-The items use the corrected statements.
+The repair applies E1, E2, E3, E4, E6, E12, E13 and E14 in the active statements and dependent proof notes. In particular, with M=det(π_*O), item /66 uses Nm⁻¹(L·M⁻¹); /71 uses `(P^L)^e=P^{L^e M^{1−e}}` and the degree-zero `N=M⁻¹Q^n`. Historical printed assertions remain in `sourceIssues` and the changed statement history. E15/E16 are retained as unresolved obligations, including in /46, /47 and /52.
+
+## Confirmed red-team corrections (2 October 2026)
+
+The independently confirmed findings add E21–E25 to the published-source ledger. These new records await their own source-issue review; no accepted verdict is fabricated for them.
+
+- **E21, Lemma 2.7(a), pp. 516–517:** equivariant gerbe descent needs `L_γ⊗γ*L_δ→L_{γδ}`, with unit and associativity coherence. Ignoring the free C₂ action on Y=C₂ produces four ordinary extension classes although `[Y/C₂]=Spec k` has only the trivial μ₂-gerbe. Item /11 audits Lemma 2.9 directly on inertia: a stabilizer acts on a line-bundle fibre by a finite-order scalar; the root gerbe transgresses to the torsor of its r-th roots. Constant μ_{r|Γ|} supplies a finite-set section, sufficient to trivialize it. The conclusion is retained without the erroneous global-character step.
+- **E22, Lemma 2.7(c), pp. 516–517:** geometric extension classes need Galois descent. Over R with Γ=C₃ and A=μ₃, both H²(R,μ₃) and H²(B_R C₃,μ₃) vanish, but geometric Ext¹ is C₃. The retained split sequence is restricted to constant finite étale coefficients with trivial actions. The later `B_{k_F}I` calculation remains valid for constant μ_e and cyclic I; general coefficients need actual descent obstructions, not just invariants.
+- **E23, Definition 2.14(b), p. 523:** each character-trace summand is divided by |Aut(x)|. Over F₃, BC₂ has weighted count one, whereas the unweighted sum is two. The generically free sign quotient A¹/C₂ has weighted count three rather than four. The cohomological definition and existing stringy/volume weights are retained.
+- **E24, Lemma 3.7, p. 531:** the complementary factors need not be isotropic. Over Q₃ with uniformizer 3, the class −3 has zero unramified coordinate but self-pairing 1/2. In the basis (−1,−3) the invariant matrix is `[[0,1/2],[1/2,1/2]]`. Unramified orthogonality and ordered mixed evaluation remain valid, including the application in /78.
+- **E25, Theorem 7.23 proof, p. 589:** purity and alternating point-count equality do not establish actual Galois isomorphism. Frobenius I₂ and the nontrivial unipotent Jordan block J₂ are pure of weight zero and have equal traces on all powers, but different fixed-space dimensions. Item /76 and the new-roadmap brief retain the trace/virtual-character consequence and require a further proof for the stronger statement. Alternating traces alone do not even supply an unqualified degreewise semisimplification.
+
+The coalesced Part II keeps its owner, title, area and all 23 items, but its brief now refines the finite-quotient inputs above; the sibling extraction was not edited. The September review's byte-identity statement below describes the earlier version.
+
+Fresh repair reading used the published PDF, SHA-256 `f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07`, at pp. 516–517, 520–521, 523, 525–527, 531, 534, 543, 548–551, 565, 567–568, 579, 582–583, 585 and 589. Images of pp. 516, 523, 531 and 589 were inspected. Publisher, DOI metadata and arXiv history checks plus bounded title/author/DOI searches found no relevant correction; this is not an exhaustive novelty search or a fresh preprint collation. The published source is [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); the corrections and proof qualifications above are changes to its assertions.
 
 ## Prerequisites not yet covered
 
@@ -181,6 +202,8 @@ The items use the corrected statements.
 DOIs were checked against Crossref.
 
 ## Checks
+
+The original extraction's checks below are historical. The repair separately passed the paper checker, three-file intake, source-issue/version checks, mathematical distinguishing calculations and preservation checks described in the fixes report. No Lean deliverable was required or compiled.
 
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json` passes.
 - The generator asserts that every missing item is routed exactly once.

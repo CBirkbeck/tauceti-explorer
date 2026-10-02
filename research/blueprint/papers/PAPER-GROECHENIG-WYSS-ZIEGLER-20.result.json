@@ -15,7 +15,7 @@
       "Page numbers are the journal's (505–596)."
     ]
   },
-  "summary": "Groechenig, Wyss and Ziegler prove the Topological Mirror Symmetry conjecture of Hausel and Thaddeus: for coprime d, e and n, the E-polynomial of the moduli space of stable SL_n-Higgs bundles of determinant L of degree d equals the stringy E-polynomial of the PGL_n-moduli stack of degree e twisted by the Hausel–Thaddeus gerbe (Theorem 7.21), with the Hodge-number and fibrewise Galois forms (Corollary 7.22, Theorem 7.23) and a refinement describing the Γ = J_X[n]-isotypic parts (Theorem 7.24). The method is p-adic integration. An orbifold measure on O_F-points of an admissible finite abelian quotient stack computes stringy point counts (Theorem 4.16). A gerbe gives a function f_α equal to the Hasse invariant of its pull-back, computed on the inertia stack (§5, Proposition 5.25, Corollary 5.29). Tate duality then shows that for 'dual abstract Hitchin systems', whose Pryms are dual by a self-dual isogeny and whose torsors are each other's spaces of splittings, the fibrewise p-adic integrals agree (Theorem 6.17), hence stringy point counts agree (Theorem 6.12). An equivariant form of Katz's theorem with fractional Tate twists (Theorems 2.15–2.19) turns these counts into stringy E-polynomials (Theorem 6.11). The same technique shows that point counts of GL_n and SL_n Higgs moduli do not depend on the degree (Theorems 7.15–7.16). The atlas plans the Hitchin fibration along Ngô's route (ET.2b), p-adic measures (LD.2), the local Brauer group and Tate duality (Class field theory Layer 5, R02.4) and algebraic stacks (R09.4–R09.5). The p-adic integration on quotient stacks, the stacky Hasse invariant and the Tate-duality comparison of dual fibrations are the finite-abelian prototype of what PAPER-GROECHENIG-WYSS-ZIEGLER-20-B routes to EndoscopicTransferAndUnitaryTraceComparisonPartII. This route coalesces with it. Stringy invariants, Katz's theorem, abstract Hitchin systems and the SL_n/PGL_n application form a new roadmap. Among the mistakes found: Lemma 5.1's claim that the Galois group of a tame extension splits is false (a cyclic quartic extension of Q_5), Lemma 3.12's Brauer-group form is false (a μ_r-gerbe form is right), Definition 2.16(c) fails for q = 4, and Lemma 2.17 fails with Q_ℓ-coefficients. The main theorems survive.",
+  "summary": "Groechenig, Wyss and Ziegler prove the Topological Mirror Symmetry conjecture of Hausel and Thaddeus: for coprime d, e and n, the E-polynomial of the moduli space of stable SL_n-Higgs bundles of determinant L of degree d equals the stringy E-polynomial of the PGL_n-moduli stack of degree e twisted by the Hausel–Thaddeus gerbe (Theorem 7.21), with the Hodge-number form (Corollary 7.22) and the stronger fibrewise actual Galois-isomorphism claim (Theorem 7.23), whose printed proof remains unresolved and a refinement describing the Γ = J_X[n]-isotypic parts (Theorem 7.24). The method is p-adic integration. An orbifold measure on O_F-points of an admissible finite abelian quotient stack computes stringy point counts (Theorem 4.16). A gerbe gives a function f_α equal to the Hasse invariant of its pull-back, computed on the inertia stack (§5, Proposition 5.25, Corollary 5.29). Tate duality then shows that for 'dual abstract Hitchin systems', whose Pryms are dual by a self-dual isogeny and whose torsors are each other's spaces of splittings, the fibrewise p-adic integrals agree (Theorem 6.17), hence stringy point counts agree (Theorem 6.12). An equivariant form of Katz's theorem with fractional Tate twists (Theorems 2.15–2.19) turns these counts into stringy E-polynomials (Theorem 6.11). The same technique shows that point counts of GL_n and SL_n Higgs moduli do not depend on the degree (Theorems 7.15–7.16). The atlas plans the Hitchin fibration along Ngô's route (ET.2b), p-adic measures (LD.2), the local Brauer group and Tate duality (Class field theory Layer 5, R02.4) and algebraic stacks (R09.4–R09.5). The p-adic integration on quotient stacks, the stacky Hasse invariant and the Tate-duality comparison of dual fibrations are the finite-abelian prototype of what PAPER-GROECHENIG-WYSS-ZIEGLER-20-B routes to EndoscopicTransferAndUnitaryTraceComparisonPartII. This route coalesces with it. Stringy invariants, Katz's theorem, abstract Hitchin systems and the SL_n/PGL_n application form a new roadmap. Among the mistakes found: Lemma 5.1's claim that the Galois group of a tame extension splits is false (a cyclic quartic extension of Q_5), Lemma 3.12's Brauer-group form is false (a μ_r-gerbe form is right), Definition 2.16(c) fails for q = 4, and Lemma 2.17 fails with Q_ℓ-coefficients. The main mirror-symmetry theorem is retained. The six independently confirmed red-team findings correct equivariant gerbe descent, geometric-extension descent, stabilizer weights, the complementary Tate-pairing block, the Theorem 7.23 purity-to-isomorphism inference, and the application of previously accepted source corrections. E21–E25 are new source-ledger records awaiting review; E1–E20 and their accepted review history are preserved.",
   "items": [
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/1",
@@ -103,11 +103,29 @@
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/9",
       "kind": "theorem",
-      "name": "Equivariant structures on a trivial gerbe are central extensions",
-      "statement": "Let Y be a scheme with an action of a finite abstract group Γ and A → Y a smooth group scheme. (a) Isomorphism classes of Γ-equivariant structures on the trivial A-gerbe on Y correspond to isomorphism classes of central extensions 1 → A → Γ̂ → Γ → 1 of smooth group Y-schemes. (b) If Γ is cyclic, such Γ̂ is abelian. (c) If Y = Spec k with H²_ét(k, A) = 0 and Γ cyclic, there is a short exact sequence H¹_ét(k, Hom(Γ, A)) ↪ H²_ét([Spec k/Γ], A) ↠ Ext¹(Γ, A_k̄), split when A is constant étale.",
+      "name": "Equivariant gerbe descent and the constant cyclic extension sequence",
+      "statement": "Let Y carry a finite Γ-action and A/Y be a smooth commutative group scheme with specified coherent Γ-equivariant band identifications. (a) Equivariant structures on the trivial A-gerbe are descent data on the action groupoid: A-torsors L_γ with L_1 trivial, isomorphisms L_γ⊗γ^*L_δ→L_{γδ}, and unit/associativity coherence, modulo coherent equivalence. Fix a pullback convention with γ^*δ^*=(γδ)^* (inverse pullbacks for a left action). These are ordinary central extensions of Γ_Y by A only when both base and band actions are trivial. (b) In that ordinary case, for cyclic Γ such central extensions are abelian. (c) For Y=Spec k, trivial base and band actions, cyclic Γ and constant finite étale A with H²_ét(k,A)=0, there is a split short exact sequence 0→H¹(k,Hom(Γ,A))→H²_ét(B_kΓ,A)→Ext¹_Z(Γ,A(k̄))→0; constant abstract extensions define its splitting. No surjection to all geometric extension classes is asserted for general nonconstant smooth A.",
       "locator": "§2.2.1, Lemma 2.7, pp. 516–517",
       "status": "missing",
-      "note": "The equivariant structure is a monoidal map Γ → B_Y A; the extension is its pullback of Y → B_Y A."
+      "note": "The action-groupoid formulation preserves pullbacks on Y and the equivariant band. General nonconstant coefficients need Galois-invariant geometric classes and actual descent obstructions; H²(k,A)=0 alone does not give descent or surjectivity. E21/E22 are independent of the existing E20 presentation/misquotation correction. The later B_{k_F}I calculation uses trivial base action and constant μ_e, with I cyclic and k_F finite.",
+      "sourceStatementBeforeRepair": "Let Y be a scheme with an action of a finite abstract group Γ and A → Y a smooth group scheme. (a) Isomorphism classes of Γ-equivariant structures on the trivial A-gerbe on Y correspond to isomorphism classes of central extensions 1 → A → Γ̂ → Γ → 1 of smooth group Y-schemes. (b) If Γ is cyclic, such Γ̂ is abelian. (c) If Y = Spec k with H²_ét(k, A) = 0 and Γ cyclic, there is a short exact sequence H¹_ét(k, Hom(Γ, A)) ↪ H²_ét([Spec k/Γ], A) ↠ Ext¹(Γ, A_k̄), split when A is constant étale.",
+      "acceptance": [
+        {
+          "name": "GerbeDescent.free_base_action",
+          "kind": "non-example",
+          "statement": "For Y=C2 freely permuted by Γ=C2 over an algebraically closed characteristic0 field, A=μ2: H²(C2,Map(C2,F2))=0, whereas ignoring the permutation gives four ordinary extension classes. Reject the untwisted classification."
+        },
+        {
+          "name": "GerbeDescent.nonconstant_real_coefficients",
+          "kind": "non-example",
+          "statement": "For k=R, Γ=C3 and A=μ3, H²(R,μ3)=0 but H²(B_R C3,μ3)=0 while Ext¹_C(C3,μ3)=C3. The nonzero geometric classes are conjugation anti-invariant and do not descend."
+        },
+        {
+          "name": "GerbeDescent.cyclic_inertia_constant",
+          "kind": "compatibility",
+          "statement": "For finite k_F containing μ_e and I=C_e, preserve the trivial-base B_{k_F}I presentation: H¹(k_F,Hom(I,μ_e))≅C_e, Ext¹_Z(I,μ_e)≅C_e and |H²(B_{k_F}I,μ_e)|=e². The splitting comes from constant extensions."
+        }
+      ]
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/10",
@@ -125,7 +143,20 @@
       "statement": "Let Y be an irreducible Noetherian scheme with an action of a finite group Γ, covered by Γ-equivariant Zariski-open affines, and r a positive integer with μ_{r·|Γ|} constant étale on Y. Then there is a map τ : H²_ét([Y/Γ], G_m)[r] → H¹_ét(I[Y/Γ], μ_r) with α ↦ P_α equal to τ composed with H²([Y/Γ], μ_r) → H²([Y/Γ], G_m)[r], compatible with β ↦ P_β into H¹(I[Y/Γ], G_m). Equivalently, P_α is trivial when α comes from a line bundle via the Kummer boundary.",
       "locator": "§2.3, Lemma 2.9 with Claims 2.10–2.11, pp. 519–521",
       "status": "missing",
-      "note": "Zariski-locally a line bundle on [Y/Γ] is a character λ : Γ → μ_{|Γ|}, and the extension Γ̂_α is the pullback of 1 → μ_r → μ_{r|Γ|} → μ_{|Γ|} → 1 along λ, which is constant."
+      "note": "Audit Lemma2.9 with action-groupoid descent, not an ordinary extension on nontrivially acted-on Y. A Γ-linearized trivial line bundle generally gives a cocycle of units, not a character Γ→G_m,Y. A corrected proof for α=δ(L) works directly on inertia: an inertia automorphism g acts on the rank-one fibre of L by a scalar λ_g with λ_g^{ord(g)}=1, giving a conjugation-invariant map λ:I[Y/Γ]→μ_|Γ|. Transgression of the root gerbe δ(L) is the μ_r-torsor of r-th roots of λ. Because μ_{r|Γ|} is constant étale, the finite constant map [r]:μ_{r|Γ|}→μ_|Γ| admits a choice of section as a map of finite sets/schemes (no group-homomorphic section is required). Pulling back that section trivializes P_{δ(L)}. This retains the conclusion and avoids the source’s untwisted extension/character step; all choices and conjugation descent must be implemented in the owner. E21 does not declare Lemma2.9 false.",
+      "sourceNoteBeforeRepair": "Zariski-locally a line bundle on [Y/Γ] is a character λ : Γ → μ_{|Γ|}, and the extension Γ̂_α is the pullback of 1 → μ_r → μ_{r|Γ|} → μ_{|Γ|} → 1 along λ, which is constant.",
+      "acceptance": [
+        {
+          "name": "Transgression.root_line_fixed_sector",
+          "kind": "compatibility",
+          "statement": "For an inertia element of order m dividing |Γ|, its scalar on L lies in μ_m; identify P_{δ(L)} with the r-th-root torsor of that scalar, including centralizer descent."
+        },
+        {
+          "name": "Transgression.no_global_character",
+          "kind": "non-example",
+          "statement": "For a nontrivial base action the linearization units satisfy a_γ γ^*a_δ=a_{γδ}; do not infer a_γ^{|Γ|}=1 on all Y. Finite-order scalars are used only at inertia."
+        }
+      ]
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/12",
@@ -140,10 +171,23 @@
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/13",
       "kind": "definition",
       "name": "Equivariant E-polynomials and χ-twisted point counts",
-      "statement": "For a finite group G, G-varieties are separated G-schemes of finite type with every orbit in an affine open. (a) For a complex G-variety X and a character χ, E^χ_G(X; x, y) = Σ_{p,q,i} (−1)^i dim[gr^{p,q}_W H^i_c(X)^χ] x^p y^q. (b) For a G-variety X over F_q and a Q̄_ℓ-valued character χ, #^χ_G(X) = Σ_i (−1)^i Tr[Fr, H^i_{c,ét}(X, Q̄_ℓ)^χ] = Σ_{x ∈ [X/G](F_q)_iso} Tr[Fr_x, (L_χ)_x], with L_χ the local system on [X/G] induced by χ.",
+      "statement": "For a finite group G, G-varieties are separated G-schemes of finite type with every orbit in an affine open. (a) For a complex G-variety X and a character χ, E^χ_G(X; x, y) = Σ_{p,q,i} (−1)^i dim[gr^{p,q}_W H^i_c(X)^χ] x^p y^q. (b) For a G-variety X over F_q and a Q̄_ℓ-valued character χ, #^χ_G(X) = Σ_i (−1)^i Tr[Fr, H^i_{c,ét}(X, Q̄_ℓ)^χ] = Σ_{x ∈ [X/G](F_q)_iso} Tr[Fr_x, (L_χ)_x]/|Aut(x)|, with L_χ the local system on [X/G] induced by χ.",
       "locator": "§2.5, Definition 2.14, p. 523",
       "status": "missing",
-      "note": ""
+      "note": "Use groupoid-weighted sums, retaining the cohomological definition. E23 corrects the omitted denominator in the published Definition2.14(b); existing stringy/volume weights are unchanged.",
+      "sourceStatementBeforeRepair": "For a finite group G, G-varieties are separated G-schemes of finite type with every orbit in an affine open. (a) For a complex G-variety X and a character χ, E^χ_G(X; x, y) = Σ_{p,q,i} (−1)^i dim[gr^{p,q}_W H^i_c(X)^χ] x^p y^q. (b) For a G-variety X over F_q and a Q̄_ℓ-valued character χ, #^χ_G(X) = Σ_i (−1)^i Tr[Fr, H^i_{c,ét}(X, Q̄_ℓ)^χ] = Σ_{x ∈ [X/G](F_q)_iso} Tr[Fr_x, (L_χ)_x], with L_χ the local system on [X/G] induced by χ.",
+      "acceptance": [
+        {
+          "name": "CharacterCount.BC2",
+          "kind": "degenerate",
+          "statement": "For X=Spec F3, G=C2 and χ=1, two torsors with automorphism order2 give 1/2+1/2=1, matching cohomology; reject the unweighted value2."
+        },
+        {
+          "name": "CharacterCount.affine_sign_action",
+          "kind": "non-example",
+          "statement": "For A¹/F3 with sign action, the two zero torsor classes each have automorphism order2 and two free-locus classes have order1. Weighted count3 equals the trivial-character cohomological trace; the unweighted count4 fails."
+        }
+      ]
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/14",
@@ -158,28 +202,32 @@
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/15",
       "kind": "definition",
       "name": "Fractional powers of L and compatible systems of roots of q",
-      "statement": "(a) A compatible system of roots of a prime power q is a sequence s = (s_r) in C with s_1 = q and s_{rr′}^r = s_{r′}. (b) Given R → F_q, a compatible system s extends the χ-twisted point count to #^{s,χ}_{F_q} : K_0(Var_G/R)[(L^{1/r})_{r≥2}] → C by #^{s,χ}(L^{1/r}) = s_r for trivial χ and 0 otherwise. (c) The relation #^χ_{F_q}(X) = #^χ_{F_q}(Y) is asserted to be independent of s. (d) E^χ extends to K_0(Var_G/C)[(L^{1/r})] → Z[(x^{1/r}, y^{1/r})] by E^χ(L^{1/r}) = (xy)^{1/r} for trivial χ and 0 otherwise.",
+      "statement": "(a) A compatible system of roots of a prime power q is a sequence s = (s_r) in C with s_1 = q and s_{rr′}^r = s_{r′}. (b) Given R → F_q, a compatible system s extends the χ-twisted point count to #^{s,χ}_{F_q} : K_0(Var_G/R)[(L^{1/r})_{r≥2}] → C by #^{s,χ}(L^{1/r}) = s_r for trivial χ and 0 otherwise. (c) Keep the system s in #^{s,χ}_{F_q}; independence of equality holds in the justified prime-field case q=p prime to the order of the values of χ, using a Galois automorphism fixing those values. Do not remove s for arbitrary prime powers (q=4 is a counterexample). (d) E^χ extends to K_0(Var_G/C)[(L^{1/r})] → Z[(x^{1/r}, y^{1/r})] by E^χ(L^{1/r}) = (xy)^{1/r} for trivial χ and 0 otherwise.",
       "locator": "§2.5, Definition 2.16, p. 525",
       "status": "missing",
-      "note": "Part (c) holds for q prime (with the Galois element fixing the values of χ) but fails for q = 4 (sourceIssues)."
+      "note": "E1 is applied to the active target. Density-one prime-residue points with p prime to the character values suffice for the Chebotarev comparison in /17; no arbitrary-prime-power independence is claimed.",
+      "sourceStatementBeforeRepair": "(a) A compatible system of roots of a prime power q is a sequence s = (s_r) in C with s_1 = q and s_{rr′}^r = s_{r′}. (b) Given R → F_q, a compatible system s extends the χ-twisted point count to #^{s,χ}_{F_q} : K_0(Var_G/R)[(L^{1/r})_{r≥2}] → C by #^{s,χ}(L^{1/r}) = s_r for trivial χ and 0 otherwise. (c) The relation #^χ_{F_q}(X) = #^χ_{F_q}(Y) is asserted to be independent of s. (d) E^χ extends to K_0(Var_G/C)[(L^{1/r})] → Z[(x^{1/r}, y^{1/r})] by E^χ(L^{1/r}) = (xy)^{1/r} for trivial χ and 0 otherwise."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/16",
       "kind": "theorem",
       "name": "Compatible roots of the Tate twist",
-      "statement": "After replacing R by a finite étale extension R′, there are r-th roots Q_ℓ(1/r) of the Tate twist Q_ℓ(1), as lisse ℓ-adic sheaves, for all r ≥ 1, with Q_ℓ(1/(rr′))^{⊗r′} ≅ Q_ℓ(1/r).",
+      "statement": "On Spec R′[1/ℓ], after a suitable finite étale cover, compatible roots of the Tate twist exist with Q̄_ℓ-coefficients, each finite set of denominators defined over a suitable finite coefficient extension. For Q_ℓ coefficients restrict to denominators prime to ℓ after making the character land in a log/exp neighborhood (or explicitly prove a finite admissible valuation bound). Require Q̄_ℓ(1/(rr′))^{⊗r′}≅Q̄_ℓ(1/r). No single fixed finite coefficient field is asserted to contain all ℓ-power roots. The fractional Katz theorem needs only its finite denominator set; choose ℓ prime to that set or use the stated coefficient extension.",
       "locator": "§2.5, Lemma 2.17, pp. 525–526",
       "status": "missing",
-      "note": "A mild generalisation of Ito's 5.3: restrict the cyclotomic character to an open subgroup U on which log and exp are inverse and take exp((1/r)·log ρ). As stated, with Q_ℓ-coefficients, this fails for high powers of ℓ; it holds for r prime to ℓ and, with Q̄_ℓ-coefficients, for all r (sourceIssues)."
+      "note": "Apply accepted E2: exp((1/r)log ρ) is valid only on its convergence domain. The all-denominator Q̄_ℓ construction uses compatible roots of a procyclic character, with finite coefficient models separately for the denominators actually used.",
+      "sourceStatementBeforeRepair": "After replacing R by a finite étale extension R′, there are r-th roots Q_ℓ(1/r) of the Tate twist Q_ℓ(1), as lisse ℓ-adic sheaves, for all r ≥ 1, with Q_ℓ(1/(rr′))^{⊗r′} ≅ Q_ℓ(1/r)."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/17",
       "kind": "theorem",
       "name": "Katz's theorem with fractional Tate twists",
-      "statement": "Let G be a finite group, R ⊂ C of finite type over Z, fix C ≅ Q̄_ℓ and a complex character χ of G. If X, Y ∈ K_0(Var_G/R)[(L^{1/r})_{r≥2}] satisfy #^χ_{F_q}(X) = #^χ_{F_q}(Y) for every R → F_q, then E^χ(X ×_R C; x, y) = E^χ(Y ×_R C; x, y).",
+      "statement": "Let G be a finite group, R ⊂ C of finite type over Z, fix C ≅ Q̄_ℓ and a complex character χ of G. If X, Y ∈ K_0(Var_G/R)[(L^{1/r})_{r≥2}] satisfy #^{s,χ}_{F_q}(X) = #^{s,χ}_{F_q}(Y), with a specified compatible root system for each map R→F_q, for every R → F_q, then E^χ(X ×_R C; x, y) = E^χ(Y ×_R C; x, y).",
       "locator": "§2.5, Theorem 2.18, pp. 526–527",
       "status": "missing",
-      "note": "Proof: write X = Σ[X_i]L^{α_i}, Y = Σ[Y_j]L^{β_j} with X_i, Y_j smooth projective and α_i, β_j ∈ Q ∩ [0, 1), compare the lisse sheaves ⊕(R^{c−2α_i}f_{i*}Q_ℓ(α_i))^χ via Chebotarev and read off Hodge–Tate weights. The printed proof has index and sign slips (sourceIssues)."
+      "note": "Write X=Σ[X_i]L^{α_i}, Y=Σ[Y_j]L^{β_j}; with the corrected finite-denominator coefficients of /16, compare ⊕(R^{c−2α_i}f_{i*}Q̄_ℓ(−α_i))^χ and ⊕(R^{c−2β_j}g_{j*}Q̄_ℓ(−β_j))^χ (nonintegral cohomological indices give zero). The negative twists match L↔Q̄_ℓ(−1); retain i/α_i on X and j/β_j on Y. At density-one prime-residue points E1 permits matching the chosen positive roots to the Tate-root system while fixing χ values. Chebotarev compares semisimplifications in the justified weight pieces; then use the actual Hodge–Tate comparison. This does not furnish actual Galois isomorphisms for /76.",
+      "sourceStatementBeforeRepair": "Let G be a finite group, R ⊂ C of finite type over Z, fix C ≅ Q̄_ℓ and a complex character χ of G. If X, Y ∈ K_0(Var_G/R)[(L^{1/r})_{r≥2}] satisfy #^χ_{F_q}(X) = #^χ_{F_q}(Y) for every R → F_q, then E^χ(X ×_R C; x, y) = E^χ(Y ×_R C; x, y).",
+      "sourceNoteBeforeRepair": "Proof: write X = Σ[X_i]L^{α_i}, Y = Σ[Y_j]L^{β_j} with X_i, Y_j smooth projective and α_i, β_j ∈ Q ∩ [0, 1), compare the lisse sheaves ⊕(R^{c−2α_i}f_{i*}Q_ℓ(α_i))^χ via Chebotarev and read off Hodge–Tate weights. The printed proof has index and sign slips (sourceIssues)."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/18",
@@ -245,10 +293,23 @@
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/23",
       "kind": "theorem",
       "name": "Torsors under a constant group over a local field and their Tate pairing",
-      "statement": "Let Γ be a finite abelian group of order prime to p and π ∈ F a uniformiser. Composition with Z × μ(F) → F^× (1 ↦ π, inclusion on μ(F)) and the reciprocity map gives an isomorphism H¹_ét(F, Γ) ≅ Γ ⊕ Hom(μ(F), Γ), under which Γ is the unramified part H¹_ur(F, Γ) (Proposition 3.6). Under Tate duality H^i_ur(F, M) and H^{2−i}_ur(F, M^∨) are exact annihilators (Theorem 3.3, second part). If F contains the |Γ|-th roots of unity, then Γ^∨ is constant with value Hom(Γ, μ(F)), and the Tate pairing of H¹(F, Γ) with H¹(F, Γ^∨) pairs the first factors with each other and the second factors with each other trivially, and is otherwise the evaluation pairings Γ × Hom(μ(F), Hom(Γ, μ(F))) → Hom(μ(F), μ(F)) ≅ Z/|μ(F)| and Hom(μ(F), Γ) × Hom(Γ, μ(F)) → Z/|μ(F)| (Lemma 3.7).",
+      "statement": "Let Γ be a finite abelian group of order prime to p and π ∈ F a uniformiser. Composition with Z × μ(F) → F^× (1 ↦ π, inclusion on μ(F)) and the reciprocity map gives an isomorphism H¹_ét(F, Γ) ≅ Γ ⊕ Hom(μ(F), Γ), under which Γ is the unramified part H¹_ur(F, Γ) (Proposition 3.6). Under Tate duality H^i_ur(F, M) and H^{2−i}_ur(F, M^∨) are exact annihilators (Theorem 3.3, second part). If F contains the |Γ|-th roots of unity, then Γ^∨ is constant with value Hom(Γ, μ(F)), and the Tate pairing of H¹(F, Γ) with H¹(F, Γ^∨) pairs the first (unramified) factors with each other trivially. The ordered mixed blocks are the evaluation pairings Γ × Hom(μ(F), Hom(Γ, μ(F))) → Hom(μ(F), μ(F)) ≅ Z/|μ(F)| and Hom(μ(F), Γ) × Hom(Γ, μ(F)) → Z/|μ(F)| (Lemma 3.7). Embed Z/|μ(F)| into Q/Z by k↦k/|μ(F)| and keep the chosen reciprocity/Frobenius and cup-product conventions. The second-versus-second block D is the restriction of this Tate pairing to the chosen complementary factors and is not asserted to vanish. A full block formula must include D or prove extra hypotheses that eliminate its 2-primary obstruction.",
       "locator": "§3.1, Theorem 3.3 (second part), Construction 3.5, Proposition 3.6, Lemma 3.7, pp. 530–532",
       "status": "missing",
-      "note": "Uses O_F^× ≅ (free Z_p-module) ⊕ μ(F) (Neukirch II.5.7) and Milne ADT I.2.5(b); GWZ20-B's unramified and strongly ramified torsors (its Lemmas 2.14–2.16) are the non-split version."
+      "note": "Uses O_F^× ≅ (free Z_p-module) ⊕ μ(F) (Neukirch II.5.7) and Milne ADT I.2.5(b); GWZ20-B's unramified and strongly ramified torsors (its Lemmas 2.14–2.16) are the non-split version. E24 removes only the false unconditional second-factor isotropy. For F=Q3, π=3, Γ=C2, the Kummer class −3 has (−3,3)_3=+1, hence lies in the second factor, but (−3,−3)_3=−1 and its self-pairing is1/2. Unramified orthogonality does not make the chosen complement isotropic. The mixed evaluation used by item/78 is retained.",
+      "sourceStatementBeforeRepair": "Let Γ be a finite abelian group of order prime to p and π ∈ F a uniformiser. Composition with Z × μ(F) → F^× (1 ↦ π, inclusion on μ(F)) and the reciprocity map gives an isomorphism H¹_ét(F, Γ) ≅ Γ ⊕ Hom(μ(F), Γ), under which Γ is the unramified part H¹_ur(F, Γ) (Proposition 3.6). Under Tate duality H^i_ur(F, M) and H^{2−i}_ur(F, M^∨) are exact annihilators (Theorem 3.3, second part). If F contains the |Γ|-th roots of unity, then Γ^∨ is constant with value Hom(Γ, μ(F)), and the Tate pairing of H¹(F, Γ) with H¹(F, Γ^∨) pairs the first factors with each other and the second factors with each other trivially, and is otherwise the evaluation pairings Γ × Hom(μ(F), Hom(Γ, μ(F))) → Hom(μ(F), μ(F)) ≅ Z/|μ(F)| and Hom(μ(F), Γ) × Hom(Γ, μ(F)) → Z/|μ(F)| (Lemma 3.7).",
+      "acceptance": [
+        {
+          "name": "TatePairing.ramified_diagonal_Q3",
+          "kind": "non-example",
+          "statement": "With F=Q3, π=3, Γ=C2, verify χ_{−3}(π)=0 additively but ⟨χ_{−3},χ_{−3}⟩=1/2. In basis (unramified class −1, complementary class −3), the invariant matrix is [[0,1/2],[1/2,1/2]], so D≠0."
+        },
+        {
+          "name": "TatePairing.unramified_mixed_only",
+          "kind": "compatibility",
+          "statement": "For the unramified ν in Lemma7.25, only its mixed evaluation against the ramified coordinate is used; do not introduce D or assume complementary isotropy to derive item/78."
+        }
+      ]
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/24",
@@ -263,10 +324,11 @@
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/25",
       "kind": "theorem",
       "name": "Arithmetic gerbes with a group structure on abelian varieties and torsors",
-      "statement": "Let F be a local field, r invertible in F, A/F an abelian variety and P/F an A-torsor. The natural map Ext²(A, μ_r) → H²_ét(A, μ_r) is injective, with image the μ_r-gerbes trivial on A_{F^s} and along the unit section e (Lemma 3.12, first part); Ext²(A, μ_r) ≅ H¹(F, A^∨[r]). The paper further asserts ker(Br(P) → Br(P_{F^s}))[r]/Br(F)[r] ≃ Ext²(A, μ_r) (Lemma 3.12, second part) and ker(Br(A) → Br(A_{F^s}))[r]/Br(F)[r] ≃ ker(Br(P) → Br(P_{F^s}))[r]/Br(F)[r] (Corollary 3.13).",
+      "statement": "Let F be a non-archimedean local field, r invertible in F, A/F an abelian variety and P/F an A-torsor. Ext²(A,μ_r)≅H¹(F,A^∨[r]) injects into H²_ét(A,μ_r), with image the μ_r-gerbes trivial on A_{F^s} and along the unit section. For Z=A or P, put K_Z=ker(H²_ét(Z,μ_r)→H²_ét(Z_{F^s},μ_r)). Then K_Z/im(H²(F,μ_r)→H²_ét(Z,μ_r))≅H¹(F,A^∨[r]), and these quotients for A and P correspond canonically. Use image quotients: a torsor need not have a section making the base pullback injective. The Hochschild–Serre edge sequence uses H¹(Z_{F^s},μ_r)≅A^∨[r] and H³(F,μ_r)=0. These are μ_r-gerbe statements, not the printed Brauer r-torsion quotient, which loses Pic/r.",
       "locator": "§3.2, Lemma 3.12 and Corollary 3.13, p. 534",
       "status": "missing",
-      "note": "The Brauer-group forms are false as printed and hold with H²_ét(−, μ_r) in place of Br(−)[r] (sourceIssues); that corrected form is what Lemma 6.7 uses."
+      "note": "Accepted E3 is applied in the active target and in /52. Normalize along the unit for A; for P quotient by the image of base classes, retaining the descent edge map rather than assuming a literal subgroup Br(F)[r].",
+      "sourceStatementBeforeRepair": "Let F be a local field, r invertible in F, A/F an abelian variety and P/F an A-torsor. The natural map Ext²(A, μ_r) → H²_ét(A, μ_r) is injective, with image the μ_r-gerbes trivial on A_{F^s} and along the unit section e (Lemma 3.12, first part); Ext²(A, μ_r) ≅ H¹(F, A^∨[r]). The paper further asserts ker(Br(P) → Br(P_{F^s}))[r]/Br(F)[r] ≃ Ext²(A, μ_r) (Lemma 3.12, second part) and ker(Br(A) → Br(A_{F^s}))[r]/Br(F)[r] ≃ ker(Br(P) → Br(P_{F^s}))[r]/Br(F)[r] (Corollary 3.13)."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/26",
@@ -362,10 +424,11 @@
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/36",
       "kind": "construction",
       "name": "The specialisation map to the inertia stack",
-      "statement": "For φ ∈ M(O_F)^♮, let T_φ be the fibre of Y → M over φ_F, a Γ-torsor over F with Γ(T_φ) = L^{×i} for a finite Galois L/F, and O_{T_φ} = O_L^{×i}. The inclusion T_φ → Y extends uniquely (valuative criterion for the finite map pr, separatedness of Y) to a Γ-equivariant φ̃ : Spec O_{T_φ} → Y, giving [Spec O_{T_φ}/Γ] → M whose closed point has stabiliser I_{L/F}. I_{L/F} is cyclic with a canonical surjection μ(F) ↠ I_{L/F}, so the chosen primitive |Γ|-th root of unity gives a generator γ, and (Aut_x → IM_{k_F}, γ) defines e : M(O_F)^♮ → IM(k_F)_iso.",
+      "statement": "For φ ∈ M(O_F)^♮, let T_φ be the fibre of Y → M over φ_F, a Γ-torsor over F with Γ(T_φ) = L^{×i} for a finite Galois L/F, and O_{T_φ} = O_L^{×i}. The inclusion T_φ → Y extends uniquely (valuative criterion for the finite map pr, separatedness of Y) to a Γ-equivariant φ̃ : Spec O_{T_φ} → Y, giving [Spec O_{T_φ}/Γ] → M whose closed point has stabiliser I_{L/F}. Let e=|I_{L/F}|. Use the tame character I_{L/F}≅μ_e(F), σ↦σ(π_L)/π_L mod m_L, and let γ correspond to ζ^{|Γ|/e} for the chosen primitive |Γ|-th root ζ; then (Aut_x → IM_{k_F}, γ) defines e : M(O_F)^♮ → IM(k_F)_iso.",
       "locator": "§4.3, Construction 4.15 and (14), pp. 542–543",
       "status": "missing",
-      "note": "GWZ20-B's specialisation map to the twisted inertia stack generalises it. The generator must come from the tame character I_{L/F} ≅ μ_e, not from the reciprocity map as printed (sourceIssues)."
+      "note": "Apply accepted E14 to the active specialization: the inertia generator comes from the inverse tame-character isomorphism, not reciprocity of ζ. This is compatible with the GWZ20-B twisted-inertia specialization and the normalizations used downstream.",
+      "sourceStatementBeforeRepair": "For φ ∈ M(O_F)^♮, let T_φ be the fibre of Y → M over φ_F, a Γ-torsor over F with Γ(T_φ) = L^{×i} for a finite Galois L/F, and O_{T_φ} = O_L^{×i}. The inclusion T_φ → Y extends uniquely (valuative criterion for the finite map pr, separatedness of Y) to a Γ-equivariant φ̃ : Spec O_{T_φ} → Y, giving [Spec O_{T_φ}/Γ] → M whose closed point has stabiliser I_{L/F}. I_{L/F} is cyclic with a canonical surjection μ(F) ↠ I_{L/F}, so the chosen primitive |Γ|-th root of unity gives a generator γ, and (Aut_x → IM_{k_F}, γ) defines e : M(O_F)^♮ → IM(k_F)_iso."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/37",
@@ -398,28 +461,31 @@
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/40",
       "kind": "theorem",
       "name": "Tame Galois extensions of a local field containing the e-th roots of unity",
-      "statement": "Let L/F be a finite Galois extension of degree d with ramification index e = |I|, I = I_{L/F}, tame ((p, e) = 1), with μ_e ⊂ F, and Γ = Gal(L/F). Lemma 5.1 asserts: (a) for a uniformiser π_L of L, F(π_L) is totally ramified, Galois and of degree e over F, and Gal(L/F(π_L)) maps isomorphically to Γ/I; (b) Γ/I ≅ Z/(d/e) and I ≅ μ_e(F); (c) Γ is abelian and a split extension of Z/(d/e) by Z/e, so F(π_L) gives Γ ≅ (Γ/I) × I; (d) every splitting of Γ → Γ/I arises from a uniformiser in this way.",
+      "statement": "Let L/F be finite tame Galois of degree d, inertia order e prime to p, with μ_e⊂F. Then I≅μ_e(F) via σ↦σ(π_L)/π_L mod m_L, Γ/I≅Z/(d/e), and Γ is abelian; Γ need not split. Set L′=L·F_d with F_d/F unramified of degree d. Then Γ′=Gal(L′/F)≅Γ×_{Z/(d/e)}Z/d has inertia I and a complement generated by (g,1) for a Frobenius lift g of order dividing d. Spec O_{L′}→Spec O_L is finite étale and X_{L′/F}≅X_{L/F} by quotient descent. After this explicit enlargement and a chosen complement, its fixed field E/F is totally tamely ramified Galois of degree e. Choose a suitable uniformizer π_E with π_E^e∈F; then E=F(π_E) and the split calculations apply. Do not claim this for every uniformizer of the original L.",
       "locator": "§5.1, standing hypotheses and Lemma 5.1, p. 548",
       "status": "missing",
-      "note": "Γ is abelian and I ≅ μ_e canonically by σ ↦ σ(π_L)/π_L mod m_L (the Tau Ceti roadmap Local fields and ramification, Layer 3, plans the tame structure theorem and Gal ↪ μ_e). Parts (a), (c), (d) are false in general: Γ need not split (sourceIssues); it does after replacing L by its compositum with the unramified extension of degree d, which leaves X_{L/F} unchanged."
+      "note": "Accepted E13 is applied. Downstream /41–/47 use the same quotient stack after L′=L·F_d, the chosen complement and the selected total-ramification field E, not a nonexistent original splitting. No upstream tame-structure roadmap is edited.",
+      "sourceStatementBeforeRepair": "Let L/F be a finite Galois extension of degree d with ramification index e = |I|, I = I_{L/F}, tame ((p, e) = 1), with μ_e ⊂ F, and Γ = Gal(L/F). Lemma 5.1 asserts: (a) for a uniformiser π_L of L, F(π_L) is totally ramified, Galois and of degree e over F, and Gal(L/F(π_L)) maps isomorphically to Γ/I; (b) Γ/I ≅ Z/(d/e) and I ≅ μ_e(F); (c) Γ is abelian and a split extension of Z/(d/e) by Z/e, so F(π_L) gives Γ ≅ (Γ/I) × I; (d) every splitting of Γ → Γ/I arises from a uniformiser in this way."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/41",
       "kind": "construction",
       "name": "The stack X_{L/F} and its closed and open points",
-      "statement": "X_{L/F} = [Spec O_L/Γ] (Definition 5.2). For a finite étale Galois X → Y with group G, [X/G] ≃ Y (Lemma 5.3), so Spec F = [Spec L/Γ] gives an open immersion i_F : Spec F ↪ X_{L/F} (Lemma 5.4), and X_{F(π_L)/F} ≃ X_{L/F} for a uniformiser as in Lemma 5.1 (Lemma 5.5). The reduced closed complement is X^•_{L/F} (Definition 5.6), and each splitting σ : Γ → I of I ↪ Γ gives X^•_{L/F} = [Spec k_L/Γ] ≃ B_{k_F}I and a closed immersion j_σ : B_{k_F}I ↪ X_{L/F} (Lemma 5.7).",
+      "statement": "Define X_{L/F}=[Spec O_L/Γ]. Finite étale Galois quotient descent gives [X/G]≃Y and the generic open Spec F=[Spec L/Γ]↪X_{L/F}. For the tame hypotheses of /40 explicitly use L′=L·F_d, its chosen complement and total-ramification field E; X_{L/F}≃X_{L′/F}≃X_{E/F}. Its reduced closed complement is B_{k_F}I with trivial I-action on Spec k_F; the chosen comparison gives j_σ:B_{k_F}I↪X_{L/F}. This does not classify gerbes on the nontrivially acted-on original Spec k_L by ordinary central extensions over that base.",
       "locator": "§5.1, Definitions 5.2, 5.6, Lemmas 5.3–5.5, 5.7 and (15)–(16), pp. 547–551",
       "status": "missing",
-      "note": "GWZ20-B's stacks X_{Γ,Q} = [Q_O/Γ] with Bμ_N ↪ X_{Γ,Q} generalise this. X^•_{L/F} ≃ B_{k_F}I holds for every L; the printed proof takes the splitting from Lemma 5.1 (sourceIssues)."
+      "note": "Apply the unramified enlargement before the splitting-based proof of Lemmas5.5/5.7. The B_{k_F}I presentation retains the valid constant cyclic-inertia calculation of /9(c), separately from the original action-groupoid presentation.",
+      "sourceStatementBeforeRepair": "X_{L/F} = [Spec O_L/Γ] (Definition 5.2). For a finite étale Galois X → Y with group G, [X/G] ≃ Y (Lemma 5.3), so Spec F = [Spec L/Γ] gives an open immersion i_F : Spec F ↪ X_{L/F} (Lemma 5.4), and X_{F(π_L)/F} ≃ X_{L/F} for a uniformiser as in Lemma 5.1 (Lemma 5.5). The reduced closed complement is X^•_{L/F} (Definition 5.6), and each splitting σ : Γ → I of I ↪ Γ gives X^•_{L/F} = [Spec k_L/Γ] ≃ B_{k_F}I and a closed immersion j_σ : B_{k_F}I ↪ X_{L/F} (Lemma 5.7)."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/42",
       "kind": "theorem",
       "name": "Cohomology of X_{L/F}",
-      "statement": "Pic(X_{L/F}) ≅ Z/eZ, via H¹(I, O_{F(π_L)}^×) ≅ H¹(I, k_F^×) ≅ Hom(μ_e, G_m) (Lemma 5.8, Claim 5.9). For a finite étale sheaf F of order prime to p and every splitting σ, j_σ^* : H^i_ét(X_{L/F}, F) ≅ H^i_ét(B_{k_F}I, F) for i = 0, 1, 2 (Lemma 5.10), because pullback along Spec k_L ↪ Spec O_L is an equivalence of 2-groupoids of F-gerbes (Claim 5.11). There is a split short exact sequence Z/e ↪ H²_ét(B_{k_F}I, μ_e) ↠ Z/e (Lemma 5.12), hence, given σ, Z/e ↪ H²_ét(X_{L/F}, μ_e) ↠ Z/e (Lemma 5.13, (18)).",
+      "statement": "Under /40–/41’s explicit unramified enlargement and chosen totally ramified E/F, Pic(X_{L/F}) ≅ Z/eZ, via H¹(I, O_E^×) ≅ H¹(I, k_F^×) ≅ Hom(μ_e, G_m) (Lemma 5.8, Claim 5.9). For a finite étale sheaf F of order prime to p and every splitting σ, j_σ^* : H^i_ét(X_{L/F}, F) ≅ H^i_ét(B_{k_F}I, F) for i = 0, 1, 2 (Lemma 5.10), because pullback along Spec k_L ↪ Spec O_L is an equivalence of 2-groupoids of F-gerbes (Claim 5.11). There is a split short exact sequence Z/e ↪ H²_ét(B_{k_F}I, μ_e) ↠ Z/e (Lemma 5.12), hence, given σ, Z/e ↪ H²_ét(X_{L/F}, μ_e) ↠ Z/e (Lemma 5.13, (18)).",
       "locator": "§5.2, Lemmas 5.8, 5.10, 5.12, 5.13 and Claims 5.9, 5.11, (17)–(18), pp. 551–554",
       "status": "missing",
-      "note": "Lemma 5.8 uses H^i(I, 1 + m) = 0, since e is invertible on the pro-p group 1 + m; Lemma 5.12 is Lemma 2.7(c), misquoted in the printed proof (sourceIssues). GWZ20-B's Lemma 3.4 computes H² of Bμ_N over a field in the same way."
+      "note": "Lemma 5.8 uses H^i(I, 1 + m) = 0, since e is invertible on the pro-p group 1 + m; Lemma 5.12 is Lemma 2.7(c), misquoted in the printed proof (sourceIssues). GWZ20-B's Lemma 3.4 computes H² of Bμ_N over a field in the same way. Use the constant finite étale μ_e on B_{k_F}I: the first term is H¹(k_F,Hom(I,μ_e)), not bare Hom; constant extensions split the geometric Ext term. E21/E22 do not invalidate this trivial-base application. Transport the comparisons from the enlarged presentation.",
+      "sourceStatementBeforeRepair": "Pic(X_{L/F}) ≅ Z/eZ, via H¹(I, O_{F(π_L)}^×) ≅ H¹(I, k_F^×) ≅ Hom(μ_e, G_m) (Lemma 5.8, Claim 5.9). For a finite étale sheaf F of order prime to p and every splitting σ, j_σ^* : H^i_ét(X_{L/F}, F) ≅ H^i_ét(B_{k_F}I, F) for i = 0, 1, 2 (Lemma 5.10), because pullback along Spec k_L ↪ Spec O_L is an equivalence of 2-groupoids of F-gerbes (Claim 5.11). There is a split short exact sequence Z/e ↪ H²_ét(B_{k_F}I, μ_e) ↠ Z/e (Lemma 5.12), hence, given σ, Z/e ↪ H²_ét(X_{L/F}, μ_e) ↠ Z/e (Lemma 5.13, (18))."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/43",
@@ -428,7 +494,7 @@
       "statement": "i_F^*α has order dividing d because Br(O_L) = 0 and restriction to L is multiplication by d (Theorem 3.2); i_F^* : Br(X_{L/F}) → Br(F)[d] is injective, by the Brauer–Severi construction and the valuative criterion (Lemma 5.14); and i_F^* : Br(X_{L/F}) ≅ Br(F)[e], so Br(X_{L/F}) has order e (Proposition 5.15). For a finite group Γ acting on a scheme U with an ample invertible sheaf, Br([U/Γ]) ≅ H²_ét([U/Γ], G_m)^tors (Lemma 5.16), using α-twisted coherent sheaves (Definition 5.17) and Gabber–de Jong. For every splitting σ, j_σ^* : Br(X_{L/F})[e] ≅ Br(B_{k_F}I)[e] (Proposition 5.18, (19)), independently of σ (Lemma 5.19).",
       "locator": "§5.3, pp. 554–558",
       "status": "missing",
-      "note": "The proof of Lemma 5.14 misstates the Brauer–Severi dictionary, and the proof of Proposition 5.18 omits the order of Br(B_{k_F}I)[e] (sourceIssues)."
+      "note": "The proof of Lemma 5.14 misstates the Brauer–Severi dictionary, and the proof of Proposition 5.18 omits the order of Br(B_{k_F}I)[e] (sourceIssues). Use /40’s explicit L′=L·F_d and its chosen total-ramification presentation wherever the §5 proof invokes a splitting. Transport comparisons through X_{L′/F}≃X_{L/F}; do not assume that the original Γ splits."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/44",
@@ -437,7 +503,7 @@
       "statement": "Assume μ_{e²} ⊂ k_F. Let τ : Br(B_{k_F}I)[e] → H¹_ét(IB_{k_F}I, μ_e) be the transgression of Lemma 2.9, IB_{k_F}I ≃ I × B_{k_F}I, and Tr : H¹_ét(IB_{k_F}I, μ_e) → Hom(μ_e, H¹_ét(k_F, μ_e)) ≅ Z/e the pullback along Spec k_F × I → IB_{k_F}I (20) followed by evaluation at Frobenius (21); τ̃ = Tr∘τ∘j_σ^* : Br(X_{L/F}) → Z/e is independent of σ. Then τ̃∘(i_F^*)^{−1} = inv on Br(F)[e] (Theorem 5.20, with Claim 5.21).",
       "locator": "§5.4, (20)–(22), Theorem 5.20 and Claim 5.21, pp. 558–561",
       "status": "missing",
-      "note": "The proof represents α by (π^{φ_ijk}) on the unramified site, splits α_L by (π^{ψ_ij/e}) with dψ = eφ, and reads off the cocycle ξ ↦ ξ^{ψ_ij}. GWZ20-B's Proposition 3.7 is the general form. The identification with τ̃ is asserted, not proved, and there are slips in the Bockstein step (sourceIssues)."
+      "note": "The proof represents α by (π^{φ_ijk}) on the unramified site, splits α_L by (π^{ψ_ij/e}) with dψ = eφ, and reads off the cocycle ξ ↦ ξ^{ψ_ij}. GWZ20-B's Proposition 3.7 is the general form. The identification with τ̃ is asserted, not proved, and there are slips in the Bockstein step (sourceIssues). Use /40’s explicit L′=L·F_d and its chosen total-ramification presentation wherever the §5 proof invokes a splitting. Transport comparisons through X_{L′/F}≃X_{L/F}; do not assume that the original Γ splits."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/45",
@@ -446,25 +512,27 @@
       "statement": "For an admissible finite abelian quotient stack M over R: r ≥ 1 is admissible for M if r is invertible in R and R contains the r·|Γ|-th roots of unity for some admissible presentation [Y/Γ]; a G_m-gerbe is admissible if its order is finite and admissible; a μ_r-gerbe is admissible if r is (Definition 5.22). Situation 5.23: M admissible over O_F with coarse space M and U ⊂ M the maximal open over which M → M is an isomorphism; a proper O_F-scheme Y with i : Y → M sending Y_F into U; an admissible G_m-gerbe α on M with inv_α(y) = inv(y^*α) on M(O_F)^♮. For α ∈ Br(M_{k_F})[r], τ_α : IM(k_F)_iso → Z/r is defined by ζ^{τ_α(y)} = y^*τ(α) ∈ H¹(k_F, μ_r) = μ_r (Definition 5.24).",
       "locator": "§5.5, Definitions 5.22, 5.24 and Situation 5.23, pp. 561–562",
       "status": "missing",
-      "note": ""
+      "note": " Use /40’s explicit L′=L·F_d and its chosen total-ramification presentation wherever the §5 proof invokes a splitting. Transport comparisons through X_{L′/F}≃X_{L/F}; do not assume that the original Γ splits."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/46",
       "kind": "theorem",
       "name": "The Hasse invariant of a gerbe is read off at the specialisation",
-      "statement": "For M an admissible finite abelian quotient stack over O_F and α an admissible G_m-gerbe on M: inv_α = τ_α∘e_M on M(O_F)^♮ (Proposition 5.25). In Situation 5.23, inv_α = τ_α∘e_M∘i on Y(F) (Corollary 5.26).",
+      "statement": "For M an admissible finite abelian quotient stack over O_F and α an admissible G_m-gerbe on M: inv_α = τ_α∘e_M on M(O_F)^♮ (Proposition 5.25). In Situation 5.23, inv_α = τ_α∘e_M∘i on Y(F) (Corollary 5.26). Proof obligation: establish the existing E15 fibre comparison and E16 μ_r-normalization under admissibility, or restrict to the stronger source hypotheses; the extraction does not certify those steps.",
       "locator": "§5.5, Proposition 5.25 and Corollary 5.26, pp. 562–563",
       "status": "missing",
-      "note": "[Spec O_{T_φ}/Γ] ≅ X_{L/F} and Theorem 5.20. The published proof of Corollary 5.26 uses i(y) ∈ U(F) to land in M(O_F)^♮; arXiv v3's weaker hypothesis did not suffice. GWZ20-B's Proposition 3.7 and Corollary 3.14 are the general forms. The application of Theorem 5.20 needs μ_{e²} ⊂ k_F, which admissibility does not give (sourceIssues)."
+      "note": "[Spec O_{T_φ}/Γ] ≅ X_{L/F} and Theorem 5.20. The published proof of Corollary 5.26 uses i(y) ∈ U(F) to land in M(O_F)^♮; arXiv v3's weaker hypothesis did not suffice. GWZ20-B's Proposition 3.7 and Corollary 3.14 are the general forms. The application of Theorem 5.20 needs μ_{e²} ⊂ k_F, which admissibility does not give (sourceIssues). Use /40’s explicit L′=L·F_d and its chosen total-ramification presentation wherever the §5 proof invokes a splitting. Transport comparisons through X_{L′/F}≃X_{L/F}; do not assume that the original Γ splits.",
+      "proofState": "Target retains the existing E15 fibre-comparison and E16 μ_r-transgression/root-of-unity proof gates; these are not solved by the present scope/splitting repair."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/47",
       "kind": "construction",
       "name": "The gerbe function f_α",
-      "statement": "Let r ≥ 1 be prime to p with μ_r ⊂ F, fix a generator ζ ∈ μ_r(F), an isomorphism Q̄_ℓ ≅ C and hence ι : μ_r(F) ↪ Q̄_ℓ^×. For M admissible over O_F and α an admissible μ_r-gerbe, L_α is the ℓ-adic local system on I(M ×_{O_F} k) induced by P_α and ι (Definition 5.27), and f_α : M(O_F)^♮ → C, x ↦ Tr_{Fr_{e(x)}}(L_α|_{e(x)}) (23), agrees with τ_α∘e_M under the exponential and, by Proposition 5.25, with x ↦ exp(2πi·inv(x^*α)) (Construction 5.28).",
+      "statement": "Let r ≥ 1 be prime to p with μ_r ⊂ F, fix a generator ζ ∈ μ_r(F), an isomorphism Q̄_ℓ ≅ C and hence ι : μ_r(F) ↪ Q̄_ℓ^×. For M admissible over O_F and α an admissible μ_r-gerbe, L_α is the ℓ-adic local system on I(M ×_{O_F} k) induced by P_α and ι (Definition 5.27), and f_α : M(O_F)^♮ → C, x ↦ Tr_{Fr_{e(x)}}(L_α|_{e(x)}) (23), agrees with τ_α∘e_M under the exponential and, by Proposition 5.25, with x ↦ exp(2πi·inv(x^*α)) (Construction 5.28). Proof obligation: establish the existing E15 fibre comparison and E16 μ_r-normalization under admissibility, or restrict to the stronger source hypotheses; the extraction does not certify those steps.",
       "locator": "§5.6, Definition 5.27, Construction 5.28 and (23), pp. 563–564",
       "status": "missing",
-      "note": "The sign of the exponent depends on whether Fr is the arithmetic or the geometric Frobenius, which the paper does not fix; both sides of every later comparison change together."
+      "note": "The sign of the exponent depends on whether Fr is the arithmetic or the geometric Frobenius, which the paper does not fix; both sides of every later comparison change together. Use /40’s explicit L′=L·F_d and its chosen total-ramification presentation wherever the §5 proof invokes a splitting. Transport comparisons through X_{L′/F}≃X_{L/F}; do not assume that the original Γ splits.",
+      "proofState": "Target retains the existing E15 fibre-comparison and E16 μ_r-transgression/root-of-unity proof gates; these are not solved by the present scope/splitting repair."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/48",
@@ -488,10 +556,11 @@
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/50",
       "kind": "theorem",
       "name": "Rational points of the principal component and constant gerbes",
-      "statement": "For a field K and a projective geometrically connected K-scheme X, a G_m-gerbe β on X is K-arithmetic iff β_{K^s} = 0; write Br(X)_K for these. The paper records a short exact sequence 0 → Br(K) → Br(X)_K → H¹(K, Pic(X_{K^s})) → 0 (24). If K is a field, X geometrically connected and proper, α a K-arithmetic μ_r-gerbe on X with induced G_m-gerbe β, and Split′(X, α) has a K-point, then β is the pullback of a G_m-gerbe on Spec K (Lemma 6.5). A splitting of α gives a K-point of Split′, but not conversely: if α is pulled back from a non-split gerbe on Spec K and X(K) ≠ ∅, α does not split while Split′(X, α) ≃ Pic^τ(X) has a K-point.",
+      "statement": "For a field K and a projective geometrically connected K-scheme X, a G_m-gerbe β on X is K-arithmetic iff β_{K^s} = 0; write Br(X)_K for these. For the following edge sequence require H⁰(X_{K^s},G_m)=(K^s)^×, as for a smooth proper geometrically connected variety. Use the Hochschild–Serre edge sequence Pic(X)→Pic(X_{K^s})^{G_K}→Br(K)→Br(X)_K→H¹(K,Pic(X_{K^s}))→H³(K,G_m), with G_K=Gal(K^s/K). Retain its exactness at Br(X)_K; injectivity of Br(K) requires an additional hypothesis such as X(K)≠∅, and surjectivity onto H¹ requires H³(K,G_m)=0. If K is a field, X geometrically connected and proper, α a K-arithmetic μ_r-gerbe on X with induced G_m-gerbe β, and Split′(X, α) has a K-point, then β is the pullback of a G_m-gerbe on Spec K (Lemma 6.5). A splitting of α gives a K-point of Split′, but not conversely: if α is pulled back from a non-split gerbe on Spec K and X(K) ≠ ∅, α does not split while Split′(X, α) ≃ Pic^τ(X) has a K-point.",
       "locator": "§6.1, (24), the paragraph before Lemma 6.5 and Lemma 6.5, pp. 565–566",
       "status": "missing",
-      "note": "Lemma 6.5 uses only exactness of (24) in the middle, which is the Hochschild–Serre sequence; the injectivity and surjectivity printed in (24) fail in general (sourceIssues)."
+      "note": "Accepted E4 is applied to the active target. Lemma6.5 uses only middle exactness; constant classes are images of the base map rather than an assumed injected copy of Br(K).",
+      "sourceStatementBeforeRepair": "For a field K and a projective geometrically connected K-scheme X, a G_m-gerbe β on X is K-arithmetic iff β_{K^s} = 0; write Br(X)_K for these. The paper records a short exact sequence 0 → Br(K) → Br(X)_K → H¹(K, Pic(X_{K^s})) → 0 (24). If K is a field, X geometrically connected and proper, α a K-arithmetic μ_r-gerbe on X with induced G_m-gerbe β, and Split′(X, α) has a K-point, then β is the pullback of a G_m-gerbe on Spec K (Lemma 6.5). A splitting of α gives a K-point of Split′, but not conversely: if α is pulled back from a non-split gerbe on Spec K and X(K) ≠ ∅, α does not split while Split′(X, α) ≃ Pic^τ(X) has a K-point."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/51",
@@ -509,7 +578,8 @@
       "statement": "In Situation 5.23 with Y_F a torsor under an abelian variety A over F and α an O_F-arithmetic μ_r-gerbe, T = Split′(Y/O_F, α) has generic fibre an A^∨-torsor. If Y_F(F) ≠ ∅, then for every trivialisation h : Y_F ≅ A there is a root of unity ξ with f_α∘h^{−1}(a) = ξ·exp(2πi(a, [T_F])) on A(F), where f_α is the function of (23) and (−, −) : A(F) × H¹(F, A^∨) → Q/Z is the Tate pairing.",
       "locator": "§6.1, Lemma 6.7, pp. 567–568",
       "status": "missing",
-      "note": "For Y_F = A with h = id: Lemma 3.12 gives α = α_T, Remark 3.11 identifies (x, T) with inv(x^*α_T), and Corollary 5.26 identifies f_α with inv(x^*α). A general trivialisation changes α by a constant Brauer class (Corollary 3.13, in its corrected μ_r-form), whence ξ."
+      "note": "For Y_F = A with h = id: Lemma 3.12 gives α = α_T, Remark 3.11 identifies (x, T) with inv(x^*α_T), and Corollary 5.26 identifies f_α with inv(x^*α). A general trivialisation changes α by a constant Brauer class (Corollary 3.13, in its corrected μ_r-form), whence ξ. Use /25’s corrected μ_r-gerbe edge map and image quotient, not the false Brauer quotient. Normalize by the unit section after trivialization, and identify the resulting base-class image with the constant root-of-unity scalar. The equality with f_α also retains /46’s E15/E16 transgression proof gates.",
+      "proofState": "Tate-character target conditional on the existing E15/E16 comparison gates; corrected μ_r-gerbe input retained."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/53",
@@ -635,10 +705,11 @@
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/66",
       "kind": "theorem",
       "name": "Smooth Hitchin fibres as norm preimages",
-      "statement": "Let π : Y → X × A be the universal spectral curve, A^♦ ⊂ A the locus of smooth spectral curves, and P = P_{SL_n} the relative Prym variety. For a ∈ A^♦(S): (a) χ^{−1}(a) is naturally Nm^{−1}_{Y×_A S/X}(L ⊗ det(π_*O_{Y×_A S})) (as printed); (b) this is an equivalence of P_a-torsors; (c) [Nm^{−1}(M_1)]·[Nm^{−1}(M_2)] = [Nm^{−1}(M_1M_2)] in H¹_ét(S, P); (d) [Nm^{−1}(M^n)] = 0 for M ∈ Pic(X).",
+      "statement": "Let π : Y → X × A be the universal spectral curve, A^♦ ⊂ A the locus of smooth spectral curves, and P = P_{SL_n} the relative Prym variety. For a ∈ A^♦(S): (a) χ^{−1}(a) is naturally Nm^{−1}_{Y×_A S/X}(L ⊗ det(π_*O_{Y×_A S})^{−1}); (b) this is an equivalence of P_a-torsors; (c) [Nm^{−1}(M_1)]·[Nm^{−1}(M_2)] = [Nm^{−1}(M_1M_2)] in H¹_ét(S, P); (d) [Nm^{−1}(M^n)] = 0 for M ∈ Pic(X).",
       "locator": "§7.2, Lemma 7.8, pp. 579–580",
       "status": "missing",
-      "note": "Uses Nm(L′) = det(π_*L′)·det(π_*O)^{−1} (Hausel–Pauly, Corollary 3.12) and multiplicativity of the norm. The formula in (a) has the wrong sign of det(π_*O) (sourceIssues)."
+      "note": "Apply accepted E12: Nm(L′)=det(π_*L′)·M^{−1}, M=det(π_*O), so fixed determinant L means Nm(L′)=L·M^{−1}. The multiplicativity/torsor conclusions are retained with that sign.",
+      "sourceStatementBeforeRepair": "Let π : Y → X × A be the universal spectral curve, A^♦ ⊂ A the locus of smooth spectral curves, and P = P_{SL_n} the relative Prym variety. For a ∈ A^♦(S): (a) χ^{−1}(a) is naturally Nm^{−1}_{Y×_A S/X}(L ⊗ det(π_*O_{Y×_A S})) (as printed); (b) this is an equivalence of P_a-torsors; (c) [Nm^{−1}(M_1)]·[Nm^{−1}(M_2)] = [Nm^{−1}(M_1M_2)] in H¹_ét(S, P); (d) [Nm^{−1}(M^n)] = 0 for M ∈ Pic(X)."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/67",
@@ -683,7 +754,8 @@
       "statement": "Let n, d be positive coprime integers, k a finite field of characteristic p > n, X/k a smooth proper genus-g curve with D ⊗ (Ω¹_X)^{−1} of strictly positive even degree or O_X, L of degree d, and k containing a primitive n^{2g}-th root of unity. There is a degree-0 line bundle N on X with #M^L_{SL_n}(X)(k) = #M^{L^eN^{e−1}}_{SL_n}(X)(k) for every e prime to n (Theorem 7.16). Over C, the Betti and Hodge numbers of M^L_{SL_n}(X) and M^d_{GL_n}(X) are independent of d (Corollary 7.17).",
       "locator": "§7.3, Theorem 7.16 and Corollary 7.17, pp. 584–586",
       "status": "missing",
-      "note": "vol(M^L_{SL_n}(O_F)) = ∫_{A(O_F)^♭} (∫_{P^0_a(F)} δ_{P^L_a}|ω_a|)|η|; δ_{(P^L_a)^e} = δ_{P^L_a} by Lemma 7.14, (P^L_a)^e ≃ P^{L^eM^{e−1}}_a by Lemma 7.13 (sign as printed), and N = M·Q^{−n} with deg Q^n = deg M, which exists because deg M = −(deg D)n(n−1)/2 is divisible by n when deg D is even."
+      "note": "vol(M^L_{SL_n}(O_F)) = ∫_{A(O_F)^♭} (∫_{P^0_a(F)} δ_{P^L_a}|ω_a|)|η|; δ_{(P^L_a)^e} = δ_{P^L_a} by Lemma 7.14, (P^L_a)^e ≃ P^{L^eM^{1−e}}_a by the corrected Lemma7.13 calculation, and N = M^{−1}·Q^n with deg Q^n = deg M, which exists because deg M = −(deg D)n(n−1)/2 is divisible by n when deg D is even. Then deg N=−deg M+deg(Q^n)=0, and L^eN^{e−1}=L^eM^{1−e}Q^{n(e−1)} differs by an n-th power, as required. The existence/degree-independence theorem is retained.",
+      "sourceNoteBeforeRepair": "vol(M^L_{SL_n}(O_F)) = ∫_{A(O_F)^♭} (∫_{P^0_a(F)} δ_{P^L_a}|ω_a|)|η|; δ_{(P^L_a)^e} = δ_{P^L_a} by Lemma 7.14, (P^L_a)^e ≃ P^{L^eM^{e−1}}_a by Lemma 7.13 (sign as printed), and N = M·Q^{−n} with deg Q^n = deg M, which exists because deg M = −(deg D)n(n−1)/2 is divisible by n when deg D is even."
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/72",
@@ -725,10 +797,24 @@
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/76",
       "kind": "theorem",
       "name": "Consequences: Hodge numbers and fibrewise Galois representations",
-      "statement": "(Corollary 7.22) For k = C and D = Ω¹_X: h^{p,q}_c(M^L_{SL_n}(X)) = h^{p,q}_{c,st}(M^e_{PGL_n}(X), α^d_{PGL_n,L′}). (Theorem 7.23) For k finite of characteristic p > n satisfying the standing assumptions and every a ∈ A(k), the Gal(k)-representations (Rχ_{SL_n,*}Q̄_ℓ)_a and (R(Iχ_{PGL_n})_*N_{L′}(F_{PGL_n}))_a are abstractly isomorphic.",
+      "statement": "(Corollary7.22) For k=C and D=Ω¹_X, retain h^{p,q}_c(M^L_SLn)=h^{p,q}_{c,st}(M^e_PGLn,α^d_PGLn,L′). Under the standing finite-field hypotheses of Theorem7.23 (p>n, the stated roots of unity, coprime degrees and allowed D), Theorem6.12 supplies equal alternating Frobenius traces for the two fibre complexes over every finite extension of k. This gives a trace/virtual-character comparison. The stronger target is an actual Gal(k)-equivariant isomorphism of the fibre complexes appearing in Theorem7.23; its printed proof is unresolved until an arithmetic semisimplicity plus justified degree-separation argument, or an independent geometric isomorphism, is supplied. No degreewise semisimplification is asserted from alternating traces alone.",
       "locator": "§7.4, Corollary 7.22 and Theorem 7.23, p. 589",
       "status": "missing",
-      "note": "7.22 uses purity of both cohomologies for D = Ω¹ (Hausel–Thaddeus §6). 7.23 uses purity of both complexes (properness, Verdier duality, Deligne's Weil II, stratum by stratum on the inertia stack) and the fibrewise point counts of Theorem 6.12."
+      "note": "7.22 uses purity of both cohomologies for D = Ω¹ (Hausel–Thaddeus §6). 7.23 uses purity of both complexes (properness, Verdier duality, Deligne's Weil II, stratum by stratum on the inertia stack) and the fibrewise point counts of Theorem 6.12. E25: purity alone does not imply arithmetic Frobenius semisimplicity. I2 and J2 are pure weight0 with equal traces on all powers and different fixed-space dimensions. This challenges the proof inference, not the particular Hitchin fibres or main mirror-symmetry theorem. The current R01.5 recognition import assumes semisimplicity; it cannot supply that hypothesis for this target.",
+      "sourceStatementBeforeRepair": "(Corollary 7.22) For k = C and D = Ω¹_X: h^{p,q}_c(M^L_{SL_n}(X)) = h^{p,q}_{c,st}(M^e_{PGL_n}(X), α^d_{PGL_n,L′}). (Theorem 7.23) For k finite of characteristic p > n satisfying the standing assumptions and every a ∈ A(k), the Gal(k)-representations (Rχ_{SL_n,*}Q̄_ℓ)_a and (R(Iχ_{PGL_n})_*N_{L′}(F_{PGL_n}))_a are abstractly isomorphic.",
+      "proofState": "Theorem7.23 strengthening unresolved; trace/virtual-character consequence retained. Corollary7.22 is unchanged.",
+      "acceptance": [
+        {
+          "name": "FibreComparison.pure_Jordan_block",
+          "kind": "non-example",
+          "statement": "Frobenius I2 and J2=[[1,1],[0,1]] both have weight0 and trace2 on every positive power, but dim ker(Fr−1) is2 versus1. Reject purity+trace equality as an actual-isomorphism proof."
+        },
+        {
+          "name": "FibreComparison.alternating_degree_gate",
+          "kind": "non-example",
+          "statement": "Equality of alternating Frobenius traces is a virtual statement; require a valid degree-separation argument at the actual, possibly singular, fibre before deducing any degreewise comparison."
+        }
+      ]
     },
     {
       "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/77",
@@ -746,7 +832,7 @@
       "statement": "For L_1, L_2 ∈ Pic^e(X)(k) with ν = δ(L_1L_2^{−1}) ∈ Γ and every γ′ ∈ Γ: Tr(Fr, H^*_c([(M^{L_1}_{SL_n})^{γ′}/Γ], N_{L′_1}(F_{PGL_n}))) = (ν, γ′)^{−1}·Tr(Fr, H^*_c([(M^{L_2}_{SL_n})^{γ′}/Γ], N_{L′_2}(F_{PGL_n}))).",
       "locator": "§7.5, (32)–(35) and Lemma 7.25, pp. 591–594",
       "status": "missing",
-      "note": "With A = P_{SL_n,a_F} and B = A/Γ, the sequence 0 → Γ → A(F) → B(F) →β H¹(F, Γ) →α H¹(F, A) → … is self-dual (Lemma 3.15, Proposition 7.10), so ⟨α(T), b⟩ = ⟨T, β(b)⟩_Γ; T_{L_2} = α(ν)·T_{L_1}; each side is a p-adic integral of f_{α_{L_i}} (Corollary 5.29), described by Lemma 6.7, and ⟨ν, β(b)⟩_Γ = (ν, γ′) by Lemma 3.7 because ν is unramified and e(b) lies in the γ′-sector."
+      "note": "With A = P_{SL_n,a_F} and B = A/Γ, the sequence 0 → Γ → A(F) → B(F) →β H¹(F, Γ) →α H¹(F, A) → … is self-dual (Lemma 3.15, Proposition 7.10), so ⟨α(T), b⟩ = ⟨T, β(b)⟩_Γ; T_{L_2} = α(ν)·T_{L_1}; each side is a p-adic integral of f_{α_{L_i}} (Corollary 5.29), described by Lemma 6.7, and ⟨ν, β(b)⟩_Γ = (ν, γ′) by Lemma 3.7 because ν is unramified and e(b) lies in the γ′-sector. The application uses only the unramified-versus-ramified ordered evaluation in item/23; it does not use the rejected second-factor isotropy. E24 is not a counterexample to this mixed formula or to mirror symmetry."
     }
   ],
   "prerequisites": [
@@ -880,7 +966,7 @@
         "PAPER-GROECHENIG-WYSS-ZIEGLER-20/52",
         "PAPER-GROECHENIG-WYSS-ZIEGLER-20/57"
       ],
-      "brief": "This route coalesces with the EndoscopicTransferAndUnitaryTraceComparisonPartII candidate proposed by PAPER-GROECHENIG-WYSS-ZIEGLER-20-B (same id, title and area) and keeps its brief. Groechenig–Wyss–Ziegler, Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration, Invent. Math. 221 (2020) 505–596, is the finite-abelian-quotient prototype of that paper's machinery. Plan its statements as the special cases they are, proved compatibly with the general layers rather than rebuilt: (1) Definition 2.2's fermionic shift F and weight w on the inertia stack of [Y/Γ], with F = w − dim Z and w(γ, Z) = dim X − F(γ^{−1}, Z). (2) Admissible finite abelian quotient stacks (Definition 4.10, Q-Gorenstein by Lemma 4.11), Yasuda's orbifold measure μ_orb on M(O_F)^♮ with Remarks 4.13–4.14, the specialisation map e : M(O_F)^♮ → IM(k_F)_iso (Construction 4.15, with the generator taken from the tame character; source issue E14), and Theorem 4.16: μ_orb(e^{−1}(x)) = q^{−w(γ,x)}/|Aut(x)|, with the affine and cyclic cases and the equivariant étale linearisation (Propositions 4.17–4.18, Lemma 4.19). (3) Twists by H¹(k, Γ) and their Frobenius (Proposition 4.8, Corollary 4.9). (4) Gerbes on [Y/Γ] as central extensions (Lemma 2.7), transgression P_α to the inertia stack (Construction 2.8) and its factorisation through G_m-gerbes (Lemma 2.9). (5) H¹(F, Γ) ≅ Γ ⊕ Hom(μ(F), Γ) and the explicit Tate pairing for constant Γ (Proposition 3.6, Lemma 3.7). (6) Ext²(A, μ_r) ↪ H²(A, μ_r) with its image, and the μ_r-gerbe form of Lemma 3.12 and Corollary 3.13 (source issue E3). (7) §5: the stack X_{L/F} = [Spec O_L/Γ], with the unramified enlargement that makes Gal(L/F) split (source issue E13); its Picard group, cohomology and Brauer group (Lemmas 5.8–5.19); Theorem 5.20 (transgression = Hasse invariant, with the fibre comparison of E15); admissible gerbes and Proposition 5.25 / Corollary 5.26 (inv(x^*α) = τ_α(e(x)), with the hypothesis fix of E16); the function f_α of Construction 5.28. (8) Lemma 6.7 (f_α on a torsor under an abelian variety is a Tate character up to a root of unity) and Lemma 6.13 (invariant forms on torsors). These specialise GWZ20-B's Theorem 2.21, Proposition 3.7, Corollary 3.14, Lemmas 3.4 and 6.14 and Construction 2.19; the design should say which layer proves each and derive the abelian-quotient forms as corollaries. Import stacks, gerbes and quotient-stack identities from AlgebraicModuliForArithmeticGeometry (R09.4, R09.5), p-adic measures from LogicAndDefinabilityInNumberTheory (LD.2), local Tate duality and the local invariant from the Tau Ceti roadmap Class field theory (Layer 5), the tame structure theorem from the Tau Ceti roadmap Local fields and ramification (Layer 3), and duality for abelian varieties from ArithmeticGaloisDuality (R02.4). Consumer: TopologicalMirrorSymmetryForHitchinSystems (the rest of the same paper).",
+      "brief": "This route coalesces with the EndoscopicTransferAndUnitaryTraceComparisonPartII candidate proposed by PAPER-GROECHENIG-WYSS-ZIEGLER-20-B (same id, title and area) and refines its finite-quotient inputs with the confirmed corrections below; the separate sibling packet is not edited here. Groechenig–Wyss–Ziegler, Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration, Invent. Math. 221 (2020) 505–596, is the finite-abelian-quotient prototype of that paper's machinery. Plan its statements as the special cases they are, proved compatibly with the general layers rather than rebuilt: (1) Definition 2.2's fermionic shift F and weight w on the inertia stack of [Y/Γ], with F = w − dim Z and w(γ, Z) = dim X − F(γ^{−1}, Z). (2) Admissible finite abelian quotient stacks (Definition 4.10, Q-Gorenstein by Lemma 4.11), Yasuda's orbifold measure μ_orb on M(O_F)^♮ with Remarks 4.13–4.14, the specialisation map e : M(O_F)^♮ → IM(k_F)_iso (Construction 4.15, with the generator taken from the tame character; source issue E14), and Theorem 4.16: μ_orb(e^{−1}(x)) = q^{−w(γ,x)}/|Aut(x)|, with the affine and cyclic cases and the equivariant étale linearisation (Propositions 4.17–4.18, Lemma 4.19). (3) Twists by H¹(k, Γ) and their Frobenius (Proposition 4.8, Corollary 4.9). (4) Gerbes on [Y/Γ] via action-groupoid descent with L_γ⊗γ^*L_δ→L_{γδ} and an equivariant commutative band. Ordinary central extensions apply only with trivial base/band actions; for cyclic inertia use B_{k_F}I and constant finite étale μ_e, whose geometric Ext classes have constant descents (corrected Lemma2.7, E21/E22). transgression P_α to the inertia stack (Construction 2.8) and its factorisation through G_m-gerbes (Lemma 2.9). (5) H¹(F,Γ)≅Γ⊕Hom(μ(F),Γ), the unramified annihilator and ordered mixed evaluation for constant Γ. A complete pairing includes its second-factor diagonal block; do not assert complementary isotropy at even torsion (corrected Lemma3.7, E24). (6) Ext²(A, μ_r) ↪ H²(A, μ_r) with its image, and the μ_r-gerbe form of Lemma 3.12 and Corollary 3.13 (source issue E3). (7) §5: the stack X_{L/F} = [Spec O_L/Γ], with the unramified enlargement that makes Gal(L/F) split (source issue E13); its Picard group, cohomology and Brauer group (Lemmas 5.8–5.19); Theorem 5.20 (transgression = Hasse invariant, with the fibre comparison of E15); admissible gerbes and Proposition 5.25 / Corollary 5.26 (inv(x^*α) = τ_α(e(x)), with the hypothesis fix of E16); the function f_α of Construction 5.28. (8) Lemma 6.7 (f_α on a torsor under an abelian variety is a Tate character up to a root of unity) and Lemma 6.13 (invariant forms on torsors). These specialise GWZ20-B's Theorem 2.21, Proposition 3.7, Corollary 3.14, Lemmas 3.4 and 6.14 and Construction 2.19; the design should say which layer proves each and derive the abelian-quotient forms as corollaries. Import stacks, gerbes and quotient-stack identities from AlgebraicModuliForArithmeticGeometry (R09.4, R09.5), p-adic measures from LogicAndDefinabilityInNumberTheory (LD.2), local Tate duality and the local invariant from the Tau Ceti roadmap Class field theory (Layer 5), the tame structure theorem from the Tau Ceti roadmap Local fields and ramification (Layer 3), and duality for abelian varieties from ArithmeticGaloisDuality (R02.4). Consumer: TopologicalMirrorSymmetryForHitchinSystems (the rest of the same paper). Audit Lemma2.9 using inertia scalars on a line bundle and their r-th roots; do not turn a base-action cocycle into a global character. E3’s μ_r-gerbe formulation uses image quotients, E13 supplies L′=L·F_d before every splitting-based calculation, E14 supplies the inverse tame-character generator, and E15/E16 remain explicit proof gates for the Hasse/transgression identification. Regression tests are the free C2 base action, k=R/μ3 descent failure, constant cyclic inertia, and the Q3 complementary diagonal self-pairing1/2. Only the mixed block is used by /78.",
       "reason": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B proposed this Part II for p-adic integration on coarse spaces of tame Deligne–Mumford stacks, twisted inertia and the specialisation map, the stacky Weil formula, gerbes and the Hasse invariant, and the Tate-duality argument for Hitchin fibres. This paper proves the finite-abelian-quotient case of each of these, with its own proofs (Theorem 4.16, §5, Lemma 6.7). A second owner would duplicate them, so the items join the same candidate (same id, title and area) as special cases to be derived from the general layers."
     },
     {
@@ -926,7 +1012,7 @@
         "PAPER-GROECHENIG-WYSS-ZIEGLER-20/77",
         "PAPER-GROECHENIG-WYSS-ZIEGLER-20/78"
       ],
-      "brief": "Plan topological mirror symmetry for Hitchin systems via p-adic integration, following Michael Groechenig, Dimitri Wyss and Paul Ziegler, Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration, Invent. Math. 221 (2020), 505–596 (arXiv 1707.06417). The final theorems, as the paper states them: (1) Theorem 7.21 (Hausel–Thaddeus's conjecture): for a smooth projective genus-g curve X over a field k, a line bundle D with D ⊗ (Ω¹_X)^{−1} of strictly positive even degree or trivial, n ≥ 1, d and e prime to n, L ∈ Pic^d(X), and k containing a primitive n^{2g+1}-th root of unity: (a) over C, E(M^L_{SL_n}(X); x, y) = E_st(M^e_{PGL_n}(X), α^d_{PGL_n,L′}; x, y); (b) over F_q with p > n, #M^L_{SL_n}(X)(k) = #^{α^d_{PGL_n,L′}}_st(M^e_{PGL_n}(X)). (2) Theorem 6.11: for a dual pair of abstract Hitchin systems (M_i, P_i, A, α_i) over R ⊂ C of finite type over Z, E_st(M_1 ×_R C, α_1) = E_st(M_2 ×_R C, α_2); and Theorem 6.12, its finite-field and fibrewise form Tr(Fr, (Rπ^I_{1,*}N_{α_1}(F_1))_a) = Tr(Fr, (Rπ^I_{2,*}N_{α_2}(F_2))_a). (3) Corollary 7.22 (Hodge numbers for D = Ω¹), Theorem 7.23 (the fibrewise Galois representations are abstractly isomorphic) and Theorem 7.24 (Tr(Fr, H^*_c(M^L_{SL_n})_χ) = Tr(Fr, H^*_c([(M^{L′}_{SL_n})^γ/Γ], N_{L′}(F_{PGL_n}))) for γ ↔ χ under the Weil pairing). (4) Theorems 7.15–7.16 and Corollary 7.17: point counts, Betti and Hodge numbers of GL_n and SL_n Higgs moduli do not depend on the degree d prime to n. Cover, in layers: (a) stringy E-polynomials and stringy point counts of finite quotient stacks, untwisted and twisted by a μ_r-gerbe through its transgressed torsor on the inertia stack (Definitions 2.4, 2.12, 2.13); (b) equivariant E-polynomials and χ-twisted point counts, the equivariant Katz theorem (Theorem 2.15), fractional powers of L with compatible systems of roots of q, roots of the Tate twist and Theorem 2.18, and the stringy comparison Theorem 2.19 (with the corrections of source issues E1–E2 and E5–E7); (c) arithmetic gerbes, relative splittings and the principal component Split′ (Definitions 6.1–6.4, Lemmas 6.2 and 6.5, with E4); (d) abstract Hitchin systems and dual pairs (Definitions 6.8–6.9 with E10), gauge forms and the orbifold measure (§6.3, Remark 6.14), the Key Lemma 6.16, Theorem 6.17 and Theorems 6.11–6.12, and Corollary 5.29 (twisted stringy counts as p-adic integrals); (e) D-twisted SL_n and PGL_n Higgs moduli over a Noetherian base: existence, smoothness (Lemma 7.3), the PGL_n stack as [M^L_{SL_n}/Γ], properness of the Hitchin map (Theorem 7.6), determinant change as twisting (Lemma 7.7), Hitchin fibres as norm preimages (Lemma 7.8 with E12), duality of the SL_n and PGL_n Pryms (Proposition 7.10), the regular locus (Propositions 7.11–7.12), the torsor calculus (Lemmas 7.13–7.14); (f) the Hausel–Thaddeus gerbes and their duality (Theorem 7.18), Lemma 7.19 and Proposition 7.20, and the final theorems. Import, not re-plan: the Higgs stack, Hitchin base and map, spectral covers, the Picard action and Kostant/regular centralisers from EndoscopicTransferAndUnitaryTraceComparison (ET.2b); p-adic integration on quotient stacks, the orbifold measure and specialisation, transgression of gerbes, the stacky Hasse invariant f_α and Lemma 6.7 from EndoscopicTransferAndUnitaryTraceComparisonPartII (the candidate proposed by PAPER-GROECHENIG-WYSS-ZIEGLER-20-B, extended by this paper's route); Weil's measure, Fubini and Yasuda's change of variables from LogicAndDefinabilityInNumberTheory (LD.2); algebraic stacks, gerbes and twisting from AlgebraicModuliForArithmeticGeometry (R09.4, R09.5); Tate duality for abelian varieties and self-dual isogenies from ArithmeticGaloisDuality (R02.4); dual abelian schemes from AbelianSchemesAndArithmeticModuli (A2); the Hodge–Tate decomposition of smooth proper varieties from CohomologyComparisons (CP.3); Chebotarev recognition of semisimple representations from ArithmeticGaloisRepresentations (R01.5); purity from DeligneWeightsAndPurity (DWP.7); the local Brauer group from the Tau Ceti roadmap Class field theory (Layer 5). State separately the Grothendieck–Lefschetz trace formula for Deligne–Mumford stacks over a finite field, which the coalesced Part II also asks for, and take it from there. Tests: n = 2 and g = 2, where Hausel–Thaddeus verified the conjecture; a dual pair of elliptic fibrations over A¹ (Hitchin systems of rank one); and the q = 4 counterexample to Definition 2.16(c).",
+      "brief": "Plan topological mirror symmetry for Hitchin systems via p-adic integration, following Michael Groechenig, Dimitri Wyss and Paul Ziegler, Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration, Invent. Math. 221 (2020), 505–596 (arXiv 1707.06417). The final theorems, as the paper states them: (1) Theorem 7.21 (Hausel–Thaddeus's conjecture): for a smooth projective genus-g curve X over a field k, a line bundle D with D ⊗ (Ω¹_X)^{−1} of strictly positive even degree or trivial, n ≥ 1, d and e prime to n, L ∈ Pic^d(X), and k containing a primitive n^{2g+1}-th root of unity: (a) over C, E(M^L_{SL_n}(X); x, y) = E_st(M^e_{PGL_n}(X), α^d_{PGL_n,L′}; x, y); (b) over F_q with p > n, #M^L_{SL_n}(X)(k) = #^{α^d_{PGL_n,L′}}_st(M^e_{PGL_n}(X)). (2) Theorem 6.11: for a dual pair of abstract Hitchin systems (M_i, P_i, A, α_i) over R ⊂ C of finite type over Z, E_st(M_1 ×_R C, α_1) = E_st(M_2 ×_R C, α_2); and Theorem 6.12, its finite-field and fibrewise form Tr(Fr, (Rπ^I_{1,*}N_{α_1}(F_1))_a) = Tr(Fr, (Rπ^I_{2,*}N_{α_2}(F_2))_a). (3) Corollary 7.22 (Hodge numbers for D = Ω¹), Theorem7.23 as an unresolved stronger actual-isomorphism target: retain the Theorem6.12 alternating-trace/virtual-character consequence, and supply arithmetic semisimplicity with justified degree separation or an independent geometric isomorphism (E25) and Theorem 7.24 (Tr(Fr, H^*_c(M^L_{SL_n})_χ) = Tr(Fr, H^*_c([(M^{L′}_{SL_n})^γ/Γ], N_{L′}(F_{PGL_n}))) for γ ↔ χ under the Weil pairing). (4) Theorems 7.15–7.16 and Corollary 7.17: point counts, Betti and Hodge numbers of GL_n and SL_n Higgs moduli do not depend on the degree d prime to n. Cover, in layers: (a) stringy E-polynomials and stringy point counts of finite quotient stacks, untwisted and twisted by a μ_r-gerbe through its transgressed torsor on the inertia stack (Definitions 2.4, 2.12, 2.13); (b) equivariant E-polynomials and χ-twisted point counts, the equivariant Katz theorem (Theorem 2.15), fractional powers of L with compatible systems of roots of q, roots of the Tate twist and Theorem 2.18, and the stringy comparison Theorem 2.19 (with the corrections of source issues E1–E2 and E5–E7); (c) arithmetic gerbes, relative splittings and the principal component Split′ (Definitions 6.1–6.4, Lemmas 6.2 and 6.5, with E4); (d) abstract Hitchin systems and dual pairs (Definitions 6.8–6.9 with E10), gauge forms and the orbifold measure (§6.3, Remark 6.14), the Key Lemma 6.16, Theorem 6.17 and Theorems 6.11–6.12, and Corollary 5.29 (twisted stringy counts as p-adic integrals); (e) D-twisted SL_n and PGL_n Higgs moduli over a Noetherian base: existence, smoothness (Lemma 7.3), the PGL_n stack as [M^L_{SL_n}/Γ], properness of the Hitchin map (Theorem 7.6), determinant change as twisting (Lemma 7.7), Hitchin fibres as norm preimages (Lemma 7.8 with E12), duality of the SL_n and PGL_n Pryms (Proposition 7.10), the regular locus (Propositions 7.11–7.12), the torsor calculus (Lemmas 7.13–7.14); (f) the Hausel–Thaddeus gerbes and their duality (Theorem 7.18), Lemma 7.19 and Proposition 7.20, and the final theorems. Import, not re-plan: the Higgs stack, Hitchin base and map, spectral covers, the Picard action and Kostant/regular centralisers from EndoscopicTransferAndUnitaryTraceComparison (ET.2b); p-adic integration on quotient stacks, the orbifold measure and specialisation, transgression of gerbes, the stacky Hasse invariant f_α and Lemma 6.7 from EndoscopicTransferAndUnitaryTraceComparisonPartII (the candidate proposed by PAPER-GROECHENIG-WYSS-ZIEGLER-20-B, extended by this paper's route); Weil's measure, Fubini and Yasuda's change of variables from LogicAndDefinabilityInNumberTheory (LD.2); algebraic stacks, gerbes and twisting from AlgebraicModuliForArithmeticGeometry (R09.4, R09.5); Tate duality for abelian varieties and self-dual isogenies from ArithmeticGaloisDuality (R02.4); dual abelian schemes from AbelianSchemesAndArithmeticModuli (A2); the Hodge–Tate decomposition of smooth proper varieties from CohomologyComparisons (CP.3); Chebotarev recognition of semisimple representations from ArithmeticGaloisRepresentations (R01.5); purity from DeligneWeightsAndPurity (DWP.7); the local Brauer group from the Tau Ceti roadmap Class field theory (Layer 5). State separately the Grothendieck–Lefschetz trace formula for Deligne–Mumford stacks over a finite field, which the coalesced Part II also asks for, and take it from there. Tests: n = 2 and g = 2, where Hausel–Thaddeus verified the conjecture; a dual pair of elliptic fibrations over A¹ (Hitchin systems of rank one); and the q = 4 counterexample to Definition 2.16(c). Use stabilizer-weighted χ-counts Σ Tr(Fr_x,L_χ,x)/|Aut(x)| (E23); B C2/F3 gives1 and the A¹/F3 sign quotient gives3, while unweighted sums give2 and4. Keep root choices for general prime powers, and use the justified prime-field/coefficient-fixing E1 comparison; use finite-denominator Tate roots on Spec R′[1/ℓ] with corrected coefficients (E2) and negative fractional twists (E6). Hitchin fibres use Nm^{−1}(L M^{−1}); torsor powers use (P^L)^e=P^{L^eM^{1−e}} and N=M^{−1}Q^n of degree0 (E12). E4’s middle-exact sequence replaces the unconditional short exact sequence. All consumers retain the local E15/E16 source gates. Purity or R01.5’s semisimple recognition cannot provide arithmetic semisimplicity itself; no degreewise semisimplification or actual-isomorphism conclusion follows from alternating traces alone. Test I2 versus the pure Jordan block J2.",
       "reason": "Nothing in the atlas plans stringy E-polynomials, Katz's theorem that point counts determine E-polynomials, the relative splittings Split′ of arithmetic gerbes, abstract Hitchin systems, or the moduli of stable SL_n and PGL_n Higgs bundles with the Hausel–Thaddeus gerbes. ET.2b builds the Hitchin fibration only for the endoscopic comparison over a finite field. The coalesced Part II is about geometric stabilisation and has no Hodge-theoretic layer. Topological mirror symmetry is a statement about Langlands-dual Hitchin systems over C, so it is a new roadmap in the geometric Langlands galaxy that imports the p-adic machinery from the Part II and the Hitchin fibration from ET.2b."
     }
   ],
@@ -1330,6 +1416,94 @@
         "reason": "Confirmed, with one distinction I would record. The substantive slip is the application of Lemma 2.7(c): equation (4) on p. 516 reads H¹_ét(k, Hom_{sm.ab.grp.k-sch.}(Γ, A)) ↪ H²_ét([Y/Γ], A) ↠ Ext¹_{sm.ab.grp.k-sch.}(Γ, A_k), whereas p. 554 prints the subgroup as Hom(μ_e, μ_e); the cohomological H¹_ét(k_F, −) has been dropped. Written correctly with the group I acting on Spec k_F — which is the presentation the middle term B_{k_F}I names, and for which I is cyclic as 2.7(c) requires — the first term is H¹_ét(k_F, Hom(I, μ_e)), and since μ_e ⊂ k_F that is Z/e by evaluation at Frobenius, so the lemma’s conclusion |H²| = e² is unchanged. The distinction: the paper writes the same stack as [Spec k_F/I] = [Spec k_L/Γ], and in the second presentation a central extension of Γ is the right object, so that half of the correction is a choice of presentation rather than an error. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026.",
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20"
       }
+    },
+    {
+      "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E21",
+      "kind": "error",
+      "locator": "Published Invent.math.221(2020), Lemma2.7(a), pp516–517; proof of Lemma2.9 pp520–521",
+      "printed": "central extensions",
+      "correction": "Use action-groupoid descent with pullback-twisted torsor multiplication and equivariant commutative band; ordinary extensions require trivial base/band actions.",
+      "reason": "For algebraically closed characteristic0 k, Y=C2 with free Γ=C2 action and A=μ2, the permutation-module H² is0 while ordinary extensions over the two points give four classes. Dropping the base action changes the classification. The corrected inertia-scalar argument retains Lemma2.9’s conclusion.",
+      "affects": "a stated result",
+      "known": "Confirmed consequence of RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/1; newly serialized here, awaiting source-issue review.",
+      "searched": [
+        "2October2026: freshly downloaded published Springer PDF, hash f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07, and read the affected journal locators; no preprint substituted.",
+        "2October2026: publisher article, arXiv history through v3 (28Oct2019), Crossref metadata relation={} and no update-to/updated-by, and bounded title/author/DOI correction searches found no relevant correction. This is not an exhaustive author-page/unpublished-correction search."
+      ],
+      "items": [
+        "PAPER-GROECHENIG-WYSS-ZIEGLER-20/9",
+        "PAPER-GROECHENIG-WYSS-ZIEGLER-20/11"
+      ]
+    },
+    {
+      "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E22",
+      "kind": "error",
+      "locator": "Published Invent.math.221(2020), Lemma2.7(c), (4), pp516–517",
+      "printed": "Ext¹(Γ,A_k̄)",
+      "correction": "Restrict the split cyclic sequence to constant finite étale coefficients and trivial actions; a general extension needs invariant geometric classes plus their actual descent obstruction.",
+      "reason": "For k=R, Γ=C3, A=μ3, H²(R,μ3)=0 and H²(B_R C3,μ3)=0, but geometric Ext¹ isC3. Conjugation inverts its nonzero classes, preventing descent. This is independent of E20’s dropped H¹/presentation issue.",
+      "affects": "a stated result",
+      "known": "Confirmed consequence of RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/2; newly serialized here, awaiting source-issue review.",
+      "searched": [
+        "2October2026: freshly downloaded published Springer PDF, hash f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07, and read the affected journal locators; no preprint substituted.",
+        "2October2026: publisher article, arXiv history through v3 (28Oct2019), Crossref metadata relation={} and no update-to/updated-by, and bounded title/author/DOI correction searches found no relevant correction. This is not an exhaustive author-page/unpublished-correction search."
+      ],
+      "items": [
+        "PAPER-GROECHENIG-WYSS-ZIEGLER-20/9",
+        "PAPER-GROECHENIG-WYSS-ZIEGLER-20/42"
+      ]
+    },
+    {
+      "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E23",
+      "kind": "error",
+      "locator": "Published Invent.math.221(2020), Definition2.14(b), p523",
+      "printed": "Σ Tr(Fr_x,L_χ,x)",
+      "correction": "Divide each stack summand by |Aut(x)| while retaining the cohomological definition.",
+      "reason": "For B C2/F3 with trivial character the two torsors each have automorphism order2: weighted mass1 matches cohomology, unweighted sum2 does not. The A¹ sign quotient similarly gives3 versus4.",
+      "affects": "a stated result",
+      "known": "Confirmed consequence of RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/3; newly serialized here, awaiting source-issue review.",
+      "searched": [
+        "2October2026: freshly downloaded published Springer PDF, hash f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07, and read the affected journal locators; no preprint substituted.",
+        "2October2026: publisher article, arXiv history through v3 (28Oct2019), Crossref metadata relation={} and no update-to/updated-by, and bounded title/author/DOI correction searches found no relevant correction. This is not an exhaustive author-page/unpublished-correction search."
+      ],
+      "items": [
+        "PAPER-GROECHENIG-WYSS-ZIEGLER-20/13"
+      ]
+    },
+    {
+      "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E24",
+      "kind": "error",
+      "locator": "Published Invent.math.221(2020), Lemma3.7, p531",
+      "printed": "second factors",
+      "correction": "Remove unconditional second-factor isotropy; retain unramified annihilators and the normalized mixed evaluation. Full blocks require a diagonal term or extra hypotheses.",
+      "reason": "For F=Q3, π=3 and Γ=C2, the Kummer class −3 lies in the complementary factor because (−3,3)_3=+1, but its self-pairing is (−3,−3)_3=−1, invariant1/2. This does not refute the mixed evaluation in Lemma7.25 or mirror symmetry.",
+      "affects": "a stated result",
+      "known": "Confirmed consequence of RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/4; newly serialized here, awaiting source-issue review.",
+      "searched": [
+        "2October2026: freshly downloaded published Springer PDF, hash f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07, and read the affected journal locators; no preprint substituted.",
+        "2October2026: publisher article, arXiv history through v3 (28Oct2019), Crossref metadata relation={} and no update-to/updated-by, and bounded title/author/DOI correction searches found no relevant correction. This is not an exhaustive author-page/unpublished-correction search."
+      ],
+      "items": [
+        "PAPER-GROECHENIG-WYSS-ZIEGLER-20/23",
+        "PAPER-GROECHENIG-WYSS-ZIEGLER-20/78"
+      ]
+    },
+    {
+      "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E25",
+      "kind": "gap",
+      "locator": "Published Invent.math.221(2020), Proof of Theorem7.23, p589",
+      "printed": "abstractly isomorphic",
+      "correction": "Retain the trace/virtual-character comparison; leave actual representation isomorphism unresolved pending arithmetic semisimplicity/degree separation or a geometric proof.",
+      "reason": "Purity does not imply Frobenius semisimplicity: I2 and J2 are continuous pure weight0 representations, equal on all Frobenius power traces but with fixed spaces of dimensions2 and1. Alternating traces also do not alone separate cohomological degrees. This attacks the inference, not the particular Hitchin fibres.",
+      "affects": "the proof",
+      "known": "Confirmed consequence of RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/5; newly serialized here, awaiting source-issue review.",
+      "searched": [
+        "2October2026: freshly downloaded published Springer PDF, hash f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07, and read the affected journal locators; no preprint substituted.",
+        "2October2026: publisher article, arXiv history through v3 (28Oct2019), Crossref metadata relation={} and no update-to/updated-by, and bounded title/author/DOI correction searches found no relevant correction. This is not an exhaustive author-page/unpublished-correction search."
+      ],
+      "items": [
+        "PAPER-GROECHENIG-WYSS-ZIEGLER-20/76"
+      ]
     }
   ],
   "verification": {
@@ -1342,5 +1516,52 @@
     "read": "The published open-access text (Invent. math. 221 (2020), 505–596), read at every finding’s locator with the journal page map reconstructed from the running heads, pp. 506–596. Provenance limitation, recorded honestly: Springer’s PDF endpoint returns a 3 KB JavaScript challenge page to every request made here, with or without a browser User-Agent, referer or cookie jar, so the recorded SHA-256 f2231145…3e07 could NOT be re-verified in this environment; the published text was obtained through a rendering proxy instead. Unpaywall lists only that same publisher URL and arXiv for this DOI. Recomputed or re-derived independently: the compatible-root counterexample of E1, the (Z_ℓ^×)^{ℓ^k} obstruction of E2, the orders 4 and 16 in the Q₅ elliptic-curve example of E3, the Severi–Brauer example of E4, the cyclic-quartic field of E13 (via q(p²−4q) = 100²), the reciprocity computation of E14, and the c₂(T(−a)) = a²−3a+3 obstruction of E18. All library declarations were opened at the pinned commits and every cited atlas stage was read.",
     "changes": "All 20 sourceIssues carry a review verdict and all are confirmed. Nothing else changed: no item, status, route, locator or quotation was altered, and this `verification` block, which the extraction did not write, is the only addition.",
     "lean": "none"
+  },
+  "requests": [
+    {
+      "supplier": "proposed:TopologicalMirrorSymmetryForHitchinSystems",
+      "need": "Close the actual fibrewise Gal(k)-equivariant isomorphism strengthening of Theorem7.23: prove arithmetic semisimplicity and valid cohomological-degree separation at the actual fibres, including singular ones, or provide an independent geometric isomorphism. Theorem6.12 presently gives alternating traces/virtual characters; purity alone does not close the gap.",
+      "neededBy": [
+        "PAPER-GROECHENIG-WYSS-ZIEGLER-20/76"
+      ],
+      "status": "open proof obligation; not a disproof of the theorem or main mirror symmetry",
+      "acceptance": "I2 and the pure Jordan block J2 have identical traces on every power and are not isomorphic; the supplied argument must distinguish this inference failure."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-020-00957-8.pdf",
+      "read": "2026-10-02",
+      "sha256": "f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07",
+      "scope": "Bounded repair reading: pp. 516–517,520–521,523,525–527,531,534,543,548–551,565,567–568,579,582–583,585,589. Images of pp. 516,523,531,589 viewed; no fresh full-paper reread."
+    }
+  ],
+  "repair": {
+    "job": "FIX-RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+    "issue": 5509,
+    "agent": "Codex",
+    "session": "codex-rtOQ9t",
+    "date": "2026-10-02",
+    "base": "6467e6c710ff22f51615f2abc19530d8f6b7680e",
+    "findings": [
+      "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/1",
+      "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/2",
+      "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/3",
+      "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/4",
+      "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/5",
+      "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/6"
+    ],
+    "counts": {
+      "items": 78,
+      "library": 3,
+      "planned": 5,
+      "missing": 70,
+      "routes": 5,
+      "prerequisites": 11,
+      "sourceIssues": 25
+    },
+    "scope": "Active target correction; all item statuses, route memberships/owners, original source/verification and twenty accepted sourceIssues/reviews preserved. Mathematical source gates remain explicit.",
+    "lean": "No Lean deliverable required or compiled."
   }
 }
