@@ -1,147 +1,69 @@
-# BP-AnabelianGeometryAndNonabelianChabauty — product-effacement research checkpoint
+# BP-AnabelianGeometryAndNonabelianChabauty — finitary product-effacement checkpoint
 
-Worker: ChatGPT Pro — `gpt-20261002-hodge-7c41`. Refs #1020. Date: 2026-10-02.
-Claim 5956685853; bot confirmation 5956689509. The issue was reread after confirmation.
+Worker: Codex — codex-rtOQ9t. Refs #1020. Date: 2026-10-02.
+Claim 5957941214; bot confirmation 5957944301. The full issue was reread after confirmation.
 
-## Status, scope and preservation
+## What this checkpoint adds
 
-This is a **handoff-only research checkpoint** for the existing node `AnabelianGeometryAndNonabelianChabauty:NC.0/products`, declaration `TauCeti.EtaleKPiOne.product_charZero`. It expands its proof, identifies exact supplier contracts, supplies new falsifiers, and records two apparent typographical errors in the cited SGA reprint. It does not complete the blueprint or implement a geometric declaration.
+The packet and reader now contain three declaration-sized assemblies: NC.0/positive-family-effacement, NC.0/product-cover-effacement and NC.0/geometric-product. The existing NC.0/products public statement, hypotheses, source locators, planet and ID remain unchanged. Its proof uses the already owned separable-base-change equivalence, binary geometric closure, finite induction and descent. The reserved key/etale-k-pi-1 object, full fundamental group, coefficient class and canonical comparisons in every degree are unchanged. Every implementation status is unchecked and no stage is closed.
 
-The packet, reader and suggested Lean file are unchanged. Their inherited totals remain **48 nodes: 3 definitions, 4 constructions, 14 lemmas, 21 theorems and 6 comparisons; 52 API items, of which 40 belong to definitions/constructions; 38 test contracts; 11 planets; 62 baseline records; 9 gap groups and 16 supplier requests**. All implementation statuses remain unchecked; no stage is closed. The tests proposed below are not added to those metadata counts. The source findings are not yet entries in the packet's sourceIssues.
+The packet has 51 nodes: 3 definitions, 4 constructions, 16 lemmas, 22 theorems and 6 comparisons; 52 API items (40 required definition/construction items), 42 test contracts (38 required tests and four finite product regressions), 11 planets, 69 baseline records, nine gap groups and sixteen open requests. Exactly 47 of the 48 complete old node objects are identical. The sole modified old node is products; all its prior acceptance statements survive. All existing IDs, definition APIs/tests, non-Schmidt source route inventories, sourceIssues and restructure proposals survive unchanged.
 
-The entire preceding handoff, including its scripts, counts, source-reading attributions, native omission boundaries and actual validation receipts, is preserved at [the immutable PR #5798 head](https://github.com/CBirkbeck/tauceti-explorer/blob/dddebf0d90e62bacb4e495501deafacb1fd904bb/research/blueprint/handoff/BP-AnabelianGeometryAndNonabelianChabauty.md). Its blob `649c32f74531eddfe2167cd23aeb5eaaa30ffdd9` was checked against this job's starting handoff. Those historical checks were not rerun or certified by this worker.
+## Mathematical decomposition and supplier boundaries
 
-The reserved key `AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1` remains the sole owner. Its coefficient class, full profinite fundamental group, and canonical comparison in every degree are unchanged. Nothing here creates another cohomology, fundamental-group, covering-space, Picard, Néron–Severi or height carrier.
+The finite-family lemma uses the already owned all-positive-degree criterion, including degree one. It takes a pointed connected component of a finite common refinement of killing covers; it never asserts one cover kills infinitely many classes. The product-cover lemma first dominates an arbitrary connected cover by a product cover through the native rectangle U=i_G⁻¹K,V=i_H⁻¹K. Subgroup product/map/comap and open-subgroup/finite-coset operations are already built and are not replanned. A nonnormal K is permitted: its quotient is a coset set.
 
-## 1. Precise target and proof strategy
+The pulled-back class is expanded using the actual external-product map over F_p. Every tensor uses only finitely many terms. At least one factor in each positive-total-degree summand has positive degree; designate that factor, including degree-one terms, and kill the two finite families. Naturality and bilinearity then kill the class. The all-covers/all-primes criterion restores all finite coefficients. Derived torsion Künneth remains a supplier contract, but its degreewise tensor formula is used only over a prime field. The rectangle is applied after algebraic closure; arithmetic groups over k form a fibre product over G_k.
 
-Retain the existing theorem: over a characteristic-zero field k, a finite product of geometrically connected, geometrically unibranch k-varieties with the full finite-coefficient étale K(π,1) property has that property. Here the full property means that every canonical comparison from continuous fundamental-group cohomology to étale cohomology is an isomorphism, for every finite continuous coefficient module and every nonnegative degree. It does not mean that the cohomology groups themselves vanish.
+The current IG packet has only IG.2 specialization nodes, and the SF packet only SF.0 henselization nodes. Their requested geometry is not present as an exact supplier declaration. Existing requests 7 and 9 now state the exact projection-compatible π₁ product, finite π-set/pointed-cover and nonnormal morphism/refinement dictionary, canonical prime-field external products, generic field-complex bridge and geometric-condition stability. Request 13 records degree-one torsor killing. SF.2 integrates the generic homological bridge; NC.0 does not define another derived category, cohomology or cover carrier. The product proof does not need an additional universal-cover cohomology interchange; inherited separable descent still needs coefficient continuity and eventual finite-stage zero.
 
-The proof below is a finitary expansion of the product argument in Schmidt–Stix, Lemma 2.7(b). It **reuses the predecessor's constant-prime-field finite-cover criterion and separable-closure equivalence**. It does not introduce a replacement definition. The new organization avoids needing an additional filtered universal-cover cohomology interchange specifically for this product step: specialize to a prime field, kill the finitely many factor classes occurring in one Künneth expansion, and then use the existing coefficient dévissage. Continuity remains necessary for the inherited separable-descent argument.
+## Fresh reading and preserved evidence
 
-The geometric product theorem for π₁, the actual cohomological Künneth map, the finite-cover/sheaf dictionary and the inherited criterion are mathematical inputs, not implemented Lean lemmas on the evidence of this checkpoint.
+All seven reviewed NC.0–NC.6 audit rows were personally read, including the partial Galois/cohomology foundations, duplicate ownership boundaries and process-only NC.6 finding. REV-AUDIT-08 metadata records 147 checks and 50 corrections, dated 2026-09-16. Current IG.0/IG.1/SF.2/SF.3 stage descriptions and all seventeen touching stage edges were read. No asserted link or overlap in the link maps touches these stages. The key-definition entry was reread. JacobianChallenge was fully reread; StableReduction was fully read earlier in this worker loop. AlgebraicCurves, Kim, Chen, BDMTV and reconstruction proofs were not fully freshly read.
 
-### A. A canonical largest product subgroup
+Fresh primary reading:
 
-Let G and H be topological groups and K an open subgroup of G×H. Write i_G(g)=(g,1), i_H(h)=(1,h), and set U=i_G⁻¹(K), V=i_H⁻¹(K). These are open subgroups because the two inclusions are continuous. They satisfy U×V⊆K: for u∈U and v∈V, multiply (u,1) and (1,v) in K.
+- Schmidt–Stix, published Annals 184 (2016), §2.3 and the full printed Lemma 2.7(b) proof, pp.826–827: https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p05-p.pdf . PDF SHA-256 6e9083efdb484e6f3dae456bcb55fa8369e2ab35a727da36809f8611eef70759, matching the inherited version.
+- Stacks, Section 59.97, Lemma 59.97.9 with its complete printed proof and the canonical map/reduction of 59.97.8: https://stacks.math.columbia.edu/tag/0F13 . HTML SHA-256 f2499b9e1cc7010c62c2ce8c92512a4f1c37539bf9b609d931c49e428de2932e.
+- Seven new native baseline records: Subgroup.prod/prod_le_iff/map_le_iff_le_comap, OpenSubgroup.comap/prod, Subgroup.quotient_finite_of_isOpen and MonoidHom.eqLocus. Their full statements, ambient hypotheses and bodies were read at the recorded exact Mathlib pin. The quotient theorem needs compactness and separately continuous multiplication, not normality.
 
-More precisely, for any subgroups A≤G and B≤H,
+SGA 1 XIII 4.6, its resolution/asphericity proof leaves, SGA 4½ finitude 1.11, Stacks transitive finiteness/base-change, and the generic field-complex comparison remain open. The complete predecessor handoff, including its two apparent reprint formula slips and source-history uncertainty, is preserved at [commit 271d4bb](https://github.com/CBirkbeck/tauceti-explorer/blob/271d4bb2767dd87419fb503ab05dec3592990c18/research/blueprint/handoff/BP-AnabelianGeometryAndNonabelianChabauty.md). Those findings need version/history verification before integration into sourceIssues. No new source-error verdict is asserted here.
 
-    A×B ⊆ K  iff  A⊆U and B⊆V.
+## Actual checks and their limits
 
-The forward implication tests (a,1) and (1,b); the reverse implication uses the same multiplication. Thus U×V is the largest rectangle contained in K. No commutativity or normality of K is needed. If G and H are profinite, U and V have finite index: their coset spaces are compact and discrete.
+The indexed packet checker reports zero errors and warnings. The actual atlas assembler was run read-only using the normal promoted overlays and decomposition trimming, once with this packet and once with the fixed-base predecessor. Its stage graph has 3,018 vertices/8,655 edges; the packet declaration graph has 51/102; stages plus all reachable declaration and request edges have 3,058/8,844. All three are acyclic, all twenty computed required stage pairs are reachable, stage edges are unchanged, no packet link is skipped, and all other roadmap skip results agree with the control. These checks do not certify mathematical closure.
 
-Use the existing native objects `OpenSubgroup.comap`, `OpenSubgroup.prod` and `Subgroup.prod_le_iff`. Do not define a new rectangle carrier. `Subgroup.quotient_finite_of_isOpen` does not require normality: the quotient here is a coset set, not automatically a quotient group.
+Eleven product-only Mathlib smoke examples elaborate at the exact Mathlib pin with zero errors, eleven admitted-proof warnings and no others. The full suggested file was not compiled: no certified existing combined build at both pins is available. No setup, cache, library build or language server was started. Available memory before the native checks was 69–70 GiB, and only one Lean process ran at a time. The three new geometric declarations remain named mathematical omissions, without artificial proposition fields or fabricated geometry.
 
-### B. Product covers dominate arbitrary connected covers
+A separate genuine native experiment proves rectangle maximality/containment, openness and finite coset sets, with zero errors/warnings. Four axiom audits report only subsets of propext, Classical.choice and Quot.sound, with no admitted axiom. This is baseline group theory, not a proof of any geometric declaration. Its exact source is archived in the permitted suggested file at [commit f420049](https://github.com/CBirkbeck/tauceti-explorer/blob/f42004946da377d34f33dbeb36f34c694f3a8b3f/research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean). Extract the text between BEGIN ARCHIVED CHECKED PRODUCT RECTANGLE EXPERIMENT and END ARCHIVED CHECKED PRODUCT RECTANGLE EXPERIMENT, keeping the final newline. The final suggested file removes that archive block; all new active examples remain admitted.
 
-Now let k be algebraically closed of characteristic zero, and X,Y be the two factors. The geometric product theorem identifies π₁(X×Y) with G×H, where G=π₁(X), H=π₁(Y), compatibly with the projections and chosen geometric points.
+The predecessor's exact finite regression script was freshly rerun, not merely quoted: 36 ordered group pairs, 552 subgroup/coset-surjection cases including 186 nonnormal subgroups, 10,597 maximal-rectangle tests, 10,111 representative checks, 101,875 equivariance checks and eighteen positive-degree graded values. It also checks the C₂ diagonal, arithmetic fibre product, mixed degree one, nonfield canonical-map and source-formula falsifiers. These are finite models, not scheme/cohomology/profinite proofs. The script and hashes are preserved below; its source-formula check is only a finite countermodel to a printed-direction interpretation, not a fresh source-error verification.
 
-A pointed connected finite étale cover Z→X×Y corresponds to an open subgroup K≤G×H. The subgroups U,V from A correspond to connected finite étale covers X'→X and Y'→Y. The inclusion U×V≤K gives a pointed map
+## Where to resume
 
-    X'×Y' → Z → X×Y.
+1. Supply and type the exact IG.0 pointed/non-affine finite-cover dictionary, geometric π₁ product and refinement maps. Audit SGA's full hypotheses/resolution input and the predecessor's reprint/history findings. Do not require stabilizers normal or identify an arbitrary cover with a product.
+2. Supply SF.2's canonical prime-field external product, its derived-to-degreewise field-complex comparison and naturality; verify all transitive finiteness/base-change leaves. Keep the original general torsion/SGA request and its Tor boundary. Type the three product assemblies once actual geometric interfaces exist.
+3. Keep all original curve, cohomological criterion, degree-one torsor, coefficient dévissage and separable-descent obligations open. In separable descent a killed class may require a larger finite stage; restriction is not asserted injective.
+4. Resolve the raw homotopy/fibration foundation and M₀,n supplier separately. Chen /57–58, NC.1 reconstruction, and full NC.2/NC.5 source decomposition remain unfinished.
+5. Preserve RT-AREA-algebraicgeometry/8's owner: A2 supplies NS=Pic/Pic⁰, symmetric-Hom injection, finite generation and Picard number; NC.5 consumes it. Generic heights/mixed extensions/local terms remain with the shared Part II owner, with no reverse NC.5 dependency. All nineteen NC.5 and seventeen NC.2 BDMTV routes, E9/E10, four applications, and the /58-versus-/93 split are unchanged.
+6. Split inherited NC.3 multi-declaration nodes and complete omitted APIs/tests, twisting, representability, local conditions and Selmer geometry. The process-only NC.6 rescope and unaccepted raw-homotopy foundation proposal remain unapproved. No review of this worker's own work is undertaken.
 
-Under the finite π-set dictionary this is the surjective equivariant map (G×H)/(U×V)→(G×H)/K. Hence the map of covers is finite étale and surjective. This uses the exact Galois-category dictionary and its morphism/connectedness statements supplied by IG.0; it is not a purely group-theoretic construction of the scheme.
+## Durable checks
 
-**Do not assert that Z itself is a product cover.** For example, the diagonal subgroup of C₂×C₂ has index two, but its largest contained rectangle is the trivial subgroup, of index four. It is the domination that the proof needs. Nonnormal stabilizers must remain admissible.
+Exact artifact hashes:
 
-### C. Kill finite families of positive-degree factor classes
+- finite.py: b1e1e27b8cec45973ecb4bb0b27b5e3964c34a839554b408d5b5b37469ec1e3b.
+- finite.log: 81ec6877ba7ac4e2116551d145028a806016a1903239502c1bebcde6f453b1fb.
+- rectangle.lean: 6a68faadef90564b7a2b66a7b8ad06a996cc25ffc94a194c6dea2f748f7ec821.
+- rectangle.log: 50d1f9d5adfe54b5f824ec13f6bdecce70373c20bcfac19f2bd69811fd331fb2.
+- product-smoke.lean: 10532de8baaac004a130332f74888b8b528baa96d74ab5fe5954ebabc9555c28.
+- product-smoke.log: 23a2581c5468eb9a9828bca7a55ff526b307fa6a24b41fbe2b945cf0e113d0e7.
+- Final suggested file: 694512000e6a677ca165879d04a9db948c2b02fba1d3ad2159f86fec023b9823.
+- Projection script: e96a2c78b6257837f04d78a8d707578c3cc9d7368ed565a73beb670ee420241a.
 
-Let W be a connected finite étale cover of either factor, and p a prime. Every class in H^r_et(W,F_p), for r>0, can be killed by a connected finite étale cover of W.
+To reproduce the eleven-example fragment, take the final suggested block from BEGIN PRODUCT BASELINE SMOKE through END PRODUCT BASELINE SMOKE, including the enclosing comment syntax, and prepend the five imports from the archived version immediately before that block: Mathlib.Topology.Algebra.OpenSubgroup, Mathlib.Algebra.Group.Subgroup.Basic, Mathlib.Data.ZMod.Basic, Mathlib.GroupTheory.Perm.Basic and Mathlib.Data.Fintype.Card, in that order, one import per line and one blank line after them. The smoke-source hash above identifies the exact bytes. Run each native file with the existing pinned Mathlib environment; never build or fetch a new environment.
 
-For r≥2 use the inherited finite-cover criterion, or finite-étale invariance followed by that criterion. For r=1 use the separate torsor argument: the class is represented by a finite étale F_p-torsor P→W; after pullback to P the diagonal gives a section, so the class is zero. Select the connected component through a chosen geometric lift. Since W is connected and noetherian, that component is a finite étale surjective cover. For the zero class take the identity cover.
-
-The degree-one argument is essential. A criterion stated only for r≥2 must not silently be used in degree one. Its general torsor/cohomology identification and finite-étale representability are SF.2/IG.0 inputs, not a new NC.3 nonabelian H¹ construction.
-
-A finite family of classes, possibly in different positive degrees, can be killed simultaneously. Choose one killing cover per class and take a connected component, through compatible geometric lifts, of their finite fibre product over W. This refines every chosen cover, and zero classes remain zero under pullback. Equivalently, intersect the finitely many open stabilizers. No single cover killing all classes in every degree is asserted or required.
-
-### D. Use prime-field Künneth, not a false torsion tensor formula
-
-For finite-type schemes W,T over algebraically closed k of characteristic zero, the natural external cup-product map gives
-
-    ⊕_(i+j=q) H^i_et(W,F_p) ⊗_(F_p) H^j_et(T,F_p)
-                       → H^q_et(W×T,F_p)
-
-as an isomorphism. Its compatibility with pullback in both factors is part of the required contract. This is ordinary étale cohomology, not coherent or compactly supported cohomology. Neither factor needs to be proper.
-
-The precise geometric input is the derived Künneth map of Stacks, Lemma 59.97.9, specialized to the constant coefficient F_p. The passage to this degreewise formula uses Künneth for complexes over a field. To see why that passage is valid, split the cycles and boundaries in each complex as vector spaces: the complex is a direct sum of its cohomology with zero differential and a contractible complex. Tensoring a contracting homotopy with the other complex, with the usual differential signs, shows that the contractible summands contribute no cohomology. The isomorphism is the canonical map induced by tensoring cycles; the auxiliary splittings are a proof device, not the definition or a choice-dependent comparison. Its naturality follows from that canonical description.
-
-The native derived-to-degreewise bridge must still be found or supplied. Do not replace its conclusion by an unrelated isomorphism of vector spaces. No finite-dimensionality hypothesis is needed for the following finite-support argument: an element of a tensor product is a finite sum of simple tensors, and for fixed q there are finitely many pairs of nonnegative degrees adding to q.
-
-### E. Explicitly kill a class on an arbitrary cover
-
-Fix a connected finite étale Z→X×Y, a prime p, a degree q≥2, and a class c∈H^q_et(Z,F_p). Use B to pull c back to X'×Y'. By D write the pullback as a finite sum of external products a_s×b_s with deg(a_s)+deg(b_s)=q.
-
-For every summand at least one factor has positive degree. If deg(a_s)>0, designate a_s for killing; otherwise deg(b_s)=q>0 and designate b_s. Apply C to the two finite lists to get connected finite étale covers X''→X' and Y''→Y'. Naturality of external products makes every summand zero on X''×Y'', hence kills c there. The composite X''×Y''→Z is finite étale and surjective.
-
-This proves the required prime-field effacement for **every connected finite cover Z**, not just for X×Y itself. Apply the predecessor's all-primes, all-covers criterion and its coefficient dévissage to get the full finite-coefficient K(π,1) property. The same calculation works for q=1, but the criterion only needs q≥2.
-
-### F. Descend and form finite products
-
-Use the existing separable-closure invariance node to pass between k and its algebraic closure; in characteristic zero these closures coincide. That inherited proof separates descent of the covering scheme from eventual vanishing of the cohomology class at a finite field stage. It does not assert injectivity of restriction on cohomology.
-
-Induct on the number of factors, using Spec k for the empty product and the identity for one factor. The necessary geometric connectedness/unibranch stability remains a supplier obligation. Over a nonclosed field, the arithmetic fundamental group of the product is the fibre product over G_k, not the ordinary product. The elementary rectangular-subgroup argument above is applied after geometric base change, not directly to two arithmetic groups.
-
-## 2. Discriminating regression contracts
-
-These extend the research evidence but are not yet packet tests or native examples.
-
-**Nonnormal covers and domination.** The diagonal in S₃×S₃ is not normal. The canonical contained rectangle is still valid, and the map of finite coset sets is equivariant and surjective. Requiring a quotient-group instance would exclude this legitimate cover case. The C₂ diagonal distinguishes domination by a product cover from being one.
-
-**Mixed degree one.** Take graded F₂-vector spaces with one generator in degrees 0,1,2. Maps acting as identity in degrees 0,1 and zero in degree 2 kill all factor classes of degree at least two, but preserve the nonzero H¹⊗H¹ summand in product degree two. Killing positive degrees, including degree one, removes it. This tests the missing hypothesis of a would-be assembly step, not a counterexample to Künneth or to the K(π,1) theorem.
-
-**The canonical map over a nonfield can fail even when the two groups are abstractly isomorphic.** Let R=Z/4 and C be the free cochain complex R --2→ R in degrees 0,1. Then H⁰(C)={0,2}≅R/(2), and H⁰(C)⊗_R H⁰(C)≅R/(2). In C⊗_R C, the degree-zero differential sends z to (2z,2z), so H⁰(C⊗C)={0,2} too. Nevertheless the canonical map sends the tensor of the generating cycles 2 and 2 to 4=0; it is zero, not an isomorphism. Since C is bounded and free, its tensor already computes the derived tensor. This is why the argument specializes to a field before taking the degreewise tensor formula. The existing packet correctly retains derived/Tor concerns; this is a falsifier for a potential incorrect simplification, not an allegation that its present statement makes that simplification.
-
-**Arithmetic base.** The fibre product of the two identity maps C₂→C₂ is the diagonal, of order two, whereas C₂×C₂ has order four. This is a finite model of the already-recorded arithmetic base-group distinction, not a proof of the geometric comparison.
-
-## 3. Source findings for integration into sourceIssues
-
-Source inspected: [SGA 1, arXiv:math/0206203v2](https://arxiv.org/pdf/math/0206203), Exposé XIII, Proposition 4.6 and its proof, reprint pages 310–311 (PDF indices 325–326; original margin 421–422). Both pages were visually inspected. The displayed characteristic is p≥0: the text parser's p>0 is a retrieval error, not a mathematical error in the source.
-
-Two apparent typographical errors are visible in **this reprint** on page 311:
-
-1. The composite from the geometric fibre group through π₁(Z) ends at π₁(Y), and is said to be an isomorphism. It must end at π₁(X), using the first projection. Indeed, with Y=Spec k and X=G_m over algebraically closed characteristic-zero k, the displayed map to π₁(Y)=1 cannot be an isomorphism: the cover t↦t² already gives a nontrivial finite quotient of π₁(X). The first-projection correction is exactly the fibre identification needed by the next line.
-2. In the comparison split exact sequence, the position of the projection to π₁(Y) is printed as another product factor. The corrected sequence is
-
-       1 → π₁(X) → π₁(X)×π₁(Y) → π₁(Y) → 1,
-
-   with the canonical inclusion and second projection. The same correction applies to the displayed prime-to-characteristic groups.
-
-These are local formula corrections, not a disproof of Proposition 4.6. No claim is made about whether they originated in the 1971 edition or whether an erratum is published; that publication history was not checked. Record the version and page, use the corrected maps in the supplier contract, and retain that uncertainty.
-
-The proposition itself has explicit strong-desingularizability hypotheses and a prime-to-characteristic conclusion. The characteristic-zero application imports the necessary resolution input; those transitive proof leaves were not read or formalised here. In particular, merely reading this statement does not certify an unrestricted positive-characteristic product theorem.
-
-## 4. Fresh reading and verification boundaries
-
-Fresh primary reading, on 2026-10-02:
-
-- [Schmidt–Stix, published article](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p05-p.pdf), §2.3 and Lemma 2.7(b), pages 826–827; Proposition 2.8 and Lemma 2.9 for the boundary with higher homotopy and arithmetic fibre products. The published PDF text was read. Its screenshot fetch failed; the corresponding [arXiv page](https://arxiv.org/pdf/1504.01068), PDF index 6, was successfully rendered and inspected. The additional center-free hypotheses in Lemma 2.9 belong to its unpointed Hom statement, not to the retained product K(π,1) theorem.
-- [Stacks, Section 59.97](https://stacks.math.columbia.edu/tag/0F13), the canonical derived map and Lemma 59.97.9 with its printed proof. The coefficient order is invertible, the base separably closed, and the two schemes finite type. Its more general derived input avoids improperly importing the properness assumption of earlier special cases. The transitive finiteness/base-change proof leaves remain unaudited supplier work.
-- SGA 1 XIII 4.6, the statement and complete printed proof on the two rendered pages described above. Its upstream asphericity, cohomological-properness and resolution inputs are not freshly closed.
-- [Pinned Mathlib subgroup API](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Basic.lean), lines 1–205, including the full `prod_le_iff` statement and the native product carrier.
-- [Pinned Mathlib open-subgroup API](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/OpenSubgroup.lean), the full product/comap declarations and the finite-coset-quotient statement. These support the group-level plan; no geometric π-set dictionary is inferred merely from their existence.
-
-The latest issue, immediate handoff, product statement/proof and relevant reserved-key/coefficient reader sections were read. Selected JacobianChallenge and AlgebraicCurves upstream sections were read for native-carrier and ownership conventions; these are not full rereads of either roadmap or of their sources. Earlier curve, Kim and BDMTV source receipts remain historical.
-
-The reviewed coverage file was not freshly read: the file and blob readers returned empty content, and a further GitHub file fetch rejected it as too large or unsupported. Thus this checkpoint does not claim a fresh full-library audit or add missing-library declarations on the strength of search snippets. The existing 62 baseline records are unchanged. Current supplier packet statements were not comprehensively reread; the generic inputs below remain refinements to the inherited requests, not freshly verified supplier nodes.
-
-**No Lean compilation was attempted.** There is no existing pinned Lean build in this environment and available memory was about 3.6 GiB, below the protocol threshold. No Lake project, cache download, library build or language server was started. Neither the indexed packet checker nor the atlas assembler was run locally. Only the handoff changes, so no JSON, graph edge, native signature or previous compiler receipt is modified.
-
-The exact Python regression below passed: **36 ordered group pairs; 552 subgroup/coset-surjection cases, including 186 nonnormal subgroups; 10,597 maximal-rectangle tests; 10,111 representative checks; 101,875 equivariance checks; and 18 positive-degree graded values**, together with the diagonal, nonfield-canonical-map and source-formula falsifiers. Group pairs are formed from C₁,C₂,C₃,C₄,V₄,S₃. The Python file also passed syntax compilation. These are finite algebraic regressions, not proofs about schemes, étale cohomology, arbitrary profinite groups or native Lean declarations.
-
-## 5. Exact integration worklist
-
-1. Retain the existing `NC.0/products` public statement, scope, planet and ID. Split its substantive proof assemblies at declaration granularity when updating the packet: finite families of positive-degree classes; effacement on an arbitrary product cover; geometric product closure; then the already-owned arithmetic descent. Use existing finite-cover invariance, coefficient dévissage and separable-base-change nodes rather than duplicating them.
-2. Obtain the reviewed audit slice and the exact current supplier statements. Refine the existing IG.0 request to include geometric projection-compatible π₁ Künneth, the pointed finite π-set/covers equivalence, finite morphism surjectivity and connected components/common refinements. Implement the rectangle with existing open subgroups. Do not make K normal or silently turn coset sets into groups.
-3. Refine the existing SF.2 input to the actual natural derived Künneth morphism, its constant-F_p degreewise external-product specialization and the degree-one finite-torsor trivialization. Audit or request the generic complex-over-a-field bridge from its proper homological owner; do not redefine cohomology here. The stronger general torsion Künneth request can serve other consumers, but the finitary proof needs only its prime-field instance.
-4. Integrate the tests and the version-qualified source corrections into packet, reader and suggested omission/native ledgers together. The omitted geometric carriers remain explicit until their suppliers exist. Do not use assumed proposition fields, fabricated comparison maps, or the finite Python fixtures as geometric certificates. No such metadata promotion has occurred in this checkpoint.
-5. Preserve the predecessor's actual curve proof obligations: IG.0 finite covers/characters; SF.2 canonical comparison, Kummer-degree and continuity; SF.3 curve/Jacobian/genus. A killed geometric class descends only after an eventual finite-stage enlargement. Positive-prime-power towers do not need to be Galois as a composite. All these inherited requests remain open.
-6. The elementary-fibration route still requires higher étale homotopy, not merely IG.1's arithmetic π₁ exact sequence. Chen's tangential paths/specialization are independent NC.0 targets. NC.3 continuous-cocycle APIs, twisting, representability and local conditions remain unfinished; NC.1 reconstruction and NC.2/NC.5 full BDMTV source routes remain to be read and decomposed.
-7. Keep RT-AREA-algebraicgeometry/8's NS=Pic/Pic⁰ and symmetric-Hom injection with A2, including finite generation and rank. NC.5 consumes that owner and the shared general-height supplier; it must not build a second NS/height theory or introduce a reverse height dependency. Preserve the 19 NC.5 and 17 NC.2 routed BDMTV items, E9/E10, the /58-versus-/93 split, and Chen /57–58 obligations.
-
-## Durable finite regression script
-
-Save the following block with its displayed final newline. SHA-256: `b1e1e27b8cec45973ecb4bb0b27b5e3964c34a839554b408d5b5b37469ec1e3b`. The scratch copy may be deleted after submission because the exact script and results are retained here.
+The finite script is unchanged from the predecessor and retained exactly:
 
 ```python
 """Finite regressions for the product proof; not scheme/cohomology proofs."""
@@ -282,4 +204,127 @@ assert len({0 for _ in range(2)}) == 1 < 2
 print(json.dumps({'status': 'pass', 'scope': 'finite group and algebra models only',
                   'counts': counts}, sort_keys=True))
 print('sha256:', hashlib.sha256(Path(__file__).read_bytes()).hexdigest())
+```
+
+The actual read-only assembler/control and preservation script:
+
+```python
+import json,sys,subprocess,hashlib,re
+from pathlib import Path
+from collections import defaultdict,deque
+root=Path.cwd();sys.path.insert(0,str(root/"scripts"));import build
+rid="AnabelianGeometryAndNonabelianChabauty"
+packetpath="research/blueprint/packets/"+rid+".json"
+roadmappath="research/blueprint/atlas/roadmaps/"+rid+".json"
+base="69d94f1efd07fe83f441f675ae4e04323c5c9bf6"
+p=json.loads((root/packetpath).read_text());r=json.loads((root/roadmappath).read_text())
+old=json.loads(subprocess.check_output(["git","show",base+":"+packetpath],text=True))
+oldr=json.loads(subprocess.check_output(["git","show",base+":"+roadmappath],text=True))
+load=build.load_promoted
+def assemble(packet,definition):
+ def overlay(*a,**k):
+  ps,ds,defs=load(*a,**k)
+  return ([(n,v) for n,v in ps if v.get("roadmapId")!=rid]+[(rid,packet)],
+   {**ds,rid:"research/blueprint/readmes/"+rid+".md"},
+   defs)
+ build.load_promoted=overlay
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,r);control=assemble(old,oldr)
+def dag(vertices,edges):
+ vertices=set(vertices)|{x for e in edges for x in e};following=defaultdict(set);indegree=dict.fromkeys(vertices,0)
+ for s,t in set(edges):
+  following[s].add(t);indegree[t]+=1
+ q=deque(v for v in vertices if not indegree[v]);seen=[]
+ while q:
+  v=q.popleft();seen.append(v)
+  for w in following[v]:
+   indegree[w]-=1
+   if not indegree[w]:q.append(w)
+ assert len(seen)==len(vertices),("cycle",sorted(v for v in vertices if indegree[v])[:10])
+ return {"vertices":len(vertices),"edges":len(set(edges)),"acyclic":True}
+se={(e["source"],e["target"]) for e in a["stageEdges"]}
+ce={(e["source"],e["target"]) for e in control["stageEdges"]}
+assert se==ce
+stageids={s["id"] for s in a["stages"]}
+own={n["id"]:n for n in p["nodes"]}
+oe={(dep,n["id"]) for n in own.values() for dep in n.get("prerequisites",[]) if dep in own}
+stageDAG=dag(stageids,se);ownDAG=dag(own,oe)
+allnodes=dict(own)
+for folder in ("data/decompositions","data/blueprints","research/blueprint/packets"):
+ for path in sorted((root/folder).glob("*.json")):
+  for n in json.loads(path.read_text()).get("nodes",[]):allnodes.setdefault(n["id"],n)
+used=set(own);todo=list(own)
+while todo:
+ v=todo.pop()
+ for d in allnodes[v].get("prerequisites",[]):
+  if d in allnodes and d not in used:used.add(d);todo.append(d)
+edges=set(se)
+for v in used:
+ n=allnodes[v]
+ parent=n.get("parentStageId")
+ if parent:edges.add((parent,v))
+ for d in n.get("prerequisites",[]):
+  if d in stageids or d in used:edges.add((d,v))
+for request in p["requests"]:
+ for v in request["neededBy"]:edges.add((request["supplier"],v))
+combined=dag(stageids|used,edges)
+following=defaultdict(set)
+for s,t in se:following[s].add(t)
+def reachable(s,t):
+ todo=[s];seen=set()
+ while todo:
+  x=todo.pop()
+  if x==t:return True
+  if x not in seen:seen.add(x);todo+=list(following[x])
+ return False
+pairs=set()
+for stage in r['stages']:
+ for dep in stage.get('requires',[]):pairs.add((dep,rid+':'+stage['key']))
+def stage_of(v):
+ seen=set()
+ while v in allnodes and v not in seen:
+  seen.add(v);v=allnodes[v].get('parentStageId')
+ return v
+for n in own.values():
+ for d in n.get("prerequisites",[]):
+  if d in stageids and d not in allnodes and d!=stage_of(n['id']):pairs.add((d,stage_of(n['id'])))
+for req in p["requests"]:
+ for v in req["neededBy"]:
+  target=stage_of(v)
+  if req["supplier"]!=target:pairs.add((req["supplier"],target))
+missing=[(s,t) for s,t in pairs if not reachable(s,t)]
+assert not missing,missing
+ar={x["id"]:x for x in a["roadmaps"]};cr={x["id"]:x for x in control["roadmaps"]}
+assert ar[rid]["blueprint"]["declarations"]==51
+assert ar[rid]["blueprint"]["planets"]==11
+assert not ar[rid]["blueprint"]["skippedLinks"]
+assert all(ar[x].get("blueprint",{}).get("skippedLinks")==cr[x].get("blueprint",{}).get("skippedLinks") for x in cr)
+for key in ("sourceIssues","restructure"):
+ assert p[key]==old[key],key
+on={n["id"]:n for n in old["nodes"]}
+for id,n in on.items():
+ for key in ("id","kind","statement","hypotheses","api","sources","implementationStatus","uses"):
+  assert own[id].get(key)==n.get(key),(id,key)
+ assert all(t in own[id].get("tests",[]) for t in n.get("tests",[]))
+ assert all(a in own[id].get("acceptance",[]) for a in n.get("acceptance",[]))
+assert p["baseline"]["declarations"][:len(old["baseline"]["declarations"])]==old["baseline"]["declarations"]
+unchanged=sum(own[id]==n for id,n in on.items())
+lean=(root/("research/blueprint/suggested/"+rid+".lean")).read_text()
+for node in p["nodes"]:
+ for test in node.get("tests",[]):assert test["name"] in lean,test["name"]
+for node in p["nodes"]:
+ for api in node.get("api",[]):assert api["name"].split(".")[-1] in lean,api["name"]
+allowed={packetpath,roadmappath,"research/blueprint/readmes/"+rid+".md","research/blueprint/suggested/"+rid+".lean","research/blueprint/handoff/BP-"+rid+".md"}
+changed=set(subprocess.check_output(["git","diff","--name-only",base],text=True).splitlines())
+assert changed<=allowed,changed
+for path in changed:
+ assert not re.search(r"/(?:home|tmp|Users)/|file"+"://",(root/path).read_text()),path
+result={"actualAssembler":True,"declarations":51,"planets":11,"ownSkippedLinks":[],
+ "stageDAG":stageDAG,"ownDeclarationDAG":ownDAG,"stagesAndReachableDeclarations":combined,
+ "reachableDeclarations":len(used),"externalDeclarations":sorted(used-set(own)),
+ "requiredStagePairsReachable":len(pairs),"stageEdgesUnchanged":True,
+ "otherSkipsMatchOriginal":True,"unchangedNodeObjects":unchanged,
+ "scriptSha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+Path(__file__).with_suffix(".json").write_text(json.dumps(result,indent=2)+"\n")
+print(json.dumps(result,indent=2))
 ```
