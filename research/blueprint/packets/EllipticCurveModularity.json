@@ -227,7 +227,8 @@
    "acceptance": [
     "Keep Σ_E as data: every later step says which of its clauses it uses.",
     "Do not assume Serre's open-image theorem or exclude CM curves: the finiteness argument uses only R28.6.",
-    "Mazur's bound (p > 163 for irreducibility) is a sharper, unread input; it is not needed for finiteness."
+    "Mazur's bound (p > 163 for irreducibility) is a sharper, unread input; it is not needed for finiteness.",
+    "The 26b1 fixture triggers both extra clauses; the valuation-only fixture distinguishes deletion of the valuation clause. These tests do not independently detect deletion of the rational-isogeny clause while retaining the valuation clause; add an isogeny-only fixture when verified."
    ],
    "prerequisites": [
     "FaltingsFinitenessAndIsogenyTheorems:R28.6/finiteness-of-the-isogeny-class-of-an-elliptic-curve",
@@ -301,6 +302,21 @@
      "name": "exceptionalPrimes_CM",
      "kind": "example",
      "statement": "E: y² = x³ − x (CM by ℤ[i], N = 32): Σ_E is still finite; 2 ∈ Σ_E."
+    },
+    {
+     "name": "exceptionalPrimes_11a1_seven",
+     "kind": "example",
+     "statement": "For E: y²+y=x³−x²−10x−20, 7 ∉ Σ_E. Here Δ=−11⁵, c₄=496, v₁₁(j)=−5, and #E(𝔽₃)=5 gives a₃=−1 and Frobenius discriminant 3 mod 7, a nonsquare, so no rational cyclic 7-subgroup exists."
+    },
+    {
+     "name": "exceptionalPrimes_26b1",
+     "kind": "example",
+     "statement": "For E: y²+xy+y=x³−x²−3x+3, 7 ∈ Σ_E although E has good reduction at 7. P=(1,0) has exact order 7, and Δ=−2⁷·13, c₄=129 give multiplicative reduction at 2 with v₂(j)=−7. This tests the rational-isogeny and multiplicative-valuation clauses jointly."
+    },
+    {
+     "name": "exceptionalPrimes_valuation_only",
+     "kind": "example",
+     "statement": "For E: y²+xy=x³−7x+9, 7 ∈ Σ_E through the multiplicative-valuation clause: Δ=−2⁷·137, c₄=337 and v₂(j)=−7. E is good at 7, and #E(𝔽₃)=6 gives a₃=−2 and Frobenius discriminant 6 mod 7, a nonsquare, excluding a rational cyclic 7-subgroup."
     }
    ],
    "planet": {
@@ -380,7 +396,10 @@
      "match": "The criterion (stated there for p > 5)."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "upstreamPrerequisites": [
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+   ]
   },
   {
    "id": "EllipticCurveModularity:R29.1/residual-irreducibility-and-the-conductor-of-E-p",
@@ -721,7 +740,10 @@
      "match": "Deligne–Serre eigenvalue lifting (owned by R15.5)."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "upstreamPrerequisites": [
+    "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor"
+   ]
   },
   {
    "id": "EllipticCurveModularity:R29.3/newform-of-E",
@@ -856,7 +878,8 @@
    ],
    "implementationStatus": "unchecked",
    "upstreamPrerequisites": [
-    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization"
+    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality"
    ]
   },
   {
@@ -978,7 +1001,11 @@
      "match": "Equality of L-functions, hence of every local factor."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "upstreamPrerequisites": [
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor"
+   ]
   },
   {
    "id": "EllipticCurveModularity:R29.5/isogeny-to-E",
@@ -1125,7 +1152,10 @@
    ],
    "planet": {
     "name": "Modular parametrisation"
-   }
+   },
+   "upstreamPrerequisites": [
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property"
+   ]
   },
   {
    "id": "EllipticCurveModularity:R29.6/modularity-theorem",
@@ -1142,10 +1172,11 @@
    "proofSteps": [
     "(i) is newform-of-E with exact-conductor and bad-euler-factors; (ii) is isogeny-to-E, composed with J₀(N) → A_{F_E}; (iii) is modular-parametrisation.",
     "(iii) ⇒ (ii): by the universal property of the Abel–Jacobi map (ModularCurvesPartII R14.6), a nonconstant φ : X₀(N) → E sending ∞ to O factors through a surjection J₀(N) → E.",
-    "(ii) ⇒ (i): V_r(E) is then a Galois quotient of V_r(J₀(N)) ≅ ⊕_f ⊕_{λ|r} V_{f,λ} (R19.6); V_r(E) being semisimple (R28.6), Jordan–Hölder gives V_r(E) ≅ V_{f,λ} for a newform f of level dividing N with a degree-one prime λ | r of its coefficient field; comparing Frobenius polynomials (R01.5) gives a_ℓ(E) = A_ℓ(f) under that embedding for ℓ ∤ Nr, and R29.3–R29.4 (rationality, imported ModularForms Layer 5 strong multiplicity one, exact conductor, bad factors) give (i)."
+    "(ii) ⇒ (i), remaining proof obligation: request the old/new isogeny decomposition J₀(N) ∼ ∏_{M|N} ∏_{[f] of level M} A_f^{τ(N/M)} from ModularCurvesPartII R14.5, using ModularForms Layer 4. The inner product is over Galois orbits of normalized weight-two newforms with trivial character, and τ counts positive divisors. For each A_f, R19.6 identifies V_r(A_f) with ⊕_{λ|r} Res_{K_{f,λ}/ℚ_r} V_{f,λ}; hence the rational Tate module has the same oldform multiplicities. This individual-quotient comparison is not itself a decomposition of J₀(N). A surjection J₀(N) → E makes V_r(E) a quotient, but semisimplicity alone does not make it a single two-dimensional newform constituent. Supply the absolute-irreducibility argument using the R28.6 Tate-Hom theorem and End_ℚ(E)=ℤ, choose a coefficient embedding after extending scalars to an algebraic closure of ℚ_r, and compare Frobenius polynomials there (R01.5). Then justify descent/rationality and exact level using R29.3–R29.4. This constituent/descent route is still a gap, not a proved Jordan–Hölder inference or an assertion of a degree-one prime λ."
    ],
    "acceptance": [
-    "Dependency check: the chain R29.1–R29.5 uses R27.6 but no statement that assumes E modular."
+    "Dependency check: the chain R29.1–R29.5 uses R27.6 but no statement that assumes E modular.",
+    "Oldform regression: N=22 has dim J₀(22)=2 and dim V_r(J₀(22))=4. The single level-11 rational newform occurs twice, through f(z) and f(2z); a sum with one copy per primitive newform incorrectly has dimension 2."
    ],
    "prerequisites": [
     "EllipticCurveModularity:R29.3/newform-of-E",
@@ -1158,7 +1189,10 @@
     "AutomorphicGaloisRepresentations:R19.6",
     "FaltingsFinitenessAndIsogenyTheorems:R28.6/semisimplicity-of-the-rational-tate-module-of-an-elliptic-curve",
     "ArithmeticGaloisRepresentations:R01.5",
-    "EllipticCurveModularity:R29.3/rational-coefficient-field"
+    "EllipticCurveModularity:R29.3/rational-coefficient-field",
+    "ModularCurvesPartII:R14.5",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.6/tate-hom-comparison-for-elliptic-curves",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.6"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -1217,7 +1251,10 @@
    "implementationStatus": "unchecked",
    "planet": {
     "name": "Analytic continuation of L(E, s)"
-   }
+   },
+   "upstreamPrerequisites": [
+    "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions"
+   ]
   },
   {
    "id": "EllipticCurveModularity:R29.6/what-theoreme-4-asserts-and-its-scope",
@@ -1263,9 +1300,10 @@
  "requests": [
   {
    "supplier": "FaltingsFinitenessAndIsogenyTheorems:R28.6",
-   "need": "End_ℚ(E) = ℤ for every E/ℚ (including geometric CM) and the consequence that only finitely many primes occur as degrees of ℚ-rational isogenies from E (RS-06 assigns these to R28.6; its packet has the isogeny-class finiteness and the infinite-cyclic Hom nodes, cited directly).",
+   "need": "End_ℚ(E) = ℤ for every E/ℚ (including geometric CM) and the consequence that only finitely many primes occur as degrees of ℚ-rational isogenies from E (RS-06 assigns these to R28.6; its packet has the isogeny-class finiteness and the infinite-cyclic Hom nodes, cited directly). For the modular-quotient converse, combine the elliptic Tate-Hom comparison with End_ℚ(E)=ℤ and semisimplicity to establish absolute irreducibility of V_r(E); semisimplicity alone is insufficient.",
    "neededBy": [
-    "EllipticCurveModularity:R29.1/exceptional-primes"
+    "EllipticCurveModularity:R29.1/exceptional-primes",
+    "EllipticCurveModularity:R29.6/modularity-theorem"
    ],
    "status": "open"
   },
@@ -1359,18 +1397,20 @@
   },
   {
    "supplier": "AutomorphicGaloisRepresentations:R19.6",
-   "need": "The Tate module of the modular quotient A_f is the Galois representation of f.",
+   "need": "The Tate module of the modular quotient A_f is the Galois representation of f. Preserve the coefficient-field restriction of scalars: V_r(A_f) = ⊕_{λ|r} Res_{K_{f,λ}/ℚ_r} V_{f,λ}, of total ℚ_r-dimension 2[K_f:ℚ].",
    "neededBy": [
-    "EllipticCurveModularity:R29.5/isogeny-to-E"
+    "EllipticCurveModularity:R29.5/isogeny-to-E",
+    "EllipticCurveModularity:R29.6/modularity-theorem"
    ],
    "status": "open"
   },
   {
    "supplier": "ModularCurvesPartII:R14.5",
-   "need": "The quotient A_f of J₀(N) for a weight-two newform f with trivial character, dim A_f = [K_f : ℚ].",
+   "need": "The quotient A_f of J₀(N) for a weight-two newform f with trivial character, dim A_f = [K_f : ℚ]. Also supply the old/new isogeny decomposition of J₀(N) over ℚ by Galois orbits of primitive newforms of levels M dividing N, with multiplicity τ(N/M), using upstream ModularForms Layer 4; do not infer this whole-Jacobian theorem from R19.6’s individual A_f comparison.",
    "neededBy": [
     "EllipticCurveModularity:R29.5/isogeny-to-E",
-    "EllipticCurveModularity:R29.5/modular-parametrisation"
+    "EllipticCurveModularity:R29.5/modular-parametrisation",
+    "EllipticCurveModularity:R29.6/modularity-theorem"
    ],
    "status": "open"
   },
@@ -1442,9 +1482,11 @@
   },
   {
    "stageId": "EllipticCurveModularity:R29.6",
-   "status": "source_decomposed",
-   "remaining": [],
-   "notes": "The modularity theorem in its three formulations, the L-function continuation and functional equation after equality of all local factors, and the scope of Théorèmes 4 and 5."
+   "status": "partial",
+   "remaining": [
+    "Complete the modular-quotient converse through absolute irreducibility, old/new constituent selection and coefficient-field descent."
+   ],
+   "notes": "The modularity theorem in its three formulations, the L-function continuation and functional equation after equality of all local factors, and the scope of Théorèmes 4 and 5. The converse in RT finding /3 remains incomplete; the repaired formula is an explicit supplier request."
   }
  ],
  "gaps": [
@@ -1459,10 +1501,32 @@
    "title": "Upstream-stage prerequisite encoding",
    "detail": "Canonical upstream stage IDs are encoded in upstreamPrerequisites, exact supplier requests and explicit links, following existing packets, because the checker parses tauceti: as a Lean declaration prefix before checking stages. No stage is listed as a baseline declaration. All 16 actual declarations resolve at the pins; supplier endpoints are validated separately. Normalize prerequisites when the checker supports upstream stage IDs; this packet remains partial.",
    "neededBy": [
+    "EllipticCurveModularity:R29.1/residual-conductor-equality",
+    "EllipticCurveModularity:R29.3/a-single-newform-for-infinitely-many-p-and-exact-coefficients",
     "EllipticCurveModularity:R29.3/newform-of-E",
     "EllipticCurveModularity:R29.3/rational-coefficient-field",
-    "EllipticCurveModularity:R29.6/modularity-theorem"
+    "EllipticCurveModularity:R29.4/bad-euler-factors",
+    "EllipticCurveModularity:R29.5/modular-parametrisation",
+    "EllipticCurveModularity:R29.6/modularity-theorem",
+    "EllipticCurveModularity:R29.6/l-function-continuation"
    ]
+  },
+  {
+   "title": "The modular-quotient converse needs a constituent and descent proof",
+   "neededBy": [
+    "EllipticCurveModularity:R29.6/modularity-theorem"
+   ],
+   "detail": "RT-BP-EllipticCurveModularity/3: the false whole-Jacobian formula is corrected to the requested old/new isogeny decomposition with Galois orbits, τ(N/M) multiplicities and restriction of scalars. Still establish the absolute-irreducibility and constituent selection after scalar extension, coefficient embedding, descent/rationality and exact-level argument. Semisimplicity does not supply these steps; R19.6 only compares an individual A_f. The reader is outside this review’s deliverables and must receive the same formula and proof corrections in a follow-up."
+  },
+  {
+   "title": "Suggested Lean signatures and reader synchronization remain incomplete",
+   "neededBy": [
+    "EllipticCurveModularity:R29.1/exceptional-primes",
+    "EllipticCurveModularity:R29.2/weight-two-and-level-N-from-the-weight-recipe",
+    "EllipticCurveModularity:R29.3/newform-of-E",
+    "EllipticCurveModularity:R29.5/modular-parametrisation"
+   ],
+   "detail": "RT-BP-EllipticCurveModularity/5: Newform exists at the Tau Ceti pin, but a conductor-indexed elliptic/newform witness, residual representation, X₀(N), modular quotient and differential interfaces are not yet available here. Named exceptional-prime tests are now stateable prototypes; the remaining APIs and nine newform/parametrisation tests are explicitly inventoried as unstateable contracts, not compiled declarations. Supply honest typed signatures once their supplier interfaces are available and synchronize the reader (not an authorized deliverable of this review). A separate rational-isogeny-only exceptional-prime test is also desirable."
   }
  ],
  "sourceIssues": [],
@@ -1504,117 +1568,10 @@
   }
  ],
  "review": {
-  "status": "accepted",
-  "reviewer": "independent-review-REV-EllipticCurveModularity",
-  "date": "2026-09-28",
-  "notes": "Independent review by Claude Code (session cc-fb70e5) of cc-39fac3's checkpoint. Checked every excerpt at its locator in the five sources (sha256 re-computed, all match), every baseline declaration at the pinned Mathlib 082e2d3 / Tau Ceti f790474 sources, every cross-roadmap prerequisite against the supplier's node statement or stage text, and the closure of every node. Main correction: newform-of-E cited Tau Ceti's strong multiplicity one for uniqueness across levels dividing N, but that theorem is for a fixed level and nebentypus; a lemma node was added and the Layer 4 request made precise. Other corrections: semisimplicity of V_r(F_E), a missing exact-conductor prerequisite of isogeny-to-E, the choice of isogeny in the modular parametrisation, the converse in the modularity theorem, a residual-conductor test, and a false Lean statement (missing p.Prime). The suggested file elaborates against Mathlib 082e2d3 (one lean call, 0 errors; the only warnings are for the unproved placeholders). No mistakes were found in the sources' passages used; sourceIssues is added empty with sourceVersions. The packet stays partial because its 16 supplier requests are open.",
-  "checked": [
-   {
-    "nodeId": "EllipticCurveModularity:R29.1/exceptional-primes",
-    "verdict": "verified",
-    "note": "Σ_E clauses match Serre §4.6 (a), (b) and Lemme 5; finiteness via R28.6 nodes finiteness-of-the-isogeny-class and hom-to-an-isogenous-elliptic-curve-is-infinite-cyclic, whose statements were read; tests checked (11a1 has 5-torsion and v₁₁(j) = −5; 32a is CM)."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.1/residual-conductor-divides",
-    "verdict": "corrected",
-    "note": "Proof rewritten to compare E[p] with T_p(E) before invoking independence of r."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.1/residual-conductor-equality",
-    "verdict": "corrected",
-    "note": "Criterion checked against Serre p. 207 (stated there for p > 5); p = 5 is also covered by the 24-argument, now said. Level-lowering test fixed (needs p ∤ v_{ℓ′}(j_E) at the other bad primes)."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.1/residual-irreducibility-and-the-conductor-of-E-p",
-    "verdict": "verified",
-    "note": "Serre p. 207 Lemme 5 and §3.3 (b′) argument checked; R01.4 stage text covers odd p."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.2/finite-flat-weight-two",
-    "verdict": "verified",
-    "note": "Serre §2.8 Prop. 4 read (proof written for p ≠ 2, p = 2 'analogous'), §1.3 ε from det; p ≥ 7 here."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.2/weight-two-and-level-N-from-the-weight-recipe",
-    "verdict": "corrected",
-    "note": "'equivalently a normalised newform' replaced: R27.6 produces the characteristic-zero newform of level N(ρ̄) directly (stage text), f_p is its reduction. Tests checked (11a1, p = 7 ∉ Σ, a₂ = −2)."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.2/trivial-nebentypus-by-reduction",
-    "verdict": "verified",
-    "note": "Statement and non-example (N = 5, p = 2) correct; the suggested Lean counterpart lacked p.Prime and was false (p = 4, m = 2, ζ = −1, 𝔭 = (2)); fixed there."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.3/pigeonhole-infinite-fiber",
-    "verdict": "verified",
-    "note": "Mathlib Finite.exists_infinite_fiber read at the pinned commit."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.3/algebraic-integer-norm-vanishing",
-    "verdict": "verified",
-    "note": "Norm argument correct; Algebra.norm_eq_zero_iff needs finite free extensions of domains, which ℤ → 𝒪_K is."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.3/a-single-newform-for-infinitely-many-p-and-exact-coefficients",
-    "verdict": "verified",
-    "note": "Serre pp. 207–208 and Deligne–Serre Lemme 6.11 (p. 522) checked; R15.5 node statement read."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.3/strong-multiplicity-one-across-levels",
-    "verdict": "added",
-    "note": "Near miss of the baseline citation: Tau Ceti has strong multiplicity one only at a fixed level and nebentypus; the cross-level step is requested from ModularForms Layer 4 (library audit AUDIT-16 lists it absent)."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.3/newform-of-E",
-    "verdict": "corrected",
-    "note": "Uniqueness across levels now rests on the added lemma; tests checked."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.3/rational-coefficient-field",
-    "verdict": "verified",
-    "note": "Conjugation argument uses the fixed-level theorem correctly (F_E^σ has the same level and character)."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.4/tate-module-comparison",
-    "verdict": "corrected",
-    "note": "Semisimplicity of V_r(F_E) now from V_r(A_{F_E}) and Faltings; irreducibility (Ribet) is not needed."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.4/exact-conductor",
-    "verdict": "verified",
-    "note": "Carayol 0.8 Corollaire (p. 411) read; R19.4 stage text includes conductor equality."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.4/bad-euler-factors",
-    "verdict": "verified",
-    "note": "Sign convention matches Mathlib's localPolynomial (split multiplicative 1 − X); the newform's U_ℓ eigenvalues at bad ℓ are added to the Layer 4 request."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.5/isogeny-to-E",
-    "verdict": "corrected",
-    "note": "Added exact-conductor as a prerequisite; Faltings Korollar 2 (p. 361) and R28.6 isogeny-criterion statement read."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.5/modular-parametrisation",
-    "verdict": "corrected",
-    "note": "Dependence on the chosen isogeny made explicit; c ∈ ℚ^×, Manin's constant only for the optimal curve; 11a3 test fixes λ; tests checked (11a1 degree 1, 37a1 degree 2)."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.6/modularity-theorem",
-    "verdict": "corrected",
-    "note": "Converse direction re-proved via Abel–Jacobi and Eichler–Shimura; Serre p. 207 checked."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.6/l-function-continuation",
-    "verdict": "verified",
-    "note": "w_E = eigenvalue of −W_N matches Λ(f, s) = −ε_N Λ(f, 2 − s) in weight 2; Cremona §2.6 p. 25 checked; 11a1 test correct."
-   },
-   {
-    "nodeId": "EllipticCurveModularity:R29.6/what-theoreme-4-asserts-and-its-scope",
-    "verdict": "verified",
-    "note": "Serre Théorèmes 4 and 5 (pp. 207, 209) quoted correctly."
-   }
-  ]
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-FIX-RT-BP-EllipticCurveModularity",
+  "date": "2026-10-02",
+  "notes": "Follows independent-review-REV-EllipticCurveModularity and the verified RT findings. The FIX author’s scoped /1 repair is sound: Layer 5 owns cross-level strong multiplicity one and the M|N/exact-conductor distinction survives. This review adds seven missing upstream supplier/consumer pairs, corrects the whole-Jacobian formula and records the missing converse proof, adds three discriminating exceptional-prime tests and improves suggested-file coverage. Needs changes for the constituent/descent proof, actual typed signatures for unavailable supplier interfaces, and reader synchronization. Reviewer Codex codex-rtOQ9t did the earlier RT verification, but none of FIX issue #5045; that prior role is disclosed in the report. Historical review metadata is preserved verbatim."
  },
  "fixRevision": {
   "job": "FIX-RT-BP-EllipticCurveModularity",
@@ -1654,6 +1611,156 @@
    "source": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
    "target": "EllipticCurveModularity:R29.6/modularity-theorem",
    "reason": "Import the existing upstream ModularForms supplier contract named in upstreamPrerequisites and requests; this is an unbuilt roadmap input, not a Lean declaration."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+   "target": "EllipticCurveModularity:R29.1/residual-conductor-equality",
+   "reason": "Import the existing upstream supplier contract in requests and upstreamPrerequisites; this unbuilt stage is not a baseline declaration."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+   "target": "EllipticCurveModularity:R29.4/bad-euler-factors",
+   "reason": "Import the existing upstream supplier contract in requests and upstreamPrerequisites; this unbuilt stage is not a baseline declaration."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+   "target": "EllipticCurveModularity:R29.3/a-single-newform-for-infinitely-many-p-and-exact-coefficients",
+   "reason": "Import the existing upstream supplier contract in requests and upstreamPrerequisites; this unbuilt stage is not a baseline declaration."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+   "target": "EllipticCurveModularity:R29.4/bad-euler-factors",
+   "reason": "Import the existing upstream supplier contract in requests and upstreamPrerequisites; this unbuilt stage is not a baseline declaration."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+   "target": "EllipticCurveModularity:R29.3/rational-coefficient-field",
+   "reason": "Import the existing upstream supplier contract in requests and upstreamPrerequisites; this unbuilt stage is not a baseline declaration."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+   "target": "EllipticCurveModularity:R29.5/modular-parametrisation",
+   "reason": "Import the existing upstream supplier contract in requests and upstreamPrerequisites; this unbuilt stage is not a baseline declaration."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+   "target": "EllipticCurveModularity:R29.6/l-function-continuation",
+   "reason": "Import the existing upstream supplier contract in requests and upstreamPrerequisites; this unbuilt stage is not a baseline declaration."
+  }
+ ],
+ "reviewHistory": [
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-EllipticCurveModularity",
+   "date": "2026-09-28",
+   "notes": "Independent review by Claude Code (session cc-fb70e5) of cc-39fac3's checkpoint. Checked every excerpt at its locator in the five sources (sha256 re-computed, all match), every baseline declaration at the pinned Mathlib 082e2d3 / Tau Ceti f790474 sources, every cross-roadmap prerequisite against the supplier's node statement or stage text, and the closure of every node. Main correction: newform-of-E cited Tau Ceti's strong multiplicity one for uniqueness across levels dividing N, but that theorem is for a fixed level and nebentypus; a lemma node was added and the Layer 4 request made precise. Other corrections: semisimplicity of V_r(F_E), a missing exact-conductor prerequisite of isogeny-to-E, the choice of isogeny in the modular parametrisation, the converse in the modularity theorem, a residual-conductor test, and a false Lean statement (missing p.Prime). The suggested file elaborates against Mathlib 082e2d3 (one lean call, 0 errors; the only warnings are for the unproved placeholders). No mistakes were found in the sources' passages used; sourceIssues is added empty with sourceVersions. The packet stays partial because its 16 supplier requests are open.",
+   "checked": [
+    {
+     "nodeId": "EllipticCurveModularity:R29.1/exceptional-primes",
+     "verdict": "verified",
+     "note": "Σ_E clauses match Serre §4.6 (a), (b) and Lemme 5; finiteness via R28.6 nodes finiteness-of-the-isogeny-class and hom-to-an-isogenous-elliptic-curve-is-infinite-cyclic, whose statements were read; tests checked (11a1 has 5-torsion and v₁₁(j) = −5; 32a is CM)."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.1/residual-conductor-divides",
+     "verdict": "corrected",
+     "note": "Proof rewritten to compare E[p] with T_p(E) before invoking independence of r."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.1/residual-conductor-equality",
+     "verdict": "corrected",
+     "note": "Criterion checked against Serre p. 207 (stated there for p > 5); p = 5 is also covered by the 24-argument, now said. Level-lowering test fixed (needs p ∤ v_{ℓ′}(j_E) at the other bad primes)."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.1/residual-irreducibility-and-the-conductor-of-E-p",
+     "verdict": "verified",
+     "note": "Serre p. 207 Lemme 5 and §3.3 (b′) argument checked; R01.4 stage text covers odd p."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.2/finite-flat-weight-two",
+     "verdict": "verified",
+     "note": "Serre §2.8 Prop. 4 read (proof written for p ≠ 2, p = 2 'analogous'), §1.3 ε from det; p ≥ 7 here."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.2/weight-two-and-level-N-from-the-weight-recipe",
+     "verdict": "corrected",
+     "note": "'equivalently a normalised newform' replaced: R27.6 produces the characteristic-zero newform of level N(ρ̄) directly (stage text), f_p is its reduction. Tests checked (11a1, p = 7 ∉ Σ, a₂ = −2)."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.2/trivial-nebentypus-by-reduction",
+     "verdict": "verified",
+     "note": "Statement and non-example (N = 5, p = 2) correct; the suggested Lean counterpart lacked p.Prime and was false (p = 4, m = 2, ζ = −1, 𝔭 = (2)); fixed there."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.3/pigeonhole-infinite-fiber",
+     "verdict": "verified",
+     "note": "Mathlib Finite.exists_infinite_fiber read at the pinned commit."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.3/algebraic-integer-norm-vanishing",
+     "verdict": "verified",
+     "note": "Norm argument correct; Algebra.norm_eq_zero_iff needs finite free extensions of domains, which ℤ → 𝒪_K is."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.3/a-single-newform-for-infinitely-many-p-and-exact-coefficients",
+     "verdict": "verified",
+     "note": "Serre pp. 207–208 and Deligne–Serre Lemme 6.11 (p. 522) checked; R15.5 node statement read."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.3/strong-multiplicity-one-across-levels",
+     "verdict": "added",
+     "note": "Near miss of the baseline citation: Tau Ceti has strong multiplicity one only at a fixed level and nebentypus; the cross-level step is requested from ModularForms Layer 4 (library audit AUDIT-16 lists it absent)."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.3/newform-of-E",
+     "verdict": "corrected",
+     "note": "Uniqueness across levels now rests on the added lemma; tests checked."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.3/rational-coefficient-field",
+     "verdict": "verified",
+     "note": "Conjugation argument uses the fixed-level theorem correctly (F_E^σ has the same level and character)."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.4/tate-module-comparison",
+     "verdict": "corrected",
+     "note": "Semisimplicity of V_r(F_E) now from V_r(A_{F_E}) and Faltings; irreducibility (Ribet) is not needed."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.4/exact-conductor",
+     "verdict": "verified",
+     "note": "Carayol 0.8 Corollaire (p. 411) read; R19.4 stage text includes conductor equality."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.4/bad-euler-factors",
+     "verdict": "verified",
+     "note": "Sign convention matches Mathlib's localPolynomial (split multiplicative 1 − X); the newform's U_ℓ eigenvalues at bad ℓ are added to the Layer 4 request."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.5/isogeny-to-E",
+     "verdict": "corrected",
+     "note": "Added exact-conductor as a prerequisite; Faltings Korollar 2 (p. 361) and R28.6 isogeny-criterion statement read."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.5/modular-parametrisation",
+     "verdict": "corrected",
+     "note": "Dependence on the chosen isogeny made explicit; c ∈ ℚ^×, Manin's constant only for the optimal curve; 11a3 test fixes λ; tests checked (11a1 degree 1, 37a1 degree 2)."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.6/modularity-theorem",
+     "verdict": "corrected",
+     "note": "Converse direction re-proved via Abel–Jacobi and Eichler–Shimura; Serre p. 207 checked."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.6/l-function-continuation",
+     "verdict": "verified",
+     "note": "w_E = eigenvalue of −W_N matches Λ(f, s) = −ε_N Λ(f, 2 − s) in weight 2; Cremona §2.6 p. 25 checked; 11a1 test correct."
+    },
+    {
+     "nodeId": "EllipticCurveModularity:R29.6/what-theoreme-4-asserts-and-its-scope",
+     "verdict": "verified",
+     "note": "Serre Théorèmes 4 and 5 (pp. 207, 209) quoted correctly."
+    }
+   ]
   }
  ]
 }
