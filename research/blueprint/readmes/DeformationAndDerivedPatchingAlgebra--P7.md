@@ -1,6 +1,8 @@
 # Commutative algebra for deformation theory and patching — part P7
 
-Current continuation by Codex — `codex-J6LwjP`, 2 October 2026 (Section 11): 61 nodes (32 lemmas, fourteen theorems, eight definitions and seven constructions), 69 API entries, 55 definition/construction tests plus four inherited lemma tests, thirteen planets, 140 baseline references, fourteen gaps and two requests. All stages remain open. The current full suggested file compiled with zero errors and only admitted-proof warnings; earlier no-compilation statements below are dated history.
+Current continuation by Codex — `codex-5ebb6f`, 2 October 2026 (Section 12): 72 nodes (37 lemmas, sixteen theorems, eight definitions and eleven constructions), 83 API entries, 67 definition/construction tests plus four inherited lemma tests, 92 native examples, thirteen planets, 157 baseline references, fourteen gaps and two unchanged requests. Every stage remains open. The full Mathlib-only suggested file compiled with zero errors, 203 admitted-proof warnings and no other warnings.
+
+Historical ring continuation by Codex — `codex-J6LwjP`, 2 October 2026 (Section 11): 61 nodes (32 lemmas, fourteen theorems, eight definitions and seven constructions), 69 API entries, 55 definition/construction tests plus four inherited lemma tests, thirteen planets, 140 baseline references, fourteen gaps and two requests. All stages remain open. The current full suggested file compiled with zero errors and only admitted-proof warnings; earlier no-compilation statements below are dated history.
 
 ## Scope of this checkpoint
 
@@ -1847,3 +1849,223 @@ Additional specialized API laws, with native signatures:
 - `TauCeti.HilbertSamuel.adicMonomial_smul` (compatibility): μ_n(c·a)=c·μ_n(a) for every c∈A and a∈q^n.
 - `TauCeti.HilbertSamuel.adicPieceInclusion_zero` (simp): The native degree-piece inclusion sends zero to zero.
 - `TauCeti.HilbertSamuel.adicDirectSumEquiv_symm_inclusion` (compatibility): E⁻¹(ι_n(x))=lofn(x), fixing the inverse comparison on every homogeneous piece.
+
+## 12. The ordinary associated graded module — codex-5ebb6f
+This continuation starts from the merged 61-node checkpoint. Its purpose is the module displayed in the complete proof of Stacks Proposition 10.59.5. The ring in Section 11 is already fixed: Rq is the native Rees subalgebra of A[T], J is the extension of q to Rq, and Gr_q(A)=Rq/J. For an arbitrary A-module M, the native stable adic filtration has F_n=q^nM. Its existing polynomial Rees-module subtype consists of finite polynomials whose degree-n coefficient lies in F_n. The new quotient is by J acting on that actual subtype.
+
+These are ordinary module quotients and finite direct sums. There is no completeness, locality, Noetherianity or freeness premise on the carrier comparisons. In particular, a finite module over A need not be free. Finite generation of the whole associated graded module will follow for any ideal q if M is finite; finiteness of each adic piece over A is a separate assertion with stronger hypotheses. The graded numerical-polynomial induction and the dimension comparison remain required work.
+
+Native quotient scalar descent is existing mathematics. The suggested file explicitly selects its scalar ring on the Rees subtype and exposes the same native module action. It does not create another generic Rees carrier. Generic derived filtered/Rees constructions remain owned by DerivedDeRhamCohomology DD.1. The pinned Tau Ceti word-filtration associated graded is increasing and indexed by products of words, so it cannot be substituted for this decreasing adic module.
+
+### The ordinary adic graded module as a native quotient
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module` — `TauCeti.HilbertSamuel.adicGradedModule`. Let Rq be the existing Rees algebra, J=q.map(A→Rq), and Rq(M) the subtype of the native polynomial module attached to stableFiltration(q,top_M). Define Gr_q(M)=Rq(M)/(J·top_Rq(M)), using native submodule quotients. Reuse the native module action by Gr_q(A)=Rq/J. Restriction along A/q→Gr_q(A) gives its residue-ring action; both scalar towers agree with the inherited A-action.
+
+A is any commutative ring with identity, q is any ideal, M is any A-module, and degrees are natural numbers. No locality, Noetherianity, proper-ideal, domain or freeness premise unless explicitly added.
+
+Proof outline: Use the existing Filtration.submodule for the stable adic filtration. Its scalar ring is exactly the existing Rees algebra; the denominator is a submodule of this subtype, not of the ambient polynomial module. Reuse Module.isTorsionBySet_quotient_ideal_smul and its quotient-ring module instance for J. Restrict this actual Gr_q(A)-action along the coefficient algebra map using Module.compHom. On quotient representatives the action is [r]·[f]=[r·f]. Quotient induction and the native polynomial scalar tower prove the A/q and A scalar compatibilities; the ideal-map coefficient relation makes different coefficient representatives agree.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-ring`, `mathlib:Ideal.stableFiltration`, `mathlib:Ideal.Filtration.submodule`, `mathlib:Module.isTorsionBySet_quotient_ideal_smul`, `mathlib:Module.Quotient.mk_smul_mk`, `mathlib:Module.compHom`, `mathlib:Submodule.hasQuotient`.
+
+API:
+
+- `TauCeti.HilbertSamuel.adicGradedModule_mk_smul` (compatibility): [r]·[f]=[r·f] for native Rees representatives.
+- `TauCeti.HilbertSamuel.adicGradedModule_residue_smul` (compatibility): [a]·x=a·x for a∈A under the actual A/q action.
+- `TauCeti.HilbertSamuel.adicGradedModule_top` (example): Gr_top(M) is zero for every M.
+- `TauCeti.HilbertSamuel.adicGradedModule_residueTower` (instance): The A/q→Gr_q(A) scalar tower acts on this same quotient.
+- `TauCeti.HilbertSamuel.adicGradedModule_baseTower` (instance): The inherited A-action agrees with restriction of the A/q-action.
+
+Uses: R03.3/eventual-hilbert-samuel-polynomial; Stacks 10.59.5 — Supply the actual associated graded module, its degree pieces, scalar action and finite generation for the still missing graded Hilbert–Serre induction. R03.3/graded-hilbert-function and finite-graded-piece-length — Identify the same native quotient carrier whose length defines the graded function. No alternative filtration or presumed Hilbert polynomial is introduced.
+
+Tests:
+
+- `HilbertSamuelAdicModuleTest.zero_ideal_module` (compatibility): For q=0, Gr_q(M) is A-linearly equivalent to M.
+- `HilbertSamuelAdicModuleTest.unit_ideal_module` (degenerate): For q=A, Gr_q(M) is zero.
+- `HilbertSamuelAdicModuleTest.residue_module_degree_one_action` (non-example): For A=Z/4,q=(2),M=A/q, the nonzero graded-ring class μ_1(2) annihilates every graded-module element. Thus the graded module is not silently replaced by the graded ring.
+
+Acceptance: q=top gives the zero module. For q=(2) in Z/4 the residue module M=A/q has only degree zero although the graded ring has a nonzero degree-one class.
+
+### The coefficient denominator in the adic Rees module
+`DeformationAndDerivedPatchingAlgebra:R03.3/rees-module-coefficient-denominator` — `TauCeti.HilbertSamuel.mem_adicModuleDenominator_iff`. For f∈Rq(M), membership in J·top_Rq(M) is equivalent to coeff_n(f)∈q^(n+1)M for every n.
+
+A is any commutative ring with identity, q is any ideal, M is any A-module, and degrees are natural numbers. No locality, Noetherianity, proper-ideal, domain or freeness premise unless explicitly added.
+
+Proof outline: For a generator r·g with r∈J, use rees-coefficient-ideal and PolynomialModule.smul_apply: each convolution summand has coefficient in q^(i+1)·q^jM=q^(i+j+1)M. Additive/ideal-action induction gives the forward implication. For the reverse implication expand f as its finite sum of native single_n(coeff_n f). Since q^(n+1)M=q·(q^nM), express each coefficient as a finite sum a·m with a∈q and m∈q^nM using submodule scalar induction. The corresponding polynomial single_n(a·m) equals the constant Rees coefficient a acting on single_n(m), so belongs to J·top. Sum over the finite coefficient support. No finite generating list for q or M is assumed.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module`, `DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-ideal`, `mathlib:PolynomialModule.smul_apply`, `mathlib:PolynomialModule.monomial_smul_single`, `mathlib:Submodule.smul_induction_on`, `mathlib:PolynomialModule.coeffLinearEquiv`.
+
+Acceptance: The exponent is n+1, not n. For a residue module annihilated by q all positive-degree carriers vanish.
+
+### Homogeneous classes of actual adic module elements
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-map` — `TauCeti.HilbertSamuel.adicModuleMonomial`. Define ν_n:q^nM→Gr_q(M), A-linear, by m↦[single_n(m)] using the native subtype q^n·top_M and the actual Rees-module quotient.
+
+A is any commutative ring with identity, q is any ideal, M is any A-module, and degrees are natural numbers. No locality, Noetherianity, proper-ideal, domain or freeness premise unless explicitly added.
+
+Proof outline: The polynomial single has its coefficient in degree n equal to m and every other coefficient zero. Native Filtration.mem_submodule proves that it lies in Rq(M). Compose this native single map with the quotient map. Native PolynomialModule.lsingle and the quotient map give additivity and A-linearity.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module`, `mathlib:PolynomialModule.lsingle`, `mathlib:Ideal.Filtration.mem_submodule`.
+
+API:
+
+- `TauCeti.HilbertSamuel.adicModuleMonomial_eq` (characterisation): ν_n(m) is exactly the native quotient class of single_n(m), with its native filtration membership proof.
+- `TauCeti.HilbertSamuel.adicModuleMonomial_add` (relation): ν_n(m+m′)=ν_n(m)+ν_n(m′).
+- `TauCeti.HilbertSamuel.adicModuleMonomial_smul` (compatibility): ν_n(a·m)=a·ν_n(m) for every a∈A.
+
+Uses: R03.3/eventual-hilbert-samuel-polynomial; Stacks 10.59.5 — Supply the actual associated graded module, its degree pieces, scalar action and finite generation for the still missing graded Hilbert–Serre induction. R03.3/graded-hilbert-function and finite-graded-piece-length — Identify the same native quotient carrier whose length defines the graded function. No alternative filtration or presumed Hilbert polynomial is introduced.
+
+Tests:
+
+- `HilbertSamuelAdicModuleTest.monomial_zero_degree_injective` (compatibility): For q=0, ν_0 is injective.
+- `HilbertSamuelAdicModuleTest.monomial_regular_two_survives` (computation): For A=M=Z/4,q=(2), some degree-one element has nonzero ν_1.
+- `HilbertSamuelAdicModuleTest.monomial_residue_degree_one_zero` (non-example): For A=Z/4,q=(2),M=A/q, every ν_1 is zero.
+
+Acceptance: Degree zero for q=0 gives an injective copy of M. For M=A=Z/4 and q=(2), ν_1(2) survives; for M=A/q every degree-one class is zero.
+
+### Kernel of a homogeneous adic module map
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-kernel` — `TauCeti.HilbertSamuel.adicModuleMonomial_ker`. The kernel of ν_n on the subtype F_n=q^nM is exactly q·top_F_n. Its image under F_n→M is q^(n+1)M.
+
+A is any commutative ring with identity, q is any ideal, M is any A-module, and degrees are natural numbers. No locality, Noetherianity, proper-ideal, domain or freeness premise unless explicitly added.
+
+Proof outline: A native quotient class is zero exactly when its representative belongs to its denominator. Apply the coefficient-denominator criterion to single_n(m). Submodule.mem_smul_top_iff identifies membership in q·top_F_n with membership of the underlying element in q·F_n; associativity of ideal action identifies this with q^(n+1)M.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-map`, `DeformationAndDerivedPatchingAlgebra:R03.3/rees-module-coefficient-denominator`, `mathlib:Submodule.Quotient.mk_eq_zero`, `mathlib:Submodule.mem_smul_top_iff`.
+
+Acceptance: At degree zero the kernel is qM. No quotient of M by an incorrectly typed subtype denominator is formed.
+
+### Inclusion of the native graded length piece
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-inclusion` — `TauCeti.HilbertSamuel.adicModulePieceInclusion`. For the inherited G_n=F_n/(q·top_F_n), descend ν_n to an injective A-linear map ι^M_n:G_n→Gr_q(M). It also respects the native A/q-actions. This G_n is exactly the carrier in graded-hilbert-function.
+
+A is any commutative ring with identity, q is any ideal, M is any A-module, and degrees are natural numbers. No locality, Noetherianity, proper-ideal, domain or freeness premise unless explicitly added.
+
+Proof outline: Use Submodule.liftQ with the equality adic-module-monomial-kernel. Its formula on quotient representatives is ν_n. The same kernel equality proves injectivity. For residue-ring linearity lift the scalar from A/q to A and use the quotient scalar formula together with ν_n A-linearity.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-kernel`, `DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function`, `mathlib:Submodule.liftQ`, `mathlib:Module.Quotient.mk_smul_mk`.
+
+API:
+
+- `TauCeti.HilbertSamuel.adicModulePieceInclusion_mk` (compatibility): ι^M_n([m])=ν_n(m).
+- `TauCeti.HilbertSamuel.adicModulePieceInclusion_injective` (characterisation): ι^M_n is injective for every n.
+- `TauCeti.HilbertSamuel.adicModulePieceInclusion_residue_smul` (compatibility): ι^M_n(c·x)=c·ι^M_n(x) for every c∈A/q.
+
+Uses: R03.3/eventual-hilbert-samuel-polynomial; Stacks 10.59.5 — Supply the actual associated graded module, its degree pieces, scalar action and finite generation for the still missing graded Hilbert–Serre induction. R03.3/graded-hilbert-function and finite-graded-piece-length — Identify the same native quotient carrier whose length defines the graded function. No alternative filtration or presumed Hilbert polynomial is introduced.
+
+Tests:
+
+- `HilbertSamuelAdicModuleTest.piece_length_same_carrier` (compatibility): gradedFunction(q,M,n) is the length of the very same native adicModulePiece(q,M,n).
+- `HilbertSamuelAdicModuleTest.piece_regular_two_injective` (computation): For A=M=Z/4,q=(2), the degree-one inclusion is injective and has a nonzero value.
+- `HilbertSamuelAdicModuleTest.piece_residue_higher_zero` (non-example): For A=Z/4,q=(2),M=A/q, every positive-degree native piece is zero.
+
+Acceptance: The length of this carrier is the already defined gradedFunction. The ring/module distinction persists on the actual degree-one quotient.
+
+### The same graded ring acts in the sum of degrees
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-homogeneous-module-action` — `TauCeti.HilbertSamuel.adicModuleMonomial_smul_monomial`. For a∈q^r and m∈q^nM, a·m∈q^(r+n)M and μ_r(a)·ν_n(m)=ν_(r+n)(a·m). The action is the native action of the already defined Gr_q(A), not an independently chosen action on a direct sum.
+
+A is any commutative ring with identity, q is any ideal, M is any A-module, and degrees are natural numbers. No locality, Noetherianity, proper-ideal, domain or freeness premise unless explicitly added.
+
+Proof outline: Use the product of ideal powers and associativity of their action to place a·m in q^(r+n)M. Use the native PolynomialModule.monomial_smul_single at degrees r,n, then Module.Quotient.mk_smul_mk. Both sides use exactly the existing ring quotient and new module quotient.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-map`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-map`, `mathlib:PolynomialModule.monomial_smul_single`, `mathlib:Module.Quotient.mk_smul_mk`.
+
+Acceptance: Degree index is r+n. The nonzero degree-one Z/4 ring class acts by zero on Gr_q(A/q), even though it acts nontrivially on degree zero of Gr_q(A).
+
+### Bijective finite homogeneous expansion of the adic module
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-bijective` — `TauCeti.HilbertSamuel.adicModuleExpansion_bijective`. The native A-linear direct-sum expansion Σ_nι^M_n:⊕_nG_n→Gr_q(M) is bijective.
+
+A is any commutative ring with identity, q is any ideal, M is any A-module, and degrees are natural numbers. No locality, Noetherianity, proper-ideal, domain or freeness premise unless explicitly added.
+
+Proof outline: Surjectivity: lift a quotient class to f∈Rq(M), expand its finite coefficient support, and project each single_n(coeff_n f) through ι^M_n. Injectivity: choose representatives for the finitely many nonzero degree classes. If their expansion is zero, its finite polynomial sum belongs to J·top. The coefficient-denominator criterion and monomial kernel theorem put every degree representative in its own denominator, so every coordinate is zero. No infinite product or convergence assertion is used.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-inclusion`, `DeformationAndDerivedPatchingAlgebra:R03.3/rees-module-coefficient-denominator`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-kernel`, `mathlib:DirectSum.toModule`, `mathlib:PolynomialModule.coeffLinearEquiv`.
+
+Acceptance: Only finite support is involved. For q=A both sides vanish.
+
+### Native direct-sum comparison for the adic module
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum` — `TauCeti.HilbertSamuel.adicModuleDirectSumEquiv`. Define E_M:⊕_nG_n≃_A Gr_q(M) from the actual expansion map and its proved bijectivity. Transport the actual Gr_q(A)-module action across this equivalence. Its homogeneous action is fixed by adic-homogeneous-module-action, and its residue action by the native piece inclusions.
+
+A is any commutative ring with identity, q is any ideal, M is any A-module, and degrees are natural numbers. No locality, Noetherianity, proper-ideal, domain or freeness premise unless explicitly added.
+
+Proof outline: Apply LinearEquiv.ofBijective to the existing DirectSum.toModule expansion map. This specifies the forward comparison exactly. The native lof evaluation and inverse identities give the three API formulas. Transport of the existing module structure preserves the homogeneous law by the separately listed action lemma; it does not assume a graded polynomial tail.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-bijective`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-homogeneous-module-action`, `mathlib:LinearEquiv.ofBijective`, `mathlib:DirectSum.toModule_lof`.
+
+API:
+
+- `TauCeti.HilbertSamuel.adicModuleDirectSumEquiv_lof` (compatibility): E_M(lofn(x))=ι^M_n(x).
+- `TauCeti.HilbertSamuel.adicModuleDirectSumEquiv_coe` (characterisation): The underlying linear map is exactly the finite expansion map.
+- `TauCeti.HilbertSamuel.adicModuleDirectSumEquiv_symm_inclusion` (compatibility): E_M inverse sends ι^M_n(x) back to lofn(x).
+
+Uses: R03.3/eventual-hilbert-samuel-polynomial; Stacks 10.59.5 — Supply the actual associated graded module, its degree pieces, scalar action and finite generation for the still missing graded Hilbert–Serre induction. R03.3/graded-hilbert-function and finite-graded-piece-length — Identify the same native quotient carrier whose length defines the graded function. No alternative filtration or presumed Hilbert polynomial is introduced.
+
+Tests:
+
+- `HilbertSamuelAdicModuleTest.expansion_zero_degree` (compatibility): For q=0, the direct-sum degree-zero inclusion has exactly the native piece-inclusion image.
+- `HilbertSamuelAdicModuleTest.expansion_regular_degree_one` (computation): For A=M=Z/4,q=(2), a degree-one direct-sum element has nonzero image.
+- `HilbertSamuelAdicModuleTest.expansion_residue_higher_zero` (non-example): For A=Z/4,q=(2),M=A/q, each positive-degree direct-sum inclusion maps to zero.
+
+Acceptance: The degree-zero comparison for q=0 recovers M. M=A/q can have fewer nonzero pieces than the ring.
+
+### Degree-zero generation descends to the graded module
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-degree-zero-generation` — `TauCeti.HilbertSamuel.adicGradedModule_generated_degree_zero`. For any A,q,M, the Gr_q(A)-submodule spanned by the range of ν_0 is all of Gr_q(M). No finiteness premise is required.
+
+A is any commutative ring with identity, q is any ideal, M is any A-module, and degrees are natural numbers. No locality, Noetherianity, proper-ideal, domain or freeness premise unless explicitly added.
+
+Proof outline: Apply the native Filtration.submodule_eq_span_le_iff_stable_ge with n₀=0 to the stable adic filtration. Its stability holds in every degree by q·q^nM=q^(n+1)M. F_0=top_M. This existing theorem generates Rq(M) by native degree-zero singles. Project a finite spanning expression through the actual quotient map. Its coefficients descend from Rq to Rq/J and each degree-zero generator maps to ν_0. Surjectivity gives the stated top-submodule equality.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-map`, `mathlib:Ideal.Filtration.submodule_eq_span_le_iff_stable_ge`, `mathlib:Ideal.stableFiltration_stable`, `mathlib:Module.Quotient.mk_smul_mk`.
+
+Acceptance: Zero and unit ideals are included. Generation uses the degree-zero module, not the ring degree-one generating set.
+
+### Finite generation of the adic graded module
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-finite` — `TauCeti.HilbertSamuel.adicGradedModule_finite`. If M is finite over A, then Gr_q(M) is finite as a module over Gr_q(A), for any q. A need not be Noetherian and q need not be finitely generated.
+
+A is any commutative ring with identity, q is any ideal, M is any A-module, and degrees are natural numbers. No locality, Noetherianity, proper-ideal, domain or freeness premise unless explicitly added.
+
+Proof outline: Choose a finite A-spanning set of M from Module.Finite. Since F_0=top_M, A-linearity of ν_0 shows that its full range is in the Gr_q(A)-span of the images of this finite set. Use adic-module-degree-zero-generation to identify that finite span with top. This proves finite generation over Gr_q(A). No claim that each F_n is finite over A is needed; that stronger component finiteness requires separate hypotheses.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-degree-zero-generation`, `mathlib:Module.Finite`, `mathlib:Module.Finite.exists_fin`, `mathlib:Submodule.FG.map`.
+
+Acceptance: This statement does not need the Noetherian component assumption of the existing general filtration FG criterion. A residue module over Z/4 provides a finite nonfree example.
+
+### The regular-module specialization is the same graded ring
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-regular-module-comparison` — `TauCeti.HilbertSamuel.adicRegularModuleComparison`. For M=A there exists a Gr_q(A)-linear equivalence Gr_q(A as module)≃Gr_q(A as ring). It sends ν_n(m) to μ_n(m) under the explicit identification q^n·top_A=q^n, so it is compatible with every homogeneous piece.
+
+A is any commutative ring with identity, q is any ideal, M is any A-module, and degrees are natural numbers. No locality, Noetherianity, proper-ideal, domain or freeness premise unless explicitly added.
+
+Proof outline: The native PolynomialModule.equivPolynomialSelf identifies the polynomial module on A with A[T]. The equality q^n·top_A=q^n follows from Ideal.smul_eq_mul and Ideal.mul_top. Restrict this native polynomial equivalence to the actual Rees-module and Rees-ring subtypes. This Rees-linear equivalence sends J·top to the ideal J: multiply by 1 for the reverse inclusion, and ideal closure for the forward one. Use Submodule.Quotient.equiv, and the native quotient scalar formula to upgrade the descended equivalence to Rq/J-linearity. Its single-to-monomial formula gives the degree compatibility.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-map`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-map`, `mathlib:PolynomialModule.equivPolynomialSelf`, `mathlib:Ideal.smul_eq_mul`, `mathlib:Ideal.mul_top`, `mathlib:Submodule.Quotient.equiv`, `mathlib:Module.Quotient.mk_smul_mk`.
+
+Acceptance: For Z/4,q=(2), both regular-module and ring degree-one classes survive. This comparison is restricted to M=A; it fails for M=A/q when the ring degree-one piece is nonzero.
+
+### Source, ownership and validation receipts
+
+Fresh reading covers the entire mathematical statements and proofs of Stacks 00K4, and the complete Definition 10.70.1 in 052P. The module quotient comparison is worked out from the actual displayed graded module and native pinned interfaces; it is not a quoted theorem from the blowup section. The downloaded HTML versions have the same SHA-256 hashes as the inherited receipts: 00K4 e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932; 052P 709ee80c7830e0c429fee54d1df78efaabbd6c6ef4dbdc00220f5a77c80d83bd. The seventeen added baseline declarations have individual pinned source hashes and precise statement receipts in the packet. HS-MODULE-PIN records the actual declaration passages read.
+
+The eight AUDIT-17 entries, accepted RS-08 narrowing decisions and 53 touching RS-08 links, campaign and atlas stage descriptions, key-definition brief, integrated depth/Auslander–Buchsbaum supplier and ModularCurves coefficient-category overlap were screened. The external EXT-01 decomposition is a lead, not an independently accepted replacement. This worker already read complete JacobianChallenge and StableReduction upstream documents earlier in the continuous session. No new full reading of all inherited papers, closure of their routed statements, independent review or exhaustive library-absence claim is made.
+
+Finite regression computation enumerates actual rings and cyclic quotient modules, adic coefficient sets, truncated Rees polynomials, their ideal/submodule products and quotient classes. It checks the coefficient denominator independently against J·Rq(M), compares quotient cardinalities with the direct sum of degree-piece quotients, verifies scalar descent and associativity, checks the sum-of-degrees action and closes the actual degree-zero generators under the ring action. Bounds are degree three except zero and unit ideals over Z/4, which use degree two. The 12,344 assertions pass in nine cases. The script SHA-256 is ca94bc5b602afc382de4a70fa0b7c9b7d66471262b8f14a580a1f57fdbb2f495. These finite regressions do not prove the unrestricted declarations.
+
+| A; q; M | Cardinalities of G_0,G_1,G_2,G_3 | Gr_q(M) | Gr_q(A) |
+| --- | --- | --- | --- |
+| Z/4; (2); A | 2,2,1,1 | 4 | 4 |
+| Z/4; (2); A/(2) | 2,1,1,1 | 2 | 4 |
+| Z/8; (2); A | 2,2,2,1 | 8 | 8 |
+| Z/8; (2); A/(2) | 2,1,1,1 | 2 | 8 |
+| Z/4; 0; A | 4,1,1 (degree ≤2) | 4 | 4 |
+| Z/4; A; A | 1,1,1 (degree ≤2) | 1 | 1 |
+| F2[x,y]/(x,y)^2; (x,y); A | 2,4,1,1 | 8 | 8 |
+| F2[x,y]/(x,y)^2; (x,y); A/(x) | 2,2,1,1 | 4 | 8 |
+| F2[x,y]/(x,y)^2; (x,y); A/(x,y) | 2,1,1,1 | 2 | 8 |
+
+The nonprincipal ideal distinguishes generation by a whole ideal from a chosen principal generator. The residue-module cases distinguish a module annihilated by degree one from the regular module. Z/8 has two positive nonzero pieces, detecting a mistaken degree shift or a premature nilpotence claim.
+
+The final full suggested file compiled at the existing Mathlib pin with Lean v4.34.0-rc2: zero errors, 203 admitted-proof warnings, no other warnings, 92 examples, 14.412 seconds. Suggested-file SHA-256: 5bf28b17772787776e37d2185200157e74485f1c236d122c1d7c6e0f31aa5fc2. Compilation-log SHA-256: 7c17b599a8daf70b0af06acc8654f5bfb0b38cf30086975d28de506bdac1c596. No libraries were built, cache fetched, project created or language server started. This is a signature-elaboration receipt; every mathematical implementation remains unchecked.
+
+### Exact remaining work
+
+All inherited node objects, baseline prefix entries, source issues, requests, key-definition boundary, historical validation/source receipts and thirteen planets are preserved. R03.3 already has six planets, so this continuation adds none. The intrinsic support-dimension and ambient ring-dimension normalizations remain distinct.
+
+The module gap now requires registration of the transported direct-sum grading at the precise graded-ring/module API needed by Hilbert–Serre: homogeneous projections, graded submodule and shift maps. The eleven new comparison proofs still need implementation. Next decompose the x-torsion stabilization, nilpotent filtration, multiplication exact sequence and generator induction of Stacks 10.58.7. Do not supply the graded polynomial as a hidden input to its own existence proof. All degree/dimension, Artin–Rees, localization, plane-curve order, Nagata, parameter-ideal and completion comparisons remain open, as do every original P7–P9/R03.1–R03.5 paper-route and patching obligation.
+
+The Mathlib design screen found open [PR #33220](https://github.com/leanprover-community/mathlib4/pull/33220), with ring/algebra companions [#33218](https://github.com/leanprover-community/mathlib4/pull/33218) and [#33219](https://github.com/leanprover-community/mathlib4/pull/33219). The complete module diff was read at head 70572cd62395e933e8f6476bcedcee366a5b5e82 (file SHA-256 76f51cbee7816a9fd1b0c9a38413e9eb350674593f3a26e854c82fda9492fdd0). Its proposed GradedPiece, hasGSMul and direct-sum action should supply the shape of the outstanding grading registration; the pinned DirectSum.Gmodule is already the native graded-action interface. Do not introduce a competing generic associated-graded carrier. For the decreasing adic family, prove its order-dual natural-index filtration and compare its native denominator with the proposed generic degree quotient. These proofs remain in the explicit gap. The present new declarations are the adic Rees-quotient adapters, not a duplicate generic filtered construction. An open PR is not a pinned declaration or a reason to wait.
+
+The complete [Zulip discussion of associated graded objects](https://leanprover-community.github.io/archive/stream/113489-new-members/topic/Associated.20graded.20objects.20%28modules.2Frings%29.html) was also screened (HTML SHA-256 186583b6e46635cafa31d0bf6d893fdf5dfae0f71be4ed4ba44718302e4633ae). It discusses filtration direction and quotienting by all strictly earlier indices. No consensus or exhaustive absence conclusion is inferred from this discussion. The recorded design source is not an additional mathematical prerequisite for the eleven current nodes.
