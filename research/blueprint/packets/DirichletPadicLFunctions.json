@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Seventeen L3 nodes prove actual local-kernel/coset convolution and correction-factor cancellation, construct original translated local torus points, and identify their genuine primitive fibers with both convolution terms. All2,154 predecessor nodes and1,273 baseline records remain whole. The exceptional-root equation and new-prime distribution branch remain open.",
+  "summary": "Twelve L3 lemmas prove the actual CRT-translated exceptional root, its uniqueness in the complementary level, the complete root partition for any primary exponent and the new-prime specialization to primitive level-N roots. All2,171 predecessor nodes and1,274 baseline records remain whole. The corrected-value product split and new-prime sum remain open.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -8932,6 +8932,34 @@
         "module": "Mathlib/Algebra/Group/Units/Basic.lean",
         "provides": "Multiplication on the left by an actual unit is cancellable in a monoid: equality of its two products is equivalent to equality of the original factors.",
         "checked": "Full statement and surrounding hypotheses read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/Algebra/Group/Units/Basic.lean, line62. Existing subgroup cancellation, native basis coefficients, finite sums, unit inverse laws, actual primitive point order and residue-comparison statements were reread."
+      },
+      {
+        "ref": "mathlib:Finsupp.tsub_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Finsupp/Order.lean",
+        "provides": "Evaluation of the truncated difference of native finitely supported functions is the pointwise truncated difference.",
+        "checked": "Full statement and surrounding hypotheses read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/Data/Finsupp/Order.lean, line272. Existing native CRT, natural casts, factorization quotient and positive exponent statements were reread, together with the existing actual point/root interfaces."
+      },
+      {
+        "ref": "mathlib:Nat.Prime.factorization_self",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Basic.lean",
+        "provides": "The native factorization exponent of a prime in itself is1.",
+        "checked": "Full statement and surrounding hypotheses read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/Data/Nat/Factorization/Basic.lean, line68. Existing native CRT, natural casts, factorization quotient and positive exponent statements were reread, together with the existing actual point/root interfaces."
+      },
+      {
+        "ref": "mathlib:Nat.coprime_ordCompl",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Basic.lean",
+        "provides": "A prime is coprime to the complementary factor n divided by its full primary power, for nonzero n.",
+        "checked": "Full statement and surrounding hypotheses read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/Data/Nat/Factorization/Basic.lean, line202. Existing native CRT, natural casts, factorization quotient and positive exponent statements were reread, together with the existing actual point/root interfaces."
+      },
+      {
+        "ref": "mathlib:Nat.factorization_eq_zero_of_not_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Defs.lean",
+        "provides": "A prime or natural label not dividing n has zero native factorization exponent in n.",
+        "checked": "Full statement and surrounding hypotheses read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/Data/Nat/Factorization/Defs.lean, line143. Existing native CRT, natural casts, factorization quotient and positive exponent statements were reread, together with the existing actual point/root interfaces."
       }
     ]
   },
@@ -137783,6 +137811,657 @@
       "acceptance": [
         "At level6,p3 the kernel sum has two terms, squares to twice itself and annihilates the local correction factor; it is not idempotent. At level6,p2 the translated points for residues1 and5 are1/3 and2/3, with original raw sums[1] and[5]. The raw sum at1/3 multiplied by ε_2 is[1]−[5], exactly the difference of those actual fibers. At prime-power level9,p3 every translated point is zero and has order1."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translation-scaled-residue",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual CRT translation satisfies the scaled root equation",
+      "kind": "lemma",
+      "statement": "In ZMod N, t times p times the actual residue of λ_N,p equals t, with t formed as the natural primary power before casting.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. The carrier is the original product of truncated-Witt units over the original finite Galois fields, with its proved residue-unit and primitive-circle equivalences.",
+        "Write t=p raised to v_p(N), M=N/t and P_N(u) for the actual primitive one-coordinate rational-torus point of an original Cartan unit. The existing translated point a_p,u is t times P_N(u) in the original level-N kernel and has actual order M.",
+        "The original CRT unit λ_N,p has coordinate1 at p and inverse-p coordinates at every other prime. The exceptional point used below is the already constructed actual point b=a_p,uλ, with no supplied root or torsor structure.",
+        "The general root equation and partition hold for every positive p-adic exponent in N. Their higher-order roots have order pM, which need not equal N. Only the new-prime specialization assumes p does not divide N/p and proves t=p and pM=N.",
+        "All root equations, orders, level memberships and uniqueness conclusions concern actual points of the original rational torus. Existing generic coprime-level injectivity and prime-root order cases are reused rather than replanned.",
+        "This identifies the exceptional root and complete root partition needed by source4.10. Combining the corrected primitive-fiber sum with the exceptional corrected value still requires the finite correction-product split. The full new-prime corrected-value identity, general distribution reduction, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Apply the injective native CRT ring equivalence and compare every actual primary coordinate.",
+        "The p-coordinate is zero because its modulus is exactly the primary power t.",
+        "At every other coordinate, the earlier actual CRT translation theorem gives p times the coordinate of λ equal to1.",
+        "Multiply that identity by the coordinate of t and reassemble by CRT injectivity."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-factors-cartan-primary-unit-equiv",
+        "DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-translation-other",
+        "mathlib:ZMod.equivPi",
+        "mathlib:ZMod.natCast_self"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertExceptionalRoot",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeTranslation_scaled_residue"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published196–197, new-prime branch of Proposition4.10: the unique exceptional p-root of the point p times a primitive point, and the division of all p-roots into this point and the primitive roots. The local translated point also uses the source generators in4.12 on198.",
+          "match": "Identifies the original CRT-translated local point as the actual exceptional root, proves its uniqueness at the complementary level and derives the complete root partition. A stronger statement retains the full primary power and the correct higher-root order pN/p^v when the prime is repeated."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertExceptionalRootTests.identity_translation_is_not_the_exceptional_two_root",
+          "kind": "non-example",
+          "statement": "AtN6,p2 using the identity label in place of the CRT translating unit gives1/3, whose double is not1/3."
+        },
+        {
+          "name": "SuggestedKubertExceptionalRootTests.rationalPrimeTranslation_scaled_residue_typed_api",
+          "kind": "compatibility",
+          "statement": "In ZMod N, t times p times the actual residue of λ_N,p equals t, with t formed as the natural primary power before casting."
+        }
+      ],
+      "acceptance": [
+        "AtN6,p2 and the identity unit the actual exceptional point is2/3, the target is1/3, and the two roots are1/6 and2/3. AtN12,p2 the primary power is4 and the same target and exceptional point have order3; the other root has order6 rather than12. AtN9,p3 the target and exceptional point are zero and the other roots have order3 rather than9. Using the identity CRT label instead of λ atN6,p2 does not give a root of the target."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-exceptional-root-cartan-primitive-point-two-scalars-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Two scalar multiples of actual primitive points compare in the residue ring",
+      "kind": "lemma",
+      "statement": "For arbitrary natural s,t and actual Cartan units u,v, s times P_N(v) equals t times P_N(u) exactly when s times the actual residue of v equals t times the actual residue of u in ZMod N.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. The carrier is the original product of truncated-Witt units over the original finite Galois fields, with its proved residue-unit and primitive-circle equivalences.",
+        "Write t=p raised to v_p(N), M=N/t and P_N(u) for the actual primitive one-coordinate rational-torus point of an original Cartan unit. The existing translated point a_p,u is t times P_N(u) in the original level-N kernel and has actual order M.",
+        "The original CRT unit λ_N,p has coordinate1 at p and inverse-p coordinates at every other prime. The exceptional point used below is the already constructed actual point b=a_p,uλ, with no supplied root or torsor structure.",
+        "The general root equation and partition hold for every positive p-adic exponent in N. Their higher-order roots have order pM, which need not equal N. Only the new-prime specialization assumes p does not divide N/p and proves t=p and pM=N.",
+        "All root equations, orders, level memberships and uniqueness conclusions concern actual points of the original rational torus. Existing generic coprime-level injectivity and prime-root order cases are reused rather than replanned.",
+        "This identifies the exceptional root and complete root partition needed by source4.10. Combining the corrected primitive-fiber sum with the exceptional corrected value still requires the finite correction-product split. The full new-prime corrected-value identity, general distribution reduction, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Express each actual primitive point as the natural residue representative times the original identity primitive point.",
+        "Its actual order is N.",
+        "Use the native equality-of-multiples criterion modulo that order.",
+        "Translate natural congruence to equality in ZMod N and cast the natural products."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-cartan-primitive-point-nsmul",
+        "DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv",
+        "mathlib:pow_eq_pow_iff_modEq",
+        "mathlib:ZMod.natCast_eq_natCast_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertExceptionalRoot",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanPrimitivePoint_two_scalars_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published196–197, new-prime branch of Proposition4.10: the unique exceptional p-root of the point p times a primitive point, and the division of all p-roots into this point and the primitive roots. The local translated point also uses the source generators in4.12 on198.",
+          "match": "Identifies the original CRT-translated local point as the actual exceptional root, proves its uniqueness at the complementary level and derives the complete root partition. A stronger statement retains the full primary power and the correct higher-root order pN/p^v when the prime is repeated."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertExceptionalRootTests.cartanPrimitivePoint_two_scalars_iff_typed_api",
+          "kind": "compatibility",
+          "statement": "For arbitrary natural s,t and actual Cartan units u,v, s times P_N(v) equals t times P_N(u) exactly when s times the actual residue of v equals t times the actual residue of u in ZMod N."
+        }
+      ],
+      "acceptance": [
+        "AtN6,p2 and the identity unit the actual exceptional point is2/3, the target is1/3, and the two roots are1/6 and2/3. AtN12,p2 the primary power is4 and the same target and exceptional point have order3; the other root has order6 rather than12. AtN9,p3 the target and exceptional point are zero and the other roots have order3 rather than9. Using the identity CRT label instead of λ atN6,p2 does not give a root of the target."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-root",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The original translated coset point is an actual p-root",
+      "kind": "lemma",
+      "statement": "For every original unit u, p times the actual point a_p,uλ equals a_p,u. The statement holds for every p-adic exponent in N.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. The carrier is the original product of truncated-Witt units over the original finite Galois fields, with its proved residue-unit and primitive-circle equivalences.",
+        "Write t=p raised to v_p(N), M=N/t and P_N(u) for the actual primitive one-coordinate rational-torus point of an original Cartan unit. The existing translated point a_p,u is t times P_N(u) in the original level-N kernel and has actual order M.",
+        "The original CRT unit λ_N,p has coordinate1 at p and inverse-p coordinates at every other prime. The exceptional point used below is the already constructed actual point b=a_p,uλ, with no supplied root or torsor structure.",
+        "The general root equation and partition hold for every positive p-adic exponent in N. Their higher-order roots have order pM, which need not equal N. Only the new-prime specialization assumes p does not divide N/p and proves t=p and pM=N.",
+        "All root equations, orders, level memberships and uniqueness conclusions concern actual points of the original rational torus. Existing generic coprime-level injectivity and prime-root order cases are reused rather than replanned.",
+        "This identifies the exceptional root and complete root partition needed by source4.10. Combining the corrected primitive-fiber sum with the exceptional corrected value still requires the finite correction-product split. The full new-prime corrected-value identity, general distribution reduction, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Expand the actual translated points as primary scalar multiples of the original primitive points.",
+        "Use the two-scalar point/residue comparison, retaining the natural primary power.",
+        "The original residue-unit equivalence carries uλ to the product of the two actual residue units.",
+        "Commute the residue factors and apply the proved scaled CRT translation identity."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-coe",
+        "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translation-scaled-residue",
+        "DirichletPadicLFunctions:L3/kubert-exceptional-root-cartan-primitive-point-two-scalars-iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertExceptionalRoot",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeTranslatedPoint_root"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published196–197, new-prime branch of Proposition4.10: the unique exceptional p-root of the point p times a primitive point, and the division of all p-roots into this point and the primitive roots. The local translated point also uses the source generators in4.12 on198.",
+          "match": "Identifies the original CRT-translated local point as the actual exceptional root, proves its uniqueness at the complementary level and derives the complete root partition. A stronger statement retains the full primary power and the correct higher-root order pN/p^v when the prime is repeated."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertExceptionalRootTests.exceptional_two_root_at_six",
+          "kind": "computation",
+          "statement": "AtN6,p2 and the identity unit, the exceptional point is2/3 and twice it is1/3."
+        },
+        {
+          "name": "SuggestedKubertExceptionalRootTests.prime_power_exceptional_root_is_zero",
+          "kind": "degenerate",
+          "statement": "At level9 and p3 the translated target and actual exceptional root are both zero."
+        },
+        {
+          "name": "SuggestedKubertExceptionalRootTests.rationalPrimeTranslatedPoint_root_typed_api",
+          "kind": "compatibility",
+          "statement": "For every original unit u, p times the actual point a_p,uλ equals a_p,u. The statement holds for every p-adic exponent in N."
+        }
+      ],
+      "acceptance": [
+        "AtN6,p2 and the identity unit the actual exceptional point is2/3, the target is1/3, and the two roots are1/6 and2/3. AtN12,p2 the primary power is4 and the same target and exceptional point have order3; the other root has order6 rather than12. AtN9,p3 the target and exceptional point are zero and the other roots have order3 rather than9. Using the identity CRT label instead of λ atN6,p2 does not give a root of the target."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-coprime-order",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The complementary point order is coprime to the root prime",
+      "kind": "lemma",
+      "statement": "The actual order of a_p,u is coprime to p, for every original unit u and every positive exponent of p in N.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. The carrier is the original product of truncated-Witt units over the original finite Galois fields, with its proved residue-unit and primitive-circle equivalences.",
+        "Write t=p raised to v_p(N), M=N/t and P_N(u) for the actual primitive one-coordinate rational-torus point of an original Cartan unit. The existing translated point a_p,u is t times P_N(u) in the original level-N kernel and has actual order M.",
+        "The original CRT unit λ_N,p has coordinate1 at p and inverse-p coordinates at every other prime. The exceptional point used below is the already constructed actual point b=a_p,uλ, with no supplied root or torsor structure.",
+        "The general root equation and partition hold for every positive p-adic exponent in N. Their higher-order roots have order pM, which need not equal N. Only the new-prime specialization assumes p does not divide N/p and proves t=p and pM=N.",
+        "All root equations, orders, level memberships and uniqueness conclusions concern actual points of the original rational torus. Existing generic coprime-level injectivity and prime-root order cases are reused rather than replanned.",
+        "This identifies the exceptional root and complete root partition needed by source4.10. Combining the corrected primitive-fiber sum with the exceptional corrected value still requires the finite correction-product split. The full new-prime corrected-value identity, general distribution reduction, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the existing actual order formula N divided by the full primary power.",
+        "Apply the native coprimality theorem for the primary complementary factor of a nonzero natural number."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-order",
+        "mathlib:Nat.coprime_ordCompl"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertExceptionalRoot",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeTranslatedPoint_coprime_order"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published196–197, new-prime branch of Proposition4.10: the unique exceptional p-root of the point p times a primitive point, and the division of all p-roots into this point and the primitive roots. The local translated point also uses the source generators in4.12 on198.",
+          "match": "Identifies the original CRT-translated local point as the actual exceptional root, proves its uniqueness at the complementary level and derives the complete root partition. A stronger statement retains the full primary power and the correct higher-root order pN/p^v when the prime is repeated."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertExceptionalRootTests.repeated_prime_exceptional_order_at_twelve",
+          "kind": "computation",
+          "statement": "AtN12,p2 the actual primary power is4, the exceptional point is2/3 of order3, and twice it is1/3. The order is coprime to2 even though2 appears twice inN."
+        },
+        {
+          "name": "SuggestedKubertExceptionalRootTests.rationalPrimeTranslatedPoint_coprime_order_typed_api",
+          "kind": "compatibility",
+          "statement": "The actual order of a_p,u is coprime to p, for every original unit u and every positive exponent of p in N."
+        }
+      ],
+      "acceptance": [
+        "AtN6,p2 and the identity unit the actual exceptional point is2/3, the target is1/3, and the two roots are1/6 and2/3. AtN12,p2 the primary power is4 and the same target and exceptional point have order3; the other root has order6 rather than12. AtN9,p3 the target and exceptional point are zero and the other roots have order3 rather than9. Using the identity CRT label instead of λ atN6,p2 does not give a root of the target."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-root-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual exceptional root is unique in the complementary level",
+      "kind": "lemma",
+      "statement": "Any actual torus point y killed by M=N/t and satisfying p times y=a_p,u equals the original point a_p,uλ. No assumption of exact order M is required for y.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. The carrier is the original product of truncated-Witt units over the original finite Galois fields, with its proved residue-unit and primitive-circle equivalences.",
+        "Write t=p raised to v_p(N), M=N/t and P_N(u) for the actual primitive one-coordinate rational-torus point of an original Cartan unit. The existing translated point a_p,u is t times P_N(u) in the original level-N kernel and has actual order M.",
+        "The original CRT unit λ_N,p has coordinate1 at p and inverse-p coordinates at every other prime. The exceptional point used below is the already constructed actual point b=a_p,uλ, with no supplied root or torsor structure.",
+        "The general root equation and partition hold for every positive p-adic exponent in N. Their higher-order roots have order pM, which need not equal N. Only the new-prime specialization assumes p does not divide N/p and proves t=p and pM=N.",
+        "All root equations, orders, level memberships and uniqueness conclusions concern actual points of the original rational torus. Existing generic coprime-level injectivity and prime-root order cases are reused rather than replanned.",
+        "This identifies the exceptional root and complete root partition needed by source4.10. Combining the corrected primitive-fiber sum with the exceptional corrected value still requires the finite correction-product split. The full new-prime corrected-value identity, general distribution reduction, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "The existing actual order formula puts a_p,uλ in the level-M kernel.",
+        "The complementary level M is coprime to p.",
+        "The supplied root equation and the proved equation for a_p,uλ give equal p-multiples inside the same actual additive subgroup.",
+        "Use the already established generic coprime multiplication injectivity on a level kernel and then take underlying torus points."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-root",
+        "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-coprime-order",
+        "DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-order",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level",
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-coprime-nsmul-injective-on-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertExceptionalRoot",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeTranslatedPoint_root_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published196–197, new-prime branch of Proposition4.10: the unique exceptional p-root of the point p times a primitive point, and the division of all p-roots into this point and the primitive roots. The local translated point also uses the source generators in4.12 on198.",
+          "match": "Identifies the original CRT-translated local point as the actual exceptional root, proves its uniqueness at the complementary level and derives the complete root partition. A stronger statement retains the full primary power and the correct higher-root order pN/p^v when the prime is repeated."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertExceptionalRootTests.exceptional_three_root_at_six",
+          "kind": "computation",
+          "statement": "AtN6,p3 the exceptional point is1/2; it is fixed by multiplication by3 and has complementary order2."
+        },
+        {
+          "name": "SuggestedKubertExceptionalRootTests.rationalPrimeTranslatedPoint_root_unique_typed_api",
+          "kind": "compatibility",
+          "statement": "Any actual torus point y killed by M=N/t and satisfying p times y=a_p,u equals the original point a_p,uλ. No assumption of exact order M is required for y."
+        }
+      ],
+      "acceptance": [
+        "AtN6,p2 and the identity unit the actual exceptional point is2/3, the target is1/3, and the two roots are1/6 and2/3. AtN12,p2 the primary power is4 and the same target and exceptional point have order3; the other root has order6 rather than12. AtN9,p3 the target and exceptional point are zero and the other roots have order3 rather than9. Using the identity CRT label instead of λ atN6,p2 does not give a root of the target."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-root-partition",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every actual prime root lies in the exceptional or higher-order part",
+      "kind": "lemma",
+      "statement": "For every actual torus point y, p times y=a_p,u if and only if y=a_p,uλ or y has actual order pM and satisfies the same root equation. Here M=N/t, without a squarefree assumption.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. The carrier is the original product of truncated-Witt units over the original finite Galois fields, with its proved residue-unit and primitive-circle equivalences.",
+        "Write t=p raised to v_p(N), M=N/t and P_N(u) for the actual primitive one-coordinate rational-torus point of an original Cartan unit. The existing translated point a_p,u is t times P_N(u) in the original level-N kernel and has actual order M.",
+        "The original CRT unit λ_N,p has coordinate1 at p and inverse-p coordinates at every other prime. The exceptional point used below is the already constructed actual point b=a_p,uλ, with no supplied root or torsor structure.",
+        "The general root equation and partition hold for every positive p-adic exponent in N. Their higher-order roots have order pM, which need not equal N. Only the new-prime specialization assumes p does not divide N/p and proves t=p and pM=N.",
+        "All root equations, orders, level memberships and uniqueness conclusions concern actual points of the original rational torus. Existing generic coprime-level injectivity and prime-root order cases are reused rather than replanned.",
+        "This identifies the exceptional root and complete root partition needed by source4.10. Combining the corrected primitive-fiber sum with the exceptional corrected value still requires the finite correction-product split. The full new-prime corrected-value identity, general distribution reduction, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "For an actual root, reuse the earlier generic prime-root order dichotomy to get order M or pM.",
+        "In the lower-order case, the point belongs to the actual level-M kernel and the exceptional-root uniqueness theorem identifies it.",
+        "The higher-order case retains the actual root equation.",
+        "The reverse implication uses the explicit exceptional-root equation or the root equation retained in the higher-order branch."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-root-unique",
+        "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-root",
+        "DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-order",
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-order-cases",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertExceptionalRoot",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeTranslatedPoint_root_partition"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published196–197, new-prime branch of Proposition4.10: the unique exceptional p-root of the point p times a primitive point, and the division of all p-roots into this point and the primitive roots. The local translated point also uses the source generators in4.12 on198.",
+          "match": "Identifies the original CRT-translated local point as the actual exceptional root, proves its uniqueness at the complementary level and derives the complete root partition. A stronger statement retains the full primary power and the correct higher-root order pN/p^v when the prime is repeated."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertExceptionalRootTests.repeated_prime_other_roots_need_not_be_primitive_at_original_level",
+          "kind": "non-example",
+          "statement": "AtN9,p3 the point1/3 is a nonzero3-root of zero, with actual order3 rather than9. The general partition usesp times the complementary order."
+        },
+        {
+          "name": "SuggestedKubertExceptionalRootTests.rationalPrimeTranslatedPoint_root_partition_typed_api",
+          "kind": "compatibility",
+          "statement": "For every actual torus point y, p times y=a_p,u if and only if y=a_p,uλ or y has actual order pM and satisfies the same root equation. Here M=N/t, without a squarefree assumption."
+        }
+      ],
+      "acceptance": [
+        "AtN6,p2 and the identity unit the actual exceptional point is2/3, the target is1/3, and the two roots are1/6 and2/3. AtN12,p2 the primary power is4 and the same target and exceptional point have order3; the other root has order6 rather than12. AtN9,p3 the target and exceptional point are zero and the other roots have order3 rather than9. Using the identity CRT label instead of λ atN6,p2 does not give a root of the target."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-root-not-high",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The exceptional root is disjoint from the higher-order part",
+      "kind": "lemma",
+      "statement": "The actual exceptional point a_p,uλ does not have order pM. Its order is M and M is positive.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. The carrier is the original product of truncated-Witt units over the original finite Galois fields, with its proved residue-unit and primitive-circle equivalences.",
+        "Write t=p raised to v_p(N), M=N/t and P_N(u) for the actual primitive one-coordinate rational-torus point of an original Cartan unit. The existing translated point a_p,u is t times P_N(u) in the original level-N kernel and has actual order M.",
+        "The original CRT unit λ_N,p has coordinate1 at p and inverse-p coordinates at every other prime. The exceptional point used below is the already constructed actual point b=a_p,uλ, with no supplied root or torsor structure.",
+        "The general root equation and partition hold for every positive p-adic exponent in N. Their higher-order roots have order pM, which need not equal N. Only the new-prime specialization assumes p does not divide N/p and proves t=p and pM=N.",
+        "All root equations, orders, level memberships and uniqueness conclusions concern actual points of the original rational torus. Existing generic coprime-level injectivity and prime-root order cases are reused rather than replanned.",
+        "This identifies the exceptional root and complete root partition needed by source4.10. Combining the corrected primitive-fiber sum with the exceptional corrected value still requires the finite correction-product split. The full new-prime corrected-value identity, general distribution reduction, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "The complementary order is nonzero because it is the actual order of a point in the original positive level.",
+        "Reuse the existing generic disjointness theorem for a point of order M and the prime-multiple order pM."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-order",
+        "DirichletPadicLFunctions:L3/kubert-generators-level-order-pos",
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-partition-disjoint"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertExceptionalRoot",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeTranslatedPoint_root_not_high"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published196–197, new-prime branch of Proposition4.10: the unique exceptional p-root of the point p times a primitive point, and the division of all p-roots into this point and the primitive roots. The local translated point also uses the source generators in4.12 on198.",
+          "match": "Identifies the original CRT-translated local point as the actual exceptional root, proves its uniqueness at the complementary level and derives the complete root partition. A stronger statement retains the full primary power and the correct higher-root order pN/p^v when the prime is repeated."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertExceptionalRootTests.rationalPrimeTranslatedPoint_root_not_high_typed_api",
+          "kind": "compatibility",
+          "statement": "The actual exceptional point a_p,uλ does not have order pM. Its order is M and M is positive."
+        }
+      ],
+      "acceptance": [
+        "AtN6,p2 and the identity unit the actual exceptional point is2/3, the target is1/3, and the two roots are1/6 and2/3. AtN12,p2 the primary power is4 and the same target and exceptional point have order3; the other root has order6 rather than12. AtN9,p3 the target and exceptional point are zero and the other roots have order3 rather than9. Using the identity CRT label instead of λ atN6,p2 does not give a root of the target."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-new-factorization",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A prime absent from the quotient occurs exactly once",
+      "kind": "lemma",
+      "statement": "If p is an actual prime factor of N and does not divide N/p, then the native factorization exponent v_p(N) is1.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. The carrier is the original product of truncated-Witt units over the original finite Galois fields, with its proved residue-unit and primitive-circle equivalences.",
+        "Write t=p raised to v_p(N), M=N/t and P_N(u) for the actual primitive one-coordinate rational-torus point of an original Cartan unit. The existing translated point a_p,u is t times P_N(u) in the original level-N kernel and has actual order M.",
+        "The original CRT unit λ_N,p has coordinate1 at p and inverse-p coordinates at every other prime. The exceptional point used below is the already constructed actual point b=a_p,uλ, with no supplied root or torsor structure.",
+        "The general root equation and partition hold for every positive p-adic exponent in N. Their higher-order roots have order pM, which need not equal N. Only the new-prime specialization assumes p does not divide N/p and proves t=p and pM=N.",
+        "All root equations, orders, level memberships and uniqueness conclusions concern actual points of the original rational torus. Existing generic coprime-level injectivity and prime-root order cases are reused rather than replanned.",
+        "This identifies the exceptional root and complete root partition needed by source4.10. Combining the corrected primitive-fiber sum with the exceptional corrected value still requires the finite correction-product split. The full new-prime corrected-value identity, general distribution reduction, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "The exponent in N is positive because p divides the nonzero level.",
+        "The exponent in N/p is zero because p does not divide that quotient.",
+        "Use the native quotient factorization formula and evaluate the truncated difference at p.",
+        "The exponent of p in p is1; positivity and the zero truncated difference force the original exponent to equal1."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.Prime.factorization_pos_of_dvd",
+        "mathlib:Nat.factorization_eq_zero_of_not_dvd",
+        "mathlib:Nat.factorization_div",
+        "mathlib:Nat.Prime.factorization_self",
+        "mathlib:Finsupp.tsub_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertExceptionalRoot",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrime_new_factorization"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published196–197, new-prime branch of Proposition4.10: the unique exceptional p-root of the point p times a primitive point, and the division of all p-roots into this point and the primitive roots. The local translated point also uses the source generators in4.12 on198.",
+          "match": "Identifies the original CRT-translated local point as the actual exceptional root, proves its uniqueness at the complementary level and derives the complete root partition. A stronger statement retains the full primary power and the correct higher-root order pN/p^v when the prime is repeated."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertExceptionalRootTests.rationalPrime_new_factorization_typed_api",
+          "kind": "compatibility",
+          "statement": "If p is an actual prime factor of N and does not divide N/p, then the native factorization exponent v_p(N) is1."
+        }
+      ],
+      "acceptance": [
+        "AtN6,p2 and the identity unit the actual exceptional point is2/3, the target is1/3, and the two roots are1/6 and2/3. AtN12,p2 the primary power is4 and the same target and exceptional point have order3; the other root has order6 rather than12. AtN9,p3 the target and exceptional point are zero and the other roots have order3 rather than9. Using the identity CRT label instead of λ atN6,p2 does not give a root of the target."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-new-primary-power",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual primary power is p in the new-prime case",
+      "kind": "lemma",
+      "statement": "Under p not dividing N/p, the natural primary power p raised to v_p(N) equals p.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. The carrier is the original product of truncated-Witt units over the original finite Galois fields, with its proved residue-unit and primitive-circle equivalences.",
+        "Write t=p raised to v_p(N), M=N/t and P_N(u) for the actual primitive one-coordinate rational-torus point of an original Cartan unit. The existing translated point a_p,u is t times P_N(u) in the original level-N kernel and has actual order M.",
+        "The original CRT unit λ_N,p has coordinate1 at p and inverse-p coordinates at every other prime. The exceptional point used below is the already constructed actual point b=a_p,uλ, with no supplied root or torsor structure.",
+        "The general root equation and partition hold for every positive p-adic exponent in N. Their higher-order roots have order pM, which need not equal N. Only the new-prime specialization assumes p does not divide N/p and proves t=p and pM=N.",
+        "All root equations, orders, level memberships and uniqueness conclusions concern actual points of the original rational torus. Existing generic coprime-level injectivity and prime-root order cases are reused rather than replanned.",
+        "This identifies the exceptional root and complete root partition needed by source4.10. Combining the corrected primitive-fiber sum with the exceptional corrected value still requires the finite correction-product split. The full new-prime corrected-value identity, general distribution reduction, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the proved exponent-one theorem.",
+        "Evaluate the natural first power."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-new-factorization"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertExceptionalRoot",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrime_new_primary_power"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published196–197, new-prime branch of Proposition4.10: the unique exceptional p-root of the point p times a primitive point, and the division of all p-roots into this point and the primitive roots. The local translated point also uses the source generators in4.12 on198.",
+          "match": "Identifies the original CRT-translated local point as the actual exceptional root, proves its uniqueness at the complementary level and derives the complete root partition. A stronger statement retains the full primary power and the correct higher-root order pN/p^v when the prime is repeated."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertExceptionalRootTests.rationalPrime_new_primary_power_typed_api",
+          "kind": "compatibility",
+          "statement": "Under p not dividing N/p, the natural primary power p raised to v_p(N) equals p."
+        }
+      ],
+      "acceptance": [
+        "AtN6,p2 and the identity unit the actual exceptional point is2/3, the target is1/3, and the two roots are1/6 and2/3. AtN12,p2 the primary power is4 and the same target and exceptional point have order3; the other root has order6 rather than12. AtN9,p3 the target and exceptional point are zero and the other roots have order3 rather than9. Using the identity CRT label instead of λ atN6,p2 does not give a root of the target."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-new-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The new-prime target is p times the original primitive point",
+      "kind": "lemma",
+      "statement": "If p does not divide N/p, the underlying actual torus point of a_p,u equals p times P_N(u).",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. The carrier is the original product of truncated-Witt units over the original finite Galois fields, with its proved residue-unit and primitive-circle equivalences.",
+        "Write t=p raised to v_p(N), M=N/t and P_N(u) for the actual primitive one-coordinate rational-torus point of an original Cartan unit. The existing translated point a_p,u is t times P_N(u) in the original level-N kernel and has actual order M.",
+        "The original CRT unit λ_N,p has coordinate1 at p and inverse-p coordinates at every other prime. The exceptional point used below is the already constructed actual point b=a_p,uλ, with no supplied root or torsor structure.",
+        "The general root equation and partition hold for every positive p-adic exponent in N. Their higher-order roots have order pM, which need not equal N. Only the new-prime specialization assumes p does not divide N/p and proves t=p and pM=N.",
+        "All root equations, orders, level memberships and uniqueness conclusions concern actual points of the original rational torus. Existing generic coprime-level injectivity and prime-root order cases are reused rather than replanned.",
+        "This identifies the exceptional root and complete root partition needed by source4.10. Combining the corrected primitive-fiber sum with the exceptional corrected value still requires the finite correction-product split. The full new-prime corrected-value identity, general distribution reduction, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Expand the existing translated local point.",
+        "Replace its actual primary scalar by p using the exponent-one result."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-convolution-rational-prime-translated-point-coe",
+        "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-new-primary-power"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertExceptionalRoot",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeTranslatedPoint_new_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published196–197, new-prime branch of Proposition4.10: the unique exceptional p-root of the point p times a primitive point, and the division of all p-roots into this point and the primitive roots. The local translated point also uses the source generators in4.12 on198.",
+          "match": "Identifies the original CRT-translated local point as the actual exceptional root, proves its uniqueness at the complementary level and derives the complete root partition. A stronger statement retains the full primary power and the correct higher-root order pN/p^v when the prime is repeated."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertExceptionalRootTests.rationalPrimeTranslatedPoint_new_coe_typed_api",
+          "kind": "compatibility",
+          "statement": "If p does not divide N/p, the underlying actual torus point of a_p,u equals p times P_N(u)."
+        }
+      ],
+      "acceptance": [
+        "AtN6,p2 and the identity unit the actual exceptional point is2/3, the target is1/3, and the two roots are1/6 and2/3. AtN12,p2 the primary power is4 and the same target and exceptional point have order3; the other root has order6 rather than12. AtN9,p3 the target and exceptional point are zero and the other roots have order3 rather than9. Using the identity CRT label instead of λ atN6,p2 does not give a root of the target."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-new-root",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The explicit exceptional point is a root of the source target",
+      "kind": "lemma",
+      "statement": "If p does not divide N/p, the original point a_p,uλ is an actual p-root of p times the original primitive point P_N(u).",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. The carrier is the original product of truncated-Witt units over the original finite Galois fields, with its proved residue-unit and primitive-circle equivalences.",
+        "Write t=p raised to v_p(N), M=N/t and P_N(u) for the actual primitive one-coordinate rational-torus point of an original Cartan unit. The existing translated point a_p,u is t times P_N(u) in the original level-N kernel and has actual order M.",
+        "The original CRT unit λ_N,p has coordinate1 at p and inverse-p coordinates at every other prime. The exceptional point used below is the already constructed actual point b=a_p,uλ, with no supplied root or torsor structure.",
+        "The general root equation and partition hold for every positive p-adic exponent in N. Their higher-order roots have order pM, which need not equal N. Only the new-prime specialization assumes p does not divide N/p and proves t=p and pM=N.",
+        "All root equations, orders, level memberships and uniqueness conclusions concern actual points of the original rational torus. Existing generic coprime-level injectivity and prime-root order cases are reused rather than replanned.",
+        "This identifies the exceptional root and complete root partition needed by source4.10. Combining the corrected primitive-fiber sum with the exceptional corrected value still requires the finite correction-product split. The full new-prime corrected-value identity, general distribution reduction, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the general actual exceptional-root equation.",
+        "Identify its translated target with p times the original primitive point."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-root",
+        "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-new-coe"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertExceptionalRoot",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeTranslatedPoint_new_root"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published196–197, new-prime branch of Proposition4.10: the unique exceptional p-root of the point p times a primitive point, and the division of all p-roots into this point and the primitive roots. The local translated point also uses the source generators in4.12 on198.",
+          "match": "Identifies the original CRT-translated local point as the actual exceptional root, proves its uniqueness at the complementary level and derives the complete root partition. A stronger statement retains the full primary power and the correct higher-root order pN/p^v when the prime is repeated."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertExceptionalRootTests.rationalPrimeTranslatedPoint_new_root_typed_api",
+          "kind": "compatibility",
+          "statement": "If p does not divide N/p, the original point a_p,uλ is an actual p-root of p times the original primitive point P_N(u)."
+        }
+      ],
+      "acceptance": [
+        "AtN6,p2 and the identity unit the actual exceptional point is2/3, the target is1/3, and the two roots are1/6 and2/3. AtN12,p2 the primary power is4 and the same target and exceptional point have order3; the other root has order6 rather than12. AtN9,p3 the target and exceptional point are zero and the other roots have order3 rather than9. Using the identity CRT label instead of λ atN6,p2 does not give a root of the target."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-new-partition",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The new-prime fiber is the exceptional point plus all primitive roots",
+      "kind": "lemma",
+      "statement": "If p does not divide N/p, an actual torus point y satisfies p times y=p times P_N(u) exactly when y=a_p,uλ or y has actual order N and satisfies the same root equation.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. The carrier is the original product of truncated-Witt units over the original finite Galois fields, with its proved residue-unit and primitive-circle equivalences.",
+        "Write t=p raised to v_p(N), M=N/t and P_N(u) for the actual primitive one-coordinate rational-torus point of an original Cartan unit. The existing translated point a_p,u is t times P_N(u) in the original level-N kernel and has actual order M.",
+        "The original CRT unit λ_N,p has coordinate1 at p and inverse-p coordinates at every other prime. The exceptional point used below is the already constructed actual point b=a_p,uλ, with no supplied root or torsor structure.",
+        "The general root equation and partition hold for every positive p-adic exponent in N. Their higher-order roots have order pM, which need not equal N. Only the new-prime specialization assumes p does not divide N/p and proves t=p and pM=N.",
+        "All root equations, orders, level memberships and uniqueness conclusions concern actual points of the original rational torus. Existing generic coprime-level injectivity and prime-root order cases are reused rather than replanned.",
+        "This identifies the exceptional root and complete root partition needed by source4.10. Combining the corrected primitive-fiber sum with the exceptional corrected value still requires the finite correction-product split. The full new-prime corrected-value identity, general distribution reduction, image/product4.13, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Start from the full actual exceptional/higher-order root partition.",
+        "Identify the target as p times the original primitive point.",
+        "Replace the primary power by p and simplify p times N/p to N using the actual divisibility p divides N."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-root-partition",
+        "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-translated-point-new-coe",
+        "DirichletPadicLFunctions:L3/kubert-exceptional-root-rational-prime-new-primary-power"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertExceptionalRoot",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeTranslatedPoint_new_partition"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published196–197, new-prime branch of Proposition4.10: the unique exceptional p-root of the point p times a primitive point, and the division of all p-roots into this point and the primitive roots. The local translated point also uses the source generators in4.12 on198.",
+          "match": "Identifies the original CRT-translated local point as the actual exceptional root, proves its uniqueness at the complementary level and derives the complete root partition. A stronger statement retains the full primary power and the correct higher-root order pN/p^v when the prime is repeated."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertExceptionalRootTests.full_two_root_partition_at_six",
+          "kind": "computation",
+          "statement": "Every actual circle2-root of1/3 is either the exceptional2/3 or a primitive order6 root."
+        },
+        {
+          "name": "SuggestedKubertExceptionalRootTests.rationalPrimeTranslatedPoint_new_partition_typed_api",
+          "kind": "compatibility",
+          "statement": "If p does not divide N/p, an actual torus point y satisfies p times y=p times P_N(u) exactly when y=a_p,uλ or y has actual order N and satisfies the same root equation."
+        }
+      ],
+      "acceptance": [
+        "AtN6,p2 and the identity unit the actual exceptional point is2/3, the target is1/3, and the two roots are1/6 and2/3. AtN12,p2 the primary power is4 and the same target and exceptional point have order3; the other root has order6 rather than12. AtN9,p3 the target and exceptional point are zero and the other roots have order3 rather than9. Using the identity CRT label instead of λ atN6,p2 does not give a root of the target."
+      ]
     }
   ],
   "requests": [
@@ -137929,7 +138608,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "Actual local-kernel convolution now retains its exact cardinality factor, and multiplying the kernel sum by the genuine correction factor subtracts the full source-coset sum. Both translated terms are proved to be original primitive fibers at explicitly constructed local torus points, with actual complementary orders and exact fiber membership criteria. For the new-prime branch of source4.10, prove that the coset-translated point is the exceptional smaller-order root when p has exponent1, combine this cancellation with the earlier complete root partition, then complete the general distribution reduction. Full-norm compatibility4.8 and the repeated-prime branch remain proved. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.",
+        "The original CRT-translated point is now proved to be the actual exceptional p-root, uniquely in the complementary level; the complete root partition and its new-prime specialization are proved. To finish the new-prime corrected-value branch of source4.10, split the finite correction product at p, combine the prior actual raw-fiber cancellation with the primitive corrected-fiber sum, and add the actual exceptional corrected value using the established root partition. Then complete the general distribution reduction. Full-norm compatibility4.8 and the repeated-prime branch remain proved. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -137961,7 +138640,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "Actual local-kernel convolution now retains its exact cardinality factor, and multiplying the kernel sum by the genuine correction factor subtracts the full source-coset sum. Both translated terms are proved to be original primitive fibers at explicitly constructed local torus points, with actual complementary orders and exact fiber membership criteria. For the new-prime branch of source4.10, prove that the coset-translated point is the exceptional smaller-order root when p has exponent1, combine this cancellation with the earlier complete root partition, then complete the general distribution reduction. Full-norm compatibility4.8 and the repeated-prime branch remain proved. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The original CRT-translated point is now proved to be the actual exceptional p-root, uniquely in the complementary level; the complete root partition and its new-prime specialization are proved. To finish the new-prime corrected-value branch of source4.10, split the finite correction product at p, combine the prior actual raw-fiber cancellation with the primitive corrected-fiber sum, and add the actual exceptional corrected value using the established root partition. Then complete the general distribution reduction. Full-norm compatibility4.8 and the repeated-prime branch remain proved. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -138529,34 +139208,34 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All27 earlier source findings and eight source versions remain whole. No new source issue, independent review verdict or stage closure is added.",
     "validation": {
-      "nodes": 2171,
+      "nodes": 2183,
       "kinds": {
         "definition": 22,
-        "lemma": 1340,
+        "lemma": 1352,
         "construction": 243,
         "theorem": 359,
         "comparison": 207
       },
       "api": 1494,
-      "packetTests": 3818,
+      "packetTests": 3837,
       "definitionConstructionTests": 1004,
-      "typedExamples": 3821,
+      "typedExamples": 3840,
       "planets": 24,
-      "baseline": 1274,
-      "preservedWholeNodes": 2154,
-      "preservedBaseline": 1273,
+      "baseline": 1278,
+      "preservedWholeNodes": 2171,
+      "preservedBaseline": 1274,
       "preservedSourceIssues": 27,
       "newSourceIssues": 0,
-      "newNodes": 17,
-      "newNamedDeclarations": 17,
-      "newTypedTests": 25,
+      "newNodes": 12,
+      "newNamedDeclarations": 12,
+      "newTypedTests": 19,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 2433,
-      "dependencyEdges": 9796,
+      "reachableNodes": 2445,
+      "dependencyEdges": 9835,
       "acyclic": true,
-      "baselineLeaves": 1440,
+      "baselineLeaves": 1444,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -138571,7 +139250,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 1109017,
+      "readerWords": 1116005,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -138598,7 +139277,7 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 185,
-      "scratchCompleteLemmas": 1461,
+      "scratchCompleteLemmas": 1473,
       "scratchMathlibModules": 3282,
       "scratchTauModules": 10,
       "scratchErrors": 0,
@@ -138606,26 +139285,26 @@
       "scratchPlaceholders": 0,
       "finiteControls": {
         "levels": 36,
-        "localFactors": 53,
-        "kernelSquareCoefficients": 575,
-        "kernelCosetCoefficients": 575,
-        "kernelFactorCoefficients": 575,
-        "kernelTranslationCoefficients": 5781,
-        "translatedPointOrders": 575,
-        "translatedRawCoefficients": 8757,
-        "translatedCosetCoefficients": 8757,
-        "translatedCancellationCoefficients": 8757,
-        "primitivePairComparisons": 23873
+        "localResidueEquations": 53,
+        "translatedRoots": 575,
+        "rootOrders": 575,
+        "complementCoprimalities": 53,
+        "rootPartitions": 14358,
+        "uniqueLowRoots": 575,
+        "newPrimeFactors": 39,
+        "newPrimePartitions": 10930,
+        "repeatedPrimeFactors": 14,
+        "twoScalarComparisons": 149017
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "01084a9234d391c2c4401c7f5951f91217c227a8ec0a69aaaa568a79152867e5",
+        "sourceSha256": "be64dd0229d3f01862f9fafa509e4754469f1a9c78ca4731dbedeae2ca846ffb",
         "modules": 3914,
-        "warnings": 6337,
+        "warnings": 6368,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 6,337 expected placeholder warnings across 3,914 pinned source modules. It includes all 17 new named declarations and 25 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 01084a9234d391c2c4401c7f5951f91217c227a8ec0a69aaaa568a79152867e5.",
+        "scope": "The separate partial signature file also compiled with zero errors and 6,368 expected placeholder warnings across 3,914 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: be64dd0229d3f01862f9fafa509e4754469f1a9c78ca4731dbedeae2ca846ffb.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -138635,7 +139314,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "a9b91a83a08a1bed7ea06b0b1b0812134b4547c6fec15f4d3a7067f53ccd3232",
+      "sha256": "9eea77246a01b8cd1a25a0f6240765a4239b2cd3f4c2e7b7a011f4c8d9ea5bb0",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -138650,11 +139329,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1461,
+        "completeLemmas": 1473,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "ddbc7096c4fe5ad4c9af72030a13755e8a9ebd299325d46b8f2f2885a682fa90"
+        "sha256": "d967d3b6a113e1dbc17d54e39bde5dd5891caf8e3ef8f823d26f206ef2f2a483"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -138874,17 +139553,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "01084a9234d391c2c4401c7f5951f91217c227a8ec0a69aaaa568a79152867e5",
+        "sourceSha256": "be64dd0229d3f01862f9fafa509e4754469f1a9c78ca4731dbedeae2ca846ffb",
         "modules": 3914,
-        "warnings": 6337,
+        "warnings": 6368,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 6,337 expected placeholder warnings across 3,914 pinned source modules. It includes all 17 new named declarations and 25 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 01084a9234d391c2c4401c7f5951f91217c227a8ec0a69aaaa568a79152867e5.",
+        "scope": "The separate partial signature file also compiled with zero errors and 6,368 expected placeholder warnings across 3,914 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: be64dd0229d3f01862f9fafa509e4754469f1a9c78ca4731dbedeae2ca846ffb.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "3385232d570c0edba9239a1a3b11206bcd626d84",
+      "base": "10fbe71f06e15275bec06bdcc8e7c4bc931c1636",
       "unchangedInputs": 79,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -151718,6 +152397,58 @@
         "warnings": 6337,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 6,337 expected placeholder warnings across 3,914 pinned source modules. It includes all 17 new named declarations and 25 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 01084a9234d391c2c4401c7f5951f91217c227a8ec0a69aaaa568a79152867e5.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertExceptionalRoot": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5814,
+      "previousHead": "c4d6fce6eee1d7e47226e80ffed01eb1798ac2d8",
+      "previousMerge": "6d409a837c953b1752eb31668ed2da66f91a0082",
+      "preservedWholeNodes": 2171,
+      "preservedBaseline": 1274,
+      "preservedFindings": 27,
+      "newNodes": 12,
+      "reading": "Published Kubert196–197 exceptional-root argument and198 local source points were reread against the original CRT translation, actual primitive points and proved translated-point fibers. Existing5441 generic coprime-level injectivity and prime-root partition/order APIs were read and reused. Pinned native CRT, order, factorization quotient, complementary coprimality, prime self-exponent and Finsupp truncated-difference statements were read in full. No new external source, source version or finding is added.",
+      "boundary": "The original CRT-translated point is now proved to be the actual exceptional p-root, uniquely in the complementary level; the complete root partition and its new-prime specialization are proved. To finish the new-prime corrected-value branch of source4.10, split the finite correction product at p, combine the prior actual raw-fiber cancellation with the primitive corrected-fiber sum, and add the actual exceptional corrected value using the established root partition. Then complete the general distribution reduction. Full-norm compatibility4.8 and the repeated-prime branch remain proved. Image/product4.13, source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.",
+      "inputBase": "1197be4c4c5ee30267a64a8d85aef8ff67abff8f",
+      "sourceBoundary": "All27 earlier source findings and eight source versions remain whole. No new source issue, independent review verdict or stage closure is added.",
+      "publication": {
+        "base": "10fbe71f06e15275bec06bdcc8e7c4bc931c1636",
+        "unchangedInputs": 79,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 36,
+        "localResidueEquations": 53,
+        "translatedRoots": 575,
+        "rootOrders": 575,
+        "complementCoprimalities": 53,
+        "rootPartitions": 14358,
+        "uniqueLowRoots": 575,
+        "newPrimeFactors": 39,
+        "newPrimePartitions": 10930,
+        "repeatedPrimeFactors": 14,
+        "twoScalarComparisons": 149017
+      },
+      "numericalMethod": "Exact residue-unit and rational-circle arithmetic through level36 checks the CRT translation equation, every actual translated exceptional root and its order, complementary coprimality, uniqueness among all points killed by the complementary level, and both complete prime-root partitions. Scalar comparisons include unequal scalars, zero and values beyond the level. These finite controls supplement complete native proofs and are not formal certification.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "be64dd0229d3f01862f9fafa509e4754469f1a9c78ca4731dbedeae2ca846ffb",
+        "modules": 3914,
+        "warnings": 6368,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 6,368 expected placeholder warnings across 3,914 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: be64dd0229d3f01862f9fafa509e4754469f1a9c78ca4731dbedeae2ca846ffb.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
