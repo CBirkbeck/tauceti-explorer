@@ -140,6 +140,19 @@ example (k : Type u) [Field k] :
 
 end GeometricPushout
 
+/-- Affine Ferrand existence in the actual Scheme carrier: G.0/affine-existence.
+The universal property is in schemes; extension to algebraic-space targets is a separate
+omitted contract below, not a consequence of the Spec notation alone. -/
+theorem ferrand_affine_existence {B C A' : CommRingCat.{u}}
+    (p : B ⟶ C) (q : A' ⟶ C)
+    (hp : Function.Surjective p.hom) (hq : q.hom.Finite) :
+    let a := Spec.map (CommRingCat.pullbackCone p q).fst
+    let b := Spec.map (CommRingCat.pullbackCone p q).snd
+    GeometricPushout (Spec.map p) (Spec.map q) a b ∧
+      IsPushout (Spec.map p) (Spec.map q) a b ∧
+      IsPullback (Spec.map p) (Spec.map q) a b ∧
+      IsFinite a ∧ IsClosedImmersion b := by sorry
+
 /-- Scheme existence has the finite-fiber affine-neighborhood hypothesis. -/
 theorem ferrand_global_existence (hi : IsClosedImmersion i) (hg : IsFinite g)
     (hneighborhood : ∀ z' : Z', ∃ U : Y.Opens, IsAffineOpen U ∧
@@ -391,7 +404,8 @@ The following packet theorem targets are stated exactly in the reader. They cann
 given full Lean forms without the omitted supplier objects and hypotheses. The global Ferrand
 scheme-existence signature appears above; these names locate all remaining named targets.
 
-* G.0/affine-existence: affine geometric and categorical universality for the actual Spec square.
+* G.0/affine-existence: ferrand_affine_existence above is now the full actual Scheme form;
+  universality against algebraic-space targets remains in the new space ledger below.
 * G.0/conductor-square: the canonical conductor pullback and geometric quotient comparison.
 * G.1/canonical-type-classification: full geometric Kodaira incidence, not just the root graph.
 * G.1/five-f2-classes: actual pointed elliptic-curve isomorphism classes, not coefficient equality.
@@ -419,4 +433,37 @@ BoundedWeierstrass.toCurve is the actual projection above. All bounded-equation 
 API names and examples have actual signatures. The model certificate lemma contracts, Lang
 configuration inputs and remaining source lemmas are reader targets with explicit proof gaps;
 they are not claimed to follow from the polynomial prototypes.
+-/
+
+/-!
+## Finite algebraic-space pinching: exact continuation omissions
+
+No AlgebraicSpace carrier or pinching/descent export was found in the pinned Mathlib or
+TauCeti algebraic-geometry source trees and declaration index. Do not invent one, substitute
+Scheme for it, or encode the missing geometric conditions as arbitrary proposition fields.
+The full mathematical forms are in the packet/reader, with the SF.1/SF.3 request closure.
+
+The following names are OMITTED signatures, not declarations or compilable examples:
+* FerrandPushout.pinching_etale_cover: For algebraic spaces over a scheme S, with i:Z→Y closed and g:Z→Z′ finite, there are indexed affine schemes Zα,Yα,Z′α, étale covers of Y and Z′, and specified cartesian identifications Zα=Z×Y Yα=Z×Z′ Z′α. Thus the datum has a componentwise cartesian affine étale covering. Neither Noetherian nor quasi-separated hypotheses are required.
+* FerrandPushout.affine_space_hom_injective: Let p:B→C be surjective, q:A′→C finite, A=B×C A′, and P=Spec A. For any algebraic S-space T, restriction HomS(P,T)→HomS(Spec B,T)×HomS(Spec C,T)HomS(Spec A′,T) is injective.
+* FerrandPushout.affine_space_hom_surjective: For the affine datum and P of affine-space-hom-injective and every algebraic S-space T, each compatible pair of maps Spec B→T and Spec A′→T extends to a map P→T.
+* FerrandPushout.etale_relation: Suppose D1⇉D0 is an étale equivalence relation of finite pinching data, every componentwise square is cartesian, and D0,D1 admit compatible open affine coverings. Their schematic pushouts P1⇉P0 form an étale equivalence relation.
+* FerrandPushout.overlap_isScheme: Let D0 be the disjoint union of the compatible affine étale charts of a finite pinching datum D and put D1=D0×D D0 componentwise. Then D1 admits a compatible open affine covering, so its pinching pushout P1 is a scheme. These opens are cartesian in all three components.
+* FerrandPushout.exists_algebraicSpace: For algebraic spaces Y,Z,Z′ over a scheme S, a closed immersion i:Z→Y and a finite morphism g:Z→Z′ have a categorical pushout P=Y⊔Z Z′ in algebraic S-spaces, with affine canonical maps Y→P and Z′→P. No Noetherian, quasi-separated, reduced, radicial or scheme affine-neighborhood hypothesis is imposed.
+* FerrandPushout.space_isPullback: For the effective finite pinching pushout P, the canonical square Z→Y, Z→Z′, Y→P, Z′→P is cartesian in algebraic spaces, including nonreduced Z.
+* FerrandPushout.space_geometric: The effective finite pinching square satisfies the general GeometricPushout predicate: the underlying topological space is the quotient pushout and, on the small étale site of P, O_P≅a_*O_Y×c_*O_Z b_*O_Z′, where c=ai=bg. In particular every affine étale U→P gives the corresponding pullback of section rings on its three inverse images.
+* FerrandPushout.space_isFinite: For the effective finite pinching P of algebraic-space-existence, the canonical map a:Y→P is finite.
+* FerrandPushout.space_closed_complement: For the effective finite pinching P, b:Z′→P is a closed immersion and the induced Y∖Z→P∖b(Z′) is an isomorphism of open algebraic spaces.
+* FerrandPushout.space_flat_baseChange: For an effective finite pinching P and any flat algebraic-space morphism F→P, the canonical comparison from the pinching pushout of the three pullbacks to F is an isomorphism. In particular these pullbacks realize the same geometric square; no arbitrary nonflat compatibility is asserted.
+* FerrandPushout.isScheme_iff: For a finite pinching datum whose three components Y,Z,Z′ are schemes, its algebraic-space pushout P is a scheme if and only if for every point z′∈Z′ the finite set i(g⁻¹(z′)) lies in an affine open of Y. Under this condition the canonical scheme pushout agrees with P, including universality against algebraic-space targets.
+* FerrandPushout.affine_space_compat: For surjective B→C and finite A′→C, the algebraic-space pushout is canonically Spec(B×_C A′), and the Hom comparison is bijective for every algebraic-space target.
+* FerrandPushout.no_affine_neighbourhood: If a k-scheme Y has two distinct closed k-points with no common affine open, pinching their disjoint union to Spec k produces an algebraic space which is not a scheme.
+
+FerrandPushout.exists_algebraicSpace and FerrandPushout.isScheme_iff are also the two new
+reserved-key API items. They share their single packet declarations, not duplicate theorems.
+The two test contracts above remain omissions, not Scheme-only substitutes for space tests.
+GeometricPushout above is the actual Scheme specialization; the general algebraic-space
+extension must use its small étale structure sheaf, not only Zariski-open section rings.
+The affine theorem above closes the old affine-signature omission only. This file remains
+NOT COMPILED at either pin, with every proof a prototype.
 -/

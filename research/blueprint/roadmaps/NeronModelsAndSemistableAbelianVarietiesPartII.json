@@ -18,13 +18,14 @@
     {
       "key": "G.0",
       "title": "Ferrand pinching and conductor squares",
-      "description": "For a closed immersion Z→Y and finite map Z→Z′, define the geometric square by the topological quotient and the pullback of structure sheaves. Prove affine existence using the existing ring pullback, its cartesian property, finiteness, complement isomorphism and flat base change. For global schemes assume each finite fiber of Z→Z′ has an affine neighbourhood in Y (Ferrand 7.1); the stronger (AF) hypothesis is a convenient corollary. General conductor ideals and nodal/cuspidal pinching examples are included. The universal-homeomorphism restriction matches Witaszek 2.17; his topological predicate alone is not a categorical pushout.",
+      "description": "For a closed immersion Z→Y and finite map Z→Z′, define the geometric square by the topological quotient and the pullback of structure sheaves. Prove affine existence using the existing ring pullback, its cartesian property, finiteness, complement isomorphism and flat base change. For global schemes assume each finite fiber of Z→Z′ has an affine neighbourhood in Y (Ferrand 7.1); the stronger (AF) hypothesis is a convenient corollary. General conductor ideals and nodal/cuspidal pinching examples are included. The universal-homeomorphism restriction matches Witaszek 2.17; his topological predicate alone is not a categorical pushout. Independently of this scheme criterion, every finite pinching datum of algebraic spaces over a scheme base is effective by Temkin–Tyomkin5.3.1(ii),6.2.1(ii)(b), with no Noetherian or quasi-separated assumption. Decompose the compatible étale cover, affine universality against spaces, overlap, relation quotient, cartesian/sheaf/finite/closed properties, flat comparison and the if-and-only-if scheme-recognition criterion. Exact SF.1/SF.3 exports and the full space signatures remain partial.",
       "requires": [
         "SchemeAndStackFoundations:SF.0",
         "SchemeAndStackFoundations:SF.1",
         "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
         "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
-        "NeronModelsAndSemistableAbelianVarieties:R11.2"
+        "NeronModelsAndSemistableAbelianVarieties:R11.2",
+        "SchemeAndStackFoundations:SF.3"
       ]
     },
     {
@@ -209,6 +210,90 @@
       "accessed": "2026-10-02",
       "readSections": [
         "Front matter, dated April19,2024; §2.2 pp264–268, including image inspection of267–268; §4.1 selected pp359–370, image inspection365–366; §4.4 pp393–398, image inspection394; incidental §4.8 pp462–463. Sections4.2–4.3 and the full book were not read."
+      ]
+    },
+    {
+      "id": "temkin-tyomkin",
+      "title": "Ferrand pushouts for algebraic spaces",
+      "authors": "Michael Temkin and Ilya Tyomkin",
+      "edition": "Author PDF, arXiv:1305.6014v3, 27 May 2016; distinguished from the Eur. J. Math. 2 (2016) journal pagination",
+      "url": "https://math.huji.ac.il/~temkin/papers/Ferrands_Pushouts.pdf",
+      "sha256": "a63ce8b3bcdee4ae616ddf6bee66c9857a1a9f0e55866b813bd1415f9c6f1517",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "This continuation: selected definitions §2.1–2.2 and Lemma2.1.6; §3.3.8–3.4.1 flat patching; Lemma4.1.2, Theorem4.2.1 and proof, Example4.2.3, Theorem4.2.4, Lemma4.3.1 and Theorems4.4.1–4.4.2 with proofs; §5.1–5.3 finite cofinality and affine lifting proofs; Theorems6.1.1,6.2.1–6.2.2 and6.3.2 with displayed proofs, Theorem6.3.5 finite case. The complete paper and all recursive sources were not read."
+      ]
+    },
+    {
+      "id": "stacks-04D1",
+      "title": "Lemma10.143.10: lifting étale ring maps along quotients",
+      "authors": "The Stacks Project Authors",
+      "edition": "Public HTML retrieved 2 October 2026; tag-stable identity, displayed numbering on that date",
+      "url": "https://stacks.math.columbia.edu/tag/04D1",
+      "sha256": "11a0a6e46f55de460fce17a06dc9202700ba0c0cf36583839f4cc0993f37a85a",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "This continuation: full displayed statement and proof; recursively cited foundational facts are requested at SF.1."
+      ]
+    },
+    {
+      "id": "stacks-082J",
+      "title": "Lemma76.34.2: quasi-finite separated algebraic-space comparison",
+      "authors": "The Stacks Project Authors",
+      "edition": "Public HTML retrieved 2 October 2026; tag-stable identity, displayed numbering on that date",
+      "url": "https://stacks.math.columbia.edu/tag/082J",
+      "sha256": "aa75987e2a2c96b4d2f1aaa782f2c14c6c709c4f27c48d3ee685e6a9fa2a4b73",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "This continuation: full displayed statement and proof; recursively cited foundational facts are requested at SF.1."
+      ]
+    },
+    {
+      "id": "stacks-04S6",
+      "title": "Theorem80.10.1: algebraic-space quotients of flat equivalence relations",
+      "authors": "The Stacks Project Authors",
+      "edition": "Public HTML retrieved 2 October 2026; tag-stable identity, displayed numbering on that date",
+      "url": "https://stacks.math.columbia.edu/tag/04S6",
+      "sha256": "a901d1ab1b7e4ae5551156a7d1e9f6d9fee3962eb890e488da949e4359972c9a",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "This continuation: full displayed statement and proof; recursively cited foundational facts are requested at SF.1."
+      ]
+    },
+    {
+      "id": "stacks-02X4",
+      "title": "Lemma65.13.1: automatic diagonal properties",
+      "authors": "The Stacks Project Authors",
+      "edition": "Public HTML retrieved 2 October 2026; tag-stable identity, displayed numbering on that date",
+      "url": "https://stacks.math.columbia.edu/tag/02X4",
+      "sha256": "a1023facab16dd6c3cafd6488790bed502427202ad9e56f6f3e536e8527b59cb",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "This continuation: full displayed statement and proof; recursively cited foundational facts are requested at SF.1."
+      ]
+    },
+    {
+      "id": "stacks-05Z2",
+      "title": "Lemma67.9.8: separatedness under universally closed surjections",
+      "authors": "The Stacks Project Authors",
+      "edition": "Public HTML retrieved 2 October 2026; tag-stable identity, displayed numbering on that date",
+      "url": "https://stacks.math.columbia.edu/tag/05Z2",
+      "sha256": "109a809bb61c4b847bbc1c77f3e06d46b5b11d4dff17b31624e2381494a339be",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "This continuation: full displayed statement and proof; recursively cited foundational facts are requested at SF.1."
+      ]
+    },
+    {
+      "id": "stacks-0417",
+      "title": "Section67.50: separated locally quasi-finite representability",
+      "authors": "The Stacks Project Authors",
+      "edition": "Public HTML retrieved 2 October 2026; tag-stable identity, displayed numbering on that date",
+      "url": "https://stacks.math.columbia.edu/tag/0417",
+      "sha256": "1890e69e9da77eb3d6027f1603f3892d3281fd1d404ebdf83c299c80b6e96d68",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "This continuation: Lemma67.50.1 and Proposition67.50.2, their statements and complete displayed proofs. Recursive cited prerequisites are SF.1 requests, not silently claimed closed."
       ]
     }
   ],

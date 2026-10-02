@@ -4,7 +4,7 @@ Genus-one fibrations, Ferrand pinching and rational elliptic surfaces
 
 This continuation supplies the genus-one and rational-Jacobian mathematics routed from Schröer’s paper. It begins with reusable finite pinching, passes through regular models and finite-field fiber descent, constructs global Weierstrass equations, and separates the fourteen explicit characteristic-two candidates from their exhaustiveness theorem. Its general definition of Ferrand pushouts is also needed by Witaszek’s conductor and line-bundle descent. The reserved owner is `NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts`.
 
-**Status: partial design.** The packet contains99 declaration targets in seven stages, eight definitions with35 API contracts and30 unit tests, and27 planets. It accounts for all78 routed items. Source reading and the mathematical dependency audit establish a substantial plan, but the16 explicit gaps and20 supplier requests prevent closure. Neither the suggested Lean signatures nor any source theorem is claimed formalized. In particular, no full coefficient search or all-place resolution certificate is supplied. The definitive contracts are the mathematical statements below and the companion packet; the suggested file records actual baseline-compatible forms where possible and names every omitted signature separately.
+**Status: partial design.** The packet contains111 declaration targets in seven stages, eight definitions with37 API contracts and32 unit tests, and28 planets. It accounts for all78 routed items. Source reading and the mathematical dependency audit establish a substantial plan, but the16 explicit gaps and20 supplier requests prevent closure. Neither the suggested Lean signatures nor any source theorem is claimed formalized. In particular, no full coefficient search or all-place resolution certificate is supplied. The definitive contracts are the mathematical statements below and the companion packet; the suggested file records actual baseline-compatible forms where possible and names every omitted signature separately.
 
 ## Conventions and boundaries
 
@@ -20,10 +20,11 @@ SchemeAndStackFoundations owns schemes, algebraic spaces, coherent cohomology, i
 
 ## Pinned library screen
 
-The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and TauCeti `f790474821cf4256814db967cb154e7af3d0c369`. Each declaration listed here had its actual statement read at those commits. The reviewed R11.1–R11.6 library audit was screened before planning. A near match is used only with the qualification stated in the table. The ring pullback already exists; the finite-pinch scheme comparison does not follow merely from its name. Mathlib also constructs pushouts along open immersions, which do not supply Ferrand’s finite closed-immersion theorem.
+The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and TauCeti `f790474821cf4256814db967cb154e7af3d0c369`. The original fourteen entries retain their inherited pinned-source receipts. This continuation reread the ring pullback, closed/finite morphism and section APIs and adds the actual IsPushout structure after reading its pinned source. It does not claim to have freshly reread the unrelated lattice and Weierstrass entries. The reviewed R11.1–R11.6 library audit was screened before planning. A near match is used only with the qualification stated in the table. The ring pullback already exists; the finite-pinch scheme comparison does not follow merely from its name. Mathlib also constructs pushouts along open immersions, which do not supply Ferrand’s finite closed-immersion theorem.
 
 | Reference | Actual contribution |
 | --- | --- |
+| mathlib:CategoryTheory.IsPushout | Commutativity and the colimit universal property for a specified square. The affine prototype uses it in Scheme, not an invented algebraic-space carrier. |
 | mathlib:CommRingCat.pullbackCone | The existing commutative-ring pullback, the equalizer subring of a product; no new fiber-product carrier. |
 | mathlib:CommRingCat.pullbackConeIsLimit | The universal property of that same constructed ring pullback. |
 | mathlib:AlgebraicGeometry.IsClosedImmersion | Closed embedding plus surjective maps of stalks, not merely a closed underlying subset. |
@@ -45,7 +46,7 @@ TauCeti also has the actual scheme Weil-divisor carrier: finite integer sums of 
 
 | Stage | Purpose | Planet names |
 | --- | --- | --- |
-| G.0 | Ferrand pinching and conductor squares | Ferrand pushouts, General conductor, Affine pinching, Global pinching, Conductor squares |
+| G.0 | Ferrand pinching and conductor squares | Ferrand pushouts, General conductor, Affine pinching, Global pinching, Conductor squares, Algebraic-space pinching |
 | G.1 | Genus-one fibers and finite-field forms | Genus-one fibrations, Fiber multiplicity, Geometric Kodaira fibers, Kodaira classification, Five elliptic curves over F₂ |
 | G.2 | Multiple fibers over excellent discrete valuation rings | Transverse divisor, Multiple-fiber isogeny, Torsor fiber comparison |
 | G.3 | Rational Jacobians and global Weierstrass equations | Canonical bundle formula, Rational Jacobian invariants, Even complement, Bounded Weierstrass equations, Weierstrass contraction, Quasielliptic fibrations |
@@ -57,20 +58,20 @@ TauCeti also has the actual scheme Weil-divisor carrier: finite integer sums of 
 
 The datum is Z→Y closed and Z→Z′ finite. A geometric square includes the quotient topology and the equality of structure sheaves, expressed as a section-ring pullback on every open. Categorical universality is subsequently proved for the finite pinching or Witaszek hypotheses; it is not substituted for this definition. In Witaszek2.17, the relevant maps are universal homeomorphisms and the immersion is qcqs. Nonsplit nodal pinching is finite but not radicial, so that restriction cannot be silently imposed on the general owner.
 
-For affine rings B→C surjective and A′→C finite, use the existing A=B×_C A′. Its projection to A′ is surjective and the common ideal I identifies the two closed loci. Localization at t∈I identifies A[1/t] with B[1/t]. These identities give the structure sheaf and complement. Global scheme existence requires each finite fiber over Z′ to lie in an affine neighborhood of Y. Ferrand’s (AF) condition is stronger than necessary. Algebraic-space existence without that neighborhood assumption is explicitly open here. General conductors c(A,B) require neither finite generation nor birationality in their definition; reduced Noetherian finite-inclusion hypotheses enter only their geometric application.
+For affine rings B→C surjective and A′→C finite, use the existing A=B×_C A′. Its projection to A′ is surjective and the common ideal I identifies the two closed loci. Localization at t∈I identifies A[1/t] with B[1/t]. These identities give the structure sheaf and complement. Global scheme existence requires each finite fiber over Z′ to lie in an affine neighborhood of Y. Ferrand’s (AF) condition is stronger than necessary. Temkin–Tyomkin’s finite-pinching theorem supplies algebraic-space existence without that neighborhood assumption; the twelve declaration-sized consumer steps below replace the earlier source uncertainty. Its exact foundational exports and space signatures remain open. General conductors c(A,B) require neither finite generation nor birationality in their definition; reduced Noetherian finite-inclusion hypotheses enter only their geometric application.
 
-**Stage imports:** `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `NeronModelsAndSemistableAbelianVarieties:R11.2`.
+**Stage imports:** `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `NeronModelsAndSemistableAbelianVarieties:R11.2`, `SchemeAndStackFoundations:SF.3`.
 
 ### key/ferrand-pushouts — Ferrand geometric pushouts
 
-**Definition contract.** For a commutative square Z→Y, Z→Z′, Y→P, Z′→P, a geometric pushout means the underlying space of P is the quotient pushout of |Y|←|Z|→|Z′| and the canonical sheaf map O_P→a_*O_Y ×_(ai)_*O_Z b_*O_Z′ is an isomorphism. A Ferrand datum requires i:Z→Y to be a closed immersion and g:Z→Z′ finite; a Ferrand pushout is its geometric pushout in schemes, or in algebraic spaces when the relevant existence theorem supplies that category. No scheme existence is built into the datum. Define the general geometric-square predicate first, then this finite-pinching specialization.
+**Definition contract.** For a commutative square Z→Y, Z→Z′, Y→P, Z′→P, a geometric pushout means the underlying space of P is the quotient pushout of |Y|←|Z|→|Z′| and the canonical sheaf map O_P→a_*O_Y ×_(ai)_*O_Z b_*O_Z′ is an isomorphism. A Ferrand datum requires i:Z→Y to be a closed immersion and g:Z→Z′ finite; a Ferrand pushout is its geometric pushout in schemes, or in algebraic spaces when the relevant existence theorem supplies that category. No scheme existence is built into the datum. Define the general geometric-square predicate first, then this finite-pinching specialization. For algebraic spaces the structure-sheaf equality is on the small étale site; the every-Zariski-open section formulation is its scheme specialization. Finite algebraic-space existence is supplied by G.0/algebraic-space-existence without the scheme affine-neighborhood assumption.
 
-**Hypotheses:** Schemes over a common base  algebraic-space use is via the SF.1 carrier.
+**Hypotheses:** Schemes over a common base, or algebraic spaces over a common scheme base via the SF.1 carrier.
 
 **Construction/proof outline:**
 
 1. Use actual scheme morphisms and their maps on spaces and sections.
-2. For every open U⊂P impose the pullback of the three section rings on a⁻¹U, b⁻¹U and (ai)⁻¹U; these natural conditions express the sheaf equality.
+2. For every open U⊂P impose the pullback of the three section rings on a⁻¹U, b⁻¹U and (ai)⁻¹U; these natural conditions express the sheaf equality. In the algebraic-space extension use the small étale site and test the sheaf comparison on affine étale charts; Zariski sections alone are insufficient.
 3. Restrict to closed i and finite g for Ferrand data; restrict instead to qcqs i and universal-homeomorphism g,a for Witaszek 2.17.
 
 **Prerequisites:** `mathlib:AlgebraicGeometry.IsClosedImmersion`, `mathlib:AlgebraicGeometry.IsFinite`, `mathlib:AlgebraicGeometry.Scheme.Hom.appLE`, `SchemeAndStackFoundations:SF.1`.
@@ -89,6 +90,8 @@ For affine rings B→C surjective and A′→C finite, use the existing A=B×_C 
 | GeometricPushout.witaszek_iff | compatibility | With qcqs i and universal-homeomorphism g,a, the general predicate is equivalent to Witaszek Definition2.17. |
 | FerrandPushout.complementIso | equivalence | In a Ferrand pushout a identifies Y∖Z with P∖Z′. |
 | FerrandPushout.conductor | characterisation | The conductor square of a finite inclusion of reduced Noetherian rings is this geometric square; no birational hypothesis is necessary. |
+| FerrandPushout.exists_algebraicSpace | constructor | For algebraic spaces Y,Z,Z′ over a scheme S, a closed immersion i:Z→Y and a finite morphism g:Z→Z′ have a categorical pushout P=Y⊔Z Z′ in algebraic S-spaces, with affine canonical maps Y→P and Z′→P. No Noetherian, quasi-separated, reduced, radicial or scheme affine-neighborhood hypothesis is imposed. |
+| FerrandPushout.isScheme_iff | characterisation | For a finite pinching datum whose three components Y,Z,Z′ are schemes, its algebraic-space pushout P is a scheme if and only if for every point z′∈Z′ the finite set i(g⁻¹(z′)) lies in an affine open of Y. Under this condition the canonical scheme pushout agrees with P, including universality against algebraic-space targets. |
 
 | Unit test name | Kind | Statement that the definition must satisfy |
 | --- | --- | --- |
@@ -97,8 +100,10 @@ For affine rings B→C surjective and A′→C finite, use the existing A=B×_C 
 | GeometricPushout.identity | degenerate | If g is an isomorphism, the square has P≅Y with its actual structure sheaf. |
 | GeometricPushout.topological_not_geometric | non-example | The subring k[t²,t⁵] misses t³, so the corresponding universal-homeomorphism square with V(t²)→Spec k is not the geometric pushout. |
 | GeometricPushout.nonsplit_node | compatibility | Pinching a separable quadratic closed point on P¹ gives the nonsplit rational node; its normalization has two conjugate geometric branches. |
+| FerrandPushout.affine_space_compat | compatibility | For surjective B→C and finite A′→C, the algebraic-space pushout is canonically Spec(B×_C A′), and the Hom comparison is bijective for every algebraic-space target. |
+| FerrandPushout.no_affine_neighbourhood | non-example | If a k-scheme Y has two distinct closed k-points with no common affine open, pinching their disjoint union to Spec k produces an algebraic space which is not a scheme. |
 
-**Acceptance:** For char k≠2, pinching t=±1 of A¹ gives k+(t²−1)k[t]=k[t²−1,t(t²−1)]={f:f(1)=f(−1)}. Pinching V(t²) to Spec k gives k+t²k[t]=k[t²,t³]. If g is an isomorphism, the square has P≅Y with its actual structure sheaf. The subring k[t²,t⁵] misses t³, so the corresponding universal-homeomorphism square with V(t²)→Spec k is not the geometric pushout. Pinching a separable quadratic closed point on P¹ gives the nonsplit rational node; its normalization has two conjugate geometric branches.
+**Acceptance:** For char k≠2, pinching t=±1 of A¹ gives k+(t²−1)k[t]=k[t²−1,t(t²−1)]={f:f(1)=f(−1)}. Pinching V(t²) to Spec k gives k+t²k[t]=k[t²,t³]. If g is an isomorphism, the square has P≅Y with its actual structure sheaf. The subring k[t²,t⁵] misses t³, so the corresponding universal-homeomorphism square with V(t²)→Spec k is not the geometric pushout. Pinching a separable quadratic closed point on P¹ gives the nonsplit rational node; its normalization has two conjugate geometric branches. For surjective B→C and finite A′→C, the algebraic-space pushout is canonically Spec(B×_C A′), and the Hom comparison is bijective for every algebraic-space target. If a k-scheme Y has two distinct closed k-points with no common affine open, pinching their disjoint union to Spec k produces an algebraic space which is not a scheme.
 
 **Source:** [Daniel Ferrand](https://numdam.org/item/BSMF_2003__131_4_553_0.pdf), §§4.1,5.1,5.4,7.1, pp565,568,570,575–578. Literal anchor: “espace annelé somme amalgamée”. Use the sheaf fiber product and quotient topology; global scheme existence is a separate theorem with affine-neighbourhood hypotheses.
 
@@ -302,6 +307,248 @@ For affine rings B→C surjective and A′→C finite, use the existing A=B×_C 
 **Acceptance:** Gluing trivial bundles with different units on Z can give different global line bundles.
 
 **Source:** [Jakub Witaszek](https://par.nsf.gov/servlets/purl/10429755), Lemma2.28 and proof, pp675–676. Literal anchor: “Cartesian in the 2-category of groupoids”. A set-level equality of Picard groups omits the identification and automorphism data.
+
+### Algebraic-space continuation: finite pinching, not unconditional scheme pinching
+
+Write D=(Z;Y,Z′), with i:Z→Y closed and g:Z→Z′ finite, over a scheme S. Temkin–Tyomkin writes the two outer components in the opposite order: its datum (T;Y,Z) has closed arrow T→Z and finite arrow T→Y. Thus their T, Z, Y correspond here to Z, Y, Z′. This translation is used consistently in every contract below.
+
+The existence theorem is independent of any Noetherian or quasi-separated hypothesis. It does not make the pushout a scheme: an affine étale cover is not an open affine cover. Nor does it require g to be radicial. This matters for the separable quadratic point pinch already used to construct a nonsplit rational node.
+
+The proof has two kinds of inputs. The G.0-specific lemmas below consume the actual affine ring pullback and existing finite-pinching calculations. The general machinery belongs to SF.1/SF.3: algebraic spaces and their small étale sites, finite cofinality, étale lifting, effective descent, flat-object patching, relation quotients and separated locally quasi-finite representability. No supplier request is counted as a supplied export. Stacks0EDP upgrades an already schematic pushout; it does not construct the general finite-pinching space.
+
+In particular, the overlap proof does not assume the final existence theorem. It first forms a secondary quotient from open-affine data. The affine finite calculation descends there to a finite surjective cover by the two separated components. Stacks05Z2 then gives separatedness over each affine base chart, and the locally quasi-finite comparison makes the overlap schematic. Using only the weaker assertion that flat base change preserves an already existing square would leave the construction circular: the requested patching equivalence must construct flat objects from compatible data, with cartesian unit and counit.
+
+### G.0/pinching-etale-cover — Compatible affine étale charts for finite pinching
+
+**Lemma contract.** For algebraic spaces over a scheme S, with i:Z→Y closed and g:Z→Z′ finite, there are indexed affine schemes Zα,Yα,Z′α, étale covers of Y and Z′, and specified cartesian identifications Zα=Z×Y Yα=Z×Z′ Z′α. Thus the datum has a componentwise cartesian affine étale covering. Neither Noetherian nor quasi-separated hypotheses are required.
+
+**Proposed declaration:** `FerrandPushout.pinching_etale_cover`. This is a mathematical contract; its full algebraic-space Lean signature is in the omission ledger, not claimed to elaborate at the pinned baseline.
+
+**Construction/proof outline:**
+
+1. Choose an affine étale presentation of Y; its restrictions to Z are affine because i is closed.
+2. Apply cofinality of pullbacks of étale coverings along the finite map g (TT5.1.2, requested at SF.1) to refine an affine étale cover of Z′ so that each pullback Zα factors through one chosen affine Y-chart. Cofinality concerns an entire cover, not an arbitrary chart meeting only one point of a finite fiber.
+3. Lift the resulting affine étale Zα→Z×Y Yβ across the closed immersion into the affine Yβ using the étale lifting theorem (Stacks04D1, requested at SF.1). Set Yα to this affine lift.
+4. Add charts (empty;U,empty) from an affine étale covering of Y∖Z so that the Y-components cover the complement as well as the pinching locus. Keep the overlap isomorphisms, not only the three separate covering families.
+
+**Prerequisites:** `key/ferrand-pushouts`, `SchemeAndStackFoundations:SF.1`.
+
+**Acceptance:** The separable quadratic point pinch is allowed: finite is not radicial. A cover of only one of two points in a finite fiber cannot be used as a cover of the whole fiber. Empty-overlap charts are essential to cover Y∖Z.
+
+**Source:** [Michael Temkin and Ilya Tyomkin](https://math.huji.ac.il/~temkin/papers/Ferrands_Pushouts.pdf), Theorem5.3.1(ii), proof pp15–16; Lemmas5.1.2,5.1.4 p14; Theorem5.2.5 p15. Finite-pinching specialization, in this packet's notation Z→Y closed and Z→Z′ finite; the source writes (T;Y,Z) with its closed arrow T→Z.
+
+### G.0/affine-space-hom-injective — Uniqueness of an affine pinch map to an algebraic space
+
+**Lemma contract.** Let p:B→C be surjective, q:A′→C finite, A=B×C A′, and P=Spec A. For any algebraic S-space T, restriction HomS(P,T)→HomS(Spec B,T)×HomS(Spec C,T)HomS(Spec A′,T) is injective.
+
+**Proposed declaration:** `FerrandPushout.affine_space_hom_injective`. This is a mathematical contract; its full algebraic-space Lean signature is in the omission ledger, not claimed to elaborate at the pinned baseline.
+
+**Construction/proof outline:**
+
+1. Take two maps with the same restrictions. Their pullbacks of an affine étale presentation of a quasi-compact open of T have the same cartesian datum.
+2. Use the exact flat/étale patching equivalence at SF.3 to identify those pullbacks over P; refine the resulting scheme by affine étale charts.
+3. On every such affine chart, ring pullback universality forces the two maps into the affine target chart to agree.
+4. Descend equality of morphisms along the surjective étale cover using SF.1. Work on quasi-compact open target neighborhoods to remove a global quasi-compactness assumption on T.
+
+**Prerequisites:** `G.0/affine-existence`, `mathlib:CommRingCat.pullbackConeIsLimit`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
+
+**Acceptance:** The target is any algebraic space, not just an affine scheme. No assertion that Spec takes every ring limit to a space colimit is used.
+
+**Source:** [Michael Temkin and Ilya Tyomkin](https://math.huji.ac.il/~temkin/papers/Ferrands_Pushouts.pdf), Theorem4.2.1, injectivity argument pp10–11. Finite-pinching specialization, in this packet's notation Z→Y closed and Z→Z′ finite; the source writes (T;Y,Z) with its closed arrow T→Z.
+
+### G.0/affine-space-hom-surjective — Descent of compatible maps from an affine pinch
+
+**Lemma contract.** For the affine datum and P of affine-space-hom-injective and every algebraic S-space T, each compatible pair of maps Spec B→T and Spec A′→T extends to a map P→T.
+
+**Proposed declaration:** `FerrandPushout.affine_space_hom_surjective`. This is a mathematical contract; its full algebraic-space Lean signature is in the omission ledger, not claimed to elaborate at the pinned baseline.
+
+**Construction/proof outline:**
+
+1. Pull back an affine étale presentation T0→T to the datum. It remains a finite pinching datum and therefore admits the compatible affine étale cover of pinching-etale-cover.
+2. Use the flat/étale patching equivalence at SF.3 over the original affine P to obtain the induced surjective étale scheme cover P0→P and its genuine cartesian overlap P1=P0×P P0.
+3. Maps from the affine charts to T0 factor through their ring pullback pushouts. On P1 the two induced maps to T agree by affine-space-hom-injective, applied on an open affine cover.
+4. Effective étale descent of morphisms at SF.1 gives P→T. Pull back to the covering datum to verify that its restrictions are the specified maps.
+
+**Prerequisites:** `G.0/pinching-etale-cover`, `G.0/affine-space-hom-injective`, `mathlib:CommRingCat.pullbackConeIsLimit`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
+
+**Acceptance:** Together with the preceding injectivity lemma this upgrades the existing affine scheme pushout to universality against all algebraic spaces. Both maps on the closed overlap, and their equality, survive descent.
+
+**Source:** [Michael Temkin and Ilya Tyomkin](https://math.huji.ac.il/~temkin/papers/Ferrands_Pushouts.pdf), Theorem4.2.1, surjectivity argument p11. Finite-pinching specialization, in this packet's notation Z→Y closed and Z→Z′ finite; the source writes (T;Y,Z) with its closed arrow T→Z.
+
+### G.0/pinching-etale-relation — Étale equivalence relations after pinching
+
+**Lemma contract.** Suppose D1⇉D0 is an étale equivalence relation of finite pinching data, every componentwise square is cartesian, and D0,D1 admit compatible open affine coverings. Their schematic pushouts P1⇉P0 form an étale equivalence relation.
+
+**Proposed declaration:** `FerrandPushout.etale_relation`. This is a mathematical contract; its full algebraic-space Lean signature is in the omission ledger, not claimed to elaborate at the pinned baseline.
+
+**Construction/proof outline:**
+
+1. Schematic pinching and the requested flat patching equivalence preserve flat fiber products, so identity, inverse and composition descend and satisfy the groupoid equations.
+2. The induced source and target maps are étale by the local ring patching comparison at SF.3.
+3. Prove the relation map P1→P0×S P0 is a monomorphism: it is locally of finite type, and its pullbacks to the four pairs of closed pinched pieces and open complements are monomorphisms. The mixed pairs have empty inverse image.
+4. Use the SF.1 locally-finite-type monomorphism test after a surjective base change (TT2.1.6). A groupoid alone is insufficient: the monomorphism is the load-bearing final step.
+
+**Prerequisites:** `G.0/global-existence`, `G.0/localization-complement`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
+
+**Acceptance:** The relation has no stabilizers; a general étale groupoid with nontrivial stabilizers is not an algebraic-space equivalence relation.
+
+**Source:** [Michael Temkin and Ilya Tyomkin](https://math.huji.ac.il/~temkin/papers/Ferrands_Pushouts.pdf), Lemma4.3.1 and proof pp12–13; Lemma4.1.2 pp9–10; Lemma2.1.6 p4. Finite-pinching specialization, in this packet's notation Z→Y closed and Z→Z′ finite; the source writes (T;Y,Z) with its closed arrow T→Z.
+
+### G.0/pinching-overlap-scheme — Schematic overlaps of an affine étale pinching cover
+
+**Lemma contract.** Let D0 be the disjoint union of the compatible affine étale charts of a finite pinching datum D and put D1=D0×D D0 componentwise. Then D1 admits a compatible open affine covering, so its pinching pushout P1 is a scheme. These opens are cartesian in all three components.
+
+**Proposed declaration:** `FerrandPushout.overlap_isScheme`. This is a mathematical contract; its full algebraic-space Lean signature is in the omission ledger, not claimed to elaborate at the pinned baseline.
+
+**Construction/proof outline:**
+
+1. The components of D1 are ind-quasi-affine schemes. On pairs of affine chart components, their maps are base changes of the separated locally quasi-finite diagonals of Y and Z′ (Stacks02X4); SF.1 supplies the locally quasi-finite separated representability and local quasi-affineness comparisons.
+2. Use affine lifting on ind-quasi-affine schemes (TT5.2.5) to obtain a secondary affine étale covering Q0→D1. The components of D1 are separated schemes, so Q1=Q0×D1 Q0 has open affine coverings: fiber products of affines over a separated scheme are affine.
+3. The schematic pinches of Q0,Q1 are universal against algebraic spaces by the two affine-space Hom lemmas. By pinching-etale-relation their quotient exists as an algebraic space by the SF.1 quotient theorem, and is the pushout of D1.
+4. Flat patching identifies D1 with the pullback of D0 along P1→P0 and makes this map étale. The affine finite-projection calculation and the surjective projection show, by étale descent at SF.1, that Y1⊔Z′1→P1 is finite and surjective. Its components are separated over each affine base chart, so Stacks05Z2 makes P1 separated over that chart. This argument uses local finiteness of the already constructed overlap, not the later existence theorem.
+5. The separated étale map P1→P0 is representable by schemes: use Stacks67.50.2 (section0417) for locally quasi-finite maps; Stacks082J is the stronger quasi-finite comparison cited by TT6.2.1. Pull back affine opens of the now schematic P1 to obtain the compatible open affine cover of D1.
+
+**Prerequisites:** `G.0/pinching-etale-cover`, `G.0/affine-space-hom-injective`, `G.0/affine-space-hom-surjective`, `G.0/pinching-etale-relation`, `G.0/finite-projection`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
+
+**Acceptance:** The first compatible cover is étale, not automatically Zariski; its overlaps need their own proof. Separatedness is used on the overlap, not imposed globally on the original algebraic spaces.
+
+**Source:** [Michael Temkin and Ilya Tyomkin](https://math.huji.ac.il/~temkin/papers/Ferrands_Pushouts.pdf), Theorem6.2.1(i), overlap argument pp17–18; Theorem4.4.1 p13. Finite-pinching specialization, in this packet's notation Z→Y closed and Z→Z′ finite; the source writes (T;Y,Z) with its closed arrow T→Z.
+
+**Source:** [The Stacks Project Authors](https://stacks.math.columbia.edu/tag/02X4), Lemma65.13.1, displayed proof. Diagonal properties are automatic for algebraic spaces; they do not impose separatedness on Y.
+
+**Source:** [The Stacks Project Authors](https://stacks.math.columbia.edu/tag/05Z2), Lemma67.9.8(4), displayed diagonal proof. Use only the finite-surjective specialization after constructing the secondary quotient.
+
+**Source:** [The Stacks Project Authors](https://stacks.math.columbia.edu/tag/0417), Proposition67.50.2, displayed proof. Representability needs only local quasi-finiteness and separatedness, not quasi-compactness of the entire étale overlap.
+
+### G.0/algebraic-space-existence — Finite pinching in algebraic spaces
+
+**Theorem contract.** For algebraic spaces Y,Z,Z′ over a scheme S, a closed immersion i:Z→Y and a finite morphism g:Z→Z′ have a categorical pushout P=Y⊔Z Z′ in algebraic S-spaces, with affine canonical maps Y→P and Z′→P. No Noetherian, quasi-separated, reduced, radicial or scheme affine-neighborhood hypothesis is imposed.
+
+**Proposed declaration:** `FerrandPushout.exists_algebraicSpace`. This is a mathematical contract; its full algebraic-space Lean signature is in the omission ledger, not claimed to elaborate at the pinned baseline.
+
+**Construction/proof outline:**
+
+1. Use pinching-etale-cover to form D0→D and pinching-overlap-scheme for D1=D0×D D0.
+2. Form the schematic pushouts P0,P1 on their compatible open affine covers. Their universality in algebraic spaces follows by gluing the two affine-space Hom lemmas.
+3. Use pinching-etale-relation to identify P1⇉P0 as an étale equivalence relation and invoke the SF.1 algebraic-space quotient theorem to construct P.
+4. Compatible maps out of D descend through P0 and P1, yielding the categorical universal property of P. Effectivity supplies D0=D×P P0 and D1=D×P P1; descend affineness of the canonical maps from the affine local pinches.
+5. Finiteness, the closed immersion, cartesianness and the geometric sheaf condition are separate nodes, rather than silently bundled assumptions of this existence theorem.
+
+**Prerequisites:** `G.0/pinching-etale-cover`, `G.0/pinching-overlap-scheme`, `G.0/pinching-etale-relation`, `G.0/affine-space-hom-injective`, `G.0/affine-space-hom-surjective`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
+
+**Acceptance:** A finite separable quadratic point pinch is included although it is not a universal-homeomorphism pinch. When the datum is affine this P is canonically the existing Spec of the ring pullback. This theorem does not assert P is a scheme.
+
+**Source:** [Michael Temkin and Ilya Tyomkin](https://math.huji.ac.il/~temkin/papers/Ferrands_Pushouts.pdf), Theorem6.2.1(ii)(b), pp17–18; Theorem4.4.1 p13. Finite-pinching specialization, in this packet's notation Z→Y closed and Z→Z′ finite; the source writes (T;Y,Z) with its closed arrow T→Z.
+
+### G.0/space-cartesian — The schematic overlap of an algebraic-space pinch
+
+**Lemma contract.** For the effective finite pinching pushout P, the canonical square Z→Y, Z→Z′, Y→P, Z′→P is cartesian in algebraic spaces, including nonreduced Z.
+
+**Proposed declaration:** `FerrandPushout.space_isPullback`. This is a mathematical contract; its full algebraic-space Lean signature is in the omission ledger, not claimed to elaborate at the pinned baseline.
+
+**Construction/proof outline:**
+
+1. Pull back along the effective étale presentation P0→P obtained in algebraic-space-existence.
+2. On every affine chart apply the existing cartesian-affine tensor-quotient comparison.
+3. Descend the canonical comparison Z→Y×P Z′ as an isomorphism using SF.1. Topological equality of the overlap is not substituted for this comparison.
+
+**Prerequisites:** `G.0/algebraic-space-existence`, `G.0/cartesian-affine`, `SchemeAndStackFoundations:SF.1`.
+
+**Acceptance:** The cusp overlap retains the full double point Spec k[t]/(t²), not its reduction.
+
+**Source:** [Michael Temkin and Ilya Tyomkin](https://math.huji.ac.il/~temkin/papers/Ferrands_Pushouts.pdf), Theorem4.4.2(ii) and proof p13. Finite-pinching specialization, in this packet's notation Z→Y closed and Z→Z′ finite; the source writes (T;Y,Z) with its closed arrow T→Z.
+
+### G.0/space-geometric — Geometric realization of algebraic-space pinching
+
+**Lemma contract.** The effective finite pinching square satisfies the general GeometricPushout predicate: the underlying topological space is the quotient pushout and, on the small étale site of P, O_P≅a_*O_Y×c_*O_Z b_*O_Z′, where c=ai=bg. In particular every affine étale U→P gives the corresponding pullback of section rings on its three inverse images.
+
+**Proposed declaration:** `FerrandPushout.space_geometric`. This is a mathematical contract; its full algebraic-space Lean signature is in the omission ledger, not claimed to elaborate at the pinned baseline.
+
+**Construction/proof outline:**
+
+1. Use the effective presentation P0→P and the genuine cartesian charts of algebraic-space-existence.
+2. On affine charts the structure sheaf is the sheafification of the existing ring pullback; compare on principal opens and transport to the small étale site.
+3. Descend the sheaf isomorphism through the étale presentation using SF.1; Zariski sections alone are not a definition of an arbitrary algebraic space.
+4. Use TT4.4.2(i) to descend the quotient topology from the same affine pinches. The scheme specialization is exactly the existing every-open section condition.
+
+**Prerequisites:** `key/ferrand-pushouts`, `G.0/algebraic-space-existence`, `G.0/space-cartesian`, `G.0/affine-existence`, `SchemeAndStackFoundations:SF.1`.
+
+**Acceptance:** The existing k[t²,t⁵] square still fails the sheaf pullback despite its underlying universal homeomorphisms. On schemes this statement recovers the original general geometric-square definition.
+
+**Source:** [Michael Temkin and Ilya Tyomkin](https://math.huji.ac.il/~temkin/papers/Ferrands_Pushouts.pdf), Theorem4.4.2(i) and proof p13; Theorem4.4.1(ii) p13; §3.3.6 p7. Finite-pinching specialization, in this packet's notation Z→Y closed and Z→Z′ finite; the source writes (T;Y,Z) with its closed arrow T→Z.
+
+### G.0/space-finite — Finiteness after algebraic-space pinching
+
+**Lemma contract.** For the effective finite pinching P of algebraic-space-existence, the canonical map a:Y→P is finite.
+
+**Proposed declaration:** `FerrandPushout.space_isFinite`. This is a mathematical contract; its full algebraic-space Lean signature is in the omission ledger, not claimed to elaborate at the pinned baseline.
+
+**Construction/proof outline:**
+
+1. Pull back to the effective affine étale pinching charts on P.
+2. On each chart apply finite-projection to the finite ring homomorphism A′→C.
+3. Descend finiteness of a along the étale presentation at SF.1. It does not follow from affineness alone.
+
+**Prerequisites:** `G.0/algebraic-space-existence`, `G.0/finite-projection`, `SchemeAndStackFoundations:SF.1`.
+
+**Acceptance:** Pinching two distinct points gives a finite normalization map which is not a closed immersion and need not be flat.
+
+**Source:** [Michael Temkin and Ilya Tyomkin](https://math.huji.ac.il/~temkin/papers/Ferrands_Pushouts.pdf), Theorem6.3.5, finiteness case and proof p19. Finite-pinching specialization, in this packet's notation Z→Y closed and Z→Z′ finite; the source writes (T;Y,Z) with its closed arrow T→Z.
+
+### G.0/space-closed — The closed pinched locus in an algebraic space
+
+**Lemma contract.** For the effective finite pinching P, b:Z′→P is a closed immersion and the induced Y∖Z→P∖b(Z′) is an isomorphism of open algebraic spaces.
+
+**Proposed declaration:** `FerrandPushout.space_closed_complement`. This is a mathematical contract; its full algebraic-space Lean signature is in the omission ledger, not claimed to elaborate at the pinned baseline.
+
+**Construction/proof outline:**
+
+1. On each effective affine étale chart, the ring pullback projection to A′ is surjective by pullback-projection, so the pinched locus is the actual closed subscheme defined by its kernel.
+2. The existing localization-complement comparison identifies its open complement with Y∖Z.
+3. Descend the closed immersion and this canonical complement isomorphism at SF.1. Both describe the one closed/open decomposition of the pushout.
+
+**Prerequisites:** `G.0/algebraic-space-existence`, `G.0/pullback-projection`, `G.0/localization-complement`, `SchemeAndStackFoundations:SF.1`.
+
+**Acceptance:** Closedness does not identify the whole Y→P map with an immersion. For Z empty the complement comparison is the identity and P=Y⊔Z′.
+
+**Source:** [Michael Temkin and Ilya Tyomkin](https://math.huji.ac.il/~temkin/papers/Ferrands_Pushouts.pdf), Theorem4.4.2(iii) and proof p13. Finite-pinching specialization, in this packet's notation Z→Y closed and Z→Z′ finite; the source writes (T;Y,Z) with its closed arrow T→Z.
+
+### G.0/space-flat-base-change — Flat compatibility of algebraic-space pinching
+
+**Comparison contract.** For an effective finite pinching P and any flat algebraic-space morphism F→P, the canonical comparison from the pinching pushout of the three pullbacks to F is an isomorphism. In particular these pullbacks realize the same geometric square; no arbitrary nonflat compatibility is asserted.
+
+**Proposed declaration:** `FerrandPushout.space_flat_baseChange`. This is a mathematical contract; its full algebraic-space Lean signature is in the omission ledger, not claimed to elaborate at the pinned baseline.
+
+**Construction/proof outline:**
+
+1. Finite and closed morphisms are stable under base change, so the pullback datum has its own effective pinching by algebraic-space-existence.
+2. On the source- and target-étale presentations apply the affine flat ring/space patching equivalence requested at SF.3 and the existing flat-base-change calculation.
+3. Descend the unique comparison isomorphism at SF.1. Equivalently apply TT6.3.2(i) to the flat object F over P.
+4. The two iterated base-change comparisons agree because they induce the same maps on all three components; the categorical universal property supplies uniqueness.
+
+**Prerequisites:** `G.0/algebraic-space-existence`, `G.0/space-geometric`, `G.0/flat-base-change`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
+
+**Acceptance:** Étale base changes are included. A nonflat ring quotient can destroy the fiber-product exact sequence; a flatness-free version is not exported.
+
+**Source:** [Michael Temkin and Ilya Tyomkin](https://math.huji.ac.il/~temkin/papers/Ferrands_Pushouts.pdf), Theorem6.3.2(i), pp18–19, forward equivalence proof. Finite-pinching specialization, in this packet's notation Z→Y closed and Z→Z′ finite; the source writes (T;Y,Z) with its closed arrow T→Z.
+
+### G.0/space-scheme-recognition — When finite pinching is a scheme
+
+**Comparison contract.** For a finite pinching datum whose three components Y,Z,Z′ are schemes, its algebraic-space pushout P is a scheme if and only if for every point z′∈Z′ the finite set i(g⁻¹(z′)) lies in an affine open of Y. Under this condition the canonical scheme pushout agrees with P, including universality against algebraic-space targets.
+
+**Proposed declaration:** `FerrandPushout.isScheme_iff`. This is a mathematical contract; its full algebraic-space Lean signature is in the omission ledger, not claimed to elaborate at the pinned baseline.
+
+**Construction/proof outline:**
+
+1. If the fiber affine-neighborhood condition holds, compatible-affine-neighbourhoods and global-existence construct the schematic pinch. The two affine-space Hom lemmas upgrade its categorical universality to all algebraic spaces; uniqueness identifies it with P.
+2. Conversely, if P is a scheme, take an affine open neighborhood of b(z′) in P. Its inverse image under the finite map a is affine by space-finite and contains every i(z) with g(z)=z′.
+3. The equivalent compatible-open-affine-cover criterion is TT4.2.4. Do not conflate a compatible étale affine cover, which always exists for finite data, with the stronger open affine cover.
+
+**Prerequisites:** `G.0/algebraic-space-existence`, `G.0/space-finite`, `G.0/global-existence`, `G.0/compatible-affine-neighbourhoods`, `G.0/affine-space-hom-injective`, `G.0/affine-space-hom-surjective`, `SchemeAndStackFoundations:SF.1`.
+
+**Acceptance:** If Y contains two distinct closed k-points with no common affine open, pinching their disjoint union to Spec k gives an algebraic space which is not a scheme. Affine Y and the original quadratic-point-on-P¹ examples satisfy the condition. The scheme recognition condition is necessary as well as sufficient.
+
+**Source:** [Michael Temkin and Ilya Tyomkin](https://math.huji.ac.il/~temkin/papers/Ferrands_Pushouts.pdf), Theorem4.2.4 and Example4.2.3, pp11–12; compare Ferrand7.1. Finite-pinching specialization, in this packet's notation Z→Y closed and Z→Z′ finite; the source writes (T;Y,Z) with its closed arrow T→Z.
 
 ## G.1 — Genus-one fibers and finite-field forms
 
@@ -2027,15 +2274,15 @@ Consumers: `G.0/cartesian-affine`, `G.0/compatible-affine-neighbourhoods`, `G.0/
 
 ### SchemeAndStackFoundations:SF.1
 
-Affine scheme section/localization comparisons, quotient-topology and scheme-gluing theorems needed to prove Ferrand5.1 for arbitrary targets and global7.1. Supply the existing algebraic-space carrier and an exact étale-descent existence theorem for finite pinching without the scheme affine-neighbourhood hypothesis; no such blanket theorem has been verified in the read Stacks81.7 passage. Existence and effectivity of the free finite constant-group quotient of the projective scheme A×Spec R′, with its generic and special-fiber base-change identifications.
+Affine scheme section/localization comparisons, quotient-topology and scheme-gluing theorems needed to prove Ferrand5.1 for arbitrary targets and global7.1. Supply the genuine algebraic-space carrier with its small étale structure sheaf and specified products over a scheme base. Export finite-map cofinality of pullbacks of whole étale covers (TT5.1.2), affine étale lifting across closed immersions (Stacks04D1; its ind-quasi-affine extension TT5.2.5), effective étale descent of morphisms and isomorphisms, and étale-local descent of affine, finite and closed-immersion properties. Export algebraic-space diagonal properties (Stacks02X4), separated locally quasi-finite representability and its local quasi-affine refinement (Stacks67.50.2, section0417; do not add a global quasi-compactness assumption), the locally-finite-type monomorphism test after surjective base change (TT2.1.6), and the quotient of an étale equivalence relation with a monomorphic relation map (Stacks04S6). Supply the universally-closed-surjective separatedness criterion (Stacks05Z2) for the already constructed finite overlap. These exact inputs support the now verified TT finite-pinching consumer chain; Stacks0EDP/81.7 only upgrades an already schematic pushout and is not used as unconditional existence. Existence and effectivity of the free finite constant-group quotient of the projective scheme A×Spec R′, with its generic and special-fiber base-change identifications.
 
-Consumers: `G.0/affine-existence`, `G.0/compatible-affine-neighbourhoods`, `G.0/global-existence`, `G.2/diagonal-quotient-example`, `key/ferrand-pushouts`.
+Consumers: `G.0/affine-existence`, `G.0/compatible-affine-neighbourhoods`, `G.0/global-existence`, `G.2/diagonal-quotient-example`, `key/ferrand-pushouts`, `G.0/pinching-etale-cover`, `G.0/affine-space-hom-injective`, `G.0/affine-space-hom-surjective`, `G.0/pinching-etale-relation`, `G.0/pinching-overlap-scheme`, `G.0/algebraic-space-existence`, `G.0/space-cartesian`, `G.0/space-geometric`, `G.0/space-finite`, `G.0/space-closed`, `G.0/space-flat-base-change`, `G.0/space-scheme-recognition`.
 
 ### SchemeAndStackFoundations:SF.3
 
-Flat base change of qcqs pushforwards and Milnor patching of finite projective modules on ring fiber products; the rank-one groupoid statement must retain the overlap identification. Relative cohomology/base change and Picard–norm comparison for integral proper curves; positive section twist cohomology; Leray and Euler-characteristic formulas including nonreduced fibers; normalization cohomology exact sequence. Stein factorization and normal-base comparison f_*O=O for the proper normal DVR model, genuine coherent genus and base change; Picard-to-line-bundle obstruction sequence over fields.
+Flat base change of qcqs pushforwards and Milnor patching of finite projective modules on ring fiber products; the rank-one groupoid statement must retain the overlap identification. Relative cohomology/base change and Picard–norm comparison for integral proper curves; positive section twist cohomology; Leray and Euler-characteristic formulas including nonreduced fibers; normalization cohomology exact sequence. Stein factorization and normal-base comparison f_*O=O for the proper normal DVR model, genuine coherent genus and base change; Picard-to-line-bundle obstruction sequence over fields. For the algebraic-space continuation supply the affine flat-object patching equivalence of TT3.4.1 and its scheme-local extension4.1.2, with cartesian unit/counit, flat fiber products, surjectivity and étale-property comparison; preserving an already formed square under flat base change alone is insufficient for constructing the presentation.
 
-Consumers: `G.0/flat-base-change`, `G.0/line-bundle-patching`, `G.1/genus-one-fibration`, `G.2/cohomology-adapter`, `G.2/domination-genus`, `G.2/equality-regular`, `G.2/normal-dominating-model`, `G.2/unique-dominating-component`, `G.3/canonical-bundle`, `G.3/canonical-degree`, `G.3/generic-picard-restriction`, `G.3/positive-section-cohomology`, `G.3/pushforward-splitting`, `G.3/tame-wild`, `G.3/tsen-obstruction`.
+Consumers: `G.0/flat-base-change`, `G.0/line-bundle-patching`, `G.1/genus-one-fibration`, `G.2/cohomology-adapter`, `G.2/domination-genus`, `G.2/equality-regular`, `G.2/normal-dominating-model`, `G.2/unique-dominating-component`, `G.3/canonical-bundle`, `G.3/canonical-degree`, `G.3/generic-picard-restriction`, `G.3/positive-section-cohomology`, `G.3/pushforward-splitting`, `G.3/tame-wild`, `G.3/tsen-obstruction`, `G.0/affine-space-hom-injective`, `G.0/affine-space-hom-surjective`, `G.0/pinching-etale-relation`, `G.0/pinching-overlap-scheme`, `G.0/algebraic-space-existence`, `G.0/space-flat-base-change`.
 
 ### AlgebraicModuliForArithmeticGeometry:A0-extension
 
@@ -2461,6 +2708,8 @@ Screen: The cited public author edition and its relevant source passages, read20
 
 ## Reading ledger
 
+The first nine receipts below are inherited from the merged checkpoint, not new reading claims by codex-a71f92. This continuation read the specifically listed Temkin–Tyomkin proofs and six Stacks passages, recorded after those receipts. It preserves the existing twenty-one source findings and makes no new erratum claim.
+
 The principal source chain is Schröer’s genus-one analysis, Ferrand’s pinching theorem, Witaszek’s conductor groupoids, LLR’s model comparison with its corrigendum, and Bombieri–Mumford’s canonical bundle formula. Serge Lang1956 supplies the original finite-field group argument; it is distinct from William Lang2000 on characteristic-two elliptic surfaces. Szydło handles imperfect-residue qualifications. The2024 Cossec–Dolgachev–Liedtke author manuscript supplies additional consumer passages and has not been substituted silently for the1989 book.
 
 ### schroer — There is no Enriques surface over the integers
@@ -2518,6 +2767,48 @@ François Cossec, Igor Dolgachev, Christian Liedtke. Author manuscript dated Apr
 Actually read: Front matter, dated April19,2024; §2.2 pp264–268, including image inspection of267–268; §4.1 selected pp359–370, image inspection365–366; §4.4 pp393–398, image inspection394; incidental §4.8 pp462–463. Sections4.2–4.3 and the full book were not read..
 
 The publicly retrieved1989 book file contains eight preliminary pages, not its mathematics; no1989 theorem is claimed read. EGAIV4 and Raynaud passages were checked in the earlier same-session repair work and are attributed as such. Their fresh acquisition and exact adapter decomposition remain open. William Lang2000, DOI10.1080/00927870008827190, has not been obtained. No full source book or full recursive chain is claimed covered by this selected reading.
+
+### temkin-tyomkin — Ferrand pushouts for algebraic spaces
+
+Michael Temkin and Ilya Tyomkin. Author PDF, arXiv:1305.6014v3, 27 May 2016; distinguished from the Eur. J. Math. 2 (2016) journal pagination. [Public copy](https://math.huji.ac.il/~temkin/papers/Ferrands_Pushouts.pdf). Accessed 2026-10-02. SHA-256: `a63ce8b3bcdee4ae616ddf6bee66c9857a1a9f0e55866b813bd1415f9c6f1517`.
+
+Actually read: This continuation: selected definitions §2.1–2.2 and Lemma2.1.6; §3.3.8–3.4.1 flat patching; Lemma4.1.2, Theorem4.2.1 and proof, Example4.2.3, Theorem4.2.4, Lemma4.3.1 and Theorems4.4.1–4.4.2 with proofs; §5.1–5.3 finite cofinality and affine lifting proofs; Theorems6.1.1,6.2.1–6.2.2 and6.3.2 with displayed proofs, Theorem6.3.5 finite case. The complete paper and all recursive sources were not read.
+
+### stacks-04D1 — Lemma10.143.10: lifting étale ring maps along quotients
+
+The Stacks Project Authors. Public HTML retrieved 2 October 2026; tag-stable identity, displayed numbering on that date. [Public copy](https://stacks.math.columbia.edu/tag/04D1). Accessed 2026-10-02. SHA-256: `11a0a6e46f55de460fce17a06dc9202700ba0c0cf36583839f4cc0993f37a85a`.
+
+Actually read: This continuation: full displayed statement and proof; recursively cited foundational facts are requested at SF.1.
+
+### stacks-082J — Lemma76.34.2: quasi-finite separated algebraic-space comparison
+
+The Stacks Project Authors. Public HTML retrieved 2 October 2026; tag-stable identity, displayed numbering on that date. [Public copy](https://stacks.math.columbia.edu/tag/082J). Accessed 2026-10-02. SHA-256: `aa75987e2a2c96b4d2f1aaa782f2c14c6c709c4f27c48d3ee685e6a9fa2a4b73`.
+
+Actually read: This continuation: full displayed statement and proof; recursively cited foundational facts are requested at SF.1.
+
+### stacks-04S6 — Theorem80.10.1: algebraic-space quotients of flat equivalence relations
+
+The Stacks Project Authors. Public HTML retrieved 2 October 2026; tag-stable identity, displayed numbering on that date. [Public copy](https://stacks.math.columbia.edu/tag/04S6). Accessed 2026-10-02. SHA-256: `a901d1ab1b7e4ae5551156a7d1e9f6d9fee3962eb890e488da949e4359972c9a`.
+
+Actually read: This continuation: full displayed statement and proof; recursively cited foundational facts are requested at SF.1.
+
+### stacks-02X4 — Lemma65.13.1: automatic diagonal properties
+
+The Stacks Project Authors. Public HTML retrieved 2 October 2026; tag-stable identity, displayed numbering on that date. [Public copy](https://stacks.math.columbia.edu/tag/02X4). Accessed 2026-10-02. SHA-256: `a1023facab16dd6c3cafd6488790bed502427202ad9e56f6f3e536e8527b59cb`.
+
+Actually read: This continuation: full displayed statement and proof; recursively cited foundational facts are requested at SF.1.
+
+### stacks-05Z2 — Lemma67.9.8: separatedness under universally closed surjections
+
+The Stacks Project Authors. Public HTML retrieved 2 October 2026; tag-stable identity, displayed numbering on that date. [Public copy](https://stacks.math.columbia.edu/tag/05Z2). Accessed 2026-10-02. SHA-256: `109a809bb61c4b847bbc1c77f3e06d46b5b11d4dff17b31624e2381494a339be`.
+
+Actually read: This continuation: full displayed statement and proof; recursively cited foundational facts are requested at SF.1.
+
+### stacks-0417 — Section67.50: separated locally quasi-finite representability
+
+The Stacks Project Authors. Public HTML retrieved 2 October 2026; tag-stable identity, displayed numbering on that date. [Public copy](https://stacks.math.columbia.edu/tag/0417). Accessed 2026-10-02. SHA-256: `1890e69e9da77eb3d6027f1603f3892d3281fd1d404ebdf83c299c80b6e96d68`.
+
+Actually read: This continuation: Lemma67.50.1 and Proposition67.50.2, their statements and complete displayed proofs. Recursive cited prerequisites are SF.1 requests, not silently claimed closed.
 
 ## Routed-item ledger
 
@@ -2606,15 +2897,15 @@ All78 items of the original GenusOneFibrationsAndRationalEllipticSurfaces route 
 
 ## Closure and continuation
 
-The official checker reports zero errors and warnings. A separate graph audit follows the typed upstreamPrerequisites as well as ordinary prerequisites and roadmap/atlas stage requires edges; the reachable graph is acyclic, and all individual supplier consumers have requests. Literal anchors in text-readable source PDFs were verified after Unicode normalization; Lang’s image-only scan was inspected by page. Coefficient checks and the finite F₂ five-orbit check passed. Lean was not compiled: no existing build at the pinned commits was available, and no Lake project, cache download or library build was created.
+Inherited checkpoint evidence: the previous worker reported zero checker errors/warnings, an acyclic typed-dependency audit, normalized source anchors, coefficient checks and the F₂ five-orbit check. Those unrelated coefficient/orbit computations were not rerun by this continuation. New continuation checks cover the actual repository checker and intake rules, preservation of all old IDs/routes/source findings, added dependency edges (including the new SF.3 stage edge), reader/packet and signature-or-omission parity, source download hashes and whitespace. The inherited source receipt is not a fresh whole-paper verification. Lean was not compiled: no existing build at the pinned commits was available, and no Lake project, cache download or library build was created.
 
 The stock checker currently parses every `tauceti:` prefix as a baseline declaration before testing whether it names an atlas stage. Canonical upstream IDs are therefore kept in the roadmap requires graph, node upstreamPrerequisites and requests. They have not been relabeled as fictional baseline declarations. This workaround explicitly leaves node-level integration open; restore canonical prerequisites when the checker supports them or replace them by genuine finer exports. The mathematical audit includes all76 typed edges, so passing the stock checker does not discard those dependencies.
 
-### General algebraic-space pinching existence
+### Algebraic-space exports and signatures for the verified pinching chain
 
-The general definition permits algebraic-space realizations, but only affine and compatible-affine-neighborhood scheme existence has been source-decomposed here. Witaszek2.26 is a universal-homeomorphism descent result, not a proof for every finite nonradicial pinching. Verify a primary algebraic-space theorem with exact hypotheses before exporting unconditional space existence.
+Temkin–Tyomkin v3 Theorems5.3.1(ii),6.2.1(ii)(b) verify finite-pinching existence without affine-neighborhood, Noetherian or quasi-separated assumptions. The twelve consumer declarations now give the étale construction, universal property and scheme criterion. Their SF.1 algebraic-space carrier, exact descent/quotient/lifting/representability exports and SF.3 flat patching equivalence are requests, not existing declarations. Full algebraic-space Lean signatures remain omitted with exact names and contracts; no fabricated carrier substitutes for them. This is now an export/type/proof integration gap, not uncertainty about a primary existence theorem.
 
-Needed by: `key/ferrand-pushouts`, `G.0/global-existence`.
+Needed by: `key/ferrand-pushouts`, `G.0/pinching-etale-cover`, `G.0/affine-space-hom-injective`, `G.0/affine-space-hom-surjective`, `G.0/pinching-etale-relation`, `G.0/pinching-overlap-scheme`, `G.0/algebraic-space-existence`, `G.0/space-cartesian`, `G.0/space-geometric`, `G.0/space-finite`, `G.0/space-closed`, `G.0/space-flat-base-change`, `G.0/space-scheme-recognition`.
 
 ### Numerical-Picard geometric descent bridge
 
@@ -2706,4 +2997,4 @@ The source reduces an excellent DVR to its henselization. Its residue field is u
 
 Needed by: `G.2/multiple-fiber-isogeny`.
 
-Resume at G.0 with the general geometric-square signatures, affine universality and the exact supplier exports. Then close the numerical-Picard descent bridge, the excellent-DVR adapters and canonical/wild-fiber proof chain. Obtain the missing rational-surface and quasielliptic proofs and William Lang inputs before closing the configuration stages. Split and verify each model certificate, then supply the full finite rejection and orbit witnesses. Reconcile every omitted suggested signature with the genuine completed owner types. All seven stages remain partial until those obligations and requests are discharged.
+Resume at G.0 by replacing the exact SF.1/SF.3 requests with verified carrier/descent/flat-patching exports and giving all twelve space declarations and the two new tests their genuine full signatures. The actual affine Scheme signature is now supplied; the general space signatures remain precise omissions. The existence source uncertainty is resolved, but neither G.0 nor the reserved Ferrand key is closed. Then close the numerical-Picard descent bridge, the excellent-DVR adapters and canonical/wild-fiber proof chain. Obtain the missing rational-surface and quasielliptic proofs and William Lang inputs before closing the configuration stages. Split and verify each model certificate, then supply the full finite rejection and orbit witnesses. Reconcile every omitted suggested signature with the genuine completed owner types. All seven stages remain partial until those obligations and requests are discharged.
