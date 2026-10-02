@@ -16,6 +16,9 @@ import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
 import Mathlib.RingTheory.AlgebraTower
 import Mathlib.Algebra.Polynomial.Basis
 import Mathlib.Tactic.Ring
+import Mathlib.RingTheory.Polynomial.Ideal
+import Mathlib.Algebra.Polynomial.Bivariate
+import Mathlib.LinearAlgebra.Projection
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document
@@ -26,9 +29,11 @@ CHECKPOINT: the polynomial node ring, its actual ideal and dual, the two
 cokernel maps, arbitrary coefficient tensor comparisons, flat ambient ideal/Hom/quotient
 transport and actual noetherian module completion now have canonical
 packet entries and prototype ledgers. The complete file is checked using an
-existing pinned Mathlib build. Fifteen elementary polynomial-model proof bodies
-and nine examples have an admission-free extraction and axiom audit. The whole
-file still has admitted proof bodies as its only warnings; their elaboration
+existing pinned Mathlib build. The fifteen elementary proof bodies and nine
+proved examples belong to the historical revision cef4c2085eddbf723e9050f7d4924924d593a0e3.
+Current suggested bodies are admitted sketches under PROTOCOL section 13.
+The current exact-file receipt and separate kernel experiment are distinguished
+in the handoff; their elaboration
 does not certify those proofs or provide geometric supplier types.
 See handoff/DESIGN-StableReductionPartII.md for hashes and precise boundaries.
 
@@ -52,14 +57,10 @@ def Nondegenerate (γ δ : R) : Prop := IsUnit (discriminant γ δ)
 
 -- NodeForm.eval
 theorem eval (γ δ x y : R) :
-    NodeForm γ δ x y = x ^ 2 + γ * x * y + δ * y ^ 2 := by
-  rfl
-
+    NodeForm γ δ x y = x ^ 2 + γ * x * y + δ * y ^ 2 := sorry
 -- NodeForm.map
 theorem map (φ : R →+* S) (γ δ x y : R) :
-    φ (NodeForm γ δ x y) = NodeForm (φ γ) (φ δ) (φ x) (φ y) := by
-  simp [NodeForm]
-
+    φ (NodeForm γ δ x y) = NodeForm (φ γ) (φ δ) (φ x) (φ y) := sorry
 /-- The polynomial correction identity; power-series ideal membership is a supplier input. -/
 -- NodeForm.linearCorrection
 theorem linearCorrection (γ δ x y ε u v : R) (hε : ε ^ 2 = 0) :
@@ -69,21 +70,13 @@ theorem linearCorrection (γ δ x y ε u v : R) (hε : ε ^ 2 = 0) :
   sorry
 
 -- NodeForm.split
-example (x y : R) : NodeForm (0 : R) (-1) x y = x ^ 2 - y ^ 2 := by
-  sorry
-
-example (h2 : IsUnit (2 : R)) : Nondegenerate (0 : R) (-1) := by
-  sorry
-
+example (x y : R) : NodeForm (0 : R) (-1) x y = x ^ 2 - y ^ 2 := sorry
+example (h2 : IsUnit (2 : R)) : Nondegenerate (0 : R) (-1) := sorry
 -- NodeForm.characteristicTwo
 example (h2 : (2 : R) = 0) (x y : R) :
-    Nondegenerate (1 : R) 0 ∧ NodeForm (1 : R) 0 x y = x ^ 2 + x * y := by
-  sorry
-
+    Nondegenerate (1 : R) 0 ∧ NodeForm (1 : R) 0 x y = x ^ 2 + x * y := sorry
 -- NodeForm.doubleLineExcluded
-example : ¬ Nondegenerate (0 : ℤ) 0 := by
-  sorry
-
+example : ¬ Nondegenerate (0 : ℤ) 0 := sorry
 end NodeForm
 
 namespace NodeSectionFactorization
@@ -107,29 +100,20 @@ theorem products (γ δ x y s t : R) :
     left γ δ x y s t * right γ δ x y s t =
       Matrix.scalar (Fin 2) (NodeForm γ δ x y - NodeForm γ δ s t) ∧
     right γ δ x y s t * left γ δ x y s t =
-      Matrix.scalar (Fin 2) (NodeForm γ δ x y - NodeForm γ δ s t) := by
-  constructor <;> ext i j <;> fin_cases i <;> fin_cases j <;>
-    simp [left, right, Matrix.mul_apply, Fin.sum_univ_two, Matrix.scalar, NodeForm] <;> ring
-
+      Matrix.scalar (Fin 2) (NodeForm γ δ x y - NodeForm γ δ s t) := sorry
 -- NodeSectionFactorization.atOrigin
 example (γ δ x y : R) :
     left γ δ x y 0 0 = Matrix.of (fun i j =>
       if i = 0 then
         if j = 0 then δ * y + γ * x else x
       else
-        if j = 0 then -x else y) := by
-  sorry
-
+        if j = 0 then -x else y) := sorry
 -- NodeSectionFactorization.characteristicTwo
 example (h2 : (2 : R) = 0) (x y s t : R) :
     left 1 0 x y s t * right 1 0 x y s t =
-      Matrix.scalar (Fin 2) (x ^ 2 + x * y - (s ^ 2 + s * t)) := by
-  sorry
-
+      Matrix.scalar (Fin 2) (x ^ 2 + x * y - (s ^ 2 + s * t)) := sorry
 -- NodeSectionFactorization.repeatedRootExcluded
-example : ¬ NodeForm.Nondegenerate (0 : ℤ) 0 := by
-  sorry
-
+example : ¬ NodeForm.Nondegenerate (0 : ℤ) 0 := sorry
 /-
 Canonical signatures for the local polynomial-model proof in MC.2.
 The polynomial and its quotient are native Mathlib objects, not opaque carriers.
@@ -164,87 +148,25 @@ local notation "α₀" => left (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ 
 local notation "β₀" => right (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ t)
 local notation "J₀" => (Ideal.span {u₀ - ι₀ s, v₀ - ι₀ t} : Ideal R₀)
 
-def sectionEval : R₀ →+* A :=
-  AdjoinRoot.lift (Polynomial.evalRingHom t) s (by
-    simp only [polynomial, Polynomial.eval₂_add, Polynomial.eval₂_mul, Polynomial.eval₂_pow, Polynomial.eval₂_C, Polynomial.eval₂_X, Polynomial.coe_evalRingHom, Polynomial.eval_mul, Polynomial.eval_pow, Polynomial.eval_sub, Polynomial.eval_C, Polynomial.eval_X]
-    dsimp [NodeForm]
-    ring)
-
+def sectionEval : R₀ →+* A := sorry
 def sectionIdeal : Ideal R₀ :=
   Ideal.span {u₀ - ι₀ s, v₀ - ι₀ t}
 
 abbrev sectionDual := sectionIdeal A γ δ s t →ₗ[R₀] R₀
 
 def coefficientMap {A' : Type*} [CommRing A'] (f : A →+* A') :
-    R₀ →+* Ring A' (f γ) (f δ) (f s) (f t) :=
-  AdjoinRoot.map (Polynomial.mapRingHom f) w₀
-    (polynomial A' (f γ) (f δ) (f s) (f t)) (by
-      simp [polynomial, NodeForm, Polynomial.map_add, Polynomial.map_mul])
-
+    R₀ →+* Ring A' (f γ) (f δ) (f s) (f t) := sorry
 /-- Monic division gives a unique pair of coefficient polynomials over any base ring. -/
-theorem polynomialMonic : (w₀).Monic := by
-  nontriviality A
-  change (w₀).leadingCoeff = 1
-  simpa only [polynomial, Polynomial.C_1, one_mul] using
-    (Polynomial.leadingCoeff_quadratic (a := (1 : Polynomial A))
-      (b := Polynomial.C γ * Polynomial.X)
-      (c := Polynomial.C δ * Polynomial.X ^ 2 - Polynomial.C (NodeForm γ δ s t)) one_ne_zero)
-
-theorem polynomialNatDegree [Nontrivial A] : (w₀).natDegree = 2 := by
-  simpa only [polynomial, Polynomial.C_1, one_mul] using
-    (Polynomial.natDegree_quadratic (a := (1 : Polynomial A))
-      (b := Polynomial.C γ * Polynomial.X)
-      (c := Polynomial.C δ * Polynomial.X ^ 2 - Polynomial.C (NodeForm γ δ s t)) one_ne_zero)
-
+theorem polynomialMonic : (w₀).Monic := sorry
+theorem polynomialNatDegree [Nontrivial A] : (w₀).natDegree = 2 := sorry
 theorem normalForm (r : R₀) :
     ∃! p : Polynomial A × Polynomial A,
-      r = AdjoinRoot.of w₀ p.1 + u₀ * AdjoinRoot.of w₀ p.2 := by
-  classical
-  cases subsingleton_or_nontrivial A with
-  | inl h =>
-    have := h
-    have : Subsingleton R₀ := Module.subsingleton A R₀
-    refine ⟨(0, 0), Subsingleton.elim _ _, ?_⟩
-    intro p hp
-    exact Subsingleton.elim _ _
-  | inr h =>
-    have := h
-    let pb := AdjoinRoot.powerBasis' (polynomialMonic A γ δ s t)
-    have hd : pb.dim = 2 := polynomialNatDegree A γ δ s t
-    let b : Module.Basis (Fin 2) (Polynomial A) R₀ := pb.basis.reindex (finCongr hd)
-    have hb (i : Fin 2) : b i = u₀ ^ (i : ℕ) := by
-      simp [b, Module.Basis.reindex_apply, pb.basis_eq_pow, pb]
-    have hf (p : Polynomial A × Polynomial A) :
-        AdjoinRoot.of w₀ p.1 + u₀ * AdjoinRoot.of w₀ p.2 = p.1 • b 0 + p.2 • b 1 := by
-      simp [hb, Algebra.smul_def, mul_comm]
-    refine ⟨(b.repr r 0, b.repr r 1), ?_, ?_⟩
-    · dsimp only
-      rw [hf (b.repr r 0, b.repr r 1)]
-      simpa only [Fin.sum_univ_two] using (b.sum_repr r).symm
-    · intro p hp
-      have hh := congrArg b.repr hp
-      rw [hf] at hh
-      apply Prod.ext
-      · have h0 := congrArg (fun c => c 0) hh
-        simpa using h0.symm
-      · have h1 := congrArg (fun c => c 1) hh
-        simpa using h1.symm
-
+      r = AdjoinRoot.of w₀ p.1 + u₀ * AdjoinRoot.of w₀ p.2 := sorry
 /-- The normal-form monomials give freeness over both coefficient rings. -/
-theorem normalFormFree : Module.Free (Polynomial A) R₀ ∧ Module.Free A R₀ := by
-  exact ⟨(polynomialMonic A γ δ s t).free_adjoinRoot,
-    Module.Free.of_basis ((Polynomial.basisMonomials A).smulTower
-      (AdjoinRoot.powerBasis' (polynomialMonic A γ δ s t)).basis)⟩
-
+theorem normalFormFree : Module.Free (Polynomial A) R₀ ∧ Module.Free A R₀ := sorry
 /-- The section's Y-coordinate difference is regular; the base need not be a domain. -/
 theorem sectionCoordinateRegular :
-    Function.Injective (fun r : R₀ => (v₀ - ι₀ t) * r) := by
-  have : Module.Free (Polynomial A) R₀ := (normalFormFree A γ δ s t).1
-  have h := (Polynomial.monic_X_sub_C t).isRegular.isSMulRegular (M := R₀)
-  intro x y hxy
-  apply h
-  simpa only [Algebra.smul_def, AdjoinRoot.algebraMap_eq, map_sub, coefficientHom, RingHom.comp_apply] using hxy
-
+    Function.Injective (fun r : R₀ => (v₀ - ι₀ t) * r) := sorry
 /-- Candidate for the exactness part of
 `StableReductionPartII:MC.2/node-factorization-exact`.
 
@@ -367,14 +289,37 @@ theorem sectionDual_baseChange {A' : Type*} [CommRing A'] (f : A →+* A') :
 
 -- StableReductionPartII:MC.2/polynomial-relation-regular
 theorem polynomialRelationRegular :
-    Function.Injective (fun p : Polynomial (Polynomial A) => w₀ * p) := by
-  exact (polynomialMonic A γ δ s t).isRegular.1
-
+    Function.Injective (fun p : Polynomial (Polynomial A) => w₀ * p) := sorry
 -- StableReductionPartII:MC.2/section-evaluation-kernel
 theorem sectionEvaluationKernel (r : R₀) :
     (sectionEval A γ δ s t r = 0 ↔ r ∈ J₀) ∧
       (∀ z : A, sectionEval A γ δ s t (ι₀ z) = z) := by
   sorry
+
+-- StableReductionPartII:MC.2/section-evaluation-split
+noncomputable def sectionSplit : R₀ ≃ₗ[A] J₀ × A := sorry
+theorem sectionSplit_first (r : R₀) :
+    ((sectionSplit A γ δ s t r).1 : R₀) = r - ι₀ (sectionEval A γ δ s t r) := sorry
+theorem sectionSplit_second (r : R₀) :
+    (sectionSplit A γ δ s t r).2 = sectionEval A γ δ s t r := sorry
+theorem sectionSplit_inverse (j : J₀) (z : A) :
+    (sectionSplit A γ δ s t).symm (j, z) = (j : R₀) + ι₀ z := sorry
+theorem sectionSplit_section (z : A) :
+    sectionSplit A γ δ s t (ι₀ z) = (0, z) := sorry
+-- test: NodeSectionFactorization.PolynomialModel.sectionSplitNonreduced
+example :
+    let u := AdjoinRoot.root (polynomial (ZMod 4) 0 0 1 0)
+    let e := sectionSplit (ZMod 4) 0 0 1 0
+    (e u).2 = 1 ∧ ((e u).1 : Ring (ZMod 4) 0 0 1 0) =
+      u - coefficientHom (ZMod 4) 0 0 1 0 1 := sorry
+-- test: NodeSectionFactorization.PolynomialModel.sectionSplitZeroBase
+example (r : Ring (ZMod 1) 0 0 0 0) :
+    sectionSplit (ZMod 1) 0 0 0 0 r = (0, 0) := sorry
+-- test: NodeSectionFactorization.PolynomialModel.sectionSplitNotRingLinear
+example :
+    let Φ := fun r : Ring ℚ 1 0 0 0 =>
+      ((sectionSplit ℚ 1 0 0 0 r).1 : Ring ℚ 1 0 0 0)
+    ¬ ∀ r z : Ring ℚ 1 0 0 0, Φ (r * z) = r * Φ z := sorry
 
 -- StableReductionPartII:MC.2/section-ideal-cokernel
 theorem cokernelIdeal :
@@ -474,27 +419,16 @@ theorem dualScalarAction (ε : D₀)
 theorem coefficientMapValues {A' : Type*} [CommRing A'] (f : A →+* A') (z : A) :
     coefficientMap A γ δ s t f u₀ = AdjoinRoot.root (polynomial A' (f γ) (f δ) (f s) (f t)) ∧
     coefficientMap A γ δ s t f v₀ = AdjoinRoot.of (polynomial A' (f γ) (f δ) (f s) (f t)) Polynomial.X ∧
-    coefficientMap A γ δ s t f (ι₀ z) = coefficientHom A' (f γ) (f δ) (f s) (f t) (f z) := by
-  simp [coefficientMap, coefficientHom]
-
+    coefficientMap A γ δ s t f (ι₀ z) = coefficientHom A' (f γ) (f δ) (f s) (f t) (f z) := sorry
 -- StableReductionPartII:MC.2/section-evaluation-coefficient-naturality
 theorem coefficientMapEvaluation {A' : Type*} [CommRing A'] (f : A →+* A') (r : R₀) :
     sectionEval A' (f γ) (f δ) (f s) (f t) (coefficientMap A γ δ s t f r) =
-      f (sectionEval A γ δ s t r) := by
-  have h : (sectionEval A' (f γ) (f δ) (f s) (f t)).comp
-      (coefficientMap A γ δ s t f) = f.comp (sectionEval A γ δ s t) := by
-    ext p <;> simp [coefficientMap, sectionEval]
-  simpa only [RingHom.comp_apply] using DFunLike.congr_fun h r
-
-theorem coefficientMapIdentity : coefficientMap A γ δ s t (RingHom.id A) = RingHom.id R₀ := by
-  ext p <;> simp [coefficientMap]
-
+      f (sectionEval A γ δ s t r) := sorry
+theorem coefficientMapIdentity : coefficientMap A γ δ s t (RingHom.id A) = RingHom.id R₀ := sorry
 theorem coefficientMapComposition {A' A'' : Type*} [CommRing A'] [CommRing A'']
     (f : A →+* A') (g : A' →+* A'') :
     (coefficientMap A' (f γ) (f δ) (f s) (f t) g).comp (coefficientMap A γ δ s t f) =
-      coefficientMap A γ δ s t (g.comp f) := by
-  ext p <;> simp [coefficientMap]
-
+      coefficientMap A γ δ s t (g.comp f) := sorry
 -- StableReductionPartII:MC.2/section-ring-base-change
 theorem sectionRing_baseChange {A' : Type*} [CommRing A'] (f : A →+* A') :
     letI : Algebra A A' := f.toAlgebra
@@ -683,22 +617,17 @@ theorem dualQuotientTensorEquivResidue {A' : Type*} [CommRing A'] (f : A →+* A
 
 -- test: NodeSectionFactorization.PolynomialModel.ringTensorIdentity
 example (a : A) (r : R₀) :
-    ringTensorEquiv A γ δ s t (RingHom.id A) (a ⊗ₜ[A] r) = ι₀ a * r := by
-  sorry
+    ringTensorEquiv A γ δ s t (RingHom.id A) (a ⊗ₜ[A] r) = ι₀ a * r := sorry
 -- test: NodeSectionFactorization.PolynomialModel.ringTensorMultiplication
 example {A' : Type*} [CommRing A'] (f : A →+* A') :
     letI : Algebra A A' := f.toAlgebra
     ∀ x y : A' ⊗[A] R₀, ringTensorEquiv A γ δ s t f (x * y) =
-      ringTensorEquiv A γ δ s t f x * ringTensorEquiv A γ δ s t f y := by
-  sorry
+      ringTensorEquiv A γ δ s t f x * ringTensorEquiv A γ δ s t f y := sorry
 -- test: NodeSectionFactorization.PolynomialModel.ringTensorZero
-example [Subsingleton A] : Subsingleton (A ⊗[A] R₀) := by
-  sorry
-
+example [Subsingleton A] : Subsingleton (A ⊗[A] R₀) := sorry
 -- test: NodeSectionFactorization.PolynomialModel.dualTensorIdentity
 example (a : A) (h : D₀) :
-    dualTensorEquiv A γ δ s t (RingHom.id A) (a ⊗ₜ[A] h) = a • h := by
-  sorry
+    dualTensorEquiv A γ δ s t (RingHom.id A) (a ⊗ₜ[A] h) = a • h := sorry
 -- test: NodeSectionFactorization.PolynomialModel.dualTensorComposition
 example {A' A'' : Type*} [CommRing A'] [CommRing A'']
     (f : A →+* A') (g : A' →+* A'') :
@@ -708,57 +637,44 @@ example {A' A'' : Type*} [CommRing A'] [CommRing A'']
     ∀ h : D₀,
       dualTensorEquiv A' (f γ) (f δ) (f s) (f t) g
         (1 ⊗ₜ[A'] dualTensorEquiv A γ δ s t f (1 ⊗ₜ[A] h)) =
-      dualTensorEquiv A γ δ s t (g.comp f) (1 ⊗ₜ[A] h) := by
-  sorry
+      dualTensorEquiv A γ δ s t (g.comp f) (1 ⊗ₜ[A] h) := sorry
 -- test: NodeSectionFactorization.PolynomialModel.dualTensorNonflat
 example :
     (¬ Module.Flat ℤ (ZMod 2)) ∧
       Nonempty (((ZMod 2) ⊗[ℤ] sectionDual ℤ 1 0 0 0) ≃ₗ[ZMod 2]
-        sectionDual (ZMod 2) 1 0 0 0) := by
-  sorry
-
+        sectionDual (ZMod 2) 1 0 0 0) := sorry
 -- test: NodeSectionFactorization.PolynomialModel.tensorActionProduct
 example {A' : Type*} [CommRing A'] (f : A →+* A') :
     letI : Algebra A A' := f.toAlgebra
     letI := dualTensorAction A γ δ s t f
     ∀ (a' b' : A') (r : R₀) (h : D₀),
-      (a' ⊗ₜ[A] r) • (b' ⊗ₜ[A] h) = (a' * b') ⊗ₜ[A] (r • h) := by
-  sorry
+      (a' ⊗ₜ[A] r) • (b' ⊗ₜ[A] h) = (a' * b') ⊗ₜ[A] (r • h) := sorry
 -- test: NodeSectionFactorization.PolynomialModel.tensorActionCorrection
 example (ε : D₀) (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) :
     letI := dualTensorAction A γ δ s t (RingHom.id A)
     ((1 : A) ⊗ₜ[A] d₀) • ((1 : A) ⊗ₜ[A] ε) =
-      (1 : A) ⊗ₜ[A] dualMultiplication A γ δ s t b₀ := by
-  sorry
+      (1 : A) ⊗ₜ[A] dualMultiplication A γ δ s t b₀ := sorry
 -- test: NodeSectionFactorization.PolynomialModel.tensorActionZero
-example [Subsingleton A] : Subsingleton (A ⊗[A] D₀) := by
-  sorry
-
+example [Subsingleton A] : Subsingleton (A ⊗[A] D₀) := sorry
 -- test: NodeSectionFactorization.PolynomialModel.quotientGenerator
 example (ε : D₀) (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) :
-    dualQuotientEquiv A γ δ s t (Submodule.Quotient.mk ε) = 1 := by
-  sorry
+    dualQuotientEquiv A γ δ s t (Submodule.Quotient.mk ε) = 1 := sorry
 -- test: NodeSectionFactorization.PolynomialModel.quotientMultiplication
 example (r : R₀) :
     (Submodule.Quotient.mk (dualMultiplication A γ δ s t r) :
-      sectionDualQuotient A γ δ s t) = 0 := by
-  sorry
+      sectionDualQuotient A γ δ s t) = 0 := sorry
 -- test: NodeSectionFactorization.PolynomialModel.quotientCoordinateKills
-example (q : sectionDualQuotient A γ δ s t) : d₀ • q = 0 := by
-  sorry
-
+example (q : sectionDualQuotient A γ δ s t) : d₀ • q = 0 := sorry
 -- test: NodeSectionFactorization.PolynomialModel.quotientTensorResidue
 example {A' : Type*} [CommRing A'] (f : A →+* A') :
     letI : Algebra A A' := f.toAlgebra
     ∀ (a' : A') (q : sectionDualQuotient A γ δ s t),
       dualQuotientEquiv A' (f γ) (f δ) (f s) (f t)
         (dualQuotientTensorEquiv A γ δ s t f (a' ⊗ₜ[A] q)) =
-      a' * f (dualQuotientEquiv A γ δ s t q) := by
-  sorry
+      a' * f (dualQuotientEquiv A γ δ s t q) := sorry
 -- test: NodeSectionFactorization.PolynomialModel.quotientTensorIdentity
 example (a : A) (q : sectionDualQuotient A γ δ s t) :
-    dualQuotientTensorEquiv A γ δ s t (RingHom.id A) (a ⊗ₜ[A] q) = a • q := by
-  sorry
+    dualQuotientTensorEquiv A γ δ s t (RingHom.id A) (a ⊗ₜ[A] q) = a • q := sorry
 -- test: NodeSectionFactorization.PolynomialModel.quotientTensorNonflat
 example :
     let f : ℤ →+* ZMod 2 := Int.castRingHom (ZMod 2)
@@ -768,35 +684,14 @@ example :
       ∀ q : sectionDualQuotient ℤ 1 0 0 0,
         dualQuotientEquiv (ZMod 2) 1 0 0 0
           (dualQuotientTensorEquiv ℤ 1 0 0 0 f ((1 : ZMod 2) ⊗ₜ[ℤ] q)) =
-        f (dualQuotientEquiv ℤ 1 0 0 0 q) := by
-  sorry
-
+        f (dualQuotientEquiv ℤ 1 0 0 0 q) := sorry
 -- NodeSectionFactorization.PolynomialModel.modelRelation
-example : NodeForm (ι₀ γ) (ι₀ δ) u₀ v₀ = ι₀ (NodeForm γ δ s t) := by
-  apply sub_eq_zero.mp
-  have h := AdjoinRoot.eval₂_root w₀
-  change Polynomial.eval₂ (AdjoinRoot.of w₀) u₀
-    (Polynomial.X ^ 2 + Polynomial.C (Polynomial.C γ * Polynomial.X) * Polynomial.X +
-      Polynomial.C (Polynomial.C δ * Polynomial.X ^ 2 -
-        Polynomial.C (NodeForm γ δ s t))) = 0 at h
-  simp only [Polynomial.eval₂_add, Polynomial.eval₂_mul, Polynomial.eval₂_pow,
-    Polynomial.eval₂_C, Polynomial.eval₂_X, Polynomial.eval₂_sub, map_mul, map_sub, map_pow] at h
-  change u₀ ^ 2 + (AdjoinRoot.of w₀ (Polynomial.C γ)) * u₀ * v₀ +
-    (AdjoinRoot.of w₀ (Polynomial.C δ)) * v₀ ^ 2 -
-    AdjoinRoot.of w₀ (Polynomial.C (NodeForm γ δ s t)) = 0
-  convert h using 1; ring
-
+example : NodeForm (ι₀ γ) (ι₀ δ) u₀ v₀ = ι₀ (NodeForm γ δ s t) := sorry
 -- NodeSectionFactorization.PolynomialModel.modelZero
-example [Subsingleton A] : Subsingleton R₀ ∧ Subsingleton J₀ ∧ Subsingleton D₀ := by
-  have : Subsingleton R₀ := Module.subsingleton A R₀
-  exact ⟨inferInstance, inferInstance, inferInstance⟩
-
+example [Subsingleton A] : Subsingleton R₀ ∧ Subsingleton J₀ ∧ Subsingleton D₀ := sorry
 -- NodeSectionFactorization.PolynomialModel.evaluationCoordinates
 example (z : A) : sectionEval A γ δ s t u₀ = s ∧
-    sectionEval A γ δ s t v₀ = t ∧ sectionEval A γ δ s t (ι₀ z) = z := by
-  simp [sectionEval, coefficientHom]
-
-
+    sectionEval A γ δ s t v₀ = t ∧ sectionEval A γ δ s t (ι₀ z) = z := sorry
 -- test: NodeSectionFactorization.PolynomialModel.monicZeroBase
 example [Subsingleton A] : (w₀).Monic := polynomialMonic A γ δ s t
 
@@ -807,54 +702,38 @@ example : (polynomial (ZMod 2) 1 0 0 0).natDegree = 2 :=
 -- test: NodeSectionFactorization.PolynomialModel.regularOverNondomain
 /-- The coefficient ring has zero divisors and the quadratic has zero discriminant. -/
 example : Function.Injective (fun r : Ring (ZMod 4) 0 0 0 0 =>
-    AdjoinRoot.of (polynomial (ZMod 4) 0 0 0 0) Polynomial.X * r) := by
-  simpa [coefficientHom] using sectionCoordinateRegular (ZMod 4) 0 0 0 0
-
+    AdjoinRoot.of (polynomial (ZMod 4) 0 0 0 0) Polynomial.X * r) := sorry
 section IdealCokernelTests
 variable (e : ((Fin 2 → R₀) ⧸ LinearMap.range (Matrix.mulVecLin β₀)) ≃ₗ[R₀] J₀)
 variable (he : ∀ z : Fin 2 → R₀, (e (Submodule.Quotient.mk z) : R₀) = c₀ * z 0 - d₀ * z 1)
 include he in
 -- NodeSectionFactorization.PolynomialModel.idealCokernelFirst
-example : (e (Submodule.Quotient.mk (fun i => if i = 0 then 1 else 0)) : R₀) = c₀ := by
-  sorry
-include he in
+example : (e (Submodule.Quotient.mk (fun i => if i = 0 then 1 else 0)) : R₀) = c₀ := sorry
 -- NodeSectionFactorization.PolynomialModel.idealCokernelSecond
-example : (e (Submodule.Quotient.mk (fun i => if i = 0 then 0 else 1)) : R₀) = -d₀ := by
-  sorry
+example : (e (Submodule.Quotient.mk (fun i => if i = 0 then 0 else 1)) : R₀) = -d₀ := sorry
 -- NodeSectionFactorization.PolynomialModel.idealCokernelZero
-example : e (Submodule.Quotient.mk (0 : Fin 2 → R₀)) = 0 := by
-  sorry
+example : e (Submodule.Quotient.mk (0 : Fin 2 → R₀)) = 0 := sorry
 end IdealCokernelTests
 
 section DualGeneratorTests
 variable (ε : D₀) (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀))
 include hε in
 -- NodeSectionFactorization.PolynomialModel.dualGeneratorSecond
-example : ε ⟨d₀, Ideal.subset_span (Set.mem_insert_of_mem _ (Set.mem_singleton d₀))⟩ = b₀ := by
-  sorry
-
+example : ε ⟨d₀, Ideal.subset_span (Set.mem_insert_of_mem _ (Set.mem_singleton d₀))⟩ = b₀ := sorry
 section NormalCoordinateTests
 variable (e : D₀ ≃ₗ[A] (R₀ × A))
 variable (he : ∀ (p : R₀ × A) (j : J₀), e.symm p j = p.1 * (j : R₀) + ι₀ p.2 * ε j)
 include he in
 -- NodeSectionFactorization.PolynomialModel.normalInclusion
-example (h : D₀) (hh : ∀ j : J₀, h j = (j : R₀)) : e h = (1, 0) := by
-  sorry
-include he in
+example (h : D₀) (hh : ∀ j : J₀, h j = (j : R₀)) : e h = (1, 0) := sorry
 -- NodeSectionFactorization.PolynomialModel.normalGenerator
-example : e ε = (0, 1) := by
-  sorry
+example : e ε = (0, 1) := sorry
 -- NodeSectionFactorization.PolynomialModel.normalRoundTrip
-example (p : R₀ × A) : e (e.symm p) = p := by
-  sorry
-include he in
+example (p : R₀ × A) : e (e.symm p) = p := sorry
 -- NodeSectionFactorization.PolynomialModel.residueGenerator
-example : (e ε).2 = 1 := by
-  sorry
-include he in
+example : (e ε).2 = 1 := sorry
 -- NodeSectionFactorization.PolynomialModel.residueInclusion
-example (h : D₀) (hh : ∀ j : J₀, h j = (j : R₀)) : (e h).2 = 0 := by
-  sorry
+example (h : D₀) (hh : ∀ j : J₀, h j = (j : R₀)) : (e h).2 = 0 := sorry
 end NormalCoordinateTests
 
 section DualCokernelTests
@@ -863,15 +742,11 @@ variable (he : ∀ (z : Fin 2 → R₀) (j : J₀),
   d₀ * e (Submodule.Quotient.mk z) j = (d₀ * z 0 - b₀ * z 1) * (j : R₀))
 include he in
 -- NodeSectionFactorization.PolynomialModel.dualCokernelFirst
-example : e (Submodule.Quotient.mk (fun i => if i = 0 then 1 else 0)) ⟨d₀, Ideal.subset_span (Set.mem_insert_of_mem _ (Set.mem_singleton d₀))⟩ = d₀ := by
-  sorry
-include he in
+example : e (Submodule.Quotient.mk (fun i => if i = 0 then 1 else 0)) ⟨d₀, Ideal.subset_span (Set.mem_insert_of_mem _ (Set.mem_singleton d₀))⟩ = d₀ := sorry
 -- NodeSectionFactorization.PolynomialModel.dualCokernelSecond
-example : e (Submodule.Quotient.mk (fun i => if i = 0 then 0 else 1)) ⟨d₀, Ideal.subset_span (Set.mem_insert_of_mem _ (Set.mem_singleton d₀))⟩ = -b₀ := by
-  sorry
+example : e (Submodule.Quotient.mk (fun i => if i = 0 then 0 else 1)) ⟨d₀, Ideal.subset_span (Set.mem_insert_of_mem _ (Set.mem_singleton d₀))⟩ = -b₀ := sorry
 -- NodeSectionFactorization.PolynomialModel.dualCokernelZero
-example (j : J₀) : e (Submodule.Quotient.mk (0 : Fin 2 → R₀)) j = 0 := by
-  sorry
+example (j : J₀) : e (Submodule.Quotient.mk (0 : Fin 2 → R₀)) j = 0 := sorry
 end DualCokernelTests
 end DualGeneratorTests
 
@@ -880,37 +755,26 @@ variable (K : R₀ →ₗ[A] R₀)
 variable (hK : ∀ r : R₀, d₀ * K r = b₀ * (r - ι₀ (sectionEval A γ δ s t r)))
 include hK in
 -- NodeSectionFactorization.PolynomialModel.correctionFirst
-example : K c₀ = -a₀ := by
-  sorry
-include hK in
+example : K c₀ = -a₀ := sorry
 -- NodeSectionFactorization.PolynomialModel.correctionSecond
-example : K d₀ = b₀ := by
-  sorry
-include hK in
+example : K d₀ = b₀ := sorry
 -- NodeSectionFactorization.PolynomialModel.correctionConstants
-example (z : A) : K (ι₀ z) = 0 := by
-  sorry
+example (z : A) : K (ι₀ z) = 0 := sorry
 end CorrectionTests
 
 -- NodeSectionFactorization.PolynomialModel.mapIdentity
-example : coefficientMap A γ δ s t (RingHom.id A) u₀ = u₀ := by
-  exact congrArg (fun f : R₀ →+* R₀ => f u₀) (coefficientMapIdentity A γ δ s t)
+example : coefficientMap A γ δ s t (RingHom.id A) u₀ = u₀ := sorry
 -- NodeSectionFactorization.PolynomialModel.mapZeroCoefficient
 example {A' : Type*} [CommRing A'] (f : A →+* A') :
-    coefficientMap A γ δ s t f (ι₀ 0) = 0 := by
-  simp [map_zero]
+    coefficientMap A γ δ s t f (ι₀ 0) = 0 := sorry
 -- NodeSectionFactorization.PolynomialModel.mapSectionCoordinates
 example {A' : Type*} [CommRing A'] (f : A →+* A') :
     let ι' := coefficientHom A' (f γ) (f δ) (f s) (f t)
     coefficientMap A γ δ s t f c₀ = AdjoinRoot.root (polynomial A' (f γ) (f δ) (f s) (f t)) - ι' (f s) ∧
-    coefficientMap A γ δ s t f d₀ = AdjoinRoot.of (polynomial A' (f γ) (f δ) (f s) (f t)) Polynomial.X - ι' (f t) := by
-  simp [coefficientMap, coefficientHom]
-
+    coefficientMap A γ δ s t f d₀ = AdjoinRoot.of (polynomial A' (f γ) (f δ) (f s) (f t)) Polynomial.X - ι' (f t) := sorry
 -- NodeSectionFactorization.PolynomialModel.dualZeroBase
 /-- Test: over the zero base both coordinates and the dual have one element. -/
-example [Subsingleton A] : Subsingleton D₀ ∧ Subsingleton (R₀ × A) := by
-  sorry
-
+example [Subsingleton A] : Subsingleton D₀ ∧ Subsingleton (R₀ × A) := sorry
 -- NodeSectionFactorization.PolynomialModel.dualSignThree
 /-- Test: the two generator values retain the minus sign in characteristic three. -/
 example :
@@ -921,9 +785,7 @@ example :
     let v : B := AdjoinRoot.of w Polynomial.X
     let J : Ideal B := Ideal.span {u, v}
     ∃ ε : J →ₗ[B] B,
-      ε ⟨u, by sorry⟩ = -u ∧ ε ⟨v, by sorry⟩ = u ∧ u ≠ -u := by
-  sorry
-
+      ε ⟨u, by sorry⟩ = -u ∧ ε ⟨v, by sorry⟩ = u ∧ u ≠ -u := sorry
 -- NodeSectionFactorization.PolynomialModel.residueNoRingSplit
 /-- Non-example: a residue surjection has no R-linear splitting over a nonzero
 base, although it does have the A-linear splitting supplied by ε. The R-linearity
@@ -933,9 +795,7 @@ example [Nontrivial A] (ρ : D₀ →ₗ[A] A) :
       sectionEval A γ δ s t
     ¬ ∃ σ : A →ₗ[A] D₀,
       (∀ (r : R₀) (z : A), σ (ev r * z) = r • σ z) ∧
-      Function.RightInverse σ ρ := by
-  sorry
-
+      Function.RightInverse σ ρ := sorry
 /-- Test: the dual comparison survives the nonflat coefficient map Z→F₂.
 The rings below are untruncated polynomial quotients, not Artinian substitutes. -/
 example :
@@ -947,9 +807,7 @@ example :
     let J : Ideal B := Ideal.span {AdjoinRoot.root w, AdjoinRoot.of w Polynomial.X}
     let J' : Ideal B' := Ideal.span {AdjoinRoot.root w', AdjoinRoot.of w' Polynomial.X}
     (¬ Module.Flat ℤ (ZMod 2)) ∧
-      Nonempty (((ZMod 2) ⊗[ℤ] (J →ₗ[B] B)) ≃ₗ[ZMod 2] (J' →ₗ[B'] B')) := by
-  sorry
-
+      Nonempty (((ZMod 2) ⊗[ℤ] (J →ₗ[B] B)) ≃ₗ[ZMod 2] (J' →ₗ[B'] B')) := sorry
 -- NodeSectionFactorization.PolynomialModel.quotientCharacteristicTwo
 /-- A characteristic-two test on the quotient, not just on the polynomial products. -/
 example (h2 : (2 : A) = 0) :
@@ -959,9 +817,7 @@ example (h2 : (2 : A) = 0) :
     let u : B := AdjoinRoot.root f
     let v : B := AdjoinRoot.of f Polynomial.X
     LinearMap.ker (left 1 0 u v 0 0).mulVecLin =
-      LinearMap.range (right 1 0 u v 0 0).mulVecLin := by
-  sorry
-
+      LinearMap.range (right 1 0 u v 0 0).mulVecLin := sorry
 end
 
 
@@ -1061,44 +917,33 @@ theorem ambientQuotientFaithfulDetection [Module.FaithfullyFlat (Ring A γ δ s 
 -- Tests of the ideal comparison: evaluation, identity and a degenerate target.
 -- test: NodeSectionFactorization.PolynomialModel.ambientIdealGenerator
 example [Module.Flat (Ring A γ δ s t) B] (j : sectionIdeal A γ δ s t) :
-    (ambientIdealEquiv A γ δ s t B (1 ⊗ₜ[(Ring A γ δ s t)] j) : B) = algebraMap (Ring A γ δ s t) B j := by
-  sorry
+    (ambientIdealEquiv A γ δ s t B (1 ⊗ₜ[(Ring A γ δ s t)] j) : B) = algebraMap (Ring A γ δ s t) B j := sorry
 -- test: NodeSectionFactorization.PolynomialModel.ambientIdealIdentity
 example (r : (Ring A γ δ s t)) (j : sectionIdeal A γ δ s t) :
-    (ambientIdealEquiv A γ δ s t (Ring A γ δ s t) (r ⊗ₜ[(Ring A γ δ s t)] j) : (Ring A γ δ s t)) = r * (j : (Ring A γ δ s t)) := by
-  sorry
+    (ambientIdealEquiv A γ δ s t (Ring A γ δ s t) (r ⊗ₜ[(Ring A γ δ s t)] j) : (Ring A γ δ s t)) = r * (j : (Ring A γ δ s t)) := sorry
 -- test: NodeSectionFactorization.PolynomialModel.ambientIdealZero
-example [Subsingleton B] : Subsingleton (ambientIdeal A γ δ s t B) := by
-  sorry
-
+example [Subsingleton B] : Subsingleton (ambientIdeal A γ δ s t B) := sorry
 -- test: NodeSectionFactorization.PolynomialModel.ambientDualEvaluation
 example [Module.Flat (Ring A γ δ s t) B] (h : sectionDual A γ δ s t) (j : sectionIdeal A γ δ s t) :
     ambientDualEquiv A γ δ s t B (1 ⊗ₜ[(Ring A γ δ s t)] h)
-      (ambientIdealEquiv A γ δ s t B (1 ⊗ₜ[(Ring A γ δ s t)] j)) = algebraMap (Ring A γ δ s t) B (h j) := by
-  sorry
+      (ambientIdealEquiv A γ δ s t B (1 ⊗ₜ[(Ring A γ δ s t)] j)) = algebraMap (Ring A γ δ s t) B (h j) := sorry
 -- test: NodeSectionFactorization.PolynomialModel.ambientDualIdentity
 example (h : sectionDual A γ δ s t) (j : sectionIdeal A γ δ s t) :
     ambientDualEquiv A γ δ s t (Ring A γ δ s t) (1 ⊗ₜ[(Ring A γ δ s t)] h)
-      (ambientIdealEquiv A γ δ s t (Ring A γ δ s t) (1 ⊗ₜ[(Ring A γ δ s t)] j)) = h j := by
-  sorry
+      (ambientIdealEquiv A γ δ s t (Ring A γ δ s t) (1 ⊗ₜ[(Ring A γ δ s t)] j)) = h j := sorry
 -- test: NodeSectionFactorization.PolynomialModel.ambientDualZero
-example [Subsingleton B] : Subsingleton (ambientDual A γ δ s t B) := by
-  sorry
-
+example [Subsingleton B] : Subsingleton (ambientDual A γ δ s t B) := sorry
 -- test: NodeSectionFactorization.PolynomialModel.ambientQuotientMultiplication
 example [Module.Flat (Ring A γ δ s t) B] (b : B) (r : (Ring A γ δ s t)) :
     ambientQuotientEquiv A γ δ s t B
-      (b ⊗ₜ[(Ring A γ δ s t)] Submodule.Quotient.mk (dualMultiplication A γ δ s t r)) = 0 := by
-  sorry
+      (b ⊗ₜ[(Ring A γ δ s t)] Submodule.Quotient.mk (dualMultiplication A γ δ s t r)) = 0 := sorry
 -- test: NodeSectionFactorization.PolynomialModel.ambientQuotientIdentity
 example (h : sectionDual A γ δ s t) :
     ambientQuotientEquiv A γ δ s t (Ring A γ δ s t) (1 ⊗ₜ[(Ring A γ δ s t)] Submodule.Quotient.mk h) =
-      Submodule.Quotient.mk (ambientDualEquiv A γ δ s t (Ring A γ δ s t) (1 ⊗ₜ[(Ring A γ δ s t)] h)) := by
-  sorry
+      Submodule.Quotient.mk (ambientDualEquiv A γ δ s t (Ring A γ δ s t) (1 ⊗ₜ[(Ring A γ δ s t)] h)) := sorry
 -- test: NodeSectionFactorization.PolynomialModel.ambientQuotientAwayFromSection
 example (hd : IsUnit (algebraMap (Ring A γ δ s t) B ((AdjoinRoot.of (polynomial A γ δ s t) (Polynomial.X : Polynomial A)) - (coefficientHom A γ δ s t) t))) :
-    Subsingleton (ambientDualQuotient A γ δ s t B) := by
-  sorry
+    Subsingleton (ambientDualQuotient A γ δ s t B) := sorry
 end AmbientExtension
 
 -- StableReductionPartII:MC.2/section-dual-completion-equivalence
@@ -1147,29 +992,23 @@ variable [IsNoetherianRing (Ring A γ δ s t)] (I : Ideal (Ring A γ δ s t))
 example (r : (Ring A γ δ s t)) :
     completedDualEquiv A γ δ s t I
       (AdicCompletion.of I _ (dualMultiplication A γ δ s t r)) =
-      ambientMultiplication A γ δ s t (AdicCompletion I (Ring A γ δ s t)) (algebraMap (Ring A γ δ s t) _ r) := by
-  sorry
+      ambientMultiplication A γ δ s t (AdicCompletion I (Ring A γ δ s t)) (algebraMap (Ring A γ δ s t) _ r) := sorry
 -- test: NodeSectionFactorization.PolynomialModel.completedDualZero
-example : completedDualEquiv A γ δ s t I 0 = 0 := by
-  sorry
+example : completedDualEquiv A γ δ s t I 0 = 0 := sorry
 -- test: NodeSectionFactorization.PolynomialModel.completedDualEvaluation
 example (h : sectionDual A γ δ s t) (j : sectionIdeal A γ δ s t) :
     completedDualEquiv A γ δ s t I (AdicCompletion.of I _ h)
       (ambientIdealEquiv A γ δ s t (AdicCompletion I (Ring A γ δ s t)) (1 ⊗ₜ[(Ring A γ δ s t)] j)) =
-      algebraMap (Ring A γ δ s t) (AdicCompletion I (Ring A γ δ s t)) (h j) := by
-  sorry
+      algebraMap (Ring A γ δ s t) (AdicCompletion I (Ring A γ δ s t)) (h j) := sorry
 -- test: NodeSectionFactorization.PolynomialModel.completedQuotientMultiplication
 example (r : (Ring A γ δ s t)) :
     completedQuotientEquiv A γ δ s t I
-      (AdicCompletion.of I _ (Submodule.Quotient.mk (dualMultiplication A γ δ s t r))) = 0 := by
-  sorry
+      (AdicCompletion.of I _ (Submodule.Quotient.mk (dualMultiplication A γ δ s t r))) = 0 := sorry
 -- test: NodeSectionFactorization.PolynomialModel.completedQuotientZero
-example : completedQuotientEquiv A γ δ s t I 0 = 0 := by
-  sorry
+example : completedQuotientEquiv A γ δ s t I 0 = 0 := sorry
 -- test: NodeSectionFactorization.PolynomialModel.completedQuotientAwayFromSection
 example (hd : IsUnit (algebraMap (Ring A γ δ s t) (AdicCompletion I (Ring A γ δ s t)) ((AdjoinRoot.of (polynomial A γ δ s t) (Polynomial.X : Polynomial A)) - (coefficientHom A γ δ s t) t))) :
-    Subsingleton (ambientDualQuotient A γ δ s t (AdicCompletion I (Ring A γ δ s t))) := by
-  sorry
+    Subsingleton (ambientDualQuotient A γ δ s t (AdicCompletion I (Ring A γ δ s t))) := sorry
 end CompletionTests
 
 end
@@ -1183,9 +1022,7 @@ example :
     NodeForm.Nondegenerate (1 : ℤ) 0 ∧
     left (1 : ℤ) 0 0 0 0 0 * right 1 0 0 0 0 0 = 0 ∧
     LinearMap.ker (left (1 : ℤ) 0 0 0 0 0).mulVecLin ≠
-      LinearMap.range (right (1 : ℤ) 0 0 0 0 0).mulVecLin := by
-  sorry
-
+      LinearMap.range (right (1 : ℤ) 0 0 0 0 0).mulVecLin := sorry
 end NodeSectionFactorization
 
 -- StableReductionPartII:MC.2/small-extension-coordinate-correction
