@@ -6,8 +6,9 @@ on names and signatures. Nothing here claims an implementation.
 Pinned baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 TauCeti f790474821cf4256814db967cb154e7af3d0c369. The full combined file is NOT
 COMPILED: required Tau Ceti artifacts are unavailable. An exact Mathlib-only affine
-extraction is checked at the Mathlib pin; its six warnings are inherited `sorry`
-declarations. Native proof bodies are planning prototypes, not implementation claims.
+extraction is checked at the Mathlib pin; its warnings are inherited/new admitted planning declarations. The current
+basis continuation stores actual prototype bodies in the immutable proof snapshot
+linked in the handoff; all newly submitted bodies are admitted under PROTOCOL§13. Native proof bodies are planning prototypes, not implementation claims.
 
 The packet is partial. Missing geometric conditions are explicitly omitted, never represented
 by arbitrary proposition parameters or a definition of a proposition by `sorry`. The final
@@ -53,6 +54,9 @@ import Mathlib.Algebra.Polynomial.RingDivision
 import Mathlib.Algebra.Algebra.Subalgebra.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.NormNum
+import Mathlib.Algebra.Polynomial.Basis
+import Mathlib.LinearAlgebra.Basis.Prod
+import Mathlib.Tactic.ComputeDegree
 import Mathlib.Algebra.Polynomial.Degree.Lemmas
 import Mathlib.Algebra.Polynomial.AlgebraMap
 import Mathlib.Algebra.Algebra.Subalgebra.Lattice
@@ -1178,6 +1182,110 @@ example : algebra (Polynomial.X ^ 2 : k[X]) =
     Algebra.adjoin k ({Polynomial.X ^ 2, Polynomial.X ^ 3} : Set k[X]) := by
   simpa [pow_succ, mul_assoc] using (generation (0 : k) 0)
 
+-- Quadratic coordinate/basis continuation.
+lemma quadratic_natDegree (a b : k) :
+    (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b).natDegree = 2 := by sorry
+
+-- node: G.1/quadratic-pinch-coordinate-map
+def coordinateMap (a b : k) :
+    (k[X] × k[X]) →ₗ[k]
+      algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b) := by sorry
+
+lemma coordinateMap_coe (a b : k) (z : k[X] × k[X]) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    (coordinateMap a b z : k[X]) = z.1.comp q + Polynomial.X * q * z.2.comp q := by sorry
+
+lemma coordinateMap_bijective (a b : k) : Function.Bijective (coordinateMap a b) := by sorry
+
+-- node: G.1/quadratic-pinch-coordinates
+def coordinates (a b : k) :
+    (k[X] × k[X]) ≃ₗ[k]
+      algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b) := by sorry
+
+lemma coordinates_coe (a b : k) (z : k[X] × k[X]) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    (coordinates a b z : k[X]) = z.1.comp q + Polynomial.X * q * z.2.comp q := by sorry
+
+lemma coordinates_symm_normal_form (a b : k)
+    (f : algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b)) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    (f : k[X]) = ((coordinates a b).symm f).1.comp q +
+      Polynomial.X * q * ((coordinates a b).symm f).2.comp q := by sorry
+
+lemma coordinates_unique (a b : k)
+    (f : algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b))
+    (z : k[X] × k[X]) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    (f : k[X]) = z.1.comp q + Polynomial.X * q * z.2.comp q ↔
+      (coordinates a b).symm f = z := by sorry
+
+-- node: G.1/quadratic-pinch-basis
+def basis (a b : k) : Module.Basis (ℕ ⊕ ℕ) k
+    (algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b)) := by sorry
+
+lemma basis_inl (a b : k) (n : ℕ) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    (basis a b (Sum.inl n) : k[X]) = q ^ n := by sorry
+
+lemma basis_inr (a b : k) (n : ℕ) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    (basis a b (Sum.inr n) : k[X]) = Polynomial.X * q ^ (n + 1) := by sorry
+
+-- node: G.1/quadratic-pinch-basis-repr
+lemma basis_repr (a b : k)
+    (f : algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b))
+    (n : ℕ) :
+    (basis a b).repr f (Sum.inl n) = ((coordinates a b).symm f).1.coeff n ∧
+    (basis a b).repr f (Sum.inr n) = ((coordinates a b).symm f).2.coeff n := by sorry
+
+lemma basis_reconstruction (a b : k)
+    (f : algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b)) :
+    Finsupp.linearCombination k (basis a b) ((basis a b).repr f) = f := by sorry
+
+lemma basis_degrees (a b : k) (n : ℕ) :
+    (basis a b (Sum.inl n) : k[X]).natDegree = 2 * n ∧
+    (basis a b (Sum.inr n) : k[X]).natDegree = 2 * (n + 1) + 1 := by sorry
+
+-- test: QuadraticPinch.test_basis_cusp
+example (n : ℕ) :
+    (basis (0 : k) 0 (Sum.inl n) : k[X]) = Polynomial.X ^ (2 * n) ∧
+    (basis (0 : k) 0 (Sum.inr n) : k[X]) = Polynomial.X ^ (2 * n + 3) := by sorry
+
+-- test: QuadraticPinch.test_coordinates_inseparable
+example (P Q : (ZMod 2)[X]) :
+    (coordinates (0 : ZMod 2) 0).symm (coordinates 0 0 (P, Q)) = (P, Q) := by sorry
+
+-- test: QuadraticPinch.test_basis_char2_cross_term
+example :
+    (basis (1 : ZMod 2) 1 (Sum.inl 1) : (ZMod 2)[X]).coeff 1 = 1 := by sorry
+
+-- test: QuadraticPinch.test_basis_unit_zero
+example :
+    (basis (0 : k) 0 (Sum.inl 0) : k[X]) = 1 ∧
+    (coordinates (0 : k) 0).symm 0 = (0, 0) := by sorry
+
+-- test: QuadraticPinch.test_coordinates_not_multiplicative
+example :
+    (coordinates (0 : k) 0 ((0, 1) * (0, 1)) : k[X]) ≠
+      (coordinates (0 : k) 0 (0, 1) : k[X]) * (coordinates (0 : k) 0 (0, 1) : k[X]) := by sorry
+
+-- test: QuadraticPinch.test_map_zero
+example (a b : k) : coordinateMap a b (0, 0) = 0 := by sorry
+
+-- test: QuadraticPinch.test_map_char2_generators
+example :
+    (coordinateMap (1 : ZMod 2) 1 (Polynomial.X, 0) : (ZMod 2)[X]) =
+      Polynomial.X ^ 2 + Polynomial.X + 1 ∧
+    (coordinateMap (1 : ZMod 2) 1 (0, 1) : (ZMod 2)[X]) =
+      Polynomial.X * (Polynomial.X ^ 2 + Polynomial.X + 1) := by sorry
+
+-- test: QuadraticPinch.test_map_not_identity
+example : (coordinateMap (0 : k) 0 (Polynomial.X, 0) : k[X]) ≠ Polynomial.X := by sorry
+
+-- test: QuadraticPinch.test_basis_no_degree_one
+example (a b : k) (i : ℕ ⊕ ℕ) : (basis a b i : k[X]).natDegree ≠ 1 := by sorry
+
+
 -- test: QuadraticPinch.test_split
 example (h : (2 : k) ≠ 0) (f : k[X]) :
     f ∈ algebra (Polynomial.X ^ 2 - 1) ↔ f.eval 1 = f.eval (-1) := by sorry
@@ -1406,10 +1514,11 @@ end TauCeti.GenusOne.QuadraticPinch
 These targets are mathematical nodes in the reader, with their proof outlines and
 supplier requests. They have no invented Prop fields or opaque geometric predicates.
 
-* QuadraticPinch.generation: its adjoin equality is proved above. The reader's
-  complete vector-space Basis, native coefficient representation and degree-family
-  statement are not yet signatures here. Pinch spanning and uniqueness do not by
-  themselves construct that Basis object.
+* QuadraticPinch.generation: the inherited adjoin equality is proved above. The
+  native k-linear coordinates, actual Module.Basis, coefficient reconstruction and
+  exact degree-family signatures now appear above, admitted under PROTOCOL§13.
+  Their separately checked prototype uses the existing native subalgebra. A
+  k[q]-module instance/freeness interface is not yet supplied.
 * QuadraticPinch.presentation: the full range/kernel signature is above, admitted.
   Add native bivariate transport, monic division in V, and the canonical first-
   isomorphism/quotient map. Pinch normal-form injectivity certifies only that a

@@ -4,7 +4,7 @@ Genus-one fibrations, Ferrand pinching and rational elliptic surfaces
 
 This continuation supplies the genus-one and rational-Jacobian mathematics routed from Schröer’s paper. It begins with reusable finite pinching, passes through regular models and finite-field fiber descent, constructs global Weierstrass equations, and separates the fourteen explicit characteristic-two candidates from their exhaustiveness theorem. Its general definition of Ferrand pushouts is also needed by Witaszek’s conductor and line-bundle descent. The reserved owner is `NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts`.
 
-**Status: partial design.** Codex `codex-a71f92`, Refs #3378. The packet has158 declarations: twelve definitions, three constructions,112 lemmas,26 theorems and five comparisons;61 API entries,60 definition/construction tests,29 planets,98 baseline declarations,17 gaps and23 requests. All154 inherited IDs/statements,78 routed items and21 source findings remain. Four quadratic normal-form helpers, an actual polynomial spanning API and the generation/cusp identities now have native proofs. The complete Basis interface, bivariate presentation kernel and geometric normalization remain open. The full suggested file is uncompiled; only the exact Mathlib-only affine extraction is checked. All implementation statuses stay unchecked and all seven stages remain partial. No full model or formalisation claim.
+**Status: partial design.** Codex `codex-5ebb6f`, Refs #3378. The packet has 163 declarations: 13 definitions, 5 constructions, 114 lemmas, 26 theorems and 5 comparisons; 72 API entries, 70 definition/construction test entries,29 planets,110 baseline declarations,17 gaps and23 requests. All158 inherited IDs/statements,78 routed items and21 source findings remain. Five specialized coordinate/Basis nodes complete the native vector-space basis, coefficient reconstruction and degree interface for the existing quadratic generation claim. Nine distinct new typed examples and a separate proof prototype are checked. The bivariate presentation and geometric normalization remain open. The full suggested file is uncompiled; its exact Mathlib-only extraction is checked. All statuses remain unchecked and all seven stages remain partial.
 
 ## Conventions and boundaries
 
@@ -4232,3 +4232,137 @@ The native cusp equality is also proved via generation with a=b=0. The extractio
 
 Fresh reading by Codex codex-a71f92: parsed Schröer §3 mathematical text, printed pp9–11, and Stacks0ECH Situation37.67.1 plus1–5 and their displayed proofs. PDF screenshot attempts failed; no fresh visual-diagram verification, full-paper reading, or rerun of the predecessor's133,830 finite assertions is claimed. The reviewed parent R11.1–R11.6/SF.0 audit, reserved Ferrand entry, accepted RS-25 owner boundaries and current atlas/link inputs were read. All17 gap groups and23 requests remain; no supplier or atlas files change.
 
+
+
+## Current quadratic-pinch basis checkpoint
+
+This section supersedes the preceding native Basis omission only. Historical receipts keep their attribution. Throughout, k is an arbitrary field, q=t²+at+b and A_q is the already defined native scalar-preimage subalgebra. No separability or characteristic restriction is imposed. General basis, product, equivalence and polynomial machinery comes from the pinned library.
+
+### Linear coordinates in a quadratic pinch
+
+`QuadraticPinch.coordinateMap` · `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinate-map`
+
+For any field k and a,b∈k, put q=t²+at+b and A_q={f∈k[t]:f mod q is scalar}, the existing native Subalgebra. Define the actual k-linear map M_(a,b):k[t]×k[t]→A_q by (P,Q)↦P(q)+tqQ(q). The product has its ordinary componentwise k-module structure. This is a linear map, not an algebra homomorphism.
+
+1. The elements u=q and v=tq belong to A_q by its membership criterion, with witnesses (0,1) and (0,t). Use native aeval at u into A_q to define M(P,Q)=aeval_u(P)+v·aeval_u(Q). This construction proves membership without assuming the generation theorem or constructing a new carrier.
+
+2. The two aeval maps are k-linear, and multiplication by fixed v is k-linear. Their sum on the product proves addition and scalar laws. aeval_subalgebra_coe and comp_eq_aeval give the exact ambient polynomial formula.
+
+3. The monic displayed quadratic has native natural degree2 in every characteristic. The generic degree machinery is already in Mathlib; quadratic_natDegree is just this coefficient-specific helper.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra`, `mathlib:Polynomial.aeval`, `mathlib:Polynomial.aeval_subalgebra_coe`, `mathlib:Polynomial.comp_eq_aeval`.
+
+API:
+
+- `QuadraticPinch.quadratic_natDegree`: natDegree(t²+at+b)=2 over every field, including a=b=0 and characteristic2.
+- `QuadraticPinch.coordinateMap_coe`: The ambient polynomial of M_(a,b)(P,Q) is P(q)+tqQ(q).
+- `QuadraticPinch.coordinateMap_bijective`: The actual coordinateMap is bijective; this assertion is promoted to quadratic-pinch-coordinate-bijective.
+
+Typed acceptance tests:
+
+- `QuadraticPinch.test_map_zero` (degenerate): M_(a,b)(0,0)=0 for arbitrary a,b over any field.
+- `QuadraticPinch.test_map_char2_generators` (computation): For k=F₂ and q=t²+t+1, M(t,0)=q and M(0,1)=tq as actual polynomials.
+- `QuadraticPinch.test_map_not_identity` (non-example): For q=t² over any field, M(t,0)=t²≠t. The first coordinate evaluates at q, not at t.
+
+Source: [Schröer v3](https://arxiv.org/html/2004.07025v3), §3 conductor paragraphs and Proposition3.2. Literal anchor: “conductor square”. These are derived affine coordinate adapters, not printed numbered results.
+
+### Bijectivity of affine pinch coordinates
+
+`QuadraticPinch.coordinateMap_bijective` · `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinate-bijective`
+
+For every field k and a,b∈k, the actual k-linear map M_(a,b):(k[t]×k[t])→A_(t²+at+b) is bijective. There is no separability or characteristic hypothesis.
+
+1. Coerce equality of two outputs into the ambient polynomial ring. coordinateMap_coe turns it into equality of P(q)+tqQ(q); quadratic-pinch-normal-form-injective with quadratic_natDegree gives equality of both inputs.
+
+2. For a native element f of A_q, use the existing pinch_spanning API to obtain P,Q with f=P(q)+tqQ(q). The ambient formula and Subtype.ext give M(P,Q)=f.
+
+3. This combines the specialized existence and uniqueness already planned here; generic bijective-map-to-equivalence machinery is imported from the library.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinate-map`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normal-form-injective`.
+
+Source: [Schröer v3](https://arxiv.org/html/2004.07025v3), §3 conductor paragraphs and Proposition3.2. Literal anchor: “conductor square”. These are derived affine coordinate adapters, not printed numbered results.
+
+### Canonical linear equivalence for a quadratic pinch
+
+`QuadraticPinch.coordinates` · `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinates`
+
+For every field k and a,b∈k, define e_(a,b):(k[t]×k[t])≃ₗ[k]A_(t²+at+b) as native LinearEquiv.ofBijective of the actual coordinateMap and its bijectivity proof. Its inverse assigns to f the unique polynomial pair (P,Q) with f=P(q)+tqQ(q). This is only a k-linear equivalence; componentwise pair multiplication is not transported unchanged.
+
+1. Apply the existing LinearEquiv.ofBijective to M and the previous bijectivity theorem. No separately axiomatized inverse, new module structure or separability predicate is introduced.
+
+2. ofBijective_apply gives the ambient formula e(P,Q)=P(q)+tqQ(q). Apply that formula to e⁻¹(f), then the native inverse law, to reconstruct f.
+
+3. Native left and right inverse laws make the coordinates unique. For q=t², e(0,1)=t³, while e((0,1)²)=t³ differs from e(0,1)²=t⁶; the construction cannot be strengthened to a product AlgEquiv.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinate-map`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinate-bijective`, `mathlib:LinearEquiv.ofBijective`, `mathlib:LinearEquiv.ofBijective_apply`.
+
+API:
+
+- `QuadraticPinch.coordinates_coe`: For q=t²+at+b, the ambient value of e(P,Q) is P(q)+tqQ(q).
+- `QuadraticPinch.coordinates_symm_normal_form`: If (P,Q)=e⁻¹(f), the actual ambient polynomial f is P(q)+tqQ(q). The inverse is the unique normal-form coordinate assignment.
+- `QuadraticPinch.coordinates_unique`: For any native f∈A_q and pair (P,Q), f=P(q)+tqQ(q) iff e⁻¹(f)=(P,Q).
+
+Typed acceptance tests:
+
+- `QuadraticPinch.test_coordinates_inseparable` (compatibility): Over F₂ at q=t², e⁻¹(e(P,Q))=(P,Q) for every pair of actual polynomials.
+- `QuadraticPinch.test_basis_unit_zero` (degenerate): For q=t² over any field, the left index0 basis vector is1 and e⁻¹(0)=(0,0).
+- `QuadraticPinch.test_coordinates_not_multiplicative` (non-example): For q=t² over any field, e((0,1)·(0,1))=t³ differs from e(0,1)·e(0,1)=t⁶. The equivalence is linear and not multiplicative for the native componentwise product.
+
+Source: [Schröer v3](https://arxiv.org/html/2004.07025v3), §3 conductor paragraphs and Proposition3.2. Literal anchor: “conductor square”. These are derived affine coordinate adapters, not printed numbered results.
+
+### Native vector-space basis of a quadratic pinch
+
+`QuadraticPinch.basis` · `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-basis`
+
+For every field k and q=t²+at+b, construct an actual native Module.Basis (ℕ⊕ℕ) k A_q by mapping the product of the two native polynomial monomial bases through e_(a,b). The vectors are b(inl n)=q^n and b(inr n)=tq^(n+1). Thus the left index0 is1, the positive left indices have degrees2,4,…, and the right indices have degrees3,5,… . This is a basis of the existing subalgebra as a k-vector space, not a k[q]-module instance or a mere spanning-family assertion.
+
+1. Use Polynomial.basisMonomials twice, the existing Module.Basis.prod to obtain a basis of k[t]×k[t] indexed by ℕ⊕ℕ, and Module.Basis.map along e to obtain a basis of A_q.
+
+2. prod_apply, coe_basisMonomials and coordinates_coe evaluate the two summand vectors. The first is q^n; the second is tq·q^n=tq^(n+1). This treats left index0 explicitly.
+
+3. The generic linearCombination_repr gives reconstruction by the native finitely supported coordinates. Infinite index sets require Finsupp.linearCombination, not a sum over a nonexistent finite enumeration.
+
+4. natDegree_pow and natDegree_X_mul, using q≠0 and natDegree(q)=2, give degrees2n and2(n+1)+1. Every basis vector avoids natural degree1, but a basis vector can have nonzero coefficient of t, as q=t²+t+1 over F₂ demonstrates.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinates`, `mathlib:Polynomial.basisMonomials`, `mathlib:Polynomial.coe_basisMonomials`, `mathlib:Module.Basis.prod`, `mathlib:Module.Basis.prod_apply`, `mathlib:Module.Basis.map`, `mathlib:Module.Basis.linearCombination_repr`, `mathlib:Polynomial.natDegree_pow`, `mathlib:Polynomial.natDegree_X_mul`.
+
+API:
+
+- `QuadraticPinch.basis_inl`: For all n≥0, the ambient image of b(inl n) is q^n; n=0 gives1.
+- `QuadraticPinch.basis_inr`: For all n≥0, the ambient image of b(inr n) is tq^(n+1); n=0 gives tq.
+- `QuadraticPinch.basis_repr`: For f∈A_q, if e⁻¹(f)=(P,Q), b.repr(f)(inl n)=coeff_n(P) and b.repr(f)(inr n)=coeff_n(Q); promoted to quadratic-pinch-basis-repr.
+- `QuadraticPinch.basis_reconstruction`: Finsupp.linearCombination k b (b.repr f)=f in the actual subalgebra, for every f.
+- `QuadraticPinch.basis_degrees`: The natural degrees of the ambient basis vectors are2n and2(n+1)+1. All n, including0, are allowed; q is nonzero.
+
+Typed acceptance tests:
+
+- `QuadraticPinch.test_basis_cusp` (computation): For q=t² over any field, b(inl n)=t^(2n) and b(inr n)=t^(2n+3) for every n.
+- `QuadraticPinch.test_basis_char2_cross_term` (non-example): For k=F₂ and q=t²+t+1, the actual ambient b(inl1) has coefficient1 at t. Absence of a degree1 basis vector does not mean all degree1 coefficients vanish.
+- `QuadraticPinch.test_basis_unit_zero` (degenerate): For q=t² over any field, the left index0 basis vector is1 and e⁻¹(0)=(0,0).
+- `QuadraticPinch.test_basis_no_degree_one` (characterisation): For every a,b over any field and every i∈ℕ⊕ℕ, the actual ambient b(i) has natural degree unequal to1.
+
+Source: [Schröer v3](https://arxiv.org/html/2004.07025v3), §3 conductor paragraphs and Proposition3.2. Literal anchor: “conductor square”. These are derived affine coordinate adapters, not printed numbered results.
+
+### Polynomial coefficients are the pinch basis coordinates
+
+`QuadraticPinch.basis_repr` · `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-basis-repr`
+
+For any field k, a,b∈k, f∈A_(t²+at+b) and n≥0, put (P,Q)=e_(a,b)⁻¹(f). The actual native basis representation satisfies b.repr(f)(inl n)=P.coeff(n) and b.repr(f)(inr n)=Q.coeff(n). This is an equality of the existing finitely supported representation coordinates, not a freely chosen coefficient map.
+
+1. Unfold Basis.map: its repr first applies e⁻¹ and then the product basis repr.
+
+2. prod_repr_inl and prod_repr_inr select the two polynomial coordinates. The native polynomial monomial basis uses the polynomial coefficient linear equivalence; its repr at n is coeff_n by definition.
+
+3. Both equalities are definitional in the pinned library and the prototype proofs are reflexivity. With the basis reconstruction API they supply the exact coefficient interface previously absent from quadratic-pinch-generation.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-basis`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinates`, `mathlib:Module.Basis.prod_repr_inl`, `mathlib:Module.Basis.prod_repr_inr`.
+
+Source: [Schröer v3](https://arxiv.org/html/2004.07025v3), §3 conductor paragraphs and Proposition3.2. Literal anchor: “conductor square”. These are derived affine coordinate adapters, not printed numbered results.
+
+### Refined generation proof and remaining boundary
+
+The statement and ID of `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation` are preserved. Its current proof now uses `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-basis` and `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-basis-repr` to supply the advertised basis1,qⁱ,tqʲ and its exact coefficients. The two sum-indexed families avoid degree1; this is a statement about whole polynomial degrees, not about the coefficient of t. The F₂ cross-term example rejects that tempting stronger assertion.
+
+Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The complete bivariate presentation kernel/quotient comparison, finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. A k[q]-module instance/freeness interface is not constructed. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked.
+
+New pinned baseline statements: `mathlib:Polynomial.basisMonomials`, `mathlib:Polynomial.coe_basisMonomials`, `mathlib:Module.Basis.prod`, `mathlib:Module.Basis.prod_apply`, `mathlib:Module.Basis.prod_repr_inl`, `mathlib:Module.Basis.prod_repr_inr`, `mathlib:Module.Basis.map`, `mathlib:Module.Basis.linearCombination_repr`, `mathlib:LinearEquiv.ofBijective`, `mathlib:LinearEquiv.ofBijective_apply`, `mathlib:Polynomial.natDegree_pow`, `mathlib:Polynomial.aeval`. Each was read at the exact pin. The source reading is limited to the v3 HTML conductor paragraphs and displayed Prop3.1–3.2 proofs, plus the Stacks0ECH scheme-existence scope/Prop37.67.3 proof; no fresh PDF rendering, whole-paper collation or finite-field model certificate rerun is claimed. All inherited source findings, requests, routes, planets and the general reserved Ferrand owner remain unchanged.
