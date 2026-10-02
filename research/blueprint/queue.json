@@ -38667,7 +38667,8 @@
     "REV-PAPER-DEMARCO-MAVRAKI-YE-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DEMARCO-MAVRAKI-YE-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4202"
   },
   {
    "id": "REV-RT-PAPER-DEMARCO-MAVRAKI-YE-26",
@@ -39846,7 +39847,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5525"
   },
   {
    "id": "RT-PAPER-ATOBE-KONDO-YASUDA-22",
@@ -39910,8 +39912,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-ATOBE-KONDO-YASUDA-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5526"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5526",
+   "finishedAt": "2026-10-02T00:32:15Z"
   },
   {
    "id": "RT-PAPER-HE-21",
@@ -41370,8 +41373,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CHENEVIER-TAIBI-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5534"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5534",
+   "finishedAt": "2026-10-02T00:32:18Z"
   },
   {
    "id": "RT-PAPER-BENOIST-19",
@@ -43763,7 +43767,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-STEVENS-08.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5539"
   },
   {
    "id": "RT-PAPER-LUST-STEVENS-20",
