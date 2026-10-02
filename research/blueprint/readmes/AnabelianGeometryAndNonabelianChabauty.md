@@ -2700,3 +2700,200 @@ The S₂→S₃ example uses the actual finite permutation groups, discrete topo
 Current frontier: Actual H¹ inflation on the native gauge-orbit set, its representative/basepoint formulas and same-N injectivity/neutral-point reflection are now supplied. Joint continuity of the native quotient action on U^N is an explicit hypothesis; the additive native continuous-action helper is not a general multiplicative proof. Still establish that continuity in any intended broader coefficient topology, actual restriction and image=neutral restriction fibre, reverse-inclusion transitions and compact-discrete filtered-colimit bijection, and genuine additive cocycle comparison. All inherited representability, local-condition, source-proof, API/granularity and geometric obligations remain open. The reserved étale K(π,1) contract, all nine pre-existing gaps, sixteen requests, eleven planet objects, every routed source inventory and the RT-AREA-algebraicgeometry/8 A2 Néron–Severi ownership remain binding. Generic height/mixed-extension/local-term work remains with its shared Part II owner; no reverse NC.5 or NC.3→NC.0 dependency is added. The previous reader sections describe their historical checkpoint frontier; this paragraph is the current inflation frontier.
 
 The independently downloaded [exact Kim v1 PDF](https://arxiv.org/pdf/math/0409456v1) retains SHA25600efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941. Fresh reading covers the full continuous-cocycle and gauge-orbit definitions on p.6 and Proposition1 statement on p.5; no full-paper reading, published-version collation, new erratum or torsor-classification closure is claimed.
+
+
+## NC.3 continuation: the neutral restriction fibre
+
+This continuation proves pointed-set inflation–restriction for arbitrary normal N under the explicit joint-continuous native quotient-action hypothesis. All earlier checkpoint descriptions are historical; the frontier below supersedes their D4-open wording. H¹ remains the actual gauge-orbit quotient of continuous ordered nonabelian cocycles. No Selmer variety, dimension theorem, torsor-classification proof or geometric étale comparison is inferred.
+
+### Restriction of continuous nonabelian cocycles
+
+Declaration: TauCeti.NonabelianCohomology.Z1.restrict. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction.
+
+Construct res_N:Z¹(G,U)→Z¹(N,U) by res_N(c)(n)=c(n), using the actual subgroup inclusion and restricted action. This keeps continuity and the ordered cocycle law.
+
+Hypotheses: G is a group endowed with a topology; U is a group endowed with a topology and G acts on U by group automorphisms. N is an arbitrary subgroup with its native subtype topology and restricted action.
+
+Proof: Compose the actual continuous cocycle with native subgroup inclusion. The inherited automorphism action on N evaluates through that inclusion; the ordered cocycle law specializes to n,m∈N.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles, mathlib:continuous_subtype_val, mathlib:Continuous.comp.
+
+Acceptance: Restriction is genuine evaluation on the subgroup, not a constant cocycle. The bottom subgroup sees only c(1)=1.
+
+- API: TauCeti.NonabelianCohomology.Z1.restrict_apply. For n∈N, res_N(c)(n)=c(n) through native subgroup inclusion.
+- API: TauCeti.NonabelianCohomology.Z1.restrict_one. Restriction sends the identity cocycle to the identity cocycle.
+- API: TauCeti.NonabelianCohomology.Z1.restrict_smul. Under the stronger joint-continuous action/topological-group hypotheses, restriction commutes with every U-gauge action: res_N(x·c)=x·res_N(c).
+
+- Unit test: TauCeti.NonabelianCohomology.Z1.restrict.test_one. Restriction of the identity cocycle to any subgroup is the identity cocycle.
+- Unit test: TauCeti.NonabelianCohomology.Z1.restrict.test_subgroup_value. At any actual subgroup element n, restriction evaluates to the original c(n).
+- Unit test: TauCeti.NonabelianCohomology.Z1.restrict.test_bottom. Every cocycle restricts to the identity cocycle on N={1}.
+
+- Use: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-restriction. Supplies the actual continuous restricted cocycle whose orbit class defines restriction.
+- Use: AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction-inflation. Tests actual inflation at each subgroup element.
+
+Source: [Kim, exact arXiv v1](https://arxiv.org/pdf/math/0409456v1), §1 pp.5–6, for continuous cocycle and gauge definitions. The restriction, normalization and fibre arguments are authored deductions from these definitions and the listed interfaces, not numbered theorems attributed to Kim.
+
+### Gauge equivariance of cocycle restriction
+
+Declaration: TauCeti.NonabelianCohomology.Z1.restrict_smul. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction-equivariance.
+
+For x∈U and c∈Z¹(G,U), res_N(x·c)=x·res_N(c). The gauge element belongs to all U, not necessarily U^N.
+
+Hypotheses: G is a group endowed with a topology; U is a group endowed with a topology and G acts on U by group automorphisms. N is an arbitrary subgroup with its native subtype topology and restricted action. U is a topological group and the joint G-action on U is continuous. No normality, compactness, openness, closedness, discreteness or commutativity is required for restriction and inverse-gauge normalization.
+
+Proof: Native restricted scalar multiplication evaluates through subgroup inclusion. Both cocycle values are x c(n)(n•x)⁻¹; equality is definitional.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction, AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1, mathlib:Subgroup.continuousSMul.
+
+Acceptance: A non-N-fixed witness is allowed; imposing fixedness here would change restriction on classes.
+
+Source: [Kim, exact arXiv v1](https://arxiv.org/pdf/math/0409456v1), §1 pp.5–6, for continuous cocycle and gauge definitions. The restriction, normalization and fibre arguments are authored deductions from these definitions and the listed interfaces, not numbered theorems attributed to Kim.
+
+### Neutral class as an actual coboundary
+
+Declaration: TauCeti.NonabelianCohomology.H1.mk_eq_one_iff. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-neutral-criterion.
+
+For any actual continuous cocycle c, [c]=1 if and only if there is x∈U with c(g)=x(g•x)⁻¹ for all g. This promotes the existing H¹ API for its use on the restricted cocycle.
+
+Hypotheses: G is a group endowed with a topology; U is a group endowed with a topology and G acts on U by group automorphisms. N is an arbitrary subgroup with its native subtype topology and restricted action. U is a topological group and the joint G-action on U is continuous. No normality, compactness, openness, closedness, discreteness or commutativity is required for restriction and inverse-gauge normalization.
+
+Proof: Apply the genuine orbit criterion with the identity cocycle as source. Evaluate the actual gauge action on that cocycle and use cocycle extensionality for the converse.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-orbit-criterion.
+
+Acceptance: Neutrality is gauge triviality; it does not require the chosen representing function to equal1.
+
+Source: [Kim, exact arXiv v1](https://arxiv.org/pdf/math/0409456v1), §1 pp.5–6, for continuous cocycle and gauge definitions. The restriction, normalization and fibre arguments are authored deductions from these definitions and the listed interfaces, not numbered theorems attributed to Kim.
+
+### Gauge invariance of the cohomology class
+
+Declaration: TauCeti.NonabelianCohomology.H1.mk_smul. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-gauge-class.
+
+For every x∈U and c∈Z¹(G,U), [x·c]=[c].
+
+Hypotheses: G is a group endowed with a topology; U is a group endowed with a topology and G acts on U by group automorphisms. N is an arbitrary subgroup with its native subtype topology and restricted action. U is a topological group and the joint G-action on U is continuous. No normality, compactness, openness, closedness, discreteness or commutativity is required for restriction and inverse-gauge normalization.
+
+Proof: The existing orbit criterion identifies [c] and [x·c] using the actual witness x; reverse the equality.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-orbit-criterion.
+
+Acceptance: This is invariance under the whole coefficient gauge group, without an abelian quotient law.
+
+Source: [Kim, exact arXiv v1](https://arxiv.org/pdf/math/0409456v1), §1 pp.5–6, for continuous cocycle and gauge definitions. The restriction, normalization and fibre arguments are authored deductions from these definitions and the listed interfaces, not numbered theorems attributed to Kim.
+
+### Inverse-gauge normalization on a subgroup
+
+Declaration: TauCeti.NonabelianCohomology.Z1.normalize_trivialOn. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-inverse-gauge-normalization.
+
+If c(n)=x(n•x)⁻¹ for every n∈N, then (x⁻¹·c)(n)=1 for every n∈N. This constructs a representative identically1 on the same N.
+
+Hypotheses: G is a group endowed with a topology; U is a group endowed with a topology and G acts on U by group automorphisms. N is an arbitrary subgroup with its native subtype topology and restricted action. U is a topological group and the joint G-action on U is continuous. No normality, compactness, openness, closedness, discreteness or commutativity is required for restriction and inverse-gauge normalization.
+
+Proof: Evaluate the gauge formula at n and substitute the given coboundary formula: x⁻¹ x (n•x)⁻¹ (n•x⁻¹)⁻¹=1. Automorphisms preserve inverses; cancel in the given factor order.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1.
+
+Acceptance: The inverse of x is essential. For G=ConjAct(S₃), U=S₃, both discrete, x=(01)(12) and c=x·1, the cocycle x⁻¹·c is1 but x·c is not1. No commutativity or order-two simplification is used.
+
+- Unit test: TauCeti.NonabelianCohomology.Z1.normalize_trivialOn.test_inverse_gauge. For discrete U=S₃ and G=ConjAct(U), let x=(01)(12) and c=x·1. Then x⁻¹·c=1 and x·c≠1; evaluating at the conjugating transposition(01) detects the latter.
+
+Source: [Kim, exact arXiv v1](https://arxiv.org/pdf/math/0409456v1), §1 pp.5–6, for continuous cocycle and gauge definitions. The restriction, normalization and fibre arguments are authored deductions from these definitions and the listed interfaces, not numbered theorems attributed to Kim.
+
+### Restriction of nonabelian cohomology classes
+
+Declaration: TauCeti.NonabelianCohomology.H1.restrict. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-restriction.
+
+Construct the pointed-set map res_N:H¹(G,U)→H¹(N,U) sending [c] to [res_N(c)]. It uses the native gauge-orbit quotients and the whole U-gauge action on both sides.
+
+Hypotheses: G is a group endowed with a topology; U is a group endowed with a topology and G acts on U by group automorphisms. N is an arbitrary subgroup with its native subtype topology and restricted action. U is a topological group and the joint G-action on U is continuous. No normality, compactness, openness, closedness, discreteness or commutativity is required for restriction and inverse-gauge normalization.
+
+Proof: Lift c↦[res_N(c)] through the genuine orbit quotient. Its native relation c=x·d and restriction equivariance give [res_N(c)]=[x·res_N(d)]=[res_N(d)]. Representative evaluation is the quotient-lift computation. Identity-cocycle restriction proves basepoint preservation.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction, AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction-equivariance, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-gauge-class, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-neutral-criterion, AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1, mathlib:Subgroup.continuousSMul, mathlib:MulAction.orbitRel_apply, mathlib:MulAction.mem_orbit_iff.
+
+Acceptance: Restricting to the top subgroup detects the neutral class. A neutral restricted class can have a nonidentity restricted representing cocycle.
+
+- API: TauCeti.NonabelianCohomology.H1.restrict_mk. Restriction of [c] is the actual class of res_N(c).
+- API: TauCeti.NonabelianCohomology.H1.restrict_one. Restriction preserves the distinguished point.
+- API: TauCeti.NonabelianCohomology.H1.restrict_mk_eq_one_iff. For an actual representing cocycle c, res_N([c])=1 if and only if there is x∈U with c(n)=x(n•x)⁻¹ for every n∈N.
+
+- Unit test: TauCeti.NonabelianCohomology.H1.restrict.test_one. Restriction of the distinguished class to any subgroup is distinguished.
+- Unit test: TauCeti.NonabelianCohomology.H1.restrict.test_gauge. For x∈U, restricting [x·c] gives the same class as restricting [c].
+- Unit test: TauCeti.NonabelianCohomology.H1.restrict.test_bottom. Every H¹ class restricts to the distinguished point on N={1}.
+- Unit test: TauCeti.NonabelianCohomology.H1.restrict.test_top_detects. For N=G, res_N(a)=1 if and only if a=1.
+- Unit test: TauCeti.NonabelianCohomology.H1.restrict.test_neutral_not_pointwise. For discrete U=S₃ and G=ConjAct(U), x=(01)(12), c=x·1 and N=G, res_N([c])=1 while the actual restricted cocycle res_N(c)≠1. Neutrality cannot be tested by literal triviality of a chosen representative.
+
+- Use: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-restriction-image. The actual neutral fibre of this map is identified with the actual inflation image.
+- Use: AnabelianGeometryAndNonabelianChabauty:NC.3 local-condition targets. Subgroup restriction is an input to genuine local maps; decomposition-group embeddings and Selmer conditions remain separate work.
+
+Source: [Kim, exact arXiv v1](https://arxiv.org/pdf/math/0409456v1), §1 pp.5–6, for continuous cocycle and gauge definitions. The restriction, normalization and fibre arguments are authored deductions from these definitions and the listed interfaces, not numbered theorems attributed to Kim.
+
+### Restriction of an inflated cocycle
+
+Declaration: TauCeti.NonabelianCohomology.Z1.restrict_inflate. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction-inflation.
+
+For d∈Z¹(G/N,U^N), res_N(inflate_N(d)) is the actual identity cocycle on N.
+
+Hypotheses: G is a group endowed with a topology; U is a group endowed with a topology and G acts on U by group automorphisms. N is an arbitrary subgroup with its native subtype topology and restricted action. N is normal; use the native quotient action and topology. Joint continuity of the quotient action is unnecessary for this cocycle identity.
+
+Proof: Evaluate at each n∈N. The existing inflate_trivialOn API gives value1. Apply actual cocycle extensionality.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction, AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation.
+
+Acceptance: The triviality is literal at the cocycle level and holds for the same normal subgroup.
+
+Source: [Kim, exact arXiv v1](https://arxiv.org/pdf/math/0409456v1), §1 pp.5–6, for continuous cocycle and gauge definitions. The restriction, normalization and fibre arguments are authored deductions from these definitions and the listed interfaces, not numbered theorems attributed to Kim.
+
+### Neutrality of restriction after inflation
+
+Declaration: TauCeti.NonabelianCohomology.H1.restrict_inflate. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-restriction-inflation.
+
+For every a∈H¹(G/N,U^N), res_N(inflate_N(a))=1 in H¹(N,U).
+
+Hypotheses: G is a group endowed with a topology; U is a group endowed with a topology and G acts on U by group automorphisms. N is an arbitrary subgroup with its native subtype topology and restricted action. U is a topological group and the joint G-action on U is continuous. No normality, compactness, openness, closedness, discreteness or commutativity is required for restriction and inverse-gauge normalization. For inflation and its neutral restriction fibre, N is normal and the joint native G/N-action on U^N is explicitly assumed continuous. The native quotient topology and native fixed subgroup/action are used.
+
+Proof: Induct on an actual orbit representative. Apply the representative APIs of inflation and restriction, then the promoted cocycle identity.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-restriction, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction-inflation.
+
+Acceptance: This gives the forward image-in-neutral-fibre inclusion without assuming the reverse inclusion.
+
+Source: [Kim, exact arXiv v1](https://arxiv.org/pdf/math/0409456v1), §1 pp.5–6, for continuous cocycle and gauge definitions. The restriction, normalization and fibre arguments are authored deductions from these definitions and the listed interfaces, not numbered theorems attributed to Kim.
+
+### Nonabelian inflation–restriction exactness
+
+Declaration: TauCeti.NonabelianCohomology.H1.mem_range_inflate_iff_restrict_eq_one. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-restriction-image.
+
+For every a∈H¹(G,U), a belongs to the set-theoretic image of inflate_N:H¹(G/N,U^N)→H¹(G,U) if and only if res_N(a)=1. This is equality with the neutral restriction fibre as pointed sets, not equality of group kernels.
+
+Hypotheses: G is a group endowed with a topology; U is a group endowed with a topology and G acts on U by group automorphisms. N is an arbitrary subgroup with its native subtype topology and restricted action. U is a topological group and the joint G-action on U is continuous. No normality, compactness, openness, closedness, discreteness or commutativity is required for restriction and inverse-gauge normalization. For inflation and its neutral restriction fibre, N is normal and the joint native G/N-action on U^N is explicitly assumed continuous. The native quotient topology and native fixed subgroup/action are used.
+
+Proof: An inflated class has neutral restriction by the preceding lemma. For the reverse implication choose an actual cocycle representative c. The representative restriction API and neutral-class criterion give an actual x∈U with c(n)=x(n•x)⁻¹ on N. The promoted inverse-gauge normalization constructs c′=x⁻¹·c identically1 on N. Existing actual descent produces d∈Z¹(G/N,U^N), and inflate(descend(c′))=c′. Representative inflation and gauge invariance give inflate([d])=[c′]=[c]=a. The subgroup is never refined; no hypothetical cohomology bridge or chosen cocycle representative is built into the statement.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-restriction-inflation, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-neutral-criterion, AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-inverse-gauge-normalization, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-gauge-class, AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-descent, AnabelianGeometryAndNonabelianChabauty:NC.3/inflate-descended-cocycle, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-restriction, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation.
+
+Acceptance: The coefficient group can be noncommutative. The S₃ conjugation test shows why the reverse implication needs gauge normalization before literal cocycle descent. No compactness or discreteness is required under the explicit quotient-action continuity hypothesis.
+
+Source: [Kim, exact arXiv v1](https://arxiv.org/pdf/math/0409456v1), §1 pp.5–6, for continuous cocycle and gauge definitions. The restriction, normalization and fibre arguments are authored deductions from these definitions and the listed interfaces, not numbered theorems attributed to Kim.
+
+### Unique inflated class in the neutral fibre
+
+Declaration: TauCeti.NonabelianCohomology.H1.existsUnique_inflate_of_restrict_eq_one. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-unique-preimage.
+
+If res_N(a)=1, there is a unique b∈H¹(G/N,U^N) with inflate_N(b)=a, for this same normal subgroup N.
+
+Hypotheses: G is a group endowed with a topology; U is a group endowed with a topology and G acts on U by group automorphisms. N is an arbitrary subgroup with its native subtype topology and restricted action. U is a topological group and the joint G-action on U is continuous. No normality, compactness, openness, closedness, discreteness or commutativity is required for restriction and inverse-gauge normalization. For inflation and its neutral restriction fibre, N is normal and the joint native G/N-action on U^N is explicitly assumed continuous. The native quotient topology and native fixed subgroup/action are used.
+
+Proof: The image theorem supplies an actual source class. If another class has the same inflation, use the existing same-N injectivity.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-restriction-image, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-injective.
+
+Acceptance: Uniqueness is of the quotient cohomology class; a normalizing gauge element or a cocycle representative need not be unique.
+
+Source: [Kim, exact arXiv v1](https://arxiv.org/pdf/math/0409456v1), §1 pp.5–6, for continuous cocycle and gauge definitions. The restriction, normalization and fibre arguments are authored deductions from these definitions and the listed interfaces, not numbered theorems attributed to Kim.
+
+The existing H¹ definition gains the API TauCeti.NonabelianCohomology.H1.mk_smul: [x·c]=[c], serving the promoted gauge-class node and class recovery after normalization. Its other APIs and tests are retained.
+
+The two S₃ regressions use the order-three permutation x=(01)(12) and actual conjugation. They separately distinguish inverse-gauge normalization from applying x again, and orbit neutrality from literal identity of a chosen restricted cocycle. The bottom and top subgroup tests preserve the native subgroup action and topology.
+
+Current frontier: Actual subgroup restriction on continuous cocycles and native H¹ orbit sets, inverse-gauge normalization, image=neutral restriction fibre and unique same-N inflated class are supplied under explicit joint quotient-action continuity. General multiplicative quotient-action continuity discharge, reverse-inclusion transitions, compact-discrete filtered-colimit bijection and genuine additive cocycle conversion remain open. All representability, local-condition, source-proof, inherited API/granularity and geometric obligations remain open. The reserved étale K(π,1) owner, its coefficient classes/all-degree comparison, eleven existing planet objects, sixteen requests and nine gaps remain. RT-AREA-algebraicgeometry/8 remains the existing A2 Néron–Severi request; generic heights/mixed extensions/local terms stay with their shared owner. No NC.3→NC.0 or reverse NC.5 dependency is introduced.

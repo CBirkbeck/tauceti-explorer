@@ -1383,3 +1383,132 @@ example : Fintype.card {z : ZMod 2 × ZMod 2 // z.1 = z.2} = 2 ∧
 
 end TauCeti.EtaleKPiOne.ProductSmoke
 /- END PRODUCT BASELINE SMOKE -/
+
+
+/-! Actual subgroup restriction and neutral-fibre signatures. All new bodies are admitted. -/
+namespace TauCeti.NonabelianCohomology
+
+section Restriction
+variable {G : Type u} [Group G] [TopologicalSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+  (N : Subgroup G)
+
+namespace Z1
+def restrict (c : Z1 G U) : Z1 N U := by sorry
+
+lemma restrict_apply (c : Z1 G U) (n : N) : restrict N c n = c n.val := by sorry
+
+lemma restrict_one : restrict N (1 : Z1 G U) = 1 := by sorry
+
+variable [IsTopologicalGroup U] [ContinuousSMul G U]
+
+lemma restrict_smul (x : U) (c : Z1 G U) :
+    restrict N (x • c) = x • restrict N c := by sorry
+
+lemma normalize_trivialOn (c : Z1 G U) (x : U)
+    (hx : ∀ n : N, c n.val = x * (n.val • x)⁻¹) :
+    ∀ n ∈ N, (x⁻¹ • c) n = 1 := by sorry
+
+end Z1
+
+variable [IsTopologicalGroup U] [ContinuousSMul G U]
+
+namespace H1
+lemma mk_smul (x : U) (c : Z1 G U) : mk (x • c) = mk c := by sorry
+
+def restrict : H1 G U → H1 N U := by sorry
+
+lemma restrict_mk (c : Z1 G U) : restrict N (mk c) = mk (Z1.restrict N c) := by sorry
+
+lemma restrict_one : restrict N (1 : H1 G U) = 1 := by sorry
+
+lemma restrict_mk_eq_one_iff (c : Z1 G U) :
+    restrict N (mk c) = 1 ↔ ∃ x : U, ∀ n : N, c n.val = x * (n.val • x)⁻¹ := by sorry
+
+end H1
+end Restriction
+
+section Exactness
+variable {G : Type u} [Group G] [TopologicalSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+  (N : Subgroup G) [N.Normal]
+
+lemma Z1.restrict_inflate (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    Z1.restrict N (Z1.inflate N d) = 1 := by sorry
+
+variable [IsTopologicalGroup U] [ContinuousSMul G U]
+  [ContinuousSMul (G ⧸ N) (FixedPoints.subgroup N U)]
+
+namespace H1
+lemma restrict_inflate (a : H1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    restrict N (inflate N a) = 1 := by sorry
+
+theorem mem_range_inflate_iff_restrict_eq_one (a : H1 G U) :
+    a ∈ Set.range (inflate N) ↔ restrict N a = 1 := by sorry
+
+theorem existsUnique_inflate_of_restrict_eq_one (a : H1 G U) (ha : restrict N a = 1) :
+    ∃! b : H1 (G ⧸ N) (FixedPoints.subgroup N U), inflate N b = a := by sorry
+
+end H1
+end Exactness
+
+section RestrictionTests
+variable {G : Type u} [Group G] [TopologicalSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+  (N : Subgroup G)
+
+-- test: TauCeti.NonabelianCohomology.Z1.restrict.test_one
+example : Z1.restrict N (1 : Z1 G U) = 1 := by sorry
+
+-- test: TauCeti.NonabelianCohomology.Z1.restrict.test_subgroup_value
+example (c : Z1 G U) (n : N) : Z1.restrict N c n = c n.val := by sorry
+
+-- test: TauCeti.NonabelianCohomology.Z1.restrict.test_bottom
+example (c : Z1 G U) : Z1.restrict (⊥ : Subgroup G) c = 1 := by sorry
+
+variable [IsTopologicalGroup U] [ContinuousSMul G U]
+-- test: TauCeti.NonabelianCohomology.H1.restrict.test_one
+example : H1.restrict N (1 : H1 G U) = 1 := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.restrict.test_gauge
+example (x : U) (c : Z1 G U) : H1.restrict N (H1.mk (x • c)) = H1.restrict N (H1.mk c) := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.restrict.test_bottom
+example (a : H1 G U) : H1.restrict (⊥ : Subgroup G) a = 1 := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.restrict.test_top_detects
+example (a : H1 G U) : H1.restrict (⊤ : Subgroup G) a = 1 ↔ a = 1 := by sorry
+
+end RestrictionTests
+
+-- An order-three gauge witness distinguishes x from x⁻¹.
+-- test: TauCeti.NonabelianCohomology.Z1.normalize_trivialOn.test_inverse_gauge
+example :
+    let U := Equiv.Perm (Fin 3)
+    let G := ConjAct U
+    letI : TopologicalSpace U := ⊥
+    letI : TopologicalSpace G := ⊥
+    letI : DiscreteTopology U := ⟨rfl⟩
+    letI : DiscreteTopology G := ⟨rfl⟩
+    letI : IsTopologicalGroup U := inferInstance
+    letI : ContinuousSMul G U := ⟨continuous_of_discreteTopology⟩
+    let x : U := Equiv.swap 0 1 * Equiv.swap 1 2
+    let c : Z1 G U := x • 1
+    (x⁻¹ • c = 1) ∧ (x • c ≠ 1) := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.restrict.test_neutral_not_pointwise
+example :
+    let U := Equiv.Perm (Fin 3)
+    let G := ConjAct U
+    letI : TopologicalSpace U := ⊥
+    letI : TopologicalSpace G := ⊥
+    letI : DiscreteTopology U := ⟨rfl⟩
+    letI : DiscreteTopology G := ⟨rfl⟩
+    letI : IsTopologicalGroup U := inferInstance
+    letI : ContinuousSMul G U := ⟨continuous_of_discreteTopology⟩
+    let x : U := Equiv.swap 0 1 * Equiv.swap 1 2
+    let c : Z1 G U := x • 1
+    H1.restrict (⊤ : Subgroup G) (H1.mk c) = 1 ∧
+      Z1.restrict (⊤ : Subgroup G) c ≠ 1 := by sorry
+
+end TauCeti.NonabelianCohomology
