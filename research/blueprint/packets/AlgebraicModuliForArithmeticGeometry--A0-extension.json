@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Partial 85-declaration blueprint: gerbes and bands on the pinned stack carrier, conditional derived-H2 classification and profinite limits; arbitrary QCoh fpqc descent on schemes and spaces; quotient twisting and prime-to-p inertia; relative Picard sheaf and section-rigidified splitting. All eight stage targets remain open. Exact supplier contracts, source issues, signature omissions and a 68-item routed-source ledger expose remaining work; no implementation is claimed. Continuation by Codex codex-a71f92 adds thirteen R09.3 leaves separating tensor-overlap/native-coalgebra equivalence (arbitrary ring maps) from faithful-flat effectivity, including diagonal normalization, both transition inverse identities, full tensor cocycle, all module arrows, round trips and the actual comparison coaction. Retains all 85 inherited nodes and the 68-item routed ledger; all eight stages remain partial or not_read. Continued with eleven module-specific chosen-pullback/native-descent comparison leaves, importing the existing general descent equivalence. Upstream stage prerequisite encoding is repaired; no stage closes. Codex codex-rtOQ9t appends 15 gerbe-specific intrinsic-band leaves, giving 124 nodes. Compatible units of the existing categorical centers provide an actual section carrier, reindexing restrictions, Hom-descent sheafness, evaluation equivalence, banding and unique comparison. The omitted varying-base argument is decomposed; native proofs and the supplier slice-glued comparison remain unchecked.",
+  "summary": "Partial 126-declaration blueprint for gerbes, bands, conditional derived-H2 classification and profinite limits, module descent, quotient twisting and relative Picard foundations. All eight stages remain partial or not_read. The central-section carrier imports the existing categorical center and native stack interface. This continuation supplies elementary native carrier, restriction and evaluation proofs and adds explicit central-image and reindexed-evaluation lemmas. Sheaf descent, gerbe locality, fixed-band comparison and the SF1 slice-glued comparison remain proof obligations. The full routed-source ledger and historical reading receipts are preserved; no formalisation or source closure is claimed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -903,6 +903,19 @@
       "readSections": [
         "Section7.26 Lemmas1–6 and their displayed proofs; omitted restriction/naturality and descent-proof boundaries retained; generic sheaf gluing remains an SF1 import."
       ]
+    },
+    {
+      "id": "SP06NY-J6LwjP",
+      "title": "Gerbes: native central-section proof continuation",
+      "authors": "The Stacks Project authors",
+      "edition": "Author-maintained HTML accessed 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/06NY",
+      "accessDate": "2026-10-02",
+      "sha256": "784df742e6d6c147f90645bfef73a6ad9fa60cb34e9b2d3006401857ed88a32e",
+      "readSections": [
+        "Full mathematical Section 8.11; focus on Lemma 8.11.8. Elementary native proofs are derived for the inherited section model, not attributed to the omitted source argument."
+      ],
+      "readingAgent": "Codex codex-J6LwjP"
     }
   ],
   "nodes": [
@@ -8083,6 +8096,110 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-central",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Evaluation has central image",
+      "kind": "lemma",
+      "statement": "For every f:V→U, x over V, section s in ZF(U) and b in Aut(x), ev_(f,x)(s) b = b ev_(f,x)(s). The evaluated automorphism belongs to the center of the actual full inertia group, even when that group is nonabelian.",
+      "hypotheses": [
+        "C is a small category and F is the existing Cat-valued pseudofunctor. No topology, gerbe locality, nonempty fibre or abelian-inertia hypothesis is required. Indexed section universes match the inherited carrier."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sections"
+      ],
+      "proofSteps": [
+        "Take hom components in the automorphism group; multiplication composes in reverse categorical order.",
+        "Apply naturality of the existing central component at b.hom, then automorphism extensionality. This needs neither gerbe descent nor a commutativity assumption on b."
+      ],
+      "acceptance": [
+        "Preserve the existing reversed categorical-composition convention for automorphism multiplication.",
+        "Do not infer evaluation surjectivity or the sheaf condition from this elementary compatibility."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SP06NY-J6LwjP",
+          "locator": "Lemma 8.11.8, automorphism conjugation and omitted varying-base compatibility",
+          "excerpt": "compatible",
+          "match": "These elementary centrality and reindexing lemmas are derived for the concrete central-section construction, not separate results printed in the source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "IntrinsicBandSections.eval_central",
+          "role": "compatibility",
+          "statement": "Every automorphism commutes with an evaluated central section."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BandCenterTests.centralImage",
+          "kind": "general",
+          "statement": "For an arbitrary fibre category, an evaluated section commutes with every automorphism b; for S3 coordinates the transposition(01) is excluded by testing commutation with(12)."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-reindex",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Evaluation commutes with slice reindexing",
+      "kind": "lemma",
+      "statement": "For f:V→U, a:W→V, x over W and s in ZF(U), ev_(a,x)(r_f(s)) = ev_(a≫f,x)(s). This compares two presentations of the same family component, not the separate pullback map on Aut(x).",
+      "hypotheses": [
+        "C is a small category and F is the existing Cat-valued pseudofunctor. No topology, gerbe locality, nonempty fibre or abelian-inertia hypothesis is required. Indexed section universes match the inherited carrier."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict"
+      ],
+      "proofSteps": [
+        "Unfold restriction and evaluation: both sides use exactly the component s(W,a≫f) at x.",
+        "The equality is definitional; fibre pseudofunctor mapComp is unnecessary because no fibre object is pulled back in this equation."
+      ],
+      "acceptance": [
+        "Preserve the existing reversed categorical-composition convention for automorphism multiplication.",
+        "Do not infer evaluation surjectivity or the sheaf condition from this elementary compatibility."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SP06NY-J6LwjP",
+          "locator": "Lemma 8.11.8, automorphism conjugation and omitted varying-base compatibility",
+          "excerpt": "compatible",
+          "match": "These elementary centrality and reindexing lemmas are derived for the concrete central-section construction, not separate results printed in the source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "IntrinsicBandSections.eval_reindex",
+          "role": "functoriality",
+          "statement": "Evaluating a restricted section uses the composite base arrow."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BandEvaluationTests.reindexedArrow",
+          "kind": "general",
+          "statement": "Evaluate a section over W after reindexing along V→U, and obtain its original component at W→V→U, with no terminal-object or gerbe assumption."
+        }
+      ]
     }
   ],
   "requests": [
@@ -9536,6 +9653,28 @@
       "source": "Fresh full mathematical Section8.11 and Section7.26 Lemmas1–6; pinned center/units/Aut and slice-Hom coherence statements and relevant proofs. Unrelated inherited source readings remain earlier-worker receipts.",
       "sourceHash": "784df742e6d6c147f90645bfef73a6ad9fa60cb34e9b2d3006401857ed88a32e",
       "compiled": false
+    },
+    {
+      "agent": "Codex — codex-J6LwjP",
+      "date": "2026-10-02",
+      "preservedNodes": 124,
+      "addedNodes": 2,
+      "source": "Fresh full mathematical Stacks Section8.11, selected Section7.26 gluing-interface statement, and pinned CatCenter/Aut/native Hom-sheaf statements. Prior broader readings remain historical receipts.",
+      "compiled": false,
+      "nativeExcerpt": {
+        "compiled": true,
+        "description": "Imports with TauCeti import removed; initial namespace through the AbelianBanding structure, closed explicitly, followed by final intrinsic-band namespace and its test/omission ledgers. No other native blocks are checked.",
+        "errors": 0,
+        "admittedProofWarnings": 15,
+        "otherWarnings": 0,
+        "seconds": 2.2,
+        "examples": 13,
+        "sha256": "76de3fe7bd6c538aa2a1f1049ede62031be920986e350bdb192aff8512739b4e",
+        "logSha256": "cfcce6359df581cc34233bb5b419e0c3d508636e5a54f16d244f195937df38bd",
+        "kernelAuditSha256": "ddf808484d82fab040e41f103f56172e07384dd93f832a2db14d03c00311c9f8",
+        "declarationsWithoutAdmissionDependency": 15,
+        "boundary": "Full suggested file uncompiled: existing pinned build lacks TauCeti SheafCohomology.LongExactSequence compiled artifact. All blueprint implementation statuses remain unchecked."
+      }
     }
   ]
 }
