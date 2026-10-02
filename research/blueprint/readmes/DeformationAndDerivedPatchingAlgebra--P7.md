@@ -2859,3 +2859,206 @@ graph (96 vertices, 143 edges) and combined graph (3,087 vertices, 8,863 edges)
 are acyclic. All 89 old node objects, stage edges and other skipped-link records
 match the control. Twelve of thirteen scope/request stage pairs are reachable;
 the inherited LocalFields layer-0 to R03.4 path remains absent and recorded.
+
+## Actual plane-curve jets and sharp cumulative postulation
+
+Fix a field k, the native two-variable formal series ring R=k[[x,y]], the variable ideal v=(x,y), an equation f, its principal ideal I, the actual quotient A=R/I and the image ideal q. For finite order d=ord(f), retain d=0 (a unit), positive characteristic and nonreduced equations. The zero equation has infinite order and receives its own statement. No perfectness, algebraic closure or reducedness is imposed.
+
+Write H(N)=length_A(A/q^(N+1)) and G(N)=length_A(q^N/q^(N+1)), using the existing function and native successive-subquotient gradedFunction. All lengths begin in extended naturals. The shift N+1 is part of the cumulative convention. The scalar comparison below concerns the surjection R→A; the inclusion k→R is not surjective.
+
+For N≥d, multiplication by f acts on R/v^(N+1−d), followed by the actual quotient projection from R/v^(N+1). Order multiplicativity makes this map injective; its image is exactly the projection kernel. Length additivity gives a sum before subtraction. The ambient monomial basis has total degree below the cutoff, giving binom(r+1,2); rectangular truncation would count incorrectly. The target is a quotient of this finite ambient jet, hence has finite length. Only then convert to natural values and subtract. For N<d the equation already belongs to v^(N+1), so the quotient equals the ambient jet; do not assert an injective multiplication map at this cutoff.
+
+The native double-quotient equivalence and ideal-image power identity identify A/q^(N+1) with R/((f)+v^(N+1)), preserving its restricted R-action. The surjective scalar-length theorem then compares length over A with length over R. This adapter is registered separately from the numerical formula so its action, carrier and denominator cannot disappear into a dimension assumption.
+
+For every N≥0 the cumulative function is binom(N+2,2)−binom(N+2−d,2), using truncated natural subtraction before the extended-natural cast. Its successive native quotient has length min(N+1,d). At N=0 the last term in quotient_length_succ is A/top=0; no negative-index value or extra zero-degree API is used.
+
+The rational polynomial is P_d(T)=d(T+1)−d(d−1)/2. In this expression all subtractions are ordinary rational subtraction, independent of the characteristic of k. The exact defect H(N)−P_d(N) is binom(d−N−1,2), with the binomial argument truncated naturally. Consequently H(N)=P_d(N) exactly when d≤N+2. The least cumulative agreement index is max(0,d−2), while the graded function stabilizes at max(0,d−1). For d=4, H at N=0,1,2,3,4 is 1,3,6,10,14, P is −2,2,6,10,14 and G is 1,2,3,4,4.
+
+The polynomial specialization uses the existing constructor and the uniqueness in its existence theorem directly. Its actual quotient must carry the explicit Noetherian/local instances and q must have radical equal to the maximal ideal. The jet computations themselves do not require these hypotheses or assert a nontrivial local-ring structure on a unit equation's zero quotient. The zero equation instead has the ambient quadratic function binom(N+2,2).
+
+### Length balance for a shifted equation jet
+
+Declaration: `TauCeti.HilbertSamuel.planeEquationJet_length_balance`; node `DeformationAndDerivedPatchingAlgebra:R03.3/plane-equation-jet-length-balance`.
+
+If d≤N and order(f)=d, length_R(R/v^(N+1)) = length_R(R/v^(N+1−d)) + length_R(R/((f)+v^(N+1))) in extended naturals.
+
+Hypotheses: k is any field; R=MvPowerSeries (Fin 2) k, v=span of its two variables, I=(f), A=R/I, q=v.map(R→A), N,d∈ℕ. The equation-order hypothesis order(f)=d in extended naturals excludes f=0 and includes units d=0. No reducedness, irreducibility, perfectness, algebraic-closure or characteristic assumption.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-map`, `DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-injective`, `DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-exact`, `mathlib:Module.length_eq_add_of_exact`.
+
+Proof plan:
+
+1. Use exactly shiftedJetMap f d N and jetProjection f N, on source cutoff N+1−d and target cutoff N+1. The listed injectivity and exactness nodes supply the three hypotheses of the built length theorem.
+2. Apply Module.length_eq_add_of_exact over R before taking natural values. This identity needs no cancellation of an infinite length and asserts no injection in the separate N<d branch.
+
+Acceptance: d=0 is allowed; N=d is the first shifted cutoff. Never use the same unshifted source and target.
+
+Source: credited mathematical checkpoint §2.2–2.3, equation (1) in [the immutable predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/ab76ddae905be2ec38836c070c5495c6d1c4e3c0/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md).
+
+### All-index length of an equation jet
+
+Declaration: `TauCeti.HilbertSamuel.planeEquationJet_length`; node `DeformationAndDerivedPatchingAlgebra:R03.3/plane-equation-jet-length`.
+
+If order(f)=d, length_R(R/((f)+v^(N+1))) = binom(N+2,2) − binom(N+2−d,2), with truncated natural subtraction before the extended-natural cast.
+
+Hypotheses: k is any field; R=MvPowerSeries (Fin 2) k, v=span of its two variables, I=(f), A=R/I, q=v.map(R→A), N,d∈ℕ. The equation-order hypothesis order(f)=d in extended naturals excludes f=0 and includes units d=0. No reducedness, irreducibility, perfectness, algebraic-closure or characteristic assumption.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/plane-equation-jet-length-balance`, `DeformationAndDerivedPatchingAlgebra:R03.3/plane-total-jet-ring-length`, `DeformationAndDerivedPatchingAlgebra:R03.3/jet-below-equation-order`, `mathlib:Module.length_le_of_surjective`.
+
+Proof plan:
+
+1. Split d≤N from N<d. In the first branch use the extended-natural length balance and the ambient jet length at cutoffs N+1 and N+1−d.
+2. The actual jetProjection is surjective; its target length is bounded by the finite ambient jet length. Thus the target is not infinity. Take natural values only now; cancel the finite additive identity in ℕ. The source count is binom(N+2−d,2).
+3. In the second branch jetProjection_below_order makes (f)+v^(N+1)=v^(N+1). Its length is the ambient triangular count. N+2−d≤1 makes the subtracted binomial zero. For d=0 both counts cancel.
+
+Acceptance: Includes unit equations, low cutoffs and nonreduced equations over finite fields. Does not treat the zero equation as order zero.
+
+Source: credited mathematical checkpoint §2.2–2.3, equations (1)–(2) in [the immutable predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/ab76ddae905be2ec38836c070c5495c6d1c4e3c0/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md).
+
+### Native curve-jet length comparison
+
+Declaration: `TauCeti.HilbertSamuel.planeCurve_jet_length`; node `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-jet-length`.
+
+For every f, including f=0 and units, the actual cumulative function H_q,A(N) equals length_R(R/((f)+v^(N+1))) in extended naturals.
+
+Hypotheses: k is any field, R=k[[x,y]], v=(x,y), f is arbitrary, A=R/(f), q is the image of v and N∈ℕ.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function`, `mathlib:Ideal.smul_top_eq_map`, `mathlib:Ideal.map_pow`, `mathlib:DoubleQuot.quotQuotEquivQuotSupₐ`, `mathlib:Module.length_eq_of_surjective`, `mathlib:LinearEquiv.length_eq`.
+
+Proof plan:
+
+1. Unfold the existing function. Specialize Ideal.smul_top_eq_map to the regular A-module: the denominator q^(N+1)•top is the actual ideal q^(N+1). Transport along the quotient by equality, preserving its A-action.
+2. Rewrite q^(N+1)=(v^(N+1)).map(R→A) with Ideal.map_pow. Use DoubleQuot.quotQuotEquivQuotSupₐ with coefficient ring R and the two ideals (f),v^(N+1). Its underlying R-linear equivalence acts by the identity on representatives.
+3. Use LinearEquiv.length_eq over R. Module.length_eq_of_surjective for the actual surjection R→A compares A-length with the restricted R-length on this same quotient. Check the native algebra/scalar-tower instances; no arbitrary coefficient inclusion k→R has surjective image.
+
+Acceptance: No finite-length, Noetherian or nontrivial local-ring hypothesis is needed for this extended-natural identity.
+
+Source: credited mathematical checkpoint §2.3, actual curve quotient comparison in [the immutable predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/ab76ddae905be2ec38836c070c5495c6d1c4e3c0/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md).
+
+### Cumulative function of a formal plane curve
+
+Declaration: `TauCeti.HilbertSamuel.planeCurve_function`; node `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-function`.
+
+If order(f)=d, H_q,A(N)=binom(N+2,2)−binom(N+2−d,2) in extended naturals for every N≥0.
+
+Hypotheses: k is any field; R=MvPowerSeries (Fin 2) k, v=span of its two variables, I=(f), A=R/I, q=v.map(R→A), N,d∈ℕ. The equation-order hypothesis order(f)=d in extended naturals excludes f=0 and includes units d=0. No reducedness, irreducibility, perfectness, algebraic-closure or characteristic assumption.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-jet-length`, `DeformationAndDerivedPatchingAlgebra:R03.3/plane-equation-jet-length`.
+
+Proof plan:
+
+1. Rewrite the actual function using planeCurve_jet_length and apply planeEquationJet_length. The finite natural cast proves each function value is finite before later toNat conversions.
+
+Acceptance: For f=x, H(N)=N+1. For f=x⁴, H(0),H(1),H(2),H(4)=1,3,6,14. For a unit all values vanish.
+
+Source: credited mathematical checkpoint §2.3, equation (2) in [the immutable predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/ab76ddae905be2ec38836c070c5495c6d1c4e3c0/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md).
+
+### Graded function of a formal plane curve
+
+Declaration: `TauCeti.HilbertSamuel.planeCurve_gradedFunction`; node `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-graded-function`.
+
+If order(f)=d, the existing native successive-quotient gradedFunction q N equals min(N+1,d), cast to extended naturals.
+
+Hypotheses: k is any field; R=MvPowerSeries (Fin 2) k, v=span of its two variables, I=(f), A=R/I, q=v.map(R→A), N,d∈ℕ. The equation-order hypothesis order(f)=d in extended naturals excludes f=0 and includes units d=0. No reducedness, irreducibility, perfectness, algebraic-closure or characteristic assumption.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-length-step`, `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-function`.
+
+Proof plan:
+
+1. Use quotient_length_succ on the actual A-module A. For N≥1 its left term is H(N) and its last term is H(N−1); at N=0 that last quotient is A/top with length zero. This handles the boundary without an undeclared negative index or a separately consumed gradedFunction_zero_degree API.
+2. The sum equals finite H(N), so both summands are finite; convert to natural values, then subtract. Apply the all-index binomial formula at the appropriate nonnegative indices.
+3. Split N+1≤d and d<N+1; the differences of adjacent triangular numbers give respectively N+1 and d. With d=0 every value is zero. The carrier remains the native quotient inside the actual q^N submodule.
+
+Acceptance: Graded stabilization starts at max(0,d−1), one index later than cumulative agreement for d≥2. Over F₂, f=x⁴ gives G(2)=3 and G(3)=4.
+
+Source: credited mathematical checkpoint §2.4, equation (3) in [the immutable predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/ab76ddae905be2ec38836c070c5495c6d1c4e3c0/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md).
+
+### Exact cumulative postulation defect
+
+Declaration: `TauCeti.HilbertSamuel.planeCurve_postulation_defect`; node `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-defect`.
+
+If order(f)=d, H_q,A(N).toNat − [d(N+1)−d(d−1)/2] = binom(d−N−1,2) in ℚ, where subtraction inside binomial arguments is natural, and all polynomial arithmetic is rational.
+
+Hypotheses: k is any field; R=MvPowerSeries (Fin 2) k, v=span of its two variables, I=(f), A=R/I, q=v.map(R→A), N,d∈ℕ. The equation-order hypothesis order(f)=d in extended naturals excludes f=0 and includes units d=0. No reducedness, irreducibility, perfectness, algebraic-closure or characteristic assumption.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-function`.
+
+Proof plan:
+
+1. The function formula is a finite natural cast, so its toNat is exactly the binomial difference. Do not use toNat on an unproved infinite length.
+2. Split d≤N+2 from N+2<d. In the first case expand the two binomials using choose(n,2)=n(n−1)/2 and the cutoff cases 0,1; the defect is zero. In the second case the source binomial is zero and expanding the ambient triangular number leaves (d−N−1)(d−N−2)/2.
+3. Carry the minus signs in ℚ; clearing denominator 2 is valid regardless of the field characteristic because lengths have been converted to rational numbers.
+
+Acceptance: For d=4, N=0,1,2 the defects are 3,1,0. A negative polynomial value at N=0 does not truncate rational subtraction.
+
+Source: credited mathematical checkpoint §3, equation (4) and its two-branch arithmetic proof in [the immutable predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/ab76ddae905be2ec38836c070c5495c6d1c4e3c0/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md).
+
+### Sharp cumulative agreement threshold
+
+Declaration: `TauCeti.HilbertSamuel.planeCurve_postulation_iff`; node `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-iff`.
+
+If order(f)=d, H_q,A(N).toNat = d(N+1)−d(d−1)/2 in ℚ if and only if d≤N+2.
+
+Hypotheses: k is any field; R=MvPowerSeries (Fin 2) k, v=span of its two variables, I=(f), A=R/I, q=v.map(R→A), N,d∈ℕ. The equation-order hypothesis order(f)=d in extended naturals excludes f=0 and includes units d=0. No reducedness, irreducibility, perfectness, algebraic-closure or characteristic assumption.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-defect`.
+
+Proof plan:
+
+1. The defect identity makes agreement equivalent to choose(d−N−1,2)=0. For natural m, choose(m,2)=0 exactly when m≤1; use the 0,1 cases and positivity for m≥2.
+2. Natural truncated-subtraction arithmetic identifies d−N−1≤1 with d≤N+2. Thus the least cumulative agreement index is max(0,d−2), including d=0,1,2.
+
+Acceptance: For f=x⁴, cumulative agreement first holds at N=2, while the graded value at N=2 is still 3.
+
+Source: credited mathematical checkpoint §3, equation (5) and sharpness paragraph in [the immutable predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/ab76ddae905be2ec38836c070c5495c6d1c4e3c0/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md).
+
+### Cumulative polynomial of a formal plane curve
+
+Declaration: `TauCeti.HilbertSamuel.planeCurve_polynomial`; node `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial`.
+
+For the actual A=R/(f) supplied with IsNoetherianRing and IsLocalRing and q.radical=maximalIdeal(A), and order(f)=d, the existing cumulative polynomial q is d(T+1)−d(d−1)/2 in ℚ[T].
+
+Hypotheses: k is any field; R=MvPowerSeries (Fin 2) k, v=span of its two variables, I=(f), A=R/I, q=v.map(R→A), N,d∈ℕ. The equation-order hypothesis order(f)=d in extended naturals excludes f=0 and includes units d=0. No reducedness, irreducibility, perfectness, algebraic-closure or characteristic assumption. Additionally A has the stated Noetherian/local instances and q.radical=maximalIdeal(A).
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial`, `DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial`, `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-iff`.
+
+Proof plan:
+
+1. Form the displayed explicit rational polynomial. Its evaluation is the rational expression in planeCurve_postulation_iff. For N≥d, d≤N+2 supplies an eventual-equality witness (the sharper d−2 witness also works).
+2. Use uniqueness directly in existsUnique_polynomial to compare this witness with the Classical.choose witness defining the existing polynomial. No additional polynomial_unique API is consumed or redefined.
+3. The local and Noetherian instances and radical equality are explicit assumptions on this actual quotient. The finite-jet formula itself did not require them. A unit equation does not supply a nontrivial IsLocalRing instance on the zero quotient.
+
+Acceptance: No new polynomial carrier or caller-supplied Hilbert polynomial; this specialization does not prove the general existence node or native curve dimension.
+
+Source: credited mathematical checkpoint §3, paragraph identifying the existing polynomial in [the immutable predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/ab76ddae905be2ec38836c070c5495c6d1c4e3c0/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md).
+
+### Cumulative function of the zero equation
+
+Declaration: `TauCeti.HilbertSamuel.planeZeroEquation_function`; node `DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-function`.
+
+For f=0, A=R/(0), q=image(v), the actual H_q,A(N)=binom(N+2,2) in extended naturals.
+
+Hypotheses: k is any field, R=k[[x,y]], f=0, A=R/(0), q=image(v), N∈ℕ.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-jet-length`, `DeformationAndDerivedPatchingAlgebra:R03.3/plane-total-jet-ring-length`.
+
+Proof plan:
+
+1. Use planeCurve_jet_length without a finite-order hypothesis. The ideal generated by zero is zero, so its sum with v^(N+1) is v^(N+1). Apply the ambient plane total-jet length.
+
+Acceptance: Over F₂, H(2)=6. Zero has infinite native order and never belongs in the d=0 unit case.
+
+Source: credited mathematical checkpoint §2.3, zero-equation paragraph in [the immutable predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/ab76ddae905be2ec38836c070c5495c6d1c4e3c0/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md).
+
+### Acceptance examples and proof boundary
+
+- `PlaneCurveAcceptance.unit_boundary` (degenerate): For k=ℚ, f=1 and every N, the actual curve function is zero.
+- `PlaneCurveAcceptance.zero_equation_six` (computation): For k=F₂, f=0 and N=2, the actual function equals 6.
+- `PlaneCurveAcceptance.smooth_linear` (computation): For k=ℚ, f=x and every N, the actual function equals N+1.
+- `PlaneCurveAcceptance.nonreduced_cumulative` (non-example): For k=F₂, f=x⁴, H(0)=1, H(1)=3, H(2)=6 and H(4)=14; a formula imposing polynomial agreement at N=0 fails.
+- `PlaneCurveAcceptance.nonreduced_graded` (non-example): For k=F₂, f=x⁴, G(2)=3 and G(3)=4; confusing cumulative and graded stabilization fails.
+- `PlaneCurveAcceptance.below_equation_order` (degenerate): For k=ℚ, f=x¹⁰⁰ and N=2, H(2)=6; unshifted multiplication cannot provide the injective map at this cutoff.
+
+These six statements appear as admitted examples on actual native quotients in the suggested file. Exact arithmetic on finite jets is an additional regression; it proves no infinite-series assertion. The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open.
+
+The 96 inherited node objects, reserved multiplicity definition, owner imports, requests, source issues, paper routes and planet choices remain unchanged. This computation creates no new multiplicity definition and does not assert curve dimension through polynomial degree. Source reading and current compilation receipts are in the handoff; historical reader receipts describe their original checkpoints.

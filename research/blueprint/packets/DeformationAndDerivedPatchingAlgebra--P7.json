@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked.",
+  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1536,6 +1536,20 @@
         "module": "Mathlib/LinearAlgebra/FreeModule/Finite/Basic.lean",
         "provides": "For a semiring R, additive commutative monoid module M and finite index ι, an actual R-basis b indexed by ι implies Module.Finite R M.",
         "checked": "Full statement, proof and ambient hypotheses freshly read at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exact indexed name verified on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Ideal.smul_top_eq_map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "For commutative semirings R,S and Algebra R S, I times the top R-submodule of S equals the R-restriction of the image ideal along algebraMap R S. Specializing S=R identifies a regular-module ideal denominator.",
+        "checked": "Ambient assumptions, statement and complete proof freshly read at Mathlib 082e2d3, lines 276–290, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Module.length_le_of_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "A surjective R-linear map M→P gives length_R(P)≤length_R(M), in extended naturals with no finite-length assumption.",
+        "checked": "Full surrounding variable assumptions, statement and proof at lines 162–207 freshly read at Mathlib 082e2d3 on 2026-10-02."
       }
     ]
   },
@@ -2168,6 +2182,43 @@
       "sha256": "00e8584bf16e6a75416e40bb3f2281a4728f1ee5e92ee26befe4c04847690dd6",
       "readSections": [
         "Complete mathematical statement and proof of Lemma 10.52.12, freshly read; Section 10.52 (00IU) definitions and mathematical proofs also freshly inspected. This is selected length-source reading, not closure of any routed paper. The Stacks displayed formula assumes finite B-length and finite residue degree; the stronger extended-natural form used here is the existing pinned Mathlib theorem, including its infinite-length branch."
+      ]
+    },
+    {
+      "id": "DDPA-CURVE-POSTULATION",
+      "title": "Actual plane-curve finite jets and sharp cumulative postulation",
+      "authors": "ChatGPT Pro — cp-20261002-sr-c72e81; canonical integration by Codex — codex-J6LwjP",
+      "edition": "Immutable mathematical checkpoint at ab76ddae905be2ec38836c070c5495c6d1c4e3c0",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/ab76ddae905be2ec38836c070c5495c6d1c4e3c0/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md",
+      "sha256": "8d61d9a83e363d42f060b97d0d987968281748c9c51be5a371f68423bf8d72ca",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Complete mathematical checkpoint §§1–7 and exact arithmetic program; native draft signatures are now registered in the canonical packet and suggested file. Finite regressions do not prove formal-series assertions.",
+        "Fresh Stacks 00IU length definitions and proofs and 00K4 complete mathematical section personally read, retaining the graded/cumulative distinction. The specialized binomial and sharp-threshold argument is the credited checkpoint proof, not an assertion that Stacks states this specialization."
+      ]
+    },
+    {
+      "id": "CURVE-CONVENTIONS-00IU",
+      "title": "Length",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online mathematical section, accessed 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/00IU",
+      "sha256": "418363ef436c9d4fad059bf24be2cd832947c9dcaa8623db885f93f126804232",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Complete mathematical section definitions/statements/proofs read through the public primary source. This supplies generic length and indexing conventions, not the specialized sharp plane-curve formula."
+      ]
+    },
+    {
+      "id": "CURVE-CONVENTIONS-00K4",
+      "title": "Noetherian local rings: graded and cumulative functions",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online mathematical section, accessed 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/00K4",
+      "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Complete mathematical section definitions/statements/proofs read through the public primary source. This supplies generic length and indexing conventions, not the specialized sharp plane-curve formula."
       ]
     }
   ],
@@ -8207,6 +8258,395 @@
       "acceptance": [
         "r=0 gives zero and r=1 gives one; characteristic two is allowed. The inherited basis/count proofs remain unchecked."
       ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-equation-jet-length-balance",
+      "kind": "lemma",
+      "title": "Length balance for a shifted equation jet",
+      "declaration": "TauCeti.HilbertSamuel.planeEquationJet_length_balance",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "If d≤N and order(f)=d, length_R(R/v^(N+1)) = length_R(R/v^(N+1−d)) + length_R(R/((f)+v^(N+1))) in extended naturals.",
+      "hypotheses": [
+        "k is any field; R=MvPowerSeries (Fin 2) k, v=span of its two variables, I=(f), A=R/I, q=v.map(R→A), N,d∈ℕ. The equation-order hypothesis order(f)=d in extended naturals excludes f=0 and includes units d=0. No reducedness, irreducibility, perfectness, algebraic-closure or characteristic assumption."
+      ],
+      "proofSteps": [
+        "Use exactly shiftedJetMap f d N and jetProjection f N, on source cutoff N+1−d and target cutoff N+1. The listed injectivity and exactness nodes supply the three hypotheses of the built length theorem.",
+        "Apply Module.length_eq_add_of_exact over R before taking natural values. This identity needs no cancellation of an infinite length and asserts no injection in the separate N<d branch."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-map",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-injective",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-exact",
+        "mathlib:Module.length_eq_add_of_exact"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-CURVE-POSTULATION",
+          "locator": "§2.2–2.3, equation (1)",
+          "excerpt": "length_R(R/v^(N+1))",
+          "match": "Register the credited finite-jet proof on native carriers, with the precise branch, scalar action and finiteness obligations exposed."
+        }
+      ],
+      "acceptance": [
+        "d=0 is allowed; N=d is the first shifted cutoff. Never use the same unshifted source and target."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-equation-jet-length",
+      "kind": "lemma",
+      "title": "All-index length of an equation jet",
+      "declaration": "TauCeti.HilbertSamuel.planeEquationJet_length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "If order(f)=d, length_R(R/((f)+v^(N+1))) = binom(N+2,2) − binom(N+2−d,2), with truncated natural subtraction before the extended-natural cast.",
+      "hypotheses": [
+        "k is any field; R=MvPowerSeries (Fin 2) k, v=span of its two variables, I=(f), A=R/I, q=v.map(R→A), N,d∈ℕ. The equation-order hypothesis order(f)=d in extended naturals excludes f=0 and includes units d=0. No reducedness, irreducibility, perfectness, algebraic-closure or characteristic assumption."
+      ],
+      "proofSteps": [
+        "Split d≤N from N<d. In the first branch use the extended-natural length balance and the ambient jet length at cutoffs N+1 and N+1−d.",
+        "The actual jetProjection is surjective; its target length is bounded by the finite ambient jet length. Thus the target is not infinity. Take natural values only now; cancel the finite additive identity in ℕ. The source count is binom(N+2−d,2).",
+        "In the second branch jetProjection_below_order makes (f)+v^(N+1)=v^(N+1). Its length is the ambient triangular count. N+2−d≤1 makes the subtracted binomial zero. For d=0 both counts cancel."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-equation-jet-length-balance",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-total-jet-ring-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/jet-below-equation-order",
+        "mathlib:Module.length_le_of_surjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-CURVE-POSTULATION",
+          "locator": "§2.2–2.3, equations (1)–(2)",
+          "excerpt": "for every N >= 0",
+          "match": "Register the credited finite-jet proof on native carriers, with the precise branch, scalar action and finiteness obligations exposed."
+        }
+      ],
+      "acceptance": [
+        "Includes unit equations, low cutoffs and nonreduced equations over finite fields. Does not treat the zero equation as order zero."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-jet-length",
+      "kind": "lemma",
+      "title": "Native curve-jet length comparison",
+      "declaration": "TauCeti.HilbertSamuel.planeCurve_jet_length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "For every f, including f=0 and units, the actual cumulative function H_q,A(N) equals length_R(R/((f)+v^(N+1))) in extended naturals.",
+      "hypotheses": [
+        "k is any field, R=k[[x,y]], v=(x,y), f is arbitrary, A=R/(f), q is the image of v and N∈ℕ."
+      ],
+      "proofSteps": [
+        "Unfold the existing function. Specialize Ideal.smul_top_eq_map to the regular A-module: the denominator q^(N+1)•top is the actual ideal q^(N+1). Transport along the quotient by equality, preserving its A-action.",
+        "Rewrite q^(N+1)=(v^(N+1)).map(R→A) with Ideal.map_pow. Use DoubleQuot.quotQuotEquivQuotSupₐ with coefficient ring R and the two ideals (f),v^(N+1). Its underlying R-linear equivalence acts by the identity on representatives.",
+        "Use LinearEquiv.length_eq over R. Module.length_eq_of_surjective for the actual surjection R→A compares A-length with the restricted R-length on this same quotient. Check the native algebra/scalar-tower instances; no arbitrary coefficient inclusion k→R has surjective image."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function",
+        "mathlib:Ideal.smul_top_eq_map",
+        "mathlib:Ideal.map_pow",
+        "mathlib:DoubleQuot.quotQuotEquivQuotSupₐ",
+        "mathlib:Module.length_eq_of_surjective",
+        "mathlib:LinearEquiv.length_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-CURVE-POSTULATION",
+          "locator": "§2.3, actual curve quotient comparison",
+          "excerpt": "The equivalence preserves the R-module structure",
+          "match": "Register the credited finite-jet proof on native carriers, with the precise branch, scalar action and finiteness obligations exposed."
+        }
+      ],
+      "acceptance": [
+        "No finite-length, Noetherian or nontrivial local-ring hypothesis is needed for this extended-natural identity."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-function",
+      "kind": "lemma",
+      "title": "Cumulative function of a formal plane curve",
+      "declaration": "TauCeti.HilbertSamuel.planeCurve_function",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "If order(f)=d, H_q,A(N)=binom(N+2,2)−binom(N+2−d,2) in extended naturals for every N≥0.",
+      "hypotheses": [
+        "k is any field; R=MvPowerSeries (Fin 2) k, v=span of its two variables, I=(f), A=R/I, q=v.map(R→A), N,d∈ℕ. The equation-order hypothesis order(f)=d in extended naturals excludes f=0 and includes units d=0. No reducedness, irreducibility, perfectness, algebraic-closure or characteristic assumption."
+      ],
+      "proofSteps": [
+        "Rewrite the actual function using planeCurve_jet_length and apply planeEquationJet_length. The finite natural cast proves each function value is finite before later toNat conversions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-jet-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-equation-jet-length"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-CURVE-POSTULATION",
+          "locator": "§2.3, equation (2)",
+          "excerpt": "actual quotient ring",
+          "match": "Register the credited finite-jet proof on native carriers, with the precise branch, scalar action and finiteness obligations exposed."
+        }
+      ],
+      "acceptance": [
+        "For f=x, H(N)=N+1. For f=x⁴, H(0),H(1),H(2),H(4)=1,3,6,14. For a unit all values vanish."
+      ],
+      "tests": [
+        {
+          "name": "PlaneCurveAcceptance.unit_boundary",
+          "kind": "degenerate",
+          "statement": "For k=ℚ, f=1 and every N, the actual curve function is zero."
+        },
+        {
+          "name": "PlaneCurveAcceptance.smooth_linear",
+          "kind": "computation",
+          "statement": "For k=ℚ, f=x and every N, the actual function equals N+1."
+        },
+        {
+          "name": "PlaneCurveAcceptance.nonreduced_cumulative",
+          "kind": "non-example",
+          "statement": "For k=F₂, f=x⁴, H(0)=1, H(1)=3, H(2)=6 and H(4)=14; a formula imposing polynomial agreement at N=0 fails."
+        },
+        {
+          "name": "PlaneCurveAcceptance.below_equation_order",
+          "kind": "degenerate",
+          "statement": "For k=ℚ, f=x¹⁰⁰ and N=2, H(2)=6; unshifted multiplication cannot provide the injective map at this cutoff."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-graded-function",
+      "kind": "lemma",
+      "title": "Graded function of a formal plane curve",
+      "declaration": "TauCeti.HilbertSamuel.planeCurve_gradedFunction",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "If order(f)=d, the existing native successive-quotient gradedFunction q N equals min(N+1,d), cast to extended naturals.",
+      "hypotheses": [
+        "k is any field; R=MvPowerSeries (Fin 2) k, v=span of its two variables, I=(f), A=R/I, q=v.map(R→A), N,d∈ℕ. The equation-order hypothesis order(f)=d in extended naturals excludes f=0 and includes units d=0. No reducedness, irreducibility, perfectness, algebraic-closure or characteristic assumption."
+      ],
+      "proofSteps": [
+        "Use quotient_length_succ on the actual A-module A. For N≥1 its left term is H(N) and its last term is H(N−1); at N=0 that last quotient is A/top with length zero. This handles the boundary without an undeclared negative index or a separately consumed gradedFunction_zero_degree API.",
+        "The sum equals finite H(N), so both summands are finite; convert to natural values, then subtract. Apply the all-index binomial formula at the appropriate nonnegative indices.",
+        "Split N+1≤d and d<N+1; the differences of adjacent triangular numbers give respectively N+1 and d. With d=0 every value is zero. The carrier remains the native quotient inside the actual q^N submodule."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-length-step",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-function"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-CURVE-POSTULATION",
+          "locator": "§2.4, equation (3)",
+          "excerpt": "G_N = min(N+1,d)",
+          "match": "Register the credited finite-jet proof on native carriers, with the precise branch, scalar action and finiteness obligations exposed."
+        }
+      ],
+      "acceptance": [
+        "Graded stabilization starts at max(0,d−1), one index later than cumulative agreement for d≥2. Over F₂, f=x⁴ gives G(2)=3 and G(3)=4."
+      ],
+      "tests": [
+        {
+          "name": "PlaneCurveAcceptance.nonreduced_graded",
+          "kind": "non-example",
+          "statement": "For k=F₂, f=x⁴, G(2)=3 and G(3)=4; confusing cumulative and graded stabilization fails."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-defect",
+      "kind": "lemma",
+      "title": "Exact cumulative postulation defect",
+      "declaration": "TauCeti.HilbertSamuel.planeCurve_postulation_defect",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "If order(f)=d, H_q,A(N).toNat − [d(N+1)−d(d−1)/2] = binom(d−N−1,2) in ℚ, where subtraction inside binomial arguments is natural, and all polynomial arithmetic is rational.",
+      "hypotheses": [
+        "k is any field; R=MvPowerSeries (Fin 2) k, v=span of its two variables, I=(f), A=R/I, q=v.map(R→A), N,d∈ℕ. The equation-order hypothesis order(f)=d in extended naturals excludes f=0 and includes units d=0. No reducedness, irreducibility, perfectness, algebraic-closure or characteristic assumption."
+      ],
+      "proofSteps": [
+        "The function formula is a finite natural cast, so its toNat is exactly the binomial difference. Do not use toNat on an unproved infinite length.",
+        "Split d≤N+2 from N+2<d. In the first case expand the two binomials using choose(n,2)=n(n−1)/2 and the cutoff cases 0,1; the defect is zero. In the second case the source binomial is zero and expanding the ambient triangular number leaves (d−N−1)(d−N−2)/2.",
+        "Carry the minus signs in ℚ; clearing denominator 2 is valid regardless of the field characteristic because lengths have been converted to rational numbers."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-function"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-CURVE-POSTULATION",
+          "locator": "§3, equation (4) and its two-branch arithmetic proof",
+          "excerpt": "H_N - P_d(N)",
+          "match": "Register the credited finite-jet proof on native carriers, with the precise branch, scalar action and finiteness obligations exposed."
+        }
+      ],
+      "acceptance": [
+        "For d=4, N=0,1,2 the defects are 3,1,0. A negative polynomial value at N=0 does not truncate rational subtraction."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-iff",
+      "kind": "lemma",
+      "title": "Sharp cumulative agreement threshold",
+      "declaration": "TauCeti.HilbertSamuel.planeCurve_postulation_iff",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "If order(f)=d, H_q,A(N).toNat = d(N+1)−d(d−1)/2 in ℚ if and only if d≤N+2.",
+      "hypotheses": [
+        "k is any field; R=MvPowerSeries (Fin 2) k, v=span of its two variables, I=(f), A=R/I, q=v.map(R→A), N,d∈ℕ. The equation-order hypothesis order(f)=d in extended naturals excludes f=0 and includes units d=0. No reducedness, irreducibility, perfectness, algebraic-closure or characteristic assumption."
+      ],
+      "proofSteps": [
+        "The defect identity makes agreement equivalent to choose(d−N−1,2)=0. For natural m, choose(m,2)=0 exactly when m≤1; use the 0,1 cases and positivity for m≥2.",
+        "Natural truncated-subtraction arithmetic identifies d−N−1≤1 with d≤N+2. Thus the least cumulative agreement index is max(0,d−2), including d=0,1,2."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-defect"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-CURVE-POSTULATION",
+          "locator": "§3, equation (5) and sharpness paragraph",
+          "excerpt": "H_N = P_d(N) iff d <= N+2",
+          "match": "Register the credited finite-jet proof on native carriers, with the precise branch, scalar action and finiteness obligations exposed."
+        }
+      ],
+      "acceptance": [
+        "For f=x⁴, cumulative agreement first holds at N=2, while the graded value at N=2 is still 3."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial",
+      "kind": "lemma",
+      "title": "Cumulative polynomial of a formal plane curve",
+      "declaration": "TauCeti.HilbertSamuel.planeCurve_polynomial",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "For the actual A=R/(f) supplied with IsNoetherianRing and IsLocalRing and q.radical=maximalIdeal(A), and order(f)=d, the existing cumulative polynomial q is d(T+1)−d(d−1)/2 in ℚ[T].",
+      "hypotheses": [
+        "k is any field; R=MvPowerSeries (Fin 2) k, v=span of its two variables, I=(f), A=R/I, q=v.map(R→A), N,d∈ℕ. The equation-order hypothesis order(f)=d in extended naturals excludes f=0 and includes units d=0. No reducedness, irreducibility, perfectness, algebraic-closure or characteristic assumption. Additionally A has the stated Noetherian/local instances and q.radical=maximalIdeal(A)."
+      ],
+      "proofSteps": [
+        "Form the displayed explicit rational polynomial. Its evaluation is the rational expression in planeCurve_postulation_iff. For N≥d, d≤N+2 supplies an eventual-equality witness (the sharper d−2 witness also works).",
+        "Use uniqueness directly in existsUnique_polynomial to compare this witness with the Classical.choose witness defining the existing polynomial. No additional polynomial_unique API is consumed or redefined.",
+        "The local and Noetherian instances and radical equality are explicit assumptions on this actual quotient. The finite-jet formula itself did not require them. A unit equation does not supply a nontrivial IsLocalRing instance on the zero quotient."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-CURVE-POSTULATION",
+          "locator": "§3, paragraph identifying the existing polynomial",
+          "excerpt": "uniqueness in the existing",
+          "match": "Register the credited finite-jet proof on native carriers, with the precise branch, scalar action and finiteness obligations exposed."
+        }
+      ],
+      "acceptance": [
+        "No new polynomial carrier or caller-supplied Hilbert polynomial; this specialization does not prove the general existence node or native curve dimension."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-function",
+      "kind": "lemma",
+      "title": "Cumulative function of the zero equation",
+      "declaration": "TauCeti.HilbertSamuel.planeZeroEquation_function",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "statement": "For f=0, A=R/(0), q=image(v), the actual H_q,A(N)=binom(N+2,2) in extended naturals.",
+      "hypotheses": [
+        "k is any field, R=k[[x,y]], f=0, A=R/(0), q=image(v), N∈ℕ."
+      ],
+      "proofSteps": [
+        "Use planeCurve_jet_length without a finite-order hypothesis. The ideal generated by zero is zero, so its sum with v^(N+1) is v^(N+1). Apply the ambient plane total-jet length."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-jet-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-total-jet-ring-length"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-CURVE-POSTULATION",
+          "locator": "§2.3, zero-equation paragraph",
+          "excerpt": "For f=0",
+          "match": "Register the credited finite-jet proof on native carriers, with the precise branch, scalar action and finiteness obligations exposed."
+        }
+      ],
+      "acceptance": [
+        "Over F₂, H(2)=6. Zero has infinite native order and never belongs in the d=0 unit case."
+      ],
+      "tests": [
+        {
+          "name": "PlaneCurveAcceptance.zero_equation_six",
+          "kind": "computation",
+          "statement": "For k=F₂, f=0 and N=2, the actual function equals 6."
+        }
+      ]
     }
   ],
   "baselineCoverage": [
@@ -8333,7 +8773,8 @@
         "Supply the domain property of regular local rings (Stacks 00NP, through the associated graded ring 00NO), used by regular-local-cohen-macaulay; see the gap.",
         "The reserved general multiplicity strand includes positivity and now the native graded-length definition, adic transition length step, cumulative extended/natural length identities, finite coefficient lengths, rational summation polynomial and conditional graded-to-cumulative tail theorem. Its remaining leaves are associated-graded ring/module structure and finiteness, graded numerical-polynomial induction, degree/dimension and Artin–Rees comparisons, finite top-dimensional localization lengths, regular-local domain theorem and geometric/complete-ring comparisons. Existence of the graded polynomial remains open, so cumulative polynomial existence and the full key definition are not certified closed.",
         "Discharge the nine adic graded-ring and eleven adic graded-module comparison proofs, then register the exact graded ring/module interfaces and decompose the graded Hilbert–Serre induction. Native Rees carriers and native quotient scalar descent are reused. All earlier local algebra, multiplicity, degree/dimension, completion and routed-paper obligations remain open.",
-        "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open."
+        "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open.",
+        "The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open."
       ]
     },
     {
@@ -8512,13 +8953,22 @@
         "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
         "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-finite",
         "DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-ring-length",
-        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-total-jet-ring-length"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-total-jet-ring-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-equation-jet-length-balance",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-equation-jet-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-jet-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-function",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-graded-function",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-defect",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-iff",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-function"
       ],
-      "detail": "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open. Retain f=0 and unit boundaries, positive characteristic and nonreduced equations. An arbitrary finite R-module is not thereby finite over k."
+      "detail": "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open. Retain f=0 and unit boundaries, positive characteristic and nonreduced equations. An arbitrary finite R-module is not thereby finite over k. The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open."
     }
   ],
   "sourceIssues": [],
-  "validationBoundary": "The original five baseline entries and baselineCoverage are preserved verbatim. The new declarations were inspected at the exact pin, with source blobs recorded. KW passages were parsed-only after failed screenshots. No Lean compilation or closed stage is asserted. Initial CI exposed that the checker treats any tauceti: prefix as a baseline declaration before testing stage IDs. The algebraic endpoint now has only baseline/local-node prerequisites, matching its five signatures. The local-field and framed-lifting extensions remain explicit requests, gaps and remainingExtensions; no upstream stage is falsely listed as a proved baseline theorem. The handoff's initial uploaded packet hash refers to the pre-CI version; the amended packet is validated by the new submission run. Continuation of 28 September 2026 (cc-39fac3): the suggested file was compiled at the pins with the v4.34.0-rc2 lean against the prebuilt Mathlib 082e2d3 oleans. Before this continuation it had one error, an elab_as_elim motive failure in the prime-filtration induction wrapper, fixed by passing (motive := motive). After the fix and the R03.3 additions it has 0 errors and only placeholder-proof warnings; the R03.4 intermediate-field signatures elaborate. Continuation by Codex — codex-a71f92, 2026-10-02: fresh selected source passages and sixteen additional pinned declaration statements inspected. The general polynomial theorem is not inferred from the pinned rational-series hilbertPoly API. New signatures not compiled; prior compilation receipts are historical only. All new nodes remain unchecked and all stages remain partial/not_read. Codex — codex-J6LwjP read all applicable DDPA AUDIT-17 entries, the accepted RS-08 keeps/links/owner decisions, the original roadmap and integrated P7 node. New baseline statements were read at the pin. This is a mathematical continuation, not an independent review of the earlier checkpoint or a new confirmation of the paper errata. Current codex-J6LwjP receipt: the entire suggested file elaborates with Lean v4.34.0-rc2 against existing Mathlib 082e2d3 oleans, 0 errors and 112 placeholder-proof warnings. No Tau Ceti module is imported or built. Prior no-compilation statements describe earlier checkpoints only. All mathematical implementations remain unchecked; none of the eight stages is closed. Codex — codex-a71f92 cumulative continuation: native quotient and Bernoulli statements freshly inspected at the pin. Only the cumulative-existence consumer is refined; 43 of 44 inherited nodes are unchanged. New signatures are uncompiled because the available source trees have no existing pinned build; the earlier compilation receipt is historical. All new nodes remain unchecked.",
+  "validationBoundary": "The original five baseline entries and baselineCoverage are preserved verbatim. The new declarations were inspected at the exact pin, with source blobs recorded. KW passages were parsed-only after failed screenshots. No Lean compilation or closed stage is asserted. Initial CI exposed that the checker treats any tauceti: prefix as a baseline declaration before testing stage IDs. The algebraic endpoint now has only baseline/local-node prerequisites, matching its five signatures. The local-field and framed-lifting extensions remain explicit requests, gaps and remainingExtensions; no upstream stage is falsely listed as a proved baseline theorem. The handoff's initial uploaded packet hash refers to the pre-CI version; the amended packet is validated by the new submission run. Continuation of 28 September 2026 (cc-39fac3): the suggested file was compiled at the pins with the v4.34.0-rc2 lean against the prebuilt Mathlib 082e2d3 oleans. Before this continuation it had one error, an elab_as_elim motive failure in the prime-filtration induction wrapper, fixed by passing (motive := motive). After the fix and the R03.3 additions it has 0 errors and only placeholder-proof warnings; the R03.4 intermediate-field signatures elaborate. Continuation by Codex — codex-a71f92, 2026-10-02: fresh selected source passages and sixteen additional pinned declaration statements inspected. The general polynomial theorem is not inferred from the pinned rational-series hilbertPoly API. New signatures not compiled; prior compilation receipts are historical only. All new nodes remain unchecked and all stages remain partial/not_read. Codex — codex-J6LwjP read all applicable DDPA AUDIT-17 entries, the accepted RS-08 keeps/links/owner decisions, the original roadmap and integrated P7 node. New baseline statements were read at the pin. This is a mathematical continuation, not an independent review of the earlier checkpoint or a new confirmation of the paper errata. Current codex-J6LwjP receipt: the entire suggested file elaborates with Lean v4.34.0-rc2 against existing Mathlib 082e2d3 oleans, 0 errors and 112 placeholder-proof warnings. No Tau Ceti module is imported or built. Prior no-compilation statements describe earlier checkpoints only. All mathematical implementations remain unchecked; none of the eight stages is closed. Codex — codex-a71f92 cumulative continuation: native quotient and Bernoulli statements freshly inspected at the pin. Only the cumulative-existence consumer is refined; 43 of 44 inherited nodes are unchanged. New signatures are uncompiled because the available source trees have no existing pinned build; the earlier compilation receipt is historical. All new nodes remain unchecked. Current codex-J6LwjP curve-jet integration preserves all 96 inherited node objects and the reserved key definition. New signatures elaborate but are admitted under section 13. Rerun finite exact arithmetic does not certify any formal-series theorem, tangent cone, dimension, multiplicity or source closure.",
   "keyDefinitionBoundary": {
     "reservedId": "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
     "status": "planned_with_gaps",
@@ -9243,6 +9693,99 @@
         "unchangedNodeObjects": 89,
         "scriptSha256": "b50255d3c75b8e3155fe97668b6e8d63da06f6b694cff68c5118467847ab3933"
       }
+    }
+  },
+  "curveJetContinuation": {
+    "agent": "Codex — codex-J6LwjP",
+    "date": "2026-10-02",
+    "winningClaim": 5960217089,
+    "confirmation": 5960220441,
+    "publicationBase": "ab76ddae905be2ec38836c070c5495c6d1c4e3c0",
+    "status": "partial",
+    "preservedNodeObjects": 96,
+    "nodesAdded": 9,
+    "newTests": 6,
+    "sourceBoundary": "Credited predecessor checkpoint read in full; selected exact pinned generic quotient/length statements and Stacks 00IU/00K4 personally read. Reviewed AUDIT-17 scope and accepted RS-08 owner keeps respected. No fresh full routed-paper closure or exhaustive library absence claim.",
+    "proofBoundary": "Canonical integration and elaboration only: every new declaration/example body admitted. Inherited residue proof archive is historical, not rechecked here.",
+    "remaining": "The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open.",
+    "freshReadReceipts": {
+      "upstream": [
+        "content/tau-ceti/RepresentationTheory/SemisimpleAlgebras/README.md (388 lines)",
+        "content/tau-ceti/AlgebraicCurves/README.md (1410 lines)"
+      ],
+      "pinned": [
+        "Mathlib/RingTheory/Length.lean: assumptions and statements/proofs at 80–207, 285–308",
+        "Mathlib/RingTheory/Ideal/Maps.lean: 276–290 and 655–672",
+        "Mathlib/RingTheory/Ideal/Quotient/Operations.lean: actual double-quotient carriers at 885–918 and algebra versions 1030–1057"
+      ],
+      "scope": "Original campaign document read completely; all eight reviewed AUDIT-17 scope records and accepted RS-08 own keeps freshly read; original touching stage edges inspected. Routed papers retain their recorded read/unread boundaries."
+    },
+    "validation": {
+      "lean": {
+        "code": 0,
+        "errors": 0,
+        "admitted": 285,
+        "otherWarnings": 0,
+        "availableGiB": 63,
+        "timeRSS": "23.01 3540316",
+        "sourceSha256": "c79c3f31789828bbe4f8c5870616ec46b8bc9a50903eec3db379270a779bc474",
+        "logSha256": "396742770394e8261432dbe7022b0649f91722f9bd59ca906b2b59e707325683",
+        "examples": 131
+      },
+      "assembler": {
+        "actualAssembler": true,
+        "stageDAG": {
+          "vertices": 3003,
+          "edges": 8623,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 105,
+          "edges": 162,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3096,
+          "edges": 8783,
+          "acyclic": true
+        },
+        "reachableDeclarations": 106,
+        "externalDeclarations": [
+          "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds"
+        ],
+        "reachableBaselineReferences": 196,
+        "unresolved": [],
+        "ownSkippedLinks": [],
+        "otherSkipsMatchOriginal": true,
+        "stageEdgesUnchanged": true,
+        "requiredStagePairs": 63,
+        "requiredStagePairsReachable": 63,
+        "inheritedMissingStagePairs": [],
+        "unchangedNodeObjects": 96,
+        "partDeclarations": 105,
+        "partPlanets": 13,
+        "roadmapDeclarations": 158,
+        "scriptSha256": "8111a902d116434255cb6bbae15109e24c1f893c0cbd257d3eaf5e7e053ae232"
+      },
+      "finiteRegression": {
+        "agent": "ChatGPT Pro — cp-20261002-sr-c72e81",
+        "scope": "finite polynomial jets and independent integer/rational boundary arithmetic",
+        "polynomial_cases": 224,
+        "finite_order_cases": 220,
+        "zero_equation_cases": 4,
+        "jet_matrix_checks": 2464,
+        "arithmetic_pairs": 12221,
+        "assertions": 36686,
+        "source_sha256": "9dde5556639d51f24711f3070f8cc077988de005569d3a3da281570ddf4683e4",
+        "lean_compiled": false,
+        "warning": "No arbitrary-series theorem or native Lean signature is certified by these tests."
+      }
+    },
+    "boundedSearchBoundary": "Fresh bounded searches in both pinned RingTheory source trees found no matching named planeCurve/planeEquationJet/postulation adapter; generic quotient and length theorems are built and imported. No exhaustive absence claim.",
+    "freshPinnedSourceHashes": {
+      "Mathlib/RingTheory/Length.lean": "28058afb0a726d046c7ef25ef25f86707d64762129baf08106944bcde811b466",
+      "Mathlib/RingTheory/Ideal/Maps.lean": "a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11",
+      "Mathlib/RingTheory/Ideal/Quotient/Operations.lean": "25359917b64f9434dbff99f3033ecba35badb45d0a4e3468aead0ba87743d109"
     }
   }
 }
