@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Continuation of the verified prime-filtration baseline, now refining the R03.4 characteristic-zero-point argument into five declaration-sized nodes. The new proof separates nilpotent-uniformizer Artinianness, coefficient injection at a generic prime, an algebraically closed point with the exact kernel, finiteness of its field of values, and the integral local-map assembly. It does not assume flatness, a fixed residue field, or an unproved framed-lifting assertion. The complete local-field interpretation remains a required comparison with its existing owner, not a prerequisite of the algebraic theorem. Earlier baseline records and other-stage worklists are retained; the eight-stage blueprint remains partial. A further continuation adds four R03.3 nodes answering R03.6's requests: the catenary predicate with the Noetherian-local dimension-function criterion (Stacks 0ECF), Cohen–Macaulayness of regular local rings, and freeness of maximal-depth modules over a regular local base (Stacks 00NT, 00O7), with the domain property of regular local rings recorded as a gap. Continuation of 2 October 2026 plans the reserved general Hilbert–Samuel multiplicity once in R03.3, with actual module quotient lengths, cumulative polynomial, intrinsic and ambient normalizations, finite-difference integrality, ideal-power scaling, dimension-normalized additivity and associativity. Its proof leaves and geometric comparisons remain explicit gaps; all nine earlier nodes, source receipts and existing stage coverage are preserved. Continuation by Codex — codex-J6LwjP develops the P7 minimal-complex strand over arbitrary local rings, using the existing K-projective/homotopy API. Thirteen new nodes separate perfectness, pseudo-coherence, minimality, cancellation, minimal representatives, uniqueness, residual ranks, three-term splitting and residual perfectness/Nakayama. Existing 23 nodes and all eight source obligations remain; derived tensor comparison and remaining P7 theories are explicit proof gaps. Four further P7 proof nodes give finite tail approximation, finite-perfect Hom/filtered-colimit comparison, functorial lower-bounded replacement and the uniformly lower-bounded pseudo-coherent Hom theorem required by reviewed Boxer–Pilloni E26. These use existing linear Hom complexes and module AB5; the scheme application remains with its owner.",
+  "summary": "Continuation of the verified prime-filtration baseline, now refining the R03.4 characteristic-zero-point argument into five declaration-sized nodes. The new proof separates nilpotent-uniformizer Artinianness, coefficient injection at a generic prime, an algebraically closed point with the exact kernel, finiteness of its field of values, and the integral local-map assembly. It does not assume flatness, a fixed residue field, or an unproved framed-lifting assertion. The complete local-field interpretation remains a required comparison with its existing owner, not a prerequisite of the algebraic theorem. Earlier baseline records and other-stage worklists are retained; the eight-stage blueprint remains partial. A further continuation adds four R03.3 nodes answering R03.6's requests: the catenary predicate with the Noetherian-local dimension-function criterion (Stacks 0ECF), Cohen–Macaulayness of regular local rings, and freeness of maximal-depth modules over a regular local base (Stacks 00NT, 00O7), with the domain property of regular local rings recorded as a gap. Continuation of 2 October 2026 plans the reserved general Hilbert–Samuel multiplicity once in R03.3, with actual module quotient lengths, cumulative polynomial, intrinsic and ambient normalizations, finite-difference integrality, ideal-power scaling, dimension-normalized additivity and associativity. Its proof leaves and geometric comparisons remain explicit gaps; all nine earlier nodes, source receipts and existing stage coverage are preserved. Continuation by Codex — codex-J6LwjP develops the P7 minimal-complex strand over arbitrary local rings, using the existing K-projective/homotopy API. Thirteen new nodes separate perfectness, pseudo-coherence, minimality, cancellation, minimal representatives, uniqueness, residual ranks, three-term splitting and residual perfectness/Nakayama. Existing 23 nodes and all eight source obligations remain; derived tensor comparison and remaining P7 theories are explicit proof gaps. Four further P7 proof nodes give finite tail approximation, finite-perfect Hom/filtered-colimit comparison, functorial lower-bounded replacement and the uniformly lower-bounded pseudo-coherent Hom theorem required by reviewed Boxer–Pilloni E26. These use existing linear Hom complexes and module AB5; the scheme application remains with its owner. Continuation by codex-rtOQ9t separates and source-closes the positivity deduction into four R03.3 lemmas: natural-tail polynomial sign, finite positive adic lengths, nonzero cumulative polynomial and positive leading coefficient. The existing degree and intrinsic positivity/integrality nodes consume this chain; the eventual-polynomial construction and other fourteen gap groups remain explicit.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -626,6 +626,90 @@
         "module": "Mathlib/RingTheory/LocalRing/Basic.lean",
         "provides": "A surjective map from a local ring to a nontrivial ring makes the target local. The actual prime quotient adapter in the multiplicity signature uses this theorem, without adding a new mathematical hypothesis.",
         "checked": "Statement, section parameters and proof read at the pin on 2026-10-02; blob 0c15afafdf275fe888c024385d9ad4a0b7268ed6."
+      },
+      {
+        "ref": "mathlib:Polynomial.tendsto_atBot_of_leadingCoeff_nonpos",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Polynomial/Basic.lean",
+        "provides": "Positive-degree polynomials with nonpositive leading coefficient tend to negative infinity.",
+        "checked": "Actual complete declaration statement and applicable context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:tendsto_natCast_atTop_atTop",
+        "kind": "theorem",
+        "module": "Mathlib/Order/Filter/AtTopBot/Archimedean.lean",
+        "provides": "Natural casts tend to infinity in an ordered Archimedean semiring; specialize to rational numbers.",
+        "checked": "Actual complete declaration statement and applicable context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Polynomial.eq_C_of_natDegree_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Operations.lean",
+        "provides": "The degree-zero branch is genuinely constant, including the zero polynomial.",
+        "checked": "Actual complete declaration statement and applicable context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Polynomial.leadingCoeff_ne_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Defs.lean",
+        "provides": "Nonzero polynomial has nonzero leading coefficient.",
+        "checked": "Actual complete declaration statement and applicable context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_pos_iff_degree_pos",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Defs.lean",
+        "provides": "Convert positive natural degree to the degree hypothesis of the asymptotic theorem.",
+        "checked": "Actual complete declaration statement and applicable context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Submodule.eq_bot_of_eq_ideal_smul_of_le_jacobson_annihilator",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Nakayama.lean",
+        "provides": "Finite N with N=I·N and I inside the Jacobson radical of its annihilator is zero.",
+        "checked": "Actual complete declaration statement and applicable context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.maximalIdeal_le_jacobson",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+        "provides": "The maximal ideal is inside the Jacobson radical of every ideal in a local ring.",
+        "checked": "Actual complete declaration statement and applicable context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.nontrivial_iff",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "The native module quotient is nontrivial precisely when its submodule is not top.",
+        "checked": "Actual complete declaration statement and applicable context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Module.length_pos",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "A nontrivial native module has positive extended-natural length; finiteness remains a separate input.",
+        "checked": "Actual complete declaration statement and applicable context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:ENat.toNat_pos",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ENat/Basic.lean",
+        "provides": "toNat is positive only with both nonzero and finite hypotheses; infinity must be excluded.",
+        "checked": "Actual complete declaration statement and applicable context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Ideal.pow_le_self",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "Positive ideal powers lie in the original ideal.",
+        "checked": "Actual complete declaration statement and applicable context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Ideal.le_radical",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "An ideal is contained in its radical.",
+        "checked": "Actual complete declaration statement and applicable context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by codex-rtOQ9t on 2026-10-02."
       }
     ]
   },
@@ -1041,6 +1125,44 @@
       "readSections": [
         "Whole statement and proof of Lemma 15.67.1; its target modules are generalized here to complexes with a common lower bound by a degreewise Hom argument."
       ]
+    },
+    {
+      "id": "HS-POS-PIN",
+      "title": "Pinned polynomial asymptotics and local Nakayama interfaces",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Polynomial/Basic.lean",
+      "readScope": "Polynomial/Basic.lean lines34–89, including the complete asymptotic and sign-limit proofs; supporting Degree/Defs, Degree/Operations, Nakayama, LocalRing/MaximalIdeal/Basic, Quotient/Basic, Length, Ideal/Operations, ENat/Basic and AtTopBot/Archimedean declaration statements. This is a fresh source inspection at the exact pin.",
+      "authors": "Mathlib contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "readSections": [
+        "Polynomial/Basic.lean lines34–89, including the complete asymptotic and sign-limit proofs; supporting Degree/Defs, Degree/Operations, Nakayama, LocalRing/MaximalIdeal/Basic, Quotient/Basic, Length, Ideal/Operations, ENat/Basic and AtTopBot/Archimedean declaration statements. This is a fresh source inspection at the exact pin."
+      ],
+      "accessDate": "2026-10-02"
+    },
+    {
+      "id": "HS-POS-NAK",
+      "title": "Stacks 00DV: Nakayama lemma",
+      "url": "https://stacks.math.columbia.edu/tag/00DV",
+      "readScope": "Full twelve-part statement and proof, especially parts(1)–(2). Reuse the pinned theorem rather than introducing another Nakayama lemma.",
+      "sha256": "7e96c492672ea9871ba5319f95dcf762c53a1fd01683ec0a255dee23f64f0075",
+      "authors": "The Stacks Project Authors",
+      "edition": "Stable Stacks tag, online text read 2 October 2026",
+      "readSections": [
+        "Full twelve-part statement and proof, especially parts(1)–(2). Reuse the pinned theorem rather than introducing another Nakayama lemma."
+      ],
+      "accessDate": "2026-10-02"
+    },
+    {
+      "id": "HS-POS-LOCAL",
+      "title": "Stacks 00K4: Hilbert–Samuel functions and leading coefficients",
+      "url": "https://stacks.math.columbia.edu/tag/00K4",
+      "readScope": "Opening actual quotient-length conventions, Definition10.59.8 and the leading-coefficient argument in Lemma10.59.10. The positivity deduction here supplies a detailed proof of the nonnegative-coefficient observation; no fresh complete rereading of every inherited paper is claimed.",
+      "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+      "authors": "The Stacks Project Authors",
+      "edition": "Stable Stacks tag, online text read 2 October 2026",
+      "readSections": [
+        "Opening actual quotient-length conventions, Definition10.59.8 and the leading-coefficient argument in Lemma10.59.10. The positivity deduction here supplies a detailed proof of the nonnegative-coefficient observation; no fresh complete rereading of every inherited paper is claimed."
+      ],
+      "accessDate": "2026-10-02"
     }
   ],
   "nodes": [
@@ -1961,7 +2083,7 @@
       "proofSteps": [
         "For q=m the dimension bridge gap supplies the exact-sequence leading-degree comparison of Stacks 10.59.10 and the local-ring degree/dimension theorem 10.60.9. Apply the existing prime-filtration theorem, not a new filtration construction.",
         "In a prime filtration, degree equals the maximum degree of its factors and support is the union of their closed supports. Stacks 10.62.6 identifies these maxima. Module.supportDim is the existing dimension carrier, and Module.supportDim_eq_ringKrullDim_quotient_annihilator pins its convention.",
-        "For another ideal of definition q, compare powers of q and m as in Stacks 10.59.4 and 10.59.7; polynomial growth in both directions gives the same degree. Nakayama prevents a nonzero finite M from giving a zero eventual polynomial.",
+        "For another ideal of definition q, compare powers of q and m as in Stacks10.59.4 and10.59.7; polynomial growth in both directions gives the same degree. The nonzero-hilbert-samuel-polynomial node independently rules out the zero polynomial, without using this degree comparison.",
         "Use Module.supportDim_eq_bot_iff_subsingleton for the zero branch, not natDegree(0)=0 as a dimension assertion."
       ],
       "acceptance": [
@@ -1973,7 +2095,8 @@
         "mathlib:IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime",
         "mathlib:Module.supportDim",
         "mathlib:Module.supportDim_eq_ringKrullDim_quotient_annihilator",
-        "mathlib:Module.supportDim_eq_bot_iff_subsingleton"
+        "mathlib:Module.supportDim_eq_bot_iff_subsingleton",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/nonzero-hilbert-samuel-polynomial"
       ],
       "sources": [
         {
@@ -2301,11 +2424,12 @@
       "statement": "For any nonzero finite M under the common hypotheses, e(q;M) is a positive natural integer viewed in ℚ.",
       "hypotheses": [
         "A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m.",
-        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated."
+        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated.",
+        "M is nonzero."
       ],
       "proofSteps": [
         "Let d=natDegree P. For t a sufficiently large natural integer, all t−i (0≤i≤d) are above the eventual evaluation threshold. top-coefficient-finite-difference expresses e as an integer linear combination of genuine integer quotient lengths, proving integrality.",
-        "Positivity uses the polynomial-growth/sign gap together with nonnegative quotient lengths and Nakayama: the eventual polynomial is nonzero and nonnegative on a cofinal tail, hence has positive leading coefficient. Its factorial is positive.",
+        "The positive-hilbert-samuel-leading-coefficient node gives a strictly positive leading coefficient via finite positive quotient lengths, nonzero polynomial and the rational natural-tail sign lemma. Multiplication by the positive factorial makes intrinsic multiplicity positive, including the degree-zero case.",
         "Combine positive rational value and integrality to obtain a positive natural integer. No primality, reducedness or Cohen–Macaulay hypothesis is introduced."
       ],
       "acceptance": [
@@ -2316,7 +2440,8 @@
         "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
         "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree",
         "DeformationAndDerivedPatchingAlgebra:R03.3/top-coefficient-finite-difference",
-        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/positive-hilbert-samuel-leading-coefficient"
       ],
       "sources": [
         {
@@ -3440,6 +3565,220 @@
         "namespace": "TauCeti.LocalPerfect"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/positive-leading-coefficient-on-natural-tail",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Positive leading coefficient from a natural tail",
+      "declaration": "TauCeti.HilbertSamuel.leadingCoeff_pos_of_nat_tail_nonneg",
+      "statement": "Let P∈ℚ[T] be nonzero. If there is N∈ℕ such that P(n)≥0 for every natural n≥N, then leadingCoeff(P)>0. The hypothesis is only on the natural tail, not on every real or rational input; constants are included.",
+      "hypotheses": [
+        "P is a rational polynomial with P≠0; N is a natural number and all natural n≥N have P(n)≥0."
+      ],
+      "proofSteps": [
+        "If natDegree P=0, use the pinned constant-polynomial theorem. Evaluation at N makes its constant nonnegative; nonzero leading coefficient makes it positive.",
+        "For positive natural degree, suppose the leading coefficient is nonpositive. The pinned polynomial theorem gives P(x)→−∞ as rational x→+∞.",
+        "Compose with the pinned natural-cast limit to get P(n)→−∞. Beyond some natural threshold P(n)<0, contradicting the nonnegative tail at the maximum of the two thresholds.",
+        "This proves a strict sign, not integrality or an exact evaluation formula. The zero polynomial cannot be admitted."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.tendsto_atBot_of_leadingCoeff_nonpos",
+        "mathlib:tendsto_natCast_atTop_atTop",
+        "mathlib:Polynomial.eq_C_of_natDegree_eq_zero",
+        "mathlib:Polynomial.leadingCoeff_ne_zero",
+        "mathlib:Polynomial.natDegree_pos_iff_degree_pos"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-POS-PIN",
+          "locator": "Polynomial/Basic.lean 81–83 and AtTopBot/Archimedean.lean 44–47; Degree/Operations.lean 486–487",
+          "excerpt": "tendsto_atBot_of_leadingCoeff_nonpos",
+          "match": "An explicit deduction from the actual pinned sign limit and natural-cast limit, with the constant branch treated separately."
+        }
+      ],
+      "acceptance": [
+        "Positive constants must pass without assuming positive degree.",
+        "X²−100X is negative at1 but is nonnegative at every natural n≥100; an all-input condition would be too strong.",
+        "A positive rational leading coefficient need not give integral multiplicity without integer-valued tail data."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "HilbertSamuelPosTest.constant",
+          "kind": "computation",
+          "statement": "P=C(3/2) has leading coefficient3/2>0; positive degree is unnecessary."
+        },
+        {
+          "name": "HilbertSamuelPosTest.delayed",
+          "kind": "computation",
+          "statement": "P=X²−100X has leading coefficient1, P(1)=−99 and P(n)≥0 for all natural n≥100."
+        },
+        {
+          "name": "HilbertSamuelPosTest.zero",
+          "kind": "non-example",
+          "statement": "The zero polynomial has leading coefficient0 and fails strict positivity despite its nonnegative values everywhere."
+        },
+        {
+          "name": "HilbertSamuelPosTest.rational",
+          "kind": "non-example",
+          "statement": "P=(1/3)X+1 has positive leading coefficient1/3, which is not the rational cast of any integer. Positivity alone supplies no integrality."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/positive-finite-adic-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Positive finite adic quotient lengths",
+      "declaration": "TauCeti.HilbertSamuel.function_toNat_pos",
+      "statement": "For a nonzero finite module M over a Noetherian local A and an ideal q with radical q=m, H(q,M,n).toNat>0 for every n∈ℕ. Both positivity of the actual quotient and its finite length are proved before converting the extended value.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m.",
+        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated.",
+        "M is nonzero."
+      ],
+      "proofSteps": [
+        "For I=q^(n+1), positive powers satisfy I⊆q⊆m. If I·M=M, the native finite-submodule Nakayama theorem applies to top: I is inside the Jacobson radical of its annihilator by maximalIdeal_le_jacobson. It would make M zero, a contradiction.",
+        "The native quotient nontriviality criterion makes M/I·M nontrivial. Module.length_pos gives strictly positive extended length.",
+        "The existing finite-adic-quotient-length node excludes infinity. Only now use ENat.toNat_pos, keeping its two separate premises."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length",
+        "mathlib:Ideal.pow_le_self",
+        "mathlib:Ideal.le_radical",
+        "mathlib:Submodule.eq_bot_of_eq_ideal_smul_of_le_jacobson_annihilator",
+        "mathlib:IsLocalRing.maximalIdeal_le_jacobson",
+        "mathlib:Submodule.Quotient.nontrivial_iff",
+        "mathlib:Module.length_pos",
+        "mathlib:ENat.toNat_pos"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-POS-LOCAL",
+          "locator": "Opening quotient-length formulas; Definition10.59.8; leading-coefficient paragraph of Lemma10.59.10",
+          "excerpt": "nonnegative",
+          "match": "The source observes leading-coefficient nonnegativity. The four-node continuation separates Nakayama, finite positive lengths, nonzero polynomial and the precise tail-sign deduction."
+        },
+        {
+          "sourceId": "HS-POS-NAK",
+          "locator": "Lemma10.20.1(2), proof through(1)",
+          "excerpt": "M = 0",
+          "match": "Apply the already-built local Nakayama theorem to the finite module; no second Nakayama theorem is planned."
+        }
+      ],
+      "acceptance": [
+        "The zero module is excluded; n=0 still gives M/qM, not M/M.",
+        "Finiteness of M is essential: for a nonfield DVR A and fraction field K, mK=K although K≠0.",
+        "Extended positive length can be infinity. The finite-length hypothesis is required before toNat."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/nonzero-hilbert-samuel-polynomial",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "The nonzero cumulative polynomial",
+      "declaration": "TauCeti.HilbertSamuel.polynomial_ne_zero",
+      "statement": "For nonzero finite M under the local ideal-of-definition hypotheses, the chosen cumulative Hilbert–Samuel polynomial P(q,M) is nonzero. This conclusion does not use the degree/support-dimension theorem.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m.",
+        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated.",
+        "M is nonzero."
+      ],
+      "proofSteps": [
+        "Take the eventual evaluation threshold supplied by hilbert-samuel-polynomial.",
+        "Evaluate at that natural threshold. positive-finite-adic-length makes the actual natural quotient length strictly positive; its rational cast is positive.",
+        "The zero polynomial would evaluate to zero there, a contradiction. No associated-graded or dimension theorem is used in this deduction, but the existing polynomial-existence prerequisite retains its open proof obligations."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/positive-finite-adic-length"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-POS-LOCAL",
+          "locator": "Opening quotient-length formulas; Definition10.59.8; leading-coefficient paragraph of Lemma10.59.10",
+          "excerpt": "nonnegative",
+          "match": "The source observes leading-coefficient nonnegativity. The four-node continuation separates Nakayama, finite positive lengths, nonzero polynomial and the precise tail-sign deduction."
+        }
+      ],
+      "acceptance": [
+        "A nonzero finite-length module has a nonzero constant polynomial, so positive degree is not imposed.",
+        "The zero-module polynomial remains zero, with bottom degree/support dimension."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/positive-hilbert-samuel-leading-coefficient",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Positive Hilbert–Samuel leading coefficient",
+      "declaration": "TauCeti.HilbertSamuel.polynomial_leadingCoeff_pos",
+      "statement": "For nonzero finite M under the local ideal-of-definition hypotheses, leadingCoeff(P(q,M))>0. This is the sign input to intrinsic multiplicity; it is not the degree comparison or the integrality theorem.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m.",
+        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated.",
+        "M is nonzero."
+      ],
+      "proofSteps": [
+        "The nonzero-polynomial node supplies P≠0 without invoking its degree.",
+        "The eventual evaluation API makes P(n) a cast of a natural length on a common natural tail, hence nonnegative there.",
+        "Apply positive-leading-coefficient-on-natural-tail. Constants, including all nonzero finite-length modules, use its constant branch."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/nonzero-hilbert-samuel-polynomial",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/positive-leading-coefficient-on-natural-tail"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-POS-LOCAL",
+          "locator": "Opening quotient-length formulas; Definition10.59.8; leading-coefficient paragraph of Lemma10.59.10",
+          "excerpt": "nonnegative",
+          "match": "The source observes leading-coefficient nonnegativity. The four-node continuation separates Nakayama, finite positive lengths, nonzero polynomial and the precise tail-sign deduction."
+        },
+        {
+          "sourceId": "HS-POS-PIN",
+          "locator": "Polynomial/Basic.lean 81–83 and AtTopBot/Archimedean.lean 44–47; Degree/Operations.lean 486–487",
+          "excerpt": "tendsto_atBot_of_leadingCoeff_nonpos",
+          "match": "An explicit deduction from the actual pinned sign limit and natural-cast limit, with the constant branch treated separately."
+        }
+      ],
+      "acceptance": [
+        "Dimension-zero modules are included.",
+        "The ambient multiplicity of a lower-dimensional module may still be zero; this theorem concerns its intrinsic leading coefficient."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "baselineCoverage": [
@@ -3532,7 +3871,7 @@
       "remaining": [
         "The prime-filtration/finite-module induction slice is supplied by the baseline. Catenarity (definition and the Noetherian-local dimension-function criterion), Cohen–Macaulayness of regular local rings and freeness of maximal-depth modules over a regular local base are now separate nodes, answering R03.6's two requests. Reconcile and refine the remaining integrated depth, Auslander-Buchsbaum, Cohen-Macaulay, complete-intersection, dimension and support arguments. Import the ModularCurves 4D local regularity/completion/flatness statements in the accepted RS-08 scope, and check any more general module-level forms. Do not infer that this baseline slice closes the whole stage.",
         "Supply the domain property of regular local rings (Stacks 00NP, through the associated graded ring 00NO), used by regular-local-cohen-macaulay; see the gap.",
-        "The general Hilbert–Samuel key-definition strand now has fourteen declaration-sized nodes, intrinsic and dimension-indexed normalizations, and adversarial examples. Finish its seven named gap groups, especially the actual associated-graded bridge, degree/dimension theorem, Artin–Rees additivity and geometric comparisons; no stage or key definition is certified closed."
+        "The reserved general multiplicity strand now includes four explicit positivity declarations. Its remaining proof leaves are the associated-graded bridge, numerical-polynomial induction, degree/dimension and Artin–Rees comparisons, finite top-dimensional localization lengths, regular-local domain theorem and geometric/complete-ring comparisons. Polynomial existence remains open; no stage or key definition is certified closed."
       ]
     },
     {
@@ -3613,14 +3952,6 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/dimension-normalized-additivity"
       ],
       "detail": "Read and decompose Stacks 10.60.9 (ring dimension = Hilbert–Samuel degree) and the exact hypotheses of 10.59.3/9/10 at the pinned Artin–Rees interface. Prove finite-colength top-coefficient invariance, shifted-polynomial comparison, the finite-length branch and prime-filtration support maximum. Reuse existing supportDim and prime filtration. No inference from a length generating function alone establishes degree = dimension."
-    },
-    {
-      "title": "Positivity from an eventually nonnegative polynomial",
-      "neededBy": [
-        "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-positive-integer",
-        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree"
-      ],
-      "detail": "Inspect the pinned polynomial order/asymptotic declarations, then provide a named lemma: a nonzero rational polynomial nonnegative on a cofinal natural tail has positive leading coefficient, together with finite-module Nakayama to exclude an eventually zero Hilbert–Samuel polynomial. The finite-difference integrality calculation does not supply positivity."
     },
     {
       "title": "Top-dimensional support and localization length adapter",
@@ -3739,5 +4070,21 @@
       "tauCetiImports": false,
       "boundary": "Signatures only; source-only Tau Ceti baseline inspection at f790474821cf4256814db967cb154e7af3d0c369."
     }
+  },
+  "positivityContinuation": {
+    "agent": "Codex — codex-rtOQ9t",
+    "date": "2026-10-02",
+    "preservedNodes": 40,
+    "addedNodes": 4,
+    "resolvedProofLeaf": {
+      "title": "Positivity from an eventually nonnegative polynomial",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-positive-integer",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree"
+      ],
+      "detail": "Inspect the pinned polynomial order/asymptotic declarations, then provide a named lemma: a nonzero rational polynomial nonnegative on a cofinal natural tail has positive leading coefficient, together with finite-module Nakayama to exclude an eventually zero Hilbert–Samuel polynomial. The finite-difference integrality calculation does not supply positivity."
+    },
+    "boundary": "This resolves the written positivity proof leaf conditional on the existing polynomial-existence node. It does not construct the associated graded ring/module, prove polynomial existence, or close any stage. All mathematical implementations remain unchecked. Prior P7 source and elaboration receipts are inherited, not newly certified.",
+    "lean": "New full native forms not compiled: no existing combined pinned build is available. No Lake project, cache, library build or language server started."
   }
 }
