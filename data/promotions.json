@@ -448,11 +448,11 @@
    ]
   },
   "research/blueprint/packets/HabiroNahmSeries.json": {
-   "promotedAt": "2026-10-01T20:54:46Z",
-   "review": "c2ce81115b187ac6",
-   "reviewDate": "2026-09-30",
-   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~2",
-   "sha256": "f0837e5a92c150ac35cd9df7d1d0101efb74b34ecee1ad4368beb41697a85b49",
+   "promotedAt": "2026-10-02T04:08:57Z",
+   "review": "b3c144039c942702",
+   "reviewDate": "2026-10-02",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~3",
+   "sha256": "eb0ca2488778710e8ca3d30f9389870faa9119d10c37b9b771c3d435904d358d",
    "to": [
     "data/blueprints/HabiroNahmSeries.json",
     "data/blueprints/HabiroNahmSeries.md"
@@ -503,11 +503,11 @@
    ]
   },
   "research/blueprint/packets/Polylogarithms.json": {
-   "promotedAt": "2026-09-25T14:41:24Z",
-   "review": "5c94a3568480f39f",
-   "reviewDate": "2026-09-24",
-   "reviewer": "independent-review-REV-Polylogarithms",
-   "sha256": "2cb09d18d91fb86a9a3b6e32c727e93a2fb57aa302257bace65e21571844384f",
+   "promotedAt": "2026-10-02T04:08:57Z",
+   "review": "3d37ea7590f3a3d6",
+   "reviewDate": "2026-10-02",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~3",
+   "sha256": "c9068486dd97c07d99f56c54ed6af8d7bd29607a0f6069817ec95927f968bb86",
    "to": [
     "data/blueprints/Polylogarithms.json",
     "data/blueprints/Polylogarithms.md"
