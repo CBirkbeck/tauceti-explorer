@@ -20,6 +20,11 @@ import Mathlib.RingTheory.HopfAlgebra.MonoidAlgebra
 import Mathlib.LinearAlgebra.TensorProduct.Basis
 import Mathlib.Algebra.Polynomial.Monic
 import Mathlib.Algebra.Polynomial.Degree.Operations
+import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
+import Mathlib.FieldTheory.Minpoly.Finite
+import Mathlib.RingTheory.Polynomial.Eisenstein.Criterion
+import Mathlib.RingTheory.Polynomial.GaussLemma
+import Mathlib.CategoryTheory.CofilteredSystem
 
 open CategoryTheory AlgebraicGeometry
 
@@ -312,7 +317,122 @@ example [Subsingleton A] (f : A) (n : ℕ) [NeZero n] (b : AffineRing f n) :
       ∃ a : A, b = algebraMap A (AffineRing f n) a := by
   sorry
 
+-- Native finite-to-infinite chart interfaces, Codex — codex-5ebb6f.
+def affineTransition (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
+    AffineRing f n →ₐ[A] AffineRing f (n * m) := by
+  sorry
+
+lemma affineTransition.root (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
+    affineTransition f n m (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
+      AdjoinRoot.root (Polynomial.X ^ (n * m) - Polynomial.C f) ^ m := by
+  sorry
+
+lemma affineTransition.constant (f a : A) (n m : ℕ) [NeZero n] [NeZero m] :
+    affineTransition f n m (algebraMap A (AffineRing f n) a) =
+      algebraMap A (AffineRing f (n * m)) a := by
+  sorry
+
+lemma affineTransition.unique (f : A) (n m : ℕ) [NeZero n] [NeZero m]
+    (j : AffineRing f n →ₐ[A] AffineRing f (n * m))
+    (hj : j (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
+      AdjoinRoot.root (Polynomial.X ^ (n * m) - Polynomial.C f) ^ m) :
+    j = affineTransition f n m := by
+  sorry
+
+lemma affineTransition.comp (f : A) (n m k : ℕ)
+    [NeZero n] [NeZero m] [NeZero k] :
+    (affineTransition f (n * m) k).comp (affineTransition f n m) =
+      ((by simpa only [Nat.mul_assoc] using affineTransition f n (m * k)) :
+        AffineRing f n →ₐ[A] AffineRing f ((n * m) * k)) := by
+  sorry
+
+def affineTransitionIterated (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
+    (letI : Algebra (AffineRing f n) (AffineRing f (n * m)) :=
+       (affineTransition f n m).toRingHom.toAlgebra;
+     AdjoinRoot (Polynomial.X ^ m -
+       Polynomial.C (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f))) ≃ₐ[AffineRing f n]
+       AffineRing f (n * m)) := by
+  sorry
+
+def affineTransitionBasis (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
+    (letI : Algebra (AffineRing f n) (AffineRing f (n * m)) :=
+       (affineTransition f n m).toRingHom.toAlgebra;
+     Basis (Fin m) (AffineRing f n) (AffineRing f (n * m))) := by
+  sorry
+
+lemma affineTransitionBasis.apply (f : A) (n m : ℕ) [NeZero n] [NeZero m]
+    (i : Fin m) :
+    affineTransitionBasis f n m i =
+      AdjoinRoot.root (Polynomial.X ^ (n * m) - Polynomial.C f) ^ (i : ℕ) := by
+  sorry
+
+lemma affineTransitionBasis.repr (f : A) (n m : ℕ) [NeZero n] [NeZero m]
+    (b : AffineRing f (n * m)) :
+    b = ∑ i : Fin m, affineTransition f n m ((affineTransitionBasis f n m).repr b i) *
+      AdjoinRoot.root (Polynomial.X ^ (n * m) - Polynomial.C f) ^ (i : ℕ) := by
+  sorry
+
+lemma affineTransitionBasis.repr_symm (f : A) (n m : ℕ) [NeZero n] [NeZero m]
+    (c : Fin m →₀ AffineRing f n) :
+    (affineTransitionBasis f n m).repr.symm c =
+      ∑ i : Fin m, affineTransition f n m (c i) *
+        AdjoinRoot.root (Polynomial.X ^ (n * m) - Polynomial.C f) ^ (i : ℕ) := by
+  sorry
+
+theorem affineTransitionFaithfullyFlat (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
+    (letI : Algebra (AffineRing f n) (AffineRing f (n * m)) :=
+       (affineTransition f n m).toRingHom.toAlgebra;
+     Module.FaithfullyFlat (AffineRing f n) (AffineRing f (n * m))) := by
+  sorry
+
+-- affineTransition.test_one
+example (f : A) (n : ℕ) [NeZero n] :
+    affineTransition f n 1 =
+      ((by simpa only [Nat.mul_one] using AlgHom.id A (AffineRing f n)) :
+        AffineRing f n →ₐ[A] AffineRing f (n * 1)) := by
+  sorry
+
+-- affineTransition.test_four_to_two
+example (f : A) :
+    affineTransition f 2 2 (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f)) =
+      AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C f) ^ 2 := by
+  sorry
+
+-- affineTransition.test_nilpotent
+example (k : Type u) [Field k] :
+    affineTransition (0 : k) 2 2 (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (0 : k))) =
+      AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C (0 : k)) ^ 2 ∧
+    affineTransition (0 : k) 2 2 (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (0 : k))) ≠ 0 := by
+  sorry
+
+-- affineTransitionBasis.test_one
+example (f : A) (n : ℕ) [NeZero n] (i : Fin 1) :
+    affineTransitionBasis f n 1 i = 1 := by
+  sorry
+
+-- affineTransitionBasis.test_four
+example (f : A) (b : AffineRing f 4) :
+    ∃! c : Fin 2 → AffineRing f 2,
+      b = affineTransition f 2 2 (c 0) +
+        affineTransition f 2 2 (c 1) * AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C f) := by
+  sorry
+
+-- affineTransitionBasis.test_zeroRing
+example [Subsingleton A] (f : A) (n m : ℕ) [NeZero n] [NeZero m] (i : Fin m) :
+    affineTransitionBasis f n m i = 0 := by
+  sorry
+
 end Affine
+
+lemma rootTwoDegreeBound (K : Type u) [Field K] [Algebra ℚ K]
+    [FiniteDimensional ℚ K] (n : ℕ) (hn : 0 < n) (x : K) (hx : x ^ n = 2) :
+    n ≤ Module.finrank ℚ K := by
+  sorry
+
+-- Acceptance of the non-fppf Kummer tower: no finite extension supplies all roots.
+example (K : Type u) [Field K] [Algebra ℚ K] [FiniteDimensional ℚ K] :
+    ¬ ∀ n : ℕ, 0 < n → ∃ x : K, x ^ n = 2 := by
+  sorry
 end TauCeti.RootStack
 
 /-
@@ -378,10 +498,11 @@ Example TauCeti.RootStack.transition.test_four_to_two: A fourth root (M,t) maps 
 Example TauCeti.RootStack.transition.test_base_change: Pulling a transition back to Y gives the transition of the pulled-back section.
 
 Node FunctionFieldArithmeticPartII:RS.2/infinite-root-stack
-Define √[∞]{(L,s)/X} as the two-inverse limit of the finite root stacks indexed by positive integers
-ordered by divisibility. Its objects over T are compatible finite root objects with transition
-isomorphisms satisfying cocycles; its arrows are compatible systems of root isomorphisms. It is a
-fibred stack, not asserted to be an algebraic stack of finite type.
+Define √[infinity]{(L,s)/X} as the two-inverse limit of the finite root stacks indexed by positive
+integers ordered by divisibility, on the fpqc scheme site. Its objects over T are compatible finite
+root objects with transition isomorphisms satisfying cocycles; arrows are compatible systems of root
+isomorphisms. It is an fpqc stack, hence also an fppf stack by restriction, and is not asserted to
+be an algebraic stack of finite presentation. Its affine quotient uses fpqc torsors.
 API TauCeti.RootStack.infiniteRootStack.projection: Project a coherent system to its n-th root.
 API TauCeti.RootStack.infiniteRootStack.lift: A compatible family of maps into the finite roots determines a map into the two-limit, with
 compatible 2-morphisms.
@@ -407,9 +528,10 @@ B_kẐ(1); a chosen trivialization of the normal line gives a compatible neutral
 neutralization is not part of the canonical root stack.
 
 Node FunctionFieldArithmeticPartII:RS.2/dvr-kummer-classes
-After choosing a neutralization, the isomorphism classes of k-points of the infinite reduced DVR
-gerbe identify with H¹_fppf(k,Ẑ(1)) and lim_n k×/(k×)ⁿ. This is an identification of isomorphism
-classes with a chosen origin; the full groupoid still has Ẑ(1)(k) automorphisms.
+After choosing a neutralization of the infinite reduced DVR gerbe over k, its k-points up to
+isomorphism identify with H1_fpqc(k,G), where G=lim_n μ_n, and with lim_n H1_fppf(k,μ_n)=lim_n
+k×/(k×)^n. Infinite torsors are fpqc; the finite Kummer calculation is fppf. The full groupoid
+retains G(k) automorphisms, and changing the neutralization changes the chosen origin.
 
 Node FunctionFieldArithmeticPartII:GC.0/root-picard
 Pic_X^√R(S) is the groupoid of (L,K_R,ι), where L is a line bundle on X×S, K_R a line bundle on R×S
@@ -798,9 +920,46 @@ For the geometrically connected double cover, the Frobenius trace of its all-deg
 character sheaf equals η_{F′/F} under the adelic groupoid equivalence, with π_x⁻¹↔O_X(x)^♮ and
 geometric Frobenius. At unramified x the value is +1 for split x and −1 for inert x.
 
-Native fragment example TauCeti.RootStack.RootObject.test_trivialization is supplied
-in the coordinate continuation below; its proof remains unchecked.
-See LEAN-SECTION-COMP for its exact affine unit/section comparison.
+Node FunctionFieldArithmeticPartII:RS.1/root-fpqc-descent
+For every positive n and line bundle with section (L,s), the finite root-object pseudofunctor is a
+stack for the pinned fpqc topology, including on scheme test objects over a stack base. Thus its
+fppf restriction and its fpqc construction give the same root objects and arrows on every test
+scheme; the stronger descent assertion is a theorem, not an automatic change of topology.
+
+Node FunctionFieldArithmeticPartII:RS.2/factorial-root-limit
+Restriction of compatible root systems from all positive divisibility indices to 1!,2!,3!,… is an
+equivalence of groupoids, naturally over every test scheme. It preserves actual root arrows and
+transition isomorphisms, not merely their isomorphism classes.
+
+Node FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit
+Over a field k let G=lim_(n|m) μ_n in the fpqc topology, with transition μ_(nm)→μ_n given by the mth
+power. The groupoid of fpqc G-torsors is equivalent to the two-limit of the groupoids of finite
+μ_n-torsors, with specified quotient comparisons and their cocycles. No finite-presentation or
+etale-local-triviality assertion for G is made.
+
+Node FunctionFieldArithmeticPartII:RS.2/kummer-limit-iso-detection
+Two compatible finite μ_n-torsor towers over a field k are isomorphic if their n-th torsors are
+isomorphic for every positive n. Individual finite-stage isomorphisms need not be chosen compatibly
+in advance.
+
+Node FunctionFieldArithmeticPartII:RS.2/kummer-limit-class-lift
+Every element of lim_n H1_fppf(k,μ_n) is the finite-stage class family of a coherent finite torsor
+tower, hence of an fpqc G-torsor. Compatible classes are converted to actual quotient isomorphisms,
+rather than treated as a preexisting compatible object.
+
+Node FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient
+For B_n=A[T]/(T^n−f) with the displayed divisibility maps, put B_infinity=colim_n B_n and G=lim_n
+μ_n, with its diagonalizable grading action. The infinite root stack of (O_A,f) is [Spec
+B_infinity/G] as an fpqc quotient stack. Its morphism groupoids and finite projections agree with
+the two-limit of the finite roots. This is not asserted to be an algebraic stack of finite
+presentation.
+
+Node FunctionFieldArithmeticPartII:RS.2/kummer-tower-not-fppf
+Over Q, the compatible finite torsors P_n=Spec Q[T]/(T^n−2) define an fpqc G=lim_n μ_n torsor
+P_infinity. It has no section after any nonempty fppf Q-cover. Each individual P_n is fppf-locally
+trivial, so replacing all infinite torsors by fppf-locally trivial G-torsors loses this point of the
+infinite classifying gerbe.
+
 -/
 
 

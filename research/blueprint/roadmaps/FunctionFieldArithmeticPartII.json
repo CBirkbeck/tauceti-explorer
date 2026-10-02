@@ -9,7 +9,9 @@
     "FunctionFieldArithmetic",
     "SchemeAndStackFoundations",
     "EtaleDualityAndPerverseSheaves",
-    "InverseGaloisAndArithmeticFundamentalGroups"
+    "InverseGaloisAndArithmeticFundamentalGroups",
+    "DiamondsAndVStacks",
+    "AlgebraicModuliForArithmeticGeometry"
   ],
   "stages": [
     {
@@ -23,20 +25,27 @@
     {
       "key": "RS.1",
       "title": "Finite root stacks",
-      "description": "The canonical root stack of a line bundle with section, including stack bases, Cartier divisors, affine quotient charts, base change, full fibres and relative coarse space; the invariant-ring calculation via the universal Hopf coaction, valid in arbitrary characteristic; the regular tame DM case. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.",
+      "description": "The canonical root stack of a line bundle with section, including stack bases, Cartier divisors, affine quotient charts, base change, full fibres and relative coarse space; the invariant-ring calculation via the universal Hopf coaction, valid in arbitrary characteristic; the regular tame DM case. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader. Finite root data satisfy effective fpqc descent by the imported QCoh equivalence; algebraicity and coarse properties use their separate owners.",
       "requires": [
         "FunctionFieldArithmeticPartII:RS.0",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.3",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "DiamondsAndVStacks:D0"
       ]
     },
     {
       "key": "RS.2",
       "title": "Infinite root stacks and DVR fibres",
-      "description": "Divisibility transitions and coherent inverse limits; finite DVR reduced fibres and the infinite reduced gerbe, with neutralizations distinguished from canonical constructions. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.",
+      "description": "Divisibility transitions and coherent inverse limits; finite DVR reduced fibres and the infinite reduced gerbe, with neutralizations distinguished from canonical constructions. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader. Native finite-free affine transition maps and their iterated-quotient basis; infinite affine fpqc quotient; factorial reindexing; compatible Kummer-torsor/class comparisons. Infinite H1 is fpqc, finite Kummer is fppf; the all-roots-of2 example rejects a change to fppf infinite torsors.",
       "requires": [
         "FunctionFieldArithmeticPartII:RS.0",
         "FunctionFieldArithmeticPartII:RS.1",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "DiamondsAndVStacks:D0",
+        "SchemeAndStackFoundations:SF.2"
       ]
     },
     {
@@ -170,7 +179,7 @@
       "id": "B24",
       "title": "On the birational section conjecture with strong birationality assumptions",
       "authors": "Giulio Bresciani",
-      "edition": "Inventiones Mathematicae 236 (2024), 129–150, open-access version of record",
+      "edition": "Inventiones Mathematicae 235 (2024), 129–150; online 26 September 2023, open-access version of record",
       "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf",
       "sha256": "77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148",
       "accessed": "2026-10-02",
