@@ -47282,8 +47282,9 @@
     "FIX-RT-RS-27"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-27.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5554"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5554",
+   "finishedAt": "2026-10-02T03:24:25Z"
   },
   {
    "id": "RT-RS-28",
@@ -48021,7 +48022,8 @@
     "REV-ClassicalSerreModularity--R27.3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalSerreModularity--R27.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4430"
   },
   {
    "id": "RT-BP-ClassicalSerreModularity--R33.5",
