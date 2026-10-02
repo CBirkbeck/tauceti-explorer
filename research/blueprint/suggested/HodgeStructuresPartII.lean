@@ -5,7 +5,7 @@ forms so that contributors and reviewers converge on names and signatures.
 Partial continuation for DESIGN-HodgeStructuresPartII, issue #3371.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-AUGMENTATION GENERATOR CONTINUATION: all suggested declaration, API and test
+ORDERED TENSOR-POWER CONTINUATION: all suggested declaration, API and test
 bodies are admitted planning sketches under PROTOCOL section 13. Historical
 actual affine proofs are retained at commit
 9a36f4d1d6743c0202f12020c0df603400149faa, with their own immutable receipts.
@@ -904,157 +904,62 @@ variable {F : Type z} [AddCommGroup F] [Module R F]
 
 -- node: HodgeStructuresPartII:H.0/affine-contractions
 def affineContractions (θ : E →ₗ[R] E ⊗[R] Q) :
-    Module.Dual R Q →ₗ[R] Module.End R E := {
-  toFun v := (TensorProduct.rid R E).toLinearMap.comp
-    ((TensorProduct.map (LinearMap.id : E →ₗ[R] E) v).comp θ)
-  map_add' v w := by
-    ext e
-    simp [TensorProduct.map_add_right]
-  map_smul' r v := by
-    ext e
-    simp [TensorProduct.map_smul_right]
-}
+    Module.Dual R Q →ₗ[R] Module.End R E := sorry
 theorem affineContractions_apply (θ : E →ₗ[R] E ⊗[R] Q)
     (v : Module.Dual R Q) (e : E) :
     affineContractions θ v e = TensorProduct.rid R E
-      (TensorProduct.map (LinearMap.id : E →ₗ[R] E) v (θ e)) := by rfl
+      (TensorProduct.map (LinearMap.id : E →ₗ[R] E) v (θ e)) := sorry
 theorem affineContractions_zero :
-    affineContractions (0 : E →ₗ[R] E ⊗[R] Q) = 0 := by ext v e; simp [affineContractions]
+    affineContractions (0 : E →ₗ[R] E ⊗[R] Q) = 0 := sorry
 theorem affineContractions_add (θ η : E →ₗ[R] E ⊗[R] Q) :
-    affineContractions (θ + η) = affineContractions θ + affineContractions η := by ext v e; simp [affineContractions]
+    affineContractions (θ + η) = affineContractions θ + affineContractions η := sorry
 -- test: TwistedHiggsBundle.affineContractions.test_zero
 example (v : Module.Dual R Q) (e : E) :
-    affineContractions (0 : E →ₗ[R] E ⊗[R] Q) v e = 0 := by rw [affineContractions_zero]; rfl
+    affineContractions (0 : E →ₗ[R] E ⊗[R] Q) v e = 0 := sorry
 -- test: TwistedHiggsBundle.affineContractions.test_line
 example (e : R) :
     affineContractions ((TensorProduct.rid R R).symm.toLinearMap)
-      (LinearMap.id : Module.Dual R R) e = e := by simp [affineContractions, TensorProduct.map_id]
+      (LinearMap.id : Module.Dual R R) e = e := sorry
 -- test: TwistedHiggsBundle.affineContractions.test_zero_dual
 example (θ : E →ₗ[R] E ⊗[R] Q) :
-    affineContractions θ (0 : Module.Dual R Q) = 0 := by simp [affineContractions]
+    affineContractions θ (0 : Module.Dual R Q) = 0 := sorry
 -- node: HodgeStructuresPartII:H.0/affine-contractions-reconstruction
 theorem affineContractions_reconstruct {I : Type*} [Fintype I]
     (b : Module.Basis I R Q) (θ : E →ₗ[R] E ⊗[R] Q) (e : E) :
-    θ e = ∑ i, affineContractions θ (b.coord i) e ⊗ₜ[R] b i := by
-  have h : ∀ t : E ⊗[R] Q, t = ∑ i,
-      TensorProduct.rid R E
-        (TensorProduct.map (LinearMap.id : E →ₗ[R] E) (b.coord i) t) ⊗ₜ[R] b i := by
-    intro t
-    induction t using TensorProduct.induction_on with
-    | zero => simp
-    | tmul x q =>
-      simp only [TensorProduct.map_tmul, LinearMap.id_apply, TensorProduct.rid_tmul,
-        Module.Basis.coord_apply]
-      simp_rw [TensorProduct.smul_tmul]
-      rw [← TensorProduct.tmul_sum, b.sum_repr]
-    | add t u ht hu =>
-      simp only [map_add, TensorProduct.add_tmul, Finset.sum_add_distrib]
-      rw [← ht, ← hu]
-  exact h (θ e)
+    θ e = ∑ i, affineContractions θ (b.coord i) e ⊗ₜ[R] b i := by sorry
 
 -- node: HodgeStructuresPartII:H.0/affine-ordered-square
 noncomputable def affineOrderedSquare (θ : E →ₗ[R] E ⊗[R] Q) :
-    E →ₗ[R] E ⊗[R] (Q ⊗[R] Q) :=
-  (TensorProduct.assoc R E Q Q).toLinearMap.comp
-    ((TensorProduct.map θ (LinearMap.id : Q →ₗ[R] Q)).comp θ)
-
+    E →ₗ[R] E ⊗[R] (Q ⊗[R] Q) := by sorry
 theorem affineOrderedSquare_apply (θ : E →ₗ[R] E ⊗[R] Q) (e : E) :
     affineOrderedSquare θ e = TensorProduct.assoc R E Q Q
-      (TensorProduct.map θ (LinearMap.id : Q →ₗ[R] Q) (θ e)) := rfl
-
+      (TensorProduct.map θ (LinearMap.id : Q →ₗ[R] Q) (θ e)) := by sorry
 theorem affineOrderedSquare_zero :
-    affineOrderedSquare (0 : E →ₗ[R] E ⊗[R] Q) = 0 := by
-  ext e
-  simp [affineOrderedSquare]
+    affineOrderedSquare (0 : E →ₗ[R] E ⊗[R] Q) = 0 := by sorry
 
 -- node: HodgeStructuresPartII:H.0/affine-ordered-square-contraction
 theorem affineOrderedSquare_contraction (θ : E →ₗ[R] E ⊗[R] Q)
     (v w : Module.Dual R Q) :
     affineContractions (affineOrderedSquare θ)
       ((TensorProduct.lid R R).toLinearMap.comp (TensorProduct.map v w)) =
-    affineContractions θ v * affineContractions θ w := by
-  ext e
-  have h : ∀ t : E ⊗[R] Q,
-      TensorProduct.rid R E
-        (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
-          ((TensorProduct.lid R R).toLinearMap.comp (TensorProduct.map v w))
-          (TensorProduct.assoc R E Q Q
-            (TensorProduct.map θ (LinearMap.id : Q →ₗ[R] Q) t))) =
-      affineContractions θ v (TensorProduct.rid R E
-        (TensorProduct.map (LinearMap.id : E →ₗ[R] E) w t)) := by
-    intro t
-    induction t using TensorProduct.induction_on with
-    | zero => simp
-    | tmul x q =>
-      have hs : ∀ s : E ⊗[R] Q,
-          TensorProduct.rid R E
-            (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
-              ((TensorProduct.lid R R).toLinearMap.comp (TensorProduct.map v w))
-              (TensorProduct.assoc R E Q Q (s ⊗ₜ[R] q))) =
-          w q • TensorProduct.rid R E
-            (TensorProduct.map (LinearMap.id : E →ₗ[R] E) v s) := by
-        intro s
-        induction s using TensorProduct.induction_on with
-        | zero => simp
-        | tmul y p =>
-          simp only [TensorProduct.assoc_tmul, TensorProduct.map_tmul, LinearMap.id_apply,
-            LinearMap.comp_apply, LinearEquiv.coe_coe, TensorProduct.lid_tmul,
-            TensorProduct.rid_tmul]
-          rw [smul_eq_mul, mul_smul]
-          exact smul_comm (v p) (w q) y
-        | add s t hs ht => simp only [TensorProduct.add_tmul, map_add, smul_add]; rw [hs, ht]
-      simp only [TensorProduct.map_tmul, LinearMap.id_apply, TensorProduct.rid_tmul]
-      rw [hs]
-      simp [affineContractions]
-    | add t u ht hu => simp only [map_add]; rw [ht, hu]
-  exact h (θ e)
+    affineContractions θ v * affineContractions θ w := by sorry
 
 -- node: HodgeStructuresPartII:H.0/affine-ordered-square-vanishing
 theorem affineOrderedSquare_eq_zero_iff {I : Type*} [Fintype I]
     (b : Module.Basis I R Q) (θ : E →ₗ[R] E ⊗[R] Q) :
     affineOrderedSquare θ = 0 ↔
-      ∀ i j, affineContractions θ (b.coord i) * affineContractions θ (b.coord j) = 0 := by
-  constructor
-  · intro h i j
-    rw [← affineOrderedSquare_contraction, h, affineContractions_zero]
-    rfl
-  · intro h
-    ext e
-    rw [affineOrderedSquare_apply, affineContractions_reconstruct b θ e]
-    simp only [map_sum, TensorProduct.map_tmul, LinearMap.id_apply]
-    have hi : ∀ j,
-        TensorProduct.assoc R E Q Q
-          (θ (affineContractions θ (b.coord j) e) ⊗ₜ[R] b j) = 0 := by
-      intro j
-      rw [affineContractions_reconstruct b θ (affineContractions θ (b.coord j) e)]
-      simp only [TensorProduct.sum_tmul, map_sum, TensorProduct.assoc_tmul]
-      apply Finset.sum_eq_zero
-      intro i _
-      have hij := LinearMap.congr_fun (h i j) e
-      change affineContractions θ (b.coord i) (affineContractions θ (b.coord j) e) = 0 at hij
-      rw [hij, TensorProduct.zero_tmul]
-    simpa using Finset.sum_eq_zero (fun j _ => hi j)
+      ∀ i j, affineContractions θ (b.coord i) * affineContractions θ (b.coord j) = 0 := by sorry
 
 -- test: TwistedHiggsBundle.affineOrderedSquare.test_zero
-example : affineOrderedSquare (0 : E →ₗ[R] E ⊗[R] Q) = 0 := by
-  exact affineOrderedSquare_zero
+example : affineOrderedSquare (0 : E →ₗ[R] E ⊗[R] Q) = 0 := by sorry
 
 -- test: TwistedHiggsBundle.affineOrderedSquare.test_line_nonzero
 example [Nontrivial R] :
-    affineOrderedSquare ((TensorProduct.rid R R).symm.toLinearMap) ≠ 0 := by
-  intro h
-  have hc := affineOrderedSquare_contraction
-    ((TensorProduct.rid R R).symm.toLinearMap)
-    (LinearMap.id : Module.Dual R R) (LinearMap.id : Module.Dual R R)
-  rw [h, affineContractions_zero] at hc
-  have he := LinearMap.congr_fun hc (1 : R)
-  simp [affineContractions, TensorProduct.map_id] at he
+    affineOrderedSquare ((TensorProduct.rid R R).symm.toLinearMap) ≠ 0 := by sorry
 
 -- test: TwistedHiggsBundle.affineOrderedSquare.test_empty_coefficients
 example [Subsingleton Q] (θ : E →ₗ[R] E ⊗[R] Q) :
-    affineOrderedSquare θ = 0 := by
-  ext e
-  exact Subsingleton.elim _ _
+    affineOrderedSquare θ = 0 := by sorry
 
 -- test: TwistedHiggsBundle.affineOrderedSquare.test_order
 example :
@@ -1069,43 +974,22 @@ example :
     let w : Module.Dual ℚ (Fin 2 → ℚ) := LinearMap.proj 1
     affineContractions (affineOrderedSquare θ)
         ((TensorProduct.lid ℚ ℚ).toLinearMap.comp (TensorProduct.map v w)) ≠
-      affineContractions θ w * affineContractions θ v := by
-  dsimp only
-  rw [affineOrderedSquare_contraction]
-  intro h
-  have he := congrArg (fun f : Module.End ℚ (Fin 2 → ℚ) => f (Pi.single 0 1) 0) h
-  norm_num [affineContractions, TensorProduct.mk, Matrix.toLin'_apply,
-    Matrix.mulVec, dotProduct, Fin.sum_univ_two, Pi.single_apply] at he
+      affineContractions θ w * affineContractions θ v := by sorry
 
-
--- Native arbitrary-N continuation; scoped algebraic proof prototype.
+/- Native all-order affine continuation. General sheaf comparison remains open. -/
 noncomputable def affineOrderedStep (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
-    (E ⊗[R] (⨂[R]^n Q)) →ₗ[R] E ⊗[R] (⨂[R]^(n+1) Q) :=
-  let one : Q ≃ₗ[R] (⨂[R]^1 Q) :=
-    (PiTensorProduct.subsingletonEquiv (R := R) (s := fun _ : Fin 1 => Q) 0).symm
-  let prepend : Q ⊗[R] (⨂[R]^n Q) ≃ₗ[R] (⨂[R]^(n+1) Q) :=
-    ((TensorProduct.congr one (LinearEquiv.refl R _)).trans
-      (TensorPower.mulEquiv (n := 1) (m := n))).trans
-        (TensorPower.cast R Q (Nat.add_comm 1 n))
-  (TensorProduct.map (LinearMap.id : E →ₗ[R] E) prepend.toLinearMap).comp
-    ((TensorProduct.assoc R E Q (⨂[R]^n Q)).toLinearMap.comp
-      (TensorProduct.map θ (LinearMap.id : (⨂[R]^n Q) →ₗ[R] (⨂[R]^n Q))))
+    (E ⊗[R] (⨂[R]^n Q)) →ₗ[R] E ⊗[R] (⨂[R]^(n+1) Q) := sorry
 
 noncomputable def affineOrderedIterate (θ : E →ₗ[R] E ⊗[R] Q) :
-    (n : ℕ) → E →ₗ[R] E ⊗[R] (⨂[R]^n Q)
-  | 0 => (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
-      (TensorPower.algebraMap₀ (R := R) (M := Q)).toLinearMap).comp
-        (TensorProduct.rid R E).symm.toLinearMap
-  | n + 1 => (affineOrderedStep θ n).comp (affineOrderedIterate θ n)
+    (n : ℕ) → E →ₗ[R] E ⊗[R] (⨂[R]^n Q) := sorry
 
 theorem affineOrderedIterate_zero (θ : E →ₗ[R] E ⊗[R] Q) (e : E) :
     affineOrderedIterate θ 0 e = e ⊗ₜ[R]
-      (TensorPower.algebraMap₀ (R := R) (M := Q) 1) := by
-  simp [affineOrderedIterate]
+      (TensorPower.algebraMap₀ (R := R) (M := Q) 1) := sorry
 
 theorem affineOrderedIterate_succ (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
     affineOrderedIterate θ (n+1) = (affineOrderedStep θ n).comp
-      (affineOrderedIterate θ n) := rfl
+      (affineOrderedIterate θ n) := sorry
 
 theorem affineOrderedStep_contraction (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ)
     (η : E →ₗ[R] E ⊗[R] (⨂[R]^n Q)) (v : Module.Dual R Q)
@@ -1113,206 +997,61 @@ theorem affineOrderedStep_contraction (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ)
     affineContractions ((affineOrderedStep θ n).comp η)
       (TensorPower.multilinearMapToDual R Q (n+1) (Fin.cons v vs)) =
       affineContractions θ v *
-        affineContractions η (TensorPower.multilinearMapToDual R Q n vs) := by
-  ext e
-  have h : ∀ t : E ⊗[R] (⨂[R]^n Q),
-      TensorProduct.rid R E
-        (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
-          (TensorPower.multilinearMapToDual R Q (n+1) (Fin.cons v vs))
-          (affineOrderedStep θ n t)) =
-        affineContractions θ v (TensorProduct.rid R E
-          (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
-            (TensorPower.multilinearMapToDual R Q n vs) t)) := by
-    intro t
-    induction t using TensorProduct.induction_on with
-    | zero => simp
-    | add t u ht hu => simp only [map_add]; rw [ht, hu]
-    | tmul x q =>
-      induction q using PiTensorProduct.induction_on with
-      | add q r hq hr => simp only [TensorProduct.tmul_add, map_add]; rw [hq, hr]
-      | smul_tprod a qs =>
-        simp only [TensorProduct.tmul_smul, map_smul]
-        congr 1
-        have hp : ∀ s : E ⊗[R] Q,
-            TensorProduct.rid R E
-              (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
-                (TensorPower.multilinearMapToDual R Q (n+1) (Fin.cons v vs))
-                ((TensorProduct.map (LinearMap.id : E →ₗ[R] E)
-                  ((((TensorProduct.congr
-                    (PiTensorProduct.subsingletonEquiv (R := R)
-                      (s := fun _ : Fin 1 => Q) 0).symm (LinearEquiv.refl R _)).trans
-                        (TensorPower.mulEquiv (n := 1) (m := n))).trans
-                          (TensorPower.cast R Q (Nat.add_comm 1 n))).toLinearMap))
-                  (TensorProduct.assoc R E Q (⨂[R]^n Q)
-                    (s ⊗ₜ[R] PiTensorProduct.tprod R qs)))) =
-            (∏ i, vs i (qs i)) • TensorProduct.rid R E
-              (TensorProduct.map (LinearMap.id : E →ₗ[R] E) v s) := by
-          intro s
-          induction s using TensorProduct.induction_on with
-          | zero => simp
-          | add s t hs ht => simp only [TensorProduct.add_tmul, map_add, smul_add]; rw [hs, ht]
-          | tmul y q =>
-            simp only [TensorProduct.assoc_tmul, TensorProduct.map_tmul,
-              LinearMap.id_apply, LinearEquiv.coe_coe, LinearEquiv.trans_apply,
-              TensorProduct.congr_tmul, LinearEquiv.refl_apply,
-              PiTensorProduct.subsingletonEquiv_symm_apply']
-            rw [← TensorPower.gMul_def, TensorPower.tprod_mul_tprod, TensorPower.cast_tprod]
-            simp only [Fin.append_left_eq_cons, Function.comp_def, Fin.cast_cast,
-              Fin.cast_eq_self, TensorPower.multilinearMapToDual_apply_tprod,
-              Fin.prod_univ_succ, Fin.cons_zero, Fin.cons_succ, TensorProduct.rid_tmul]
-            rw [mul_smul]
-            exact smul_comm (v q) (∏ i, vs i (qs i)) y
-        simp only [affineOrderedStep, LinearMap.comp_apply, TensorProduct.map_tmul,
-          LinearMap.id_apply, TensorProduct.rid_tmul,
-          TensorPower.multilinearMapToDual_apply_tprod]
-        simp only [LinearEquiv.coe_coe]
-        rw [hp]
-        simp [affineContractions]
-  exact h (η e)
+        affineContractions η (TensorPower.multilinearMapToDual R Q n vs) := sorry
 
 theorem affineOrderedIterate_contraction (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ)
     (vs : Fin n → Module.Dual R Q) :
     affineContractions (affineOrderedIterate θ n)
       (TensorPower.multilinearMapToDual R Q n vs) =
-      (List.ofFn (fun i => affineContractions θ (vs i))).prod := by
-  induction n with
-  | zero =>
-    ext e
-    simp [affineContractions_apply, affineOrderedIterate_zero,
-      TensorPower.algebraMap₀_one, TensorPower.gOne_def,
-      TensorPower.multilinearMapToDual_apply_tprod]
-  | succ n ih =>
-    have hf : vs = Fin.cons (vs 0) (fun i => vs i.succ) := by
-      ext i
-      cases i using Fin.cases <;> rfl
-    rw [affineOrderedIterate_succ, hf, affineOrderedStep_contraction, ih]
-    simp [List.ofFn_succ]
+      (List.ofFn (fun i => affineContractions θ (vs i))).prod := sorry
 
 theorem affineTensorPower_coordinate {I : Type*} [Fintype I]
     (b : Module.Basis I R Q) (n : ℕ) (p : Fin n → I) :
     (Basis.piTensorProduct (fun _ : Fin n => b)).coord p =
-      TensorPower.multilinearMapToDual R Q n (fun i => b.coord (p i)) := by
-  apply PiTensorProduct.ext
-  ext qs
-  simp [Module.Basis.coord_apply]
+      TensorPower.multilinearMapToDual R Q n (fun i => b.coord (p i)) := sorry
 
 theorem affineOrderedIterate_eq_zero_iff {I : Type*} [Fintype I]
     (b : Module.Basis I R Q) (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
     affineOrderedIterate θ n = 0 ↔ ∀ p : Fin n → I,
-      (List.ofFn (fun i => affineContractions θ (b.coord (p i)))).prod = 0 := by
-  constructor
-  · intro h p
-    rw [← affineOrderedIterate_contraction, h, affineContractions_zero]
-    rfl
-  · intro h
-    ext e
-    rw [affineContractions_reconstruct
-      (Basis.piTensorProduct (fun _ : Fin n => b)) (affineOrderedIterate θ n) e]
-    apply Finset.sum_eq_zero
-    intro p _
-    rw [affineTensorPower_coordinate, affineOrderedIterate_contraction, h p]
-    simp
+      (List.ofFn (fun i => affineContractions θ (b.coord (p i)))).prod = 0 := sorry
 
 theorem affineOrderedStep_zero (n : ℕ) :
-    affineOrderedStep (0 : E →ₗ[R] E ⊗[R] Q) n = 0 := by
-  ext t
-  simp [affineOrderedStep]
+    affineOrderedStep (0 : E →ₗ[R] E ⊗[R] Q) n = 0 := sorry
 
 theorem affineOrderedStep_add (θ η : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
-    affineOrderedStep (θ+η) n = affineOrderedStep θ n + affineOrderedStep η n := by
-  ext t
-  simp [affineOrderedStep, TensorProduct.map_add_left]
+    affineOrderedStep (θ+η) n = affineOrderedStep θ n + affineOrderedStep η n := sorry
 
 theorem affineOrderedIterate_zero_field (n : ℕ) :
-    affineOrderedIterate (0 : E →ₗ[R] E ⊗[R] Q) (n+1) = 0 := by
-  rw [affineOrderedIterate_succ, affineOrderedStep_zero]
-  simp
+    affineOrderedIterate (0 : E →ₗ[R] E ⊗[R] Q) (n+1) = 0 := sorry
 
 -- test: TwistedHiggsBundle.affineOrderedIterate.test_unit_boundary
 example (θ : E →ₗ[R] E ⊗[R] Q) :
     affineContractions (affineOrderedIterate θ 0)
-      (TensorPower.multilinearMapToDual R Q 0 Fin.elim0) = LinearMap.id := by
-  simpa only [List.ofFn_zero, List.prod_nil, Module.End.one_eq_id] using
-    affineOrderedIterate_contraction θ 0 Fin.elim0
+      (TensorPower.multilinearMapToDual R Q 0 Fin.elim0) = LinearMap.id := sorry
 
 -- test: TwistedHiggsBundle.affineOrderedIterate.test_zero
-example (n : ℕ) : affineOrderedIterate (0 : E →ₗ[R] E ⊗[R] Q) (n+1) = 0 := by
-  exact affineOrderedIterate_zero_field n
+example (n : ℕ) : affineOrderedIterate (0 : E →ₗ[R] E ⊗[R] Q) (n+1) = 0 := sorry
 
 -- test: TwistedHiggsBundle.affineOrderedIterate.test_scalar_nonzero
 example [Nontrivial R] (n : ℕ) :
-    affineOrderedIterate ((TensorProduct.rid R R).symm.toLinearMap) n ≠ 0 := by
-  intro h
-  have hc := affineOrderedIterate_contraction
-    ((TensorProduct.rid R R).symm.toLinearMap) n
-    (fun _ => (LinearMap.id : Module.Dual R R))
-  rw [h, affineContractions_zero] at hc
-  have hi : affineContractions ((TensorProduct.rid R R).symm.toLinearMap)
-      (LinearMap.id : Module.Dual R R) = (1 : Module.End R R) := by
-    apply LinearMap.ext
-    intro e
-    simp [affineContractions, TensorProduct.map_id]
-  simp [hi, List.ofFn_const] at hc
+    affineOrderedIterate ((TensorProduct.rid R R).symm.toLinearMap) n ≠ 0 := sorry
 
 -- test: TwistedHiggsBundle.affineOrderedIterate.test_nonreduced_nilpotent
 example :
     let θ : (ZMod 4) →ₗ[ZMod 4] (ZMod 4) ⊗[ZMod 4] (ZMod 4) :=
       (2 : ZMod 4) • (TensorProduct.rid (ZMod 4) (ZMod 4)).symm.toLinearMap
-    affineOrderedIterate θ 2 = 0 ∧ θ ≠ 0 := by
-  dsimp only
-  constructor
-  · apply (affineOrderedIterate_eq_zero_iff (Module.Basis.singleton Unit (ZMod 4)) _ 2).mpr
-    intro p
-    have hi : affineContractions
-        ((2 : ZMod 4) • (TensorProduct.rid (ZMod 4) (ZMod 4)).symm.toLinearMap)
-        ((Module.Basis.singleton Unit (ZMod 4)).coord ()) =
-        (2 : ZMod 4) • (1 : Module.End (ZMod 4) (ZMod 4)) := by
-      apply LinearMap.ext
-      intro e
-      simp [affineContractions, Module.Basis.coord_apply]
-    have hp : (fun i : Fin 2 => affineContractions
-        ((2 : ZMod 4) • (TensorProduct.rid (ZMod 4) (ZMod 4)).symm.toLinearMap)
-        ((Module.Basis.singleton Unit (ZMod 4)).coord (p i))) =
-        (fun _ => (2 : ZMod 4) • (1 : Module.End (ZMod 4) (ZMod 4))) := by
-      ext i
-      rw [Subsingleton.elim (p i) (), hi]
-    rw [hp]
-    apply LinearMap.ext
-    intro e
-    simp [List.ofFn_succ, smul_smul, show (2 : ZMod 4) * 2 = 0 by decide]
-  · intro h
-    have ht := congrArg (fun f => TensorProduct.rid (ZMod 4) (ZMod 4) (f 1)) h
-    simp only [LinearMap.smul_apply, map_smul, LinearEquiv.coe_coe,
-      LinearEquiv.apply_symm_apply, LinearMap.zero_apply, map_zero] at ht
-    exact (by decide : (2 : ZMod 4) ≠ 0) ht
+    affineOrderedIterate θ 2 = 0 ∧ θ ≠ 0 := sorry
 
 -- test: TwistedHiggsBundle.affineOrderedStep.test_zero
-example (n : ℕ) : affineOrderedStep (0 : E →ₗ[R] E ⊗[R] Q) n = 0 := by
-  exact affineOrderedStep_zero n
+example (n : ℕ) : affineOrderedStep (0 : E →ₗ[R] E ⊗[R] Q) n = 0 := sorry
 
 -- test: TwistedHiggsBundle.affineOrderedStep.test_empty_coefficients
 example [Subsingleton Q] (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
-    affineOrderedStep θ n = 0 := by
-  have h : θ = 0 := Subsingleton.elim _ _
-  rw [h, affineOrderedStep_zero]
+    affineOrderedStep θ n = 0 := sorry
 
 -- test: TwistedHiggsBundle.affineOrderedStep.test_scalar_nonzero
 example [Nontrivial R] (n : ℕ) :
-    affineOrderedStep ((TensorProduct.rid R R).symm.toLinearMap) n ≠ 0 := by
-  intro h
-  have hz : affineOrderedIterate ((TensorProduct.rid R R).symm.toLinearMap) (n+1) = 0 := by
-    rw [affineOrderedIterate_succ, h]
-    simp
-  have hc := affineOrderedIterate_contraction
-    ((TensorProduct.rid R R).symm.toLinearMap) (n+1)
-    (fun _ => (LinearMap.id : Module.Dual R R))
-  rw [hz, affineContractions_zero] at hc
-  have hi : affineContractions ((TensorProduct.rid R R).symm.toLinearMap)
-      (LinearMap.id : Module.Dual R R) = (1 : Module.End R R) := by
-    apply LinearMap.ext
-    intro e
-    simp [affineContractions, TensorProduct.map_id]
-  simp [hi, List.ofFn_const] at hc
+    affineOrderedStep ((TensorProduct.rid R R).symm.toLinearMap) n ≠ 0 := sorry
 
 /-- Affine adapter for the existing symmetric algebra, into actual endomorphisms.
 Global sheaf algebra/endomorphism and restriction coherence are supplied by E1.
