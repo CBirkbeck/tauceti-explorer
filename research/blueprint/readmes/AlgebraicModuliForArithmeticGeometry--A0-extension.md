@@ -1,9 +1,51 @@
 # Algebraic moduli for arithmetic geometry: A0 extension
 
-The current packet has 173 declarations and ten planets. This is the reader for issue #672 and the packet with part A0-extension. It covers exactly A0-extension and R09.1–R09.7. It is a partial checkpoint: implementations are unchecked, requests are open, and none of the eight stages is closed. The declaration catalogue develops gerbes, arbitrary-module fpqc descent, torsor twisting and relative Picard descent. Full parameter spaces, Picard representability, Artin, algebraization and resolution remain work in this same scope. The full suggested Lean file is uncompiled; its Mathlib-only intrinsic-band extraction has been checked, as recorded in the native checkpoint below. Its exact type and signature omissions are recorded below rather than hidden by unspecified propositions.
+The current packet has 179 declarations and ten planets. This is the reader for issue #672 and the packet with part A0-extension. It covers exactly A0-extension and R09.1–R09.7. It is a partial checkpoint: implementations are unchecked, requests are open, and none of the eight stages is closed. The declaration catalogue develops gerbes, arbitrary-module fpqc descent, torsor twisting and relative Picard descent. Full parameter spaces, Picard representability, Artin, algebraization and resolution remain work in this same scope. The full suggested Lean file is uncompiled; its Mathlib-only intrinsic-band extraction has been checked, as recorded in the native checkpoint below. Its exact type and signature omissions are recorded below rather than hidden by unspecified propositions.
 
 
-## Intrinsic-band lifting and evaluation surjectivity
+## Chosen-band local-to-global inverse
+
+For a prescribed abelian sheaf A and an actual A-banding b, the existing
+coefficient map c_b(U):Multiplicative(A(U))→ZF(U) is a group equivalence
+for every U, including bases with empty F(U). No terminal object or global
+neutralization is assumed. All source routes, reserved keys, gaps, requests
+and inherited statement/hypothesis/source/acceptance contracts are retained.
+
+On a covering sieve supplied by gerbe local nonemptiness, choose actual objects
+x_f over its arrows. Apply the inverse of b(V,x_f) to evaluation of a central
+section z, producing a native presieve coefficient family. Evaluation
+injectivity proves c_b(V)(a_f)=r_f(z). On every commutative test square, native
+coefficient injectivity and restriction composition prove the family matches.
+The actual sheaf axiom of A glues a coefficient a. Covering separatedness of
+ZF proves c_b(U)(a)=z. Its previously checked injectivity yields the native
+group equivalence, whose inverse restriction and arbitrary-local-object laws
+follow by applying the injective forward map.
+
+Six new leaves consist of local surjectivity over a displayed object, the local
+coefficient family, its recovery, its matching law, global coefficient
+surjectivity and the coefficient equivalence. The two constructions have seven
+API entries and nine tests: unit coefficients, recovery of existing coefficients,
+independent local-object choices, both round trips, inversion, restriction and
+preservation of a nonidentity section. These are equations on actual carriers;
+they do not instantiate the still-required geometric-site fixtures.
+
+The packet has 179 nodes: sixteen definitions, forty-three constructions,
+eighty-seven lemmas, twenty-eight theorems and five comparisons; 220 API
+entries and 199 tests (212 API entries and 193 tests on definitions/constructions),
+ten planets and 103 pinned baseline references. All eight stages remain
+partial or not_read, all implementations unchecked, nine gaps and 21 requests
+open. The full sheaf-isomorphism packaging, actual SF1 descended-slice comparison,
+connected/disconnected point-site and nonneutral root-gerbe fixtures remain
+required. The chosen-band calculation does not supply derived-H2 classification,
+profinite-limit geometry or any broader moduli target. Exact elaboration and
+archive reconstruction receipts are in the handoff.
+
+## Predecessor lifting receipt — Codex codex-7e92bd
+
+The following checkpoint counts and proof receipts describe its earlier
+revision; the current inverse and counts above supersede its inverse frontier.
+
+### Intrinsic-band lifting and evaluation surjectivity
 
 For a gerbe F with abelian inertia, an automorphism a of an object x over U determines a section of the existing compatible-centre group ZF(U). At f:V→U and y over V, choose local isomorphisms f*x→y and descend the conjugates of f*a. Cover independence removes the choices. Naturality in source and target objects gives an actual invertible natural transformation of the identity functor of each fibre, hence a unit of its native categorical centre.
 
