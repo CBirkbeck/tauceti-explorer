@@ -27805,3 +27805,120 @@ example  (k : ℕ+) (R : Type u) [Ring R] (g : (∀ p : Nat.Primes, (WittVector 
     kubertCartanLimitRepresentation k R g (kubertCartanLimitOf k R 1 f)=kubertCartanLimitOf k R 1 f := by sorry
 end
 end DirichletPadic.SuggestedKubertLimitRepresentationTests
+
+/- Actual global rational-circle Cartan automorphisms and value equivariance. -/
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+
+noncomputable def kubertCartanGlobalPoint (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a : AddCircle (1 : ℚ)) : AddCircle (1 : ℚ) := by sorry
+
+lemma kubertCartanGlobalPoint_level (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (N : ℕ+)
+    (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertCartanGlobalPoint g (x : AddCircle (1 : ℚ))=
+      (kubertCartanCircleLevelEquiv N (kubertCartanWittProductProjection 1 N g) x : AddCircle (1 : ℚ)) := by sorry
+
+lemma kubertCartanGlobalPoint_zero (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanGlobalPoint g 0=0 := by sorry
+
+lemma kubertCartanGlobalPoint_add (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a b : AddCircle (1 : ℚ)) :
+    kubertCartanGlobalPoint g (a+b)=kubertCartanGlobalPoint g a+kubertCartanGlobalPoint g b := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+
+lemma kubertCartanGlobalPoint_one (a : AddCircle (1 : ℚ)) : kubertCartanGlobalPoint 1 a=a := by sorry
+
+lemma kubertCartanGlobalPoint_mul (g h : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a : AddCircle (1 : ℚ)) :
+    kubertCartanGlobalPoint (g*h) a=kubertCartanGlobalPoint g (kubertCartanGlobalPoint h a) := by sorry
+
+lemma kubertCartanGlobalPoint_inverse (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a : AddCircle (1 : ℚ)) :
+    kubertCartanGlobalPoint g⁻¹ (kubertCartanGlobalPoint g a)=a := by sorry
+
+noncomputable def kubertCartanGlobalCircleEquiv (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    AddCircle (1 : ℚ) ≃+ AddCircle (1 : ℚ) := by sorry
+
+lemma kubertCartanGlobalCircleEquiv_apply (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a : AddCircle (1 : ℚ)) :
+    kubertCartanGlobalCircleEquiv g a=kubertCartanGlobalPoint g a := by sorry
+
+lemma kubertCartanGlobalCircleEquiv_symm (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanGlobalCircleEquiv g).symm=kubertCartanGlobalCircleEquiv g⁻¹ := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+universe u
+
+lemma kubertCartanGlobalCircleEquiv_one :
+    kubertCartanGlobalCircleEquiv 1=AddEquiv.refl (AddCircle (1 : ℚ)) := by sorry
+
+lemma kubertCartanGlobalCircleEquiv_mul (g h : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanGlobalCircleEquiv (g*h)=(kubertCartanGlobalCircleEquiv h).trans (kubertCartanGlobalCircleEquiv g) := by sorry
+
+lemma kubertCartanGlobalValue_equivariant (R : Type u) [Ring R] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (a : AddCircle (1 : ℚ)) (φ : AddCircle (1 : ℚ) → R) :
+    kubertCartanGlobalValue R (kubertCartanGlobalCircleEquiv g a) φ=
+      kubertCartanLimitRepresentation 1 R g (kubertCartanGlobalValue R a φ) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertGlobalCartanActionTests
+open scoped Classical
+noncomputable section
+universe u
+-- global_point_zero
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanGlobalPoint g 0=0 := by sorry
+-- global_point_unit_two
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hg : kubertCartanWittProductProjection 1 5 g=((kubertCartanDegreeOneFiniteEquiv 5).symm (ZMod.unitOfCoprime 2 (by decide : Nat.Coprime 2 5)))) : kubertCartanGlobalPoint g ((1/5 : ℚ) : AddCircle (1 : ℚ))=(2/5 : ℚ) := by sorry
+-- global_point_retains_imprimitive_half
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hg : kubertCartanWittProductProjection 1 6 g=((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by decide : Nat.Coprime 5 6)))) : kubertCartanGlobalPoint g ((1/2 : ℚ) : AddCircle (1 : ℚ))=(1/2 : ℚ) := by sorry
+-- global_circle_inverse_roundtrip
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a : AddCircle (1 : ℚ)) : (kubertCartanGlobalCircleEquiv g).symm (kubertCartanGlobalCircleEquiv g a)=a := by sorry
+-- global_circle_level_formula
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (N : ℕ+) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (N : ℕ)).ker) : kubertCartanGlobalCircleEquiv g (x : AddCircle (1 : ℚ))=(kubertCartanCircleLevelEquiv N (kubertCartanWittProductProjection 1 N g) x : AddCircle (1 : ℚ)) := by sorry
+-- global_inverse_is_three_modulo_five
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hg : kubertCartanWittProductProjection 1 5 g=((kubertCartanDegreeOneFiniteEquiv 5).symm (ZMod.unitOfCoprime 2 (by decide : Nat.Coprime 2 5)))) : (kubertCartanGlobalCircleEquiv g).symm ((1/5 : ℚ) : AddCircle (1 : ℚ))=(3/5 : ℚ) ∧ (kubertCartanGlobalCircleEquiv g).symm ((1/5 : ℚ) : AddCircle (1 : ℚ))≠(2/5 : ℚ) := by sorry
+-- cartanGlobalPoint_level_typed_api
+example  (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (N : ℕ+)
+    (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertCartanGlobalPoint g (x : AddCircle (1 : ℚ))=
+      (kubertCartanCircleLevelEquiv N (kubertCartanWittProductProjection 1 N g) x : AddCircle (1 : ℚ)) := by sorry
+-- cartanGlobalPoint_zero_typed_api
+example  (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanGlobalPoint g 0=0 := by sorry
+-- cartanGlobalPoint_add_typed_api
+example  (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a b : AddCircle (1 : ℚ)) :
+    kubertCartanGlobalPoint g (a+b)=kubertCartanGlobalPoint g a+kubertCartanGlobalPoint g b := by sorry
+-- cartanGlobalPoint_one_typed_api
+example  (a : AddCircle (1 : ℚ)) : kubertCartanGlobalPoint 1 a=a := by sorry
+-- cartanGlobalPoint_mul_typed_api
+example  (g h : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a : AddCircle (1 : ℚ)) :
+    kubertCartanGlobalPoint (g*h) a=kubertCartanGlobalPoint g (kubertCartanGlobalPoint h a) := by sorry
+-- cartanGlobalPoint_inverse_typed_api
+example  (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a : AddCircle (1 : ℚ)) :
+    kubertCartanGlobalPoint g⁻¹ (kubertCartanGlobalPoint g a)=a := by sorry
+-- cartanGlobalCircleEquiv_apply_typed_api
+example  (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a : AddCircle (1 : ℚ)) :
+    kubertCartanGlobalCircleEquiv g a=kubertCartanGlobalPoint g a := by sorry
+-- cartanGlobalCircleEquiv_symm_typed_api
+example  (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanGlobalCircleEquiv g).symm=kubertCartanGlobalCircleEquiv g⁻¹ := by sorry
+-- cartanGlobalCircleEquiv_one_typed_api
+example  :
+    kubertCartanGlobalCircleEquiv 1=AddEquiv.refl (AddCircle (1 : ℚ)) := by sorry
+-- cartanGlobalCircleEquiv_mul_typed_api
+example  (g h : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanGlobalCircleEquiv (g*h)=(kubertCartanGlobalCircleEquiv h).trans (kubertCartanGlobalCircleEquiv g) := by sorry
+-- cartanGlobalValue_equivariant_typed_api
+example  (R : Type u) [Ring R] (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (a : AddCircle (1 : ℚ)) (φ : AddCircle (1 : ℚ) → R) :
+    kubertCartanGlobalValue R (kubertCartanGlobalCircleEquiv g a) φ=
+      kubertCartanLimitRepresentation 1 R g (kubertCartanGlobalValue R a φ) := by sorry
+end
+end DirichletPadic.SuggestedKubertGlobalCartanActionTests
