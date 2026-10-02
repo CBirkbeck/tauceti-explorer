@@ -8652,7 +8652,7 @@
       "auditTree": "50a5391786116e4f2caa037fabe6ea063abb4034",
       "reviewedRowsRead": "Full current FA.0–FA.7 reviewed aggregate target/evidence/duplication records under REV-AUDIT-20; no FunctionFieldArithmeticPartII rows. Actual SF.1/SF.3 and R09.3–R09.5 stage descriptions and root-stack owner read.",
       "primaryScope": "Fresh TV17 v2 §3.1 finite chart setup and character grading, full Lemma3.7, Proposition3.10, Lemma3.12 and Corollary3.13 with proofs, pp14–16. Download hash matches inherited receipt. Broader sources and AV contract reading remain attributed to predecessors.",
-      "nativeBoundary": "The Mathlib-only extraction now uses the actual quotient-lift coaction and tensor-lift comparison; no admitted coaction scaffold. The full suggested Tau Ceti file remains uncompiled because an exact-pin compiled import set is unavailable.",
+      "nativeBoundary": "The suggested file uses admitted bodies in the required PROTOCOL §13 format. A separate Mathlib-only proof prototype checked the actual quotient-lift coaction and tensor-lift comparison; no admitted coaction scaffold was used in that proof prototype. Full-file Tau Ceti compilation remains unavailable.",
       "correction": "The native weight signature parenthesizes the right root power to prevent parsing a power of the entire tensor. The packet mathematical statement is unchanged.",
       "preserved": "All119 inherited node IDs/statements, all source routes/versions/findings, requests/gaps, AV sibling contracts and39 planets preserved. Four new lemma nodes and seven baseline declarations. All ten stages partial/unchecked.",
       "proofCheck": {
@@ -8668,7 +8668,15 @@
         "examples": 14,
         "axiomAudit": "All16 newly supplied algebra declarations depend only on propext, Classical.choice and Quot.sound; none depends on an admission axiom. This is a Mathlib-only extraction, not whole-file Tau Ceti certification.",
         "independentArithmeticAssertions": 57628,
-        "independentScriptSha256": "933445122e4281562738d7c976f4c7c6e94d92fbcc28f4ab50c2d36071a5f25a"
+        "independentScriptSha256": "933445122e4281562738d7c976f4c7c6e94d92fbcc28f4ab50c2d36071a5f25a",
+        "proofSourceCommit": "063ebe93320a784b244ea5a73fe8236bc205830c",
+        "nativeSketchSha256": "01f952ed2b7de668fb83f212f852c3f2b4463f5b1bb0084e98a6d953f76fd9e0"
+      },
+      "sketchCheck": {
+        "errors": 0,
+        "admittedWarnings": 42,
+        "otherWarnings": 0,
+        "extractionSha256": "dfa146150b279f9cd4db52fd8e9d2e97723452a01d62f8a0ec84089cefa80728"
       }
     }
   },
