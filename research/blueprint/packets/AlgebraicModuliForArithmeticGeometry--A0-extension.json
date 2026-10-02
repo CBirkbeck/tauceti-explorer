@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Partial 169-node blueprint for gerbes, intrinsic bands, conditional derived-H2 classification, profinite limits, module descent, quotient twisting and relative Picard foundations. This continuation proves native cover-refinement/change independence, reversible automorphism-group equivalences and same-base composition for local conjugation. The existing prestack centre sheaf is retained. Arbitrary-base conjugation transport, evaluation surjectivity, chosen-band and SF1 slice comparisons remain unfinished. All eight scope rows remain partial or not_read, nine gaps and 21 requests remain; no reserved-key or stage closure is claimed. Full TauCeti file uncompiled; actual native proof and admitted Mathlib extraction checked separately. The intrinsic-band branch includes arbitrary-base conjugation, naturality in source and target, a compatible-centre lifting homomorphism and its identity-evaluation law. The existing evaluation-surjectivity leaf is supplied by these; the chosen-band inverse and slice comparison remain gaps.",
+  "summary": "Partial 179-node chosen-band inverse checkpoint: six consumed native leaves construct local coefficient families, prove their exact recovery and matching, glue through the prescribed coefficient sheaf even with an empty global fibre, and construct the actual coefficient group equivalence with inverse restriction laws. All 173 inherited statement/hypothesis/source/acceptance contracts and all source routes, reserved keys, nine gaps and 21 requests survive. All eight stages remain partial or not_read with unchecked implementations. The actual SF1 descended-slice comparison, specified geometric fixtures and all broader source/supplier obligations remain open. Full TauCeti file uncompiled; the admission-free native proof and admitted Mathlib extraction are checked separately.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -728,6 +728,27 @@
         "module": "Mathlib/CategoryTheory/Bicategory/Functor/Pseudofunctor.lean",
         "provides": "The actual invertible identity constraint for an arrow identified with the identity, used to recover the original automorphism after lifting.",
         "checked": "Complete declaration and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-7e92bd on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Presieve.FamilyOfElements",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Sites/IsSheafFor.lean",
+        "provides": "The native family of coefficient sections indexed by actual arrows of a presieve.",
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 96, on 2026-10-02 by Codex codex-J6LwjP; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Presieve.FamilyOfElements.Compatible",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Sites/IsSheafFor.lean",
+        "provides": "Compatibility on every commutative test square; no fibre products required.",
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 158, on 2026-10-02 by Codex codex-J6LwjP; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:MulEquiv.ofBijective",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Equiv/Defs.lean",
+        "provides": "A bijective multiplication-preserving map yields the native multiplicative equivalence with that exact forward map.",
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 499, on 2026-10-02 by Codex codex-J6LwjP; exact indexed name confirmed."
       }
     ]
   },
@@ -1270,6 +1291,26 @@
         "Entire statement and proof, including the explicit omission of compatibility as the base object varies. Definition 8.4.1 was also read in full to distinguish morphism descent from effective object descent."
       ],
       "readingAgent": "Codex — codex-7e92bd"
+    },
+    {
+      "id": "SP0CJY-J6LwjP-fixed-band-inverse",
+      "title": "Stacks Project, Lemma 8.11.8; fixed-band inverse deduction",
+      "url": "https://stacks.math.columbia.edu/tag/0CJY",
+      "accessed": "2026-10-02",
+      "status": "read",
+      "readScope": "Complete lemma statement and proof, including the final omitted varying-base verification. Complete Definition 8.4.1 also read. This continuation concerns the prescribed-band coefficient inverse only.",
+      "authors": "The Stacks Project Authors",
+      "edition": "Current HTML, accessed 2026-10-02",
+      "readSections": [
+        "Lemma 8.11.8 (0CJY), complete statement/proof and final omitted verification",
+        "Definition 8.4.1 (026F), complete definition"
+      ],
+      "readingAgent": "Codex — codex-J6LwjP",
+      "accessDate": "2026-10-02",
+      "htmlSha256": {
+        "0CJY": "41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e",
+        "026F": "0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0"
+      }
     }
   ],
   "nodes": [
@@ -8272,6 +8313,10 @@
         {
           "where": "GWZ20 Definition2.6 fixed band",
           "how": "Retains the scalar coefficient identification rather than passing to unbanded equivalences."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-equivalence",
+          "how": "The constructed equivalence retains this exact coefficient homomorphism as forward map."
         }
       ]
     },
@@ -8293,13 +8338,15 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-equivalence",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-ext",
         "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-aut-commute",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-injective"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-injective",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-equivalence"
       ],
       "proofSteps": [
         "Locally choose an object of the gerbe. There c_b is an isomorphism because both coefficient sheaves identify with the same automorphism sheaf by evaluation.",
         "Use existing sheaf-locality of isomorphisms from SF1, or glue its locally defined inverse using Hom descent for sheaves. The sheaf condition retains the local inverse on every section.",
         "The characterization fixes every central component; band-center-ext proves uniqueness of the comparison, including its inverse.",
-        "Changing b by a nonidentity automorphism of A changes c_b by that automorphism."
+        "Changing b by a nonidentity automorphism of A changes c_b by that automorphism.",
+        "The new native chosen-band coefficient equivalence constructs the local-to-global sectionwise inverse and proves its restriction and arbitrary-local-object recovery laws. Combine with the existing central-section sheaf and componentwise natural-isomorphism packaging; the separately required SF1 descended-slice comparison is not supplied by this coefficient calculation."
       ],
       "acceptance": [
         "Do not prove bijectivity by assuming an object over every U; use local nonemptiness and sheaf descent."
@@ -11178,6 +11225,363 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "hypotheses": [
+        "C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.",
+        "For this local lemma only, an actual x∈F(U) is displayed."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-surjective",
+      "title": "Chosen-band coefficients over an actual object",
+      "kind": "lemma",
+      "statement": "If x is an actual object of F(U), the existing fixed-band coefficient homomorphism c_b(U):Multiplicative(A(U))→ZF(U) is surjective.",
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-evaluation",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-injective"
+      ],
+      "proofSteps": [
+        "For z∈ZF(U), take a=b(U,x) inverse applied to ev_(id,x)(z).",
+        "The existing coefficient evaluation identity and the band inverse law show c_b(U)(a) and z have the same evaluation at x. Native gerbe evaluation injectivity proves their equality."
+      ],
+      "sources": [
+        {
+          "sourceId": "SP0CJY-J6LwjP-fixed-band-inverse",
+          "locator": "Lemma 8.11.8, full proof and final varying-base omission; derived fixed-band coefficient comparison",
+          "match": "Authored fixed-band inverse deduction: reconstruct local coefficients using actual band equivalences, prove native matching and apply the existing coefficient-sheaf axiom. This argument is not printed as a separate result in Stacks and does not identify the SF1 descended slice carrier."
+        }
+      ],
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBanding_surjective_of_object",
+      "acceptance": [
+        "Use the existing native gerbe, prescribed coefficient sheaf and compatible-centre subgroup; do not assume a global object or neutrality.",
+        "The inverse is relative to the fixed band b. Distinct coefficient-band automorphisms are retained; the actual SF1 slice-sheaf comparison and geometric fixtures remain separate."
+      ]
+    },
+    {
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "hypotheses": [
+        "C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.",
+        "R is an arbitrary sieve, with an actual chosen object x_f for each arrow f in R. It need not cover U for the family/recovery/matching statements."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-family",
+      "title": "Local coefficient family from a central section",
+      "kind": "construction",
+      "statement": "For any sieve R on U and actual objects x_f∈F(V) for every f:V→U in R, construct the native family of coefficient sections a_f=b(V,x_f) inverse applied to ev_(f,x_f)(z), for z∈ZF(U). This is a Presieve.FamilyOfElements of the underlying Type-valued coefficient presheaf.",
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation",
+        "mathlib:CategoryTheory.Presieve.FamilyOfElements"
+      ],
+      "proofSteps": [
+        "At every f∈R evaluate the actual central section at the displayed object x_f.",
+        "Apply the actual fixed-band inverse equivalence and the existing multiplicative/additive type conversion; return the existing native presieve family, with no new descent carrier."
+      ],
+      "sources": [
+        {
+          "sourceId": "SP0CJY-J6LwjP-fixed-band-inverse",
+          "locator": "Lemma 8.11.8, full proof and final varying-base omission; derived fixed-band coefficient comparison",
+          "match": "Authored fixed-band inverse deduction: reconstruct local coefficients using actual band equivalences, prove native matching and apply the existing coefficient-sheaf axiom. This argument is not printed as a separate result in Stacks and does not identify the SF1 descended slice carrier."
+        }
+      ],
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.localBandCoefficient",
+      "acceptance": [
+        "Use the existing native gerbe, prescribed coefficient sheaf and compatible-centre subgroup; do not assume a global object or neutrality.",
+        "The inverse is relative to the fixed band b. Distinct coefficient-band automorphisms are retained; the actual SF1 slice-sheaf comparison and geometric fixtures remain separate."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.localBandCoefficient",
+          "role": "constructor",
+          "statement": "For any sieve R on U and actual objects x_f∈F(V) for every f:V→U in R, construct the native family of coefficient sections a_f=b(V,x_f) inverse applied to ev_(f,x_f)(z), for z∈ZF(U). This is a Presieve.FamilyOfElements of the underlying Type-valued coefficient presheaf."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.localBandCoefficient_recovery",
+          "role": "characterisation",
+          "statement": "For every f∈R, c_b(V)(a_f)=r_f(z) as actual compatible-centre sections."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.localBandCoefficient_compatible",
+          "role": "compatibility",
+          "statement": "The constructed local coefficient family is compatible on every commutative test square g≫f=h≫k in the native presieve matching-family sense. No fibre products, cover condition or compatibility between the chosen objects is required."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-recovery",
+          "how": "Evaluate each coefficient through its exact fixed-band inverse law."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-matching",
+          "how": "Retain every test-square restriction, even for independently chosen objects."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-surjective",
+          "how": "Use actual gerbe local nonemptiness to instantiate this native family on a covering sieve and glue in A."
+        }
+      ],
+      "tests": [
+        {
+          "name": "LocalCoefficientTests.unit",
+          "kind": "degenerate",
+          "statement": "The local coefficient of the unit central section is zero on every arrow."
+        },
+        {
+          "name": "LocalCoefficientTests.existing",
+          "kind": "compatibility",
+          "statement": "On c_b(U)(a), the local coefficient at f is exactly a restricted along f."
+        },
+        {
+          "name": "LocalCoefficientTests.choiceIndependent",
+          "kind": "compatibility",
+          "statement": "Two independently supplied local object families on the same sieve give the same local coefficients, even without chosen object isomorphisms."
+        }
+      ]
+    },
+    {
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "hypotheses": [
+        "C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.",
+        "R is an arbitrary sieve, with an actual chosen object x_f for each arrow f in R. It need not cover U for the family/recovery/matching statements."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-recovery",
+      "title": "Local coefficients recover the restricted section",
+      "kind": "lemma",
+      "statement": "For every f∈R, c_b(V)(a_f)=r_f(z) as actual compatible-centre sections.",
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-family",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-injective",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-evaluation",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-reindex"
+      ],
+      "proofSteps": [
+        "Evaluate both sections at the displayed x_f. The band inverse law and the coefficient identity give the same automorphism.",
+        "Use native evaluation injectivity on V, without imposing an object on any other fibre."
+      ],
+      "sources": [
+        {
+          "sourceId": "SP0CJY-J6LwjP-fixed-band-inverse",
+          "locator": "Lemma 8.11.8, full proof and final varying-base omission; derived fixed-band coefficient comparison",
+          "match": "Authored fixed-band inverse deduction: reconstruct local coefficients using actual band equivalences, prove native matching and apply the existing coefficient-sheaf axiom. This argument is not printed as a separate result in Stacks and does not identify the SF1 descended slice carrier."
+        }
+      ],
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.localBandCoefficient_recovery",
+      "acceptance": [
+        "Use the existing native gerbe, prescribed coefficient sheaf and compatible-centre subgroup; do not assume a global object or neutrality.",
+        "The inverse is relative to the fixed band b. Distinct coefficient-band automorphisms are retained; the actual SF1 slice-sheaf comparison and geometric fixtures remain separate."
+      ]
+    },
+    {
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "hypotheses": [
+        "C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.",
+        "R is an arbitrary sieve, with an actual chosen object x_f for each arrow f in R. It need not cover U for the family/recovery/matching statements."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-matching",
+      "title": "Local coefficients form a matching family",
+      "kind": "lemma",
+      "statement": "The constructed local coefficient family is compatible on every commutative test square g≫f=h≫k in the native presieve matching-family sense. No fibre products, cover condition or compatibility between the chosen objects is required.",
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-family",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-recovery",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-injective",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-restriction",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict-comp",
+        "mathlib:CategoryTheory.Presieve.FamilyOfElements.Compatible"
+      ],
+      "proofSteps": [
+        "Apply c_b on the common test object to both restricted coefficients; its injectivity detects equality.",
+        "Coefficient naturality and local recovery identify their images with r_(g≫f)(z) and r_(h≫k)(z). The given square equality identifies them."
+      ],
+      "sources": [
+        {
+          "sourceId": "SP0CJY-J6LwjP-fixed-band-inverse",
+          "locator": "Lemma 8.11.8, full proof and final varying-base omission; derived fixed-band coefficient comparison",
+          "match": "Authored fixed-band inverse deduction: reconstruct local coefficients using actual band equivalences, prove native matching and apply the existing coefficient-sheaf axiom. This argument is not printed as a separate result in Stacks and does not identify the SF1 descended slice carrier."
+        }
+      ],
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.localBandCoefficient_compatible",
+      "acceptance": [
+        "Use the existing native gerbe, prescribed coefficient sheaf and compatible-centre subgroup; do not assume a global object or neutrality.",
+        "The inverse is relative to the fixed band b. Distinct coefficient-band automorphisms are retained; the actual SF1 slice-sheaf comparison and geometric fixtures remain separate."
+      ]
+    },
+    {
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "hypotheses": [
+        "C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-surjective",
+      "title": "Chosen-band coefficients cover all central sections",
+      "kind": "lemma",
+      "statement": "For every U, c_b(U):Multiplicative(A(U))→ZF(U) is surjective even when F(U) is empty. No terminal object or global neutralization is assumed.",
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-family",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-matching",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-recovery",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-separated",
+        "mathlib:CategoryTheory.Presieve.IsSheafFor",
+        "mathlib:CategoryTheory.Presheaf.isSheaf_comp_of_isSheaf",
+        "mathlib:CategoryTheory.isSheaf_iff_isSheaf_of_type"
+      ],
+      "proofSteps": [
+        "Gerbe local nonemptiness supplies an actual covering sieve R and an object x_f over every arrow f∈R. Construct the local coefficient family for z using these objects.",
+        "The proved matching law and the actual sheaf property of the prescribed A supply a global amalgamation a∈A(U). Use the native Type-valued sheaf formulation, not a new gluing oracle.",
+        "Restrict c_b(U)(a) and z along R. Coefficient naturality, the amalgamation equations and local recovery identify all these sections. The existing prestack covering separatedness gives global equality."
+      ],
+      "sources": [
+        {
+          "sourceId": "SP0CJY-J6LwjP-fixed-band-inverse",
+          "locator": "Lemma 8.11.8, full proof and final varying-base omission; derived fixed-band coefficient comparison",
+          "match": "Authored fixed-band inverse deduction: reconstruct local coefficients using actual band equivalences, prove native matching and apply the existing coefficient-sheaf axiom. This argument is not printed as a separate result in Stacks and does not identify the SF1 descended slice carrier."
+        }
+      ],
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBanding_surjective",
+      "acceptance": [
+        "Use the existing native gerbe, prescribed coefficient sheaf and compatible-centre subgroup; do not assume a global object or neutrality.",
+        "The inverse is relative to the fixed band b. Distinct coefficient-band automorphisms are retained; the actual SF1 slice-sheaf comparison and geometric fixtures remain separate."
+      ]
+    },
+    {
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "hypotheses": [
+        "C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-equivalence",
+      "title": "Chosen-band coefficient equivalence",
+      "kind": "construction",
+      "statement": "For every U construct the native group equivalence Multiplicative(A(U))≃*ZF(U) whose forward map is exactly c_b(U). Its inverse commutes with every base restriction and restricts to every chosen local coefficient family; local objects need not exist over U.",
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-injective",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-surjective",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-restriction",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-recovery",
+        "mathlib:MulEquiv.ofBijective"
+      ],
+      "proofSteps": [
+        "Apply the existing bijective multiplication-map equivalence constructor to the actual coefficient homomorphism and its two proved bijectivity directions.",
+        "To prove inverse naturality apply the injective forward map and use coefficient naturality and both inverse laws.",
+        "The same injectivity and local recovery identify the inverse on any sieve with any supplied local object family, independently of the gluing choices."
+      ],
+      "sources": [
+        {
+          "sourceId": "SP0CJY-J6LwjP-fixed-band-inverse",
+          "locator": "Lemma 8.11.8, full proof and final varying-base omission; derived fixed-band coefficient comparison",
+          "match": "Authored fixed-band inverse deduction: reconstruct local coefficients using actual band equivalences, prove native matching and apply the existing coefficient-sheaf axiom. This argument is not printed as a separate result in Stacks and does not identify the SF1 descended slice carrier."
+        }
+      ],
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingEquiv",
+      "acceptance": [
+        "Use the existing native gerbe, prescribed coefficient sheaf and compatible-centre subgroup; do not assume a global object or neutrality.",
+        "The inverse is relative to the fixed band b. Distinct coefficient-band automorphisms are retained; the actual SF1 slice-sheaf comparison and geometric fixtures remain separate."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingEquiv",
+          "role": "constructor",
+          "statement": "For every U construct the native group equivalence Multiplicative(A(U))≃*ZF(U) whose forward map is exactly c_b(U). Its inverse commutes with every base restriction and restricts to every chosen local coefficient family; local objects need not exist over U."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingEquiv_apply",
+          "role": "simp",
+          "statement": "The forward map is exactly c_b(U)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingEquiv_symm_restrict",
+          "role": "functoriality",
+          "statement": "The inverse after restricting the central section equals the coefficient restriction of its inverse."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingEquiv_symm_local",
+          "role": "compatibility",
+          "statement": "Restricting the inverse along any f∈R gives precisely the local coefficient constructed from any displayed x_f."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-band-unique",
+          "how": "Supplies the actual sectionwise fixed-band inverse and its restriction law, to be packaged through the existing central-section sheaf and native componentwise natural-isomorphism construction."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BandInverseTests.unit",
+          "kind": "degenerate",
+          "statement": "The inverse sends the unit section to the unit coefficient."
+        },
+        {
+          "name": "BandInverseTests.coefficientRoundTrip",
+          "kind": "characterisation",
+          "statement": "The inverse of the actual c_b(U)(a) is exactly a."
+        },
+        {
+          "name": "BandInverseTests.sectionRoundTrip",
+          "kind": "characterisation",
+          "statement": "Applying actual c_b(U) to the inverse of any z returns z."
+        },
+        {
+          "name": "BandInverseTests.inverse",
+          "kind": "compatibility",
+          "statement": "The inverse respects inversion of arbitrary central sections."
+        },
+        {
+          "name": "BandInverseTests.restriction",
+          "kind": "compatibility",
+          "statement": "The inverse on every restricted section is the corresponding actual coefficient restriction."
+        },
+        {
+          "name": "BandInverseTests.nontrivial",
+          "kind": "non-example",
+          "statement": "A nonidentity central section has a nonidentity inverse coefficient; a constant-unit inverse fails."
+        }
+      ]
     }
   ],
   "requests": [
@@ -11382,7 +11786,7 @@
         "The gerbe, banding, neutralization, derived-H2 route, compatible profinite limits, torsor twisting and prime-to-p inertia branches are partial; resolve each recorded proof gap and request before closure.",
         "Import ordinary stacks from D0 and spaces/sites/diagonals from SF1. Algebraic/Deligne–Mumford properties, algebraicity of quotient stacks and coherent-sheaf moduli stacks, and exact Artin moduli criteria remain undecomposed.",
         "Finite-field rational-point atlases, stack differentials/degree/local-character adapters and groupoid mass remain pending at their paper locators. Import stable pointed-curve moduli from StableReductionPartII:key/moduli-curves and elliptic comparisons from ModularCurves1E/4A.",
-        "The compatible-centre section model has native arbitrary-base transport, unique covering-sieve gluing and actual categorical sheaf descent under the prestack hypothesis alone. The explicit abelian-inertia lifting homomorphism gives evaluation surjectivity. Establish the locally glued chosen-band inverse, and the SF1 descended-slice comparison; instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbes before intrinsic-band closure."
+        "The compatible-centre model retains its native arbitrary-base gluing/sheaf/evaluation receipts. The prescribed-band coefficient inverse now has admission-free local matching/gluing, both sectionwise round trips and arbitrary restriction laws, without a global object. Package the full sheaf isomorphism and establish the actual SF1 descended-slice comparison; instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbes before intrinsic-band closure."
       ]
     },
     {
@@ -11414,7 +11818,7 @@
   "gaps": [
     {
       "title": "Compatibility of the intrinsic band over varying slice objects",
-      "detail": "Stacks Lemma 8.11.8 omits the final varying-base verification. The simultaneous compatible-centre model now has native arbitrary-base comparison through actual mapComp isomorphisms, actual section assembly, exact cover restrictions, unique gluing and the categorical sheaf theorem for prestacks, all with admission-free kernel dependencies. This closes the general Hom-gluing/sheafness sub-obligation, not this entire gap: construct the locally glued chosen-band inverse, and compare with the actual SF1 descended slice sheaf; then instantiate the specified geometric site fixtures. No full intrinsic-band or stage closure is claimed. The arbitrary-base conjugation, natural centre-unit assembly and explicit evaluation-surjectivity proof now have admission-free native prototypes; this resolves that sub-obligation only. The chosen-band inverse, actual SF1 slice comparison and geometric-site fixtures remain required.",
+      "detail": "The compatible-centre construction retains its previous native cover/gluing/sheaf/evaluation receipts. The fixed-band coefficient comparison now has a native local-to-global inverse: actual local gerbe objects produce matching coefficients, the prescribed sheaf A glues them, and joint covering separatedness proves the section round trip. Both inverse laws, restriction compatibility and independence of chosen local object families are checked without a global object. This resolves the chosen-band sectionwise-inverse sub-obligation only. Package the full compatible sheaf isomorphism and compare with the actual SF1 descended slice sheaf; instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe. No complete intrinsic-band, reserved-key or stage closure is claimed.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sheaf",
@@ -13250,6 +13654,111 @@
         "preservedStatements": 163,
         "addedNodes": 6,
         "scriptSha256": "f42bd4225990cfc31e7cf9b261578d8c21ee509f5d9379ef16b6d8b63054ddee"
+      }
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-J6LwjP",
+      "issue": 672,
+      "claimComment": 5962622101,
+      "botConfirmation": 5962623882,
+      "base": "099cf06f3b3c49aa0cb075268da13d97b3dc300e",
+      "status": "partial checkpoint",
+      "scope": "Chosen-band local-to-global coefficient inverse",
+      "addedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-surjective",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-family",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-recovery",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-local-matching",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-surjective",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-equivalence"
+      ],
+      "preservedStatementContracts": 173,
+      "boundary": "The compatible-centre construction retains its previous native cover/gluing/sheaf/evaluation receipts. The fixed-band coefficient comparison now has a native local-to-global inverse: actual local gerbe objects produce matching coefficients, the prescribed sheaf A glues them, and joint covering separatedness proves the section round trip. Both inverse laws, restriction compatibility and independence of chosen local object families are checked without a global object. This resolves the chosen-band sectionwise-inverse sub-obligation only. Package the full compatible sheaf isomorphism and compare with the actual SF1 descended slice sheaf; instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe. No complete intrinsic-band, reserved-key or stage closure is claimed.",
+      "proofArchive": "2bfc10cbb6324f3f15634465a13bcefe07a770ba",
+      "proofReceipts": {
+        "Gerbe.lean": {
+          "sha256": "a811521350986092ef1ad65db0556558274c1b330ee94716e9be86f40d9e0284",
+          "lines": 1463,
+          "examples": 32,
+          "audits": 50,
+          "errors": 0,
+          "admissionWarnings": 0,
+          "otherWarnings": 0,
+          "sorryAx": false,
+          "diagnosticSha256": "df31e983c6f7b02919f79b8b0e39f2de2942562d3af9542e6838c28c6fdca671",
+          "time": "Elapsed 5.20 seconds; peak 2225540 KiB"
+        },
+        "SubmittedMathlib.lean": {
+          "sha256": "c249ff064b0b26cb930783f5acdaccf95cf4d25f79d6b521fadfcd3684bcb02c",
+          "lines": 1762,
+          "examples": 74,
+          "audits": 0,
+          "errors": 0,
+          "admissionWarnings": 145,
+          "otherWarnings": 0,
+          "sorryAx": false,
+          "diagnosticSha256": "ab921f05f453ddeed4195c415df61b46ae03cf9dbd7bb3a01f5663ec13b0ca93",
+          "time": "Elapsed 6.10 seconds; peak 3378908 KiB"
+        },
+        "canonical": {
+          "sha256": "386f58865dd16b19c590bcd6b1c4cd8761d76345d0f3a2e28b4fc73b4c5fdfb2",
+          "lines": 3144,
+          "preservedPrefixLines": 3020,
+          "newPublicHeadersMatch": 9,
+          "newExampleHeadersMatch": 9
+        }
+      },
+      "dependencyReceipts": {
+        "actualAssembler": true,
+        "unresolvedNonlibraryPrerequisites": [],
+        "base": "099cf06f3b3c49aa0cb075268da13d97b3dc300e",
+        "declarations": 179,
+        "ownDeclarations": 179,
+        "kinds": {
+          "definition": 16,
+          "lemma": 87,
+          "construction": 43,
+          "theorem": 28,
+          "comparison": 5
+        },
+        "apiTotal": 220,
+        "testsTotal": 199,
+        "baseline": 103,
+        "planets": 10,
+        "gaps": 9,
+        "requests": 21,
+        "ownSkippedLinks": [],
+        "ownPendingLinks": [],
+        "stageDAG": {
+          "vertices": 3017,
+          "edges": 8655,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 179,
+          "edges": 373,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3189,
+          "edges": 9274,
+          "acyclic": true
+        },
+        "reachableDeclarations": 182,
+        "externalDeclarations": [
+          "DiamondsAndVStacks:D0/cech-to-derived-comparison",
+          "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+          "DiamondsAndVStacks:D0/stackification"
+        ],
+        "requiredStagePairs": 24,
+        "requiredStagePairsReachable": 24,
+        "stageEdgesUnchanged": true,
+        "otherSkipsMatchOriginal": true,
+        "unchangedNodeObjects": 171,
+        "preservedStatements": 173,
+        "addedNodes": 6,
+        "scriptSha256": "f0fb6b83a591597ba3fd418f941124f125a503254386d372e499f0bb789983d2"
       }
     }
   ]
