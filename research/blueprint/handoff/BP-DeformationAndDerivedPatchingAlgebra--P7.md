@@ -150,3 +150,113 @@ Layer R03.6 (PR #3317) requested two statements from R03.3 that the integrated d
   - the domain property above;
   - the reconciliation of the integrated depth, Auslander–Buchsbaum, complete-intersection, dimension and support node into declaration-sized nodes;
   - the import of the ModularCurves 4D local statements.
+
+
+---
+
+## P7 continuation — Codex, codex-J6LwjP, 2 October 2026
+
+Refs #551. Partial checkpoint: all eight stages remain open and every new
+implementation remains unchecked. The earlier handoffs above are historical
+receipts; this section records the current combined deliverables.
+
+### Done
+
+Preserves the previous 23 nodes and 62 baseline declarations exactly. Adds
+17 P7 nodes: three concrete predicates, unit-pivot cancellation, minimal
+representatives, residual homotopy equality, termwise uniqueness, residual
+ranks, the three-term middle-exactness splitting theorem, perfect-to-pseudo
+coherence, residual perfectness, pseudo-coherent residual Nakayama, residual
+contraction, finite tail approximation, finite-perfect filtered-colimit Hom,
+functorial lower-bounded target replacement, and the uniformly lower-bounded
+pseudo-coherent Hom comparison. The packet totals 40 nodes, 44 API entries,
+35 labeled tests, 11 planets (six on P7), 87 baseline declarations, 15 gap
+groups and two unchanged requests. The reserved multiplicity key is retained.
+
+Finite-free results use arbitrary commutative local rings. Cancellation uses
+units, finite-degree stabilization of descending pivots, and locally finite
+identity disks. The three-term theorem assumes composition zero and middle
+exactness after residue change; it does not assume endpoint exactness. The
+Hom comparison works on actual diagrams of complexes, uses a common lower
+bound, and uses a brutal finite approximation at a−1 rather than smart
+truncation of the source. Smart truncation is used functorially on the targets.
+No coherent chain-level Hecke action is inferred from derived factorization.
+
+Read the full applicable AUDIT-17 records and accepted RS-08 DDPA decisions,
+the original roadmap and full integrated P7 node. Read the actual pinned
+statements used for K-projectivity, homotopies, coefficient change, residue
+splittings, smart/brutal truncation, cohomology classes, complex colimits and
+ModuleCat AB5. Tau Ceti's existing linear Hom complex is imported as a planned
+proof input, not reconstructed. Reviewed generic Milnor/ML ownership stays
+with ArithmeticGaloisDuality R02.1; ModularCurves 4D imports retain their exact
+local regularity/completion hypotheses.
+
+Primary sources read: full statements and proofs at Stacks tags 00MT, 0BCC,
+0F9V, 0BC9, 0BCA, 0BCB, 0657, the selected full 064N definition/padding proof,
+and the complete 0G8W filtered-colimit proof. Stable tags are definitive: the
+current online numbering differs from the January 2026 book. Read the
+Boxer–Pilloni author PDF p.17 and pp.21–22, including Lemmas 2.6.6–2.6.7.
+The 65-page November 2025 PDF has SHA-256
+`af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6`.
+Publisher endpoint returned HTML, so no publisher-version collation is
+claimed. Accepted E26/E33 extraction findings are imported as prior reviewed
+findings; sourceIssues remains empty and this is not their independent review.
+
+### Validation
+
+The standard blueprint checker with the pinned declaration index reports
+0 errors and 0 warnings. Finite executable checks verify 26,200 unit-pivot
+identities over Z/4, Z/8 and Z/9 and 1,056 two-differential complexes over Z/4
+with exact middle residue sequence, including actual exactness and summands.
+Negative checks retain nonunit cancellation failure, the nonfree-endpoint
+counterexample and homotopies that differ before residue change. These are
+finite model checks, not proofs of the general statements.
+
+The complete suggested Lean file elaborates with Lean v4.34.0-rc2 against
+already existing Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 oleans:
+exit 0 in 2.42 seconds, zero errors, 112 placeholder-proof warnings and no
+other warnings. The final file SHA-256 is
+`fc04c0a556f75d6164a6db08ff5fa3f86e0a3b651cb1dfd0b1dea8454b5557fc`;
+the successful log SHA-256 is
+`cdf94dd96ac75bd1738cdfa484309140dabdfe437f3daf4d8e395d8ccd1a55e1`.
+No Tau Ceti module is imported; its baseline declarations were source-checked
+at f790474821cf4256814db967cb154e7af3d0c369. This is no certification of a
+combined library build or of mathematical implementation. The existing
+multiplicity associativity signature now supplies the canonical quotient-local
+instance using IsLocalRing.of_surjective'; no additional mathematical premise
+was added. Redundant DVR local-ring instance arguments were removed.
+
+A first Lake-wrapper attempt fetched source dependency clones because that
+wrapper did not recognize the parent build's dependency layout; it performed
+no library build and failed on Batteries. Those newly fetched directories were
+removed. Subsequent checks invoked one Lean process directly with existing
+compiled dependency paths, checking available memory (78 GB on final run) and
+a 20-minute timeout. No project, library build, cache download or language
+server was created, and no Lean process remains running.
+
+### Resume in this order
+
+1. Construct and verify the identity/zero brutal-truncation inclusion and
+   natural Hom-complex comparison used by the four new affine nodes. Implement
+   finite-projective Hom/AB5 comparisons and functorial smart truncations.
+2. Turn descending local cancellation and its locally finite disk decomposition
+   into actual constructions. Prove the rank/shift transports omitted from the
+   suggested signatures, with zero terms and unbounded negative tails tested.
+3. Build restricted derived base change via bounded above projective/K-flat
+   representatives, including resolution independence. Only then state the
+   omitted derived-object residual Nakayama signature; the representative-level
+   statement already has an honest suggested signature.
+4. Decompose triangle/summand closure, Tor-amplitude interval and spectral
+   sequence statements, and local stable comparison/descent. The lifting
+   sources' cited homotopy-lifting proofs still require direct verification.
+5. Treat Pilloni's completed infinite-rank R^(I) minimal complexes separately;
+   they are not ordinary products R^I or the finite-free objects planned here.
+   Retain derived-completion and inverse-limit hypotheses and lim¹ terms.
+6. Continue the earlier multiplicity, depth, deformation, derived-action,
+   characteristic-zero-point and patching worklists above. P7–P9 and
+   R03.1–R03.5 remain partial/not_read; no omitted paper route is discharged.
+7. Apply scheme/six-functor/solid applications through their existing supplier,
+   not by claiming the affine Hom theorem proves globalization.
+
+All durable results and receipts are in the four deliverables. Scratch is
+removed after the PR opens; no local file path is needed to resume.

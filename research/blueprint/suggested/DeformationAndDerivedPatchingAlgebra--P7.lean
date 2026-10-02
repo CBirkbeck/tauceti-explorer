@@ -1,3 +1,13 @@
+import Mathlib.Algebra.Category.ModuleCat.AB
+import Mathlib.Algebra.Homology.HomologicalComplexLimits
+import Mathlib.Algebra.Homology.Embedding.StupidTrunc
+import Mathlib.Algebra.Homology.HomotopyCategory.HomComplexCohomology
+import Mathlib.Algebra.Homology.DerivedCategory.KProjective
+import Mathlib.Algebra.Homology.HomotopyCategory.MappingCone
+import Mathlib.Algebra.Homology.HomologicalComplexBiprod
+import Mathlib.Algebra.Homology.Single
+import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
+import Mathlib.Algebra.Category.ModuleCat.Projective
 import Mathlib.FieldTheory.IsAlgClosed.Basic
 import Mathlib.RingTheory.Artinian.Module
 import Mathlib.RingTheory.DedekindDomain.IntegralClosure
@@ -38,7 +48,9 @@ They introduce no new prime-filtration carrier, theorem or implementation claim.
 
 Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-This file has not been compiled in this browser worker's environment.
+The complete file elaborates with placeholder-proof warnings only against the
+existing Mathlib build at the pin (Codex codex-J6LwjP, 2 October 2026).
+No Tau Ceti module is imported; its baseline references were inspected as source.
 The original ten baseline examples are retained. Five new signatures and four
 algebraic regressions cover the R03.4 point strand, not the eight-stage part.
 -/
@@ -349,8 +361,8 @@ end SuggestedTest.Catenary
 /-!
 ## R03.3: general Hilbert–Samuel strand (Codex — codex-a71f92, 2026-10-02)
 
-The reader's Section 5b is definitive. These additions have not been compiled.
-The historical successful elaboration receipt applies only to the older file.
+The reader's Section 5b is definitive. These additions now elaborate with placeholder proofs at the Mathlib pin.
+The current receipt covers the complete file; earlier receipts remain historical.
 The actual associated-graded bridge, Hilbert–Serre induction, degree/dimension
 and Artin–Rees comparison remain explicit packet gaps. A polynomial supplied
 as a hypothesis is not used as a replacement definition of multiplicity.
@@ -524,6 +536,10 @@ theorem multiplicityInDegree_additive
       multiplicityInDegree (M := M₁) q hq d +
         multiplicityInDegree (M := M₃) q hq d := by sorry
 
+/-- Canonical quotient-locality adapter from the pinned surjective-map theorem. -/
+local instance primeQuotientLocal (p : PrimeSpectrum A) : IsLocalRing (A ⧸ p.asIdeal) :=
+  IsLocalRing.of_surjective' (Ideal.Quotient.mk p.asIdeal) Ideal.Quotient.mk_surjective
+
 /-- R03.3/multiplicity-associativity.
 P enumerates the actual top-dimensional support primes. The quotient-ideal
 proofs and finite localized-length proofs are conclusions of the missing
@@ -582,7 +598,7 @@ example (k : Type*) [Field k] (r : ℕ)
 
 -- test: HilbertSamuelTest.polynomial_dvr
 example (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
-    [IsNoetherianRing O] [IsLocalRing O] (s : ℕ) (hs : 0 < s)
+    [IsNoetherianRing O] (s : ℕ) (hs : 0 < s)
     (hq : (IsLocalRing.maximalIdeal O ^ s).radical = IsLocalRing.maximalIdeal O) :
     polynomial (M := O) (IsLocalRing.maximalIdeal O ^ s) hq =
       C (s : ℚ) * (X + 1) := by sorry
@@ -615,13 +631,13 @@ example (k : Type*) [Field k] (r : ℕ)
 
 -- test: HilbertSamuelTest.multiplicity_dvr_power
 example (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
-    [IsNoetherianRing O] [IsLocalRing O] (s : ℕ) (hs : 0 < s)
+    [IsNoetherianRing O] (s : ℕ) (hs : 0 < s)
     (hq : (IsLocalRing.maximalIdeal O ^ s).radical = IsLocalRing.maximalIdeal O) :
     multiplicity (M := O) (IsLocalRing.maximalIdeal O ^ s) hq = (s : ℚ) := by sorry
 
 -- test: HilbertSamuelTest.multiplicity_residue
 example (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
-    [IsNoetherianRing O] [IsLocalRing O]
+    [IsNoetherianRing O]
     (hq : (IsLocalRing.maximalIdeal O).radical = IsLocalRing.maximalIdeal O) :
     multiplicity (M := O ⧸ IsLocalRing.maximalIdeal O) _ hq = 1 := by sorry
 
@@ -635,14 +651,14 @@ example (k : Type*) [Field k] [IsNoetherianRing (EmbeddedRing k)]
 
 -- test: HilbertSamuelTest.inDegree_residue
 example (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
-    [IsNoetherianRing O] [IsLocalRing O]
+    [IsNoetherianRing O]
     (hq : (IsLocalRing.maximalIdeal O).radical = IsLocalRing.maximalIdeal O) :
     multiplicityInDegree (M := O ⧸ IsLocalRing.maximalIdeal O) _ hq 0 = 1 ∧
       multiplicityInDegree (M := O ⧸ IsLocalRing.maximalIdeal O) _ hq 1 = 0 := by sorry
 
 -- test: HilbertSamuelTest.inDegree_mixed
 example (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
-    [IsNoetherianRing O] [IsLocalRing O]
+    [IsNoetherianRing O]
     (hq : (IsLocalRing.maximalIdeal O).radical = IsLocalRing.maximalIdeal O) :
     polynomial (M := O × (O ⧸ IsLocalRing.maximalIdeal O)) _ hq = X + C 2 ∧
       multiplicity (M := O × (O ⧸ IsLocalRing.maximalIdeal O)) _ hq = 1 ∧
@@ -667,3 +683,377 @@ example (k : Type*) [Field k]
       multiplicityInDegree (M := MvPowerSeries (Fin 2) k) _ hq 2 = 1 := by sorry
 
 end HilbertSamuelTest
+
+/-!
+## P7: minimal finite-free complexes (Codex — codex-J6LwjP)
+
+The reader's Section 7 is definitive. These forms elaborate with placeholder proofs. The definitions
+use actual pinned carriers. Ordinary residual tensor on projective representatives
+is not presented as an already implemented generic derived tensor functor.
+Omitted signatures: disk rank equations and a locally finite disk-family isomorphism;
+the generic derived-object forms of residualPerfectness and residualNakayama;
+the Tor-amplitude predicate, derived tensor/RHom, filtered-colimit factorization,
+and completed infinite-rank minimality. Their exact obligations remain packet gaps.
+-/
+
+namespace TauCeti.LocalPerfect
+open Module
+
+open CategoryTheory CategoryTheory.Limits ZeroObject
+
+variable {R : Type u} [CommRing R]
+
+-- Local shorthand for the existing cochain carrier; no new complex structure.
+abbrev Complex (R : Type u) [CommRing R] := CochainComplex (ModuleCat.{u} R) ℤ
+
+section DerivedObjects
+
+variable [HasDerivedCategory.{u} (ModuleCat.{u} R)]
+
+/-- P7/perfect-object: existence of a genuine bounded projective representative. -/
+def IsPerfect (K : DerivedCategory (ModuleCat.{u} R)) : Prop :=
+  ∃ (C : Complex R) (a b : ℤ),
+    (∀ i, Module.Finite R (C.X i) ∧ Module.Projective R (C.X i)) ∧
+    C.IsStrictlyGE a ∧ C.IsStrictlyLE b ∧
+    Nonempty (DerivedCategory.Q.obj C ≅ K)
+
+/-- P7/pseudo-coherent-object: finite free, upper bounded, with no lower bound. -/
+def IsPseudoCoherent (K : DerivedCategory (ModuleCat.{u} R)) : Prop :=
+  ∃ (C : Complex R) (b : ℤ),
+    (∀ i, Module.Finite R (C.X i) ∧ Module.Free R (C.X i)) ∧
+    C.IsStrictlyLE b ∧ Nonempty (DerivedCategory.Q.obj C ≅ K)
+
+theorem IsPerfect.of_rep (C : Complex R) (a b : ℤ)
+    (h : ∀ i, Module.Finite R (C.X i) ∧ Module.Projective R (C.X i))
+    (ha : C.IsStrictlyGE a) (hb : C.IsStrictlyLE b) :
+    IsPerfect (DerivedCategory.Q.obj C) := by sorry
+
+theorem IsPerfect.of_iso {K L : DerivedCategory (ModuleCat.{u} R)}
+    (e : K ≅ L) (h : IsPerfect K) : IsPerfect L := by sorry
+
+theorem IsPerfect.exists_rep {K : DerivedCategory (ModuleCat.{u} R)}
+    (h : IsPerfect K) :
+    ∃ (C : Complex R) (a b : ℤ),
+      (∀ i, Module.Finite R (C.X i) ∧ Module.Projective R (C.X i)) ∧
+      C.IsStrictlyGE a ∧ C.IsStrictlyLE b ∧
+      Nonempty (DerivedCategory.Q.obj C ≅ K) := by sorry
+
+theorem IsPerfect.zero : IsPerfect (0 : DerivedCategory (ModuleCat.{u} R)) := by sorry
+
+theorem IsPerfect.shift {K : DerivedCategory (ModuleCat.{u} R)}
+    (h : IsPerfect K) (n : ℤ) : IsPerfect (K⟦n⟧) := by sorry
+
+theorem IsPseudoCoherent.of_rep (C : Complex R) (b : ℤ)
+    (h : ∀ i, Module.Finite R (C.X i) ∧ Module.Free R (C.X i))
+    (hb : C.IsStrictlyLE b) : IsPseudoCoherent (DerivedCategory.Q.obj C) := by sorry
+
+theorem IsPseudoCoherent.of_iso {K L : DerivedCategory (ModuleCat.{u} R)}
+    (e : K ≅ L) (h : IsPseudoCoherent K) : IsPseudoCoherent L := by sorry
+
+theorem IsPseudoCoherent.exists_rep {K : DerivedCategory (ModuleCat.{u} R)}
+    (h : IsPseudoCoherent K) :
+    ∃ (C : Complex R) (b : ℤ),
+      (∀ i, Module.Finite R (C.X i) ∧ Module.Free R (C.X i)) ∧
+      C.IsStrictlyLE b ∧ Nonempty (DerivedCategory.Q.obj C ≅ K) := by sorry
+
+theorem IsPseudoCoherent.zero :
+    IsPseudoCoherent (0 : DerivedCategory (ModuleCat.{u} R)) := by sorry
+
+theorem IsPseudoCoherent.shift {K : DerivedCategory (ModuleCat.{u} R)}
+    (h : IsPseudoCoherent K) (n : ℤ) : IsPseudoCoherent (K⟦n⟧) := by sorry
+
+/-- P7/perfect-is-pseudo-coherent. -/
+theorem IsPerfect.isPseudoCoherent {K : DerivedCategory (ModuleCat.{u} R)}
+    (h : IsPerfect K) : IsPseudoCoherent K := by sorry
+
+-- perfect_zero
+example : IsPerfect (0 : DerivedCategory (ModuleCat.{u} R)) := by sorry
+-- perfect_projective_rep
+example (C : Complex R) (a b : ℤ)
+    (h : ∀ i, Module.Finite R (C.X i) ∧ Module.Projective R (C.X i))
+    (ha : C.IsStrictlyGE a) (hb : C.IsStrictlyLE b) :
+    IsPerfect (DerivedCategory.Q.obj C) := by sorry
+-- perfect_iso_transport
+example {K L : DerivedCategory (ModuleCat.{u} R)} (e : K ≅ L) :
+    IsPerfect K ↔ IsPerfect L := by sorry
+-- pseudo_zero
+example : IsPseudoCoherent (0 : DerivedCategory (ModuleCat.{u} R)) := by sorry
+-- pseudo_free_rep
+example (C : Complex R) (b : ℤ)
+    (h : ∀ i, Module.Finite R (C.X i) ∧ Module.Free R (C.X i))
+    (hb : C.IsStrictlyLE b) : IsPseudoCoherent (DerivedCategory.Q.obj C) := by sorry
+-- pseudo_iso_transport
+example {K L : DerivedCategory (ModuleCat.{u} R)} (e : K ≅ L) :
+    IsPseudoCoherent K ↔ IsPseudoCoherent L := by sorry
+
+end DerivedObjects
+
+section FieldTests
+variable (k : Type u) [Field k] [HasDerivedCategory.{u} (ModuleCat.{u} k)]
+variable (V : Type u) [AddCommGroup V] [Module k V]
+-- perfect_field_stalk: rules out an infinite-dimensional stalk.
+example : IsPerfect (DerivedCategory.Q.obj
+    ((HomologicalComplex.single (ModuleCat.{u} k) (.up ℤ) 0).obj
+      (ModuleCat.of k V))) ↔ Module.Finite k V := by sorry
+-- pseudo_field_stalk: boundedness alone does not imply pseudo-coherence.
+example : IsPseudoCoherent (DerivedCategory.Q.obj
+    ((HomologicalComplex.single (ModuleCat.{u} k) (.up ℤ) 0).obj
+      (ModuleCat.of k V))) ↔ Module.Finite k V := by sorry
+end FieldTests
+
+section Local
+variable [IsLocalRing R]
+
+/-- P7/minimal-complex: no opaque hypotheses, and no implicit finite-free clause. -/
+def IsMinimal (C : Complex R) : Prop :=
+  ∀ i : ℤ, LinearMap.range (C.d i (i + 1)).hom ≤
+    IsLocalRing.maximalIdeal R • (⊤ : Submodule R (C.X (i + 1)))
+
+-- The existing extendScalars functor is additive; this adapter has a placeholder proof.
+local instance residualFunctor_additive :
+    (ModuleCat.extendScalars (algebraMap R (IsLocalRing.ResidueField R))).Additive where
+  map_add := by sorry
+
+-- Ordinary scalar change on actual complexes, using the pinned functors.
+noncomputable abbrev residueComplex (C : Complex R) :=
+  ((ModuleCat.extendScalars (algebraMap R (IsLocalRing.ResidueField R))).mapHomologicalComplex (.up ℤ)).obj C
+
+theorem IsMinimal.iff_residue_d_zero (C : Complex R) :
+    IsMinimal C ↔ ∀ i : ℤ,
+      ((C.d i (i + 1)).hom.lTensor (IsLocalRing.ResidueField R)) = 0 := by sorry
+
+theorem IsMinimal.of_iso {C D : Complex R} (e : C ≅ D)
+    (h : IsMinimal C) : IsMinimal D := by sorry
+
+theorem IsMinimal.zero : IsMinimal (0 : Complex R) := by sorry
+
+theorem IsMinimal.shift {C : Complex R} (h : IsMinimal C) (n : ℤ) :
+    IsMinimal (C⟦n⟧) := by sorry
+
+theorem IsMinimal.iff_matrix (C : Complex R)
+    {ι : ℤ → Type u} (b : ∀ i, Basis (ι i) R (C.X i)) :
+    IsMinimal C ↔ ∀ (i : ℤ) (j : ι i) (k : ι (i + 1)),
+      (b (i + 1)).repr ((C.d i (i + 1)).hom (b i j)) k ∈
+        IsLocalRing.maximalIdeal R := by sorry
+
+-- minimal_zero
+example : IsMinimal (0 : Complex R) := by sorry
+-- minimal_iff_residue
+example (C : Complex R) : IsMinimal C ↔ ∀ i : ℤ,
+    ((C.d i (i + 1)).hom.lTensor (IsLocalRing.ResidueField R)) = 0 := by sorry
+-- minimal_iso_transport
+example {C D : Complex R} (e : C ≅ D) : IsMinimal C ↔ IsMinimal D := by sorry
+-- minimal_identity_disk: the cone of an identity is contractible but not minimal.
+example : ¬ IsMinimal (CochainComplex.mappingCone
+    (𝟙 ((HomologicalComplex.single (ModuleCat.{u} R) (.up ℤ) 1).obj
+      (ModuleCat.of R R)))) := by sorry
+
+/-- P7/homotopy-residue-equality. -/
+theorem homotopy_residue_equality {C D : Complex R}
+    (hC : IsMinimal C) (hD : IsMinimal D) {f g : C ⟶ D}
+    (h : Homotopy f g) (i : ℤ) :
+    (f.f i).hom.lTensor (IsLocalRing.ResidueField R) =
+      (g.f i).hom.lTensor (IsLocalRing.ResidueField R) := by sorry
+
+/-- P7/minimal-homotopy-equivalence-is-iso: strict uniqueness, not canonical choice. -/
+theorem minimal_homotopy_equivalence_is_iso {C D : Complex R}
+    (hC : IsMinimal C) (hD : IsMinimal D)
+    (hFC : ∀ i, Module.Finite R (C.X i) ∧ Module.Free R (C.X i))
+    (hFD : ∀ i, Module.Finite R (D.X i) ∧ Module.Free R (D.X i))
+    (e : HomotopyEquiv C D) : IsIso e.hom := by sorry
+
+namespace minimalRepresentative
+
+theorem «exists» (C : Complex R) (b : ℤ)
+    (hF : ∀ i, Module.Finite R (C.X i) ∧ Module.Free R (C.X i))
+    (hb : C.IsStrictlyLE b) :
+    ∃ M : Complex R,
+      (∀ i, Module.Finite R (M.X i) ∧ Module.Free R (M.X i)) ∧
+      M.IsStrictlyLE b ∧ IsMinimal M ∧ Nonempty (HomotopyEquiv C M) := by sorry
+
+theorem bounded (C : Complex R) (a b : ℤ)
+    (hF : ∀ i, Module.Finite R (C.X i) ∧ Module.Free R (C.X i))
+    (ha : C.IsStrictlyGE a) (hb : C.IsStrictlyLE b) :
+    ∃ M : Complex R,
+      (∀ i, Module.Finite R (M.X i) ∧ Module.Free R (M.X i)) ∧
+      M.IsStrictlyGE a ∧ M.IsStrictlyLE b ∧
+      IsMinimal M ∧ Nonempty (HomotopyEquiv C M) := by sorry
+
+-- disk_part: omitted as a locally finite family until that carrier is constructed.
+-- For each individual disk the existing cone already has a contraction.
+theorem disk_part (i : ℤ) :
+    Nonempty (Homotopy
+      (𝟙 (CochainComplex.mappingCone
+        (𝟙 ((HomologicalComplex.single (ModuleCat.{u} R) (.up ℤ) (i + 1)).obj
+          (ModuleCat.of R R))))) 0) := by sorry
+
+theorem quasiIso {C M : Complex R} (e : HomotopyEquiv C M) :
+    QuasiIso e.hom := by sorry
+
+theorem unique {C M N : Complex R} (hM : IsMinimal M) (hN : IsMinimal N)
+    (hFM : ∀ i, Module.Finite R (M.X i) ∧ Module.Free R (M.X i))
+    (hFN : ∀ i, Module.Finite R (N.X i) ∧ Module.Free R (N.X i))
+    (eM : HomotopyEquiv C M) (eN : HomotopyEquiv C N) : Nonempty (M ≅ N) := by sorry
+
+end minimalRepresentative
+
+-- minimal_rep_exists
+example (C : Complex R) (b : ℤ)
+    (hF : ∀ i, Module.Finite R (C.X i) ∧ Module.Free R (C.X i))
+    (hb : C.IsStrictlyLE b) :
+    ∃ M : Complex R,
+      (∀ i, Module.Finite R (M.X i) ∧ Module.Free R (M.X i)) ∧
+      M.IsStrictlyLE b ∧ IsMinimal M ∧ Nonempty (HomotopyEquiv C M) := by sorry
+-- minimal_rep_bounded
+example (C : Complex R) (a b : ℤ)
+    (hF : ∀ i, Module.Finite R (C.X i) ∧ Module.Free R (C.X i))
+    (ha : C.IsStrictlyGE a) (hb : C.IsStrictlyLE b) :
+    ∃ M : Complex R,
+      (∀ i, Module.Finite R (M.X i) ∧ Module.Free R (M.X i)) ∧
+      M.IsStrictlyGE a ∧ M.IsStrictlyLE b ∧
+      IsMinimal M ∧ Nonempty (HomotopyEquiv C M) := by sorry
+-- minimal_rep_already_minimal
+example (C : Complex R) (h : IsMinimal C) :
+    IsMinimal C ∧ Nonempty (HomotopyEquiv C C) := by sorry
+
+/-- P7/minimal-residual-ranks: the actual residual homology is the residual term.
+The rank-number transport is specified in the reader, not yet elaborated here. -/
+theorem minimal_residual_ranks (C : Complex R) (h : IsMinimal C) (i : ℤ) :
+    Nonempty ((residueComplex C).homology i ≅ (residueComplex C).X i) := by sorry
+
+/-- P7/residual-perfectness-criterion, on an actual finite-free representative.
+The corresponding generic derived-base-change signature remains an explicit gap. -/
+theorem residualPerfectness (C : Complex R) (a b c : ℤ)
+    (hF : ∀ i, Module.Finite R (C.X i) ∧ Module.Free R (C.X i))
+    (hc : C.IsStrictlyLE c)
+    (hr : ∀ i : ℤ, i < a ∨ b < i → IsZero ((residueComplex C).homology i)) :
+    ∃ M : Complex R,
+      (∀ i, Module.Finite R (M.X i) ∧ Module.Free R (M.X i)) ∧
+      M.IsStrictlyGE a ∧ M.IsStrictlyLE b ∧
+      Nonempty (HomotopyEquiv C M) := by sorry
+
+/-- P7/pseudo-coherent-residual-nakayama, again on the representative. -/
+theorem residualNakayama (C : Complex R) (b : ℤ)
+    (hF : ∀ i, Module.Finite R (C.X i) ∧ Module.Free R (C.X i))
+    (hb : C.IsStrictlyLE b)
+    (hr : ∀ i : ℤ, IsZero ((residueComplex C).homology i)) :
+    Nonempty (Homotopy (𝟙 C) 0) := by sorry
+
+/-- P7/bounded-residual-acyclic-contractible, with actual projective terms. -/
+theorem bounded_residual_acyclic_contractible (C : Complex R) (a b : ℤ)
+    (hP : ∀ i, Module.Finite R (C.X i) ∧ Module.Projective R (C.X i))
+    (ha : C.IsStrictlyGE a) (hb : C.IsStrictlyLE b)
+    (hr : ∀ i : ℤ, IsZero ((residueComplex C).homology i)) :
+    Nonempty (Homotopy (𝟙 C) 0) := by sorry
+
+end Local
+
+section ThreeTerm
+variable [IsLocalRing R]
+variable {M₀ M₁ M₂ : Type u}
+variable [AddCommGroup M₀] [AddCommGroup M₁] [AddCommGroup M₂]
+variable [Module R M₀] [Module R M₁] [Module R M₂]
+variable [Module.Finite R M₀] [Module.Finite R M₁] [Module.Finite R M₂]
+variable [Module.Free R M₀] [Module.Free R M₁] [Module.Free R M₂]
+
+/-- P7/three-term-residual-splitting: exact only in the middle, three real splittings. -/
+theorem three_term_residual_splitting
+    (f : M₀ →ₗ[R] M₁) (g : M₁ →ₗ[R] M₂) (hgf : g ∘ₗ f = 0)
+    (hr : Function.Exact (f.lTensor (IsLocalRing.ResidueField R))
+      (g.lTensor (IsLocalRing.ResidueField R))) :
+    Function.Exact f g ∧
+    (∃ s : M₀ →ₗ[R] LinearMap.ker f, s ∘ₗ (LinearMap.ker f).subtype = LinearMap.id) ∧
+    (∃ s : M₁ →ₗ[R] LinearMap.range f, s ∘ₗ (LinearMap.range f).subtype = LinearMap.id) ∧
+    (∃ s : M₂ →ₗ[R] LinearMap.range g, s ∘ₗ (LinearMap.range g).subtype = LinearMap.id) := by sorry
+
+end ThreeTerm
+
+section Cancellation
+-- The unit-pivot theorem itself is valid without a local hypothesis.
+variable {C : Complex R} {ι κ : Type u}
+/-- P7/unit-pivot-cancellation. Rank and unchanged-degree equations remain noted omissions. -/
+theorem unit_pivot_cancellation (i : ℤ)
+    (hF : ∀ j, Module.Finite R (C.X j) ∧ Module.Free R (C.X j))
+    (b₀ : Basis ι R (C.X i)) (b₁ : Basis κ R (C.X (i + 1)))
+    (j : ι) (k : κ)
+    (hu : IsUnit (b₁.repr ((C.d i (i + 1)).hom (b₀ j)) k)) :
+    ∃ C' : Complex R, Nonempty (C ≅ C' ⊞ CochainComplex.mappingCone
+      (𝟙 ((HomologicalComplex.single (ModuleCat.{u} R) (.up ℤ) (i + 1)).obj
+        (ModuleCat.of R R)))) := by sorry
+end Cancellation
+
+end TauCeti.LocalPerfect
+
+/-!
+P7 filtered-colimit continuation. The following are placeholder-proof signatures on
+actual diagrams and the existing derived category. `homColimitMap` is the
+canonical comparison, defined by the existing colimit universal property;
+no existence of arbitrary derived-category filtered colimits is presumed.
+-/
+namespace TauCeti.LocalPerfect
+open Module
+open CategoryTheory CategoryTheory.Limits ZeroObject
+variable {R : Type u} [CommRing R]
+variable [HasDerivedCategory.{u} (ModuleCat.{u} R)]
+
+/-- The inclusion missing from the pinned brutal-truncation API. -/
+noncomputable def finiteTailInclusion (F : Complex R) (a : ℤ) :
+    F.stupidTrunc (ComplexShape.embeddingUpIntGE (a - 1)) ⟶ F := by sorry
+
+/-- P7/finite-free-tail-approximation: comparison of actual derived Hom sets. -/
+theorem finite_free_tail_approximation (F E : Complex R) (a b : ℤ)
+    (hF : ∀ i, Module.Finite R (F.X i) ∧ Module.Free R (F.X i))
+    (hb : F.IsStrictlyLE b) (ha : E.IsStrictlyGE a) :
+    Function.Bijective (fun f : DerivedCategory.Q.obj F ⟶ DerivedCategory.Q.obj E =>
+      DerivedCategory.Q.map (finiteTailInclusion F a) ≫ f) := by sorry
+
+variable {J : Type u} [SmallCategory J]
+
+/-- A canonical colimit comparison built from the existing degreewise colimit. -/
+noncomputable def homColimitMap
+    (K : DerivedCategory (ModuleCat.{u} R)) (E : J ⥤ Complex R)
+    [HasColimit E]
+    [HasColimit (E ⋙ DerivedCategory.Q ⋙ coyoneda.obj (Opposite.op K))] :
+    colimit (E ⋙ DerivedCategory.Q ⋙ coyoneda.obj (Opposite.op K)) →
+      (K ⟶ DerivedCategory.Q.obj (colimit E)) :=
+  colimit.desc _
+    ((DerivedCategory.Q ⋙ coyoneda.obj (Opposite.op K)).mapCocone
+      (colimit.cocone E))
+
+variable [IsFiltered J]
+
+/-- P7/finite-perfect-hom-filtered-colimit. -/
+theorem finite_perfect_hom_filtered_colimit
+    (C : Complex R) (a b : ℤ) (E : J ⥤ Complex R)
+    (hC : ∀ i, Module.Finite R (C.X i) ∧ Module.Projective R (C.X i))
+    (ha : C.IsStrictlyGE a) (hb : C.IsStrictlyLE b)
+    [HasColimit E]
+    [HasColimit (E ⋙ DerivedCategory.Q ⋙
+      coyoneda.obj (Opposite.op (DerivedCategory.Q.obj C)))] :
+    Function.Bijective (homColimitMap (DerivedCategory.Q.obj C) E) := by sorry
+
+/-- P7/lower-bounded-target-replacement: the pointwise colimit keeps the common bound.
+The objectwise smart truncation maps are already pinned library declarations;
+the natural-transformation comparison of whole diagrams remains to implement. -/
+theorem lower_bounded_target_replacement (E : J ⥤ Complex R) (a : ℤ)
+    (ha : ∀ j, (E.obj j).IsGE a) [HasColimit E] :
+    (colimit E).IsGE a := by sorry
+
+/-- P7/pseudo-coherent-hom-uniform-colimit: the actual canonical comparison. -/
+theorem pseudo_coherent_hom_uniform_colimit
+    (P : DerivedCategory (ModuleCat.{u} R)) (hP : IsPseudoCoherent P)
+    (E : J ⥤ Complex R) (a : ℤ) (ha : ∀ j, (E.obj j).IsGE a)
+    [HasColimit E]
+    [HasColimit (E ⋙ DerivedCategory.Q ⋙ coyoneda.obj (Opposite.op P))] :
+    Function.Bijective (homColimitMap P E) := by sorry
+
+-- Stage factorization is a consequence of surjectivity, with no coherent choice.
+example (P : DerivedCategory (ModuleCat.{u} R)) (hP : IsPseudoCoherent P)
+    (E : J ⥤ Complex R) (a : ℤ) (ha : ∀ j, (E.obj j).IsGE a)
+    [HasColimit E]
+    [HasColimit (E ⋙ DerivedCategory.Q ⋙ coyoneda.obj (Opposite.op P))]
+    (f : P ⟶ DerivedCategory.Q.obj (colimit E)) :
+    ∃ j, ∃ g : P ⟶ DerivedCategory.Q.obj (E.obj j),
+      g ≫ DerivedCategory.Q.map (colimit.ι E j) = f := by sorry
+
+end TauCeti.LocalPerfect

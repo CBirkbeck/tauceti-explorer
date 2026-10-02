@@ -811,9 +811,12 @@ whole-paper coverage is claimed. The two near-area upstream documents read
 in this session include ReductiveGroups and SemisimpleAlgebras; selected
 LocalFieldsRamification contracts were also consulted.
 
-The new suggested forms have not been compiled: this environment has no
-existing build at both prescribed pins. The previous worker's compilation
-receipt applies only to its earlier version. The file contains real module,
+The Hilbert–Samuel continuation initially had no compilation receipt. The
+subsequent P7 continuation now elaborates the complete suggested file at the
+Mathlib pin, with 0 errors and 112 placeholder-proof warnings. It supplies the
+canonical local-ring instance on each prime quotient from the pinned
+`IsLocalRing.of_surjective'` theorem and removes redundant DVR instances.
+No Tau Ceti module is imported; its baseline statements remain source-checked. The file contains real module,
 ideal, quotient and rational-polynomial signatures, with explicit missing
 formal-series example comparisons, not a record postulating all desired
 theorems.
@@ -837,3 +840,319 @@ The accepted AUDIT-17 R03.3 record was read, including its citation of associate
 The characteristic-zero continuation inspected the scoped AUDIT-17 R03.4 entry, the integrated point node and its source conventions, and the LocalFieldsRamification Layer 0 finite-extension/integral-closure contract. The original five baseline records and the other-stage worklists are retained. The new proof uses the additional pinned files listed with blob hashes in the packet, whose statements and proof passages were inspected. These reads do not constitute a new whole-library absence audit.
 
 The external source is [Khare–Wintenberger, author preprint, Corollary 4.7](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf), with the coefficient conventions on pp. 4–5 and the point/dimension passages on pp. 45–46. Those passages were read as parsed text; requests for the page images failed. No fresh PDF hash, successful visual inspection or publisher-edition comparison is claimed. [Stacks 00JB](https://stacks.math.columbia.edu/tag/00JB) was read for the Artinian/finite-length argument. The five nodes are explicit proof refinements, not a claim that the paper prints these five separate lemmas. No new source erratum is alleged.
+
+
+## 7. Local minimal complexes and residual detection
+
+This continuation works over an arbitrary commutative local ring for the minimal-complex results. Neither Noetherianity nor completeness is needed for the finite-free algebra. Complete Noetherian coefficient rings used in patching are instances. All earlier multiplicity, catenarity and characteristic-zero-point nodes remain. The thirteen nodes below refine the integrated P7 minimal-model node; they do not close P7 or the other seven stages.
+
+The audited K-projective and homotopy APIs are already present at the pin. Bounded above projective complexes are K-projective; the quotient-to-derived map is bijective on their homotopy classes, and their quasi-isomorphisms are homotopy equivalences. Ordinary coefficient change preserves an actual homotopy equivalence. It does not by itself construct a derived tensor functor. The latter comparison is the explicit missing interface for the derived-object forms below.
+
+Use cohomological grading, d_i:C^i→C^{i+1}, and H^i(K[n])=H^{i+n}(K). Write κ=R/m. A disk D_i(R) has R in degrees i,i+1 and identity differential. In the prototype it uses the existing cone of the identity on the stalk at i+1.
+
+### perfect-object: Perfect complexes
+
+For a commutative ring R, K in the existing DerivedCategory (ModuleCat R) is perfect exactly when there are a cochain complex C, integers a,b, finite projective R-modules C^i in every degree, vanishing C^i outside [a,b], and an isomorphism Q(C) ≅ K in the derived category. No directed quasi-isomorphism from K to a projective representative is required.
+
+Hypotheses. R arbitrary commutative; a localization choice HasDerivedCategory is explicit. No local, complete or Noetherian hypothesis.
+
+1. Use the pinned DerivedCategory.Q and existentially quantify an actual cochain complex, its finite/projective predicates and its termwise interval bound.
+
+Acceptance. A nonzero finite projective module in degree n is perfect. A contractible disk is perfect although its chosen representative has two nonzero terms.
+
+The proposed API is:
+
+- `TauCeti.LocalPerfect.IsPerfect.of_rep`: A bounded finite-projective C makes Q(C) perfect.
+- `TauCeti.LocalPerfect.IsPerfect.of_iso`: Perfectness transports along K ≅ L.
+- `TauCeti.LocalPerfect.IsPerfect.exists_rep`: A perfect object has a bounded finite-projective representative and an isomorphism Q(C) ≅ K.
+- `TauCeti.LocalPerfect.IsPerfect.zero`: The zero derived object is perfect.
+- `TauCeti.LocalPerfect.IsPerfect.shift`: All integer shifts preserve perfectness; [a,b] becomes [a−n,b−n] for K[n].
+
+The discriminating tests are:
+
+- `TauCeti.LocalPerfect.perfect_zero`: The zero derived object is perfect.
+- `TauCeti.LocalPerfect.perfect_projective_rep`: Q(C) is perfect whenever C is bounded and termwise finite projective.
+- `TauCeti.LocalPerfect.perfect_iso_transport`: If K ≅ L, IsPerfect K ↔ IsPerfect L.
+- `TauCeti.LocalPerfect.perfect_field_stalk`: For any field k and k-vector space V, the degree-zero stalk V[0] is perfect iff Module.Finite k V. In particular an infinite-dimensional stalk is not perfect.
+
+Sources: [P7-STACKS-0657](https://stacks.math.columbia.edu/tag/0657) — Stable tag 0657; online text read 2026-10-02 (current numbering differs from the January book).
+
+### pseudo-coherent-object: Pseudo-coherent complexes
+
+K in D(R) is pseudo-coherent iff K ≅ Q(F) for a bounded above cochain complex F of finite free R-modules. The terms need not be bounded below. This is affine pseudo-coherence, independent of Noetherianity; bounded coherent cohomology is not substituted as its definition.
+
+Hypotheses. R commutative and a chosen HasDerivedCategory.
+
+1. Quantify an integer upper bound, an actual cochain complex and termwise Module.Finite/Module.Free instances.
+
+Acceptance. Over R=k[ε]/ε², k[0] is pseudo-coherent with the resolution ...→R --ε→ R --ε→R. It is not perfect.
+
+The proposed API is:
+
+- `TauCeti.LocalPerfect.IsPseudoCoherent.of_rep`: Q(F) is pseudo-coherent for bounded above finite free F.
+- `TauCeti.LocalPerfect.IsPseudoCoherent.of_iso`: Transport through a derived isomorphism.
+- `TauCeti.LocalPerfect.IsPseudoCoherent.exists_rep`: Extract a bounded above finite-free representative.
+- `TauCeti.LocalPerfect.IsPseudoCoherent.zero`: The zero derived object is pseudo-coherent.
+- `TauCeti.LocalPerfect.IsPseudoCoherent.shift`: Every integer shift preserves pseudo-coherence.
+
+The discriminating tests are:
+
+- `TauCeti.LocalPerfect.pseudo_zero`: The zero object is pseudo-coherent.
+- `TauCeti.LocalPerfect.pseudo_free_rep`: Every bounded above finite-free F gives a pseudo-coherent Q(F).
+- `TauCeti.LocalPerfect.pseudo_iso_transport`: K ≅ L implies IsPseudoCoherent K ↔ IsPseudoCoherent L.
+- `TauCeti.LocalPerfect.pseudo_field_stalk`: Over a field k, V[0] is pseudo-coherent iff Module.Finite k V; boundedness of the stalk alone does not suffice.
+
+Sources: [P7-STACKS-064N](https://stacks.math.columbia.edu/tag/064N) — Stable tag 064N; online text read 2026-10-02 (current numbering differs from the January book).
+
+### minimal-complex: Minimal complexes over local rings
+
+For a local commutative ring (R,m,κ), a cochain complex C is minimal if every differential has image contained in m C^{i+1}. The predicate itself asserts neither finiteness, freeness nor boundedness. On finite-free complexes this is equivalently zero differentials after tensoring with κ, and equivalently all matrix entries lie in m in any chosen bases.
+
+Hypotheses. R local; m is IsLocalRing.maximalIdeal R. Use LinearMap.range and ideal action on the actual ModuleCat carriers.
+
+1. Define IsMinimal C by range(d_i) ≤ m • top; linearity gives the condition at every integer degree.
+
+Acceptance. [R --π→R] over a DVR is minimal, but [R --1→R] is not. The zero complex is minimal.
+
+The proposed API is:
+
+- `TauCeti.LocalPerfect.IsMinimal.iff_residue_d_zero`: Minimality iff the κ-linear base change of each d_i is zero.
+- `TauCeti.LocalPerfect.IsMinimal.of_iso`: A strict isomorphism of complexes preserves minimality.
+- `TauCeti.LocalPerfect.IsMinimal.zero`: The zero complex is minimal.
+- `TauCeti.LocalPerfect.IsMinimal.shift`: Shifts preserve minimality, including the differential sign.
+- `TauCeti.LocalPerfect.IsMinimal.iff_matrix`: In finite bases, minimality iff every differential coefficient belongs to m.
+
+The discriminating tests are:
+
+- `TauCeti.LocalPerfect.minimal_zero`: The zero cochain complex is minimal.
+- `TauCeti.LocalPerfect.minimal_iff_residue`: IsMinimal C ↔ ∀ i, (d_i).lTensor κ = 0.
+- `TauCeti.LocalPerfect.minimal_iso_transport`: C ≅ D as complexes implies IsMinimal C ↔ IsMinimal D.
+- `TauCeti.LocalPerfect.minimal_identity_disk`: The cone of the identity on the nonzero stalk R[1] is not minimal (its two-degree differential is a unit). It is nevertheless contractible.
+
+Sources: [P7-STACKS-0BCC](https://stacks.math.columbia.edu/tag/0BCC) — Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book).
+
+### unit-pivot-cancellation: Cancel a unit in a differential
+
+Given a complex of finite free R-modules with chosen finite bases, if an entry of d_i:C^i→C^{i+1} is a unit, there is a strict complex isomorphism C ≅ C′ ⊕ D_i(R), where D_i is the identity disk in degrees i,i+1. The ranks in those two degrees drop by one; all other degrees are unchanged. The disk has an explicit contracting homotopy.
+
+Hypotheses. R any commutative ring; a unit coefficient is required, not merely a nonzero coefficient. No exactness assumption on C.
+
+1. Permute the selected row/column and scale the unit to 1. Use elementary basis operations to eliminate the rest of its column and row.
+2. In d_i=diag(1,d′), d_i d_{i−1}=0 forces the incoming component into the selected summand to vanish; d_{i+1} d_i=0 forces the outgoing component to vanish.
+3. Restrict the remaining differentials to complements. The inverse elementary operations assemble a complex isomorphism. Contract D_i by the identity map from degree i+1 to i.
+
+Acceptance. Over Z/4, diag(1,2) splits as an identity disk and [R --2→ R]. Multiplication by 2 over Z/4 cannot be canceled: it is nonzero but a nonunit.
+
+Sources: [P7-STACKS-00MT](https://stacks.math.columbia.edu/tag/00MT) — Stable tag 00MT; online text read 2026-10-02 (current numbering differs from the January book).
+
+### minimal-representative: Minimal representatives
+
+For a bounded above finite-free complex C over a local ring there exist a bounded above finite-free minimal complex M and a HomotopyEquiv C M. More precisely C is isomorphic to M plus a locally finite direct sum of identity disks: only finitely many disk summands meet any fixed degree. If C is bounded in [a,b], M has the same termwise bound and the disk sum is finite. The construction is not canonical.
+
+Hypotheses. R local, C termwise finite free and bounded above; no Noetherianity or completeness. Fix bases and cancellation choices; uniqueness of the output is a separate theorem.
+
+1. Starting at the upper bound b, cancel all unit entries of d_{b−1}, then d_{b−2}, and continue downwards. At each step the finite rank of the relevant terms strictly decreases.
+2. After a differential has no units, all its coefficients lie in m. Subsequent basis changes preserve this property. Splitting further disks does not introduce coefficients outside m.
+3. For every fixed degree only finitely many steps affect it: stages above it are finite in number and stages below i−1 do not change degree i. Assemble the stabilized terms, maps and inverse maps degreewise; this is an algebraic degreewise construction, not an unproved topological inverse limit.
+4. The canceled disk family is degreewise finite. Its componentwise identity contraction is a defined map in every degree. Projection and inclusion give HomotopyEquiv C M. In the bounded case the sum of all original ranks bounds the number of cancellations.
+
+Acceptance. C=[R --1→R] has M=0. C=[R --π→R] over a DVR is already minimal; both ranks survive even though only H^0(C) is nonzero. Over k[ε]/ε², the infinite resolution of k stays bounded above and minimal but not bounded below.
+
+The proposed API is:
+
+- `TauCeti.LocalPerfect.minimalRepresentative.exists`: Choose M with termwise finite freeness, upper bound, minimality and a homotopy equivalence C M.
+- `TauCeti.LocalPerfect.minimalRepresentative.bounded`: If C vanishes outside [a,b], the chosen M may also vanish outside that interval.
+- `TauCeti.LocalPerfect.minimalRepresentative.disk_part`: The discarded part is a locally finite sum of identity disks, with a specified contraction.
+- `TauCeti.LocalPerfect.minimalRepresentative.quasiIso`: Its homotopy equivalence is a quasi-isomorphism by the pinned API.
+- `TauCeti.LocalPerfect.minimalRepresentative.unique`: Two outputs are strictly isomorphic by minimal-homotopy-equivalence-is-iso.
+
+The discriminating tests are:
+
+- `TauCeti.LocalPerfect.minimal_rep_exists`: A bounded above finite-free C admits a minimal finite-free M and Nonempty (HomotopyEquiv C M).
+- `TauCeti.LocalPerfect.minimal_rep_bounded`: For C bounded in [a,b], M can be chosen with IsStrictlyGE a and IsStrictlyLE b.
+- `TauCeti.LocalPerfect.minimal_rep_already_minimal`: When C is minimal the identity HomotopyEquiv C C is an admissible representative.
+
+Sources: [P7-STACKS-00MT](https://stacks.math.columbia.edu/tag/00MT) — Stable tag 00MT; online text read 2026-10-02 (current numbering differs from the January book), [P7-STACKS-0BCC](https://stacks.math.columbia.edu/tag/0BCC) — Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book).
+
+### homotopy-residue-equality: Homotopies on minimal complexes vanish residually
+
+For minimal C,D over a local ring, homotopic cochain maps f,g:C→D induce equal κ-linear maps in every degree after residue-field tensoring. This is equality of the residual chain maps, not equality of f and g over R.
+
+Hypotheses. R local; no boundedness or finiteness is used in this statement.
+
+1. The pinned Homotopy equation expresses f_i−g_i as d_D h_i+h_{i+1}d_C. Tensor with κ using Functor.mapHomotopy or the linear tensor-map identities.
+2. Every differential is zero residually by minimality, so the residual difference is zero.
+
+Acceptance. On [Z/4 --2→Z/4], maps differing by 2 can be homotopic and unequal over R, although equal modulo 2.
+
+Sources: [P7-STACKS-0BCC](https://stacks.math.columbia.edu/tag/0BCC) — Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book).
+
+### minimal-homotopy-equivalence-is-iso: Uniqueness of minimal complexes
+
+Any homotopy equivalence between termwise finite-free minimal complexes over a local ring has a forward map that is a strict isomorphism of cochain complexes. Consequently two bounded above finite-free minimal complexes representing the same derived object are strictly isomorphic. No uniqueness of the isomorphism is asserted.
+
+Hypotheses. The first assertion needs no bound. The derived-object assertion needs bounded above termwise projective complexes, so the pinned K-projective comparison applies.
+
+1. Apply homotopy-residue-equality to the composites fg and gf. Their residual component maps are mutually inverse in every degree.
+2. Apply Module.IsLocalRing.linearCombination_bijective_of_flat in finite bases (or its split-injection form plus residual surjectivity) to each component. A finite-free local map invertible residually is invertible.
+3. Assemble component inverses; f_i d_D=d_C f_{i+1} implies the inverse chain identities by multiplying with these inverses.
+4. For a derived isomorphism between bounded above projective representatives, use isKProjective_of_projective and Qh_map_bijective, then quasiIso_iff, to obtain the required homotopy equivalence.
+
+Acceptance. A homotopy equivalence 0→[R --1→R] is not a strict isomorphism; minimality is indispensable. The identity and multiplication by any unit congruent to 1 modulo m give distinct isomorphisms of a nonzero stalk complex.
+
+Sources: [P7-STACKS-0BCC](https://stacks.math.columbia.edu/tag/0BCC) — Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book).
+
+### minimal-residual-ranks: Minimal ranks from residual cohomology
+
+For a termwise finite-free minimal complex M, H^i(M⊗_R κ) ≅ M^i⊗_R κ. Thus rank_R(M^i)=dim_κ H^i(M⊗κ). For bounded above C and its minimal representative M, homotopy invariance identifies the right-hand side with H^i(C⊗κ). In particular M^i=0 iff this residual cohomology is zero.
+
+Hypotheses. R local; ordinary termwise tensor of the projective representatives is used. The interpretation as derived base change needs the K-flat comparison recorded separately.
+
+1. Minimality makes both neighboring residual differentials zero; cycles are the whole term and boundaries are zero.
+2. Choose a finite basis of M^i and tensor it to a κ-basis, giving equality of rank and dimension. A finite-dimensional vector space has dimension zero iff it is zero; Nakayama then gives M^i=0.
+3. Base change a HomotopyEquiv by the pinned mapHomotopyEquiv to preserve residual cohomology.
+
+Acceptance. For [O --π→O] in degrees −1,0 the residual ranks are 1 in both degrees although integral H^(−1)=0. An identity disk has residual cohomology zero and minimal representative zero, despite two nonzero chosen terms.
+
+Sources: [P7-STACKS-0BCC](https://stacks.math.columbia.edu/tag/0BCC) — Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book).
+
+### three-term-residual-splitting: Exactness from a residual three-term complex
+
+For finite-free M⁰,M¹,M² over any local ring R, and maps d₀,d₁ with d₁d₀=0, if im(d₀⊗κ)=ker(d₁⊗κ), then im d₀=ker d₁. Moreover ker d₀ splits in M⁰, im d₀ splits in M¹, and im d₁ splits in M². Exactness here is only at M¹; no injectivity at M⁰ or surjectivity at M² is asserted.
+
+Hypotheses. R arbitrary commutative local, all three modules finite free, and actual composition zero before reduction. No Noetherianity or completeness.
+
+1. Choose a κ-basis of ker(d₁⊗κ), and lift preimages through d₀ to vectors x_j in M⁰. Extend d₀(x_j) to a residual basis of M¹.
+2. The resulting finite-free map R^r⊕R^s→M¹ is an isomorphism by the pinned local basis-lifting theorem. Denote the first factor U. It lies in im d₀ and ker d₁.
+3. The induced map M¹/U→M² is injective modulo m by residual exactness. Apply split_injective_iff_lTensor_residueField_injective to split it. Therefore ker d₁=U=im d₀ and im d₁ splits in M².
+4. The chosen x_j define a section of M⁰→U, so its kernel splits in M⁰. U already splits in M¹ by the basis decomposition.
+
+Acceptance. Over Z/4, d₀(x)=(x,0), d₁(x,y)=y gives the split exact middle and all three summands. The zero maps R→0→R satisfy the hypothesis without either endpoint exactness. Over Z localized at 3 the map multiplication by 2 is invertible; over Z itself, reduction mod 3 of Z --2→Z→0 is exact while the original is not. Locality matters.
+
+Sources: [P7-BP-AUTHOR-2025](https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf) — §2.6.5, Lemma 2.6.6 and complete proof, pp.21–22.
+
+### perfect-is-pseudo-coherent: Perfect objects are pseudo-coherent
+
+Every perfect K is pseudo-coherent over an arbitrary commutative ring. A finite-projective representative need not itself have finite-free terms; adding a bounded above locally finite family of contractible disks produces a finite-free representative.
+
+Hypotheses. R commutative; no local hypothesis; the resulting free complex can be unbounded below.
+
+1. Starting at the top, choose a finite-projective complement making the highest projective term finite free.
+2. At each lower degree choose a finite-projective complement making C^i plus the complement from degree i+1 finite free. Put the incoming complement identity into the differential.
+3. The added complements form contractible disks with only two adjacent terms. The projection to C is a homotopy equivalence degreewise. Use the original derived isomorphism and pseudo-coherent-object.
+
+Acceptance. For a nonfree finite projective module over a nonlocal ring, replacing projective by free in the definition of perfectness without a comparison would lose the object.
+
+Sources: [P7-STACKS-064N](https://stacks.math.columbia.edu/tag/064N) — Stable tag 064N; online text read 2026-10-02 (current numbering differs from the January book).
+
+### residual-perfectness-criterion: Perfectness detected at the residue field
+
+Let K be pseudo-coherent over a local commutative ring R. If K⊗ᴸκ has cohomology only in [a,b], then K is represented by a finite-free complex with terms zero outside [a,b]. In particular K is perfect. Conversely such a representative has residual cohomology only in [a,b].
+
+Hypotheses. R local, K pseudo-coherent and a≤b. Here amplitude for the residue-field object is cohomological amplitude, equal to projective/Tor amplitude over a field. No conclusion from ordinary K cohomology alone.
+
+1. Take a bounded above finite-free F representing K, using pseudo-coherent-object.
+2. Choose its minimal representative M. Under the projective derived-base-change comparison, residual-perfectness bounds H^i(F⊗κ).
+3. minimal-residual-ranks makes M^i zero for every i outside [a,b]. Finite-free terms and this bound give a perfect representative.
+4. Conversely termwise tensor of that representative is zero outside the same interval.
+
+Acceptance. Over k[ε]/ε² the module k is pseudo-coherent but its residue-derived cohomology extends to all negative degrees, so the premise fails. For [O --π→O], the necessary interval is [−1,0], not [0,0].
+
+Sources: [P7-BP-AUTHOR-2025](https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf) — Lemma 2.6.7, p.22, full proof, [P7-STACKS-0BCC](https://stacks.math.columbia.edu/tag/0BCC) — Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book).
+
+### pseudo-coherent-residual-nakayama: Residual Nakayama for pseudo-coherent objects
+
+For a pseudo-coherent K over a local commutative ring, K⊗ᴸκ=0 iff K=0. For a morphism u between pseudo-coherent objects whose cone is pseudo-coherent, residual base change is an isomorphism iff u is an isomorphism. This theorem is not a statement about arbitrary complexes, and does not require derived completeness.
+
+Hypotheses. R local. For the morphism form, explicitly establish pseudo-coherence of the cone; its general triangle closure is still an outstanding P7 proof, not silently assumed.
+
+1. Choose a minimal bounded above finite-free representative. minimal-residual-ranks makes every term zero if every residual cohomology group is zero.
+2. The zero representative gives K=0. The reverse implication is functoriality of base change.
+3. Apply the object assertion to cone(u), using exactness of derived base change and the existing cone criterion for an isomorphism.
+
+Acceptance. For a DVR O and K=Frac(O)[0], ordinary and derived residual tensor vanish but K is nonzero: the finite/pseudo-coherent hypothesis cannot be dropped. For perfect [O --π→O], rationalization vanishes but reduction modulo π does not; inversion and residue reduction are different tests.
+
+Sources: [P7-STACKS-0BCC](https://stacks.math.columbia.edu/tag/0BCC) — Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book).
+
+### bounded-residual-acyclic-contractible: Residual acyclicity gives a contraction
+
+For a bounded finite-projective C over a local ring, if C⊗κ is acyclic then the identity map of C is homotopic to zero; hence C is acyclic. More generally a map between bounded finite-projective complexes whose residue map is a quasi-isomorphism is a homotopy equivalence.
+
+Hypotheses. R local; finiteness in every degree and boundedness for the stated finite-complex version. Projective terms are finite free by the pinned local theorem.
+
+1. Convert finite projective terms to finite free via Module.Flat.of_projective and free_of_flat_of_isLocalRing.
+2. Minimal-representative and minimal-residual-ranks give a zero minimal part. The identity disk part has the explicit contraction already constructed.
+3. For a map f, form cone(f), with finite-projective terms and a finite bound, and identify its residue cone with cone(residue f). Residual acyclicity contracts this cone. Use the pinned quasiIso_iff once acyclicity implies f is a quasi-isomorphism.
+
+Acceptance. [R --1→R] contracts but its two terms are nonzero: residual acyclicity is not termwise vanishing. [Z/4 --2→Z/4] does not contract: its residual differential is zero.
+
+Sources: [P7-STACKS-00MT](https://stacks.math.columbia.edu/tag/00MT) — Stable tag 00MT; online text read 2026-10-02 (current numbering differs from the January book), [P7-STACKS-0BCC](https://stacks.math.columbia.edu/tag/0BCC) — Stable tag 0BCC; online text read 2026-10-02 (current numbering differs from the January book).
+
+### Scope and source-version boundaries
+
+The suggested file gives concrete predicates on the pinned carriers, representative-level minimality and contraction signatures, the three-term exactness/splitting theorem, and their APIs and tests. It explicitly identifies signatures that still need generic derived tensor or locally finite disk machinery. No condition is replaced by an arbitrary proposition or a placeholder predicate. The complete suggested file elaborates at the Mathlib pin with 0 errors and 112 placeholder-proof warnings. This checks signatures only; every new mathematical implementation remains unchecked.
+
+The Boxer–Pilloni author PDF is the 65-page November 2025 version, SHA-256 `af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6`. The publisher PDF endpoint returned HTML; this is not a publisher-edition collation. Read scopes are p.17 and pp.21–22, including the proofs of Lemmas 2.6.6 and 2.6.7. The accepted paper review supplies E33 (the image summand belongs to M¹) and E26 (pseudo-coherence alone is not compactness). This continuation follows those findings without issuing another review verdict or claiming a newly discovered error.
+
+For E26, the missing ring theorem must keep a single lower bound a for every target E_n: colim Hom(P,E_n)≅Hom(P,colim E_n) for pseudo-coherent P and E_n∈D^{≥a}. A finite perfect approximation Q→P with cone in D^{≤a−2} removes the negative tail for Hom in degree zero and its adjacent degree. Establish finite-perfect compactness and exact filtered-colimit/t-structure compatibility before applying that reduction. Without a common lower bound the infinite resolution of k over k[ε]/ε² and E_n=⊕_{i≤n}k[i] produce direct-sum versus product Hom groups. The affine theorem is decomposed into the four proof nodes below; its implementation and scheme globalization remain explicit obligations; the source’s geometric application stays with its six-functor owner.
+
+Pilloni’s completed infinite-rank minimal complexes use completed free modules R^(I), not products R^I; no finite-free cancellation theorem here supplies that topological construction. The P7 Tor spectral sequence, duality, derived-completion comparison, finite-coefficient inverse limits with retained lim¹ and compatible chain actions remain on the worklist. Generic Milnor/ML comes from ArithmeticGaloisDuality:R02.1 as accepted RS-08 requires. R03.3 imports exactly ModularCurves 4D’s local regularity/completion statements, without interpreting that stage as a complete depth theory.
+
+
+### The affine uniformly lower-bounded Hom comparison
+
+The affine part of reviewed Boxer–Pilloni E26 can be decomposed without inventing a generic derived-colimit functor. Work with actual filtered diagrams of cochain complexes and their degreewise colimit. ModuleCat is AB5 at the pin, and Tau Ceti already has the R-linear Hom complex with its signed differential. The resulting comparison is on morphisms in the existing derived category.
+
+#### finite-free-tail-approximation
+
+Let F be a bounded above finite-free cochain complex over a commutative ring and let a be an integer. Its brutal truncation Q=σ_{≥a−1}F is bounded finite free. There is a chain map j:Q→F equal to the identity in degrees ≥a−1. Its quotient complex has terms zero in degrees >a−2. For any E with terms zero in degrees <a, precomposition gives a bijection Hom_D(R)(F,E)→Hom_D(R)(Q,E).
+
+Use brutal truncation for the finite approximation, not the smart truncation: the latter has a cokernel term that need not be projective. F upper bounded; E termwise lower bounded.
+
+1. Use the pinned stupidTrunc along embeddingUpIntGE(a−1). The inclusion natural transformation is a TODO in that file, so construct j in P7 by identity/zero components and prove its chain-map equation.
+2. Finite free terms and the inherited upper bound make Q perfect. F/Q is strictly ≤a−2.
+3. In the Hom cochain groups of degrees −1,0,1, the only possibly nonzero components F^i→E^{i+n} have i≥a−n. These all lie in Q. Precomposition therefore identifies the three groups and both differentials controlling H⁰.
+4. Use the pinned HomComplex cohomology-to-homotopy comparison and K-projective-to-derived comparison for F and Q. Both are upper bounded projective complexes. This proves the Hom bijection without postulating a generic RHom functor.
+
+Acceptance. Over dual numbers, truncate the infinite free resolution of k at a−1; it gives the same degree-zero derived Hom into any complex starting in degree a. At cutoff a, the degree-one Hom group can lose its i=a−1 component; the extra term is essential to control the cokernel/cocycle condition.
+
+#### finite-perfect-hom-filtered-colimit
+
+For a bounded finite-projective C and a small filtered diagram E_j of cochain complexes of R-modules, the canonical map colim_j Hom_D(R)(Q(C),Q(E_j))→Hom_D(R)(Q(C),Q(colim_j E_j)) is bijective. The target uses the degreewise complex colimit. No uniform bound on the E_j is needed for this finite source.
+
+R commutative; C termwise finite projective and bounded on both sides; small filtered shape with the required colimits.
+
+1. A finite-projective module P is a summand of R^r. Hom_R(P,−) is correspondingly a natural summand of the r-fold finite product of the target module, so it commutes with filtered colimits.
+2. Each degree of the existing linear Hom complex from C is a finite product of those functors: C has a fixed finite interval of nonzero terms. The canonical comparison is an isomorphism of Hom complexes, with the signed differential unchanged.
+3. Filtered colimits in ModuleCat are exact by the pinned AB5 instance; taking H⁰ therefore commutes. Use the existing linearHomComplex comparison to Mathlib and its cohomology classes.
+4. Use the pinned K-projective comparison to interpret those classes as derived morphisms.
+
+Acceptance. For C=R[0], this is ordinary cohomology commuting with a filtered colimit of module complexes. A bounded complex with an infinite-free term is not enough: Hom from ⊕_nR is an infinite product and can fail to commute with filtered colimits.
+
+#### lower-bounded-target-replacement
+
+For a filtered diagram E_j of module complexes with H^i(E_j)=0 for every i<a and one fixed a, the smart truncations τ_{≥a}E_j form a diagram of complexes strictly supported ≥a. The natural maps E_j→τ_{≥a}E_j are quasi-isomorphisms, as is the induced map on degreewise filtered colimits. The colimit itself has no cohomology below a.
+
+One common a is required for the final strict-bound comparison. No target termwise finiteness or boundedness above. This is an application of existing smart truncation and exact filtered colimits, not a second truncation construction.
+
+1. Use CochainComplex.truncGE, truncGEMap, and quasiIso_πTruncGE_iff. Their functoriality supplies the entire truncated diagram, not separately chosen isomorphic objects.
+2. Use ModuleCat AB5 to commute kernels/cokernels and homology with filtered colimits. The colimit of the natural quasi-isomorphisms is a quasi-isomorphism.
+3. The truncated diagram has all terms below a zero, so its degreewise colimit has the same strict lower bound.
+
+Acceptance. A family whose lower bounds tend to −∞ does not yield a single strictly lower-bounded colimit. Smart truncation of [R --π→R] at zero has O/π as its boundary term, unlike its brutal truncation.
+
+#### pseudo-coherent-hom-uniform-colimit
+
+Let P be pseudo-coherent over any commutative ring R, and let E_j be a small filtered diagram of module complexes with H^i(E_j)=0 for all i<a, for one common a. Then the canonical map colim_j Hom_D(R)(P,Q(E_j))→Hom_D(R)(P,Q(colim_j E_j)) is bijective. It is natural in P, in the diagram and in compatible diagram maps. In particular every morphism P→Q(colim E_j) factors through some stage; equality of two stage representatives holds at a common later stage.
+
+Pseudo-coherence of P; filteredness and a single uniform cohomological lower bound on every target. No Noetherianity or local hypothesis. The degreewise complex colimit is a model; no arbitrary colimit in a triangulated category is postulated.
+
+1. Choose a bounded above finite-free F representing P, and transport the canonical comparison through that derived isomorphism.
+2. Replace the target diagram functorially by smart truncations ≥a using lower-bounded-target-replacement. Its colimit remains quasi-isomorphic to the original one.
+3. Apply finite-free-tail-approximation with cutoff a−1. This gives natural Hom bijections from F to its bounded finite-free Q for all truncated stages and their colimit.
+4. Apply finite-perfect-hom-filtered-colimit to Q. Naturality identifies the composite with the canonical map for P.
+5. Surjectivity is stage factorization; injectivity is eventual equality in a filtered set colimit. This is an equality of morphisms in D(R), not a canonical choice of factor or a strict compatible Hecke action.
+
+Acceptance. Over k[ε]/ε², P=k[0] and E_n=⊕_{i=0}^n k[i] violate the common lower bound. The colimit Hom map is ⊕_i k→∏_i k and misses the all-ones sequence. When P is perfect, finite-perfect-hom-filtered-colimit removes the lower-bound hypothesis. Constant diagrams have their identity Hom comparison; the zero source has the unique zero factorization.
+
+Read the complete proof of [Stacks 0G8W](https://stacks.math.columbia.edu/tag/0G8W), which treats module targets. The extension to complexes is justified above by finite products in the Hom complex and the common lower bound; it is not attributed to Stacks as a verbatim theorem. The general ring theorem is planned here as the issue directs. The scheme/six-functor and solid/discrete comparison remains a separate owner application. No strict coherent action is manufactured from a factorization of a derived morphism.
