@@ -19,6 +19,7 @@ import Mathlib.Tactic.Ring
 import Mathlib.RingTheory.Polynomial.Ideal
 import Mathlib.Algebra.Polynomial.Bivariate
 import Mathlib.LinearAlgebra.Projection
+import Mathlib.LinearAlgebra.Pi
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document
@@ -1687,6 +1688,93 @@ example :
       (dualCorrectionMap ℤ 1 0 0 0 u) =
         AdjoinRoot.root (polynomial (ZMod 2) 1 0 0 0) := by
   sorry
+
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+
+
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+open Polynomial
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+local notation "F₀" => polynomial A γ δ s t
+local notation "R₀" => Ring A γ δ s t
+local notation "u₀" => AdjoinRoot.root F₀
+
+def polynomialCoordinates : R₀ ≃ₗ[Polynomial A] Polynomial A × Polynomial A := sorry
+
+lemma polynomialCoordinates_symm (p q : Polynomial A) :
+    (polynomialCoordinates A γ δ s t).symm (p,q) =
+      AdjoinRoot.of F₀ p + u₀ * AdjoinRoot.of F₀ q := sorry
+
+lemma polynomialCoordinates_reconstruction (r : R₀) :
+    AdjoinRoot.of F₀ (polynomialCoordinates A γ δ s t r).1 +
+      u₀ * AdjoinRoot.of F₀ (polynomialCoordinates A γ δ s t r).2 = r := sorry
+
+lemma polynomialCoordinates_unique (r : R₀) :
+    ∃! z : Polynomial A × Polynomial A,
+      AdjoinRoot.of F₀ z.1 + u₀ * AdjoinRoot.of F₀ z.2 = r := sorry
+
+lemma polynomialCoordinates_of (p : Polynomial A) :
+    polynomialCoordinates A γ δ s t (AdjoinRoot.of F₀ p) = (p,0) := sorry
+
+lemma polynomialCoordinates_root :
+    polynomialCoordinates A γ δ s t u₀ = (0,1) := sorry
+
+def polynomialBasis : Module.Basis (Fin 2) (Polynomial A) R₀ := sorry
+
+lemma polynomialBasis_apply (i : Fin 2) :
+    polynomialBasis A γ δ s t i = u₀ ^ (i : ℕ) := sorry
+
+def polynomialMonomialBasis : Module.Basis (ℕ × Fin 2) A R₀ := sorry
+
+lemma polynomialMonomialBasis_apply (n : ℕ) (i : Fin 2) :
+    polynomialMonomialBasis A γ δ s t (n,i) =
+      (AdjoinRoot.of F₀ (Polynomial.X : Polynomial A)) ^ n * u₀ ^ (i : ℕ) := sorry
+
+lemma polynomialBasis_zero : polynomialBasis A γ δ s t 0 = 1 := sorry
+
+lemma polynomialBasis_one : polynomialBasis A γ δ s t 1 = u₀ := sorry
+
+lemma polynomialMonomialBasis_tower : polynomialMonomialBasis A γ δ s t =
+    (Polynomial.basisMonomials A).smulTower (polynomialBasis A γ δ s t) := sorry
+
+lemma polynomialMonomialBasis_repr (r : R₀) (n : ℕ) (i : Fin 2) :
+    (polynomialMonomialBasis A γ δ s t).repr r (n,i) =
+      (Polynomial.basisMonomials A).repr ((polynomialBasis A γ δ s t).repr r i) n := sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.coordinatesZeroRing
+example (r : Ring (ZMod 1) 0 0 0 0) :
+    polynomialCoordinates (ZMod 1) 0 0 0 0 r = (0,0) := sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.coordinatesCharacteristicTwoRoot
+example : polynomialCoordinates (ZMod 2) 1 0 0 0
+    (AdjoinRoot.root (polynomial (ZMod 2) 1 0 0 0)) = (0,1) := sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.coordinatesNonreducedPolynomial
+example : polynomialCoordinates (ZMod 4) 0 0 0 0
+    (AdjoinRoot.of (polynomial (ZMod 4) 0 0 0 0) (C 2 * X ^ 9)) = (C 2 * X ^ 9,0) := sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.basisConstant
+example : polynomialBasis A γ δ s t 0 = 1 := sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.basisRoot
+example : polynomialBasis A γ δ s t 1 = u₀ := sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.basisZeroRing
+example : polynomialBasis (ZMod 1) 0 0 0 0 1 = 0 := sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.monomialBasisUntruncated
+example : polynomialMonomialBasis (ZMod 2) 1 0 0 0 (37,0) =
+    AdjoinRoot.of (polynomial (ZMod 2) 1 0 0 0) (X : Polynomial (ZMod 2)) ^ 37 := sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.monomialBasisNonreduced
+example : polynomialMonomialBasis (ZMod 4) 0 0 0 0 (3,1) =
+    AdjoinRoot.of (polynomial (ZMod 4) 0 0 0 0) (X : Polynomial (ZMod 4)) ^ 3 *
+      AdjoinRoot.root (polynomial (ZMod 4) 0 0 0 0) := sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.monomialBasisZeroRing
+example : polynomialMonomialBasis (ZMod 1) 0 0 0 0 (37,1) = 0 := sorry
 
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
