@@ -59,8 +59,12 @@
       "reason": "Keep the source-specific good- and bad-prime quaternionic integral models, local flatness/regularity, Hecke extensions and generic-fiber comparison. M4 normalization over a chosen good PEL base is not a theorem covering Carayol bad reduction. Hilbert compactifications continue to be imported from C6."
     },
     "HilbertModularVarietiesAndShimuraCurves:R18.3": {
-      "action": "keep",
-      "reason": "Keep definite quaternionic forms on actual finite double-coset sets, their coefficient and Hecke operations, and the source-specific integral freeness and dyadic tests."
+      "action": "narrow",
+      "suppliedBy": [
+        "AutomorphicFormsOnReductiveGroups:AF.5"
+      ],
+      "keeps": "Construct the definite-quaternionic instance of AF.5's algebraic automorphic forms: for a totally definite quaternion algebra over a totally real field, the finite class set D^×\\D^×_f/U, its stabilizer groups and their computation, the quaternionic weight modules with integral coefficients (AF.4 lattices), finiteness for the given level, and the comparison with the corresponding GL₂ representations as an application of the global Jacquet–Langlands theorem of GL2AutomorphicRepresentationsAndTransfer R17.3 (imported through RS-21's link R17.3 → R18.3, not reproved). Retain freeness over Taylor–Wiles group rings under the actual hypotheses and KW II's dyadic twisting construction: a finite set of cosets does not by itself make the module free over the group algebra. Import from AF.5 the generic API — algebraic automorphic forms on compact-at-infinity reductive groups as functions on finite adelic double cosets valued in an algebraic representation with AF.4's integral coefficient lattices, their Hecke operators and their change-of-level maps — and specialize it; do not rebuild it.",
+      "reason": "RT-RS-23/1 (confirmed; the RS-23 part of RT-AREA-automorphic-1/31): R18.3 restated the generic coefficient-function, Hecke and level-change construction that AF.5 plans ('Identify algebraic modular forms on compact-at-infinity groups with functions on finite adelic double cosets valued in an algebraic representation'), and the reviewed library-coverage duplicate entry for R18.3 names AF.5. The quaternionic specialization, class-set and stabilizer calculations, Taylor–Wiles freeness, dyadic twists and the Jacquet–Langlands comparison are R18.3's own and stay."
     },
     "HilbertModularVarietiesAndShimuraCurves:R18.4": {
       "action": "keep",
@@ -184,6 +188,11 @@
       "source": "PELModuli:M2",
       "target": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
       "reason": "Supply the fine-level representing object and universal abelian family formerly restated in M6. The arithmetic descent obstruction remains M6 and the height/finiteness argument remains R28.1."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.5",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.3",
+      "reason": "Supply the generic prefix contract of AF.5: algebraic automorphic forms on compact-at-infinity reductive groups as functions on finite adelic double cosets valued in an algebraic representation, with AF.4's integral coefficient lattices, Hecke operators and change of level. R18.3 builds the definite-quaternionic instance, its class set and stabilizers, Taylor–Wiles freeness and dyadic twists. The link is acyclic: no path from R18.3 to AF.5 exists in the assembled atlas together with all proposed restructure and link files."
     }
   ],
   "owners": [
@@ -254,18 +263,19 @@
       "formerly": [
         "HilbertModularVarietiesAndShimuraCurves:H2"
       ]
+    },
+    {
+      "target": "Generic algebraic automorphic forms on compact-at-infinity reductive groups: functions on finite adelic double cosets valued in an algebraic representation, with integral coefficients from AF.4, Hecke operators and change of level",
+      "owner": "AutomorphicFormsOnReductiveGroups:AF.5",
+      "formerly": [
+        "HilbertModularVarietiesAndShimuraCurves:R18.3"
+      ]
     }
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-RS-23",
-    "date": "2026-09-29",
-    "notes": "Reviewed by Claude Code, session cc-39fac3, against origin/main ba5cc428, with the atlas as scripts/build.py assembles it (2840 stages, 7792 edges). Both member documents, ShimuraData D5 and every consumer of a changed stage were read. The accepted RS-02, RS-06, RS-14 and RS-17 proposals, and the pending RS-04 and RS-21, were checked for entries on these stages. All 20 stages are listed; the ten evidence pairs are each resolved; no anchors, extensions or title changes are involved. All 14 links join existing stages, none is already an edge, and each passes the cycle test on the current graph; 11 are shortcuts along existing paths. The duplication verdicts hold against the documents (D5 owns both rational Hilbert data and the trace-pairing embedding for G*; M2 constructs the rigidified space and universal abelian scheme that M6 restated; M5 and H1 describe the same polarization-module example). Nothing is lost: every narrowed layer names its suppliers, and every consumer of H0, H1, M5 and M6 still reaches what it uses. Two further overlaps were checked and are not duplicates: H5's F = Q test (mu_N, K0, K1 levels) and M5's genus-one full-level comparison compare different moduli problems with Tau Ceti's modular curves; M6's nonempty examples test arithmetic nonemptiness rather than rebuild M5's examples. The corrections below bring the proposal in line with RS-06 and RS-14, which were accepted after it was written.",
-    "corrections": [
-      "PELModuli:M5 keeps: recorded RS-14's owner record for the unitary example and its edges from M5 to AutomorphicCongruences:L1 and AutomorphicPadicLFunctions:L4, L4e and L5, which stay. M5 is no longer a sink (the proposal's report assumed it was), and the three new inputs D5, H0 and H1 → M5 were rechecked against the current graph: acyclic.",
-      "PELModuli:M6 keeps: the exports now name all six consumers that RS-06 attached to M6 (R35.2, R35.3, R35.5, R35.6, R28.1, R28.2), and M6 is stated to stay RS-06's owner of the consumer-facing family/Hodge-line export and the descent interface.",
-      "PELModuli:M6 keeps: its nonempty Siegel and unitary examples are stated to be arithmetic nonemptiness tests on the M1/M2 carriers, not a second construction of M5's examples, and the reason for adding no M5 → M6 edge is recorded.",
-      "owners: the PELModuli:M2 record for the universal abelian family is narrowed to its construction, so that it agrees with RS-06's owner record for M6's export interface."
-    ]
+    "reviewer": "independent-review-REV-FIX-RT-RS-23",
+    "date": "2026-10-02",
+    "notes": "Codex, session codex-J6LwjP, independently checked FIX-RT-RS-23 by Claude Code cc-c2c06b, following independent-review-REV-RS-23 (cc-39fac3, 2026-09-29) and the confirmation in RT-RS-23.review.json. RT-RS-23/1 is fixed: R18.3 narrows to the quaternionic specialization and imports the exact generic coefficient-function/Hecke/level-change contract from existing AF.5, with an owner record and supplier edge. AF.4 lattices already reach AF.5; RS-21 supplies R17.3 global Jacquet–Langlands to R18.3. Class sets, stabilizers, source-specific Taylor–Wiles freeness and KW II dyadic twisting survive; finiteness is not claimed to imply freeness. AF.5 is an unbuilt owner contract and its detailed exports remain blueprint obligations, not established generic integral formulas. All 20 layer decisions, 15 links and 10 owner records resolve; check_restructure.py passes. Fresh assembled graph plus proposal has 2581 incident vertices/8635 edges and is acyclic; union with every proposed restructure/link/packet edge is also acyclic (2650/8889), with no reverse R18.3-to-AF.5 path. The proposed AF.5:algebraic-forms prefix is absent and not referenced. No substantive correction was needed; only this review object changed. The prior M5 unitary consumers, M6 Hodge-line/descent exports, nonemptiness distinction and M2 family-construction boundary are unchanged. No source theorem, library absence or formalization is newly certified."
   }
 }
