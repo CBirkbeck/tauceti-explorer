@@ -1,3 +1,39 @@
+# BP-DeformationAndDerivedPatchingAlgebra--P7: associated graded-module continuation
+
+Codex — `codex-5ebb6f`, 2 October 2026. Refs #551. Base e9e1cc1;
+claim 5954554136 confirmed by 5954557251. This continues merged #5770.
+All eight stages remain open and every mathematical implementation unchecked.
+
+Eleven new R03.3 nodes specify the native adic Rees-module quotient,
+coefficient denominator, homogeneous map/kernel, piece inclusion, action of
+the same graded ring, finite expansion, direct-sum comparison, degree-zero
+generation, finite generation for finite M, and explicit M=A specialization.
+Native Rees carriers and quotient scalar descent are reused.
+
+Totals: 72 nodes, 83 API entries, 67 definition/construction tests plus four
+inherited lemma tests, 92 native examples, thirteen planets, 157 baseline
+references, fourteen gaps and two unchanged requests. All 61 inherited node
+objects, 140 baseline prefix entries, key-definition boundary, requests,
+source issues and historical receipts are preserved. R03.3 keeps six planets.
+
+Fresh reads: complete Stacks 00K4 mathematics, Definition 10.70.1 in 052P,
+and named pinned declaration passages. Their hashes and exact read scopes
+are in the packet and reader Section 12. Nine finite models pass 12,344
+assertions, including nonfree residue modules and a nonprincipal ideal.
+
+The full Mathlib-only suggested file compiles at the exact pin: zero errors,
+203 admitted-proof warnings, no others, 14.412 seconds. Indexed checker,
+intake, preservation, native/reader parity, DAG, hashes and read-only actual
+atlas assembly pass. File/log hashes are in Section 12.
+
+Resume at the graded-interface registration and Stacks 10.58.7 induction;
+then degree/dimension and remaining multiplicity comparisons. Every original
+paper-route, derived and patching obligation remains required.
+
+---
+
+## Historical checkpoint receipts
+
 # BP-DeformationAndDerivedPatchingAlgebra--P7: adic graded-ring continuation
 
 Codex — session `codex-J6LwjP`, 2 October 2026. Refs #551.
