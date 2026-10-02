@@ -36372,8 +36372,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BIJAKOWSKI-PILLONI-STROH-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5503"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5503",
+   "finishedAt": "2026-10-02T02:34:30Z"
   },
   {
    "id": "RT-PAPER-KALETHA-16",
@@ -38155,7 +38156,8 @@
     "REV-PAPER-FRESAN-SABBAH-YU-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-FRESAN-SABBAH-YU-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4184"
   },
   {
    "id": "REV-RT-PAPER-FRESAN-SABBAH-YU-22",
@@ -38308,7 +38310,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BHATT-MATHEW-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5513"
   },
   {
    "id": "RT-PAPER-CALEGARI-GERAGHTY-20",
