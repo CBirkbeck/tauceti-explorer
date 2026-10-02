@@ -1462,6 +1462,49 @@ theorem affineTorsorComparison.surjective_iff (f : A) (n : ℕ) [NeZero n] :
 theorem affineTorsorComparison.bijective_iff (f : A) (n : ℕ) [NeZero n] :
     Function.Bijective (affineTorsorComparison f n) ↔ n = 1 ∨ IsUnit f := by sorry
 
+/-- The inverse of the root on a specified unit chart. -/
+lemma affineRoot.unit_mul_inverse (v : Aˣ) (n : ℕ) [NeZero n] :
+    AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) *
+      (algebraMap A (AffineRing (v : A) n) ((v⁻¹ : Aˣ) : A) *
+        AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ^ (n - 1)) = 1 := by
+  sorry
+
+/-- The actual comparison promoted to an algebra equivalence on the unit locus. -/
+def affineTorsorComparison.unitEquiv (v : Aˣ) (n : ℕ) [NeZero n] :
+    (AffineRing (v : A) n ⊗[A] AffineRing (v : A) n) ≃ₐ[A]
+      (MuHopf A n ⊗[A] AffineRing (v : A) n) := by
+  sorry
+
+lemma affineTorsorComparison.unitEquiv_toAlgHom (v : Aˣ) (n : ℕ) [NeZero n] :
+    (affineTorsorComparison.unitEquiv v n).toAlgHom =
+      affineTorsorComparison (v : A) n := by
+  sorry
+
+lemma affineTorsorComparison.unitEquiv_symm_character (v : Aˣ) (n : ℕ) [NeZero n] :
+    (affineTorsorComparison.unitEquiv v n).symm
+      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod n)) (1 : A) ⊗ₜ[A]
+        (1 : AffineRing (v : A) n)) =
+      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ⊗ₜ[A]
+        (algebraMap A (AffineRing (v : A) n) ((v⁻¹ : Aˣ) : A) *
+          AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ^ (n - 1)) := by
+  sorry
+
+lemma affineTorsorComparison.unitEquiv_symm_right (v : Aˣ) (n : ℕ) [NeZero n]
+    (b : AffineRing (v : A) n) :
+    (affineTorsorComparison.unitEquiv v n).symm
+      ((1 : MuHopf A n) ⊗ₜ[A] b) = (1 : AffineRing (v : A) n) ⊗ₜ[A] b := by
+  sorry
+
+/-- The inverse on every native character/right-factor tensor. -/
+lemma affineTorsorComparison.unitEquiv_symm_character_tmul (v : Aˣ) (n : ℕ)
+    [NeZero n] (i : ℕ) (b : AffineRing (v : A) n) :
+    (affineTorsorComparison.unitEquiv v n).symm
+      (MonoidAlgebra.single (Multiplicative.ofAdd (i : ZMod n)) (1 : A) ⊗ₜ[A] b) =
+      (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ^ i) ⊗ₜ[A]
+        ((algebraMap A (AffineRing (v : A) n) ((v⁻¹ : Aˣ) : A) *
+          AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ^ (n - 1)) ^ i * b) := by
+  sorry
+
 /-- The algebra equivalence is fixed by the original comparison and the
 inverse image of the character generator. This includes characteristic
 which divides n; no inverse of n occurs. -/
@@ -1644,6 +1687,52 @@ example (f : A) :
         AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f)) =
       f • (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : A) ⊗ₜ[A]
         (1 : AffineRing f 2)) := by
+  sorry
+
+end TauCeti.RootStack
+
+/-! Unit chart acceptance computations. -/
+namespace TauCeti.RootStack
+variable {A : Type u} [CommRing A]
+open scoped TensorProduct
+
+-- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_one
+example (v : Aˣ) :
+    (affineTorsorComparison.unitEquiv v 1).symm
+      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 1)) (1 : A) ⊗ₜ[A]
+        (1 : AffineRing (v : A) 1)) = 1 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_wild
+example :
+    (affineTorsorComparison.unitEquiv (1 : (ZMod 2)ˣ) 2).symm
+      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 2) ⊗ₜ[ZMod 2]
+        (1 : AffineRing (1 : ZMod 2) 2)) =
+      AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (1 : ZMod 2)) ⊗ₜ[ZMod 2]
+        AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (1 : ZMod 2)) := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_coefficient
+example :
+    let v : (ZMod 5)ˣ := ⟨2,3,by decide,by decide⟩
+    (affineTorsorComparison.unitEquiv v 2).symm
+      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 5) ⊗ₜ[ZMod 5]
+        (1 : AffineRing (2 : ZMod 5) 2)) =
+      AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 5)) ⊗ₜ[ZMod 5]
+        (algebraMap (ZMod 5) (AffineRing (2 : ZMod 5) 2) 3 *
+          AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 5))) := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_zero_ring
+example [Subsingleton A] (v : Aˣ) (n : ℕ) [NeZero n]
+    (z : MuHopf A n ⊗[A] AffineRing (v : A) n) :
+    (affineTorsorComparison.unitEquiv v n).symm z = 0 := by
+  sorry
+
+-- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_right_factor
+example (v : Aˣ) (n : ℕ) [NeZero n] (b : AffineRing (v : A) n) :
+    (affineTorsorComparison.unitEquiv v n).symm
+      ((1 : MuHopf A n) ⊗ₜ[A] b) = (1 : AffineRing (v : A) n) ⊗ₜ[A] b := by
   sorry
 
 end TauCeti.RootStack

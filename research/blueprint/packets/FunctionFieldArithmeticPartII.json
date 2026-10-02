@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded. The affine invariant-ring step is factored through the native μ_n Hopf coaction, its axioms, root weights and point comparison; geometric carriers remain open. Six native root-trivialization comparison nodes now expose the computed unit coefficient and root-arrow scalar equations; no geometric carrier or generic section tensor operation is duplicated. Continuation supplies fpqc descent and thirteen finite/infinite root-transition/Kummer proof leaves; it corrects the inherited infinite H1 topology and separates ordinary stacks, algebraic properties and coarse suppliers. Canonical integration adds the actual finite affine action comparison, weighted tensor coordinates, explicit kernel/module-cokernel maps, sharp injectivity/surjectivity criteria and unit inverse; the branch and normalized-coframe torsors remain distinct. This continuation specifies the native wrapping kernel coordinate equivalence, lower residue map, its surjectivity and exact kernel, and the module cokernel coordinate equivalence with inverse and representative APIs. Separate native proof evidence checks these contracts and nine concrete module-coordinate examples; all planned statuses stay unchecked.",
+  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded. The affine invariant-ring step is factored through the native μ_n Hopf coaction, its axioms, root weights and point comparison; geometric carriers remain open. Six native root-trivialization comparison nodes now expose the computed unit coefficient and root-arrow scalar equations; no geometric carrier or generic section tensor operation is duplicated. Continuation supplies fpqc descent and thirteen finite/infinite root-transition/Kummer proof leaves; it corrects the inherited infinite H1 topology and separates ordinary stacks, algebraic properties and coarse suppliers. Canonical integration adds the actual finite affine action comparison, weighted tensor coordinates, explicit kernel/module-cokernel maps, sharp injectivity/surjectivity criteria and unit inverse; the branch and normalized-coframe torsors remain distinct. This continuation specifies the native wrapping kernel coordinate equivalence, lower residue map, its surjectivity and exact kernel, and the module cokernel coordinate equivalence with inverse and representative APIs. Separate native proof evidence checks these contracts and nine concrete module-coordinate examples; all planned statuses stay unchecked. The unit-chart continuation specifies the actual promoted algebra comparison and its inverse on every character/right-factor tensor, and checks the four inherited direct counterexamples; determinant and field-rank proof obligations remain.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -700,6 +700,54 @@
         "sourceSha256": "6cc0c2a52cc00e0cfa86072a20703538d94475847249493a81617f8e5e9f956d",
         "provides": "For a native semilinear map, membership in its kernel is equivalent to having zero image; used for the actual comparison and multiplication kernels.",
         "checked": "Full statement and ambient hypotheses read at the pinned commit on 2026-10-02 by Codex — codex-rtOQ9t; actual native proof use checked."
+      },
+      {
+        "ref": "mathlib:AlgEquiv.ofBijective",
+        "module": "Mathlib/Algebra/Algebra/Equiv.lean",
+        "provides": "Promotes the actual bijective algebra homomorphism to an algebra equivalence.",
+        "checked": "Exact statement with ambient hypotheses read at the pinned Mathlib commit on 2026-10-02 by Codex — codex-J6LwjP.",
+        "sourceLine": 558,
+        "sourceSha256": "685187debda5efdf31ff2071706125df1574d6d22a0192d161126b3bd6cf0b29"
+      },
+      {
+        "ref": "mathlib:AlgEquiv.toAlgHom_ofBijective",
+        "module": "Mathlib/Algebra/Algebra/Equiv.lean",
+        "provides": "The forward algebra homomorphism of the promoted equivalence is exactly the supplied homomorphism.",
+        "checked": "Exact statement with ambient hypotheses read at the pinned Mathlib commit on 2026-10-02 by Codex — codex-J6LwjP.",
+        "sourceLine": 573,
+        "sourceSha256": "685187debda5efdf31ff2071706125df1574d6d22a0192d161126b3bd6cf0b29"
+      },
+      {
+        "ref": "mathlib:AlgEquiv.ofBijective_apply",
+        "module": "Mathlib/Algebra/Algebra/Equiv.lean",
+        "provides": "The promoted algebra equivalence evaluates by the original algebra homomorphism.",
+        "checked": "Exact statement with ambient hypotheses read at the pinned Mathlib commit on 2026-10-02 by Codex — codex-J6LwjP.",
+        "sourceLine": 565,
+        "sourceSha256": "685187debda5efdf31ff2071706125df1574d6d22a0192d161126b3bd6cf0b29"
+      },
+      {
+        "ref": "mathlib:AlgEquiv.symm_apply_eq",
+        "module": "Mathlib/Algebra/Algebra/Equiv.lean",
+        "provides": "The inverse evaluation e.symm x=y is equivalent to x=e y.",
+        "checked": "Exact statement with ambient hypotheses read at the pinned Mathlib commit on 2026-10-02 by Codex — codex-J6LwjP.",
+        "sourceLine": 320,
+        "sourceSha256": "685187debda5efdf31ff2071706125df1574d6d22a0192d161126b3bd6cf0b29"
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.tmul_mul_tmul",
+        "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+        "provides": "Multiplication of pure tensors multiplies the two corresponding factors; the statement already covers nonunital nonassociative semirings with scalar compatibility.",
+        "checked": "Exact statement with ambient hypotheses read at the pinned Mathlib commit on 2026-10-02 by Codex — codex-J6LwjP.",
+        "sourceLine": 155,
+        "sourceSha256": "cba9811297c237c238931cebf7d482399f6bdf9d418245b01a427adb03a0a931"
+      },
+      {
+        "ref": "mathlib:LinearEquiv.funUnique",
+        "module": "Mathlib/LinearAlgebra/Pi.lean",
+        "provides": "Functions on a Unique index type are linearly equivalent to the target module; used only for the singleton lower-coordinate example.",
+        "checked": "Exact statement with ambient hypotheses read at the pinned Mathlib commit on 2026-10-02 by Codex — codex-J6LwjP.",
+        "sourceLine": 597,
+        "sourceSha256": "7216df49a09c85120c95db570a663a572320c92ceda0c04e0af706539b37d0c1"
       }
     ]
   },
@@ -7151,22 +7199,18 @@
         "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
       ],
       "prerequisites": [
-        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-tmul",
-        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-bijective",
-        "FunctionFieldArithmeticPartII:RS.0/affine-coaction-weight",
-        "FunctionFieldArithmeticPartII:RS.0/affine-coaction",
-        "mathlib:AdjoinRoot.algHom_ext",
-        "mathlib:Algebra.TensorProduct.lift",
-        "tauceti:TauCeti.RootsOfUnityGroup.pointsMulEquiv",
-        "tauceti:TauCeti.RootsOfUnityGroup.pointsMulEquiv_symm_apply_single_generator"
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-forward",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-character",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-right"
       ],
       "proofSteps": [
-        "Put X=x⊗1 and Y=1⊗x in B⊗B. Since Yⁿ=v, its explicit inverse is 1⊗v⁻¹x^(n−1). Thus χ=XY⁻¹ is a unit with χⁿ=1.",
-        "Use the existing native μ_n points equivalence to obtain the A-algebra map H→B⊗B taking e_1 to χ. Tensor-lift it with b↦1⊗b.",
-        "Check the two composites on X,Y and on e_1⊗1,1⊗x using the pure-tensor formula. Quotient and tensor extensionality and cyclic character generation give identity. No polynomial-quotient identification of H is assumed and no inverse of n is used."
+        "Take the specified promoted comparison equivalence E_v.",
+        "Its forward-map identity and the two native inverse evaluation lemmas give the existing conjunction verbatim. The sharp bijectivity theorem fixes the actual comparison; no generic group-scheme points map or inverse of n is required."
       ],
       "acceptance": [
-        "The inverse is fixed by its generator formulas, rather than an unrelated abstract algebra equivalence."
+        "The inverse is fixed by its generator formulas, rather than an unrelated abstract algebra equivalence.",
+        "The separate exact-pin native extraction checks this statement and all four formerly admitted inherited examples with no admission dependency. This remains evidence for an unchecked plan, not full-file or geometric certification."
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
@@ -8227,6 +8271,327 @@
           "how": "Supplies the specified equivalence and the exact residue evaluation on every target-basis expansion."
         }
       ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-root-unit-inverse",
+      "declarationName": "TauCeti.RootStack.affineRoot.unit_mul_inverse",
+      "title": "Inverse of a unit-chart root",
+      "kind": "lemma",
+      "statement": "For any commutative A, v∈A× and n≥1, the native root x of B=A[T]/(Tⁿ−v) satisfies x(v⁻¹x^(n−1))=1 in B; the coefficient v⁻¹ uses the algebra map A→B.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-root-relation"
+      ],
+      "proofSteps": [
+        "Commute the inverse coefficient past x and combine x·x^(n−1)=xⁿ, using n≥1.",
+        "Use the native root relation and the unit inverse equation under the coefficient algebra map."
+      ],
+      "acceptance": [
+        "At n=1 the root is v, so the formula retains v⁻¹; the same identity holds in the zero ring and arbitrary characteristic."
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-equivalence",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.unitEquiv",
+      "title": "Specified unit-chart comparison equivalence",
+      "kind": "construction",
+      "statement": "For any commutative A, specified unit v∈A× and n≥1, define E_v:B⊗_A B≃ₐ[A]H⊗_A B by promoting the actual native comparison Θ_v with the proved bijectivity criterion. Its forward algebra map is exactly Θ_v; the inverse is thereby specified, rather than chosen up to an unrelated equivalence.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-bijective",
+        "mathlib:AlgEquiv.ofBijective"
+      ],
+      "proofSteps": [
+        "A specified unit satisfies the unit alternative in the native sharp bijectivity criterion.",
+        "Promote that actual algebra homomorphism using the existing algebra-equivalence constructor; import generic equivalence laws."
+      ],
+      "acceptance": [
+        "No inverse of n is used. The actual zero-ring and wild unit charts are included."
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-inverse",
+          "how": "Supplies a specified equivalence, with inverse generator and right-factor evaluations, for the existing existential contract."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.1/affine-chart",
+          "how": "The unit-open action comparison calculation supports the quotient-chart specialization; it supplies no geometric carrier or stack descent theorem."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.unitEquiv_toAlgHom",
+          "role": "compatibility",
+          "statement": "The forward algebra homomorphism of E_v is exactly Θ_v."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_character",
+          "role": "simp",
+          "statement": "E_v⁻¹(e_1⊗1)=x⊗(v⁻¹x^(n−1))."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_right",
+          "role": "simp",
+          "statement": "For every b∈B, E_v⁻¹(1⊗b)=1⊗b."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_character_tmul",
+          "role": "projection",
+          "statement": "For every natural i and b∈B, E_v⁻¹(e_i⊗b)=x^i⊗((v⁻¹x^(n−1))^i b), with the character index reduced modulo n. Use actual algebra equivalence laws for additivity and inverse identities."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_one",
+          "kind": "degenerate",
+          "statement": "For n=1 and any specified unit v, E_v⁻¹(e_1⊗1)=1; the cyclic character is the unit."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_wild",
+          "kind": "computation",
+          "statement": "For A=F₂,v=1,n=2, E_v⁻¹(e_1⊗1)=x⊗x; no invertibility of2 is needed."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_coefficient",
+          "kind": "computation",
+          "statement": "For A=F₅,v=2 with inverse3 and n=2, E_v⁻¹(e_1⊗1)=x⊗(3x). Dropping the inverse coefficient fails this value."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "Over a subsingleton commutative coefficient ring, the actual inverse sends every target tensor to zero."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_right_factor",
+          "kind": "compatibility",
+          "statement": "For every A,v,n and b∈B, the actual inverse fixes the specified right factor: E_v⁻¹(1⊗b)=1⊗b."
+        }
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-forward",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.unitEquiv_toAlgHom",
+      "title": "Unit-chart forward comparison",
+      "kind": "lemma",
+      "statement": "The forward A-algebra homomorphism of the specified unit-chart E_v is exactly Θ_v.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-equivalence",
+        "mathlib:AlgEquiv.toAlgHom_ofBijective"
+      ],
+      "proofSteps": [
+        "Use the native promoted-equivalence forward-map identity."
+      ],
+      "acceptance": [
+        "Every source tensor is mapped by the original coaction-induced comparison."
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-character",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_character",
+      "title": "Unit-chart inverse character",
+      "kind": "lemma",
+      "statement": "E_v⁻¹(e_1⊗1)=x⊗(v⁻¹x^(n−1)) in the actual source algebra.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-forward",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-tmul",
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction-root",
+        "FunctionFieldArithmeticPartII:RS.0/affine-root-unit-inverse",
+        "mathlib:AlgEquiv.symm_apply_eq",
+        "mathlib:AlgEquiv.ofBijective_apply",
+        "mathlib:Algebra.TensorProduct.tmul_mul_tmul"
+      ],
+      "proofSteps": [
+        "Apply the native inverse-evaluation criterion and evaluate Θ on this proposed preimage through the pure-tensor and coaction-root formulas.",
+        "Multiply the second factors using the proved native unit-root inverse identity; the image is exactly e_1⊗1."
+      ],
+      "acceptance": [
+        "The coefficient v⁻¹ is present, including for v=2 over F₅."
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-right",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_right",
+      "title": "Unit-chart inverse right factor",
+      "kind": "lemma",
+      "statement": "For every b∈B, E_v⁻¹(1⊗b)=1⊗b.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-forward",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-tmul",
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction",
+        "mathlib:AlgEquiv.symm_apply_eq",
+        "mathlib:AlgEquiv.ofBijective_apply"
+      ],
+      "proofSteps": [
+        "The original pure-tensor formula at1⊗b uses δ(1)=1 and gives exactly1⊗b.",
+        "Use the native inverse-evaluation criterion and the forward-map equality."
+      ],
+      "acceptance": [
+        "The right factor stays unchanged, for arbitrary b rather than only the distinguished root."
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-character-tensor",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_character_tmul",
+      "title": "Unit-chart inverse character tensors",
+      "kind": "lemma",
+      "statement": "For every i≥0 and b∈B, E_v⁻¹(e_i⊗b)=x^i⊗((v⁻¹x^(n−1))^i b), with e_i indexed by i modulo n.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-character",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-right",
+        "FunctionFieldArithmeticPartII:RS.0/affine-character-power",
+        "mathlib:Algebra.TensorProduct.tmul_pow",
+        "mathlib:Algebra.TensorProduct.tmul_mul_tmul"
+      ],
+      "proofSteps": [
+        "Factor e_i⊗b=(e_1⊗1)^i(1⊗b) using the native character-power and tensor multiplication laws.",
+        "Apply the actual inverse algebra homomorphism, preserving multiplication and powers; use both generator evaluations.",
+        "Use the native tensor-power and multiplication laws to combine the result."
+      ],
+      "acceptance": [
+        "Includes i=0, i≥n and n=1; it does not choose representatives or divide by n."
+      ]
     }
   ],
   "requests": [
@@ -8397,7 +8762,7 @@
       "remaining": [
         "Resolve JAC-A’s actual tensor-section/unit coordinate and pullback contracts.",
         "Implement and elaborate the five native root-coordinate comparison nodes and full-file signatures at the exact pins.",
-        "The separate native proof extraction checks the weighted table, sharp scalar criteria and now the specified native module kernel/cokernel equivalences with their forward and inverse formulas. Complete the unit inverse, determinant, field ranks and four inherited examples (branch-kernel, wild-unit nilpotent, nonflat kernel change and the older full Z/8 singleton-coordinate equivalence example); then geometric suppliers and full-file elaboration. Nine additional actual module-coordinate examples are proved in the separate prototype. Neither the whole Tau Ceti file nor this partial packet is certified."
+        "The separate native proof extraction now checks the unit inverse, all four inherited direct examples and five unit-chart examples, as well as the preceding weighted table and specified module kernel/cokernel maps. Complete the determinant sign and field ranks, then native geometric suppliers and full-file elaboration. No geometric or implementation closure is claimed."
       ]
     },
     {
@@ -10189,6 +10554,75 @@
       "preservedNodeStatements": 137,
       "fullSuggestedCompiled": false,
       "reason": "Required compiled Tau Ceti line-bundle/root-of-unity imports are unavailable; only the separate native Mathlib extraction is checked. No project/build/cache/LSP started."
+    },
+    {
+      "worker": "Codex — codex-J6LwjP",
+      "date": "2026-10-02",
+      "base": "d173a3ec2a7f0b18f3d2eeabdb3755f15bf56dfb",
+      "scope": "Native unit-chart algebra inverse and all inherited direct examples; no geometric closure.",
+      "addedNodes": 6,
+      "preservedNodeStatements": 143,
+      "fullSuggestedCompiled": false,
+      "reason": "Exact-pin compiled Tau Ceti line-bundle and roots-of-unity imports are absent; only separate native Mathlib proof and admitted signature extractions checked.",
+      "proofCommit": "9a0db34b993b8f180dc07f570121d63c9f0f5927",
+      "nativeProofReceipt": {
+        "code": 0,
+        "errors": 0,
+        "admitted": 2,
+        "otherWarnings": 0,
+        "availableGiB": 65,
+        "timeRSS": "8.90 3185656",
+        "sourceSha256": "cbcb10fdb874bea25e1406f68daaa3fa011536b6126a631d47b5854f93580ee5",
+        "logSha256": "4400551c5460406f55fc05ef0e938840909f22936791865571dc14e0c07525e5",
+        "examples": 37,
+        "axioms": 22
+      },
+      "nativeSketchReceipt": {
+        "code": 0,
+        "errors": 0,
+        "admitted": 100,
+        "otherWarnings": 0,
+        "availableGiB": 65,
+        "timeRSS": "3.30 3106648",
+        "sourceSha256": "e9a695135b168f1c252b7eb3d0bea7fc142087ac7e48a0350f20aa18a2b00537",
+        "logSha256": "06c9c2b7d20b0d377cedc2656380015e424b0f3f322148cef0aebe945fca3c6f",
+        "examples": 37,
+        "axioms": 0
+      },
+      "graphReceipt": {
+        "actualAssembler": true,
+        "declarations": 149,
+        "partDeclarations": 149,
+        "partPlanets": 39,
+        "planets": 39,
+        "ownSkippedLinks": [],
+        "stageDAG": {
+          "vertices": 3056,
+          "edges": 8723,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 149,
+          "edges": 315,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3217,
+          "edges": 9399,
+          "acyclic": true
+        },
+        "virtualStageEndpoints": 51,
+        "unresolvedPrerequisites": [],
+        "reachableDeclarations": 200,
+        "requiredStagePairs": 54,
+        "requiredStagePairsReachable": 54,
+        "inheritedMissingStagePairs": [],
+        "stageEdgesUnchanged": true,
+        "otherSkipsMatchOriginal": true,
+        "unchangedNodeObjects": 142,
+        "scriptSha256": "2b531f9fe312a37bbe2f715fe72fa64c8077ea6da3deeb1787cf4638d885fbb2"
+      },
+      "publicRecipeVerified": true
     }
   ]
 }
