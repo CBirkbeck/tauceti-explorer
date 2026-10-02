@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Partial 148-node blueprint for gerbes, bands, conditional derived-H2 classification, profinite limits, module descent, quotient twisting and relative Picard foundations. This continuation adds fibre-morphism naturality, inverse-family descent, an actual fibre-centre unit and its all-object uniqueness. The narrow Mathlib-only native proof and admitted signature extractions pass separately; the full TauCeti file remains uncompiled. Arbitrary base restriction, compatible-section assembly, sheaf existence, abelian-inertia extension and the SF1 slice comparison remain open. All eight scope rows remain partial or not_read; no reserved key, stage or source closure is claimed. The current continuation proves arbitrary-base compatibility of descended fibre centres, unique simultaneous central-section gluing and the actual categorical sheaf theorem under the prestack hypothesis alone; evaluation surjectivity and slice-band comparisons remain open.",
+  "summary": "Partial 163-node blueprint for gerbes, intrinsic bands, conditional derived-H2 classification, profinite limits, module descent, quotient twisting and relative Picard foundations. This continuation proves native local-conjugation descent for abelian inertia, covering recovery and uniqueness, independence of local isomorphism choices on a fixed cover and exact group laws. The existing prestack centre sheaf is retained. Cover-refinement independence, varying-base automorphism transport, evaluation surjectivity, chosen-band and SF1 slice comparisons remain unfinished. All eight scope rows remain partial or not_read, nine gaps and 21 requests remain, and no reserved-key or stage closure is claimed. The full TauCeti file is uncompiled; the new self-contained native proof and admitted Mathlib extraction are checked separately.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1217,6 +1217,19 @@
       "readSections": [
         "Full printed definition, especially morphism-sheaf descent condition (2)."
       ]
+    },
+    {
+      "id": "SP0CJY-5ebb6f-conjugate-descent",
+      "title": "The Stacks Project, Lemma 8.11.8: abelian gerbe automorphism sheaves",
+      "authors": "The Stacks Project Authors",
+      "edition": "Public HTML accessed 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/0CJY",
+      "sha256": "41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Entire printed statement and proof of Lemma8.11.8, including choice-independent conjugation, local object-isomorphism gluing, the empty-fibre construction and the explicit omitted varying-base conclusion."
+      ],
+      "readingAgent": "Codex codex-5ebb6f"
     }
   ],
   "nodes": [
@@ -1692,7 +1705,8 @@
       ],
       "proofSteps": [
         "The quotient of the two isomorphisms is an automorphism of x.",
-        "Its inner conjugation is trivial by the abelian-inertia hypothesis."
+        "Its inner conjugation is trivial by the abelian-inertia hypothesis.",
+        "The actual pinned pointwise banding_iso_independent signature is proved in the immutable archive; the new generic category helpers are its native adapters. This is not a claim that the global sheaf band or varying-base comparison is complete."
       ],
       "acceptance": [
         "The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses."
@@ -1708,7 +1722,24 @@
           "match": "This is the key input to gluing the abelian band."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugation_independent",
+          "role": "characterisation",
+          "statement": "In any category, commutativity of Aut(x) makes conjugation through any two x-to-y isomorphisms equal."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeAutTransport.map_conjugation",
+          "role": "functoriality",
+          "statement": "A functor maps conjugation through e to conjugation through its actual mapIso(e)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeAutTransport.map_conjugation_hom",
+          "role": "compatibility",
+          "statement": "On hom arrows the preceding functoriality equation is the exact map of e.inv followed by a.hom followed by e.hom."
+        }
+      ]
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
@@ -7966,14 +7997,18 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-injective",
         "AlgebraicModuliForArithmeticGeometry:R09.4/banding-iso-independent",
-        "mathlib:CategoryTheory.Pseudofunctor.sheafHom"
+        "mathlib:CategoryTheory.Pseudofunctor.sheafHom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-hom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-choice",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-global-iso"
       ],
       "proofSteps": [
         "For f:V→U and y over V, choose a covering on which f*x≅y and conjugate the pulled automorphism a through each chosen isomorphism.",
         "The abelian-inertia lemma makes the conjugated value independent of the chosen isomorphism. Equality on common refinements and Hom separatedness give independence of the cover.",
         "Glue the values and their inverses by the existing Hom sheaf, obtaining an automorphism of y.",
         "Compatibility with all object isomorphisms follows locally. Compatibility with further pullback uses mapComp to compare g*(f*x) with (g≫f)*x; choice-independent conjugation eliminates that comparison choice.",
-        "The mapId component compares the identity pullback of x with x, giving the required evaluation. Naturality assembles each fibre family into a unit of CatCenter; injectivity proves uniqueness."
+        "The mapId component compares the identity pullback of x with x, giving the required evaluation. Naturality assembles each fibre family into a unit of CatCenter; injectivity proves uniqueness.",
+        "The present checkpoint checks local conjugation descent, full-faithful recovery, uniqueness, same-sieve choice independence and group laws in the native carriers. Still prove independence under cover refinement/change and compatibility of the resulting transport under arbitrary base restrictions before assembling centre units and asserting this surjectivity theorem."
       ],
       "acceptance": [
         "Supply cover/refinement independence and both native pseudofunctor constraints in the proof.",
@@ -10042,6 +10077,473 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-overlap",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Conjugated automorphisms agree on overlaps",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugates_commute",
+      "statement": "In a category, let c:x₁≅x₂, d:y₁≅y₂ and e_i:x_i≅y_i be arbitrary isomorphisms. If Aut(x₁) is commutative and a₁ followed by c equals c followed by a₂, then conjugating a_i through e_i gives automorphisms of y_i that commute with d.",
+      "hypotheses": [
+        "All four objects and the four displayed isomorphisms are actual objects and isomorphisms of one category; only Aut(x₁) must be commutative."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banding-iso-independent",
+        "mathlib:CategoryTheory.Aut.autMulEquivOfIso"
+      ],
+      "proofSteps": [
+        "Compare the two isomorphisms e₁ followed by d and c followed by e₂ from x₁ to y₂. Choice-independent conjugation identifies their actions on a₁.",
+        "Use the original automorphism transition equation and cancel c and d to obtain the native overlap equation. Coherence of e₁,e₂ is never assumed."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeAutTransport"
+      },
+      "sources": [
+        {
+          "sourceId": "SP0CJY-5ebb6f-conjugate-descent",
+          "locator": "Lemma 8.11.8, choice independence and local isomorphism gluing",
+          "match": "Derived native automorphism-descent adapter for the local-conjugation argument. The source does not print the final varying-base proof; this continuation does not claim to discharge it."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The conclusion accepts independently chosen e₁,e₂ and keeps the native composition order."
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-descent-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Local conjugation as a descent automorphism",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateDescentIso",
+      "statement": "For any sieve R and given local isomorphisms e_i, an automorphism a of x induces an actual automorphism of the canonical native descent datum D_R(y), with component conj(e_i)(F(i)^*a).",
+      "hypotheses": [
+        "C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor, and every automorphism group of every fibre object is commutative. All indexed families use sufficiently large fixed universes.",
+        "Fix U and actual objects x,y in F(U). R is a sieve on U, indexed by its native R.arrows.category, and e_i:F(i)^*x ≅ F(i)^*y is given at each of its arrows. The choices e_i need not form an isomorphism of descent data. No terminal object, fibre products, chosen coefficient sheaf, banding or global neutrality assumption is made."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-overlap",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.isoMk",
+        "mathlib:CategoryTheory.Pseudofunctor.toDescentData",
+        "mathlib:CategoryTheory.Functor.mapAut"
+      ],
+      "proofSteps": [
+        "At every common test object V→U, pull e_i,e_j to V. The original a supplies the canonical native descent morphism of D_R(x), whose commutation equation is already proved by the baseline functor.",
+        "Apply the overlap lemma to the actual transition isomorphisms of D_R(x),D_R(y). Functoriality of conjugation identifies the resulting conjugates with the pulled local automorphisms.",
+        "Feed exactly this equation to native DescentData.isoMk. Its native inverse arrow has the cancellation proof already provided by Mathlib. There is no new descent category or product-overlap surrogate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeAutTransport"
+      },
+      "sources": [
+        {
+          "sourceId": "SP0CJY-5ebb6f-conjugate-descent",
+          "locator": "Lemma 8.11.8, choice independence and local isomorphism gluing",
+          "match": "Derived native automorphism-descent adapter for the local-conjugation argument. The source does not print the final varying-base proof; this continuation does not claim to discharge it."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateDescentIso_hom_apply",
+          "role": "projection",
+          "statement": "The i-th hom component is precisely conj(e_i)(F(i)^*a).hom."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateDescentIso_one",
+          "role": "simp",
+          "statement": "The descent automorphism of a=1 is the identity of D_R(y)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateDescentIso_inv",
+          "role": "structure",
+          "statement": "The descent automorphism of a⁻¹ is the inverse of the descent automorphism of a."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GerbeConjugateDescentTests.local",
+          "kind": "compatibility",
+          "statement": "For every actual native arrow i of R, the hom component is conj(e_i)(F(i)^*a).hom."
+        },
+        {
+          "name": "GerbeConjugateDescentTests.identity",
+          "kind": "degenerate",
+          "statement": "a=1 gives the identity descent automorphism."
+        },
+        {
+          "name": "GerbeConjugateDescentTests.inverse",
+          "kind": "characterisation",
+          "statement": "Replacing a by a⁻¹ gives the inverse native descent automorphism, including its actual component arrows."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks Lemma 8.11.8; intrinsic-band evaluation surjectivity",
+          "how": "This is the local conjugation family that must descend when x,y are locally isomorphic; no compatibility of the chosen local object isomorphisms is assumed."
+        }
+      ],
+      "acceptance": [
+        "Every listed local-recovery, identity, inverse or uniqueness property is an equation in the actual pinned native carrier; no statement of arbitrary-base transport or evaluation surjectivity is implied."
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-aut",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Descended local-conjugation automorphism",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut",
+      "statement": "For a covering sieve R of a prestack, lift the conjugation descent automorphism of D_R(y) through the existing fully faithful canonical descent functor, obtaining an actual automorphism of y.",
+      "hypotheses": [
+        "C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor, and every automorphism group of every fibre object is commutative. All indexed families use sufficiently large fixed universes.",
+        "Fix U and actual objects x,y in F(U). R is a sieve on U, indexed by its native R.arrows.category, and e_i:F(i)^*x ≅ F(i)^*y is given at each of its arrows. The choices e_i need not form an isomorphism of descent data. No terminal object, fibre products, chosen coefficient sheaf, banding or global neutrality assumption is made.",
+        "F satisfies the existing IsPrestack J condition, and R belongs to J(U). Only morphism descent is used; object-effectivity and groupoid fibres are not additional hypotheses."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-descent-iso",
+        "mathlib:CategoryTheory.Pseudofunctor.isPrestackFor'",
+        "mathlib:CategoryTheory.Functor.FullyFaithful.preimageIso"
+      ],
+      "proofSteps": [
+        "Use isPrestackFor′ to obtain the actual fully faithful canonical functor for R.",
+        "Apply its existing preimageIso to the specific conjugation descent isomorphism. Both hom and inverse are lifted, and native faithfulness proves their inverse identities."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeAutTransport"
+      },
+      "sources": [
+        {
+          "sourceId": "SP0CJY-5ebb6f-conjugate-descent",
+          "locator": "Lemma 8.11.8, choice independence and local isomorphism gluing",
+          "match": "Derived native automorphism-descent adapter for the local-conjugation argument. The source does not print the final varying-base proof; this continuation does not claim to discharge it."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut_map",
+          "role": "compatibility",
+          "statement": "Restricting the hom along any i of R returns the prescribed local conjugation hom."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut_mapIso",
+          "role": "compatibility",
+          "statement": "The whole restricted automorphism is conj(e_i)(F(i)^*a), including its inverse."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut_unique",
+          "role": "universal-property",
+          "statement": "Every b of Aut(y) with those restrictions equals the lifted automorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut_independent",
+          "role": "characterisation",
+          "statement": "Changing all chosen local e_i on this same sieve R leaves the lifted automorphism unchanged."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut_of_iso",
+          "role": "compatibility",
+          "statement": "If a global d:x≅y exists, every chosen covering family gives the existing Mathlib conjugation through d."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GerbeConjugateCoverTests.local",
+          "kind": "compatibility",
+          "statement": "Every i-th restriction recovers the whole prescribed automorphism conj(e_i)(F(i)^*a)."
+        },
+        {
+          "name": "GerbeConjugateCoverTests.unique",
+          "kind": "characterisation",
+          "statement": "If every restriction of b∈Aut(y) is the prescribed conjugate, then b is the lifted automorphism."
+        },
+        {
+          "name": "GerbeConjugateCoverTests.changeChoice",
+          "kind": "characterisation",
+          "statement": "Replacing e_i by arbitrary other local isomorphisms on the same covering sieve leaves the lift equal."
+        },
+        {
+          "name": "GerbeConjugateCoverTests.globalIso",
+          "kind": "compatibility",
+          "statement": "When d:x≅y is global, the lift is exactly Aut.autMulEquivOfIso(d)(a)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-surjective",
+          "how": "At each base arrow V→U and fibre object y, this supplies the local extension of the pulled-back automorphism of x. Compatibility across further base arrows remains separate."
+        }
+      ],
+      "acceptance": [
+        "Every listed local-recovery, identity, inverse or uniqueness property is an equation in the actual pinned native carrier; no statement of arbitrary-base transport or evaluation surjectivity is implied."
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-local",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Recovery of each local conjugate",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut_mapIso",
+      "statement": "Every native restriction of the descended automorphism equals the prescribed local conjugate as an actual isomorphism, not merely as its hom.",
+      "hypotheses": [
+        "C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor, and every automorphism group of every fibre object is commutative. All indexed families use sufficiently large fixed universes.",
+        "Fix U and actual objects x,y in F(U). R is a sieve on U, indexed by its native R.arrows.category, and e_i:F(i)^*x ≅ F(i)^*y is given at each of its arrows. The choices e_i need not form an isomorphism of descent data. No terminal object, fibre products, chosen coefficient sheaf, banding or global neutrality assumption is made.",
+        "F satisfies the existing IsPrestack J condition, and R belongs to J(U). Only morphism descent is used; object-effectivity and groupoid fibres are not additional hypotheses."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-aut",
+        "mathlib:CategoryTheory.Pseudofunctor.toDescentData",
+        "mathlib:CategoryTheory.Functor.FullyFaithful.preimageIso"
+      ],
+      "proofSteps": [
+        "Evaluate the native map_preimage equality at i to recover the hom.",
+        "Apply native isomorphism extensionality to identify the complete automorphism."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeAutTransport"
+      },
+      "sources": [
+        {
+          "sourceId": "SP0CJY-5ebb6f-conjugate-descent",
+          "locator": "Lemma 8.11.8, choice independence and local isomorphism gluing",
+          "match": "Derived native automorphism-descent adapter for the local-conjugation argument. The source does not print the final varying-base proof; this continuation does not claim to discharge it."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The restriction functor is the actual F.map(i.op.toLoc).toFunctor."
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-unique",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Uniqueness of the descended conjugate",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut_unique",
+      "statement": "An automorphism b of y with the prescribed restriction at every arrow i in R equals the lifted local conjugation automorphism.",
+      "hypotheses": [
+        "C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor, and every automorphism group of every fibre object is commutative. All indexed families use sufficiently large fixed universes.",
+        "Fix U and actual objects x,y in F(U). R is a sieve on U, indexed by its native R.arrows.category, and e_i:F(i)^*x ≅ F(i)^*y is given at each of its arrows. The choices e_i need not form an isomorphism of descent data. No terminal object, fibre products, chosen coefficient sheaf, banding or global neutrality assumption is made.",
+        "F satisfies the existing IsPrestack J condition, and R belongs to J(U). Only morphism descent is used; object-effectivity and groupoid fibres are not additional hypotheses."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-local",
+        "mathlib:CategoryTheory.Functor.FullyFaithful.map_injective"
+      ],
+      "proofSteps": [
+        "Use isomorphism extensionality and injectivity of the canonical native descent map.",
+        "Native descent morphism extensionality reduces equality to each component, where local recovery and the stated hypothesis give the same conjugate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeAutTransport"
+      },
+      "sources": [
+        {
+          "sourceId": "SP0CJY-5ebb6f-conjugate-descent",
+          "locator": "Lemma 8.11.8, choice independence and local isomorphism gluing",
+          "match": "Derived native automorphism-descent adapter for the local-conjugation argument. The source does not print the final varying-base proof; this continuation does not claim to discharge it."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "No object-effectivity or second descent carrier is used."
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-choice",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Independence of the local isomorphism choices",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut_independent",
+      "statement": "For the same covering sieve R, two arbitrary families e_i,e′_i of local object isomorphisms yield exactly the same descended automorphism of y.",
+      "hypotheses": [
+        "C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor, and every automorphism group of every fibre object is commutative. All indexed families use sufficiently large fixed universes.",
+        "Fix U and actual objects x,y in F(U). R is a sieve on U, indexed by its native R.arrows.category, and e_i:F(i)^*x ≅ F(i)^*y is given at each of its arrows. The choices e_i need not form an isomorphism of descent data. No terminal object, fibre products, chosen coefficient sheaf, banding or global neutrality assumption is made.",
+        "F satisfies the existing IsPrestack J condition, and R belongs to J(U). Only morphism descent is used; object-effectivity and groupoid fibres are not additional hypotheses."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-unique",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-local",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banding-iso-independent"
+      ],
+      "proofSteps": [
+        "Use uniqueness for the e′ family.",
+        "The e family recovers its local conjugates, and pointwise choice independence identifies these with the e′ conjugates."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeAutTransport"
+      },
+      "sources": [
+        {
+          "sourceId": "SP0CJY-5ebb6f-conjugate-descent",
+          "locator": "Lemma 8.11.8, choice independence and local isomorphism gluing",
+          "match": "Derived native automorphism-descent adapter for the local-conjugation argument. The source does not print the final varying-base proof; this continuation does not claim to discharge it."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "This proves independence on a fixed sieve only. Independence under changing or refining the covering sieve is still an explicit later obligation."
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Group homomorphism from local conjugation descent",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverHom",
+      "statement": "For the fixed covering sieve and local isomorphism family, the lifted construction defines an actual homomorphism Aut(x)→Aut(y), preserving native multiplication and inverses.",
+      "hypotheses": [
+        "C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor, and every automorphism group of every fibre object is commutative. All indexed families use sufficiently large fixed universes.",
+        "Fix U and actual objects x,y in F(U). R is a sieve on U, indexed by its native R.arrows.category, and e_i:F(i)^*x ≅ F(i)^*y is given at each of its arrows. The choices e_i need not form an isomorphism of descent data. No terminal object, fibre products, chosen coefficient sheaf, banding or global neutrality assumption is made.",
+        "F satisfies the existing IsPrestack J condition, and R belongs to J(U). Only morphism descent is used; object-effectivity and groupoid fibres are not additional hypotheses."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-aut",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-unique",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-local",
+        "mathlib:CategoryTheory.Functor.mapAut"
+      ],
+      "proofSteps": [
+        "Use the descended automorphism as the underlying function.",
+        "Compare restrictions of the identity and each product with their prescribed conjugates. Existing mapAut and conjugation equivalences preserve the group operations.",
+        "Apply the proved uniqueness lemma to obtain the actual homomorphism laws. The native group homomorphism then gives the inverse law."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeAutTransport"
+      },
+      "sources": [
+        {
+          "sourceId": "SP0CJY-5ebb6f-conjugate-descent",
+          "locator": "Lemma 8.11.8, choice independence and local isomorphism gluing",
+          "match": "Derived native automorphism-descent adapter for the local-conjugation argument. The source does not print the final varying-base proof; this continuation does not claim to discharge it."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverHom_apply",
+          "role": "coercion",
+          "statement": "Its value at a is the previously constructed conjugateCoverAut."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverHom_one",
+          "role": "simp",
+          "statement": "The homomorphism sends 1 to 1."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverHom_mul",
+          "role": "structure",
+          "statement": "It sends a*b to the product of its values, with the native Aut multiplication order."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverHom_inv",
+          "role": "structure",
+          "statement": "It sends a⁻¹ to the inverse of its value at a."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GerbeConjugateHomTests.identity",
+          "kind": "degenerate",
+          "statement": "The homomorphism sends the identity automorphism to the identity."
+        },
+        {
+          "name": "GerbeConjugateHomTests.product",
+          "kind": "characterisation",
+          "statement": "For arbitrary a,b its value at a*b equals its value at a times its value at b."
+        },
+        {
+          "name": "GerbeConjugateHomTests.inverse",
+          "kind": "characterisation",
+          "statement": "Its value at a⁻¹ is the actual inverse of its value at a."
+        },
+        {
+          "name": "GerbeConjugateHomTests.equalObject",
+          "kind": "compatibility",
+          "statement": "For y=x, every family of local x-to-x isomorphisms gives the identity map on Aut(x)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-surjective",
+          "how": "The extension must carry group operations to the compatible centre units. This proves those laws for one fixed covering extension; varying-base naturality is not assumed."
+        }
+      ],
+      "acceptance": [
+        "Every listed local-recovery, identity, inverse or uniqueness property is an equation in the actual pinned native carrier; no statement of arbitrary-base transport or evaluation surjectivity is implied."
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-global-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Comparison with global object-isomorphism conjugation",
+      "kind": "comparison",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut_of_iso",
+      "statement": "If d:x≅y is a global isomorphism, the lifted automorphism from any local isomorphism family e_i on R equals the pinned Mathlib conjugation through d.",
+      "hypotheses": [
+        "C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor, and every automorphism group of every fibre object is commutative. All indexed families use sufficiently large fixed universes.",
+        "Fix U and actual objects x,y in F(U). R is a sieve on U, indexed by its native R.arrows.category, and e_i:F(i)^*x ≅ F(i)^*y is given at each of its arrows. The choices e_i need not form an isomorphism of descent data. No terminal object, fibre products, chosen coefficient sheaf, banding or global neutrality assumption is made.",
+        "F satisfies the existing IsPrestack J condition, and R belongs to J(U). Only morphism descent is used; object-effectivity and groupoid fibres are not additional hypotheses.",
+        "A global isomorphism d:x≅y is given for this comparison only."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-unique",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banding-iso-independent",
+        "mathlib:CategoryTheory.Aut.autMulEquivOfIso",
+        "mathlib:CategoryTheory.Functor.mapAut"
+      ],
+      "proofSteps": [
+        "Conjugation commutes with every actual restriction functor by its native map_comp law.",
+        "The restricted d and e_i induce identical conjugation by commutative inertia.",
+        "Uniqueness of the covering lift gives the global equality. For x=y and d=identity, this gives the identity-map unit test."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeAutTransport"
+      },
+      "sources": [
+        {
+          "sourceId": "SP0CJY-5ebb6f-conjugate-descent",
+          "locator": "Lemma 8.11.8, choice independence and local isomorphism gluing",
+          "match": "Derived native automorphism-descent adapter for the local-conjugation argument. The source does not print the final varying-base proof; this continuation does not claim to discharge it."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "A global isomorphism is used only for this comparison. The construction itself uses local isomorphisms."
+      ]
     }
   ],
   "requests": [
@@ -11914,6 +12416,112 @@
         "newStageEdges": 0
       },
       "checks": "Native and submitted-sketch boundaries verified; indexed packet/intake/atlas checks recorded in the handoff. No full intrinsic-band or stage closure, new whole-paper reading, geometric fixture, or finite-model receipt is claimed."
+    },
+    {
+      "agent": "Codex — codex-5ebb6f",
+      "date": "2026-10-02",
+      "issue": 672,
+      "base": "62abfc13962892abfacb792ccb3527b37103aa42",
+      "scope": "Choice-independent local conjugation, native descent isomorphism and covering automorphism, local recovery/uniqueness, fixed-cover choice independence, group homomorphism and global-iso comparison.",
+      "addedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-overlap",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-descent-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-aut",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-local",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-unique",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-choice",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-hom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-global-iso"
+      ],
+      "preservedStatements": 155,
+      "unchangedNodeObjects": 153,
+      "changedInheritedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banding-iso-independent",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-surjective"
+      ],
+      "sourceReading": "Fresh entire printed Lemma8.11.8 statement/proof at tag0CJY. Its varying-base conclusion is omitted; this continuation does not discharge it or claim a fresh whole-paper read. Historical source receipts remain inherited.",
+      "auditReading": "Fresh full current eight audit rows, all155 node statements/hypotheses and latest handoff, accepted nine RS27 scoped decisions and relevant owner/link records, nine confirmed area finding records and gerbe reserved-key contract. Relevant native statements were read at exact pins; no generic stack/descent construction was replanned.",
+      "compiled": false,
+      "reason": "The full suggested file retains the pinned TauCeti cohomology import with no available compiled artifact. No project setup, library build, cache download or language server was used.",
+      "proofPrototype": {
+        "sourceCommit": "57332e8119e7f8e152f41484583d1291bfc2f92d",
+        "lines": 342,
+        "examples": 11,
+        "kernelAudits": 19,
+        "errors": 0,
+        "warnings": 0,
+        "sha256": "9af35ace261858f92b9980584627d8803adf5c06281a64948e3ed7b52e1227ac",
+        "outputSha256": "9ee57dbbc75193069c8a87aaeb1e01d8b55b52769aa0cd3f5325d19eb5f1cca3",
+        "elapsedSeconds": 2.0,
+        "maximumRSSKiB": 2051672,
+        "availableMemoryGiB": 63,
+        "admissionDependencies": false,
+        "reproduction": "Extract the complete standalone source between BEGIN/END ARCHIVED CHECKED GERBE CONJUGATE DESCENT in the immutable suggested-file commit, then run one existing pinned Mathlib Lean process. No predecessor proof archives or own local paths are needed."
+      },
+      "checks": "Indexed checker: zero errors/warnings. Actual assembler overlay and endpoint-complete stage/declaration DAGs pass; all24 required stage paths are reachable, no pending/skipped own links, all155 inherited statements and153 full node objects preserved. Intake and four-file/private-path/whitespace checks pass. Full suggested file remains uncompiled; no whole-stage, key, source, fixture or evaluation-surjectivity closure is claimed.",
+      "submittedSketch": {
+        "lines": 1363,
+        "examples": 53,
+        "errors": 0,
+        "admissionWarnings": 91,
+        "otherWarnings": 0,
+        "sha256": "78a1c04f52ef3274ce1b068753e2f122a66420350aad7cc7ff713643d25ffaa9",
+        "outputSha256": "d409dd1dab9ba1af7a182d3bab9fd7d83c105d38877d02944e7cc2b9924b4fca",
+        "elapsedSeconds": 6.1,
+        "maximumRSSKiB": 3306732,
+        "availableMemoryGiB": 61
+      },
+      "projection": {
+        "actualAssembler": true,
+        "base": "44c8eda3f52da4d734be74ccac5a73f15dc58a94",
+        "declarations": 163,
+        "ownDeclarations": 163,
+        "kinds": {
+          "definition": 16,
+          "lemma": 75,
+          "construction": 39,
+          "theorem": 28,
+          "comparison": 5
+        },
+        "apiTotal": 198,
+        "testsTotal": 178,
+        "baseline": 98,
+        "planets": 10,
+        "gaps": 9,
+        "requests": 21,
+        "ownSkippedLinks": [],
+        "ownPendingLinks": [],
+        "stageDAG": {
+          "vertices": 3017,
+          "edges": 8655,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 163,
+          "edges": 319,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3173,
+          "edges": 9204,
+          "acyclic": true
+        },
+        "reachableDeclarations": 166,
+        "externalDeclarations": [
+          "DiamondsAndVStacks:D0/cech-to-derived-comparison",
+          "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+          "DiamondsAndVStacks:D0/stackification"
+        ],
+        "requiredStagePairs": 24,
+        "requiredStagePairsReachable": 24,
+        "stageEdgesUnchanged": true,
+        "otherSkipsMatchOriginal": true,
+        "unchangedNodeObjects": 153,
+        "preservedStatements": 155,
+        "addedNodes": 8,
+        "scriptSha256": "204f1cff78a0c208ce634b8a7cf6819f1bdbc3658906c9ff5a9fbbae892beeac"
+      },
+      "publicationBase": "44c8eda3f52da4d734be74ccac5a73f15dc58a94"
     }
   ]
 }
