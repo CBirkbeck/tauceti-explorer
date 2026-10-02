@@ -567,7 +567,7 @@ def route_job(route, by_id):
     return "DESIGN-" + rid if "DESIGN-" + rid in by_id else None
 
 
-def keydef_owners(entries, routes, jobs, states, suppliers_of, titles, decisions=None):
+def keydef_owners(entries, routes, jobs, states, suppliers_of, titles, decisions=None, previous=None):
     """{key definition id: assignment} for each promoted key definition that no layer plans (PROTOCOL.md section 19).
 
     Its owner is one queued job that plans it once, as generally as all its uses need: the roadmap the
@@ -576,12 +576,22 @@ def keydef_owners(entries, routes, jobs, states, suppliers_of, titles, decisions
     foundational (the one whose roadmap supplies most of the others), then the one receiving most items.
     The other queued jobs receiving its items cite it under a reserved node id. Owner None: no queued job
     receives any of its items, which the maintainer must route.
+    An assignment stands once made (previous: {key definition id: assignment}, the last owners.json) while
+    its job is not withdrawn and the maintainer names no other roadmap: by then its owner may be planning
+    the definition under the reserved id, and its importers citing it. Only new assignments wait for jobs
+    nobody has taken; on 2026-10-02 the owners claimed that day were about to lose theirs to other jobs.
     entries: [(survey file, entry)]; routes: {catalogue item: accepted paper route};
     suppliers_of: {roadmap: its suppliers, transitively}; titles: {roadmap id: title} of the atlas's roadmaps."""
     by_id = {j["id"]: j for j in jobs}
 
+    def state(jid):
+        return states.get(jid, by_id[jid].get("state", "pending"))
+
     def live(jid):
-        return jid in by_id and by_id[jid]["kind"] in ("blueprint", "design") and states.get(jid, by_id[jid].get("state", "pending")) == "pending"
+        return jid in by_id and by_id[jid]["kind"] in ("blueprint", "design") and state(jid) == "pending"
+
+    def standing(jid):
+        return jid in by_id and by_id[jid]["kind"] in ("blueprint", "design") and state(jid) not in ("superseded", "failed")
 
     def roadmap(jid):
         return (by_id[jid].get("roadmapIds") or [None])[0]
@@ -619,7 +629,10 @@ def keydef_owners(entries, routes, jobs, states, suppliers_of, titles, decisions
         owner, reason = None, "no queued job receives its items"
         decided = (decisions or {}).get(entry["id"])
         named = decided or entry.get("plannedBy")
-        if named:
+        earlier = (previous or {}).get(entry["id"]) or {}
+        if standing(earlier.get("owner")) and (not named or roadmap(earlier["owner"]) == named):
+            owner, reason = earlier["owner"], earlier.get("reason") or "assigned earlier"
+        elif named:
             who = "the maintainer decided on" if decided else "its survey names"
             options = [jid for jid in sorted(by_id) if live(jid) and roadmap(jid) == named]
             owner = max(options, key=lambda jid: (counts.get(jid, 0), -by_id[jid].get("order", 0)), default=None)
@@ -638,7 +651,8 @@ def keydef_owners(entries, routes, jobs, states, suppliers_of, titles, decisions
         assigned[entry["id"]] = {
             "name": entry.get("name", entry["id"]), "survey": where, "owner": owner, "roadmap": rid, "title": title,
             "reserved": f"{roadmap(owner)}:key/{slug}" if owner else None, "reason": reason,
-            "importers": sorted(jid for jid in counts if jid != owner), "items": sum(counts.values()), "unrouted": unrouted}
+            "importers": sorted((set(counts) | {jid for jid in earlier.get("importers") or [] if standing(jid)}) - {owner}),
+            "items": sum(counts.values()), "unrouted": unrouted}
     return assigned
 
 
@@ -938,6 +952,25 @@ def added_sources(rid):
     return ("\nThe maintainer added these sources to this roadmap. Cover them completely, like its own sources (PROTOCOL.md section 0), "
             "within the stages they belong to; what belongs to another roadmap is requested from it:\n" + "\n".join(f"- {paper}" for paper in papers) + "\n")
 
+
+# Roadmaps whose blueprint outgrew one job, now planned one layer per job: each top-level
+# layer is a part with its own review, and an assembly job joins them. The value is the
+# day the whole-roadmap packet was split by layer. DirichletPadicLFunctions ran as one job
+# (issue #713) from 26 Sep in over 200 checkpoints and reached 2,271 nodes, four times
+# the largest accepted blueprint, with every layer still partial.
+ONE_LAYER_PER_PART = {"DirichletPadicLFunctions": "2026-10-02"}
+
+
+def split_note(rid, output):
+    """What a layer job of a split roadmap inherits from the whole-roadmap job."""
+    return (f"\nUntil {ONE_LAYER_PER_PART[rid]} one job, BP-{rid}, planned this whole roadmap, and it grew past what one review "
+            f"can check. Its packet was then split by layer, unchanged: {output} holds this layer's nodes, coverage, gaps, requests "
+            f"and source findings, so continue it. Its document research/blueprint/split/{rid}.md, suggested file "
+            f"research/blueprint/split/{rid}.lean and handoff note research/blueprint/handoff/BP-{rid}.md cover every layer, in "
+            "the order its checkpoints wrote them. Read them for this layer and carry what is right into your own document and "
+            "suggested file, but do not edit them. Close this layer's remaining items at the granularity of PROTOCOL.md "
+            "section 2, one node per library declaration of up to about a page of source.\n")
+
 HABIRO_FAMILY = {"HabiroNumberFields", "HabiroRings", "HabiroCyclotomicCompletions", "HabiroNahmSeries",
                  "HabiroCohomologyFoundations", "ArithmeticQuantumTopology"}
 
@@ -1186,9 +1219,10 @@ def main():
             if s not in top and p:
                 children[p].append(s)
         groups, current, size = [], [], 0
+        limit = 1 if rid in ONE_LAYER_PER_PART else args.max_stages
         for t in top:
             block = [t] + children.get(t["id"], [])
-            if current and size + len(block) > args.max_stages:
+            if current and size + len(block) > limit:
                 groups.append(current); current, size = [], 0
             current += block; size += len(block)
         if current:
@@ -1224,7 +1258,8 @@ def main():
             text = BP_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, TITLE=title, README=readme, SUGGESTED=suggested,
                                       PARTNOTE=f", part {i + 1} of {len(groups)}" if multi else "",
                                       STAGES=stage_lines(group), OUTPUT=output, PART=json.dumps(part),
-                                      EXTRA=extra, FILE=file_id(rid), EDITABLE=output)
+                                      EXTRA=extra + (split_note(rid, output) if rid in ONE_LAYER_PER_PART else ""),
+                                      FILE=file_id(rid), EDITABLE=output)
             add({"id": job_id, "kind": "blueprint", "priority": priority, "order": order * 100 + i,
                  "roadmapIds": [rid], "scope": [s["id"] for s in group], "outputs": [output, readme, suggested],
                  "after": list(after)}, text)
@@ -1409,6 +1444,9 @@ def main():
         text = ASSEMBLY_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, TITLE=roadmaps.get(rid, {}).get("title", rid),
                                         PARTS=", ".join(p[1] for p in parts), PARTDOCS=", ".join(p[2] for p in parts),
                                         PARTLEAN=", ".join(p[3] for p in parts), README=readme, SUGGESTED=suggested)
+        if rid in ONE_LAYER_PER_PART:
+            text += (f"\nresearch/blueprint/split/{file_id(rid)}.md and .lean are the drafts of the job that planned the whole roadmap "
+                     "before it was split by layer. Take from them only what no part carried over, and do not edit them.")
         add({"id": job_id, "kind": "assembly", "priority": 2, "order": 5000, "roadmapIds": [rid], "outputs": [readme, suggested],
              "after": ["REV-" + p[0][3:] for p in parts]}, text)
     # Priority 1: name the planets drawn today (research/expansion/naming/PLANETS.json).
@@ -1717,8 +1755,10 @@ def main():
     key_entries = promoted_keydefs()
     decisions_path = BP / "keydefs" / "assign.json"
     decisions = json.loads(decisions_path.read_text()).get("assign", {}) if decisions_path.exists() else {}
+    owners_path = BP / "keydefs" / "owners.json"
+    previous_owners = json.loads(owners_path.read_text()).get("definitions", {}) if owners_path.exists() else {}
     owned_by = keydef_owners(key_entries, item_routes, jobs, states, suppliers_of,
-                             {rid: r.get("title", rid) for rid, r in roadmaps.items()}, decisions)
+                             {rid: r.get("title", rid) for rid, r in roadmaps.items()}, decisions, previous_owners)
     keydefs_owned, keydefs_cited = defaultdict(dict), defaultdict(dict)
     for kid, assignment in owned_by.items():
         if assignment["owner"]:
