@@ -1,264 +1,425 @@
-# #551 residue and module-length continuation — Codex, codex-5ebb6f, 2 October 2026
+# #551 finite plane-curve jets and sharp postulation — 2 October 2026
 
-Partial checkpoint. Winning claim [5959071488](https://github.com/CBirkbeck/tauceti-explorer/issues/551#issuecomment-5959071488), confirmed by [5959074464](https://github.com/CBirkbeck/tauceti-explorer/issues/551#issuecomment-5959074464). Publication parent `d2c01b60c52cf46809c0de093cf75f37f47e5aa8`. Only the four issue deliverables change. The previous full native plane-curve proof, finite program, source obligations and receipts remain available in the [immutable predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/d2c01b60c52cf46809c0de093cf75f37f47e5aa8/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md); no dependency on discarded scratch files remains.
+**Partial mathematical checkpoint; canonical integration and Lean elaboration remain unfinished.** Agent: ChatGPT Pro — cp-20261002-sr-c72e81. Job: BP-DeformationAndDerivedPatchingAlgebra--P7. Winning claim [5959759422](https://github.com/CBirkbeck/tauceti-explorer/issues/551#issuecomment-5959759422), confirmed by [5959762254](https://github.com/CBirkbeck/tauceti-explorer/issues/551#issuecomment-5959762254). Publication parent: `804df52206c95795837fda47eb802cd55d9a1d1b`.
 
-The packet has **96 nodes: 53 lemmas, sixteen theorems, eight definitions and nineteen constructions; 111 API items; 92 definition/construction tests plus eleven lemma tests; 126 native examples; thirteen planets; 217 baseline references; fifteen gap groups and two unchanged supplier requests**. All 89 inherited node objects, all inherited baseline entries, source issues, requests, reserved key-definition fields and eight coverage statuses are preserved. P7, R03.3 and R03.4 stay partial; P8, P9, R03.1, R03.2 and R03.5 stay not_read. Every implementationStatus remains unchecked.
+Only this handoff changes. The packet, reader and suggested file retain their existing contents, all 96 node objects, reserved multiplicity definition, coverage statuses, requests and planets. The previous complete handoff, including its seven checked residue/length declarations, immutable proof archive, assembler checks, remaining source obligations and J01–J16 worklist, is preserved at the [publication parent](https://github.com/CBirkbeck/tauceti-explorer/blob/804df52206c95795837fda47eb802cd55d9a1d1b/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md). Its earlier computational and Lean receipts are historical receipts, not checks rerun here.
 
-## What changed and what is still conditional
+This checkpoint supplies a self-contained mathematical continuation of J07, J10 and J11: the actual curve-quotient length, its successive differences, an exact postulation-defect formula and the earliest cumulative agreement index. It includes native-carrier signature drafts and the complete exact-arithmetic regression program. These drafts are **not registered packet nodes or additions to the submitted suggested file**. No stage is closed and nothing is reported as formalised.
 
-Seven R03.3 declarations address the actual residue-action/length leaf:
+## 1. Conventions and ownership
 
-1. `series-residue-equivalence`: the native residue field of any series ring over a field is k as a k-algebra; constant coefficient descends through the built residue lift and its inverse is the actual class of a constant series.
-2. `series-residue-coefficients-surjective`: the native map k→κ(R) is onto. No surjectivity of k→R is asserted.
-3. `series-module-length`: for every compatible R-module M, length_R M=length_k M in extended naturals, including infinite lengths. The built local-extension formula has residue factor one. A finite filtration premise is unnecessary.
-4. `series-module-finite-length`: with Module.Finite k M, length_R M=finrank_k M, cast into extended naturals. Finite generation over R alone is insufficient.
-5. `total-jet-finite`: promote the existing totalJetBasis_finite API to a lemma node because the quotient-length result consumes it; its existing signature is not duplicated or replaced.
-6. `total-jet-ring-length`: the actual quotient R/v^r has R-module length equal to its coefficient dimension, using the promoted native finite-basis fact.
-7. `plane-total-jet-ring-length`: for two variables that length is binom(r+1,2), including r=0, using the inherited dimension count. For index N, put r=N+1.
+Let k be any field, R = k[[x,y]] = MvPowerSeries (Fin 2) k, v = (x,y), f a nonzero series, d = ord(f) in the natural numbers, I = (f), A = R/I, and n the image of v in A. The field need not be algebraically closed, perfect or of characteristic zero; f need not be reduced or irreducible. Include d = 0: f is then a unit and A is the zero ring. The finite-jet results below still apply, but no nontrivial local-ring structure on that zero ring is asserted.
 
-The first four nodes and all three new residue APIs have complete native proofs in the separate archive. The two jet-length adapters still consume the inherited unchecked basis and count: this checkpoint does not report their numerical formula as admission-free checked. It does not certify the variable-ideal kernel, shifted-map injectivity/exactness, all-index curve lengths, tangent cone, dimension or general multiplicity comparison. The reserved general multiplicity definition and its intrinsic/ambient normalization remain unchanged.
+For N >= 0 put
 
-Three construction tests fix the coefficient section, no-variable boundary and a nonzero variable killed by residue. Three module tests give native lengths one, zero and two for the residue module, zero module and residue pair. A seventh added acceptance signature states actual R-length six for the characteristic-two cutoff-three jet. The field-uniform variable test checks every field, including positive characteristic. A concrete ZMod 2 residue expression exhausted deterministic heartbeats; it is not counted as passing. All new submitted bodies are admitted under PROTOCOL §13.
+    H_N = length_A(A/n^(N+1)),
+    G_N = length_A(n^N/n^(N+1)),
+    C(r) = binom(r,2), for r >= 0,
+    P_d(T) = d(T+1) - d(d-1)/2 in Q[T].
 
-## Exact validation receipts
+C(0) = C(1) = 0. A binomial argument written with natural subtraction is truncated at zero. Rational expressions, particularly d-1 in P_d, are ordinary rational subtraction. Coefficient characteristic does not change these rational polynomials of integer lengths.
 
-The indexed blueprint checker reports zero errors and warnings; the actual intake check-files passes for the four deliverables. Full Mathlib-only Lean elaboration in an existing build at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Lean v4.34.0-rc2: **zero errors, 270 admitted-proof warnings, zero other warnings; 126 examples; 22.51 seconds, maximum RSS 3,540,004 KiB**. Memory before this successful run: 67 GiB available. Suggested file SHA-256 `a574278b8c31753aff401ffd3312ce400c28e40bb90172005cef7a51efbfebec`; successful output SHA-256 `53e31b9ce2d3e4a8888b905993bf4427fc3902f35727cd63821f3b45b67e1ad0`. No Tau Ceti import, library build, Lake setup/cache download or language server was used. Tau Ceti references retain the source pin `f790474821cf4256814db967cb154e7af3d0c369`.
+These are the existing cumulative `function`, graded `gradedFunction`, and eventual `polynomial` conventions of R03.3, not new definitions of Hilbert–Samuel multiplicity. Stacks [00K4](https://stacks.math.columbia.edu/tag/00K4) distinguishes its graded phi from cumulative chi; its use of the name Hilbert polynomial for the graded function is not silently substituted for this packet's cumulative convention.
 
-The independent foundation prototype: **zero errors and warnings; seven declarations, seven printed axiom audits, six proved examples; 1.60 seconds, maximum RSS 2,505,544 KiB**, 67 GiB available beforehand. Axiom sets are exactly propext, Classical.choice and Quot.sound, with no admitted axiom. Its seven declaration signatures match the submitted signatures. Source SHA-256 `e123da1f4b68b77a81bd08a2fb116c7a77f5475b568af9c8872e33ea5959321d`; output SHA-256 `d866e02e4f96f109668b891d2605ff60f589c954cb590801951172e9a3a68f21`. This is a checked prototype, not a roadmap implementation-status change.
+The general owner stays DeformationAndDerivedPatchingAlgebra:R03.3. The key definition `DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity` is unchanged. General completion, dimension/support comparison, graded Hilbert–Serre, tangent cones and arithmetic patching are not supplied by this special computation.
 
-The [immutable public proof archive](https://github.com/CBirkbeck/tauceti-explorer/blob/20fb961cd54398638ba6a9b1b9b818fb546163bf/research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean) contains the complete standalone source inside BEGIN/END ARCHIVED CHECKED SERIES RESIDUE AND LENGTH markers. The receipt certifies the extracted standalone source, not an implementation of the surrounding admitted sketch. Extract and verify it with this standard-library program from the repository root, passing a path in your own disk-backed scratch directory:
+## 2. Finite-jet proof
 
-```python
-import sys,subprocess,hashlib
-from pathlib import Path
-commit="20fb961cd54398638ba6a9b1b9b818fb546163bf"
-path="research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean"
-s=subprocess.check_output(["git","show",commit+":"+path],text=True)
-proof=s.split("BEGIN ARCHIVED CHECKED SERIES RESIDUE AND LENGTH\n",1)[1].split("END ARCHIVED CHECKED SERIES RESIDUE AND LENGTH",1)[0]
-assert hashlib.sha256(proof.encode()).hexdigest()=="e123da1f4b68b77a81bd08a2fb116c7a77f5475b568af9c8872e33ea5959321d"
-assert "sorry" not in proof
-Path(sys.argv[1]).write_text(proof)
+### 2.1 Actual ideal powers and the ambient basis
+
+For a finite set of variables and any commutative coefficient ring, a series g belongs to the algebraically generated variable ideal to the r-th power exactly when all its coefficients of total degree less than r vanish. One inclusion follows by multiplying r variables. For the converse, assign each multi-index alpha of degree at least r to one beta <= alpha of degree exactly r. There are only finitely many such beta. Collect the coefficients assigned to beta into a series g_beta at indices alpha-beta. Coefficientwise equality gives the finite sum g = sum_beta X^beta g_beta, placing g in the algebraic ideal power. For r = 0 the claim is simply membership in the unit ideal. No infinite sum of ideal elements or topological closure is used.
+
+Consequently R/v^r has k-basis the classes x^i y^j with i+j < r. Spanning is finite total-degree truncation, not rectangular truncation. Independence follows because a polynomial supported in total degree less than r cannot belong to v^r unless each coefficient is zero. Its dimension is C(r+1), including r = 0.
+
+For a nonzero series over a field, its least nonzero homogeneous part is a nonzero polynomial. The product of two such initial polynomials is nonzero in k[x,y], so ord(fg) = ord(f)+ord(g) for nonzero f,g. With ord(0) = infinity the corresponding statement also handles g = 0. This is the actual order argument behind the already planned `variable-ideal-power-order` and the built `MvPowerSeries.order_mul`; it does not need an independently assumed tangent-cone isomorphism.
+
+### 2.2 The shifted sequence and the low-index branch
+
+Suppose N >= d. Multiplication by f gives the actual R-linear map
+
+    mu: R/v^(N+1-d) -> R/v^(N+1), [g] |-> [fg].
+
+It is well-defined by the order lower bound. If fg belongs to v^(N+1), order additivity implies g belongs to v^(N+1-d), proving injectivity. The natural projection
+
+    pi: R/v^(N+1) -> R/(I+v^(N+1))
+
+is surjective. A representative in its kernel is fh+t with t in v^(N+1), hence belongs to the image of mu; conversely the image plainly maps to zero. Thus
+
+    0 -> R/v^(N+1-d) -> R/v^(N+1) -> R/(I+v^(N+1)) -> 0
+
+is exact. These are precisely the existing `shiftedJetMap` and `jetProjection`, not multiplication on a wrongly indexed common source and target.
+
+If N < d, do not apply that shifted statement with natural subtraction. Instead f belongs to v^(N+1), so I+v^(N+1) = v^(N+1). This is the existing `jetProjection_below_order` branch. For example, f=x^4 and N=0 leaves the residue quotient unchanged, whereas multiplication by f on R/v is zero and is not injective.
+
+### 2.3 Length, finiteness and the actual curve quotient
+
+Use the native short-exact-sequence length theorem first as a sum identity in extended naturals:
+
+    length_R(R/v^(N+1))
+      = length_R(R/v^(N+1-d)) + length_R(R/(I+v^(N+1))).       (1)
+
+The target is a quotient of the finite-dimensional k-space R/v^(N+1), so it is finite-dimensional over k. All three lengths in (1) are finite: for these series modules the existing residue comparison identifies R-length with k-length, hence with finite k-dimension. Only after this finiteness step may one take natural lengths and subtract. In particular no subtraction of infinite extended-natural lengths is used.
+
+Let q:R->A be the quotient map. The identity (v.map q)^r = (v^r).map q and the built double-quotient algebra equivalence give
+
+    A/n^r ~= R/(I+v^r).
+
+The equivalence preserves the R-module structure; length over R equals length over A on A/n^r because R->A is surjective. This is the native `DoubleQuot.quotQuotEquivQuotSupₐ` followed by `Module.length_eq_of_surjective`. It is not an assumption that a newly defined jet has a desired dimension.
+
+Using the ambient basis in (1), and using the separate low-index branch, proves for every N >= 0:
+
+    H_N = C(N+2) - C(max(0,N+2-d)).                            (2)
+
+For N < d, the second binomial is zero (its argument is at most one). For d=0 the two binomials cancel, as they must for a unit equation. The statement concerns the actual quotient ring and its own module length.
+
+For f=0, finite d does not exist. Treat that boundary separately: I=0, A is R and H_N=C(N+2). Giving the zero equation order zero would incorrectly force H_N=0.
+
+### 2.4 Successive quotients
+
+For N >= 1 the native quotient projection has short exact sequence
+
+    0 -> n^N/n^(N+1) -> A/n^(N+1) -> A/n^N -> 0.
+
+The submodule carrier in `gradedFunction` is canonically this kernel: for the regular module A, ideal scalar multiplication identifies q^N*top with q^N and its next denominator with q^(N+1). Prove this using the actual submodule inclusion and quotient maps, not an opaque graded module carrying prescribed lengths. Thus G_N = H_N-H_(N-1). At N=0, the source is A/n and G_0=H_0; no negative-index Lean value is needed.
+
+Taking differences in (2) gives
+
+    G_N = min(N+1,d)                                         (3)
+
+for every N >= 0. The calculation is equally valid for a nonreduced equation such as x^4 in characteristic two.
+
+## 3. Exact postulation defect and the two thresholds
+
+The full arithmetic identity is
+
+    H_N - P_d(N) = C(max(0,d-N-1)).                           (4)
+
+Both sides of (4) are interpreted in Q. If N+2 >= d, expand the two binomials in (2); the binomial with argument zero or one is still zero, and the difference is exactly P_d(N). If N+2 < d, equation (2) reads H_N=C(N+2), and
+
+    2(H_N-P_d(N))
+      = (N+2)(N+1)-2d(N+1)+d(d-1)
+      = (d-N-1)(d-N-2).
+
+This proves (4) also in that branch. It follows that
+
+    H_N = P_d(N) iff d <= N+2.                               (5)
+
+The first nonnegative index of permanent cumulative agreement is therefore max(0,d-2). When d>=3, the preceding index N=d-3 has defect exactly one, proving sharpness. On the other hand, (3) reaches its stable value d for the first time at max(0,d-1). These are different thresholds.
+
+For d=4:
+
+    N                 0   1   2   3   4
+    H_N               1   3   6  10  14
+    P_4(N)           -2   2   6  10  14
+    H_N-P_4(N)        3   1   0   0   0
+    G_N               1   2   3   4   4
+
+The predecessor's N>=d-1 cumulative threshold is a valid sufficient threshold, not a false statement. The new claim is its sharp improvement and the exact earlier defect. No source erratum is alleged.
+
+To identify the existing `polynomial` constructor, assume the actual A has the Noetherian and local instances and that the actual image ideal n has radical equal to its maximal ideal, as its signature requires. Formula (5) supplies an eventual equality with witness max(0,d-2); uniqueness in the existing `existsUnique_polynomial` then identifies the constructor with P_d. This is a specialization, not a replacement for the still-unproved general existence theorem. Unit equations remain outside any nontrivial-local-ring interpretation. This checkpoint does not use polynomial degree to silently claim that the missing native two-variable dimension theorem has been implemented.
+
+## 4. Native signature draft and integration contract
+
+The following is an append fragment for the existing suggested file, **not a standalone Lean module and not compiled**. It deliberately has no new carrier definitions. The eight draft declarations correspond respectively to: the finite length balance; ambient equation-jet length; curve cumulative function; curve graded function; exact rational defect; earliest agreement; specialization of the existing polynomial; and the zero-equation boundary. They are local continuation labels until entered as individual nodes in packet, reader and suggested file together.
+
+Existing inputs to reuse include `shifted-jet-injective`, `shifted-jet-exact`, `jet-below-equation-order`, `plane-total-jet-ring-length`, `series-module-finite-length`, `hilbert-samuel-function`, `graded-hilbert-function`, and `eventual-hilbert-samuel-polynomial`. The double-quotient and scalar-restriction results are baseline imports, never duplicate new nodes. If the integration consumes the named `polynomial_unique` API instead of the existential uniqueness theorem directly, promote that API once as the protocol requires; do not duplicate its signature.
+
+<!-- BEGIN NATIVE SIGNATURE DRAFT -->
+```lean
+namespace TauCeti.HilbertSamuel
+noncomputable section PlaneCurveContinuation
+variable {k : Type*} [Field k]
+local notation "R" => MvPowerSeries (Fin 2) k
+local notation "v" => (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 -> R)))
+variable (f : R)
+local notation "A" => (R ⧸ Ideal.span {f})
+local notation "qf" => (v.map (Ideal.Quotient.mk (Ideal.span {f})))
+
+-- Draft 1: sum in ENat first; no subtraction of infinite lengths.
+lemma planeEquationJet_length_balance (d N : ℕ)
+    (hN : d ≤ N) (hd : f.order = (d : ℕ∞)) :
+    Module.length R (R ⧸ v ^ (N + 1)) =
+      Module.length R (R ⧸ v ^ (N + 1 - d)) +
+        Module.length R (R ⧸ (Ideal.span {f} ⊔ v ^ (N + 1))) := by sorry
+
+-- Draft 2: the right-hand subtraction is in Nat before the ENat cast.
+lemma planeEquationJet_length (d N : ℕ) (hd : f.order = (d : ℕ∞)) :
+    Module.length R (R ⧸ (Ideal.span {f} ⊔ v ^ (N + 1))) =
+      ((Nat.choose (N + 2) 2 - Nat.choose (N + 2 - d) 2 : ℕ) : ℕ∞) := by sorry
+
+-- Draft 3: the actual Hilbert-Samuel function of the actual quotient A.
+lemma planeCurve_function (d N : ℕ) (hd : f.order = (d : ℕ∞)) :
+    function (A := A) (M := A) qf N =
+      ((Nat.choose (N + 2) 2 - Nat.choose (N + 2 - d) 2 : ℕ) : ℕ∞) := by sorry
+
+-- Draft 4: use the native successive-quotient carrier, including N=0.
+lemma planeCurve_gradedFunction (d N : ℕ) (hd : f.order = (d : ℕ∞)) :
+    gradedFunction (M := A) qf N = (min (N + 1) d : ℕ∞) := by sorry
+
+-- Draft 5: rational subtraction, after the preceding finite-length equality.
+lemma planeCurve_postulation_defect (d N : ℕ) (hd : f.order = (d : ℕ∞)) :
+    ((function (A := A) (M := A) qf N).toNat : ℚ) -
+        ((d : ℚ) * ((N : ℚ) + 1) - (d : ℚ) * ((d : ℚ) - 1) / 2) =
+      (Nat.choose (d - N - 1) 2 : ℚ) := by sorry
+
+-- Draft 6: cumulative, not graded, agreement threshold.
+lemma planeCurve_postulation_iff (d N : ℕ) (hd : f.order = (d : ℕ∞)) :
+    (((function (A := A) (M := A) qf N).toNat : ℚ) =
+      (d : ℚ) * ((N : ℚ) + 1) - (d : ℚ) * ((d : ℚ) - 1) / 2) ↔
+        d ≤ N + 2 := by sorry
+
+-- Draft 7: no caller-supplied Hilbert polynomial or automatic local instance.
+lemma planeCurve_polynomial [IsNoetherianRing A] [IsLocalRing A]
+    (d : ℕ) (hd : f.order = (d : ℕ∞))
+    (hq : qf.radical = IsLocalRing.maximalIdeal A) :
+    polynomial (A := A) (M := A) qf hq =
+      Polynomial.C (d : ℚ) * (Polynomial.X + 1) -
+        Polynomial.C ((d : ℚ) * ((d : ℚ) - 1) / 2) := by sorry
+
+-- Draft 8: zero is not a finite-order equation.
+lemma planeZeroEquation_function (N : ℕ) :
+    let I : Ideal R := Ideal.span {(0 : R)}
+    let B := R ⧸ I
+    let q := v.map (Ideal.Quotient.mk I)
+    function (A := B) (M := B) q N = (Nat.choose (N + 2) 2 : ℕ∞) := by sorry
+end PlaneCurveContinuation
+
+section PlaneCurveAcceptance
+-- Unit boundary: no IsLocalRing instance is required on the zero quotient.
+example (N : ℕ) :
+    let R := MvPowerSeries (Fin 2) ℚ
+    let I : Ideal R := Ideal.span {(1 : R)}
+    let B := R ⧸ I
+    let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    function (A := B) (M := B) (v.map (Ideal.Quotient.mk I)) N = 0 := by sorry
+
+-- The zero equation retains the regular surface's quadratic function.
+example :
+    let R := MvPowerSeries (Fin 2) (ZMod 2)
+    let I : Ideal R := Ideal.span {(0 : R)}
+    let B := R ⧸ I
+    let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    function (A := B) (M := B) (v.map (Ideal.Quotient.mk I)) 2 = 6 := by sorry
+
+-- Smooth equation: the function is N+1, not the ambient triangular number.
+example (N : ℕ) :
+    let R := MvPowerSeries (Fin 2) ℚ
+    let I : Ideal R := Ideal.span {(MvPowerSeries.X 0 : R)}
+    let B := R ⧸ I
+    let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    function (A := B) (M := B) (v.map (Ideal.Quotient.mk I)) N = (N + 1 : ℕ∞) := by sorry
+
+-- Nonreduced positive-characteristic equation, with its low-index exception.
+example :
+    let R := MvPowerSeries (Fin 2) (ZMod 2)
+    let I : Ideal R := Ideal.span {(MvPowerSeries.X 0 : R) ^ 4}
+    let B := R ⧸ I
+    let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    let q := v.map (Ideal.Quotient.mk I)
+    function (A := B) (M := B) q 0 = 1 ∧
+      function (A := B) (M := B) q 1 = 3 ∧
+      function (A := B) (M := B) q 2 = 6 ∧
+      function (A := B) (M := B) q 4 = 14 := by sorry
+
+-- The cumulative function has already stabilised polynomially at index 2,
+-- but the degree-2 graded component has dimension 3, not yet 4.
+example :
+    let R := MvPowerSeries (Fin 2) (ZMod 2)
+    let I : Ideal R := Ideal.span {(MvPowerSeries.X 0 : R) ^ 4}
+    let B := R ⧸ I
+    let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    let q := v.map (Ideal.Quotient.mk I)
+    gradedFunction (M := B) q 2 = 3 ∧ gradedFunction (M := B) q 3 = 4 := by sorry
+
+-- Large order does not erase a small ambient jet.
+example :
+    let R := MvPowerSeries (Fin 2) ℚ
+    let I : Ideal R := Ideal.span {(MvPowerSeries.X 0 : R) ^ 100}
+    let B := R ⧸ I
+    let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    function (A := B) (M := B) (v.map (Ideal.Quotient.mk I)) 2 = 6 := by sorry
+end PlaneCurveAcceptance
+end TauCeti.HilbertSamuel
 ```
+<!-- END NATIVE SIGNATURE DRAFT -->
 
-In the existing exact pinned build, check free memory as WORKERS requires, then run one `lake env lean` on that extracted file, with a twenty-minute timeout. All seven final axiom prints must contain only the three listed standard axioms and all six examples must check. The final submitted sketch removes the private proof archive comment and preserves every new body as admitted.
+Integration must append each declaration with a unique node ID, explicit hypotheses, the appropriate proof segment above, actual dependencies and the matching acceptance signature. No definition/construction is introduced in this fragment; the original definitions retain their APIs and tests. Keep every existing node object and all source obligations. Record the inherited jet basis/order/map proofs as unchecked until implemented. Do not mark all J01–J16 complete merely because this finite-jet proof is mathematically explicit.
 
-## Source and ownership boundary
+## 5. Source and validation record
 
-The issue was fully read before claiming and again after confirmation. All eight reviewed AUDIT-17 scoped records, applicable accepted RS-08 keeps and owner assignments, all scoped stage descriptions, touching edges, the matching link/overlap records, all 89 predecessor node statements and the complete latest merged handoff were personally read. WORKERS and binding protocols were followed; the two nearby upstream roadmap documents were already read earlier in this continuous session, not freshly claimed here.
+Fresh pinned reads used for this continuation:
 
-Fresh pinned declaration statements, ambient hypotheses and proofs are itemized with exact file SHA-256 hashes in HS-RESIDUE-LENGTH-PIN. The complete local-extension length theorem is already built: no new general residue-field, composition-filtration, scalar-restriction or local-length theorem is planned. The native constant-coefficient unit criterion and local-ring/residue structures are reused. Bounded searches through both exact pinned trees are recorded only as bounded searches, not exhaustive absence evidence.
+- Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, `Mathlib/RingTheory/Length.lean`: `LinearEquiv.length_eq`, `Module.length_eq_of_surjective`, `Module.length_eq_add_of_exact`, its infinite-length branches and `Module.length_le_of_surjective`.
+- The same pin, `Mathlib/RingTheory/Ideal/Quotient/Operations.lean`, blob `225f9102da25667f06fe021abc4fb895669d0880`: the maps and inverse proofs of `DoubleQuot.quotQuotEquivQuotSup`, the algebra form `DoubleQuot.quotQuotEquivQuotSupₐ`, quotient algebra-map compatibility and equal-ideal transport. These are already baseline imports in the packet.
+- The actual current suggested-file contracts for `mem_variableIdeal_pow_iff`, shifted maps, low-index projection, total jets/basis, series residue and length, cumulative/graded functions, and eventual-polynomial uniqueness. They are inherited planned declarations, not mistaken for built Mathlib lemmas.
+- The relevant R03.3 entries of AUDIT-17, the accepted RS-08 ownership boundary and the existing handoff. The large `data/library-coverage.json` fetch returned no text in this browser, so the scoped audit was read instead. This is not a claim to have freshly reread every routed paper, every audit layer or the whole baseline tree.
+- Stacks [00IU](https://stacks.math.columbia.edu/tag/00IU), especially Lemmas 10.52.3 and 10.52.5 and their proofs; and the mathematical content of [00K4](https://stacks.math.columbia.edu/tag/00K4), read online 2 October 2026. Formula (4) and the sharp threshold are the explicit algebraic derivation here, not a quotation attributed to those sources.
 
-The complete mathematical statement and proof of [Stacks Lemma 10.52.12, tag 02M0](https://stacks.math.columbia.edu/tag/02M0), and the mathematical length section 00IU, were freshly read. Downloaded 02M0 HTML SHA-256 `00e8584bf16e6a75416e40bb3f2281a4728f1ee5e92ee26befe4c04847690dd6`. The Stacks formula states finite B-length and finite residue degree; the unrestricted extended-natural form comes from pinned Mathlib's already-proved infinite-length branch. No new full routed-paper read, source-issue closure, erratum or independent review is claimed. Generic/coherent-duality/completion suppliers retain the accepted existing owners.
+No library installation, cache download, Lake setup, library build or language server was used. There is no existing pinned build in this environment and available memory is below the WORKERS minimum. **Lean was not run.** The six draft acceptance examples above are not counted as passing Lean tests. The packet checker and atlas assembler were not run locally; the canonical packet and graph inputs are unchanged. Any GitHub submission check only certifies its own scope, not the mathematics or Lean elaboration.
 
-## Resume here
+The independent executable check computes actual cokernel dimensions by Gaussian elimination over F2, F3, F5 and F7. Its multiplication matrices use all monomials of total degree at most N; their rank is not filled with the predicted formula. It covers 224 equations (220 finite-order and four zero equations), 2,464 jet matrices, and 12,221 additional integer/rational index pairs, with **36,686 assertions passing**. Named cases include units, a line, a node, a cusp, coincident tangent directions, a fourth power in positive characteristic and higher-order perturbations. The deterministic seed is fixed in the source. This tests finite polynomial truncations and arithmetic, not an arbitrary-series theorem or the native Lean signatures.
 
-The residue and length foundation is now available as a checked native proof source. Implement the inherited actual jet basis/count and variable-ideal/shifted-map proofs, then install totalJetBasis_finite and apply the new length adapters. Combine the built DoubleQuot comparison and length restriction along the actual surjection R→R/(f) with the existing shifted sequence. This should yield the full all-index curve-jet formula, handling N<d separately rather than forcing truncated natural subtraction into an injectivity claim.
+The exact program follows. Save the code block as a Python file in your own disk-backed scratch and run it with Python 3. Its source SHA-256 is `9dde5556639d51f24711f3070f8cc077988de005569d3a3da281570ddf4683e4`; retain the terminal newline when extracting. It writes nothing except its JSON receipt to standard output. The SHA-256 in the resulting receipt is that of the saved program, allowing byte-for-byte reproduction to be checked independently.
 
-Next follow the complete preserved J01–J16 worklist below, especially J07–J13: the full graded tangent-cone kernel, eventual polynomial uniqueness/threshold, dimension and comparison with the existing general intrinsic and ambient multiplicities. All f=0/unit, nonreduced and positive-characteristic cases remain required. The general graded Hilbert–Serre homogeneous kernel/cokernel induction, anchor/threshold and support-dimension comparison are independent unresolved work. Perfect complexes, patching, deformation categories, completion and all routed-source obligations remain open.
-
-The predecessor finite-jet Python program and its 507-case/25,148-assertion receipt are preserved at the immutable predecessor link. They are inherited receipts in this continuation, not a newly executed arbitrary-series proof.
-
-## Actual atlas assembly and reproduction
-
-The actual assembler overlays only this P7 part, retaining R03.6 and all other packets. It lists 149 whole-roadmap declarations and nineteen planets (96/thirteen in this part), with no skipped links. Stage graph: 3,003 vertices and 8,623 edges; own declaration graph: 96 vertices and 143 edges; combined stage/reachable-declaration graph: 3,087 vertices and 8,863 edges, with 97 reachable declarations. All are acyclic. All 89 old node objects, all stage edges, requests and other skipped-link records match the immutable-parent control.
-
-**Inherited supplier-path gap:** twelve of thirteen scope/request stage pairs are reachable. LocalFieldsRamification layer 0 → R03.4 is absent in both current and control stage graphs; the existing gap/request remains. No stage edge is fabricated.
-
-Run this standalone program from the repository root, storing it in own disk-backed scratch. It uses the actual assembler and checks node-object preservation, final tests/APIs, changed-file scope and source-path boundaries; it writes only its own scratch receipt. Script SHA-256 `b50255d3c75b8e3155fe97668b6e8d63da06f6b694cff68c5118467847ab3933`.
-
+<!-- BEGIN EXACT JET REGRESSION -->
 ```python
-import json,sys,subprocess,hashlib,re
+#!/usr/bin/env python3
+"""Exact finite-jet regressions; these are not a Lean or arbitrary-series proof."""
+from __future__ import annotations
+import hashlib
+import json
+from fractions import Fraction
+from math import comb
 from pathlib import Path
-from collections import defaultdict,deque
-root=Path.cwd();sys.path.insert(0,str(root/"scripts"));import build
-rid="DeformationAndDerivedPatchingAlgebra"
-stem=rid+"--P7"
-packetpath="research/blueprint/packets/"+stem+".json"
-roadmappath="research/blueprint/atlas/roadmaps/"+rid+".json"
-base="d2c01b60c52cf46809c0de093cf75f37f47e5aa8"
-p=json.loads((root/packetpath).read_text());r=json.loads((root/roadmappath).read_text())
-old=json.loads(subprocess.check_output(["git","show",base+":"+packetpath],text=True))
-oldr=json.loads(subprocess.check_output(["git","show",base+":"+roadmappath],text=True))
-load=build.load_promoted
-def assemble(packet,definition):
- def overlay(*a,**k):
-  ps,ds,defs=load(*a,**k)
-  return ([(n,v) for n,v in ps if n!=stem]+[(stem,packet)],
-   {**ds,stem:"research/blueprint/readmes/"+stem+".md"},
-   defs)
- build.load_promoted=overlay
- return build.assemble(require_distances=False)[0]
-a=assemble(p,r);control=assemble(old,oldr)
-def dag(vertices,edges):
- vertices=set(vertices)|{x for e in edges for x in e};following=defaultdict(set);indegree=dict.fromkeys(vertices,0)
- for s,t in set(edges):
-  following[s].add(t);indegree[t]+=1
- q=deque(v for v in vertices if not indegree[v]);seen=[]
- while q:
-  v=q.popleft();seen.append(v)
-  for w in following[v]:
-   indegree[w]-=1
-   if not indegree[w]:q.append(w)
- assert len(seen)==len(vertices),("cycle",sorted(v for v in vertices if indegree[v])[:10])
- return {"vertices":len(vertices),"edges":len(set(edges)),"acyclic":True}
-se={(e["source"],e["target"]) for e in a["stageEdges"]}
-ce={(e["source"],e["target"]) for e in control["stageEdges"]}
-assert se==ce
-stageids={s["id"] for s in a["stages"]}
-own={n["id"]:n for n in p["nodes"]}
-oe={(dep,n["id"]) for n in own.values() for dep in n.get("prerequisites",[]) if dep in own}
-stageDAG=dag(stageids,se);ownDAG=dag(own,oe)
-allnodes=dict(own)
-for folder in ("data/decompositions","data/blueprints","research/blueprint/packets"):
- for path in sorted((root/folder).glob("*.json")):
-  for n in json.loads(path.read_text()).get("nodes",[]):allnodes.setdefault(n["id"],n)
-used=set(own);todo=list(own)
-while todo:
- v=todo.pop()
- for d in allnodes[v].get("prerequisites",[]):
-  if d in allnodes and d not in used:used.add(d);todo.append(d)
-edges=set(se)
-for v in used:
- n=allnodes[v]
- parent=n.get("parentStageId")
- if parent:edges.add((parent,v))
- for d in n.get("prerequisites",[]):
-  if d in stageids or d in used:edges.add((d,v))
-for request in p["requests"]:
- for v in request["neededBy"]:edges.add((request["supplier"],v))
-combined=dag(stageids|used,edges)
-following=defaultdict(set)
-for s,t in se:following[s].add(t)
-def reachable(s,t):
- todo=[s];seen=set()
- while todo:
-  x=todo.pop()
-  if x==t:return True
-  if x not in seen:seen.add(x);todo+=list(following[x])
- return False
-pairs=set()
-for stage in r['stages']:
- for dep in stage.get('requires',[]):pairs.add((dep,rid+':'+stage['key']))
-def stage_of(v):
- seen=set()
- while v in allnodes and v not in seen:
-  seen.add(v);v=allnodes[v].get('parentStageId')
- return v
-for n in own.values():
- for d in n.get("prerequisites",[]):
-  if d in stageids and d not in allnodes and d!=stage_of(n['id']):pairs.add((d,stage_of(n['id'])))
-for req in p["requests"]:
- for v in req["neededBy"]:
-  target=stage_of(v)
-  if req["supplier"]!=target:pairs.add((req["supplier"],target))
-missing=[(s,t) for s,t in pairs if not reachable(s,t)]
-inheritedMissing=[("tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",rid+":R03.4")]
-assert missing==inheritedMissing,missing
-assert p["requests"]==old["requests"]
-ar={x["id"]:x for x in a["roadmaps"]};cr={x["id"]:x for x in control["roadmaps"]}
-assert ar[rid]["blueprint"]["declarations"]==149
-assert ar[rid]["blueprint"]["planets"]==19
-assert ar[rid]["blueprint"]["skippedLinks"]==cr[rid]["blueprint"]["skippedLinks"]
-assert all(ar[x].get("blueprint",{}).get("skippedLinks")==cr[x].get("blueprint",{}).get("skippedLinks") for x in cr)
-for key in ("sourceIssues",):
- assert p[key]==old[key],key
-on={n["id"]:n for n in old["nodes"]}
-for id,n in on.items():
- for key in ("id","kind","statement","hypotheses","api","sources","implementationStatus","uses"):
-  assert own[id].get(key)==n.get(key),(id,key)
- assert all(t in own[id].get("tests",[]) for t in n.get("tests",[]))
- assert all(a in own[id].get("acceptance",[]) for a in n.get("acceptance",[]))
-assert p["baseline"]["declarations"][:len(old["baseline"]["declarations"])]==old["baseline"]["declarations"]
-unchanged=sum(own[id]==n for id,n in on.items())
-assert unchanged==89,unchanged
-assert len(own)==96
-lean=(root/("research/blueprint/suggested/"+stem+".lean")).read_text()
-for node in p["nodes"][len(old["nodes"]):]:
- for test in node.get("tests",[]):assert test["name"] in lean,test["name"]
-for node in p["nodes"][len(old["nodes"]):]:
- for api in node.get("api",[]):assert api["name"].split(".")[-1] in lean,api["name"]
-allowed={packetpath,"research/blueprint/readmes/"+stem+".md","research/blueprint/suggested/"+stem+".lean","research/blueprint/handoff/BP-"+stem+".md"}
-changed=set(subprocess.check_output(["git","diff","--name-only",base],text=True).splitlines())
-assert changed<=allowed,changed
-for path in changed:
- assert not re.search(r"/(?:home|tmp|Users)/|file"+"://",(root/path).read_text()),path
-result={"actualAssembler":True,"declarations":149,"partDeclarations":96,"partPlanets":13,"planets":19,"ownSkippedLinks":ar[rid]["blueprint"]["skippedLinks"],
- "stageDAG":stageDAG,"ownDeclarationDAG":ownDAG,"stagesAndReachableDeclarations":combined,
- "reachableDeclarations":len(used),"externalDeclarations":sorted(used-set(own)),
- "requiredStagePairs":len(pairs),"requiredStagePairsReachable":len(pairs)-len(missing),"inheritedMissingStagePairs":missing,"stageEdgesUnchanged":True,
- "otherSkipsMatchOriginal":True,"unchangedNodeObjects":unchanged,
- "scriptSha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
-Path(__file__).with_suffix(".json").write_text(json.dumps(result,indent=2)+"\n")
-print(json.dumps(result,indent=2))
+from random import Random
+
+
+def choose2(n: int) -> int:
+    assert n >= 0
+    return comb(n, 2) if n >= 2 else 0
+
+
+def monomials(n: int) -> list[tuple[int, int]]:
+    return [(i, degree - i) for degree in range(n + 1) for i in range(degree + 1)]
+
+
+def rank_mod_p(matrix: list[list[int]], p: int) -> int:
+    """Ordinary row reduction over the prime field, without a predicted rank."""
+    a = [[x % p for x in row] for row in matrix]
+    if not a:
+        return 0
+    row = 0
+    for col in range(len(a[0])):
+        pivot = next((j for j in range(row, len(a)) if a[j][col]), None)
+        if pivot is None:
+            continue
+        a[row], a[pivot] = a[pivot], a[row]
+        inverse = pow(a[row][col], -1, p)
+        a[row] = [(inverse * x) % p for x in a[row]]
+        for j in range(len(a)):
+            if j != row and a[j][col]:
+                factor = a[j][col]
+                a[j] = [(x - factor * y) % p for x, y in zip(a[j], a[row])]
+        row += 1
+        if row == len(a):
+            break
+    return row
+
+
+def jet_length(f: dict[tuple[int, int], int], p: int, n: int) -> int:
+    """Dimension of the actual cokernel of f on k[x,y]/(x,y)^(n+1)."""
+    basis = monomials(n)
+    position = {a: j for j, a in enumerate(basis)}
+    matrix = [[0] * len(basis) for _ in basis]
+    for col, (u, v) in enumerate(basis):
+        for (i, j), coefficient in f.items():
+            if i + j + u + v <= n:
+                target = position[(i + u, j + v)]
+                matrix[target][col] = (matrix[target][col] + coefficient) % p
+    return len(basis) - rank_mod_p(matrix, p)
+
+
+def polynomial(d: int, n: int) -> Fraction:
+    return Fraction(d * (n + 1)) - Fraction(d * (d - 1), 2)
+
+
+def main() -> None:
+    rng = Random(551_20261002)
+    cases: list[tuple[str, int, dict[tuple[int, int], int]]] = []
+    named = {
+        'zero': {},
+        'unit': {(0, 0): 1, (1, 0): 1, (0, 2): 1},
+        'line': {(1, 0): 1},
+        'node': {(1, 1): 1},
+        'cusp': {(0, 2): 1, (3, 0): -1},
+        'triple_tangent': {(3, 0): 1, (0, 3): -1},
+        'nonreduced_fourth_power': {(4, 0): 1},
+        'higher_terms': {(4, 0): 1, (0, 7): 1, (3, 5): 1},
+    }
+    for p in (2, 3, 5, 7):
+        for name, f in named.items():
+            cases.append((f'{name}/F{p}', p, f))
+        for d in range(8):
+            for sample in range(6):
+                f = {a: rng.randrange(p) for a in monomials(10) if sum(a) >= d}
+                # Pick the leading form independently of any rank calculation.
+                f[(d, 0)] = rng.randrange(1, p)
+                cases.append((f'random/F{p}/d{d}/{sample}', p, f))
+    assertions = 0
+    finite_order_cases = 0
+    jet_checks = 0
+    for name, p, f in cases:
+        f = {a: c % p for a, c in f.items() if c % p}
+        previous = 0
+        d = min(map(sum, f)) if f else None
+        finite_order_cases += d is not None
+        for n in range(11):
+            actual = jet_length(f, p, n)
+            jet_checks += 1
+            if d is None:
+                assert actual == choose2(n + 2), (name, n, actual)
+                assertions += 1
+            else:
+                expected = choose2(n + 2) - choose2(max(0, n + 2 - d))
+                defect = choose2(max(0, d - n - 1))
+                assert actual == expected, (name, n, d, actual, expected)
+                assert actual - previous == min(n + 1, d), (name, n, d)
+                assert Fraction(actual) - polynomial(d, n) == defect, (name, n, d)
+                assert (Fraction(actual) == polynomial(d, n)) == (d <= n + 2)
+                if n >= d:
+                    assert actual + choose2(n + 2 - d) == choose2(n + 2)
+                    assertions += 1
+                if n < d:
+                    assert actual == choose2(n + 2)
+                    assertions += 1
+                assertions += 4
+            previous = actual
+    # Arithmetic checks extend well beyond the matrix sizes and isolate casts,
+    # truncated subtraction, and the earliest cumulative agreement index.
+    arithmetic_checks = 0
+    for d in range(101):
+        threshold = max(0, d - 2)
+        for n in range(121):
+            h = choose2(n + 2) - choose2(max(0, n + 2 - d))
+            assert Fraction(h) == polynomial(d, n) + choose2(max(0, d - n - 1))
+            assert (Fraction(h) == polynomial(d, n)) == (n >= threshold)
+            arithmetic_checks += 1
+            assertions += 2
+        if d >= 3:
+            n = d - 3
+            h = choose2(n + 2)
+            assert Fraction(h) - polynomial(d, n) == 1
+            assertions += 1
+    # A coefficient zero divisor invalidates the order-addition injection.
+    assert 2 % 4 != 0 and (2 * 2) % 4 == 0
+    assertions += 1
+    # Wrong small-index multiplication on a one-dimensional residue jet is zero.
+    assert jet_length({(4, 0): 1}, 2, 0) == 1
+    assertions += 1
+    receipt = {
+        'agent': 'ChatGPT Pro — cp-20261002-sr-c72e81',
+        'scope': 'finite polynomial jets and independent integer/rational boundary arithmetic',
+        'polynomial_cases': len(cases),
+        'finite_order_cases': finite_order_cases,
+        'zero_equation_cases': len(cases) - finite_order_cases,
+        'jet_matrix_checks': jet_checks,
+        'arithmetic_pairs': arithmetic_checks,
+        'assertions': assertions,
+        'source_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        'lean_compiled': False,
+        'warning': 'No arbitrary-series theorem or native Lean signature is certified by these tests.'
+    }
+    print(json.dumps(receipt, indent=2))
+
+if __name__ == '__main__':
+    main()
 ```
+<!-- END EXACT JET REGRESSION -->
 
-## Preserved full integration worklist
+## 6. Resume here
 
-The following worklist is preserved from the predecessor. Its labels remain local labels, not new atlas IDs. The current appendix updates the residue/length leaf; the remaining obligations and all formulas/proofs in the immutable predecessor stay binding.
+First integrate the finite-jet strand, not a second general multiplicity definition. Give the eight draft declarations their packet nodes and reader proof text, retain the exact native quotient and scalar maps, and make the whole suggested file elaborate in an existing pinned build subject to the WORKERS memory rule. Establish native finiteness before any `toNat` subtraction. The submitted file must use the existing `gradedFunction` carrier, not simply define its answer as a difference. Add tests that distinguish the cumulative and graded thresholds; x^4 over F2 is a compact witness. Run the indexed blueprint checker and the actual assembler, then record the results rather than inheriting an old successful receipt.
 
-## 10. Proof-sized integration work and what remains
+Next resume the predecessor's J08–J09 tangent-cone map and full homogeneous kernel, J12 dimension, J13 comparison with the reserved intrinsic and ambient multiplicities, and J14–J16 embedded-prime, finite coefficient-extension and coordinate-change statements. The full general graded Hilbert–Serre induction still needs its actual homogeneous kernel/cokernel, quotient action, signed length recurrence, initial anchor, threshold and support-dimension comparison. Completion, Artin–Rees, associativity, both supplier requests and all original derived/deformation/patching/source-route obligations remain open.
 
-These are local worklist labels, **not new registered atlas node IDs**.
-Integration must update packet, reader and suggested file together while
-preserving all existing identifiers and using the real native carriers.
-
-1. J01: identify m^r with the native coefficient/order condition by the
-   finite monomial grouping; expose the membership equivalence.
-2. J02: construct (4) by polynomial inclusion and identify its full kernel.
-   Export the monomial basis and the quotient-map evaluation formulas.
-3. J03: compare the lowest native homogeneous component with polynomial
-   truncation, then deduce (5) from the existing multiplication theorem
-   and the polynomial domain instance. Do not duplicate that theorem.
-4. J04: construct the actual R-linear shifted quotient map under N>=d;
-   separate its representative-independence and generator-evaluation API.
-5. J05: prove injectivity of J04 by (5), and identify its cokernel and
-   quotient projection. State (6) using the native exact-sequence API.
-6. J06: prove the small-index isomorphism (7), separately from (6).
-7. J07: prove the finite length comparison and (8), then derive the full
-   natural-valued formula (1) after establishing finiteness.
-8. J08: construct theta into the existing adic Rees quotient using the
-   registered degree-one inclusions; prove degreewise surjectivity.
-9. J09: prove its full homogeneous kernel by (9) and assemble the graded
-   isomorphism (10), including its compatibility with the named maps.
-10. J10: derive (2) from the native successive-quotient exact sequence;
-    compare the degree components in (10) as a second consistency check.
-11. J11: identify (3) with the existing eventual polynomial using its
-    uniqueness contract and the explicit threshold; do not introduce an
-    assumed record containing the required formula.
-12. J12: connect the actual two-variable Noetherian/dimension input with
-    its supplier or sharpen its existing gap; use the quotient prime
-    correspondence and height bound to show dim(A)=1.
-13. J13: specialize the reserved intrinsic and degree-indexed multiplicity
-    APIs to (11), to the ambient zero value, and to the regular surface.
-14. J14: prove (13) via actual quotient powers and the same uniqueness API.
-15. J15: construct (14) at finite levels, with coefficient maps and
-    transition naturality; keep untruncated completion out of its type.
-16. J16: record unit and coordinate-change transport, then derive (12)
-    and the characteristic-sensitive native examples.
-
-This advances the mathematical formal-plane-curve leaf, but does not
-close the canonical geometric-comparisons gap before J01–J16 and their
-native signatures are integrated. In particular it does not prove the
-general regular-local multiplicity theorem, Nagata's unmixed converse,
-the parameter-ideal Cohen–Macaulay criterion, or general completion
-invariance. The field-extension finite-jet theorem is not a substitute
-for that completion theorem.
-
-The predecessor's main general Hilbert–Serre next step also remains:
-inspect the pinned `DirectSum.Decomposition.restrict` and
-`DirectSum.map_decompose_shift`; construct the actual homogeneous kernel,
-image and cokernel of multiplication by a degree-one generator; descend
-the action to S/(x); handle Q_0=M_0; prove the signed length recurrence
-without assuming injectivity. The induction uses
-
-    D(T)=P_Q(T)-P_K(T-1),
-    N=max(1,N_Q,N_K+1),
-    P_M(T)=summatoryPolynomial(D)(T)+h_M(N-1)
-           -summatoryPolynomial(D)(N-1).
-
-The threshold and anchor cannot be omitted. The zero-generator-list tail
-is zero; the nonempty-list degree bound does not by itself identify degree
-with support dimension. Those obligations, the dimension/Artin–Rees and
-associativity leaves, the two supplier requests and every original
-patching, deformation and derived paper route remain open. No new planet,
-owner, source issue or stage-closure claim is introduced here.
+This checkpoint changes no implementation status, no coverage decision, no source-issue verdict and no ownership assignment. The proof and executable source above are self-contained; no next worker depends on an inaccessible scratch path.
