@@ -1,9 +1,147 @@
 # Algebraic moduli for arithmetic geometry: A0 extension
 
-The current packet has 169 declarations and ten planets. This is the reader for issue #672 and the packet with part A0-extension. It covers exactly A0-extension and R09.1–R09.7. It is a partial checkpoint: implementations are unchecked, requests are open, and none of the eight stages is closed. The declaration catalogue develops gerbes, arbitrary-module fpqc descent, torsor twisting and relative Picard descent. Full parameter spaces, Picard representability, Artin, algebraization and resolution remain work in this same scope. The full suggested Lean file is uncompiled; its Mathlib-only intrinsic-band extraction has been checked, as recorded in the native checkpoint below. Its exact type and signature omissions are recorded below rather than hidden by unspecified propositions.
+The current packet has 173 declarations and ten planets. This is the reader for issue #672 and the packet with part A0-extension. It covers exactly A0-extension and R09.1–R09.7. It is a partial checkpoint: implementations are unchecked, requests are open, and none of the eight stages is closed. The declaration catalogue develops gerbes, arbitrary-module fpqc descent, torsor twisting and relative Picard descent. Full parameter spaces, Picard representability, Artin, algebraization and resolution remain work in this same scope. The full suggested Lean file is uncompiled; its Mathlib-only intrinsic-band extraction has been checked, as recorded in the native checkpoint below. Its exact type and signature omissions are recorded below rather than hidden by unspecified propositions.
 
 
-## Current continuation: cover independence and reversible conjugation
+## Intrinsic-band lifting and evaluation surjectivity
+
+For a gerbe F with abelian inertia, an automorphism a of an object x over U determines a section of the existing compatible-centre group ZF(U). At f:V→U and y over V, choose local isomorphisms f*x→y and descend the conjugates of f*a. Cover independence removes the choices. Naturality in source and target objects gives an actual invertible natural transformation of the identity functor of each fibre, hence a unit of its native categorical centre.
+
+The arbitrary-base comparison uses the intersection of a pulled-back cover with any independently chosen target cover. Native prestack descent detects equality there. The mapComp natural isomorphism compares composite and iterated restrictions; source naturality then proves the precise compatibility equation defining ZF. Native mapId identifies the component at the identity arrow with the original a. Thus the lifting homomorphism is a right inverse of evaluation, proving the existing evaluation-surjectivity leaf. Its uniqueness still uses the existing evaluation-injectivity leaf; the new standalone receipt proves the right inverse and surjectivity without assuming injectivity or the central-section sheaf theorem.
+
+Four declarations are added: arbitrary-base conjugation, source-and-target naturality, the lifting homomorphism, and its identity-evaluation law. The lifting API includes identity, multiplication, inverse, recovery on an arbitrary chosen cover, global-isomorphism comparison, whole-section restriction, injectivity and evaluation. Five native tests cover the unit section, preservation of a nonidentity automorphism, labelled global conjugation, a two-arrow restriction chain, and exact recovery. These are parameterized equations on the actual native carriers. They do not instantiate the still-required point-site, disconnected-site or nonneutral root-gerbe fixtures.
+
+The packet has 173 nodes: 16 definitions, 41 constructions, 83 lemmas, 28 theorems and 5 comparisons. There are 213 total API entries and 190 total tests; the definition/construction counts are 205 and 184. All 169 inherited statements, hypotheses, acceptance conditions, API items, tests and source citations remain; 168 complete inherited node objects are unchanged. Only the existing evaluation-surjectivity proof/prerequisites change. The 100 baseline references, ten planets, 68 source routes, nine gaps and 21 open requests retain all earlier obligations. All eight stages and the reserved gerbe key remain partial or not_read, with implementation status unchecked.
+
+The independent native prototype has 1,000 lines, 23 examples and 41 kernel-axiom audits: zero errors, warnings, admissions or admitted dependencies, 4.42 seconds and 2,156,996 KiB peak memory. Its immutable [proof archive](https://github.com/CBirkbeck/tauceti-explorer/commit/400047f877590da21b1c04c1437dc926fde363ba) includes the exact predecessor proof and the actual existing gerbe and compatible-centre carriers. The final suggested file admits all eleven new public declaration bodies and five new examples under PROTOCOL §13. Its 1,638-line Mathlib-only extraction has 65 examples, zero errors, 127 admission warnings and no other warnings, 6.37 seconds and 3,366,408 KiB peak memory. The full 3,020-line suggested file is uncompiled: the existing pinned build lacks the imported TauCeti cohomology artifact. No library or dependency was built.
+
+The indexed packet checker passes. The actual assembler preserves all stage edges and unrelated skipped links. The stage DAG has 3,017 vertices and 8,655 edges; the own-declaration DAG has 173 vertices and 351 edges; the combined contextual DAG has 3,183 vertices and 9,246 edges. All 24 required supplier paths remain reachable, with no own skipped or pending links. Context edges from parent stages to declarations do not assert mathematical completion.
+
+This supplies a derived completion of the varying-base step omitted from the printed proof of [Stacks Lemma 8.11.8](https://stacks.math.columbia.edu/tag/0CJY). Fresh reading covers that complete statement/proof, [Definition 8.4.1](https://stacks.math.columbia.edu/tag/026F), all eight in-scope reviewed audit rows, the accepted RS-27 decisions and current fix-review report, confirmed finding claims/fixes, and the reserved gerbe contract. Full-paper and whole-upstream-document receipts elsewhere remain attributed to their original readers. This is a focused continuation, not a new whole-source or whole-packet reread.
+
+The locally glued chosen-band inverse, comparison with the actual SF1 slice sheaf and the specified geometric-site fixtures remain open. The other eight gap records, all requests and all source routes are unchanged. Generic stacks/descent remain at D0, spaces/sites/diagonals/atlases at SF1, coherent duality and stable pointed curves at their reserved suppliers, and abelian/PEL applications downstream. No full intrinsic-band, key-definition or stage closure is claimed.
+
+### Declaration catalogue
+
+#### Conjugation transport commutes with arbitrary base change
+
+Identifier: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-base-change. Proposed declaration: TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut_baseChange.
+
+For f:V→U, a covering sieve R of U with local isomorphisms between x and y, and any covering sieve S of V with local isomorphisms between f*x and f*y, restriction of the R-transport of a∈Aut(x) equals the S-transport of f*a. The two covers and their local choices are independent.
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the existing Cat-valued pseudofunctor, in fixed universes large enough for the displayed families. Every automorphism group of every object of every fibre of F is commutative. F satisfies native IsPrestack J. Objects x,y lie in F(U). R and S are actual covering sieves on their displayed bases. Only morphism descent is required; no global objects on other fibres, final object, fibre products, groupoid-fibre assumption, banding or neutrality is assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-overlap, AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-local, mathlib:CategoryTheory.GrothendieckTopology.pullback_stable, mathlib:CategoryTheory.GrothendieckTopology.intersection_covering, mathlib:CategoryTheory.Pseudofunctor.IsPrestackFor.fullyFaithful, mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext, mathlib:CategoryTheory.Pseudofunctor.mapComp', mathlib:CategoryTheory.Cat.Hom.toNatIso.
+
+Proof route:
+
+- Use the covering sieve T=f*R∩S of V. Faithfulness of the native descent functor detects equality after restriction to each arrow g:W→V in T.
+- View g≫f as an arrow of R and g as an arrow of S. The native mapComp natural isomorphism identifies composite and iterated restrictions of x,y. Its naturality compares restrictions of both the source automorphism and the R-transport.
+- Apply the conjugated-overlap lemma to these two comparison isomorphisms and the independently chosen local object isomorphisms. Local recovery on R and S and cancellation of the target comparison give equality on T.
+
+Acceptance:
+
+- The result permits unrelated covers and a base arrow not belonging to R; no injectivity of restriction along one arbitrary arrow is assumed.
+- The argument keeps the actual mapComp component and uses a covering sieve only to detect equality.
+
+Source: Stacks 8.11.8, derived completion of the omitted varying-base proof. Implementation status: unchecked.
+
+#### Descended conjugation respects source and target isomorphisms
+
+Identifier: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-naturality. Proposed declaration: TauCeti.AlgebraicGeometry.GerbeAutTransport.conjugateCoverAut_naturality.
+
+Let x₁,x₂,y₁,y₂ lie in F(U), with c:x₁≅x₂ and d:y₁≅y₂. Given a₁,a₂ with a₁ followed by c equal to c followed by a₂, independently descended conjugates b₁,b₂ along local x₁-to-y₁ and x₂-to-y₂ isomorphisms satisfy b₁ followed by d equal to d followed by b₂.
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the existing Cat-valued pseudofunctor, in fixed universes large enough for the displayed families. Every automorphism group of every object of every fibre of F is commutative. F satisfies native IsPrestack J. Each of the two local-isomorphism families is indexed by its own covering sieve on U. Fibres need not be groupoids for this lemma.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-overlap, AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-local, mathlib:CategoryTheory.GrothendieckTopology.intersection_covering, mathlib:CategoryTheory.Pseudofunctor.IsPrestackFor.fullyFaithful, mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext.
+
+Proof route:
+
+- Detect equality of the two morphisms y₁→y₂ by descent on the intersection of the covers.
+- Map c,d and the source commutation equation along every arrow in the intersection. Apply the existing conjugated-overlap lemma to the resulting fibre isomorphisms.
+- Recover both descended conjugates locally and use functoriality of composition. No compatibility between the two chosen isomorphism families is required.
+
+Acceptance:
+
+- Taking c to be the identity proves target naturality; taking d to be the identity compares differently presented source objects.
+- The source commutation hypothesis is retained; no arbitrary source automorphism is silently identified with another.
+
+Source: Stacks 8.11.8, derived completion of the omitted varying-base proof. Implementation status: unchecked.
+
+#### Extend an automorphism to an intrinsic-band section
+
+Identifier: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-lift. Proposed declaration: TauCeti.AlgebraicGeometry.IntrinsicBandSections.lift.
+
+For a gerbe F with abelian inertia and x∈F(U), construct a group homomorphism Lₓ:Aut(x)→ZF(U), where ZF is the existing compatible-centre subgroup. Its component at f:V→U and y∈F(V) is the cover-independent local conjugation of f*a from f*x to y. Every component is an actual invertible natural transformation of the fibre identity functor.
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the existing Cat-valued pseudofunctor, in fixed universes large enough for the displayed families. Every automorphism group of every object of every fibre of F is commutative. F satisfies the packet IsGerbe predicate on the existing IsStack carrier, including groupoid fibres and local isomorphisms. A displayed object x in F(U) is fixed; no choice of an object in every fibre or global neutralization is supplied.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:key/gerbes, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sections, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-ext, AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-hom, AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-independent, AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-global-iso, AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-base-change, AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-naturality, mathlib:CategoryTheory.NatIso.ofComponents, mathlib:CategoryTheory.Aut.unitsEndEquivAut, mathlib:CategoryTheory.Pseudofunctor.mapComp', mathlib:CategoryTheory.Cat.Hom.toNatIso.
+
+Proof route:
+
+- At each f,y, use the gerbe local-isomorphism axiom to choose a covering sieve and local isomorphisms f*x→y, and apply the existing descended conjugation homomorphism. Cover independence removes those choices from all comparison statements.
+- For every fibre arrow y→z, the groupoid condition supplies its isomorphism. The source-and-target naturality lemma with identity source comparison gives naturality of the chosen components. Package them by native NatIso.ofComponents, then the units-of-endomorphisms equivalence at the identity functor.
+- For g:W→V, arbitrary-base conjugation compatibility first compares restriction with transport from g*(f*x). Source naturality across the native mapComp component then compares it with transport from (g≫f)*x. This is exactly the defining equation of ZF(U).
+- The native conjugation homomorphisms and mapAut homomorphisms preserve identity and multiplication pointwise; section extensionality proves the homomorphism laws.
+- For restriction of whole sections along f, compare each component over g using the same native composition constraint. This proves the restriction API without assuming that a single arbitrary restriction is faithful.
+
+Acceptance:
+
+- The construction never selects a global object of a fibre without a displayed x; local nonemptiness is not replaced by neutrality.
+- All underlying automorphism inverses are retained in native centre units.
+
+Uses:
+
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-lift-evaluation — Its component at the identity is identified with the original automorphism by the native mapId constraint.
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-surjective — Provides an explicit preimage for every object automorphism, with section compatibility already proved.
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation-equivalence — Supplies the inverse direction of the existing evaluation equivalence without choosing a coefficient sheaf.
+
+Api:
+
+- TauCeti.AlgebraicGeometry.IntrinsicBandSections.lift_one — simp — Lₓ(1)=1.
+- TauCeti.AlgebraicGeometry.IntrinsicBandSections.lift_mul — structure — Lₓ(ab)=Lₓ(a)Lₓ(b), with native automorphism multiplication.
+- TauCeti.AlgebraicGeometry.IntrinsicBandSections.lift_inv — simp — Lₓ(a inverse) is Lₓ(a) inverse.
+- TauCeti.AlgebraicGeometry.IntrinsicBandSections.lift_app — compatibility — Evaluation of Lₓ(a) at any f,y equals the descended conjugate on any supplied local-isomorphism covering sieve, independently of the chosen cover.
+- TauCeti.AlgebraicGeometry.IntrinsicBandSections.lift_globalIso — compatibility — If d:f*x≅y is global, evaluation of Lₓ(a) at f,y is native conjugation through d of f*a.
+- TauCeti.AlgebraicGeometry.IntrinsicBandSections.lift_restrict — functoriality — Restriction of Lₓ(a) along f equals the whole section L_(f*x)(f*a); the native composition constraint identifies its components.
+- TauCeti.AlgebraicGeometry.IntrinsicBandSections.lift_injective — characterisation — Lₓ is injective: evaluation at the identity recovers a.
+- TauCeti.AlgebraicGeometry.IntrinsicBandSections.eval_lift — compatibility — Evaluation of Lₓ(a) at (identity of U,x) is a; this API is promoted to the following lemma node.
+
+Tests:
+
+- GerbeBandLiftTests.identity — degenerate — Lₓ sends the identity automorphism to the unit section.
+- GerbeBandLiftTests.nontrivial — non-example — If a is not the identity automorphism, Lₓ(a) is not the unit section; constant-unit transport fails.
+- GerbeBandLiftTests.globalIso — compatibility — Evaluation at f,y with a supplied isomorphism f*x≅y agrees with its labelled native conjugation of f*a.
+- GerbeBandLiftTests.restrictionChain — compatibility — For W→V→U, twice restricting Lₓ(a) equals lifting the automorphism restricted along the composite arrow, on the composite pullback object.
+- GerbeBandLiftTests.recovery — characterisation — Evaluation of the lifted automorphism at the identity object returns precisely that automorphism.
+
+Source: Stacks 8.11.8, derived completion of the omitted varying-base proof. Implementation status: unchecked.
+
+#### Evaluation recovers the lifted automorphism
+
+Identifier: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-lift-evaluation. Proposed declaration: TauCeti.AlgebraicGeometry.IntrinsicBandSections.eval_lift.
+
+For x∈F(U) and a∈Aut(x), evaluation of Lₓ(a) at the identity arrow and x equals a.
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the existing Cat-valued pseudofunctor, in fixed universes large enough for the displayed families. Every automorphism group of every object of every fibre of F is commutative. F is a gerbe with abelian inertia; x is a displayed object of F(U).
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-lift, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation, AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-global-iso, mathlib:CategoryTheory.Pseudofunctor.mapId', mathlib:CategoryTheory.Cat.Hom.toNatIso.
+
+Proof route:
+
+- The identity component of Lₓ is local conjugation from identity-pullback x to x. Compare it with global conjugation through the native mapId isomorphism.
+- Naturality of mapId with a identifies the conjugated identity-pullback automorphism with a. Cancel its inverse and forward components using the native isomorphism identities.
+
+Acceptance:
+
+- No strict equality between identity restriction and the identity functor is assumed.
+- Together with the existing evaluation-injectivity leaf this gives the unique extension, while this lemma alone gives the explicit right inverse.
+
+Source: Stacks 8.11.8, derived completion of the omitted varying-base proof. Implementation status: unchecked.
+
+## Predecessor checkpoint: #5884 — cover independence and reversible conjugation
 
 Codex — codex-J6LwjP, issue #672, base 4557261650818a24845bd3c8f195e393990ea9c0. Six consumed native leaves extend the packet from163 to169 declarations (16 definitions,40 constructions,80 lemmas,28 theorems,5 comparisons). All163 inherited statements, hypotheses, sources and mathematical acceptance/API/test contracts remain;162 complete inherited node objects are unchanged. Only the evaluation-surjectivity leaf gains prerequisites and a more precise proof frontier. The99 baseline declarations include one newly read pinned intersection-covering theorem. The packet contains205 raw API entries (197 on definitions/constructions) and185 raw mathematical tests (179 on definitions/constructions), ten planets, nine gaps,21 open requests and68 unchanged source routes. All eight coverage rows and the reserved gerbe key remain partial or not_read, with no closure.
 
