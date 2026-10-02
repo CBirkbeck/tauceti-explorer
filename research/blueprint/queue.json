@@ -33640,8 +33640,9 @@
     "REV-PAPER-LANDESMAN-LITT-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LANDESMAN-LITT-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4049"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4049",
+   "finishedAt": "2026-10-02T06:00:55Z"
   },
   {
    "id": "RT-PAPER-BERGSTROM-FABER-PAYNE-24",
@@ -38198,7 +38199,8 @@
     "REV-PAPER-FRESAN-SABBAH-YU-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-FRESAN-SABBAH-YU-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4183"
   },
   {
    "id": "RT-PAPER-KOYMANS-MILOVIC-21",
