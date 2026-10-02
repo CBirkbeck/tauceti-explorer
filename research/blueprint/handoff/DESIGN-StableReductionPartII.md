@@ -1,172 +1,295 @@
-# DESIGN-StableReductionPartII — native coefficient splitting checkpoint
+# DESIGN-StableReductionPartII — coefficient-relative exactness research checkpoint
 
-Refs #3342. Codex — codex-5ebb6f; claim5958635306 confirmed by bot5958637359. Entire issue read before and after confirmation. Base7d980305cb145551de205b667b7300a7b18d99c7 after merged PR5819. Partial checkpoint: all eight stages partial, all implementationStatus unchecked.
+Worker: ChatGPT — gpt-20261002-atlas-b73e. Refs #3342. Date: 2026-10-02.
+Claim 5959304556; bot confirmation 5959308029. The issue was reread after confirmation.
 
-## What changed
+## Status, preservation and exact contribution
 
-Instantiated the inherited canonical sectionSplit on the actual polynomial quotient R, actual coordinate ideal J and inherited coefficient scalar tower. Six added nodes: coefficient-inclusion-action, section-evaluation-scalars, section-evaluation-projection, section-projection-formula, section-projection-retraction and section-projection-coefficients. The last three promote the projection APIs used by the splitting and flatness proof, under PROTOCOL§4. Three projection APIs and four tests supplement the unchanged four splitting APIs and three tests.
+This is a **handoff-only partial research checkpoint**, not a complete blueprint submission. It supplies explicit mathematical proofs for the actual polynomial model, together with fresh finite regressions. The roadmap, packet, reader and suggested Lean file are unchanged. No declaration, API, test contract, planet, baseline record or graph edge has been added to those files. No implementation or stage is certified.
 
-The coefficient hom equals the native algebra map, evaluation is A-linear and p(r)=r−ιev(r) is the native A-linear ideal retraction. It fixes J and kills the coefficient section. Define e(r)=(p(r),ev(r)), inverse (j,a)↦j+ι(a), and check both inverse identities and coefficient linearity. No separate module action, assumed kernel or opaque ideal carrier is used. The built bivariate evaluation-ideal theorem and actual quotient map prove the original sectionEvaluationKernel statement.
+The complete predecessor handoff, including its native coefficient-splitting proof archive, validation receipts and graph recipe, remains at the immutable merge of PR #5831:
 
-The splitting proof route now directly constructs its displayed formulas, replacing an uninstantiated complement-equivalence outline. The coefficient-flatness proof consumes the actual ideal retraction. Both original mathematical statements survive. No generic splitting theorem or upstream stable-family object is replanned. Coefficient splitting does not imply R-flatness, R-projectivity, relative stable reflexivity or completion descent.
+https://github.com/CBirkbeck/tauceti-explorer/blob/18d7d3768b68d381b78021dcd84b4fe9114a8e98/research/blueprint/handoff/DESIGN-StableReductionPartII.md
 
-125 nodes: eight definitions,35 constructions,19 lemmas,62 theorems and one application;142 APIs,135 definition/construction tests plus two inherited exactness tests,35 planets,73 pinned baseline declarations,135 requests and fourteen gap groups. All119 original statements, hypotheses, APIs, tests, sources and acceptance conditions are preserved;117 full node objects are identical. Only splitting and coefficient-flatness prerequisite/proof routes change. Binding nineteen Yuan and two DGH routes, six key consumers, reserved StableReductionPartII:key/moduli-curves, ownership proposal, source issues/versions and supplier requests/gaps remain unchanged. No geometric closure is claimed.
+The predecessor reports 125 nodes, 142 API items, 135 definition/construction tests plus two exactness tests, 35 planets, 73 baseline declarations, 135 requests and 14 gaps. Those are inherited counts, not fresh counts from a checker run here. Its canonical Lean proof archive remains at suggested-file revision 637b45159fc2451aa40ce5b5cf9a31ce755c646f. None of those historical compilation or axiom-audit results is attributed to this worker.
 
-## Reading boundary
+The new point is not just ordinary exactness over R, which was already planned. It is exactness after tensoring over the **coefficient ring A with any A-module L**, including non-flat modules. That proves the natural Hom exchange maps, the canonical bidual evaluation isomorphism and both positive-degree Ext vanishings for the polynomial section ideal. The calculations below also identify the existing two cokernel maps with their prescribed signs. This gives a direct polynomial-model route to the relative conditions; it does not prove the two-base completion or geometric descent statements.
 
-Fresh whole issue before/after claim, complete latest handoff, exact own Yuan/DGH routes and reviewed parent StableReduction layers1/3 with accepted REV-AUDIT-02 metadata. PartII has no dedicated reviewed library-audit row. Upstream StableReduction and JacobianChallenge were read earlier in this continuous worker session; they remain the ownership models, without a claim of fresh whole-document reading in this cycle.
+## Fresh readings and their boundaries
 
-Fresh complete Knudsen2012 v2 HTML §3 Key Example through the full Proposition3.1 and Corollary3.2 proofs at [arXiv HTML](https://arxiv.org/html/1106.1588v2). The publication assumes noetherian A and unit discriminant. The native coefficient/kernel/splitting deductions here hold over every commutative ring, including the zero ring. They establish no broader family/sheaf/completion or relative stable-reflexivity theorem. No fresh whole-paper or visual PDF read is claimed. Earlier Appendix, Stacks and whole-paper receipts remain historical; Eisenbud, Bourbaki III5.4.4 and Proposition7's exercise remain exact open inputs.
+- The issue and all its preceding comments, the predecessor handoff, and the relevant MC.2 reader statements were read. The reader blob was fd6c79e266a780096fe1040c229b7f69c7f87a8d. Existing IDs and maps are retained, including `StableReductionPartII:key/moduli-curves`.
+- Knudsen, *A closer look at the stacks of stable pointed curves*, arXiv:1106.1588v2, §3, printed pp.11–12, was read from the parsed primary PDF: https://arxiv.org/pdf/1106.1588 . The matrix entries, skew rotation, cokernel signs and Proposition3.1 were checked against that text. Browser screenshot attempts for PDF pages9,10,11 failed; successful visual verification is **not** claimed. The published assumptions are noetherian A and unit discriminant. The broader polynomial-module argument below is an explicit derivation, not an attribution of that broader statement to the proposition.
+- Ile, *Stably reflexive modules and a lemma of Knudsen*, arXiv:1110.3909v3, Definitions3.1 and3.4, Proposition3.5 with proof, and Remark3.6, printed pp.6–8, were read in the parsed primary PDF: https://arxiv.org/pdf/1110.3909 . Screenshot attempts for PDF pages5 and6 failed. Remark3.6 is the precise comparison with Knudsen's arbitrary-coefficient-module conditions. The general theorem is not silently imported with weaker hypotheses; the special case is proved below.
+- At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, the actual statement and proof of `Polynomial.Monic.isRegular` in `Mathlib/Algebra/Polynomial/Monic.lean`, blob facebe38cd161f5df111d1885d9039377494cd53, were read. That theorem is about multiplication in a polynomial **ring**, not by itself the arbitrary-module assertion C1 below. It was already in the inherited baseline and is not a new planned definition.
+- The parent StableReduction document's scope and conventions were checked: scheme-level curve theory is its input, not a moduli-stack properness theorem. A complete new audit of both pinned libraries, all suppliers and two entire nearby upstream documents was not performed. The failed earlier read of the oversized library-coverage file is not credited as a successful audit. No claim that the generic lemmas below are absent from the pins follows from this checkpoint.
+- Bibliographic detail to preserve at integration: the publisher records DOI 10.1016/j.jpaa.2012.03.021 for Knudsen's article; the arXiv metadata's ending `.03.21` drops a zero. This is a metadata discrepancy, not an alleged error in the mathematical argument.
 
-Full statements and ambient hypotheses freshly read for AdjoinRoot.algebraMap_eq', Polynomial.algebraMap_eq, AdjoinRoot.mk_ne_zero_of_natDegree_lt, Module.subsingleton, bivariate evaluation/ideal membership, quotient representative induction/lift, ideal image/span and containment. Exact new baseline index entries verified at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. TauCetif790474821cf4256814db967cb154e7af3d0c369 unchanged.
+No PDF file hash was computed. All cited source-reading dates are 2026-10-02. The prior complete source inventories, accepted-audit receipts and source issues remain in the predecessor files; they are not replaced by this narrower reading record.
 
-## Native verification and reproduction
+## Conventions
 
-Complete final Mathlib-only sketch: Lean4.34.0-rc2 at the exact pin, exit0, zero errors,170 admitted warnings only,74 examples;13.68 seconds, maximum RSS2,926,184 KiB. Existing artifacts reused;66 GiB available before the check. One compiler at a time, no project/setup/cache/update/build or language server. No combined TauCeti geometric import set certified or created.
+Keep the actual inherited model, over any commutative ring A:
 
-Separate public canonical proof extraction:13 matching declaration signatures,13 axiom audits,seven examples, exit0 with zero errors/warnings in2.91 seconds, maximum RSS2,811,936 KiB. Every printed axiom set is contained in propext, Classical.choice and Quot.sound; no admitted-proof axiom. All13 canonical signatures and all seven example statements match the submitted sketch. Tests include arbitrary ideal membership, the zero base, a nonreduced nonzero section and the native failure of R-linearity; the nonzero root follows from a monic degree bound, not a domain premise.
+- B=A[Y][X], q(X,Y)=X²+γXY+δY², F=q(X,Y)−q(s,t), and R=B/(F).
+- u=[X], v=[Y], coefficient map ι:A→R, c=u−ι(s), d=v−ι(t), b=u+ι(s)+ι(γt), a=ι(δ)v+ι(δt)+ι(γ)u.
+- J=(c,d), D=Hom_R(J,R), Φ=((a,b),(-c,d)), Ψ=((d,-b),(c,a)). Their lifts to B multiply in either order to FI₂, and cb+da=0 in R.
+- Matrices act on columns. Dual coordinates are columns representing row functionals by transposition. H=((0,-1),(1,0)). Then Ψᵀ(-H)=(-H)Φ.
 
-These actual proofs survive only in the allowed suggested file at [immutable 637b4515](https://github.com/CBirkbeck/tauceti-explorer/blob/637b45159fc2451aa40ce5b5cf9a31ce755c646f/research/blueprint/suggested/StableReductionPartII.lean). Extract the exact text after the line BEGIN ARCHIVED CHECKED CANONICAL SECTION SPLITTING and before the line END ARCHIVED CHECKED CANONICAL SECTION SPLITTING, retaining its final newline. Save in your own disk scratch; verify the source hash below. After checking memory, run a single lake env lean on that absolute scratch filename from an existing exact pinned Mathlib build. The receipt certifies the extracted archive, not the surrounding intermediate sketch. The final submitted new bodies are admitted under PROTOCOL§13.
+In C1–C6, P,Q denote either ordered pair of lifted matrices, or their transpose pair, and p,q their images over R. The letter q in these numbered paragraphs denotes the matrix map rather than the quadratic form. Set E=R², M=coker p, R_L=R⊗_A L and E_L=R_L². The distinction between tensoring over A and over R is essential. Zero rings and zero coefficient modules are included.
 
-Historical fifteen proved bodies/nine examples remain at [cef4c208](https://github.com/CBirkbeck/tauceti-explorer/blob/cef4c2085eddbf723e9050f7d4924924d593a0e3/research/blueprint/suggested/StableReductionPartII.lean); the preceding kernel experiment remains at [3f2331a2](https://github.com/CBirkbeck/tauceti-explorer/blob/3f2331a296aa232a5eaf419df358db0cfec27553/research/blueprint/suggested/StableReductionPartII.lean). Their checks are historical, not rerun here.
+## C1. Monicity on arbitrary coefficient modules
 
-Indexed packet checker: zero errors/warnings. Actual read-only atlas assembler, injecting the packet before replaced-decomposition trimming: stages3,050 vertices/8,750 edges; own125/284; scoped stages/declarations/requests3,140/9,273. All acyclic. All81 computed stage prerequisite pairs reachable; no own skipped links; identical stage edges and unrelated skipped links compared with the original packet overlay. It does not audit every unrelated accepted declaration graph. Five-path intake, preservation, canonical signature/example parity and whitespace checks pass.
+**Statement.** Multiplication by F is injective on T_L=(B⊗_A L), for every A-module L. There is a canonical identification T_L/FT_L=R_L.
 
-Reproduce the scoped graph and preservation check from the repository using the standard-library script below, saved in your own scratch. It writes only its JSON result next to the script and performs no site build.
+**Proof.** Identify T_L with finite-support polynomials in X having coefficients in the polynomial module L[Y]. Since F is monic of X-degree2, multiplying a nonzero element whose largest nonzero X-coefficient is at degree n gives that same nonzero coefficient at degree n+2. Thus the product cannot vanish. The zero module case is immediate. Right exactness of tensor applied to B --F--> B → R →0 gives the quotient identification, with its natural R-module action.
 
-```python
-import json,sys,subprocess,hashlib,re
-from pathlib import Path
-from collections import defaultdict,deque
-root=Path.cwd();sys.path.insert(0,str(root/"scripts"));import build
-rid="StableReductionPartII"
-packetpath="research/blueprint/packets/"+rid+".json"
-roadmappath="research/blueprint/roadmaps/"+rid+".json"
-base="7d980305cb145551de205b667b7300a7b18d99c7"
-p=json.loads((root/packetpath).read_text());r=json.loads((root/roadmappath).read_text())
-old=json.loads(subprocess.check_output(["git","show",base+":"+packetpath],text=True))
-oldr=json.loads(subprocess.check_output(["git","show",base+":"+roadmappath],text=True))
-load=build.load_promoted
-def assemble(packet,definition):
- def overlay(*a,**k):
-  ps,ds,defs=load(*a,**k)
-  return ([(n,v) for n,v in ps if v.get("roadmapId")!=rid]+[(rid,packet)],
-   {**ds,rid:"research/blueprint/readmes/"+rid+".md"},
-   [x for x in defs if x.get("id")!=rid]+[definition])
- build.load_promoted=overlay
- return build.assemble(require_distances=False)[0]
-a=assemble(p,r);control=assemble(old,oldr)
-def dag(vertices,edges):
- vertices=set(vertices)|{x for e in edges for x in e};following=defaultdict(set);indegree=dict.fromkeys(vertices,0)
- for s,t in set(edges):
-  following[s].add(t);indegree[t]+=1
- q=deque(v for v in vertices if not indegree[v]);seen=[]
- while q:
-  v=q.popleft();seen.append(v)
-  for w in following[v]:
-   indegree[w]-=1
-   if not indegree[w]:q.append(w)
- assert len(seen)==len(vertices),("cycle",sorted(v for v in vertices if indegree[v])[:10])
- return {"vertices":len(vertices),"edges":len(set(edges)),"acyclic":True}
-se={(e["source"],e["target"]) for e in a["stageEdges"]}
-ce={(e["source"],e["target"]) for e in control["stageEdges"]}
-assert se==ce
-stageids={s["id"] for s in a["stages"]}
-own={n["id"]:n for n in p["nodes"]}
-oe={(dep,n["id"]) for n in own.values() for dep in n.get("prerequisites",[]) if dep in own}
-stageDAG=dag(stageids,se);ownDAG=dag(own,oe)
-allnodes=dict(own)
-for folder in ("data/decompositions","data/blueprints","research/blueprint/packets"):
- for path in sorted((root/folder).glob("*.json")):
-  for n in json.loads(path.read_text()).get("nodes",[]):allnodes.setdefault(n["id"],n)
-used=set(own);todo=list(own)
-while todo:
- v=todo.pop()
- for d in allnodes[v].get("prerequisites",[]):
-  if d in allnodes and d not in used:used.add(d);todo.append(d)
-edges=set(se)
-for v in used:
- n=allnodes[v]
- parent=n.get("parentStageId")
- if parent:edges.add((parent,v))
- for d in n.get("prerequisites",[]):
-  if d in stageids or d in used:edges.add((d,v))
-for request in p["requests"]:
- for v in request["neededBy"]:edges.add((request["supplier"],v))
-combined=dag(stageids|used,edges)
-following=defaultdict(set)
-for s,t in se:following[s].add(t)
-def reachable(s,t):
- todo=[s];seen=set()
- while todo:
-  x=todo.pop()
-  if x==t:return True
-  if x not in seen:seen.add(x);todo+=list(following[x])
- return False
-pairs=set()
-for stage in r['stages']:
- for dep in stage.get('requires',[]):pairs.add((dep,rid+':'+stage['key']))
-def stage_of(v):
- seen=set()
- while v in allnodes and v not in seen:
-  seen.add(v);v=allnodes[v].get('parentStageId')
- return v
-for n in own.values():
- for d in n.get("prerequisites",[]):
-  if d in stageids and d not in allnodes and d!=stage_of(n['id']):pairs.add((d,stage_of(n['id'])))
-for req in p["requests"]:
- for v in req["neededBy"]:
-  target=stage_of(v)
-  if req["supplier"]!=target:pairs.add((req["supplier"],target))
-missing=[(s,t) for s,t in pairs if not reachable(s,t)]
-assert not missing,missing
-ar={x["id"]:x for x in a["roadmaps"]};cr={x["id"]:x for x in control["roadmaps"]}
-assert ar[rid]["blueprint"]["declarations"]==125
-assert ar[rid]["blueprint"]["planets"]==35
-assert not ar[rid]["blueprint"]["skippedLinks"]
-assert all(ar[x].get("blueprint",{}).get("skippedLinks")==cr[x].get("blueprint",{}).get("skippedLinks") for x in cr)
-for key in ("requests","gaps","sources","sourceIssues","sourceVersions","consumerCoverage","keyDefinitionCoverage","restructure","upstreamImportEncoding"):
- assert p[key]==old[key],key
-on={n["id"]:n for n in old["nodes"]}
-for id,n in on.items():
- for key in ("id","kind","statement","hypotheses","api","acceptance","sources","implementationStatus","uses"):
-  assert own[id].get(key)==n.get(key),(id,key)
- assert all(t in own[id].get("tests",[]) for t in n.get("tests",[]))
-assert p["baseline"]["declarations"][:len(old["baseline"]["declarations"])]==old["baseline"]["declarations"]
-unchanged=sum(own[id]==n for id,n in on.items())
-lean=(root/"research/blueprint/suggested/StableReductionPartII.lean").read_text()
-for node in p["nodes"]:
- for test in node.get("tests",[]):assert test["name"] in lean,test["name"]
-for node in p["nodes"]:
- for api in node.get("api",[]):assert api["name"].split(".")[-1] in lean,api["name"]
-allowed={packetpath,roadmappath,"research/blueprint/readmes/"+rid+".md","research/blueprint/suggested/"+rid+".lean","research/blueprint/handoff/DESIGN-"+rid+".md"}
-changed=set(subprocess.check_output(["git","diff","--name-only",base],text=True).splitlines())
-assert changed<=allowed,changed
-for path in changed:
- assert not re.search(r"/(?:home|tmp|Users)/|file"+"://",(root/path).read_text()),path
-result={"actualAssembler":True,"declarations":125,"planets":35,"ownSkippedLinks":[],
- "stageDAG":stageDAG,"ownDeclarationDAG":ownDAG,"stagesAndReachableDeclarations":combined,
- "reachableDeclarations":len(used),"externalDeclarations":sorted(used-set(own)),
- "requiredStagePairsReachable":len(pairs),"stageEdgesUnchanged":True,
- "otherSkipsMatchOriginal":True,"unchangedNodeObjects":unchanged,
- "scriptSha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
-Path(__file__).with_suffix(".json").write_text(json.dumps(result,indent=2)+"\n")
-print(json.dumps(result,indent=2))
+This argument uses finite polynomial support, not a highest-degree argument for a formal power series. It does not assume L is flat. Cancellation takes place in T_L **before** quotienting, not in R_L where F acts as zero.
+
+## C2. Universal coefficient exactness
+
+**Statement.** On E_L the alternating p,q complex is exact at every term. The same is true for the transposed complex.
+
+**Proof.** Products vanish after quotienting. If p_L(z)=0, lift z to z̃ in T_L². There is w in T_L² with Pz̃=Fw. Apply Q to obtain Fz̃=FQw. C1 cancels F coordinatewise, giving z̃=Qw, so z belongs to im q_L. Interchange P,Q for the other equality. Their transposes also multiply in both orders to FI₂, so the same proof applies. This proves all four kernel/image equalities for every L.
+
+For L=A this is precisely the already planned polynomial exactness argument. The extra assertion is its quantification over arbitrary coefficient modules. This is stronger than checking only fields or only flat coefficient changes.
+
+## C3. The canonical cokernel description of the dual
+
+**Statement.** There is an R-linear equivalence
+
+θ:coker(pᵀ) → M*,    θ([λ])([z])=λᵀqz,
+
+where M*=Hom_R(M,R).
+
+**Proof.** Replacing z by z+pw changes the value by λᵀqpw=0. Replacing λ by λ+pᵀμ changes it by μᵀpqz=0. Thus the formula descends in both entries. Pullback along E→M identifies M* with ker pᵀ in E*. Under this identification θ is the map induced by qᵀ. C2 gives im qᵀ=ker pᵀ and ker qᵀ=im pᵀ, proving its surjectivity and injectivity. The formula proves linearity and uniquely specifies the equivalence.
+
+The source here is coker(pᵀ), not coker(qᵀ). Confusing these introduces a parity error. The special node duality between coker Φ and coker Ψ uses the separate skew rotation in C8.
+
+## C4. Arbitrary-module Hom exchange
+
+**Statement.** For every A-module L the natural R-linear map
+
+M*⊗_A L → Hom_R(M,R_L),    h⊗ℓ ↦ ([z]↦h([z])⊗ℓ),
+
+is an isomorphism. The same assertion holds with M replaced by M*.
+
+**Proof.** By right exactness, C3 identifies the source with coker(pᵀ_L). Since E is finite free, the target identifies with ker(pᵀ_L) in E_L*. Under these identifications the stated map is induced by qᵀ_L: on a pure representative [λ]⊗ℓ its value at [z] is (λᵀqz)⊗ℓ. C2 says its kernel before taking the quotient is im pᵀ_L and its image is the whole target. This proves the assertion for the **natural evaluation formula**, not merely existence of an abstract isomorphism. Apply the same reasoning to the transpose factorization, using C3, for M*.
+
+Only finite freeness of E is used to identify Hom of E with two copies of the target. No claim that arbitrary Hom commutes with tensor is used as a premise.
+
+## C5. Canonical biduality and both Ext vanishings
+
+**Statement.** The evaluation map η_M:M→M**, η_M(m)(h)=h(m), is an isomorphism. For every A-module L and i>0,
+
+Ext_R^i(M,R_L)=0 and Ext_R^i(M*,R_L)=0.
+
+Moreover the composition M⊗_A L --η_M⊗1--> M**⊗_A L → Hom_R(M*,R_L) is the natural evaluation isomorphism.
+
+**Proof of biduality.** Apply C3 to the transpose factorization. It gives θ_T:coker p→(coker pᵀ)* with θ_T([z])([λ])=zᵀqᵀλ. Pullback by θ identifies M** with (coker pᵀ)*. For all λ,z,
+
+(θ*η_M([z]))([λ])=η_M([z])(θ([λ]))=λᵀqz=zᵀqᵀλ=θ_T([z])([λ]).
+
+Thus θ*η_M=θ_T. Both θ* and θ_T are isomorphisms, so the actual η_M is an isomorphism. Tensor it with L and compose with C4 for M*; on m⊗ℓ the resulting map is h↦h(m)⊗ℓ.
+
+**Proof of Ext vanishing.** Augment the alternating free resolution with E→coker p. Applying Hom_R(-,R_L) gives the alternating transposed maps on E_L. C2 makes its cohomology zero in every positive degree. For M*, C3 supplies the analogous free resolution from the transposed factorization, and C2 applies again. This requires the usual theorem computing Ext from a projective resolution; it is a shared homological-algebra input, not a newly defined Ext functor.
+
+## C6. Coefficient flatness and arbitrary ring changes
+
+**Statement.** M and M* are flat over A. For any ring map A→A′, the actual mapped polynomial model satisfies all of C1–C5. Its cokernel is canonically A′⊗_A M, and its dual is canonically A′⊗_A M*. For every A′-module L′ one obtains
+
+M*⊗_A L′ ≅ Hom_{R′}(A′⊗_A M,R′⊗_{A′}L′)
+
+with the pure-tensor evaluation formula, and the corresponding positive Ext vanishings for the base-changed module and its dual.
+
+**Proof.** Monic normal form makes R free over A on v^n and uv^n. Consequently the free R-resolution in C5 is also an A-free resolution. Tensoring it with every L is exact in positive degrees by C2, so Tor_1^A(M,L)=0 for every L. The standard flatness criterion proves A-flatness; apply the transpose argument to M*. This is an alternative mathematical route, not a replacement for the predecessor's checked section-ideal retraction proof.
+
+Coefficient mapping identifies A′⊗_A R with the actual R′: the monomial normal forms agree, and on pure tensors the map is a′⊗r↦ι′(a′)φ(r), which respects multiplication. Right exactness identifies the mapped cokernels. The exchange isomorphism C4 with L=A′, followed by extension/restriction-of-scalars adjunction, is the canonical dual base-change map. Equivalently, apply the representative formula of C3 to the mapped matrices. Repeat C1–C5 over A′ and use tensor associativity for L′. Identity, composition and evaluation compatibility follow on pure tensors and quotient representatives. No flatness or injectivity of A→A′ is needed.
+
+For noetherian A, these are exactly the three relative conditions quoted in Ile Remark3.6: natural dual exchange, natural double-dual exchange, and both Ext vanishings for all coefficient modules. Directly using Definition3.4, A-flatness and the same argument over every residue field also prove relative stable reflexivity for this polynomial cokernel. This special proof does not establish the general criterion for unrelated families.
+
+## C7. Transport to the actual section ideal
+
+**Statement.** The existing map coker Ψ→J, [z₀,z₁]↦cz₀−dz₁, is an R-linear equivalence. Thus C4–C6 apply to J and its **actual** R-linear dual D, with their canonical evaluation maps.
+
+**Proof.** Monic normal form R=A[Y]⊕uA[Y] shows d=v−ι(t) is regular: multiplication by Y−t is injective on each polynomial summand. Let σ=(c,-d):E→J. It is surjective because c,d generate J, and σΨ=0 by cb+da=0. Put κ=((0,-1),(-d,b)). It is injective: κ(x,y)=0 first gives y=0, then dx=0, hence x=0. Direct multiplication gives κΦ=((c,-d),(0,0)). If σz=0, then κΦz=0, so Φz=0 and C2 with L=A gives z∈im Ψ. This identifies the kernel of σ and proves the stated cokernel equivalence.
+
+The equivalence is specified by the given generators, hence commutes with coefficient mapping. Transport of Hom and biduality is through this actual map. In particular the exchange for J is h⊗ℓ↦(j↦h(j)⊗ℓ), not a chosen isomorphism of modules of the same rank.
+
+## C8. The existing dual generator and its cokernel signs
+
+**Statement.** The denominator-free ε:J→R defined by dε(j)=bj exists uniquely. Under the existing dual cokernel equivalence coker Φ→D, the class [w₀,w₁] is w₀ incl−w₁ε.
+
+**Proof.** For j=cx+dy set ε(j)=−ax+by. Multiplication by d gives bj. If two expressions give the same j, regularity of d makes their proposed values equal. It follows that ε is R-linear, ε(c)=−a and ε(d)=b, and its defining equation gives uniqueness.
+
+For C3 take p=Ψ and q=Φ. The invertible matrix -H intertwines Φ with Ψᵀ, so it induces coker Φ≅coker Ψᵀ. Compose this with θ and the dual of C7. If λ=-Hw=(w₁,-w₀), the functional pulled back to E is
+
+λᵀΦz=(w₀c+w₁a)z₀+(-w₀d+w₁b)z₁.
+
+This is exactly (w₀ incl−w₁ε)(cz₀−dz₁). Surjectivity of E→J identifies the functional. Thus the resulting equivalence is the pre-existing `section-dual-cokernel` map, with [1,0]↦incl and [0,1]↦−ε. It is not a differently signed surrogate. This gives a route to that cokernel map without assuming the full normal-coordinate equivalence of D in advance.
+
+## Boundaries, integration and next work
+
+The arguments above settle the stated polynomial-model mathematical assertions, but they have **not** been translated into checked Lean or integrated as declaration nodes. In particular:
+
+- Reuse `node-factorization-exact`, `section-dual-generator`, `section-dual-cokernel`, the existing ideal cokernel and the inherited canonical tensor adapters. Do not duplicate their carriers, maps or reserved IDs. C7–C8 are proofs of those maps, not new competing constructions.
+- The arbitrary-module monic lemma, coefficient exactness, quotient duality, canonical biduality and Hom/Ext computations are separate proof obligations. Match them against the reviewed pins and existing supplier nodes before adding nodes. General matrix-factorization/MCM theory still belongs to StablePeriodicCurved, layer7; the proposed PartII ownership change remains unapproved. This note makes no ownership decision and adds no supplier edge.
+- A coefficient module L is not an arbitrary R-module. Sending all coordinates to zero in a receiving ring can make both matrices zero, although their product is still zero; exactness then fails. The same distinction prevents an unwarranted R-flatness or R-projectivity claim.
+- No highest-degree polynomial argument has been applied to formal power series. Complete the two-base completion comparison, Proposition7's exercise, pointed completed-local hull, actual nodal-family identification and coefficient-compatible faithful descent. The generic Appendix theorem and unrelated family cases remain separate inputs even though the special polynomial case now has a direct proof.
+- The dual normal-equivalence/scalar-correction/residue and tensor signatures still require implementation. The direct route above may simplify the proof dependencies, but it does not delete their required APIs or tests.
+- Carry three discriminating cases into the eventual node tests: a non-flat coefficient module over Z/4, characteristic two with unit discriminant, and degenerate discriminant where the algebra remains valid but the geometry is not nodal. Test the exact pure-tensor exchange formula, canonical bidual evaluation and negative second cokernel generator, not merely existence of some equivalence.
+- Run the indexed blueprint checker and the combined stage/declaration/request graph checks after integration. They were **not run** for this handoff-only change. Neither Lean nor Lake is available in this environment; no compiler, cache download, setup, library build or server was run.
+- All MC.0–MC.7 moduli, positivity, fine-level, determinant/Deligne-pairing, Picard/Torelli, arbitrary-base approximation and source-collation gaps from the predecessor remain required. No stage or shared geometric key is closed.
+
+## Fresh executable regressions
+
+The following Python program was run in this session. It checks 20 finite coefficient-module fixtures, including three non-flat Z/4→Z/2 cases; 80 exactness equalities; 20 canonical dual-quotient cases; 5,620 canonical evaluation formula checks; 20 skew-rotation cases; and a receiving-ring counterexample. There are 11,240 vector visits across the four exactness checks, not 11,240 distinct modules.
+
+These finite rings additionally impose Y^k=0 so that exhaustive enumeration is possible. F remains monic in X on the lifted coefficient module. Thus they test C1–C6's factorization mechanism, **not** C7's section-ideal identification: Y−t need not remain regular after this additional truncation. The code never infers the geometric or untruncated ideal claim from these finite models.
+
+Source SHA-256: `1622409e3e996f765c63aee7699a85cbc27a78b6887a9e605648b1c9d9025497`.
+Output SHA-256: `aabe98897e321defe5f5e08d1628efeb87c4312fd83239c837a49a72ce15b695`.
+Extract the following block verbatim with its final newline and run `python relative_factorization.py`.
+
+```text
+{
+  "canonical_dual_quotient_cases": 20,
+  "coefficient_module_cases": 20,
+  "evaluation_formula_checks": 5620,
+  "exactness_equalities": 80,
+  "nonflat_Z4_to_Z2_cases": 3,
+  "receiving_ring_counterexamples": 1,
+  "skew_rotation_cases": 20,
+  "tested_vectors": 11240
+}
+PASS: coefficient-module exactness, dual quotient and canonical evaluation regressions
 ```
 
-SHA-256 receipts:
+```python
+"""Finite regression models for coefficient-relative matrix factorization.
+The Y-truncated rings test cokernels, NOT the section-ideal identification.
+No finite test is a proof of the polynomial or sheaf statements.
+"""
+from itertools import product
+from collections import Counter
+import hashlib
+import json
 
-- canonical proof source: 3d93800d52ffe26a39e1ce5e793b5294fd27d03599472a652adaf0243a4720e9
-- canonical proof log: c3843e9e75665f9cd8306e298ffef6ab12ccffaa00df1f47e7760b2ff32b6093
-- current full sketch: 1742af2721d465f31c49307c9ea6dc0797e20c4bb9e33fa5475c46b7b13a8367
-- current sketch log: 535aafefafa1ced7c72379d89c62d23f4ff188eb734ea9c5ee6e0219297c4172
-- atlas script: 0fbb46fa8cc7053b0276d9cc991fcba19626da329558ef9f61c0c0f490b0989a
-- selected source HTML: 2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685
 
-## Continue from here
+class Model:
+    def __init__(self, modulus, y_order, gamma, delta, s, t):
+        assert modulus >= 1 and y_order >= 1
+        self.m, self.k = modulus, y_order
+        m, k = modulus, y_order
+        self.elements = list(product(range(m), repeat=2*k))
+        self.index = {v: i for i, v in enumerate(self.elements)}
+        self.zero = self.index[(0,)*(2*k)]
+        def elt(coeffs):
+            return self.index[tuple((coeffs[i] if i < len(coeffs) else 0) % m
+                                    for i in range(2*k))]
+        self.one = elt([1])
+        self.x = elt([0]*k + [1])
+        self.y = elt([0, 1]) if k > 1 else self.zero
+        def conv(a, b):
+            return [sum(a[i]*b[n-i] for i in range(n+1)) % m for n in range(k)]
+        c0 = [(s*s + gamma*s*t + delta*t*t) % m] + [0]*(k-1)
+        if k > 2:
+            c0[2] = -delta % m
+        c1 = [0]*k
+        if k > 1:
+            c1[1] = -gamma % m
+        self.add = []
+        self.mul = []
+        for u in self.elements:
+            self.add.append([self.index[tuple((a+b) % m for a, b in zip(u, v))]
+                             for v in self.elements])
+            row = []
+            for v in self.elements:
+                a, b, c, d = u[:k], u[k:], v[:k], v[k:]
+                ac, ad, bc, bd = conv(a, c), conv(a, d), conv(b, c), conv(b, d)
+                bd0, bd1 = conv(bd, c0), conv(bd, c1)
+                w = [(ac[i]+bd0[i]) % m for i in range(k)]
+                w += [(ad[i]+bc[i]+bd1[i]) % m for i in range(k)]
+                row.append(self.index[tuple(w)])
+            self.mul.append(row)
+        self.neg = [self.index[tuple(-x % m for x in v)] for v in self.elements]
+        self.const = lambda n: elt([n])
+        add, mul, neg, C = self.add, self.mul, self.neg, self.const
+        self.c = add[self.x][neg[C(s)]]
+        self.d = add[self.y][neg[C(t)]]
+        self.b = add[add[self.x][C(s)]][C(gamma*t)]
+        self.a = add[add[mul[C(delta)][self.y]][C(delta*t)]][mul[C(gamma)][self.x]]
+        self.P = ((self.a, self.b), (neg[self.c], self.d))
+        self.Q = ((self.d, neg[self.b]), (self.c, self.a))
+        self.vectors = list(product(range(len(self.elements)), repeat=2))
+        assert self.mul[self.x][self.x] == add[add[C(s*s+gamma*s*t+delta*t*t)]
+            [neg[mul[C(gamma)][mul[self.x][self.y]]]]][neg[mul[C(delta)][mul[self.y][self.y]]]]
 
-The concrete coefficient splitting is now established in the immutable native prototype. Finish actual cokernel/dual-generator/normal-equivalence/scalar-correction and tensor comparisons, preserving canonical maps. Then establish sheaf descent.
+    def apply(self, matrix, vector):
+        return tuple(self.add[self.mul[row[0]][vector[0]]]
+                     [self.mul[row[1]][vector[1]]] for row in matrix)
 
-The unapproved StablePeriodicCurved PartII ownership proposal remains unapproved. Supply the relative S→R stable-reflexivity criterion and arbitrary S-module Hom/Ext comparisons; ordinary flat ambient Hom transport does not replace them. Acquire/prove Appendix Proposition6's two-base completion comparison and resolve Proposition7's exercise. Establish the unit-discriminant pointed completed-local hull, actual nodal-family identification and coefficient-compatible faithful descent.
+    def dot(self, u, v):
+        return self.add[self.mul[u[0]][v[0]]][self.mul[u[1]][v[1]]]
 
-All remaining MC.0–MC.7 moduli, positivity, fine-level, determinant/Deligne-pairing, Picard/Torelli, arbitrary-base approximation and source-collation gaps remain required. No stage or shared geometric key is closed. Complete preceding handoff remains at the recorded base. Scratch is deleted after PR opening; all reproducible proof source survives in the immutable archive and graph recipe above.
+
+def transpose(matrix):
+    return tuple(zip(*matrix))
+
+
+counts = Counter()
+fixtures = [
+    (1,1,0,0,0,0),
+    (2,1,1,0,0,0),
+    (2,2,1,0,0,0),
+    (2,2,0,0,0,0),
+    (3,1,0,1,1,1),
+    (4,1,1,0,1,0),
+    (4,1,0,0,1,1),
+    (4,2,1,0,1,1),
+    (6,1,1,0,1,1),
+]
+for m,k,gamma,delta,s,t in fixtures:
+    # For m=4,k=2 we test the non-flat target Z/2, not all 4^8 source vectors.
+    divisors = [2] if (m,k)==(4,2) else [d for d in range(1,m+1) if m%d==0]
+    for d in divisors:
+        R = Model(d,k,gamma,delta,s,t)
+        P,Q = R.P,R.Q
+        z = (R.zero,R.zero)
+        for F,G in ((P,Q),(Q,P),(transpose(P),transpose(Q)),(transpose(Q),transpose(P))):
+            kernel = {v for v in R.vectors if R.apply(F,v)==z}
+            image = {R.apply(G,v) for v in R.vectors}
+            assert kernel == image, (m,k,d,F)
+            assert all(R.apply(F,R.apply(G,v))==z for v in R.vectors)
+            counts['exactness_equalities'] += 1
+            counts['tested_vectors'] += len(R.vectors)
+        # For M=coker(P), theta([lambda])([v]) = lambda^T Q v.
+        # The two values on the standard R-basis of v are Q^T lambda.
+        PT,QT = transpose(P),transpose(Q)
+        relations = {R.apply(PT,v) for v in R.vectors}
+        zero_functionals = {v for v in R.vectors if R.apply(QT,v)==z}
+        all_functionals = {v for v in R.vectors if R.apply(PT,v)==z}
+        represented = {R.apply(QT,v) for v in R.vectors}
+        assert relations==zero_functionals and represented==all_functionals
+        assert len(R.vectors)//len(relations)==len(all_functionals)
+        counts['canonical_dual_quotient_cases'] += 1
+        # Check the canonical evaluation formula, not an arbitrary bidual bijection.
+        for lam in ((R.one,R.zero),(R.zero,R.one)):
+            for v in R.vectors:
+                assert R.dot(lam,R.apply(Q,v))==R.dot(v,R.apply(QT,lam))
+                counts['evaluation_formula_checks'] += 1
+        # The skew rotation intertwines the stated matrices, including signs.
+        minus_H = ((R.zero,R.one),(R.neg[R.one],R.zero))
+        for v in R.vectors:
+            assert R.apply(QT,R.apply(minus_H,v))==R.apply(minus_H,R.apply(P,v))
+        counts['skew_rotation_cases'] += 1
+        counts['coefficient_module_cases'] += 1
+        counts['nonflat_Z4_to_Z2_cases'] += (m==4 and d==2)
+
+# Product=0 by itself does not give exactness in an arbitrary receiving ring.
+R = Model(2,1,1,0,0,0)
+zero_matrix = ((R.zero,R.zero),(R.zero,R.zero))
+assert {R.apply(zero_matrix,v) for v in R.vectors} != set(R.vectors)
+counts['receiving_ring_counterexamples'] += 1
+print(json.dumps(dict(sorted(counts.items())), indent=2))
+print('PASS: coefficient-module exactness, dual quotient and canonical evaluation regressions')
+```
