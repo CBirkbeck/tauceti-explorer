@@ -4,6 +4,12 @@ This file is not the roadmap and is not exhaustive. The roadmap document
 statements suggest Lean forms so that contributors and reviewers can converge on
 names and signatures. They claim no implementation.
 
+REV-FIX-RT-AREA-iwasawa-3~2 (Codex codex-a71f92, 2 October 2026):
+Review status is needs_changes. The new inverse-evaluation API/test takes a
+supplied ring homomorphism; it does not construct one from incomplete PeriodData.
+The comparison-compatibility gap and the stale reader remain. These edits are
+unchecked and NOT COMPILED; earlier compilation accounts are historical.
+
 BP-MotivesAndAlgebraicCycles: partial prototype, implementationStatus = unchecked.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
@@ -8222,23 +8228,28 @@ example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs)
       ¬ ∃ r : ℚ, periodPoint.formal Hs dR
         (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) = r := sorry
 
-/-- The value of the supplier Tate inverse, conditional on the integration normalization
-owned by PeriodsAndSpecialValues:PS.2. The evaluation already has domain `P`, not `P_eff`. -/
+/-- The value of the supplier Tate inverse for a supplied ring homomorphism on `P`.
+The integration normalization is owned by PeriodsAndSpecialValues:PS.2. Bare
+`PeriodData` does not yet justify constructing `periodPoint.formal`: that requires
+the unital multiplicative comparison compatible with connecting edges recorded
+in the packet's gap. This lemma neither constructs that map nor asserts injectivity. -/
 theorem periodPoint_tate_inverse
-    (hint : periodPoint.formal Hs dR (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) =
+    (per : FormalPeriods Hs dR →+* ℂ)
+    (hint : per (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) =
       (2 * Real.pi : ℂ) * Complex.I) :
-    periodPoint.formal Hs dR (FormalPeriods.tateInverse Hs dR) =
+    per (FormalPeriods.tateInverse Hs dR) =
       ((2 * Real.pi : ℂ) * Complex.I)⁻¹ := sorry
 
 /-- Unit test `periodPoint_tate_inverse_test`: evaluation of the inverse and the product,
-without asserting injectivity of evaluation. -/
+given a ring homomorphism; no tensor-compatible comparison is inferred from bare data. -/
 example
-    (hint : periodPoint.formal Hs dR (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) =
+    (per : FormalPeriods Hs dR →+* ℂ)
+    (hint : per (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) =
       (2 * Real.pi : ℂ) * Complex.I) :
-    periodPoint.formal Hs dR (FormalPeriods.tateInverse Hs dR) =
+    per (FormalPeriods.tateInverse Hs dR) =
         ((2 * Real.pi : ℂ) * Complex.I)⁻¹ ∧
-      periodPoint.formal Hs dR (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) *
-        periodPoint.formal Hs dR (FormalPeriods.tateInverse Hs dR) = 1 := sorry
+      per (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) *
+        per (FormalPeriods.tateInverse Hs dR) = 1 := sorry
 
 /-- Unit test `periodPoint_heap_test`: the heap operation applied to `(φ, φ, φ)` returns `φ`. -/
 example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs)
