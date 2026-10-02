@@ -37944,8 +37944,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BHATT-SCHOLZE-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5511"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5511",
+   "finishedAt": "2026-10-02T00:12:49Z"
   },
   {
    "id": "RT-PAPER-COLMEZ-NIZIOL-25",
@@ -41366,7 +41367,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CHENEVIER-TAIBI-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5534"
   },
   {
    "id": "RT-PAPER-BENOIST-19",
