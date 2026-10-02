@@ -590,6 +590,13 @@
         "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
         "provides": "An S-linear map becomes R-linear for compatible existing scalar actions.",
         "checked": "Full actual declaration statement and ambient typeclass hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 427; blob f17b667368926cdb52b767809edd102254cda83d. No library setup or build."
+      },
+      {
+        "ref": "mathlib:LinearMap.map_smulₛₗ",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "For an actual σ-semilinear map f, f(c•x)=σ(c)•f(x); used without defining a second semilinear-map structure.",
+        "checked": "Actual full statement and ambient module/ring-homomorphism variables read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line335; exact index entry verified."
       }
     ]
   },
@@ -750,6 +757,18 @@
       "readSections": [
         "Definition10.39.1, Lemma10.39.5 and Lemma10.39.14, statements and proofs; selected scope only."
       ]
+    },
+    {
+      "id": "knudsen-a71f92-coefficient-change",
+      "title": "A Closer Look at the Stacks of Stable Pointed Curves — coefficient-change passage",
+      "authors": "Finn Faye Knudsen",
+      "url": "https://arxiv.org/html/1106.1588v2",
+      "edition": "arXiv:1106.1588v2, 3 April2012; parsed HTML",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Introduction base-change requirement; full §3 Key Example through Proposition3.1 and the Corollary3.2 proof. Earlier whole-paper and visual receipts keep their predecessor attribution."
+      ],
+      "readingScope": "Fresh selected passages only. The arbitrary-ring native coefficient maps and cancellation proofs are authored deductions, not a claim that the printed noetherian/unit-discriminant stable-reflexivity theorem has broader geometric hypotheses."
     }
   ],
   "nodes": [
@@ -2845,7 +2864,9 @@
         "StableReductionPartII:MC.2/section-dual-generator-formula",
         "StableReductionPartII:MC.2/section-dual-generator-values",
         "StableReductionPartII:MC.2/section-coordinate-regular",
-        "mathlib:LinearMap.restrictScalars"
+        "mathlib:LinearMap.restrictScalars",
+        "StableReductionPartII:MC.2/section-projection-coefficient-naturality",
+        "StableReductionPartII:MC.2/section-dual-generator-coefficient-naturality"
       ],
       "proofSteps": [
         "Define the named A-linear K as the existing R-linear ε restricted to A, composed with the actual A-linear ideal projection p.",
@@ -2909,6 +2930,11 @@
           "name": "NodeSectionFactorization.PolynomialModel.dualCorrectionMap_coefficient",
           "role": "simp",
           "statement": "For every α∈A, the named K satisfies K(ι(α))=0."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualCorrectionMap_coefficient_naturality",
+          "role": "functoriality",
+          "statement": "For the named canonical K=ε∘p, φ(K(r))=K′(φ(r)) for every coefficient map, without flatness."
         }
       ],
       "tests": [
@@ -2936,6 +2962,21 @@
           "name": "NodeSectionFactorization.PolynomialModel.dualCorrectionMap.canonicalProduct",
           "kind": "compatibility",
           "statement": "For every coefficient ring, all coefficients and all r∈R, the named K satisfies K(rd)=rb because ev(d)=0. The product-law orientation is detected already at r=1."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualCorrectionMap.coefficientIdentity",
+          "kind": "compatibility",
+          "statement": "The identity coefficient map fixes the named canonical correction K(r) for every r."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualCorrectionMap.coefficientProjection",
+          "kind": "compatibility",
+          "statement": "For every actual j∈J and every coefficient map, φ(K(j))=ε′(ψ(j)); the ideal projection fixes j, so no artificial correction term remains."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualCorrectionMap.nonflatCharacteristicTwo",
+          "kind": "computation",
+          "statement": "For the actual ℤ model with γ=1,δ=s=t=0 and f:ℤ→ℤ/2, φ(K(u))=u′. The source value is −u and its negative becomes equal to u′ only in characteristic two; nonflat change is allowed."
         }
       ],
       "uses": [
@@ -3132,6 +3173,11 @@
           "name": "NodeSectionFactorization.PolynomialModel.coefficientMapComposition",
           "role": "functoriality",
           "statement": "For A→A′→A″, φ_g∘φ_f=φ_{g∘f}."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.coefficientMapCoordinates",
+          "role": "simp",
+          "statement": "The existing φ sends all four section coordinates c,d,a,b to c′,d′,a′,b′, with mapped coefficients and the same order."
         }
       ],
       "tests": [
@@ -6847,7 +6893,8 @@
       ],
       "proofSteps": [
         "Apply φ to the defining correction equation; naturality of evaluation changes its right side into the primed correction right side.",
-        "Subtract the primed equation at φ(r); regularity of d′ forces equality. No injectivity of φ or flatness of f is used."
+        "Subtract the primed equation at φ(r); regularity of d′ forces equality. No injectivity of φ or flatness of f is used.",
+        "The current native proof applies the existing target-coordinate regularity to the two characterized corrections. The named canonical specialization is also proved by the two actual ideal-valued naturality lemmas. Neither proof uses the unproved dual tensor equivalence."
       ],
       "acceptance": [
         "Taking r=d gives φ(b)=b′; taking r=c gives φ(−a)=−a′."
@@ -6865,7 +6912,8 @@
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
       },
-      "uses": []
+      "uses": [],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.correctionCoefficientNaturality"
     },
     {
       "id": "StableReductionPartII:MC.2/section-dual-tensor-action",
@@ -8384,6 +8432,217 @@
           "how": "Provides the precise native algebra identity used by this consumer."
         }
       ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-map",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Semilinear coefficient map on the section ideal",
+      "kind": "construction",
+      "statement": "Retain R=AdjoinRoot(X²+C(γY)X+C(δY²−q(s,t))), ι:A→R, u=[X], v=[Y], c=u−ιs,d=v−ιt,b=u+ιs+ιγ·ιt, J=(c,d)=ker(ev), and the existing canonical projection p(r)=r−ιev(r) and dual generator ε:J→R with dε(j)=bj. Let R′,J′,p′,ε′ denote the same native objects with mapped coefficients, and φ:R→R′ the existing coefficient map induced by AdjoinRoot.map. Construct the actual φ-semilinear restriction ψ:J→J′, whose underlying ring value is ψ(j)=φ(j). It sends the two ordered ideal generators to their corresponding primed generators, satisfies ψ(rj)=φ(r)ψ(j), and obeys identity and composition on actual ideal elements. This restriction is not asserted injective or an equivalence; the tensor equivalence is a separate existing obligation.",
+      "hypotheses": [
+        "A and A′ are arbitrary commutative rings, including the zero ring; γ,δ,s,t∈A and f:A→A′ is any unital ring homomorphism. No flatness, injectivity, noetherianity or unit-discriminant hypothesis is imposed. Statements concern the untruncated explicit polynomial model, not arbitrary nodal families."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-coefficient-map",
+        "StableReductionPartII:MC.2/section-evaluation-coefficient-naturality",
+        "StableReductionPartII:MC.2/section-evaluation-kernel",
+        "mathlib:LinearMap.map_smulₛₗ"
+      ],
+      "proofSteps": [
+        "Naturality of ev sends every j∈ker(ev) into ker(ev′), hence into the native J′.",
+        "Restrict the native ring homomorphism to the two native ideal subtypes; use its additive and multiplicative equations for the built semilinear LinearMap structure.",
+        "The existing coefficient projection formulas give the two generator values. The native ring-map identity and composition prove the pointwise identities by subtype extensionality.",
+        "A nonflat coefficient map can annihilate a nonzero ideal element; do not infer a pure-map inverse from a later tensor comparison."
+      ],
+      "acceptance": [
+        "Underlying carrier is the native Ideal.span subtype, not a new quotient or tensor carrier.",
+        "Semilinearity uses φ on R-scalars; f-linearity without scalar transport would be ill-typed."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen-a71f92-coefficient-change",
+          "locator": "Introduction, base-change requirement; §3 Key Example through Proposition3.1 and Corollary3.2 proof (parsed HTML), especially regularity of v−t and the generator formulas.",
+          "excerpt": "not a zero-divisor",
+          "match": "The naturality adapters are authored deductions on the explicit monic polynomial quotient. The source gives the motivating noetherian/unit-discriminant example, not the stated arbitrary-ring strengthening or a completed-local/sheaf comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.idealCoefficientMap",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-projection-coefficient-naturality",
+          "how": "Provides the actual ideal-valued comparison rather than only equality after forgetting ideal membership."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-generator-coefficient-naturality",
+          "how": "Specifies the genuine input to ε′ when mapping j."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-ideal-base-change",
+          "how": "The planned tensor comparison evaluates a′⊗j as ι′a′ times this underlying coefficient restriction; its bijectivity remains separate."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealCoefficientMap",
+          "role": "functoriality",
+          "statement": "The coefficient map restricts to an actual φ-semilinear map ψ:J→J′."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealCoefficientMap_coe",
+          "role": "projection",
+          "statement": "For every j∈J, the underlying ring element of ψ(j) is φ(j)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealCoefficientMap_first",
+          "role": "simp",
+          "statement": "ψ sends the native generator c with its actual membership proof to c′."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealCoefficientMap_second",
+          "role": "simp",
+          "statement": "ψ sends the native generator d with its actual membership proof to d′."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealCoefficientMap_identity",
+          "role": "compatibility",
+          "statement": "For the identity coefficient homomorphism, ψ(j)=j for every actual j∈J."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealCoefficientMap_comp",
+          "role": "functoriality",
+          "statement": "For A→A′→A″, ψ_g(ψ_f(j))=ψ_{g∘f}(j), with all four parameters mapped."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealCoefficientMap_smul",
+          "role": "compatibility",
+          "statement": "For every r∈R and j∈J, ψ(r•j)=φ(r)•ψ(j), using the existing ideal scalar actions."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealCoefficientMap.identity",
+          "kind": "compatibility",
+          "statement": "For every coefficient ring and every actual ideal element j, the identity coefficient map fixes j."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealCoefficientMap.generators",
+          "kind": "computation",
+          "statement": "For every coefficient map, the ordered native section-ideal generators c and d map to c′ and d′; this excludes swapping the two coordinates or keeping unmapped parameters."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.idealCoefficientMap.nonflat",
+          "kind": "counterexample",
+          "statement": "For A=ℤ, γ=1,δ=s=t=0 and f:ℤ→ℤ/2, the actual ideal element j=2d is nonzero in the untruncated polynomial model, but ψ(j)=0. Thus arbitrary coefficient restriction is not injective and need not be flat."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-projection-coefficient-naturality",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient naturality of the ideal projection",
+      "kind": "lemma",
+      "statement": "Retain R=AdjoinRoot(X²+C(γY)X+C(δY²−q(s,t))), ι:A→R, u=[X], v=[Y], c=u−ιs,d=v−ιt,b=u+ιs+ιγ·ιt, J=(c,d)=ker(ev), and the existing canonical projection p(r)=r−ιev(r) and dual generator ε:J→R with dε(j)=bj. Let R′,J′,p′,ε′ denote the same native objects with mapped coefficients, and φ:R→R′ the existing coefficient map induced by AdjoinRoot.map. For every r∈R, ψ(p(r))=p′(φ(r)) as actual elements of J′.",
+      "hypotheses": [
+        "A and A′ are arbitrary commutative rings, including the zero ring; γ,δ,s,t∈A and f:A→A′ is any unital ring homomorphism. No flatness, injectivity, noetherianity or unit-discriminant hypothesis is imposed. Statements concern the untruncated explicit polynomial model, not arbitrary nodal families."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-coefficient-map",
+        "StableReductionPartII:MC.2/section-evaluation-projection",
+        "StableReductionPartII:MC.2/section-projection-formula",
+        "StableReductionPartII:MC.2/section-evaluation-coefficient-naturality"
+      ],
+      "proofSteps": [
+        "Apply native subtype extensionality.",
+        "The left underlying value is φ(r−ιev(r))=φ(r)−ι′f(ev(r)).",
+        "Naturality of evaluation identifies the last coefficient with ev′(φ(r)), exactly the right projection formula."
+      ],
+      "acceptance": [
+        "Equality is in the native target ideal, not merely in an unspecified ambient carrier."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen-a71f92-coefficient-change",
+          "locator": "Introduction, base-change requirement; §3 Key Example through Proposition3.1 and Corollary3.2 proof (parsed HTML), especially regularity of v−t and the generator formulas.",
+          "excerpt": "not a zero-divisor",
+          "match": "The naturality adapters are authored deductions on the explicit monic polynomial quotient. The source gives the motivating noetherian/unit-discriminant example, not the stated arbitrary-ring strengthening or a completed-local/sheaf comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionProjection_coefficient_naturality",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-correction-coefficient-naturality",
+          "how": "Together with generator naturality gives the canonical K=ε∘p specialization."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-generator-coefficient-naturality",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient naturality of the canonical dual generator",
+      "kind": "lemma",
+      "statement": "Retain R=AdjoinRoot(X²+C(γY)X+C(δY²−q(s,t))), ι:A→R, u=[X], v=[Y], c=u−ιs,d=v−ιt,b=u+ιs+ιγ·ιt, J=(c,d)=ker(ev), and the existing canonical projection p(r)=r−ιev(r) and dual generator ε:J→R with dε(j)=bj. Let R′,J′,p′,ε′ denote the same native objects with mapped coefficients, and φ:R→R′ the existing coefficient map induced by AdjoinRoot.map. For every actual j∈J, φ(ε(j))=ε′(ψ(j)). This is pointwise naturality of the existing canonical generators, not an isomorphism between the entire dual modules.",
+      "hypotheses": [
+        "A and A′ are arbitrary commutative rings, including the zero ring; γ,δ,s,t∈A and f:A→A′ is any unital ring homomorphism. No flatness, injectivity, noetherianity or unit-discriminant hypothesis is imposed. Statements concern the untruncated explicit polynomial model, not arbitrary nodal families."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-coefficient-map",
+        "StableReductionPartII:MC.2/section-dual-generator",
+        "StableReductionPartII:MC.2/section-dual-generator-formula",
+        "StableReductionPartII:MC.2/section-coordinate-regular",
+        "StableReductionPartII:MC.2/section-coefficient-map"
+      ],
+      "proofSteps": [
+        "Multiply both candidate values by the target regular element d′.",
+        "Mapping dε(j)=bj and using φ(d)=d′ and φ(b)=b′ gives d′φ(ε(j))=b′φ(j).",
+        "The primed generator formula at the actual ideal element ψ(j) gives the same value.",
+        "Cancel multiplication by d′ in R′. No cancellation through φ or flat coefficient Hom-exchange theorem is used."
+      ],
+      "acceptance": [
+        "Only native target-coordinate regularity is used; injectivity of f or φ is not assumed."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen-a71f92-coefficient-change",
+          "locator": "Introduction, base-change requirement; §3 Key Example through Proposition3.1 and Corollary3.2 proof (parsed HTML), especially regularity of v−t and the generator formulas.",
+          "excerpt": "not a zero-divisor",
+          "match": "The naturality adapters are authored deductions on the explicit monic polynomial quotient. The source gives the motivating noetherian/unit-discriminant example, not the stated arbitrary-ring strengthening or a completed-local/sheaf comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.dualGenerator_coefficient_naturality",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/section-dual-base-change",
+          "how": "Gives the exact pointwise ε formula consumed by the separately required canonical tensor-dual comparison."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/section-correction-coefficient-naturality",
+          "how": "Combined with projection naturality proves canonical correction naturality."
+        }
+      ]
     }
   ],
   "requests": [
@@ -9356,7 +9615,8 @@
       "remaining": [
         "Appendix has been read in full. Prove/import the exact relative stable-reflexivity Theorem2 and Proposition6 over S→R; Proposition7 is an exercise, not a proved leaf. Finish pointed hull identification, actual sheaf comparison and finite-presentation approximation for arbitrary bases.",
         "Expand the rigid genus-one embedding and local collision charts into individual lemmas; supply missing Lean family types.",
-        "Prove the native polynomial and flat-ambient/completion adapters and tensor coherence. Completion of actual Hom and quotient has native signatures; the pointed-family, relative stable-reflexivity and arbitrary-family descent interfaces remain absent."
+        "Prove the native polynomial and flat-ambient/completion adapters and tensor coherence. Completion of actual Hom and quotient has native signatures; the pointed-family, relative stable-reflexivity and arbitrary-family descent interfaces remain absent.",
+        "The actual semilinear coefficient restriction, projection and canonical ε/K naturality now have admission-free proof checks. The tensor equivalence, complete dual normal coordinates, arbitrary coefficient-module Hom/Ext exchange and all completed-local/family comparison steps remain separate obligations."
       ]
     },
     {
@@ -10260,7 +10520,7 @@
   "prototypeCoverage": {
     "status": "partial",
     "compiled": true,
-    "reason": "The complete current Mathlib-only admitted sketch is checked separately from an immutable admission-free canonical polynomial/ideal dual-generator and correction extraction. No global geometric or completion interface is certified.",
+    "reason": "The complete current Mathlib-only admitted sketch elaborates. A separately archived admission-free canonical polynomial/ideal proof establishes arbitrary coefficient naturality of the native projection, dual generator and correction, including a nonflat integer-to-characteristic-two test. No entire-dual tensor equivalence, geometric or completion interface is certified.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -10316,7 +10576,10 @@
       "StableReductionPartII:MC.2/section-dual-generator-formula",
       "StableReductionPartII:MC.2/section-dual-generator-values",
       "StableReductionPartII:MC.2/section-dual-correction-formula",
-      "StableReductionPartII:MC.2/section-dual-correction-product"
+      "StableReductionPartII:MC.2/section-dual-correction-product",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-map",
+      "StableReductionPartII:MC.2/section-projection-coefficient-naturality",
+      "StableReductionPartII:MC.2/section-dual-generator-coefficient-naturality"
     ],
     "expressedApi": [
       "NodeForm.eval",
@@ -10403,7 +10666,16 @@
       "NodeSectionFactorization.PolynomialModel.dualCorrectionMap_spec",
       "NodeSectionFactorization.PolynomialModel.dualCorrectionMap_product",
       "NodeSectionFactorization.PolynomialModel.dualCorrectionMap_values",
-      "NodeSectionFactorization.PolynomialModel.dualCorrectionMap_coefficient"
+      "NodeSectionFactorization.PolynomialModel.dualCorrectionMap_coefficient",
+      "NodeSectionFactorization.PolynomialModel.idealCoefficientMap",
+      "NodeSectionFactorization.PolynomialModel.idealCoefficientMap_coe",
+      "NodeSectionFactorization.PolynomialModel.idealCoefficientMap_first",
+      "NodeSectionFactorization.PolynomialModel.idealCoefficientMap_second",
+      "NodeSectionFactorization.PolynomialModel.idealCoefficientMap_identity",
+      "NodeSectionFactorization.PolynomialModel.idealCoefficientMap_comp",
+      "NodeSectionFactorization.PolynomialModel.idealCoefficientMap_smul",
+      "NodeSectionFactorization.PolynomialModel.coefficientMapCoordinates",
+      "NodeSectionFactorization.PolynomialModel.dualCorrectionMap_coefficient_naturality"
     ],
     "expressedTests": [
       "NodeForm.characteristicTwo",
@@ -10481,7 +10753,13 @@
       "NodeSectionFactorization.PolynomialModel.dualGenerator.canonicalNonreduced",
       "NodeSectionFactorization.PolynomialModel.dualGenerator.canonicalSignThree",
       "NodeSectionFactorization.PolynomialModel.dualCorrectionMap.canonicalCharacteristicTwo",
-      "NodeSectionFactorization.PolynomialModel.dualCorrectionMap.canonicalProduct"
+      "NodeSectionFactorization.PolynomialModel.dualCorrectionMap.canonicalProduct",
+      "NodeSectionFactorization.PolynomialModel.idealCoefficientMap.identity",
+      "NodeSectionFactorization.PolynomialModel.idealCoefficientMap.generators",
+      "NodeSectionFactorization.PolynomialModel.idealCoefficientMap.nonflat",
+      "NodeSectionFactorization.PolynomialModel.dualCorrectionMap.coefficientIdentity",
+      "NodeSectionFactorization.PolynomialModel.dualCorrectionMap.coefficientProjection",
+      "NodeSectionFactorization.PolynomialModel.dualCorrectionMap.nonflatCharacteristicTwo"
     ],
     "omissions": [
       {
@@ -11664,40 +11942,40 @@
     "validation": {
       "exitCode": 0,
       "errors": 0,
-      "admittedProofWarnings": 187,
+      "admittedProofWarnings": 204,
       "otherWarnings": 0,
-      "examples": 78,
-      "leanSha256": "0086e2e8e5bda51b27a9426ca664bbace76f4ebc83223a67ea6719180a904245",
-      "normalizedDiagnosticsSha256": "042ba2d07b9eafcb2439ee5921248c139f1dcaef101e56453542217c5b032d29",
-      "reader": "Codex — codex-rtOQ9t",
+      "examples": 84,
+      "leanSha256": "b0e65a36e73f3882a9f6eb257a48f3269361ccc297dbe7a46f31fe4e8aa097c7",
+      "normalizedDiagnosticsSha256": "a52f6ced6ef06b9fcd9aa6de077c1d238cb5f59f114d832b042b6aa1f2f5b4db",
+      "reader": "Codex — codex-a71f92",
       "date": "2026-10-02",
       "toolchain": "Lean v4.34.0-rc2",
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "wholeFile": true,
       "imports": "Mathlib only",
-      "availableMemoryGiB": 65,
-      "wallSeconds": 13.5,
-      "maxResidentKiB": 2934236,
+      "availableMemoryGiB": 62,
+      "wallSeconds": 15.02,
+      "maxResidentKiB": 2969648,
       "existingArtifactsReused": true,
       "noSetupCacheLibraryBuildOrServer": true
     },
     "compilation": {
       "exitCode": 0,
       "errors": 0,
-      "admittedProofWarnings": 187,
+      "admittedProofWarnings": 204,
       "otherWarnings": 0,
-      "examples": 78,
-      "leanSha256": "0086e2e8e5bda51b27a9426ca664bbace76f4ebc83223a67ea6719180a904245",
-      "normalizedDiagnosticsSha256": "042ba2d07b9eafcb2439ee5921248c139f1dcaef101e56453542217c5b032d29",
-      "reader": "Codex — codex-rtOQ9t",
+      "examples": 84,
+      "leanSha256": "b0e65a36e73f3882a9f6eb257a48f3269361ccc297dbe7a46f31fe4e8aa097c7",
+      "normalizedDiagnosticsSha256": "a52f6ced6ef06b9fcd9aa6de077c1d238cb5f59f114d832b042b6aa1f2f5b4db",
+      "reader": "Codex — codex-a71f92",
       "date": "2026-10-02",
       "toolchain": "Lean v4.34.0-rc2",
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "wholeFile": true,
       "imports": "Mathlib only",
-      "availableMemoryGiB": 65,
-      "wallSeconds": 13.5,
-      "maxResidentKiB": 2934236,
+      "availableMemoryGiB": 62,
+      "wallSeconds": 15.02,
+      "maxResidentKiB": 2969648,
       "existingArtifactsReused": true,
       "noSetupCacheLibraryBuildOrServer": true
     },
@@ -12072,6 +12350,97 @@
         "unchangedNodeObjects": 117,
         "scriptSha256": "0fbb46fa8cc7053b0276d9cc991fcba19626da329558ef9f61c0c0f490b0989a"
       }
+    },
+    "coefficientChangePreviousCompilation": {
+      "exitCode": 0,
+      "errors": 0,
+      "admittedProofWarnings": 187,
+      "otherWarnings": 0,
+      "examples": 78,
+      "leanSha256": "0086e2e8e5bda51b27a9426ca664bbace76f4ebc83223a67ea6719180a904245",
+      "normalizedDiagnosticsSha256": "042ba2d07b9eafcb2439ee5921248c139f1dcaef101e56453542217c5b032d29",
+      "reader": "Codex — codex-rtOQ9t",
+      "date": "2026-10-02",
+      "toolchain": "Lean v4.34.0-rc2",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "wholeFile": true,
+      "imports": "Mathlib only",
+      "availableMemoryGiB": 65,
+      "wallSeconds": 13.5,
+      "maxResidentKiB": 2934236,
+      "existingArtifactsReused": true,
+      "noSetupCacheLibraryBuildOrServer": true
+    },
+    "coefficientChangePreviousValidation": {
+      "exitCode": 0,
+      "errors": 0,
+      "admittedProofWarnings": 187,
+      "otherWarnings": 0,
+      "examples": 78,
+      "leanSha256": "0086e2e8e5bda51b27a9426ca664bbace76f4ebc83223a67ea6719180a904245",
+      "normalizedDiagnosticsSha256": "042ba2d07b9eafcb2439ee5921248c139f1dcaef101e56453542217c5b032d29",
+      "reader": "Codex — codex-rtOQ9t",
+      "date": "2026-10-02",
+      "toolchain": "Lean v4.34.0-rc2",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "wholeFile": true,
+      "imports": "Mathlib only",
+      "availableMemoryGiB": 65,
+      "wallSeconds": 13.5,
+      "maxResidentKiB": 2934236,
+      "existingArtifactsReused": true,
+      "noSetupCacheLibraryBuildOrServer": true
+    },
+    "coefficientChangeVerification": {
+      "worker": "Codex — codex-a71f92",
+      "date": "2026-10-02",
+      "archiveCommit": "29e68bdcb7165310e94bcdb11882d057685efa13",
+      "archivePath": "research/blueprint/suggested/StableReductionPartII.lean",
+      "beginMarker": "BEGIN ARCHIVED CHECKED COEFFICIENT NATURALITY",
+      "endMarker": "END ARCHIVED CHECKED COEFFICIENT NATURALITY",
+      "sourceSha256": "dbf4374d619b337b19727079fa52f712582a2e8dc921d0dd027b820f3c0a9ff8",
+      "diagnosticsSha256": "16f25d053f18d6afd6795a2f93c7faad3a8fce5d203d6e1d72aa709eefe58a33",
+      "lines": 798,
+      "examples": 22,
+      "audits": 51,
+      "errors": 0,
+      "warnings": 0,
+      "exitCode": 0,
+      "wallSeconds": 7.65,
+      "maxResidentKiB": 2924688,
+      "availableMemoryGiB": 62,
+      "normalizedDiagnostics": "Replace the invocation filename by Native.lean and omit the RESOURCE timing footer.",
+      "axiomsAllowed": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "admittedProofDependency": false,
+      "proofBodyStatus": "checked separate prototype, not a library implementation claim",
+      "currentAuditedDeclarations": [
+        "coefficientMap",
+        "coefficientMapValues",
+        "coefficientMapEvaluation",
+        "coefficientMapCoordinates",
+        "idealCoefficientMap",
+        "idealCoefficientMap_coe",
+        "idealCoefficientMap_first",
+        "idealCoefficientMap_second",
+        "sectionProjection_coefficient_naturality",
+        "dualGenerator_coefficient_naturality",
+        "dualCorrectionMap_coefficient_naturality",
+        "coefficientMapIdentity",
+        "coefficientMapComposition",
+        "idealCoefficientMap_identity",
+        "idealCoefficientMap_comp",
+        "idealCoefficientMap_smul",
+        "correctionCoefficientNaturality"
+      ],
+      "previousArchive": "5e2a9a9380351b0dfa9dfd19e384be86d7b3a5d8",
+      "newAdmittedSignatureParity": 11,
+      "newExampleStatementParity": 6,
+      "archiveExtractionByteParity": true,
+      "scope": "Native untruncated AdjoinRoot model and actual section-ideal subtype, arbitrary commutative coefficient rings and arbitrary unital ring maps. No flatness/injectivity assumption and no entire-dual Hom-exchange claim."
     }
   },
   "upstreamImportEncoding": {
@@ -12218,6 +12587,83 @@
       "url": "https://arxiv.org/pdf/1110.3909",
       "scope": "Definitions3.1 and3.4, full Proposition3.5 proof and Remark3.6 proof, printed pp.6–8, parsed primary PDF. No full-paper or screenshot reading claimed.",
       "use": "Checks the relative stable-reflexivity boundary of the preceding C1–C8 handoff. This checkpoint does not assert its unintegrated Hom/Ext or completion conclusions."
+    },
+    {
+      "sourceId": "knudsen-a71f92-coefficient-change",
+      "reader": "Codex — codex-a71f92",
+      "date": "2026-10-02",
+      "url": "https://arxiv.org/html/1106.1588v2",
+      "scope": "Introduction base-change requirement and full §3 Key Example, including the complete Proposition3.1 and Corollary3.2 proofs, parsed primary HTML. No whole-paper, screenshot, PDF acquisition/hash, or Bourbaki/Eisenbud proof audit claimed.",
+      "use": "Motivates native section generators and regularity. Arbitrary-ring coefficient naturality is a checked authored deduction, not a weakening of the printed geometric/relative-reflexivity hypotheses."
     }
-  ]
+  ],
+  "coefficientChangeContinuation": {
+    "worker": "Codex — codex-a71f92",
+    "date": "2026-10-02",
+    "issue": 3342,
+    "claimComment": 5960605692,
+    "botConfirmation": 5960608395,
+    "auditBase": "f31661fb8ff057ec4c899e8e22229c295f2b4e6a",
+    "publicationPreflight": "b6ab1401f211d799af99125d5370869d9fc95754",
+    "status": "partial checkpoint",
+    "addedNodes": [
+      "StableReductionPartII:MC.2/section-ideal-coefficient-map",
+      "StableReductionPartII:MC.2/section-projection-coefficient-naturality",
+      "StableReductionPartII:MC.2/section-dual-generator-coefficient-naturality"
+    ],
+    "preservedNodeStatements": 133,
+    "unchangedNodeObjects": 130,
+    "requestsGapsKeyAndConsumerCoveragePreserved": true,
+    "roadmapDefinitionUnchanged": true,
+    "stageCoverage": "All eight stages remain partial; reserved geometric moduli-curves key remains unchecked and incomplete.",
+    "checks": {
+      "indexedChecker": "pass",
+      "actualIntake": "pass",
+      "actualAssembler": "pass",
+      "base": "b6ab1401f211d799af99125d5370869d9fc95754",
+      "preservedStatements": 133,
+      "unchangedNodes": 130,
+      "addedNodes": 3,
+      "kinds": {
+        "definition": 8,
+        "lemma": 29,
+        "theorem": 62,
+        "construction": 36,
+        "application": 1
+      },
+      "api": 159,
+      "tests": 147,
+      "definitionConstructionTests": 145,
+      "baseline": 78,
+      "planets": 35,
+      "gaps": 14,
+      "requests": 135,
+      "ownDeclarationEdges": 317,
+      "stageVertices": 2999,
+      "stageEdges": 8750,
+      "reachableDependencyVertices": 455,
+      "reachableDeclarations": 136,
+      "requiredStagePairs": 81,
+      "requiredStagePairsReachable": 81,
+      "combinedVertices": 3151,
+      "combinedEdges": 9317,
+      "allDAGs": "acyclic",
+      "pendingLinks": [],
+      "ownSkippedLinks": [],
+      "otherSkips": "unchanged",
+      "newStageEdges": 0,
+      "scriptSha256": "6eb04727bfa3590a11f9092f5634f98d6268df03a1418264be5d386a31ec2ca1",
+      "immutableReaderSha256": "ec178cb58e64d26d75f308f2c0ccc22969b60857e460011c95b3b8168ac18c3e"
+    },
+    "readScope": {
+      "ownPacket": "All 133 inherited statements; whole latest handoff, own eight stage descriptions, reserved key and six consumers.",
+      "reviewedAudit": "No own PartII row found; parent StableReduction AUDIT02 layers 1 and 3 fully read.",
+      "upstream": "StableReduction complete 905-line document freshly read; JacobianChallenge complete document read earlier in this continuing session.",
+      "routes": "All nineteen Yuan and two DGH route briefs/items freshly read; no fresh whole-paper rereading attributed.",
+      "libraries": "Exact Mathlib AdjoinRoot.map ambient statements and LinearMap semilinearity statement; complete TauCeti pinned RingTheory/AdjoinRoot/Factors.lean. Focused canonical-section name searches found no indexed implementation; not a full-library absence claim.",
+      "links": "No tracked blueprint link JSON mentioned StableReductionPartII at the audit base.",
+      "sources": "Fresh Knudsen parsed scope above; earlier Ile and other inventories remain attributed predecessor evidence."
+    },
+    "remaining": "Normal dual coordinates/residue and specified cokernels; arbitrary coefficient-module exactness, natural Hom exchange, bidual and Ext vanishings; canonical tensor-dual comparisons; two-base completion and relative stable-reflexivity; actual nodal-family/sheaf/finite-presentation interfaces and all MC.0–MC.7 geometric/positivity/Picard/consumer targets."
+  }
 }

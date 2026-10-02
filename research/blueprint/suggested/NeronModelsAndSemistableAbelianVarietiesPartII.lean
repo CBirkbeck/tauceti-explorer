@@ -1682,3 +1682,87 @@ supplier requests. They have no invented Prop fields or opaque geometric predica
   existence theorem above supplies existence/properness only; it is not that test.
 -/
 
+
+/- BEGIN QUADRATIC POINT PARAMETRIZATION -/
+namespace TauCeti.GenusOne.QuadraticPinch
+noncomputable section
+variable {k : Type*} [Field k]
+
+lemma parameter_equation (a b t : k) :
+    (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation
+      (t ^ 2 + a * t + b) (t * (t ^ 2 + a * t + b)) := by sorry
+
+lemma affine_zero_x (a b y : k)
+    (h : (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation 0 y) : y = 0 := by sorry
+
+lemma parameter_recovery (a b x y : k)
+    (h : (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation x y)
+    (hx : x ≠ 0) : (y / x) ^ 2 + a * (y / x) + b = x := by sorry
+
+def affineParamEquiv (a b : k) :
+    {p : k × k // (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation p.1 p.2} ≃
+      Option {t : k // t ^ 2 + a * t + b ≠ 0} := by sorry
+
+lemma affineParamEquiv_origin (a b : k) :
+    affineParamEquiv a b ⟨(0,0), by
+      rw [WeierstrassCurve.Affine.equation_iff]; simp⟩ = none := by sorry
+
+lemma affineParamEquiv_symm_none (a b : k) :
+    ((affineParamEquiv a b).symm none).1 = (0,0) := by sorry
+
+lemma affineParamEquiv_symm_some (a b : k) (t : {t : k // t ^ 2 + a * t + b ≠ 0}) :
+    ((affineParamEquiv a b).symm (some t)).1 =
+      (t.1 ^ 2 + a * t.1 + b, t.1 * (t.1 ^ 2 + a * t.1 + b)) := by sorry
+
+lemma affineParamEquiv_nonzero (a b : k)
+    (p : {p : k × k // (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation p.1 p.2})
+    (hx : p.1.1 ≠ 0) :
+    Option.map Subtype.val (affineParamEquiv a b p) = some (p.1.2 / p.1.1) := by sorry
+
+lemma affine_card_balance [Finite k] (a b : k) :
+    Nat.card {p : k × k // (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation p.1 p.2} +
+      Nat.card {t : k // t ^ 2 + a * t + b = 0} = Nat.card k + 1 := by sorry
+
+lemma pointCount_balance [Finite k] (a b : k) :
+    (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).pointCount +
+      Nat.card {t : k // t ^ 2 + a * t + b = 0} = Nat.card k + 2 := by sorry
+
+lemma frobeniusTrace_roots [Finite k] (a b : k) :
+    (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).frobeniusTrace =
+      (Nat.card {t : k // t ^ 2 + a * t + b = 0} : ℤ) - 1 := by sorry
+
+end
+end TauCeti.GenusOne.QuadraticPinch
+
+namespace TauCeti.GenusOne.QuadraticPinch
+noncomputable section
+-- test: QuadraticPinch.affineParamEquiv.test_origin
+example (a b : ℚ) : affineParamEquiv a b ⟨(0,0), by
+    rw [WeierstrassCurve.Affine.equation_iff]; simp⟩ = none := by sorry
+
+-- test: QuadraticPinch.affineParamEquiv.test_nonsplit
+example : ((affineParamEquiv (1 : ZMod 2) 1).symm
+    (some ⟨0, by decide⟩)).1 = (1,0) := by sorry
+
+-- test: QuadraticPinch.affineParamEquiv.test_cusp
+example : ((affineParamEquiv (0 : ZMod 2) 0).symm
+    (some ⟨1, by decide⟩)).1 = (1,1) := by sorry
+
+-- test: QuadraticPinch.pointCount_balance.test_three_forms
+example :
+    (⟨1, 0, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).pointCount = 2 ∧
+    (⟨1, 1, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).pointCount = 4 ∧
+    (⟨0, 0, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).pointCount = 3 := by sorry
+
+-- test: QuadraticPinch.frobeniusTrace_roots.test_three_forms
+example :
+    (⟨1, 0, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).frobeniusTrace = 1 ∧
+    (⟨1, 1, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).frobeniusTrace = -1 ∧
+    (⟨0, 0, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).frobeniusTrace = 0 := by sorry
+
+-- test: QuadraticPinch.affine_card_balance.test_distinct_double_root
+example : Nat.card {t : ZMod 2 // t ^ 2 = 0} = 1 := by sorry
+
+end
+end TauCeti.GenusOne.QuadraticPinch
+/- END QUADRATIC POINT PARAMETRIZATION -/
