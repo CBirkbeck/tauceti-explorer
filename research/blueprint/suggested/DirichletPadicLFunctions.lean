@@ -29727,3 +29727,263 @@ example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
       kubertCartanRationalPrimitiveSum N (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) a) := by sorry
 
 end DirichletPadic.SuggestedKubertSinnottLatticeTests
+
+/- Actual local cosets and corrected rational-model factors. -/
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic
+
+noncomputable def kubertCartanPrimaryUnitEquiv (N : ℕ+) : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) ≃* (∀ q : (N : ℕ).primeFactors, (ZMod (q.val ^ ((N : ℕ).factorization q.val)))ˣ) := by sorry
+
+noncomputable def kubertRationalPrimeTranslation (N : ℕ+) (p : (N : ℕ).primeFactors) : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) := by sorry
+
+lemma kubertRationalPrimeTranslation_same (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    kubertCartanPrimaryUnitEquiv N (kubertRationalPrimeTranslation N p) p=1 := by sorry
+
+lemma kubertRationalPrimeTranslation_other (N : ℕ+) (p q : (N : ℕ).primeFactors)
+    (h : q≠p) :
+    (p.val : ZMod (q.val ^ ((N : ℕ).factorization q.val))) *
+      (kubertCartanPrimaryUnitEquiv N (kubertRationalPrimeTranslation N p) q).val=1 := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic
+
+noncomputable def kubertRationalPrimeKernel (N : ℕ+) (p : (N : ℕ).primeFactors) : Subgroup (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) := by sorry
+
+lemma kubertRationalPrimeKernel_mem (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    u ∈ kubertRationalPrimeKernel N p ↔
+      ∀ q : (N : ℕ).primeFactors, q≠p → kubertCartanPrimaryUnitEquiv N u q=1 := by sorry
+
+noncomputable def kubertRationalPrimeCoset (N : ℕ+) (p : (N : ℕ).primeFactors) : Set (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) := by sorry
+
+lemma kubertRationalPrimeTranslation_mem (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    kubertRationalPrimeTranslation N p ∈ kubertRationalPrimeCoset N p := by sorry
+
+lemma kubertRationalPrimeTranslation_inv_other (N : ℕ+) (p q : (N : ℕ).primeFactors)
+    (h : q≠p) :
+    ((kubertCartanPrimaryUnitEquiv N (kubertRationalPrimeTranslation N p) q)⁻¹).val=
+      (p.val : ZMod (q.val ^ ((N : ℕ).factorization q.val))) := by sorry
+
+lemma kubertRationalPrimeCoset_iff_kernel (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    u ∈ kubertRationalPrimeCoset N p ↔
+      (kubertRationalPrimeTranslation N p)⁻¹ * u ∈ kubertRationalPrimeKernel N p := by sorry
+
+lemma kubertRationalPrimeCoset_eq_image (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    kubertRationalPrimeCoset N p=(fun u => kubertRationalPrimeTranslation N p * u) ''
+      (kubertRationalPrimeKernel N p : Set (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic
+
+lemma kubertRationalPrimeCoset_card_pos (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    0<Nat.card (kubertRationalPrimeCoset N p) := by sorry
+
+noncomputable def kubertRationalPrimeCosetSum (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) := by sorry
+
+lemma kubertRationalPrimeCosetSum_coeff (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertRationalPrimeCosetSum N p).coeff u=
+      if u ∈ kubertRationalPrimeCoset N p then 1 else 0 := by sorry
+
+lemma kubertRationalPrimeCosetSum_nonzero (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    kubertRationalPrimeCosetSum N p≠0 := by sorry
+
+noncomputable def kubertRationalPrimeFactor (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) := by sorry
+
+lemma kubertRationalPrimeFactor_complement (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    kubertRationalPrimeFactor N p+
+      (Nat.card (kubertRationalPrimeCoset N p) : ℚ)⁻¹ • kubertRationalPrimeCosetSum N p=1 := by sorry
+
+lemma kubertRationalPrimeFactor_normalization (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    (Nat.card (kubertRationalPrimeCoset N p) : ℚ) • (1-kubertRationalPrimeFactor N p)=
+      kubertRationalPrimeCosetSum N p := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertRationalPrimeFactor_coeff (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertRationalPrimeFactor N p).coeff u=
+      (if u=1 then 1 else 0)-
+        (Nat.card (kubertRationalPrimeCoset N p) : ℚ)⁻¹ *
+          (if u ∈ kubertRationalPrimeCoset N p then 1 else 0) := by sorry
+
+noncomputable def kubertRationalCartanValue (N : ℕ+) (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) : MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) := by sorry
+
+lemma kubertRationalCartanValue_zero (N : ℕ+) :
+    kubertRationalCartanValue N 0=kubertCartanRationalPrimitiveSum N 0 := by sorry
+
+lemma kubertRationalCartanValue_primitive (N : ℕ+) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertRationalCartanValue N
+      ⟨(kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val,kubertGenerators_primitive_mem_level (dvd_refl _) (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).property⟩=
+      MonoidAlgebra.single u 1 * ∏ p : (N : ℕ).primeFactors,kubertRationalPrimeFactor N p := by sorry
+
+lemma kubertRationalCartanValue_level_one :
+    kubertRationalCartanValue 1 0=1 := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertRationalFactorsTests
+open scoped Classical BigOperators
+noncomputable section
+-- primary_coordinates_unit_level
+example : kubertCartanPrimaryUnitEquiv 1 1=1 := by sorry
+-- primary_coordinates_five_mod_six
+example : (kubertCartanPrimaryUnitEquiv 6 ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by sorry))) (⟨3, by sorry⟩ : (6 : ℕ).primeFactors)).val=2 := by sorry
+-- primary_coordinates_inverse_recovers_unit
+example (N : ℕ+) (u : (∀ p : ((N : ℕ) : ℕ).primeFactors, (TruncatedWittVector p.val (((N : ℕ) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : (kubertCartanPrimaryUnitEquiv N).symm (kubertCartanPrimaryUnitEquiv N u)=u := by sorry
+-- translation_two_at_six
+example : kubertRationalPrimeTranslation 6 (⟨2, by sorry⟩ : (6 : ℕ).primeFactors)=((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by sorry))) := by sorry
+-- translation_three_at_six
+example : kubertRationalPrimeTranslation 6 (⟨3, by sorry⟩ : (6 : ℕ).primeFactors)=1 ∧ kubertRationalPrimeTranslation 6 (⟨2, by sorry⟩ : (6 : ℕ).primeFactors)≠1 := by sorry
+-- translation_at_prime_power
+example : kubertRationalPrimeTranslation 9 (⟨3, by sorry⟩ : (9 : ℕ).primeFactors)=1 := by sorry
+-- kernel_two_at_six
+example : kubertRationalPrimeKernel 6 (⟨2, by sorry⟩ : (6 : ℕ).primeFactors)=⊥ := by sorry
+-- kernel_three_at_six
+example : kubertRationalPrimeKernel 6 (⟨3, by sorry⟩ : (6 : ℕ).primeFactors)=⊤ := by sorry
+-- kernel_at_prime_power
+example : kubertRationalPrimeKernel 9 (⟨3, by sorry⟩ : (9 : ℕ).primeFactors)=⊤ := by sorry
+-- coset_two_at_six
+example : kubertRationalPrimeCoset 6 (⟨2, by sorry⟩ : (6 : ℕ).primeFactors)={((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by sorry)))} := by sorry
+-- coset_need_not_be_subgroup
+example : (1 : (∀ p : (6 : ℕ).primeFactors, (TruncatedWittVector p.val ((6 : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) ∉ kubertRationalPrimeCoset 6 (⟨2, by sorry⟩ : (6 : ℕ).primeFactors) := by sorry
+-- coset_at_prime_power
+example : kubertRationalPrimeCoset 9 (⟨3, by sorry⟩ : (9 : ℕ).primeFactors)=Set.univ := by sorry
+-- coset_sum_singleton
+example : kubertRationalPrimeCosetSum 6 (⟨2, by sorry⟩ : (6 : ℕ).primeFactors)=(MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by sorry))) (1 : ℚ)) := by sorry
+-- coset_sum_is_not_average
+example : kubertRationalPrimeCosetSum 6 (⟨3, by sorry⟩ : (6 : ℕ).primeFactors)=1+(MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by sorry))) (1 : ℚ)) := by sorry
+-- coset_sum_at_two
+example : kubertRationalPrimeCosetSum 2 (⟨2, by sorry⟩ : (2 : ℕ).primeFactors)=1 := by sorry
+-- factor_two_at_six
+example : kubertRationalPrimeFactor 6 (⟨2, by sorry⟩ : (6 : ℕ).primeFactors)=1-(MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by sorry))) (1 : ℚ)) := by sorry
+-- factor_three_at_six
+example : kubertRationalPrimeFactor 6 (⟨3, by sorry⟩ : (6 : ℕ).primeFactors)=(1/2 : ℚ) • (1-(MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by sorry))) (1 : ℚ))) := by sorry
+-- factor_can_vanish
+example : kubertRationalPrimeFactor 2 (⟨2, by sorry⟩ : (2 : ℕ).primeFactors)=0 := by sorry
+-- factor_is_not_generally_idempotent
+example : kubertRationalPrimeFactor 6 (⟨2, by sorry⟩ : (6 : ℕ).primeFactors) * kubertRationalPrimeFactor 6 (⟨2, by sorry⟩ : (6 : ℕ).primeFactors)=2 • kubertRationalPrimeFactor 6 (⟨2, by sorry⟩ : (6 : ℕ).primeFactors) ∧ kubertRationalPrimeFactor 6 (⟨2, by sorry⟩ : (6 : ℕ).primeFactors) * kubertRationalPrimeFactor 6 (⟨2, by sorry⟩ : (6 : ℕ).primeFactors)≠kubertRationalPrimeFactor 6 (⟨2, by sorry⟩ : (6 : ℕ).primeFactors) := by sorry
+-- rational_value_empty_product
+example : kubertRationalCartanValue 1 0=1 := by sorry
+-- rational_value_primitive_six
+example : kubertRationalCartanValue 6 (⟨(fun _ : Fin 1 => (↑(1/6 : ℚ) : AddCircle (1 : ℚ))), by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker)=1-(MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by sorry))) (1 : ℚ)) := by sorry
+-- rational_value_half_at_two
+example : kubertRationalCartanValue 2 (⟨(fun _ : Fin 1 => (↑(1/2 : ℚ) : AddCircle (1 : ℚ))), by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 2).ker)=0 ∧ kubertCartanRationalPrimitiveSum 2 (⟨(fun _ : Fin 1 => (↑(1/2 : ℚ) : AddCircle (1 : ℚ))), by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 2).ker)=1 := by sorry
+-- rational_value_half_at_six
+example : kubertRationalCartanValue 6 (⟨(fun _ : Fin 1 => (↑(1/2 : ℚ) : AddCircle (1 : ℚ))), by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker)=0 := by sorry
+end
+end DirichletPadic.SuggestedKubertRationalFactorsTests
+namespace DirichletPadic.SuggestedKubertRationalFactorsTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic
+
+-- rationalPrimeTranslation_same_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    kubertCartanPrimaryUnitEquiv N (kubertRationalPrimeTranslation N p) p=1 := by sorry
+
+-- rationalPrimeTranslation_other_typed_api
+example (N : ℕ+) (p q : (N : ℕ).primeFactors)
+    (h : q≠p) :
+    (p.val : ZMod (q.val ^ ((N : ℕ).factorization q.val))) *
+      (kubertCartanPrimaryUnitEquiv N (kubertRationalPrimeTranslation N p) q).val=1 := by sorry
+
+end DirichletPadic.SuggestedKubertRationalFactorsTests
+
+namespace DirichletPadic.SuggestedKubertRationalFactorsTests
+open scoped Classical BigOperators
+open DirichletPadic
+
+-- rationalPrimeKernel_mem_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    u ∈ kubertRationalPrimeKernel N p ↔
+      ∀ q : (N : ℕ).primeFactors, q≠p → kubertCartanPrimaryUnitEquiv N u q=1 := by sorry
+
+-- rationalPrimeTranslation_mem_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    kubertRationalPrimeTranslation N p ∈ kubertRationalPrimeCoset N p := by sorry
+
+-- rationalPrimeTranslation_inv_other_typed_api
+example (N : ℕ+) (p q : (N : ℕ).primeFactors)
+    (h : q≠p) :
+    ((kubertCartanPrimaryUnitEquiv N (kubertRationalPrimeTranslation N p) q)⁻¹).val=
+      (p.val : ZMod (q.val ^ ((N : ℕ).factorization q.val))) := by sorry
+
+-- rationalPrimeCoset_iff_kernel_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    u ∈ kubertRationalPrimeCoset N p ↔
+      (kubertRationalPrimeTranslation N p)⁻¹ * u ∈ kubertRationalPrimeKernel N p := by sorry
+
+-- rationalPrimeCoset_eq_image_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    kubertRationalPrimeCoset N p=(fun u => kubertRationalPrimeTranslation N p * u) ''
+      (kubertRationalPrimeKernel N p : Set (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) := by sorry
+
+end DirichletPadic.SuggestedKubertRationalFactorsTests
+
+namespace DirichletPadic.SuggestedKubertRationalFactorsTests
+open scoped Classical BigOperators
+open DirichletPadic
+
+-- rationalPrimeCoset_card_pos_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    0<Nat.card (kubertRationalPrimeCoset N p) := by sorry
+
+-- rationalPrimeCosetSum_coeff_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertRationalPrimeCosetSum N p).coeff u=
+      if u ∈ kubertRationalPrimeCoset N p then 1 else 0 := by sorry
+
+-- rationalPrimeCosetSum_nonzero_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    kubertRationalPrimeCosetSum N p≠0 := by sorry
+
+-- rationalPrimeFactor_complement_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    kubertRationalPrimeFactor N p+
+      (Nat.card (kubertRationalPrimeCoset N p) : ℚ)⁻¹ • kubertRationalPrimeCosetSum N p=1 := by sorry
+
+-- rationalPrimeFactor_normalization_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) :
+    (Nat.card (kubertRationalPrimeCoset N p) : ℚ) • (1-kubertRationalPrimeFactor N p)=
+      kubertRationalPrimeCosetSum N p := by sorry
+
+end DirichletPadic.SuggestedKubertRationalFactorsTests
+
+namespace DirichletPadic.SuggestedKubertRationalFactorsTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+-- rationalPrimeFactor_coeff_typed_api
+example (N : ℕ+) (p : (N : ℕ).primeFactors) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertRationalPrimeFactor N p).coeff u=
+      (if u=1 then 1 else 0)-
+        (Nat.card (kubertRationalPrimeCoset N p) : ℚ)⁻¹ *
+          (if u ∈ kubertRationalPrimeCoset N p then 1 else 0) := by sorry
+
+-- rationalCartanValue_zero_typed_api
+example (N : ℕ+) :
+    kubertRationalCartanValue N 0=kubertCartanRationalPrimitiveSum N 0 := by sorry
+
+-- rationalCartanValue_primitive_typed_api
+example (N : ℕ+) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertRationalCartanValue N
+      ⟨(kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).val,kubertGenerators_primitive_mem_level (dvd_refl _) (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) (kubertCartanPrimitiveCircleEquiv N u)).property⟩=
+      MonoidAlgebra.single u 1 * ∏ p : (N : ℕ).primeFactors,kubertRationalPrimeFactor N p := by sorry
+
+-- rationalCartanValue_level_one_typed_api
+example :
+    kubertRationalCartanValue 1 0=1 := by sorry
+
+end DirichletPadic.SuggestedKubertRationalFactorsTests
